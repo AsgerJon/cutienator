@@ -1,0 +1,89 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWebSockets/qwebsocketserver.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK16QWebSocketServer10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QWebSocketServer2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN16QWebSocketServer6d_funcEv": ["address", "address"],
+    "ritual_ZNK16QWebSocketServer6d_funcEv": ["address", "address"],
+    "ritual_ZN16QWebSocketServerC1ERK7QStringNS_7SslModeEP7QObject": [
+      "address", "text", "int", "address"
+    ],
+    "ritual_ZN16QWebSocketServerD1Ev": ["nothing", "address"],
+    "ritual_ZN16QWebSocketServer6listenERK12QHostAddresst": [
+      "bool", "address", "address", "unsigned short"
+    ],
+    "ritual_ZN16QWebSocketServer5closeEv": ["nothing", "address"],
+    "ritual_ZNK16QWebSocketServer11isListeningEv": ["bool", "address"],
+    "ritual_ZN16QWebSocketServer24setMaxPendingConnectionsEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16QWebSocketServer21maxPendingConnectionsEv": [
+      "int", "address"
+    ],
+    "ritual_ZN16QWebSocketServer19setHandshakeTimeoutEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16QWebSocketServer18handshakeTimeoutMSEv": ["int", "address"],
+    "ritual_ZNK16QWebSocketServer10serverPortEv": [
+      "unsigned short", "address"
+    ],
+    "ritual_ZNK16QWebSocketServer13serverAddressEv": ["address", "address"],
+    "ritual_ZNK16QWebSocketServer9serverUrlEv": ["address", "address"],
+    "ritual_ZNK16QWebSocketServer10secureModeEv": ["int", "address"],
+    "ritual_ZN16QWebSocketServer19setSocketDescriptorEx": [
+      "bool", "address", "long long"
+    ],
+    "ritual_ZNK16QWebSocketServer16socketDescriptorEv": [
+      "long long", "address"
+    ],
+    "ritual_ZN16QWebSocketServer19setNativeDescriptorEx": [
+      "bool", "address", "long long"
+    ],
+    "ritual_ZNK16QWebSocketServer16nativeDescriptorEv": [
+      "long long", "address"
+    ],
+    "ritual_ZNK16QWebSocketServer21hasPendingConnectionsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN16QWebSocketServer21nextPendingConnectionEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK16QWebSocketServer5errorEv": ["int", "address"],
+    "ritual_ZNK16QWebSocketServer11errorStringEv": ["text", "address"],
+    "ritual_ZN16QWebSocketServer14pauseAcceptingEv": ["nothing", "address"],
+    "ritual_ZN16QWebSocketServer15resumeAcceptingEv": ["nothing", "address"],
+    "ritual_ZN16QWebSocketServer13setServerNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK16QWebSocketServer10serverNameEv": ["text", "address"],
+    "ritual_ZN16QWebSocketServer24setSupportedSubprotocolsERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QWebSocketServer21supportedSubprotocolsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN16QWebSocketServer8setProxyERK13QNetworkProxy": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QWebSocketServer5proxyEv": ["address", "address"],
+    "ritual_ZN16QWebSocketServer19setSslConfigurationERK17QSslConfiguration": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QWebSocketServer16sslConfigurationEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK16QWebSocketServer16handleConnectionEP10QTcpSocket": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QWebSocketServer": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN16QWebSocketServer21nextPendingConnectionEv": [
+      "address", "address"
+    ]
+  }
+}

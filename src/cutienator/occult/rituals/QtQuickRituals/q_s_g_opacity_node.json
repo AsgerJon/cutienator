@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/qsgnode.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN14QSGOpacityNodeC1Ev": ["address"],
+    "ritual_ZN14QSGOpacityNodeD1Ev": ["nothing", "address"],
+    "ritual_ZN14QSGOpacityNode10setOpacityEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK14QSGOpacityNode7opacityEv": ["double", "address"],
+    "ritual_ZN14QSGOpacityNode18setCombinedOpacityEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK14QSGOpacityNode15combinedOpacityEv": ["double", "address"],
+    "ritual_ZNK14QSGOpacityNode16isSubtreeBlockedEv": ["bool", "address"],
+    "ritual_take_QSGOpacityNode": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK14QSGOpacityNode16isSubtreeBlockedEv": ["bool", "address"]
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/6.12.0/QtCharts/private/xlogydomain_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK11XLogYDomain10metaObjectEv": ["address", "address"],
+    "ritual_ZN11XLogYDomain2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN11XLogYDomainC1EP7QObject": ["address", "address"],
+    "ritual_ZN11XLogYDomainD1Ev": ["nothing", "address"],
+    "ritual_ZN11XLogYDomain4typeEv": ["int", "address"],
+    "ritual_ZN11XLogYDomain8setRangeEdddd": [
+      "nothing", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZN11XLogYDomain6zoomInERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11XLogYDomain7zoomOutERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11XLogYDomain4moveEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZNK11XLogYDomain22calculateGeometryPointERK7QPointFRb": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK11XLogYDomain20calculateDomainPointERK7QPointF": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK11XLogYDomain23calculateGeometryPointsERK5QListI7QPointFE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN11XLogYDomain10attachAxisEP13QAbstractAxis": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN11XLogYDomain10detachAxisEP13QAbstractAxis": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN11XLogYDomain29handleVerticalAxisBaseChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_take_XLogYDomain": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN11XLogYDomain4typeEv": ["int", "address"],
+    "ritual_own_ZN11XLogYDomain8setRangeEdddd": [
+      "nothing", "address", "double", "double", "double", "double"
+    ],
+    "ritual_own_ZN11XLogYDomain6zoomInERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN11XLogYDomain7zoomOutERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN11XLogYDomain4moveEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_own_ZNK11XLogYDomain20calculateDomainPointERK7QPointF": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN11XLogYDomain10attachAxisEP13QAbstractAxis": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN11XLogYDomain10detachAxisEP13QAbstractAxis": [
+      "bool", "address", "address"
+    ]
+  }
+}

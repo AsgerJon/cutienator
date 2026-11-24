@@ -1,0 +1,46 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/6.12.0/QtCharts/private/qboxplotlegendmarker_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK27QBoxPlotLegendMarkerPrivate10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QBoxPlotLegendMarkerPrivate2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN27QBoxPlotLegendMarkerPrivateC1EP20QBoxPlotLegendMarkerP14QBoxPlotSeriesP7QLegend": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN27QBoxPlotLegendMarkerPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN27QBoxPlotLegendMarkerPrivate6seriesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QBoxPlotLegendMarkerPrivate13relatedObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QBoxPlotLegendMarkerPrivate7updatedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QBoxPlotLegendMarkerPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK27QBoxPlotLegendMarkerPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_take_QBoxPlotLegendMarkerPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN27QBoxPlotLegendMarkerPrivate6seriesEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN27QBoxPlotLegendMarkerPrivate13relatedObjectEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN27QBoxPlotLegendMarkerPrivate7updatedEv": [
+      "nothing", "address"
+    ]
+  }
+}

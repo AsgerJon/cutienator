@@ -1,0 +1,37 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/qpa/qwindowsysteminterface_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN29QWindowSystemInterfacePrivate24windowSystemEventsQueuedEv": [
+      "long long"
+    ],
+    "ritual_ZN29QWindowSystemInterfacePrivate24nonUserInputEventsQueuedEv": [
+      "bool"
+    ],
+    "ritual_ZN29QWindowSystemInterfacePrivate20getWindowSystemEventEv": [
+      "address"
+    ],
+    "ritual_ZN29QWindowSystemInterfacePrivate32getNonUserInputWindowSystemEventEv": [
+      "address"
+    ],
+    "ritual_ZN29QWindowSystemInterfacePrivate21peekWindowSystemEventENS_9EventTypeE": [
+      "address", "int"
+    ],
+    "ritual_ZN29QWindowSystemInterfacePrivate23removeWindowSystemEventEPNS_17WindowSystemEventE": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QWindowSystemInterfacePrivate18toNativeTouchPointERK11QEventPointPK7QWindow": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN29QWindowSystemInterfacePrivate31installWindowSystemEventHandlerEP25QWindowSystemEventHandler": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QWindowSystemInterfacePrivate30removeWindowSystemEventhandlerEP25QWindowSystemEventHandler": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QWindowSystemInterfacePrivateD1Ev": ["nothing", "address"]
+  }
+}

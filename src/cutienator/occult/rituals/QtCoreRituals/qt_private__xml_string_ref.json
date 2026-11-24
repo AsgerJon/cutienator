@@ -1,0 +1,88 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qxmlstream_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN9QtPrivate12XmlStringRefC1Ev": ["address"],
+    "ritual_ZN9QtPrivate12XmlStringRefC1EPK7QStringxx": [
+      "address", "address", "long long", "long long"
+    ],
+    "ritual_ZN9QtPrivate12XmlStringRefC1EPK7QString": ["address", "address"],
+    "ritual_ZNK9QtPrivate12XmlStringRefcvNS_10QXmlStringEEv": [
+      "address", "address"
+    ],
+    "ritual_ZN9QtPrivate12XmlStringRef5clearEv": ["nothing", "address"],
+    "ritual_ZNK9QtPrivate12XmlStringRef4viewEv": ["text", "address"],
+    "ritual_ZNK9QtPrivate12XmlStringRef7isEmptyEv": ["bool", "address"],
+    "ritual_ZNK9QtPrivate12XmlStringRef6isNullEv": ["bool", "address"],
+    "ritual_ZNK9QtPrivate12XmlStringRef8toStringEv": ["text", "address"],
+    "ritual_ZNK9QtPrivate12XmlStringRef6slicedEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZNK9QtPrivate12XmlStringRef6slicedExx": [
+      "address", "address", "long long", "long long"
+    ],
+    "ritual_ZNK9QtPrivate12XmlStringRef4sizeEv": ["long long", "address"],
+    "ritual_ZNK9QtPrivate12XmlStringRef5emptyEv": ["bool", "address"],
+    "ritual_ZN9QtPrivateeqERKNS_12XmlStringRefES2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN9QtPrivateneERKNS_12XmlStringRefES2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN9QtPrivateleERKNS_12XmlStringRefES2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN9QtPrivategeERKNS_12XmlStringRefES2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN9QtPrivateltERKNS_12XmlStringRefES2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN9QtPrivategtERKNS_12XmlStringRefES2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN9QtPrivateeqERKNS_12XmlStringRefE11QStringView": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN9QtPrivateeqE11QStringViewRKNS_12XmlStringRefE": [
+      "bool", "text", "address"
+    ],
+    "ritual_ZN9QtPrivateneERKNS_12XmlStringRefE11QStringView": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN9QtPrivateneE11QStringViewRKNS_12XmlStringRefE": [
+      "bool", "text", "address"
+    ],
+    "ritual_ZN9QtPrivateleERKNS_12XmlStringRefE11QStringView": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN9QtPrivateleE11QStringViewRKNS_12XmlStringRefE": [
+      "bool", "text", "address"
+    ],
+    "ritual_ZN9QtPrivategeERKNS_12XmlStringRefE11QStringView": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN9QtPrivategeE11QStringViewRKNS_12XmlStringRefE": [
+      "bool", "text", "address"
+    ],
+    "ritual_ZN9QtPrivateltERKNS_12XmlStringRefE11QStringView": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN9QtPrivateltE11QStringViewRKNS_12XmlStringRefE": [
+      "bool", "text", "address"
+    ],
+    "ritual_ZN9QtPrivategtERKNS_12XmlStringRefE11QStringView": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN9QtPrivategtE11QStringViewRKNS_12XmlStringRefE": [
+      "bool", "text", "address"
+    ],
+    "ritual_ZNK9QtPrivate12XmlStringRef6verifyExx": [
+      "nothing", "address", "long long", "long long"
+    ],
+    "ritual_ZN9QtPrivate12XmlStringRefD1Ev": ["nothing", "address"]
+  }
+}

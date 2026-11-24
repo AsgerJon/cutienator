@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qgraphicssceneevent.h, Qt 6.12.0. Changes made here are lost.
+#include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(graphicsview)
 #include <QtWidgets/qgraphicssceneevent.h>
 #include <cstring>
 
@@ -100,3 +102,5 @@ bool ritual_take_QGraphicsSceneEvent(
     void *call) {
   return static_cast<CuteQGraphicsSceneEvent *>(self)->take(key, call);
 }
+
+#endif  // QT_CONFIG(graphicsview)

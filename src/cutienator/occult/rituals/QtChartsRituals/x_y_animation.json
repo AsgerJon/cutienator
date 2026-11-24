@@ -1,0 +1,34 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/6.12.0/QtCharts/private/xyanimation_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11XYAnimationD1Ev": ["nothing", "address"],
+    "ritual_ZN11XYAnimation5setupERK5QListI7QPointFES4_i": [
+      "nothing", "address", "address", "address", "int"
+    ],
+    "ritual_ZNK11XYAnimation13animationTypeEv": ["int", "address"],
+    "ritual_ZNK11XYAnimation12interpolatedERK8QVariantS2_d": [
+      "address", "address", "address", "address", "double"
+    ],
+    "ritual_ZN11XYAnimation18updateCurrentValueERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11XYAnimation11updateStateEN18QAbstractAnimation5StateES1_": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN11XYAnimation9chartItemEv": ["address", "address"],
+    "ritual_take_XYAnimation": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK11XYAnimation12interpolatedERK8QVariantS2_d": [
+      "address", "address", "address", "address", "double"
+    ],
+    "ritual_own_ZN11XYAnimation18updateCurrentValueERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN11XYAnimation11updateStateEN18QAbstractAnimation5StateES1_": [
+      "nothing", "address", "int", "int"
+    ]
+  }
+}

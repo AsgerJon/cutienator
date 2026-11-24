@@ -1,0 +1,14 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDBus/6.12.0/QtDBus/private/qdbusmetaobject_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QDBusMetaObjectD1Ev": ["nothing", "address"],
+    "ritual_ZNK15QDBusMetaObject16propertyMetaTypeEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZN15QDBusMetaObjectC1Ev": ["address"]
+  }
+}

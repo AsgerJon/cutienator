@@ -1,0 +1,33 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtPrintSupport/6.12.0/QtPrintSupport/private/qprinter_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QPrinterPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK15QPrinterPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN15QPrinterPrivateC1EP8QPrinter": ["address", "address"],
+    "ritual_ZN15QPrinterPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN15QPrinterPrivate3getEP8QPrinter": ["address", "address"],
+    "ritual_ZN15QPrinterPrivate4initERK12QPrinterInfoN8QPrinter11PrinterModeE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN15QPrinterPrivate16findValidPrinterERK12QPrinterInfo": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN15QPrinterPrivate11initEnginesEN8QPrinter12OutputFormatERK12QPrinterInfo": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN15QPrinterPrivate13changeEnginesEN8QPrinter12OutputFormatERK12QPrinterInfo": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN15QPrinterPrivate14setPreviewModeEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK15QPrinterPrivate11previewModeEv": ["bool", "address"],
+    "ritual_ZN15QPrinterPrivate11setPropertyEN12QPrintEngine22PrintEnginePropertyKeyERK8QVariant": [
+      "nothing", "address", "int", "address"
+    ]
+  }
+}

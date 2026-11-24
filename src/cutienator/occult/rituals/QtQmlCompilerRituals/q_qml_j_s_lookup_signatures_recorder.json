@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQmlCo",
+    "mpiler/6.12.0/QtQmlCompiler/private/qqmljslookupsignatures_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN30QQmlJSLookupSignaturesRecorderC1ERK7QStringPK18QQmlJSTypeResolver": [
+      "address", "text", "address"
+    ],
+    "ritual_ZN30QQmlJSLookupSignaturesRecorder13rejectMessageEv": [
+      "text", "address"
+    ],
+    "ritual_ZN30QQmlJSLookupSignaturesRecorderD1Ev": ["nothing", "address"]
+  }
+}

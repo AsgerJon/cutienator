@@ -1,0 +1,237 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qtextdocument_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QTextDocumentPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK20QTextDocumentPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN20QTextDocumentPrivateC1Ev": ["address"],
+    "ritual_ZN20QTextDocumentPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN20QTextDocumentPrivate4initEv": ["nothing", "address"],
+    "ritual_ZN20QTextDocumentPrivate5clearEv": ["nothing", "address"],
+    "ritual_ZN20QTextDocumentPrivate9setLayoutEP27QAbstractTextDocumentLayout": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QTextDocumentPrivate6insertEi11QStringViewi": [
+      "nothing", "address", "int", "text", "int"
+    ],
+    "ritual_ZN20QTextDocumentPrivate6insertEi5QChari": [
+      "nothing", "address", "int", "address", "int"
+    ],
+    "ritual_ZN20QTextDocumentPrivate6insertEiiii": [
+      "nothing", "address", "int", "int", "int", "int"
+    ],
+    "ritual_ZN20QTextDocumentPrivate11insertBlockEiiiN16QTextUndoCommand9OperationE": [
+      "int", "address", "int", "int", "int", "int"
+    ],
+    "ritual_ZN20QTextDocumentPrivate11insertBlockE5QChariiiN16QTextUndoCommand9OperationE": [
+      "int", "address", "address", "int", "int", "int", "int"
+    ],
+    "ritual_ZN20QTextDocumentPrivate4moveEiiiN16QTextUndoCommand9OperationE": [
+      "nothing", "address", "int", "int", "int", "int"
+    ],
+    "ritual_ZN20QTextDocumentPrivate6removeEiiN16QTextUndoCommand9OperationE": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZN20QTextDocumentPrivate17aboutToRemoveCellEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN20QTextDocumentPrivate11insertFrameEiiRK16QTextFrameFormat": [
+      "address", "address", "int", "int", "address"
+    ],
+    "ritual_ZN20QTextDocumentPrivate11removeFrameEP10QTextFrame": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QTextDocumentPrivate13setCharFormatEiiRK15QTextCharFormatNS_16FormatChangeModeE": [
+      "nothing", "address", "int", "int", "address", "int"
+    ],
+    "ritual_ZN20QTextDocumentPrivate14setBlockFormatERK10QTextBlockS2_RK16QTextBlockFormatNS_16FormatChangeModeE": [
+      "nothing", "address", "address", "address", "address", "int"
+    ],
+    "ritual_ZN20QTextDocumentPrivate17emitUndoAvailableEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20QTextDocumentPrivate17emitRedoAvailableEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20QTextDocumentPrivate8undoRedoEb": ["int", "address", "bool"],
+    "ritual_ZN20QTextDocumentPrivate4undoEv": ["nothing", "address"],
+    "ritual_ZN20QTextDocumentPrivate4redoEv": ["nothing", "address"],
+    "ritual_ZN20QTextDocumentPrivate14appendUndoItemEP17QAbstractUndoItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QTextDocumentPrivate14beginEditBlockEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QTextDocumentPrivate21joinPreviousEditBlockEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QTextDocumentPrivate12endEditBlockEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QTextDocumentPrivate10finishEditEv": ["nothing", "address"],
+    "ritual_ZNK20QTextDocumentPrivate13isInEditBlockEv": ["bool", "address"],
+    "ritual_ZN20QTextDocumentPrivate14enableUndoRedoEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK20QTextDocumentPrivate17isUndoRedoEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK20QTextDocumentPrivate15isUndoAvailableEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK20QTextDocumentPrivate15isRedoAvailableEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK20QTextDocumentPrivate18availableUndoStepsEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK20QTextDocumentPrivate18availableRedoStepsEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK20QTextDocumentPrivate6bufferEv": ["text", "address"],
+    "ritual_ZNK20QTextDocumentPrivate9plainTextEv": ["text", "address"],
+    "ritual_ZNK20QTextDocumentPrivate6lengthEv": ["int", "address"],
+    "ritual_ZN20QTextDocumentPrivate16formatCollectionEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QTextDocumentPrivate16formatCollectionEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QTextDocumentPrivate6layoutEv": ["address", "address"],
+    "ritual_ZNK20QTextDocumentPrivate11blocksBeginEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QTextDocumentPrivate9blocksEndEv": ["address", "address"],
+    "ritual_ZNK20QTextDocumentPrivate10blocksFindEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK20QTextDocumentPrivate20blockCharFormatIndexEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK20QTextDocumentPrivate9numBlocksEv": ["int", "address"],
+    "ritual_ZN20QTextDocumentPrivate5blockERK10QTextBlock": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QTextDocumentPrivate18nextCursorPositionEiN11QTextLayout10CursorModeE": [
+      "int", "address", "int", "int"
+    ],
+    "ritual_ZNK20QTextDocumentPrivate22previousCursorPositionEiN11QTextLayout10CursorModeE": [
+      "int", "address", "int", "int"
+    ],
+    "ritual_ZNK20QTextDocumentPrivate18leftCursorPositionEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK20QTextDocumentPrivate19rightCursorPositionEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZN20QTextDocumentPrivate18changeObjectFormatEP11QTextObjecti": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN20QTextDocumentPrivate11setModifiedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK20QTextDocumentPrivate10isModifiedEv": ["bool", "address"],
+    "ritual_ZNK20QTextDocumentPrivate11defaultFontEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QTextDocumentPrivate14setDefaultFontERK5QFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QTextDocumentPrivate19clearUndoRedoStacksEN13QTextDocument6StacksEb": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZN20QTextDocumentPrivate5splitEi": ["bool", "address", "int"],
+    "ritual_ZN20QTextDocumentPrivate5uniteEj": [
+      "bool", "address", "unsigned int"
+    ],
+    "ritual_ZN20QTextDocumentPrivate13insert_stringEijjiN16QTextUndoCommand9OperationE": [
+      "nothing", "address", "int", "unsigned int", "unsigned int", "int",
+      "int"
+    ],
+    "ritual_ZN20QTextDocumentPrivate12insert_blockEijiiN16QTextUndoCommand9OperationEi": [
+      "int", "address", "int", "unsigned int", "int", "int", "int", "int"
+    ],
+    "ritual_ZN20QTextDocumentPrivate13remove_stringEijN16QTextUndoCommand9OperationE": [
+      "int", "address", "int", "unsigned int", "int"
+    ],
+    "ritual_ZN20QTextDocumentPrivate12remove_blockEiPiiN16QTextUndoCommand9OperationE": [
+      "int", "address", "int", "address", "int", "int"
+    ],
+    "ritual_ZN20QTextDocumentPrivate12insert_frameEP10QTextFrame": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QTextDocumentPrivate11scan_framesEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZN20QTextDocumentPrivate10clearFrameEP10QTextFrame": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QTextDocumentPrivate31adjustDocumentChangesAndCursorsEiiN16QTextUndoCommand9OperationE": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZN20QTextDocumentPrivate14documentChangeEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN20QTextDocumentPrivate9addCursorEP18QTextCursorPrivate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QTextDocumentPrivate12removeCursorEP18QTextCursorPrivate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QTextDocumentPrivate7frameAtEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK20QTextDocumentPrivate9rootFrameEv": ["address", "address"],
+    "ritual_ZNK20QTextDocumentPrivate14objectForIndexEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK20QTextDocumentPrivate15objectForFormatEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK20QTextDocumentPrivate15objectForFormatERK11QTextFormat": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN20QTextDocumentPrivate12createObjectERK11QTextFormati": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN20QTextDocumentPrivate12deleteObjectEP11QTextObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QTextDocumentPrivate8documentEv": ["address", "address"],
+    "ritual_ZNK20QTextDocumentPrivate8documentEv": ["address", "address"],
+    "ritual_ZN20QTextDocumentPrivate23ensureMaximumBlockCountEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN20QTextDocumentPrivate3getEPK13QTextDocument": [
+      "address", "address"
+    ],
+    "ritual_ZN20QTextDocumentPrivate3getEP13QTextDocument": [
+      "address", "address"
+    ],
+    "ritual_ZN20QTextDocumentPrivate3getERK10QTextBlock": [
+      "address", "address"
+    ],
+    "ritual_ZN20QTextDocumentPrivate3getEP11QTextObject": [
+      "address", "address"
+    ],
+    "ritual_ZN20QTextDocumentPrivate3getEPK11QTextObject": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QTextDocumentPrivate9canLayoutEv": ["bool", "address"],
+    "ritual_ZN20QTextDocumentPrivate14appendUndoItemERK16QTextUndoCommand": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QTextDocumentPrivate15contentsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QTextDocumentPrivate18compressPieceTableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QTextDocumentPrivate20mergeCachedResourcesEPKS_": [
+      "nothing", "address", "address"
+    ]
+  }
+}

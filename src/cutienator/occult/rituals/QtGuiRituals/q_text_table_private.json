@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qtexttable_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN17QTextTablePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK17QTextTablePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN17QTextTablePrivate11createTableEP20QTextDocumentPrivateiiiRK16QTextTableFormat": [
+      "address", "address", "int", "int", "int", "address"
+    ],
+    "ritual_ZN17QTextTablePrivate15fragmentRemovedE5QCharj": [
+      "nothing", "address", "address", "unsigned int"
+    ],
+    "ritual_ZNK17QTextTablePrivate6updateEv": ["nothing", "address"],
+    "ritual_take_QTextTablePrivate": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN17QTextTablePrivate15fragmentRemovedE5QCharj": [
+      "nothing", "address", "address", "unsigned int"
+    ]
+  }
+}

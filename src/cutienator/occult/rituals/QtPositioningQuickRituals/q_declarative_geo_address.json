@@ -1,0 +1,68 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtPosit",
+    "ioningQuick/6.12.0/QtPositioningQuick/private/qdeclarativegeoaddre",
+    "ss_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK22QDeclarativeGeoAddress10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QDeclarativeGeoAddress2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN22QDeclarativeGeoAddressC1EP7QObject": ["address", "address"],
+    "ritual_ZN22QDeclarativeGeoAddressC1ERK11QGeoAddressP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK22QDeclarativeGeoAddress7addressEv": ["address", "address"],
+    "ritual_ZN22QDeclarativeGeoAddress10setAddressERK11QGeoAddress": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK22QDeclarativeGeoAddress4textEv": ["text", "address"],
+    "ritual_ZN22QDeclarativeGeoAddress7setTextERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK22QDeclarativeGeoAddress7countryEv": ["text", "address"],
+    "ritual_ZN22QDeclarativeGeoAddress10setCountryERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK22QDeclarativeGeoAddress11countryCodeEv": ["text", "address"],
+    "ritual_ZN22QDeclarativeGeoAddress14setCountryCodeERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK22QDeclarativeGeoAddress5stateEv": ["text", "address"],
+    "ritual_ZN22QDeclarativeGeoAddress8setStateERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK22QDeclarativeGeoAddress6countyEv": ["text", "address"],
+    "ritual_ZN22QDeclarativeGeoAddress9setCountyERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK22QDeclarativeGeoAddress4cityEv": ["text", "address"],
+    "ritual_ZN22QDeclarativeGeoAddress7setCityERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK22QDeclarativeGeoAddress8districtEv": ["text", "address"],
+    "ritual_ZN22QDeclarativeGeoAddress11setDistrictERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK22QDeclarativeGeoAddress6streetEv": ["text", "address"],
+    "ritual_ZN22QDeclarativeGeoAddress9setStreetERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK22QDeclarativeGeoAddress12streetNumberEv": [
+      "text", "address"
+    ],
+    "ritual_ZN22QDeclarativeGeoAddress15setStreetNumberERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK22QDeclarativeGeoAddress10postalCodeEv": ["text", "address"],
+    "ritual_ZN22QDeclarativeGeoAddress13setPostalCodeERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK22QDeclarativeGeoAddress15isTextGeneratedEv": [
+      "bool", "address"
+    ]
+  }
+}

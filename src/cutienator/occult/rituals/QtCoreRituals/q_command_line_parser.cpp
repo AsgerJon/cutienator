@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/qcommandlineparser.h, Qt 6.12.0. Changes made here are lost.
+#include <QtCore/qglobal.h>
+#if QT_CONFIG(commandlineparser)
 #include <QtCore/qcommandlineparser.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qcommandlineoption.h>
@@ -235,3 +237,5 @@ void ritual_ZN18QCommandLineParser18showMessageAndExitENS_11MessageTypeERK7QStri
     int exitCode) {
   QCommandLineParser::showMessageAndExit(type, *message, exitCode);
 }
+
+#endif  // QT_CONFIG(commandlineparser)

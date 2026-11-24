@@ -1,0 +1,13 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLabsStyleKit/6.12.0/QtLabsStyleKit/private/qqstylekitdebug_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK15QQStyleKitDebug10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QQStyleKitDebug5traceE14PropertyPathIdPK27QQStyleKitControlProperties6QFlagsIN4QQSK9StateFlagEEj": [
+      "nothing", "address", "address", "int", "unsigned int"
+    ]
+  }
+}

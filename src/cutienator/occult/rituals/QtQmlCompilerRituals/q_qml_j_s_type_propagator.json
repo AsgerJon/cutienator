@@ -1,0 +1,978 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQmlCo",
+    "mpiler/6.12.0/QtQmlCompiler/private/qqmljstypepropagator_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QQmlJSTypePropagator3runEPKN17QQmlJSCompilePass8FunctionE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator12generate_RetEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator14generate_DebugEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator18generate_LoadConstEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator17generate_LoadZeroEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator17generate_LoadTrueEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator18generate_LoadFalseEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator17generate_LoadNullEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator22generate_LoadUndefinedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator16generate_LoadIntEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator18generate_MoveConstEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator16generate_LoadRegEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator17generate_StoreRegEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator16generate_MoveRegEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator19generate_LoadImportEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator18generate_LoadLocalEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator19generate_StoreLocalEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator24generate_LoadScopedLocalEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator25generate_StoreScopedLocalEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator26generate_LoadRuntimeStringEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator19generate_MoveRegExpEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator20generate_LoadClosureEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator17generate_LoadNameEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator25generate_LoadGlobalLookupEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator37generate_LoadQmlContextPropertyLookupEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator24generate_StoreNameSloppyEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator24generate_StoreNameStrictEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator20generate_LoadElementEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator21generate_StoreElementEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator21generate_LoadPropertyEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator29generate_LoadOptionalPropertyEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator18generate_GetLookupEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator26generate_GetOptionalLookupEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator22generate_StorePropertyEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator18generate_SetLookupEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator26generate_LoadSuperPropertyEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator27generate_StoreSuperPropertyEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator14generate_YieldEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator18generate_YieldStarEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator15generate_ResumeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator18generate_CallValueEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator25generate_CallWithReceiverEiiii": [
+      "nothing", "address", "int", "int", "int", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator21generate_CallPropertyEiiii": [
+      "nothing", "address", "int", "int", "int", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator27generate_CallPropertyLookupEiiii": [
+      "nothing", "address", "int", "int", "int", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator17generate_CallNameEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator31generate_CallPossiblyDirectEvalEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator25generate_CallGlobalLookupEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator37generate_CallQmlContextPropertyLookupEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator23generate_CallWithSpreadEiiii": [
+      "nothing", "address", "int", "int", "int", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator17generate_TailCallEiiii": [
+      "nothing", "address", "int", "int", "int", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator18generate_ConstructEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator28generate_ConstructWithSpreadEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator25generate_SetUnwindHandlerEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator23generate_UnwindDispatchEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator22generate_UnwindToLabelEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator30generate_DeadTemporalZoneCheckEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator23generate_ThrowExceptionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator21generate_GetExceptionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator21generate_SetExceptionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator26generate_CreateCallContextEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator25generate_PushCatchContextEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator24generate_PushWithContextEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator25generate_PushBlockContextEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator26generate_CloneBlockContextEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator26generate_PushScriptContextEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator25generate_PopScriptContextEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator19generate_PopContextEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator20generate_GetIteratorEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator21generate_IteratorNextEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator33generate_IteratorNextForYieldStarEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator22generate_IteratorCloseEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator31generate_DestructureRestElementEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator23generate_DeletePropertyEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator19generate_DeleteNameEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator19generate_TypeofNameEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator20generate_TypeofValueEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator19generate_DeclareVarEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator20generate_DefineArrayEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator28generate_DefineObjectLiteralEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator20generate_CreateClassEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator36generate_CreateMappedArgumentsObjectEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator38generate_CreateUnmappedArgumentsObjectEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator28generate_CreateRestParameterEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator28generate_ConvertThisToObjectEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator29generate_LoadSuperConstructorEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator17generate_ToObjectEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator13generate_JumpEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator17generate_JumpTrueEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator18generate_JumpFalseEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator24generate_JumpNoExceptionEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator25generate_JumpNotUndefinedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator23generate_CheckExceptionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator18generate_CmpEqNullEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator18generate_CmpNeNullEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator17generate_CmpEqIntEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator17generate_CmpNeIntEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator14generate_CmpEqEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator14generate_CmpNeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator14generate_CmpGtEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator14generate_CmpGeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator14generate_CmpLtEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator14generate_CmpLeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator23generate_CmpStrictEqualEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator26generate_CmpStrictNotEqualEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator14generate_CmpInEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator22generate_CmpInstanceOfEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator11generate_AsEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator13generate_UNotEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator14generate_UPlusEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator15generate_UMinusEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator15generate_UComplEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator18generate_IncrementEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator18generate_DecrementEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator12generate_AddEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator15generate_BitAndEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator14generate_BitOrEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator15generate_BitXorEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator13generate_UShrEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator12generate_ShrEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator12generate_ShlEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator20generate_BitAndConstEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator19generate_BitOrConstEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator20generate_BitXorConstEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator18generate_UShrConstEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator17generate_ShrConstEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator17generate_ShlConstEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator12generate_ExpEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator12generate_MulEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator12generate_DivEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator12generate_ModEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator12generate_SubEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator40generate_InitializeBlockDeadTemporalZoneEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator31generate_ThrowOnNullOrUndefinedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator26generate_GetTemplateObjectEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator16startInstructionEN3QV44Moth5Instr4TypeE": [
+      "int", "address", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator14endInstructionEN3QV44Moth5Instr4TypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK20QQmlJSTypePropagator23handleUnqualifiedAccessERK7QStringb": [
+      "nothing", "address", "text", "bool"
+    ],
+    "ritual_ZNK20QQmlJSTypePropagator43handleUnqualifiedAccessAndContextPropertiesERK7QStringb": [
+      "nothing", "address", "text", "bool"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator27handleImportNamespaceLookupERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator17handleLookupErrorERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator20checkForEnumProblemsE21QQmlJSRegisterContentRK7QString": [
+      "bool", "address", "address", "text"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator21warnAboutTypeCoercionEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator15checkConversionE21QQmlJSRegisterContentS0_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator32generateUnaryArithmeticOperationEN18QQmlJSTypeResolver13UnaryOperatorE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator24propagateBinaryOperationEN10QSOperator2OpEi": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator33generateBinaryArithmeticOperationEN10QSOperator2OpEi": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator38generateBinaryConstArithmeticOperationEN10QSOperator2OpE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator24generate_StoreNameCommonEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator13propagateCallERK5QListI16QQmlJSMetaMethodEii21QQmlJSRegisterContent": [
+      "nothing", "address", "address", "int", "int", "address"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator34propagateTranslationMethod_SAcheckERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator26propagateTranslationMethodERK5QListI16QQmlJSMetaMethodEii": [
+      "bool", "address", "address", "int", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator22propagateStringArgCallE21QQmlJSRegisterContenti": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator20propagateArrayMethodERK7QStringii21QQmlJSRegisterContent": [
+      "bool", "address", "text", "int", "int", "address"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator23propagatePropertyLookupERK7QStringi": [
+      "nothing", "address", "text", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator24propagateScopeLookupCallERK7QStringii": [
+      "nothing", "address", "text", "int", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator24saveRegisterStateForJumpEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator16canConvertFromToE21QQmlJSRegisterContentS0_": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZNK20QQmlJSTypePropagator12registerNameEi": [
+      "text", "address", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator20checkedInputRegisterEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator14setAccumulatorE21QQmlJSRegisterContent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator11setRegisterEi21QQmlJSRegisterContent": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator13mergeRegisterEiRKN17QQmlJSCompilePass15VirtualRegisterES3_": [
+      "nothing", "address", "int", "address", "address"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator15addReadRegisterEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator15addReadRegisterEi21QQmlJSRegisterContent": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator18addReadAccumulatorEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator18addReadAccumulatorE21QQmlJSRegisterContent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QQmlJSTypePropagator20populatesAccumulatorEN3QV44Moth5Instr4TypeE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK20QQmlJSTypePropagator6isNoopEN3QV44Moth5Instr4TypeE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator20recordEqualsNullTypeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator19recordEqualsIntTypeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator16recordEqualsTypeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator17recordCompareTypeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator28generate_CallProperty_SCMathERK7QStringiii": [
+      "nothing", "address", "text", "int", "int", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator31generate_CallProperty_SCconsoleERK7QStringiii": [
+      "nothing", "address", "text", "int", "int", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator25generate_Construct_SCDateERK16QQmlJSMetaMethodii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator26generate_Construct_SCArrayERK16QQmlJSMetaMethodii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator15isLoggingMethodERK7QString": [
+      "bool", "text"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator8addErrorERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN20QQmlJSTypePropagator25setVarAccumulatorAndErrorEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QQmlJSTypePropagator": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator12generate_RetEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator14generate_DebugEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator18generate_LoadConstEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator17generate_LoadZeroEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator17generate_LoadTrueEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator18generate_LoadFalseEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator17generate_LoadNullEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator22generate_LoadUndefinedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator16generate_LoadIntEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator18generate_MoveConstEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator16generate_LoadRegEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator17generate_StoreRegEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator16generate_MoveRegEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator19generate_LoadImportEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator18generate_LoadLocalEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator19generate_StoreLocalEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator24generate_LoadScopedLocalEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator25generate_StoreScopedLocalEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator26generate_LoadRuntimeStringEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator19generate_MoveRegExpEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator20generate_LoadClosureEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator17generate_LoadNameEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator25generate_LoadGlobalLookupEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator37generate_LoadQmlContextPropertyLookupEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator24generate_StoreNameSloppyEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator24generate_StoreNameStrictEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator20generate_LoadElementEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator21generate_StoreElementEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator21generate_LoadPropertyEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator29generate_LoadOptionalPropertyEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator18generate_GetLookupEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator26generate_GetOptionalLookupEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator22generate_StorePropertyEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator18generate_SetLookupEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator26generate_LoadSuperPropertyEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator27generate_StoreSuperPropertyEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator14generate_YieldEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator18generate_YieldStarEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator15generate_ResumeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator18generate_CallValueEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator25generate_CallWithReceiverEiiii": [
+      "nothing", "address", "int", "int", "int", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator21generate_CallPropertyEiiii": [
+      "nothing", "address", "int", "int", "int", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator27generate_CallPropertyLookupEiiii": [
+      "nothing", "address", "int", "int", "int", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator17generate_CallNameEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator31generate_CallPossiblyDirectEvalEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator25generate_CallGlobalLookupEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator37generate_CallQmlContextPropertyLookupEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator23generate_CallWithSpreadEiiii": [
+      "nothing", "address", "int", "int", "int", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator17generate_TailCallEiiii": [
+      "nothing", "address", "int", "int", "int", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator18generate_ConstructEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator28generate_ConstructWithSpreadEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator25generate_SetUnwindHandlerEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator23generate_UnwindDispatchEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator22generate_UnwindToLabelEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator30generate_DeadTemporalZoneCheckEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator23generate_ThrowExceptionEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator21generate_GetExceptionEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator21generate_SetExceptionEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator26generate_CreateCallContextEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator25generate_PushCatchContextEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator24generate_PushWithContextEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator25generate_PushBlockContextEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator26generate_CloneBlockContextEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator26generate_PushScriptContextEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator25generate_PopScriptContextEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator19generate_PopContextEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator20generate_GetIteratorEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator21generate_IteratorNextEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator33generate_IteratorNextForYieldStarEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator22generate_IteratorCloseEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator31generate_DestructureRestElementEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator23generate_DeletePropertyEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator19generate_DeleteNameEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator19generate_TypeofNameEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator20generate_TypeofValueEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator19generate_DeclareVarEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator20generate_DefineArrayEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator28generate_DefineObjectLiteralEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator20generate_CreateClassEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator36generate_CreateMappedArgumentsObjectEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator38generate_CreateUnmappedArgumentsObjectEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator28generate_CreateRestParameterEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator28generate_ConvertThisToObjectEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator29generate_LoadSuperConstructorEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator17generate_ToObjectEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator13generate_JumpEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator17generate_JumpTrueEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator18generate_JumpFalseEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator24generate_JumpNoExceptionEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator25generate_JumpNotUndefinedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator23generate_CheckExceptionEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator18generate_CmpEqNullEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator18generate_CmpNeNullEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator17generate_CmpEqIntEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator17generate_CmpNeIntEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator14generate_CmpEqEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator14generate_CmpNeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator14generate_CmpGtEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator14generate_CmpGeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator14generate_CmpLtEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator14generate_CmpLeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator23generate_CmpStrictEqualEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator26generate_CmpStrictNotEqualEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator14generate_CmpInEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator22generate_CmpInstanceOfEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator11generate_AsEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator13generate_UNotEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator14generate_UPlusEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator15generate_UMinusEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator15generate_UComplEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator18generate_IncrementEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator18generate_DecrementEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator12generate_AddEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator15generate_BitAndEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator14generate_BitOrEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator15generate_BitXorEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator13generate_UShrEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator12generate_ShrEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator12generate_ShlEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator20generate_BitAndConstEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator19generate_BitOrConstEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator20generate_BitXorConstEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator18generate_UShrConstEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator17generate_ShrConstEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator17generate_ShlConstEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator12generate_ExpEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator12generate_MulEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator12generate_DivEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator12generate_ModEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator12generate_SubEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator40generate_InitializeBlockDeadTemporalZoneEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator31generate_ThrowOnNullOrUndefinedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator26generate_GetTemplateObjectEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator14endInstructionEN3QV44Moth5Instr4TypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZNK20QQmlJSTypePropagator23handleUnqualifiedAccessERK7QStringb": [
+      "nothing", "address", "text", "bool"
+    ],
+    "ritual_own_ZNK20QQmlJSTypePropagator43handleUnqualifiedAccessAndContextPropertiesERK7QStringb": [
+      "nothing", "address", "text", "bool"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator27handleImportNamespaceLookupERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator17handleLookupErrorERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator20checkForEnumProblemsE21QQmlJSRegisterContentRK7QString": [
+      "bool", "address", "address", "text"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator21warnAboutTypeCoercionEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator24generate_StoreNameCommonEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator34propagateTranslationMethod_SAcheckERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_own_ZN20QQmlJSTypePropagator23propagatePropertyLookupERK7QStringi": [
+      "nothing", "address", "text", "int"
+    ]
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLocation/6.12.0/QtLocation/private/qgeocameracapabilities_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN22QGeoCameraCapabilitiesC1Ev": ["address"],
+    "ritual_ZN22QGeoCameraCapabilitiesC1ERKS_": ["address", "address"],
+    "ritual_ZN22QGeoCameraCapabilitiesD1Ev": ["nothing", "address"],
+    "ritual_ZeqRK22QGeoCameraCapabilitiesS1_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZneRK22QGeoCameraCapabilitiesS1_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN22QGeoCameraCapabilities11setTileSizeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK22QGeoCameraCapabilities8tileSizeEv": ["int", "address"],
+    "ritual_ZN22QGeoCameraCapabilities19setMinimumZoomLevelEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK22QGeoCameraCapabilities16minimumZoomLevelEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK22QGeoCameraCapabilities21minimumZoomLevelAt256Ev": [
+      "double", "address"
+    ],
+    "ritual_ZN22QGeoCameraCapabilities19setMaximumZoomLevelEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK22QGeoCameraCapabilities16maximumZoomLevelEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK22QGeoCameraCapabilities21maximumZoomLevelAt256Ev": [
+      "double", "address"
+    ],
+    "ritual_ZN22QGeoCameraCapabilities18setSupportsBearingEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK22QGeoCameraCapabilities15supportsBearingEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN22QGeoCameraCapabilities18setSupportsRollingEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK22QGeoCameraCapabilities15supportsRollingEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN22QGeoCameraCapabilities18setSupportsTiltingEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK22QGeoCameraCapabilities15supportsTiltingEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN22QGeoCameraCapabilities14setMinimumTiltEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK22QGeoCameraCapabilities11minimumTiltEv": [
+      "double", "address"
+    ],
+    "ritual_ZN22QGeoCameraCapabilities14setMaximumTiltEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK22QGeoCameraCapabilities11maximumTiltEv": [
+      "double", "address"
+    ],
+    "ritual_ZN22QGeoCameraCapabilities21setMinimumFieldOfViewEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK22QGeoCameraCapabilities18minimumFieldOfViewEv": [
+      "double", "address"
+    ],
+    "ritual_ZN22QGeoCameraCapabilities21setMaximumFieldOfViewEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK22QGeoCameraCapabilities18maximumFieldOfViewEv": [
+      "double", "address"
+    ],
+    "ritual_ZN22QGeoCameraCapabilities18setOverzoomEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK22QGeoCameraCapabilities15overzoomEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK22QGeoCameraCapabilities7isValidEv": ["bool", "address"],
+    "ritual_ZNK22QGeoCameraCapabilities7isEqualERKS_": [
+      "bool", "address", "address"
+    ]
+  }
+}

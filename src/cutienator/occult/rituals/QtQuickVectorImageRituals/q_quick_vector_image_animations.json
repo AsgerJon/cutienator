@@ -1,0 +1,32 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "VectorImage/6.12.0/QtQuickVectorImage/private/qquickvectorimage_p.",
+    "h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK27QQuickVectorImageAnimations10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QQuickVectorImageAnimations2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN27QQuickVectorImageAnimations22qt_qmlMarker_anonymousEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QQuickVectorImageAnimationsC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZNK27QQuickVectorImageAnimations5loopsEv": ["int", "address"],
+    "ritual_ZN27QQuickVectorImageAnimations8setLoopsEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK27QQuickVectorImageAnimations6pausedEv": ["bool", "address"],
+    "ritual_ZN27QQuickVectorImageAnimations9setPausedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN27QQuickVectorImageAnimations7restartEv": [
+      "nothing", "address"
+    ]
+  }
+}

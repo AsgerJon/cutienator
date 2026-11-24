@@ -1,0 +1,57 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquickswipe_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK11QQuickSwipe10metaObjectEv": ["address", "address"],
+    "ritual_ZN11QQuickSwipe2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN11QQuickSwipe22qt_qmlMarker_anonymousEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN11QQuickSwipeC1EP19QQuickSwipeDelegate": [
+      "address", "address"
+    ],
+    "ritual_ZNK11QQuickSwipe8positionEv": ["double", "address"],
+    "ritual_ZN11QQuickSwipe11setPositionEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK11QQuickSwipe10isCompleteEv": ["bool", "address"],
+    "ritual_ZN11QQuickSwipe11setCompleteEb": ["nothing", "address", "bool"],
+    "ritual_ZNK11QQuickSwipe4leftEv": ["address", "address"],
+    "ritual_ZN11QQuickSwipe7setLeftEP13QQmlComponent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QQuickSwipe6behindEv": ["address", "address"],
+    "ritual_ZN11QQuickSwipe9setBehindEP13QQmlComponent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QQuickSwipe5rightEv": ["address", "address"],
+    "ritual_ZN11QQuickSwipe8setRightEP13QQmlComponent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QQuickSwipe8leftItemEv": ["address", "address"],
+    "ritual_ZN11QQuickSwipe11setLeftItemEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QQuickSwipe10behindItemEv": ["address", "address"],
+    "ritual_ZN11QQuickSwipe13setBehindItemEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QQuickSwipe9rightItemEv": ["address", "address"],
+    "ritual_ZN11QQuickSwipe12setRightItemEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QQuickSwipe5closeEv": ["nothing", "address"],
+    "ritual_ZNK11QQuickSwipe9isEnabledEv": ["bool", "address"],
+    "ritual_ZN11QQuickSwipe10setEnabledEb": ["nothing", "address", "bool"],
+    "ritual_ZNK11QQuickSwipe10transitionEv": ["address", "address"],
+    "ritual_ZN11QQuickSwipe13setTransitionEP16QQuickTransition": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QQuickSwipe4openEN19QQuickSwipeDelegate4SideE": [
+      "nothing", "address", "int"
+    ]
+  }
+}

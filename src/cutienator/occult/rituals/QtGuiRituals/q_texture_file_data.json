@@ -1,0 +1,72 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qtexturefiledata_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN16QTextureFileDataC1ENS_4ModeE": ["address", "int"],
+    "ritual_ZN16QTextureFileDataC1ERKS_": ["address", "address"],
+    "ritual_ZN16QTextureFileDataD1Ev": ["nothing", "address"],
+    "ritual_ZNK16QTextureFileData6isNullEv": ["bool", "address"],
+    "ritual_ZNK16QTextureFileData7isValidEv": ["bool", "address"],
+    "ritual_ZN16QTextureFileData5clearEv": ["nothing", "address"],
+    "ritual_ZNK16QTextureFileData4dataEv": ["address", "address"],
+    "ritual_ZN16QTextureFileData7setDataERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QTextureFileData7setDataERK6QImageii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZNK16QTextureFileData10dataOffsetEii": [
+      "int", "address", "int", "int"
+    ],
+    "ritual_ZN16QTextureFileData13setDataOffsetEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZNK16QTextureFileData10dataLengthEii": [
+      "int", "address", "int", "int"
+    ],
+    "ritual_ZN16QTextureFileData13setDataLengthEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZNK16QTextureFileData11getDataViewEii": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZNK16QTextureFileData9numLevelsEv": ["int", "address"],
+    "ritual_ZN16QTextureFileData12setNumLevelsEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16QTextureFileData8numFacesEv": ["int", "address"],
+    "ritual_ZN16QTextureFileData11setNumFacesEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16QTextureFileData4sizeEv": ["address", "address"],
+    "ritual_ZN16QTextureFileData7setSizeERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QTextureFileData8glFormatEv": ["unsigned int", "address"],
+    "ritual_ZN16QTextureFileData11setGLFormatEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZNK16QTextureFileData16glInternalFormatEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN16QTextureFileData19setGLInternalFormatEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZNK16QTextureFileData20glBaseInternalFormatEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN16QTextureFileData23setGLBaseInternalFormatEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZNK16QTextureFileData7logNameEv": ["address", "address"],
+    "ritual_ZN16QTextureFileData10setLogNameERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_Zls6QDebugRK16QTextureFileData": [
+      "address", "address", "address"
+    ]
+  }
+}

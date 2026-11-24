@@ -1,0 +1,47 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qlayoutpolicy_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN13QLayoutPolicyC1Ev": ["address"],
+    "ritual_ZN13QLayoutPolicyC1E6QFlagsINS_10PolicyFlagEES2_NS_11ControlTypeE": [
+      "address", "int", "int", "int"
+    ],
+    "ritual_ZNK13QLayoutPolicy16horizontalPolicyEv": ["int", "address"],
+    "ritual_ZNK13QLayoutPolicy14verticalPolicyEv": ["int", "address"],
+    "ritual_ZNK13QLayoutPolicy11controlTypeEv": ["int", "address"],
+    "ritual_ZN13QLayoutPolicy19setHorizontalPolicyE6QFlagsINS_10PolicyFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN13QLayoutPolicy17setVerticalPolicyE6QFlagsINS_10PolicyFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN13QLayoutPolicy14setControlTypeENS_11ControlTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK13QLayoutPolicy19expandingDirectionsEv": ["int", "address"],
+    "ritual_ZN13QLayoutPolicy17setHeightForWidthEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK13QLayoutPolicy17hasHeightForWidthEv": ["bool", "address"],
+    "ritual_ZN13QLayoutPolicy17setWidthForHeightEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK13QLayoutPolicy17hasWidthForHeightEv": ["bool", "address"],
+    "ritual_ZNK13QLayoutPolicyeqERKS_": ["bool", "address", "address"],
+    "ritual_ZNK13QLayoutPolicyneERKS_": ["bool", "address", "address"],
+    "ritual_ZNK13QLayoutPolicy17horizontalStretchEv": ["int", "address"],
+    "ritual_ZNK13QLayoutPolicy15verticalStretchEv": ["int", "address"],
+    "ritual_ZN13QLayoutPolicy20setHorizontalStretchEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN13QLayoutPolicy18setVerticalStretchEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN13QLayoutPolicy9transposeEv": ["nothing", "address"],
+    "ritual_ZN13QLayoutPolicyC1Ei": ["address", "int"],
+    "ritual_ZN13QLayoutPolicyD1Ev": ["nothing", "address"]
+  }
+}

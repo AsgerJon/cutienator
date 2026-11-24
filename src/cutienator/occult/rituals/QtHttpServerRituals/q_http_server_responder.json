@@ -1,0 +1,57 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtHttpServer/qhttpserverresponder.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QHttpServerResponder6d_funcEv": ["address", "address"],
+    "ritual_ZNK20QHttpServerResponder6d_funcEv": ["address", "address"],
+    "ritual_ZN20QHttpServerResponderD1Ev": ["nothing", "address"],
+    "ritual_ZN20QHttpServerResponder5writeEP9QIODeviceRK12QHttpHeadersNS_10StatusCodeE": [
+      "nothing", "address", "address", "address", "int"
+    ],
+    "ritual_ZN20QHttpServerResponder5writeEP9QIODeviceRK10QByteArrayNS_10StatusCodeE": [
+      "nothing", "address", "address", "address", "int"
+    ],
+    "ritual_ZN20QHttpServerResponder5writeERK13QJsonDocumentRK12QHttpHeadersNS_10StatusCodeE": [
+      "nothing", "address", "address", "address", "int"
+    ],
+    "ritual_ZN20QHttpServerResponder5writeERK13QJsonDocumentNS_10StatusCodeE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN20QHttpServerResponder5writeERK10QByteArrayRK12QHttpHeadersNS_10StatusCodeE": [
+      "nothing", "address", "address", "address", "int"
+    ],
+    "ritual_ZN20QHttpServerResponder5writeERK10QByteArrayS2_NS_10StatusCodeE": [
+      "nothing", "address", "address", "address", "int"
+    ],
+    "ritual_ZN20QHttpServerResponder5writeERK12QHttpHeadersNS_10StatusCodeE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN20QHttpServerResponder5writeENS_10StatusCodeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QHttpServerResponder17writeBeginChunkedERK12QHttpHeadersNS_10StatusCodeE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN20QHttpServerResponder17writeBeginChunkedERK10QByteArrayNS_10StatusCodeE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN20QHttpServerResponder10writeChunkERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QHttpServerResponder15writeEndChunkedERK10QByteArrayRK12QHttpHeaders": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN20QHttpServerResponder15writeEndChunkedERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QHttpServerResponder18isResponseCanceledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN20QHttpServerResponderC1EP17QHttpServerStream": [
+      "address", "address"
+    ]
+  }
+}

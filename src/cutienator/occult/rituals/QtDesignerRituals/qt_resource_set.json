@@ -1,0 +1,29 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/qtresourcemodel_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK13QtResourceSet23activeResourceFilePathsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN13QtResourceSet25activateResourceFilePathsERK5QListI7QStringEPiPS1_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK13QtResourceSet10isModifiedERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN13QtResourceSet11setModifiedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN13QtResourceSetC1Ev": ["address"],
+    "ritual_ZN13QtResourceSetC1EP15QtResourceModel": ["address", "address"],
+    "ritual_ZN13QtResourceSetD1Ev": ["nothing", "address"],
+    "ritual_list_make_QtResourceSet_ptr": ["address"],
+    "ritual_list_add_QtResourceSet_ptr": ["nothing", "address", "address"],
+    "ritual_list_size_QtResourceSet_ptr": ["long long", "address"],
+    "ritual_list_at_QtResourceSet_ptr": ["address", "address", "long long"],
+    "ritual_list_drop_QtResourceSet_ptr": ["nothing", "address"]
+  }
+}

@@ -1,0 +1,114 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquicktextedit_p_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN21QQuickTextEditPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK21QQuickTextEditPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN21QQuickTextEditPrivateC1Ev": ["address"],
+    "ritual_ZN21QQuickTextEditPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN21QQuickTextEditPrivate3getEP14QQuickTextEdit": [
+      "address", "address"
+    ],
+    "ritual_ZN21QQuickTextEditPrivate4initEv": ["nothing", "address"],
+    "ritual_ZN21QQuickTextEditPrivate16resetInputMethodEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickTextEditPrivate23updateDefaultTextOptionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickTextEditPrivate23onDocumentStatusChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickTextEditPrivate28determineHorizontalAlignmentEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QQuickTextEditPrivate9setHAlignEN14QQuickTextEdit10HAlignmentEb": [
+      "bool", "address", "int", "bool"
+    ],
+    "ritual_ZN21QQuickTextEditPrivate12mirrorChangeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickTextEditPrivate16transformChangedEP10QQuickItem": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK21QQuickTextEditPrivate16getImplicitWidthEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK21QQuickTextEditPrivate13textDirectionERK7QString": [
+      "int", "address", "text"
+    ],
+    "ritual_ZN21QQuickTextEditPrivate22isLinkHoveredConnectedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QQuickTextEditPrivate22updateMouseCursorShapeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickTextEditPrivate22setNativeCursorEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN21QQuickTextEditPrivate22handleContextMenuEventEP17QContextMenuEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN21QQuickTextEditPrivate16handleFocusEventEP11QFocusEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QQuickTextEditPrivate14createTextNodeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK21QQuickTextEditPrivate25effectiveInputMethodHintsEv": [
+      "int", "address"
+    ],
+    "ritual_ZN21QQuickTextEditPrivate26accessibilityActiveChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK21QQuickTextEditPrivate14accessibleRoleEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK21QQuickTextEditPrivate7paddingEv": ["double", "address"],
+    "ritual_ZN21QQuickTextEditPrivate13setTopPaddingEdb": [
+      "nothing", "address", "double", "bool"
+    ],
+    "ritual_ZN21QQuickTextEditPrivate14setLeftPaddingEdb": [
+      "nothing", "address", "double", "bool"
+    ],
+    "ritual_ZN21QQuickTextEditPrivate15setRightPaddingEdb": [
+      "nothing", "address", "double", "bool"
+    ],
+    "ritual_ZN21QQuickTextEditPrivate16setBottomPaddingEdb": [
+      "nothing", "address", "double", "bool"
+    ],
+    "ritual_ZNK21QQuickTextEditPrivate23isImplicitResizeEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QQuickTextEditPrivate24setImplicitResizeEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_cast_QQuickTextEditPrivate_QAccessible_ActivationObserver": [
+      "address", "address"
+    ],
+    "ritual_take_QQuickTextEditPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN21QQuickTextEditPrivate12mirrorChangeEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN21QQuickTextEditPrivate16transformChangedEP10QQuickItem": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZNK21QQuickTextEditPrivate16getImplicitWidthEv": [
+      "double", "address"
+    ],
+    "ritual_own_ZN21QQuickTextEditPrivate22handleContextMenuEventEP17QContextMenuEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN21QQuickTextEditPrivate26accessibilityActiveChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZNK21QQuickTextEditPrivate14accessibleRoleEv": [
+      "int", "address"
+    ]
+  }
+}

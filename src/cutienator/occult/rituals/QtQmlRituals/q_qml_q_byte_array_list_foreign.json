@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmlbuiltins_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN25QQmlQByteArrayListForeign22qt_qmlMarker_anonymousEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QQmlQByteArrayListForeign20qt_qmlMarker_foreignEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QQmlQByteArrayListForeign21qt_qmlMarker_sequenceEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QQmlQByteArrayListForeignD1Ev": ["nothing", "address"]
+  }
+}

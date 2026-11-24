@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qgraphicseffect.h, Qt 6.12.0. Changes made here are lost.
+#include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(graphicseffect)
 #include <QtWidgets/qgraphicseffect.h>
 #include <QtCore/qstring.h>
 #include <QtGui/qcolor.h>
@@ -16,65 +18,106 @@ struct OwnQGraphicsColorizeEffect : QGraphicsColorizeEffect {
 //  A QGraphicsColorizeEffect that Python can take functions over in. Every QGraphicsColorizeEffect
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if QT_CONFIG(graphicseffect)
 typedef void (*CuteQGraphicsColorizeEffectCall0)(const void *, QPainter *, int *);
+#endif  // QT_CONFIG(graphicseffect)
+#if QT_CONFIG(graphicseffect)
 typedef const QRectF * (*CuteQGraphicsColorizeEffectCall1)(const void *, const QRectF *, int *);
+#endif  // QT_CONFIG(graphicseffect)
+#if QT_CONFIG(graphicseffect)
 typedef void (*CuteQGraphicsColorizeEffectCall2)(const void *, int, int *);
+#endif  // QT_CONFIG(graphicseffect)
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQGraphicsColorizeEffectCall3)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQGraphicsColorizeEffectCall4)(const void *, QObject *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQGraphicsColorizeEffectCall5)(const void *, QTimerEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQGraphicsColorizeEffectCall6)(const void *, QChildEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQGraphicsColorizeEffectCall7)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQGraphicsColorizeEffectCall8)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQGraphicsColorizeEffectCall9)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 class CuteQGraphicsColorizeEffect : public QGraphicsColorizeEffect {
 public:
   using QGraphicsColorizeEffect::QGraphicsColorizeEffect;
   void *taken[10] = {};
 
   bool take(const char *key, void *call) {
+#if QT_CONFIG(graphicseffect)
     if (!std::strcmp(key, "_ZN15QGraphicsEffect4drawEP8QPainter")) {
       taken[0] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicseffect)
+#if QT_CONFIG(graphicseffect)
     if (!std::strcmp(key, "_ZNK15QGraphicsEffect15boundingRectForERK6QRectF")) {
       taken[1] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicseffect)
+#if QT_CONFIG(graphicseffect)
     if (!std::strcmp(key, "_ZN15QGraphicsEffect13sourceChangedE6QFlagsINS_10ChangeFlagEE")) {
       taken[2] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicseffect)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[3] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[4] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[5] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[6] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[7] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[8] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
       taken[9] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
     return false;
   }
 
+#if QT_CONFIG(graphicseffect)
   //  void QGraphicsColorizeEffect::draw(QPainter *painter)
   void draw(QPainter *painter) override {
     if (taken[0]) {
@@ -85,7 +128,9 @@ public:
     }
     QGraphicsColorizeEffect::draw(painter);
   }
+#endif  // QT_CONFIG(graphicseffect)
 
+#if QT_CONFIG(graphicseffect)
   //  QRectF QGraphicsEffect::boundingRectFor(const QRectF &sourceRect)
   //      const
   QRectF boundingRectFor(const QRectF &sourceRect) const override {
@@ -97,7 +142,9 @@ public:
     }
     return QGraphicsEffect::boundingRectFor(sourceRect);
   }
+#endif  // QT_CONFIG(graphicseffect)
 
+#if QT_CONFIG(graphicseffect)
   //  void QGraphicsEffect::sourceChanged(ChangeFlags flags)
   void sourceChanged(QGraphicsEffect::ChangeFlags flags) override {
     if (taken[2]) {
@@ -108,7 +155,9 @@ public:
     }
     QGraphicsEffect::sourceChanged(flags);
   }
+#endif  // QT_CONFIG(graphicseffect)
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QObject::event(QEvent *event)
   bool event(QEvent *event) override {
     if (taken[3]) {
@@ -119,7 +168,9 @@ public:
     }
     return QObject::event(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
     if (taken[4]) {
@@ -130,7 +181,9 @@ public:
     }
     return QObject::eventFilter(watched, event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
     if (taken[5]) {
@@ -141,7 +194,9 @@ public:
     }
     QObject::timerEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
     if (taken[6]) {
@@ -152,7 +207,9 @@ public:
     }
     QObject::childEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
     if (taken[7]) {
@@ -163,7 +220,9 @@ public:
     }
     QObject::customEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
     if (taken[8]) {
@@ -174,7 +233,9 @@ public:
     }
     QObject::connectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
     if (taken[9]) {
@@ -185,6 +246,7 @@ public:
     }
     QObject::disconnectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 };
 
 //  const QMetaObject *QGraphicsColorizeEffect::metaObject() const
@@ -254,6 +316,21 @@ void ritual_ZN23QGraphicsColorizeEffect4drawEP8QPainter(
   self->draw(painter);
 }
 
+//  QGraphicsColorizeEffectPrivate *QGraphicsColorizeEffect::d_func()
+extern "C" Q_DECL_EXPORT
+QGraphicsColorizeEffectPrivate *ritual_ZN23QGraphicsColorizeEffect6d_funcEv(
+    QGraphicsColorizeEffect *self) {
+  return self->d_func();
+}
+
+//  const QGraphicsColorizeEffectPrivate *QGraphicsColorizeEffect::d_func()
+//      const
+extern "C" Q_DECL_EXPORT
+const QGraphicsColorizeEffectPrivate *ritual_ZNK23QGraphicsColorizeEffect6d_funcEv(
+    const QGraphicsColorizeEffect *self) {
+  return self->d_func();
+}
+
 //  a Python function taken by a CuteQGraphicsColorizeEffect, for the
 //      function named by the key
 extern "C" Q_DECL_EXPORT
@@ -272,3 +349,5 @@ void ritual_own_ZN23QGraphicsColorizeEffect4drawEP8QPainter(
   static_cast<OwnQGraphicsColorizeEffect *>(self)->OwnQGraphicsColorizeEffect::draw(
       painter);
 }
+
+#endif  // QT_CONFIG(graphicseffect)

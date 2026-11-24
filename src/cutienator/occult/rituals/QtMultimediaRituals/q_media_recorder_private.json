@@ -1,0 +1,14 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtMultimedia/6.12.0/QtMultimedia/private/qmediarecorder_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN21QMediaRecorderPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK21QMediaRecorderPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN21QMediaRecorderPrivateC1Ev": ["address"],
+    "ritual_ZN21QMediaRecorderPrivate23msgFailedStartRecordingEv": ["text"],
+    "ritual_ZN21QMediaRecorderPrivateD1Ev": ["nothing", "address"]
+  }
+}

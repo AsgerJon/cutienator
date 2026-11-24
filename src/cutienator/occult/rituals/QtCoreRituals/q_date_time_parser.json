@@ -1,0 +1,107 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qdatetimeparser_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QDateTimeParserC1EN9QMetaType4TypeENS_7ContextE9QCalendar": [
+      "address", "int", "int", "address"
+    ],
+    "ritual_ZN15QDateTimeParserD1Ev": ["nothing", "address"],
+    "ritual_ZNK15QDateTimeParser5parseERK7QStringiRK9QDateTimeb": [
+      "address", "address", "text", "int", "address", "bool"
+    ],
+    "ritual_ZNK15QDateTimeParser10fromStringERK7QStringP5QDateP5QTimei": [
+      "bool", "address", "text", "address", "address", "int"
+    ],
+    "ritual_ZNK15QDateTimeParser10fromStringERK7QStringP9QDateTimei": [
+      "bool", "address", "text", "address", "int"
+    ],
+    "ritual_ZN15QDateTimeParser11parseFormatE11QStringView": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZNK15QDateTimeParser9fieldInfoEi": ["int", "address", "int"],
+    "ritual_ZN15QDateTimeParser16setDefaultLocaleERK7QLocale": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QDateTimeParser11displayTextEv": ["text", "address"],
+    "ritual_ZN15QDateTimeParser11setCalendarE9QCalendar": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QDateTimeParser14sectionMaxSizeENS_7SectionEi": [
+      "int", "address", "int", "int"
+    ],
+    "ritual_ZNK15QDateTimeParser11sectionTextERK7QStringii": [
+      "text", "address", "text", "int", "int"
+    ],
+    "ritual_ZNK15QDateTimeParser10scanStringERK9QDateTimeb": [
+      "address", "address", "address", "bool"
+    ],
+    "ritual_ZNK15QDateTimeParser9findMonthE11QStringViewiiiP7QStringPi": [
+      "int", "address", "text", "int", "int", "int", "address", "address"
+    ],
+    "ritual_ZNK15QDateTimeParser7findDayE11QStringViewiiP7QStringPi": [
+      "int", "address", "text", "int", "int", "address", "address"
+    ],
+    "ritual_ZNK15QDateTimeParser14potentialValueE11QStringViewiiiRK9QDateTimei": [
+      "bool", "address", "text", "int", "int", "int", "address", "int"
+    ],
+    "ritual_ZNK15QDateTimeParser14potentialValueERK7QStringiiiRK9QDateTimei": [
+      "bool", "address", "text", "int", "int", "int", "address", "int"
+    ],
+    "ritual_ZNK15QDateTimeParser11getAmPmTextENS_4AmPmENS_4CaseE": [
+      "text", "address", "int", "int"
+    ],
+    "ritual_ZNK15QDateTimeParser8baseDateERK9QTimeZone": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK15QDateTimeParser11sectionSizeEi": ["int", "address", "int"],
+    "ritual_ZNK15QDateTimeParser14sectionMaxSizeEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK15QDateTimeParser10sectionPosEi": ["int", "address", "int"],
+    "ritual_ZNK15QDateTimeParser10sectionPosENS_11SectionNodeE": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK15QDateTimeParser11sectionNodeEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK15QDateTimeParser11sectionTypeEi": ["int", "address", "int"],
+    "ritual_ZNK15QDateTimeParser11sectionTextEi": ["text", "address", "int"],
+    "ritual_ZNK15QDateTimeParser8getDigitERK9QDateTimei": [
+      "int", "address", "address", "int"
+    ],
+    "ritual_ZNK15QDateTimeParser11absoluteMaxEiRK9QDateTime": [
+      "int", "address", "int", "address"
+    ],
+    "ritual_ZNK15QDateTimeParser11absoluteMinEi": ["int", "address", "int"],
+    "ritual_ZNK15QDateTimeParser17skipToNextSectionEiRK9QDateTime11QStringView": [
+      "bool", "address", "int", "address", "text"
+    ],
+    "ritual_ZNK15QDateTimeParser17skipToNextSectionEiRK9QDateTimeRK7QString": [
+      "bool", "address", "int", "address", "text"
+    ],
+    "ritual_ZNK15QDateTimeParser9stateNameENS_5StateE": [
+      "text", "address", "int"
+    ],
+    "ritual_ZNK15QDateTimeParser10getMinimumERK9QTimeZone": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK15QDateTimeParser10getMaximumERK9QTimeZone": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK15QDateTimeParser14cursorPositionEv": ["int", "address"],
+    "ritual_ZNK15QDateTimeParser6localeEv": ["address", "address"],
+    "ritual_take_QDateTimeParser": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK15QDateTimeParser11displayTextEv": ["text", "address"],
+    "ritual_own_ZNK15QDateTimeParser10getMinimumERK9QTimeZone": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZNK15QDateTimeParser10getMaximumERK9QTimeZone": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZNK15QDateTimeParser14cursorPositionEv": ["int", "address"],
+    "ritual_own_ZNK15QDateTimeParser6localeEv": ["address", "address"]
+  }
+}

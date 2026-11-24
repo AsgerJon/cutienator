@@ -1,0 +1,38 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qtexthtmlparser_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QTextHtmlParserNodeC1Ev": ["address"],
+    "ritual_ZNK19QTextHtmlParserNode11isListStartEv": ["bool", "address"],
+    "ritual_ZNK19QTextHtmlParserNode11isTableCellEv": ["bool", "address"],
+    "ritual_ZNK19QTextHtmlParserNode7isBlockEv": ["bool", "address"],
+    "ritual_ZNK19QTextHtmlParserNode16isNotSelfNestingEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK19QTextHtmlParserNode16allowedInContextEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK19QTextHtmlParserNode18mayNotHaveChildrenEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK19QTextHtmlParserNode17uncollapsedMarginEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK19QTextHtmlParserNode12isNestedListEPK15QTextHtmlParser": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN19QTextHtmlParserNode20applyForegroundImageExPK13QTextDocument": [
+      "nothing", "address", "long long", "address"
+    ],
+    "ritual_ZN19QTextHtmlParserNode20applyBackgroundImageERK7QStringPK13QTextDocument": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZNK19QTextHtmlParserNode17hasOnlyWhitespaceEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN19QTextHtmlParserNodeD1Ev": ["nothing", "address"]
+  }
+}

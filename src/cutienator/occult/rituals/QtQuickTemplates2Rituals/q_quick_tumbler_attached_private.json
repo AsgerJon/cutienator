@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquicktumbler_p_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN28QQuickTumblerAttachedPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QQuickTumblerAttachedPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QQuickTumblerAttachedPrivate3getEP21QQuickTumblerAttached": [
+      "address", "address"
+    ],
+    "ritual_ZN28QQuickTumblerAttachedPrivate4initEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QQuickTumblerAttachedPrivate25emitIfDisplacementChangedEdd": [
+      "nothing", "address", "double", "double"
+    ]
+  }
+}

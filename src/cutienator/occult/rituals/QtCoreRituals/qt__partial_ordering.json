@@ -1,0 +1,58 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qcompare.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN2QteqENS_16partial_orderingEN9QtPrivate25CompareAgainstLiteralZeroE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN2QtneENS_16partial_orderingEN9QtPrivate25CompareAgainstLiteralZeroE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN2QtltENS_16partial_orderingEN9QtPrivate25CompareAgainstLiteralZeroE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN2QtleENS_16partial_orderingEN9QtPrivate25CompareAgainstLiteralZeroE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN2QtgtENS_16partial_orderingEN9QtPrivate25CompareAgainstLiteralZeroE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN2QtgeENS_16partial_orderingEN9QtPrivate25CompareAgainstLiteralZeroE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN2QteqEN9QtPrivate25CompareAgainstLiteralZeroENS_16partial_orderingE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN2QtneEN9QtPrivate25CompareAgainstLiteralZeroENS_16partial_orderingE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN2QtltEN9QtPrivate25CompareAgainstLiteralZeroENS_16partial_orderingE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN2QtleEN9QtPrivate25CompareAgainstLiteralZeroENS_16partial_orderingE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN2QtgtEN9QtPrivate25CompareAgainstLiteralZeroENS_16partial_orderingE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN2QtgeEN9QtPrivate25CompareAgainstLiteralZeroENS_16partial_orderingE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN2QteqENS_16partial_orderingES0_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN2QtneENS_16partial_orderingES0_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN2Qt16partial_orderingC1EN9QtPrivate8OrderingE": [
+      "address", "signed char"
+    ],
+    "ritual_ZN2Qt16partial_orderingC1EN9QtPrivate12UncomparableE": [
+      "address", "signed char"
+    ],
+    "ritual_ZNK2Qt16partial_ordering9isOrderedEv": ["bool", "address"],
+    "ritual_ZN2Qt16partial_orderingD1Ev": ["nothing", "address"]
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmlengine_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK10LoadHelper4typeEv": ["address", "address"],
+    "ritual_ZNK10LoadHelper4modeEv": ["int", "address"],
+    "ritual_ZNK10LoadHelper17resolveTypeResultEv": ["int", "address"],
+    "ritual_ZN10LoadHelper16registerCallbackEP20QQmlComponentPrivate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10LoadHelper18unregisterCallbackEP20QQmlComponentPrivate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10LoadHelper4doneEv": ["nothing", "address"],
+    "ritual_ZN10LoadHelper9completedEv": ["nothing", "address"],
+    "ritual_ZN10LoadHelper24initializeFromCachedUnitEPKN11QQmlPrivate13CachedQmlUnitE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10LoadHelper15couldFindModuleEv": ["bool", "address"]
+  }
+}

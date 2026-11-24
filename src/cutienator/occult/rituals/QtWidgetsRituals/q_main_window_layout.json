@@ -35,6 +35,9 @@
     "ritual_ZN17QMainWindowLayout21toggleToolBarsVisibleEv": [
       "nothing", "address"
     ],
+    "ritual_ZN17QMainWindowLayout17toolBarAreaLayoutEv": [
+      "address", "address"
+    ],
     "ritual_ZN17QMainWindowLayout9setCornerEN2Qt6CornerENS0_14DockWidgetAreaE": [
       "nothing", "address", "int", "int"
     ],
@@ -46,6 +49,9 @@
       "nothing", "address", "bool"
     ],
     "ritual_ZNK17QMainWindowLayout8tabShapeEv": ["int", "address"],
+    "ritual_ZN17QMainWindowLayout18dockAreaLayoutInfoEv": [
+      "address", "address"
+    ],
     "ritual_ZN17QMainWindowLayout11setGeometryERK5QRect": [
       "nothing", "address", "address"
     ],

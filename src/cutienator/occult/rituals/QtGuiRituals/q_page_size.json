@@ -59,6 +59,11 @@
     ],
     "ritual_ZN9QPageSizeC1EiRK5QSizeRK7QString": [
       "address", "int", "address", "text"
-    ]
+    ],
+    "ritual_list_make_QPageSize": ["address"],
+    "ritual_list_add_QPageSize": ["nothing", "address", "address"],
+    "ritual_list_size_QPageSize": ["long long", "address"],
+    "ritual_list_at_QPageSize": ["address", "address", "long long"],
+    "ritual_list_drop_QPageSize": ["nothing", "address"]
   }
 }

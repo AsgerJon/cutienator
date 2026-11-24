@@ -1,0 +1,41 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/qpa/qplatformclipboard.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QPlatformClipboardC1Ev": ["address"],
+    "ritual_ZN18QPlatformClipboardD1Ev": ["nothing", "address"],
+    "ritual_ZN18QPlatformClipboard8mimeDataEN10QClipboard4ModeE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN18QPlatformClipboard11setMimeDataEP9QMimeDataN10QClipboard4ModeE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZNK18QPlatformClipboard12supportsModeEN10QClipboard4ModeE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK18QPlatformClipboard8ownsModeEN10QClipboard4ModeE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN18QPlatformClipboard11emitChangedEN10QClipboard4ModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_take_QPlatformClipboard": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN18QPlatformClipboard8mimeDataEN10QClipboard4ModeE": [
+      "address", "address", "int"
+    ],
+    "ritual_own_ZN18QPlatformClipboard11setMimeDataEP9QMimeDataN10QClipboard4ModeE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_own_ZNK18QPlatformClipboard12supportsModeEN10QClipboard4ModeE": [
+      "bool", "address", "int"
+    ],
+    "ritual_own_ZNK18QPlatformClipboard8ownsModeEN10QClipboard4ModeE": [
+      "bool", "address", "int"
+    ]
+  }
+}

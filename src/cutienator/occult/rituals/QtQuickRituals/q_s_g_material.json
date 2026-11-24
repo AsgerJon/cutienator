@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/qsgmaterial.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11QSGMaterialD1Ev": ["nothing", "address"],
+    "ritual_ZNK11QSGMaterial4typeEv": ["address", "address"],
+    "ritual_ZNK11QSGMaterial12createShaderEN20QSGRendererInterface10RenderModeE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK11QSGMaterial7compareEPKS_": ["int", "address", "address"],
+    "ritual_ZNK11QSGMaterial5flagsEv": ["int", "address"],
+    "ritual_ZN11QSGMaterial7setFlagE6QFlagsINS_4FlagEEb": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZNK11QSGMaterial9viewCountEv": ["int", "address"],
+    "ritual_take_QSGMaterial": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK11QSGMaterial7compareEPKS_": ["int", "address", "address"]
+  }
+}

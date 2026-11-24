@@ -1,0 +1,28 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquicktoolseparator_p.",
+    "h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK19QQuickToolSeparator10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QQuickToolSeparator2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN19QQuickToolSeparatorC1EP10QQuickItem": ["address", "address"],
+    "ritual_ZNK19QQuickToolSeparator11orientationEv": ["int", "address"],
+    "ritual_ZN19QQuickToolSeparator14setOrientationEN2Qt11OrientationE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK19QQuickToolSeparator12isHorizontalEv": ["bool", "address"],
+    "ritual_ZNK19QQuickToolSeparator10isVerticalEv": ["bool", "address"],
+    "ritual_ZNK19QQuickToolSeparator11defaultFontEv": ["address", "address"],
+    "ritual_ZNK19QQuickToolSeparator14accessibleRoleEv": ["int", "address"],
+    "ritual_own_ZNK19QQuickToolSeparator11defaultFontEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK19QQuickToolSeparator14accessibleRoleEv": [
+      "int", "address"
+    ]
+  }
+}

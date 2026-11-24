@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGui/qaccessible_base.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
+#if QT_CONFIG(accessibility)
 #include <QtGui/qaccessible.h>
 
 //  void QAccessible::installActivationObserver(ActivationObserver *a0)
@@ -93,3 +95,5 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN11QAccessibleD1Ev(QAccessible *self) {
   delete self;
 }
+
+#endif  // QT_CONFIG(accessibility)

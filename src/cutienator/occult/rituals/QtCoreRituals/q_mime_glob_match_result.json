@@ -1,0 +1,13 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qmimeglobpattern_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QMimeGlobMatchResult8addMatchERK7QStringiS2_x": [
+      "nothing", "address", "text", "int", "text", "long long"
+    ],
+    "ritual_ZN20QMimeGlobMatchResultD1Ev": ["nothing", "address"]
+  }
+}

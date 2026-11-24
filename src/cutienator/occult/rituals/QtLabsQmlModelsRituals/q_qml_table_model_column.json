@@ -1,0 +1,84 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtLabsQ",
+    "mlModels/6.12.0/QtLabsQmlModels/private/qqmltablemodelcolumn_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK20QQmlTableModelColumn10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QQmlTableModelColumn2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN20QQmlTableModelColumnC1EP7QObject": ["address", "address"],
+    "ritual_ZN20QQmlTableModelColumnD1Ev": ["nothing", "address"],
+    "ritual_ZNK20QQmlTableModelColumn7displayEv": ["address", "address"],
+    "ritual_ZN20QQmlTableModelColumn10setDisplayERK8QJSValue": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QQmlTableModelColumn10decorationEv": ["address", "address"],
+    "ritual_ZN20QQmlTableModelColumn13setDecorationERK8QJSValue": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QQmlTableModelColumn4editEv": ["address", "address"],
+    "ritual_ZN20QQmlTableModelColumn7setEditERK8QJSValue": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QQmlTableModelColumn7toolTipEv": ["address", "address"],
+    "ritual_ZN20QQmlTableModelColumn10setToolTipERK8QJSValue": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QQmlTableModelColumn9statusTipEv": ["address", "address"],
+    "ritual_ZN20QQmlTableModelColumn12setStatusTipERK8QJSValue": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QQmlTableModelColumn9whatsThisEv": ["address", "address"],
+    "ritual_ZN20QQmlTableModelColumn12setWhatsThisERK8QJSValue": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QQmlTableModelColumn4fontEv": ["address", "address"],
+    "ritual_ZN20QQmlTableModelColumn7setFontERK8QJSValue": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QQmlTableModelColumn13textAlignmentEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QQmlTableModelColumn16setTextAlignmentERK8QJSValue": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QQmlTableModelColumn10backgroundEv": ["address", "address"],
+    "ritual_ZN20QQmlTableModelColumn13setBackgroundERK8QJSValue": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QQmlTableModelColumn10foregroundEv": ["address", "address"],
+    "ritual_ZN20QQmlTableModelColumn13setForegroundERK8QJSValue": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QQmlTableModelColumn10checkStateEv": ["address", "address"],
+    "ritual_ZN20QQmlTableModelColumn13setCheckStateERK8QJSValue": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QQmlTableModelColumn14accessibleTextEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QQmlTableModelColumn17setAccessibleTextERK8QJSValue": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QQmlTableModelColumn21accessibleDescriptionEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QQmlTableModelColumn24setAccessibleDescriptionERK8QJSValue": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QQmlTableModelColumn8sizeHintEv": ["address", "address"],
+    "ritual_ZN20QQmlTableModelColumn11setSizeHintERK8QJSValue": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQmlTableModelColumn12getterAtRoleERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK20QQmlTableModelColumn7gettersEv": ["address", "address"],
+    "ritual_take_QQmlTableModelColumn": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

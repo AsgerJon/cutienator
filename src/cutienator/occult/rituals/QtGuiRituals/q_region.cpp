@@ -339,6 +339,7 @@ void ritual_ZN7QRegion6detachEv(QRegion *self) {
   self->detach();
 }
 
+#if !defined(QT_NO_DATASTREAM)
 //  void QRegion::exec(const QByteArray &ba, int ver, QDataStream::ByteOrder
 //      byteOrder)
 extern "C" Q_DECL_EXPORT
@@ -349,3 +350,4 @@ void ritual_ZN7QRegion4execERK10QByteArrayiN11QDataStream9ByteOrderE(
     QDataStream::ByteOrder byteOrder) {
   self->exec(*ba, ver, byteOrder);
 }
+#endif  // !defined(QT_NO_DATASTREAM)

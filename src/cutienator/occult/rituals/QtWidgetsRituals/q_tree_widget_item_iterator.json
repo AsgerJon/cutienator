@@ -20,6 +20,8 @@
     "ritual_ZNK23QTreeWidgetItemIteratordeEv": ["address", "address"],
     "ritual_ZNK23QTreeWidgetItemIterator12matchesFlagsEPK15QTreeWidgetItem": [
       "bool", "address", "address"
-    ]
+    ],
+    "ritual_ZN23QTreeWidgetItemIterator6d_funcEv": ["address", "address"],
+    "ritual_ZNK23QTreeWidgetItemIterator6d_funcEv": ["address", "address"]
   }
 }

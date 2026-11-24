@@ -1,0 +1,26 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qunixeventdispatcher_qpa_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK23QUnixEventDispatcherQPA10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QUnixEventDispatcherQPA2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN23QUnixEventDispatcherQPAC1EP7QObject": ["address", "address"],
+    "ritual_ZN23QUnixEventDispatcherQPAD1Ev": ["nothing", "address"],
+    "ritual_ZN23QUnixEventDispatcherQPA13processEventsE6QFlagsIN10QEventLoop17ProcessEventsFlagEE": [
+      "bool", "address", "int"
+    ],
+    "ritual_take_QUnixEventDispatcherQPA": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN23QUnixEventDispatcherQPA13processEventsE6QFlagsIN10QEventLoop17ProcessEventsFlagEE": [
+      "bool", "address", "int"
+    ]
+  }
+}

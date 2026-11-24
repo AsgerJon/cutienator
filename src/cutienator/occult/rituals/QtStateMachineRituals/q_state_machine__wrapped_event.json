@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtStateMachine/qstatemachine.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN13QStateMachine12WrappedEventC1EP7QObjectP6QEvent": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN13QStateMachine12WrappedEventD1Ev": ["nothing", "address"],
+    "ritual_ZNK13QStateMachine12WrappedEvent6objectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK13QStateMachine12WrappedEvent5eventEv": [
+      "address", "address"
+    ],
+    "ritual_take_QStateMachine_WrappedEvent": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

@@ -6,6 +6,8 @@
   "rows": {
     "ritual_ZNK9QSaveFile10metaObjectEv": ["address", "address"],
     "ritual_ZN9QSaveFile2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN9QSaveFile6d_funcEv": ["address", "address"],
+    "ritual_ZNK9QSaveFile6d_funcEv": ["address", "address"],
     "ritual_ZN9QSaveFileC1EP7QObject": ["address", "address"],
     "ritual_ZN9QSaveFileC1ERK7QStringP7QObject": [
       "address", "text", "address"

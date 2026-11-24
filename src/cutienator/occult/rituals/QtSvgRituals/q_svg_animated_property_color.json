@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSvg/6.12.0/QtSvg/private/qsvganimatedproperty_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN25QSvgAnimatedPropertyColorC1ERK7QString": ["address", "text"],
+    "ritual_ZN25QSvgAnimatedPropertyColorD1Ev": ["nothing", "address"],
+    "ritual_ZN25QSvgAnimatedPropertyColor9setColorsERK5QListI6QColorE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QSvgAnimatedPropertyColor11appendColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK25QSvgAnimatedPropertyColor6colorsEv": ["address", "address"],
+    "ritual_ZNK25QSvgAnimatedPropertyColor11interpolateEjd": [
+      "nothing", "address", "unsigned int", "double"
+    ],
+    "ritual_take_QSvgAnimatedPropertyColor": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK25QSvgAnimatedPropertyColor11interpolateEjd": [
+      "nothing", "address", "unsigned int", "double"
+    ]
+  }
+}

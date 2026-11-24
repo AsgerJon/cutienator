@@ -110,6 +110,8 @@
     "ritual_ZNK16QXmlStreamReader14entityResolverEv": ["address", "address"],
     "ritual_ZN16QXmlStreamReader11addDataImplERK10QByteArray": [
       "nothing", "address", "address"
-    ]
+    ],
+    "ritual_ZN16QXmlStreamReader6d_funcEv": ["address", "address"],
+    "ritual_ZNK16QXmlStreamReader6d_funcEv": ["address", "address"]
   }
 }

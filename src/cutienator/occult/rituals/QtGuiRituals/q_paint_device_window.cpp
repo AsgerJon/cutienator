@@ -30,6 +30,20 @@ QString *ritual_ZN18QPaintDeviceWindow2trEPKcS1_i(
   return new QString(QPaintDeviceWindow::tr(s, c, n));
 }
 
+//  QPaintDeviceWindowPrivate *QPaintDeviceWindow::d_func()
+extern "C" Q_DECL_EXPORT
+QPaintDeviceWindowPrivate *ritual_ZN18QPaintDeviceWindow6d_funcEv(
+    QPaintDeviceWindow *self) {
+  return self->d_func();
+}
+
+//  const QPaintDeviceWindowPrivate *QPaintDeviceWindow::d_func() const
+extern "C" Q_DECL_EXPORT
+const QPaintDeviceWindowPrivate *ritual_ZNK18QPaintDeviceWindow6d_funcEv(
+    const QPaintDeviceWindow *self) {
+  return self->d_func();
+}
+
 //  void QPaintDeviceWindow::update(const QRect &rect)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QPaintDeviceWindow6updateERK5QRect(

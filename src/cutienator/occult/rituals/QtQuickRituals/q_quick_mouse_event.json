@@ -1,0 +1,42 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickevents_p_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK16QQuickMouseEvent10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QQuickMouseEvent2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN16QQuickMouseEvent24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickMouseEventC1Ev": ["address"],
+    "ritual_ZN16QQuickMouseEvent5resetEddN2Qt11MouseButtonE6QFlagsIS1_ES2_INS0_16KeyboardModifierEEbbS2_INS0_14MouseEventFlagEE": [
+      "nothing", "address", "double", "double", "int", "int", "int", "bool",
+      "bool", "int"
+    ],
+    "ritual_ZNK16QQuickMouseEvent1xEv": ["double", "address"],
+    "ritual_ZNK16QQuickMouseEvent1yEv": ["double", "address"],
+    "ritual_ZNK16QQuickMouseEvent6buttonEv": ["int", "address"],
+    "ritual_ZNK16QQuickMouseEvent7buttonsEv": ["int", "address"],
+    "ritual_ZNK16QQuickMouseEvent9modifiersEv": ["int", "address"],
+    "ritual_ZNK16QQuickMouseEvent6sourceEv": ["int", "address"],
+    "ritual_ZNK16QQuickMouseEvent7wasHeldEv": ["bool", "address"],
+    "ritual_ZNK16QQuickMouseEvent7isClickEv": ["bool", "address"],
+    "ritual_ZN16QQuickMouseEvent4setXEd": ["nothing", "address", "double"],
+    "ritual_ZN16QQuickMouseEvent4setYEd": ["nothing", "address", "double"],
+    "ritual_ZN16QQuickMouseEvent11setPositionERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickMouseEvent9setSourceEN2Qt16MouseEventSourceE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16QQuickMouseEvent10isAcceptedEv": ["bool", "address"],
+    "ritual_ZN16QQuickMouseEvent11setAcceptedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK16QQuickMouseEvent5flagsEv": ["int", "address"]
+  }
+}

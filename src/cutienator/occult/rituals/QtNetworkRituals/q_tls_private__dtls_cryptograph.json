@@ -1,0 +1,76 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/6.12.0/QtNetwork/private/qtlsbackend_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK11QTlsPrivate15DtlsCryptograph15cryptographModeEv": [
+      "int", "address"
+    ],
+    "ritual_ZN11QTlsPrivate15DtlsCryptograph7setPeerERK12QHostAddresstRK7QString": [
+      "nothing", "address", "address", "unsigned short", "text"
+    ],
+    "ritual_ZNK11QTlsPrivate15DtlsCryptograph11peerAddressEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK11QTlsPrivate15DtlsCryptograph8peerPortEv": [
+      "unsigned short", "address"
+    ],
+    "ritual_ZN11QTlsPrivate15DtlsCryptograph23setPeerVerificationNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK11QTlsPrivate15DtlsCryptograph20peerVerificationNameEv": [
+      "text", "address"
+    ],
+    "ritual_ZN11QTlsPrivate15DtlsCryptograph14setDtlsMtuHintEt": [
+      "nothing", "address", "unsigned short"
+    ],
+    "ritual_ZNK11QTlsPrivate15DtlsCryptograph11dtlsMtuHintEv": [
+      "unsigned short", "address"
+    ],
+    "ritual_ZNK11QTlsPrivate15DtlsCryptograph5stateEv": ["int", "address"],
+    "ritual_ZNK11QTlsPrivate15DtlsCryptograph21isConnectionEncryptedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN11QTlsPrivate15DtlsCryptograph14startHandshakeEP10QUdpSocketRK10QByteArray": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN11QTlsPrivate15DtlsCryptograph13handleTimeoutEP10QUdpSocket": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN11QTlsPrivate15DtlsCryptograph17continueHandshakeEP10QUdpSocketRK10QByteArray": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN11QTlsPrivate15DtlsCryptograph15resumeHandshakeEP10QUdpSocket": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN11QTlsPrivate15DtlsCryptograph14abortHandshakeEP10QUdpSocket": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QTlsPrivate15DtlsCryptograph17sendShutdownAlertEP10QUdpSocket": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QTlsPrivate15DtlsCryptograph22peerVerificationErrorsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN11QTlsPrivate15DtlsCryptograph24ignoreVerificationErrorsERK5QListI9QSslErrorE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QTlsPrivate15DtlsCryptograph17dtlsSessionCipherEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK11QTlsPrivate15DtlsCryptograph19dtlsSessionProtocolEv": [
+      "int", "address"
+    ],
+    "ritual_ZN11QTlsPrivate15DtlsCryptograph22writeDatagramEncryptedEP10QUdpSocketRK10QByteArray": [
+      "long long", "address", "address", "address"
+    ],
+    "ritual_ZN11QTlsPrivate15DtlsCryptograph15decryptDatagramEP10QUdpSocketRK10QByteArray": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_take_QTlsPrivate_DtlsCryptograph": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

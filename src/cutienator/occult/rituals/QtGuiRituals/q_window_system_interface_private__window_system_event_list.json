@@ -1,0 +1,42 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/qpa/qwindowsysteminterface_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN29QWindowSystemInterfacePrivate21WindowSystemEventListC1Ev": [
+      "address"
+    ],
+    "ritual_ZN29QWindowSystemInterfacePrivate21WindowSystemEventListD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QWindowSystemInterfacePrivate21WindowSystemEventList5clearEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QWindowSystemInterfacePrivate21WindowSystemEventList7prependEPNS_17WindowSystemEventE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN29QWindowSystemInterfacePrivate21WindowSystemEventList21takeFirstOrReturnNullEv": [
+      "address", "address"
+    ],
+    "ritual_ZN29QWindowSystemInterfacePrivate21WindowSystemEventList33takeFirstNonUserInputOrReturnNullEv": [
+      "address", "address"
+    ],
+    "ritual_ZN29QWindowSystemInterfacePrivate21WindowSystemEventList24nonUserInputEventsQueuedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN29QWindowSystemInterfacePrivate21WindowSystemEventList6appendEPNS_17WindowSystemEventE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK29QWindowSystemInterfacePrivate21WindowSystemEventList5countEv": [
+      "long long", "address"
+    ],
+    "ritual_ZNK29QWindowSystemInterfacePrivate21WindowSystemEventList17peekAtFirstOfTypeENS_9EventTypeE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN29QWindowSystemInterfacePrivate21WindowSystemEventList6removeEPKNS_17WindowSystemEventE": [
+      "nothing", "address", "address"
+    ]
+  }
+}

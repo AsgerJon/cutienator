@@ -1,0 +1,81 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmlopenmetaobject_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QQmlOpenMetaObjectC1EP7QObjectPK11QMetaObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18QQmlOpenMetaObjectD1Ev": ["nothing", "address"],
+    "ritual_ZNK18QQmlOpenMetaObject5valueERK10QByteArray": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18QQmlOpenMetaObject8setValueERK10QByteArrayRK8QVariantb": [
+      "bool", "address", "address", "address", "bool"
+    ],
+    "ritual_ZNK18QQmlOpenMetaObject5valueEi": ["address", "address", "int"],
+    "ritual_ZN18QQmlOpenMetaObject8setValueEiRK8QVariant": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZNK18QQmlOpenMetaObject8hasValueEi": ["bool", "address", "int"],
+    "ritual_ZNK18QQmlOpenMetaObject5countEv": ["int", "address"],
+    "ritual_ZNK18QQmlOpenMetaObject4nameEi": ["address", "address", "int"],
+    "ritual_ZNK18QQmlOpenMetaObject6objectEv": ["address", "address"],
+    "ritual_ZN18QQmlOpenMetaObject12initialValueEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN18QQmlOpenMetaObject9setCachedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK18QQmlOpenMetaObject21autoCreatesPropertiesEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN18QQmlOpenMetaObject24setAutoCreatesPropertiesEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK18QQmlOpenMetaObject4typeEv": ["address", "address"],
+    "ritual_ZNK18QQmlOpenMetaObject6parentEv": ["address", "address"],
+    "ritual_ZN18QQmlOpenMetaObject24emitPropertyNotificationERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQmlOpenMetaObject8unparentEv": ["nothing", "address"],
+    "ritual_ZN18QQmlOpenMetaObject14createPropertyEPKcS1_": [
+      "int", "address", "chars", "chars"
+    ],
+    "ritual_ZN18QQmlOpenMetaObject12propertyReadEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18QQmlOpenMetaObject13propertyWriteEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18QQmlOpenMetaObject18propertyWriteValueEiRK8QVariant": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_ZN18QQmlOpenMetaObject15propertyWrittenEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18QQmlOpenMetaObject15checkedSetValueEiRK8QVariantb": [
+      "bool", "address", "int", "address", "bool"
+    ],
+    "ritual_take_QQmlOpenMetaObject": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN18QQmlOpenMetaObject12initialValueEi": [
+      "address", "address", "int"
+    ],
+    "ritual_own_ZN18QQmlOpenMetaObject12propertyReadEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN18QQmlOpenMetaObject13propertyWriteEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN18QQmlOpenMetaObject18propertyWriteValueEiRK8QVariant": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_own_ZN18QQmlOpenMetaObject15propertyWrittenEi": [
+      "nothing", "address", "int"
+    ]
+  }
+}

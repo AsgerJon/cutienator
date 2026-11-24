@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/ssg/qssgrenderextens",
+    "ions.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN34QSSGRenderTextureProviderExtensionD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK34QSSGRenderTextureProviderExtension4modeEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK34QSSGRenderTextureProviderExtension5stageEv": [
+      "int", "address"
+    ],
+    "ritual_take_QSSGRenderTextureProviderExtension": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

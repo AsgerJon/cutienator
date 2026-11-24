@@ -1,0 +1,70 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "VectorImage/6.12.0/QtQuickVectorImage/private/qquickvectorimage_p.",
+    "h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QQuickVectorImage10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QQuickVectorImage2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QQuickVectorImageC1EP10QQuickItem": ["address", "address"],
+    "ritual_ZN17QQuickVectorImageD1Ev": ["nothing", "address"],
+    "ritual_ZNK17QQuickVectorImage6sourceEv": ["address", "address"],
+    "ritual_ZN17QQuickVectorImage9setSourceERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QQuickVectorImage8fillModeEv": ["int", "address"],
+    "ritual_ZN17QQuickVectorImage11setFillModeENS_8FillModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK17QQuickVectorImage21preferredRendererTypeEv": [
+      "int", "address"
+    ],
+    "ritual_ZN17QQuickVectorImage24setPreferredRendererTypeENS_12RendererTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK17QQuickVectorImage18asynchronousShapesEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN17QQuickVectorImage21setAsynchronousShapesEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK17QQuickVectorImage12asynchronousEv": ["bool", "address"],
+    "ritual_ZN17QQuickVectorImage15setAsynchronousEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK17QQuickVectorImage18retainWhileLoadingEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN17QQuickVectorImage21setRetainWhileLoadingEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK17QQuickVectorImage6statusEv": ["unsigned char", "address"],
+    "ritual_ZN17QQuickVectorImage10animationsEv": ["address", "address"],
+    "ritual_ZNK17QQuickVectorImage19assumeTrustedSourceEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN17QQuickVectorImage22setAssumeTrustedSourceEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN17QQuickVectorImage17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK17QQuickVectorImage13generatedItemEv": ["address", "address"],
+    "ritual_ZN17QQuickVectorImage6d_funcEv": ["address", "address"],
+    "ritual_ZNK17QQuickVectorImage6d_funcEv": ["address", "address"],
+    "ritual_ZN17QQuickVectorImage19updateRootItemScaleEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuickVectorImage25updateAnimationPropertiesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuickVectorImage10updateItemEv": ["nothing", "address"],
+    "ritual_take_QQuickVectorImage": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN17QQuickVectorImage17componentCompleteEv": [
+      "nothing", "address"
+    ]
+  }
+}

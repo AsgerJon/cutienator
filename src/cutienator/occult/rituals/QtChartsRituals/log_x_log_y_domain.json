@@ -1,0 +1,72 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/6.12.0/QtCharts/private/logxlogydomain_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK14LogXLogYDomain10metaObjectEv": ["address", "address"],
+    "ritual_ZN14LogXLogYDomain2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN14LogXLogYDomainC1EP7QObject": ["address", "address"],
+    "ritual_ZN14LogXLogYDomainD1Ev": ["nothing", "address"],
+    "ritual_ZN14LogXLogYDomain4typeEv": ["int", "address"],
+    "ritual_ZN14LogXLogYDomain8setRangeEdddd": [
+      "nothing", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZN14LogXLogYDomain6zoomInERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14LogXLogYDomain7zoomOutERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14LogXLogYDomain4moveEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZNK14LogXLogYDomain22calculateGeometryPointERK7QPointFRb": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK14LogXLogYDomain20calculateDomainPointERK7QPointF": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK14LogXLogYDomain23calculateGeometryPointsERK5QListI7QPointFE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN14LogXLogYDomain10attachAxisEP13QAbstractAxis": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN14LogXLogYDomain10detachAxisEP13QAbstractAxis": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN14LogXLogYDomain29handleVerticalAxisBaseChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN14LogXLogYDomain31handleHorizontalAxisBaseChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_take_LogXLogYDomain": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN14LogXLogYDomain4typeEv": ["int", "address"],
+    "ritual_own_ZN14LogXLogYDomain8setRangeEdddd": [
+      "nothing", "address", "double", "double", "double", "double"
+    ],
+    "ritual_own_ZN14LogXLogYDomain6zoomInERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN14LogXLogYDomain7zoomOutERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN14LogXLogYDomain4moveEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_own_ZNK14LogXLogYDomain20calculateDomainPointERK7QPointF": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN14LogXLogYDomain10attachAxisEP13QAbstractAxis": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN14LogXLogYDomain10detachAxisEP13QAbstractAxis": [
+      "bool", "address", "address"
+    ]
+  }
+}

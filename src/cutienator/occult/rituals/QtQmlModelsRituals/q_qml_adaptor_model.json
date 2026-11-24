@@ -1,0 +1,49 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQmlModels/6.12.0/QtQmlModels/private/qqmladaptormodel_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN16QQmlAdaptorModelC1Ev": ["address"],
+    "ritual_ZN16QQmlAdaptorModelD1Ev": ["nothing", "address"],
+    "ritual_ZNK16QQmlAdaptorModel5modelEv": ["address", "address"],
+    "ritual_ZN16QQmlAdaptorModel8setModelERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQmlAdaptorModel15invalidateModelEv": ["nothing", "address"],
+    "ritual_ZNK16QQmlAdaptorModel7isValidEv": ["bool", "address"],
+    "ritual_ZNK16QQmlAdaptorModel5countEv": ["int", "address"],
+    "ritual_ZNK16QQmlAdaptorModel8rowCountEv": ["int", "address"],
+    "ritual_ZNK16QQmlAdaptorModel11columnCountEv": ["int", "address"],
+    "ritual_ZNK16QQmlAdaptorModel5rowAtEi": ["int", "address", "int"],
+    "ritual_ZNK16QQmlAdaptorModel8columnAtEi": ["int", "address", "int"],
+    "ritual_ZNK16QQmlAdaptorModel7indexAtEii": [
+      "int", "address", "int", "int"
+    ],
+    "ritual_ZN16QQmlAdaptorModel16useImportVersionE13QTypeRevision": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QQmlAdaptorModel9adaptsAimEv": ["bool", "address"],
+    "ritual_ZN16QQmlAdaptorModel3aimEv": ["address", "address"],
+    "ritual_ZNK16QQmlAdaptorModel3aimEv": ["address", "address"],
+    "ritual_ZNK16QQmlAdaptorModel5valueEiRK7QString": [
+      "address", "address", "int", "text"
+    ],
+    "ritual_ZNK16QQmlAdaptorModel14hasProxyObjectEv": ["bool", "address"],
+    "ritual_ZN16QQmlAdaptorModel19replaceWatchedRolesERK5QListI10QByteArrayES4_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK16QQmlAdaptorModel10modelIndexEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK16QQmlAdaptorModel16parentModelIndexEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK16QQmlAdaptorModel12canFetchMoreEv": ["bool", "address"],
+    "ritual_ZN16QQmlAdaptorModel9fetchMoreEv": ["nothing", "address"],
+    "ritual_ZN16QQmlAdaptorModel19objectDestroyedImplEP13QQmlGuardImpl": [
+      "nothing", "address"
+    ]
+  }
+}

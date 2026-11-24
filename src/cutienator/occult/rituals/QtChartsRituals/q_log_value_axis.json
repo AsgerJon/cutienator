@@ -1,0 +1,35 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/qlogvalueaxis.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK13QLogValueAxis10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QLogValueAxis2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN13QLogValueAxisC1EP7QObject": ["address", "address"],
+    "ritual_ZN13QLogValueAxisD1Ev": ["nothing", "address"],
+    "ritual_ZNK13QLogValueAxis4typeEv": ["int", "address"],
+    "ritual_ZN13QLogValueAxis6setMinEd": ["nothing", "address", "double"],
+    "ritual_ZNK13QLogValueAxis3minEv": ["double", "address"],
+    "ritual_ZN13QLogValueAxis6setMaxEd": ["nothing", "address", "double"],
+    "ritual_ZNK13QLogValueAxis3maxEv": ["double", "address"],
+    "ritual_ZN13QLogValueAxis8setRangeEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN13QLogValueAxis14setLabelFormatERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK13QLogValueAxis11labelFormatEv": ["text", "address"],
+    "ritual_ZN13QLogValueAxis7setBaseEd": ["nothing", "address", "double"],
+    "ritual_ZNK13QLogValueAxis4baseEv": ["double", "address"],
+    "ritual_ZNK13QLogValueAxis9tickCountEv": ["int", "address"],
+    "ritual_ZN13QLogValueAxis17setMinorTickCountEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK13QLogValueAxis14minorTickCountEv": ["int", "address"],
+    "ritual_ZN13QLogValueAxis6d_funcEv": ["address", "address"],
+    "ritual_ZNK13QLogValueAxis6d_funcEv": ["address", "address"],
+    "ritual_take_QLogValueAxis": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK13QLogValueAxis4typeEv": ["int", "address"]
+  }
+}

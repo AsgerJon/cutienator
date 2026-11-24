@@ -1,0 +1,79 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmlabstractbinding_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QQmlAbstractBindingD1Ev": ["nothing", "address"],
+    "ritual_ZNK19QQmlAbstractBinding10expressionEv": ["text", "address"],
+    "ritual_ZNK19QQmlAbstractBinding4kindEv": ["int", "address"],
+    "ritual_ZNK19QQmlAbstractBinding19targetPropertyIndexEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QQmlAbstractBinding12targetObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QQmlAbstractBinding9setTargetERK12QQmlProperty": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQmlAbstractBinding9setTargetEP7QObjectRK16QQmlPropertyDataPS3_": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZN19QQmlAbstractBinding9setTargetEP7QObjectibi": [
+      "bool", "address", "address", "int", "bool", "int"
+    ],
+    "ritual_ZN19QQmlAbstractBinding10setEnabledEb6QFlagsIN16QQmlPropertyData9WriteFlagEE": [
+      "nothing", "address", "bool", "int"
+    ],
+    "ritual_ZN19QQmlAbstractBinding11addToObjectEv": ["nothing", "address"],
+    "ritual_ZN19QQmlAbstractBinding16removeFromObjectEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQmlAbstractBinding21printBindingLoopErrorERK12QQmlProperty": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QQmlAbstractBinding11nextBindingEv": ["address", "address"],
+    "ritual_ZNK19QQmlAbstractBinding14canUseAccessorEv": ["bool", "address"],
+    "ritual_ZN19QQmlAbstractBinding17setCanUseAccessorEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK19QQmlAbstractBinding8isStickyEv": ["bool", "address"],
+    "ritual_ZN19QQmlAbstractBinding9setStickyEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN19QQmlAbstractBinding16setAddedToObjectEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK19QQmlAbstractBinding15isAddedToObjectEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN19QQmlAbstractBinding14setNextBindingEPS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QQmlAbstractBinding12updatingFlagEv": ["bool", "address"],
+    "ritual_ZN19QQmlAbstractBinding15setUpdatingFlagEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK19QQmlAbstractBinding11enabledFlagEv": ["bool", "address"],
+    "ritual_ZN19QQmlAbstractBinding14setEnabledFlagEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN19QQmlAbstractBinding20updateCanUseAccessorEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQmlAbstractBinding8setStateENS_5StateEb": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZNK19QQmlAbstractBinding8hasStateENS_5StateE": [
+      "bool", "address", "int"
+    ],
+    "ritual_take_QQmlAbstractBinding": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK19QQmlAbstractBinding10expressionEv": ["text", "address"],
+    "ritual_own_ZN19QQmlAbstractBinding21printBindingLoopErrorERK12QQmlProperty": [
+      "nothing", "address", "address"
+    ]
+  }
+}

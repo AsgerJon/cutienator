@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3DHelpers/6.12.0/QtQuick3DHelpers/private/lookatnode_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK10LookAtNode10metaObjectEv": ["address", "address"],
+    "ritual_ZN10LookAtNode2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN10LookAtNodeC1Ev": ["address"],
+    "ritual_ZN10LookAtNodeD1Ev": ["nothing", "address"],
+    "ritual_ZNK10LookAtNode6targetEv": ["address", "address"],
+    "ritual_ZN10LookAtNode9setTargetEP12QQuick3DNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10LookAtNode12updateLookAtEv": ["nothing", "address"],
+    "ritual_take_LookAtNode": ["bool", "address", "chars", "address"]
+  }
+}

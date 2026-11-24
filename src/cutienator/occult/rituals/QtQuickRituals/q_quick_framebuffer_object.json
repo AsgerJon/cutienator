@@ -1,0 +1,63 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/qquickframebufferobject.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZNK23QQuickFramebufferObject10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QQuickFramebufferObject2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZNK23QQuickFramebufferObject22textureFollowsItemSizeEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN23QQuickFramebufferObject25setTextureFollowsItemSizeEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK23QQuickFramebufferObject16mirrorVerticallyEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN23QQuickFramebufferObject19setMirrorVerticallyEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK23QQuickFramebufferObject14createRendererEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK23QQuickFramebufferObject17isTextureProviderEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK23QQuickFramebufferObject15textureProviderEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QQuickFramebufferObject16releaseResourcesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickFramebufferObject14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN23QQuickFramebufferObject15updatePaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN23QQuickFramebufferObject20invalidateSceneGraphEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZNK23QQuickFramebufferObject17isTextureProviderEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZNK23QQuickFramebufferObject15textureProviderEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN23QQuickFramebufferObject16releaseResourcesEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN23QQuickFramebufferObject14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN23QQuickFramebufferObject15updatePaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
+      "address", "address", "address", "address"
+    ]
+  }
+}

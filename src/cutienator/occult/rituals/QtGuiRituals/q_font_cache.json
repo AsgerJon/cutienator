@@ -11,6 +11,18 @@
     "ritual_ZN10QFontCacheD1Ev": ["nothing", "address"],
     "ritual_ZNK10QFontCache2idEv": ["int", "address"],
     "ritual_ZN10QFontCache5clearEv": ["nothing", "address"],
+    "ritual_ZNK10QFontCache14findEngineDataERK8QFontDef": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN10QFontCache16insertEngineDataERK8QFontDefP15QFontEngineData": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN10QFontCache10findEngineERKNS_3KeyE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN10QFontCache12insertEngineERKNS_3KeyEP11QFontEngineb": [
+      "nothing", "address", "address", "address", "bool"
+    ],
     "ritual_ZN10QFontCache12increaseCostEj": [
       "nothing", "address", "unsigned int"
     ],

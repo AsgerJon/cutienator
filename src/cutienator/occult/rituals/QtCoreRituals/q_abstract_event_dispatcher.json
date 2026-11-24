@@ -11,6 +11,8 @@
     "ritual_ZN24QAbstractEventDispatcher2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN24QAbstractEventDispatcher6d_funcEv": ["address", "address"],
+    "ritual_ZNK24QAbstractEventDispatcher6d_funcEv": ["address", "address"],
     "ritual_ZN24QAbstractEventDispatcherD1Ev": ["nothing", "address"],
     "ritual_ZN24QAbstractEventDispatcher8instanceEP7QThread": [
       "address", "address"

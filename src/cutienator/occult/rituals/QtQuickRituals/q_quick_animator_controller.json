@@ -1,0 +1,44 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickanimatorcontroller_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK24QQuickAnimatorController10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QQuickAnimatorControllerD1Ev": ["nothing", "address"],
+    "ritual_ZN24QQuickAnimatorController7advanceEv": ["nothing", "address"],
+    "ritual_ZN24QQuickAnimatorController13afterNodeSyncEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuickAnimatorController17animationFinishedEP21QAbstractAnimationJob": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QQuickAnimatorController21animationStateChangedEP21QAbstractAnimationJobNS0_5StateES2_": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN24QQuickAnimatorController11requestSyncEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuickAnimatorController4lockEv": ["nothing", "address"],
+    "ritual_ZN24QQuickAnimatorController6unlockEv": ["nothing", "address"],
+    "ritual_ZNK24QQuickAnimatorController6windowEv": ["address", "address"],
+    "ritual_ZN24QQuickAnimatorController12start_helperEP21QAbstractAnimationJob": [
+      "nothing", "address", "address"
+    ],
+    "ritual_cast_QQuickAnimatorController_QAnimationJobChangeListener": [
+      "address", "address"
+    ],
+    "ritual_take_QQuickAnimatorController": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN24QQuickAnimatorController17animationFinishedEP21QAbstractAnimationJob": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN24QQuickAnimatorController21animationStateChangedEP21QAbstractAnimationJobNS0_5StateES2_": [
+      "nothing", "address", "address", "int", "int"
+    ]
+  }
+}

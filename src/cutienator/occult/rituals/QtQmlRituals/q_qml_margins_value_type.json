@@ -1,0 +1,39 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmlvaluetype_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QQmlMarginsValueType22qt_qmlMarker_anonymousEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQmlMarginsValueType20qt_qmlMarker_foreignEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQmlMarginsValueType21qt_qmlMarker_extendedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQmlMarginsValueTypeC1Ev": ["address"],
+    "ritual_ZN20QQmlMarginsValueTypeC1ERK8QMargins": ["address", "address"],
+    "ritual_ZN20QQmlMarginsValueTypeC1ERK9QMarginsF": ["address", "address"],
+    "ritual_ZNK20QQmlMarginsValueType8toStringEv": ["text", "address"],
+    "ritual_ZNK20QQmlMarginsValueType4leftEv": ["int", "address"],
+    "ritual_ZNK20QQmlMarginsValueType5rightEv": ["int", "address"],
+    "ritual_ZNK20QQmlMarginsValueType3topEv": ["int", "address"],
+    "ritual_ZNK20QQmlMarginsValueType6bottomEv": ["int", "address"],
+    "ritual_ZN20QQmlMarginsValueType7setLeftEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQmlMarginsValueType8setRightEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQmlMarginsValueType6setTopEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQmlMarginsValueType9setBottomEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQmlMarginsValueTypeD1Ev": ["nothing", "address"]
+  }
+}

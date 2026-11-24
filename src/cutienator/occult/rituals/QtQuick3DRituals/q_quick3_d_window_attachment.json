@@ -1,0 +1,51 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3D/6.12.0/QtQuick3D/private/qquick3dscenemanager_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK24QQuick3DWindowAttachment10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QQuick3DWindowAttachment2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN24QQuick3DWindowAttachmentC1EP12QQuickWindow": [
+      "address", "address"
+    ],
+    "ritual_ZN24QQuick3DWindowAttachmentD1Ev": ["nothing", "address"],
+    "ritual_ZN24QQuick3DWindowAttachment7preSyncEv": ["nothing", "address"],
+    "ritual_ZN24QQuick3DWindowAttachment16cleanupResourcesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuick3DWindowAttachment13requestUpdateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuick3DWindowAttachment11evaluateEolEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK24QQuick3DWindowAttachment6windowEv": ["address", "address"],
+    "ritual_ZNK24QQuick3DWindowAttachment8rootNodeEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QQuick3DWindowAttachment15queueForCleanupEP21QSSGRenderGraphObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QQuick3DWindowAttachment15queueForCleanupEP20QQuick3DSceneManager": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QQuick3DWindowAttachment15queueForCleanupEP15QSSGRenderLayer": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QQuick3DWindowAttachment24onReleaseCachedResourcesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuick3DWindowAttachment13onInvalidatedEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QQuick3DWindowAttachment": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

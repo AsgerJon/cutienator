@@ -1,0 +1,33 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLocation/qplacecontactdetail.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN19QPlaceContactDetailC1Ev": ["address"],
+    "ritual_ZN19QPlaceContactDetailC1ERKS_": ["address", "address"],
+    "ritual_ZN19QPlaceContactDetailD1Ev": ["nothing", "address"],
+    "ritual_ZeqRK19QPlaceContactDetailS1_": ["bool", "address", "address"],
+    "ritual_ZneRK19QPlaceContactDetailS1_": ["bool", "address", "address"],
+    "ritual_ZNK19QPlaceContactDetail5labelEv": ["text", "address"],
+    "ritual_ZN19QPlaceContactDetail8setLabelERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK19QPlaceContactDetail5valueEv": ["text", "address"],
+    "ritual_ZN19QPlaceContactDetail8setValueERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN19QPlaceContactDetail5clearEv": ["nothing", "address"],
+    "ritual_ZNK19QPlaceContactDetail7isEqualERKS_": [
+      "bool", "address", "address"
+    ],
+    "ritual_list_make_QPlaceContactDetail": ["address"],
+    "ritual_list_add_QPlaceContactDetail": ["nothing", "address", "address"],
+    "ritual_list_size_QPlaceContactDetail": ["long long", "address"],
+    "ritual_list_at_QPlaceContactDetail": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_QPlaceContactDetail": ["nothing", "address"]
+  }
+}

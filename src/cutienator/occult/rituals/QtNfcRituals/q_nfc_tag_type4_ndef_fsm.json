@@ -1,0 +1,35 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNfc/6.12.0/QtNfc/private/qnfctagtype4ndeffsm_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QNfcTagType4NdefFsm15provideResponseERK10QByteArray": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN19QNfcTagType4NdefFsm17detectNdefSupportEv": [
+      "int", "address"
+    ],
+    "ritual_ZN19QNfcTagType4NdefFsm12readMessagesEv": ["int", "address"],
+    "ritual_ZN19QNfcTagType4NdefFsm13writeMessagesERK5QListI12QNdefMessageE": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN19QNfcTagType4NdefFsm20handleSimpleResponseERK13QResponseApduNS_5StateES3_N14QNdefAccessFsm6ActionE": [
+      "int", "address", "address", "int", "int", "int"
+    ],
+    "ritual_ZN19QNfcTagType4NdefFsm28handleReadFileLengthResponseERK13QResponseApdu": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN19QNfcTagType4NdefFsm22handleReadFileResponseERK13QResponseApdu": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN19QNfcTagType4NdefFsm27handleWriteNdefFileResponseERK13QResponseApdu": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZN19QNfcTagType4NdefFsm17detectNdefSupportEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZN19QNfcTagType4NdefFsm12readMessagesEv": ["int", "address"]
+  }
+}

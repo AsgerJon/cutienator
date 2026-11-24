@@ -37,6 +37,10 @@
     "ritual_ZN26QGraphicsSceneBspTreeIndex25prepareBoundingRectChangeEPK13QGraphicsItem": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN26QGraphicsSceneBspTreeIndex6d_funcEv": ["address", "address"],
+    "ritual_ZNK26QGraphicsSceneBspTreeIndex6d_funcEv": [
+      "address", "address"
+    ],
     "ritual_take_QGraphicsSceneBspTreeIndex": [
       "bool", "address", "chars", "address"
     ],

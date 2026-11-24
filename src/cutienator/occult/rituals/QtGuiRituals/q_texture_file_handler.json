@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qtexturefilehandler_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QTextureFileHandlerD1Ev": ["nothing", "address"],
+    "ritual_ZN19QTextureFileHandler4readEv": ["address", "address"],
+    "ritual_ZNK19QTextureFileHandler6deviceEv": ["address", "address"],
+    "ritual_ZNK19QTextureFileHandler7logNameEv": ["address", "address"],
+    "ritual_take_QTextureFileHandler": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

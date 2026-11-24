@@ -1,0 +1,77 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/ui4_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN7DomFontC1Ev": ["address"],
+    "ritual_ZN7DomFontD1Ev": ["nothing", "address"],
+    "ritual_ZNK7DomFont13elementFamilyEv": ["text", "address"],
+    "ritual_ZN7DomFont16setElementFamilyERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK7DomFont16hasElementFamilyEv": ["bool", "address"],
+    "ritual_ZN7DomFont18clearElementFamilyEv": ["nothing", "address"],
+    "ritual_ZNK7DomFont16elementPointSizeEv": ["int", "address"],
+    "ritual_ZN7DomFont19setElementPointSizeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK7DomFont19hasElementPointSizeEv": ["bool", "address"],
+    "ritual_ZN7DomFont21clearElementPointSizeEv": ["nothing", "address"],
+    "ritual_ZNK7DomFont13elementWeightEv": ["int", "address"],
+    "ritual_ZN7DomFont16setElementWeightEi": ["nothing", "address", "int"],
+    "ritual_ZNK7DomFont16hasElementWeightEv": ["bool", "address"],
+    "ritual_ZN7DomFont18clearElementWeightEv": ["nothing", "address"],
+    "ritual_ZNK7DomFont13elementItalicEv": ["bool", "address"],
+    "ritual_ZN7DomFont16setElementItalicEb": ["nothing", "address", "bool"],
+    "ritual_ZNK7DomFont16hasElementItalicEv": ["bool", "address"],
+    "ritual_ZN7DomFont18clearElementItalicEv": ["nothing", "address"],
+    "ritual_ZNK7DomFont11elementBoldEv": ["bool", "address"],
+    "ritual_ZN7DomFont14setElementBoldEb": ["nothing", "address", "bool"],
+    "ritual_ZNK7DomFont14hasElementBoldEv": ["bool", "address"],
+    "ritual_ZN7DomFont16clearElementBoldEv": ["nothing", "address"],
+    "ritual_ZNK7DomFont16elementUnderlineEv": ["bool", "address"],
+    "ritual_ZN7DomFont19setElementUnderlineEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK7DomFont19hasElementUnderlineEv": ["bool", "address"],
+    "ritual_ZN7DomFont21clearElementUnderlineEv": ["nothing", "address"],
+    "ritual_ZNK7DomFont16elementStrikeOutEv": ["bool", "address"],
+    "ritual_ZN7DomFont19setElementStrikeOutEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK7DomFont19hasElementStrikeOutEv": ["bool", "address"],
+    "ritual_ZN7DomFont21clearElementStrikeOutEv": ["nothing", "address"],
+    "ritual_ZNK7DomFont19elementAntialiasingEv": ["bool", "address"],
+    "ritual_ZN7DomFont22setElementAntialiasingEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK7DomFont22hasElementAntialiasingEv": ["bool", "address"],
+    "ritual_ZN7DomFont24clearElementAntialiasingEv": ["nothing", "address"],
+    "ritual_ZNK7DomFont20elementStyleStrategyEv": ["text", "address"],
+    "ritual_ZN7DomFont23setElementStyleStrategyERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK7DomFont23hasElementStyleStrategyEv": ["bool", "address"],
+    "ritual_ZN7DomFont25clearElementStyleStrategyEv": ["nothing", "address"],
+    "ritual_ZNK7DomFont14elementKerningEv": ["bool", "address"],
+    "ritual_ZN7DomFont17setElementKerningEb": ["nothing", "address", "bool"],
+    "ritual_ZNK7DomFont17hasElementKerningEv": ["bool", "address"],
+    "ritual_ZN7DomFont19clearElementKerningEv": ["nothing", "address"],
+    "ritual_ZNK7DomFont24elementHintingPreferenceEv": ["text", "address"],
+    "ritual_ZN7DomFont27setElementHintingPreferenceERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK7DomFont27hasElementHintingPreferenceEv": ["bool", "address"],
+    "ritual_ZN7DomFont29clearElementHintingPreferenceEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK7DomFont17elementFontWeightEv": ["text", "address"],
+    "ritual_ZN7DomFont20setElementFontWeightERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK7DomFont20hasElementFontWeightEv": ["bool", "address"],
+    "ritual_ZN7DomFont22clearElementFontWeightEv": ["nothing", "address"]
+  }
+}

@@ -1,0 +1,130 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQmlCompiler/6.12.0/QtQmlCompiler/private/qqmljsmetatypes_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QQmlJSMetaPropertyC1Ev": ["address"],
+    "ritual_ZN18QQmlJSMetaProperty15setPropertyNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK18QQmlJSMetaProperty12propertyNameEv": ["text", "address"],
+    "ritual_ZN18QQmlJSMetaProperty11setTypeNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK18QQmlJSMetaProperty8typeNameEv": ["text", "address"],
+    "ritual_ZN18QQmlJSMetaProperty7setReadERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK18QQmlJSMetaProperty4readEv": ["text", "address"],
+    "ritual_ZN18QQmlJSMetaProperty8setWriteERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK18QQmlJSMetaProperty5writeEv": ["text", "address"],
+    "ritual_ZN18QQmlJSMetaProperty8setResetERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK18QQmlJSMetaProperty5resetEv": ["text", "address"],
+    "ritual_ZN18QQmlJSMetaProperty11setBindableERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK18QQmlJSMetaProperty8bindableEv": ["text", "address"],
+    "ritual_ZN18QQmlJSMetaProperty9setNotifyERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK18QQmlJSMetaProperty6notifyEv": ["text", "address"],
+    "ritual_ZN18QQmlJSMetaProperty15setPrivateClassERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK18QQmlJSMetaProperty12privateClassEv": ["text", "address"],
+    "ritual_ZNK18QQmlJSMetaProperty9isPrivateEv": ["bool", "address"],
+    "ritual_ZN18QQmlJSMetaProperty17setSourceLocationERKN6QQmlJS14SourceLocationE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QQmlJSMetaProperty14sourceLocationEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18QQmlJSMetaProperty14setAnnotationsERK5QListI16QQmlJSAnnotationE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QQmlJSMetaProperty11annotationsEv": ["address", "address"],
+    "ritual_ZN18QQmlJSMetaProperty9setIsListEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK18QQmlJSMetaProperty6isListEv": ["bool", "address"],
+    "ritual_ZN18QQmlJSMetaProperty13setIsWritableEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK18QQmlJSMetaProperty10isWritableEv": ["bool", "address"],
+    "ritual_ZN18QQmlJSMetaProperty12setIsPointerEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK18QQmlJSMetaProperty9isPointerEv": ["bool", "address"],
+    "ritual_ZN18QQmlJSMetaProperty17setIsTypeConstantEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK18QQmlJSMetaProperty14isTypeConstantEv": ["bool", "address"],
+    "ritual_ZN18QQmlJSMetaProperty18setAliasExpressionERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK18QQmlJSMetaProperty15aliasExpressionEv": ["text", "address"],
+    "ritual_ZNK18QQmlJSMetaProperty7isAliasEv": ["bool", "address"],
+    "ritual_ZN18QQmlJSMetaProperty18setAliasTargetNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK18QQmlJSMetaProperty15aliasTargetNameEv": ["text", "address"],
+    "ritual_ZN18QQmlJSMetaProperty10setIsFinalEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK18QQmlJSMetaProperty7isFinalEv": ["bool", "address"],
+    "ritual_ZN18QQmlJSMetaProperty13setIsOverrideEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK18QQmlJSMetaProperty10isOverrideEv": ["bool", "address"],
+    "ritual_ZN18QQmlJSMetaProperty12setIsVirtualEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK18QQmlJSMetaProperty9isVirtualEv": ["bool", "address"],
+    "ritual_ZN18QQmlJSMetaProperty21setIsPropertyConstantEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK18QQmlJSMetaProperty18isPropertyConstantEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN18QQmlJSMetaProperty11setRevisionEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK18QQmlJSMetaProperty8revisionEv": ["int", "address"],
+    "ritual_ZN18QQmlJSMetaProperty8setIndexEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK18QQmlJSMetaProperty5indexEv": ["int", "address"],
+    "ritual_ZNK18QQmlJSMetaProperty7isValidEv": ["bool", "address"],
+    "ritual_ZeqRK18QQmlJSMetaPropertyS1_": ["bool", "address", "address"],
+    "ritual_ZneRK18QQmlJSMetaPropertyS1_": ["bool", "address", "address"],
+    "ritual_ZN18QQmlJSMetaPropertyD1Ev": ["nothing", "address"],
+    "ritual_map_make_QHash_QString_QQmlJSMetaProperty": ["address"],
+    "ritual_map_put_QHash_QString_QQmlJSMetaProperty": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_map_size_QHash_QString_QQmlJSMetaProperty": [
+      "long long", "address"
+    ],
+    "ritual_map_key_QHash_QString_QQmlJSMetaProperty": [
+      "text", "address", "long long"
+    ],
+    "ritual_map_value_QHash_QString_QQmlJSMetaProperty": [
+      "address", "address", "long long"
+    ],
+    "ritual_map_has_QHash_QString_QQmlJSMetaProperty": [
+      "bool", "address", "text"
+    ],
+    "ritual_map_get_QHash_QString_QQmlJSMetaProperty": [
+      "address", "address", "text"
+    ],
+    "ritual_map_drop_QHash_QString_QQmlJSMetaProperty": [
+      "nothing", "address"
+    ]
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3D/6.12.0/QtQuick3D/private/qquick3dcamera_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK14QQuick3DCamera10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QQuick3DCamera2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN14QQuick3DCamera24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK14QQuick3DCamera13mapToViewportERK9QVector3D": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK14QQuick3DCamera15mapFromViewportERK9QVector3D": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN14QQuick3DCamera13mapToViewportERK9QVector3Ddd": [
+      "address", "address", "address", "double", "double"
+    ],
+    "ritual_ZN14QQuick3DCamera15mapFromViewportERK9QVector3Ddd": [
+      "address", "address", "address", "double", "double"
+    ],
+    "ritual_ZN14QQuick3DCamera6lookAtERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QQuick3DCamera6lookAtEP12QQuick3DNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QQuick3DCamera21updateGlobalVariablesERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QQuick3DCamera21frustumCullingEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK14QQuick3DCamera10lookAtNodeEv": ["address", "address"],
+    "ritual_ZNK14QQuick3DCamera17levelOfDetailBiasEv": ["float", "address"],
+    "ritual_ZN14QQuick3DCamera24setFrustumCullingEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN14QQuick3DCamera13setLookAtNodeEP12QQuick3DNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QQuick3DCamera20setLevelOfDetailBiasEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN14QQuick3DCamera17updateSpatialNodeEP21QSSGRenderGraphObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN14QQuick3DCamera12updateLookAtEv": ["nothing", "address"],
+    "ritual_own_ZN14QQuick3DCamera17updateSpatialNodeEP21QSSGRenderGraphObject": [
+      "address", "address", "address"
+    ]
+  }
+}

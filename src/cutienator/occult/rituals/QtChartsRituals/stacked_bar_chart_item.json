@@ -1,0 +1,40 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/6.12.0/QtCharts/private/stackedbarchartitem_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK19StackedBarChartItem10metaObjectEv": ["address", "address"],
+    "ritual_ZN19StackedBarChartItem2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN19StackedBarChartItemC1EP18QAbstractBarSeriesP13QGraphicsItem": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN19StackedBarChartItem27handleLabelsPositionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19StackedBarChartItem14positionLabelsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19StackedBarChartItem15calculateLayoutEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19StackedBarChartItem16initializeLayoutEiiib": [
+      "nothing", "address", "int", "int", "int", "bool"
+    ],
+    "ritual_ZN19StackedBarChartItem12topLeftPointEidd": [
+      "address", "address", "int", "double", "double"
+    ],
+    "ritual_ZN19StackedBarChartItem16bottomRightPointEidd": [
+      "address", "address", "int", "double", "double"
+    ],
+    "ritual_own_ZN19StackedBarChartItem14positionLabelsEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN19StackedBarChartItem16initializeLayoutEiiib": [
+      "nothing", "address", "int", "int", "int", "bool"
+    ]
+  }
+}

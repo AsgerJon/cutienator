@@ -1,10 +1,18 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/6.12.0/QtWidgets/private/qmainwindowlayout_p.h, Qt 6.12.0.
 //  Changes made here are lost.
+#include <QtWidgets/qtwidgetsglobal.h>
+#include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
+#if QT_CONFIG(mainwindow)
+#if QT_CONFIG(dockwidget)
+#include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/QtWidgets>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/6.12.0/QtWidgets/private/qmainwindowlayout_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/qdockwidget.h>
 #include <QtCore/qlist.h>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include "QtWidgets/qapplication.h"
 #include "QtWidgets/qwidget.h"
 #if QT_CONFIG(tabbar)
@@ -71,13 +79,14 @@
 #include <QScopedValueRollback>
 #include <QtCore/private/qoffsetstringarray_p.h>
 #include <optional>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
 //  Qt's source, because Qt's library carries it under no name.
 //  Copyright (C) The Qt Company Ltd. It is licensed
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
-//  'inline' put before it.
+//  'inline' put before it where Qt did not write it.
 
 //  from src/widgets/widgets/qdockarealayout.cpp, line 96, as _ZNK19QDockAreaLayoutItem4skipEv
 inline bool QDockAreaLayoutItem::skip() const
@@ -101,33 +110,8 @@ inline bool QDockAreaLayoutItem::skip() const
     return true;
 }
 
-//  from src/widgets/widgets/qmainwindowlayout.cpp, line 434, as _ZNK22QDockWidgetGroupWindow13tabLayoutInfoEv
-inline const QDockAreaLayoutInfo *QDockWidgetGroupWindow::tabLayoutInfo() const
-{
-    const QDockAreaLayoutInfo *info = layoutInfo();
-    while (info && !info->tabbed) {
-        // There should be only one tabbed subinfo otherwise we are not a floating tab but a real
-        // window
-        const QDockAreaLayoutInfo *next = nullptr;
-        bool isSingle = false;
-        for (const auto &item : info->item_list) {
-            if (item.skip() || (item.flags & QDockAreaLayoutItem::GapItem))
-                continue;
-            if (next || isSingle) // Two visible things
-                return nullptr;
-            if (item.subinfo)
-                next = item.subinfo;
-            else if (item.widgetItem)
-                isSingle = true;
-        }
-        if (isSingle)
-            return info;
-        info = next;
-    }
-    return info;
-}
-
 //  from src/widgets/widgets/qmainwindowlayout.cpp, line 543, as _ZNK22QDockWidgetGroupWindow21hasVisibleDockWidgetsEv
+#if QT_CONFIG(dockwidget)
 inline bool QDockWidgetGroupWindow::hasVisibleDockWidgets() const
 {
     const auto &children = findChildren<QDockWidget *>(Qt::FindChildrenRecursively);
@@ -141,8 +125,10 @@ inline bool QDockWidgetGroupWindow::hasVisibleDockWidgets() const
     }
     return false;
 }
+#endif  // QT_CONFIG(dockwidget)
 
 //  from src/widgets/widgets/qmainwindowlayout.cpp, line 723, as _ZN22QDockWidgetGroupWindow10childEventEP11QChildEvent
+#if QT_CONFIG(dockwidget)
 inline void QDockWidgetGroupWindow::childEvent(QChildEvent *event)
 {
     switch (event->type()) {
@@ -162,8 +148,10 @@ inline void QDockWidgetGroupWindow::childEvent(QChildEvent *event)
         break;
     }
 }
+#endif  // QT_CONFIG(dockwidget)
 
 //  from src/widgets/widgets/qmainwindowlayout.cpp, line 743, as _ZN22QDockWidgetGroupWindow11eventFilterEP7QObjectP6QEvent
+#if QT_CONFIG(dockwidget)
 inline bool QDockWidgetGroupWindow::eventFilter(QObject *obj, QEvent *event)
 {
     auto *dockWidget = qobject_cast<QDockWidget *>(obj);
@@ -190,6 +178,7 @@ inline bool QDockWidgetGroupWindow::eventFilter(QObject *obj, QEvent *event)
     }
     return QWidget::eventFilter(obj, event);
 }
+#endif  // QT_CONFIG(dockwidget)
 //  -----------------------------------------------------------------------
 
 //  const QMetaObject *QDockWidgetGroupWindow::metaObject() const
@@ -199,12 +188,14 @@ const QMetaObject *ritual_ZNK22QDockWidgetGroupWindow10metaObjectEv(
   return self->metaObject();
 }
 
+#if QT_CONFIG(dockwidget)
 //  bool QDockWidgetGroupWindow::hasVisibleDockWidgets() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK22QDockWidgetGroupWindow21hasVisibleDockWidgetsEv(
     const QDockWidgetGroupWindow *self) {
   return self->hasVisibleDockWidgets();
 }
+#endif  // QT_CONFIG(dockwidget)
 
 //  void QDockWidgetGroupWindow::childEvent(QChildEvent *event)
 extern "C" Q_DECL_EXPORT
@@ -229,3 +220,6 @@ bool ritual_ZN22QDockWidgetGroupWindow11eventFilterEP7QObjectP6QEvent(
     QEvent *event) {
   return self->eventFilter(obj, event);
 }
+
+#endif  // QT_CONFIG(dockwidget)
+#endif  // QT_CONFIG(mainwindow)

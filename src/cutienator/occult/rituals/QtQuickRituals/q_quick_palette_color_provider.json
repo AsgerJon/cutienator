@@ -1,0 +1,47 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickpalettecolorprovider_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN26QQuickPaletteColorProviderC1Ev": ["address"],
+    "ritual_ZNK26QQuickPaletteColorProvider5colorEN8QPalette10ColorGroupENS0_9ColorRoleE": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZN26QQuickPaletteColorProvider8setColorEN8QPalette10ColorGroupENS0_9ColorRoleE6QColor": [
+      "bool", "address", "int", "int", "address"
+    ],
+    "ritual_ZN26QQuickPaletteColorProvider10resetColorEN8QPalette10ColorGroupENS0_9ColorRoleE": [
+      "bool", "address", "int", "int"
+    ],
+    "ritual_ZN26QQuickPaletteColorProvider10resetColorEN8QPalette10ColorGroupE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN26QQuickPaletteColorProvider12fromQPaletteE8QPalette": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK26QQuickPaletteColorProvider7paletteEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK26QQuickPaletteColorProvider15paletteProviderEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QQuickPaletteColorProvider18setPaletteProviderEPK29QQuickAbstractPaletteProvider": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QQuickPaletteColorProvider5resetEv": ["bool", "address"],
+    "ritual_ZN26QQuickPaletteColorProvider14inheritPaletteERK8QPalette": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN26QQuickPaletteColorProvider16doInheritPaletteERK8QPalette": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN26QQuickPaletteColorProvider22updateInheritedPaletteEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN26QQuickPaletteColorProvider22ensureRequestedPaletteEv": [
+      "nothing", "address"
+    ]
+  }
+}

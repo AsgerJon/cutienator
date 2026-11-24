@@ -1,0 +1,52 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qfontdialog_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QFontDialogPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK18QFontDialogPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN18QFontDialogPrivateC1Ev": ["address"],
+    "ritual_ZN18QFontDialogPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZNK18QFontDialogPrivate24platformFontDialogHelperEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18QFontDialogPrivate7getFontEPbRK5QFontP7QWidgetRK7QString6QFlagsIN11QFontDialog16FontDialogOptionEE": [
+      "address", "address", "address", "address", "text", "int"
+    ],
+    "ritual_ZN18QFontDialogPrivate16updateSampleFontERK5QFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QFontDialogPrivate18retranslateStringsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK18QFontDialogPrivate17canBeNativeDialogEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN18QFontDialogPrivate10setVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN18QFontDialogPrivate10initHelperEP21QPlatformDialogHelper": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QFontDialogPrivate17helperPrepareShowEP21QPlatformDialogHelper": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QFontDialogPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK18QFontDialogPrivate17canBeNativeDialogEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZN18QFontDialogPrivate10setVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZN18QFontDialogPrivate10initHelperEP21QPlatformDialogHelper": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN18QFontDialogPrivate17helperPrepareShowEP21QPlatformDialogHelper": [
+      "nothing", "address", "address"
+    ]
+  }
+}

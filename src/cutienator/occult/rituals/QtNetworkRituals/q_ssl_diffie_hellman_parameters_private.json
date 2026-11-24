@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtNetwo",
+    "rk/6.12.0/QtNetwork/private/qssldiffiehellmanparameters_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN34QSslDiffieHellmanParametersPrivate11initFromDerERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN34QSslDiffieHellmanParametersPrivate11initFromPemERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN34QSslDiffieHellmanParametersPrivateD1Ev": [
+      "nothing", "address"
+    ]
+  }
+}

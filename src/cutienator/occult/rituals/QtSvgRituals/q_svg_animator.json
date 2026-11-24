@@ -1,0 +1,26 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSvg/6.12.0/QtSvg/private/qsvganimator_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN12QSvgAnimatorC1Ev": ["address"],
+    "ritual_ZN12QSvgAnimatorD1Ev": ["nothing", "address"],
+    "ritual_ZN12QSvgAnimator16restartAnimationEv": ["nothing", "address"],
+    "ritual_ZN12QSvgAnimator14currentElapsedEv": ["long long", "address"],
+    "ritual_ZN12QSvgAnimator15setAnimatorTimeEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_take_QSvgAnimator": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN12QSvgAnimator16restartAnimationEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN12QSvgAnimator14currentElapsedEv": [
+      "long long", "address"
+    ],
+    "ritual_own_ZN12QSvgAnimator15setAnimatorTimeEx": [
+      "nothing", "address", "long long"
+    ]
+  }
+}

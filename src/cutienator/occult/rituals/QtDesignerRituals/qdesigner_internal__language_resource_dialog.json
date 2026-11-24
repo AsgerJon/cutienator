@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/iconselector_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18qdesigner_internal22LanguageResourceDialog10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal22LanguageResourceDialog2trEPKcS2_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_take_qdesigner_internal_LanguageResourceDialog": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

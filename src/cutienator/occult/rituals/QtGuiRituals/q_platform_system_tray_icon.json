@@ -1,0 +1,46 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/qpa/qplatformsystemtrayicon.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK23QPlatformSystemTrayIcon10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QPlatformSystemTrayIcon2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN23QPlatformSystemTrayIconD1Ev": ["nothing", "address"],
+    "ritual_ZN23QPlatformSystemTrayIcon4initEv": ["nothing", "address"],
+    "ritual_ZN23QPlatformSystemTrayIcon7cleanupEv": ["nothing", "address"],
+    "ritual_ZN23QPlatformSystemTrayIcon10updateIconERK5QIcon": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QPlatformSystemTrayIcon13updateToolTipERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN23QPlatformSystemTrayIcon10updateMenuEP13QPlatformMenu": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK23QPlatformSystemTrayIcon8geometryEv": ["address", "address"],
+    "ritual_ZN23QPlatformSystemTrayIcon11showMessageERK7QStringS2_RK5QIconNS_11MessageIconEi": [
+      "nothing", "address", "text", "text", "address", "int", "int"
+    ],
+    "ritual_ZNK23QPlatformSystemTrayIcon21isSystemTrayAvailableEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK23QPlatformSystemTrayIcon16supportsMessagesEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK23QPlatformSystemTrayIcon10createMenuEv": [
+      "address", "address"
+    ],
+    "ritual_take_QPlatformSystemTrayIcon": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK23QPlatformSystemTrayIcon10createMenuEv": [
+      "address", "address"
+    ]
+  }
+}

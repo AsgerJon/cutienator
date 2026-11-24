@@ -1,0 +1,43 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Dialogs2QuickImpl/6.12.0/QtQuickDialogs2QuickImpl/private/qquickfo",
+    "lderdialogimpl_p_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN29QQuickFolderDialogImplPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK29QQuickFolderDialogImplPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN29QQuickFolderDialogImplPrivateC1Ev": ["address"],
+    "ritual_ZN29QQuickFolderDialogImplPrivate3getEP22QQuickFolderDialogImpl": [
+      "address", "address"
+    ],
+    "ritual_ZN29QQuickFolderDialogImplPrivate14attachedOrWarnEv": [
+      "address", "address"
+    ],
+    "ritual_ZN29QQuickFolderDialogImplPrivate13updateEnabledEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QQuickFolderDialogImplPrivate20updateSelectedFolderERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN29QQuickFolderDialogImplPrivate12handleAcceptEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QQuickFolderDialogImplPrivate11handleClickEP20QQuickAbstractButton": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QQuickFolderDialogImplPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN29QQuickFolderDialogImplPrivate12handleAcceptEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN29QQuickFolderDialogImplPrivate11handleClickEP20QQuickAbstractButton": [
+      "nothing", "address", "address"
+    ]
+  }
+}

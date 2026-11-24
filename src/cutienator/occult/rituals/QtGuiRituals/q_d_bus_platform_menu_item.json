@@ -1,0 +1,119 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qdbusplatformmenu_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK21QDBusPlatformMenuItem10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK21QDBusPlatformMenuItem4textEv": ["text", "address"],
+    "ritual_ZN21QDBusPlatformMenuItem7setTextERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK21QDBusPlatformMenuItem4iconEv": ["address", "address"],
+    "ritual_ZN21QDBusPlatformMenuItem7setIconERK5QIcon": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21QDBusPlatformMenuItem4menuEv": ["address", "address"],
+    "ritual_ZN21QDBusPlatformMenuItem7setMenuEP13QPlatformMenu": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21QDBusPlatformMenuItem9isEnabledEv": ["bool", "address"],
+    "ritual_ZN21QDBusPlatformMenuItem10setEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK21QDBusPlatformMenuItem9isVisibleEv": ["bool", "address"],
+    "ritual_ZN21QDBusPlatformMenuItem10setVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK21QDBusPlatformMenuItem11isSeparatorEv": ["bool", "address"],
+    "ritual_ZN21QDBusPlatformMenuItem14setIsSeparatorEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN21QDBusPlatformMenuItem7setFontERK5QFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QDBusPlatformMenuItem7setRoleEN17QPlatformMenuItem8MenuRoleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK21QDBusPlatformMenuItem11isCheckableEv": ["bool", "address"],
+    "ritual_ZN21QDBusPlatformMenuItem12setCheckableEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK21QDBusPlatformMenuItem9isCheckedEv": ["bool", "address"],
+    "ritual_ZN21QDBusPlatformMenuItem10setCheckedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK21QDBusPlatformMenuItem17hasExclusiveGroupEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QDBusPlatformMenuItem20setHasExclusiveGroupEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK21QDBusPlatformMenuItem8shortcutEv": ["address", "address"],
+    "ritual_ZN21QDBusPlatformMenuItem11setShortcutERK12QKeySequence": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QDBusPlatformMenuItem11setIconSizeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN21QDBusPlatformMenuItem17setNativeContentsEy": [
+      "nothing", "address", "unsigned long long"
+    ],
+    "ritual_ZNK21QDBusPlatformMenuItem6dbusIDEv": ["int", "address"],
+    "ritual_ZN21QDBusPlatformMenuItem7triggerEv": ["nothing", "address"],
+    "ritual_take_QDBusPlatformMenuItem": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN21QDBusPlatformMenuItem7setIconERK5QIcon": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN21QDBusPlatformMenuItem7setMenuEP13QPlatformMenu": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN21QDBusPlatformMenuItem10setEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZN21QDBusPlatformMenuItem10setVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZN21QDBusPlatformMenuItem14setIsSeparatorEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZN21QDBusPlatformMenuItem7setFontERK5QFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN21QDBusPlatformMenuItem7setRoleEN17QPlatformMenuItem8MenuRoleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN21QDBusPlatformMenuItem12setCheckableEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZN21QDBusPlatformMenuItem10setCheckedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZN21QDBusPlatformMenuItem20setHasExclusiveGroupEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZN21QDBusPlatformMenuItem11setShortcutERK12QKeySequence": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN21QDBusPlatformMenuItem11setIconSizeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN21QDBusPlatformMenuItem17setNativeContentsEy": [
+      "nothing", "address", "unsigned long long"
+    ],
+    "ritual_list_make_QDBusPlatformMenuItem_ptr": ["address"],
+    "ritual_list_add_QDBusPlatformMenuItem_ptr": [
+      "nothing", "address", "address"
+    ],
+    "ritual_list_size_QDBusPlatformMenuItem_ptr": ["long long", "address"],
+    "ritual_list_at_QDBusPlatformMenuItem_ptr": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_QDBusPlatformMenuItem_ptr": ["nothing", "address"]
+  }
+}

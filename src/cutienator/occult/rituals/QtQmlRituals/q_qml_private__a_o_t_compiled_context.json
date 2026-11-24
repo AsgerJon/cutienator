@@ -1,0 +1,42 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/qqmlprivate.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK11QQmlPrivate18AOTCompiledContext17constructDateTimeERK17QJSPrimitiveValue": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK11QQmlPrivate18AOTCompiledContext32initCallQmlContextPropertyLookupEji": [
+      "nothing", "address", "unsigned int", "int"
+    ],
+    "ritual_ZNK11QQmlPrivate18AOTCompiledContext28initCallObjectPropertyLookupEjP7QObjecti": [
+      "nothing", "address", "unsigned int", "address", "int"
+    ],
+    "ritual_ZNK11QQmlPrivate18AOTCompiledContext20initLoadGlobalLookupEj9QMetaType": [
+      "nothing", "address", "unsigned int", "address"
+    ],
+    "ritual_ZNK11QQmlPrivate18AOTCompiledContext33initLoadScopeObjectPropertyLookupEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZNK11QQmlPrivate18AOTCompiledContext19initGetObjectLookupEjP7QObject": [
+      "nothing", "address", "unsigned int", "address"
+    ],
+    "ritual_ZNK11QQmlPrivate18AOTCompiledContext18initGetValueLookupEjPK11QMetaObject": [
+      "nothing", "address", "unsigned int", "address"
+    ],
+    "ritual_ZNK11QQmlPrivate18AOTCompiledContext19initSetObjectLookupEjP7QObject": [
+      "nothing", "address", "unsigned int", "address"
+    ],
+    "ritual_ZNK11QQmlPrivate18AOTCompiledContext18initSetValueLookupEjPK11QMetaObject": [
+      "nothing", "address", "unsigned int", "address"
+    ],
+    "ritual_ZNK11QQmlPrivate18AOTCompiledContext23setImplicitDestructibleEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QQmlPrivate18AOTCompiledContext23setImplicitDestructibleERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QQmlPrivate18AOTCompiledContextD1Ev": ["nothing", "address"]
+  }
+}

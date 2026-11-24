@@ -1,0 +1,42 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/6.12.0/QtCharts/private/qpieslice_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK16QPieSlicePrivate10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QPieSlicePrivate2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN16QPieSlicePrivateC1EP9QPieSlice": ["address", "address"],
+    "ritual_ZN16QPieSlicePrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN16QPieSlicePrivate9fromSliceEP9QPieSlice": [
+      "address", "address"
+    ],
+    "ritual_ZN16QPieSlicePrivate6setPenERK4QPenb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN16QPieSlicePrivate8setBrushERK6QBrushb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN16QPieSlicePrivate13setLabelBrushERK6QBrushb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN16QPieSlicePrivate12setLabelFontERK5QFontb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN16QPieSlicePrivate13setPercentageEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN16QPieSlicePrivate13setStartAngleEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN16QPieSlicePrivate12setAngleSpanEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN16QPieSlicePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK16QPieSlicePrivate6q_funcEv": ["address", "address"],
+    "ritual_take_QPieSlicePrivate": ["bool", "address", "chars", "address"]
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtBluetooth/qbluetoothserviceinfo.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZN21QBluetoothServiceInfoC1Ev": ["address"],
+    "ritual_ZN21QBluetoothServiceInfoC1ERKS_": ["address", "address"],
+    "ritual_ZN21QBluetoothServiceInfoD1Ev": ["nothing", "address"],
+    "ritual_ZNK21QBluetoothServiceInfo7isValidEv": ["bool", "address"],
+    "ritual_ZNK21QBluetoothServiceInfo10isCompleteEv": ["bool", "address"],
+    "ritual_ZN21QBluetoothServiceInfo9setDeviceERK20QBluetoothDeviceInfo": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21QBluetoothServiceInfo6deviceEv": ["address", "address"],
+    "ritual_ZN21QBluetoothServiceInfo12setAttributeEtRK8QVariant": [
+      "nothing", "address", "unsigned short", "address"
+    ],
+    "ritual_ZN21QBluetoothServiceInfo12setAttributeEtRK14QBluetoothUuid": [
+      "nothing", "address", "unsigned short", "address"
+    ],
+    "ritual_ZN21QBluetoothServiceInfo12setAttributeEtRKNS_8SequenceE": [
+      "nothing", "address", "unsigned short", "address"
+    ],
+    "ritual_ZN21QBluetoothServiceInfo12setAttributeEtRKNS_11AlternativeE": [
+      "nothing", "address", "unsigned short", "address"
+    ],
+    "ritual_ZNK21QBluetoothServiceInfo9attributeEt": [
+      "address", "address", "unsigned short"
+    ],
+    "ritual_ZNK21QBluetoothServiceInfo8containsEt": [
+      "bool", "address", "unsigned short"
+    ],
+    "ritual_ZN21QBluetoothServiceInfo15removeAttributeEt": [
+      "nothing", "address", "unsigned short"
+    ],
+    "ritual_ZN21QBluetoothServiceInfo14setServiceNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK21QBluetoothServiceInfo11serviceNameEv": ["text", "address"],
+    "ritual_ZN21QBluetoothServiceInfo21setServiceDescriptionERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK21QBluetoothServiceInfo18serviceDescriptionEv": [
+      "text", "address"
+    ],
+    "ritual_ZN21QBluetoothServiceInfo18setServiceProviderERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK21QBluetoothServiceInfo15serviceProviderEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK21QBluetoothServiceInfo14socketProtocolEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK21QBluetoothServiceInfo26protocolServiceMultiplexerEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK21QBluetoothServiceInfo13serverChannelEv": ["int", "address"],
+    "ritual_ZNK21QBluetoothServiceInfo18protocolDescriptorEN14QBluetoothUuid12ProtocolUuidE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN21QBluetoothServiceInfo22setServiceAvailabilityEh": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZNK21QBluetoothServiceInfo19serviceAvailabilityEv": [
+      "unsigned char", "address"
+    ],
+    "ritual_ZN21QBluetoothServiceInfo14setServiceUuidERK14QBluetoothUuid": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21QBluetoothServiceInfo11serviceUuidEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK21QBluetoothServiceInfo17serviceClassUuidsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK21QBluetoothServiceInfo12isRegisteredEv": ["bool", "address"],
+    "ritual_ZN21QBluetoothServiceInfo15registerServiceERK17QBluetoothAddress": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN21QBluetoothServiceInfo17unregisterServiceEv": [
+      "bool", "address"
+    ],
+    "ritual_Zls6QDebugRK21QBluetoothServiceInfo": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN21QBluetoothServiceInfo17streamingOperatorE6QDebugRKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_list_make_QBluetoothServiceInfo": ["address"],
+    "ritual_list_add_QBluetoothServiceInfo": [
+      "nothing", "address", "address"
+    ],
+    "ritual_list_size_QBluetoothServiceInfo": ["long long", "address"],
+    "ritual_list_at_QBluetoothServiceInfo": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_QBluetoothServiceInfo": ["nothing", "address"]
+  }
+}

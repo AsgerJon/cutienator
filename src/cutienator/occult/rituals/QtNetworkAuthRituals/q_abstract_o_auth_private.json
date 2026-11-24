@@ -1,0 +1,29 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetworkAuth/6.12.0/QtNetworkAuth/private/qabstractoauth_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN21QAbstractOAuthPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK21QAbstractOAuthPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN21QAbstractOAuthPrivate20networkAccessManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QAbstractOAuthPrivate9setStatusEN14QAbstractOAuth6StatusE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN21QAbstractOAuthPrivate26generateRandomBase64StringEh": [
+      "address", "unsigned char"
+    ],
+    "ritual_ZN21QAbstractOAuthPrivate14setExtraTokensERK4QMapI7QString8QVariantE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QAbstractOAuthPrivate17convertParametersERK4QMapI7QString8QVariantE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN21QAbstractOAuthPrivate21addContentTypeHeadersEP15QNetworkRequest": [
+      "nothing", "address", "address"
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qgraphicslayoutstyleinfo_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN24QGraphicsLayoutStyleInfoD1Ev": ["nothing", "address"],
+    "ritual_ZNK24QGraphicsLayoutStyleInfo21combinedLayoutSpacingE6QFlagsIN13QLayoutPolicy11ControlTypeEES3_N2Qt11OrientationE": [
+      "double", "address", "int", "int", "int"
+    ],
+    "ritual_ZNK24QGraphicsLayoutStyleInfo14perItemSpacingEN13QLayoutPolicy11ControlTypeES1_N2Qt11OrientationE": [
+      "double", "address", "int", "int", "int"
+    ],
+    "ritual_ZNK24QGraphicsLayoutStyleInfo7spacingEN2Qt11OrientationE": [
+      "double", "address", "int"
+    ],
+    "ritual_ZNK24QGraphicsLayoutStyleInfo12windowMarginEN2Qt11OrientationE": [
+      "double", "address", "int"
+    ],
+    "ritual_ZN24QGraphicsLayoutStyleInfo10invalidateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK24QGraphicsLayoutStyleInfo5styleEv": ["address", "address"],
+    "ritual_take_QGraphicsLayoutStyleInfo": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN24QGraphicsLayoutStyleInfo10invalidateEv": [
+      "nothing", "address"
+    ]
+  }
+}

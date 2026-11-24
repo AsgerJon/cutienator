@@ -94,6 +94,7 @@ int ritual_ZN27QOperatingSystemVersionBase7compareES_S_(
   return QOperatingSystemVersionBase::compare(*v1, *v2);
 }
 
+#if !(defined(__cpp_lib_three_way_comparison))
 //  bool operator>(QOperatingSystemVersionBase lhs,
 //      QOperatingSystemVersionBase rhs)
 extern "C" Q_DECL_EXPORT
@@ -102,7 +103,9 @@ bool ritual_Zgt27QOperatingSystemVersionBaseS_(
     const QOperatingSystemVersionBase *rhs) {
   return operator>(*lhs, *rhs);
 }
+#endif  // !(defined(__cpp_lib_three_way_comparison))
 
+#if !(defined(__cpp_lib_three_way_comparison))
 //  bool operator>=(QOperatingSystemVersionBase lhs,
 //      QOperatingSystemVersionBase rhs)
 extern "C" Q_DECL_EXPORT
@@ -111,7 +114,9 @@ bool ritual_Zge27QOperatingSystemVersionBaseS_(
     const QOperatingSystemVersionBase *rhs) {
   return operator>=(*lhs, *rhs);
 }
+#endif  // !(defined(__cpp_lib_three_way_comparison))
 
+#if !(defined(__cpp_lib_three_way_comparison))
 //  bool operator<(QOperatingSystemVersionBase lhs,
 //      QOperatingSystemVersionBase rhs)
 extern "C" Q_DECL_EXPORT
@@ -120,7 +125,9 @@ bool ritual_Zlt27QOperatingSystemVersionBaseS_(
     const QOperatingSystemVersionBase *rhs) {
   return operator<(*lhs, *rhs);
 }
+#endif  // !(defined(__cpp_lib_three_way_comparison))
 
+#if !(defined(__cpp_lib_three_way_comparison))
 //  bool operator<=(QOperatingSystemVersionBase lhs,
 //      QOperatingSystemVersionBase rhs)
 extern "C" Q_DECL_EXPORT
@@ -129,6 +136,7 @@ bool ritual_Zle27QOperatingSystemVersionBaseS_(
     const QOperatingSystemVersionBase *rhs) {
   return operator<=(*lhs, *rhs);
 }
+#endif  // !(defined(__cpp_lib_three_way_comparison))
 
 //  QOperatingSystemVersionBase::QOperatingSystemVersionBase()
 extern "C" Q_DECL_EXPORT

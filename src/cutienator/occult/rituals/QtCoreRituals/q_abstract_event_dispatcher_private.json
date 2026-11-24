@@ -1,0 +1,30 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qabstracteventdispatcher_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN31QAbstractEventDispatcherPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK31QAbstractEventDispatcherPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN31QAbstractEventDispatcherPrivateC1Ev": ["address"],
+    "ritual_ZN31QAbstractEventDispatcherPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN31QAbstractEventDispatcherPrivate15allocateTimerIdEv": ["int"],
+    "ritual_ZN31QAbstractEventDispatcherPrivate14releaseTimerIdEi": [
+      "nothing", "int"
+    ],
+    "ritual_ZN31QAbstractEventDispatcherPrivate14releaseTimerIdEN2Qt7TimerIdE": [
+      "nothing", "int"
+    ],
+    "ritual_ZN31QAbstractEventDispatcherPrivate3getEP24QAbstractEventDispatcher": [
+      "address", "address"
+    ],
+    "ritual_ZN31QAbstractEventDispatcherPrivate3getEPK24QAbstractEventDispatcher": [
+      "address", "address"
+    ]
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtPosit",
+    "ioningQuick/6.12.0/QtPositioningQuick/private/qpositioningquickmod",
+    "ule_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN24QGeoSatelliteInfoForeign20qt_qmlMarker_foreignEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QGeoSatelliteInfoForeignD1Ev": ["nothing", "address"]
+  }
+}

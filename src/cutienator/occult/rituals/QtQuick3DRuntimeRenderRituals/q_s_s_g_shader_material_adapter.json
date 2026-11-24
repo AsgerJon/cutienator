@@ -1,0 +1,185 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgshaderma",
+    "terialadapter_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN25QSSGShaderMaterialAdapterD1Ev": ["nothing", "address"],
+    "ritual_ZN25QSSGShaderMaterialAdapter12isPrincipledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN25QSSGShaderMaterialAdapter16isSpecularGlossyEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN25QSSGShaderMaterialAdapter18isMetalnessEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN25QSSGShaderMaterialAdapter17isSpecularEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN25QSSGShaderMaterialAdapter21isVertexColorsEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN25QSSGShaderMaterialAdapter25isVertexColorsMaskEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN25QSSGShaderMaterialAdapter23isInvertOpacityMapValueEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN25QSSGShaderMaterialAdapter31isBaseColorSingleChannelEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN25QSSGShaderMaterialAdapter36isSpecularAmountSingleChannelEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN25QSSGShaderMaterialAdapter30isEmissiveSingleChannelEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN25QSSGShaderMaterialAdapter25isFresnelScaleBiasEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN25QSSGShaderMaterialAdapter34isClearcoatFresnelScaleBiasEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN25QSSGShaderMaterialAdapter18isClearcoatEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN25QSSGShaderMaterialAdapter21isTransmissionEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN25QSSGShaderMaterialAdapter11hasLightingEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN25QSSGShaderMaterialAdapter18usesCustomSkinningEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN25QSSGShaderMaterialAdapter18usesCustomMorphingEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN25QSSGShaderMaterialAdapter13specularModelEv": [
+      "unsigned char", "address"
+    ],
+    "ritual_ZN25QSSGShaderMaterialAdapter9alphaModeEv": [
+      "unsigned char", "address"
+    ],
+    "ritual_ZN25QSSGShaderMaterialAdapter18vertexColorRedMaskEv": [
+      "int", "address"
+    ],
+    "ritual_ZN25QSSGShaderMaterialAdapter20vertexColorGreenMaskEv": [
+      "int", "address"
+    ],
+    "ritual_ZN25QSSGShaderMaterialAdapter19vertexColorBlueMaskEv": [
+      "int", "address"
+    ],
+    "ritual_ZN25QSSGShaderMaterialAdapter20vertexColorAlphaMaskEv": [
+      "int", "address"
+    ],
+    "ritual_ZN25QSSGShaderMaterialAdapter8iblProbeEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QSSGShaderMaterialAdapter13emissiveColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QSSGShaderMaterialAdapter5colorEv": ["address", "address"],
+    "ritual_ZN25QSSGShaderMaterialAdapter12specularTintEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QSSGShaderMaterialAdapter3iorEv": ["float", "address"],
+    "ritual_ZN25QSSGShaderMaterialAdapter12fresnelScaleEv": [
+      "float", "address"
+    ],
+    "ritual_ZN25QSSGShaderMaterialAdapter11fresnelBiasEv": [
+      "float", "address"
+    ],
+    "ritual_ZN25QSSGShaderMaterialAdapter12fresnelPowerEv": [
+      "float", "address"
+    ],
+    "ritual_ZN25QSSGShaderMaterialAdapter21clearcoatFresnelScaleEv": [
+      "float", "address"
+    ],
+    "ritual_ZN25QSSGShaderMaterialAdapter20clearcoatFresnelBiasEv": [
+      "float", "address"
+    ],
+    "ritual_ZN25QSSGShaderMaterialAdapter21clearcoatFresnelPowerEv": [
+      "float", "address"
+    ],
+    "ritual_ZN25QSSGShaderMaterialAdapter15metalnessAmountEv": [
+      "float", "address"
+    ],
+    "ritual_ZN25QSSGShaderMaterialAdapter14specularAmountEv": [
+      "float", "address"
+    ],
+    "ritual_ZN25QSSGShaderMaterialAdapter17specularRoughnessEv": [
+      "float", "address"
+    ],
+    "ritual_ZN25QSSGShaderMaterialAdapter10bumpAmountEv": [
+      "float", "address"
+    ],
+    "ritual_ZN25QSSGShaderMaterialAdapter18translucentFallOffEv": [
+      "float", "address"
+    ],
+    "ritual_ZN25QSSGShaderMaterialAdapter16diffuseLightWrapEv": [
+      "float", "address"
+    ],
+    "ritual_ZN25QSSGShaderMaterialAdapter15occlusionAmountEv": [
+      "float", "address"
+    ],
+    "ritual_ZN25QSSGShaderMaterialAdapter11alphaCutOffEv": [
+      "float", "address"
+    ],
+    "ritual_ZN25QSSGShaderMaterialAdapter9pointSizeEv": ["float", "address"],
+    "ritual_ZN25QSSGShaderMaterialAdapter9lineWidthEv": ["float", "address"],
+    "ritual_ZN25QSSGShaderMaterialAdapter12heightAmountEv": [
+      "float", "address"
+    ],
+    "ritual_ZN25QSSGShaderMaterialAdapter16minHeightSamplesEv": [
+      "float", "address"
+    ],
+    "ritual_ZN25QSSGShaderMaterialAdapter16maxHeightSamplesEv": [
+      "float", "address"
+    ],
+    "ritual_ZN25QSSGShaderMaterialAdapter15clearcoatAmountEv": [
+      "float", "address"
+    ],
+    "ritual_ZN25QSSGShaderMaterialAdapter24clearcoatRoughnessAmountEv": [
+      "float", "address"
+    ],
+    "ritual_ZN25QSSGShaderMaterialAdapter23clearcoatNormalStrengthEv": [
+      "float", "address"
+    ],
+    "ritual_ZN25QSSGShaderMaterialAdapter18transmissionFactorEv": [
+      "float", "address"
+    ],
+    "ritual_ZN25QSSGShaderMaterialAdapter15thicknessFactorEv": [
+      "float", "address"
+    ],
+    "ritual_ZN25QSSGShaderMaterialAdapter19attenuationDistanceEv": [
+      "float", "address"
+    ],
+    "ritual_ZN25QSSGShaderMaterialAdapter16attenuationColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QSSGShaderMaterialAdapter10isUnshadedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN25QSSGShaderMaterialAdapter22hasCustomShaderSnippetEN15QSSGShaderCache10ShaderTypeE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN25QSSGShaderMaterialAdapter19usesSharedVariablesEv": [
+      "bool", "address"
+    ],
+    "ritual_take_QSSGShaderMaterialAdapter": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN25QSSGShaderMaterialAdapter10isUnshadedEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZN25QSSGShaderMaterialAdapter22hasCustomShaderSnippetEN15QSSGShaderCache10ShaderTypeE": [
+      "bool", "address", "int"
+    ],
+    "ritual_own_ZN25QSSGShaderMaterialAdapter19usesSharedVariablesEv": [
+      "bool", "address"
+    ]
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtBluet",
+    "ooth/6.12.0/QtBluetooth/private/qbluetoothservicediscoveryagent_p.",
+    "h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN38QBluetoothServiceDiscoveryAgentPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK38QBluetoothServiceDiscoveryAgentPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN38QBluetoothServiceDiscoveryAgentPrivate19stopDeviceDiscoveryEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN38QBluetoothServiceDiscoveryAgentPrivate17setDiscoveryStateENS_14DiscoveryStateE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN38QBluetoothServiceDiscoveryAgentPrivate14discoveryStateEv": [
+      "int", "address"
+    ],
+    "ritual_ZN38QBluetoothServiceDiscoveryAgentPrivate16setDiscoveryModeEN31QBluetoothServiceDiscoveryAgent13DiscoveryModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN38QBluetoothServiceDiscoveryAgentPrivate13DiscoveryModeEv": [
+      "int", "address"
+    ],
+    "ritual_ZN38QBluetoothServiceDiscoveryAgentPrivate19_q_deviceDiscoveredERK20QBluetoothDeviceInfo": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN38QBluetoothServiceDiscoveryAgentPrivate23_q_deviceDiscoveryErrorEN30QBluetoothDeviceDiscoveryAgent5ErrorE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK38QBluetoothServiceDiscoveryAgentPrivate19isDuplicatedServiceERK21QBluetoothServiceInfo": [
+      "bool", "address", "address"
+    ]
+  }
+}

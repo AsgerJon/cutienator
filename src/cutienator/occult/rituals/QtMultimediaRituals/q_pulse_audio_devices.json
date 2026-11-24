@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtMultimedia/6.12.0/QtMultimedia/private/qpulseaudiodevices_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QPulseAudioDevicesD1Ev": ["nothing", "address"],
+    "ritual_ZNK18QPulseAudioDevices11backendNameEv": ["address", "address"],
+    "ritual_ZNK18QPulseAudioDevices14hasCallbackApiEv": ["bool", "address"],
+    "ritual_take_QPulseAudioDevices": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK18QPulseAudioDevices11backendNameEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK18QPulseAudioDevices14hasCallbackApiEv": [
+      "bool", "address"
+    ]
+  }
+}

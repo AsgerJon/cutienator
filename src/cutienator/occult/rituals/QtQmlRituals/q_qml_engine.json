@@ -1,0 +1,107 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/qqmlengine.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK10QQmlEngine10metaObjectEv": ["address", "address"],
+    "ritual_ZN10QQmlEngine2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN10QQmlEngineC1EP7QObject": ["address", "address"],
+    "ritual_ZN10QQmlEngineD1Ev": ["nothing", "address"],
+    "ritual_ZNK10QQmlEngine11rootContextEv": ["address", "address"],
+    "ritual_ZN10QQmlEngine19clearComponentCacheEv": ["nothing", "address"],
+    "ritual_ZN10QQmlEngine18trimComponentCacheEv": ["nothing", "address"],
+    "ritual_ZN10QQmlEngine15clearSingletonsEv": ["nothing", "address"],
+    "ritual_ZNK10QQmlEngine14importPathListEv": ["address", "address"],
+    "ritual_ZN10QQmlEngine17setImportPathListERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QQmlEngine13addImportPathERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK10QQmlEngine14pluginPathListEv": ["address", "address"],
+    "ritual_ZN10QQmlEngine17setPluginPathListERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QQmlEngine13addPluginPathERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN10QQmlEngine14addNamedBundleERK7QStringS2_": [
+      "bool", "address", "text", "text"
+    ],
+    "ritual_ZN10QQmlEngine30setNetworkAccessManagerFactoryEP31QQmlNetworkAccessManagerFactory": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10QQmlEngine27networkAccessManagerFactoryEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10QQmlEngine20networkAccessManagerEv": ["address", "address"],
+    "ritual_ZN10QQmlEngine17setUrlInterceptorEP26QQmlAbstractUrlInterceptor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10QQmlEngine14urlInterceptorEv": ["address", "address"],
+    "ritual_ZN10QQmlEngine17addUrlInterceptorEP26QQmlAbstractUrlInterceptor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QQmlEngine20removeUrlInterceptorEP26QQmlAbstractUrlInterceptor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10QQmlEngine15urlInterceptorsEv": ["address", "address"],
+    "ritual_ZNK10QQmlEngine12interceptUrlERK4QUrlN26QQmlAbstractUrlInterceptor8DataTypeE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN10QQmlEngine16addImageProviderERK7QStringP21QQmlImageProviderBase": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZNK10QQmlEngine13imageProviderERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN10QQmlEngine19removeImageProviderERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN10QQmlEngine23setIncubationControllerEP24QQmlIncubationController": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10QQmlEngine20incubationControllerEv": ["address", "address"],
+    "ritual_ZN10QQmlEngine21setOfflineStoragePathERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK10QQmlEngine18offlineStoragePathEv": ["text", "address"],
+    "ritual_ZNK10QQmlEngine30offlineStorageDatabaseFilePathERK7QString": [
+      "text", "address", "text"
+    ],
+    "ritual_ZNK10QQmlEngine7baseUrlEv": ["address", "address"],
+    "ritual_ZN10QQmlEngine10setBaseUrlERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10QQmlEngine29outputWarningsToStandardErrorEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN10QQmlEngine32setOutputWarningsToStandardErrorEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN10QQmlEngine39markCurrentFunctionAsTranslationBindingEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10QQmlEngine28setExternalSingletonInstanceE14QAnyStringViewS0_P7QObject": [
+      "bool", "address", "text", "text", "address"
+    ],
+    "ritual_ZNK10QQmlEngine15capturePropertyEP7QObjectRK13QMetaProperty": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN10QQmlEngine11retranslateEv": ["nothing", "address"],
+    "ritual_ZN10QQmlEngine16contextForObjectEPK7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN10QQmlEngine19setContextForObjectEP7QObjectP11QQmlContext": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QQmlEngine5eventEP6QEvent": ["bool", "address", "address"],
+    "ritual_ZN10QQmlEngine6d_funcEv": ["address", "address"],
+    "ritual_ZNK10QQmlEngine6d_funcEv": ["address", "address"],
+    "ritual_take_QQmlEngine": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN10QQmlEngine5eventEP6QEvent": [
+      "bool", "address", "address"
+    ]
+  }
+}

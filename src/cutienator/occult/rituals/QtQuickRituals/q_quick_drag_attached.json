@@ -1,0 +1,81 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickdrag_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18QQuickDragAttached10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QQuickDragAttached2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18QQuickDragAttached6d_funcEv": ["address", "address"],
+    "ritual_ZNK18QQuickDragAttached6d_funcEv": ["address", "address"],
+    "ritual_ZN18QQuickDragAttached22qt_qmlMarker_anonymousEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickDragAttachedC1EP7QObject": ["address", "address"],
+    "ritual_ZN18QQuickDragAttachedD1Ev": ["nothing", "address"],
+    "ritual_ZNK18QQuickDragAttached8isActiveEv": ["bool", "address"],
+    "ritual_ZN18QQuickDragAttached9setActiveEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK18QQuickDragAttached6sourceEv": ["address", "address"],
+    "ritual_ZN18QQuickDragAttached9setSourceEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQuickDragAttached11resetSourceEv": ["nothing", "address"],
+    "ritual_ZNK18QQuickDragAttached6targetEv": ["address", "address"],
+    "ritual_ZNK18QQuickDragAttached7hotSpotEv": ["address", "address"],
+    "ritual_ZN18QQuickDragAttached10setHotSpotERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QQuickDragAttached11imageSourceEv": ["address", "address"],
+    "ritual_ZN18QQuickDragAttached14setImageSourceERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QQuickDragAttached15imageSourceSizeEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18QQuickDragAttached18setImageSourceSizeERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QQuickDragAttached4keysEv": ["address", "address"],
+    "ritual_ZN18QQuickDragAttached7setKeysERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QQuickDragAttached8mimeDataEv": ["address", "address"],
+    "ritual_ZN18QQuickDragAttached11setMimeDataERK4QMapI7QString8QVariantE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QQuickDragAttached16supportedActionsEv": ["int", "address"],
+    "ritual_ZN18QQuickDragAttached19setSupportedActionsE6QFlagsIN2Qt10DropActionEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK18QQuickDragAttached14proposedActionEv": ["int", "address"],
+    "ritual_ZN18QQuickDragAttached17setProposedActionEN2Qt10DropActionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK18QQuickDragAttached8dragTypeEv": ["int", "address"],
+    "ritual_ZN18QQuickDragAttached11setDragTypeEN10QQuickDrag8DragTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18QQuickDragAttached4dropEv": ["int", "address"],
+    "ritual_ZN18QQuickDragAttached5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN18QQuickDragAttached5startEP14QQmlV4Function": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQuickDragAttached9startDragEP14QQmlV4Function": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQuickDragAttached6cancelEv": ["nothing", "address"],
+    "ritual_take_QQuickDragAttached": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN18QQuickDragAttached5eventEP6QEvent": [
+      "bool", "address", "address"
+    ]
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3D/qquick3dinstancing.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK18QQuick3DInstancing10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QQuick3DInstancing2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18QQuick3DInstancing6d_funcEv": ["address", "address"],
+    "ritual_ZNK18QQuick3DInstancing6d_funcEv": ["address", "address"],
+    "ritual_ZN18QQuick3DInstancing24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuick3DInstancingD1Ev": ["nothing", "address"],
+    "ritual_ZN18QQuick3DInstancing14instanceBufferEPi": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK18QQuick3DInstancing21instanceCountOverrideEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK18QQuick3DInstancing15hasTransparencyEv": ["bool", "address"],
+    "ritual_ZNK18QQuick3DInstancing19depthSortingEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK18QQuick3DInstancing19shadowBoundsMinimumEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18QQuick3DInstancing19shadowBoundsMaximumEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18QQuick3DInstancing16instancePositionEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN18QQuick3DInstancing13instanceScaleEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN18QQuick3DInstancing16instanceRotationEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN18QQuick3DInstancing13instanceColorEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN18QQuick3DInstancing18instanceCustomDataEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN18QQuick3DInstancing24setInstanceCountOverrideEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18QQuick3DInstancing18setHasTransparencyEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN18QQuick3DInstancing22setDepthSortingEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN18QQuick3DInstancing22setShadowBoundsMinimumERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQuick3DInstancing22setShadowBoundsMaximumERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQuick3DInstancing17getInstanceBufferEPi": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18QQuick3DInstancing9markDirtyEv": ["nothing", "address"],
+    "ritual_ZN18QQuick3DInstancing19calculateTableEntryERK9QVector3DS2_S2_RK6QColorRK9QVector4D": [
+      "address", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN18QQuick3DInstancing33calculateTableEntryFromQuaternionERK9QVector3DS2_RK11QQuaternionRK6QColorRK9QVector4D": [
+      "address", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN18QQuick3DInstancing17updateSpatialNodeEP21QSSGRenderGraphObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18QQuick3DInstancing16getInstanceEntryEi": [
+      "address", "address", "int"
+    ],
+    "ritual_take_QQuick3DInstancing": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN18QQuick3DInstancing17updateSpatialNodeEP21QSSGRenderGraphObject": [
+      "address", "address", "address"
+    ]
+  }
+}

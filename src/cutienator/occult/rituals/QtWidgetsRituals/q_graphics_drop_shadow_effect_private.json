@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qgraphicseffect_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN32QGraphicsDropShadowEffectPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK32QGraphicsDropShadowEffectPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN32QGraphicsDropShadowEffectPrivateC1Ev": ["address"],
+    "ritual_ZN32QGraphicsDropShadowEffectPrivateD1Ev": ["nothing", "address"]
+  }
+}

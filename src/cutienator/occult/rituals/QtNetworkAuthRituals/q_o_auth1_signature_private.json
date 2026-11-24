@@ -1,0 +1,12 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetworkAuth/6.12.0/QtNetworkAuth/private/qoauth1signature_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN23QOAuth1SignaturePrivateC1Ev": ["address"],
+    "ritual_ZNK23QOAuth1SignaturePrivate6secretEv": ["address", "address"],
+    "ritual_ZN23QOAuth1SignaturePrivateD1Ev": ["nothing", "address"]
+  }
+}

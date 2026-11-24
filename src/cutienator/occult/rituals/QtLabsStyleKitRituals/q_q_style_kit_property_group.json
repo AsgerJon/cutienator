@@ -1,0 +1,28 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtLabsS",
+    "tyleKit/6.12.0/QtLabsStyleKit/private/qqstylekitcontrolproperties_",
+    "p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK23QQStyleKitPropertyGroup10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK23QQStyleKitPropertyGroup14propertyPathIdEN4QQSK8PropertyEN14PropertyPathId4FlagE": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZNK23QQStyleKitPropertyGroup19isControlPropertiesEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK23QQStyleKitPropertyGroup17controlPropertiesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK23QQStyleKitPropertyGroup9pathFlagsEv": ["int", "address"],
+    "ritual_ZN23QQStyleKitPropertyGroup17shouldEmitLocallyEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN23QQStyleKitPropertyGroup18shouldEmitGloballyEv": [
+      "bool", "address"
+    ]
+  }
+}

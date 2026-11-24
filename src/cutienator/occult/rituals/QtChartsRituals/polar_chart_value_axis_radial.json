@@ -1,0 +1,31 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/6.12.0/QtCharts/private/polarchartvalueaxisradial_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK25PolarChartValueAxisRadial10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25PolarChartValueAxisRadial2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN25PolarChartValueAxisRadialC1EP10QValueAxisP13QGraphicsItem": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN25PolarChartValueAxisRadialD1Ev": ["nothing", "address"],
+    "ritual_ZN25PolarChartValueAxisRadial22handleTickCountChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN25PolarChartValueAxisRadial27handleMinorTickCountChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN25PolarChartValueAxisRadial24handleLabelFormatChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_take_PolarChartValueAxisRadial": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

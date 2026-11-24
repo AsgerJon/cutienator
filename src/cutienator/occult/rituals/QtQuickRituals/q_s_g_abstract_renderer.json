@@ -1,0 +1,92 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qsgabstractrenderer_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK19QSGAbstractRenderer10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QSGAbstractRenderer2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN19QSGAbstractRendererD1Ev": ["nothing", "address"],
+    "ritual_ZN19QSGAbstractRenderer11setRootNodeEP11QSGRootNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QSGAbstractRenderer8rootNodeEv": ["address", "address"],
+    "ritual_ZN19QSGAbstractRenderer13setDeviceRectERK5QRect": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QSGAbstractRenderer13setDeviceRectERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QSGAbstractRenderer10deviceRectEv": ["address", "address"],
+    "ritual_ZN19QSGAbstractRenderer15setViewportRectERK5QRect": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QSGAbstractRenderer15setViewportRectERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QSGAbstractRenderer12viewportRectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QSGAbstractRenderer25setProjectionMatrixToRectERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QSGAbstractRenderer25setProjectionMatrixToRectERK6QRectF6QFlagsINS_19MatrixTransformFlagEE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN19QSGAbstractRenderer25setProjectionMatrixToRectERK6QRectF6QFlagsINS_19MatrixTransformFlagEEb": [
+      "nothing", "address", "address", "int", "bool"
+    ],
+    "ritual_ZN19QSGAbstractRenderer19setProjectionMatrixERK10QMatrix4x4i": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN19QSGAbstractRenderer32setProjectionMatrixWithNativeNDCERK10QMatrix4x4i": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZNK19QSGAbstractRenderer16projectionMatrixEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK19QSGAbstractRenderer29projectionMatrixWithNativeNDCEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK19QSGAbstractRenderer21projectionMatrixCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK19QSGAbstractRenderer34projectionMatrixWithNativeNDCCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZN19QSGAbstractRenderer18setInvertFrontFaceEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK19QSGAbstractRenderer15invertFrontFaceEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN19QSGAbstractRenderer13setClearColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QSGAbstractRenderer10clearColorEv": ["address", "address"],
+    "ritual_ZN19QSGAbstractRenderer11renderSceneEv": ["nothing", "address"],
+    "ritual_ZN19QSGAbstractRenderer18prepareSceneInlineEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QSGAbstractRenderer17renderSceneInlineEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QSGAbstractRenderer11nodeChangedEP7QSGNode6QFlagsINS0_13DirtyStateBitEE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN19QSGAbstractRenderer6d_funcEv": ["address", "address"],
+    "ritual_ZNK19QSGAbstractRenderer6d_funcEv": ["address", "address"],
+    "ritual_take_QSGAbstractRenderer": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN19QSGAbstractRenderer18prepareSceneInlineEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN19QSGAbstractRenderer17renderSceneInlineEv": [
+      "nothing", "address"
+    ]
+  }
+}

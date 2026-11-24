@@ -120,6 +120,8 @@
     "ritual_ZNK12QPixmapStyle24itemViewSizeFromContentsEPK12QStyleOptionRK5QSizePK7QWidget": [
       "address", "address", "address", "address", "address"
     ],
+    "ritual_ZN12QPixmapStyle6d_funcEv": ["address", "address"],
+    "ritual_ZNK12QPixmapStyle6d_funcEv": ["address", "address"],
     "ritual_take_QPixmapStyle": ["bool", "address", "chars", "address"],
     "ritual_own_ZN12QPixmapStyle6polishEP12QApplication": [
       "nothing", "address", "address"

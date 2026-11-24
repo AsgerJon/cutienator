@@ -1,0 +1,235 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtScxml/6.12.0/QtScxml/private/qscxmlcompiler_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN21QScxmlCompilerPrivate3getEP14QScxmlCompiler": [
+      "address", "address"
+    ],
+    "ritual_ZN21QScxmlCompilerPrivateC1EP16QXmlStreamReader": [
+      "address", "address"
+    ],
+    "ritual_ZN21QScxmlCompilerPrivate14verifyDocumentEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK21QScxmlCompilerPrivate13scxmlDocumentEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK21QScxmlCompilerPrivate8fileNameEv": ["text", "address"],
+    "ritual_ZN21QScxmlCompilerPrivate11setFileNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK21QScxmlCompilerPrivate6loaderEv": ["address", "address"],
+    "ritual_ZN21QScxmlCompilerPrivate9setLoaderEPN14QScxmlCompiler6LoaderE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QScxmlCompilerPrivate12readDocumentEv": ["bool", "address"],
+    "ritual_ZN21QScxmlCompilerPrivate16parseSubDocumentEPN13DocumentModel6InvokeEP16QXmlStreamReaderRK7QString": [
+      "nothing", "address", "address", "address", "text"
+    ],
+    "ritual_ZN21QScxmlCompilerPrivate15parseSubElementEPN13DocumentModel6InvokeEP16QXmlStreamReaderRK7QString": [
+      "bool", "address", "address", "address", "text"
+    ],
+    "ritual_ZN21QScxmlCompilerPrivate4loadERK7QStringPb": [
+      "address", "address", "text", "address"
+    ],
+    "ritual_ZNK21QScxmlCompilerPrivate6errorsEv": ["address", "address"],
+    "ritual_ZN21QScxmlCompilerPrivate8addErrorERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN21QScxmlCompilerPrivate8addErrorERK7QStringRKN13DocumentModel11XmlLocationES2_": [
+      "nothing", "address", "text", "address", "text"
+    ],
+    "ritual_ZNK21QScxmlCompilerPrivate23instantiateStateMachineEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK21QScxmlCompilerPrivate20instantiateDataModelEP18QScxmlStateMachine": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21QScxmlCompilerPrivate13currentParentEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK21QScxmlCompilerPrivate11xmlLocationEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QScxmlCompilerPrivate7maybeIdERK20QXmlStreamAttributesP7QString": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN21QScxmlCompilerPrivate6lastIfEv": ["address", "address"],
+    "ritual_ZN21QScxmlCompilerPrivate15checkAttributesERK20QXmlStreamAttributesRK5QListI7QStringES7_": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZN21QScxmlCompilerPrivate19preReadElementScxmlEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QScxmlCompilerPrivate19preReadElementStateEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QScxmlCompilerPrivate22preReadElementParallelEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QScxmlCompilerPrivate21preReadElementInitialEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QScxmlCompilerPrivate24preReadElementTransitionEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QScxmlCompilerPrivate19preReadElementFinalEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QScxmlCompilerPrivate21preReadElementHistoryEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QScxmlCompilerPrivate21preReadElementOnEntryEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QScxmlCompilerPrivate20preReadElementOnExitEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QScxmlCompilerPrivate19preReadElementRaiseEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QScxmlCompilerPrivate16preReadElementIfEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QScxmlCompilerPrivate20preReadElementElseIfEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QScxmlCompilerPrivate18preReadElementElseEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QScxmlCompilerPrivate21preReadElementForeachEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QScxmlCompilerPrivate17preReadElementLogEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QScxmlCompilerPrivate23preReadElementDataModelEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QScxmlCompilerPrivate18preReadElementDataEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QScxmlCompilerPrivate20preReadElementAssignEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QScxmlCompilerPrivate22preReadElementDoneDataEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QScxmlCompilerPrivate21preReadElementContentEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QScxmlCompilerPrivate19preReadElementParamEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QScxmlCompilerPrivate20preReadElementScriptEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QScxmlCompilerPrivate18preReadElementSendEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QScxmlCompilerPrivate20preReadElementCancelEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QScxmlCompilerPrivate20preReadElementInvokeEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QScxmlCompilerPrivate22preReadElementFinalizeEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QScxmlCompilerPrivate20postReadElementScxmlEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QScxmlCompilerPrivate20postReadElementStateEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QScxmlCompilerPrivate23postReadElementParallelEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QScxmlCompilerPrivate22postReadElementInitialEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QScxmlCompilerPrivate25postReadElementTransitionEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QScxmlCompilerPrivate20postReadElementFinalEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QScxmlCompilerPrivate22postReadElementHistoryEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QScxmlCompilerPrivate22postReadElementOnEntryEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QScxmlCompilerPrivate21postReadElementOnExitEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QScxmlCompilerPrivate20postReadElementRaiseEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QScxmlCompilerPrivate17postReadElementIfEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QScxmlCompilerPrivate21postReadElementElseIfEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QScxmlCompilerPrivate19postReadElementElseEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QScxmlCompilerPrivate22postReadElementForeachEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QScxmlCompilerPrivate18postReadElementLogEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QScxmlCompilerPrivate24postReadElementDataModelEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QScxmlCompilerPrivate19postReadElementDataEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QScxmlCompilerPrivate21postReadElementAssignEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QScxmlCompilerPrivate23postReadElementDoneDataEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QScxmlCompilerPrivate22postReadElementContentEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QScxmlCompilerPrivate20postReadElementParamEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QScxmlCompilerPrivate21postReadElementScriptEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QScxmlCompilerPrivate19postReadElementSendEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QScxmlCompilerPrivate21postReadElementCancelEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QScxmlCompilerPrivate21postReadElementInvokeEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QScxmlCompilerPrivate23postReadElementFinalizeEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QScxmlCompilerPrivate11readElementEv": ["bool", "address"],
+    "ritual_ZN21QScxmlCompilerPrivate13resetDocumentEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QScxmlCompilerPrivate14currentStateUpEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QScxmlCompilerPrivate16flushInstructionEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QScxmlCompilerPrivate15checkAttributesERK20QXmlStreamAttributesNS_11ParserState4KindE": [
+      "bool", "address", "address", "int"
+    ],
+    "ritual_ZNK21QScxmlCompilerPrivate11hasPreviousEv": ["bool", "address"]
+  }
+}

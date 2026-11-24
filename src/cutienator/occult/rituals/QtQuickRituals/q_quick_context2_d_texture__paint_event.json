@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickcontext2dtexture_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN22QQuickContext2DTexture10PaintEventC1EP28QQuickContext2DCommandBuffer": [
+      "address", "address"
+    ],
+    "ritual_ZN22QQuickContext2DTexture10PaintEventD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_take_QQuickContext2DTexture_PaintEvent": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

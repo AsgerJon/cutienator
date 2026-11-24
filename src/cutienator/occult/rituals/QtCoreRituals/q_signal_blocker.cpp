@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/qobject.h, Qt 6.12.0. Changes made here are lost.
+#include <QtCore/qglobal.h>
+#if !defined(QT_NO_QOBJECT)
 #include <QtCore/qobject.h>
 
 //  QSignalBlocker::QSignalBlocker(QObject *o)
@@ -31,3 +33,5 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN14QSignalBlocker7dismissEv(QSignalBlocker *self) {
   self->dismiss();
 }
+
+#endif  // !defined(QT_NO_QOBJECT)

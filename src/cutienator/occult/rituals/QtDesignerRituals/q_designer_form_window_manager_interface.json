@@ -1,0 +1,120 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/abstractformwindowmanager.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK35QDesignerFormWindowManagerInterface10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN35QDesignerFormWindowManagerInterface2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN35QDesignerFormWindowManagerInterfaceD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK35QDesignerFormWindowManagerInterface6actionENS_6ActionE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK35QDesignerFormWindowManagerInterface11actionGroupENS_11ActionGroupE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK35QDesignerFormWindowManagerInterface9actionCutEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK35QDesignerFormWindowManagerInterface10actionCopyEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK35QDesignerFormWindowManagerInterface11actionPasteEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK35QDesignerFormWindowManagerInterface12actionDeleteEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK35QDesignerFormWindowManagerInterface15actionSelectAllEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK35QDesignerFormWindowManagerInterface11actionLowerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK35QDesignerFormWindowManagerInterface11actionRaiseEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK35QDesignerFormWindowManagerInterface10actionUndoEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK35QDesignerFormWindowManagerInterface10actionRedoEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK35QDesignerFormWindowManagerInterface22actionHorizontalLayoutEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK35QDesignerFormWindowManagerInterface20actionVerticalLayoutEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK35QDesignerFormWindowManagerInterface21actionSplitHorizontalEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK35QDesignerFormWindowManagerInterface19actionSplitVerticalEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK35QDesignerFormWindowManagerInterface16actionGridLayoutEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK35QDesignerFormWindowManagerInterface16actionFormLayoutEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK35QDesignerFormWindowManagerInterface17actionBreakLayoutEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK35QDesignerFormWindowManagerInterface16actionAdjustSizeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK35QDesignerFormWindowManagerInterface20actionSimplifyLayoutEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK35QDesignerFormWindowManagerInterface16activeFormWindowEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK35QDesignerFormWindowManagerInterface15formWindowCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK35QDesignerFormWindowManagerInterface10formWindowEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN35QDesignerFormWindowManagerInterface16createFormWindowEP7QWidget6QFlagsIN2Qt10WindowTypeEE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZNK35QDesignerFormWindowManagerInterface4coreEv": [
+      "address", "address"
+    ],
+    "ritual_ZN35QDesignerFormWindowManagerInterface9dragItemsERK5QListIP25QDesignerDnDItemInterfaceE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK35QDesignerFormWindowManagerInterface19createPreviewPixmapEv": [
+      "address", "address"
+    ],
+    "ritual_ZN35QDesignerFormWindowManagerInterface13addFormWindowEP28QDesignerFormWindowInterface": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN35QDesignerFormWindowManagerInterface16removeFormWindowEP28QDesignerFormWindowInterface": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN35QDesignerFormWindowManagerInterface19setActiveFormWindowEP28QDesignerFormWindowInterface": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN35QDesignerFormWindowManagerInterface11showPreviewEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN35QDesignerFormWindowManagerInterface16closeAllPreviewsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN35QDesignerFormWindowManagerInterface16showPluginDialogEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QDesignerFormWindowManagerInterface": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

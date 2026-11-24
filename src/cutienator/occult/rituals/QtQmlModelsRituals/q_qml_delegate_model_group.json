@@ -1,0 +1,61 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQmlModels/6.12.0/QtQmlModels/private/qqmldelegatemodel_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK22QQmlDelegateModelGroup10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QQmlDelegateModelGroup2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN22QQmlDelegateModelGroupC1EP7QObject": ["address", "address"],
+    "ritual_ZN22QQmlDelegateModelGroupC1ERK7QStringP17QQmlDelegateModeliP7QObject": [
+      "address", "text", "address", "int", "address"
+    ],
+    "ritual_ZN22QQmlDelegateModelGroupD1Ev": ["nothing", "address"],
+    "ritual_ZNK22QQmlDelegateModelGroup4nameEv": ["text", "address"],
+    "ritual_ZN22QQmlDelegateModelGroup7setNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK22QQmlDelegateModelGroup5countEv": ["int", "address"],
+    "ritual_ZNK22QQmlDelegateModelGroup14defaultIncludeEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN22QQmlDelegateModelGroup17setDefaultIncludeEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN22QQmlDelegateModelGroup3getEi": ["address", "address", "int"],
+    "ritual_ZN22QQmlDelegateModelGroup6insertEP14QQmlV4Function": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQmlDelegateModelGroup6createEP14QQmlV4Function": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQmlDelegateModelGroup7resolveEP14QQmlV4Function": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQmlDelegateModelGroup6removeEP14QQmlV4Function": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQmlDelegateModelGroup9addGroupsEP14QQmlV4Function": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQmlDelegateModelGroup12removeGroupsEP14QQmlV4Function": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQmlDelegateModelGroup9setGroupsEP14QQmlV4Function": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQmlDelegateModelGroup4moveEP14QQmlV4Function": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQmlDelegateModelGroup6d_funcEv": ["address", "address"],
+    "ritual_ZNK22QQmlDelegateModelGroup6d_funcEv": ["address", "address"],
+    "ritual_take_QQmlDelegateModelGroup": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

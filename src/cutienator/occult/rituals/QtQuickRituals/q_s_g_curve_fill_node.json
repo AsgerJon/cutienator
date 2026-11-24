@@ -1,0 +1,81 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qsgcurvefillnode_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK16QSGCurveFillNode10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QSGCurveFillNode2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN16QSGCurveFillNodeC1Ev": ["address"],
+    "ritual_ZN16QSGCurveFillNode8setColorE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QSGCurveFillNode5colorEv": ["address", "address"],
+    "ritual_ZN16QSGCurveFillNode22setFillTextureProviderEP18QSGTextureProvider": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QSGCurveFillNode19fillTextureProviderEv": [
+      "address", "address"
+    ],
+    "ritual_ZN16QSGCurveFillNode15setFillGradientERKN16QSGGradientCache12GradientDescE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QSGCurveFillNode12fillGradientEv": ["address", "address"],
+    "ritual_ZN16QSGCurveFillNode15setGradientTypeEN9QGradient4TypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16QSGCurveFillNode12gradientTypeEv": ["int", "address"],
+    "ritual_ZN16QSGCurveFillNode16setFillTransformERK12QSGTransform": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QSGCurveFillNode13fillTransformEv": ["address", "address"],
+    "ritual_ZNK16QSGCurveFillNode5debugEv": ["float", "address"],
+    "ritual_ZN16QSGCurveFillNode8setDebugEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN16QSGCurveFillNode14appendTriangleERK9QVector2DS2_S2_RK9QVector3DS5_S5_S2_S2_S2_S2_S2_": [
+      "nothing", "address", "address", "address", "address", "address",
+      "address", "address", "address", "address", "address", "address",
+      "address"
+    ],
+    "ritual_ZN16QSGCurveFillNode12cookGeometryEv": ["nothing", "address"],
+    "ritual_ZN16QSGCurveFillNode7reserveEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN16QSGCurveFillNode10preprocessEv": ["nothing", "address"],
+    "ritual_ZNK16QSGCurveFillNode10boundsSizeEv": ["address", "address"],
+    "ritual_ZN16QSGCurveFillNode13setBoundsSizeERK9QVector2D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QSGCurveFillNode22useStandardDerivativesEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN16QSGCurveFillNode25setUseStandardDerivativesEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN16QSGCurveFillNode20handleTextureChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QSGCurveFillNode30handleTextureProviderDestroyedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QSGCurveFillNode14updateMaterialEv": ["nothing", "address"],
+    "ritual_ZN16QSGCurveFillNode10attributesEv": ["address"],
+    "ritual_cast_QSGCurveFillNode_QSGCurveAbstractNode": [
+      "address", "address"
+    ],
+    "ritual_own_ZN16QSGCurveFillNode8setColorE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16QSGCurveFillNode12cookGeometryEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN16QSGCurveFillNode10preprocessEv": ["nothing", "address"],
+    "ritual_own_ZN16QSGCurveFillNode25setUseStandardDerivativesEb": [
+      "nothing", "address", "bool"
+    ]
+  }
+}

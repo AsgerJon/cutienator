@@ -1,0 +1,42 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qdockarealayout_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK19QDockAreaLayoutInfo4sizeEv": ["address", "address"],
+    "ritual_ZN19QDockAreaLayoutInfo4infoEP7QWidget": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK19QDockAreaLayoutInfo9expansiveEN2Qt11OrientationE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK19QDockAreaLayoutInfo13separatorRectEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN19QDockAreaLayoutInfo5clearEv": ["nothing", "address"],
+    "ritual_ZNK19QDockAreaLayoutInfo7isEmptyEv": ["bool", "address"],
+    "ritual_ZNK19QDockAreaLayoutInfo19onlyHasPlaceholdersEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK19QDockAreaLayoutInfo4nextEi": ["int", "address", "int"],
+    "ritual_ZNK19QDockAreaLayoutInfo4prevEi": ["int", "address", "int"],
+    "ritual_ZNK19QDockAreaLayoutInfo15separatorRegionEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QDockAreaLayoutInfo6itemAtEPii": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZNK19QDockAreaLayoutInfo12currentTabIdEv": [
+      "unsigned long long", "address"
+    ],
+    "ritual_ZN19QDockAreaLayoutInfo13setCurrentTabEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QDockAreaLayoutInfo15setCurrentTabIdEy": [
+      "nothing", "address", "unsigned long long"
+    ],
+    "ritual_ZN19QDockAreaLayoutInfoD1Ev": ["nothing", "address"]
+  }
+}

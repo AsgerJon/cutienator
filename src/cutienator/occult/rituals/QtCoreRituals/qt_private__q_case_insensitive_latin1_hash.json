@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qlatin1stringmatcher.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN9QtPrivate26QCaseInsensitiveLatin1HashC1Ev": ["address"],
+    "ritual_ZN9QtPrivate26QCaseInsensitiveLatin1Hash10differenceEcc": [
+      "int", "char", "char"
+    ],
+    "ritual_ZN9QtPrivate26QCaseInsensitiveLatin1HashD1Ev": [
+      "nothing", "address"
+    ]
+  }
+}

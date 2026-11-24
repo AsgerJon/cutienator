@@ -1,0 +1,58 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qgraphicsgridlayoutengine_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK29QGraphicsGridLayoutEngineItem10sizePolicyEN2Qt11OrientationE": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK29QGraphicsGridLayoutEngineItem12controlTypesE10LayoutSide": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK29QGraphicsGridLayoutEngineItem8sizeHintEN2Qt8SizeHintERK6QSizeF": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_ZN29QGraphicsGridLayoutEngineItem11setGeometryERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK29QGraphicsGridLayoutEngineItem20hasDynamicConstraintEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK29QGraphicsGridLayoutEngineItem28dynamicConstraintOrientationEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK29QGraphicsGridLayoutEngineItem7isEmptyEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK29QGraphicsGridLayoutEngineItem10layoutItemEv": [
+      "address", "address"
+    ],
+    "ritual_ZN29QGraphicsGridLayoutEngineItemD1Ev": ["nothing", "address"],
+    "ritual_take_QGraphicsGridLayoutEngineItem": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK29QGraphicsGridLayoutEngineItem10sizePolicyEN2Qt11OrientationE": [
+      "int", "address", "int"
+    ],
+    "ritual_own_ZNK29QGraphicsGridLayoutEngineItem12controlTypesE10LayoutSide": [
+      "int", "address", "int"
+    ],
+    "ritual_own_ZNK29QGraphicsGridLayoutEngineItem8sizeHintEN2Qt8SizeHintERK6QSizeF": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_own_ZN29QGraphicsGridLayoutEngineItem11setGeometryERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK29QGraphicsGridLayoutEngineItem20hasDynamicConstraintEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZNK29QGraphicsGridLayoutEngineItem28dynamicConstraintOrientationEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZNK29QGraphicsGridLayoutEngineItem7isEmptyEv": [
+      "bool", "address"
+    ]
+  }
+}

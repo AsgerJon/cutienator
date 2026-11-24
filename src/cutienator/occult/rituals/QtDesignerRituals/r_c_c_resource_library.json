@@ -1,0 +1,83 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/rcc_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18RCCResourceLibrary9setFormatENS_6FormatE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK18RCCResourceLibrary6formatEv": ["int", "address"],
+    "ritual_ZN18RCCResourceLibrary13setInputFilesERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18RCCResourceLibrary10inputFilesEv": ["address", "address"],
+    "ritual_ZN18RCCResourceLibrary10setVerboseEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK18RCCResourceLibrary7verboseEv": ["bool", "address"],
+    "ritual_ZN18RCCResourceLibrary11setInitNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK18RCCResourceLibrary8initNameEv": ["text", "address"],
+    "ritual_ZN18RCCResourceLibrary13setOutputNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK18RCCResourceLibrary10outputNameEv": ["text", "address"],
+    "ritual_ZN18RCCResourceLibrary23setCompressionAlgorithmENS_20CompressionAlgorithmE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK18RCCResourceLibrary20compressionAlgorithmEv": [
+      "int", "address"
+    ],
+    "ritual_ZN18RCCResourceLibrary16setCompressLevelEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK18RCCResourceLibrary13compressLevelEv": ["int", "address"],
+    "ritual_ZN18RCCResourceLibrary20setCompressThresholdEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK18RCCResourceLibrary17compressThresholdEv": [
+      "int", "address"
+    ],
+    "ritual_ZN18RCCResourceLibrary15setResourceRootERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK18RCCResourceLibrary12resourceRootEv": ["text", "address"],
+    "ritual_ZN18RCCResourceLibrary15setUseNameSpaceEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK18RCCResourceLibrary12useNameSpaceEv": ["bool", "address"],
+    "ritual_ZNK18RCCResourceLibrary15failedResourcesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18RCCResourceLibrary13formatVersionEv": ["int", "address"],
+    "ritual_ZN18RCCResourceLibrary9setNoZstdEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK18RCCResourceLibrary6noZstdEv": ["bool", "address"],
+    "ritual_ZN18RCCResourceLibrary5resetEv": ["nothing", "address"],
+    "ritual_ZN18RCCResourceLibrary28writeMangleNamespaceFunctionERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18RCCResourceLibrary25writeAddNamespaceFunctionERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18RCCResourceLibrary12writeDecimalEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18RCCResourceLibrary9writeCharEc": [
+      "nothing", "address", "char"
+    ],
+    "ritual_ZN18RCCResourceLibrary14writeByteArrayERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18RCCResourceLibrary5writeEPKci": [
+      "nothing", "address", "chars", "int"
+    ],
+    "ritual_ZN18RCCResourceLibrary11writeStringEPKc": [
+      "nothing", "address", "chars"
+    ]
+  }
+}

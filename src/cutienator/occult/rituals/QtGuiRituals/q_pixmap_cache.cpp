@@ -47,6 +47,7 @@ QPixmapCache::Key *ritual_ZN12QPixmapCache6insertERK7QPixmap(
   return new QPixmapCache::Key(QPixmapCache::insert(*pixmap));
 }
 
+#if QT_DEPRECATED_SINCE(6, 6)
 //  bool QPixmapCache::replace(const Key &key, const QPixmap &pixmap)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN12QPixmapCache7replaceERKNS_3KeyERK7QPixmap(
@@ -54,6 +55,7 @@ bool ritual_ZN12QPixmapCache7replaceERKNS_3KeyERK7QPixmap(
     const QPixmap *pixmap) {
   return QPixmapCache::replace(*key, *pixmap);
 }
+#endif  // QT_DEPRECATED_SINCE(6, 6)
 
 //  void QPixmapCache::remove(const QString &key)
 extern "C" Q_DECL_EXPORT

@@ -1,0 +1,31 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickrepeater_p_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN21QQuickRepeaterPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK21QQuickRepeaterPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN21QQuickRepeaterPrivateC1Ev": ["address"],
+    "ritual_ZN21QQuickRepeaterPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN21QQuickRepeaterPrivate12requestItemsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickRepeaterPrivate19applyDelegateChangeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickRepeaterPrivate30applyDelegateModelAccessChangeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickRepeaterPrivate12connectModelEP14QQuickRepeaterP24QQmlDelegateModelPointer": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN21QQuickRepeaterPrivate15disconnectModelEP14QQuickRepeaterP24QQmlDelegateModelPointer": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_take_QQuickRepeaterPrivate": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

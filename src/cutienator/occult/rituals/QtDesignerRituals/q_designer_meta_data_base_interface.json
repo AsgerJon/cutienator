@@ -1,0 +1,34 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/abstractmetadatabase.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZNK30QDesignerMetaDataBaseInterface10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN30QDesignerMetaDataBaseInterface2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN30QDesignerMetaDataBaseInterfaceD1Ev": ["nothing", "address"],
+    "ritual_ZNK30QDesignerMetaDataBaseInterface4itemEP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN30QDesignerMetaDataBaseInterface3addEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN30QDesignerMetaDataBaseInterface6removeEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK30QDesignerMetaDataBaseInterface7objectsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK30QDesignerMetaDataBaseInterface4coreEv": [
+      "address", "address"
+    ],
+    "ritual_take_QDesignerMetaDataBaseInterface": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

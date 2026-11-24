@@ -25,6 +25,8 @@
     "ritual_ZN22QRandomAccessAsyncFile5writeExRK10QByteArray": [
       "address", "address", "long long", "address"
     ],
+    "ritual_ZN22QRandomAccessAsyncFile6d_funcEv": ["address", "address"],
+    "ritual_ZNK22QRandomAccessAsyncFile6d_funcEv": ["address", "address"],
     "ritual_take_QRandomAccessAsyncFile": [
       "bool", "address", "chars", "address"
     ]

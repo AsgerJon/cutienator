@@ -1,0 +1,152 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4object_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN3QV46Object12staticVTableEv": ["address"],
+    "ritual_ZN3QV46Object10__dataTestEv": ["nothing", "address"],
+    "ritual_ZNK3QV46Object11d_uncheckedEv": ["address", "address"],
+    "ritual_ZNK3QV46Object1dEv": ["address", "address"],
+    "ritual_ZN3QV46Object20defaultInternalClassEPNS_10EngineBaseE": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV46Object16defaultPrototypeEPNS_15ExecutionEngineE": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV46Object12propertyDataEj": [
+      "address", "address", "unsigned int"
+    ],
+    "ritual_ZNK3QV46Object9arrayDataEv": ["address", "address"],
+    "ritual_ZN3QV46Object12setArrayDataEPNS_9ArrayDataE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK3QV46Object11setPropertyEjNS_5ValueE": [
+      "nothing", "address", "unsigned int", "address"
+    ],
+    "ritual_ZNK3QV46Object11setPropertyEjPNS_4Heap4BaseE": [
+      "nothing", "address", "unsigned int", "address"
+    ],
+    "ritual_ZNK3QV46Object11setPropertyEPNS_15ExecutionEngineEjNS_5ValueE": [
+      "nothing", "address", "address", "unsigned int", "address"
+    ],
+    "ritual_ZNK3QV46Object11setPropertyEPNS_15ExecutionEngineEjPNS_4Heap4BaseE": [
+      "nothing", "address", "address", "unsigned int", "address"
+    ],
+    "ritual_ZNK3QV46Object6vtableEv": ["address", "address"],
+    "ritual_ZNK3QV46Object14getOwnPropertyENS_11PropertyKeyEPNS_8PropertyE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK3QV46Object11hasPropertyENS_11PropertyKeyE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN3QV46Object17defineOwnPropertyENS_11PropertyKeyEPKNS_8PropertyENS_18PropertyAttributesE": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZN3QV46Object8getValueEPKNS_5ValueERS2_NS_18PropertyAttributesE": [
+      "unsigned long long", "address", "address", "address"
+    ],
+    "ritual_ZNK3QV46Object8getValueERKNS_5ValueENS_18PropertyAttributesE": [
+      "unsigned long long", "address", "address", "address"
+    ],
+    "ritual_ZNK3QV46Object15getValueByIndexEj": [
+      "unsigned long long", "address", "unsigned int"
+    ],
+    "ritual_ZN3QV46Object21defineDefaultPropertyEPNS_14StringOrSymbolERKNS_5ValueENS_18PropertyAttributesE": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN3QV46Object12insertMemberEPNS_14StringOrSymbolERKNS_5ValueENS_18PropertyAttributesE": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK3QV46Object12isExtensibleEv": ["bool", "address"],
+    "ritual_ZN3QV46Object17preventExtensionsEv": ["bool", "address"],
+    "ritual_ZNK3QV46Object14getPrototypeOfEv": ["address", "address"],
+    "ritual_ZN3QV46Object14setPrototypeOfEPKS0_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN3QV46Object23setArrayLengthUncheckedEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN3QV46Object8arraySetEjPKNS_8PropertyENS_18PropertyAttributesE": [
+      "nothing", "address", "unsigned int", "address", "address"
+    ],
+    "ritual_ZN3QV46Object8arraySetEjRKNS_5ValueE": [
+      "nothing", "address", "unsigned int", "address"
+    ],
+    "ritual_ZN3QV46Object8arrayPutEjRKNS_5ValueE": [
+      "bool", "address", "unsigned int", "address"
+    ],
+    "ritual_ZN3QV46Object8arrayPutEjPKNS_5ValueEj": [
+      "bool", "address", "unsigned int", "address", "unsigned int"
+    ],
+    "ritual_ZN3QV46Object18setArrayAttributesEjNS_18PropertyAttributesE": [
+      "nothing", "address", "unsigned int", "address"
+    ],
+    "ritual_ZN3QV46Object9push_backERKNS_5ValueE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN3QV46Object12setArrayTypeENS_4Heap9ArrayData4TypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN3QV46Object12arrayReserveEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN3QV46Object11arrayCreateEv": ["nothing", "address"],
+    "ritual_ZNK3QV46Object11sparseBeginEv": ["address", "address"],
+    "ritual_ZNK3QV46Object9sparseEndEv": ["address", "address"],
+    "ritual_ZN3QV46Object13protoHasArrayEv": ["bool", "address"],
+    "ritual_ZNK3QV46Object3getEPNS_14StringOrSymbolEPbPKNS_5ValueE": [
+      "unsigned long long", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK3QV46Object3getEjPbPKNS_5ValueE": [
+      "unsigned long long", "address", "unsigned int", "address", "address"
+    ],
+    "ritual_ZNK3QV46Object10getIndexedEjPb": [
+      "unsigned long long", "address", "unsigned int", "address"
+    ],
+    "ritual_ZNK3QV46Object3getENS_11PropertyKeyEPKNS_5ValueEPb": [
+      "unsigned long long", "address", "address", "address", "address"
+    ],
+    "ritual_ZN3QV46Object3putEPNS_14StringOrSymbolERKNS_5ValueEPS3_": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZN3QV46Object3putEjRKNS_5ValueEPS1_": [
+      "bool", "address", "unsigned int", "address", "address"
+    ],
+    "ritual_ZN3QV46Object10putIndexedEjRKNS_5ValueE": [
+      "bool", "address", "unsigned int", "address"
+    ],
+    "ritual_ZN3QV46Object3putENS_11PropertyKeyERKNS_5ValueEPS2_": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZN3QV46Object10setIndexedEjRKNS_5ValueENS0_14ThrowOnFailureE": [
+      "bool", "address", "unsigned int", "address", "int"
+    ],
+    "ritual_ZN3QV46Object3setEPNS_14StringOrSymbolERKNS_5ValueENS0_14ThrowOnFailureE": [
+      "bool", "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV46Object14deletePropertyENS_11PropertyKeyE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK3QV46Object15ownPropertyKeysEPNS_5ValueE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK3QV46Object9getLengthEv": ["long long", "address"],
+    "ritual_ZNK3QV46Object10instanceOfERKNS_5ValueE": [
+      "unsigned long long", "address", "address"
+    ],
+    "ritual_ZNK3QV46Object19resolveLookupGetterEPNS_15ExecutionEngineEPNS_6LookupE": [
+      "unsigned long long", "address", "address", "address"
+    ],
+    "ritual_ZN3QV46Object19resolveLookupSetterEPNS_15ExecutionEngineEPNS_6LookupERKNS_5ValueE": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZN3QV46Object21virtualGetOwnPropertyEPKNS_7ManagedENS_11PropertyKeyEPNS_8PropertyE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN3QV46Object26virtualResolveLookupGetterEPKS0_PNS_15ExecutionEngineEPNS_6LookupE": [
+      "unsigned long long", "address", "address", "address"
+    ]
+  }
+}

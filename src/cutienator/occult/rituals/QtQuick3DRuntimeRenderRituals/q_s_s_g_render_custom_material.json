@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgrendercu",
+    "stommaterial_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN24QSSGRenderCustomMaterialC1Ev": ["address"],
+    "ritual_ZN24QSSGRenderCustomMaterialD1Ev": ["nothing", "address"],
+    "ritual_ZN24QSSGRenderCustomMaterial9markDirtyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QSSGRenderCustomMaterial10clearDirtyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QSSGRenderCustomMaterial14setAlwaysDirtyEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK24QSSGRenderCustomMaterial7isDirtyEv": ["bool", "address"]
+  }
+}

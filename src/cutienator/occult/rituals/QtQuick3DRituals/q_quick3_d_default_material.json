@@ -1,0 +1,208 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3D/6.12.0/QtQuick3D/private/qquick3ddefaultmaterial_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK23QQuick3DDefaultMaterial10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QQuick3DDefaultMaterial2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN23QQuick3DDefaultMaterialC1EP14QQuick3DObject": [
+      "address", "address"
+    ],
+    "ritual_ZN23QQuick3DDefaultMaterialD1Ev": ["nothing", "address"],
+    "ritual_ZNK23QQuick3DDefaultMaterial8lightingEv": ["int", "address"],
+    "ritual_ZNK23QQuick3DDefaultMaterial9blendModeEv": ["int", "address"],
+    "ritual_ZNK23QQuick3DDefaultMaterial12diffuseColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK23QQuick3DDefaultMaterial10diffuseMapEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK23QQuick3DDefaultMaterial14emissiveFactorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK23QQuick3DDefaultMaterial11emissiveMapEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK23QQuick3DDefaultMaterial21specularReflectionMapEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK23QQuick3DDefaultMaterial11specularMapEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK23QQuick3DDefaultMaterial13specularModelEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK23QQuick3DDefaultMaterial12specularTintEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK23QQuick3DDefaultMaterial17indexOfRefractionEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK23QQuick3DDefaultMaterial12fresnelPowerEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK23QQuick3DDefaultMaterial14specularAmountEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK23QQuick3DDefaultMaterial17specularRoughnessEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK23QQuick3DDefaultMaterial12roughnessMapEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK23QQuick3DDefaultMaterial7opacityEv": ["float", "address"],
+    "ritual_ZNK23QQuick3DDefaultMaterial10opacityMapEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK23QQuick3DDefaultMaterial7bumpMapEv": ["address", "address"],
+    "ritual_ZNK23QQuick3DDefaultMaterial10bumpAmountEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK23QQuick3DDefaultMaterial9normalMapEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK23QQuick3DDefaultMaterial15translucencyMapEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK23QQuick3DDefaultMaterial18translucentFalloffEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK23QQuick3DDefaultMaterial16diffuseLightWrapEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK23QQuick3DDefaultMaterial19vertexColorsEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK23QQuick3DDefaultMaterial16roughnessChannelEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK23QQuick3DDefaultMaterial14opacityChannelEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK23QQuick3DDefaultMaterial19translucencyChannelEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK23QQuick3DDefaultMaterial9pointSizeEv": ["float", "address"],
+    "ritual_ZNK23QQuick3DDefaultMaterial9lineWidthEv": ["float", "address"],
+    "ritual_ZN23QQuick3DDefaultMaterial11setLightingENS_8LightingE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN23QQuick3DDefaultMaterial12setBlendModeENS_9BlendModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN23QQuick3DDefaultMaterial15setDiffuseColorE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QQuick3DDefaultMaterial13setDiffuseMapEP15QQuick3DTexture": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QQuick3DDefaultMaterial17setEmissiveFactorE9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QQuick3DDefaultMaterial14setEmissiveMapEP15QQuick3DTexture": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QQuick3DDefaultMaterial24setSpecularReflectionMapEP15QQuick3DTexture": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QQuick3DDefaultMaterial14setSpecularMapEP15QQuick3DTexture": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QQuick3DDefaultMaterial16setSpecularModelENS_13SpecularModelE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN23QQuick3DDefaultMaterial15setSpecularTintE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QQuick3DDefaultMaterial20setIndexOfRefractionEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN23QQuick3DDefaultMaterial15setFresnelPowerEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN23QQuick3DDefaultMaterial17setSpecularAmountEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN23QQuick3DDefaultMaterial20setSpecularRoughnessEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN23QQuick3DDefaultMaterial15setRoughnessMapEP15QQuick3DTexture": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QQuick3DDefaultMaterial10setOpacityEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN23QQuick3DDefaultMaterial13setOpacityMapEP15QQuick3DTexture": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QQuick3DDefaultMaterial10setBumpMapEP15QQuick3DTexture": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QQuick3DDefaultMaterial13setBumpAmountEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN23QQuick3DDefaultMaterial12setNormalMapEP15QQuick3DTexture": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QQuick3DDefaultMaterial18setTranslucencyMapEP15QQuick3DTexture": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QQuick3DDefaultMaterial21setTranslucentFalloffEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN23QQuick3DDefaultMaterial19setDiffuseLightWrapEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN23QQuick3DDefaultMaterial22setVertexColorsEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN23QQuick3DDefaultMaterial19setRoughnessChannelEN16QQuick3DMaterial21TextureChannelMappingE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN23QQuick3DDefaultMaterial17setOpacityChannelEN16QQuick3DMaterial21TextureChannelMappingE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN23QQuick3DDefaultMaterial22setTranslucencyChannelEN16QQuick3DMaterial21TextureChannelMappingE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN23QQuick3DDefaultMaterial12setPointSizeEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN23QQuick3DDefaultMaterial12setLineWidthEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN23QQuick3DDefaultMaterial17updateSpatialNodeEP21QSSGRenderGraphObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN23QQuick3DDefaultMaterial12markAllDirtyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuick3DDefaultMaterial10itemChangeEN14QQuick3DObject10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN23QQuick3DDefaultMaterial18updateSceneManagerEP20QQuick3DSceneManager": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QQuick3DDefaultMaterial9markDirtyENS_9DirtyTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_take_QQuick3DDefaultMaterial": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN23QQuick3DDefaultMaterial17updateSpatialNodeEP21QSSGRenderGraphObject": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN23QQuick3DDefaultMaterial12markAllDirtyEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN23QQuick3DDefaultMaterial10itemChangeEN14QQuick3DObject10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ]
+  }
+}

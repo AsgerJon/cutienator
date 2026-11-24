@@ -1,0 +1,71 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/qnetworkproxy.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN13QNetworkProxyC1Ev": ["address"],
+    "ritual_ZN13QNetworkProxyC1ENS_9ProxyTypeERK7QStringtS3_S3_": [
+      "address", "int", "text", "unsigned short", "text", "text"
+    ],
+    "ritual_ZN13QNetworkProxyC1ERKS_": ["address", "address"],
+    "ritual_ZN13QNetworkProxyD1Ev": ["nothing", "address"],
+    "ritual_ZNK13QNetworkProxyeqERKS_": ["bool", "address", "address"],
+    "ritual_ZNK13QNetworkProxyneERKS_": ["bool", "address", "address"],
+    "ritual_ZN13QNetworkProxy7setTypeENS_9ProxyTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK13QNetworkProxy4typeEv": ["int", "address"],
+    "ritual_ZN13QNetworkProxy15setCapabilitiesE6QFlagsINS_10CapabilityEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK13QNetworkProxy12capabilitiesEv": ["int", "address"],
+    "ritual_ZNK13QNetworkProxy14isCachingProxyEv": ["bool", "address"],
+    "ritual_ZNK13QNetworkProxy18isTransparentProxyEv": ["bool", "address"],
+    "ritual_ZN13QNetworkProxy7setUserERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK13QNetworkProxy4userEv": ["text", "address"],
+    "ritual_ZN13QNetworkProxy11setPasswordERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK13QNetworkProxy8passwordEv": ["text", "address"],
+    "ritual_ZN13QNetworkProxy11setHostNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK13QNetworkProxy8hostNameEv": ["text", "address"],
+    "ritual_ZN13QNetworkProxy7setPortEt": [
+      "nothing", "address", "unsigned short"
+    ],
+    "ritual_ZNK13QNetworkProxy4portEv": ["unsigned short", "address"],
+    "ritual_ZN13QNetworkProxy19setApplicationProxyERKS_": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13QNetworkProxy16applicationProxyEv": ["address"],
+    "ritual_ZNK13QNetworkProxy7headersEv": ["address", "address"],
+    "ritual_ZN13QNetworkProxy10setHeadersERK12QHttpHeaders": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QNetworkProxy6headerEN15QNetworkRequest12KnownHeadersE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN13QNetworkProxy9setHeaderEN15QNetworkRequest12KnownHeadersERK8QVariant": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZNK13QNetworkProxy12hasRawHeaderERK10QByteArray": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK13QNetworkProxy13rawHeaderListEv": ["address", "address"],
+    "ritual_ZNK13QNetworkProxy9rawHeaderERK10QByteArray": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN13QNetworkProxy12setRawHeaderERK10QByteArrayS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_list_make_QNetworkProxy": ["address"],
+    "ritual_list_add_QNetworkProxy": ["nothing", "address", "address"],
+    "ritual_list_size_QNetworkProxy": ["long long", "address"],
+    "ritual_list_at_QNetworkProxy": ["address", "address", "long long"],
+    "ritual_list_drop_QNetworkProxy": ["nothing", "address"]
+  }
+}

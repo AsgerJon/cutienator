@@ -1,0 +1,97 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qmetaobjectbuilder_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QMetaPropertyBuilderC1Ev": ["address"],
+    "ritual_ZNK20QMetaPropertyBuilder5indexEv": ["int", "address"],
+    "ritual_ZNK20QMetaPropertyBuilder4nameEv": ["address", "address"],
+    "ritual_ZNK20QMetaPropertyBuilder4typeEv": ["address", "address"],
+    "ritual_ZNK20QMetaPropertyBuilder15hasNotifySignalEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK20QMetaPropertyBuilder12notifySignalEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QMetaPropertyBuilder15setNotifySignalERK18QMetaMethodBuilder": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QMetaPropertyBuilder18removeNotifySignalEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK20QMetaPropertyBuilder10isReadableEv": ["bool", "address"],
+    "ritual_ZNK20QMetaPropertyBuilder10isWritableEv": ["bool", "address"],
+    "ritual_ZNK20QMetaPropertyBuilder12isResettableEv": ["bool", "address"],
+    "ritual_ZNK20QMetaPropertyBuilder12isDesignableEv": ["bool", "address"],
+    "ritual_ZNK20QMetaPropertyBuilder12isScriptableEv": ["bool", "address"],
+    "ritual_ZNK20QMetaPropertyBuilder8isStoredEv": ["bool", "address"],
+    "ritual_ZNK20QMetaPropertyBuilder6isUserEv": ["bool", "address"],
+    "ritual_ZNK20QMetaPropertyBuilder12hasStdCppSetEv": ["bool", "address"],
+    "ritual_ZNK20QMetaPropertyBuilder12isEnumOrFlagEv": ["bool", "address"],
+    "ritual_ZNK20QMetaPropertyBuilder10isConstantEv": ["bool", "address"],
+    "ritual_ZNK20QMetaPropertyBuilder7isFinalEv": ["bool", "address"],
+    "ritual_ZNK20QMetaPropertyBuilder9isVirtualEv": ["bool", "address"],
+    "ritual_ZNK20QMetaPropertyBuilder10isOverrideEv": ["bool", "address"],
+    "ritual_ZNK20QMetaPropertyBuilder7isAliasEv": ["bool", "address"],
+    "ritual_ZNK20QMetaPropertyBuilder10isBindableEv": ["bool", "address"],
+    "ritual_ZNK20QMetaPropertyBuilder10isRequiredEv": ["bool", "address"],
+    "ritual_ZN20QMetaPropertyBuilder11setReadableEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20QMetaPropertyBuilder11setWritableEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20QMetaPropertyBuilder13setResettableEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20QMetaPropertyBuilder13setDesignableEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20QMetaPropertyBuilder13setScriptableEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20QMetaPropertyBuilder9setStoredEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20QMetaPropertyBuilder7setUserEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20QMetaPropertyBuilder12setStdCppSetEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20QMetaPropertyBuilder13setEnumOrFlagEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20QMetaPropertyBuilder11setConstantEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20QMetaPropertyBuilder8setFinalEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20QMetaPropertyBuilder10setVirtualEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20QMetaPropertyBuilder11setOverrideEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20QMetaPropertyBuilder8setAliasEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20QMetaPropertyBuilder11setBindableEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20QMetaPropertyBuilder11setRequiredEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK20QMetaPropertyBuilder8revisionEv": ["int", "address"],
+    "ritual_ZN20QMetaPropertyBuilder11setRevisionEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QMetaPropertyBuilderC1EPK18QMetaObjectBuilderi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN20QMetaPropertyBuilderD1Ev": ["nothing", "address"]
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgrenderlo",
+    "adedtexture_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN17QSSGLoadedTextureD1Ev": ["nothing", "address"],
+    "ritual_ZN17QSSGLoadedTexture23setFormatFromComponentsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK17QSSGLoadedTexture19scanForTransparencyEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN17QSSGLoadedTexture4loadERK7QStringRK23QSSGRenderTextureFormatb": [
+      "address", "text", "address", "bool"
+    ],
+    "ritual_ZN17QSSGLoadedTexture10loadQImageERK7QStringi": [
+      "address", "text", "int"
+    ],
+    "ritual_ZN17QSSGLoadedTexture19loadCompressedImageERK7QString": [
+      "address", "text"
+    ],
+    "ritual_ZN17QSSGLoadedTexture15loadTextureDataEP21QSSGRenderTextureData": [
+      "address", "address"
+    ],
+    "ritual_ZN17QSSGLoadedTexture17loadLightmapImageERK7QStringRK23QSSGRenderTextureFormatS2_": [
+      "address", "text", "address", "text"
+    ]
+  }
+}

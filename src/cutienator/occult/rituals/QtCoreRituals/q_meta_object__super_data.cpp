@@ -22,6 +22,7 @@ const QMetaObject *ritual_ZNK11QMetaObject9SuperDataptEv(
   return self->operator->();
 }
 
+#if !(defined(QT_NO_DATA_RELOCATION))
 //  const QMetaObject *QMetaObject::SuperData::operator const QMetaObject *()
 //      const
 extern "C" Q_DECL_EXPORT
@@ -29,6 +30,7 @@ const QMetaObject *ritual_ZNK11QMetaObject9SuperDatacvPKS_Ev(
     const QMetaObject::SuperData *self) {
   return self->operator const QMetaObject *();
 }
+#endif  // !(defined(QT_NO_DATA_RELOCATION))
 
 //  QMetaObject::SuperData::~SuperData()
 extern "C" Q_DECL_EXPORT

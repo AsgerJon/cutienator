@@ -1,0 +1,46 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSvg/6.12.0/QtSvg/private/qsvgstyle_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QSvgStrokeStyleC1Ev": ["address"],
+    "ritual_ZN15QSvgStrokeStyleD1Ev": ["nothing", "address"],
+    "ritual_ZNK15QSvgStrokeStyle4typeEv": ["unsigned char", "address"],
+    "ritual_ZN15QSvgStrokeStyle9setStrokeE6QBrush": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QSvgStrokeStyle16setDashArrayNoneEv": ["nothing", "address"],
+    "ritual_ZN15QSvgStrokeStyle13setDashOffsetEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN15QSvgStrokeStyle10setLineCapEN2Qt11PenCapStyleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN15QSvgStrokeStyle11setLineJoinEN2Qt12PenJoinStyleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN15QSvgStrokeStyle13setMiterLimitEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN15QSvgStrokeStyle10setOpacityEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN15QSvgStrokeStyle8setWidthEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN15QSvgStrokeStyle5widthEv": ["double", "address"],
+    "ritual_ZN15QSvgStrokeStyle15setVectorEffectEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK15QSvgStrokeStyle11paintServerEv": ["address", "address"],
+    "ritual_ZN15QSvgStrokeStyle15setPaintStyleIdERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK15QSvgStrokeStyle12paintStyleIdEv": ["text", "address"],
+    "ritual_ZNK15QSvgStrokeStyle6strokeEv": ["address", "address"],
+    "ritual_take_QSvgStrokeStyle": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK15QSvgStrokeStyle4typeEv": ["unsigned char", "address"]
+  }
+}

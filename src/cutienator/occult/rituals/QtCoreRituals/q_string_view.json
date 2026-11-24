@@ -1,0 +1,261 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qstringview.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11QStringView19lengthHelperPointerEPK5QChar": [
+      "long long", "address"
+    ],
+    "ritual_ZN11QStringViewC1Ev": ["address"],
+    "ritual_ZNK11QStringView8toStringEv": ["text", "address"],
+    "ritual_ZN11QStringView7maxSizeEv": ["long long"],
+    "ritual_ZNK11QStringView4sizeEv": ["long long", "address"],
+    "ritual_ZNK11QStringViewixEx": ["address", "address", "long long"],
+    "ritual_ZNK11QStringView8toLatin1Ev": ["address", "address"],
+    "ritual_ZNK11QStringView6toUtf8Ev": ["address", "address"],
+    "ritual_ZNK11QStringView11toLocal8BitEv": ["address", "address"],
+    "ritual_ZNK11QStringView2atEx": ["address", "address", "long long"],
+    "ritual_ZNK11QStringView3midExx": [
+      "text", "address", "long long", "long long"
+    ],
+    "ritual_ZNK11QStringView4leftEx": ["text", "address", "long long"],
+    "ritual_ZNK11QStringView5rightEx": ["text", "address", "long long"],
+    "ritual_ZNK11QStringView5firstEx": ["text", "address", "long long"],
+    "ritual_ZNK11QStringView4lastEx": ["text", "address", "long long"],
+    "ritual_ZNK11QStringView6slicedEx": ["text", "address", "long long"],
+    "ritual_ZNK11QStringView6slicedExx": [
+      "text", "address", "long long", "long long"
+    ],
+    "ritual_ZNK11QStringView7choppedEx": ["text", "address", "long long"],
+    "ritual_ZN11QStringView8truncateEx": ["nothing", "address", "long long"],
+    "ritual_ZN11QStringView4chopEx": ["nothing", "address", "long long"],
+    "ritual_ZNK11QStringView7trimmedEv": ["text", "address"],
+    "ritual_ZNK11QStringView7compareES_N2Qt15CaseSensitivityE": [
+      "int", "address", "text", "int"
+    ],
+    "ritual_ZNK11QStringView7compareE13QLatin1StringN2Qt15CaseSensitivityE": [
+      "int", "address", "address", "int"
+    ],
+    "ritual_ZNK11QStringView7compareE5QChar": ["int", "address", "address"],
+    "ritual_ZNK11QStringView7compareE5QCharN2Qt15CaseSensitivityE": [
+      "int", "address", "address", "int"
+    ],
+    "ritual_ZNK11QStringView18localeAwareCompareES_": [
+      "int", "address", "text"
+    ],
+    "ritual_ZNK11QStringView10startsWithES_N2Qt15CaseSensitivityE": [
+      "bool", "address", "text", "int"
+    ],
+    "ritual_ZNK11QStringView10startsWithE13QLatin1StringN2Qt15CaseSensitivityE": [
+      "bool", "address", "address", "int"
+    ],
+    "ritual_ZNK11QStringView10startsWithE5QChar": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK11QStringView10startsWithE5QCharN2Qt15CaseSensitivityE": [
+      "bool", "address", "address", "int"
+    ],
+    "ritual_ZNK11QStringView8endsWithES_N2Qt15CaseSensitivityE": [
+      "bool", "address", "text", "int"
+    ],
+    "ritual_ZNK11QStringView8endsWithE13QLatin1StringN2Qt15CaseSensitivityE": [
+      "bool", "address", "address", "int"
+    ],
+    "ritual_ZNK11QStringView8endsWithE5QChar": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK11QStringView8endsWithE5QCharN2Qt15CaseSensitivityE": [
+      "bool", "address", "address", "int"
+    ],
+    "ritual_ZNK11QStringView7indexOfE5QCharxN2Qt15CaseSensitivityE": [
+      "long long", "address", "address", "long long", "int"
+    ],
+    "ritual_ZNK11QStringView7indexOfES_xN2Qt15CaseSensitivityE": [
+      "long long", "address", "text", "long long", "int"
+    ],
+    "ritual_ZNK11QStringView7indexOfE13QLatin1StringxN2Qt15CaseSensitivityE": [
+      "long long", "address", "address", "long long", "int"
+    ],
+    "ritual_ZNK11QStringView8containsE5QCharN2Qt15CaseSensitivityE": [
+      "bool", "address", "address", "int"
+    ],
+    "ritual_ZNK11QStringView8containsES_N2Qt15CaseSensitivityE": [
+      "bool", "address", "text", "int"
+    ],
+    "ritual_ZNK11QStringView8containsE13QLatin1StringN2Qt15CaseSensitivityE": [
+      "bool", "address", "address", "int"
+    ],
+    "ritual_ZNK11QStringView5countE5QCharN2Qt15CaseSensitivityE": [
+      "long long", "address", "address", "int"
+    ],
+    "ritual_ZNK11QStringView5countES_N2Qt15CaseSensitivityE": [
+      "long long", "address", "text", "int"
+    ],
+    "ritual_ZNK11QStringView5countE13QLatin1StringN2Qt15CaseSensitivityE": [
+      "long long", "address", "address", "int"
+    ],
+    "ritual_ZNK11QStringView11lastIndexOfE5QCharN2Qt15CaseSensitivityE": [
+      "long long", "address", "address", "int"
+    ],
+    "ritual_ZNK11QStringView11lastIndexOfE5QCharxN2Qt15CaseSensitivityE": [
+      "long long", "address", "address", "long long", "int"
+    ],
+    "ritual_ZNK11QStringView11lastIndexOfES_N2Qt15CaseSensitivityE": [
+      "long long", "address", "text", "int"
+    ],
+    "ritual_ZNK11QStringView11lastIndexOfES_xN2Qt15CaseSensitivityE": [
+      "long long", "address", "text", "long long", "int"
+    ],
+    "ritual_ZNK11QStringView11lastIndexOfE13QLatin1StringN2Qt15CaseSensitivityE": [
+      "long long", "address", "address", "int"
+    ],
+    "ritual_ZNK11QStringView11lastIndexOfE13QLatin1StringxN2Qt15CaseSensitivityE": [
+      "long long", "address", "address", "long long", "int"
+    ],
+    "ritual_ZNK11QStringView7indexOfERK18QRegularExpressionxP23QRegularExpressionMatch": [
+      "long long", "address", "address", "long long", "address"
+    ],
+    "ritual_ZNK11QStringView11lastIndexOfERK18QRegularExpressionxP23QRegularExpressionMatch": [
+      "long long", "address", "address", "long long", "address"
+    ],
+    "ritual_ZNK11QStringView8containsERK18QRegularExpressionP23QRegularExpressionMatch": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZNK11QStringView5countERK18QRegularExpression": [
+      "long long", "address", "address"
+    ],
+    "ritual_ZNK11QStringView13isRightToLeftEv": ["bool", "address"],
+    "ritual_ZNK11QStringView12isValidUtf16Ev": ["bool", "address"],
+    "ritual_ZNK11QStringView7isUpperEv": ["bool", "address"],
+    "ritual_ZNK11QStringView7isLowerEv": ["bool", "address"],
+    "ritual_ZNK11QStringView7toShortEPbi": [
+      "short", "address", "address", "int"
+    ],
+    "ritual_ZNK11QStringView8toUShortEPbi": [
+      "unsigned short", "address", "address", "int"
+    ],
+    "ritual_ZNK11QStringView5toIntEPbi": [
+      "int", "address", "address", "int"
+    ],
+    "ritual_ZNK11QStringView6toUIntEPbi": [
+      "unsigned int", "address", "address", "int"
+    ],
+    "ritual_ZNK11QStringView6toLongEPbi": [
+      "long", "address", "address", "int"
+    ],
+    "ritual_ZNK11QStringView7toULongEPbi": [
+      "unsigned long", "address", "address", "int"
+    ],
+    "ritual_ZNK11QStringView10toLongLongEPbi": [
+      "long long", "address", "address", "int"
+    ],
+    "ritual_ZNK11QStringView11toULongLongEPbi": [
+      "unsigned long long", "address", "address", "int"
+    ],
+    "ritual_ZNK11QStringView7toFloatEPb": ["float", "address", "address"],
+    "ritual_ZNK11QStringView8toDoubleEPb": ["double", "address", "address"],
+    "ritual_ZNK11QStringView5splitES_6QFlagsIN2Qt18SplitBehaviorFlagsEENS1_15CaseSensitivityE": [
+      "address", "address", "text", "int", "int"
+    ],
+    "ritual_ZNK11QStringView5splitE5QChar6QFlagsIN2Qt18SplitBehaviorFlagsEENS2_15CaseSensitivityE": [
+      "address", "address", "address", "int", "int"
+    ],
+    "ritual_ZNK11QStringView5splitERK18QRegularExpression6QFlagsIN2Qt18SplitBehaviorFlagsEE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZeqRK11QStringViewS1_": ["bool", "text", "text"],
+    "ritual_ZneRK11QStringViewS1_": ["bool", "text", "text"],
+    "ritual_ZltRK11QStringViewS1_": ["bool", "text", "text"],
+    "ritual_ZgtRK11QStringViewS1_": ["bool", "text", "text"],
+    "ritual_ZleRK11QStringViewS1_": ["bool", "text", "text"],
+    "ritual_ZgeRK11QStringViewS1_": ["bool", "text", "text"],
+    "ritual_ZeqRK11QStringViewRK5QChar": ["bool", "text", "address"],
+    "ritual_ZneRK11QStringViewRK5QChar": ["bool", "text", "address"],
+    "ritual_ZltRK11QStringViewRK5QChar": ["bool", "text", "address"],
+    "ritual_ZgtRK11QStringViewRK5QChar": ["bool", "text", "address"],
+    "ritual_ZleRK11QStringViewRK5QChar": ["bool", "text", "address"],
+    "ritual_ZgeRK11QStringViewRK5QChar": ["bool", "text", "address"],
+    "ritual_ZeqRK5QCharRK11QStringView": ["bool", "address", "text"],
+    "ritual_ZneRK5QCharRK11QStringView": ["bool", "address", "text"],
+    "ritual_ZltRK5QCharRK11QStringView": ["bool", "address", "text"],
+    "ritual_ZgtRK5QCharRK11QStringView": ["bool", "address", "text"],
+    "ritual_ZleRK5QCharRK11QStringView": ["bool", "address", "text"],
+    "ritual_ZgeRK5QCharRK11QStringView": ["bool", "address", "text"],
+    "ritual_ZNK11QStringView5emptyEv": ["bool", "address"],
+    "ritual_ZNK11QStringView5frontEv": ["address", "address"],
+    "ritual_ZNK11QStringView4backEv": ["address", "address"],
+    "ritual_ZNK11QStringView8max_sizeEv": ["long long", "address"],
+    "ritual_ZNK11QStringView6isNullEv": ["bool", "address"],
+    "ritual_ZNK11QStringView7isEmptyEv": ["bool", "address"],
+    "ritual_ZNK11QStringView6lengthEv": ["long long", "address"],
+    "ritual_ZNK11QStringView5firstEv": ["address", "address"],
+    "ritual_ZNK11QStringView4lastEv": ["address", "address"],
+    "ritual_ZNK11QStringView6verifyExx": [
+      "nothing", "address", "long long", "long long"
+    ],
+    "ritual_ZNK11QStringView26compare_single_char_helperEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZN11QStringView12equal_helperES_PKcx": [
+      "bool", "text", "chars", "long long"
+    ],
+    "ritual_ZN11QStringView14compare_helperES_PKcx": [
+      "int", "text", "chars", "long long"
+    ],
+    "ritual_ZeqRK11QStringViewRK14QByteArrayView": [
+      "bool", "text", "address"
+    ],
+    "ritual_ZneRK11QStringViewRK14QByteArrayView": [
+      "bool", "text", "address"
+    ],
+    "ritual_ZltRK11QStringViewRK14QByteArrayView": [
+      "bool", "text", "address"
+    ],
+    "ritual_ZgtRK11QStringViewRK14QByteArrayView": [
+      "bool", "text", "address"
+    ],
+    "ritual_ZleRK11QStringViewRK14QByteArrayView": [
+      "bool", "text", "address"
+    ],
+    "ritual_ZgeRK11QStringViewRK14QByteArrayView": [
+      "bool", "text", "address"
+    ],
+    "ritual_ZeqRK14QByteArrayViewRK11QStringView": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZneRK14QByteArrayViewRK11QStringView": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZltRK14QByteArrayViewRK11QStringView": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZgtRK14QByteArrayViewRK11QStringView": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZleRK14QByteArrayViewRK11QStringView": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZgeRK14QByteArrayViewRK11QStringView": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZeqRK11QStringViewRK10QByteArray": ["bool", "text", "address"],
+    "ritual_ZneRK11QStringViewRK10QByteArray": ["bool", "text", "address"],
+    "ritual_ZltRK11QStringViewRK10QByteArray": ["bool", "text", "address"],
+    "ritual_ZgtRK11QStringViewRK10QByteArray": ["bool", "text", "address"],
+    "ritual_ZleRK11QStringViewRK10QByteArray": ["bool", "text", "address"],
+    "ritual_ZgeRK11QStringViewRK10QByteArray": ["bool", "text", "address"],
+    "ritual_ZeqRK10QByteArrayRK11QStringView": ["bool", "address", "text"],
+    "ritual_ZneRK10QByteArrayRK11QStringView": ["bool", "address", "text"],
+    "ritual_ZltRK10QByteArrayRK11QStringView": ["bool", "address", "text"],
+    "ritual_ZgtRK10QByteArrayRK11QStringView": ["bool", "address", "text"],
+    "ritual_ZleRK10QByteArrayRK11QStringView": ["bool", "address", "text"],
+    "ritual_ZgeRK10QByteArrayRK11QStringView": ["bool", "address", "text"],
+    "ritual_ZN11QStringViewD1Ev": ["nothing", "address"],
+    "ritual_list_make_QStringView": ["address"],
+    "ritual_list_add_QStringView": ["nothing", "address", "address"],
+    "ritual_list_size_QStringView": ["long long", "address"],
+    "ritual_list_at_QStringView": ["address", "address", "long long"],
+    "ritual_list_drop_QStringView": ["nothing", "address"]
+  }
+}

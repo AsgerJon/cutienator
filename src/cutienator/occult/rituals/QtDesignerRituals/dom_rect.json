@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/ui4_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN7DomRectC1Ev": ["address"],
+    "ritual_ZN7DomRectD1Ev": ["nothing", "address"],
+    "ritual_ZNK7DomRect8elementXEv": ["int", "address"],
+    "ritual_ZN7DomRect11setElementXEi": ["nothing", "address", "int"],
+    "ritual_ZNK7DomRect11hasElementXEv": ["bool", "address"],
+    "ritual_ZN7DomRect13clearElementXEv": ["nothing", "address"],
+    "ritual_ZNK7DomRect8elementYEv": ["int", "address"],
+    "ritual_ZN7DomRect11setElementYEi": ["nothing", "address", "int"],
+    "ritual_ZNK7DomRect11hasElementYEv": ["bool", "address"],
+    "ritual_ZN7DomRect13clearElementYEv": ["nothing", "address"],
+    "ritual_ZNK7DomRect12elementWidthEv": ["int", "address"],
+    "ritual_ZN7DomRect15setElementWidthEi": ["nothing", "address", "int"],
+    "ritual_ZNK7DomRect15hasElementWidthEv": ["bool", "address"],
+    "ritual_ZN7DomRect17clearElementWidthEv": ["nothing", "address"],
+    "ritual_ZNK7DomRect13elementHeightEv": ["int", "address"],
+    "ritual_ZN7DomRect16setElementHeightEi": ["nothing", "address", "int"],
+    "ritual_ZNK7DomRect16hasElementHeightEv": ["bool", "address"],
+    "ritual_ZN7DomRect18clearElementHeightEv": ["nothing", "address"]
+  }
+}

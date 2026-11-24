@@ -1,0 +1,74 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSvg/6.12.0/QtSvg/private/qsvgstyleselector_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN17QSvgStyleSelectorD1Ev": ["nothing", "address"],
+    "ritual_ZNK17QSvgStyleSelector7svgNodeEN4QCss13StyleSelector7NodePtrE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK17QSvgStyleSelector15nodeToStructureEP8QSvgNode": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK17QSvgStyleSelector12svgStructureEN4QCss13StyleSelector7NodePtrE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK17QSvgStyleSelector14nodeNameEqualsEN4QCss13StyleSelector7NodePtrERK7QString": [
+      "bool", "address", "address", "text"
+    ],
+    "ritual_ZNK17QSvgStyleSelector14attributeValueEN4QCss13StyleSelector7NodePtrERKNS0_17AttributeSelectorE": [
+      "text", "address", "address", "address"
+    ],
+    "ritual_ZNK17QSvgStyleSelector13hasAttributesEN4QCss13StyleSelector7NodePtrE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK17QSvgStyleSelector7nodeIdsEN4QCss13StyleSelector7NodePtrE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK17QSvgStyleSelector9nodeNamesEN4QCss13StyleSelector7NodePtrE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK17QSvgStyleSelector10isNullNodeEN4QCss13StyleSelector7NodePtrE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK17QSvgStyleSelector10parentNodeEN4QCss13StyleSelector7NodePtrE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK17QSvgStyleSelector19previousSiblingNodeEN4QCss13StyleSelector7NodePtrE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK17QSvgStyleSelector13duplicateNodeEN4QCss13StyleSelector7NodePtrE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK17QSvgStyleSelector8freeNodeEN4QCss13StyleSelector7NodePtrE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QSvgStyleSelector": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK17QSvgStyleSelector14nodeNameEqualsEN4QCss13StyleSelector7NodePtrERK7QString": [
+      "bool", "address", "address", "text"
+    ],
+    "ritual_own_ZNK17QSvgStyleSelector14attributeValueEN4QCss13StyleSelector7NodePtrERKNS0_17AttributeSelectorE": [
+      "text", "address", "address", "address"
+    ],
+    "ritual_own_ZNK17QSvgStyleSelector13hasAttributesEN4QCss13StyleSelector7NodePtrE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZNK17QSvgStyleSelector10isNullNodeEN4QCss13StyleSelector7NodePtrE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZNK17QSvgStyleSelector10parentNodeEN4QCss13StyleSelector7NodePtrE": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZNK17QSvgStyleSelector19previousSiblingNodeEN4QCss13StyleSelector7NodePtrE": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZNK17QSvgStyleSelector13duplicateNodeEN4QCss13StyleSelector7NodePtrE": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZNK17QSvgStyleSelector8freeNodeEN4QCss13StyleSelector7NodePtrE": [
+      "nothing", "address", "address"
+    ]
+  }
+}

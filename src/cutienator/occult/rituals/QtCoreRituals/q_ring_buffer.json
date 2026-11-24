@@ -1,0 +1,39 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qringbuffer_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11QRingBufferC1Ei": ["address", "int"],
+    "ritual_ZN11QRingBuffer12setChunkSizeEi": ["nothing", "address", "int"],
+    "ritual_ZNK11QRingBuffer9chunkSizeEv": ["int", "address"],
+    "ritual_ZNK11QRingBuffer17nextDataBlockSizeEv": ["long long", "address"],
+    "ritual_ZNK11QRingBuffer11readPointerEv": ["chars", "address"],
+    "ritual_ZNK11QRingBuffer21readPointerAtPositionExRx": [
+      "chars", "address", "long long", "address"
+    ],
+    "ritual_ZN11QRingBuffer4freeEx": ["nothing", "address", "long long"],
+    "ritual_ZN11QRingBuffer8truncateEx": ["nothing", "address", "long long"],
+    "ritual_ZN11QRingBuffer4chopEx": ["nothing", "address", "long long"],
+    "ritual_ZNK11QRingBuffer7isEmptyEv": ["bool", "address"],
+    "ritual_ZN11QRingBuffer7getCharEv": ["int", "address"],
+    "ritual_ZN11QRingBuffer7putCharEc": ["nothing", "address", "char"],
+    "ritual_ZN11QRingBuffer9ungetCharEc": ["nothing", "address", "char"],
+    "ritual_ZNK11QRingBuffer4sizeEv": ["long long", "address"],
+    "ritual_ZN11QRingBuffer5clearEv": ["nothing", "address"],
+    "ritual_ZNK11QRingBuffer7indexOfEc": ["long long", "address", "char"],
+    "ritual_ZNK11QRingBuffer7indexOfEcxx": [
+      "long long", "address", "char", "long long", "long long"
+    ],
+    "ritual_ZN11QRingBuffer4readEv": ["address", "address"],
+    "ritual_ZN11QRingBuffer6appendEPKcx": [
+      "nothing", "address", "chars", "long long"
+    ],
+    "ritual_ZN11QRingBuffer6appendERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QRingBuffer4skipEx": ["long long", "address", "long long"],
+    "ritual_ZNK11QRingBuffer11canReadLineEv": ["bool", "address"]
+  }
+}

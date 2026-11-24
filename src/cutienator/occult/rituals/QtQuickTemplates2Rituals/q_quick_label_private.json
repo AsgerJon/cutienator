@@ -1,0 +1,106 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquicklabel_p_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QQuickLabelPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK18QQuickLabelPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN18QQuickLabelPrivateC1Ev": ["address"],
+    "ritual_ZN18QQuickLabelPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN18QQuickLabelPrivate3getEP11QQuickLabel": [
+      "address", "address"
+    ],
+    "ritual_ZNK18QQuickLabelPrivate8getInsetEv": ["address", "address"],
+    "ritual_ZNK18QQuickLabelPrivate11getTopInsetEv": ["double", "address"],
+    "ritual_ZNK18QQuickLabelPrivate12getLeftInsetEv": ["double", "address"],
+    "ritual_ZNK18QQuickLabelPrivate13getRightInsetEv": ["double", "address"],
+    "ritual_ZNK18QQuickLabelPrivate14getBottomInsetEv": [
+      "double", "address"
+    ],
+    "ritual_ZN18QQuickLabelPrivate11setTopInsetEdb": [
+      "nothing", "address", "double", "bool"
+    ],
+    "ritual_ZN18QQuickLabelPrivate12setLeftInsetEdb": [
+      "nothing", "address", "double", "bool"
+    ],
+    "ritual_ZN18QQuickLabelPrivate13setRightInsetEdb": [
+      "nothing", "address", "double", "bool"
+    ],
+    "ritual_ZN18QQuickLabelPrivate14setBottomInsetEdb": [
+      "nothing", "address", "double", "bool"
+    ],
+    "ritual_ZN18QQuickLabelPrivate16resizeBackgroundEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickLabelPrivate11resolveFontEv": ["nothing", "address"],
+    "ritual_ZN18QQuickLabelPrivate11inheritFontERK5QFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQuickLabelPrivate10updateFontERK5QFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQuickLabelPrivate14setFont_helperERK5QFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQuickLabelPrivate11textChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN18QQuickLabelPrivate26accessibilityActiveChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK18QQuickLabelPrivate14accessibleRoleEv": ["int", "address"],
+    "ritual_ZN18QQuickLabelPrivate22maybeSetAccessibleNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN18QQuickLabelPrivate16cancelBackgroundEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickLabelPrivate17executeBackgroundEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN18QQuickLabelPrivate19itemGeometryChangedEP10QQuickItem20QQuickGeometryChangeRK6QRectF": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN18QQuickLabelPrivate24itemImplicitWidthChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQuickLabelPrivate25itemImplicitHeightChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQuickLabelPrivate13itemDestroyedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QQuickLabelPrivate14defaultPaletteEv": [
+      "address", "address"
+    ],
+    "ritual_cast_QQuickLabelPrivate_QAccessible_ActivationObserver": [
+      "address", "address"
+    ],
+    "ritual_take_QQuickLabelPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN18QQuickLabelPrivate26accessibilityActiveChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZNK18QQuickLabelPrivate14accessibleRoleEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZN18QQuickLabelPrivate19itemGeometryChangedEP10QQuickItem20QQuickGeometryChangeRK6QRectF": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN18QQuickLabelPrivate24itemImplicitWidthChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN18QQuickLabelPrivate25itemImplicitHeightChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN18QQuickLabelPrivate13itemDestroyedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK18QQuickLabelPrivate14defaultPaletteEv": [
+      "address", "address"
+    ]
+  }
+}

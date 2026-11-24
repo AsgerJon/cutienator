@@ -1,0 +1,56 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtPositioning/qgeocoordinate.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN14QGeoCoordinateC1Ev": ["address"],
+    "ritual_ZN14QGeoCoordinateC1Edd": ["address", "double", "double"],
+    "ritual_ZN14QGeoCoordinateC1Eddd": [
+      "address", "double", "double", "double"
+    ],
+    "ritual_ZN14QGeoCoordinateC1ERKS_": ["address", "address"],
+    "ritual_ZN14QGeoCoordinateD1Ev": ["nothing", "address"],
+    "ritual_ZeqRK14QGeoCoordinateS1_": ["bool", "address", "address"],
+    "ritual_ZneRK14QGeoCoordinateS1_": ["bool", "address", "address"],
+    "ritual_ZNK14QGeoCoordinate7isValidEv": ["bool", "address"],
+    "ritual_ZNK14QGeoCoordinate4typeEv": ["int", "address"],
+    "ritual_ZN14QGeoCoordinate11setLatitudeEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK14QGeoCoordinate8latitudeEv": ["double", "address"],
+    "ritual_ZN14QGeoCoordinate12setLongitudeEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK14QGeoCoordinate9longitudeEv": ["double", "address"],
+    "ritual_ZN14QGeoCoordinate11setAltitudeEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK14QGeoCoordinate8altitudeEv": ["double", "address"],
+    "ritual_ZNK14QGeoCoordinate10distanceToERKS_": [
+      "double", "address", "address"
+    ],
+    "ritual_ZNK14QGeoCoordinate9azimuthToERKS_": [
+      "double", "address", "address"
+    ],
+    "ritual_ZNK14QGeoCoordinate20atDistanceAndAzimuthEddd": [
+      "address", "address", "double", "double", "double"
+    ],
+    "ritual_ZNK14QGeoCoordinate8toStringENS_16CoordinateFormatE": [
+      "text", "address", "int"
+    ],
+    "ritual_ZN14QGeoCoordinate6equalsERKS_S1_": [
+      "bool", "address", "address"
+    ],
+    "ritual_Zls6QDebugRK14QGeoCoordinate": ["address", "address", "address"],
+    "ritual_ZN14QGeoCoordinate14debugStreamingE6QDebugRKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_list_make_QGeoCoordinate": ["address"],
+    "ritual_list_add_QGeoCoordinate": ["nothing", "address", "address"],
+    "ritual_list_size_QGeoCoordinate": ["long long", "address"],
+    "ritual_list_at_QGeoCoordinate": ["address", "address", "long long"],
+    "ritual_list_drop_QGeoCoordinate": ["nothing", "address"]
+  }
+}

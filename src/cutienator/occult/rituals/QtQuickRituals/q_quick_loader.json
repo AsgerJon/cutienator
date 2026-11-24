@@ -1,0 +1,68 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickloader_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK12QQuickLoader10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QQuickLoader2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN12QQuickLoaderC1EP10QQuickItem": ["address", "address"],
+    "ritual_ZN12QQuickLoaderD1Ev": ["nothing", "address"],
+    "ritual_ZNK12QQuickLoader6activeEv": ["bool", "address"],
+    "ritual_ZN12QQuickLoader9setActiveEb": ["nothing", "address", "bool"],
+    "ritual_ZN12QQuickLoader9setSourceERK4QUrl8QJSValue": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN12QQuickLoader9setSourceERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12QQuickLoader6sourceEv": ["address", "address"],
+    "ritual_ZN12QQuickLoader23setSourceWithoutResolveERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12QQuickLoader15sourceComponentEv": ["address", "address"],
+    "ritual_ZN12QQuickLoader18setSourceComponentEP13QQmlComponent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QQuickLoader20resetSourceComponentEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK12QQuickLoader6statusEv": ["int", "address"],
+    "ritual_ZNK12QQuickLoader8progressEv": ["double", "address"],
+    "ritual_ZNK12QQuickLoader12asynchronousEv": ["bool", "address"],
+    "ritual_ZN12QQuickLoader15setAsynchronousEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK12QQuickLoader4itemEv": ["address", "address"],
+    "ritual_ZN12QQuickLoader14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN12QQuickLoader17componentCompleteEv": ["nothing", "address"],
+    "ritual_ZN12QQuickLoader10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN12QQuickLoader18setSourceUrlHelperERK4QUrl": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN12QQuickLoader9setSourceERK4QUrlb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN12QQuickLoader14loadFromSourceEv": ["nothing", "address"],
+    "ritual_ZN12QQuickLoader23loadFromSourceComponentEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN12QQuickLoader6d_funcEv": ["address", "address"],
+    "ritual_ZNK12QQuickLoader6d_funcEv": ["address", "address"],
+    "ritual_take_QQuickLoader": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN12QQuickLoader14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN12QQuickLoader17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN12QQuickLoader10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ]
+  }
+}

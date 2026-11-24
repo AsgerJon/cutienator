@@ -1,0 +1,41 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtLabsS",
+    "ynchronizer/6.12.0/QtLabsSynchronizer/private/qqmlsynchronizer_p.h",
+    ", Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK16QQmlSynchronizer10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QQmlSynchronizer2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN16QQmlSynchronizerC1EP7QObject": ["address", "address"],
+    "ritual_ZNK16QQmlSynchronizer12sourceObjectEv": ["address", "address"],
+    "ritual_ZN16QQmlSynchronizer15setSourceObjectEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QQmlSynchronizer14sourcePropertyEv": ["text", "address"],
+    "ritual_ZN16QQmlSynchronizer17setSourcePropertyERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK16QQmlSynchronizer12targetObjectEv": ["address", "address"],
+    "ritual_ZN16QQmlSynchronizer15setTargetObjectEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QQmlSynchronizer14targetPropertyEv": ["text", "address"],
+    "ritual_ZN16QQmlSynchronizer17setTargetPropertyERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN16QQmlSynchronizer9setTargetERK12QQmlProperty": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQmlSynchronizer18componentFinalizedEv": [
+      "nothing", "address"
+    ],
+    "ritual_cast_QQmlSynchronizer_QQmlPropertyValueSource": [
+      "address", "address"
+    ],
+    "ritual_cast_QQmlSynchronizer_QQmlFinalizerHook": ["address", "address"],
+    "ritual_take_QQmlSynchronizer": ["bool", "address", "chars", "address"]
+  }
+}

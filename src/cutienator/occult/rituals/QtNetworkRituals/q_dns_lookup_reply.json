@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/6.12.0/QtNetwork/private/qdnslookup_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QDnsLookupReply23makeResolverSystemErrorEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN15QDnsLookupReply16makeTimeoutErrorEv": ["nothing", "address"],
+    "ritual_ZN15QDnsLookupReply17makeDnsRcodeErrorEh": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZNK15QDnsLookupReply11allAreEmptyEv": ["bool", "address"],
+    "ritual_ZN15QDnsLookupReplyD1Ev": ["nothing", "address"]
+  }
+}

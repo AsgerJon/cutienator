@@ -1,0 +1,31 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qpauseanimationjob_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QPauseAnimationJobC1Ei": ["address", "int"],
+    "ritual_ZN18QPauseAnimationJobD1Ev": ["nothing", "address"],
+    "ritual_ZNK18QPauseAnimationJob8durationEv": ["int", "address"],
+    "ritual_ZN18QPauseAnimationJob11setDurationEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18QPauseAnimationJob17updateCurrentTimeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK18QPauseAnimationJob14debugAnimationE6QDebug": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QPauseAnimationJob": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK18QPauseAnimationJob8durationEv": ["int", "address"],
+    "ritual_own_ZN18QPauseAnimationJob17updateCurrentTimeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZNK18QPauseAnimationJob14debugAnimationE6QDebug": [
+      "nothing", "address", "address"
+    ]
+  }
+}

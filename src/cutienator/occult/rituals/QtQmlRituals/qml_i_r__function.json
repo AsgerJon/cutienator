@@ -1,0 +1,12 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmlirbuilder_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK5QmlIR8Function12formalsBeginEv": ["address", "address"],
+    "ritual_ZNK5QmlIR8Function10formalsEndEv": ["address", "address"],
+    "ritual_ZN5QmlIR8FunctionD1Ev": ["nothing", "address"]
+  }
+}

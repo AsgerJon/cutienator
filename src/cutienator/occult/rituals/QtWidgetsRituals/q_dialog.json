@@ -46,6 +46,8 @@
     "ritual_ZN7QDialog14adjustPositionEP7QWidget": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN7QDialog6d_funcEv": ["address", "address"],
+    "ritual_ZNK7QDialog6d_funcEv": ["address", "address"],
     "ritual_take_QDialog": ["bool", "address", "chars", "address"],
     "ritual_own_ZN7QDialog10setVisibleEb": ["nothing", "address", "bool"],
     "ritual_own_ZNK7QDialog8sizeHintEv": ["address", "address"],

@@ -1,0 +1,45 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSql/6.12.0/QtSql/private/qsqltablemodel_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN21QSqlTableModelPrivate11ModifiedRowC1ENS_2OpERK10QSqlRecord": [
+      "address", "int", "address"
+    ],
+    "ritual_ZNK21QSqlTableModelPrivate11ModifiedRow2opEv": [
+      "int", "address"
+    ],
+    "ritual_ZN21QSqlTableModelPrivate11ModifiedRow5setOpENS_2OpE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK21QSqlTableModelPrivate11ModifiedRow3recEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QSqlTableModelPrivate11ModifiedRow8setValueEiRK8QVariant": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZNK21QSqlTableModelPrivate11ModifiedRow9submittedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QSqlTableModelPrivate11ModifiedRow12setSubmittedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QSqlTableModelPrivate11ModifiedRow7refreshEbRK10QSqlRecord": [
+      "nothing", "address", "bool", "address"
+    ],
+    "ritual_ZNK21QSqlTableModelPrivate11ModifiedRow6insertEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QSqlTableModelPrivate11ModifiedRow6revertEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK21QSqlTableModelPrivate11ModifiedRow13primaryValuesERK10QSqlRecord": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN21QSqlTableModelPrivate11ModifiedRowD1Ev": [
+      "nothing", "address"
+    ]
+  }
+}

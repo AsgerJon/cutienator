@@ -1,0 +1,39 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qtextstream_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QTextStreamPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK18QTextStreamPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN18QTextStreamPrivateC1EP11QTextStream": ["address", "address"],
+    "ritual_ZN18QTextStreamPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN18QTextStreamPrivate5resetEv": ["nothing", "address"],
+    "ritual_ZN18QTextStreamPrivate11setupDeviceEP9QIODevice": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QTextStreamPrivate20disconnectFromDeviceEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK18QTextStreamPrivate7readPtrEv": ["address", "address"],
+    "ritual_ZN18QTextStreamPrivate18saveConverterStateEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN18QTextStreamPrivate28restoreToSavedConverterStateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QTextStreamPrivate9ungetCharE5QChar": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QTextStreamPrivate7paddingEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN18QTextStreamPrivate15resetReadBufferEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QTextStreamPrivate16flushWriteBufferEv": [
+      "nothing", "address"
+    ]
+  }
+}

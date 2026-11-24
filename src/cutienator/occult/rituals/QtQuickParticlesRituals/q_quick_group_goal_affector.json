@@ -1,0 +1,32 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Particles/6.12.0/QtQuickParticles/private/qquickgroupgoal_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK23QQuickGroupGoalAffector10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QQuickGroupGoalAffector2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN23QQuickGroupGoalAffectorC1EP10QQuickItem": [
+      "address", "address"
+    ],
+    "ritual_ZNK23QQuickGroupGoalAffector9goalStateEv": ["text", "address"],
+    "ritual_ZNK23QQuickGroupGoalAffector4jumpEv": ["bool", "address"],
+    "ritual_ZN23QQuickGroupGoalAffector14affectParticleEP18QQuickParticleDatad": [
+      "bool", "address", "address", "double"
+    ],
+    "ritual_ZN23QQuickGroupGoalAffector12setGoalStateERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN23QQuickGroupGoalAffector7setJumpEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZN23QQuickGroupGoalAffector14affectParticleEP18QQuickParticleDatad": [
+      "bool", "address", "address", "double"
+    ]
+  }
+}

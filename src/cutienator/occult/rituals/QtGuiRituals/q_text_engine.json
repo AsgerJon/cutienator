@@ -1,0 +1,131 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qtextengine_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11QTextEngineC1Ev": ["address"],
+    "ritual_ZN11QTextEngineC1ERK7QStringRK5QFont": [
+      "address", "text", "address"
+    ],
+    "ritual_ZN11QTextEngineD1Ev": ["nothing", "address"],
+    "ritual_ZN11QTextEngine10invalidateEv": ["nothing", "address"],
+    "ritual_ZN11QTextEngine13clearLineDataEv": ["nothing", "address"],
+    "ritual_ZNK11QTextEngine8validateEv": ["nothing", "address"],
+    "ritual_ZNK11QTextEngine7itemizeEv": ["nothing", "address"],
+    "ritual_ZNK11QTextEngine13isRightToLeftEv": ["bool", "address"],
+    "ritual_ZNK11QTextEngine10attributesEv": ["address", "address"],
+    "ritual_ZNK11QTextEngine5shapeEi": ["nothing", "address", "int"],
+    "ritual_ZN11QTextEngine7justifyERK11QScriptLine": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QTextEngine9alignLineERK11QScriptLine": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK11QTextEngine5widthEii": ["address", "address", "int", "int"],
+    "ritual_ZNK11QTextEngine11boundingBoxEii": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZNK11QTextEngine16tightBoundingBoxEii": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZNK11QTextEngine6lengthEi": ["int", "address", "int"],
+    "ritual_ZNK11QTextEngine6lengthEPK11QScriptItem": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK11QTextEngine10fontEngineERK11QScriptItemP6QFixedS4_S4_": [
+      "address", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK11QTextEngine4fontERK11QScriptItem": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK11QTextEngine4fontEv": ["address", "address"],
+    "ritual_ZNK11QTextEngine15availableGlyphsEPK11QScriptItem": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK11QTextEngine12shapedGlyphsEPK11QScriptItem": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK11QTextEngine11ensureSpaceEi": ["bool", "address", "int"],
+    "ritual_ZN11QTextEngine10freeMemoryEv": ["nothing", "address"],
+    "ritual_ZNK11QTextEngine8findItemEii": ["int", "address", "int", "int"],
+    "ritual_ZNK11QTextEngine16formatCollectionEv": ["address", "address"],
+    "ritual_ZNK11QTextEngine6formatEPK11QScriptItem": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK11QTextEngine9docLayoutEv": ["address", "address"],
+    "ritual_ZNK11QTextEngine11formatIndexEPK11QScriptItem": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK11QTextEngine17calculateTabWidthEi6QFixed": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_ZNK11QTextEngine20visualCursorMovementEv": ["bool", "address"],
+    "ritual_ZNK11QTextEngine19preeditAreaPositionEv": ["int", "address"],
+    "ritual_ZNK11QTextEngine15preeditAreaTextEv": ["text", "address"],
+    "ritual_ZN11QTextEngine14setPreeditAreaEiRK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZNK11QTextEngine10hasFormatsEv": ["bool", "address"],
+    "ritual_ZN11QTextEngine4initEPS_": ["nothing", "address"],
+    "ritual_ZN11QTextEngine12indexFormatsEv": ["nothing", "address"],
+    "ritual_ZNK11QTextEngine14resolveFormatsEv": ["nothing", "address"],
+    "ritual_ZNK11QTextEngine15atWordSeparatorEi": ["bool", "address", "int"],
+    "ritual_ZNK11QTextEngine10elidedTextEN2Qt13TextElideModeE6QFixediii": [
+      "text", "address", "int", "address", "int", "int", "int"
+    ],
+    "ritual_ZN11QTextEngine9shapeLineERK11QScriptLine": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QTextEngine17leadingSpaceWidthERK11QScriptLine": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN11QTextEngine16offsetInLigatureEPK11QScriptItemiii": [
+      "address", "address", "address", "int", "int", "int"
+    ],
+    "ritual_ZN11QTextEngine18positionInLigatureEPK11QScriptItemi6QFixedS3_ib": [
+      "int", "address", "address", "int", "address", "address", "int", "bool"
+    ],
+    "ritual_ZNK11QTextEngine23previousLogicalPositionEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK11QTextEngine19nextLogicalPositionEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZN11QTextEngine25lineNumberForTextPositionEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZN11QTextEngine27positionAfterVisualMovementEiN11QTextCursor13MoveOperationE": [
+      "int", "address", "int", "int"
+    ],
+    "ritual_ZN11QTextEngine20resetFontEngineCacheEv": ["nothing", "address"],
+    "ritual_ZN11QTextEngine22enableDelayDecorationsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN11QTextEngine12addUnderlineEP8QPainterRK6QLineF": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN11QTextEngine12addStrikeOutEP8QPainterRK6QLineF": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN11QTextEngine11addOverlineEP8QPainterRK6QLineF": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN11QTextEngine15drawDecorationsEP8QPainter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QTextEngine16clearDecorationsEv": ["nothing", "address"],
+    "ritual_ZN11QTextEngine16adjustUnderlinesEv": ["nothing", "address"],
+    "ritual_ZNK11QTextEngine11setBoundaryEi": ["nothing", "address", "int"],
+    "ritual_ZNK11QTextEngine21addRequiredBoundariesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK11QTextEngine9shapeTextEi": ["nothing", "address", "int"],
+    "ritual_ZN11QTextEngine9endOfLineEi": ["int", "address", "int"],
+    "ritual_ZN11QTextEngine15beginningOfLineEi": ["int", "address", "int"],
+    "ritual_ZN11QTextEngine16getClusterLengthEPtPK15QCharAttributesiiiPi": [
+      "int", "address", "address", "address", "int", "int", "int", "address"
+    ]
+  }
+}

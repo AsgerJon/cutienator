@@ -1,0 +1,124 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickshadereffectsource_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK24QQuickShaderEffectSource10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QQuickShaderEffectSource2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN24QQuickShaderEffectSourceC1EP10QQuickItem": [
+      "address", "address"
+    ],
+    "ritual_ZN24QQuickShaderEffectSourceD1Ev": ["nothing", "address"],
+    "ritual_ZNK24QQuickShaderEffectSource8wrapModeEv": ["int", "address"],
+    "ritual_ZN24QQuickShaderEffectSource11setWrapModeENS_8WrapModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK24QQuickShaderEffectSource10sourceItemEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QQuickShaderEffectSource13setSourceItemEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK24QQuickShaderEffectSource10sourceRectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QQuickShaderEffectSource13setSourceRectERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK24QQuickShaderEffectSource11textureSizeEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QQuickShaderEffectSource14setTextureSizeERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK24QQuickShaderEffectSource6formatEv": ["int", "address"],
+    "ritual_ZN24QQuickShaderEffectSource9setFormatENS_6FormatE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK24QQuickShaderEffectSource4liveEv": ["bool", "address"],
+    "ritual_ZN24QQuickShaderEffectSource7setLiveEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK24QQuickShaderEffectSource10hideSourceEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN24QQuickShaderEffectSource13setHideSourceEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK24QQuickShaderEffectSource6mipmapEv": ["bool", "address"],
+    "ritual_ZN24QQuickShaderEffectSource9setMipmapEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK24QQuickShaderEffectSource9recursiveEv": ["bool", "address"],
+    "ritual_ZN24QQuickShaderEffectSource12setRecursiveEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK24QQuickShaderEffectSource16textureMirroringEv": [
+      "int", "address"
+    ],
+    "ritual_ZN24QQuickShaderEffectSource19setTextureMirroringENS_16TextureMirroringE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK24QQuickShaderEffectSource17isTextureProviderEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK24QQuickShaderEffectSource15textureProviderEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QQuickShaderEffectSource14scheduleUpdateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK24QQuickShaderEffectSource7samplesEv": ["int", "address"],
+    "ritual_ZN24QQuickShaderEffectSource10setSamplesEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN24QQuickShaderEffectSource19sourceItemDestroyedEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QQuickShaderEffectSource20invalidateSceneGraphEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuickShaderEffectSource16releaseResourcesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuickShaderEffectSource15updatePaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN24QQuickShaderEffectSource19itemGeometryChangedEP10QQuickItem20QQuickGeometryChangeRK6QRectF": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN24QQuickShaderEffectSource10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN24QQuickShaderEffectSource13ensureTextureEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QQuickShaderEffectSource": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK24QQuickShaderEffectSource17isTextureProviderEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZNK24QQuickShaderEffectSource15textureProviderEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN24QQuickShaderEffectSource16releaseResourcesEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN24QQuickShaderEffectSource15updatePaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN24QQuickShaderEffectSource19itemGeometryChangedEP10QQuickItem20QQuickGeometryChangeRK6QRectF": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN24QQuickShaderEffectSource10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ]
+  }
+}

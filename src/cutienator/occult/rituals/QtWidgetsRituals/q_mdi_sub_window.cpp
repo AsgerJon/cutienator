@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qmdisubwindow.h, Qt 6.12.0. Changes made here are lost.
+#include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(mdiarea)
 #include <QtWidgets/qmdisubwindow.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qsize.h>
@@ -36,42 +38,110 @@ struct OwnQMdiSubWindow : QMdiSubWindow {
 //  A QMdiSubWindow that Python can take functions over in. Every QMdiSubWindow
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if QT_CONFIG(mdiarea)
 typedef const QSize * (*CuteQMdiSubWindowCall0)(const void *, int *);
+#endif  // QT_CONFIG(mdiarea)
+#if QT_CONFIG(mdiarea)
 typedef const QSize * (*CuteQMdiSubWindowCall1)(const void *, int *);
+#endif  // QT_CONFIG(mdiarea)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(mdiarea)
 typedef bool (*CuteQMdiSubWindowCall2)(const void *, QObject *, QEvent *, int *);
+#endif  // QT_CONFIG(mdiarea)
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(mdiarea)
 typedef bool (*CuteQMdiSubWindowCall3)(const void *, QEvent *, int *);
+#endif  // QT_CONFIG(mdiarea)
+#endif  // !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(mdiarea)
 typedef void (*CuteQMdiSubWindowCall4)(const void *, QShowEvent *, int *);
+#endif  // QT_CONFIG(mdiarea)
+#if QT_CONFIG(mdiarea)
 typedef void (*CuteQMdiSubWindowCall5)(const void *, QHideEvent *, int *);
+#endif  // QT_CONFIG(mdiarea)
+#if QT_CONFIG(mdiarea)
 typedef void (*CuteQMdiSubWindowCall6)(const void *, QEvent *, int *);
+#endif  // QT_CONFIG(mdiarea)
+#if QT_CONFIG(mdiarea)
 typedef void (*CuteQMdiSubWindowCall7)(const void *, QCloseEvent *, int *);
+#endif  // QT_CONFIG(mdiarea)
+#if QT_CONFIG(mdiarea)
 typedef void (*CuteQMdiSubWindowCall8)(const void *, QEvent *, int *);
+#endif  // QT_CONFIG(mdiarea)
+#if QT_CONFIG(mdiarea)
 typedef void (*CuteQMdiSubWindowCall9)(const void *, QResizeEvent *, int *);
+#endif  // QT_CONFIG(mdiarea)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(mdiarea)
 typedef void (*CuteQMdiSubWindowCall10)(const void *, QTimerEvent *, int *);
+#endif  // QT_CONFIG(mdiarea)
+#endif  // !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(mdiarea)
 typedef void (*CuteQMdiSubWindowCall11)(const void *, QMoveEvent *, int *);
+#endif  // QT_CONFIG(mdiarea)
+#if QT_CONFIG(mdiarea)
 typedef void (*CuteQMdiSubWindowCall12)(const void *, QPaintEvent *, int *);
+#endif  // QT_CONFIG(mdiarea)
+#if QT_CONFIG(mdiarea)
 typedef void (*CuteQMdiSubWindowCall13)(const void *, QMouseEvent *, int *);
+#endif  // QT_CONFIG(mdiarea)
+#if QT_CONFIG(mdiarea)
 typedef void (*CuteQMdiSubWindowCall14)(const void *, QMouseEvent *, int *);
+#endif  // QT_CONFIG(mdiarea)
+#if QT_CONFIG(mdiarea)
 typedef void (*CuteQMdiSubWindowCall15)(const void *, QMouseEvent *, int *);
+#endif  // QT_CONFIG(mdiarea)
+#if QT_CONFIG(mdiarea)
 typedef void (*CuteQMdiSubWindowCall16)(const void *, QMouseEvent *, int *);
+#endif  // QT_CONFIG(mdiarea)
+#if QT_CONFIG(mdiarea)
 typedef void (*CuteQMdiSubWindowCall17)(const void *, QKeyEvent *, int *);
+#endif  // QT_CONFIG(mdiarea)
+#if !defined(QT_NO_CONTEXTMENU)
+#if QT_CONFIG(mdiarea)
 typedef void (*CuteQMdiSubWindowCall18)(const void *, QContextMenuEvent *, int *);
+#endif  // QT_CONFIG(mdiarea)
+#endif  // !defined(QT_NO_CONTEXTMENU)
+#if QT_CONFIG(mdiarea)
 typedef void (*CuteQMdiSubWindowCall19)(const void *, QFocusEvent *, int *);
+#endif  // QT_CONFIG(mdiarea)
+#if QT_CONFIG(mdiarea)
 typedef void (*CuteQMdiSubWindowCall20)(const void *, QFocusEvent *, int *);
+#endif  // QT_CONFIG(mdiarea)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(mdiarea)
 typedef void (*CuteQMdiSubWindowCall21)(const void *, QChildEvent *, int *);
+#endif  // QT_CONFIG(mdiarea)
+#endif  // !defined(QT_NO_QOBJECT)
 typedef int (*CuteQMdiSubWindowCall22)(const void *, int *);
 typedef void (*CuteQMdiSubWindowCall23)(const void *, bool, int *);
 typedef int (*CuteQMdiSubWindowCall24)(const void *, int, int *);
 typedef bool (*CuteQMdiSubWindowCall25)(const void *, int *);
 typedef void * (*CuteQMdiSubWindowCall26)(const void *, int *);
+#if QT_CONFIG(wheelevent)
 typedef void (*CuteQMdiSubWindowCall27)(const void *, QWheelEvent *, int *);
+#endif  // QT_CONFIG(wheelevent)
 typedef void (*CuteQMdiSubWindowCall28)(const void *, QKeyEvent *, int *);
 typedef void (*CuteQMdiSubWindowCall29)(const void *, QEnterEvent *, int *);
+#if QT_CONFIG(tabletevent)
 typedef void (*CuteQMdiSubWindowCall30)(const void *, QTabletEvent *, int *);
+#endif  // QT_CONFIG(tabletevent)
+#if !defined(QT_NO_ACTION)
 typedef void (*CuteQMdiSubWindowCall31)(const void *, QActionEvent *, int *);
+#endif  // !defined(QT_NO_ACTION)
+#if QT_CONFIG(draganddrop)
 typedef void (*CuteQMdiSubWindowCall32)(const void *, QDragEnterEvent *, int *);
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
 typedef void (*CuteQMdiSubWindowCall33)(const void *, QDragMoveEvent *, int *);
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
 typedef void (*CuteQMdiSubWindowCall34)(const void *, QDragLeaveEvent *, int *);
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
 typedef void (*CuteQMdiSubWindowCall35)(const void *, QDropEvent *, int *);
+#endif  // QT_CONFIG(draganddrop)
 typedef int (*CuteQMdiSubWindowCall36)(const void *, int, int *);
 typedef void (*CuteQMdiSubWindowCall37)(const void *, QPainter *, int *);
 typedef void * (*CuteQMdiSubWindowCall38)(const void *, QPoint *, int *);
@@ -79,103 +149,163 @@ typedef void * (*CuteQMdiSubWindowCall39)(const void *, int *);
 typedef void (*CuteQMdiSubWindowCall40)(const void *, QInputMethodEvent *, int *);
 typedef const QVariant * (*CuteQMdiSubWindowCall41)(const void *, int, int *);
 typedef bool (*CuteQMdiSubWindowCall42)(const void *, bool, int *);
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQMdiSubWindowCall43)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQMdiSubWindowCall44)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQMdiSubWindowCall45)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 class CuteQMdiSubWindow : public QMdiSubWindow {
 public:
   using QMdiSubWindow::QMdiSubWindow;
   void *taken[46] = {};
 
   bool take(const char *key, void *call) {
+#if QT_CONFIG(mdiarea)
     if (!std::strcmp(key, "_ZNK7QWidget8sizeHintEv")) {
       taken[0] = call;
       return true;
     }
+#endif  // QT_CONFIG(mdiarea)
+#if QT_CONFIG(mdiarea)
     if (!std::strcmp(key, "_ZNK7QWidget15minimumSizeHintEv")) {
       taken[1] = call;
       return true;
     }
+#endif  // QT_CONFIG(mdiarea)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(mdiarea)
     if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[2] = call;
       return true;
     }
+#endif  // QT_CONFIG(mdiarea)
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(mdiarea)
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[3] = call;
       return true;
     }
+#endif  // QT_CONFIG(mdiarea)
+#endif  // !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(mdiarea)
     if (!std::strcmp(key, "_ZN7QWidget9showEventEP10QShowEvent")) {
       taken[4] = call;
       return true;
     }
+#endif  // QT_CONFIG(mdiarea)
+#if QT_CONFIG(mdiarea)
     if (!std::strcmp(key, "_ZN7QWidget9hideEventEP10QHideEvent")) {
       taken[5] = call;
       return true;
     }
+#endif  // QT_CONFIG(mdiarea)
+#if QT_CONFIG(mdiarea)
     if (!std::strcmp(key, "_ZN7QWidget11changeEventEP6QEvent")) {
       taken[6] = call;
       return true;
     }
+#endif  // QT_CONFIG(mdiarea)
+#if QT_CONFIG(mdiarea)
     if (!std::strcmp(key, "_ZN7QWidget10closeEventEP11QCloseEvent")) {
       taken[7] = call;
       return true;
     }
+#endif  // QT_CONFIG(mdiarea)
+#if QT_CONFIG(mdiarea)
     if (!std::strcmp(key, "_ZN7QWidget10leaveEventEP6QEvent")) {
       taken[8] = call;
       return true;
     }
+#endif  // QT_CONFIG(mdiarea)
+#if QT_CONFIG(mdiarea)
     if (!std::strcmp(key, "_ZN7QWidget11resizeEventEP12QResizeEvent")) {
       taken[9] = call;
       return true;
     }
+#endif  // QT_CONFIG(mdiarea)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(mdiarea)
     if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[10] = call;
       return true;
     }
+#endif  // QT_CONFIG(mdiarea)
+#endif  // !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(mdiarea)
     if (!std::strcmp(key, "_ZN7QWidget9moveEventEP10QMoveEvent")) {
       taken[11] = call;
       return true;
     }
+#endif  // QT_CONFIG(mdiarea)
+#if QT_CONFIG(mdiarea)
     if (!std::strcmp(key, "_ZN7QWidget10paintEventEP11QPaintEvent")) {
       taken[12] = call;
       return true;
     }
+#endif  // QT_CONFIG(mdiarea)
+#if QT_CONFIG(mdiarea)
     if (!std::strcmp(key, "_ZN7QWidget15mousePressEventEP11QMouseEvent")) {
       taken[13] = call;
       return true;
     }
+#endif  // QT_CONFIG(mdiarea)
+#if QT_CONFIG(mdiarea)
     if (!std::strcmp(key, "_ZN7QWidget21mouseDoubleClickEventEP11QMouseEvent")) {
       taken[14] = call;
       return true;
     }
+#endif  // QT_CONFIG(mdiarea)
+#if QT_CONFIG(mdiarea)
     if (!std::strcmp(key, "_ZN7QWidget17mouseReleaseEventEP11QMouseEvent")) {
       taken[15] = call;
       return true;
     }
+#endif  // QT_CONFIG(mdiarea)
+#if QT_CONFIG(mdiarea)
     if (!std::strcmp(key, "_ZN7QWidget14mouseMoveEventEP11QMouseEvent")) {
       taken[16] = call;
       return true;
     }
+#endif  // QT_CONFIG(mdiarea)
+#if QT_CONFIG(mdiarea)
     if (!std::strcmp(key, "_ZN7QWidget13keyPressEventEP9QKeyEvent")) {
       taken[17] = call;
       return true;
     }
+#endif  // QT_CONFIG(mdiarea)
+#if !defined(QT_NO_CONTEXTMENU)
+#if QT_CONFIG(mdiarea)
     if (!std::strcmp(key, "_ZN7QWidget16contextMenuEventEP17QContextMenuEvent")) {
       taken[18] = call;
       return true;
     }
+#endif  // QT_CONFIG(mdiarea)
+#endif  // !defined(QT_NO_CONTEXTMENU)
+#if QT_CONFIG(mdiarea)
     if (!std::strcmp(key, "_ZN7QWidget12focusInEventEP11QFocusEvent")) {
       taken[19] = call;
       return true;
     }
+#endif  // QT_CONFIG(mdiarea)
+#if QT_CONFIG(mdiarea)
     if (!std::strcmp(key, "_ZN7QWidget13focusOutEventEP11QFocusEvent")) {
       taken[20] = call;
       return true;
     }
+#endif  // QT_CONFIG(mdiarea)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(mdiarea)
     if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[21] = call;
       return true;
     }
+#endif  // QT_CONFIG(mdiarea)
+#endif  // !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZNK12QPaintDevice7devTypeEv")) {
       taken[22] = call;
       return true;
@@ -196,10 +326,12 @@ public:
       taken[26] = call;
       return true;
     }
+#if QT_CONFIG(wheelevent)
     if (!std::strcmp(key, "_ZN7QWidget10wheelEventEP11QWheelEvent")) {
       taken[27] = call;
       return true;
     }
+#endif  // QT_CONFIG(wheelevent)
     if (!std::strcmp(key, "_ZN7QWidget15keyReleaseEventEP9QKeyEvent")) {
       taken[28] = call;
       return true;
@@ -208,30 +340,42 @@ public:
       taken[29] = call;
       return true;
     }
+#if QT_CONFIG(tabletevent)
     if (!std::strcmp(key, "_ZN7QWidget11tabletEventEP12QTabletEvent")) {
       taken[30] = call;
       return true;
     }
+#endif  // QT_CONFIG(tabletevent)
+#if !defined(QT_NO_ACTION)
     if (!std::strcmp(key, "_ZN7QWidget11actionEventEP12QActionEvent")) {
       taken[31] = call;
       return true;
     }
+#endif  // !defined(QT_NO_ACTION)
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget14dragEnterEventEP15QDragEnterEvent")) {
       taken[32] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget13dragMoveEventEP14QDragMoveEvent")) {
       taken[33] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget14dragLeaveEventEP15QDragLeaveEvent")) {
       taken[34] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget9dropEventEP10QDropEvent")) {
       taken[35] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZNK12QPaintDevice6metricENS_17PaintDeviceMetricE")) {
       taken[36] = call;
       return true;
@@ -260,21 +404,28 @@ public:
       taken[42] = call;
       return true;
     }
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[43] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[44] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
       taken[45] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
     return false;
   }
 
+#if QT_CONFIG(mdiarea)
   //  QSize QMdiSubWindow::sizeHint() const
   QSize sizeHint() const override {
     if (taken[0]) {
@@ -285,7 +436,9 @@ public:
     }
     return QMdiSubWindow::sizeHint();
   }
+#endif  // QT_CONFIG(mdiarea)
 
+#if QT_CONFIG(mdiarea)
   //  QSize QMdiSubWindow::minimumSizeHint() const
   QSize minimumSizeHint() const override {
     if (taken[1]) {
@@ -296,7 +449,10 @@ public:
     }
     return QMdiSubWindow::minimumSizeHint();
   }
+#endif  // QT_CONFIG(mdiarea)
 
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(mdiarea)
   //  bool QMdiSubWindow::eventFilter(QObject *object, QEvent *event)
   bool eventFilter(QObject *object, QEvent *event) override {
     if (taken[2]) {
@@ -307,7 +463,11 @@ public:
     }
     return QMdiSubWindow::eventFilter(object, event);
   }
+#endif  // QT_CONFIG(mdiarea)
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(mdiarea)
   //  bool QMdiSubWindow::event(QEvent *event)
   bool event(QEvent *event) override {
     if (taken[3]) {
@@ -318,7 +478,10 @@ public:
     }
     return QMdiSubWindow::event(event);
   }
+#endif  // QT_CONFIG(mdiarea)
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if QT_CONFIG(mdiarea)
   //  void QMdiSubWindow::showEvent(QShowEvent *showEvent)
   void showEvent(QShowEvent *showEvent) override {
     if (taken[4]) {
@@ -329,7 +492,9 @@ public:
     }
     QMdiSubWindow::showEvent(showEvent);
   }
+#endif  // QT_CONFIG(mdiarea)
 
+#if QT_CONFIG(mdiarea)
   //  void QMdiSubWindow::hideEvent(QHideEvent *hideEvent)
   void hideEvent(QHideEvent *hideEvent) override {
     if (taken[5]) {
@@ -340,7 +505,9 @@ public:
     }
     QMdiSubWindow::hideEvent(hideEvent);
   }
+#endif  // QT_CONFIG(mdiarea)
 
+#if QT_CONFIG(mdiarea)
   //  void QMdiSubWindow::changeEvent(QEvent *changeEvent)
   void changeEvent(QEvent *changeEvent) override {
     if (taken[6]) {
@@ -351,7 +518,9 @@ public:
     }
     QMdiSubWindow::changeEvent(changeEvent);
   }
+#endif  // QT_CONFIG(mdiarea)
 
+#if QT_CONFIG(mdiarea)
   //  void QMdiSubWindow::closeEvent(QCloseEvent *closeEvent)
   void closeEvent(QCloseEvent *closeEvent) override {
     if (taken[7]) {
@@ -362,7 +531,9 @@ public:
     }
     QMdiSubWindow::closeEvent(closeEvent);
   }
+#endif  // QT_CONFIG(mdiarea)
 
+#if QT_CONFIG(mdiarea)
   //  void QMdiSubWindow::leaveEvent(QEvent *leaveEvent)
   void leaveEvent(QEvent *leaveEvent) override {
     if (taken[8]) {
@@ -373,7 +544,9 @@ public:
     }
     QMdiSubWindow::leaveEvent(leaveEvent);
   }
+#endif  // QT_CONFIG(mdiarea)
 
+#if QT_CONFIG(mdiarea)
   //  void QMdiSubWindow::resizeEvent(QResizeEvent *resizeEvent)
   void resizeEvent(QResizeEvent *resizeEvent) override {
     if (taken[9]) {
@@ -384,7 +557,10 @@ public:
     }
     QMdiSubWindow::resizeEvent(resizeEvent);
   }
+#endif  // QT_CONFIG(mdiarea)
 
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(mdiarea)
   //  void QMdiSubWindow::timerEvent(QTimerEvent *timerEvent)
   void timerEvent(QTimerEvent *timerEvent) override {
     if (taken[10]) {
@@ -395,7 +571,10 @@ public:
     }
     QMdiSubWindow::timerEvent(timerEvent);
   }
+#endif  // QT_CONFIG(mdiarea)
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if QT_CONFIG(mdiarea)
   //  void QMdiSubWindow::moveEvent(QMoveEvent *moveEvent)
   void moveEvent(QMoveEvent *moveEvent) override {
     if (taken[11]) {
@@ -406,7 +585,9 @@ public:
     }
     QMdiSubWindow::moveEvent(moveEvent);
   }
+#endif  // QT_CONFIG(mdiarea)
 
+#if QT_CONFIG(mdiarea)
   //  void QMdiSubWindow::paintEvent(QPaintEvent *paintEvent)
   void paintEvent(QPaintEvent *paintEvent) override {
     if (taken[12]) {
@@ -417,7 +598,9 @@ public:
     }
     QMdiSubWindow::paintEvent(paintEvent);
   }
+#endif  // QT_CONFIG(mdiarea)
 
+#if QT_CONFIG(mdiarea)
   //  void QMdiSubWindow::mousePressEvent(QMouseEvent *mouseEvent)
   void mousePressEvent(QMouseEvent *mouseEvent) override {
     if (taken[13]) {
@@ -428,7 +611,9 @@ public:
     }
     QMdiSubWindow::mousePressEvent(mouseEvent);
   }
+#endif  // QT_CONFIG(mdiarea)
 
+#if QT_CONFIG(mdiarea)
   //  void QMdiSubWindow::mouseDoubleClickEvent(QMouseEvent *mouseEvent)
   void mouseDoubleClickEvent(QMouseEvent *mouseEvent) override {
     if (taken[14]) {
@@ -439,7 +624,9 @@ public:
     }
     QMdiSubWindow::mouseDoubleClickEvent(mouseEvent);
   }
+#endif  // QT_CONFIG(mdiarea)
 
+#if QT_CONFIG(mdiarea)
   //  void QMdiSubWindow::mouseReleaseEvent(QMouseEvent *mouseEvent)
   void mouseReleaseEvent(QMouseEvent *mouseEvent) override {
     if (taken[15]) {
@@ -450,7 +637,9 @@ public:
     }
     QMdiSubWindow::mouseReleaseEvent(mouseEvent);
   }
+#endif  // QT_CONFIG(mdiarea)
 
+#if QT_CONFIG(mdiarea)
   //  void QMdiSubWindow::mouseMoveEvent(QMouseEvent *mouseEvent)
   void mouseMoveEvent(QMouseEvent *mouseEvent) override {
     if (taken[16]) {
@@ -461,7 +650,9 @@ public:
     }
     QMdiSubWindow::mouseMoveEvent(mouseEvent);
   }
+#endif  // QT_CONFIG(mdiarea)
 
+#if QT_CONFIG(mdiarea)
   //  void QMdiSubWindow::keyPressEvent(QKeyEvent *keyEvent)
   void keyPressEvent(QKeyEvent *keyEvent) override {
     if (taken[17]) {
@@ -472,7 +663,10 @@ public:
     }
     QMdiSubWindow::keyPressEvent(keyEvent);
   }
+#endif  // QT_CONFIG(mdiarea)
 
+#if !defined(QT_NO_CONTEXTMENU)
+#if QT_CONFIG(mdiarea)
   //  void QMdiSubWindow::contextMenuEvent(QContextMenuEvent
   //      *contextMenuEvent)
   void contextMenuEvent(QContextMenuEvent *contextMenuEvent) override {
@@ -484,7 +678,10 @@ public:
     }
     QMdiSubWindow::contextMenuEvent(contextMenuEvent);
   }
+#endif  // QT_CONFIG(mdiarea)
+#endif  // !defined(QT_NO_CONTEXTMENU)
 
+#if QT_CONFIG(mdiarea)
   //  void QMdiSubWindow::focusInEvent(QFocusEvent *focusInEvent)
   void focusInEvent(QFocusEvent *focusInEvent) override {
     if (taken[19]) {
@@ -495,7 +692,9 @@ public:
     }
     QMdiSubWindow::focusInEvent(focusInEvent);
   }
+#endif  // QT_CONFIG(mdiarea)
 
+#if QT_CONFIG(mdiarea)
   //  void QMdiSubWindow::focusOutEvent(QFocusEvent *focusOutEvent)
   void focusOutEvent(QFocusEvent *focusOutEvent) override {
     if (taken[20]) {
@@ -506,7 +705,10 @@ public:
     }
     QMdiSubWindow::focusOutEvent(focusOutEvent);
   }
+#endif  // QT_CONFIG(mdiarea)
 
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(mdiarea)
   //  void QMdiSubWindow::childEvent(QChildEvent *childEvent)
   void childEvent(QChildEvent *childEvent) override {
     if (taken[21]) {
@@ -517,6 +719,8 @@ public:
     }
     QMdiSubWindow::childEvent(childEvent);
   }
+#endif  // QT_CONFIG(mdiarea)
+#endif  // !defined(QT_NO_QOBJECT)
 
   //  int QWidget::devType() const
   int devType() const override {
@@ -573,6 +777,7 @@ public:
     return QWidget::paintEngine();
   }
 
+#if QT_CONFIG(wheelevent)
   //  void QWidget::wheelEvent(QWheelEvent *event)
   void wheelEvent(QWheelEvent *event) override {
     if (taken[27]) {
@@ -583,6 +788,7 @@ public:
     }
     QWidget::wheelEvent(event);
   }
+#endif  // QT_CONFIG(wheelevent)
 
   //  void QWidget::keyReleaseEvent(QKeyEvent *event)
   void keyReleaseEvent(QKeyEvent *event) override {
@@ -606,6 +812,7 @@ public:
     QWidget::enterEvent(event);
   }
 
+#if QT_CONFIG(tabletevent)
   //  void QWidget::tabletEvent(QTabletEvent *event)
   void tabletEvent(QTabletEvent *event) override {
     if (taken[30]) {
@@ -616,7 +823,9 @@ public:
     }
     QWidget::tabletEvent(event);
   }
+#endif  // QT_CONFIG(tabletevent)
 
+#if !defined(QT_NO_ACTION)
   //  void QWidget::actionEvent(QActionEvent *event)
   void actionEvent(QActionEvent *event) override {
     if (taken[31]) {
@@ -627,7 +836,9 @@ public:
     }
     QWidget::actionEvent(event);
   }
+#endif  // !defined(QT_NO_ACTION)
 
+#if QT_CONFIG(draganddrop)
   //  void QWidget::dragEnterEvent(QDragEnterEvent *event)
   void dragEnterEvent(QDragEnterEvent *event) override {
     if (taken[32]) {
@@ -638,7 +849,9 @@ public:
     }
     QWidget::dragEnterEvent(event);
   }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
   //  void QWidget::dragMoveEvent(QDragMoveEvent *event)
   void dragMoveEvent(QDragMoveEvent *event) override {
     if (taken[33]) {
@@ -649,7 +862,9 @@ public:
     }
     QWidget::dragMoveEvent(event);
   }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
   //  void QWidget::dragLeaveEvent(QDragLeaveEvent *event)
   void dragLeaveEvent(QDragLeaveEvent *event) override {
     if (taken[34]) {
@@ -660,7 +875,9 @@ public:
     }
     QWidget::dragLeaveEvent(event);
   }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
   //  void QWidget::dropEvent(QDropEvent *event)
   void dropEvent(QDropEvent *event) override {
     if (taken[35]) {
@@ -671,6 +888,7 @@ public:
     }
     QWidget::dropEvent(event);
   }
+#endif  // QT_CONFIG(draganddrop)
 
   //  int QWidget::metric(PaintDeviceMetric a0) const
   int metric(QPaintDevice::PaintDeviceMetric a0) const override {
@@ -749,6 +967,7 @@ public:
     return QWidget::focusNextPrevChild(next);
   }
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
     if (taken[43]) {
@@ -759,7 +978,9 @@ public:
     }
     QObject::customEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
     if (taken[44]) {
@@ -770,7 +991,9 @@ public:
     }
     QObject::connectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
     if (taken[45]) {
@@ -781,6 +1004,7 @@ public:
     }
     QObject::disconnectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 };
 
 //  const QMetaObject *QMdiSubWindow::metaObject() const
@@ -909,6 +1133,7 @@ int ritual_ZNK13QMdiSubWindow16keyboardPageStepEv(
   return self->keyboardPageStep();
 }
 
+#if QT_CONFIG(menu)
 //  void QMdiSubWindow::setSystemMenu(QMenu *systemMenu)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QMdiSubWindow13setSystemMenuEP5QMenu(
@@ -916,12 +1141,15 @@ void ritual_ZN13QMdiSubWindow13setSystemMenuEP5QMenu(
     QMenu *systemMenu) {
   self->setSystemMenu(systemMenu);
 }
+#endif  // QT_CONFIG(menu)
 
+#if QT_CONFIG(menu)
 //  QMenu *QMdiSubWindow::systemMenu() const
 extern "C" Q_DECL_EXPORT
 QMenu *ritual_ZNK13QMdiSubWindow10systemMenuEv(const QMdiSubWindow *self) {
   return self->systemMenu();
 }
+#endif  // QT_CONFIG(menu)
 
 //  QMdiArea *QMdiSubWindow::mdiArea() const
 extern "C" Q_DECL_EXPORT
@@ -929,11 +1157,13 @@ QMdiArea *ritual_ZNK13QMdiSubWindow7mdiAreaEv(const QMdiSubWindow *self) {
   return self->mdiArea();
 }
 
+#if QT_CONFIG(menu)
 //  void QMdiSubWindow::showSystemMenu()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QMdiSubWindow14showSystemMenuEv(QMdiSubWindow *self) {
   self->showSystemMenu();
 }
+#endif  // QT_CONFIG(menu)
 
 //  void QMdiSubWindow::showShaded()
 extern "C" Q_DECL_EXPORT
@@ -1070,6 +1300,7 @@ void ritual_ZN13QMdiSubWindow13keyPressEventEP9QKeyEvent(
   self->keyPressEvent(keyEvent);
 }
 
+#if !defined(QT_NO_CONTEXTMENU)
 //  void QMdiSubWindow::contextMenuEvent(QContextMenuEvent *contextMenuEvent)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QMdiSubWindow16contextMenuEventEP17QContextMenuEvent(
@@ -1077,6 +1308,7 @@ void ritual_ZN13QMdiSubWindow16contextMenuEventEP17QContextMenuEvent(
     QContextMenuEvent *contextMenuEvent) {
   self->contextMenuEvent(contextMenuEvent);
 }
+#endif  // !defined(QT_NO_CONTEXTMENU)
 
 //  void QMdiSubWindow::focusInEvent(QFocusEvent *focusInEvent)
 extern "C" Q_DECL_EXPORT
@@ -1100,6 +1332,20 @@ void ritual_ZN13QMdiSubWindow10childEventEP11QChildEvent(
     QMdiSubWindow *self,
     QChildEvent *childEvent) {
   self->childEvent(childEvent);
+}
+
+//  QMdiSubWindowPrivate *QMdiSubWindow::d_func()
+extern "C" Q_DECL_EXPORT
+QMdiSubWindowPrivate *ritual_ZN13QMdiSubWindow6d_funcEv(
+    QMdiSubWindow *self) {
+  return self->d_func();
+}
+
+//  const QMdiSubWindowPrivate *QMdiSubWindow::d_func() const
+extern "C" Q_DECL_EXPORT
+const QMdiSubWindowPrivate *ritual_ZNK13QMdiSubWindow6d_funcEv(
+    const QMdiSubWindow *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQMdiSubWindow, for the function named by
@@ -1271,6 +1517,7 @@ void ritual_own_ZN13QMdiSubWindow13keyPressEventEP9QKeyEvent(
       keyEvent);
 }
 
+#if !defined(QT_NO_CONTEXTMENU)
 //  void QMdiSubWindow::contextMenuEvent(QContextMenuEvent *contextMenuEvent)
 extern "C" Q_DECL_EXPORT
 void ritual_own_ZN13QMdiSubWindow16contextMenuEventEP17QContextMenuEvent(
@@ -1279,6 +1526,7 @@ void ritual_own_ZN13QMdiSubWindow16contextMenuEventEP17QContextMenuEvent(
   static_cast<OwnQMdiSubWindow *>(self)->OwnQMdiSubWindow::contextMenuEvent(
       contextMenuEvent);
 }
+#endif  // !defined(QT_NO_CONTEXTMENU)
 
 //  void QMdiSubWindow::focusInEvent(QFocusEvent *focusInEvent)
 extern "C" Q_DECL_EXPORT
@@ -1341,3 +1589,5 @@ extern "C" Q_DECL_EXPORT
 void ritual_list_drop_QMdiSubWindow_ptr(QList<QMdiSubWindow *> *self) {
   delete self;
 }
+
+#endif  // QT_CONFIG(mdiarea)

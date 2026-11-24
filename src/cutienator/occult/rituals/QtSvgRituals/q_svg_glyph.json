@@ -1,0 +1,14 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSvg/6.12.0/QtSvg/private/qsvgfont_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN9QSvgGlyphC1ERK7QStringRK12QPainterPathd": [
+      "address", "text", "address", "double"
+    ],
+    "ritual_ZN9QSvgGlyphC1Ev": ["address"],
+    "ritual_ZN9QSvgGlyphD1Ev": ["nothing", "address"]
+  }
+}

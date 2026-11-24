@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSvg/6.12.0/QtSvg/private/qsvgstructure_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11QSvgPatternC1EP8QSvgNode9QSvgRectF6QRectFN5QtSvg9UnitTypesE10QTransform": [
+      "address", "address", "address", "address", "unsigned int", "address"
+    ],
+    "ritual_ZN11QSvgPatternD1Ev": ["nothing", "address"],
+    "ritual_ZNK11QSvgPattern4typeEv": ["int", "address"],
+    "ritual_ZNK11QSvgPattern16appliedTransformEv": ["address", "address"],
+    "ritual_ZNK11QSvgPattern9transformEv": ["address", "address"],
+    "ritual_ZNK11QSvgPattern4rectEv": ["address", "address"],
+    "ritual_ZNK11QSvgPattern7viewBoxEv": ["address", "address"],
+    "ritual_ZNK11QSvgPattern12contentUnitsEv": ["unsigned int", "address"],
+    "ritual_take_QSvgPattern": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK11QSvgPattern4typeEv": ["int", "address"]
+  }
+}

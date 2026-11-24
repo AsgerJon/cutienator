@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGui/qevent.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
+#if QT_CONFIG(whatsthis)
 #include <QtGui/qevent.h>
 #include <QtCore/qstring.h>
 #include <cstring>
@@ -7,7 +9,9 @@
 //  A QWhatsThisClickedEvent that Python can take functions over in. Every QWhatsThisClickedEvent
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if QT_CONFIG(whatsthis)
 typedef void * (*CuteQWhatsThisClickedEventCall0)(const void *, int *);
+#endif  // QT_CONFIG(whatsthis)
 typedef void (*CuteQWhatsThisClickedEventCall1)(const void *, bool, int *);
 class CuteQWhatsThisClickedEvent : public QWhatsThisClickedEvent {
 public:
@@ -15,10 +19,12 @@ public:
   void *taken[2] = {};
 
   bool take(const char *key, void *call) {
+#if QT_CONFIG(whatsthis)
     if (!std::strcmp(key, "_ZNK6QEvent5cloneEv")) {
       taken[0] = call;
       return true;
     }
+#endif  // QT_CONFIG(whatsthis)
     if (!std::strcmp(key, "_ZN6QEvent11setAcceptedEb")) {
       taken[1] = call;
       return true;
@@ -26,6 +32,7 @@ public:
     return false;
   }
 
+#if QT_CONFIG(whatsthis)
   //  QWhatsThisClickedEvent *QWhatsThisClickedEvent::clone() const
   QWhatsThisClickedEvent *clone() const override {
     if (taken[0]) {
@@ -36,6 +43,7 @@ public:
     }
     return QWhatsThisClickedEvent::clone();
   }
+#endif  // QT_CONFIG(whatsthis)
 
   //  void QEvent::setAccepted(bool accepted)
   void setAccepted(bool accepted) override {
@@ -92,3 +100,5 @@ QWhatsThisClickedEvent *ritual_own_ZNK22QWhatsThisClickedEvent5cloneEv(
     const QWhatsThisClickedEvent *self) {
   return self->QWhatsThisClickedEvent::clone();
 }
+
+#endif  // QT_CONFIG(whatsthis)

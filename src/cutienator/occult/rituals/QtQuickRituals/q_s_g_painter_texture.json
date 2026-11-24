@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qsgdefaultpainternode_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN17QSGPainterTextureC1Ev": ["address"],
+    "ritual_ZN17QSGPainterTexture12setDirtyRectERK5QRect": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QSGPainterTexture23commitTextureOperationsEP4QRhiP23QRhiResourceUpdateBatch": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN17QSGPainterTexture23commitTextureOperationsEP4QRhiP23QRhiResourceUpdateBatch": [
+      "nothing", "address", "address", "address"
+    ]
+  }
+}

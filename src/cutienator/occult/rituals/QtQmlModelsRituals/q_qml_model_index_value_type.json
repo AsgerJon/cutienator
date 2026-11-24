@@ -1,0 +1,40 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQmlMo",
+    "dels/6.12.0/QtQmlModels/private/qqmlmodelindexvaluetype_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN23QQmlModelIndexValueType22qt_qmlMarker_anonymousEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQmlModelIndexValueType21qt_qmlMarker_extendedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQmlModelIndexValueType20qt_qmlMarker_foreignEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK23QQmlModelIndexValueType8toStringEv": ["text", "address"],
+    "ritual_ZNK23QQmlModelIndexValueType4dataEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK23QQmlModelIndexValueType3rowEv": ["int", "address"],
+    "ritual_ZNK23QQmlModelIndexValueType6columnEv": ["int", "address"],
+    "ritual_ZNK23QQmlModelIndexValueType6parentEv": ["address", "address"],
+    "ritual_ZNK23QQmlModelIndexValueType7isValidEv": ["bool", "address"],
+    "ritual_ZNK23QQmlModelIndexValueType5modelEv": ["address", "address"],
+    "ritual_ZNK23QQmlModelIndexValueType10internalIdEv": [
+      "unsigned long long", "address"
+    ],
+    "ritual_ZN23QQmlModelIndexValueType16propertiesStringERK11QModelIndex": [
+      "text", "address"
+    ],
+    "ritual_ZN23QQmlModelIndexValueType22toPersistentModelIndexERK11QModelIndex": [
+      "address", "address"
+    ],
+    "ritual_ZNK23QQmlModelIndexValueTypecv11QModelIndexEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QQmlModelIndexValueTypeD1Ev": ["nothing", "address"]
+  }
+}

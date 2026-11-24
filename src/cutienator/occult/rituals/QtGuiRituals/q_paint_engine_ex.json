@@ -1,0 +1,212 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qpaintengineex_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN14QPaintEngineEx6d_funcEv": ["address", "address"],
+    "ritual_ZNK14QPaintEngineEx6d_funcEv": ["address", "address"],
+    "ritual_ZNK14QPaintEngineEx11createStateEP13QPainterState": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN14QPaintEngineEx4clipERK5QRectN2Qt13ClipOperationE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN14QPaintEngineEx4clipERK7QRegionN2Qt13ClipOperationE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN14QPaintEngineEx4clipERK12QPainterPathN2Qt13ClipOperationE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN14QPaintEngineEx18clipEnabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QPaintEngineEx10penChangedEv": ["nothing", "address"],
+    "ritual_ZN14QPaintEngineEx12brushChangedEv": ["nothing", "address"],
+    "ritual_ZN14QPaintEngineEx18brushOriginChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QPaintEngineEx14opacityChangedEv": ["nothing", "address"],
+    "ritual_ZN14QPaintEngineEx22compositionModeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QPaintEngineEx18renderHintsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QPaintEngineEx16transformChangedEv": ["nothing", "address"],
+    "ritual_ZN14QPaintEngineEx8fillRectERK6QRectFRK6QBrush": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN14QPaintEngineEx8fillRectERK6QRectFRK6QColor": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN14QPaintEngineEx15drawRoundedRectERK6QRectFddN2Qt8SizeModeE": [
+      "nothing", "address", "address", "double", "double", "int"
+    ],
+    "ritual_ZN14QPaintEngineEx9drawRectsEPK5QRecti": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN14QPaintEngineEx9drawRectsEPK6QRectFi": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN14QPaintEngineEx9drawLinesEPK5QLinei": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN14QPaintEngineEx9drawLinesEPK6QLineFi": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN14QPaintEngineEx11drawEllipseERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QPaintEngineEx11drawEllipseERK5QRect": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QPaintEngineEx8drawPathERK12QPainterPath": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QPaintEngineEx10drawPointsEPK7QPointFi": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN14QPaintEngineEx10drawPointsEPK6QPointi": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN14QPaintEngineEx11drawPolygonEPK7QPointFiN12QPaintEngine15PolygonDrawModeE": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN14QPaintEngineEx11drawPolygonEPK6QPointiN12QPaintEngine15PolygonDrawModeE": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN14QPaintEngineEx10drawPixmapERK6QRectFRK7QPixmapS2_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN14QPaintEngineEx10drawPixmapERK7QPointFRK7QPixmap": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN14QPaintEngineEx9drawImageERK6QRectFRK6QImageS2_6QFlagsIN2Qt19ImageConversionFlagEE": [
+      "nothing", "address", "address", "address", "address", "int"
+    ],
+    "ritual_ZN14QPaintEngineEx9drawImageERK7QPointFRK6QImage": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN14QPaintEngineEx15drawTiledPixmapERK6QRectFRK7QPixmapRK7QPointF": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN14QPaintEngineEx19drawPixmapFragmentsEPKN8QPainter14PixmapFragmentEiRK7QPixmap6QFlagsINS0_18PixmapFragmentHintEE": [
+      "nothing", "address", "address", "int", "address", "int"
+    ],
+    "ritual_ZN14QPaintEngineEx11updateStateERK17QPaintEngineState": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QPaintEngineEx18drawStaticTextItemEP15QStaticTextItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QPaintEngineEx8setStateEP13QPainterState": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QPaintEngineEx5stateEv": ["address", "address"],
+    "ritual_ZNK14QPaintEngineEx5stateEv": ["address", "address"],
+    "ritual_ZN14QPaintEngineEx4syncEv": ["nothing", "address"],
+    "ritual_ZN14QPaintEngineEx19beginNativePaintingEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QPaintEngineEx17endNativePaintingEv": ["nothing", "address"],
+    "ritual_ZNK14QPaintEngineEx5flagsEv": ["unsigned int", "address"],
+    "ritual_ZNK14QPaintEngineEx36requiresPretransformedGlyphPositionsEP11QFontEngineRK10QTransform": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZNK14QPaintEngineEx22shouldDrawCachedGlyphsEP11QFontEngineRK10QTransform": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_take_QPaintEngineEx": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK14QPaintEngineEx11createStateEP13QPainterState": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN14QPaintEngineEx4clipERK5QRectN2Qt13ClipOperationE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_own_ZN14QPaintEngineEx4clipERK7QRegionN2Qt13ClipOperationE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_own_ZN14QPaintEngineEx4clipERK12QPainterPathN2Qt13ClipOperationE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_own_ZN14QPaintEngineEx8fillRectERK6QRectFRK6QBrush": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN14QPaintEngineEx8fillRectERK6QRectFRK6QColor": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN14QPaintEngineEx15drawRoundedRectERK6QRectFddN2Qt8SizeModeE": [
+      "nothing", "address", "address", "double", "double", "int"
+    ],
+    "ritual_own_ZN14QPaintEngineEx9drawRectsEPK5QRecti": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_own_ZN14QPaintEngineEx9drawRectsEPK6QRectFi": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_own_ZN14QPaintEngineEx9drawLinesEPK5QLinei": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_own_ZN14QPaintEngineEx9drawLinesEPK6QLineFi": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_own_ZN14QPaintEngineEx11drawEllipseERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN14QPaintEngineEx11drawEllipseERK5QRect": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN14QPaintEngineEx8drawPathERK12QPainterPath": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN14QPaintEngineEx10drawPointsEPK7QPointFi": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_own_ZN14QPaintEngineEx10drawPointsEPK6QPointi": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_own_ZN14QPaintEngineEx11drawPolygonEPK7QPointFiN12QPaintEngine15PolygonDrawModeE": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_own_ZN14QPaintEngineEx11drawPolygonEPK6QPointiN12QPaintEngine15PolygonDrawModeE": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_own_ZN14QPaintEngineEx10drawPixmapERK7QPointFRK7QPixmap": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN14QPaintEngineEx9drawImageERK7QPointFRK6QImage": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN14QPaintEngineEx15drawTiledPixmapERK6QRectFRK7QPixmapRK7QPointF": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN14QPaintEngineEx19drawPixmapFragmentsEPKN8QPainter14PixmapFragmentEiRK7QPixmap6QFlagsINS0_18PixmapFragmentHintEE": [
+      "nothing", "address", "address", "int", "address", "int"
+    ],
+    "ritual_own_ZN14QPaintEngineEx11updateStateERK17QPaintEngineState": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN14QPaintEngineEx18drawStaticTextItemEP15QStaticTextItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN14QPaintEngineEx8setStateEP13QPainterState": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN14QPaintEngineEx4syncEv": ["nothing", "address"],
+    "ritual_own_ZN14QPaintEngineEx19beginNativePaintingEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN14QPaintEngineEx17endNativePaintingEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZNK14QPaintEngineEx5flagsEv": ["unsigned int", "address"],
+    "ritual_own_ZNK14QPaintEngineEx36requiresPretransformedGlyphPositionsEP11QFontEngineRK10QTransform": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_own_ZNK14QPaintEngineEx22shouldDrawCachedGlyphsEP11QFontEngineRK10QTransform": [
+      "bool", "address", "address", "address"
+    ]
+  }
+}

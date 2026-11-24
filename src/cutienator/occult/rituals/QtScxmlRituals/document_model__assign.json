@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtScxml/6.12.0/QtScxml/private/qscxmlcompiler_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN13DocumentModel6AssignC1ERKNS_11XmlLocationE": [
+      "address", "address"
+    ],
+    "ritual_ZN13DocumentModel6Assign6acceptEPNS_11NodeVisitorE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_DocumentModel_Assign": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN13DocumentModel6Assign6acceptEPNS_11NodeVisitorE": [
+      "nothing", "address", "address"
+    ]
+  }
+}

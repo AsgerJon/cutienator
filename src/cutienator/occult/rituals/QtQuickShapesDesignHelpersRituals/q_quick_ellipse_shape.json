@@ -1,0 +1,92 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "ShapesDesignHelpers/6.12.0/QtQuickShapesDesignHelpers/private/qqui",
+    "ckellipseshape_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18QQuickEllipseShape10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QQuickEllipseShape2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18QQuickEllipseShapeC1EP10QQuickItem": ["address", "address"],
+    "ritual_ZN18QQuickEllipseShapeD1Ev": ["nothing", "address"],
+    "ritual_ZNK18QQuickEllipseShape10sweepAngleEv": ["double", "address"],
+    "ritual_ZN18QQuickEllipseShape13setSweepAngleEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK18QQuickEllipseShape10startAngleEv": ["double", "address"],
+    "ritual_ZN18QQuickEllipseShape13setStartAngleEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK18QQuickEllipseShape10dashOffsetEv": ["double", "address"],
+    "ritual_ZN18QQuickEllipseShape13setDashOffsetEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK18QQuickEllipseShape13innerArcRatioEv": ["double", "address"],
+    "ritual_ZN18QQuickEllipseShape16setInnerArcRatioEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK18QQuickEllipseShape12cornerRadiusEv": ["double", "address"],
+    "ritual_ZN18QQuickEllipseShape15setCornerRadiusEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK18QQuickEllipseShape11strokeWidthEv": ["double", "address"],
+    "ritual_ZN18QQuickEllipseShape14setStrokeWidthEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK18QQuickEllipseShape9fillColorEv": ["address", "address"],
+    "ritual_ZN18QQuickEllipseShape12setFillColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QQuickEllipseShape11strokeColorEv": ["address", "address"],
+    "ritual_ZN18QQuickEllipseShape14setStrokeColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QQuickEllipseShape8capStyleEv": ["int", "address"],
+    "ritual_ZN18QQuickEllipseShape11setCapStyleEN15QQuickShapePath8CapStyleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK18QQuickEllipseShape9joinStyleEv": ["int", "address"],
+    "ritual_ZN18QQuickEllipseShape12setJoinStyleEN15QQuickShapePath9JoinStyleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK18QQuickEllipseShape11strokeStyleEv": ["int", "address"],
+    "ritual_ZN18QQuickEllipseShape14setStrokeStyleEN15QQuickShapePath11StrokeStyleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK18QQuickEllipseShape8fillRuleEv": ["int", "address"],
+    "ritual_ZN18QQuickEllipseShape11setFillRuleEN15QQuickShapePath8FillRuleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK18QQuickEllipseShape12fillGradientEv": ["address", "address"],
+    "ritual_ZN18QQuickEllipseShape15setFillGradientEP19QQuickShapeGradient": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQuickEllipseShape17resetFillGradientEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK18QQuickEllipseShape10borderModeEv": ["int", "address"],
+    "ritual_ZN18QQuickEllipseShape13setBorderModeENS_10BorderModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18QQuickEllipseShape15resetBorderModeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK18QQuickEllipseShape8fillItemEv": ["address", "address"],
+    "ritual_ZN18QQuickEllipseShape11setFillItemEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQuickEllipseShape10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN18QQuickEllipseShape6d_funcEv": ["address", "address"],
+    "ritual_ZNK18QQuickEllipseShape6d_funcEv": ["address", "address"],
+    "ritual_take_QQuickEllipseShape": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN18QQuickEllipseShape10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ]
+  }
+}

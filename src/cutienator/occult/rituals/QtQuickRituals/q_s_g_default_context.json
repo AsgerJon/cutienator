@@ -1,0 +1,143 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qsgdefaultcontext_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN17QSGDefaultContextC1EP7QObject": ["address", "address"],
+    "ritual_ZN17QSGDefaultContextD1Ev": ["nothing", "address"],
+    "ritual_ZN17QSGDefaultContext24renderContextInitializedEP16QSGRenderContext": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QSGDefaultContext24renderContextInvalidatedEP16QSGRenderContext": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QSGDefaultContext19createRenderContextEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QSGDefaultContext27createInternalRectangleNodeEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QSGDefaultContext23createInternalImageNodeEP16QSGRenderContext": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN17QSGDefaultContext17createPainterNodeEP17QQuickPaintedItem": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN17QSGDefaultContext15createGlyphNodeEP16QSGRenderContextN11QSGTextNode10RenderTypeE": [
+      "address", "address", "address", "unsigned char"
+    ],
+    "ritual_ZN17QSGDefaultContext22createInternalTextNodeEP16QSGRenderContext": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN17QSGDefaultContext11createLayerEP16QSGRenderContext": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK17QSGDefaultContext20defaultSurfaceFormatEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QSGDefaultContext17rendererInterfaceEP16QSGRenderContext": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN17QSGDefaultContext19createRectangleNodeEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QSGDefaultContext15createImageNodeEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QSGDefaultContext19createNinePatchNodeEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QSGDefaultContext16createSpriteNodeEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QSGDefaultContext34createGuiThreadShaderEffectManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QSGDefaultContext22createShaderEffectNodeEP16QSGRenderContext": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN17QSGDefaultContext23setDistanceFieldEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK17QSGDefaultContext22isDistanceFieldEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN17QSGDefaultContext21processTextRenderTypeEN11QSGTextNode10RenderTypeE": [
+      "unsigned char", "address", "unsigned char"
+    ],
+    "ritual_ZNK17QSGDefaultContext11graphicsApiEv": ["int", "address"],
+    "ritual_ZNK17QSGDefaultContext10shaderTypeEv": ["int", "address"],
+    "ritual_ZNK17QSGDefaultContext21shaderCompilationTypeEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK17QSGDefaultContext16shaderSourceTypeEv": ["int", "address"],
+    "ritual_cast_QSGDefaultContext_QSGRendererInterface": [
+      "address", "address"
+    ],
+    "ritual_take_QSGDefaultContext": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN17QSGDefaultContext24renderContextInitializedEP16QSGRenderContext": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN17QSGDefaultContext24renderContextInvalidatedEP16QSGRenderContext": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN17QSGDefaultContext19createRenderContextEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN17QSGDefaultContext27createInternalRectangleNodeEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN17QSGDefaultContext23createInternalImageNodeEP16QSGRenderContext": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN17QSGDefaultContext17createPainterNodeEP17QQuickPaintedItem": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN17QSGDefaultContext15createGlyphNodeEP16QSGRenderContextN11QSGTextNode10RenderTypeE": [
+      "address", "address", "address", "unsigned char"
+    ],
+    "ritual_own_ZN17QSGDefaultContext22createInternalTextNodeEP16QSGRenderContext": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN17QSGDefaultContext11createLayerEP16QSGRenderContext": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZNK17QSGDefaultContext20defaultSurfaceFormatEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN17QSGDefaultContext17rendererInterfaceEP16QSGRenderContext": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN17QSGDefaultContext19createRectangleNodeEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN17QSGDefaultContext15createImageNodeEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN17QSGDefaultContext19createNinePatchNodeEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN17QSGDefaultContext16createSpriteNodeEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN17QSGDefaultContext34createGuiThreadShaderEffectManagerEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN17QSGDefaultContext22createShaderEffectNodeEP16QSGRenderContext": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN17QSGDefaultContext21processTextRenderTypeEN11QSGTextNode10RenderTypeE": [
+      "unsigned char", "address", "unsigned char"
+    ],
+    "ritual_own_ZNK17QSGDefaultContext11graphicsApiEv": ["int", "address"],
+    "ritual_own_ZNK17QSGDefaultContext10shaderTypeEv": ["int", "address"],
+    "ritual_own_ZNK17QSGDefaultContext21shaderCompilationTypeEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZNK17QSGDefaultContext16shaderSourceTypeEv": [
+      "int", "address"
+    ]
+  }
+}

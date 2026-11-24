@@ -1,0 +1,134 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmltype_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN8QQmlTypeC1Ev": ["address"],
+    "ritual_ZN8QQmlTypeC1ERKS_": ["address", "address"],
+    "ritual_ZN8QQmlTypeC1EPK15QQmlTypePrivate": ["address", "address"],
+    "ritual_ZN8QQmlTypeD1Ev": ["nothing", "address"],
+    "ritual_ZNK8QQmlType7isValidEv": ["bool", "address"],
+    "ritual_ZNK8QQmlType8typeNameEv": ["address", "address"],
+    "ritual_ZNK8QQmlType11qmlTypeNameEv": ["text", "address"],
+    "ritual_ZNK8QQmlType11elementNameEv": ["text", "address"],
+    "ritual_ZNK8QQmlType6moduleEv": ["address", "address"],
+    "ritual_ZNK8QQmlType7versionEv": ["address", "address"],
+    "ritual_ZNK8QQmlType18availableInVersionE13QTypeRevision": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK8QQmlType18availableInVersionERK16QHashedStringRef13QTypeRevision": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZNK8QQmlType21canConstructValueTypeEv": ["bool", "address"],
+    "ritual_ZNK8QQmlType20canPopulateValueTypeEv": ["bool", "address"],
+    "ritual_ZNK8QQmlType6createEv": ["address", "address"],
+    "ritual_ZNK8QQmlType18createWithQQmlDataEv": ["address", "address"],
+    "ritual_ZNK8QQmlType12customParserEv": ["address", "address"],
+    "ritual_ZNK8QQmlType11isCreatableEv": ["bool", "address"],
+    "ritual_ZNK8QQmlType19extensionMetaObjectEv": ["address", "address"],
+    "ritual_ZNK8QQmlType14isExtendedTypeEv": ["bool", "address"],
+    "ritual_ZNK8QQmlType16noCreationReasonEv": ["text", "address"],
+    "ritual_ZNK8QQmlType11isSingletonEv": ["bool", "address"],
+    "ritual_ZNK8QQmlType11isInterfaceEv": ["bool", "address"],
+    "ritual_ZNK8QQmlType11isCompositeEv": ["bool", "address"],
+    "ritual_ZNK8QQmlType20isCompositeSingletonEv": ["bool", "address"],
+    "ritual_ZNK8QQmlType18isQObjectSingletonEv": ["bool", "address"],
+    "ritual_ZNK8QQmlType19isQJSValueSingletonEv": ["bool", "address"],
+    "ritual_ZNK8QQmlType21isSequentialContainerEv": ["bool", "address"],
+    "ritual_ZNK8QQmlType11isValueTypeEv": ["bool", "address"],
+    "ritual_ZNK8QQmlType6typeIdEv": ["address", "address"],
+    "ritual_ZNK8QQmlType11qListTypeIdEv": ["address", "address"],
+    "ritual_ZNK8QQmlType16listMetaSequenceEv": ["address", "address"],
+    "ritual_ZNK8QQmlType10metaObjectEv": ["address", "address"],
+    "ritual_ZNK8QQmlType22metaObjectForValueTypeEv": ["address", "address"],
+    "ritual_ZNK8QQmlType14baseMetaObjectEv": ["address", "address"],
+    "ritual_ZNK8QQmlType18metaObjectRevisionEv": ["address", "address"],
+    "ritual_ZNK8QQmlType28containsRevisionedAttributesEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK8QQmlType22attachedPropertiesTypeEP14QQmlTypeLoader": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK8QQmlType16parserStatusCastEv": ["int", "address"],
+    "ritual_ZNK8QQmlType12interfaceIIdEv": ["chars", "address"],
+    "ritual_ZNK8QQmlType23propertyValueSourceCastEv": ["int", "address"],
+    "ritual_ZNK8QQmlType28propertyValueInterceptorCastEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK8QQmlType13finalizerCastEv": ["int", "address"],
+    "ritual_ZNK8QQmlType5indexEv": ["int", "address"],
+    "ritual_ZNK8QQmlType21isInlineComponentTypeEv": ["bool", "address"],
+    "ritual_ZNK8QQmlType9sourceUrlEv": ["address", "address"],
+    "ritual_ZNK8QQmlType9enumValueEP14QQmlTypeLoaderRK16QHashedStringRefPb": [
+      "int", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK8QQmlType9enumValueEP14QQmlTypeLoaderRK17QHashedCStringRefPb": [
+      "int", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK8QQmlType9enumValueEP14QQmlTypeLoaderPKN3QV46StringEPb": [
+      "int", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK8QQmlType15scopedEnumIndexEP14QQmlTypeLoaderPKN3QV46StringEPb": [
+      "int", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK8QQmlType15scopedEnumIndexEP14QQmlTypeLoaderRK7QStringPb": [
+      "int", "address", "address", "text", "address"
+    ],
+    "ritual_ZNK8QQmlType17unscopedEnumIndexEP14QQmlTypeLoaderPKN3QV46StringEPb": [
+      "int", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK8QQmlType17unscopedEnumIndexEP14QQmlTypeLoaderRK7QStringPb": [
+      "int", "address", "address", "text", "address"
+    ],
+    "ritual_ZNK8QQmlType15scopedEnumValueEP14QQmlTypeLoaderiPKN3QV46StringEPb": [
+      "int", "address", "address", "int", "address", "address"
+    ],
+    "ritual_ZNK8QQmlType15scopedEnumValueEP14QQmlTypeLoaderiRK7QStringPb": [
+      "int", "address", "address", "int", "text", "address"
+    ],
+    "ritual_ZNK8QQmlType15scopedEnumValueEP14QQmlTypeLoaderRK16QHashedStringRefS4_Pb": [
+      "int", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK8QQmlType17unscopedEnumValueEP14QQmlTypeLoaderiPKN3QV46StringEPb": [
+      "int", "address", "address", "int", "address", "address"
+    ],
+    "ritual_ZNK8QQmlType17unscopedEnumValueEP14QQmlTypeLoaderiRK7QStringPb": [
+      "int", "address", "address", "int", "text", "address"
+    ],
+    "ritual_ZNK8QQmlType17unscopedEnumValueEP14QQmlTypeLoaderRK16QHashedStringRefS4_Pb": [
+      "int", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK8QQmlType13scopedEnumKeyEP14QQmlTypeLoaderiiPb": [
+      "text", "address", "address", "int", "int", "address"
+    ],
+    "ritual_ZNK8QQmlType14scopedEnumKeysEP14QQmlTypeLoaderiiPb": [
+      "address", "address", "address", "int", "int", "address"
+    ],
+    "ritual_ZNK8QQmlType15unscopedEnumKeyEP14QQmlTypeLoaderiiPb": [
+      "text", "address", "address", "int", "int", "address"
+    ],
+    "ritual_ZNK8QQmlType16unscopedEnumKeysEP14QQmlTypeLoaderiiPb": [
+      "address", "address", "address", "int", "int", "address"
+    ],
+    "ritual_ZNK8QQmlType4privEv": ["address", "address"],
+    "ritual_ZN8QQmlType9refHandleEPK15QQmlTypePrivate": [
+      "nothing", "address"
+    ],
+    "ritual_ZN8QQmlType11derefHandleEPK15QQmlTypePrivate": [
+      "nothing", "address"
+    ],
+    "ritual_ZN8QQmlType8refCountEPK15QQmlTypePrivate": ["int", "address"],
+    "ritual_ZNK8QQmlType11createProxyEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZeqRK8QQmlTypeS1_": ["bool", "address", "address"],
+    "ritual_ZneRK8QQmlTypeS1_": ["bool", "address", "address"],
+    "ritual_list_make_QQmlType": ["address"],
+    "ritual_list_add_QQmlType": ["nothing", "address", "address"],
+    "ritual_list_size_QQmlType": ["long long", "address"],
+    "ritual_list_at_QQmlType": ["address", "address", "long long"],
+    "ritual_list_drop_QQmlType": ["nothing", "address"]
+  }
+}

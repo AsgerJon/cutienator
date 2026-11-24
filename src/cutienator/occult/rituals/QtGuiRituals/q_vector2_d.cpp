@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGui/qvectornd.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
+#if !defined(QT_NO_VECTOR2D)
 #include <QtGui/qvectornd.h>
 #include <QtCore/qpoint.h>
 #include <QtCore/qvariant.h>
@@ -35,17 +37,21 @@ QVector2D *ritual_ZN9QVector2DC1E7QPointF(const QPointF *point) {
   return new QVector2D(*point);
 }
 
+#if !defined(QT_NO_VECTOR3D)
 //  QVector2D::QVector2D(QVector3D vector)
 extern "C" Q_DECL_EXPORT
 QVector2D *ritual_ZN9QVector2DC1E9QVector3D(const QVector3D *vector) {
   return new QVector2D(*vector);
 }
+#endif  // !defined(QT_NO_VECTOR3D)
 
+#if !defined(QT_NO_VECTOR4D)
 //  QVector2D::QVector2D(QVector4D vector)
 extern "C" Q_DECL_EXPORT
 QVector2D *ritual_ZN9QVector2DC1E9QVector4D(const QVector4D *vector) {
   return new QVector2D(*vector);
 }
+#endif  // !defined(QT_NO_VECTOR4D)
 
 //  bool QVector2D::isNull() const
 extern "C" Q_DECL_EXPORT
@@ -231,17 +237,21 @@ QVector2D *ritual_Zdv9QVector2DS_(
   return new QVector2D(operator/(*vector, *divisor));
 }
 
+#if !defined(QT_NO_VECTOR3D)
 //  QVector3D QVector2D::toVector3D() const
 extern "C" Q_DECL_EXPORT
 QVector3D *ritual_ZNK9QVector2D10toVector3DEv(const QVector2D *self) {
   return new QVector3D(self->toVector3D());
 }
+#endif  // !defined(QT_NO_VECTOR3D)
 
+#if !defined(QT_NO_VECTOR4D)
 //  QVector4D QVector2D::toVector4D() const
 extern "C" Q_DECL_EXPORT
 QVector4D *ritual_ZNK9QVector2D10toVector4DEv(const QVector2D *self) {
   return new QVector4D(self->toVector4D());
 }
+#endif  // !defined(QT_NO_VECTOR4D)
 
 //  QPoint QVector2D::toPoint() const
 extern "C" Q_DECL_EXPORT
@@ -266,3 +276,5 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN9QVector2DD1Ev(QVector2D *self) {
   delete self;
 }
+
+#endif  // !defined(QT_NO_VECTOR2D)

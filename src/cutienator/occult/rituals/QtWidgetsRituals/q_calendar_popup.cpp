@@ -1,9 +1,13 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/6.12.0/QtWidgets/private/qdatetimeedit_p.h, Qt 6.12.0. Changes
 //  made here are lost.
+#include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/QtWidgets>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/6.12.0/QtWidgets/private/qdatetimeedit_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qdatetime.h>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <private/qapplication_p.h>
 #include <private/qdatetimeedit_p.h>
 #include <qabstractspinbox.h>
@@ -20,13 +24,14 @@
 #include <qstyle.h>
 #include <qstylepainter.h>
 #include <algorithm>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
 //  Qt's source, because Qt's library carries it under no name.
 //  Copyright (C) The Qt Company Ltd. It is licensed
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
-//  'inline' put before it.
+//  'inline' put before it where Qt did not write it.
 
 //  from src/widgets/widgets/qdatetimeedit.cpp, line 2620, as _ZN14QCalendarPopup7setDateE5QDate
 inline void QCalendarPopup::setDate(QDate date)

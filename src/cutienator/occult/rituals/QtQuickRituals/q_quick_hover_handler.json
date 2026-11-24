@@ -1,0 +1,44 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickhoverhandler_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18QQuickHoverHandler10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QQuickHoverHandler2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18QQuickHoverHandlerC1EP10QQuickItem": ["address", "address"],
+    "ritual_ZN18QQuickHoverHandlerD1Ev": ["nothing", "address"],
+    "ritual_ZN18QQuickHoverHandler5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK18QQuickHoverHandler9isHoveredEv": ["bool", "address"],
+    "ritual_ZNK18QQuickHoverHandler10isBlockingEv": ["bool", "address"],
+    "ritual_ZN18QQuickHoverHandler11setBlockingEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN18QQuickHoverHandler17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickHoverHandler17wantsPointerEventEP13QPointerEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN18QQuickHoverHandler10setHoveredEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_take_QQuickHoverHandler": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN18QQuickHoverHandler5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN18QQuickHoverHandler17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN18QQuickHoverHandler17wantsPointerEventEP13QPointerEvent": [
+      "bool", "address", "address"
+    ]
+  }
+}

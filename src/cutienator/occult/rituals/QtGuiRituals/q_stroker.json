@@ -1,0 +1,49 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qstroker_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN8QStrokerC1Ev": ["address"],
+    "ritual_ZN8QStrokerD1Ev": ["nothing", "address"],
+    "ritual_ZN8QStroker14setStrokeWidthEd": ["nothing", "address", "double"],
+    "ritual_ZNK8QStroker11strokeWidthEv": ["double", "address"],
+    "ritual_ZN8QStroker11setCapStyleEN2Qt11PenCapStyleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK8QStroker8capStyleEv": ["int", "address"],
+    "ritual_ZNK8QStroker12capStyleModeEv": ["int", "address"],
+    "ritual_ZN8QStroker12setJoinStyleEN2Qt12PenJoinStyleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK8QStroker9joinStyleEv": ["int", "address"],
+    "ritual_ZNK8QStroker13joinStyleModeEv": ["int", "address"],
+    "ritual_ZN8QStroker13setMiterLimitEd": ["nothing", "address", "double"],
+    "ritual_ZNK8QStroker10miterLimitEv": ["double", "address"],
+    "ritual_ZN8QStroker12setForceOpenEb": ["nothing", "address", "bool"],
+    "ritual_ZNK8QStroker9forceOpenEv": ["bool", "address"],
+    "ritual_ZN8QStroker10joinPointsEddRK6QLineFNS_12LineJoinModeE": [
+      "nothing", "address", "double", "double", "address", "int"
+    ],
+    "ritual_ZN8QStroker10emitMoveToEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN8QStroker10emitLineToEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN8QStroker11emitCubicToEdddddd": [
+      "nothing", "address", "double", "double", "double", "double", "double",
+      "double"
+    ],
+    "ritual_ZN8QStroker14capForJoinModeENS_12LineJoinModeE": ["int", "int"],
+    "ritual_ZN8QStroker14joinModeForCapEN2Qt11PenCapStyleE": ["int", "int"],
+    "ritual_ZN8QStroker15joinForJoinModeENS_12LineJoinModeE": ["int", "int"],
+    "ritual_ZN8QStroker15joinModeForJoinEN2Qt12PenJoinStyleE": [
+      "int", "int"
+    ],
+    "ritual_ZN8QStroker21processCurrentSubpathEv": ["nothing", "address"],
+    "ritual_take_QStroker": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN8QStroker21processCurrentSubpathEv": ["nothing", "address"]
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qfilesystemmodel_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN23QFileSystemModelPrivate15QFileSystemNodeC1ERK7QStringPS0_": [
+      "address", "text", "address"
+    ],
+    "ritual_ZN23QFileSystemModelPrivate15QFileSystemNodeD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK23QFileSystemModelPrivate15QFileSystemNode4sizeEv": [
+      "long long", "address"
+    ],
+    "ritual_ZNK23QFileSystemModelPrivate15QFileSystemNode4typeEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK23QFileSystemModelPrivate15QFileSystemNode12lastModifiedERK9QTimeZone": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK23QFileSystemModelPrivate15QFileSystemNode10isReadableEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK23QFileSystemModelPrivate15QFileSystemNode10isWritableEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK23QFileSystemModelPrivate15QFileSystemNode12isExecutableEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK23QFileSystemModelPrivate15QFileSystemNode5isDirEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK23QFileSystemModelPrivate15QFileSystemNode8fileInfoEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK23QFileSystemModelPrivate15QFileSystemNode6isFileEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK23QFileSystemModelPrivate15QFileSystemNode8isSystemEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK23QFileSystemModelPrivate15QFileSystemNode8isHiddenEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK23QFileSystemModelPrivate15QFileSystemNode9isSymLinkEb": [
+      "bool", "address", "bool"
+    ],
+    "ritual_ZNK23QFileSystemModelPrivate15QFileSystemNode13caseSensitiveEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK23QFileSystemModelPrivate15QFileSystemNode4iconEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK23QFileSystemModelPrivate15QFileSystemNodegtERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZNK23QFileSystemModelPrivate15QFileSystemNodeltERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZNK23QFileSystemModelPrivate15QFileSystemNodeneERK20QExtendedInformation": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK23QFileSystemModelPrivate15QFileSystemNodeeqERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZNK23QFileSystemModelPrivate15QFileSystemNodeeqERK20QExtendedInformation": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK23QFileSystemModelPrivate15QFileSystemNode14hasInformationEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN23QFileSystemModelPrivate15QFileSystemNode8populateERK20QExtendedInformation": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QFileSystemModelPrivate15QFileSystemNode15visibleLocationERK7QString": [
+      "int", "address", "text"
+    ],
+    "ritual_ZN23QFileSystemModelPrivate15QFileSystemNode10updateIconEP25QAbstractFileIconProviderRK7QString": [
+      "nothing", "address", "address", "text"
+    ],
+    "ritual_ZN23QFileSystemModelPrivate15QFileSystemNode18retranslateStringsEP25QAbstractFileIconProviderRK7QString": [
+      "nothing", "address", "address", "text"
+    ]
+  }
+}

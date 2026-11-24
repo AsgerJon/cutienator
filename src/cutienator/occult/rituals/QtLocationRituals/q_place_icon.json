@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLocation/qplaceicon.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN10QPlaceIconC1Ev": ["address"],
+    "ritual_ZN10QPlaceIconC1ERKS_": ["address", "address"],
+    "ritual_ZN10QPlaceIconD1Ev": ["nothing", "address"],
+    "ritual_ZeqRK10QPlaceIconS1_": ["bool", "address", "address"],
+    "ritual_ZneRK10QPlaceIconS1_": ["bool", "address", "address"],
+    "ritual_ZNK10QPlaceIcon3urlERK5QSize": ["address", "address", "address"],
+    "ritual_ZNK10QPlaceIcon7managerEv": ["address", "address"],
+    "ritual_ZN10QPlaceIcon10setManagerEP13QPlaceManager": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10QPlaceIcon10parametersEv": ["address", "address"],
+    "ritual_ZN10QPlaceIcon13setParametersERK4QMapI7QString8QVariantE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10QPlaceIcon7isEmptyEv": ["bool", "address"],
+    "ritual_ZNK10QPlaceIcon7isEqualERKS_": ["bool", "address", "address"]
+  }
+}

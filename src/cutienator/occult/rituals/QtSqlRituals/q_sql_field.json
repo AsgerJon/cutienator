@@ -1,0 +1,61 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSql/qsqlfield.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN9QSqlFieldC1ERK7QString9QMetaTypeS2_": [
+      "address", "text", "address", "text"
+    ],
+    "ritual_ZN9QSqlFieldC1ERKS_": ["address", "address"],
+    "ritual_ZN9QSqlFieldD1Ev": ["nothing", "address"],
+    "ritual_ZNK9QSqlFieldeqERKS_": ["bool", "address", "address"],
+    "ritual_ZNK9QSqlFieldneERKS_": ["bool", "address", "address"],
+    "ritual_ZN9QSqlField8setValueERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9QSqlField5valueEv": ["address", "address"],
+    "ritual_ZN9QSqlField7setNameERK7QString": ["nothing", "address", "text"],
+    "ritual_ZNK9QSqlField4nameEv": ["text", "address"],
+    "ritual_ZN9QSqlField12setTableNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK9QSqlField9tableNameEv": ["text", "address"],
+    "ritual_ZNK9QSqlField6isNullEv": ["bool", "address"],
+    "ritual_ZN9QSqlField11setReadOnlyEb": ["nothing", "address", "bool"],
+    "ritual_ZNK9QSqlField10isReadOnlyEv": ["bool", "address"],
+    "ritual_ZN9QSqlField5clearEv": ["nothing", "address"],
+    "ritual_ZNK9QSqlField11isAutoValueEv": ["bool", "address"],
+    "ritual_ZNK9QSqlField8metaTypeEv": ["address", "address"],
+    "ritual_ZN9QSqlField11setMetaTypeE9QMetaType": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QSqlFieldC1ERK7QStringN8QVariant4TypeES2_": [
+      "address", "text", "int", "text"
+    ],
+    "ritual_ZNK9QSqlField4typeEv": ["int", "address"],
+    "ritual_ZN9QSqlField7setTypeEN8QVariant4TypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN9QSqlField17setRequiredStatusENS_14RequiredStatusE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN9QSqlField11setRequiredEb": ["nothing", "address", "bool"],
+    "ritual_ZN9QSqlField9setLengthEi": ["nothing", "address", "int"],
+    "ritual_ZN9QSqlField12setPrecisionEi": ["nothing", "address", "int"],
+    "ritual_ZN9QSqlField15setDefaultValueERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QSqlField10setSqlTypeEi": ["nothing", "address", "int"],
+    "ritual_ZN9QSqlField12setGeneratedEb": ["nothing", "address", "bool"],
+    "ritual_ZN9QSqlField12setAutoValueEb": ["nothing", "address", "bool"],
+    "ritual_ZNK9QSqlField14requiredStatusEv": ["int", "address"],
+    "ritual_ZNK9QSqlField6lengthEv": ["int", "address"],
+    "ritual_ZNK9QSqlField9precisionEv": ["int", "address"],
+    "ritual_ZNK9QSqlField12defaultValueEv": ["address", "address"],
+    "ritual_ZNK9QSqlField6typeIDEv": ["int", "address"],
+    "ritual_ZNK9QSqlField11isGeneratedEv": ["bool", "address"],
+    "ritual_ZNK9QSqlField7isValidEv": ["bool", "address"],
+    "ritual_ZN9QSqlField6detachEv": ["nothing", "address"]
+  }
+}

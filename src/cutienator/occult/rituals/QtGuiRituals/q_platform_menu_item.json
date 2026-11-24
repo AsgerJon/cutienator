@@ -1,0 +1,71 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/qpa/qplatformmenu.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QPlatformMenuItem10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QPlatformMenuItem2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QPlatformMenuItem6setTagEy": [
+      "nothing", "address", "unsigned long long"
+    ],
+    "ritual_ZNK17QPlatformMenuItem3tagEv": ["unsigned long long", "address"],
+    "ritual_ZN17QPlatformMenuItem7setTextERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN17QPlatformMenuItem7setIconERK5QIcon": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QPlatformMenuItem7setMenuEP13QPlatformMenu": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QPlatformMenuItem10setVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN17QPlatformMenuItem14setIsSeparatorEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN17QPlatformMenuItem7setFontERK5QFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QPlatformMenuItem7setRoleENS_8MenuRoleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QPlatformMenuItem12setCheckableEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN17QPlatformMenuItem10setCheckedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN17QPlatformMenuItem11setShortcutERK12QKeySequence": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QPlatformMenuItem10setEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN17QPlatformMenuItem11setIconSizeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QPlatformMenuItem17setNativeContentsEy": [
+      "nothing", "address", "unsigned long long"
+    ],
+    "ritual_ZN17QPlatformMenuItem20setHasExclusiveGroupEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZN17QPlatformMenuItem6setTagEy": [
+      "nothing", "address", "unsigned long long"
+    ],
+    "ritual_own_ZNK17QPlatformMenuItem3tagEv": [
+      "unsigned long long", "address"
+    ],
+    "ritual_own_ZN17QPlatformMenuItem17setNativeContentsEy": [
+      "nothing", "address", "unsigned long long"
+    ],
+    "ritual_own_ZN17QPlatformMenuItem20setHasExclusiveGroupEb": [
+      "nothing", "address", "bool"
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qtextengine_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN12QGlyphLayoutC1Ev": ["address"],
+    "ritual_ZNK12QGlyphLayout3midEii": ["address", "address", "int", "int"],
+    "ritual_ZNK12QGlyphLayout16effectiveAdvanceEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN12QGlyphLayout5clearEii": ["nothing", "address", "int", "int"],
+    "ritual_ZN12QGlyphLayout4copyEPS_": ["nothing", "address", "address"],
+    "ritual_ZN12QGlyphLayoutD1Ev": ["nothing", "address"]
+  }
+}

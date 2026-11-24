@@ -1,0 +1,32 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtMultimedia/qaudiobufferinput.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QAudioBufferInput10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QAudioBufferInput2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QAudioBufferInputC1EP7QObject": ["address", "address"],
+    "ritual_ZN17QAudioBufferInputC1ERK12QAudioFormatP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN17QAudioBufferInputD1Ev": ["nothing", "address"],
+    "ritual_ZN17QAudioBufferInput15sendAudioBufferERK12QAudioBuffer": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK17QAudioBufferInput6formatEv": ["address", "address"],
+    "ritual_ZNK17QAudioBufferInput14captureSessionEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QAudioBufferInput17setCaptureSessionEP20QMediaCaptureSession": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QAudioBufferInput24platformAudioBufferInputEv": [
+      "address", "address"
+    ],
+    "ritual_take_QAudioBufferInput": ["bool", "address", "chars", "address"]
+  }
+}

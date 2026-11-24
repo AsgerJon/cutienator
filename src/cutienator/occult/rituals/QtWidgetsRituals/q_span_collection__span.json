@@ -1,0 +1,20 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qtableview_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QSpanCollection4SpanC1Ev": ["address"],
+    "ritual_ZN15QSpanCollection4SpanC1Eiiii": [
+      "address", "int", "int", "int", "int"
+    ],
+    "ritual_ZNK15QSpanCollection4Span3topEv": ["int", "address"],
+    "ritual_ZNK15QSpanCollection4Span4leftEv": ["int", "address"],
+    "ritual_ZNK15QSpanCollection4Span6bottomEv": ["int", "address"],
+    "ritual_ZNK15QSpanCollection4Span5rightEv": ["int", "address"],
+    "ritual_ZNK15QSpanCollection4Span6heightEv": ["int", "address"],
+    "ritual_ZNK15QSpanCollection4Span5widthEv": ["int", "address"],
+    "ritual_ZN15QSpanCollection4SpanD1Ev": ["nothing", "address"]
+  }
+}

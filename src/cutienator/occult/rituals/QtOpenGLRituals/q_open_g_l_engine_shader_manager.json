@@ -1,0 +1,73 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtOpenGL/6.12.0/QtOpenGL/private/qopenglengineshadermanager_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK26QOpenGLEngineShaderManager10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QOpenGLEngineShaderManager2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN26QOpenGLEngineShaderManagerC1EP14QOpenGLContext": [
+      "address", "address"
+    ],
+    "ritual_ZN26QOpenGLEngineShaderManagerD1Ev": ["nothing", "address"],
+    "ritual_ZN26QOpenGLEngineShaderManager25optimiseForBrushTransformEN10QTransform18TransformationTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN26QOpenGLEngineShaderManager15setSrcPixelTypeEN2Qt10BrushStyleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN26QOpenGLEngineShaderManager15setSrcPixelTypeENS_12PixelSrcTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN26QOpenGLEngineShaderManager14setOpacityModeENS_11OpacityModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN26QOpenGLEngineShaderManager11setMaskTypeENS_8MaskTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN26QOpenGLEngineShaderManager18setCompositionModeEN8QPainter15CompositionModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN26QOpenGLEngineShaderManager14setCustomStageEP24QOpenGLCustomShaderStage": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QOpenGLEngineShaderManager17removeCustomStageEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QOpenGLEngineShaderManager8setDirtyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QOpenGLEngineShaderManager20useCorrectShaderProgEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN26QOpenGLEngineShaderManager16useSimpleProgramEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QOpenGLEngineShaderManager14useBlitProgramEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QOpenGLEngineShaderManager21setHasComplexGeometryEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK26QOpenGLEngineShaderManager18hasComplexGeometryEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN26QOpenGLEngineShaderManager14currentProgramEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QOpenGLEngineShaderManager13simpleProgramEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QOpenGLEngineShaderManager11blitProgramEv": [
+      "address", "address"
+    ],
+    "ritual_take_QOpenGLEngineShaderManager": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtLabsP",
+    "latform/6.12.0/QtLabsPlatform/private/qquicklabsplatformmenubar_p.",
+    "h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK25QQuickLabsPlatformMenuBar10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QQuickLabsPlatformMenuBarD1Ev": ["nothing", "address"],
+    "ritual_ZNK25QQuickLabsPlatformMenuBar6handleEv": ["address", "address"],
+    "ritual_ZNK25QQuickLabsPlatformMenuBar6windowEv": ["address", "address"],
+    "ritual_ZN25QQuickLabsPlatformMenuBar10classBeginEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QQuickLabsPlatformMenuBar17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK25QQuickLabsPlatformMenuBar10findWindowEv": [
+      "address", "address"
+    ],
+    "ritual_cast_QQuickLabsPlatformMenuBar_QQmlParserStatus": [
+      "address", "address"
+    ],
+    "ritual_take_QQuickLabsPlatformMenuBar": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN25QQuickLabsPlatformMenuBar10classBeginEv": [
+      "nothing", "address"
+    ]
+  }
+}

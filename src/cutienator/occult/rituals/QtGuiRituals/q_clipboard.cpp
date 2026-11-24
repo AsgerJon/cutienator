@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGui/qclipboard.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
+#if !defined(QT_NO_CLIPBOARD)
 #include <QtGui/qclipboard.h>
 #include <QtCore/qstring.h>
 #include <QtGui/qimage.h>
@@ -162,3 +164,5 @@ void ritual_ZN10QClipboard11emitChangedENS_4ModeE(
     QClipboard::Mode mode) {
   self->emitChanged(mode);
 }
+
+#endif  // !defined(QT_NO_CLIPBOARD)

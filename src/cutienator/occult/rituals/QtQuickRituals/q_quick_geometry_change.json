@@ -1,0 +1,57 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickitemchangelistener_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QQuickGeometryChangeC1Ei": ["address", "int"],
+    "ritual_ZNK20QQuickGeometryChange8noChangeEv": ["bool", "address"],
+    "ritual_ZNK20QQuickGeometryChange9anyChangeEv": ["bool", "address"],
+    "ritual_ZNK20QQuickGeometryChange7xChangeEv": ["bool", "address"],
+    "ritual_ZNK20QQuickGeometryChange7yChangeEv": ["bool", "address"],
+    "ritual_ZNK20QQuickGeometryChange11widthChangeEv": ["bool", "address"],
+    "ritual_ZNK20QQuickGeometryChange12heightChangeEv": ["bool", "address"],
+    "ritual_ZNK20QQuickGeometryChange14positionChangeEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK20QQuickGeometryChange10sizeChangeEv": ["bool", "address"],
+    "ritual_ZNK20QQuickGeometryChange16horizontalChangeEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK20QQuickGeometryChange14verticalChangeEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN20QQuickGeometryChange10setXChangeEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20QQuickGeometryChange10setYChangeEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20QQuickGeometryChange14setWidthChangeEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20QQuickGeometryChange15setHeightChangeEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20QQuickGeometryChange13setSizeChangeEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20QQuickGeometryChange13setAllChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20QQuickGeometryChange19setHorizontalChangeEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20QQuickGeometryChange17setVerticalChangeEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20QQuickGeometryChange3setEib": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZNK20QQuickGeometryChange7matchesES_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN20QQuickGeometryChangeD1Ev": ["nothing", "address"]
+  }
+}

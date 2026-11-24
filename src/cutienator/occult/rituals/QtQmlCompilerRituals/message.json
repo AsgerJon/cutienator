@@ -1,0 +1,11 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQmlCompiler/6.12.0/QtQmlCompiler/private/qqmljslogger_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK7Message16lineForDisablingEv": ["unsigned int", "address"],
+    "ritual_ZN7MessageD1Ev": ["nothing", "address"]
+  }
+}

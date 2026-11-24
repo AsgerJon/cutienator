@@ -1,0 +1,33 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qsgmaterialshader_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN24QSGMaterialShaderPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK24QSGMaterialShaderPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN24QSGMaterialShaderPrivateC1EP17QSGMaterialShader": [
+      "address", "address"
+    ],
+    "ritual_ZN24QSGMaterialShaderPrivate3getEP17QSGMaterialShader": [
+      "address", "address"
+    ],
+    "ritual_ZN24QSGMaterialShaderPrivate3getEPK17QSGMaterialShader": [
+      "address", "address"
+    ],
+    "ritual_ZN24QSGMaterialShaderPrivate23clearCachedRendererDataEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QSGMaterialShaderPrivate7prepareEN7QShader7VariantE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK24QSGMaterialShaderPrivate6shaderEN7QShader5StageE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN24QSGMaterialShaderPrivate10loadShaderERK7QString": [
+      "address", "text"
+    ],
+    "ritual_ZN24QSGMaterialShaderPrivateD1Ev": ["nothing", "address"]
+  }
+}

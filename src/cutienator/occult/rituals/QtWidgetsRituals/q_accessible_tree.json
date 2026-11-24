@@ -1,0 +1,51 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/itemviews_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK15QAccessibleTree7childAtEii": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZNK15QAccessibleTree10focusChildEv": ["address", "address"],
+    "ritual_ZNK15QAccessibleTree10childCountEv": ["int", "address"],
+    "ritual_ZNK15QAccessibleTree5childEi": ["address", "address", "int"],
+    "ritual_ZNK15QAccessibleTree12indexOfChildEPK20QAccessibleInterface": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK15QAccessibleTree8rowCountEv": ["int", "address"],
+    "ritual_ZNK15QAccessibleTree6cellAtEii": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZNK15QAccessibleTree14rowDescriptionEi": [
+      "text", "address", "int"
+    ],
+    "ritual_ZNK15QAccessibleTree13isRowSelectedEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN15QAccessibleTree9selectRowEi": ["bool", "address", "int"],
+    "ritual_ZNK15QAccessibleTree16indexFromLogicalEii": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_own_ZNK15QAccessibleTree7childAtEii": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_own_ZNK15QAccessibleTree10focusChildEv": ["address", "address"],
+    "ritual_own_ZNK15QAccessibleTree10childCountEv": ["int", "address"],
+    "ritual_own_ZNK15QAccessibleTree12indexOfChildEPK20QAccessibleInterface": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZNK15QAccessibleTree8rowCountEv": ["int", "address"],
+    "ritual_own_ZNK15QAccessibleTree6cellAtEii": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_own_ZNK15QAccessibleTree14rowDescriptionEi": [
+      "text", "address", "int"
+    ],
+    "ritual_own_ZNK15QAccessibleTree13isRowSelectedEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_own_ZN15QAccessibleTree9selectRowEi": ["bool", "address", "int"]
+  }
+}

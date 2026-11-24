@@ -1,0 +1,29 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore5Compat/6.12.0/QtCore5Compat/private/qxml_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN23QXmlSimpleReaderPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN23QXmlSimpleReaderPrivate22initIncrementalParsingEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QXmlSimpleReaderPrivate11stringClearEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QXmlSimpleReaderPrivate9nameClearEv": ["nothing", "address"],
+    "ritual_ZN23QXmlSimpleReaderPrivate8refClearEv": ["nothing", "address"],
+    "ritual_ZN23QXmlSimpleReaderPrivate4nextEv": ["nothing", "address"],
+    "ritual_ZN23QXmlSimpleReaderPrivate5atEndEv": ["bool", "address"],
+    "ritual_ZN23QXmlSimpleReaderPrivate8initDataEv": ["nothing", "address"],
+    "ritual_ZNK23QXmlSimpleReaderPrivate11entityExistERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN23QXmlSimpleReaderPrivate29isExpandedEntityValueTooLargeEP7QString": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN23QXmlSimpleReaderPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK23QXmlSimpleReaderPrivate6q_funcEv": ["address", "address"]
+  }
+}

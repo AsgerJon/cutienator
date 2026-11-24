@@ -1,0 +1,28 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qaction_widgets_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN22QtWidgetsActionPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK22QtWidgetsActionPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN22QtWidgetsActionPrivateC1Ev": ["address"],
+    "ritual_ZN22QtWidgetsActionPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN22QtWidgetsActionPrivate7destroyEv": ["nothing", "address"],
+    "ritual_ZNK22QtWidgetsActionPrivate4menuEv": ["address", "address"],
+    "ritual_ZN22QtWidgetsActionPrivate7setMenuEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QtWidgetsActionPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN22QtWidgetsActionPrivate7destroyEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZNK22QtWidgetsActionPrivate4menuEv": ["address", "address"],
+    "ritual_own_ZN22QtWidgetsActionPrivate7setMenuEP7QObject": [
+      "nothing", "address", "address"
+    ]
+  }
+}

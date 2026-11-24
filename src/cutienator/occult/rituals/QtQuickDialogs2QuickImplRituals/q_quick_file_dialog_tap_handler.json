@@ -1,0 +1,37 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Dialogs2QuickImpl/6.12.0/QtQuickDialogs2QuickImpl/private/qquickfi",
+    "ledialogdelegate_p_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK26QQuickFileDialogTapHandler10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QQuickFileDialogTapHandler5stateEv": ["int", "address"],
+    "ritual_ZNK26QQuickFileDialogTapHandler17getFileDialogImplEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK26QQuickFileDialogTapHandler19getFolderUrlAtPressEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QQuickFileDialogTapHandler10handleDragEP15QQuickDragEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QQuickFileDialogTapHandler10handleDropEP15QQuickDragEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QQuickFileDialogTapHandler25handleContainsDragChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QQuickFileDialogTapHandler15wantsEventPointEPK13QPointerEventRK11QEventPoint": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN26QQuickFileDialogTapHandler13resetDragDataEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN26QQuickFileDialogTapHandler15wantsEventPointEPK13QPointerEventRK11QEventPoint": [
+      "bool", "address", "address", "address"
+    ]
+  }
+}

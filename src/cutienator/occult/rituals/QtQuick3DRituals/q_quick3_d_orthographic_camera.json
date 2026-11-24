@@ -1,0 +1,46 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3D/6.12.0/QtQuick3D/private/qquick3dorthographiccamera_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK26QQuick3DOrthographicCamera10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QQuick3DOrthographicCamera2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN26QQuick3DOrthographicCameraC1EP12QQuick3DNode": [
+      "address", "address"
+    ],
+    "ritual_ZNK26QQuick3DOrthographicCamera8clipNearEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK26QQuick3DOrthographicCamera7clipFarEv": ["float", "address"],
+    "ritual_ZNK26QQuick3DOrthographicCamera23horizontalMagnificationEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK26QQuick3DOrthographicCamera21verticalMagnificationEv": [
+      "float", "address"
+    ],
+    "ritual_ZN26QQuick3DOrthographicCamera11setClipNearEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN26QQuick3DOrthographicCamera10setClipFarEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN26QQuick3DOrthographicCamera26setHorizontalMagnificationEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN26QQuick3DOrthographicCamera24setVerticalMagnificationEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN26QQuick3DOrthographicCamera17updateSpatialNodeEP21QSSGRenderGraphObject": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN26QQuick3DOrthographicCamera17updateSpatialNodeEP21QSSGRenderGraphObject": [
+      "address", "address", "address"
+    ]
+  }
+}

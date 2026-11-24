@@ -1,0 +1,122 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtLocat",
+    "ion/6.12.0/QtLocation/private/qdeclarativegeomapitemview_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK26QDeclarativeGeoMapItemView10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QDeclarativeGeoMapItemView2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN26QDeclarativeGeoMapItemViewC1EP10QQuickItem": [
+      "address", "address"
+    ],
+    "ritual_ZN26QDeclarativeGeoMapItemViewD1Ev": ["nothing", "address"],
+    "ritual_ZNK26QDeclarativeGeoMapItemView5modelEv": ["address", "address"],
+    "ritual_ZN26QDeclarativeGeoMapItemView8setModelERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK26QDeclarativeGeoMapItemView8delegateEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QDeclarativeGeoMapItemView11setDelegateEP13QQmlComponent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK26QDeclarativeGeoMapItemView15autoFitViewportEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN26QDeclarativeGeoMapItemView18setAutoFitViewportERKb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN26QDeclarativeGeoMapItemView6setMapEP18QDeclarativeGeoMap": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QDeclarativeGeoMapItemView23removeInstantiatedItemsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN26QDeclarativeGeoMapItemView19instantiateAllItemsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QDeclarativeGeoMapItemView20setIncubateDelegatesEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK26QDeclarativeGeoMapItemView17incubateDelegatesEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK26QDeclarativeGeoMapItemView19delegateModelAccessEv": [
+      "unsigned char", "address"
+    ],
+    "ritual_ZN26QDeclarativeGeoMapItemView22setDelegateModelAccessEN17QQmlDelegateModel19DelegateModelAccessE": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZN26QDeclarativeGeoMapItemView8mapItemsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QDeclarativeGeoMapItemView17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QDeclarativeGeoMapItemView10classBeginEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QDeclarativeGeoMapItemView14destroyingItemEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QDeclarativeGeoMapItemView8initItemEiP7QObject": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN26QDeclarativeGeoMapItemView11createdItemEiP7QObject": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN26QDeclarativeGeoMapItemView12modelUpdatedERK13QQmlChangeSetb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN26QDeclarativeGeoMapItemView22exitTransitionFinishedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QDeclarativeGeoMapItemView11fitViewportEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QDeclarativeGeoMapItemView21removeDelegateFromMapEib": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZN26QDeclarativeGeoMapItemView21removeDelegateFromMapEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QDeclarativeGeoMapItemView17transitionItemOutEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QDeclarativeGeoMapItemView23terminateExitTransitionEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QDeclarativeGeoMapItemView15disposeDelegateEP10QQuickItem": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN26QDeclarativeGeoMapItemView22insertInstantiatedItemEiP10QQuickItemb": [
+      "nothing", "address", "int", "address", "bool"
+    ],
+    "ritual_ZN26QDeclarativeGeoMapItemView12addItemToMapEP26QDeclarativeGeoMapItemBaseib": [
+      "nothing", "address", "address", "int", "bool"
+    ],
+    "ritual_ZN26QDeclarativeGeoMapItemView16addItemViewToMapEPS_ib": [
+      "nothing", "address", "address", "int", "bool"
+    ],
+    "ritual_ZN26QDeclarativeGeoMapItemView17addItemGroupToMapEP27QDeclarativeGeoMapItemGroupib": [
+      "nothing", "address", "address", "int", "bool"
+    ],
+    "ritual_ZN26QDeclarativeGeoMapItemView16addDelegateToMapEP10QQuickItemib": [
+      "nothing", "address", "address", "int", "bool"
+    ],
+    "ritual_take_QDeclarativeGeoMapItemView": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN26QDeclarativeGeoMapItemView17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN26QDeclarativeGeoMapItemView10classBeginEv": [
+      "nothing", "address"
+    ]
+  }
+}

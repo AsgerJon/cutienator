@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtBluetooth/6.12.0/QtBluetooth/private/profile1context_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK32OrgBluezProfile1ContextInterface10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_cast_OrgBluezProfile1ContextInterface_QDBusContext": [
+      "address", "address"
+    ],
+    "ritual_take_OrgBluezProfile1ContextInterface": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

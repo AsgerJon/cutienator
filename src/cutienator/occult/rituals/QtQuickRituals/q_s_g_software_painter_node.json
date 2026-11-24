@@ -1,0 +1,113 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qsgsoftwarepainternode_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN22QSGSoftwarePainterNodeD1Ev": ["nothing", "address"],
+    "ritual_ZN22QSGSoftwarePainterNode24setPreferredRenderTargetEN17QQuickPaintedItem12RenderTargetE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN22QSGSoftwarePainterNode7setSizeERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK22QSGSoftwarePainterNode4sizeEv": ["address", "address"],
+    "ritual_ZN22QSGSoftwarePainterNode8setDirtyERK5QRect": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QSGSoftwarePainterNode17setOpaquePaintingEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK22QSGSoftwarePainterNode14opaquePaintingEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN22QSGSoftwarePainterNode18setLinearFilteringEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK22QSGSoftwarePainterNode15linearFilteringEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN22QSGSoftwarePainterNode13setMipmappingEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK22QSGSoftwarePainterNode10mipmappingEv": ["bool", "address"],
+    "ritual_ZN22QSGSoftwarePainterNode17setSmoothPaintingEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK22QSGSoftwarePainterNode14smoothPaintingEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN22QSGSoftwarePainterNode12setFillColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK22QSGSoftwarePainterNode9fillColorEv": ["address", "address"],
+    "ritual_ZN22QSGSoftwarePainterNode16setContentsScaleEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK22QSGSoftwarePainterNode13contentsScaleEv": [
+      "double", "address"
+    ],
+    "ritual_ZN22QSGSoftwarePainterNode18setFastFBOResizingEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK22QSGSoftwarePainterNode15fastFBOResizingEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK22QSGSoftwarePainterNode7toImageEv": ["address", "address"],
+    "ritual_ZN22QSGSoftwarePainterNode6updateEv": ["nothing", "address"],
+    "ritual_ZNK22QSGSoftwarePainterNode7textureEv": ["address", "address"],
+    "ritual_ZN22QSGSoftwarePainterNode5paintEP8QPainter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QSGSoftwarePainterNode5paintEv": ["nothing", "address"],
+    "ritual_ZN22QSGSoftwarePainterNode14setTextureSizeERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK22QSGSoftwarePainterNode11textureSizeEv": [
+      "address", "address"
+    ],
+    "ritual_take_QSGSoftwarePainterNode": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN22QSGSoftwarePainterNode24setPreferredRenderTargetEN17QQuickPaintedItem12RenderTargetE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN22QSGSoftwarePainterNode7setSizeERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN22QSGSoftwarePainterNode8setDirtyERK5QRect": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN22QSGSoftwarePainterNode17setOpaquePaintingEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZN22QSGSoftwarePainterNode18setLinearFilteringEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZN22QSGSoftwarePainterNode13setMipmappingEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZN22QSGSoftwarePainterNode17setSmoothPaintingEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZN22QSGSoftwarePainterNode12setFillColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN22QSGSoftwarePainterNode16setContentsScaleEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_own_ZN22QSGSoftwarePainterNode18setFastFBOResizingEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZNK22QSGSoftwarePainterNode7toImageEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK22QSGSoftwarePainterNode7textureEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN22QSGSoftwarePainterNode14setTextureSizeERK5QSize": [
+      "nothing", "address", "address"
+    ]
+  }
+}

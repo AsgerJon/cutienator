@@ -1,0 +1,56 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DParticles/6.12.0/QtQuick3DParticles/private/qquick3dparticlemode",
+    "lshape_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK26QQuick3DParticleModelShape10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QQuick3DParticleModelShape2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN26QQuick3DParticleModelShapeC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN26QQuick3DParticleModelShapeD1Ev": ["nothing", "address"],
+    "ritual_ZNK26QQuick3DParticleModelShape4fillEv": ["bool", "address"],
+    "ritual_ZNK26QQuick3DParticleModelShape8delegateEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QQuick3DParticleModelShape7setFillEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN26QQuick3DParticleModelShape11setDelegateEP13QQmlComponent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QQuick3DParticleModelShape11getPositionEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN26QQuick3DParticleModelShape16getSurfaceNormalEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN26QQuick3DParticleModelShape19randomPositionModelEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN26QQuick3DParticleModelShape11createModelEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QQuick3DParticleModelShape25clearModelVertexPositionsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QQuick3DParticleModelShape29calculateModelVertexPositionsEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QQuick3DParticleModelShape": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN26QQuick3DParticleModelShape11getPositionEi": [
+      "address", "address", "int"
+    ],
+    "ritual_own_ZN26QQuick3DParticleModelShape16getSurfaceNormalEi": [
+      "address", "address", "int"
+    ]
+  }
+}

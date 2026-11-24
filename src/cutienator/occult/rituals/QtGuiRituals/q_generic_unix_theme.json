@@ -1,0 +1,54 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qgenericunixtheme_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN17QGenericUnixTheme6d_funcEv": ["address", "address"],
+    "ritual_ZNK17QGenericUnixTheme6d_funcEv": ["address", "address"],
+    "ritual_ZN17QGenericUnixThemeC1EP24QGenericUnixThemePrivate": [
+      "address", "address"
+    ],
+    "ritual_ZN17QGenericUnixThemeC1Ev": ["address"],
+    "ritual_ZNK17QGenericUnixTheme4fontEN14QPlatformTheme4FontE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK17QGenericUnixTheme9themeHintEN14QPlatformTheme9ThemeHintE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK17QGenericUnixTheme21createPlatformMenuBarEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK17QGenericUnixTheme28createPlatformSystemTrayIconEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QGenericUnixTheme17xdgIconThemePathsEv": ["address"],
+    "ritual_ZN17QGenericUnixTheme15createUnixThemeERK7QString": [
+      "address", "text"
+    ],
+    "ritual_ZN17QGenericUnixTheme10themeNamesEv": ["address"],
+    "ritual_ZN17QGenericUnixTheme17iconFallbackPathsEv": ["address"],
+    "ritual_ZN17QGenericUnixTheme25isDBusGlobalMenuAvailableEv": ["bool"],
+    "ritual_ZN17QGenericUnixTheme16mouseCursorThemeEv": ["text"],
+    "ritual_ZN17QGenericUnixTheme15mouseCursorSizeEv": ["address"],
+    "ritual_ZN17QGenericUnixTheme25availableXdgFileIconSizesEv": ["address"],
+    "ritual_ZN17QGenericUnixTheme17shouldUseDBusTrayEv": ["bool"],
+    "ritual_ZN17QGenericUnixTheme11xdgFileIconERK9QFileInfo": [
+      "address", "address"
+    ],
+    "ritual_take_QGenericUnixTheme": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK17QGenericUnixTheme4fontEN14QPlatformTheme4FontE": [
+      "address", "address", "int"
+    ],
+    "ritual_own_ZNK17QGenericUnixTheme9themeHintEN14QPlatformTheme9ThemeHintE": [
+      "address", "address", "int"
+    ],
+    "ritual_own_ZNK17QGenericUnixTheme21createPlatformMenuBarEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK17QGenericUnixTheme28createPlatformSystemTrayIconEv": [
+      "address", "address"
+    ]
+  }
+}

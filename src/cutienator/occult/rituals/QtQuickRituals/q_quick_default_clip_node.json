@@ -1,0 +1,23 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickclipnode_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN21QQuickDefaultClipNodeC1ERK6QRectF": ["address", "address"],
+    "ritual_ZN21QQuickDefaultClipNode7setRectERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21QQuickDefaultClipNode4rectEv": ["address", "address"],
+    "ritual_ZN21QQuickDefaultClipNode9setRadiusEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK21QQuickDefaultClipNode6radiusEv": ["double", "address"],
+    "ritual_ZN21QQuickDefaultClipNode6updateEv": ["nothing", "address"],
+    "ritual_ZN21QQuickDefaultClipNode14updateGeometryEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN21QQuickDefaultClipNode6updateEv": ["nothing", "address"]
+  }
+}

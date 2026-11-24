@@ -234,6 +234,7 @@ bool ritual_Zne12QPixelFormatS_(
   return operator!=(*fmt1, *fmt2);
 }
 
+#if !defined(QT_NO_DEBUG_STREAM)
 //  QDebug operator<<(QDebug debug, const QPixelFormat &format)
 extern "C" Q_DECL_EXPORT
 QDebug *ritual_Zls6QDebugRK12QPixelFormat(
@@ -241,6 +242,7 @@ QDebug *ritual_Zls6QDebugRK12QPixelFormat(
     const QPixelFormat *format) {
   return new QDebug(operator<<(*debug, *format));
 }
+#endif  // !defined(QT_NO_DEBUG_STREAM)
 
 //  QPixelFormat::~QPixelFormat()
 extern "C" Q_DECL_EXPORT

@@ -1,0 +1,29 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore5Compat/6.12.0/QtCore5Compat/private/qbinaryjson_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18QBinaryJsonPrivate5Entry4sizeEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZNK18QBinaryJsonPrivate5Entry10shallowKeyEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18QBinaryJsonPrivate5Entry16shallowLatin1KeyEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18QBinaryJsonPrivate5Entry3keyEv": ["text", "address"],
+    "ritual_ZNK18QBinaryJsonPrivate5Entry7isValidEj": [
+      "bool", "address", "unsigned int"
+    ],
+    "ritual_ZNK18QBinaryJsonPrivate5EntryeqE11QStringView": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZNK18QBinaryJsonPrivate5EntrygeE11QStringView": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN18QBinaryJsonPrivate5EntryD1Ev": ["nothing", "address"]
+  }
+}

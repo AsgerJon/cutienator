@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickpath_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18QQuickPathPolyline10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QQuickPathPolyline2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18QQuickPathPolylineC1EP7QObject": ["address", "address"],
+    "ritual_ZNK18QQuickPathPolyline4pathEv": ["address", "address"],
+    "ritual_ZN18QQuickPathPolyline7setPathERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQuickPathPolyline7setPathERK5QListI7QPointFE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QQuickPathPolyline5startEv": ["address", "address"]
+  }
+}

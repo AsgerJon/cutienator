@@ -1,0 +1,37 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qsgsoftwarepixmaptexture_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK24QSGSoftwarePixmapTexture10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK24QSGSoftwarePixmapTexture13comparisonKeyEv": [
+      "long long", "address"
+    ],
+    "ritual_ZNK24QSGSoftwarePixmapTexture11textureSizeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK24QSGSoftwarePixmapTexture15hasAlphaChannelEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK24QSGSoftwarePixmapTexture10hasMipmapsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK24QSGSoftwarePixmapTexture6pixmapEv": ["address", "address"],
+    "ritual_own_ZNK24QSGSoftwarePixmapTexture13comparisonKeyEv": [
+      "long long", "address"
+    ],
+    "ritual_own_ZNK24QSGSoftwarePixmapTexture11textureSizeEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK24QSGSoftwarePixmapTexture15hasAlphaChannelEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZNK24QSGSoftwarePixmapTexture10hasMipmapsEv": [
+      "bool", "address"
+    ]
+  }
+}

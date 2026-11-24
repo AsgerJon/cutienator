@@ -1,0 +1,60 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/qjsprimitivevalue.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QJSPrimitiveValue4typeEv": ["unsigned char", "address"],
+    "ritual_ZN17QJSPrimitiveValueC1Ev": ["address"],
+    "ritual_ZN17QJSPrimitiveValueC1E21QJSPrimitiveUndefined": [
+      "address", "address"
+    ],
+    "ritual_ZN17QJSPrimitiveValueC1E16QJSPrimitiveNull": [
+      "address", "address"
+    ],
+    "ritual_ZN17QJSPrimitiveValueC1Eb": ["address", "bool"],
+    "ritual_ZN17QJSPrimitiveValueC1Ei": ["address", "int"],
+    "ritual_ZN17QJSPrimitiveValueC1Ed": ["address", "double"],
+    "ritual_ZN17QJSPrimitiveValueC1E7QString": ["address", "text"],
+    "ritual_ZN17QJSPrimitiveValueC1E9QMetaType": ["address", "address"],
+    "ritual_ZN17QJSPrimitiveValueC1ERK8QVariant": ["address", "address"],
+    "ritual_ZNK17QJSPrimitiveValue9toBooleanEv": ["bool", "address"],
+    "ritual_ZNK17QJSPrimitiveValue9toIntegerEv": ["int", "address"],
+    "ritual_ZNK17QJSPrimitiveValue8toDoubleEv": ["double", "address"],
+    "ritual_ZNK17QJSPrimitiveValue8toStringEv": ["text", "address"],
+    "ritual_ZplRK17QJSPrimitiveValueS1_": ["address", "address", "address"],
+    "ritual_ZmiRK17QJSPrimitiveValueS1_": ["address", "address", "address"],
+    "ritual_ZmlRK17QJSPrimitiveValueS1_": ["address", "address", "address"],
+    "ritual_ZdvRK17QJSPrimitiveValueS1_": ["address", "address", "address"],
+    "ritual_ZrmRK17QJSPrimitiveValueS1_": ["address", "address", "address"],
+    "ritual_ZN17QJSPrimitiveValueppEi": ["address", "address", "int"],
+    "ritual_ZN17QJSPrimitiveValuemmEi": ["address", "address", "int"],
+    "ritual_ZN17QJSPrimitiveValuepsEv": ["address", "address"],
+    "ritual_ZN17QJSPrimitiveValuengEv": ["address", "address"],
+    "ritual_ZNK17QJSPrimitiveValue14strictlyEqualsERKS_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK17QJSPrimitiveValue6equalsERKS_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZeqRK17QJSPrimitiveValueS1_": ["bool", "address", "address"],
+    "ritual_ZneRK17QJSPrimitiveValueS1_": ["bool", "address", "address"],
+    "ritual_ZltRK17QJSPrimitiveValueS1_": ["bool", "address", "address"],
+    "ritual_ZgtRK17QJSPrimitiveValueS1_": ["bool", "address", "address"],
+    "ritual_ZleRK17QJSPrimitiveValueS1_": ["bool", "address", "address"],
+    "ritual_ZgeRK17QJSPrimitiveValueS1_": ["bool", "address", "address"],
+    "ritual_ZNK17QJSPrimitiveValue9asBooleanEv": ["bool", "address"],
+    "ritual_ZNK17QJSPrimitiveValue9asIntegerEv": ["int", "address"],
+    "ritual_ZNK17QJSPrimitiveValue8asDoubleEv": ["double", "address"],
+    "ritual_ZNK17QJSPrimitiveValue8asStringEv": ["text", "address"],
+    "ritual_ZNK17QJSPrimitiveValue12parsedEqualsERKS_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN17QJSPrimitiveValue16numberFromStringERK7QString": [
+      "address", "text"
+    ],
+    "ritual_ZN17QJSPrimitiveValue8toStringEd": ["text", "double"],
+    "ritual_ZNK17QJSPrimitiveValue16isNanOrUndefinedEv": ["bool", "address"],
+    "ritual_ZN17QJSPrimitiveValueD1Ev": ["nothing", "address"]
+  }
+}

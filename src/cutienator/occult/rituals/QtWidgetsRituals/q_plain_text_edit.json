@@ -8,6 +8,8 @@
     "ritual_ZN14QPlainTextEdit2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN14QPlainTextEdit6d_funcEv": ["address", "address"],
+    "ritual_ZNK14QPlainTextEdit6d_funcEv": ["address", "address"],
     "ritual_ZN14QPlainTextEditC1EP7QWidget": ["address", "address"],
     "ritual_ZN14QPlainTextEditC1ERK7QStringP7QWidget": [
       "address", "text", "address"

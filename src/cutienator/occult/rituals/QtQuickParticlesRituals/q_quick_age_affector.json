@@ -1,0 +1,28 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuickParticles/6.12.0/QtQuickParticles/private/qquickage_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QQuickAgeAffector10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QQuickAgeAffector2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QQuickAgeAffectorC1EP10QQuickItem": ["address", "address"],
+    "ritual_ZNK17QQuickAgeAffector8lifeLeftEv": ["int", "address"],
+    "ritual_ZNK17QQuickAgeAffector15advancePositionEv": ["bool", "address"],
+    "ritual_ZN17QQuickAgeAffector14affectParticleEP18QQuickParticleDatad": [
+      "bool", "address", "address", "double"
+    ],
+    "ritual_ZN17QQuickAgeAffector11setLifeLeftEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQuickAgeAffector18setAdvancePositionEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZN17QQuickAgeAffector14affectParticleEP18QQuickParticleDatad": [
+      "bool", "address", "address", "double"
+    ]
+  }
+}

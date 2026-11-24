@@ -1,0 +1,1305 @@
+//  Written by dev_tooling.RitualGenerator from the records of QtLocation/6.1
+//  2.0/QtLocation/private/qdeclarativesupportedcategoriesmodel_p.h, Qt
+//  6.12.0. Changes made here are lost.
+#include <QtCore/qglobal.h>
+#include <QtLocation/6.12.0/QtLocation/private/qlocationglobal_p.h>
+#include <QtLocation/QtLocation>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtLocation/6.12.0/QtLocation/private/qdeclarativesupportedcategoriesmodel_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
+#include <QtCore/qabstractitemmodel.h>
+#include <QtCore/qvariant.h>
+#include <QtCore/qbytearray.h>
+#include <QtLocation/qplacecategory.h>
+#include <QtCore/qsize.h>
+#include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
+#include <QtCore/qmap.h>
+#include <QtCore/qhash.h>
+#include <iterator>
+#include <cstring>
+
+//  A QDeclarativeSupportedCategoriesModel that Python can take functions over in. Every QDeclarativeSupportedCategoriesModel
+//  Python makes is one. Each function below asks the Python
+//  function handed over for it, and runs Qt's own without one.
+typedef void (*CuteQDeclarativeSupportedCategoriesModelCall0)(const void *, int *);
+typedef void (*CuteQDeclarativeSupportedCategoriesModelCall1)(const void *, int *);
+#if QT_CONFIG(itemmodel)
+typedef int (*CuteQDeclarativeSupportedCategoriesModelCall2)(const void *, const QModelIndex *, int *);
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+typedef int (*CuteQDeclarativeSupportedCategoriesModelCall3)(const void *, const QModelIndex *, int *);
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+typedef const QModelIndex * (*CuteQDeclarativeSupportedCategoriesModelCall4)(const void *, int, int, const QModelIndex *, int *);
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+typedef const QModelIndex * (*CuteQDeclarativeSupportedCategoriesModelCall5)(const void *, const QModelIndex *, int *);
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+typedef const QVariant * (*CuteQDeclarativeSupportedCategoriesModelCall6)(const void *, const QModelIndex *, int, int *);
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+typedef const QModelIndex * (*CuteQDeclarativeSupportedCategoriesModelCall7)(const void *, int, int, const QModelIndex *, int *);
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+typedef bool (*CuteQDeclarativeSupportedCategoriesModelCall8)(const void *, const QModelIndex *, int *);
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+typedef bool (*CuteQDeclarativeSupportedCategoriesModelCall9)(const void *, const QModelIndex *, const QVariant *, int, int *);
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+typedef const QVariant * (*CuteQDeclarativeSupportedCategoriesModelCall10)(const void *, int, int, int, int *);
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+typedef bool (*CuteQDeclarativeSupportedCategoriesModelCall11)(const void *, int, int, const QVariant *, int, int *);
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+typedef bool (*CuteQDeclarativeSupportedCategoriesModelCall12)(const void *, const QModelIndex *, int *);
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+typedef bool (*CuteQDeclarativeSupportedCategoriesModelCall13)(const void *, const QMimeData *, int, int, int, const QModelIndex *, int *);
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+typedef bool (*CuteQDeclarativeSupportedCategoriesModelCall14)(const void *, const QMimeData *, int, int, int, const QModelIndex *, int *);
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+typedef int (*CuteQDeclarativeSupportedCategoriesModelCall15)(const void *, int *);
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+typedef int (*CuteQDeclarativeSupportedCategoriesModelCall16)(const void *, int *);
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+typedef bool (*CuteQDeclarativeSupportedCategoriesModelCall17)(const void *, int, int, const QModelIndex *, int *);
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+typedef bool (*CuteQDeclarativeSupportedCategoriesModelCall18)(const void *, int, int, const QModelIndex *, int *);
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+typedef bool (*CuteQDeclarativeSupportedCategoriesModelCall19)(const void *, int, int, const QModelIndex *, int *);
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+typedef bool (*CuteQDeclarativeSupportedCategoriesModelCall20)(const void *, int, int, const QModelIndex *, int *);
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+typedef bool (*CuteQDeclarativeSupportedCategoriesModelCall21)(const void *, const QModelIndex *, int, int, const QModelIndex *, int, int *);
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+typedef bool (*CuteQDeclarativeSupportedCategoriesModelCall22)(const void *, const QModelIndex *, int, int, const QModelIndex *, int, int *);
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+typedef void (*CuteQDeclarativeSupportedCategoriesModelCall23)(const void *, const QModelIndex *, int *);
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+typedef bool (*CuteQDeclarativeSupportedCategoriesModelCall24)(const void *, const QModelIndex *, int *);
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+typedef int (*CuteQDeclarativeSupportedCategoriesModelCall25)(const void *, const QModelIndex *, int *);
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+typedef void (*CuteQDeclarativeSupportedCategoriesModelCall26)(const void *, int, int, int *);
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+typedef const QModelIndex * (*CuteQDeclarativeSupportedCategoriesModelCall27)(const void *, const QModelIndex *, int *);
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+typedef const QSize * (*CuteQDeclarativeSupportedCategoriesModelCall28)(const void *, const QModelIndex *, int *);
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+typedef void (*CuteQDeclarativeSupportedCategoriesModelCall29)(const void *, const QModelIndex *, const QModelRoleDataSpan *, int *);
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+typedef bool (*CuteQDeclarativeSupportedCategoriesModelCall30)(const void *, int *);
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+typedef void (*CuteQDeclarativeSupportedCategoriesModelCall31)(const void *, int *);
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+typedef void (*CuteQDeclarativeSupportedCategoriesModelCall32)(const void *, int *);
+#endif  // QT_CONFIG(itemmodel)
+#if !defined(QT_NO_QOBJECT)
+typedef bool (*CuteQDeclarativeSupportedCategoriesModelCall33)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+typedef bool (*CuteQDeclarativeSupportedCategoriesModelCall34)(const void *, QObject *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+typedef void (*CuteQDeclarativeSupportedCategoriesModelCall35)(const void *, QTimerEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+typedef void (*CuteQDeclarativeSupportedCategoriesModelCall36)(const void *, QChildEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+typedef void (*CuteQDeclarativeSupportedCategoriesModelCall37)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+typedef void (*CuteQDeclarativeSupportedCategoriesModelCall38)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+typedef void (*CuteQDeclarativeSupportedCategoriesModelCall39)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+class CuteQDeclarativeSupportedCategoriesModel : public QDeclarativeSupportedCategoriesModel {
+public:
+  using QDeclarativeSupportedCategoriesModel::QDeclarativeSupportedCategoriesModel;
+  void *taken[40] = {};
+
+  bool take(const char *key, void *call) {
+    if (!std::strcmp(key, "_ZN16QQmlParserStatus10classBeginEv")) {
+      taken[0] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN16QQmlParserStatus17componentCompleteEv")) {
+      taken[1] = call;
+      return true;
+    }
+#if QT_CONFIG(itemmodel)
+    if (!std::strcmp(key, "_ZNK18QAbstractItemModel8rowCountERK11QModelIndex")) {
+      taken[2] = call;
+      return true;
+    }
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+    if (!std::strcmp(key, "_ZNK18QAbstractItemModel11columnCountERK11QModelIndex")) {
+      taken[3] = call;
+      return true;
+    }
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+    if (!std::strcmp(key, "_ZNK18QAbstractItemModel5indexEiiRK11QModelIndex")) {
+      taken[4] = call;
+      return true;
+    }
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+    if (!std::strcmp(key, "_ZNK18QAbstractItemModel6parentERK11QModelIndex")) {
+      taken[5] = call;
+      return true;
+    }
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+    if (!std::strcmp(key, "_ZNK18QAbstractItemModel4dataERK11QModelIndexi")) {
+      taken[6] = call;
+      return true;
+    }
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+    if (!std::strcmp(key, "_ZNK18QAbstractItemModel7siblingEiiRK11QModelIndex")) {
+      taken[7] = call;
+      return true;
+    }
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+    if (!std::strcmp(key, "_ZNK18QAbstractItemModel11hasChildrenERK11QModelIndex")) {
+      taken[8] = call;
+      return true;
+    }
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+    if (!std::strcmp(key, "_ZN18QAbstractItemModel7setDataERK11QModelIndexRK8QVarianti")) {
+      taken[9] = call;
+      return true;
+    }
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+    if (!std::strcmp(key, "_ZNK18QAbstractItemModel10headerDataEiN2Qt11OrientationEi")) {
+      taken[10] = call;
+      return true;
+    }
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+    if (!std::strcmp(key, "_ZN18QAbstractItemModel13setHeaderDataEiN2Qt11OrientationERK8QVarianti")) {
+      taken[11] = call;
+      return true;
+    }
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+    if (!std::strcmp(key, "_ZN18QAbstractItemModel13clearItemDataERK11QModelIndex")) {
+      taken[12] = call;
+      return true;
+    }
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+    if (!std::strcmp(key, "_ZNK18QAbstractItemModel15canDropMimeDataEPK9QMimeDataN2Qt10DropActionEiiRK11QModelIndex")) {
+      taken[13] = call;
+      return true;
+    }
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+    if (!std::strcmp(key, "_ZN18QAbstractItemModel12dropMimeDataEPK9QMimeDataN2Qt10DropActionEiiRK11QModelIndex")) {
+      taken[14] = call;
+      return true;
+    }
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+    if (!std::strcmp(key, "_ZNK18QAbstractItemModel20supportedDropActionsEv")) {
+      taken[15] = call;
+      return true;
+    }
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+    if (!std::strcmp(key, "_ZNK18QAbstractItemModel20supportedDragActionsEv")) {
+      taken[16] = call;
+      return true;
+    }
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+    if (!std::strcmp(key, "_ZN18QAbstractItemModel10insertRowsEiiRK11QModelIndex")) {
+      taken[17] = call;
+      return true;
+    }
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+    if (!std::strcmp(key, "_ZN18QAbstractItemModel13insertColumnsEiiRK11QModelIndex")) {
+      taken[18] = call;
+      return true;
+    }
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+    if (!std::strcmp(key, "_ZN18QAbstractItemModel10removeRowsEiiRK11QModelIndex")) {
+      taken[19] = call;
+      return true;
+    }
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+    if (!std::strcmp(key, "_ZN18QAbstractItemModel13removeColumnsEiiRK11QModelIndex")) {
+      taken[20] = call;
+      return true;
+    }
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+    if (!std::strcmp(key, "_ZN18QAbstractItemModel8moveRowsERK11QModelIndexiiS2_i")) {
+      taken[21] = call;
+      return true;
+    }
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+    if (!std::strcmp(key, "_ZN18QAbstractItemModel11moveColumnsERK11QModelIndexiiS2_i")) {
+      taken[22] = call;
+      return true;
+    }
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+    if (!std::strcmp(key, "_ZN18QAbstractItemModel9fetchMoreERK11QModelIndex")) {
+      taken[23] = call;
+      return true;
+    }
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+    if (!std::strcmp(key, "_ZNK18QAbstractItemModel12canFetchMoreERK11QModelIndex")) {
+      taken[24] = call;
+      return true;
+    }
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+    if (!std::strcmp(key, "_ZNK18QAbstractItemModel5flagsERK11QModelIndex")) {
+      taken[25] = call;
+      return true;
+    }
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+    if (!std::strcmp(key, "_ZN18QAbstractItemModel4sortEiN2Qt9SortOrderE")) {
+      taken[26] = call;
+      return true;
+    }
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+    if (!std::strcmp(key, "_ZNK18QAbstractItemModel5buddyERK11QModelIndex")) {
+      taken[27] = call;
+      return true;
+    }
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+    if (!std::strcmp(key, "_ZNK18QAbstractItemModel4spanERK11QModelIndex")) {
+      taken[28] = call;
+      return true;
+    }
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+    if (!std::strcmp(key, "_ZNK18QAbstractItemModel9multiDataERK11QModelIndex18QModelRoleDataSpan")) {
+      taken[29] = call;
+      return true;
+    }
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+    if (!std::strcmp(key, "_ZN18QAbstractItemModel6submitEv")) {
+      taken[30] = call;
+      return true;
+    }
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+    if (!std::strcmp(key, "_ZN18QAbstractItemModel6revertEv")) {
+      taken[31] = call;
+      return true;
+    }
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+    if (!std::strcmp(key, "_ZN18QAbstractItemModel17resetInternalDataEv")) {
+      taken[32] = call;
+      return true;
+    }
+#endif  // QT_CONFIG(itemmodel)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
+      taken[33] = call;
+      return true;
+    }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
+      taken[34] = call;
+      return true;
+    }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
+      taken[35] = call;
+      return true;
+    }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
+      taken[36] = call;
+      return true;
+    }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+      taken[37] = call;
+      return true;
+    }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+      taken[38] = call;
+      return true;
+    }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+      taken[39] = call;
+      return true;
+    }
+#endif  // !defined(QT_NO_QOBJECT)
+    return false;
+  }
+
+  //  void QDeclarativeSupportedCategoriesModel::classBegin()
+  void classBegin() override {
+    if (taken[0]) {
+      int handled = 0;
+      CuteQDeclarativeSupportedCategoriesModelCall0 call = reinterpret_cast<CuteQDeclarativeSupportedCategoriesModelCall0>(taken[0]);
+      call(this, &handled);
+      if (handled) return;
+    }
+    QDeclarativeSupportedCategoriesModel::classBegin();
+  }
+
+  //  void QDeclarativeSupportedCategoriesModel::componentComplete()
+  void componentComplete() override {
+    if (taken[1]) {
+      int handled = 0;
+      CuteQDeclarativeSupportedCategoriesModelCall1 call = reinterpret_cast<CuteQDeclarativeSupportedCategoriesModelCall1>(taken[1]);
+      call(this, &handled);
+      if (handled) return;
+    }
+    QDeclarativeSupportedCategoriesModel::componentComplete();
+  }
+
+#if QT_CONFIG(itemmodel)
+  //  int QDeclarativeSupportedCategoriesModel::rowCount(const QModelIndex
+  //      &parent) const
+  int rowCount(const QModelIndex &parent) const override {
+    if (taken[2]) {
+      int handled = 0;
+      CuteQDeclarativeSupportedCategoriesModelCall2 call = reinterpret_cast<CuteQDeclarativeSupportedCategoriesModelCall2>(taken[2]);
+      int given = call(this, &parent, &handled);
+      if (handled) return given;
+    }
+    return QDeclarativeSupportedCategoriesModel::rowCount(parent);
+  }
+#endif  // QT_CONFIG(itemmodel)
+
+#if QT_CONFIG(itemmodel)
+  //  int QDeclarativeSupportedCategoriesModel::columnCount(const
+  //      QModelIndex &parent) const
+  int columnCount(const QModelIndex &parent) const override {
+    if (taken[3]) {
+      int handled = 0;
+      CuteQDeclarativeSupportedCategoriesModelCall3 call = reinterpret_cast<CuteQDeclarativeSupportedCategoriesModelCall3>(taken[3]);
+      int given = call(this, &parent, &handled);
+      if (handled) return given;
+    }
+    return QDeclarativeSupportedCategoriesModel::columnCount(parent);
+  }
+#endif  // QT_CONFIG(itemmodel)
+
+#if QT_CONFIG(itemmodel)
+  //  QModelIndex QDeclarativeSupportedCategoriesModel::index(int row, int
+  //      column, const QModelIndex &parent) const
+  QModelIndex index(
+      int row,
+      int column,
+      const QModelIndex &parent) const override {
+    if (taken[4]) {
+      int handled = 0;
+      CuteQDeclarativeSupportedCategoriesModelCall4 call = reinterpret_cast<CuteQDeclarativeSupportedCategoriesModelCall4>(taken[4]);
+      const QModelIndex * given = call(this, row, column, &parent, &handled);
+      if (handled && given) return *given;
+    }
+    return QDeclarativeSupportedCategoriesModel::index(row, column, parent);
+  }
+#endif  // QT_CONFIG(itemmodel)
+
+#if QT_CONFIG(itemmodel)
+  //  QModelIndex QDeclarativeSupportedCategoriesModel::parent(const
+  //      QModelIndex &child) const
+  QModelIndex parent(const QModelIndex &child) const override {
+    if (taken[5]) {
+      int handled = 0;
+      CuteQDeclarativeSupportedCategoriesModelCall5 call = reinterpret_cast<CuteQDeclarativeSupportedCategoriesModelCall5>(taken[5]);
+      const QModelIndex * given = call(this, &child, &handled);
+      if (handled && given) return *given;
+    }
+    return QDeclarativeSupportedCategoriesModel::parent(child);
+  }
+#endif  // QT_CONFIG(itemmodel)
+
+#if QT_CONFIG(itemmodel)
+  //  QVariant QDeclarativeSupportedCategoriesModel::data(const QModelIndex
+  //      &index, int role) const
+  QVariant data(const QModelIndex &index, int role) const override {
+    if (taken[6]) {
+      int handled = 0;
+      CuteQDeclarativeSupportedCategoriesModelCall6 call = reinterpret_cast<CuteQDeclarativeSupportedCategoriesModelCall6>(taken[6]);
+      const QVariant * given = call(this, &index, role, &handled);
+      if (handled && given) return *given;
+    }
+    return QDeclarativeSupportedCategoriesModel::data(index, role);
+  }
+#endif  // QT_CONFIG(itemmodel)
+
+#if QT_CONFIG(itemmodel)
+  //  QModelIndex QAbstractItemModel::sibling(int row, int column, const
+  //      QModelIndex &idx) const
+  QModelIndex sibling(
+      int row,
+      int column,
+      const QModelIndex &idx) const override {
+    if (taken[7]) {
+      int handled = 0;
+      CuteQDeclarativeSupportedCategoriesModelCall7 call = reinterpret_cast<CuteQDeclarativeSupportedCategoriesModelCall7>(taken[7]);
+      const QModelIndex * given = call(this, row, column, &idx, &handled);
+      if (handled && given) return *given;
+    }
+    return QAbstractItemModel::sibling(row, column, idx);
+  }
+#endif  // QT_CONFIG(itemmodel)
+
+#if QT_CONFIG(itemmodel)
+  //  bool QAbstractItemModel::hasChildren(const QModelIndex &parent) const
+  bool hasChildren(const QModelIndex &parent) const override {
+    if (taken[8]) {
+      int handled = 0;
+      CuteQDeclarativeSupportedCategoriesModelCall8 call = reinterpret_cast<CuteQDeclarativeSupportedCategoriesModelCall8>(taken[8]);
+      bool given = call(this, &parent, &handled);
+      if (handled) return given;
+    }
+    return QAbstractItemModel::hasChildren(parent);
+  }
+#endif  // QT_CONFIG(itemmodel)
+
+#if QT_CONFIG(itemmodel)
+  //  bool QAbstractItemModel::setData(const QModelIndex &index, const
+  //      QVariant &value, int role)
+  bool setData(
+      const QModelIndex &index,
+      const QVariant &value,
+      int role) override {
+    if (taken[9]) {
+      int handled = 0;
+      CuteQDeclarativeSupportedCategoriesModelCall9 call = reinterpret_cast<CuteQDeclarativeSupportedCategoriesModelCall9>(taken[9]);
+      bool given = call(this, &index, &value, role, &handled);
+      if (handled) return given;
+    }
+    return QAbstractItemModel::setData(index, value, role);
+  }
+#endif  // QT_CONFIG(itemmodel)
+
+#if QT_CONFIG(itemmodel)
+  //  QVariant QAbstractItemModel::headerData(int section, Qt::Orientation
+  //      orientation, int role) const
+  QVariant headerData(
+      int section,
+      Qt::Orientation orientation,
+      int role) const override {
+    if (taken[10]) {
+      int handled = 0;
+      CuteQDeclarativeSupportedCategoriesModelCall10 call = reinterpret_cast<CuteQDeclarativeSupportedCategoriesModelCall10>(taken[10]);
+      const QVariant * given = call(this, section, static_cast<int>(orientation), role, &handled);
+      if (handled && given) return *given;
+    }
+    return QAbstractItemModel::headerData(section, orientation, role);
+  }
+#endif  // QT_CONFIG(itemmodel)
+
+#if QT_CONFIG(itemmodel)
+  //  bool QAbstractItemModel::setHeaderData(int section, Qt::Orientation
+  //      orientation, const QVariant &value, int role)
+  bool setHeaderData(
+      int section,
+      Qt::Orientation orientation,
+      const QVariant &value,
+      int role) override {
+    if (taken[11]) {
+      int handled = 0;
+      CuteQDeclarativeSupportedCategoriesModelCall11 call = reinterpret_cast<CuteQDeclarativeSupportedCategoriesModelCall11>(taken[11]);
+      bool given = call(this, section, static_cast<int>(orientation), &value, role, &handled);
+      if (handled) return given;
+    }
+    return QAbstractItemModel::setHeaderData(section, orientation, value, role);
+  }
+#endif  // QT_CONFIG(itemmodel)
+
+#if QT_CONFIG(itemmodel)
+  //  bool QAbstractItemModel::clearItemData(const QModelIndex &index)
+  bool clearItemData(const QModelIndex &index) override {
+    if (taken[12]) {
+      int handled = 0;
+      CuteQDeclarativeSupportedCategoriesModelCall12 call = reinterpret_cast<CuteQDeclarativeSupportedCategoriesModelCall12>(taken[12]);
+      bool given = call(this, &index, &handled);
+      if (handled) return given;
+    }
+    return QAbstractItemModel::clearItemData(index);
+  }
+#endif  // QT_CONFIG(itemmodel)
+
+#if QT_CONFIG(itemmodel)
+  //  bool QAbstractItemModel::canDropMimeData(const QMimeData *data,
+  //      Qt::DropAction action, int row, int column, const QModelIndex
+  //      &parent) const
+  bool canDropMimeData(
+      const QMimeData *data,
+      Qt::DropAction action,
+      int row,
+      int column,
+      const QModelIndex &parent) const override {
+    if (taken[13]) {
+      int handled = 0;
+      CuteQDeclarativeSupportedCategoriesModelCall13 call = reinterpret_cast<CuteQDeclarativeSupportedCategoriesModelCall13>(taken[13]);
+      bool given = call(this, data, static_cast<int>(action), row, column, &parent, &handled);
+      if (handled) return given;
+    }
+    return QAbstractItemModel::canDropMimeData(data, action, row, column, parent);
+  }
+#endif  // QT_CONFIG(itemmodel)
+
+#if QT_CONFIG(itemmodel)
+  //  bool QAbstractItemModel::dropMimeData(const QMimeData *data,
+  //      Qt::DropAction action, int row, int column, const QModelIndex
+  //      &parent)
+  bool dropMimeData(
+      const QMimeData *data,
+      Qt::DropAction action,
+      int row,
+      int column,
+      const QModelIndex &parent) override {
+    if (taken[14]) {
+      int handled = 0;
+      CuteQDeclarativeSupportedCategoriesModelCall14 call = reinterpret_cast<CuteQDeclarativeSupportedCategoriesModelCall14>(taken[14]);
+      bool given = call(this, data, static_cast<int>(action), row, column, &parent, &handled);
+      if (handled) return given;
+    }
+    return QAbstractItemModel::dropMimeData(data, action, row, column, parent);
+  }
+#endif  // QT_CONFIG(itemmodel)
+
+#if QT_CONFIG(itemmodel)
+  //  Qt::DropActions QAbstractItemModel::supportedDropActions() const
+  Qt::DropActions supportedDropActions() const override {
+    if (taken[15]) {
+      int handled = 0;
+      CuteQDeclarativeSupportedCategoriesModelCall15 call = reinterpret_cast<CuteQDeclarativeSupportedCategoriesModelCall15>(taken[15]);
+      int given = call(this, &handled);
+      if (handled) return QFlags<Qt::DropAction>::fromInt(given);
+    }
+    return QAbstractItemModel::supportedDropActions();
+  }
+#endif  // QT_CONFIG(itemmodel)
+
+#if QT_CONFIG(itemmodel)
+  //  Qt::DropActions QAbstractItemModel::supportedDragActions() const
+  Qt::DropActions supportedDragActions() const override {
+    if (taken[16]) {
+      int handled = 0;
+      CuteQDeclarativeSupportedCategoriesModelCall16 call = reinterpret_cast<CuteQDeclarativeSupportedCategoriesModelCall16>(taken[16]);
+      int given = call(this, &handled);
+      if (handled) return QFlags<Qt::DropAction>::fromInt(given);
+    }
+    return QAbstractItemModel::supportedDragActions();
+  }
+#endif  // QT_CONFIG(itemmodel)
+
+#if QT_CONFIG(itemmodel)
+  //  bool QAbstractItemModel::insertRows(int row, int count, const
+  //      QModelIndex &parent)
+  bool insertRows(int row, int count, const QModelIndex &parent) override {
+    if (taken[17]) {
+      int handled = 0;
+      CuteQDeclarativeSupportedCategoriesModelCall17 call = reinterpret_cast<CuteQDeclarativeSupportedCategoriesModelCall17>(taken[17]);
+      bool given = call(this, row, count, &parent, &handled);
+      if (handled) return given;
+    }
+    return QAbstractItemModel::insertRows(row, count, parent);
+  }
+#endif  // QT_CONFIG(itemmodel)
+
+#if QT_CONFIG(itemmodel)
+  //  bool QAbstractItemModel::insertColumns(int column, int count, const
+  //      QModelIndex &parent)
+  bool insertColumns(
+      int column,
+      int count,
+      const QModelIndex &parent) override {
+    if (taken[18]) {
+      int handled = 0;
+      CuteQDeclarativeSupportedCategoriesModelCall18 call = reinterpret_cast<CuteQDeclarativeSupportedCategoriesModelCall18>(taken[18]);
+      bool given = call(this, column, count, &parent, &handled);
+      if (handled) return given;
+    }
+    return QAbstractItemModel::insertColumns(column, count, parent);
+  }
+#endif  // QT_CONFIG(itemmodel)
+
+#if QT_CONFIG(itemmodel)
+  //  bool QAbstractItemModel::removeRows(int row, int count, const
+  //      QModelIndex &parent)
+  bool removeRows(int row, int count, const QModelIndex &parent) override {
+    if (taken[19]) {
+      int handled = 0;
+      CuteQDeclarativeSupportedCategoriesModelCall19 call = reinterpret_cast<CuteQDeclarativeSupportedCategoriesModelCall19>(taken[19]);
+      bool given = call(this, row, count, &parent, &handled);
+      if (handled) return given;
+    }
+    return QAbstractItemModel::removeRows(row, count, parent);
+  }
+#endif  // QT_CONFIG(itemmodel)
+
+#if QT_CONFIG(itemmodel)
+  //  bool QAbstractItemModel::removeColumns(int column, int count, const
+  //      QModelIndex &parent)
+  bool removeColumns(
+      int column,
+      int count,
+      const QModelIndex &parent) override {
+    if (taken[20]) {
+      int handled = 0;
+      CuteQDeclarativeSupportedCategoriesModelCall20 call = reinterpret_cast<CuteQDeclarativeSupportedCategoriesModelCall20>(taken[20]);
+      bool given = call(this, column, count, &parent, &handled);
+      if (handled) return given;
+    }
+    return QAbstractItemModel::removeColumns(column, count, parent);
+  }
+#endif  // QT_CONFIG(itemmodel)
+
+#if QT_CONFIG(itemmodel)
+  //  bool QAbstractItemModel::moveRows(const QModelIndex &sourceParent,
+  //      int sourceRow, int count, const QModelIndex &destinationParent,
+  //      int destinationChild)
+  bool moveRows(
+      const QModelIndex &sourceParent,
+      int sourceRow,
+      int count,
+      const QModelIndex &destinationParent,
+      int destinationChild) override {
+    if (taken[21]) {
+      int handled = 0;
+      CuteQDeclarativeSupportedCategoriesModelCall21 call = reinterpret_cast<CuteQDeclarativeSupportedCategoriesModelCall21>(taken[21]);
+      bool given = call(this, &sourceParent, sourceRow, count, &destinationParent, destinationChild, &handled);
+      if (handled) return given;
+    }
+    return QAbstractItemModel::moveRows(sourceParent, sourceRow, count, destinationParent, destinationChild);
+  }
+#endif  // QT_CONFIG(itemmodel)
+
+#if QT_CONFIG(itemmodel)
+  //  bool QAbstractItemModel::moveColumns(const QModelIndex &sourceParent,
+  //      int sourceColumn, int count, const QModelIndex
+  //      &destinationParent, int destinationChild)
+  bool moveColumns(
+      const QModelIndex &sourceParent,
+      int sourceColumn,
+      int count,
+      const QModelIndex &destinationParent,
+      int destinationChild) override {
+    if (taken[22]) {
+      int handled = 0;
+      CuteQDeclarativeSupportedCategoriesModelCall22 call = reinterpret_cast<CuteQDeclarativeSupportedCategoriesModelCall22>(taken[22]);
+      bool given = call(this, &sourceParent, sourceColumn, count, &destinationParent, destinationChild, &handled);
+      if (handled) return given;
+    }
+    return QAbstractItemModel::moveColumns(sourceParent, sourceColumn, count, destinationParent, destinationChild);
+  }
+#endif  // QT_CONFIG(itemmodel)
+
+#if QT_CONFIG(itemmodel)
+  //  void QAbstractItemModel::fetchMore(const QModelIndex &parent)
+  void fetchMore(const QModelIndex &parent) override {
+    if (taken[23]) {
+      int handled = 0;
+      CuteQDeclarativeSupportedCategoriesModelCall23 call = reinterpret_cast<CuteQDeclarativeSupportedCategoriesModelCall23>(taken[23]);
+      call(this, &parent, &handled);
+      if (handled) return;
+    }
+    QAbstractItemModel::fetchMore(parent);
+  }
+#endif  // QT_CONFIG(itemmodel)
+
+#if QT_CONFIG(itemmodel)
+  //  bool QAbstractItemModel::canFetchMore(const QModelIndex &parent)
+  //      const
+  bool canFetchMore(const QModelIndex &parent) const override {
+    if (taken[24]) {
+      int handled = 0;
+      CuteQDeclarativeSupportedCategoriesModelCall24 call = reinterpret_cast<CuteQDeclarativeSupportedCategoriesModelCall24>(taken[24]);
+      bool given = call(this, &parent, &handled);
+      if (handled) return given;
+    }
+    return QAbstractItemModel::canFetchMore(parent);
+  }
+#endif  // QT_CONFIG(itemmodel)
+
+#if QT_CONFIG(itemmodel)
+  //  Qt::ItemFlags QAbstractItemModel::flags(const QModelIndex &index)
+  //      const
+  Qt::ItemFlags flags(const QModelIndex &index) const override {
+    if (taken[25]) {
+      int handled = 0;
+      CuteQDeclarativeSupportedCategoriesModelCall25 call = reinterpret_cast<CuteQDeclarativeSupportedCategoriesModelCall25>(taken[25]);
+      int given = call(this, &index, &handled);
+      if (handled) return QFlags<Qt::ItemFlag>::fromInt(given);
+    }
+    return QAbstractItemModel::flags(index);
+  }
+#endif  // QT_CONFIG(itemmodel)
+
+#if QT_CONFIG(itemmodel)
+  //  void QAbstractItemModel::sort(int column, Qt::SortOrder order)
+  void sort(int column, Qt::SortOrder order) override {
+    if (taken[26]) {
+      int handled = 0;
+      CuteQDeclarativeSupportedCategoriesModelCall26 call = reinterpret_cast<CuteQDeclarativeSupportedCategoriesModelCall26>(taken[26]);
+      call(this, column, static_cast<int>(order), &handled);
+      if (handled) return;
+    }
+    QAbstractItemModel::sort(column, order);
+  }
+#endif  // QT_CONFIG(itemmodel)
+
+#if QT_CONFIG(itemmodel)
+  //  QModelIndex QAbstractItemModel::buddy(const QModelIndex &index) const
+  QModelIndex buddy(const QModelIndex &index) const override {
+    if (taken[27]) {
+      int handled = 0;
+      CuteQDeclarativeSupportedCategoriesModelCall27 call = reinterpret_cast<CuteQDeclarativeSupportedCategoriesModelCall27>(taken[27]);
+      const QModelIndex * given = call(this, &index, &handled);
+      if (handled && given) return *given;
+    }
+    return QAbstractItemModel::buddy(index);
+  }
+#endif  // QT_CONFIG(itemmodel)
+
+#if QT_CONFIG(itemmodel)
+  //  QSize QAbstractItemModel::span(const QModelIndex &index) const
+  QSize span(const QModelIndex &index) const override {
+    if (taken[28]) {
+      int handled = 0;
+      CuteQDeclarativeSupportedCategoriesModelCall28 call = reinterpret_cast<CuteQDeclarativeSupportedCategoriesModelCall28>(taken[28]);
+      const QSize * given = call(this, &index, &handled);
+      if (handled && given) return *given;
+    }
+    return QAbstractItemModel::span(index);
+  }
+#endif  // QT_CONFIG(itemmodel)
+
+#if QT_CONFIG(itemmodel)
+  //  void QAbstractItemModel::multiData(const QModelIndex &index,
+  //      QModelRoleDataSpan roleDataSpan) const
+  void multiData(
+      const QModelIndex &index,
+      QModelRoleDataSpan roleDataSpan) const override {
+    if (taken[29]) {
+      int handled = 0;
+      CuteQDeclarativeSupportedCategoriesModelCall29 call = reinterpret_cast<CuteQDeclarativeSupportedCategoriesModelCall29>(taken[29]);
+      call(this, &index, &roleDataSpan, &handled);
+      if (handled) return;
+    }
+    QAbstractItemModel::multiData(index, roleDataSpan);
+  }
+#endif  // QT_CONFIG(itemmodel)
+
+#if QT_CONFIG(itemmodel)
+  //  bool QAbstractItemModel::submit()
+  bool submit() override {
+    if (taken[30]) {
+      int handled = 0;
+      CuteQDeclarativeSupportedCategoriesModelCall30 call = reinterpret_cast<CuteQDeclarativeSupportedCategoriesModelCall30>(taken[30]);
+      bool given = call(this, &handled);
+      if (handled) return given;
+    }
+    return QAbstractItemModel::submit();
+  }
+#endif  // QT_CONFIG(itemmodel)
+
+#if QT_CONFIG(itemmodel)
+  //  void QAbstractItemModel::revert()
+  void revert() override {
+    if (taken[31]) {
+      int handled = 0;
+      CuteQDeclarativeSupportedCategoriesModelCall31 call = reinterpret_cast<CuteQDeclarativeSupportedCategoriesModelCall31>(taken[31]);
+      call(this, &handled);
+      if (handled) return;
+    }
+    QAbstractItemModel::revert();
+  }
+#endif  // QT_CONFIG(itemmodel)
+
+#if QT_CONFIG(itemmodel)
+  //  void QAbstractItemModel::resetInternalData()
+  void resetInternalData() override {
+    if (taken[32]) {
+      int handled = 0;
+      CuteQDeclarativeSupportedCategoriesModelCall32 call = reinterpret_cast<CuteQDeclarativeSupportedCategoriesModelCall32>(taken[32]);
+      call(this, &handled);
+      if (handled) return;
+    }
+    QAbstractItemModel::resetInternalData();
+  }
+#endif  // QT_CONFIG(itemmodel)
+
+#if !defined(QT_NO_QOBJECT)
+  //  bool QObject::event(QEvent *event)
+  bool event(QEvent *event) override {
+    if (taken[33]) {
+      int handled = 0;
+      CuteQDeclarativeSupportedCategoriesModelCall33 call = reinterpret_cast<CuteQDeclarativeSupportedCategoriesModelCall33>(taken[33]);
+      bool given = call(this, event, &handled);
+      if (handled) return given;
+    }
+    return QObject::event(event);
+  }
+#endif  // !defined(QT_NO_QOBJECT)
+
+#if !defined(QT_NO_QOBJECT)
+  //  bool QObject::eventFilter(QObject *watched, QEvent *event)
+  bool eventFilter(QObject *watched, QEvent *event) override {
+    if (taken[34]) {
+      int handled = 0;
+      CuteQDeclarativeSupportedCategoriesModelCall34 call = reinterpret_cast<CuteQDeclarativeSupportedCategoriesModelCall34>(taken[34]);
+      bool given = call(this, watched, event, &handled);
+      if (handled) return given;
+    }
+    return QObject::eventFilter(watched, event);
+  }
+#endif  // !defined(QT_NO_QOBJECT)
+
+#if !defined(QT_NO_QOBJECT)
+  //  void QObject::timerEvent(QTimerEvent *event)
+  void timerEvent(QTimerEvent *event) override {
+    if (taken[35]) {
+      int handled = 0;
+      CuteQDeclarativeSupportedCategoriesModelCall35 call = reinterpret_cast<CuteQDeclarativeSupportedCategoriesModelCall35>(taken[35]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QObject::timerEvent(event);
+  }
+#endif  // !defined(QT_NO_QOBJECT)
+
+#if !defined(QT_NO_QOBJECT)
+  //  void QObject::childEvent(QChildEvent *event)
+  void childEvent(QChildEvent *event) override {
+    if (taken[36]) {
+      int handled = 0;
+      CuteQDeclarativeSupportedCategoriesModelCall36 call = reinterpret_cast<CuteQDeclarativeSupportedCategoriesModelCall36>(taken[36]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QObject::childEvent(event);
+  }
+#endif  // !defined(QT_NO_QOBJECT)
+
+#if !defined(QT_NO_QOBJECT)
+  //  void QObject::customEvent(QEvent *event)
+  void customEvent(QEvent *event) override {
+    if (taken[37]) {
+      int handled = 0;
+      CuteQDeclarativeSupportedCategoriesModelCall37 call = reinterpret_cast<CuteQDeclarativeSupportedCategoriesModelCall37>(taken[37]);
+      call(this, event, &handled);
+      if (handled) return;
+    }
+    QObject::customEvent(event);
+  }
+#endif  // !defined(QT_NO_QOBJECT)
+
+#if !defined(QT_NO_QOBJECT)
+  //  void QObject::connectNotify(const QMetaMethod &signal)
+  void connectNotify(const QMetaMethod &signal) override {
+    if (taken[38]) {
+      int handled = 0;
+      CuteQDeclarativeSupportedCategoriesModelCall38 call = reinterpret_cast<CuteQDeclarativeSupportedCategoriesModelCall38>(taken[38]);
+      call(this, &signal, &handled);
+      if (handled) return;
+    }
+    QObject::connectNotify(signal);
+  }
+#endif  // !defined(QT_NO_QOBJECT)
+
+#if !defined(QT_NO_QOBJECT)
+  //  void QObject::disconnectNotify(const QMetaMethod &signal)
+  void disconnectNotify(const QMetaMethod &signal) override {
+    if (taken[39]) {
+      int handled = 0;
+      CuteQDeclarativeSupportedCategoriesModelCall39 call = reinterpret_cast<CuteQDeclarativeSupportedCategoriesModelCall39>(taken[39]);
+      call(this, &signal, &handled);
+      if (handled) return;
+    }
+    QObject::disconnectNotify(signal);
+  }
+#endif  // !defined(QT_NO_QOBJECT)
+};
+
+//  const QMetaObject *QDeclarativeSupportedCategoriesModel::metaObject()
+//      const
+extern "C" Q_DECL_EXPORT
+const QMetaObject *ritual_ZNK36QDeclarativeSupportedCategoriesModel10metaObjectEv(
+    const QDeclarativeSupportedCategoriesModel *self) {
+  return self->metaObject();
+}
+
+//  QString QDeclarativeSupportedCategoriesModel::tr(const char *s, const
+//      char *c, int n)
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZN36QDeclarativeSupportedCategoriesModel2trEPKcS1_i(
+    const char *s,
+    const char *c,
+    int n) {
+  return new QString(QDeclarativeSupportedCategoriesModel::tr(s, c, n));
+}
+
+//  QDeclarativeSupportedCategoriesModel::QDeclarativeSupportedCategoriesMode
+//      l(QObject *parent)
+extern "C" Q_DECL_EXPORT
+QDeclarativeSupportedCategoriesModel *ritual_ZN36QDeclarativeSupportedCategoriesModelC1EP7QObject(
+    QObject *parent) {
+  return new CuteQDeclarativeSupportedCategoriesModel(parent);
+}
+
+//  QDeclarativeSupportedCategoriesModel::~QDeclarativeSupportedCategoriesMod
+//      el()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN36QDeclarativeSupportedCategoriesModelD1Ev(
+    QDeclarativeSupportedCategoriesModel *self) {
+  delete self;
+}
+
+//  void QDeclarativeSupportedCategoriesModel::classBegin()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN36QDeclarativeSupportedCategoriesModel10classBeginEv(
+    QDeclarativeSupportedCategoriesModel *self) {
+  self->classBegin();
+}
+
+//  void QDeclarativeSupportedCategoriesModel::componentComplete()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN36QDeclarativeSupportedCategoriesModel17componentCompleteEv(
+    QDeclarativeSupportedCategoriesModel *self) {
+  self->componentComplete();
+}
+
+//  int QDeclarativeSupportedCategoriesModel::rowCount(const QModelIndex
+//      &parent) const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK36QDeclarativeSupportedCategoriesModel8rowCountERK11QModelIndex(
+    const QDeclarativeSupportedCategoriesModel *self,
+    const QModelIndex *parent) {
+  return self->rowCount(*parent);
+}
+
+//  int QDeclarativeSupportedCategoriesModel::columnCount(const QModelIndex
+//      &parent) const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK36QDeclarativeSupportedCategoriesModel11columnCountERK11QModelIndex(
+    const QDeclarativeSupportedCategoriesModel *self,
+    const QModelIndex *parent) {
+  return self->columnCount(*parent);
+}
+
+//  QModelIndex QDeclarativeSupportedCategoriesModel::index(int row, int
+//      column, const QModelIndex &parent) const
+extern "C" Q_DECL_EXPORT
+QModelIndex *ritual_ZNK36QDeclarativeSupportedCategoriesModel5indexEiiRK11QModelIndex(
+    const QDeclarativeSupportedCategoriesModel *self,
+    int row,
+    int column,
+    const QModelIndex *parent) {
+  return new QModelIndex(self->index(row, column, *parent));
+}
+
+//  QModelIndex QDeclarativeSupportedCategoriesModel::parent(const
+//      QModelIndex &child) const
+extern "C" Q_DECL_EXPORT
+QModelIndex *ritual_ZNK36QDeclarativeSupportedCategoriesModel6parentERK11QModelIndex(
+    const QDeclarativeSupportedCategoriesModel *self,
+    const QModelIndex *child) {
+  return new QModelIndex(self->parent(*child));
+}
+
+//  QVariant QDeclarativeSupportedCategoriesModel::data(const QModelIndex
+//      &index, int role) const
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_ZNK36QDeclarativeSupportedCategoriesModel4dataERK11QModelIndexi(
+    const QDeclarativeSupportedCategoriesModel *self,
+    const QModelIndex *index,
+    int role) {
+  return new QVariant(self->data(*index, role));
+}
+
+//  QHash<int, QByteArray> QDeclarativeSupportedCategoriesModel::roleNames()
+//      const
+extern "C" Q_DECL_EXPORT
+QHash<int, QByteArray> *ritual_ZNK36QDeclarativeSupportedCategoriesModel9roleNamesEv(
+    const QDeclarativeSupportedCategoriesModel *self) {
+  return new QHash<int, QByteArray>(self->roleNames());
+}
+
+//  void QDeclarativeSupportedCategoriesModel::setPlugin(QDeclarativeGeoServi
+//      ceProvider *plugin)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN36QDeclarativeSupportedCategoriesModel9setPluginEP30QDeclarativeGeoServiceProvider(
+    QDeclarativeSupportedCategoriesModel *self,
+    QDeclarativeGeoServiceProvider *plugin) {
+  self->setPlugin(plugin);
+}
+
+//  QDeclarativeGeoServiceProvider
+//      *QDeclarativeSupportedCategoriesModel::plugin() const
+extern "C" Q_DECL_EXPORT
+QDeclarativeGeoServiceProvider *ritual_ZNK36QDeclarativeSupportedCategoriesModel6pluginEv(
+    const QDeclarativeSupportedCategoriesModel *self) {
+  return self->plugin();
+}
+
+//  void QDeclarativeSupportedCategoriesModel::setHierarchical(bool
+//      hierarchical)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN36QDeclarativeSupportedCategoriesModel15setHierarchicalEb(
+    QDeclarativeSupportedCategoriesModel *self,
+    bool hierarchical) {
+  self->setHierarchical(hierarchical);
+}
+
+//  bool QDeclarativeSupportedCategoriesModel::hierarchical() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK36QDeclarativeSupportedCategoriesModel12hierarchicalEv(
+    const QDeclarativeSupportedCategoriesModel *self) {
+  return self->hierarchical();
+}
+
+//  QString QDeclarativeSupportedCategoriesModel::errorString() const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK36QDeclarativeSupportedCategoriesModel11errorStringEv(
+    const QDeclarativeSupportedCategoriesModel *self) {
+  return new QString(self->errorString());
+}
+
+//  Status QDeclarativeSupportedCategoriesModel::status() const
+extern "C" Q_DECL_EXPORT
+QDeclarativeSupportedCategoriesModel::Status ritual_ZNK36QDeclarativeSupportedCategoriesModel6statusEv(
+    const QDeclarativeSupportedCategoriesModel *self) {
+  return self->status();
+}
+
+//  void QDeclarativeSupportedCategoriesModel::setStatus(Status status, const
+//      QString &errorString)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN36QDeclarativeSupportedCategoriesModel9setStatusENS_6StatusERK7QString(
+    QDeclarativeSupportedCategoriesModel *self,
+    QDeclarativeSupportedCategoriesModel::Status status,
+    const QString *errorString) {
+  self->setStatus(status, *errorString);
+}
+
+//  void QDeclarativeSupportedCategoriesModel::update()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN36QDeclarativeSupportedCategoriesModel6updateEv(
+    QDeclarativeSupportedCategoriesModel *self) {
+  self->update();
+}
+
+//  void QDeclarativeSupportedCategoriesModel::replyFinished()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN36QDeclarativeSupportedCategoriesModel13replyFinishedEv(
+    QDeclarativeSupportedCategoriesModel *self) {
+  self->replyFinished();
+}
+
+//  void QDeclarativeSupportedCategoriesModel::addedCategory(const
+//      QPlaceCategory &category, const QString &parentId)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN36QDeclarativeSupportedCategoriesModel13addedCategoryERK14QPlaceCategoryRK7QString(
+    QDeclarativeSupportedCategoriesModel *self,
+    const QPlaceCategory *category,
+    const QString *parentId) {
+  self->addedCategory(*category, *parentId);
+}
+
+//  void QDeclarativeSupportedCategoriesModel::updatedCategory(const
+//      QPlaceCategory &category, const QString &parentId)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN36QDeclarativeSupportedCategoriesModel15updatedCategoryERK14QPlaceCategoryRK7QString(
+    QDeclarativeSupportedCategoriesModel *self,
+    const QPlaceCategory *category,
+    const QString *parentId) {
+  self->updatedCategory(*category, *parentId);
+}
+
+//  void QDeclarativeSupportedCategoriesModel::removedCategory(const QString
+//      &categoryId, const QString &parentId)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN36QDeclarativeSupportedCategoriesModel15removedCategoryERK7QStringS2_(
+    QDeclarativeSupportedCategoriesModel *self,
+    const QString *categoryId,
+    const QString *parentId) {
+  self->removedCategory(*categoryId, *parentId);
+}
+
+//  void QDeclarativeSupportedCategoriesModel::connectNotificationSignals()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN36QDeclarativeSupportedCategoriesModel26connectNotificationSignalsEv(
+    QDeclarativeSupportedCategoriesModel *self) {
+  self->connectNotificationSignals();
+}
+
+//  QStringList
+//      QDeclarativeSupportedCategoriesModel::populateCategories(QPlaceManage
+//      r *a0, const QPlaceCategory &parent)
+extern "C" Q_DECL_EXPORT
+QList<QString> *ritual_ZN36QDeclarativeSupportedCategoriesModel18populateCategoriesEP13QPlaceManagerRK14QPlaceCategory(
+    QDeclarativeSupportedCategoriesModel *self,
+    QPlaceManager *a0,
+    const QPlaceCategory *parent) {
+  return new QList<QString>(self->populateCategories(a0, *parent));
+}
+
+//  QModelIndex QDeclarativeSupportedCategoriesModel::index(const QString
+//      &categoryId) const
+extern "C" Q_DECL_EXPORT
+QModelIndex *ritual_ZNK36QDeclarativeSupportedCategoriesModel5indexERK7QString(
+    const QDeclarativeSupportedCategoriesModel *self,
+    const QString *categoryId) {
+  return new QModelIndex(self->index(*categoryId));
+}
+
+//  void QDeclarativeSupportedCategoriesModel::updateLayout()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN36QDeclarativeSupportedCategoriesModel12updateLayoutEv(
+    QDeclarativeSupportedCategoriesModel *self) {
+  self->updateLayout();
+}
+
+//  void QDeclarativeSupportedCategoriesModel::emitDataChanged()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN36QDeclarativeSupportedCategoriesModel15emitDataChangedEv(
+    QDeclarativeSupportedCategoriesModel *self) {
+  self->emitDataChanged();
+}
+
+//  QDeclarativeSupportedCategoriesModel as the QQmlParserStatus it is built
+//      on
+extern "C" Q_DECL_EXPORT
+QQmlParserStatus *ritual_cast_QDeclarativeSupportedCategoriesModel_QQmlParserStatus(
+    QDeclarativeSupportedCategoriesModel *self) {
+  return static_cast<QQmlParserStatus *>(self);
+}
+
+//  a Python function taken by a CuteQDeclarativeSupportedCategoriesModel,
+//      for the function named by the key
+extern "C" Q_DECL_EXPORT
+bool ritual_take_QDeclarativeSupportedCategoriesModel(
+    QDeclarativeSupportedCategoriesModel *self,
+    const char *key,
+    void *call) {
+  return static_cast<CuteQDeclarativeSupportedCategoriesModel *>(self)->take(key, call);
+}
+
+//  void QDeclarativeSupportedCategoriesModel::classBegin()
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN36QDeclarativeSupportedCategoriesModel10classBeginEv(
+    QDeclarativeSupportedCategoriesModel *self) {
+  self->QDeclarativeSupportedCategoriesModel::classBegin();
+}
+
+//  void QDeclarativeSupportedCategoriesModel::componentComplete()
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN36QDeclarativeSupportedCategoriesModel17componentCompleteEv(
+    QDeclarativeSupportedCategoriesModel *self) {
+  self->QDeclarativeSupportedCategoriesModel::componentComplete();
+}
+
+//  int QDeclarativeSupportedCategoriesModel::rowCount(const QModelIndex
+//      &parent) const
+extern "C" Q_DECL_EXPORT
+int ritual_own_ZNK36QDeclarativeSupportedCategoriesModel8rowCountERK11QModelIndex(
+    const QDeclarativeSupportedCategoriesModel *self,
+    const QModelIndex *parent) {
+  return self->QDeclarativeSupportedCategoriesModel::rowCount(*parent);
+}
+
+//  int QDeclarativeSupportedCategoriesModel::columnCount(const QModelIndex
+//      &parent) const
+extern "C" Q_DECL_EXPORT
+int ritual_own_ZNK36QDeclarativeSupportedCategoriesModel11columnCountERK11QModelIndex(
+    const QDeclarativeSupportedCategoriesModel *self,
+    const QModelIndex *parent) {
+  return self->QDeclarativeSupportedCategoriesModel::columnCount(*parent);
+}
+
+//  QModelIndex QDeclarativeSupportedCategoriesModel::index(int row, int
+//      column, const QModelIndex &parent) const
+extern "C" Q_DECL_EXPORT
+QModelIndex *ritual_own_ZNK36QDeclarativeSupportedCategoriesModel5indexEiiRK11QModelIndex(
+    const QDeclarativeSupportedCategoriesModel *self,
+    int row,
+    int column,
+    const QModelIndex *parent) {
+  return new QModelIndex(
+      self->QDeclarativeSupportedCategoriesModel::index(
+          row,
+          column,
+          *parent));
+}
+
+//  QModelIndex QDeclarativeSupportedCategoriesModel::parent(const
+//      QModelIndex &child) const
+extern "C" Q_DECL_EXPORT
+QModelIndex *ritual_own_ZNK36QDeclarativeSupportedCategoriesModel6parentERK11QModelIndex(
+    const QDeclarativeSupportedCategoriesModel *self,
+    const QModelIndex *child) {
+  return new QModelIndex(
+      self->QDeclarativeSupportedCategoriesModel::parent(
+          *child));
+}
+
+//  QVariant QDeclarativeSupportedCategoriesModel::data(const QModelIndex
+//      &index, int role) const
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_own_ZNK36QDeclarativeSupportedCategoriesModel4dataERK11QModelIndexi(
+    const QDeclarativeSupportedCategoriesModel *self,
+    const QModelIndex *index,
+    int role) {
+  return new QVariant(
+      self->QDeclarativeSupportedCategoriesModel::data(
+          *index,
+          role));
+}

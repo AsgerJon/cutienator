@@ -1,0 +1,14 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qmimetypeparser_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN16QMimeTypeXMLData5clearEv": ["nothing", "address"],
+    "ritual_ZN16QMimeTypeXMLData14addGlobPatternERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN16QMimeTypeXMLDataD1Ev": ["nothing", "address"]
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuickControls2/6.12.0/QtQuickControls2/private/qquickstyle_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QQuickStylePrivate5styleEv": ["text"],
+    "ritual_ZN18QQuickStylePrivate18effectiveStyleNameERK7QString": [
+      "text", "text"
+    ],
+    "ritual_ZN18QQuickStylePrivate13fallbackStyleEv": ["text"],
+    "ritual_ZN18QQuickStylePrivate13isCustomStyleEv": ["bool"],
+    "ritual_ZN18QQuickStylePrivate10isResolvedEv": ["bool"],
+    "ritual_ZN18QQuickStylePrivate19isUsingDefaultStyleEv": ["bool"],
+    "ritual_ZN18QQuickStylePrivate4initEv": ["nothing"],
+    "ritual_ZN18QQuickStylePrivate5resetEv": ["nothing"],
+    "ritual_ZN18QQuickStylePrivate14configFilePathEv": ["text"],
+    "ritual_ZN18QQuickStylePrivate17isDarkSystemThemeEv": ["bool"],
+    "ritual_ZN18QQuickStylePrivate13builtInStylesEv": ["address"],
+    "ritual_ZN18QQuickStylePrivateD1Ev": ["nothing", "address"]
+  }
+}

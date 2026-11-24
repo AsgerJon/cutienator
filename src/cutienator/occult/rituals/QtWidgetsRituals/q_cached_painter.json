@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qstyle_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN14QCachedPainterC1EP8QPainterRK7QStringPK12QStyleOption5QSize5QRect": [
+      "address", "address", "text", "address", "address", "address"
+    ],
+    "ritual_ZN14QCachedPainterD1Ev": ["nothing", "address"],
+    "ritual_ZN14QCachedPainter6finishEv": ["nothing", "address"],
+    "ritual_ZNK14QCachedPainter13needsPaintingEv": ["bool", "address"],
+    "ritual_ZNK14QCachedPainter10pixmapRectEv": ["address", "address"],
+    "ritual_ZN14QCachedPainterptEv": ["address", "address"],
+    "ritual_ZN14QCachedPainter7painterEv": ["address", "address"],
+    "ritual_ZN14QCachedPainter18cleanupPixmapCacheEv": ["nothing"]
+  }
+}

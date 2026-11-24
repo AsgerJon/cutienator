@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore5Compat/6.12.0/QtCore5Compat/private/qgb18030codec_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN12QGb2312CodecC1Ev": ["address"],
+    "ritual_ZN12QGb2312Codec5_nameEv": ["address"],
+    "ritual_ZN12QGb2312Codec8_aliasesEv": ["address"],
+    "ritual_ZN12QGb2312Codec8_mibEnumEv": ["int"],
+    "ritual_ZNK12QGb2312Codec4nameEv": ["address", "address"],
+    "ritual_ZNK12QGb2312Codec7mibEnumEv": ["int", "address"],
+    "ritual_take_QGb2312Codec": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK12QGb2312Codec4nameEv": ["address", "address"],
+    "ritual_own_ZNK12QGb2312Codec7mibEnumEv": ["int", "address"]
+  }
+}

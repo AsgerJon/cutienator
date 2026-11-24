@@ -1,0 +1,22 @@
+//  Written by dev_tooling.RitualGenerator from the records of
+//  QtGui/6.12.0/QtGui/private/qfontengine_p.h, Qt 6.12.0. Changes made here
+//  are lost.
+#include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
+#include <QtGui/QtGui>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtGui/6.12.0/QtGui/private/qfontengine_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  bool QFontEngine::KernPair::operator<(const KernPair &other) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK11QFontEngine8KernPairltERKS0_(
+    const QFontEngine::KernPair *self,
+    const QFontEngine::KernPair *other) {
+  return self->operator<(*other);
+}
+
+//  QFontEngine::KernPair::~KernPair()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN11QFontEngine8KernPairD1Ev(QFontEngine::KernPair *self) {
+  delete self;
+}

@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qdbusmenuregistrarproxy_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK27QDBusMenuRegistrarInterface10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QDBusMenuRegistrarInterface19staticInterfaceNameEv": [
+      "chars"
+    ],
+    "ritual_ZN27QDBusMenuRegistrarInterfaceD1Ev": ["nothing", "address"],
+    "ritual_take_QDBusMenuRegistrarInterface": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

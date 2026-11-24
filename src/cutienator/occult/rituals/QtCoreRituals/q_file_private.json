@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qfile_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN12QFilePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK12QFilePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN12QFilePrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN12QFilePrivate16openExternalFileE6QFlagsIN13QIODeviceBase12OpenModeFlagEEiS0_IN11QFileDevice14FileHandleFlagEE": [
+      "bool", "address", "int", "int", "int"
+    ],
+    "ritual_ZNK12QFilePrivate6engineEv": ["address", "address"],
+    "ritual_take_QFilePrivate": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK12QFilePrivate6engineEv": ["address", "address"]
+  }
+}

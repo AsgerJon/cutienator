@@ -1,0 +1,47 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQmlCompiler/qqmlsasourcelocation.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZN6QQmlSA14SourceLocationC1Ejjjj": [
+      "address", "unsigned int", "unsigned int", "unsigned int",
+      "unsigned int"
+    ],
+    "ritual_ZN6QQmlSA14SourceLocationC1ERKS0_": ["address", "address"],
+    "ritual_ZNK6QQmlSA14SourceLocation7isValidEv": ["bool", "address"],
+    "ritual_ZNK6QQmlSA14SourceLocation5beginEv": ["unsigned int", "address"],
+    "ritual_ZNK6QQmlSA14SourceLocation3endEv": ["unsigned int", "address"],
+    "ritual_ZNK6QQmlSA14SourceLocation6offsetEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZNK6QQmlSA14SourceLocation6lengthEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZNK6QQmlSA14SourceLocation9startLineEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZNK6QQmlSA14SourceLocation11startColumnEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZNK6QQmlSA14SourceLocation23startZeroLengthLocationEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK6QQmlSA14SourceLocation21endZeroLengthLocationE11QStringView": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN6QQmlSAeqERKNS_14SourceLocationES2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlSAneERKNS_14SourceLocationES2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlSA14SourceLocation9qHashImplERKS0_x": [
+      "long long", "address", "long long"
+    ],
+    "ritual_ZN6QQmlSA14SourceLocation18operatorEqualsImplERKS0_S2_": [
+      "bool", "address", "address"
+    ]
+  }
+}

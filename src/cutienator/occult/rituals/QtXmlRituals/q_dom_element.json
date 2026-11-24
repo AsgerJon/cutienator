@@ -1,0 +1,97 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtXml/qdom.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11QDomElementC1Ev": ["address"],
+    "ritual_ZN11QDomElementC1ERKS_": ["address", "address"],
+    "ritual_ZNK11QDomElement9attributeERK7QStringS2_": [
+      "text", "address", "text", "text"
+    ],
+    "ritual_ZN11QDomElement12setAttributeERK7QStringS2_": [
+      "nothing", "address", "text", "text"
+    ],
+    "ritual_ZN11QDomElement12setAttributeERK7QStringx": [
+      "nothing", "address", "text", "long long"
+    ],
+    "ritual_ZN11QDomElement12setAttributeERK7QStringy": [
+      "nothing", "address", "text", "unsigned long long"
+    ],
+    "ritual_ZN11QDomElement12setAttributeERK7QStringi": [
+      "nothing", "address", "text", "int"
+    ],
+    "ritual_ZN11QDomElement12setAttributeERK7QStringj": [
+      "nothing", "address", "text", "unsigned int"
+    ],
+    "ritual_ZN11QDomElement12setAttributeERK7QStringf": [
+      "nothing", "address", "text", "float"
+    ],
+    "ritual_ZN11QDomElement12setAttributeERK7QStringd": [
+      "nothing", "address", "text", "double"
+    ],
+    "ritual_ZN11QDomElement15removeAttributeERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN11QDomElement13attributeNodeERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN11QDomElement16setAttributeNodeERK8QDomAttr": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN11QDomElement19removeAttributeNodeERK8QDomAttr": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK11QDomElement17elementsByTagNameERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK11QDomElement12hasAttributeERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZNK11QDomElement11attributeNSERK7QStringS2_S2_": [
+      "text", "address", "text", "text", "text"
+    ],
+    "ritual_ZN11QDomElement14setAttributeNSERK7QStringS2_S2_": [
+      "nothing", "address", "text", "text", "text"
+    ],
+    "ritual_ZN11QDomElement14setAttributeNSERK7QStringS2_i": [
+      "nothing", "address", "text", "text", "int"
+    ],
+    "ritual_ZN11QDomElement14setAttributeNSERK7QStringS2_j": [
+      "nothing", "address", "text", "text", "unsigned int"
+    ],
+    "ritual_ZN11QDomElement14setAttributeNSERK7QStringS2_x": [
+      "nothing", "address", "text", "text", "long long"
+    ],
+    "ritual_ZN11QDomElement14setAttributeNSERK7QStringS2_y": [
+      "nothing", "address", "text", "text", "unsigned long long"
+    ],
+    "ritual_ZN11QDomElement14setAttributeNSERK7QStringS2_d": [
+      "nothing", "address", "text", "text", "double"
+    ],
+    "ritual_ZN11QDomElement17removeAttributeNSERK7QStringS2_": [
+      "nothing", "address", "text", "text"
+    ],
+    "ritual_ZN11QDomElement15attributeNodeNSERK7QStringS2_": [
+      "address", "address", "text", "text"
+    ],
+    "ritual_ZN11QDomElement18setAttributeNodeNSERK8QDomAttr": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK11QDomElement19elementsByTagNameNSERK7QStringS2_": [
+      "address", "address", "text", "text"
+    ],
+    "ritual_ZNK11QDomElement14hasAttributeNSERK7QStringS2_": [
+      "bool", "address", "text", "text"
+    ],
+    "ritual_ZNK11QDomElement7tagNameEv": ["text", "address"],
+    "ritual_ZN11QDomElement10setTagNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK11QDomElement10attributesEv": ["address", "address"],
+    "ritual_ZNK11QDomElement8nodeTypeEv": ["int", "address"],
+    "ritual_ZNK11QDomElement4textEv": ["text", "address"],
+    "ritual_ZN11QDomElementC1EP18QDomElementPrivate": ["address", "address"],
+    "ritual_ZN11QDomElementD1Ev": ["nothing", "address"]
+  }
+}

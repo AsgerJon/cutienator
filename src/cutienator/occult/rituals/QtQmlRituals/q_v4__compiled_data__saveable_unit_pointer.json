@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4compileddata_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN3QV412CompiledData19SaveableUnitPointerC1EPKNS0_4UnitEj": [
+      "address", "address", "unsigned int"
+    ],
+    "ritual_ZN3QV412CompiledData19SaveableUnitPointerD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN3QV412CompiledData19SaveableUnitPointer15writeDataToFileERK7QStringPKcjPS2_": [
+      "bool", "text", "chars", "unsigned int", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData19SaveableUnitPointer4sizeEv": [
+      "unsigned int", "address"
+    ]
+  }
+}

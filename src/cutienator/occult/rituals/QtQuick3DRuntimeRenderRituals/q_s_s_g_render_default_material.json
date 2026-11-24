@@ -1,0 +1,59 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgrenderde",
+    "faultmaterial_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN25QSSGRenderDefaultMaterialC1EN21QSSGRenderGraphObject4TypeE": [
+      "address", "unsigned int"
+    ],
+    "ritual_ZN25QSSGRenderDefaultMaterialD1Ev": ["nothing", "address"],
+    "ritual_ZNK25QSSGRenderDefaultMaterial17isSpecularEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK25QSSGRenderDefaultMaterial18isMetalnessEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK25QSSGRenderDefaultMaterial25isFresnelScaleBiasEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK25QSSGRenderDefaultMaterial34isClearcoatFresnelScaleBiasEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK25QSSGRenderDefaultMaterial16isFresnelEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK25QSSGRenderDefaultMaterial21isVertexColorsEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK25QSSGRenderDefaultMaterial25isVertexColorsMaskEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK25QSSGRenderDefaultMaterial23isInvertOpacityMapValueEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK25QSSGRenderDefaultMaterial31isBaseColorSingleChannelEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK25QSSGRenderDefaultMaterial36isSpecularAmountSingleChannelEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK25QSSGRenderDefaultMaterial30isEmissiveSingleChannelEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK25QSSGRenderDefaultMaterial11hasLightingEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK25QSSGRenderDefaultMaterial18isClearcoatEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK25QSSGRenderDefaultMaterial21isTransmissionEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK25QSSGRenderDefaultMaterial7isDirtyEv": ["bool", "address"],
+    "ritual_ZN25QSSGRenderDefaultMaterial10clearDirtyEv": [
+      "nothing", "address"
+    ]
+  }
+}

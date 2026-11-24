@@ -1,0 +1,48 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qtransposeproxymodel_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN27QTransposeProxyModelPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK27QTransposeProxyModelPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK27QTransposeProxyModelPrivate20uncheckedMapToSourceERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK27QTransposeProxyModelPrivate22uncheckedMapFromSourceERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN27QTransposeProxyModelPrivate15onLayoutChangedERK5QListI21QPersistentModelIndexEN18QAbstractItemModel16LayoutChangeHintE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN27QTransposeProxyModelPrivate24onLayoutAboutToBeChangedERK5QListI21QPersistentModelIndexEN18QAbstractItemModel16LayoutChangeHintE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN27QTransposeProxyModelPrivate19onHeaderDataChangedEN2Qt11OrientationEii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZN27QTransposeProxyModelPrivate26onColumnsAboutToBeInsertedERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN27QTransposeProxyModelPrivate25onColumnsAboutToBeRemovedERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN27QTransposeProxyModelPrivate23onColumnsAboutToBeMovedERK11QModelIndexiiS2_i": [
+      "nothing", "address", "address", "int", "int", "address", "int"
+    ],
+    "ritual_ZN27QTransposeProxyModelPrivate23onRowsAboutToBeInsertedERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN27QTransposeProxyModelPrivate22onRowsAboutToBeRemovedERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN27QTransposeProxyModelPrivate20onRowsAboutToBeMovedERK11QModelIndexiiS2_i": [
+      "nothing", "address", "address", "int", "int", "address", "int"
+    ]
+  }
+}

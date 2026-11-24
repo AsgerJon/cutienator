@@ -1,25 +1,33 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/6.12.0/QtWidgets/private/qcolumnviewgrip_p.h, Qt 6.12.0.
 //  Changes made here are lost.
+#include <QtWidgets/qtwidgetsglobal.h>
+#include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
+#if QT_CONFIG(columnview)
+#include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/QtWidgets>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/6.12.0/QtWidgets/private/qcolumnviewgrip_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qsize.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include "qcolumnviewgrip_p.h"
 #include <qstyleoption.h>
 #include <qpainter.h>
 #include <qbrush.h>
 #include <qevent.h>
 #include <qdebug.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
 //  Qt's source, because Qt's library carries it under no name.
 //  Copyright (C) The Qt Company Ltd. It is licensed
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
-//  'inline' put before it.
+//  'inline' put before it where Qt did not write it.
 
 //  from src/widgets/itemviews/qcolumnviewgrip.cpp, line 50, as _ZN15QColumnViewGripD1Ev
 inline QColumnViewGrip::~QColumnViewGrip()
@@ -85,11 +93,21 @@ struct OwnQColumnViewGrip : QColumnViewGrip {
 //  A QColumnViewGrip that Python can take functions over in. Every QColumnViewGrip
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if QT_CONFIG(columnview)
 typedef void (*CuteQColumnViewGripCall0)(const void *, QPaintEvent *, int *);
+#endif  // QT_CONFIG(columnview)
+#if QT_CONFIG(columnview)
 typedef void (*CuteQColumnViewGripCall1)(const void *, QMouseEvent *, int *);
+#endif  // QT_CONFIG(columnview)
+#if QT_CONFIG(columnview)
 typedef void (*CuteQColumnViewGripCall2)(const void *, QMouseEvent *, int *);
+#endif  // QT_CONFIG(columnview)
+#if QT_CONFIG(columnview)
 typedef void (*CuteQColumnViewGripCall3)(const void *, QMouseEvent *, int *);
+#endif  // QT_CONFIG(columnview)
+#if QT_CONFIG(columnview)
 typedef void (*CuteQColumnViewGripCall4)(const void *, QMouseEvent *, int *);
+#endif  // QT_CONFIG(columnview)
 typedef int (*CuteQColumnViewGripCall5)(const void *, int *);
 typedef void (*CuteQColumnViewGripCall6)(const void *, bool, int *);
 typedef const QSize * (*CuteQColumnViewGripCall7)(const void *, int *);
@@ -97,8 +115,12 @@ typedef const QSize * (*CuteQColumnViewGripCall8)(const void *, int *);
 typedef int (*CuteQColumnViewGripCall9)(const void *, int, int *);
 typedef bool (*CuteQColumnViewGripCall10)(const void *, int *);
 typedef void * (*CuteQColumnViewGripCall11)(const void *, int *);
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQColumnViewGripCall12)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(wheelevent)
 typedef void (*CuteQColumnViewGripCall13)(const void *, QWheelEvent *, int *);
+#endif  // QT_CONFIG(wheelevent)
 typedef void (*CuteQColumnViewGripCall14)(const void *, QKeyEvent *, int *);
 typedef void (*CuteQColumnViewGripCall15)(const void *, QKeyEvent *, int *);
 typedef void (*CuteQColumnViewGripCall16)(const void *, QFocusEvent *, int *);
@@ -108,13 +130,27 @@ typedef void (*CuteQColumnViewGripCall19)(const void *, QEvent *, int *);
 typedef void (*CuteQColumnViewGripCall20)(const void *, QMoveEvent *, int *);
 typedef void (*CuteQColumnViewGripCall21)(const void *, QResizeEvent *, int *);
 typedef void (*CuteQColumnViewGripCall22)(const void *, QCloseEvent *, int *);
+#if !defined(QT_NO_CONTEXTMENU)
 typedef void (*CuteQColumnViewGripCall23)(const void *, QContextMenuEvent *, int *);
+#endif  // !defined(QT_NO_CONTEXTMENU)
+#if QT_CONFIG(tabletevent)
 typedef void (*CuteQColumnViewGripCall24)(const void *, QTabletEvent *, int *);
+#endif  // QT_CONFIG(tabletevent)
+#if !defined(QT_NO_ACTION)
 typedef void (*CuteQColumnViewGripCall25)(const void *, QActionEvent *, int *);
+#endif  // !defined(QT_NO_ACTION)
+#if QT_CONFIG(draganddrop)
 typedef void (*CuteQColumnViewGripCall26)(const void *, QDragEnterEvent *, int *);
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
 typedef void (*CuteQColumnViewGripCall27)(const void *, QDragMoveEvent *, int *);
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
 typedef void (*CuteQColumnViewGripCall28)(const void *, QDragLeaveEvent *, int *);
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
 typedef void (*CuteQColumnViewGripCall29)(const void *, QDropEvent *, int *);
+#endif  // QT_CONFIG(draganddrop)
 typedef void (*CuteQColumnViewGripCall30)(const void *, QShowEvent *, int *);
 typedef void (*CuteQColumnViewGripCall31)(const void *, QHideEvent *, int *);
 typedef void (*CuteQColumnViewGripCall32)(const void *, QEvent *, int *);
@@ -125,38 +161,60 @@ typedef void * (*CuteQColumnViewGripCall36)(const void *, int *);
 typedef void (*CuteQColumnViewGripCall37)(const void *, QInputMethodEvent *, int *);
 typedef const QVariant * (*CuteQColumnViewGripCall38)(const void *, int, int *);
 typedef bool (*CuteQColumnViewGripCall39)(const void *, bool, int *);
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQColumnViewGripCall40)(const void *, QObject *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQColumnViewGripCall41)(const void *, QTimerEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQColumnViewGripCall42)(const void *, QChildEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQColumnViewGripCall43)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQColumnViewGripCall44)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQColumnViewGripCall45)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 class CuteQColumnViewGrip : public QColumnViewGrip {
 public:
   using QColumnViewGrip::QColumnViewGrip;
   void *taken[46] = {};
 
   bool take(const char *key, void *call) {
+#if QT_CONFIG(columnview)
     if (!std::strcmp(key, "_ZN7QWidget10paintEventEP11QPaintEvent")) {
       taken[0] = call;
       return true;
     }
+#endif  // QT_CONFIG(columnview)
+#if QT_CONFIG(columnview)
     if (!std::strcmp(key, "_ZN7QWidget21mouseDoubleClickEventEP11QMouseEvent")) {
       taken[1] = call;
       return true;
     }
+#endif  // QT_CONFIG(columnview)
+#if QT_CONFIG(columnview)
     if (!std::strcmp(key, "_ZN7QWidget14mouseMoveEventEP11QMouseEvent")) {
       taken[2] = call;
       return true;
     }
+#endif  // QT_CONFIG(columnview)
+#if QT_CONFIG(columnview)
     if (!std::strcmp(key, "_ZN7QWidget17mouseReleaseEventEP11QMouseEvent")) {
       taken[3] = call;
       return true;
     }
+#endif  // QT_CONFIG(columnview)
+#if QT_CONFIG(columnview)
     if (!std::strcmp(key, "_ZN7QWidget15mousePressEventEP11QMouseEvent")) {
       taken[4] = call;
       return true;
     }
+#endif  // QT_CONFIG(columnview)
     if (!std::strcmp(key, "_ZNK12QPaintDevice7devTypeEv")) {
       taken[5] = call;
       return true;
@@ -185,14 +243,18 @@ public:
       taken[11] = call;
       return true;
     }
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[12] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(wheelevent)
     if (!std::strcmp(key, "_ZN7QWidget10wheelEventEP11QWheelEvent")) {
       taken[13] = call;
       return true;
     }
+#endif  // QT_CONFIG(wheelevent)
     if (!std::strcmp(key, "_ZN7QWidget13keyPressEventEP9QKeyEvent")) {
       taken[14] = call;
       return true;
@@ -229,34 +291,48 @@ public:
       taken[22] = call;
       return true;
     }
+#if !defined(QT_NO_CONTEXTMENU)
     if (!std::strcmp(key, "_ZN7QWidget16contextMenuEventEP17QContextMenuEvent")) {
       taken[23] = call;
       return true;
     }
+#endif  // !defined(QT_NO_CONTEXTMENU)
+#if QT_CONFIG(tabletevent)
     if (!std::strcmp(key, "_ZN7QWidget11tabletEventEP12QTabletEvent")) {
       taken[24] = call;
       return true;
     }
+#endif  // QT_CONFIG(tabletevent)
+#if !defined(QT_NO_ACTION)
     if (!std::strcmp(key, "_ZN7QWidget11actionEventEP12QActionEvent")) {
       taken[25] = call;
       return true;
     }
+#endif  // !defined(QT_NO_ACTION)
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget14dragEnterEventEP15QDragEnterEvent")) {
       taken[26] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget13dragMoveEventEP14QDragMoveEvent")) {
       taken[27] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget14dragLeaveEventEP15QDragLeaveEvent")) {
       taken[28] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget9dropEventEP10QDropEvent")) {
       taken[29] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget9showEventEP10QShowEvent")) {
       taken[30] = call;
       return true;
@@ -297,33 +373,46 @@ public:
       taken[39] = call;
       return true;
     }
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[40] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[41] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[42] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[43] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[44] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
       taken[45] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
     return false;
   }
 
+#if QT_CONFIG(columnview)
   //  void QColumnViewGrip::paintEvent(QPaintEvent *event)
   void paintEvent(QPaintEvent *event) override {
     if (taken[0]) {
@@ -334,7 +423,9 @@ public:
     }
     QColumnViewGrip::paintEvent(event);
   }
+#endif  // QT_CONFIG(columnview)
 
+#if QT_CONFIG(columnview)
   //  void QColumnViewGrip::mouseDoubleClickEvent(QMouseEvent *event)
   void mouseDoubleClickEvent(QMouseEvent *event) override {
     if (taken[1]) {
@@ -345,7 +436,9 @@ public:
     }
     QColumnViewGrip::mouseDoubleClickEvent(event);
   }
+#endif  // QT_CONFIG(columnview)
 
+#if QT_CONFIG(columnview)
   //  void QColumnViewGrip::mouseMoveEvent(QMouseEvent *event)
   void mouseMoveEvent(QMouseEvent *event) override {
     if (taken[2]) {
@@ -356,7 +449,9 @@ public:
     }
     QColumnViewGrip::mouseMoveEvent(event);
   }
+#endif  // QT_CONFIG(columnview)
 
+#if QT_CONFIG(columnview)
   //  void QColumnViewGrip::mouseReleaseEvent(QMouseEvent *event)
   void mouseReleaseEvent(QMouseEvent *event) override {
     if (taken[3]) {
@@ -367,7 +462,9 @@ public:
     }
     QColumnViewGrip::mouseReleaseEvent(event);
   }
+#endif  // QT_CONFIG(columnview)
 
+#if QT_CONFIG(columnview)
   //  void QColumnViewGrip::mousePressEvent(QMouseEvent *event)
   void mousePressEvent(QMouseEvent *event) override {
     if (taken[4]) {
@@ -378,6 +475,7 @@ public:
     }
     QColumnViewGrip::mousePressEvent(event);
   }
+#endif  // QT_CONFIG(columnview)
 
   //  int QWidget::devType() const
   int devType() const override {
@@ -456,6 +554,7 @@ public:
     return QWidget::paintEngine();
   }
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QWidget::event(QEvent *event)
   bool event(QEvent *event) override {
     if (taken[12]) {
@@ -466,7 +565,9 @@ public:
     }
     return QWidget::event(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if QT_CONFIG(wheelevent)
   //  void QWidget::wheelEvent(QWheelEvent *event)
   void wheelEvent(QWheelEvent *event) override {
     if (taken[13]) {
@@ -477,6 +578,7 @@ public:
     }
     QWidget::wheelEvent(event);
   }
+#endif  // QT_CONFIG(wheelevent)
 
   //  void QWidget::keyPressEvent(QKeyEvent *event)
   void keyPressEvent(QKeyEvent *event) override {
@@ -577,6 +679,7 @@ public:
     QWidget::closeEvent(event);
   }
 
+#if !defined(QT_NO_CONTEXTMENU)
   //  void QWidget::contextMenuEvent(QContextMenuEvent *event)
   void contextMenuEvent(QContextMenuEvent *event) override {
     if (taken[23]) {
@@ -587,7 +690,9 @@ public:
     }
     QWidget::contextMenuEvent(event);
   }
+#endif  // !defined(QT_NO_CONTEXTMENU)
 
+#if QT_CONFIG(tabletevent)
   //  void QWidget::tabletEvent(QTabletEvent *event)
   void tabletEvent(QTabletEvent *event) override {
     if (taken[24]) {
@@ -598,7 +703,9 @@ public:
     }
     QWidget::tabletEvent(event);
   }
+#endif  // QT_CONFIG(tabletevent)
 
+#if !defined(QT_NO_ACTION)
   //  void QWidget::actionEvent(QActionEvent *event)
   void actionEvent(QActionEvent *event) override {
     if (taken[25]) {
@@ -609,7 +716,9 @@ public:
     }
     QWidget::actionEvent(event);
   }
+#endif  // !defined(QT_NO_ACTION)
 
+#if QT_CONFIG(draganddrop)
   //  void QWidget::dragEnterEvent(QDragEnterEvent *event)
   void dragEnterEvent(QDragEnterEvent *event) override {
     if (taken[26]) {
@@ -620,7 +729,9 @@ public:
     }
     QWidget::dragEnterEvent(event);
   }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
   //  void QWidget::dragMoveEvent(QDragMoveEvent *event)
   void dragMoveEvent(QDragMoveEvent *event) override {
     if (taken[27]) {
@@ -631,7 +742,9 @@ public:
     }
     QWidget::dragMoveEvent(event);
   }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
   //  void QWidget::dragLeaveEvent(QDragLeaveEvent *event)
   void dragLeaveEvent(QDragLeaveEvent *event) override {
     if (taken[28]) {
@@ -642,7 +755,9 @@ public:
     }
     QWidget::dragLeaveEvent(event);
   }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
   //  void QWidget::dropEvent(QDropEvent *event)
   void dropEvent(QDropEvent *event) override {
     if (taken[29]) {
@@ -653,6 +768,7 @@ public:
     }
     QWidget::dropEvent(event);
   }
+#endif  // QT_CONFIG(draganddrop)
 
   //  void QWidget::showEvent(QShowEvent *event)
   void showEvent(QShowEvent *event) override {
@@ -764,6 +880,7 @@ public:
     return QWidget::focusNextPrevChild(next);
   }
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
     if (taken[40]) {
@@ -774,7 +891,9 @@ public:
     }
     return QObject::eventFilter(watched, event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
     if (taken[41]) {
@@ -785,7 +904,9 @@ public:
     }
     QObject::timerEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
     if (taken[42]) {
@@ -796,7 +917,9 @@ public:
     }
     QObject::childEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
     if (taken[43]) {
@@ -807,7 +930,9 @@ public:
     }
     QObject::customEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
     if (taken[44]) {
@@ -818,7 +943,9 @@ public:
     }
     QObject::connectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
     if (taken[45]) {
@@ -829,6 +956,7 @@ public:
     }
     QObject::disconnectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 };
 
 //  const QMetaObject *QColumnViewGrip::metaObject() const
@@ -884,6 +1012,20 @@ void ritual_ZN15QColumnViewGrip15mousePressEventEP11QMouseEvent(
   self->mousePressEvent(event);
 }
 
+//  QColumnViewGripPrivate *QColumnViewGrip::d_func()
+extern "C" Q_DECL_EXPORT
+QColumnViewGripPrivate *ritual_ZN15QColumnViewGrip6d_funcEv(
+    QColumnViewGrip *self) {
+  return self->d_func();
+}
+
+//  const QColumnViewGripPrivate *QColumnViewGrip::d_func() const
+extern "C" Q_DECL_EXPORT
+const QColumnViewGripPrivate *ritual_ZNK15QColumnViewGrip6d_funcEv(
+    const QColumnViewGrip *self) {
+  return self->d_func();
+}
+
 //  a Python function taken by a CuteQColumnViewGrip, for the function named
 //      by the key
 extern "C" Q_DECL_EXPORT
@@ -920,3 +1062,5 @@ void ritual_own_ZN15QColumnViewGrip15mousePressEventEP11QMouseEvent(
   static_cast<OwnQColumnViewGrip *>(self)->OwnQColumnViewGrip::mousePressEvent(
       event);
 }
+
+#endif  // QT_CONFIG(columnview)

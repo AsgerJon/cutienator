@@ -1,0 +1,85 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickgridview_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK14QQuickGridView10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QQuickGridView2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN14QQuickGridView21qt_qmlMarker_attachedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickGridViewC1EP10QQuickItem": ["address", "address"],
+    "ritual_ZN14QQuickGridView30setHighlightFollowsCurrentItemEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN14QQuickGridView24setHighlightMoveDurationEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK14QQuickGridView4flowEv": ["int", "address"],
+    "ritual_ZN14QQuickGridView7setFlowENS_4FlowE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK14QQuickGridView9cellWidthEv": ["double", "address"],
+    "ritual_ZN14QQuickGridView12setCellWidthEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK14QQuickGridView10cellHeightEv": ["double", "address"],
+    "ritual_ZN14QQuickGridView13setCellHeightEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK14QQuickGridView8snapModeEv": ["int", "address"],
+    "ritual_ZN14QQuickGridView11setSnapModeENS_8SnapModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN14QQuickGridView21qmlAttachedPropertiesEP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN14QQuickGridView18moveCurrentIndexUpEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickGridView20moveCurrentIndexDownEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickGridView20moveCurrentIndexLeftEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickGridView21moveCurrentIndexRightEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickGridView13viewportMovedE6QFlagsIN2Qt11OrientationEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN14QQuickGridView13keyPressEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QQuickGridView14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN14QQuickGridView8initItemEiP7QObject": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_take_QQuickGridView": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN14QQuickGridView30setHighlightFollowsCurrentItemEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZN14QQuickGridView24setHighlightMoveDurationEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN14QQuickGridView13viewportMovedE6QFlagsIN2Qt11OrientationEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN14QQuickGridView13keyPressEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN14QQuickGridView14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN14QQuickGridView8initItemEiP7QObject": [
+      "nothing", "address", "int", "address"
+    ]
+  }
+}

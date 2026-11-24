@@ -285,6 +285,13 @@ QPageRanges *ritual_ZNK17QPagedPaintDevice10pageRangesEv(
   return new QPageRanges(self->pageRanges());
 }
 
+//  QPagedPaintDevicePrivate *QPagedPaintDevice::dd()
+extern "C" Q_DECL_EXPORT
+QPagedPaintDevicePrivate *ritual_ZN17QPagedPaintDevice2ddEv(
+    QPagedPaintDevice *self) {
+  return self->dd();
+}
+
 //  a Python function taken by a CuteQPagedPaintDevice, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT

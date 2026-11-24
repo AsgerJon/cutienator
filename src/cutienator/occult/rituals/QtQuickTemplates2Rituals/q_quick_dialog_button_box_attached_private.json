@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquickdialogbuttonbox_",
+    "p_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN36QQuickDialogButtonBoxAttachedPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK36QQuickDialogButtonBoxAttachedPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN36QQuickDialogButtonBoxAttachedPrivate3getEP29QQuickDialogButtonBoxAttached": [
+      "address", "address"
+    ],
+    "ritual_ZN36QQuickDialogButtonBoxAttachedPrivate12setButtonBoxEP21QQuickDialogButtonBox": [
+      "nothing", "address", "address"
+    ]
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qmimetypeparser_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QMimeTypeParser7processERK16QMimeTypeXMLDataP7QString": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN15QMimeTypeParser7processERK16QMimeGlobPatternP7QString": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN15QMimeTypeParser13processParentERK7QStringS2_": [
+      "nothing", "address", "text", "text"
+    ],
+    "ritual_ZN15QMimeTypeParser12processAliasERK7QStringS2_": [
+      "nothing", "address", "text", "text"
+    ],
+    "ritual_ZN15QMimeTypeParser19processMagicMatcherERK21QMimeMagicRuleMatcher": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QMimeTypeParser": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN15QMimeTypeParser7processERK16QMimeTypeXMLDataP7QString": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_own_ZN15QMimeTypeParser13processParentERK7QStringS2_": [
+      "nothing", "address", "text", "text"
+    ],
+    "ritual_own_ZN15QMimeTypeParser12processAliasERK7QStringS2_": [
+      "nothing", "address", "text", "text"
+    ],
+    "ritual_own_ZN15QMimeTypeParser19processMagicMatcherERK21QMimeMagicRuleMatcher": [
+      "nothing", "address", "address"
+    ]
+  }
+}

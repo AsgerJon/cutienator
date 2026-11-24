@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/qdesigner_promotion_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_own_ZN18qdesigner_internal18QDesignerPromotion16addPromotedClassERK7QStringS3_S3_PS1_": [
+      "bool", "address", "text", "text", "text", "address"
+    ],
+    "ritual_own_ZN18qdesigner_internal18QDesignerPromotion19removePromotedClassERK7QStringPS1_": [
+      "bool", "address", "text", "address"
+    ],
+    "ritual_own_ZN18qdesigner_internal18QDesignerPromotion23changePromotedClassNameERK7QStringS3_PS1_": [
+      "bool", "address", "text", "text", "address"
+    ],
+    "ritual_own_ZN18qdesigner_internal18QDesignerPromotion27setPromotedClassIncludeFileERK7QStringS3_PS1_": [
+      "bool", "address", "text", "text", "address"
+    ]
+  }
+}

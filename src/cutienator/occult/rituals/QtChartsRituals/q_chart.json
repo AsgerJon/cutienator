@@ -1,0 +1,135 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/qchart.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK6QChart10metaObjectEv": ["address", "address"],
+    "ritual_ZN6QChart2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN6QChartC1EP13QGraphicsItem6QFlagsIN2Qt10WindowTypeEE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN6QChartD1Ev": ["nothing", "address"],
+    "ritual_ZN6QChart9addSeriesEP15QAbstractSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QChart12removeSeriesEP15QAbstractSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QChart15removeAllSeriesEv": ["nothing", "address"],
+    "ritual_ZNK6QChart6seriesEv": ["address", "address"],
+    "ritual_ZN6QChart8setAxisXEP13QAbstractAxisP15QAbstractSeries": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN6QChart8setAxisYEP13QAbstractAxisP15QAbstractSeries": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK6QChart5axisXEP15QAbstractSeries": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK6QChart5axisYEP15QAbstractSeries": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN6QChart7addAxisEP13QAbstractAxis6QFlagsIN2Qt13AlignmentFlagEE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN6QChart10removeAxisEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK6QChart4axesE6QFlagsIN2Qt11OrientationEEP15QAbstractSeries": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_ZN6QChart17createDefaultAxesEv": ["nothing", "address"],
+    "ritual_ZN6QChart8setThemeENS_10ChartThemeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK6QChart5themeEv": ["int", "address"],
+    "ritual_ZN6QChart8setTitleERK7QString": ["nothing", "address", "text"],
+    "ritual_ZNK6QChart5titleEv": ["text", "address"],
+    "ritual_ZN6QChart12setTitleFontERK5QFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK6QChart9titleFontEv": ["address", "address"],
+    "ritual_ZN6QChart13setTitleBrushERK6QBrush": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK6QChart10titleBrushEv": ["address", "address"],
+    "ritual_ZN6QChart18setBackgroundBrushERK6QBrush": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK6QChart15backgroundBrushEv": ["address", "address"],
+    "ritual_ZN6QChart16setBackgroundPenERK4QPen": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK6QChart13backgroundPenEv": ["address", "address"],
+    "ritual_ZN6QChart20setBackgroundVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK6QChart19isBackgroundVisibleEv": ["bool", "address"],
+    "ritual_ZN6QChart20setDropShadowEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK6QChart19isDropShadowEnabledEv": ["bool", "address"],
+    "ritual_ZN6QChart22setBackgroundRoundnessEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK6QChart19backgroundRoundnessEv": ["double", "address"],
+    "ritual_ZN6QChart19setAnimationOptionsE6QFlagsINS_15AnimationOptionEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK6QChart16animationOptionsEv": ["int", "address"],
+    "ritual_ZN6QChart20setAnimationDurationEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK6QChart17animationDurationEv": ["int", "address"],
+    "ritual_ZN6QChart23setAnimationEasingCurveERK12QEasingCurve": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK6QChart20animationEasingCurveEv": ["address", "address"],
+    "ritual_ZN6QChart6zoomInEv": ["nothing", "address"],
+    "ritual_ZN6QChart7zoomOutEv": ["nothing", "address"],
+    "ritual_ZN6QChart6zoomInERK6QRectF": ["nothing", "address", "address"],
+    "ritual_ZN6QChart4zoomEd": ["nothing", "address", "double"],
+    "ritual_ZN6QChart9zoomResetEv": ["nothing", "address"],
+    "ritual_ZN6QChart8isZoomedEv": ["bool", "address"],
+    "ritual_ZN6QChart6scrollEdd": ["nothing", "address", "double", "double"],
+    "ritual_ZNK6QChart6legendEv": ["address", "address"],
+    "ritual_ZN6QChart10setMarginsERK8QMargins": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK6QChart7marginsEv": ["address", "address"],
+    "ritual_ZNK6QChart8plotAreaEv": ["address", "address"],
+    "ritual_ZN6QChart11setPlotAreaERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QChart26setPlotAreaBackgroundBrushERK6QBrush": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK6QChart23plotAreaBackgroundBrushEv": ["address", "address"],
+    "ritual_ZN6QChart24setPlotAreaBackgroundPenERK4QPen": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK6QChart21plotAreaBackgroundPenEv": ["address", "address"],
+    "ritual_ZN6QChart28setPlotAreaBackgroundVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK6QChart27isPlotAreaBackgroundVisibleEv": ["bool", "address"],
+    "ritual_ZN6QChart18setLocalizeNumbersEb": ["nothing", "address", "bool"],
+    "ritual_ZNK6QChart15localizeNumbersEv": ["bool", "address"],
+    "ritual_ZN6QChart9setLocaleERK7QLocale": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK6QChart6localeEv": ["address", "address"],
+    "ritual_ZN6QChart10mapToValueERK7QPointFP15QAbstractSeries": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN6QChart13mapToPositionERK7QPointFP15QAbstractSeries": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK6QChart9chartTypeEv": ["int", "address"],
+    "ritual_ZN6QChartC1ENS_9ChartTypeEP13QGraphicsItem6QFlagsIN2Qt10WindowTypeEE": [
+      "address", "int", "address", "int"
+    ],
+    "ritual_take_QChart": ["bool", "address", "chars", "address"]
+  }
+}

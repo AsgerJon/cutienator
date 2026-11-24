@@ -58,6 +58,7 @@ int ritual_ZNK5QTime4msecEv(const QTime *self) {
   return self->msec();
 }
 
+#if QT_CONFIG(datestring)
 //  QString QTime::toString(Qt::DateFormat f) const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK5QTime8toStringEN2Qt10DateFormatE(
@@ -65,7 +66,9 @@ QString *ritual_ZNK5QTime8toStringEN2Qt10DateFormatE(
     Qt::DateFormat f) {
   return new QString(self->toString(f));
 }
+#endif  // QT_CONFIG(datestring)
 
+#if QT_CONFIG(datestring)
 //  QString QTime::toString(const QString &format) const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK5QTime8toStringERK7QString(
@@ -73,7 +76,9 @@ QString *ritual_ZNK5QTime8toStringERK7QString(
     const QString *format) {
   return new QString(self->toString(*format));
 }
+#endif  // QT_CONFIG(datestring)
 
+#if QT_CONFIG(datestring)
 //  QString QTime::toString(QStringView format) const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK5QTime8toStringE11QStringView(
@@ -81,6 +86,7 @@ QString *ritual_ZNK5QTime8toStringE11QStringView(
     const QString *format) {
   return new QString(self->toString(QStringView(*format)));
 }
+#endif  // QT_CONFIG(datestring)
 
 //  bool QTime::setHMS(int h, int m, int s, int ms)
 extern "C" Q_DECL_EXPORT
@@ -130,6 +136,7 @@ QTime *ritual_ZN5QTime11currentTimeEv() {
   return new QTime(QTime::currentTime());
 }
 
+#if QT_CONFIG(datestring)
 //  QTime QTime::fromString(QStringView string, Qt::DateFormat format)
 extern "C" Q_DECL_EXPORT
 QTime *ritual_ZN5QTime10fromStringE11QStringViewN2Qt10DateFormatE(
@@ -137,7 +144,9 @@ QTime *ritual_ZN5QTime10fromStringE11QStringViewN2Qt10DateFormatE(
     Qt::DateFormat format) {
   return new QTime(QTime::fromString(QStringView(*string), format));
 }
+#endif  // QT_CONFIG(datestring)
 
+#if QT_CONFIG(datestring)
 //  QTime QTime::fromString(QStringView string, QStringView format)
 extern "C" Q_DECL_EXPORT
 QTime *ritual_ZN5QTime10fromStringE11QStringViewS0_(
@@ -148,7 +157,9 @@ QTime *ritual_ZN5QTime10fromStringE11QStringViewS0_(
           QStringView(*string),
           QStringView(*format)));
 }
+#endif  // QT_CONFIG(datestring)
 
+#if QT_CONFIG(datestring)
 //  QTime QTime::fromString(const QString &string, QStringView format)
 extern "C" Q_DECL_EXPORT
 QTime *ritual_ZN5QTime10fromStringERK7QString11QStringView(
@@ -156,7 +167,9 @@ QTime *ritual_ZN5QTime10fromStringERK7QString11QStringView(
     const QString *format) {
   return new QTime(QTime::fromString(*string, QStringView(*format)));
 }
+#endif  // QT_CONFIG(datestring)
 
+#if QT_CONFIG(datestring)
 //  QTime QTime::fromString(const QString &string, Qt::DateFormat format)
 extern "C" Q_DECL_EXPORT
 QTime *ritual_ZN5QTime10fromStringERK7QStringN2Qt10DateFormatE(
@@ -164,7 +177,9 @@ QTime *ritual_ZN5QTime10fromStringERK7QStringN2Qt10DateFormatE(
     Qt::DateFormat format) {
   return new QTime(QTime::fromString(*string, format));
 }
+#endif  // QT_CONFIG(datestring)
 
+#if QT_CONFIG(datestring)
 //  QTime QTime::fromString(const QString &string, const QString &format)
 extern "C" Q_DECL_EXPORT
 QTime *ritual_ZN5QTime10fromStringERK7QStringS2_(
@@ -172,6 +187,7 @@ QTime *ritual_ZN5QTime10fromStringERK7QStringS2_(
     const QString *format) {
   return new QTime(QTime::fromString(*string, *format));
 }
+#endif  // QT_CONFIG(datestring)
 
 //  bool QTime::isValid(int h, int m, int s, int ms)
 extern "C" Q_DECL_EXPORT

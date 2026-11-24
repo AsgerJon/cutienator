@@ -1,0 +1,28 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/qqmlextensionplugin.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK25QQmlEngineExtensionPlugin10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QQmlEngineExtensionPlugin2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN25QQmlEngineExtensionPluginC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN25QQmlEngineExtensionPluginD1Ev": ["nothing", "address"],
+    "ritual_ZN25QQmlEngineExtensionPlugin16initializeEngineEP10QQmlEnginePKc": [
+      "nothing", "address", "address", "chars"
+    ],
+    "ritual_cast_QQmlEngineExtensionPlugin_QQmlEngineExtensionInterface": [
+      "address", "address"
+    ],
+    "ritual_take_QQmlEngineExtensionPlugin": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

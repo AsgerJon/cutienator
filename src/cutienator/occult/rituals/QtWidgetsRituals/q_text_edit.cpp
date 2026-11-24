@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qtextedit.h, Qt 6.12.0. Changes made here are lost.
+#include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(textedit)
 #include <QtWidgets/qtextedit.h>
 #include <QtCore/qstring.h>
 #include <QtGui/qtextcursor.h>
@@ -50,41 +52,131 @@ struct OwnQTextEdit : QTextEdit {
 //  A QTextEdit that Python can take functions over in. Every QTextEdit
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if QT_CONFIG(textedit)
 typedef const QVariant * (*CuteQTextEditCall0)(const void *, int, const QUrl *, int *);
+#endif  // QT_CONFIG(textedit)
+#if QT_CONFIG(textedit)
 typedef const QVariant * (*CuteQTextEditCall1)(const void *, int, int *);
+#endif  // QT_CONFIG(textedit)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(textedit)
 typedef bool (*CuteQTextEditCall2)(const void *, QEvent *, int *);
+#endif  // QT_CONFIG(textedit)
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(textedit)
 typedef void (*CuteQTextEditCall3)(const void *, QTimerEvent *, int *);
+#endif  // QT_CONFIG(textedit)
+#endif  // !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(textedit)
 typedef void (*CuteQTextEditCall4)(const void *, QKeyEvent *, int *);
+#endif  // QT_CONFIG(textedit)
+#if QT_CONFIG(textedit)
 typedef void (*CuteQTextEditCall5)(const void *, QKeyEvent *, int *);
+#endif  // QT_CONFIG(textedit)
+#if QT_CONFIG(textedit)
 typedef void (*CuteQTextEditCall6)(const void *, QResizeEvent *, int *);
+#endif  // QT_CONFIG(textedit)
+#if QT_CONFIG(textedit)
 typedef void (*CuteQTextEditCall7)(const void *, QPaintEvent *, int *);
+#endif  // QT_CONFIG(textedit)
+#if QT_CONFIG(textedit)
 typedef void (*CuteQTextEditCall8)(const void *, QMouseEvent *, int *);
+#endif  // QT_CONFIG(textedit)
+#if QT_CONFIG(textedit)
 typedef void (*CuteQTextEditCall9)(const void *, QMouseEvent *, int *);
+#endif  // QT_CONFIG(textedit)
+#if QT_CONFIG(textedit)
 typedef void (*CuteQTextEditCall10)(const void *, QMouseEvent *, int *);
+#endif  // QT_CONFIG(textedit)
+#if QT_CONFIG(textedit)
 typedef void (*CuteQTextEditCall11)(const void *, QMouseEvent *, int *);
+#endif  // QT_CONFIG(textedit)
+#if QT_CONFIG(textedit)
 typedef bool (*CuteQTextEditCall12)(const void *, bool, int *);
+#endif  // QT_CONFIG(textedit)
+#if !defined(QT_NO_CONTEXTMENU)
+#if QT_CONFIG(textedit)
 typedef void (*CuteQTextEditCall13)(const void *, QContextMenuEvent *, int *);
+#endif  // QT_CONFIG(textedit)
+#endif  // !defined(QT_NO_CONTEXTMENU)
+#if QT_CONFIG(draganddrop)
+#if QT_CONFIG(textedit)
 typedef void (*CuteQTextEditCall14)(const void *, QDragEnterEvent *, int *);
+#endif  // QT_CONFIG(textedit)
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
+#if QT_CONFIG(textedit)
 typedef void (*CuteQTextEditCall15)(const void *, QDragLeaveEvent *, int *);
+#endif  // QT_CONFIG(textedit)
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
+#if QT_CONFIG(textedit)
 typedef void (*CuteQTextEditCall16)(const void *, QDragMoveEvent *, int *);
+#endif  // QT_CONFIG(textedit)
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
+#if QT_CONFIG(textedit)
 typedef void (*CuteQTextEditCall17)(const void *, QDropEvent *, int *);
+#endif  // QT_CONFIG(textedit)
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(textedit)
 typedef void (*CuteQTextEditCall18)(const void *, QFocusEvent *, int *);
+#endif  // QT_CONFIG(textedit)
+#if QT_CONFIG(textedit)
 typedef void (*CuteQTextEditCall19)(const void *, QFocusEvent *, int *);
+#endif  // QT_CONFIG(textedit)
+#if QT_CONFIG(textedit)
 typedef void (*CuteQTextEditCall20)(const void *, QShowEvent *, int *);
+#endif  // QT_CONFIG(textedit)
+#if QT_CONFIG(textedit)
 typedef void (*CuteQTextEditCall21)(const void *, QEvent *, int *);
+#endif  // QT_CONFIG(textedit)
+#if QT_CONFIG(wheelevent)
+#if QT_CONFIG(textedit)
 typedef void (*CuteQTextEditCall22)(const void *, QWheelEvent *, int *);
+#endif  // QT_CONFIG(textedit)
+#endif  // QT_CONFIG(wheelevent)
+#if QT_CONFIG(textedit)
 typedef void * (*CuteQTextEditCall23)(const void *, int *);
+#endif  // QT_CONFIG(textedit)
+#if QT_CONFIG(textedit)
 typedef bool (*CuteQTextEditCall24)(const void *, const QMimeData *, int *);
+#endif  // QT_CONFIG(textedit)
+#if QT_CONFIG(textedit)
 typedef void (*CuteQTextEditCall25)(const void *, const QMimeData *, int *);
+#endif  // QT_CONFIG(textedit)
+#if QT_CONFIG(textedit)
 typedef void (*CuteQTextEditCall26)(const void *, QInputMethodEvent *, int *);
+#endif  // QT_CONFIG(textedit)
+#if QT_CONFIG(scrollarea)
+#if QT_CONFIG(textedit)
 typedef void (*CuteQTextEditCall27)(const void *, int, int, int *);
+#endif  // QT_CONFIG(textedit)
+#endif  // QT_CONFIG(scrollarea)
+#if QT_CONFIG(textedit)
 typedef void (*CuteQTextEditCall28)(const void *, const QTextCursor *, int *);
+#endif  // QT_CONFIG(textedit)
+#if QT_CONFIG(scrollarea)
 typedef const QSize * (*CuteQTextEditCall29)(const void *, int *);
+#endif  // QT_CONFIG(scrollarea)
+#if QT_CONFIG(scrollarea)
 typedef const QSize * (*CuteQTextEditCall30)(const void *, int *);
+#endif  // QT_CONFIG(scrollarea)
+#if QT_CONFIG(scrollarea)
 typedef void (*CuteQTextEditCall31)(const void *, QWidget *, int *);
+#endif  // QT_CONFIG(scrollarea)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(scrollarea)
 typedef bool (*CuteQTextEditCall32)(const void *, QObject *, QEvent *, int *);
+#endif  // QT_CONFIG(scrollarea)
+#endif  // !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(scrollarea)
 typedef bool (*CuteQTextEditCall33)(const void *, QEvent *, int *);
+#endif  // QT_CONFIG(scrollarea)
+#if QT_CONFIG(scrollarea)
 typedef const QSize * (*CuteQTextEditCall34)(const void *, int *);
+#endif  // QT_CONFIG(scrollarea)
 typedef void (*CuteQTextEditCall35)(const void *, QStyleOptionFrame *, int *);
 typedef int (*CuteQTextEditCall36)(const void *, int *);
 typedef void (*CuteQTextEditCall37)(const void *, bool, int *);
@@ -95,163 +187,265 @@ typedef void (*CuteQTextEditCall41)(const void *, QEnterEvent *, int *);
 typedef void (*CuteQTextEditCall42)(const void *, QEvent *, int *);
 typedef void (*CuteQTextEditCall43)(const void *, QMoveEvent *, int *);
 typedef void (*CuteQTextEditCall44)(const void *, QCloseEvent *, int *);
+#if QT_CONFIG(tabletevent)
 typedef void (*CuteQTextEditCall45)(const void *, QTabletEvent *, int *);
+#endif  // QT_CONFIG(tabletevent)
+#if !defined(QT_NO_ACTION)
 typedef void (*CuteQTextEditCall46)(const void *, QActionEvent *, int *);
+#endif  // !defined(QT_NO_ACTION)
 typedef void (*CuteQTextEditCall47)(const void *, QHideEvent *, int *);
 typedef int (*CuteQTextEditCall48)(const void *, int, int *);
 typedef void (*CuteQTextEditCall49)(const void *, QPainter *, int *);
 typedef void * (*CuteQTextEditCall50)(const void *, QPoint *, int *);
 typedef void * (*CuteQTextEditCall51)(const void *, int *);
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQTextEditCall52)(const void *, QChildEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQTextEditCall53)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQTextEditCall54)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQTextEditCall55)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 class CuteQTextEdit : public QTextEdit {
 public:
   using QTextEdit::QTextEdit;
   void *taken[56] = {};
 
   bool take(const char *key, void *call) {
+#if QT_CONFIG(textedit)
     if (!std::strcmp(key, "_ZN9QTextEdit12loadResourceEiRK4QUrl")) {
       taken[0] = call;
       return true;
     }
+#endif  // QT_CONFIG(textedit)
+#if QT_CONFIG(textedit)
     if (!std::strcmp(key, "_ZNK7QWidget16inputMethodQueryEN2Qt16InputMethodQueryE")) {
       taken[1] = call;
       return true;
     }
+#endif  // QT_CONFIG(textedit)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(textedit)
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[2] = call;
       return true;
     }
+#endif  // QT_CONFIG(textedit)
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(textedit)
     if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[3] = call;
       return true;
     }
+#endif  // QT_CONFIG(textedit)
+#endif  // !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(textedit)
     if (!std::strcmp(key, "_ZN7QWidget13keyPressEventEP9QKeyEvent")) {
       taken[4] = call;
       return true;
     }
+#endif  // QT_CONFIG(textedit)
+#if QT_CONFIG(textedit)
     if (!std::strcmp(key, "_ZN7QWidget15keyReleaseEventEP9QKeyEvent")) {
       taken[5] = call;
       return true;
     }
+#endif  // QT_CONFIG(textedit)
+#if QT_CONFIG(textedit)
     if (!std::strcmp(key, "_ZN7QWidget11resizeEventEP12QResizeEvent")) {
       taken[6] = call;
       return true;
     }
+#endif  // QT_CONFIG(textedit)
+#if QT_CONFIG(textedit)
     if (!std::strcmp(key, "_ZN7QWidget10paintEventEP11QPaintEvent")) {
       taken[7] = call;
       return true;
     }
+#endif  // QT_CONFIG(textedit)
+#if QT_CONFIG(textedit)
     if (!std::strcmp(key, "_ZN7QWidget15mousePressEventEP11QMouseEvent")) {
       taken[8] = call;
       return true;
     }
+#endif  // QT_CONFIG(textedit)
+#if QT_CONFIG(textedit)
     if (!std::strcmp(key, "_ZN7QWidget14mouseMoveEventEP11QMouseEvent")) {
       taken[9] = call;
       return true;
     }
+#endif  // QT_CONFIG(textedit)
+#if QT_CONFIG(textedit)
     if (!std::strcmp(key, "_ZN7QWidget17mouseReleaseEventEP11QMouseEvent")) {
       taken[10] = call;
       return true;
     }
+#endif  // QT_CONFIG(textedit)
+#if QT_CONFIG(textedit)
     if (!std::strcmp(key, "_ZN7QWidget21mouseDoubleClickEventEP11QMouseEvent")) {
       taken[11] = call;
       return true;
     }
+#endif  // QT_CONFIG(textedit)
+#if QT_CONFIG(textedit)
     if (!std::strcmp(key, "_ZN7QWidget18focusNextPrevChildEb")) {
       taken[12] = call;
       return true;
     }
+#endif  // QT_CONFIG(textedit)
+#if !defined(QT_NO_CONTEXTMENU)
+#if QT_CONFIG(textedit)
     if (!std::strcmp(key, "_ZN7QWidget16contextMenuEventEP17QContextMenuEvent")) {
       taken[13] = call;
       return true;
     }
+#endif  // QT_CONFIG(textedit)
+#endif  // !defined(QT_NO_CONTEXTMENU)
+#if QT_CONFIG(draganddrop)
+#if QT_CONFIG(textedit)
     if (!std::strcmp(key, "_ZN7QWidget14dragEnterEventEP15QDragEnterEvent")) {
       taken[14] = call;
       return true;
     }
+#endif  // QT_CONFIG(textedit)
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
+#if QT_CONFIG(textedit)
     if (!std::strcmp(key, "_ZN7QWidget14dragLeaveEventEP15QDragLeaveEvent")) {
       taken[15] = call;
       return true;
     }
+#endif  // QT_CONFIG(textedit)
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
+#if QT_CONFIG(textedit)
     if (!std::strcmp(key, "_ZN7QWidget13dragMoveEventEP14QDragMoveEvent")) {
       taken[16] = call;
       return true;
     }
+#endif  // QT_CONFIG(textedit)
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
+#if QT_CONFIG(textedit)
     if (!std::strcmp(key, "_ZN7QWidget9dropEventEP10QDropEvent")) {
       taken[17] = call;
       return true;
     }
+#endif  // QT_CONFIG(textedit)
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(textedit)
     if (!std::strcmp(key, "_ZN7QWidget12focusInEventEP11QFocusEvent")) {
       taken[18] = call;
       return true;
     }
+#endif  // QT_CONFIG(textedit)
+#if QT_CONFIG(textedit)
     if (!std::strcmp(key, "_ZN7QWidget13focusOutEventEP11QFocusEvent")) {
       taken[19] = call;
       return true;
     }
+#endif  // QT_CONFIG(textedit)
+#if QT_CONFIG(textedit)
     if (!std::strcmp(key, "_ZN7QWidget9showEventEP10QShowEvent")) {
       taken[20] = call;
       return true;
     }
+#endif  // QT_CONFIG(textedit)
+#if QT_CONFIG(textedit)
     if (!std::strcmp(key, "_ZN7QWidget11changeEventEP6QEvent")) {
       taken[21] = call;
       return true;
     }
+#endif  // QT_CONFIG(textedit)
+#if QT_CONFIG(wheelevent)
+#if QT_CONFIG(textedit)
     if (!std::strcmp(key, "_ZN7QWidget10wheelEventEP11QWheelEvent")) {
       taken[22] = call;
       return true;
     }
+#endif  // QT_CONFIG(textedit)
+#endif  // QT_CONFIG(wheelevent)
+#if QT_CONFIG(textedit)
     if (!std::strcmp(key, "_ZNK9QTextEdit27createMimeDataFromSelectionEv")) {
       taken[23] = call;
       return true;
     }
+#endif  // QT_CONFIG(textedit)
+#if QT_CONFIG(textedit)
     if (!std::strcmp(key, "_ZNK9QTextEdit21canInsertFromMimeDataEPK9QMimeData")) {
       taken[24] = call;
       return true;
     }
+#endif  // QT_CONFIG(textedit)
+#if QT_CONFIG(textedit)
     if (!std::strcmp(key, "_ZN9QTextEdit18insertFromMimeDataEPK9QMimeData")) {
       taken[25] = call;
       return true;
     }
+#endif  // QT_CONFIG(textedit)
+#if QT_CONFIG(textedit)
     if (!std::strcmp(key, "_ZN7QWidget16inputMethodEventEP17QInputMethodEvent")) {
       taken[26] = call;
       return true;
     }
+#endif  // QT_CONFIG(textedit)
+#if QT_CONFIG(scrollarea)
+#if QT_CONFIG(textedit)
     if (!std::strcmp(key, "_ZN19QAbstractScrollArea16scrollContentsByEii")) {
       taken[27] = call;
       return true;
     }
+#endif  // QT_CONFIG(textedit)
+#endif  // QT_CONFIG(scrollarea)
+#if QT_CONFIG(textedit)
     if (!std::strcmp(key, "_ZN9QTextEdit15doSetTextCursorERK11QTextCursor")) {
       taken[28] = call;
       return true;
     }
+#endif  // QT_CONFIG(textedit)
+#if QT_CONFIG(scrollarea)
     if (!std::strcmp(key, "_ZNK7QWidget15minimumSizeHintEv")) {
       taken[29] = call;
       return true;
     }
+#endif  // QT_CONFIG(scrollarea)
+#if QT_CONFIG(scrollarea)
     if (!std::strcmp(key, "_ZNK7QWidget8sizeHintEv")) {
       taken[30] = call;
       return true;
     }
+#endif  // QT_CONFIG(scrollarea)
+#if QT_CONFIG(scrollarea)
     if (!std::strcmp(key, "_ZN19QAbstractScrollArea13setupViewportEP7QWidget")) {
       taken[31] = call;
       return true;
     }
+#endif  // QT_CONFIG(scrollarea)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(scrollarea)
     if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[32] = call;
       return true;
     }
+#endif  // QT_CONFIG(scrollarea)
+#endif  // !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(scrollarea)
     if (!std::strcmp(key, "_ZN19QAbstractScrollArea13viewportEventEP6QEvent")) {
       taken[33] = call;
       return true;
     }
+#endif  // QT_CONFIG(scrollarea)
+#if QT_CONFIG(scrollarea)
     if (!std::strcmp(key, "_ZNK19QAbstractScrollArea16viewportSizeHintEv")) {
       taken[34] = call;
       return true;
     }
+#endif  // QT_CONFIG(scrollarea)
     if (!std::strcmp(key, "_ZNK6QFrame15initStyleOptionEP17QStyleOptionFrame")) {
       taken[35] = call;
       return true;
@@ -292,14 +486,18 @@ public:
       taken[44] = call;
       return true;
     }
+#if QT_CONFIG(tabletevent)
     if (!std::strcmp(key, "_ZN7QWidget11tabletEventEP12QTabletEvent")) {
       taken[45] = call;
       return true;
     }
+#endif  // QT_CONFIG(tabletevent)
+#if !defined(QT_NO_ACTION)
     if (!std::strcmp(key, "_ZN7QWidget11actionEventEP12QActionEvent")) {
       taken[46] = call;
       return true;
     }
+#endif  // !defined(QT_NO_ACTION)
     if (!std::strcmp(key, "_ZN7QWidget9hideEventEP10QHideEvent")) {
       taken[47] = call;
       return true;
@@ -320,25 +518,34 @@ public:
       taken[51] = call;
       return true;
     }
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[52] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[53] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[54] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
       taken[55] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
     return false;
   }
 
+#if QT_CONFIG(textedit)
   //  QVariant QTextEdit::loadResource(int type, const QUrl &name)
   QVariant loadResource(int type, const QUrl &name) override {
     if (taken[0]) {
@@ -349,7 +556,9 @@ public:
     }
     return QTextEdit::loadResource(type, name);
   }
+#endif  // QT_CONFIG(textedit)
 
+#if QT_CONFIG(textedit)
   //  QVariant QTextEdit::inputMethodQuery(Qt::InputMethodQuery property)
   //      const
   QVariant inputMethodQuery(Qt::InputMethodQuery property) const override {
@@ -361,7 +570,10 @@ public:
     }
     return QTextEdit::inputMethodQuery(property);
   }
+#endif  // QT_CONFIG(textedit)
 
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(textedit)
   //  bool QTextEdit::event(QEvent *e)
   bool event(QEvent *e) override {
     if (taken[2]) {
@@ -372,7 +584,11 @@ public:
     }
     return QTextEdit::event(e);
   }
+#endif  // QT_CONFIG(textedit)
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(textedit)
   //  void QTextEdit::timerEvent(QTimerEvent *e)
   void timerEvent(QTimerEvent *e) override {
     if (taken[3]) {
@@ -383,7 +599,10 @@ public:
     }
     QTextEdit::timerEvent(e);
   }
+#endif  // QT_CONFIG(textedit)
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if QT_CONFIG(textedit)
   //  void QTextEdit::keyPressEvent(QKeyEvent *e)
   void keyPressEvent(QKeyEvent *e) override {
     if (taken[4]) {
@@ -394,7 +613,9 @@ public:
     }
     QTextEdit::keyPressEvent(e);
   }
+#endif  // QT_CONFIG(textedit)
 
+#if QT_CONFIG(textedit)
   //  void QTextEdit::keyReleaseEvent(QKeyEvent *e)
   void keyReleaseEvent(QKeyEvent *e) override {
     if (taken[5]) {
@@ -405,7 +626,9 @@ public:
     }
     QTextEdit::keyReleaseEvent(e);
   }
+#endif  // QT_CONFIG(textedit)
 
+#if QT_CONFIG(textedit)
   //  void QTextEdit::resizeEvent(QResizeEvent *e)
   void resizeEvent(QResizeEvent *e) override {
     if (taken[6]) {
@@ -416,7 +639,9 @@ public:
     }
     QTextEdit::resizeEvent(e);
   }
+#endif  // QT_CONFIG(textedit)
 
+#if QT_CONFIG(textedit)
   //  void QTextEdit::paintEvent(QPaintEvent *e)
   void paintEvent(QPaintEvent *e) override {
     if (taken[7]) {
@@ -427,7 +652,9 @@ public:
     }
     QTextEdit::paintEvent(e);
   }
+#endif  // QT_CONFIG(textedit)
 
+#if QT_CONFIG(textedit)
   //  void QTextEdit::mousePressEvent(QMouseEvent *e)
   void mousePressEvent(QMouseEvent *e) override {
     if (taken[8]) {
@@ -438,7 +665,9 @@ public:
     }
     QTextEdit::mousePressEvent(e);
   }
+#endif  // QT_CONFIG(textedit)
 
+#if QT_CONFIG(textedit)
   //  void QTextEdit::mouseMoveEvent(QMouseEvent *e)
   void mouseMoveEvent(QMouseEvent *e) override {
     if (taken[9]) {
@@ -449,7 +678,9 @@ public:
     }
     QTextEdit::mouseMoveEvent(e);
   }
+#endif  // QT_CONFIG(textedit)
 
+#if QT_CONFIG(textedit)
   //  void QTextEdit::mouseReleaseEvent(QMouseEvent *e)
   void mouseReleaseEvent(QMouseEvent *e) override {
     if (taken[10]) {
@@ -460,7 +691,9 @@ public:
     }
     QTextEdit::mouseReleaseEvent(e);
   }
+#endif  // QT_CONFIG(textedit)
 
+#if QT_CONFIG(textedit)
   //  void QTextEdit::mouseDoubleClickEvent(QMouseEvent *e)
   void mouseDoubleClickEvent(QMouseEvent *e) override {
     if (taken[11]) {
@@ -471,7 +704,9 @@ public:
     }
     QTextEdit::mouseDoubleClickEvent(e);
   }
+#endif  // QT_CONFIG(textedit)
 
+#if QT_CONFIG(textedit)
   //  bool QTextEdit::focusNextPrevChild(bool next)
   bool focusNextPrevChild(bool next) override {
     if (taken[12]) {
@@ -482,7 +717,10 @@ public:
     }
     return QTextEdit::focusNextPrevChild(next);
   }
+#endif  // QT_CONFIG(textedit)
 
+#if !defined(QT_NO_CONTEXTMENU)
+#if QT_CONFIG(textedit)
   //  void QTextEdit::contextMenuEvent(QContextMenuEvent *e)
   void contextMenuEvent(QContextMenuEvent *e) override {
     if (taken[13]) {
@@ -493,7 +731,11 @@ public:
     }
     QTextEdit::contextMenuEvent(e);
   }
+#endif  // QT_CONFIG(textedit)
+#endif  // !defined(QT_NO_CONTEXTMENU)
 
+#if QT_CONFIG(draganddrop)
+#if QT_CONFIG(textedit)
   //  void QTextEdit::dragEnterEvent(QDragEnterEvent *e)
   void dragEnterEvent(QDragEnterEvent *e) override {
     if (taken[14]) {
@@ -504,7 +746,11 @@ public:
     }
     QTextEdit::dragEnterEvent(e);
   }
+#endif  // QT_CONFIG(textedit)
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
+#if QT_CONFIG(textedit)
   //  void QTextEdit::dragLeaveEvent(QDragLeaveEvent *e)
   void dragLeaveEvent(QDragLeaveEvent *e) override {
     if (taken[15]) {
@@ -515,7 +761,11 @@ public:
     }
     QTextEdit::dragLeaveEvent(e);
   }
+#endif  // QT_CONFIG(textedit)
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
+#if QT_CONFIG(textedit)
   //  void QTextEdit::dragMoveEvent(QDragMoveEvent *e)
   void dragMoveEvent(QDragMoveEvent *e) override {
     if (taken[16]) {
@@ -526,7 +776,11 @@ public:
     }
     QTextEdit::dragMoveEvent(e);
   }
+#endif  // QT_CONFIG(textedit)
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
+#if QT_CONFIG(textedit)
   //  void QTextEdit::dropEvent(QDropEvent *e)
   void dropEvent(QDropEvent *e) override {
     if (taken[17]) {
@@ -537,7 +791,10 @@ public:
     }
     QTextEdit::dropEvent(e);
   }
+#endif  // QT_CONFIG(textedit)
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(textedit)
   //  void QTextEdit::focusInEvent(QFocusEvent *e)
   void focusInEvent(QFocusEvent *e) override {
     if (taken[18]) {
@@ -548,7 +805,9 @@ public:
     }
     QTextEdit::focusInEvent(e);
   }
+#endif  // QT_CONFIG(textedit)
 
+#if QT_CONFIG(textedit)
   //  void QTextEdit::focusOutEvent(QFocusEvent *e)
   void focusOutEvent(QFocusEvent *e) override {
     if (taken[19]) {
@@ -559,7 +818,9 @@ public:
     }
     QTextEdit::focusOutEvent(e);
   }
+#endif  // QT_CONFIG(textedit)
 
+#if QT_CONFIG(textedit)
   //  void QTextEdit::showEvent(QShowEvent *a0)
   void showEvent(QShowEvent *a0) override {
     if (taken[20]) {
@@ -570,7 +831,9 @@ public:
     }
     QTextEdit::showEvent(a0);
   }
+#endif  // QT_CONFIG(textedit)
 
+#if QT_CONFIG(textedit)
   //  void QTextEdit::changeEvent(QEvent *e)
   void changeEvent(QEvent *e) override {
     if (taken[21]) {
@@ -581,7 +844,10 @@ public:
     }
     QTextEdit::changeEvent(e);
   }
+#endif  // QT_CONFIG(textedit)
 
+#if QT_CONFIG(wheelevent)
+#if QT_CONFIG(textedit)
   //  void QTextEdit::wheelEvent(QWheelEvent *e)
   void wheelEvent(QWheelEvent *e) override {
     if (taken[22]) {
@@ -592,7 +858,10 @@ public:
     }
     QTextEdit::wheelEvent(e);
   }
+#endif  // QT_CONFIG(textedit)
+#endif  // QT_CONFIG(wheelevent)
 
+#if QT_CONFIG(textedit)
   //  QMimeData *QTextEdit::createMimeDataFromSelection() const
   QMimeData *createMimeDataFromSelection() const override {
     if (taken[23]) {
@@ -603,7 +872,9 @@ public:
     }
     return QTextEdit::createMimeDataFromSelection();
   }
+#endif  // QT_CONFIG(textedit)
 
+#if QT_CONFIG(textedit)
   //  bool QTextEdit::canInsertFromMimeData(const QMimeData *source) const
   bool canInsertFromMimeData(const QMimeData *source) const override {
     if (taken[24]) {
@@ -614,7 +885,9 @@ public:
     }
     return QTextEdit::canInsertFromMimeData(source);
   }
+#endif  // QT_CONFIG(textedit)
 
+#if QT_CONFIG(textedit)
   //  void QTextEdit::insertFromMimeData(const QMimeData *source)
   void insertFromMimeData(const QMimeData *source) override {
     if (taken[25]) {
@@ -625,7 +898,9 @@ public:
     }
     QTextEdit::insertFromMimeData(source);
   }
+#endif  // QT_CONFIG(textedit)
 
+#if QT_CONFIG(textedit)
   //  void QTextEdit::inputMethodEvent(QInputMethodEvent *a0)
   void inputMethodEvent(QInputMethodEvent *a0) override {
     if (taken[26]) {
@@ -636,7 +911,10 @@ public:
     }
     QTextEdit::inputMethodEvent(a0);
   }
+#endif  // QT_CONFIG(textedit)
 
+#if QT_CONFIG(scrollarea)
+#if QT_CONFIG(textedit)
   //  void QTextEdit::scrollContentsBy(int dx, int dy)
   void scrollContentsBy(int dx, int dy) override {
     if (taken[27]) {
@@ -647,7 +925,10 @@ public:
     }
     QTextEdit::scrollContentsBy(dx, dy);
   }
+#endif  // QT_CONFIG(textedit)
+#endif  // QT_CONFIG(scrollarea)
 
+#if QT_CONFIG(textedit)
   //  void QTextEdit::doSetTextCursor(const QTextCursor &cursor)
   void doSetTextCursor(const QTextCursor &cursor) override {
     if (taken[28]) {
@@ -658,7 +939,9 @@ public:
     }
     QTextEdit::doSetTextCursor(cursor);
   }
+#endif  // QT_CONFIG(textedit)
 
+#if QT_CONFIG(scrollarea)
   //  QSize QAbstractScrollArea::minimumSizeHint() const
   QSize minimumSizeHint() const override {
     if (taken[29]) {
@@ -669,7 +952,9 @@ public:
     }
     return QAbstractScrollArea::minimumSizeHint();
   }
+#endif  // QT_CONFIG(scrollarea)
 
+#if QT_CONFIG(scrollarea)
   //  QSize QAbstractScrollArea::sizeHint() const
   QSize sizeHint() const override {
     if (taken[30]) {
@@ -680,7 +965,9 @@ public:
     }
     return QAbstractScrollArea::sizeHint();
   }
+#endif  // QT_CONFIG(scrollarea)
 
+#if QT_CONFIG(scrollarea)
   //  void QAbstractScrollArea::setupViewport(QWidget *viewport)
   void setupViewport(QWidget *viewport) override {
     if (taken[31]) {
@@ -691,7 +978,10 @@ public:
     }
     QAbstractScrollArea::setupViewport(viewport);
   }
+#endif  // QT_CONFIG(scrollarea)
 
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(scrollarea)
   //  bool QAbstractScrollArea::eventFilter(QObject *a0, QEvent *a1)
   bool eventFilter(QObject *a0, QEvent *a1) override {
     if (taken[32]) {
@@ -702,7 +992,10 @@ public:
     }
     return QAbstractScrollArea::eventFilter(a0, a1);
   }
+#endif  // QT_CONFIG(scrollarea)
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if QT_CONFIG(scrollarea)
   //  bool QAbstractScrollArea::viewportEvent(QEvent *a0)
   bool viewportEvent(QEvent *a0) override {
     if (taken[33]) {
@@ -713,7 +1006,9 @@ public:
     }
     return QAbstractScrollArea::viewportEvent(a0);
   }
+#endif  // QT_CONFIG(scrollarea)
 
+#if QT_CONFIG(scrollarea)
   //  QSize QAbstractScrollArea::viewportSizeHint() const
   QSize viewportSizeHint() const override {
     if (taken[34]) {
@@ -724,6 +1019,7 @@ public:
     }
     return QAbstractScrollArea::viewportSizeHint();
   }
+#endif  // QT_CONFIG(scrollarea)
 
   //  void QFrame::initStyleOption(QStyleOptionFrame *option) const
   void initStyleOption(QStyleOptionFrame *option) const override {
@@ -835,6 +1131,7 @@ public:
     QWidget::closeEvent(event);
   }
 
+#if QT_CONFIG(tabletevent)
   //  void QWidget::tabletEvent(QTabletEvent *event)
   void tabletEvent(QTabletEvent *event) override {
     if (taken[45]) {
@@ -845,7 +1142,9 @@ public:
     }
     QWidget::tabletEvent(event);
   }
+#endif  // QT_CONFIG(tabletevent)
 
+#if !defined(QT_NO_ACTION)
   //  void QWidget::actionEvent(QActionEvent *event)
   void actionEvent(QActionEvent *event) override {
     if (taken[46]) {
@@ -856,6 +1155,7 @@ public:
     }
     QWidget::actionEvent(event);
   }
+#endif  // !defined(QT_NO_ACTION)
 
   //  void QWidget::hideEvent(QHideEvent *event)
   void hideEvent(QHideEvent *event) override {
@@ -912,6 +1212,7 @@ public:
     return QWidget::sharedPainter();
   }
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
     if (taken[52]) {
@@ -922,7 +1223,9 @@ public:
     }
     QObject::childEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
     if (taken[53]) {
@@ -933,7 +1236,9 @@ public:
     }
     QObject::customEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
     if (taken[54]) {
@@ -944,7 +1249,9 @@ public:
     }
     QObject::connectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
     if (taken[55]) {
@@ -955,6 +1262,7 @@ public:
     }
     QObject::disconnectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 };
 
 //  const QMetaObject *QTextEdit::metaObject() const
@@ -971,6 +1279,19 @@ QString *ritual_ZN9QTextEdit2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QTextEdit::tr(s, c, n));
+}
+
+//  QTextEditPrivate *QTextEdit::d_func()
+extern "C" Q_DECL_EXPORT
+QTextEditPrivate *ritual_ZN9QTextEdit6d_funcEv(QTextEdit *self) {
+  return self->d_func();
+}
+
+//  const QTextEditPrivate *QTextEdit::d_func() const
+extern "C" Q_DECL_EXPORT
+const QTextEditPrivate *ritual_ZNK9QTextEdit6d_funcEv(
+    const QTextEdit *self) {
+  return self->d_func();
 }
 
 //  QTextEdit::QTextEdit(QWidget *parent)
@@ -1248,6 +1569,7 @@ bool ritual_ZN9QTextEdit4findERK7QString6QFlagsIN13QTextDocument8FindFlagEE(
   return self->find(*exp, QFlags<QTextDocument::FindFlag>::fromInt(options));
 }
 
+#if QT_CONFIG(regularexpression)
 //  bool QTextEdit::find(const QRegularExpression &exp,
 //      QTextDocument::FindFlags options)
 extern "C" Q_DECL_EXPORT
@@ -1257,6 +1579,7 @@ bool ritual_ZN9QTextEdit4findERK18QRegularExpression6QFlagsIN13QTextDocument8Fin
     int options) {
   return self->find(*exp, QFlags<QTextDocument::FindFlag>::fromInt(options));
 }
+#endif  // QT_CONFIG(regularexpression)
 
 //  QString QTextEdit::toPlainText() const
 extern "C" Q_DECL_EXPORT
@@ -1264,12 +1587,15 @@ QString *ritual_ZNK9QTextEdit11toPlainTextEv(const QTextEdit *self) {
   return new QString(self->toPlainText());
 }
 
+#if !defined(QT_NO_TEXTHTMLPARSER)
 //  QString QTextEdit::toHtml() const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK9QTextEdit6toHtmlEv(const QTextEdit *self) {
   return new QString(self->toHtml());
 }
+#endif  // !defined(QT_NO_TEXTHTMLPARSER)
 
+#if QT_CONFIG(textmarkdownwriter)
 //  QString QTextEdit::toMarkdown(QTextDocument::MarkdownFeatures features)
 //      const
 extern "C" Q_DECL_EXPORT
@@ -1280,6 +1606,7 @@ QString *ritual_ZNK9QTextEdit10toMarkdownE6QFlagsIN13QTextDocument15MarkdownFeat
       self->toMarkdown(
           QFlags<QTextDocument::MarkdownFeature>::fromInt(features)));
 }
+#endif  // QT_CONFIG(textmarkdownwriter)
 
 //  void QTextEdit::ensureCursorVisible()
 extern "C" Q_DECL_EXPORT
@@ -1296,12 +1623,15 @@ QVariant *ritual_ZN9QTextEdit12loadResourceEiRK4QUrl(
   return new QVariant(self->loadResource(type, *name));
 }
 
+#if !defined(QT_NO_CONTEXTMENU)
 //  QMenu *QTextEdit::createStandardContextMenu()
 extern "C" Q_DECL_EXPORT
 QMenu *ritual_ZN9QTextEdit25createStandardContextMenuEv(QTextEdit *self) {
   return self->createStandardContextMenu();
 }
+#endif  // !defined(QT_NO_CONTEXTMENU)
 
+#if !defined(QT_NO_CONTEXTMENU)
 //  QMenu *QTextEdit::createStandardContextMenu(const QPoint &position)
 extern "C" Q_DECL_EXPORT
 QMenu *ritual_ZN9QTextEdit25createStandardContextMenuERK6QPoint(
@@ -1309,6 +1639,7 @@ QMenu *ritual_ZN9QTextEdit25createStandardContextMenuERK6QPoint(
     const QPoint *position) {
   return self->createStandardContextMenu(*position);
 }
+#endif  // !defined(QT_NO_CONTEXTMENU)
 
 //  QTextCursor QTextEdit::cursorForPosition(const QPoint &pos) const
 extern "C" Q_DECL_EXPORT
@@ -1506,6 +1837,7 @@ void ritual_ZN9QTextEdit12setPlainTextERK7QString(
   self->setPlainText(*text);
 }
 
+#if !defined(QT_NO_TEXTHTMLPARSER)
 //  void QTextEdit::setHtml(const QString &text)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN9QTextEdit7setHtmlERK7QString(
@@ -1513,7 +1845,9 @@ void ritual_ZN9QTextEdit7setHtmlERK7QString(
     const QString *text) {
   self->setHtml(*text);
 }
+#endif  // !defined(QT_NO_TEXTHTMLPARSER)
 
+#if QT_CONFIG(textmarkdownreader)
 //  void QTextEdit::setMarkdown(const QString &markdown)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN9QTextEdit11setMarkdownERK7QString(
@@ -1521,6 +1855,7 @@ void ritual_ZN9QTextEdit11setMarkdownERK7QString(
     const QString *markdown) {
   self->setMarkdown(*markdown);
 }
+#endif  // QT_CONFIG(textmarkdownreader)
 
 //  void QTextEdit::setText(const QString &text)
 extern "C" Q_DECL_EXPORT
@@ -1530,23 +1865,29 @@ void ritual_ZN9QTextEdit7setTextERK7QString(
   self->setText(*text);
 }
 
+#if !defined(QT_NO_CLIPBOARD)
 //  void QTextEdit::cut()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN9QTextEdit3cutEv(QTextEdit *self) {
   self->cut();
 }
+#endif  // !defined(QT_NO_CLIPBOARD)
 
+#if !defined(QT_NO_CLIPBOARD)
 //  void QTextEdit::copy()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN9QTextEdit4copyEv(QTextEdit *self) {
   self->copy();
 }
+#endif  // !defined(QT_NO_CLIPBOARD)
 
+#if !defined(QT_NO_CLIPBOARD)
 //  void QTextEdit::paste()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN9QTextEdit5pasteEv(QTextEdit *self) {
   self->paste();
 }
+#endif  // !defined(QT_NO_CLIPBOARD)
 
 //  void QTextEdit::undo()
 extern "C" Q_DECL_EXPORT
@@ -1580,6 +1921,7 @@ void ritual_ZN9QTextEdit15insertPlainTextERK7QString(
   self->insertPlainText(*text);
 }
 
+#if !defined(QT_NO_TEXTHTMLPARSER)
 //  void QTextEdit::insertHtml(const QString &text)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN9QTextEdit10insertHtmlERK7QString(
@@ -1587,6 +1929,7 @@ void ritual_ZN9QTextEdit10insertHtmlERK7QString(
     const QString *text) {
   self->insertHtml(*text);
 }
+#endif  // !defined(QT_NO_TEXTHTMLPARSER)
 
 //  void QTextEdit::append(const QString &text)
 extern "C" Q_DECL_EXPORT
@@ -1700,6 +2043,7 @@ bool ritual_ZN9QTextEdit18focusNextPrevChildEb(QTextEdit *self, bool next) {
   return self->focusNextPrevChild(next);
 }
 
+#if !defined(QT_NO_CONTEXTMENU)
 //  void QTextEdit::contextMenuEvent(QContextMenuEvent *e)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN9QTextEdit16contextMenuEventEP17QContextMenuEvent(
@@ -1707,7 +2051,9 @@ void ritual_ZN9QTextEdit16contextMenuEventEP17QContextMenuEvent(
     QContextMenuEvent *e) {
   self->contextMenuEvent(e);
 }
+#endif  // !defined(QT_NO_CONTEXTMENU)
 
+#if QT_CONFIG(draganddrop)
 //  void QTextEdit::dragEnterEvent(QDragEnterEvent *e)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN9QTextEdit14dragEnterEventEP15QDragEnterEvent(
@@ -1715,7 +2061,9 @@ void ritual_ZN9QTextEdit14dragEnterEventEP15QDragEnterEvent(
     QDragEnterEvent *e) {
   self->dragEnterEvent(e);
 }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
 //  void QTextEdit::dragLeaveEvent(QDragLeaveEvent *e)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN9QTextEdit14dragLeaveEventEP15QDragLeaveEvent(
@@ -1723,7 +2071,9 @@ void ritual_ZN9QTextEdit14dragLeaveEventEP15QDragLeaveEvent(
     QDragLeaveEvent *e) {
   self->dragLeaveEvent(e);
 }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
 //  void QTextEdit::dragMoveEvent(QDragMoveEvent *e)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN9QTextEdit13dragMoveEventEP14QDragMoveEvent(
@@ -1731,7 +2081,9 @@ void ritual_ZN9QTextEdit13dragMoveEventEP14QDragMoveEvent(
     QDragMoveEvent *e) {
   self->dragMoveEvent(e);
 }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
 //  void QTextEdit::dropEvent(QDropEvent *e)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN9QTextEdit9dropEventEP10QDropEvent(
@@ -1739,6 +2091,7 @@ void ritual_ZN9QTextEdit9dropEventEP10QDropEvent(
     QDropEvent *e) {
   self->dropEvent(e);
 }
+#endif  // QT_CONFIG(draganddrop)
 
 //  void QTextEdit::focusInEvent(QFocusEvent *e)
 extern "C" Q_DECL_EXPORT
@@ -1770,6 +2123,7 @@ void ritual_ZN9QTextEdit11changeEventEP6QEvent(QTextEdit *self, QEvent *e) {
   self->changeEvent(e);
 }
 
+#if QT_CONFIG(wheelevent)
 //  void QTextEdit::wheelEvent(QWheelEvent *e)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN9QTextEdit10wheelEventEP11QWheelEvent(
@@ -1777,6 +2131,7 @@ void ritual_ZN9QTextEdit10wheelEventEP11QWheelEvent(
     QWheelEvent *e) {
   self->wheelEvent(e);
 }
+#endif  // QT_CONFIG(wheelevent)
 
 //  QMimeData *QTextEdit::createMimeDataFromSelection() const
 extern "C" Q_DECL_EXPORT
@@ -1943,6 +2298,7 @@ bool ritual_own_ZN9QTextEdit18focusNextPrevChildEb(
       next);
 }
 
+#if !defined(QT_NO_CONTEXTMENU)
 //  void QTextEdit::contextMenuEvent(QContextMenuEvent *e)
 extern "C" Q_DECL_EXPORT
 void ritual_own_ZN9QTextEdit16contextMenuEventEP17QContextMenuEvent(
@@ -1950,7 +2306,9 @@ void ritual_own_ZN9QTextEdit16contextMenuEventEP17QContextMenuEvent(
     QContextMenuEvent *e) {
   static_cast<OwnQTextEdit *>(self)->OwnQTextEdit::contextMenuEvent(e);
 }
+#endif  // !defined(QT_NO_CONTEXTMENU)
 
+#if QT_CONFIG(draganddrop)
 //  void QTextEdit::dragEnterEvent(QDragEnterEvent *e)
 extern "C" Q_DECL_EXPORT
 void ritual_own_ZN9QTextEdit14dragEnterEventEP15QDragEnterEvent(
@@ -1958,7 +2316,9 @@ void ritual_own_ZN9QTextEdit14dragEnterEventEP15QDragEnterEvent(
     QDragEnterEvent *e) {
   static_cast<OwnQTextEdit *>(self)->OwnQTextEdit::dragEnterEvent(e);
 }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
 //  void QTextEdit::dragLeaveEvent(QDragLeaveEvent *e)
 extern "C" Q_DECL_EXPORT
 void ritual_own_ZN9QTextEdit14dragLeaveEventEP15QDragLeaveEvent(
@@ -1966,7 +2326,9 @@ void ritual_own_ZN9QTextEdit14dragLeaveEventEP15QDragLeaveEvent(
     QDragLeaveEvent *e) {
   static_cast<OwnQTextEdit *>(self)->OwnQTextEdit::dragLeaveEvent(e);
 }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
 //  void QTextEdit::dragMoveEvent(QDragMoveEvent *e)
 extern "C" Q_DECL_EXPORT
 void ritual_own_ZN9QTextEdit13dragMoveEventEP14QDragMoveEvent(
@@ -1974,7 +2336,9 @@ void ritual_own_ZN9QTextEdit13dragMoveEventEP14QDragMoveEvent(
     QDragMoveEvent *e) {
   static_cast<OwnQTextEdit *>(self)->OwnQTextEdit::dragMoveEvent(e);
 }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
 //  void QTextEdit::dropEvent(QDropEvent *e)
 extern "C" Q_DECL_EXPORT
 void ritual_own_ZN9QTextEdit9dropEventEP10QDropEvent(
@@ -1982,6 +2346,7 @@ void ritual_own_ZN9QTextEdit9dropEventEP10QDropEvent(
     QDropEvent *e) {
   static_cast<OwnQTextEdit *>(self)->OwnQTextEdit::dropEvent(e);
 }
+#endif  // QT_CONFIG(draganddrop)
 
 //  void QTextEdit::focusInEvent(QFocusEvent *e)
 extern "C" Q_DECL_EXPORT
@@ -2015,6 +2380,7 @@ void ritual_own_ZN9QTextEdit11changeEventEP6QEvent(
   static_cast<OwnQTextEdit *>(self)->OwnQTextEdit::changeEvent(e);
 }
 
+#if QT_CONFIG(wheelevent)
 //  void QTextEdit::wheelEvent(QWheelEvent *e)
 extern "C" Q_DECL_EXPORT
 void ritual_own_ZN9QTextEdit10wheelEventEP11QWheelEvent(
@@ -2022,6 +2388,7 @@ void ritual_own_ZN9QTextEdit10wheelEventEP11QWheelEvent(
     QWheelEvent *e) {
   static_cast<OwnQTextEdit *>(self)->OwnQTextEdit::wheelEvent(e);
 }
+#endif  // QT_CONFIG(wheelevent)
 
 //  QMimeData *QTextEdit::createMimeDataFromSelection() const
 extern "C" Q_DECL_EXPORT
@@ -2072,3 +2439,5 @@ void ritual_own_ZN9QTextEdit15doSetTextCursorERK11QTextCursor(
     const QTextCursor *cursor) {
   static_cast<OwnQTextEdit *>(self)->OwnQTextEdit::doSetTextCursor(*cursor);
 }
+
+#endif  // QT_CONFIG(textedit)

@@ -1,0 +1,52 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtShaderTools/6.12.0/QtShaderTools/rhi/qshaderbaker.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN12QShaderBakerC1Ev": ["address"],
+    "ritual_ZN12QShaderBakerD1Ev": ["nothing", "address"],
+    "ritual_ZN12QShaderBaker17setSourceFileNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN12QShaderBaker17setSourceFileNameERK7QStringN7QShader5StageE": [
+      "nothing", "address", "text", "int"
+    ],
+    "ritual_ZN12QShaderBaker15setSourceDeviceEP9QIODeviceN7QShader5StageERK7QString": [
+      "nothing", "address", "address", "int", "text"
+    ],
+    "ritual_ZN12QShaderBaker15setSourceStringERK10QByteArrayN7QShader5StageERK7QString": [
+      "nothing", "address", "address", "int", "text"
+    ],
+    "ritual_ZN12QShaderBaker11setPreambleERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QShaderBaker42setBatchableVertexShaderExtraInputLocationEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN12QShaderBaker23setPerTargetCompilationEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN12QShaderBaker32setBreakOnShaderTranslationErrorEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN12QShaderBaker19setTessellationModeEN18QShaderDescription16TessellationModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN12QShaderBaker32setTessellationOutputVertexCountEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN12QShaderBaker17setMultiViewCountEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN12QShaderBaker15setSpirvOptionsE6QFlagsINS_11SpirvOptionEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN12QShaderBaker14setGlslOptionsE6QFlagsINS_10GlslOptionEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN12QShaderBaker4bakeEv": ["address", "address"],
+    "ritual_ZNK12QShaderBaker12errorMessageEv": ["text", "address"]
+  }
+}

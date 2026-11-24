@@ -1,0 +1,41 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmlvaluetype_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN21QQmlMarginsFValueType22qt_qmlMarker_anonymousEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQmlMarginsFValueType20qt_qmlMarker_foreignEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQmlMarginsFValueType21qt_qmlMarker_extendedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQmlMarginsFValueTypeC1Ev": ["address"],
+    "ritual_ZN21QQmlMarginsFValueTypeC1ERK9QMarginsF": [
+      "address", "address"
+    ],
+    "ritual_ZN21QQmlMarginsFValueTypeC1ERK8QMargins": ["address", "address"],
+    "ritual_ZNK21QQmlMarginsFValueType8toStringEv": ["text", "address"],
+    "ritual_ZNK21QQmlMarginsFValueType4leftEv": ["double", "address"],
+    "ritual_ZNK21QQmlMarginsFValueType5rightEv": ["double", "address"],
+    "ritual_ZNK21QQmlMarginsFValueType3topEv": ["double", "address"],
+    "ritual_ZNK21QQmlMarginsFValueType6bottomEv": ["double", "address"],
+    "ritual_ZN21QQmlMarginsFValueType7setLeftEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN21QQmlMarginsFValueType8setRightEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN21QQmlMarginsFValueType6setTopEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN21QQmlMarginsFValueType9setBottomEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN21QQmlMarginsFValueTypeD1Ev": ["nothing", "address"]
+  }
+}

@@ -193,6 +193,8 @@
     "ritual_ZN13QTextDocument12loadResourceEiRK4QUrl": [
       "address", "address", "int", "address"
     ],
+    "ritual_ZN13QTextDocument6d_funcEv": ["address", "address"],
+    "ritual_ZNK13QTextDocument6d_funcEv": ["address", "address"],
     "ritual_take_QTextDocument": ["bool", "address", "chars", "address"],
     "ritual_own_ZN13QTextDocument5clearEv": ["nothing", "address"],
     "ritual_own_ZN13QTextDocument12createObjectERK11QTextFormat": [

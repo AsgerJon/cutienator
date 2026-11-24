@@ -1,0 +1,31 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3DHelpers/6.12.0/QtQuick3DHelpers/private/gridgeometry_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK12GridGeometry10metaObjectEv": ["address", "address"],
+    "ritual_ZN12GridGeometry2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN12GridGeometryC1Ev": ["address"],
+    "ritual_ZN12GridGeometryD1Ev": ["nothing", "address"],
+    "ritual_ZNK12GridGeometry15horizontalLinesEv": ["int", "address"],
+    "ritual_ZNK12GridGeometry13verticalLinesEv": ["int", "address"],
+    "ritual_ZNK12GridGeometry14horizontalStepEv": ["float", "address"],
+    "ritual_ZNK12GridGeometry12verticalStepEv": ["float", "address"],
+    "ritual_ZN12GridGeometry18setHorizontalLinesEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN12GridGeometry16setVerticalLinesEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN12GridGeometry17setHorizontalStepEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN12GridGeometry15setVerticalStepEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN12GridGeometry10updateDataEv": ["nothing", "address"],
+    "ritual_take_GridGeometry": ["bool", "address", "chars", "address"]
+  }
+}

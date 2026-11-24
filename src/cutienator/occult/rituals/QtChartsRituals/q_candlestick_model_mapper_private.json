@@ -1,0 +1,78 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/6.12.0/QtCharts/private/qcandlestickmodelmapper_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK30QCandlestickModelMapperPrivate10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN30QCandlestickModelMapperPrivate2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN30QCandlestickModelMapperPrivateC1EP23QCandlestickModelMapper": [
+      "address", "address"
+    ],
+    "ritual_ZN30QCandlestickModelMapperPrivate30initializeCandlestickFromModelEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QCandlestickModelMapperPrivate16modelDataUpdatedE11QModelIndexS0_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN30QCandlestickModelMapperPrivate22modelHeaderDataUpdatedEN2Qt11OrientationEii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZN30QCandlestickModelMapperPrivate17modelRowsInsertedE11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN30QCandlestickModelMapperPrivate16modelRowsRemovedE11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN30QCandlestickModelMapperPrivate20modelColumnsInsertedE11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN30QCandlestickModelMapperPrivate19modelColumnsRemovedE11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN30QCandlestickModelMapperPrivate14modelDestroyedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QCandlestickModelMapperPrivate20candlestickSetsAddedERK5QListIP15QCandlestickSetE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN30QCandlestickModelMapperPrivate22candlestickSetsRemovedERK5QListIP15QCandlestickSetE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN30QCandlestickModelMapperPrivate21candlestickSetChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QCandlestickModelMapperPrivate15seriesDestroyedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QCandlestickModelMapperPrivate14candlestickSetE11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN30QCandlestickModelMapperPrivate21candlestickModelIndexEii": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZN30QCandlestickModelMapperPrivate10insertDataEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN30QCandlestickModelMapperPrivate10removeDataEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN30QCandlestickModelMapperPrivate17blockModelSignalsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN30QCandlestickModelMapperPrivate18blockSeriesSignalsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN30QCandlestickModelMapperPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK30QCandlestickModelMapperPrivate6q_funcEv": [
+      "address", "address"
+    ]
+  }
+}

@@ -1,0 +1,163 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtScxml/6.12.0/QtScxml/private/qscxmlcompiler_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN13DocumentModel11NodeVisitorD1Ev": ["nothing", "address"],
+    "ritual_ZN13DocumentModel11NodeVisitor5visitEPNS_11DataElementE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13DocumentModel11NodeVisitor5visitEPNS_5ParamE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13DocumentModel11NodeVisitor5visitEPNS_8DoneDataE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN13DocumentModel11NodeVisitor8endVisitEPNS_8DoneDataE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13DocumentModel11NodeVisitor5visitEPNS_4SendE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN13DocumentModel11NodeVisitor8endVisitEPNS_4SendE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13DocumentModel11NodeVisitor5visitEPNS_6InvokeE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN13DocumentModel11NodeVisitor8endVisitEPNS_6InvokeE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13DocumentModel11NodeVisitor5visitEPNS_5RaiseE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13DocumentModel11NodeVisitor5visitEPNS_3LogE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13DocumentModel11NodeVisitor5visitEPNS_6ScriptE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13DocumentModel11NodeVisitor5visitEPNS_6AssignE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13DocumentModel11NodeVisitor5visitEPNS_2IfE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN13DocumentModel11NodeVisitor8endVisitEPNS_2IfE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13DocumentModel11NodeVisitor5visitEPNS_7ForeachE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN13DocumentModel11NodeVisitor8endVisitEPNS_7ForeachE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13DocumentModel11NodeVisitor5visitEPNS_6CancelE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13DocumentModel11NodeVisitor5visitEPNS_5StateE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN13DocumentModel11NodeVisitor8endVisitEPNS_5StateE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13DocumentModel11NodeVisitor5visitEPNS_10TransitionE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN13DocumentModel11NodeVisitor8endVisitEPNS_10TransitionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13DocumentModel11NodeVisitor5visitEPNS_12HistoryStateE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN13DocumentModel11NodeVisitor8endVisitEPNS_12HistoryStateE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13DocumentModel11NodeVisitor5visitEPNS_5ScxmlE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN13DocumentModel11NodeVisitor8endVisitEPNS_5ScxmlE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_DocumentModel_NodeVisitor": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN13DocumentModel11NodeVisitor5visitEPNS_11DataElementE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN13DocumentModel11NodeVisitor5visitEPNS_5ParamE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN13DocumentModel11NodeVisitor5visitEPNS_8DoneDataE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN13DocumentModel11NodeVisitor8endVisitEPNS_8DoneDataE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN13DocumentModel11NodeVisitor5visitEPNS_4SendE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN13DocumentModel11NodeVisitor8endVisitEPNS_4SendE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN13DocumentModel11NodeVisitor5visitEPNS_6InvokeE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN13DocumentModel11NodeVisitor8endVisitEPNS_6InvokeE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN13DocumentModel11NodeVisitor5visitEPNS_5RaiseE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN13DocumentModel11NodeVisitor5visitEPNS_3LogE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN13DocumentModel11NodeVisitor5visitEPNS_6ScriptE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN13DocumentModel11NodeVisitor5visitEPNS_6AssignE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN13DocumentModel11NodeVisitor5visitEPNS_2IfE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN13DocumentModel11NodeVisitor8endVisitEPNS_2IfE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN13DocumentModel11NodeVisitor5visitEPNS_7ForeachE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN13DocumentModel11NodeVisitor8endVisitEPNS_7ForeachE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN13DocumentModel11NodeVisitor5visitEPNS_6CancelE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN13DocumentModel11NodeVisitor5visitEPNS_5StateE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN13DocumentModel11NodeVisitor8endVisitEPNS_5StateE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN13DocumentModel11NodeVisitor5visitEPNS_10TransitionE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN13DocumentModel11NodeVisitor8endVisitEPNS_10TransitionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN13DocumentModel11NodeVisitor5visitEPNS_12HistoryStateE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN13DocumentModel11NodeVisitor8endVisitEPNS_12HistoryStateE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN13DocumentModel11NodeVisitor5visitEPNS_5ScxmlE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN13DocumentModel11NodeVisitor8endVisitEPNS_5ScxmlE": [
+      "nothing", "address", "address"
+    ]
+  }
+}

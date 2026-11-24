@@ -1,0 +1,28 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSvg/6.12.0/QtSvg/private/qsvgfilter_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QSvgFeGaussianBlurC1EP8QSvgNodeRK7QStringS4_RK9QSvgRectFddNS_8EdgeModeE": [
+      "address", "address", "text", "text", "address", "double", "double",
+      "unsigned char"
+    ],
+    "ritual_ZN18QSvgFeGaussianBlurD1Ev": ["nothing", "address"],
+    "ritual_ZNK18QSvgFeGaussianBlur4typeEv": ["int", "address"],
+    "ritual_ZNK18QSvgFeGaussianBlur5applyERK4QMapI7QString6QImageEP8QPainterRK6QRectFSA_N5QtSvg9UnitTypesESC_": [
+      "address", "address", "address", "address", "address", "address",
+      "unsigned int", "unsigned int"
+    ],
+    "ritual_ZNK18QSvgFeGaussianBlur13stdDeviationXEv": ["double", "address"],
+    "ritual_ZNK18QSvgFeGaussianBlur13stdDeviationYEv": ["double", "address"],
+    "ritual_ZNK18QSvgFeGaussianBlur8edgeModeEv": [
+      "unsigned char", "address"
+    ],
+    "ritual_take_QSvgFeGaussianBlur": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK18QSvgFeGaussianBlur4typeEv": ["int", "address"]
+  }
+}

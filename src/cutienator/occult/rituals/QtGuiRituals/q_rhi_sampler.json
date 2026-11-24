@@ -1,0 +1,41 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/rhi/qrhi.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK11QRhiSampler12resourceTypeEv": ["int", "address"],
+    "ritual_ZNK11QRhiSampler9magFilterEv": ["int", "address"],
+    "ritual_ZN11QRhiSampler12setMagFilterENS_6FilterE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11QRhiSampler9minFilterEv": ["int", "address"],
+    "ritual_ZN11QRhiSampler12setMinFilterENS_6FilterE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11QRhiSampler10mipmapModeEv": ["int", "address"],
+    "ritual_ZN11QRhiSampler13setMipmapModeENS_6FilterE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11QRhiSampler8addressUEv": ["int", "address"],
+    "ritual_ZN11QRhiSampler11setAddressUENS_11AddressModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11QRhiSampler8addressVEv": ["int", "address"],
+    "ritual_ZN11QRhiSampler11setAddressVENS_11AddressModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11QRhiSampler8addressWEv": ["int", "address"],
+    "ritual_ZN11QRhiSampler11setAddressWENS_11AddressModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11QRhiSampler16textureCompareOpEv": ["int", "address"],
+    "ritual_ZN11QRhiSampler19setTextureCompareOpENS_9CompareOpE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN11QRhiSampler6createEv": ["bool", "address"],
+    "ritual_take_QRhiSampler": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK11QRhiSampler12resourceTypeEv": ["int", "address"]
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/6.12.0/QtCharts/private/qsplineseries_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK20QSplineSeriesPrivate10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QSplineSeriesPrivate2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN20QSplineSeriesPrivateC1EP13QSplineSeries": [
+      "address", "address"
+    ],
+    "ritual_ZN20QSplineSeriesPrivate15initializeThemeEiP10ChartThemeb": [
+      "nothing", "address", "int", "address", "bool"
+    ],
+    "ritual_ZN20QSplineSeriesPrivate18initializeGraphicsEP13QGraphicsItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QSplineSeriesPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK20QSplineSeriesPrivate6q_funcEv": ["address", "address"],
+    "ritual_own_ZN20QSplineSeriesPrivate15initializeThemeEiP10ChartThemeb": [
+      "nothing", "address", "int", "address", "bool"
+    ],
+    "ritual_own_ZN20QSplineSeriesPrivate18initializeGraphicsEP13QGraphicsItem": [
+      "nothing", "address", "address"
+    ]
+  }
+}

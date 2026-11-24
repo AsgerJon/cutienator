@@ -1,0 +1,65 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/6.12.0/QtCharts/private/bar_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK3Bar10metaObjectEv": ["address", "address"],
+    "ritual_ZN3Bar2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN3BarC1EP7QBarSetP13QGraphicsItem": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN3BarD1Ev": ["nothing", "address"],
+    "ritual_ZN3Bar15mousePressEventEP24QGraphicsSceneMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN3Bar15hoverEnterEventEP24QGraphicsSceneHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN3Bar15hoverLeaveEventEP24QGraphicsSceneHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN3Bar17mouseReleaseEventEP24QGraphicsSceneMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN3Bar21mouseDoubleClickEventEP24QGraphicsSceneMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN3Bar5paintEP8QPainterPK24QStyleOptionGraphicsItemP7QWidget": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN3Bar15setVisualsDirtyEb": ["nothing", "address", "bool"],
+    "ritual_ZNK3Bar12visualsDirtyEv": ["bool", "address"],
+    "ritual_ZN3Bar13setLabelDirtyEb": ["nothing", "address", "bool"],
+    "ritual_ZNK3Bar10labelDirtyEv": ["bool", "address"],
+    "ritual_ZN3Bar12setLabelItemEP17QGraphicsTextItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK3Bar9labelItemEv": ["address", "address"],
+    "ritual_ZN3Bar8setIndexEi": ["nothing", "address", "int"],
+    "ritual_ZNK3Bar5indexEv": ["int", "address"],
+    "ritual_ZN3Bar14setLayoutIndexEi": ["nothing", "address", "int"],
+    "ritual_ZNK3Bar11layoutIndexEv": ["int", "address"],
+    "ritual_cast_Bar_QGraphicsRectItem": ["address", "address"],
+    "ritual_take_Bar": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN3Bar15mousePressEventEP24QGraphicsSceneMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN3Bar15hoverEnterEventEP24QGraphicsSceneHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN3Bar15hoverLeaveEventEP24QGraphicsSceneHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN3Bar17mouseReleaseEventEP24QGraphicsSceneMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN3Bar21mouseDoubleClickEventEP24QGraphicsSceneMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN3Bar5paintEP8QPainterPK24QStyleOptionGraphicsItemP7QWidget": [
+      "nothing", "address", "address", "address", "address"
+    ]
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Controls2Imagine/6.12.0/QtQuickControls2Imagine/private/qquickimag",
+    "inetheme_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QQuickImagineTheme10initializeEP11QQuickTheme": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickImagineThemeD1Ev": ["nothing", "address"]
+  }
+}

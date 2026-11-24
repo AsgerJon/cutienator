@@ -1,8 +1,12 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGui/6.12.0/QtGui/private/qbackingstorerhisupport_p.h, Qt 6.12.0.
 //  Changes made here are lost.
+#include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
 #include <QtGui/QtGui>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/6.12.0/QtGui/private/qbackingstorerhisupport_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include "qbackingstorerhisupport_p.h"
 #include <qpa/qplatformintegration.h>
 #include <private/qguiapplication_p.h>
@@ -13,13 +17,14 @@
 #if QT_CONFIG(vulkan)
 #include <QtGui/private/qvulkandefaultinstance_p.h>
 #endif
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
 //  Qt's source, because Qt's library carries it under no name.
 //  Copyright (C) The Qt Company Ltd. It is licensed
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
-//  'inline' put before it.
+//  'inline' put before it where Qt did not write it.
 
 //  from src/gui/painting/qbackingstorerhisupport.cpp, line 25, as _ZN23QBackingStoreRhiSupport13SwapchainData5resetEv
 inline void QBackingStoreRhiSupport::SwapchainData::reset()
@@ -49,6 +54,14 @@ inline bool QBackingStoreRhiSupportWindowWatcher::eventFilter(QObject *obj, QEve
     return false;
 }
 //  -----------------------------------------------------------------------
+
+//  QBackingStoreRhiSupportWindowWatcher::QBackingStoreRhiSupportWindowWatche
+//      r(QBackingStoreRhiSupport *rhiSupport)
+extern "C" Q_DECL_EXPORT
+QBackingStoreRhiSupportWindowWatcher *ritual_ZN36QBackingStoreRhiSupportWindowWatcherC1EP23QBackingStoreRhiSupport(
+    QBackingStoreRhiSupport *rhiSupport) {
+  return new QBackingStoreRhiSupportWindowWatcher(rhiSupport);
+}
 
 //  bool QBackingStoreRhiSupportWindowWatcher::eventFilter(QObject *obj,
 //      QEvent *ev)

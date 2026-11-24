@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSql/6.12.0/QtSql/private/qsqlcachedresult_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN23QSqlCachedResultPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK23QSqlCachedResultPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK23QSqlCachedResultPrivate7canSeekEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK23QSqlCachedResultPrivate10cacheCountEv": ["int", "address"],
+    "ritual_ZN23QSqlCachedResultPrivate4initEib": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZN23QSqlCachedResultPrivate7cleanupEv": ["nothing", "address"],
+    "ritual_ZN23QSqlCachedResultPrivate9nextIndexEv": ["int", "address"],
+    "ritual_ZN23QSqlCachedResultPrivate10revertLastEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QSqlCachedResultPrivateD1Ev": ["nothing", "address"],
+    "ritual_take_QSqlCachedResultPrivate": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

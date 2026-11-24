@@ -1,0 +1,75 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qsgsoftwarerenderablenode_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN25QSGSoftwareRenderableNodeC1ENS_8NodeTypeEP7QSGNode": [
+      "address", "int", "address"
+    ],
+    "ritual_ZN25QSGSoftwareRenderableNodeD1Ev": ["nothing", "address"],
+    "ritual_ZN25QSGSoftwareRenderableNode6updateEv": ["nothing", "address"],
+    "ritual_ZN25QSGSoftwareRenderableNode10renderNodeEP8QPainterb": [
+      "address", "address", "address", "bool"
+    ],
+    "ritual_ZNK25QSGSoftwareRenderableNode15boundingRectMinEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK25QSGSoftwareRenderableNode15boundingRectMaxEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK25QSGSoftwareRenderableNode4typeEv": ["int", "address"],
+    "ritual_ZNK25QSGSoftwareRenderableNode8isOpaqueEv": ["bool", "address"],
+    "ritual_ZNK25QSGSoftwareRenderableNode7isDirtyEv": ["bool", "address"],
+    "ritual_ZNK25QSGSoftwareRenderableNode18isDirtyRegionEmptyEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK25QSGSoftwareRenderableNode6handleEv": ["address", "address"],
+    "ritual_ZN25QSGSoftwareRenderableNode12setTransformERK10QTransform": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QSGSoftwareRenderableNode13setClipRegionERK7QRegionb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN25QSGSoftwareRenderableNode10setOpacityEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK25QSGSoftwareRenderableNode9transformEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK25QSGSoftwareRenderableNode10clipRegionEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK25QSGSoftwareRenderableNode7opacityEv": ["float", "address"],
+    "ritual_ZN25QSGSoftwareRenderableNode17markGeometryDirtyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QSGSoftwareRenderableNode17markMaterialDirtyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QSGSoftwareRenderableNode14addDirtyRegionERK7QRegionb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN25QSGSoftwareRenderableNode19subtractDirtyRegionERK7QRegion": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK25QSGSoftwareRenderableNode19previousDirtyRegionEb": [
+      "address", "address", "bool"
+    ],
+    "ritual_ZNK25QSGSoftwareRenderableNode11dirtyRegionEv": [
+      "address", "address"
+    ],
+    "ritual_list_make_QSGSoftwareRenderableNode_ptr": ["address"],
+    "ritual_list_add_QSGSoftwareRenderableNode_ptr": [
+      "nothing", "address", "address"
+    ],
+    "ritual_list_size_QSGSoftwareRenderableNode_ptr": [
+      "long long", "address"
+    ],
+    "ritual_list_at_QSGSoftwareRenderableNode_ptr": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_QSGSoftwareRenderableNode_ptr": ["nothing", "address"]
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/qareaseries.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK11QAreaSeries10metaObjectEv": ["address", "address"],
+    "ritual_ZN11QAreaSeries2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN11QAreaSeriesC1EP7QObject": ["address", "address"],
+    "ritual_ZN11QAreaSeriesC1EP11QLineSeriesS1_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN11QAreaSeriesD1Ev": ["nothing", "address"],
+    "ritual_ZNK11QAreaSeries4typeEv": ["int", "address"],
+    "ritual_ZN11QAreaSeries14setUpperSeriesEP11QLineSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QAreaSeries11upperSeriesEv": ["address", "address"],
+    "ritual_ZN11QAreaSeries14setLowerSeriesEP11QLineSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QAreaSeries11lowerSeriesEv": ["address", "address"],
+    "ritual_ZN11QAreaSeries6setPenERK4QPen": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QAreaSeries3penEv": ["address", "address"],
+    "ritual_ZN11QAreaSeries8setBrushERK6QBrush": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QAreaSeries5brushEv": ["address", "address"],
+    "ritual_ZN11QAreaSeries8setColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QAreaSeries5colorEv": ["address", "address"],
+    "ritual_ZN11QAreaSeries14setBorderColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QAreaSeries11borderColorEv": ["address", "address"],
+    "ritual_ZN11QAreaSeries16setPointsVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK11QAreaSeries13pointsVisibleEv": ["bool", "address"],
+    "ritual_ZN11QAreaSeries20setPointLabelsFormatERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK11QAreaSeries17pointLabelsFormatEv": ["text", "address"],
+    "ritual_ZN11QAreaSeries21setPointLabelsVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK11QAreaSeries18pointLabelsVisibleEv": ["bool", "address"],
+    "ritual_ZN11QAreaSeries18setPointLabelsFontERK5QFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QAreaSeries15pointLabelsFontEv": ["address", "address"],
+    "ritual_ZN11QAreaSeries19setPointLabelsColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QAreaSeries16pointLabelsColorEv": ["address", "address"],
+    "ritual_ZN11QAreaSeries22setPointLabelsClippingEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK11QAreaSeries19pointLabelsClippingEv": ["bool", "address"],
+    "ritual_ZN11QAreaSeries6d_funcEv": ["address", "address"],
+    "ritual_ZNK11QAreaSeries6d_funcEv": ["address", "address"],
+    "ritual_take_QAreaSeries": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK11QAreaSeries4typeEv": ["int", "address"]
+  }
+}

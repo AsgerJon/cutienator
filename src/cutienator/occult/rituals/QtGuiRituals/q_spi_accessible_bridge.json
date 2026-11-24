@@ -1,0 +1,40 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qspiaccessiblebridge_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK20QSpiAccessibleBridge10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QSpiAccessibleBridge2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN20QSpiAccessibleBridgeC1Ev": ["address"],
+    "ritual_ZN20QSpiAccessibleBridgeD1Ev": ["nothing", "address"],
+    "ritual_ZN20QSpiAccessibleBridge25notifyAccessibilityUpdateEP16QAccessibleEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QSpiAccessibleBridge14dBusConnectionEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QSpiAccessibleBridge8instanceEv": ["address"],
+    "ritual_ZN20QSpiAccessibleBridge14enabledChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20QSpiAccessibleBridge26initializeConstantMappingsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QSpiAccessibleBridge12updateStatusEv": [
+      "nothing", "address"
+    ],
+    "ritual_cast_QSpiAccessibleBridge_QPlatformAccessibility": [
+      "address", "address"
+    ],
+    "ritual_take_QSpiAccessibleBridge": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN20QSpiAccessibleBridge25notifyAccessibilityUpdateEP16QAccessibleEvent": [
+      "nothing", "address", "address"
+    ]
+  }
+}

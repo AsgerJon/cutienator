@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDBus/6.12.0/QtDBus/private/qdbusabstractadaptor_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN27QDBusAbstractAdaptorPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK27QDBusAbstractAdaptorPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QDBusAbstractAdaptorPrivateC1Ev": ["address"],
+    "ritual_ZN27QDBusAbstractAdaptorPrivate24retrieveIntrospectionXmlEP20QDBusAbstractAdaptor": [
+      "text", "address"
+    ],
+    "ritual_ZN27QDBusAbstractAdaptorPrivate20saveIntrospectionXmlEP20QDBusAbstractAdaptorRK7QString": [
+      "nothing", "address", "text"
+    ]
+  }
+}

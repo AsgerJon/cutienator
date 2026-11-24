@@ -1,0 +1,31 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qiooperation_p_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN9QtPrivate23QIOOperationDataStorageC1Ev": ["address"],
+    "ritual_ZN9QtPrivate23QIOOperationDataStorageC1ERK10QByteArray": [
+      "address", "address"
+    ],
+    "ritual_ZNK9QtPrivate23QIOOperationDataStorage7isEmptyEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK9QtPrivate23QIOOperationDataStorage17containsReadSpansEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK9QtPrivate23QIOOperationDataStorage18containsWriteSpansEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK9QtPrivate23QIOOperationDataStorage17containsByteArrayEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK9QtPrivate23QIOOperationDataStorage12getByteArrayEv": [
+      "address", "address"
+    ],
+    "ritual_ZN9QtPrivate23QIOOperationDataStorageD1Ev": [
+      "nothing", "address"
+    ]
+  }
+}

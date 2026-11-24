@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qtreewidgetitemiterator.h, Qt 6.12.0. Changes made here are
 //  lost.
+#include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(treewidget)
 #include <QtWidgets/qtreewidgetitemiterator.h>
 
 //  QTreeWidgetItemIterator::QTreeWidgetItemIterator(const
@@ -86,3 +88,20 @@ bool ritual_ZNK23QTreeWidgetItemIterator12matchesFlagsEPK15QTreeWidgetItem(
     const QTreeWidgetItem *item) {
   return self->matchesFlags(item);
 }
+
+//  QTreeWidgetItemIteratorPrivate *QTreeWidgetItemIterator::d_func()
+extern "C" Q_DECL_EXPORT
+QTreeWidgetItemIteratorPrivate *ritual_ZN23QTreeWidgetItemIterator6d_funcEv(
+    QTreeWidgetItemIterator *self) {
+  return self->d_func();
+}
+
+//  const QTreeWidgetItemIteratorPrivate *QTreeWidgetItemIterator::d_func()
+//      const
+extern "C" Q_DECL_EXPORT
+const QTreeWidgetItemIteratorPrivate *ritual_ZNK23QTreeWidgetItemIterator6d_funcEv(
+    const QTreeWidgetItemIterator *self) {
+  return self->d_func();
+}
+
+#endif  // QT_CONFIG(treewidget)

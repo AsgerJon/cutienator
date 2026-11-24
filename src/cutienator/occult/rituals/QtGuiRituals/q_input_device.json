@@ -6,6 +6,8 @@
   "rows": {
     "ritual_ZNK12QInputDevice10metaObjectEv": ["address", "address"],
     "ritual_ZN12QInputDevice2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN12QInputDevice6d_funcEv": ["address", "address"],
+    "ritual_ZNK12QInputDevice6d_funcEv": ["address", "address"],
     "ritual_ZN12QInputDeviceC1EP7QObject": ["address", "address"],
     "ritual_ZN12QInputDeviceD1Ev": ["nothing", "address"],
     "ritual_ZN12QInputDeviceC1ERK7QStringxNS_10DeviceTypeES2_P7QObject": [

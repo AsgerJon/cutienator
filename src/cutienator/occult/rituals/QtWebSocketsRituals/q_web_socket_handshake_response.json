@@ -1,0 +1,36 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtWebSo",
+    "ckets/6.12.0/QtWebSockets/private/qwebsockethandshakeresponse_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK27QWebSocketHandshakeResponse10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QWebSocketHandshakeResponseD1Ev": ["nothing", "address"],
+    "ritual_ZNK27QWebSocketHandshakeResponse7isValidEv": ["bool", "address"],
+    "ritual_ZNK27QWebSocketHandshakeResponse10canUpgradeEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK27QWebSocketHandshakeResponse16acceptedProtocolEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK27QWebSocketHandshakeResponse17acceptedExtensionEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK27QWebSocketHandshakeResponse15acceptedVersionEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK27QWebSocketHandshakeResponse5errorEv": ["int", "address"],
+    "ritual_ZNK27QWebSocketHandshakeResponse11errorStringEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK27QWebSocketHandshakeResponse18calculateAcceptKeyERK7QString": [
+      "text", "address", "text"
+    ],
+    "ritual_take_QWebSocketHandshakeResponse": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

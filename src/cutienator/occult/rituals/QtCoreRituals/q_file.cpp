@@ -27,13 +27,27 @@ typedef bool (*CuteQFileCall14)(const void *, int *);
 typedef bool (*CuteQFileCall15)(const void *, int, int *);
 typedef bool (*CuteQFileCall16)(const void *, int, int *);
 typedef qint64 (*CuteQFileCall17)(const void *, qint64, int *);
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQFileCall18)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQFileCall19)(const void *, QObject *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQFileCall20)(const void *, QTimerEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQFileCall21)(const void *, QChildEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQFileCall22)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQFileCall23)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQFileCall24)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 class CuteQFile : public QFile {
 public:
   using QFile::QFile;
@@ -112,34 +126,48 @@ public:
       taken[17] = call;
       return true;
     }
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[18] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[19] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[20] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[21] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[22] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[23] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
       taken[24] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
     return false;
   }
 
@@ -345,6 +373,7 @@ public:
     return QIODevice::skipData(maxSize);
   }
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QObject::event(QEvent *event)
   bool event(QEvent *event) override {
     if (taken[18]) {
@@ -355,7 +384,9 @@ public:
     }
     return QObject::event(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
     if (taken[19]) {
@@ -366,7 +397,9 @@ public:
     }
     return QObject::eventFilter(watched, event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
     if (taken[20]) {
@@ -377,7 +410,9 @@ public:
     }
     QObject::timerEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
     if (taken[21]) {
@@ -388,7 +423,9 @@ public:
     }
     QObject::childEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
     if (taken[22]) {
@@ -399,7 +436,9 @@ public:
     }
     QObject::customEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
     if (taken[23]) {
@@ -410,7 +449,9 @@ public:
     }
     QObject::connectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
     if (taken[24]) {
@@ -421,18 +462,35 @@ public:
     }
     QObject::disconnectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 };
 
+#if !defined(QT_NO_QOBJECT)
 //  const QMetaObject *QFile::metaObject() const
 extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK5QFile10metaObjectEv(const QFile *self) {
   return self->metaObject();
 }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
 //  QString QFile::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN5QFile2trEPKcS1_i(const char *s, const char *c, int n) {
   return new QString(QFile::tr(s, c, n));
+}
+#endif  // !defined(QT_NO_QOBJECT)
+
+//  QFilePrivate *QFile::d_func()
+extern "C" Q_DECL_EXPORT
+QFilePrivate *ritual_ZN5QFile6d_funcEv(QFile *self) {
+  return self->d_func();
+}
+
+//  const QFilePrivate *QFile::d_func() const
+extern "C" Q_DECL_EXPORT
+const QFilePrivate *ritual_ZNK5QFile6d_funcEv(const QFile *self) {
+  return self->d_func();
 }
 
 //  QFile::QFile()
@@ -447,12 +505,15 @@ QFile *ritual_ZN5QFileC1ERK7QString(const QString *name) {
   return new CuteQFile(*name);
 }
 
+#if !defined(QT_NO_QOBJECT)
 //  QFile::QFile(QObject *parent)
 extern "C" Q_DECL_EXPORT
 QFile *ritual_ZN5QFileC1EP7QObject(QObject *parent) {
   return new CuteQFile(parent);
 }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
 //  QFile::QFile(const QString &name, QObject *parent)
 extern "C" Q_DECL_EXPORT
 QFile *ritual_ZN5QFileC1ERK7QStringP7QObject(
@@ -460,6 +521,7 @@ QFile *ritual_ZN5QFileC1ERK7QStringP7QObject(
     QObject *parent) {
   return new CuteQFile(*name, parent);
 }
+#endif  // !defined(QT_NO_QOBJECT)
 
 //  QFile::~QFile()
 extern "C" Q_DECL_EXPORT
@@ -481,24 +543,30 @@ void ritual_ZN5QFile11setFileNameERK7QString(
   self->setFileName(*name);
 }
 
+#if !(defined(Q_OS_DARWIN))
 //  QByteArray QFile::encodeName(const QString &fileName)
 extern "C" Q_DECL_EXPORT
 QByteArray *ritual_ZN5QFile10encodeNameERK7QString(const QString *fileName) {
   return new QByteArray(QFile::encodeName(*fileName));
 }
+#endif  // !(defined(Q_OS_DARWIN))
 
+#if !(defined(Q_OS_DARWIN))
 //  QString QFile::decodeName(const QByteArray &localFileName)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN5QFile10decodeNameERK10QByteArray(
     const QByteArray *localFileName) {
   return new QString(QFile::decodeName(*localFileName));
 }
+#endif  // !(defined(Q_OS_DARWIN))
 
+#if !(defined(Q_OS_DARWIN))
 //  QString QFile::decodeName(const char *localFileName)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN5QFile10decodeNameEPKc(const char *localFileName) {
   return new QString(QFile::decodeName(localFileName));
 }
+#endif  // !(defined(Q_OS_DARWIN))
 
 //  bool QFile::exists() const
 extern "C" Q_DECL_EXPORT

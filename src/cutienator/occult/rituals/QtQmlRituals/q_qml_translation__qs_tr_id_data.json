@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmltranslation_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QQmlTranslation10QsTrIdDataC1ERK7QStringi": [
+      "address", "text", "int"
+    ],
+    "ritual_ZNK15QQmlTranslation10QsTrIdData9translateEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK15QQmlTranslation10QsTrIdData2idEv": ["address", "address"],
+    "ritual_ZNK15QQmlTranslation10QsTrIdData6numberEv": ["int", "address"],
+    "ritual_ZN15QQmlTranslation10QsTrIdDataD1Ev": ["nothing", "address"]
+  }
+}

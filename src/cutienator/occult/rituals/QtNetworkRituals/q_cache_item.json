@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/6.12.0/QtNetwork/private/qnetworkdiskcache_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN10QCacheItemC1Ev": ["address"],
+    "ritual_ZN10QCacheItemD1Ev": ["nothing", "address"],
+    "ritual_ZNK10QCacheItem4sizeEv": ["long long", "address"],
+    "ritual_ZN10QCacheItem5resetEv": ["nothing", "address"],
+    "ritual_ZNK10QCacheItem19writeCompressedDataEP11QFileDevice": [
+      "nothing", "address", "address"
+    ]
+  }
+}

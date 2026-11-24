@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qinputdialog.h, Qt 6.12.0. Changes made here are lost.
+#include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(inputdialog)
 #include <QtWidgets/qinputdialog.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qsize.h>
@@ -11,30 +13,68 @@
 //  A QInputDialog that Python can take functions over in. Every QInputDialog
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if QT_CONFIG(inputdialog)
 typedef const QSize * (*CuteQInputDialogCall0)(const void *, int *);
+#endif  // QT_CONFIG(inputdialog)
+#if QT_CONFIG(inputdialog)
 typedef const QSize * (*CuteQInputDialogCall1)(const void *, int *);
+#endif  // QT_CONFIG(inputdialog)
+#if QT_CONFIG(inputdialog)
 typedef void (*CuteQInputDialogCall2)(const void *, bool, int *);
+#endif  // QT_CONFIG(inputdialog)
+#if QT_CONFIG(dialog)
+#if QT_CONFIG(inputdialog)
 typedef void (*CuteQInputDialogCall3)(const void *, int, int *);
+#endif  // QT_CONFIG(inputdialog)
+#endif  // QT_CONFIG(dialog)
+#if QT_CONFIG(dialog)
 typedef void (*CuteQInputDialogCall4)(const void *, int *);
+#endif  // QT_CONFIG(dialog)
+#if QT_CONFIG(dialog)
 typedef int (*CuteQInputDialogCall5)(const void *, int *);
+#endif  // QT_CONFIG(dialog)
+#if QT_CONFIG(dialog)
 typedef void (*CuteQInputDialogCall6)(const void *, int *);
+#endif  // QT_CONFIG(dialog)
+#if QT_CONFIG(dialog)
 typedef void (*CuteQInputDialogCall7)(const void *, int *);
+#endif  // QT_CONFIG(dialog)
+#if QT_CONFIG(dialog)
 typedef void (*CuteQInputDialogCall8)(const void *, QKeyEvent *, int *);
+#endif  // QT_CONFIG(dialog)
+#if QT_CONFIG(dialog)
 typedef void (*CuteQInputDialogCall9)(const void *, QCloseEvent *, int *);
+#endif  // QT_CONFIG(dialog)
+#if QT_CONFIG(dialog)
 typedef void (*CuteQInputDialogCall10)(const void *, QShowEvent *, int *);
+#endif  // QT_CONFIG(dialog)
+#if QT_CONFIG(dialog)
 typedef void (*CuteQInputDialogCall11)(const void *, QResizeEvent *, int *);
+#endif  // QT_CONFIG(dialog)
+#if !defined(QT_NO_CONTEXTMENU)
+#if QT_CONFIG(dialog)
 typedef void (*CuteQInputDialogCall12)(const void *, QContextMenuEvent *, int *);
+#endif  // QT_CONFIG(dialog)
+#endif  // !defined(QT_NO_CONTEXTMENU)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(dialog)
 typedef bool (*CuteQInputDialogCall13)(const void *, QObject *, QEvent *, int *);
+#endif  // QT_CONFIG(dialog)
+#endif  // !defined(QT_NO_QOBJECT)
 typedef int (*CuteQInputDialogCall14)(const void *, int *);
 typedef int (*CuteQInputDialogCall15)(const void *, int, int *);
 typedef bool (*CuteQInputDialogCall16)(const void *, int *);
 typedef void * (*CuteQInputDialogCall17)(const void *, int *);
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQInputDialogCall18)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 typedef void (*CuteQInputDialogCall19)(const void *, QMouseEvent *, int *);
 typedef void (*CuteQInputDialogCall20)(const void *, QMouseEvent *, int *);
 typedef void (*CuteQInputDialogCall21)(const void *, QMouseEvent *, int *);
 typedef void (*CuteQInputDialogCall22)(const void *, QMouseEvent *, int *);
+#if QT_CONFIG(wheelevent)
 typedef void (*CuteQInputDialogCall23)(const void *, QWheelEvent *, int *);
+#endif  // QT_CONFIG(wheelevent)
 typedef void (*CuteQInputDialogCall24)(const void *, QKeyEvent *, int *);
 typedef void (*CuteQInputDialogCall25)(const void *, QFocusEvent *, int *);
 typedef void (*CuteQInputDialogCall26)(const void *, QFocusEvent *, int *);
@@ -42,12 +82,24 @@ typedef void (*CuteQInputDialogCall27)(const void *, QEnterEvent *, int *);
 typedef void (*CuteQInputDialogCall28)(const void *, QEvent *, int *);
 typedef void (*CuteQInputDialogCall29)(const void *, QPaintEvent *, int *);
 typedef void (*CuteQInputDialogCall30)(const void *, QMoveEvent *, int *);
+#if QT_CONFIG(tabletevent)
 typedef void (*CuteQInputDialogCall31)(const void *, QTabletEvent *, int *);
+#endif  // QT_CONFIG(tabletevent)
+#if !defined(QT_NO_ACTION)
 typedef void (*CuteQInputDialogCall32)(const void *, QActionEvent *, int *);
+#endif  // !defined(QT_NO_ACTION)
+#if QT_CONFIG(draganddrop)
 typedef void (*CuteQInputDialogCall33)(const void *, QDragEnterEvent *, int *);
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
 typedef void (*CuteQInputDialogCall34)(const void *, QDragMoveEvent *, int *);
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
 typedef void (*CuteQInputDialogCall35)(const void *, QDragLeaveEvent *, int *);
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
 typedef void (*CuteQInputDialogCall36)(const void *, QDropEvent *, int *);
+#endif  // QT_CONFIG(draganddrop)
 typedef void (*CuteQInputDialogCall37)(const void *, QHideEvent *, int *);
 typedef void (*CuteQInputDialogCall38)(const void *, QEvent *, int *);
 typedef int (*CuteQInputDialogCall39)(const void *, int, int *);
@@ -57,73 +109,117 @@ typedef void * (*CuteQInputDialogCall42)(const void *, int *);
 typedef void (*CuteQInputDialogCall43)(const void *, QInputMethodEvent *, int *);
 typedef const QVariant * (*CuteQInputDialogCall44)(const void *, int, int *);
 typedef bool (*CuteQInputDialogCall45)(const void *, bool, int *);
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQInputDialogCall46)(const void *, QTimerEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQInputDialogCall47)(const void *, QChildEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQInputDialogCall48)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQInputDialogCall49)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQInputDialogCall50)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 class CuteQInputDialog : public QInputDialog {
 public:
   using QInputDialog::QInputDialog;
   void *taken[51] = {};
 
   bool take(const char *key, void *call) {
+#if QT_CONFIG(inputdialog)
     if (!std::strcmp(key, "_ZNK7QWidget15minimumSizeHintEv")) {
       taken[0] = call;
       return true;
     }
+#endif  // QT_CONFIG(inputdialog)
+#if QT_CONFIG(inputdialog)
     if (!std::strcmp(key, "_ZNK7QWidget8sizeHintEv")) {
       taken[1] = call;
       return true;
     }
+#endif  // QT_CONFIG(inputdialog)
+#if QT_CONFIG(inputdialog)
     if (!std::strcmp(key, "_ZN7QWidget10setVisibleEb")) {
       taken[2] = call;
       return true;
     }
+#endif  // QT_CONFIG(inputdialog)
+#if QT_CONFIG(dialog)
+#if QT_CONFIG(inputdialog)
     if (!std::strcmp(key, "_ZN7QDialog4doneEi")) {
       taken[3] = call;
       return true;
     }
+#endif  // QT_CONFIG(inputdialog)
+#endif  // QT_CONFIG(dialog)
+#if QT_CONFIG(dialog)
     if (!std::strcmp(key, "_ZN7QDialog4openEv")) {
       taken[4] = call;
       return true;
     }
+#endif  // QT_CONFIG(dialog)
+#if QT_CONFIG(dialog)
     if (!std::strcmp(key, "_ZN7QDialog4execEv")) {
       taken[5] = call;
       return true;
     }
+#endif  // QT_CONFIG(dialog)
+#if QT_CONFIG(dialog)
     if (!std::strcmp(key, "_ZN7QDialog6acceptEv")) {
       taken[6] = call;
       return true;
     }
+#endif  // QT_CONFIG(dialog)
+#if QT_CONFIG(dialog)
     if (!std::strcmp(key, "_ZN7QDialog6rejectEv")) {
       taken[7] = call;
       return true;
     }
+#endif  // QT_CONFIG(dialog)
+#if QT_CONFIG(dialog)
     if (!std::strcmp(key, "_ZN7QWidget13keyPressEventEP9QKeyEvent")) {
       taken[8] = call;
       return true;
     }
+#endif  // QT_CONFIG(dialog)
+#if QT_CONFIG(dialog)
     if (!std::strcmp(key, "_ZN7QWidget10closeEventEP11QCloseEvent")) {
       taken[9] = call;
       return true;
     }
+#endif  // QT_CONFIG(dialog)
+#if QT_CONFIG(dialog)
     if (!std::strcmp(key, "_ZN7QWidget9showEventEP10QShowEvent")) {
       taken[10] = call;
       return true;
     }
+#endif  // QT_CONFIG(dialog)
+#if QT_CONFIG(dialog)
     if (!std::strcmp(key, "_ZN7QWidget11resizeEventEP12QResizeEvent")) {
       taken[11] = call;
       return true;
     }
+#endif  // QT_CONFIG(dialog)
+#if !defined(QT_NO_CONTEXTMENU)
+#if QT_CONFIG(dialog)
     if (!std::strcmp(key, "_ZN7QWidget16contextMenuEventEP17QContextMenuEvent")) {
       taken[12] = call;
       return true;
     }
+#endif  // QT_CONFIG(dialog)
+#endif  // !defined(QT_NO_CONTEXTMENU)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(dialog)
     if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[13] = call;
       return true;
     }
+#endif  // QT_CONFIG(dialog)
+#endif  // !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZNK12QPaintDevice7devTypeEv")) {
       taken[14] = call;
       return true;
@@ -140,10 +236,12 @@ public:
       taken[17] = call;
       return true;
     }
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[18] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QWidget15mousePressEventEP11QMouseEvent")) {
       taken[19] = call;
       return true;
@@ -160,10 +258,12 @@ public:
       taken[22] = call;
       return true;
     }
+#if QT_CONFIG(wheelevent)
     if (!std::strcmp(key, "_ZN7QWidget10wheelEventEP11QWheelEvent")) {
       taken[23] = call;
       return true;
     }
+#endif  // QT_CONFIG(wheelevent)
     if (!std::strcmp(key, "_ZN7QWidget15keyReleaseEventEP9QKeyEvent")) {
       taken[24] = call;
       return true;
@@ -192,30 +292,42 @@ public:
       taken[30] = call;
       return true;
     }
+#if QT_CONFIG(tabletevent)
     if (!std::strcmp(key, "_ZN7QWidget11tabletEventEP12QTabletEvent")) {
       taken[31] = call;
       return true;
     }
+#endif  // QT_CONFIG(tabletevent)
+#if !defined(QT_NO_ACTION)
     if (!std::strcmp(key, "_ZN7QWidget11actionEventEP12QActionEvent")) {
       taken[32] = call;
       return true;
     }
+#endif  // !defined(QT_NO_ACTION)
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget14dragEnterEventEP15QDragEnterEvent")) {
       taken[33] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget13dragMoveEventEP14QDragMoveEvent")) {
       taken[34] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget14dragLeaveEventEP15QDragLeaveEvent")) {
       taken[35] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget9dropEventEP10QDropEvent")) {
       taken[36] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget9hideEventEP10QHideEvent")) {
       taken[37] = call;
       return true;
@@ -252,29 +364,40 @@ public:
       taken[45] = call;
       return true;
     }
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[46] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[47] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[48] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[49] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
       taken[50] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
     return false;
   }
 
+#if QT_CONFIG(inputdialog)
   //  QSize QInputDialog::minimumSizeHint() const
   QSize minimumSizeHint() const override {
     if (taken[0]) {
@@ -285,7 +408,9 @@ public:
     }
     return QInputDialog::minimumSizeHint();
   }
+#endif  // QT_CONFIG(inputdialog)
 
+#if QT_CONFIG(inputdialog)
   //  QSize QInputDialog::sizeHint() const
   QSize sizeHint() const override {
     if (taken[1]) {
@@ -296,7 +421,9 @@ public:
     }
     return QInputDialog::sizeHint();
   }
+#endif  // QT_CONFIG(inputdialog)
 
+#if QT_CONFIG(inputdialog)
   //  void QInputDialog::setVisible(bool visible)
   void setVisible(bool visible) override {
     if (taken[2]) {
@@ -307,7 +434,10 @@ public:
     }
     QInputDialog::setVisible(visible);
   }
+#endif  // QT_CONFIG(inputdialog)
 
+#if QT_CONFIG(dialog)
+#if QT_CONFIG(inputdialog)
   //  void QInputDialog::done(int result)
   void done(int result) override {
     if (taken[3]) {
@@ -318,7 +448,10 @@ public:
     }
     QInputDialog::done(result);
   }
+#endif  // QT_CONFIG(inputdialog)
+#endif  // QT_CONFIG(dialog)
 
+#if QT_CONFIG(dialog)
   //  void QDialog::open()
   void open() override {
     if (taken[4]) {
@@ -329,7 +462,9 @@ public:
     }
     QDialog::open();
   }
+#endif  // QT_CONFIG(dialog)
 
+#if QT_CONFIG(dialog)
   //  int QDialog::exec()
   int exec() override {
     if (taken[5]) {
@@ -340,7 +475,9 @@ public:
     }
     return QDialog::exec();
   }
+#endif  // QT_CONFIG(dialog)
 
+#if QT_CONFIG(dialog)
   //  void QDialog::accept()
   void accept() override {
     if (taken[6]) {
@@ -351,7 +488,9 @@ public:
     }
     QDialog::accept();
   }
+#endif  // QT_CONFIG(dialog)
 
+#if QT_CONFIG(dialog)
   //  void QDialog::reject()
   void reject() override {
     if (taken[7]) {
@@ -362,7 +501,9 @@ public:
     }
     QDialog::reject();
   }
+#endif  // QT_CONFIG(dialog)
 
+#if QT_CONFIG(dialog)
   //  void QDialog::keyPressEvent(QKeyEvent *a0)
   void keyPressEvent(QKeyEvent *a0) override {
     if (taken[8]) {
@@ -373,7 +514,9 @@ public:
     }
     QDialog::keyPressEvent(a0);
   }
+#endif  // QT_CONFIG(dialog)
 
+#if QT_CONFIG(dialog)
   //  void QDialog::closeEvent(QCloseEvent *a0)
   void closeEvent(QCloseEvent *a0) override {
     if (taken[9]) {
@@ -384,7 +527,9 @@ public:
     }
     QDialog::closeEvent(a0);
   }
+#endif  // QT_CONFIG(dialog)
 
+#if QT_CONFIG(dialog)
   //  void QDialog::showEvent(QShowEvent *a0)
   void showEvent(QShowEvent *a0) override {
     if (taken[10]) {
@@ -395,7 +540,9 @@ public:
     }
     QDialog::showEvent(a0);
   }
+#endif  // QT_CONFIG(dialog)
 
+#if QT_CONFIG(dialog)
   //  void QDialog::resizeEvent(QResizeEvent *a0)
   void resizeEvent(QResizeEvent *a0) override {
     if (taken[11]) {
@@ -406,7 +553,10 @@ public:
     }
     QDialog::resizeEvent(a0);
   }
+#endif  // QT_CONFIG(dialog)
 
+#if !defined(QT_NO_CONTEXTMENU)
+#if QT_CONFIG(dialog)
   //  void QDialog::contextMenuEvent(QContextMenuEvent *a0)
   void contextMenuEvent(QContextMenuEvent *a0) override {
     if (taken[12]) {
@@ -417,7 +567,11 @@ public:
     }
     QDialog::contextMenuEvent(a0);
   }
+#endif  // QT_CONFIG(dialog)
+#endif  // !defined(QT_NO_CONTEXTMENU)
 
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(dialog)
   //  bool QDialog::eventFilter(QObject *a0, QEvent *a1)
   bool eventFilter(QObject *a0, QEvent *a1) override {
     if (taken[13]) {
@@ -428,6 +582,8 @@ public:
     }
     return QDialog::eventFilter(a0, a1);
   }
+#endif  // QT_CONFIG(dialog)
+#endif  // !defined(QT_NO_QOBJECT)
 
   //  int QWidget::devType() const
   int devType() const override {
@@ -473,6 +629,7 @@ public:
     return QWidget::paintEngine();
   }
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QWidget::event(QEvent *event)
   bool event(QEvent *event) override {
     if (taken[18]) {
@@ -483,6 +640,7 @@ public:
     }
     return QWidget::event(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
   //  void QWidget::mousePressEvent(QMouseEvent *event)
   void mousePressEvent(QMouseEvent *event) override {
@@ -528,6 +686,7 @@ public:
     QWidget::mouseMoveEvent(event);
   }
 
+#if QT_CONFIG(wheelevent)
   //  void QWidget::wheelEvent(QWheelEvent *event)
   void wheelEvent(QWheelEvent *event) override {
     if (taken[23]) {
@@ -538,6 +697,7 @@ public:
     }
     QWidget::wheelEvent(event);
   }
+#endif  // QT_CONFIG(wheelevent)
 
   //  void QWidget::keyReleaseEvent(QKeyEvent *event)
   void keyReleaseEvent(QKeyEvent *event) override {
@@ -616,6 +776,7 @@ public:
     QWidget::moveEvent(event);
   }
 
+#if QT_CONFIG(tabletevent)
   //  void QWidget::tabletEvent(QTabletEvent *event)
   void tabletEvent(QTabletEvent *event) override {
     if (taken[31]) {
@@ -626,7 +787,9 @@ public:
     }
     QWidget::tabletEvent(event);
   }
+#endif  // QT_CONFIG(tabletevent)
 
+#if !defined(QT_NO_ACTION)
   //  void QWidget::actionEvent(QActionEvent *event)
   void actionEvent(QActionEvent *event) override {
     if (taken[32]) {
@@ -637,7 +800,9 @@ public:
     }
     QWidget::actionEvent(event);
   }
+#endif  // !defined(QT_NO_ACTION)
 
+#if QT_CONFIG(draganddrop)
   //  void QWidget::dragEnterEvent(QDragEnterEvent *event)
   void dragEnterEvent(QDragEnterEvent *event) override {
     if (taken[33]) {
@@ -648,7 +813,9 @@ public:
     }
     QWidget::dragEnterEvent(event);
   }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
   //  void QWidget::dragMoveEvent(QDragMoveEvent *event)
   void dragMoveEvent(QDragMoveEvent *event) override {
     if (taken[34]) {
@@ -659,7 +826,9 @@ public:
     }
     QWidget::dragMoveEvent(event);
   }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
   //  void QWidget::dragLeaveEvent(QDragLeaveEvent *event)
   void dragLeaveEvent(QDragLeaveEvent *event) override {
     if (taken[35]) {
@@ -670,7 +839,9 @@ public:
     }
     QWidget::dragLeaveEvent(event);
   }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
   //  void QWidget::dropEvent(QDropEvent *event)
   void dropEvent(QDropEvent *event) override {
     if (taken[36]) {
@@ -681,6 +852,7 @@ public:
     }
     QWidget::dropEvent(event);
   }
+#endif  // QT_CONFIG(draganddrop)
 
   //  void QWidget::hideEvent(QHideEvent *event)
   void hideEvent(QHideEvent *event) override {
@@ -781,6 +953,7 @@ public:
     return QWidget::focusNextPrevChild(next);
   }
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
     if (taken[46]) {
@@ -791,7 +964,9 @@ public:
     }
     QObject::timerEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
     if (taken[47]) {
@@ -802,7 +977,9 @@ public:
     }
     QObject::childEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
     if (taken[48]) {
@@ -813,7 +990,9 @@ public:
     }
     QObject::customEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
     if (taken[49]) {
@@ -824,7 +1003,9 @@ public:
     }
     QObject::connectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
     if (taken[50]) {
@@ -835,6 +1016,7 @@ public:
     }
     QObject::disconnectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 };
 
 //  const QMetaObject *QInputDialog::metaObject() const
@@ -1357,3 +1539,5 @@ extern "C" Q_DECL_EXPORT
 void ritual_own_ZN12QInputDialog4doneEi(QInputDialog *self, int result) {
   self->QInputDialog::done(result);
 }
+
+#endif  // QT_CONFIG(inputdialog)

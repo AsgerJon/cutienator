@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtDesig",
+    "ner/6.12.0/QtDesigner/private/qdesigner_promotiondialog_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18qdesigner_internal21NewPromotedClassPanel10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal21NewPromotedClassPanel20promotedHeaderSuffixEv": [
+      "text", "address"
+    ],
+    "ritual_ZN18qdesigner_internal21NewPromotedClassPanel23setPromotedHeaderSuffixERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK18qdesigner_internal21NewPromotedClassPanel25isPromotedHeaderLowerCaseEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN18qdesigner_internal21NewPromotedClassPanel26setPromotedHeaderLowerCaseEb": [
+      "nothing", "address", "bool"
+    ]
+  }
+}

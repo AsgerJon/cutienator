@@ -1,0 +1,29 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickshadereffectmesh_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK22QQuickShaderEffectMesh10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QQuickShaderEffectMesh2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN22QQuickShaderEffectMesh24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickShaderEffectMesh18validateAttributesERK5QListI10QByteArrayEPi": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN22QQuickShaderEffectMesh14updateGeometryEP11QSGGeometryiiRK6QRectFS4_": [
+      "address", "address", "address", "int", "int", "address", "address"
+    ],
+    "ritual_ZNK22QQuickShaderEffectMesh3logEv": ["text", "address"],
+    "ritual_take_QQuickShaderEffectMesh": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK22QQuickShaderEffectMesh3logEv": ["text", "address"]
+  }
+}

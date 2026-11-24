@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGui/qsessionmanager.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
+#if !defined(QT_NO_SESSIONMANAGER)
 #include <QtGui/qsessionmanager.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qlist.h>
@@ -18,6 +20,20 @@ QString *ritual_ZN15QSessionManager2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QSessionManager::tr(s, c, n));
+}
+
+//  QSessionManagerPrivate *QSessionManager::d_func()
+extern "C" Q_DECL_EXPORT
+QSessionManagerPrivate *ritual_ZN15QSessionManager6d_funcEv(
+    QSessionManager *self) {
+  return self->d_func();
+}
+
+//  const QSessionManagerPrivate *QSessionManager::d_func() const
+extern "C" Q_DECL_EXPORT
+const QSessionManagerPrivate *ritual_ZNK15QSessionManager6d_funcEv(
+    const QSessionManager *self) {
+  return self->d_func();
 }
 
 //  QSessionManager::~QSessionManager()
@@ -141,3 +157,5 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN15QSessionManager13requestPhase2Ev(QSessionManager *self) {
   self->requestPhase2();
 }
+
+#endif  // !defined(QT_NO_SESSIONMANAGER)

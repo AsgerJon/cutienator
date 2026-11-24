@@ -1,0 +1,37 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/default_extensionfactory.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QExtensionFactory10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QExtensionFactory2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QExtensionFactoryC1EP17QExtensionManager": [
+      "address", "address"
+    ],
+    "ritual_ZNK17QExtensionFactory9extensionEP7QObjectRK7QString": [
+      "address", "address", "address", "text"
+    ],
+    "ritual_ZNK17QExtensionFactory16extensionManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QExtensionFactory15objectDestroyedEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QExtensionFactory15createExtensionEP7QObjectRK7QStringS1_": [
+      "address", "address", "address", "text", "address"
+    ],
+    "ritual_cast_QExtensionFactory_QAbstractExtensionFactory": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK17QExtensionFactory9extensionEP7QObjectRK7QString": [
+      "address", "address", "address", "text"
+    ],
+    "ritual_own_ZNK17QExtensionFactory15createExtensionEP7QObjectRK7QStringS1_": [
+      "address", "address", "address", "text", "address"
+    ]
+  }
+}

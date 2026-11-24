@@ -1,0 +1,63 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qlocale_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11QLocaleData20convertDoubleToFloatEdPb": [
+      "float", "double", "address"
+    ],
+    "ritual_ZNK11QLocaleData13validateCharsE11QStringViewNS_10NumberModeEi6QFlagsIN7QLocale12NumberOptionEE": [
+      "address", "address", "text", "int", "int", "int"
+    ],
+    "ritual_ZNK11QLocaleData2idEv": ["address", "address"],
+    "ritual_ZNK11QLocaleData10groupSizesEv": ["address", "address"],
+    "ritual_ZNK11QLocaleData16startListPatternEv": ["address", "address"],
+    "ritual_ZNK11QLocaleData14midListPatternEv": ["address", "address"],
+    "ritual_ZNK11QLocaleData14endListPatternEv": ["address", "address"],
+    "ritual_ZNK11QLocaleData15pairListPatternEv": ["address", "address"],
+    "ritual_ZNK11QLocaleData11listDelimitEv": ["address", "address"],
+    "ritual_ZNK11QLocaleData16decimalSeparatorEv": ["address", "address"],
+    "ritual_ZNK11QLocaleData10groupDelimEv": ["address", "address"],
+    "ritual_ZNK11QLocaleData7percentEv": ["address", "address"],
+    "ritual_ZNK11QLocaleData4zeroEv": ["address", "address"],
+    "ritual_ZNK11QLocaleData5minusEv": ["address", "address"],
+    "ritual_ZNK11QLocaleData4plusEv": ["address", "address"],
+    "ritual_ZNK11QLocaleData11exponentialEv": ["address", "address"],
+    "ritual_ZNK11QLocaleData10quoteStartEv": ["address", "address"],
+    "ritual_ZNK11QLocaleData8quoteEndEv": ["address", "address"],
+    "ritual_ZNK11QLocaleData19quoteStartAlternateEv": ["address", "address"],
+    "ritual_ZNK11QLocaleData17quoteEndAlternateEv": ["address", "address"],
+    "ritual_ZNK11QLocaleData14longDateFormatEv": ["address", "address"],
+    "ritual_ZNK11QLocaleData15shortDateFormatEv": ["address", "address"],
+    "ritual_ZNK11QLocaleData14longTimeFormatEv": ["address", "address"],
+    "ritual_ZNK11QLocaleData15shortTimeFormatEv": ["address", "address"],
+    "ritual_ZNK11QLocaleData22longDayNamesStandaloneEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK11QLocaleData12longDayNamesEv": ["address", "address"],
+    "ritual_ZNK11QLocaleData23shortDayNamesStandaloneEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK11QLocaleData13shortDayNamesEv": ["address", "address"],
+    "ritual_ZNK11QLocaleData24narrowDayNamesStandaloneEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK11QLocaleData14narrowDayNamesEv": ["address", "address"],
+    "ritual_ZNK11QLocaleData12anteMeridiemEv": ["address", "address"],
+    "ritual_ZNK11QLocaleData12postMeridiemEv": ["address", "address"],
+    "ritual_ZNK11QLocaleData9byteCountEv": ["address", "address"],
+    "ritual_ZNK11QLocaleData12byteAmountSIEv": ["address", "address"],
+    "ritual_ZNK11QLocaleData13byteAmountIECEv": ["address", "address"],
+    "ritual_ZNK11QLocaleData14currencySymbolEv": ["address", "address"],
+    "ritual_ZNK11QLocaleData19currencyDisplayNameEv": ["address", "address"],
+    "ritual_ZNK11QLocaleData14currencyFormatEv": ["address", "address"],
+    "ritual_ZNK11QLocaleData22currencyFormatNegativeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK11QLocaleData15endonymLanguageEv": ["address", "address"],
+    "ritual_ZNK11QLocaleData16endonymTerritoryEv": ["address", "address"],
+    "ritual_ZN11QLocaleDataD1Ev": ["nothing", "address"]
+  }
+}

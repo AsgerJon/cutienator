@@ -1,0 +1,208 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquickcombobox_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK14QQuickComboBox10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QQuickComboBox2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN14QQuickComboBoxC1EP10QQuickItem": ["address", "address"],
+    "ritual_ZN14QQuickComboBoxD1Ev": ["nothing", "address"],
+    "ritual_ZNK14QQuickComboBox5countEv": ["int", "address"],
+    "ritual_ZNK14QQuickComboBox5modelEv": ["address", "address"],
+    "ritual_ZN14QQuickComboBox8setModelERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QQuickComboBox13delegateModelEv": ["address", "address"],
+    "ritual_ZNK14QQuickComboBox9isPressedEv": ["bool", "address"],
+    "ritual_ZN14QQuickComboBox10setPressedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK14QQuickComboBox16highlightedIndexEv": ["int", "address"],
+    "ritual_ZNK14QQuickComboBox12currentIndexEv": ["int", "address"],
+    "ritual_ZN14QQuickComboBox15setCurrentIndexEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK14QQuickComboBox11currentTextEv": ["text", "address"],
+    "ritual_ZNK14QQuickComboBox11displayTextEv": ["text", "address"],
+    "ritual_ZN14QQuickComboBox14setDisplayTextERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN14QQuickComboBox16resetDisplayTextEv": ["nothing", "address"],
+    "ritual_ZNK14QQuickComboBox8textRoleEv": ["text", "address"],
+    "ritual_ZN14QQuickComboBox11setTextRoleERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK14QQuickComboBox9valueRoleEv": ["text", "address"],
+    "ritual_ZN14QQuickComboBox12setValueRoleERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK14QQuickComboBox8delegateEv": ["address", "address"],
+    "ritual_ZN14QQuickComboBox11setDelegateEP13QQmlComponent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QQuickComboBox9indicatorEv": ["address", "address"],
+    "ritual_ZN14QQuickComboBox12setIndicatorEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QQuickComboBox5popupEv": ["address", "address"],
+    "ritual_ZN14QQuickComboBox8setPopupEP11QQuickPopup": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QQuickComboBox6textAtEi": ["text", "address", "int"],
+    "ritual_ZNK14QQuickComboBox4findERK7QString6QFlagsIN2Qt9MatchFlagEE": [
+      "int", "address", "text", "int"
+    ],
+    "ritual_ZNK14QQuickComboBox6isFlatEv": ["bool", "address"],
+    "ritual_ZN14QQuickComboBox7setFlatEb": ["nothing", "address", "bool"],
+    "ritual_ZNK14QQuickComboBox6isDownEv": ["bool", "address"],
+    "ritual_ZN14QQuickComboBox7setDownEb": ["nothing", "address", "bool"],
+    "ritual_ZN14QQuickComboBox9resetDownEv": ["nothing", "address"],
+    "ritual_ZNK14QQuickComboBox10isEditableEv": ["bool", "address"],
+    "ritual_ZN14QQuickComboBox11setEditableEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK14QQuickComboBox8editTextEv": ["text", "address"],
+    "ritual_ZN14QQuickComboBox11setEditTextERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN14QQuickComboBox13resetEditTextEv": ["nothing", "address"],
+    "ritual_ZNK14QQuickComboBox9validatorEv": ["address", "address"],
+    "ritual_ZN14QQuickComboBox12setValidatorEP10QValidator": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QQuickComboBox16inputMethodHintsEv": ["int", "address"],
+    "ritual_ZN14QQuickComboBox19setInputMethodHintsE6QFlagsIN2Qt15InputMethodHintEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK14QQuickComboBox22isInputMethodComposingEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK14QQuickComboBox18hasAcceptableInputEv": ["bool", "address"],
+    "ritual_ZNK14QQuickComboBox22implicitIndicatorWidthEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK14QQuickComboBox23implicitIndicatorHeightEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK14QQuickComboBox12currentValueEv": ["address", "address"],
+    "ritual_ZN14QQuickComboBox15setCurrentValueERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QQuickComboBox7valueAtEi": ["address", "address", "int"],
+    "ritual_ZNK14QQuickComboBox12indexOfValueERK8QVariant": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK14QQuickComboBox17selectTextByMouseEv": ["bool", "address"],
+    "ritual_ZN14QQuickComboBox20setSelectTextByMouseEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK14QQuickComboBox26implicitContentWidthPolicyEv": [
+      "int", "address"
+    ],
+    "ritual_ZN14QQuickComboBox29setImplicitContentWidthPolicyENS_26ImplicitContentWidthPolicyE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK14QQuickComboBox16highlightOnHoverEv": ["bool", "address"],
+    "ritual_ZN14QQuickComboBox19setHighlightOnHoverEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN14QQuickComboBox21incrementCurrentIndexEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickComboBox21decrementCurrentIndexEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickComboBox9selectAllEv": ["nothing", "address"],
+    "ritual_ZN14QQuickComboBox11eventFilterEP7QObjectP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN14QQuickComboBox12focusInEventEP11QFocusEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QQuickComboBox13focusOutEventEP11QFocusEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QQuickComboBox16inputMethodEventEP17QInputMethodEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QQuickComboBox13keyPressEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QQuickComboBox15keyReleaseEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QQuickComboBox10wheelEventEP11QWheelEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QQuickComboBox5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN14QQuickComboBox17componentCompleteEv": ["nothing", "address"],
+    "ritual_ZN14QQuickComboBox10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN14QQuickComboBox10fontChangeERK5QFontS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN14QQuickComboBox17contentItemChangeEP10QQuickItemS1_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN14QQuickComboBox12localeChangeERK7QLocaleS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK14QQuickComboBox11defaultFontEv": ["address", "address"],
+    "ritual_ZNK14QQuickComboBox14accessibleRoleEv": ["int", "address"],
+    "ritual_ZN14QQuickComboBox26accessibilityActiveChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_take_QQuickComboBox": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN14QQuickComboBox11eventFilterEP7QObjectP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_own_ZN14QQuickComboBox12focusInEventEP11QFocusEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN14QQuickComboBox13focusOutEventEP11QFocusEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN14QQuickComboBox16inputMethodEventEP17QInputMethodEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN14QQuickComboBox13keyPressEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN14QQuickComboBox15keyReleaseEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN14QQuickComboBox10wheelEventEP11QWheelEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN14QQuickComboBox5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN14QQuickComboBox17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN14QQuickComboBox10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZN14QQuickComboBox10fontChangeERK5QFontS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN14QQuickComboBox17contentItemChangeEP10QQuickItemS1_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN14QQuickComboBox12localeChangeERK7QLocaleS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZNK14QQuickComboBox11defaultFontEv": ["address", "address"],
+    "ritual_own_ZNK14QQuickComboBox14accessibleRoleEv": ["int", "address"],
+    "ritual_own_ZN14QQuickComboBox26accessibilityActiveChangedEb": [
+      "nothing", "address", "bool"
+    ]
+  }
+}

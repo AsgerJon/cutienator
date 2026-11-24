@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDBus/qdbusextratypes.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN12QDBusVariantC1Ev": ["address"],
+    "ritual_ZN12QDBusVariantC1ERK8QVariant": ["address", "address"],
+    "ritual_ZN12QDBusVariant10setVariantERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12QDBusVariant7variantEv": ["address", "address"],
+    "ritual_ZN12QDBusVariantD1Ev": ["nothing", "address"]
+  }
+}

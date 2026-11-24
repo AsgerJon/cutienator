@@ -1,0 +1,36 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3D/6.12.0/QtQuick3D/private/qquick3dpickresult_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QQuick3DPickResultC1Ev": ["address"],
+    "ritual_ZN18QQuick3DPickResultC1EP13QQuick3DModelfRK9QVector2DRK9QVector3DS7_S7_S7_iP10QQuickItem": [
+      "address", "address", "float", "address", "address", "address",
+      "address", "address", "int", "address"
+    ],
+    "ritual_ZN18QQuick3DPickResultC1EP10QQuickItemfRK9QVector2DRK9QVector3DS7_S7_": [
+      "address", "address", "float", "address", "address", "address",
+      "address"
+    ],
+    "ritual_ZNK18QQuick3DPickResult9objectHitEv": ["address", "address"],
+    "ritual_ZNK18QQuick3DPickResult8distanceEv": ["float", "address"],
+    "ritual_ZNK18QQuick3DPickResult10uvPositionEv": ["address", "address"],
+    "ritual_ZNK18QQuick3DPickResult13scenePositionEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18QQuick3DPickResult8positionEv": ["address", "address"],
+    "ritual_ZNK18QQuick3DPickResult6normalEv": ["address", "address"],
+    "ritual_ZNK18QQuick3DPickResult11sceneNormalEv": ["address", "address"],
+    "ritual_ZNK18QQuick3DPickResult13instanceIndexEv": ["int", "address"],
+    "ritual_ZNK18QQuick3DPickResult7itemHitEv": ["address", "address"],
+    "ritual_ZNK18QQuick3DPickResult7hitTypeEv": ["int", "address"],
+    "ritual_ZN18QQuick3DPickResultD1Ev": ["nothing", "address"],
+    "ritual_list_make_QQuick3DPickResult": ["address"],
+    "ritual_list_add_QQuick3DPickResult": ["nothing", "address", "address"],
+    "ritual_list_size_QQuick3DPickResult": ["long long", "address"],
+    "ritual_list_at_QQuick3DPickResult": ["address", "address", "long long"],
+    "ritual_list_drop_QQuick3DPickResult": ["nothing", "address"]
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDBus/qdbusconnectioninterface.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZNK24QDBusConnectionInterface10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QDBusConnectionInterface2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN24QDBusConnectionInterfaceC1ERK15QDBusConnectionP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN24QDBusConnectionInterfaceD1Ev": ["nothing", "address"],
+    "ritual_ZN24QDBusConnectionInterface13connectNotifyERK11QMetaMethod": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QDBusConnectionInterface16disconnectNotifyERK11QMetaMethod": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN24QDBusConnectionInterface13connectNotifyERK11QMetaMethod": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN24QDBusConnectionInterface16disconnectNotifyERK11QMetaMethod": [
+      "nothing", "address", "address"
+    ]
+  }
+}

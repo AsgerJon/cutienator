@@ -1,0 +1,42 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/simplewidgets_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK21QAccessibleToolButton5stateEv": ["address", "address"],
+    "ritual_ZNK21QAccessibleToolButton4roleEv": ["int", "address"],
+    "ritual_ZNK21QAccessibleToolButton10childCountEv": ["int", "address"],
+    "ritual_ZNK21QAccessibleToolButton5childEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK21QAccessibleToolButton11actionNamesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QAccessibleToolButton8doActionERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK21QAccessibleToolButton10toolButtonEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK21QAccessibleToolButton13isSplitButtonEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK21QAccessibleToolButton4menuEv": ["address", "address"],
+    "ritual_take_QAccessibleToolButton": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK21QAccessibleToolButton5stateEv": ["address", "address"],
+    "ritual_own_ZNK21QAccessibleToolButton4roleEv": ["int", "address"],
+    "ritual_own_ZNK21QAccessibleToolButton10childCountEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZNK21QAccessibleToolButton5childEi": [
+      "address", "address", "int"
+    ],
+    "ritual_own_ZN21QAccessibleToolButton8doActionERK7QString": [
+      "nothing", "address", "text"
+    ]
+  }
+}

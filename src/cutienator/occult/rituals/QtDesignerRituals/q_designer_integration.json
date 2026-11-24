@@ -1,0 +1,135 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/abstractintegration.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK20QDesignerIntegration10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QDesignerIntegration2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN20QDesignerIntegrationC1EP28QDesignerFormEditorInterfaceP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN20QDesignerIntegrationD1Ev": ["nothing", "address"],
+    "ritual_ZNK20QDesignerIntegration12headerSuffixEv": ["text", "address"],
+    "ritual_ZN20QDesignerIntegration15setHeaderSuffixERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK20QDesignerIntegration17isHeaderLowercaseEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN20QDesignerIntegration18setHeaderLowercaseEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK20QDesignerIntegration8featuresEv": ["int", "address"],
+    "ritual_ZN20QDesignerIntegration11setFeaturesE6QFlagsIN29QDesignerIntegrationInterface11FeatureFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK20QDesignerIntegration28resourceFileWatcherBehaviourEv": [
+      "int", "address"
+    ],
+    "ritual_ZN20QDesignerIntegration31setResourceFileWatcherBehaviourEN29QDesignerIntegrationInterface28ResourceFileWatcherBehaviourE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK20QDesignerIntegration15containerWindowEP7QWidget": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN20QDesignerIntegration17initializePluginsEP28QDesignerFormEditorInterface": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QDesignerIntegration21createResourceBrowserEP7QWidget": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK20QDesignerIntegration13contextHelpIdEv": ["text", "address"],
+    "ritual_ZN20QDesignerIntegration14updatePropertyERK7QStringRK8QVariantb": [
+      "nothing", "address", "text", "address", "bool"
+    ],
+    "ritual_ZN20QDesignerIntegration14updatePropertyERK7QStringRK8QVariant": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZN20QDesignerIntegration13resetPropertyERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN20QDesignerIntegration18addDynamicPropertyERK7QStringRK8QVariant": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZN20QDesignerIntegration21removeDynamicPropertyERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN20QDesignerIntegration22updateActiveFormWindowEP28QDesignerFormWindowInterface": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QDesignerIntegration15setupFormWindowEP28QDesignerFormWindowInterface": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QDesignerIntegration15updateSelectionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QDesignerIntegration25updateCustomWidgetPluginsEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QDesignerIntegration": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK20QDesignerIntegration12headerSuffixEv": [
+      "text", "address"
+    ],
+    "ritual_own_ZN20QDesignerIntegration15setHeaderSuffixERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_own_ZNK20QDesignerIntegration17isHeaderLowercaseEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZN20QDesignerIntegration18setHeaderLowercaseEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZNK20QDesignerIntegration8featuresEv": ["int", "address"],
+    "ritual_own_ZN20QDesignerIntegration11setFeaturesE6QFlagsIN29QDesignerIntegrationInterface11FeatureFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZNK20QDesignerIntegration28resourceFileWatcherBehaviourEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZN20QDesignerIntegration31setResourceFileWatcherBehaviourEN29QDesignerIntegrationInterface28ResourceFileWatcherBehaviourE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZNK20QDesignerIntegration15containerWindowEP7QWidget": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN20QDesignerIntegration21createResourceBrowserEP7QWidget": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZNK20QDesignerIntegration13contextHelpIdEv": [
+      "text", "address"
+    ],
+    "ritual_own_ZN20QDesignerIntegration14updatePropertyERK7QStringRK8QVariantb": [
+      "nothing", "address", "text", "address", "bool"
+    ],
+    "ritual_own_ZN20QDesignerIntegration14updatePropertyERK7QStringRK8QVariant": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_own_ZN20QDesignerIntegration13resetPropertyERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_own_ZN20QDesignerIntegration18addDynamicPropertyERK7QStringRK8QVariant": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_own_ZN20QDesignerIntegration21removeDynamicPropertyERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_own_ZN20QDesignerIntegration22updateActiveFormWindowEP28QDesignerFormWindowInterface": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20QDesignerIntegration15setupFormWindowEP28QDesignerFormWindowInterface": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20QDesignerIntegration15updateSelectionEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN20QDesignerIntegration25updateCustomWidgetPluginsEv": [
+      "nothing", "address"
+    ]
+  }
+}

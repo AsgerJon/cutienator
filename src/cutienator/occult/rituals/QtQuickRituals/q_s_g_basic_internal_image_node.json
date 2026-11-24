@@ -1,0 +1,86 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qsgbasicinternalimagenode_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN25QSGBasicInternalImageNode13setTargetRectERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QSGBasicInternalImageNode18setInnerTargetRectERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QSGBasicInternalImageNode18setInnerSourceRectERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QSGBasicInternalImageNode16setSubSourceRectERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QSGBasicInternalImageNode10setTextureEP10QSGTexture": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QSGBasicInternalImageNode15setAntialiasingEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN25QSGBasicInternalImageNode9setMirrorEbb": [
+      "nothing", "address", "bool", "bool"
+    ],
+    "ritual_ZN25QSGBasicInternalImageNode6updateEv": ["nothing", "address"],
+    "ritual_ZN25QSGBasicInternalImageNode10preprocessEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QSGBasicInternalImageNode14updateGeometryERK6QRectFS2_S2_S2_S2_P11QSGGeometrybbb": [
+      "address", "address", "address", "address", "address", "address",
+      "address", "bool", "bool", "bool"
+    ],
+    "ritual_ZN25QSGBasicInternalImageNode26updateMaterialAntialiasingEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QSGBasicInternalImageNode18setMaterialTextureEP10QSGTexture": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK25QSGBasicInternalImageNode15materialTextureEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QSGBasicInternalImageNode22updateMaterialBlendingEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK25QSGBasicInternalImageNode12supportsWrapERK5QSize": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN25QSGBasicInternalImageNode14updateGeometryEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QSGBasicInternalImageNode": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN25QSGBasicInternalImageNode13setTargetRectERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN25QSGBasicInternalImageNode18setInnerTargetRectERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN25QSGBasicInternalImageNode18setInnerSourceRectERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN25QSGBasicInternalImageNode16setSubSourceRectERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN25QSGBasicInternalImageNode10setTextureEP10QSGTexture": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN25QSGBasicInternalImageNode15setAntialiasingEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZN25QSGBasicInternalImageNode9setMirrorEbb": [
+      "nothing", "address", "bool", "bool"
+    ],
+    "ritual_own_ZN25QSGBasicInternalImageNode6updateEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN25QSGBasicInternalImageNode10preprocessEv": [
+      "nothing", "address"
+    ]
+  }
+}

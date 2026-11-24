@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/6.12.0/QtNetwork/private/huffman_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN5HPack11PrefixTableC1Ev": ["address"],
+    "ritual_ZN5HPack11PrefixTableC1Ejj": [
+      "address", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZNK5HPack11PrefixTable4sizeEv": ["unsigned int", "address"],
+    "ritual_ZN5HPack11PrefixTableD1Ev": ["nothing", "address"]
+  }
+}

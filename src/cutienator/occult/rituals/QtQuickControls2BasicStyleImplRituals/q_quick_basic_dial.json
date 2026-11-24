@@ -1,0 +1,32 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Controls2BasicStyleImpl/6.12.0/QtQuickControls2BasicStyleImpl/priv",
+    "ate/qquickbasicdial_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK15QQuickBasicDial10metaObjectEv": ["address", "address"],
+    "ritual_ZNK15QQuickBasicDial8progressEv": ["double", "address"],
+    "ritual_ZN15QQuickBasicDial11setProgressEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK15QQuickBasicDial10startAngleEv": ["double", "address"],
+    "ritual_ZN15QQuickBasicDial13setStartAngleEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK15QQuickBasicDial8endAngleEv": ["double", "address"],
+    "ritual_ZN15QQuickBasicDial11setEndAngleEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK15QQuickBasicDial5colorEv": ["address", "address"],
+    "ritual_ZN15QQuickBasicDial8setColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QQuickBasicDial5paintEP8QPainter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN15QQuickBasicDial5paintEP8QPainter": [
+      "nothing", "address", "address"
+    ]
+  }
+}

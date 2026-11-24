@@ -1,0 +1,46 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtPosit",
+    "ioning/6.12.0/QtPositioning/private/qnmeasatelliteinfosource_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK31QNmeaSatelliteInfoSourcePrivate10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN31QNmeaSatelliteInfoSourcePrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN31QNmeaSatelliteInfoSourcePrivate11stopUpdatesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN31QNmeaSatelliteInfoSourcePrivate15notifyNewUpdateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN31QNmeaSatelliteInfoSourcePrivate9readyReadEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN31QNmeaSatelliteInfoSourcePrivate17emitPendingUpdateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN31QNmeaSatelliteInfoSourcePrivate16sourceDataClosedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN31QNmeaSatelliteInfoSourcePrivate20updateRequestTimeoutEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN31QNmeaSatelliteInfoSourcePrivate16openSourceDeviceEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN31QNmeaSatelliteInfoSourcePrivate19prepareSourceDeviceEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN31QNmeaSatelliteInfoSourcePrivate10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QNmeaSatelliteInfoSourcePrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN31QNmeaSatelliteInfoSourcePrivate10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ]
+  }
+}

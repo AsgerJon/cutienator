@@ -1,0 +1,50 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtBluetooth/qlowenergycharacteristic.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN24QLowEnergyCharacteristicC1Ev": ["address"],
+    "ritual_ZN24QLowEnergyCharacteristicC1ERKS_": ["address", "address"],
+    "ritual_ZN24QLowEnergyCharacteristicD1Ev": ["nothing", "address"],
+    "ritual_ZeqRK24QLowEnergyCharacteristicS1_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZneRK24QLowEnergyCharacteristicS1_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK24QLowEnergyCharacteristic4nameEv": ["text", "address"],
+    "ritual_ZNK24QLowEnergyCharacteristic4uuidEv": ["address", "address"],
+    "ritual_ZNK24QLowEnergyCharacteristic5valueEv": ["address", "address"],
+    "ritual_ZNK24QLowEnergyCharacteristic10propertiesEv": ["int", "address"],
+    "ritual_ZNK24QLowEnergyCharacteristic10descriptorERK14QBluetoothUuid": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK24QLowEnergyCharacteristic11descriptorsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK24QLowEnergyCharacteristic33clientCharacteristicConfigurationEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK24QLowEnergyCharacteristic7isValidEv": ["bool", "address"],
+    "ritual_ZNK24QLowEnergyCharacteristic6handleEv": [
+      "unsigned short", "address"
+    ],
+    "ritual_ZNK24QLowEnergyCharacteristic15attributeHandleEv": [
+      "unsigned short", "address"
+    ],
+    "ritual_ZN24QLowEnergyCharacteristic6equalsERKS_S1_": [
+      "bool", "address", "address"
+    ],
+    "ritual_list_make_QLowEnergyCharacteristic": ["address"],
+    "ritual_list_add_QLowEnergyCharacteristic": [
+      "nothing", "address", "address"
+    ],
+    "ritual_list_size_QLowEnergyCharacteristic": ["long long", "address"],
+    "ritual_list_at_QLowEnergyCharacteristic": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_QLowEnergyCharacteristic": ["nothing", "address"]
+  }
+}

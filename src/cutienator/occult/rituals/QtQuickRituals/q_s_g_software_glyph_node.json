@@ -1,0 +1,44 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qsgsoftwareglyphnode_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QSGSoftwareGlyphNode9setGlyphsERK7QPointFRK9QGlyphRun": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN20QSGSoftwareGlyphNode8setColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QSGSoftwareGlyphNode8setStyleEN10QQuickText9TextStyleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QSGSoftwareGlyphNode13setStyleColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QSGSoftwareGlyphNode8baseLineEv": ["address", "address"],
+    "ritual_ZN20QSGSoftwareGlyphNode28setPreferredAntialiasingModeEN12QSGGlyphNode16AntialiasingModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QSGSoftwareGlyphNode6updateEv": ["nothing", "address"],
+    "ritual_ZN20QSGSoftwareGlyphNode5paintEP8QPainter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QSGSoftwareGlyphNode7recycleEv": ["nothing", "address"],
+    "ritual_own_ZN20QSGSoftwareGlyphNode8setColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20QSGSoftwareGlyphNode13setStyleColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK20QSGSoftwareGlyphNode8baseLineEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN20QSGSoftwareGlyphNode28setPreferredAntialiasingModeEN12QSGGlyphNode16AntialiasingModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN20QSGSoftwareGlyphNode6updateEv": ["nothing", "address"],
+    "ritual_own_ZN20QSGSoftwareGlyphNode7recycleEv": ["nothing", "address"]
+  }
+}

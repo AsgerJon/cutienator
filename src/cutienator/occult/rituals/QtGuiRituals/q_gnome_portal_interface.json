@@ -1,0 +1,44 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qgnomeportalinterface_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK21QGnomePortalInterface10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QGnomePortalInterface2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN21QGnomePortalInterfaceC1EP7QObject": ["address", "address"],
+    "ritual_ZN21QGnomePortalInterfaceD1Ev": ["nothing", "address"],
+    "ritual_ZNK21QGnomePortalInterface11colorSchemeEN2Qt11ColorSchemeE": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK21QGnomePortalInterface18contrastPreferenceEN2Qt18ContrastPreferenceE": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK21QGnomePortalInterface16motionPreferenceEN2Qt16MotionPreferenceE": [
+      "int", "address", "int"
+    ],
+    "ritual_ZN21QGnomePortalInterface13querySettingsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QGnomePortalInterface17updateColorSchemeEN2Qt11ColorSchemeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN21QGnomePortalInterface14updateContrastEN2Qt18ContrastPreferenceE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN21QGnomePortalInterface12updateMotionEN2Qt16MotionPreferenceE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN21QGnomePortalInterface18dbusSettingChangedEN13QDBusListener8ProviderENS0_7SettingERK8QVariant": [
+      "nothing", "address", "int", "int", "address"
+    ],
+    "ritual_take_QGnomePortalInterface": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

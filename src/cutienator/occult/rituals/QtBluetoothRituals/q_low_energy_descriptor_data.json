@@ -1,0 +1,60 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtBluetooth/qlowenergydescriptordata.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN24QLowEnergyDescriptorDataC1Ev": ["address"],
+    "ritual_ZN24QLowEnergyDescriptorDataC1ERK14QBluetoothUuidRK10QByteArray": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN24QLowEnergyDescriptorDataC1ERKS_": ["address", "address"],
+    "ritual_ZN24QLowEnergyDescriptorDataD1Ev": ["nothing", "address"],
+    "ritual_ZeqRK24QLowEnergyDescriptorDataS1_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZneRK24QLowEnergyDescriptorDataS1_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK24QLowEnergyDescriptorData5valueEv": ["address", "address"],
+    "ritual_ZN24QLowEnergyDescriptorData8setValueERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK24QLowEnergyDescriptorData4uuidEv": ["address", "address"],
+    "ritual_ZN24QLowEnergyDescriptorData7setUuidERK14QBluetoothUuid": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK24QLowEnergyDescriptorData7isValidEv": ["bool", "address"],
+    "ritual_ZN24QLowEnergyDescriptorData18setReadPermissionsEb6QFlagsIN10QBluetooth19AttAccessConstraintEE": [
+      "nothing", "address", "bool", "int"
+    ],
+    "ritual_ZNK24QLowEnergyDescriptorData10isReadableEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK24QLowEnergyDescriptorData15readConstraintsEv": [
+      "int", "address"
+    ],
+    "ritual_ZN24QLowEnergyDescriptorData19setWritePermissionsEb6QFlagsIN10QBluetooth19AttAccessConstraintEE": [
+      "nothing", "address", "bool", "int"
+    ],
+    "ritual_ZNK24QLowEnergyDescriptorData10isWritableEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK24QLowEnergyDescriptorData16writeConstraintsEv": [
+      "int", "address"
+    ],
+    "ritual_ZN24QLowEnergyDescriptorData6equalsERKS_S1_": [
+      "bool", "address", "address"
+    ],
+    "ritual_list_make_QLowEnergyDescriptorData": ["address"],
+    "ritual_list_add_QLowEnergyDescriptorData": [
+      "nothing", "address", "address"
+    ],
+    "ritual_list_size_QLowEnergyDescriptorData": ["long long", "address"],
+    "ritual_list_at_QLowEnergyDescriptorData": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_QLowEnergyDescriptorData": ["nothing", "address"]
+  }
+}

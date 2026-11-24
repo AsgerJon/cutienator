@@ -1,0 +1,13 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qiconloader_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN13ScalableEntry6pixmapERK5QSizeN5QIcon4ModeENS3_5StateEd": [
+      "address", "address", "address", "int", "int", "double"
+    ],
+    "ritual_ZN13ScalableEntryD1Ev": ["nothing", "address"]
+  }
+}

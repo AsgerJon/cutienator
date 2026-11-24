@@ -1,0 +1,74 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/qdtls.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK5QDtls10metaObjectEv": ["address", "address"],
+    "ritual_ZN5QDtls2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN5QDtlsC1EN10QSslSocket7SslModeEP7QObject": [
+      "address", "int", "address"
+    ],
+    "ritual_ZN5QDtlsD1Ev": ["nothing", "address"],
+    "ritual_ZN5QDtls7setPeerERK12QHostAddresstRK7QString": [
+      "bool", "address", "address", "unsigned short", "text"
+    ],
+    "ritual_ZN5QDtls23setPeerVerificationNameERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZNK5QDtls11peerAddressEv": ["address", "address"],
+    "ritual_ZNK5QDtls8peerPortEv": ["unsigned short", "address"],
+    "ritual_ZNK5QDtls20peerVerificationNameEv": ["text", "address"],
+    "ritual_ZNK5QDtls7sslModeEv": ["int", "address"],
+    "ritual_ZN5QDtls10setMtuHintEt": [
+      "nothing", "address", "unsigned short"
+    ],
+    "ritual_ZNK5QDtls7mtuHintEv": ["unsigned short", "address"],
+    "ritual_ZN5QDtls28setCookieGeneratorParametersERKN19QDtlsClientVerifier19GeneratorParametersE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK5QDtls25cookieGeneratorParametersEv": ["address", "address"],
+    "ritual_ZN5QDtls20setDtlsConfigurationERK17QSslConfiguration": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK5QDtls17dtlsConfigurationEv": ["address", "address"],
+    "ritual_ZNK5QDtls14handshakeStateEv": ["int", "address"],
+    "ritual_ZN5QDtls11doHandshakeEP10QUdpSocketRK10QByteArray": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN5QDtls13handleTimeoutEP10QUdpSocket": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN5QDtls15resumeHandshakeEP10QUdpSocket": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN5QDtls14abortHandshakeEP10QUdpSocket": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN5QDtls8shutdownEP10QUdpSocket": ["bool", "address", "address"],
+    "ritual_ZNK5QDtls21isConnectionEncryptedEv": ["bool", "address"],
+    "ritual_ZNK5QDtls13sessionCipherEv": ["address", "address"],
+    "ritual_ZNK5QDtls15sessionProtocolEv": ["int", "address"],
+    "ritual_ZN5QDtls22writeDatagramEncryptedEP10QUdpSocketRK10QByteArray": [
+      "long long", "address", "address", "address"
+    ],
+    "ritual_ZN5QDtls15decryptDatagramEP10QUdpSocketRK10QByteArray": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK5QDtls9dtlsErrorEv": ["unsigned char", "address"],
+    "ritual_ZNK5QDtls15dtlsErrorStringEv": ["text", "address"],
+    "ritual_ZNK5QDtls22peerVerificationErrorsEv": ["address", "address"],
+    "ritual_ZN5QDtls24ignoreVerificationErrorsERK5QListI9QSslErrorE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN5QDtls14startHandshakeEP10QUdpSocketRK10QByteArray": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN5QDtls17continueHandshakeEP10QUdpSocketRK10QByteArray": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN5QDtls6d_funcEv": ["address", "address"],
+    "ritual_ZNK5QDtls6d_funcEv": ["address", "address"],
+    "ritual_take_QDtls": ["bool", "address", "chars", "address"]
+  }
+}

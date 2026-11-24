@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgrenderab",
+    "leobjects_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK23QSSGRenderableNodeEntry6isNullEv": ["bool", "address"],
+    "ritual_ZN23QSSGRenderableNodeEntryC1Ev": ["address"],
+    "ritual_ZN23QSSGRenderableNodeEntryC1EP14QSSGRenderNode": [
+      "address", "address"
+    ],
+    "ritual_ZN23QSSGRenderableNodeEntryD1Ev": ["nothing", "address"]
+  }
+}

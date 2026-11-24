@@ -1,0 +1,25 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4sparsearray_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK3QV415SparseArrayNode5colorEv": ["int", "address"],
+    "ritual_ZN3QV415SparseArrayNode8setColorENS0_5ColorE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK3QV415SparseArrayNode6parentEv": ["address", "address"],
+    "ritual_ZN3QV415SparseArrayNode9setParentEPS0_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK3QV415SparseArrayNode3keyEv": ["unsigned int", "address"],
+    "ritual_ZN3QV415SparseArrayNode10lowerBoundEj": [
+      "address", "address", "unsigned int"
+    ],
+    "ritual_ZN3QV415SparseArrayNode10upperBoundEj": [
+      "address", "address", "unsigned int"
+    ],
+    "ritual_ZN3QV415SparseArrayNodeD1Ev": ["nothing", "address"]
+  }
+}

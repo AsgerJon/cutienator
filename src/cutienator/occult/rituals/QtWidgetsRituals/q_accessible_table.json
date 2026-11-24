@@ -1,0 +1,151 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/itemviews_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK16QAccessibleTable7childAtEii": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZNK16QAccessibleTable10focusChildEv": ["address", "address"],
+    "ritual_ZNK16QAccessibleTable10childCountEv": ["int", "address"],
+    "ritual_ZNK16QAccessibleTable12indexOfChildEPK20QAccessibleInterface": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK16QAccessibleTable6parentEv": ["address", "address"],
+    "ritual_ZNK16QAccessibleTable5childEi": ["address", "address", "int"],
+    "ritual_ZNK16QAccessibleTable6cellAtEii": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZNK16QAccessibleTable7captionEv": ["address", "address"],
+    "ritual_ZNK16QAccessibleTable7summaryEv": ["address", "address"],
+    "ritual_ZNK16QAccessibleTable17columnDescriptionEi": [
+      "text", "address", "int"
+    ],
+    "ritual_ZNK16QAccessibleTable14rowDescriptionEi": [
+      "text", "address", "int"
+    ],
+    "ritual_ZNK16QAccessibleTable11columnCountEv": ["int", "address"],
+    "ritual_ZNK16QAccessibleTable8rowCountEv": ["int", "address"],
+    "ritual_ZNK16QAccessibleTable17selectedCellCountEv": ["int", "address"],
+    "ritual_ZNK16QAccessibleTable19selectedColumnCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK16QAccessibleTable16selectedRowCountEv": ["int", "address"],
+    "ritual_ZNK16QAccessibleTable13selectedCellsEv": ["address", "address"],
+    "ritual_ZNK16QAccessibleTable16isColumnSelectedEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK16QAccessibleTable13isRowSelectedEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN16QAccessibleTable9selectRowEi": ["bool", "address", "int"],
+    "ritual_ZN16QAccessibleTable12selectColumnEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN16QAccessibleTable11unselectRowEi": ["bool", "address", "int"],
+    "ritual_ZN16QAccessibleTable14unselectColumnEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK16QAccessibleTable17selectedItemCountEv": ["int", "address"],
+    "ritual_ZNK16QAccessibleTable13selectedItemsEv": ["address", "address"],
+    "ritual_ZNK16QAccessibleTable10isSelectedEP20QAccessibleInterface": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN16QAccessibleTable6selectEP20QAccessibleInterface": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN16QAccessibleTable8unselectEP20QAccessibleInterface": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN16QAccessibleTable9selectAllEv": ["bool", "address"],
+    "ritual_ZN16QAccessibleTable5clearEv": ["bool", "address"],
+    "ritual_ZNK16QAccessibleTable4viewEv": ["address", "address"],
+    "ritual_ZN16QAccessibleTable11modelChangeEP32QAccessibleTableModelChangeEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QAccessibleTable8cellRoleEv": ["int", "address"],
+    "ritual_ZNK16QAccessibleTable16horizontalHeaderEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK16QAccessibleTable14verticalHeaderEv": ["address", "address"],
+    "ritual_ZN16QAccessibleTableD1Ev": ["nothing", "address"],
+    "ritual_ZNK16QAccessibleTable12logicalIndexERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_cast_QAccessibleTable_QAccessibleSelectionInterface": [
+      "address", "address"
+    ],
+    "ritual_cast_QAccessibleTable_QAccessibleWidgetV2": [
+      "address", "address"
+    ],
+    "ritual_take_QAccessibleTable": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK16QAccessibleTable7childAtEii": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_own_ZNK16QAccessibleTable10focusChildEv": ["address", "address"],
+    "ritual_own_ZNK16QAccessibleTable10childCountEv": ["int", "address"],
+    "ritual_own_ZNK16QAccessibleTable12indexOfChildEPK20QAccessibleInterface": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZNK16QAccessibleTable6parentEv": ["address", "address"],
+    "ritual_own_ZNK16QAccessibleTable6cellAtEii": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_own_ZNK16QAccessibleTable7captionEv": ["address", "address"],
+    "ritual_own_ZNK16QAccessibleTable7summaryEv": ["address", "address"],
+    "ritual_own_ZNK16QAccessibleTable17columnDescriptionEi": [
+      "text", "address", "int"
+    ],
+    "ritual_own_ZNK16QAccessibleTable14rowDescriptionEi": [
+      "text", "address", "int"
+    ],
+    "ritual_own_ZNK16QAccessibleTable11columnCountEv": ["int", "address"],
+    "ritual_own_ZNK16QAccessibleTable8rowCountEv": ["int", "address"],
+    "ritual_own_ZNK16QAccessibleTable17selectedCellCountEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZNK16QAccessibleTable19selectedColumnCountEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZNK16QAccessibleTable16selectedRowCountEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZNK16QAccessibleTable16isColumnSelectedEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_own_ZNK16QAccessibleTable13isRowSelectedEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_own_ZN16QAccessibleTable9selectRowEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_own_ZN16QAccessibleTable12selectColumnEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_own_ZN16QAccessibleTable11unselectRowEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_own_ZN16QAccessibleTable14unselectColumnEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_own_ZNK16QAccessibleTable17selectedItemCountEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZNK16QAccessibleTable10isSelectedEP20QAccessibleInterface": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN16QAccessibleTable6selectEP20QAccessibleInterface": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN16QAccessibleTable8unselectEP20QAccessibleInterface": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN16QAccessibleTable9selectAllEv": ["bool", "address"],
+    "ritual_own_ZN16QAccessibleTable5clearEv": ["bool", "address"],
+    "ritual_own_ZN16QAccessibleTable11modelChangeEP32QAccessibleTableModelChangeEvent": [
+      "nothing", "address", "address"
+    ]
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSql/qsqlrelationaltablemodel.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN12QSqlRelationC1Ev": ["address"],
+    "ritual_ZN12QSqlRelationC1ERK7QStringS2_S2_": [
+      "address", "text", "text", "text"
+    ],
+    "ritual_ZNK12QSqlRelation9tableNameEv": ["text", "address"],
+    "ritual_ZNK12QSqlRelation11indexColumnEv": ["text", "address"],
+    "ritual_ZNK12QSqlRelation13displayColumnEv": ["text", "address"],
+    "ritual_ZNK12QSqlRelation7isValidEv": ["bool", "address"],
+    "ritual_ZN12QSqlRelationD1Ev": ["nothing", "address"]
+  }
+}

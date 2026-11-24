@@ -1,0 +1,49 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/6.12.0/QtCharts/private/glxyseriesdata_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK21GLXYSeriesDataManager10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21GLXYSeriesDataManager2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN21GLXYSeriesDataManagerC1EP7QObject": ["address", "address"],
+    "ritual_ZN21GLXYSeriesDataManagerD1Ev": ["nothing", "address"],
+    "ritual_ZN21GLXYSeriesDataManager9setPointsEP9QXYSeriesPK14AbstractDomain": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN21GLXYSeriesDataManager12removeSeriesEPK9QXYSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21GLXYSeriesDataManager8mapDirtyEv": ["bool", "address"],
+    "ritual_ZN21GLXYSeriesDataManager13clearAllDirtyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21GLXYSeriesDataManager24handleAxisReverseChangedERK5QListIP15QAbstractSeriesE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21GLXYSeriesDataManager7cleanupEv": ["nothing", "address"],
+    "ritual_ZN21GLXYSeriesDataManager21handleSeriesPenChangeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21GLXYSeriesDataManager24handleSeriesOpenGLChangeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21GLXYSeriesDataManager28handleSeriesVisibilityChangeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21GLXYSeriesDataManager24handleScatterColorChangeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21GLXYSeriesDataManager29handleScatterMarkerSizeChangeEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_GLXYSeriesDataManager": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3DUtils/6.12.0/QtQuick3DUtils/private/qssgmesh_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN8QSSGMesh12MeshInternal17MeshOffsetTrackerC1Ei": [
+      "address", "int"
+    ],
+    "ritual_ZN8QSSGMesh12MeshInternal17MeshOffsetTracker6offsetEv": [
+      "int", "address"
+    ],
+    "ritual_ZN8QSSGMesh12MeshInternal17MeshOffsetTracker14alignedAdvanceEi": [
+      "unsigned int", "address", "int"
+    ],
+    "ritual_ZN8QSSGMesh12MeshInternal17MeshOffsetTracker7advanceEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN8QSSGMesh12MeshInternal17MeshOffsetTrackerD1Ev": [
+      "nothing", "address"
+    ]
+  }
+}

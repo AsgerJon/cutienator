@@ -1,0 +1,25 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQmlModels/6.12.0/QtQmlModels/private/qqmldelegatemodel_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN24QQmlDelegateModelPointerC1Ev": ["address"],
+    "ritual_ZN24QQmlDelegateModelPointerC1ERKS_": ["address", "address"],
+    "ritual_ZN24QQmlDelegateModelPointerC1EP17QQmlInstanceModel": [
+      "address", "address"
+    ],
+    "ritual_ZN24QQmlDelegateModelPointerC1EP17QQmlDelegateModel": [
+      "address", "address"
+    ],
+    "ritual_ZN24QQmlDelegateModelPointer13delegateModelEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QQmlDelegateModelPointer13instanceModelEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK24QQmlDelegateModelPointercvbEv": ["bool", "address"],
+    "ritual_ZN24QQmlDelegateModelPointerD1Ev": ["nothing", "address"]
+  }
+}

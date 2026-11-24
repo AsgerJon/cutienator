@@ -1,0 +1,37 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQmlDesignSupport/qmultiobjectregistryref.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK23QMultiObjectRegistryRef10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QMultiObjectRegistryRef2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN23QMultiObjectRegistryRef6d_funcEv": ["address", "address"],
+    "ritual_ZNK23QMultiObjectRegistryRef6d_funcEv": ["address", "address"],
+    "ritual_ZN23QMultiObjectRegistryRefC1EP7QObject": ["address", "address"],
+    "ritual_ZN23QMultiObjectRegistryRefC1EP10QQmlEngineP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN23QMultiObjectRegistryRefC1EP10QQmlEngineRK7QStringP7QObject": [
+      "address", "address", "text", "address"
+    ],
+    "ritual_ZN23QMultiObjectRegistryRefD1Ev": ["nothing", "address"],
+    "ritual_ZN23QMultiObjectRegistryRef11objectsListEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QMultiObjectRegistryRef5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_take_QMultiObjectRegistryRef": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN23QMultiObjectRegistryRef5eventEP6QEvent": [
+      "bool", "address", "address"
+    ]
+  }
+}

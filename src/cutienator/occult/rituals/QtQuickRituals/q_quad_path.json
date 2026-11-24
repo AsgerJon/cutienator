@@ -1,0 +1,85 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquadpath_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN9QQuadPath6moveToERK9QVector2D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QQuadPath6lineToERK9QVector2D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QQuadPath6quadToERK9QVector2DS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK9QQuadPath9elementAtEi": ["address", "address", "int"],
+    "ritual_ZNK9QQuadPath14indexOfChildAtEii": [
+      "int", "address", "int", "int"
+    ],
+    "ritual_ZNK9QQuadPath16controlPointRectEv": ["address", "address"],
+    "ritual_ZNK9QQuadPath8fillRuleEv": ["int", "address"],
+    "ritual_ZN9QQuadPath11setFillRuleEN2Qt8FillRuleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN9QQuadPath7reserveEi": ["nothing", "address", "int"],
+    "ritual_ZNK9QQuadPath12elementCountEv": ["int", "address"],
+    "ritual_ZNK9QQuadPath7isEmptyEv": ["bool", "address"],
+    "ritual_ZNK9QQuadPath21elementCountRecursiveEv": ["int", "address"],
+    "ritual_ZNK9QQuadPath9lineCountEv": ["int", "address"],
+    "ritual_ZN9QQuadPath15fromPainterPathERK12QPainterPath6QFlagsINS_8PathHintEE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK9QQuadPath13toPainterPathEv": ["address", "address"],
+    "ritual_ZNK9QQuadPath11asSvgStringEv": ["text", "address"],
+    "ritual_ZNK9QQuadPath14subPathsClosedEPb": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN9QQuadPath16addCurvatureDataEv": ["nothing", "address"],
+    "ritual_ZNK9QQuadPath9flattenedEv": ["address", "address"],
+    "ritual_ZN9QQuadPath14splitElementAtEi": ["nothing", "address", "int"],
+    "ritual_ZNK9QQuadPath8containsERK9QVector2D": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK9QQuadPath8containsERK9QVector2Dii": [
+      "bool", "address", "address", "int", "int"
+    ],
+    "ritual_ZNK9QQuadPath10fillSideOfEif": [
+      "unsigned char", "address", "int", "float"
+    ],
+    "ritual_ZN9QQuadPath18closestPointOnLineERK9QVector2DS2_S2_": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN9QQuadPath13isPointOnLeftERK9QVector2DS2_S2_": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN9QQuadPath13isPointOnLineERK9QVector2DS2_S2_": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN9QQuadPath15isPointNearLineERK9QVector2DS2_S2_": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZNK9QQuadPath8testHintENS_8PathHintE": [
+      "bool", "address", "unsigned char"
+    ],
+    "ritual_ZN9QQuadPath7setHintENS_8PathHintEb": [
+      "nothing", "address", "unsigned char", "bool"
+    ],
+    "ritual_ZNK9QQuadPath9pathHintsEv": ["int", "address"],
+    "ritual_ZN9QQuadPath12setPathHintsE6QFlagsINS_8PathHintEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN9QQuadPath10addElementERK9QVector2DS2_b": [
+      "nothing", "address", "address", "address", "bool"
+    ],
+    "ritual_ZN9QQuadPath10addElementERKNS_7ElementE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9QQuadPath24coordinateOrderOfElementERKNS_7ElementE": [
+      "unsigned char", "address", "address"
+    ],
+    "ritual_Zls6QDebugRK9QQuadPath": ["address", "address", "address"],
+    "ritual_ZN9QQuadPathD1Ev": ["nothing", "address"]
+  }
+}

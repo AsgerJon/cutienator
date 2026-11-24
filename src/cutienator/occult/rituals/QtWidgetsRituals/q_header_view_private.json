@@ -1,0 +1,202 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qheaderview_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QHeaderViewPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK18QHeaderViewPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK18QHeaderViewPrivate22lastVisibleVisualIndexEv": [
+      "int", "address"
+    ],
+    "ritual_ZN18QHeaderViewPrivate28restoreSizeOnPrevLastSectionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QHeaderViewPrivate17setNewLastSectionEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18QHeaderViewPrivate41maybeRestorePrevLastSectionAndStretchLastEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QHeaderViewPrivate15sectionHandleAtEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZN18QHeaderViewPrivate21setupSectionIndicatorEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN18QHeaderViewPrivate22updateSectionIndicatorEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN18QHeaderViewPrivate20updateHiddenSectionsEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN18QHeaderViewPrivate14resizeSectionsEN11QHeaderView10ResizeModeEb": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZN18QHeaderViewPrivate15sectionsRemovedERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN18QHeaderViewPrivate22sectionsAboutToBeMovedERK11QModelIndexiiS2_i": [
+      "nothing", "address", "address", "int", "int", "address", "int"
+    ],
+    "ritual_ZN18QHeaderViewPrivate13sectionsMovedERK11QModelIndexiiS2_i": [
+      "nothing", "address", "address", "int", "int", "address", "int"
+    ],
+    "ritual_ZN18QHeaderViewPrivate24sectionsAboutToBeChangedERK5QListI21QPersistentModelIndexEN18QAbstractItemModel16LayoutChangeHintE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN18QHeaderViewPrivate15sectionsChangedERK5QListI21QPersistentModelIndexEN18QAbstractItemModel16LayoutChangeHintE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZNK18QHeaderViewPrivate17isSectionSelectedEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK18QHeaderViewPrivate21isFirstVisibleSectionEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK18QHeaderViewPrivate20isLastVisibleSectionEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK18QHeaderViewPrivate22rowIntersectsSelectionEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK18QHeaderViewPrivate25columnIntersectsSelectionEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK18QHeaderViewPrivate26sectionIntersectsSelectionEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK18QHeaderViewPrivate13isRowSelectedEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK18QHeaderViewPrivate16isColumnSelectedEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN18QHeaderViewPrivate22prepareSectionSelectedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK18QHeaderViewPrivate12sectionCountEv": ["int", "address"],
+    "ritual_ZNK18QHeaderViewPrivate7reverseEv": ["bool", "address"],
+    "ritual_ZNK18QHeaderViewPrivate12logicalIndexEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK18QHeaderViewPrivate11visualIndexEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZN18QHeaderViewPrivate16setDefaultValuesEN2Qt11OrientationE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK18QHeaderViewPrivate19isVisualIndexHiddenEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN18QHeaderViewPrivate20setVisualIndexHiddenEib": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZNK18QHeaderViewPrivate21hasAutoResizeSectionsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK18QHeaderViewPrivate24invalidateCachedSizeHintEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK18QHeaderViewPrivate22initializeIndexMappingEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QHeaderViewPrivate22clearCascadingSectionsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QHeaderViewPrivate24saveCascadingSectionSizeEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK18QHeaderViewPrivate19sectionIsCascadableEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK18QHeaderViewPrivate17modelSectionCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZN18QHeaderViewPrivate23doDelayedResizeSectionsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK18QHeaderViewPrivate19executePostedResizeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QHeaderViewPrivate15disconnectModelEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QHeaderViewPrivate5clearEv": ["nothing", "address"],
+    "ritual_ZNK18QHeaderViewPrivate26defaultSortOrderForSectionEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZN18QHeaderViewPrivate15cascadingResizeEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK18QHeaderViewPrivate20noSectionMemoryUsageEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN18QHeaderViewPrivate42switchToFlexibleModeWithSectionMemoryUsageEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QHeaderViewPrivate31updateCountInNoSectionItemsModeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18QHeaderViewPrivate13setHeaderModeE10HeaderMode": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18QHeaderViewPrivate18createSectionItemsEiiiN11QHeaderView10ResizeModeE": [
+      "nothing", "address", "int", "int", "int", "int"
+    ],
+    "ritual_ZN18QHeaderViewPrivate30removeSectionsFromSectionItemsEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN18QHeaderViewPrivate17resizeSectionItemEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZN18QHeaderViewPrivate21setDefaultSectionSizeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18QHeaderViewPrivate33updateDefaultSectionSizeFromStyleEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK18QHeaderViewPrivate21recalcSectionStartPosEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK18QHeaderViewPrivate12headerLengthEv": ["int", "address"],
+    "ritual_ZNK18QHeaderViewPrivate25sectionsHiddenToBitVectorEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18QHeaderViewPrivate30setHiddenSectionsFromBitVectorERK9QBitArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QHeaderViewPrivate17headerSectionSizeEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK18QHeaderViewPrivate21headerSectionPositionEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK18QHeaderViewPrivate19headerVisualIndexAtEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZN18QHeaderViewPrivate26setHeaderSectionResizeModeEiN11QHeaderView10ResizeModeE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK18QHeaderViewPrivate23headerSectionResizeModeEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZN18QHeaderViewPrivate25setGlobalHeaderResizeModeEN11QHeaderView10ResizeModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK18QHeaderViewPrivate19viewSectionSizeHintEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK18QHeaderViewPrivate19adjustedVisualIndexEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZN18QHeaderViewPrivate15setScrollOffsetEPK10QScrollBarN17QAbstractItemView10ScrollModeE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN18QHeaderViewPrivate25updateSectionsBeforeAfterEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_take_QHeaderViewPrivate": ["bool", "address", "chars", "address"]
+  }
+}

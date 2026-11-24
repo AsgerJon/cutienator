@@ -339,6 +339,13 @@ bool ritual_ZneRK10QJsonValueRK10QJsonArray(
   return operator!=(*lhs, *rhs);
 }
 
+//  QJsonArray::QJsonArray(QCborContainerPrivate *array)
+extern "C" Q_DECL_EXPORT
+QJsonArray *ritual_ZN10QJsonArrayC1EP21QCborContainerPrivate(
+    QCborContainerPrivate *array) {
+  return new QJsonArray(array);
+}
+
 //  bool QJsonArray::detach(qsizetype reserve)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN10QJsonArray6detachEx(QJsonArray *self, qsizetype reserve) {

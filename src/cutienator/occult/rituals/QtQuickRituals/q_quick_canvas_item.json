@@ -1,0 +1,25 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickcanvasitem_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK16QQuickCanvasItem10metaObjectEv": ["address", "address"],
+    "ritual_ZNK16QQuickCanvasItem17isTextureProviderEv": ["bool", "address"],
+    "ritual_ZN16QQuickCanvasItem14schedulePolishEv": ["nothing", "address"],
+    "ritual_ZN16QQuickCanvasItem5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN16QQuickCanvasItem9tiledRectERK6QRectFRK5QSize": [
+      "address", "address", "address"
+    ],
+    "ritual_take_QQuickCanvasItem": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK16QQuickCanvasItem17isTextureProviderEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZN16QQuickCanvasItem5eventEP6QEvent": [
+      "bool", "address", "address"
+    ]
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3D/6.12.0/QtQuick3D/private/qquick3deffect_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK14QQuick3DEffect10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QQuick3DEffect2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN14QQuick3DEffectC1EP14QQuick3DObject": ["address", "address"],
+    "ritual_ZN14QQuick3DEffect16effectChainDirtyEv": ["nothing", "address"],
+    "ritual_ZN14QQuick3DEffect17updateSpatialNodeEP21QSSGRenderGraphObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN14QQuick3DEffect10itemChangeEN14QQuick3DObject10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN14QQuick3DEffect15onPropertyDirtyEv": ["nothing", "address"],
+    "ritual_ZN14QQuick3DEffect14onTextureDirtyEv": ["nothing", "address"],
+    "ritual_ZN14QQuick3DEffect11onPassDirtyEv": ["nothing", "address"],
+    "ritual_ZN14QQuick3DEffect20setDynamicTextureMapEP31QQuick3DShaderUtilsTextureInput": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QQuick3DEffect9markDirtyENS_5DirtyE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN14QQuick3DEffect18updateSceneManagerEP20QQuick3DSceneManager": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN14QQuick3DEffect17updateSpatialNodeEP21QSSGRenderGraphObject": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN14QQuick3DEffect10itemChangeEN14QQuick3DObject10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Controls2Impl/6.12.0/QtQuickControls2Impl/private/qquickchecklabel",
+    "_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN17QQuickTextForeign22qt_qmlMarker_anonymousEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuickTextForeign20qt_qmlMarker_foreignEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuickTextForeignD1Ev": ["nothing", "address"]
+  }
+}

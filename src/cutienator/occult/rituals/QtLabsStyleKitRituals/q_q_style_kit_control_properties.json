@@ -1,0 +1,86 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtLabsS",
+    "tyleKit/6.12.0/QtLabsStyleKit/private/qqstylekitcontrolproperties_",
+    "p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK27QQStyleKitControlProperties10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QQStyleKitControlProperties2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN27QQStyleKitControlProperties24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QQStyleKitControlPropertiesC1EN4QQSK13PropertyGroupEP7QObject": [
+      "address", "int", "address"
+    ],
+    "ritual_ZN27QQStyleKitControlProperties32emitChangedForAllStylePropertiesE6QFlagsIN23QQStyleKitPropertyGroup8EmitFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK27QQStyleKitControlProperties5styleEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK27QQStyleKitControlProperties8subclassEv": ["int", "address"],
+    "ritual_ZNK27QQStyleKitControlProperties18asQQStyleKitReaderEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK27QQStyleKitControlProperties17asQQStyleKitStateEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK27QQStyleKitControlProperties7spacingEv": [
+      "double", "address"
+    ],
+    "ritual_ZN27QQStyleKitControlProperties10setSpacingEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK27QQStyleKitControlProperties7paddingEv": [
+      "double", "address"
+    ],
+    "ritual_ZN27QQStyleKitControlProperties10setPaddingEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK27QQStyleKitControlProperties11leftPaddingEv": [
+      "double", "address"
+    ],
+    "ritual_ZN27QQStyleKitControlProperties14setLeftPaddingEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK27QQStyleKitControlProperties12rightPaddingEv": [
+      "double", "address"
+    ],
+    "ritual_ZN27QQStyleKitControlProperties15setRightPaddingEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK27QQStyleKitControlProperties10topPaddingEv": [
+      "double", "address"
+    ],
+    "ritual_ZN27QQStyleKitControlProperties13setTopPaddingEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK27QQStyleKitControlProperties13bottomPaddingEv": [
+      "double", "address"
+    ],
+    "ritual_ZN27QQStyleKitControlProperties16setBottomPaddingEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK27QQStyleKitControlProperties10transitionEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QQStyleKitControlProperties13setTransitionEP16QQuickTransition": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK27QQStyleKitControlProperties4textEv": ["address", "address"],
+    "ritual_ZNK27QQStyleKitControlProperties10backgroundEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK27QQStyleKitControlProperties6handleEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK27QQStyleKitControlProperties9indicatorEv": [
+      "address", "address"
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qgraphicsitem_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QGraphicsItemPrivate13TransformDataC1Ev": ["address"],
+    "ritual_ZNK20QGraphicsItemPrivate13TransformData21computedFullTransformEP10QTransform": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN20QGraphicsItemPrivate13TransformDataD1Ev": [
+      "nothing", "address"
+    ]
+  }
+}

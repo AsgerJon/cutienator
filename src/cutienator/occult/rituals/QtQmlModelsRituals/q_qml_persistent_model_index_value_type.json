@@ -1,0 +1,48 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQmlMo",
+    "dels/6.12.0/QtQmlModels/private/qqmlmodelindexvaluetype_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN33QQmlPersistentModelIndexValueType22qt_qmlMarker_anonymousEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN33QQmlPersistentModelIndexValueType21qt_qmlMarker_extendedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN33QQmlPersistentModelIndexValueType20qt_qmlMarker_foreignEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK33QQmlPersistentModelIndexValueType8toStringEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK33QQmlPersistentModelIndexValueType4dataEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK33QQmlPersistentModelIndexValueType3rowEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK33QQmlPersistentModelIndexValueType6columnEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK33QQmlPersistentModelIndexValueType6parentEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK33QQmlPersistentModelIndexValueType7isValidEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK33QQmlPersistentModelIndexValueType5modelEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK33QQmlPersistentModelIndexValueType10internalIdEv": [
+      "unsigned long long", "address"
+    ],
+    "ritual_ZNK33QQmlPersistentModelIndexValueTypecv21QPersistentModelIndexEv": [
+      "address", "address"
+    ],
+    "ritual_ZN33QQmlPersistentModelIndexValueTypeD1Ev": [
+      "nothing", "address"
+    ]
+  }
+}

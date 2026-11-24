@@ -1,0 +1,64 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquickscrollindicator_",
+    "p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK21QQuickScrollIndicator10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QQuickScrollIndicator2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN21QQuickScrollIndicator21qt_qmlMarker_attachedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickScrollIndicatorC1EP10QQuickItem": [
+      "address", "address"
+    ],
+    "ritual_ZN21QQuickScrollIndicator21qmlAttachedPropertiesEP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZNK21QQuickScrollIndicator4sizeEv": ["double", "address"],
+    "ritual_ZNK21QQuickScrollIndicator8positionEv": ["double", "address"],
+    "ritual_ZNK21QQuickScrollIndicator8isActiveEv": ["bool", "address"],
+    "ritual_ZN21QQuickScrollIndicator9setActiveEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK21QQuickScrollIndicator11orientationEv": ["int", "address"],
+    "ritual_ZN21QQuickScrollIndicator14setOrientationEN2Qt11OrientationE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK21QQuickScrollIndicator12isHorizontalEv": ["bool", "address"],
+    "ritual_ZNK21QQuickScrollIndicator10isVerticalEv": ["bool", "address"],
+    "ritual_ZNK21QQuickScrollIndicator11minimumSizeEv": [
+      "double", "address"
+    ],
+    "ritual_ZN21QQuickScrollIndicator14setMinimumSizeEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK21QQuickScrollIndicator10visualSizeEv": ["double", "address"],
+    "ritual_ZNK21QQuickScrollIndicator14visualPositionEv": [
+      "double", "address"
+    ],
+    "ritual_ZN21QQuickScrollIndicator7setSizeEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN21QQuickScrollIndicator11setPositionEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN21QQuickScrollIndicator10touchEventEP11QTouchEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21QQuickScrollIndicator14accessibleRoleEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZN21QQuickScrollIndicator10touchEventEP11QTouchEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK21QQuickScrollIndicator14accessibleRoleEv": [
+      "int", "address"
+    ]
+  }
+}

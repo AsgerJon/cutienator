@@ -1,0 +1,30 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtMultimedia/6.12.0/QtMultimedia/private/qmediaframeinput_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN23QMediaFrameInputPrivate17setCaptureSessionEP20QMediaCaptureSession": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK23QMediaFrameInputPrivate14captureSessionEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QMediaFrameInputPrivate23updateCanSendMediaFrameEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QMediaFrameInputPrivate24postponeCheckReadyToSendEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK23QMediaFrameInputPrivate24checkIfCanSendMediaFrameEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN23QMediaFrameInputPrivate25emitReadyToSendMediaFrameEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QMediaFrameInputPrivate31updateCaptureSessionConnectionsEP20QMediaCaptureSessionS1_": [
+      "nothing", "address", "address", "address"
+    ]
+  }
+}

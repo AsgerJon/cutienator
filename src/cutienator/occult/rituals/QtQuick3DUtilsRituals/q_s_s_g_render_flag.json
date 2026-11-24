@@ -1,0 +1,28 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3DUtils/6.12.0/QtQuick3DUtils/private/qssgutils_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN14QSSGRenderFlagC1Ev": ["address"],
+    "ritual_ZN14QSSGRenderFlagC1Ej": ["address", "unsigned int"],
+    "ritual_ZNK14QSSGRenderFlag5valueEv": ["unsigned int", "address"],
+    "ritual_ZN14QSSGRenderFlag8setValueEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN14QSSGRenderFlag10clearFlagsEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN14QSSGRenderFlag7setFlagEjb": [
+      "nothing", "address", "unsigned int", "bool"
+    ],
+    "ritual_ZNK14QSSGRenderFlag5isSetEj": [
+      "bool", "address", "unsigned int"
+    ],
+    "ritual_ZeqRK14QSSGRenderFlagS1_": ["bool", "address", "address"],
+    "ritual_ZneRK14QSSGRenderFlagS1_": ["bool", "address", "address"],
+    "ritual_ZNK14QSSGRenderFlagcvjEv": ["unsigned int", "address"],
+    "ritual_ZN14QSSGRenderFlagD1Ev": ["nothing", "address"]
+  }
+}

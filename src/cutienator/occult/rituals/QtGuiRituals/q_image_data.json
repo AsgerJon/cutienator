@@ -1,0 +1,25 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qimage_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN10QImageDataC1Ev": ["address"],
+    "ritual_ZN10QImageDataD1Ev": ["nothing", "address"],
+    "ritual_ZN10QImageData6createERK5QSizeN6QImage6FormatE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN10QImageData3getERK6QImage": ["address", "address"],
+    "ritual_ZNK10QImageData19checkForAlphaPixelsEv": ["bool", "address"],
+    "ritual_ZN10QImageData14convertInPlaceEN6QImage6FormatE6QFlagsIN2Qt19ImageConversionFlagEE": [
+      "bool", "address", "int", "int"
+    ],
+    "ritual_ZNK10QImageData9doImageIOEPK6QImageP12QImageWriteri": [
+      "bool", "address", "address", "address", "int"
+    ],
+    "ritual_ZN10QImageData24calculateImageParametersExxx": [
+      "address", "long long", "long long", "long long"
+    ]
+  }
+}

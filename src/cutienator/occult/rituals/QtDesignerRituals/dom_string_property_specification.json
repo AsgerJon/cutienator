@@ -1,0 +1,60 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/ui4_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN30DomStringPropertySpecificationC1Ev": ["address"],
+    "ritual_ZN30DomStringPropertySpecificationD1Ev": ["nothing", "address"],
+    "ritual_ZNK30DomStringPropertySpecification16hasAttributeNameEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK30DomStringPropertySpecification13attributeNameEv": [
+      "text", "address"
+    ],
+    "ritual_ZN30DomStringPropertySpecification16setAttributeNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN30DomStringPropertySpecification18clearAttributeNameEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK30DomStringPropertySpecification16hasAttributeTypeEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK30DomStringPropertySpecification13attributeTypeEv": [
+      "text", "address"
+    ],
+    "ritual_ZN30DomStringPropertySpecification16setAttributeTypeERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN30DomStringPropertySpecification18clearAttributeTypeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK30DomStringPropertySpecification16hasAttributeNotrEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK30DomStringPropertySpecification13attributeNotrEv": [
+      "text", "address"
+    ],
+    "ritual_ZN30DomStringPropertySpecification16setAttributeNotrERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN30DomStringPropertySpecification18clearAttributeNotrEv": [
+      "nothing", "address"
+    ],
+    "ritual_list_make_DomStringPropertySpecification_ptr": ["address"],
+    "ritual_list_add_DomStringPropertySpecification_ptr": [
+      "nothing", "address", "address"
+    ],
+    "ritual_list_size_DomStringPropertySpecification_ptr": [
+      "long long", "address"
+    ],
+    "ritual_list_at_DomStringPropertySpecification_ptr": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_DomStringPropertySpecification_ptr": [
+      "nothing", "address"
+    ]
+  }
+}

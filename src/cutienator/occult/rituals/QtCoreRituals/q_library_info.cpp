@@ -23,11 +23,13 @@ bool ritual_ZN12QLibraryInfo13isSharedBuildEv() {
   return QLibraryInfo::isSharedBuild();
 }
 
+#if !defined(QT_BOOTSTRAPPED)
 //  QVersionNumber QLibraryInfo::version()
 extern "C" Q_DECL_EXPORT
 QVersionNumber *ritual_ZN12QLibraryInfo7versionEv() {
   return new QVersionNumber(QLibraryInfo::version());
 }
+#endif  // !defined(QT_BOOTSTRAPPED)
 
 //  QString QLibraryInfo::path(LibraryPath p)
 extern "C" Q_DECL_EXPORT
@@ -43,12 +45,14 @@ QList<QString> *ritual_ZN12QLibraryInfo5pathsENS_11LibraryPathE(
   return new QList<QString>(QLibraryInfo::paths(p));
 }
 
+#if QT_DEPRECATED_SINCE(6, 0)
 //  QString QLibraryInfo::location(LibraryLocation location)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN12QLibraryInfo8locationENS_11LibraryPathE(
     QLibraryInfo::LibraryLocation location) {
   return new QString(QLibraryInfo::location(location));
 }
+#endif  // QT_DEPRECATED_SINCE(6, 0)
 
 //  QStringList QLibraryInfo::platformPluginArguments(const QString
 //      &platformName)

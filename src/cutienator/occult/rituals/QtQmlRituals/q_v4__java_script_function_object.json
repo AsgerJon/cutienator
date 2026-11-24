@@ -1,0 +1,35 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4functionobject_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN3QV424JavaScriptFunctionObject12staticVTableEv": ["address"],
+    "ritual_ZN3QV424JavaScriptFunctionObject10__dataTestEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK3QV424JavaScriptFunctionObject11d_uncheckedEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV424JavaScriptFunctionObject1dEv": ["address", "address"],
+    "ritual_ZN3QV424JavaScriptFunctionObject14virtualDestroyEPNS_4Heap4BaseE": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK3QV424JavaScriptFunctionObject5scopeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV424JavaScriptFunctionObject8functionEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV424JavaScriptFunctionObject20formalParameterCountEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZNK3QV424JavaScriptFunctionObject8varCountEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZNK3QV424JavaScriptFunctionObject10strictModeEv": [
+      "bool", "address"
+    ]
+  }
+}

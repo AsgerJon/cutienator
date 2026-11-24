@@ -1,0 +1,32 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmldebugserviceinterfaces_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK19QQmlProfilerService10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QQmlProfilerService2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN19QQmlProfilerServiceD1Ev": ["nothing", "address"],
+    "ritual_ZN19QQmlProfilerService17addGlobalProfilerEP27QQmlAbstractProfilerAdapter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQmlProfilerService20removeGlobalProfilerEP27QQmlAbstractProfilerAdapter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQmlProfilerService14startProfilingEP9QJSEnginey": [
+      "nothing", "address", "address", "unsigned long long"
+    ],
+    "ritual_ZN19QQmlProfilerService13stopProfilingEP9QJSEngine": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQmlProfilerService9dataReadyEP27QQmlAbstractProfilerAdapter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QQmlProfilerService": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

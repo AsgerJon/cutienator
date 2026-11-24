@@ -1,0 +1,85 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquickcontainer_p_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN22QQuickContainerPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK22QQuickContainerPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN22QQuickContainerPrivate3getEP15QQuickContainer": [
+      "address", "address"
+    ],
+    "ritual_ZN22QQuickContainerPrivate4initEv": ["nothing", "address"],
+    "ritual_ZN22QQuickContainerPrivate7cleanupEv": ["nothing", "address"],
+    "ritual_ZNK22QQuickContainerPrivate6itemAtEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN22QQuickContainerPrivate10insertItemEiP10QQuickItem": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN22QQuickContainerPrivate8moveItemEiiP10QQuickItem": [
+      "nothing", "address", "int", "int", "address"
+    ],
+    "ritual_ZN22QQuickContainerPrivate10removeItemEiP10QQuickItem": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN22QQuickContainerPrivate12reorderItemsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickContainerPrivate13maybeCullItemEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQuickContainerPrivate14maybeCullItemsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickContainerPrivate22_q_currentIndexChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickContainerPrivate14itemChildAddedEP10QQuickItemS1_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN22QQuickContainerPrivate23itemSiblingOrderChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQuickContainerPrivate17itemParentChangedEP10QQuickItemS1_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN22QQuickContainerPrivate13itemDestroyedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQuickContainerPrivate18updateContentWidthEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickContainerPrivate19updateContentHeightEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK22QQuickContainerPrivate15getContentWidthEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK22QQuickContainerPrivate16getContentHeightEv": [
+      "double", "address"
+    ],
+    "ritual_take_QQuickContainerPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN22QQuickContainerPrivate14itemChildAddedEP10QQuickItemS1_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN22QQuickContainerPrivate23itemSiblingOrderChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN22QQuickContainerPrivate17itemParentChangedEP10QQuickItemS1_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN22QQuickContainerPrivate13itemDestroyedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK22QQuickContainerPrivate15getContentWidthEv": [
+      "double", "address"
+    ],
+    "ritual_own_ZNK22QQuickContainerPrivate16getContentHeightEv": [
+      "double", "address"
+    ]
+  }
+}

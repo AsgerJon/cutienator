@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/ui4_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11DomTabStopsC1Ev": ["address"],
+    "ritual_ZN11DomTabStopsD1Ev": ["nothing", "address"],
+    "ritual_ZNK11DomTabStops14elementTabStopEv": ["address", "address"],
+    "ritual_ZN11DomTabStops17setElementTabStopERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ]
+  }
+}

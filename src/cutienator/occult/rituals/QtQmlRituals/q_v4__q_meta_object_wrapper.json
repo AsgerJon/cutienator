@@ -1,0 +1,23 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4qmetaobjectwrapper_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN3QV418QMetaObjectWrapper12staticVTableEv": ["address"],
+    "ritual_ZN3QV418QMetaObjectWrapper10__dataTestEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK3QV418QMetaObjectWrapper11d_uncheckedEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV418QMetaObjectWrapper1dEv": ["address", "address"],
+    "ritual_ZN3QV418QMetaObjectWrapper6createEPNS_15ExecutionEngineEPK11QMetaObject": [
+      "unsigned long long", "address", "address"
+    ],
+    "ritual_ZNK3QV418QMetaObjectWrapper10metaObjectEv": [
+      "address", "address"
+    ]
+  }
+}

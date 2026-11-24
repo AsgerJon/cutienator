@@ -1,0 +1,58 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Particles/6.12.0/QtQuickParticles/private/qquicktargetdirection_p.",
+    "h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK21QQuickTargetDirection10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QQuickTargetDirection2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN21QQuickTargetDirectionC1EP7QObject": ["address", "address"],
+    "ritual_ZN21QQuickTargetDirection6sampleERK7QPointF": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK21QQuickTargetDirection7targetXEv": ["double", "address"],
+    "ritual_ZNK21QQuickTargetDirection7targetYEv": ["double", "address"],
+    "ritual_ZNK21QQuickTargetDirection15targetVariationEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK21QQuickTargetDirection9magnitudeEv": ["double", "address"],
+    "ritual_ZNK21QQuickTargetDirection21proportionalMagnitudeEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK21QQuickTargetDirection18magnitudeVariationEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK21QQuickTargetDirection10targetItemEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QQuickTargetDirection10setTargetXEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN21QQuickTargetDirection10setTargetYEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN21QQuickTargetDirection18setTargetVariationEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN21QQuickTargetDirection12setMagnitudeEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN21QQuickTargetDirection24setProportionalMagnitudeEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN21QQuickTargetDirection21setMagnitudeVariationEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN21QQuickTargetDirection13setTargetItemEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN21QQuickTargetDirection6sampleERK7QPointF": [
+      "address", "address", "address"
+    ]
+  }
+}

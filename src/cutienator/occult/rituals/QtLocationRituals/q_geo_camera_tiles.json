@@ -1,0 +1,38 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLocation/6.12.0/QtLocation/private/qgeocameratiles_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QGeoCameraTilesC1Ev": ["address"],
+    "ritual_ZN15QGeoCameraTilesD1Ev": ["nothing", "address"],
+    "ritual_ZN15QGeoCameraTiles13setCameraDataERK14QGeoCameraData": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QGeoCameraTiles10cameraDataEv": ["address", "address"],
+    "ritual_ZN15QGeoCameraTiles14setVisibleAreaERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QGeoCameraTiles13setScreenSizeERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QGeoCameraTiles11setTileSizeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QGeoCameraTiles8tileSizeEv": ["int", "address"],
+    "ritual_ZN15QGeoCameraTiles16setViewExpansionEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN15QGeoCameraTiles15setPluginStringERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN15QGeoCameraTiles10setMapTypeERK11QGeoMapType": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QGeoCameraTiles13activeMapTypeEv": ["address", "address"],
+    "ritual_ZN15QGeoCameraTiles13setMapVersionEi": [
+      "nothing", "address", "int"
+    ]
+  }
+}

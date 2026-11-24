@@ -1,0 +1,31 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qjson_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN12QJsonPrivate5Value11valueHelperERK10QCborValue": [
+      "long long", "address"
+    ],
+    "ritual_ZN12QJsonPrivate5Value9containerERK10QCborValue": [
+      "address", "address"
+    ],
+    "ritual_ZN12QJsonPrivate5Value9containerE18QJsonValueConstRef": [
+      "address", "address"
+    ],
+    "ritual_ZN12QJsonPrivate5Value9containerE13QJsonValueRef": [
+      "address", "address"
+    ],
+    "ritual_ZN12QJsonPrivate5Value11indexHelperE18QJsonValueConstRef": [
+      "long long", "address"
+    ],
+    "ritual_ZN12QJsonPrivate5Value13elementHelperE18QJsonValueConstRef": [
+      "address", "address"
+    ],
+    "ritual_ZN12QJsonPrivate5Value15fromTrustedCborERK10QCborValue": [
+      "address", "address"
+    ],
+    "ritual_ZN12QJsonPrivate5ValueD1Ev": ["nothing", "address"]
+  }
+}

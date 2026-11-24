@@ -1,0 +1,68 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickpropertychanges_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK21QQuickPropertyChanges10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QQuickPropertyChanges2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN21QQuickPropertyChangesC1Ev": ["address"],
+    "ritual_ZN21QQuickPropertyChangesD1Ev": ["nothing", "address"],
+    "ritual_ZNK21QQuickPropertyChanges6objectEv": ["address", "address"],
+    "ritual_ZN21QQuickPropertyChanges9setObjectEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21QQuickPropertyChanges18restoreEntryValuesEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QQuickPropertyChanges21setRestoreEntryValuesEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK21QQuickPropertyChanges10isExplicitEv": ["bool", "address"],
+    "ritual_ZN21QQuickPropertyChanges13setIsExplicitEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN21QQuickPropertyChanges7actionsEv": ["address", "address"],
+    "ritual_ZNK21QQuickPropertyChanges16containsPropertyERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZNK21QQuickPropertyChanges13containsValueERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZNK21QQuickPropertyChanges18containsExpressionERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN21QQuickPropertyChanges11changeValueERK7QStringRK8QVariant": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZN21QQuickPropertyChanges16changeExpressionERK7QStringS2_": [
+      "nothing", "address", "text", "text"
+    ],
+    "ritual_ZN21QQuickPropertyChanges14removePropertyERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK21QQuickPropertyChanges5valueERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK21QQuickPropertyChanges10expressionERK7QString": [
+      "text", "address", "text"
+    ],
+    "ritual_ZN21QQuickPropertyChanges15detachFromStateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickPropertyChanges13attachToStateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK21QQuickPropertyChanges8propertyERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_take_QQuickPropertyChanges": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

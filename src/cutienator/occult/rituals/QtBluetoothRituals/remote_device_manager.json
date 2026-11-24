@@ -1,0 +1,11 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtBluetooth/6.12.0/QtBluetooth/private/remotedevicemanager_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK19RemoteDeviceManager10metaObjectEv": ["address", "address"],
+    "ritual_ZNK19RemoteDeviceManager15isJobInProgressEv": ["bool", "address"]
+  }
+}

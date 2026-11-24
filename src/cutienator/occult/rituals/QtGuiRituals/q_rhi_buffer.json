@@ -1,0 +1,31 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/rhi/qrhi.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK10QRhiBuffer12resourceTypeEv": ["int", "address"],
+    "ritual_ZNK10QRhiBuffer4typeEv": ["int", "address"],
+    "ritual_ZN10QRhiBuffer7setTypeENS_4TypeE": ["nothing", "address", "int"],
+    "ritual_ZNK10QRhiBuffer5usageEv": ["int", "address"],
+    "ritual_ZN10QRhiBuffer8setUsageE6QFlagsINS_9UsageFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK10QRhiBuffer4sizeEv": ["unsigned int", "address"],
+    "ritual_ZN10QRhiBuffer7setSizeEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN10QRhiBuffer6createEv": ["bool", "address"],
+    "ritual_ZN10QRhiBuffer12nativeBufferEv": ["address", "address"],
+    "ritual_ZN10QRhiBuffer41endFullDynamicBufferUpdateForCurrentFrameEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QRhiBuffer": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK10QRhiBuffer12resourceTypeEv": ["int", "address"],
+    "ritual_own_ZN10QRhiBuffer12nativeBufferEv": ["address", "address"],
+    "ritual_own_ZN10QRhiBuffer41endFullDynamicBufferUpdateForCurrentFrameEv": [
+      "nothing", "address"
+    ]
+  }
+}

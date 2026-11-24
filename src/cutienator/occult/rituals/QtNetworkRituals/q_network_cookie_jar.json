@@ -1,0 +1,52 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/qnetworkcookiejar.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QNetworkCookieJar10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QNetworkCookieJar2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QNetworkCookieJarC1EP7QObject": ["address", "address"],
+    "ritual_ZN17QNetworkCookieJarD1Ev": ["nothing", "address"],
+    "ritual_ZNK17QNetworkCookieJar13cookiesForUrlERK4QUrl": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN17QNetworkCookieJar17setCookiesFromUrlERK5QListI14QNetworkCookieERK4QUrl": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN17QNetworkCookieJar12insertCookieERK14QNetworkCookie": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN17QNetworkCookieJar12updateCookieERK14QNetworkCookie": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN17QNetworkCookieJar12deleteCookieERK14QNetworkCookie": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK17QNetworkCookieJar10allCookiesEv": ["address", "address"],
+    "ritual_ZN17QNetworkCookieJar13setAllCookiesERK5QListI14QNetworkCookieE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QNetworkCookieJar14validateCookieERK14QNetworkCookieRK4QUrl": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN17QNetworkCookieJar6d_funcEv": ["address", "address"],
+    "ritual_ZNK17QNetworkCookieJar6d_funcEv": ["address", "address"],
+    "ritual_take_QNetworkCookieJar": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN17QNetworkCookieJar12insertCookieERK14QNetworkCookie": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN17QNetworkCookieJar12updateCookieERK14QNetworkCookie": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN17QNetworkCookieJar12deleteCookieERK14QNetworkCookie": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZNK17QNetworkCookieJar14validateCookieERK14QNetworkCookieRK4QUrl": [
+      "bool", "address", "address", "address"
+    ]
+  }
+}

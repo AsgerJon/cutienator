@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGui/qevent.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
+#if QT_CONFIG(tabletevent)
 #include <QtGui/qevent.h>
 #include <QtCore/qpoint.h>
 #include <cstring>
@@ -7,7 +9,9 @@
 //  A QTabletEvent that Python can take functions over in. Every QTabletEvent
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if QT_CONFIG(tabletevent)
 typedef void * (*CuteQTabletEventCall0)(const void *, int *);
+#endif  // QT_CONFIG(tabletevent)
 typedef bool (*CuteQTabletEventCall1)(const void *, int *);
 typedef bool (*CuteQTabletEventCall2)(const void *, int *);
 typedef bool (*CuteQTabletEventCall3)(const void *, int *);
@@ -19,10 +23,12 @@ public:
   void *taken[6] = {};
 
   bool take(const char *key, void *call) {
+#if QT_CONFIG(tabletevent)
     if (!std::strcmp(key, "_ZNK6QEvent5cloneEv")) {
       taken[0] = call;
       return true;
     }
+#endif  // QT_CONFIG(tabletevent)
     if (!std::strcmp(key, "_ZNK13QPointerEvent12isBeginEventEv")) {
       taken[1] = call;
       return true;
@@ -46,6 +52,7 @@ public:
     return false;
   }
 
+#if QT_CONFIG(tabletevent)
   //  QTabletEvent *QTabletEvent::clone() const
   QTabletEvent *clone() const override {
     if (taken[0]) {
@@ -56,6 +63,7 @@ public:
     }
     return QTabletEvent::clone();
   }
+#endif  // QT_CONFIG(tabletevent)
 
   //  bool QSinglePointEvent::isBeginEvent() const
   bool isBeginEvent() const override {
@@ -161,71 +169,93 @@ QTabletEvent *ritual_ZN12QTabletEventC1EN6QEvent4TypeEPK15QPointingDeviceRK7QPoi
       QFlags<Qt::MouseButton>::fromInt(buttons));
 }
 
+#if QT_DEPRECATED_SINCE(6, 0)
 //  QPoint QTabletEvent::pos() const
 extern "C" Q_DECL_EXPORT
 QPoint *ritual_ZNK12QTabletEvent3posEv(const QTabletEvent *self) {
   return new QPoint(self->pos());
 }
+#endif  // QT_DEPRECATED_SINCE(6, 0)
 
+#if QT_DEPRECATED_SINCE(6, 0)
 //  QPoint QTabletEvent::globalPos() const
 extern "C" Q_DECL_EXPORT
 QPoint *ritual_ZNK12QTabletEvent9globalPosEv(const QTabletEvent *self) {
   return new QPoint(self->globalPos());
 }
+#endif  // QT_DEPRECATED_SINCE(6, 0)
 
+#if QT_DEPRECATED_SINCE(6, 0)
 //  const QPointF QTabletEvent::posF() const
 extern "C" Q_DECL_EXPORT
 QPointF *ritual_ZNK12QTabletEvent4posFEv(const QTabletEvent *self) {
   return new QPointF(self->posF());
 }
+#endif  // QT_DEPRECATED_SINCE(6, 0)
 
+#if QT_DEPRECATED_SINCE(6, 0)
 //  const QPointF QTabletEvent::globalPosF() const
 extern "C" Q_DECL_EXPORT
 QPointF *ritual_ZNK12QTabletEvent10globalPosFEv(const QTabletEvent *self) {
   return new QPointF(self->globalPosF());
 }
+#endif  // QT_DEPRECATED_SINCE(6, 0)
 
+#if QT_DEPRECATED_SINCE(6, 0)
 //  int QTabletEvent::x() const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK12QTabletEvent1xEv(const QTabletEvent *self) {
   return self->x();
 }
+#endif  // QT_DEPRECATED_SINCE(6, 0)
 
+#if QT_DEPRECATED_SINCE(6, 0)
 //  int QTabletEvent::y() const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK12QTabletEvent1yEv(const QTabletEvent *self) {
   return self->y();
 }
+#endif  // QT_DEPRECATED_SINCE(6, 0)
 
+#if QT_DEPRECATED_SINCE(6, 0)
 //  int QTabletEvent::globalX() const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK12QTabletEvent7globalXEv(const QTabletEvent *self) {
   return self->globalX();
 }
+#endif  // QT_DEPRECATED_SINCE(6, 0)
 
+#if QT_DEPRECATED_SINCE(6, 0)
 //  int QTabletEvent::globalY() const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK12QTabletEvent7globalYEv(const QTabletEvent *self) {
   return self->globalY();
 }
+#endif  // QT_DEPRECATED_SINCE(6, 0)
 
+#if QT_DEPRECATED_SINCE(6, 0)
 //  qreal QTabletEvent::hiResGlobalX() const
 extern "C" Q_DECL_EXPORT
 qreal ritual_ZNK12QTabletEvent12hiResGlobalXEv(const QTabletEvent *self) {
   return self->hiResGlobalX();
 }
+#endif  // QT_DEPRECATED_SINCE(6, 0)
 
+#if QT_DEPRECATED_SINCE(6, 0)
 //  qreal QTabletEvent::hiResGlobalY() const
 extern "C" Q_DECL_EXPORT
 qreal ritual_ZNK12QTabletEvent12hiResGlobalYEv(const QTabletEvent *self) {
   return self->hiResGlobalY();
 }
+#endif  // QT_DEPRECATED_SINCE(6, 0)
 
+#if QT_DEPRECATED_SINCE(6, 0)
 //  qint64 QTabletEvent::uniqueId() const
 extern "C" Q_DECL_EXPORT
 qint64 ritual_ZNK12QTabletEvent8uniqueIdEv(const QTabletEvent *self) {
   return self->uniqueId();
 }
+#endif  // QT_DEPRECATED_SINCE(6, 0)
 
 //  qreal QTabletEvent::pressure() const
 extern "C" Q_DECL_EXPORT
@@ -280,3 +310,5 @@ QTabletEvent *ritual_own_ZNK12QTabletEvent5cloneEv(
     const QTabletEvent *self) {
   return self->QTabletEvent::clone();
 }
+
+#endif  // QT_CONFIG(tabletevent)

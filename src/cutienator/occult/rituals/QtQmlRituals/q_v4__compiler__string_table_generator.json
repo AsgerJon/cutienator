@@ -1,0 +1,46 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4compiler_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN3QV48Compiler20StringTableGeneratorC1Ev": ["address"],
+    "ritual_ZN3QV48Compiler20StringTableGenerator14registerStringERK7QString": [
+      "int", "address", "text"
+    ],
+    "ritual_ZNK3QV48Compiler20StringTableGenerator11getStringIdERK7QString": [
+      "int", "address", "text"
+    ],
+    "ritual_ZNK3QV48Compiler20StringTableGenerator11hasStringIdERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZNK3QV48Compiler20StringTableGenerator14stringForIndexEi": [
+      "text", "address", "int"
+    ],
+    "ritual_ZNK3QV48Compiler20StringTableGenerator11stringCountEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZNK3QV48Compiler20StringTableGenerator18sizeOfTableAndDataEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN3QV48Compiler20StringTableGenerator6freezeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN3QV48Compiler20StringTableGenerator5clearEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN3QV48Compiler20StringTableGenerator25initializeFromBackingUnitEPKNS_12CompiledData4UnitE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN3QV48Compiler20StringTableGenerator9serializeEPNS_12CompiledData4UnitE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK3QV48Compiler20StringTableGenerator10allStringsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV48Compiler20StringTableGeneratorD1Ev": [
+      "nothing", "address"
+    ]
+  }
+}

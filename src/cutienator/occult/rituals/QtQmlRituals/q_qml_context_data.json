@@ -1,0 +1,170 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmlcontextdata_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK15QQmlContextData6addrefEv": ["nothing", "address"],
+    "ritual_ZNK15QQmlContextData7releaseEv": ["nothing", "address"],
+    "ritual_ZNK15QQmlContextData5countEv": ["int", "address"],
+    "ritual_ZNK15QQmlContextData8refCountEv": ["int", "address"],
+    "ritual_ZN15QQmlContextData15emitDestructionEv": ["nothing", "address"],
+    "ritual_ZN15QQmlContextData16clearExpressionsEv": ["nothing", "address"],
+    "ritual_ZN15QQmlContextData23clearContextRecursivelyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQmlContextData24clearChildrenAndSiblingsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQmlContextData20clearImportedScriptsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQmlContextData17clearOwnedObjectsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQmlContextData18clearContextGuardsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQmlContextData13clearIdValuesEv": ["nothing", "address"],
+    "ritual_ZN15QQmlContextData10invalidateEv": ["nothing", "address"],
+    "ritual_ZNK15QQmlContextData7isValidEv": ["bool", "address"],
+    "ritual_ZNK15QQmlContextData10isInternalEv": ["bool", "address"],
+    "ritual_ZN15QQmlContextData11setInternalEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK15QQmlContextData11isJSContextEv": ["bool", "address"],
+    "ritual_ZN15QQmlContextData12setJSContextEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK15QQmlContextData22isPragmaLibraryContextEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN15QQmlContextData23setPragmaLibraryContextEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN15QQmlContextData11clearParentEv": ["nothing", "address"],
+    "ritual_ZN15QQmlContextData18refreshExpressionsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQmlContextData14addOwnedObjectEP8QQmlData": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QQmlContextData12ownedObjectsEv": ["address", "address"],
+    "ritual_ZN15QQmlContextData15setOwnedObjectsEP8QQmlData": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QQmlContextData14installContextEP8QQmlDataNS_13QmlObjectKindE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZNK15QQmlContextData11resolvedUrlERK4QUrl": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN15QQmlContextData13asQQmlContextEv": ["address", "address"],
+    "ritual_ZN15QQmlContextData20asQQmlContextPrivateEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK15QQmlContextData13contextObjectEv": ["address", "address"],
+    "ritual_ZN15QQmlContextData16setContextObjectEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QQmlContextData22deepClearContextObjectEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QQmlContextData6engineEv": ["address", "address"],
+    "ritual_ZN15QQmlContextData9setEngineEP10QQmlEngine": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QQmlContextData13publicContextEv": ["address", "address"],
+    "ritual_ZN15QQmlContextData18clearPublicContextEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQmlContextData14setExpressionsEP24QQmlJavaScriptExpression": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QQmlContextData11expressionsEv": ["address", "address"],
+    "ritual_ZN15QQmlContextData15takeExpressionsEv": ["address", "address"],
+    "ritual_ZNK15QQmlContextData11numIdValuesEv": ["int", "address"],
+    "ritual_ZN15QQmlContextData10setIdValueEiP7QObject": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZNK15QQmlContextData12isIdValueSetEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK15QQmlContextData15idValueBindingsEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK15QQmlContextData7idValueEi": ["address", "address", "int"],
+    "ritual_ZNK15QQmlContextData12findObjectIdEPK7QObject": [
+      "text", "address", "address"
+    ],
+    "ritual_ZNK15QQmlContextData3urlEv": ["address", "address"],
+    "ritual_ZNK15QQmlContextData9urlStringEv": ["text", "address"],
+    "ritual_ZN15QQmlContextData16setBaseUrlStringERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK15QQmlContextData13baseUrlStringEv": ["text", "address"],
+    "ritual_ZN15QQmlContextData10setBaseUrlERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QQmlContextData7baseUrlEv": ["address", "address"],
+    "ritual_ZNK15QQmlContextData9incubatorEv": ["address", "address"],
+    "ritual_ZN15QQmlContextData12setIncubatorEP20QQmlIncubatorPrivate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QQmlContextData11extraObjectEv": ["address", "address"],
+    "ritual_ZN15QQmlContextData14setExtraObjectEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QQmlContextData22isRootObjectInCreationEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN15QQmlContextData23setRootObjectInCreationEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK15QQmlContextData15importedScriptsEv": [
+      "unsigned long long", "address"
+    ],
+    "ritual_ZN15QQmlContextData18setImportedScriptsEPN3QV415ExecutionEngineENS0_5ValueE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN15QQmlContextData18setImportedScriptsEPN3QV415ExecutionEngineEy": [
+      "nothing", "address", "address", "unsigned long long"
+    ],
+    "ritual_ZNK15QQmlContextData18hasUnresolvedNamesEv": ["bool", "address"],
+    "ritual_ZN15QQmlContextData18setUnresolvedNamesEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK15QQmlContextData18componentAttachedsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN15QQmlContextData20addComponentAttachedEP21QQmlComponentAttached": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QQmlContextData13addExpressionEP24QQmlJavaScriptExpression": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QQmlContextData24valueTypesAreAddressableEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK15QQmlContextData23valueTypesAreAssertableEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN15QQmlContextDataD1Ev": ["nothing", "address"],
+    "ritual_ZNK15QQmlContextData19hasExpressionsToRunEb": [
+      "bool", "address", "bool"
+    ],
+    "ritual_ZN15QQmlContextData27refreshExpressionsRecursiveEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN15QQmlContextData27refreshExpressionsRecursiveEP24QQmlJavaScriptExpression": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QQmlContextData17initPropertyNamesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK15QQmlContextData19ensurePropertyNamesEv": [
+      "nothing", "address"
+    ]
+  }
+}

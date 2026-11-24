@@ -6,6 +6,10 @@
   "rows": {
     "ritual_ZN11QTextCursorC1Ev": ["address"],
     "ritual_ZN11QTextCursorC1EP13QTextDocument": ["address", "address"],
+    "ritual_ZN11QTextCursorC1EP20QTextDocumentPrivatei": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN11QTextCursorC1EP18QTextCursorPrivate": ["address", "address"],
     "ritual_ZN11QTextCursorC1EP10QTextFrame": ["address", "address"],
     "ritual_ZN11QTextCursorC1ERK10QTextBlock": ["address", "address"],
     "ritual_ZN11QTextCursorC1ERKS_": ["address", "address"],

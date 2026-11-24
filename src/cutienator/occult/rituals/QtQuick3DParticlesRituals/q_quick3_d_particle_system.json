@@ -1,0 +1,107 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DParticles/6.12.0/QtQuick3DParticles/private/qquick3dparticlesyst",
+    "em_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK22QQuick3DParticleSystem10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QQuick3DParticleSystem2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN22QQuick3DParticleSystemC1EP12QQuick3DNode": [
+      "address", "address"
+    ],
+    "ritual_ZN22QQuick3DParticleSystemD1Ev": ["nothing", "address"],
+    "ritual_ZNK22QQuick3DParticleSystem9isRunningEv": ["bool", "address"],
+    "ritual_ZNK22QQuick3DParticleSystem8isPausedEv": ["bool", "address"],
+    "ritual_ZNK22QQuick3DParticleSystem9startTimeEv": ["int", "address"],
+    "ritual_ZNK22QQuick3DParticleSystem4timeEv": ["int", "address"],
+    "ritual_ZNK22QQuick3DParticleSystem13useRandomSeedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK22QQuick3DParticleSystem4seedEv": ["int", "address"],
+    "ritual_ZNK22QQuick3DParticleSystem13particleCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK22QQuick3DParticleSystem7loggingEv": ["bool", "address"],
+    "ritual_ZNK22QQuick3DParticleSystem11loggingDataEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QQuick3DParticleSystem16registerParticleEP16QQuick3DParticle": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQuick3DParticleSystem18unRegisterParticleEP16QQuick3DParticle": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQuick3DParticleSystem23registerParticleEmitterEP23QQuick3DParticleEmitter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQuick3DParticleSystem25unRegisterParticleEmitterEP23QQuick3DParticleEmitter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQuick3DParticleSystem24registerParticleAffectorEP24QQuick3DParticleAffector": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQuick3DParticleSystem26unRegisterParticleAffectorEP24QQuick3DParticleAffector": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQuick3DParticleSystem17updateCurrentTimeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN22QQuick3DParticleSystem4randEv": ["address", "address"],
+    "ritual_ZNK22QQuick3DParticleSystem8isSharedEPK16QQuick3DParticle": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK22QQuick3DParticleSystem11currentTimeEv": ["int", "address"],
+    "ritual_ZN22QQuick3DParticleSystem5resetEv": ["nothing", "address"],
+    "ritual_ZN22QQuick3DParticleSystem10setRunningEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN22QQuick3DParticleSystem9setPausedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN22QQuick3DParticleSystem12setStartTimeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN22QQuick3DParticleSystem7setTimeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN22QQuick3DParticleSystem16setUseRandomSeedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN22QQuick3DParticleSystem7setSeedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN22QQuick3DParticleSystem10setLoggingEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN22QQuick3DParticleSystem13setEditorTimeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN22QQuick3DParticleSystem17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuick3DParticleSystem17updateLoggingDataEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuick3DParticleSystem21resetLoggingVariablesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuick3DParticleSystem19doSeedRandomizationEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuick3DParticleSystem7refreshEv": ["nothing", "address"],
+    "ritual_ZN22QQuick3DParticleSystem9markDirtyEv": ["nothing", "address"],
+    "ritual_ZN22QQuick3DParticleSystem18isGloballyDisabledEv": ["bool"],
+    "ritual_ZN22QQuick3DParticleSystem14isEditorModeOnEv": ["bool"],
+    "ritual_take_QQuick3DParticleSystem": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN22QQuick3DParticleSystem17componentCompleteEv": [
+      "nothing", "address"
+    ]
+  }
+}

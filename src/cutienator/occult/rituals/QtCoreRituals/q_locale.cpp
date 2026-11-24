@@ -66,11 +66,13 @@ QLocale::Script ritual_ZNK7QLocale6scriptEv(const QLocale *self) {
   return self->script();
 }
 
+#if QT_DEPRECATED_SINCE(6, 6)
 //  Country QLocale::country() const
 extern "C" Q_DECL_EXPORT
 QLocale::Country ritual_ZNK7QLocale7countryEv(const QLocale *self) {
   return self->country();
 }
+#endif  // QT_DEPRECATED_SINCE(6, 6)
 
 //  QString QLocale::name(TagSeparator separator) const
 extern "C" Q_DECL_EXPORT
@@ -100,11 +102,13 @@ QString *ritual_ZNK7QLocale19nativeTerritoryNameEv(const QLocale *self) {
   return new QString(self->nativeTerritoryName());
 }
 
+#if QT_DEPRECATED_SINCE(6, 6)
 //  QString QLocale::nativeCountryName() const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK7QLocale17nativeCountryNameEv(const QLocale *self) {
   return new QString(self->nativeCountryName());
 }
+#endif  // QT_DEPRECATED_SINCE(6, 6)
 
 //  short QLocale::toShort(const QString &s, bool *ok) const
 extern "C" Q_DECL_EXPORT
@@ -506,6 +510,7 @@ QString *ritual_ZNK7QLocale14dateTimeFormatENS_10FormatTypeE(
   return new QString(self->dateTimeFormat(format));
 }
 
+#if QT_CONFIG(datestring)
 //  QTime QLocale::toTime(const QString &string, FormatType a1) const
 extern "C" Q_DECL_EXPORT
 QTime *ritual_ZNK7QLocale6toTimeERK7QStringNS_10FormatTypeE(
@@ -514,7 +519,9 @@ QTime *ritual_ZNK7QLocale6toTimeERK7QStringNS_10FormatTypeE(
     QLocale::FormatType a1) {
   return new QTime(self->toTime(*string, a1));
 }
+#endif  // QT_CONFIG(datestring)
 
+#if QT_CONFIG(datestring)
 //  QTime QLocale::toTime(const QString &string, const QString &format) const
 extern "C" Q_DECL_EXPORT
 QTime *ritual_ZNK7QLocale6toTimeERK7QStringS2_(
@@ -523,7 +530,9 @@ QTime *ritual_ZNK7QLocale6toTimeERK7QStringS2_(
     const QString *format) {
   return new QTime(self->toTime(*string, *format));
 }
+#endif  // QT_CONFIG(datestring)
 
+#if QT_CONFIG(datestring)
 //  QDate QLocale::toDate(const QString &string, FormatType a1, int baseYear)
 //      const
 extern "C" Q_DECL_EXPORT
@@ -534,7 +543,9 @@ QDate *ritual_ZNK7QLocale6toDateERK7QStringNS_10FormatTypeEi(
     int baseYear) {
   return new QDate(self->toDate(*string, a1, baseYear));
 }
+#endif  // QT_CONFIG(datestring)
 
+#if QT_CONFIG(datestring)
 //  QDate QLocale::toDate(const QString &string, const QString &format, int
 //      baseYear) const
 extern "C" Q_DECL_EXPORT
@@ -545,7 +556,9 @@ QDate *ritual_ZNK7QLocale6toDateERK7QStringS2_i(
     int baseYear) {
   return new QDate(self->toDate(*string, *format, baseYear));
 }
+#endif  // QT_CONFIG(datestring)
 
+#if QT_CONFIG(datestring)
 //  QDateTime QLocale::toDateTime(const QString &string, FormatType format,
 //      int baseYear) const
 extern "C" Q_DECL_EXPORT
@@ -556,7 +569,9 @@ QDateTime *ritual_ZNK7QLocale10toDateTimeERK7QStringNS_10FormatTypeEi(
     int baseYear) {
   return new QDateTime(self->toDateTime(*string, format, baseYear));
 }
+#endif  // QT_CONFIG(datestring)
 
+#if QT_CONFIG(datestring)
 //  QDateTime QLocale::toDateTime(const QString &string, const QString
 //      &format, int baseYear) const
 extern "C" Q_DECL_EXPORT
@@ -567,7 +582,9 @@ QDateTime *ritual_ZNK7QLocale10toDateTimeERK7QStringS2_i(
     int baseYear) {
   return new QDateTime(self->toDateTime(*string, *format, baseYear));
 }
+#endif  // QT_CONFIG(datestring)
 
+#if QT_CONFIG(datestring)
 //  QDate QLocale::toDate(const QString &string, FormatType format, QCalendar
 //      cal, int baseYear) const
 extern "C" Q_DECL_EXPORT
@@ -579,7 +596,9 @@ QDate *ritual_ZNK7QLocale6toDateERK7QStringNS_10FormatTypeE9QCalendari(
     int baseYear) {
   return new QDate(self->toDate(*string, format, *cal, baseYear));
 }
+#endif  // QT_CONFIG(datestring)
 
+#if QT_CONFIG(datestring)
 //  QDate QLocale::toDate(const QString &string, const QString &format,
 //      QCalendar cal, int baseYear) const
 extern "C" Q_DECL_EXPORT
@@ -591,7 +610,9 @@ QDate *ritual_ZNK7QLocale6toDateERK7QStringS2_9QCalendari(
     int baseYear) {
   return new QDate(self->toDate(*string, *format, *cal, baseYear));
 }
+#endif  // QT_CONFIG(datestring)
 
+#if QT_CONFIG(datestring)
 //  QDateTime QLocale::toDateTime(const QString &string, FormatType format,
 //      QCalendar cal, int baseYear) const
 extern "C" Q_DECL_EXPORT
@@ -603,7 +624,9 @@ QDateTime *ritual_ZNK7QLocale10toDateTimeERK7QStringNS_10FormatTypeE9QCalendari(
     int baseYear) {
   return new QDateTime(self->toDateTime(*string, format, *cal, baseYear));
 }
+#endif  // QT_CONFIG(datestring)
 
+#if QT_CONFIG(datestring)
 //  QDateTime QLocale::toDateTime(const QString &string, const QString
 //      &format, QCalendar cal, int baseYear) const
 extern "C" Q_DECL_EXPORT
@@ -615,6 +638,7 @@ QDateTime *ritual_ZNK7QLocale10toDateTimeERK7QStringS2_9QCalendari(
     int baseYear) {
   return new QDateTime(self->toDateTime(*string, *format, *cal, baseYear));
 }
+#endif  // QT_CONFIG(datestring)
 
 //  QString QLocale::decimalPoint() const
 extern "C" Q_DECL_EXPORT
@@ -887,19 +911,23 @@ QString *ritual_ZN7QLocale15territoryToCodeENS_7CountryE(
   return new QString(QLocale::territoryToCode(territory));
 }
 
+#if QT_DEPRECATED_SINCE(6, 6)
 //  QString QLocale::countryToCode(Country country)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN7QLocale13countryToCodeENS_7CountryE(
     QLocale::Country country) {
   return new QString(QLocale::countryToCode(country));
 }
+#endif  // QT_DEPRECATED_SINCE(6, 6)
 
+#if QT_DEPRECATED_SINCE(6, 6)
 //  Country QLocale::codeToCountry(QStringView countryCode)
 extern "C" Q_DECL_EXPORT
 QLocale::Country ritual_ZN7QLocale13codeToCountryE11QStringView(
     const QString *countryCode) {
   return QLocale::codeToCountry(QStringView(*countryCode));
 }
+#endif  // QT_DEPRECATED_SINCE(6, 6)
 
 //  QString QLocale::scriptToCode(Script script)
 extern "C" Q_DECL_EXPORT
@@ -929,12 +957,14 @@ QString *ritual_ZN7QLocale17territoryToStringENS_7CountryE(
   return new QString(QLocale::territoryToString(territory));
 }
 
+#if QT_DEPRECATED_SINCE(6, 6)
 //  QString QLocale::countryToString(Country country)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN7QLocale15countryToStringENS_7CountryE(
     QLocale::Country country) {
   return new QString(QLocale::countryToString(country));
 }
+#endif  // QT_DEPRECATED_SINCE(6, 6)
 
 //  QString QLocale::scriptToString(Script script)
 extern "C" Q_DECL_EXPORT

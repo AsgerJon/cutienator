@@ -1,0 +1,28 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtMultimedia/qcameradevice.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN13QCameraFormatC1Ev": ["address"],
+    "ritual_ZN13QCameraFormatC1ERKS_": ["address", "address"],
+    "ritual_ZN13QCameraFormatD1Ev": ["nothing", "address"],
+    "ritual_ZNK13QCameraFormat11pixelFormatEv": ["int", "address"],
+    "ritual_ZNK13QCameraFormat10resolutionEv": ["address", "address"],
+    "ritual_ZNK13QCameraFormat12minFrameRateEv": ["float", "address"],
+    "ritual_ZNK13QCameraFormat12maxFrameRateEv": ["float", "address"],
+    "ritual_ZNK13QCameraFormat6isNullEv": ["bool", "address"],
+    "ritual_ZNK13QCameraFormateqERKS_": ["bool", "address", "address"],
+    "ritual_ZNK13QCameraFormatneERKS_": ["bool", "address", "address"],
+    "ritual_ZN13QCameraFormatC1EP20QCameraFormatPrivate": [
+      "address", "address"
+    ],
+    "ritual_Zls6QDebugRK13QCameraFormat": ["address", "address", "address"],
+    "ritual_list_make_QCameraFormat": ["address"],
+    "ritual_list_add_QCameraFormat": ["nothing", "address", "address"],
+    "ritual_list_size_QCameraFormat": ["long long", "address"],
+    "ritual_list_at_QCameraFormat": ["address", "address", "long long"],
+    "ritual_list_drop_QCameraFormat": ["nothing", "address"]
+  }
+}

@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qformlayout.h, Qt 6.12.0. Changes made here are lost.
+#include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(formlayout)
 #include <QtWidgets/qformlayout.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qrect.h>
@@ -10,19 +12,45 @@
 //  A QFormLayout that Python can take functions over in. Every QFormLayout
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if QT_CONFIG(formlayout)
 typedef int (*CuteQFormLayoutCall0)(const void *, int *);
+#endif  // QT_CONFIG(formlayout)
+#if QT_CONFIG(formlayout)
 typedef void (*CuteQFormLayoutCall1)(const void *, int, int *);
+#endif  // QT_CONFIG(formlayout)
+#if QT_CONFIG(formlayout)
 typedef void (*CuteQFormLayoutCall2)(const void *, QLayoutItem *, int *);
+#endif  // QT_CONFIG(formlayout)
+#if QT_CONFIG(formlayout)
 typedef void * (*CuteQFormLayoutCall3)(const void *, int, int *);
+#endif  // QT_CONFIG(formlayout)
+#if QT_CONFIG(formlayout)
 typedef void * (*CuteQFormLayoutCall4)(const void *, int, int *);
+#endif  // QT_CONFIG(formlayout)
+#if QT_CONFIG(formlayout)
 typedef void (*CuteQFormLayoutCall5)(const void *, const QRect *, int *);
+#endif  // QT_CONFIG(formlayout)
+#if QT_CONFIG(formlayout)
 typedef const QSize * (*CuteQFormLayoutCall6)(const void *, int *);
+#endif  // QT_CONFIG(formlayout)
+#if QT_CONFIG(formlayout)
 typedef const QSize * (*CuteQFormLayoutCall7)(const void *, int *);
+#endif  // QT_CONFIG(formlayout)
+#if QT_CONFIG(formlayout)
 typedef void (*CuteQFormLayoutCall8)(const void *, int *);
+#endif  // QT_CONFIG(formlayout)
+#if QT_CONFIG(formlayout)
 typedef bool (*CuteQFormLayoutCall9)(const void *, int *);
+#endif  // QT_CONFIG(formlayout)
+#if QT_CONFIG(formlayout)
 typedef int (*CuteQFormLayoutCall10)(const void *, int, int *);
+#endif  // QT_CONFIG(formlayout)
+#if QT_CONFIG(formlayout)
 typedef int (*CuteQFormLayoutCall11)(const void *, int *);
+#endif  // QT_CONFIG(formlayout)
+#if QT_CONFIG(formlayout)
 typedef int (*CuteQFormLayoutCall12)(const void *, int *);
+#endif  // QT_CONFIG(formlayout)
 typedef const QRect * (*CuteQFormLayoutCall13)(const void *, int *);
 typedef const QSize * (*CuteQFormLayoutCall14)(const void *, int *);
 typedef int (*CuteQFormLayoutCall15)(const void *, const QWidget *, int *);
@@ -31,13 +59,27 @@ typedef bool (*CuteQFormLayoutCall17)(const void *, int *);
 typedef int (*CuteQFormLayoutCall18)(const void *, int *);
 typedef void * (*CuteQFormLayoutCall19)(const void *, QWidget *, QWidget *, int, int *);
 typedef void * (*CuteQFormLayoutCall20)(const void *, int *);
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQFormLayoutCall21)(const void *, QChildEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQFormLayoutCall22)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQFormLayoutCall23)(const void *, QObject *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQFormLayoutCall24)(const void *, QTimerEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQFormLayoutCall25)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQFormLayoutCall26)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQFormLayoutCall27)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 typedef int (*CuteQFormLayoutCall28)(const void *, int, int *);
 typedef void * (*CuteQFormLayoutCall29)(const void *, int *);
 typedef void * (*CuteQFormLayoutCall30)(const void *, int *);
@@ -47,58 +89,84 @@ public:
   void *taken[31] = {};
 
   bool take(const char *key, void *call) {
+#if QT_CONFIG(formlayout)
     if (!std::strcmp(key, "_ZNK7QLayout7spacingEv")) {
       taken[0] = call;
       return true;
     }
+#endif  // QT_CONFIG(formlayout)
+#if QT_CONFIG(formlayout)
     if (!std::strcmp(key, "_ZN7QLayout10setSpacingEi")) {
       taken[1] = call;
       return true;
     }
+#endif  // QT_CONFIG(formlayout)
+#if QT_CONFIG(formlayout)
     if (!std::strcmp(key, "_ZN7QLayout7addItemEP11QLayoutItem")) {
       taken[2] = call;
       return true;
     }
+#endif  // QT_CONFIG(formlayout)
+#if QT_CONFIG(formlayout)
     if (!std::strcmp(key, "_ZNK7QLayout6itemAtEi")) {
       taken[3] = call;
       return true;
     }
+#endif  // QT_CONFIG(formlayout)
+#if QT_CONFIG(formlayout)
     if (!std::strcmp(key, "_ZN7QLayout6takeAtEi")) {
       taken[4] = call;
       return true;
     }
+#endif  // QT_CONFIG(formlayout)
+#if QT_CONFIG(formlayout)
     if (!std::strcmp(key, "_ZN11QLayoutItem11setGeometryERK5QRect")) {
       taken[5] = call;
       return true;
     }
+#endif  // QT_CONFIG(formlayout)
+#if QT_CONFIG(formlayout)
     if (!std::strcmp(key, "_ZNK11QLayoutItem11minimumSizeEv")) {
       taken[6] = call;
       return true;
     }
+#endif  // QT_CONFIG(formlayout)
+#if QT_CONFIG(formlayout)
     if (!std::strcmp(key, "_ZNK11QLayoutItem8sizeHintEv")) {
       taken[7] = call;
       return true;
     }
+#endif  // QT_CONFIG(formlayout)
+#if QT_CONFIG(formlayout)
     if (!std::strcmp(key, "_ZN11QLayoutItem10invalidateEv")) {
       taken[8] = call;
       return true;
     }
+#endif  // QT_CONFIG(formlayout)
+#if QT_CONFIG(formlayout)
     if (!std::strcmp(key, "_ZNK11QLayoutItem17hasHeightForWidthEv")) {
       taken[9] = call;
       return true;
     }
+#endif  // QT_CONFIG(formlayout)
+#if QT_CONFIG(formlayout)
     if (!std::strcmp(key, "_ZNK11QLayoutItem14heightForWidthEi")) {
       taken[10] = call;
       return true;
     }
+#endif  // QT_CONFIG(formlayout)
+#if QT_CONFIG(formlayout)
     if (!std::strcmp(key, "_ZNK11QLayoutItem19expandingDirectionsEv")) {
       taken[11] = call;
       return true;
     }
+#endif  // QT_CONFIG(formlayout)
+#if QT_CONFIG(formlayout)
     if (!std::strcmp(key, "_ZNK7QLayout5countEv")) {
       taken[12] = call;
       return true;
     }
+#endif  // QT_CONFIG(formlayout)
     if (!std::strcmp(key, "_ZNK11QLayoutItem8geometryEv")) {
       taken[13] = call;
       return true;
@@ -131,34 +199,48 @@ public:
       taken[20] = call;
       return true;
     }
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[21] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[22] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[23] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[24] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[25] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[26] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
       taken[27] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZNK11QLayoutItem21minimumHeightForWidthEi")) {
       taken[28] = call;
       return true;
@@ -174,6 +256,7 @@ public:
     return false;
   }
 
+#if QT_CONFIG(formlayout)
   //  int QFormLayout::spacing() const
   int spacing() const override {
     if (taken[0]) {
@@ -184,7 +267,9 @@ public:
     }
     return QFormLayout::spacing();
   }
+#endif  // QT_CONFIG(formlayout)
 
+#if QT_CONFIG(formlayout)
   //  void QFormLayout::setSpacing(int a0)
   void setSpacing(int a0) override {
     if (taken[1]) {
@@ -195,7 +280,9 @@ public:
     }
     QFormLayout::setSpacing(a0);
   }
+#endif  // QT_CONFIG(formlayout)
 
+#if QT_CONFIG(formlayout)
   //  void QFormLayout::addItem(QLayoutItem *item)
   void addItem(QLayoutItem *item) override {
     if (taken[2]) {
@@ -206,7 +293,9 @@ public:
     }
     QFormLayout::addItem(item);
   }
+#endif  // QT_CONFIG(formlayout)
 
+#if QT_CONFIG(formlayout)
   //  QLayoutItem *QFormLayout::itemAt(int index) const
   QLayoutItem *itemAt(int index) const override {
     if (taken[3]) {
@@ -217,7 +306,9 @@ public:
     }
     return QFormLayout::itemAt(index);
   }
+#endif  // QT_CONFIG(formlayout)
 
+#if QT_CONFIG(formlayout)
   //  QLayoutItem *QFormLayout::takeAt(int index)
   QLayoutItem *takeAt(int index) override {
     if (taken[4]) {
@@ -228,7 +319,9 @@ public:
     }
     return QFormLayout::takeAt(index);
   }
+#endif  // QT_CONFIG(formlayout)
 
+#if QT_CONFIG(formlayout)
   //  void QFormLayout::setGeometry(const QRect &rect)
   void setGeometry(const QRect &rect) override {
     if (taken[5]) {
@@ -239,7 +332,9 @@ public:
     }
     QFormLayout::setGeometry(rect);
   }
+#endif  // QT_CONFIG(formlayout)
 
+#if QT_CONFIG(formlayout)
   //  QSize QFormLayout::minimumSize() const
   QSize minimumSize() const override {
     if (taken[6]) {
@@ -250,7 +345,9 @@ public:
     }
     return QFormLayout::minimumSize();
   }
+#endif  // QT_CONFIG(formlayout)
 
+#if QT_CONFIG(formlayout)
   //  QSize QFormLayout::sizeHint() const
   QSize sizeHint() const override {
     if (taken[7]) {
@@ -261,7 +358,9 @@ public:
     }
     return QFormLayout::sizeHint();
   }
+#endif  // QT_CONFIG(formlayout)
 
+#if QT_CONFIG(formlayout)
   //  void QFormLayout::invalidate()
   void invalidate() override {
     if (taken[8]) {
@@ -272,7 +371,9 @@ public:
     }
     QFormLayout::invalidate();
   }
+#endif  // QT_CONFIG(formlayout)
 
+#if QT_CONFIG(formlayout)
   //  bool QFormLayout::hasHeightForWidth() const
   bool hasHeightForWidth() const override {
     if (taken[9]) {
@@ -283,7 +384,9 @@ public:
     }
     return QFormLayout::hasHeightForWidth();
   }
+#endif  // QT_CONFIG(formlayout)
 
+#if QT_CONFIG(formlayout)
   //  int QFormLayout::heightForWidth(int width) const
   int heightForWidth(int width) const override {
     if (taken[10]) {
@@ -294,7 +397,9 @@ public:
     }
     return QFormLayout::heightForWidth(width);
   }
+#endif  // QT_CONFIG(formlayout)
 
+#if QT_CONFIG(formlayout)
   //  Qt::Orientations QFormLayout::expandingDirections() const
   Qt::Orientations expandingDirections() const override {
     if (taken[11]) {
@@ -305,7 +410,9 @@ public:
     }
     return QFormLayout::expandingDirections();
   }
+#endif  // QT_CONFIG(formlayout)
 
+#if QT_CONFIG(formlayout)
   //  int QFormLayout::count() const
   int count() const override {
     if (taken[12]) {
@@ -316,6 +423,7 @@ public:
     }
     return QFormLayout::count();
   }
+#endif  // QT_CONFIG(formlayout)
 
   //  QRect QLayout::geometry() const
   QRect geometry() const override {
@@ -409,6 +517,7 @@ public:
     return QLayout::layout();
   }
 
+#if !defined(QT_NO_QOBJECT)
   //  void QLayout::childEvent(QChildEvent *e)
   void childEvent(QChildEvent *e) override {
     if (taken[21]) {
@@ -419,7 +528,9 @@ public:
     }
     QLayout::childEvent(e);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QObject::event(QEvent *event)
   bool event(QEvent *event) override {
     if (taken[22]) {
@@ -430,7 +541,9 @@ public:
     }
     return QObject::event(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
     if (taken[23]) {
@@ -441,7 +554,9 @@ public:
     }
     return QObject::eventFilter(watched, event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
     if (taken[24]) {
@@ -452,7 +567,9 @@ public:
     }
     QObject::timerEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
     if (taken[25]) {
@@ -463,7 +580,9 @@ public:
     }
     QObject::customEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
     if (taken[26]) {
@@ -474,7 +593,9 @@ public:
     }
     QObject::connectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
     if (taken[27]) {
@@ -485,6 +606,7 @@ public:
     }
     QObject::disconnectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
   //  int QLayoutItem::minimumHeightForWidth(int a0) const
   int minimumHeightForWidth(int a0) const override {
@@ -1113,3 +1235,5 @@ extern "C" Q_DECL_EXPORT
 int ritual_own_ZNK11QFormLayout5countEv(const QFormLayout *self) {
   return self->QFormLayout::count();
 }
+
+#endif  // QT_CONFIG(formlayout)

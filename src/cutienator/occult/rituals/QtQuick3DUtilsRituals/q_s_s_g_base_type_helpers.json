@@ -1,0 +1,53 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DUtils/6.12.0/QtQuick3DUtils/private/qssgrenderbasetypes_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QSSGBaseTypeHelpersC1Ev": ["address"],
+    "ritual_ZN19QSSGBaseTypeHelpers8toStringE25QSSGRenderTextureCubeFace": [
+      "chars", "unsigned char"
+    ],
+    "ritual_ZN19QSSGBaseTypeHelpers8toStringE26QSSGRenderTextureTypeValue": [
+      "chars", "int"
+    ],
+    "ritual_ZN19QSSGBaseTypeHelpers8toStringE17QSSGDepthDrawMode": [
+      "chars", "int"
+    ],
+    "ritual_ZN19QSSGBaseTypeHelpers8toStringE17QSSGRenderWinding": [
+      "chars", "int"
+    ],
+    "ritual_ZN19QSSGBaseTypeHelpers8toStringE16QSSGCullFaceMode": [
+      "chars", "int"
+    ],
+    "ritual_ZN19QSSGBaseTypeHelpers8toStringE23QSSGRenderComponentType": [
+      "chars", "int"
+    ],
+    "ritual_ZN19QSSGBaseTypeHelpers8toStringEN23QSSGRenderTextureFormat6FormatE": [
+      "chars", "unsigned char"
+    ],
+    "ritual_ZN19QSSGBaseTypeHelpers8toStringE24QSSGRenderTextureCoordOp": [
+      "chars", "unsigned char"
+    ],
+    "ritual_ZN19QSSGBaseTypeHelpers8toStringE25QSSGRenderTextureFilterOp": [
+      "chars", "int"
+    ],
+    "ritual_ZN19QSSGBaseTypeHelpers8toStringE21QSSGRenderSamplerType": [
+      "address", "int"
+    ],
+    "ritual_ZN19QSSGBaseTypeHelpers11displayNameE25QSSGRenderTextureCubeFace": [
+      "chars", "unsigned char"
+    ],
+    "ritual_ZN19QSSGBaseTypeHelpers4nextE25QSSGRenderTextureCubeFace": [
+      "unsigned char", "unsigned char"
+    ],
+    "ritual_ZN19QSSGBaseTypeHelpers4prevE25QSSGRenderTextureCubeFace": [
+      "unsigned char", "unsigned char"
+    ],
+    "ritual_ZN19QSSGBaseTypeHelpers15indexOfCubeFaceE25QSSGRenderTextureCubeFace": [
+      "unsigned char", "unsigned char"
+    ],
+    "ritual_ZN19QSSGBaseTypeHelpersD1Ev": ["nothing", "address"]
+  }
+}

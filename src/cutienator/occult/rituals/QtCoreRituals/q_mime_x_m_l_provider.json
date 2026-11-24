@@ -1,0 +1,41 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qmimeprovider_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN16QMimeXMLProviderD1Ev": ["nothing", "address"],
+    "ritual_ZN16QMimeXMLProvider7isValidEv": ["bool", "address"],
+    "ritual_ZN16QMimeXMLProvider13knowsMimeTypeERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN16QMimeXMLProvider12resolveAliasERK7QString": [
+      "text", "address", "text"
+    ],
+    "ritual_ZN16QMimeXMLProvider16hasGlobDeleteAllERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN16QMimeXMLProvider12globPatternsERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN16QMimeXMLProvider4iconERK7QString": [
+      "text", "address", "text"
+    ],
+    "ritual_ZN16QMimeXMLProvider11genericIconERK7QString": [
+      "text", "address", "text"
+    ],
+    "ritual_ZN16QMimeXMLProvider11addMimeTypeERK16QMimeTypeXMLData": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QMimeXMLProvider9addParentERK7QStringS2_": [
+      "nothing", "address", "text", "text"
+    ],
+    "ritual_ZN16QMimeXMLProvider8addAliasERK7QStringS2_": [
+      "nothing", "address", "text", "text"
+    ],
+    "ritual_ZN16QMimeXMLProvider15addMagicMatcherERK21QMimeMagicRuleMatcher": [
+      "nothing", "address", "address"
+    ]
+  }
+}

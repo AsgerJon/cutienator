@@ -1,0 +1,153 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/rhi/qrhi.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK20QRhiGraphicsPipeline12resourceTypeEv": ["int", "address"],
+    "ritual_ZNK20QRhiGraphicsPipeline5flagsEv": ["int", "address"],
+    "ritual_ZN20QRhiGraphicsPipeline8setFlagsE6QFlagsINS_4FlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK20QRhiGraphicsPipeline8topologyEv": ["int", "address"],
+    "ritual_ZN20QRhiGraphicsPipeline11setTopologyENS_8TopologyE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK20QRhiGraphicsPipeline8cullModeEv": ["int", "address"],
+    "ritual_ZN20QRhiGraphicsPipeline11setCullModeENS_8CullModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK20QRhiGraphicsPipeline9frontFaceEv": ["int", "address"],
+    "ritual_ZN20QRhiGraphicsPipeline12setFrontFaceENS_9FrontFaceE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK20QRhiGraphicsPipeline18cbeginTargetBlendsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QRhiGraphicsPipeline16cendTargetBlendsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QRhiGraphicsPipeline13targetBlendAtEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZNK20QRhiGraphicsPipeline16targetBlendCountEv": [
+      "long long", "address"
+    ],
+    "ritual_ZNK20QRhiGraphicsPipeline12hasDepthTestEv": ["bool", "address"],
+    "ritual_ZN20QRhiGraphicsPipeline12setDepthTestEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK20QRhiGraphicsPipeline13hasDepthWriteEv": ["bool", "address"],
+    "ritual_ZN20QRhiGraphicsPipeline13setDepthWriteEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK20QRhiGraphicsPipeline13hasDepthClampEv": ["bool", "address"],
+    "ritual_ZN20QRhiGraphicsPipeline13setDepthClampEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK20QRhiGraphicsPipeline7depthOpEv": ["int", "address"],
+    "ritual_ZN20QRhiGraphicsPipeline10setDepthOpENS_9CompareOpE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK20QRhiGraphicsPipeline14hasStencilTestEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN20QRhiGraphicsPipeline14setStencilTestEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK20QRhiGraphicsPipeline12stencilFrontEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QRhiGraphicsPipeline15setStencilFrontERKNS_14StencilOpStateE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QRhiGraphicsPipeline11stencilBackEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QRhiGraphicsPipeline14setStencilBackERKNS_14StencilOpStateE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QRhiGraphicsPipeline15stencilReadMaskEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN20QRhiGraphicsPipeline18setStencilReadMaskEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZNK20QRhiGraphicsPipeline16stencilWriteMaskEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN20QRhiGraphicsPipeline19setStencilWriteMaskEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZNK20QRhiGraphicsPipeline11sampleCountEv": ["int", "address"],
+    "ritual_ZN20QRhiGraphicsPipeline14setSampleCountEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK20QRhiGraphicsPipeline9lineWidthEv": ["float", "address"],
+    "ritual_ZN20QRhiGraphicsPipeline12setLineWidthEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK20QRhiGraphicsPipeline9depthBiasEv": ["int", "address"],
+    "ritual_ZN20QRhiGraphicsPipeline12setDepthBiasEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK20QRhiGraphicsPipeline20slopeScaledDepthBiasEv": [
+      "float", "address"
+    ],
+    "ritual_ZN20QRhiGraphicsPipeline23setSlopeScaledDepthBiasEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK20QRhiGraphicsPipeline18cbeginShaderStagesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QRhiGraphicsPipeline16cendShaderStagesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QRhiGraphicsPipeline13shaderStageAtEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZNK20QRhiGraphicsPipeline16shaderStageCountEv": [
+      "long long", "address"
+    ],
+    "ritual_ZNK20QRhiGraphicsPipeline17vertexInputLayoutEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QRhiGraphicsPipeline20setVertexInputLayoutERK21QRhiVertexInputLayout": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QRhiGraphicsPipeline22shaderResourceBindingsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QRhiGraphicsPipeline25setShaderResourceBindingsEP26QRhiShaderResourceBindings": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QRhiGraphicsPipeline20renderPassDescriptorEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QRhiGraphicsPipeline23setRenderPassDescriptorEP24QRhiRenderPassDescriptor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QRhiGraphicsPipeline22patchControlPointCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZN20QRhiGraphicsPipeline25setPatchControlPointCountEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK20QRhiGraphicsPipeline11polygonModeEv": ["int", "address"],
+    "ritual_ZN20QRhiGraphicsPipeline14setPolygonModeENS_11PolygonModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK20QRhiGraphicsPipeline14multiViewCountEv": ["int", "address"],
+    "ritual_ZN20QRhiGraphicsPipeline17setMultiViewCountEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QRhiGraphicsPipeline6createEv": ["bool", "address"],
+    "ritual_take_QRhiGraphicsPipeline": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK20QRhiGraphicsPipeline12resourceTypeEv": [
+      "int", "address"
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/6.12.0/QtCharts/private/chartcoloraxisy_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK15ChartColorAxisY10metaObjectEv": ["address", "address"],
+    "ritual_ZN15ChartColorAxisY2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN15ChartColorAxisYC1EP10QColorAxisP13QGraphicsItem": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN15ChartColorAxisYD1Ev": ["nothing", "address"],
+    "ritual_ZNK15ChartColorAxisY8sizeHintEN2Qt8SizeHintERK6QSizeF": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_ZN15ChartColorAxisY14updateGeometryEv": ["nothing", "address"],
+    "ritual_take_ChartColorAxisY": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK15ChartColorAxisY8sizeHintEN2Qt8SizeHintERK6QSizeF": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_own_ZN15ChartColorAxisY14updateGeometryEv": [
+      "nothing", "address"
+    ]
+  }
+}

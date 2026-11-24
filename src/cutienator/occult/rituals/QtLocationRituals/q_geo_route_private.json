@@ -1,0 +1,61 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLocation/6.12.0/QtLocation/private/qgeoroute_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN16QGeoRoutePrivate5setIdERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK16QGeoRoutePrivate2idEv": ["text", "address"],
+    "ritual_ZN16QGeoRoutePrivate10setRequestERK16QGeoRouteRequest": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QGeoRoutePrivate7requestEv": ["address", "address"],
+    "ritual_ZN16QGeoRoutePrivate9setBoundsERK13QGeoRectangle": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QGeoRoutePrivate6boundsEv": ["address", "address"],
+    "ritual_ZN16QGeoRoutePrivate13setTravelTimeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16QGeoRoutePrivate10travelTimeEv": ["int", "address"],
+    "ritual_ZN16QGeoRoutePrivate11setDistanceEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK16QGeoRoutePrivate8distanceEv": ["double", "address"],
+    "ritual_ZN16QGeoRoutePrivate13setTravelModeEN16QGeoRouteRequest10TravelModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16QGeoRoutePrivate10travelModeEv": ["int", "address"],
+    "ritual_ZN16QGeoRoutePrivate7setPathERK5QListI14QGeoCoordinateE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QGeoRoutePrivate4pathEv": ["address", "address"],
+    "ritual_ZN16QGeoRoutePrivate15setFirstSegmentERK16QGeoRouteSegment": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QGeoRoutePrivate12firstSegmentEv": ["address", "address"],
+    "ritual_ZNK16QGeoRoutePrivate13segmentsCountEv": ["int", "address"],
+    "ritual_ZNK16QGeoRoutePrivate8segmentsEv": ["address", "address"],
+    "ritual_ZN16QGeoRoutePrivate12setRouteLegsERK5QListI9QGeoRouteE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QGeoRoutePrivate9routeLegsEv": ["address", "address"],
+    "ritual_ZN16QGeoRoutePrivate21setExtendedAttributesERK4QMapI7QString8QVariantE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QGeoRoutePrivate18extendedAttributesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN16QGeoRoutePrivate11setLegIndexEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16QGeoRoutePrivate8legIndexEv": ["int", "address"],
+    "ritual_ZN16QGeoRoutePrivate18setContainingRouteERK9QGeoRoute": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QGeoRoutePrivate15containingRouteEv": ["address", "address"]
+  }
+}

@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGui/qevent.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
+#if !defined(QT_NO_INPUTMETHOD)
 #include <QtGui/qevent.h>
 #include <QtCore/qvariant.h>
 
@@ -29,3 +31,5 @@ void ritual_ZN17QInputMethodEvent9AttributeD1Ev(
     QInputMethodEvent::Attribute *self) {
   delete self;
 }
+
+#endif  // !defined(QT_NO_INPUTMETHOD)

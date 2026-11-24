@@ -1,0 +1,217 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQmlMo",
+    "dels/6.12.0/QtQmlModels/private/qqmlsortfilterproxymodel_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK24QQmlSortFilterProxyModel10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QQmlSortFilterProxyModel2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN24QQmlSortFilterProxyModelC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN24QQmlSortFilterProxyModelD1Ev": ["nothing", "address"],
+    "ritual_ZN24QQmlSortFilterProxyModel5modelEv": ["address", "address"],
+    "ritual_ZN24QQmlSortFilterProxyModel8setModelEP18QAbstractItemModel": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK24QQmlSortFilterProxyModel17dynamicSortFilterEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN24QQmlSortFilterProxyModel20setDynamicSortFilterEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK24QQmlSortFilterProxyModel18recursiveFilteringEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN24QQmlSortFilterProxyModel21setRecursiveFilteringEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK24QQmlSortFilterProxyModel19autoAcceptChildRowsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN24QQmlSortFilterProxyModel22setAutoAcceptChildRowsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN24QQmlSortFilterProxyModel10invalidateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQmlSortFilterProxyModel16invalidateSorterEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQmlSortFilterProxyModel16setPrimarySorterEP14QQmlSorterBase": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK24QQmlSortFilterProxyModel11mapToSourceERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK24QQmlSortFilterProxyModel13mapFromSourceERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK24QQmlSortFilterProxyModel5indexEiiRK11QModelIndex": [
+      "address", "address", "int", "int", "address"
+    ],
+    "ritual_ZNK24QQmlSortFilterProxyModel6parentERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK24QQmlSortFilterProxyModel7siblingEiiRK11QModelIndex": [
+      "address", "address", "int", "int", "address"
+    ],
+    "ritual_ZNK24QQmlSortFilterProxyModel11hasChildrenERK11QModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK24QQmlSortFilterProxyModel11columnCountERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK24QQmlSortFilterProxyModel8rowCountERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK24QQmlSortFilterProxyModel4dataERK11QModelIndexi": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN24QQmlSortFilterProxyModel7setDataERK11QModelIndexRK8QVarianti": [
+      "bool", "address", "address", "address", "int"
+    ],
+    "ritual_ZNK24QQmlSortFilterProxyModel10headerDataEiN2Qt11OrientationEi": [
+      "address", "address", "int", "int", "int"
+    ],
+    "ritual_ZN24QQmlSortFilterProxyModel13setHeaderDataEiN2Qt11OrientationERK8QVarianti": [
+      "bool", "address", "int", "int", "address", "int"
+    ],
+    "ritual_ZN24QQmlSortFilterProxyModel10insertRowsEiiRK11QModelIndex": [
+      "bool", "address", "int", "int", "address"
+    ],
+    "ritual_ZN24QQmlSortFilterProxyModel13insertColumnsEiiRK11QModelIndex": [
+      "bool", "address", "int", "int", "address"
+    ],
+    "ritual_ZN24QQmlSortFilterProxyModel10removeRowsEiiRK11QModelIndex": [
+      "bool", "address", "int", "int", "address"
+    ],
+    "ritual_ZN24QQmlSortFilterProxyModel13removeColumnsEiiRK11QModelIndex": [
+      "bool", "address", "int", "int", "address"
+    ],
+    "ritual_ZNK24QQmlSortFilterProxyModel20mapSelectionToSourceERK14QItemSelection": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK24QQmlSortFilterProxyModel22mapSelectionFromSourceERK14QItemSelection": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN24QQmlSortFilterProxyModel14setSourceModelEP18QAbstractItemModel": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QQmlSortFilterProxyModel20setPrimarySortColumnEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK24QQmlSortFilterProxyModel10sourceDataERK11QModelIndexi": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZNK24QQmlSortFilterProxyModel9roleNamesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK24QQmlSortFilterProxyModel15itemRoleForNameERK7QString": [
+      "int", "address", "text"
+    ],
+    "ritual_ZN24QQmlSortFilterProxyModel11compareDataERK8QVariantS2_": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK24QQmlSortFilterProxyModel16filterAcceptsRowEiRK11QModelIndex": [
+      "bool", "address", "int", "address"
+    ],
+    "ritual_ZNK24QQmlSortFilterProxyModel19filterAcceptsColumnEiRK11QModelIndex": [
+      "bool", "address", "int", "address"
+    ],
+    "ritual_ZNK24QQmlSortFilterProxyModel8lessThanERK11QModelIndexS2_": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN24QQmlSortFilterProxyModel4sortEiN2Qt9SortOrderE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN24QQmlSortFilterProxyModel10classBeginEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQmlSortFilterProxyModel17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQmlSortFilterProxyModel16invalidateFilterEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQmlSortFilterProxyModel6d_funcEv": ["address", "address"],
+    "ritual_ZNK24QQmlSortFilterProxyModel6d_funcEv": ["address", "address"],
+    "ritual_cast_QQmlSortFilterProxyModel_QQmlParserStatus": [
+      "address", "address"
+    ],
+    "ritual_take_QQmlSortFilterProxyModel": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK24QQmlSortFilterProxyModel11mapToSourceERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZNK24QQmlSortFilterProxyModel13mapFromSourceERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZNK24QQmlSortFilterProxyModel5indexEiiRK11QModelIndex": [
+      "address", "address", "int", "int", "address"
+    ],
+    "ritual_own_ZNK24QQmlSortFilterProxyModel6parentERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZNK24QQmlSortFilterProxyModel7siblingEiiRK11QModelIndex": [
+      "address", "address", "int", "int", "address"
+    ],
+    "ritual_own_ZNK24QQmlSortFilterProxyModel11hasChildrenERK11QModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZNK24QQmlSortFilterProxyModel11columnCountERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZNK24QQmlSortFilterProxyModel8rowCountERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZNK24QQmlSortFilterProxyModel4dataERK11QModelIndexi": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_own_ZN24QQmlSortFilterProxyModel7setDataERK11QModelIndexRK8QVarianti": [
+      "bool", "address", "address", "address", "int"
+    ],
+    "ritual_own_ZNK24QQmlSortFilterProxyModel10headerDataEiN2Qt11OrientationEi": [
+      "address", "address", "int", "int", "int"
+    ],
+    "ritual_own_ZN24QQmlSortFilterProxyModel13setHeaderDataEiN2Qt11OrientationERK8QVarianti": [
+      "bool", "address", "int", "int", "address", "int"
+    ],
+    "ritual_own_ZN24QQmlSortFilterProxyModel10insertRowsEiiRK11QModelIndex": [
+      "bool", "address", "int", "int", "address"
+    ],
+    "ritual_own_ZN24QQmlSortFilterProxyModel13insertColumnsEiiRK11QModelIndex": [
+      "bool", "address", "int", "int", "address"
+    ],
+    "ritual_own_ZN24QQmlSortFilterProxyModel10removeRowsEiiRK11QModelIndex": [
+      "bool", "address", "int", "int", "address"
+    ],
+    "ritual_own_ZN24QQmlSortFilterProxyModel13removeColumnsEiiRK11QModelIndex": [
+      "bool", "address", "int", "int", "address"
+    ],
+    "ritual_own_ZNK24QQmlSortFilterProxyModel20mapSelectionToSourceERK14QItemSelection": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZNK24QQmlSortFilterProxyModel22mapSelectionFromSourceERK14QItemSelection": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN24QQmlSortFilterProxyModel14setSourceModelEP18QAbstractItemModel": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN24QQmlSortFilterProxyModel4sortEiN2Qt9SortOrderE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZN24QQmlSortFilterProxyModel10classBeginEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN24QQmlSortFilterProxyModel17componentCompleteEv": [
+      "nothing", "address"
+    ]
+  }
+}

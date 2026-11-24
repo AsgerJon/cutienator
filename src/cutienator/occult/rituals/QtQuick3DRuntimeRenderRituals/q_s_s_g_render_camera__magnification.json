@@ -1,0 +1,26 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgrenderca",
+    "mera_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN16QSSGRenderCamera13MagnificationC1Ev": ["address"],
+    "ritual_ZN16QSSGRenderCamera13MagnificationC1Eff": [
+      "address", "float", "float"
+    ],
+    "ritual_ZNK16QSSGRenderCamera13Magnification10horizontalEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK16QSSGRenderCamera13Magnification8verticalEv": [
+      "float", "address"
+    ],
+    "ritual_ZN16QSSGRenderCamera13Magnification13setHorizontalEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN16QSSGRenderCamera13Magnification11setVerticalEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN16QSSGRenderCamera13MagnificationD1Ev": ["nothing", "address"]
+  }
+}

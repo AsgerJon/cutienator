@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qgraphicsanchorlayout.h, Qt 6.12.0. Changes made here are lost.
+#include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(graphicsview)
 #include <QtWidgets/qgraphicsanchorlayout.h>
 #include <QtCore/qrect.h>
 #include <QtCore/qsize.h>
@@ -14,60 +16,97 @@ struct OwnQGraphicsAnchorLayout : QGraphicsAnchorLayout {
 //  A QGraphicsAnchorLayout that Python can take functions over in. Every QGraphicsAnchorLayout
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if QT_CONFIG(graphicsview)
 typedef void (*CuteQGraphicsAnchorLayoutCall0)(const void *, int, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 typedef void (*CuteQGraphicsAnchorLayoutCall1)(const void *, const QRectF *, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 typedef int (*CuteQGraphicsAnchorLayoutCall2)(const void *, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 typedef void * (*CuteQGraphicsAnchorLayoutCall3)(const void *, int, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 typedef void (*CuteQGraphicsAnchorLayoutCall4)(const void *, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 typedef const QSizeF * (*CuteQGraphicsAnchorLayoutCall5)(const void *, int, const QSizeF *, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 typedef void (*CuteQGraphicsAnchorLayoutCall6)(const void *, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 typedef void (*CuteQGraphicsAnchorLayoutCall7)(const void *, QEvent *, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 typedef bool (*CuteQGraphicsAnchorLayoutCall8)(const void *, int *);
+#endif  // QT_CONFIG(graphicsview)
 class CuteQGraphicsAnchorLayout : public QGraphicsAnchorLayout {
 public:
   using QGraphicsAnchorLayout::QGraphicsAnchorLayout;
   void *taken[9] = {};
 
   bool take(const char *key, void *call) {
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZN15QGraphicsLayout8removeAtEi")) {
       taken[0] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZN19QGraphicsLayoutItem11setGeometryERK6QRectF")) {
       taken[1] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZNK15QGraphicsLayout5countEv")) {
       taken[2] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZNK15QGraphicsLayout6itemAtEi")) {
       taken[3] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZN15QGraphicsLayout10invalidateEv")) {
       taken[4] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZNK19QGraphicsLayoutItem8sizeHintEN2Qt8SizeHintERK6QSizeF")) {
       taken[5] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZN19QGraphicsLayoutItem14updateGeometryEv")) {
       taken[6] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZN15QGraphicsLayout11widgetEventEP6QEvent")) {
       taken[7] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZNK19QGraphicsLayoutItem7isEmptyEv")) {
       taken[8] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
     return false;
   }
 
+#if QT_CONFIG(graphicsview)
   //  void QGraphicsAnchorLayout::removeAt(int index)
   void removeAt(int index) override {
     if (taken[0]) {
@@ -78,7 +117,9 @@ public:
     }
     QGraphicsAnchorLayout::removeAt(index);
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if QT_CONFIG(graphicsview)
   //  void QGraphicsAnchorLayout::setGeometry(const QRectF &rect)
   void setGeometry(const QRectF &rect) override {
     if (taken[1]) {
@@ -89,7 +130,9 @@ public:
     }
     QGraphicsAnchorLayout::setGeometry(rect);
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if QT_CONFIG(graphicsview)
   //  int QGraphicsAnchorLayout::count() const
   int count() const override {
     if (taken[2]) {
@@ -100,7 +143,9 @@ public:
     }
     return QGraphicsAnchorLayout::count();
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if QT_CONFIG(graphicsview)
   //  QGraphicsLayoutItem *QGraphicsAnchorLayout::itemAt(int index) const
   QGraphicsLayoutItem *itemAt(int index) const override {
     if (taken[3]) {
@@ -111,7 +156,9 @@ public:
     }
     return QGraphicsAnchorLayout::itemAt(index);
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if QT_CONFIG(graphicsview)
   //  void QGraphicsAnchorLayout::invalidate()
   void invalidate() override {
     if (taken[4]) {
@@ -122,7 +169,9 @@ public:
     }
     QGraphicsAnchorLayout::invalidate();
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if QT_CONFIG(graphicsview)
   //  QSizeF QGraphicsAnchorLayout::sizeHint(Qt::SizeHint which, const
   //      QSizeF &constraint) const
   QSizeF sizeHint(
@@ -136,7 +185,9 @@ public:
     }
     return QGraphicsAnchorLayout::sizeHint(which, constraint);
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if QT_CONFIG(graphicsview)
   //  void QGraphicsLayout::updateGeometry()
   void updateGeometry() override {
     if (taken[6]) {
@@ -147,7 +198,9 @@ public:
     }
     QGraphicsLayout::updateGeometry();
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if QT_CONFIG(graphicsview)
   //  void QGraphicsLayout::widgetEvent(QEvent *e)
   void widgetEvent(QEvent *e) override {
     if (taken[7]) {
@@ -158,7 +211,9 @@ public:
     }
     QGraphicsLayout::widgetEvent(e);
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if QT_CONFIG(graphicsview)
   //  bool QGraphicsLayoutItem::isEmpty() const
   bool isEmpty() const override {
     if (taken[8]) {
@@ -169,6 +224,7 @@ public:
     }
     return QGraphicsLayoutItem::isEmpty();
   }
+#endif  // QT_CONFIG(graphicsview)
 };
 
 //  QGraphicsAnchorLayout::QGraphicsAnchorLayout(QGraphicsLayoutItem *parent)
@@ -323,6 +379,20 @@ QSizeF *ritual_ZNK21QGraphicsAnchorLayout8sizeHintEN2Qt8SizeHintERK6QSizeF(
   return new QSizeF(self->sizeHint(which, *constraint));
 }
 
+//  QGraphicsAnchorLayoutPrivate *QGraphicsAnchorLayout::d_func()
+extern "C" Q_DECL_EXPORT
+QGraphicsAnchorLayoutPrivate *ritual_ZN21QGraphicsAnchorLayout6d_funcEv(
+    QGraphicsAnchorLayout *self) {
+  return self->d_func();
+}
+
+//  const QGraphicsAnchorLayoutPrivate *QGraphicsAnchorLayout::d_func() const
+extern "C" Q_DECL_EXPORT
+const QGraphicsAnchorLayoutPrivate *ritual_ZNK21QGraphicsAnchorLayout6d_funcEv(
+    const QGraphicsAnchorLayout *self) {
+  return self->d_func();
+}
+
 //  a Python function taken by a CuteQGraphicsAnchorLayout, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT
@@ -383,3 +453,5 @@ QSizeF *ritual_own_ZNK21QGraphicsAnchorLayout8sizeHintEN2Qt8SizeHintERK6QSizeF(
           which,
           *constraint));
 }
+
+#endif  // QT_CONFIG(graphicsview)

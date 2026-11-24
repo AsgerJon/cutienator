@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/qpa/qplatformdrag.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN23QPlatformDragQtResponseC1EbN2Qt10DropActionE5QRect": [
+      "address", "bool", "int", "address"
+    ],
+    "ritual_ZNK23QPlatformDragQtResponse10answerRectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QPlatformDragQtResponseD1Ev": ["nothing", "address"]
+  }
+}

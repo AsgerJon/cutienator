@@ -1,0 +1,34 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/extrainfo.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN27QDesignerExtraInfoExtensionD1Ev": ["nothing", "address"],
+    "ritual_ZNK27QDesignerExtraInfoExtension4coreEv": ["address", "address"],
+    "ritual_ZNK27QDesignerExtraInfoExtension6widgetEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QDesignerExtraInfoExtension15saveUiExtraInfoEP5DomUI": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN27QDesignerExtraInfoExtension15loadUiExtraInfoEP5DomUI": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN27QDesignerExtraInfoExtension19saveWidgetExtraInfoEP9DomWidget": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN27QDesignerExtraInfoExtension19loadWidgetExtraInfoEP9DomWidget": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK27QDesignerExtraInfoExtension16workingDirectoryEv": [
+      "text", "address"
+    ],
+    "ritual_ZN27QDesignerExtraInfoExtension19setWorkingDirectoryERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_take_QDesignerExtraInfoExtension": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

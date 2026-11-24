@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qstyleoption.h, Qt 6.12.0. Changes made here are lost.
+#include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(toolbutton)
 #include <QtWidgets/qstyleoption.h>
 
 //  QStyleOptionToolButton::QStyleOptionToolButton()
@@ -27,3 +29,5 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN22QStyleOptionToolButtonD1Ev(QStyleOptionToolButton *self) {
   delete self;
 }
+
+#endif  // QT_CONFIG(toolbutton)

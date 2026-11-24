@@ -1,0 +1,32 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/6.12.0/QtCharts/private/splineanimation_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15SplineAnimationD1Ev": ["nothing", "address"],
+    "ritual_ZN15SplineAnimation5setupERK5QListI7QPointFES4_S4_S4_i": [
+      "nothing", "address", "address", "address", "address", "address", "int"
+    ],
+    "ritual_ZNK15SplineAnimation12interpolatedERK8QVariantS2_d": [
+      "address", "address", "address", "address", "double"
+    ],
+    "ritual_ZN15SplineAnimation18updateCurrentValueERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15SplineAnimation11updateStateEN18QAbstractAnimation5StateES1_": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_take_SplineAnimation": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK15SplineAnimation12interpolatedERK8QVariantS2_d": [
+      "address", "address", "address", "address", "double"
+    ],
+    "ritual_own_ZN15SplineAnimation18updateCurrentValueERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN15SplineAnimation11updateStateEN18QAbstractAnimation5StateES1_": [
+      "nothing", "address", "int", "int"
+    ]
+  }
+}

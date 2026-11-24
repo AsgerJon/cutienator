@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGui/qpdfwriter.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
+#if !defined(QT_NO_PDF)
 #include <QtGui/qpdfwriter.h>
 #include <QtCore/qstring.h>
 #include <QtCore/quuid.h>
@@ -22,9 +24,15 @@ struct OwnQPdfWriter : QPdfWriter {
 //  A QPdfWriter that Python can take functions over in. Every QPdfWriter
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if !defined(QT_NO_PDF)
 typedef bool (*CuteQPdfWriterCall0)(const void *, int *);
+#endif  // !defined(QT_NO_PDF)
+#if !defined(QT_NO_PDF)
 typedef void * (*CuteQPdfWriterCall1)(const void *, int *);
+#endif  // !defined(QT_NO_PDF)
+#if !defined(QT_NO_PDF)
 typedef int (*CuteQPdfWriterCall2)(const void *, int, int *);
+#endif  // !defined(QT_NO_PDF)
 typedef bool (*CuteQPdfWriterCall3)(const void *, const QPageLayout *, int *);
 typedef bool (*CuteQPdfWriterCall4)(const void *, const QPageSize *, int *);
 typedef bool (*CuteQPdfWriterCall5)(const void *, int, int *);
@@ -34,31 +42,51 @@ typedef int (*CuteQPdfWriterCall8)(const void *, int *);
 typedef void (*CuteQPdfWriterCall9)(const void *, QPainter *, int *);
 typedef void * (*CuteQPdfWriterCall10)(const void *, QPoint *, int *);
 typedef void * (*CuteQPdfWriterCall11)(const void *, int *);
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQPdfWriterCall12)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQPdfWriterCall13)(const void *, QObject *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQPdfWriterCall14)(const void *, QTimerEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQPdfWriterCall15)(const void *, QChildEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQPdfWriterCall16)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQPdfWriterCall17)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQPdfWriterCall18)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 class CuteQPdfWriter : public QPdfWriter {
 public:
   using QPdfWriter::QPdfWriter;
   void *taken[19] = {};
 
   bool take(const char *key, void *call) {
+#if !defined(QT_NO_PDF)
     if (!std::strcmp(key, "_ZN17QPagedPaintDevice7newPageEv")) {
       taken[0] = call;
       return true;
     }
+#endif  // !defined(QT_NO_PDF)
+#if !defined(QT_NO_PDF)
     if (!std::strcmp(key, "_ZNK12QPaintDevice11paintEngineEv")) {
       taken[1] = call;
       return true;
     }
+#endif  // !defined(QT_NO_PDF)
+#if !defined(QT_NO_PDF)
     if (!std::strcmp(key, "_ZNK12QPaintDevice6metricENS_17PaintDeviceMetricE")) {
       taken[2] = call;
       return true;
     }
+#endif  // !defined(QT_NO_PDF)
     if (!std::strcmp(key, "_ZN17QPagedPaintDevice13setPageLayoutERK11QPageLayout")) {
       taken[3] = call;
       return true;
@@ -95,37 +123,52 @@ public:
       taken[11] = call;
       return true;
     }
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[12] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[13] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[14] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[15] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[16] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[17] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
       taken[18] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
     return false;
   }
 
+#if !defined(QT_NO_PDF)
   //  bool QPdfWriter::newPage()
   bool newPage() override {
     if (taken[0]) {
@@ -136,7 +179,9 @@ public:
     }
     return QPdfWriter::newPage();
   }
+#endif  // !defined(QT_NO_PDF)
 
+#if !defined(QT_NO_PDF)
   //  QPaintEngine *QPdfWriter::paintEngine() const
   QPaintEngine *paintEngine() const override {
     if (taken[1]) {
@@ -147,7 +192,9 @@ public:
     }
     return QPdfWriter::paintEngine();
   }
+#endif  // !defined(QT_NO_PDF)
 
+#if !defined(QT_NO_PDF)
   //  int QPdfWriter::metric(PaintDeviceMetric id) const
   int metric(QPaintDevice::PaintDeviceMetric id) const override {
     if (taken[2]) {
@@ -158,6 +205,7 @@ public:
     }
     return QPdfWriter::metric(id);
   }
+#endif  // !defined(QT_NO_PDF)
 
   //  bool QPagedPaintDevice::setPageLayout(const QPageLayout &pageLayout)
   bool setPageLayout(const QPageLayout &pageLayout) override {
@@ -262,6 +310,7 @@ public:
     return QPaintDevice::sharedPainter();
   }
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QObject::event(QEvent *event)
   bool event(QEvent *event) override {
     if (taken[12]) {
@@ -272,7 +321,9 @@ public:
     }
     return QObject::event(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
     if (taken[13]) {
@@ -283,7 +334,9 @@ public:
     }
     return QObject::eventFilter(watched, event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
     if (taken[14]) {
@@ -294,7 +347,9 @@ public:
     }
     QObject::timerEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
     if (taken[15]) {
@@ -305,7 +360,9 @@ public:
     }
     QObject::childEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
     if (taken[16]) {
@@ -316,7 +373,9 @@ public:
     }
     QObject::customEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
     if (taken[17]) {
@@ -327,7 +386,9 @@ public:
     }
     QObject::connectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
     if (taken[18]) {
@@ -338,6 +399,7 @@ public:
     }
     QObject::disconnectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 };
 
 //  const QMetaObject *QPdfWriter::metaObject() const
@@ -569,3 +631,5 @@ int ritual_own_ZNK10QPdfWriter6metricEN12QPaintDevice17PaintDeviceMetricE(
     QPaintDevice::PaintDeviceMetric id) {
   return static_cast<const OwnQPdfWriter *>(self)->OwnQPdfWriter::metric(id);
 }
+
+#endif  // !defined(QT_NO_PDF)

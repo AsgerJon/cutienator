@@ -1,0 +1,63 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtOpenGL/qopenglwindow.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK13QOpenGLWindow10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QOpenGLWindow2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN13QOpenGLWindowC1ENS_14UpdateBehaviorEP7QWindow": [
+      "address", "int", "address"
+    ],
+    "ritual_ZN13QOpenGLWindowC1EP14QOpenGLContextNS_14UpdateBehaviorEP7QWindow": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_ZN13QOpenGLWindowD1Ev": ["nothing", "address"],
+    "ritual_ZNK13QOpenGLWindow14updateBehaviorEv": ["int", "address"],
+    "ritual_ZNK13QOpenGLWindow7isValidEv": ["bool", "address"],
+    "ritual_ZN13QOpenGLWindow11makeCurrentEv": ["nothing", "address"],
+    "ritual_ZN13QOpenGLWindow11doneCurrentEv": ["nothing", "address"],
+    "ritual_ZNK13QOpenGLWindow7contextEv": ["address", "address"],
+    "ritual_ZNK13QOpenGLWindow12shareContextEv": ["address", "address"],
+    "ritual_ZN13QOpenGLWindow15grabFramebufferEv": ["address", "address"],
+    "ritual_ZN13QOpenGLWindow12initializeGLEv": ["nothing", "address"],
+    "ritual_ZN13QOpenGLWindow8resizeGLEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN13QOpenGLWindow7paintGLEv": ["nothing", "address"],
+    "ritual_ZN13QOpenGLWindow12paintUnderGLEv": ["nothing", "address"],
+    "ritual_ZN13QOpenGLWindow11paintOverGLEv": ["nothing", "address"],
+    "ritual_ZN13QOpenGLWindow10paintEventEP11QPaintEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QOpenGLWindow11resizeEventEP12QResizeEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QOpenGLWindow6metricEN12QPaintDevice17PaintDeviceMetricE": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK13QOpenGLWindow10redirectedEP6QPoint": [
+      "address", "address", "address"
+    ],
+    "ritual_take_QOpenGLWindow": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN13QOpenGLWindow12initializeGLEv": ["nothing", "address"],
+    "ritual_own_ZN13QOpenGLWindow8resizeGLEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZN13QOpenGLWindow7paintGLEv": ["nothing", "address"],
+    "ritual_own_ZN13QOpenGLWindow12paintUnderGLEv": ["nothing", "address"],
+    "ritual_own_ZN13QOpenGLWindow11paintOverGLEv": ["nothing", "address"],
+    "ritual_own_ZN13QOpenGLWindow10paintEventEP11QPaintEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN13QOpenGLWindow11resizeEventEP12QResizeEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK13QOpenGLWindow6metricEN12QPaintDevice17PaintDeviceMetricE": [
+      "int", "address", "int"
+    ],
+    "ritual_own_ZNK13QOpenGLWindow10redirectedEP6QPoint": [
+      "address", "address", "address"
+    ]
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmlcontext_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QQmlContextPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK18QQmlContextPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN18QQmlContextPrivate3getEP11QQmlContext": [
+      "address", "address"
+    ],
+    "ritual_ZN18QQmlContextPrivate3getEPS_": ["address", "address"],
+    "ritual_ZNK18QQmlContextPrivate11notifyIndexEv": ["int", "address"],
+    "ritual_ZN18QQmlContextPrivate14setNotifyIndexEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK18QQmlContextPrivate17numPropertyValuesEv": [
+      "int", "address"
+    ],
+    "ritual_ZN18QQmlContextPrivate19appendPropertyValueERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQmlContextPrivate16setPropertyValueEiRK8QVariant": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZNK18QQmlContextPrivate13propertyValueEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN18QQmlContextPrivate14appendInstanceEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQmlContextPrivate14cleanInstancesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQmlContextPrivate15emitDestructionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQmlContextPrivateC1EP15QQmlContextData": [
+      "address", "address"
+    ]
+  }
+}

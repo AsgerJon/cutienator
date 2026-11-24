@@ -1,0 +1,36 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquickapplicationwindo",
+    "w_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK31QQuickApplicationWindowAttached10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN31QQuickApplicationWindowAttached2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN31QQuickApplicationWindowAttachedC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZNK31QQuickApplicationWindowAttached6windowEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK31QQuickApplicationWindowAttached11contentItemEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK31QQuickApplicationWindowAttached18activeFocusControlEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK31QQuickApplicationWindowAttached6headerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK31QQuickApplicationWindowAttached6footerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK31QQuickApplicationWindowAttached7menuBarEv": [
+      "address", "address"
+    ]
+  }
+}

@@ -9,6 +9,9 @@
     "ritual_ZNK16QCollatorSortKey7compareERKS_": [
       "int", "address", "address"
     ],
+    "ritual_ZN16QCollatorSortKeyC1EP23QCollatorSortKeyPrivate": [
+      "address", "address"
+    ],
     "ritual_ZeqRK16QCollatorSortKeyS1_": ["bool", "address", "address"],
     "ritual_ZneRK16QCollatorSortKeyS1_": ["bool", "address", "address"],
     "ritual_ZltRK16QCollatorSortKeyS1_": ["bool", "address", "address"],

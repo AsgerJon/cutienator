@@ -1,0 +1,33 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3D/6.12.0/QtQuick3D/private/qquick3dinstancing_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK20QQuick3DInstanceList10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QQuick3DInstanceList2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN20QQuick3DInstanceListC1EP14QQuick3DObject": [
+      "address", "address"
+    ],
+    "ritual_ZN20QQuick3DInstanceListD1Ev": ["nothing", "address"],
+    "ritual_ZN20QQuick3DInstanceList17getInstanceBufferEPi": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK20QQuick3DInstanceList13instanceCountEv": ["int", "address"],
+    "ritual_ZN20QQuick3DInstanceList20handleInstanceChangeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuick3DInstanceList19onInstanceDestroyedEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuick3DInstanceList20generateInstanceDataEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QQuick3DInstanceList": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

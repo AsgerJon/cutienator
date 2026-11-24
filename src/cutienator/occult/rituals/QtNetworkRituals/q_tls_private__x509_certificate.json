@@ -1,0 +1,78 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/6.12.0/QtNetwork/private/qtlsbackend_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11QTlsPrivate15X509CertificateD1Ev": ["nothing", "address"],
+    "ritual_ZNK11QTlsPrivate15X509Certificate6isNullEv": ["bool", "address"],
+    "ritual_ZNK11QTlsPrivate15X509Certificate12isSelfSignedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK11QTlsPrivate15X509Certificate7versionEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK11QTlsPrivate15X509Certificate12serialNumberEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK11QTlsPrivate15X509Certificate10issuerInfoEN15QSslCertificate11SubjectInfoE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK11QTlsPrivate15X509Certificate10issuerInfoERK10QByteArray": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK11QTlsPrivate15X509Certificate11subjectInfoEN15QSslCertificate11SubjectInfoE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK11QTlsPrivate15X509Certificate11subjectInfoERK10QByteArray": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK11QTlsPrivate15X509Certificate21subjectInfoAttributesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK11QTlsPrivate15X509Certificate20issuerInfoAttributesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK11QTlsPrivate15X509Certificate13effectiveDateEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK11QTlsPrivate15X509Certificate10expiryDateEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK11QTlsPrivate15X509Certificate9publicKeyEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK11QTlsPrivate15X509Certificate18numberOfExtensionsEv": [
+      "long long", "address"
+    ],
+    "ritual_ZNK11QTlsPrivate15X509Certificate15oidForExtensionEx": [
+      "text", "address", "long long"
+    ],
+    "ritual_ZNK11QTlsPrivate15X509Certificate16nameForExtensionEx": [
+      "text", "address", "long long"
+    ],
+    "ritual_ZNK11QTlsPrivate15X509Certificate17valueForExtensionEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZNK11QTlsPrivate15X509Certificate19isExtensionCriticalEx": [
+      "bool", "address", "long long"
+    ],
+    "ritual_ZNK11QTlsPrivate15X509Certificate20isExtensionSupportedEx": [
+      "bool", "address", "long long"
+    ],
+    "ritual_ZNK11QTlsPrivate15X509Certificate5toPemEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK11QTlsPrivate15X509Certificate5toDerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK11QTlsPrivate15X509Certificate6toTextEv": ["text", "address"],
+    "ritual_take_QTlsPrivate_X509Certificate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK11QTlsPrivate15X509Certificate9publicKeyEv": [
+      "address", "address"
+    ]
+  }
+}

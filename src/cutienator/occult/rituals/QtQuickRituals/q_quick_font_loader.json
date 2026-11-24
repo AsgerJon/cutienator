@@ -1,0 +1,25 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickfontloader_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK16QQuickFontLoader10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QQuickFontLoader2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN16QQuickFontLoaderC1EP7QObject": ["address", "address"],
+    "ritual_ZNK16QQuickFontLoader6sourceEv": ["address", "address"],
+    "ritual_ZN16QQuickFontLoader9setSourceERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QQuickFontLoader4nameEv": ["text", "address"],
+    "ritual_ZNK16QQuickFontLoader4fontEv": ["address", "address"],
+    "ritual_ZNK16QQuickFontLoader6statusEv": ["int", "address"],
+    "ritual_ZN16QQuickFontLoader14updateFontInfoEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_take_QQuickFontLoader": ["bool", "address", "chars", "address"]
+  }
+}

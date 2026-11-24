@@ -1,0 +1,39 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquicknativemenuitem_p",
+    ".h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK20QQuickNativeMenuItem10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QQuickNativeMenuItem2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN20QQuickNativeMenuItem23createFromNonNativeItemEP10QQuickMenuP10QQuickItem": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN20QQuickNativeMenuItemD1Ev": ["nothing", "address"],
+    "ritual_ZNK20QQuickNativeMenuItem6actionEv": ["address", "address"],
+    "ritual_ZNK20QQuickNativeMenuItem7subMenuEv": ["address", "address"],
+    "ritual_ZNK20QQuickNativeMenuItem9separatorEv": ["address", "address"],
+    "ritual_ZNK20QQuickNativeMenuItem6handleEv": ["address", "address"],
+    "ritual_ZN20QQuickNativeMenuItem4syncEv": ["nothing", "address"],
+    "ritual_ZNK20QQuickNativeMenuItem13effectiveIconEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QQuickNativeMenuItem10iconLoaderEv": ["address", "address"],
+    "ritual_ZN20QQuickNativeMenuItem10reloadIconEv": ["nothing", "address"],
+    "ritual_ZNK20QQuickNativeMenuItem9debugTextEv": ["text", "address"],
+    "ritual_ZN20QQuickNativeMenuItem10updateIconEv": ["nothing", "address"],
+    "ritual_ZN20QQuickNativeMenuItemC1EP10QQuickMenuP10QQuickItemNS_4TypeE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN20QQuickNativeMenuItem11addShortcutEv": ["nothing", "address"],
+    "ritual_ZN20QQuickNativeMenuItem14removeShortcutEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QQuickNativeMenuItem": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

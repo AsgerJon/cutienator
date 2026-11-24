@@ -1,0 +1,132 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Dialogs2QuickImpl/6.12.0/QtQuickDialogs2QuickImpl/private/qquickfo",
+    "ntdialogimpl_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK28QQuickFontDialogImplAttached10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QQuickFontDialogImplAttached2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN28QQuickFontDialogImplAttachedC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QQuickFontDialogImplAttached14familyListViewEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QQuickFontDialogImplAttached17setFamilyListViewEP14QQuickListView": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK28QQuickFontDialogImplAttached13styleListViewEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QQuickFontDialogImplAttached16setStyleListViewEP14QQuickListView": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK28QQuickFontDialogImplAttached12sizeListViewEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QQuickFontDialogImplAttached15setSizeListViewEP14QQuickListView": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK28QQuickFontDialogImplAttached10sampleEditEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QQuickFontDialogImplAttached13setSampleEditEP14QQuickTextEdit": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK28QQuickFontDialogImplAttached9buttonBoxEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QQuickFontDialogImplAttached12setButtonBoxEP21QQuickDialogButtonBox": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK28QQuickFontDialogImplAttached21writingSystemComboBoxEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QQuickFontDialogImplAttached24setWritingSystemComboBoxEP14QQuickComboBox": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK28QQuickFontDialogImplAttached17underlineCheckBoxEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QQuickFontDialogImplAttached20setUnderlineCheckBoxEP14QQuickCheckBox": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK28QQuickFontDialogImplAttached17strikeoutCheckBoxEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QQuickFontDialogImplAttached20setStrikeoutCheckBoxEP14QQuickCheckBox": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK28QQuickFontDialogImplAttached10familyEditEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QQuickFontDialogImplAttached13setFamilyEditEP15QQuickTextField": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK28QQuickFontDialogImplAttached9styleEditEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QQuickFontDialogImplAttached12setStyleEditEP15QQuickTextField": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK28QQuickFontDialogImplAttached8sizeEditEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QQuickFontDialogImplAttached11setSizeEditEP15QQuickTextField": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QQuickFontDialogImplAttached12searchFamilyERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN28QQuickFontDialogImplAttached11searchStyleERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN28QQuickFontDialogImplAttached11clearSearchEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QQuickFontDialogImplAttached14updateFamiliesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QQuickFontDialogImplAttached21selectFontInListViewsERK5QFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QQuickFontDialogImplAttached12updateStylesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QQuickFontDialogImplAttached11updateSizesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QQuickFontDialogImplAttached16_q_familyChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QQuickFontDialogImplAttached15_q_styleChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QQuickFontDialogImplAttached13_q_sizeEditedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QQuickFontDialogImplAttached14_q_sizeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QQuickFontDialogImplAttached15_q_updateSampleEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QQuickFontDialogImplAttached23_q_writingSystemChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN28QQuickFontDialogImplAttached14searchListViewERK7QStringP14QQuickListView": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZN28QQuickFontDialogImplAttached6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QQuickFontDialogImplAttached6d_funcEv": [
+      "address", "address"
+    ]
+  }
+}

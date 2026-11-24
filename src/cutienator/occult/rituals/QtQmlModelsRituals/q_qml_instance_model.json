@@ -1,0 +1,63 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQmlModels/6.12.0/QtQmlModels/private/qqmlobjectmodel_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QQmlInstanceModel10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QQmlInstanceModel2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QQmlInstanceModel22qt_qmlMarker_anonymousEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK17QQmlInstanceModel5countEv": ["int", "address"],
+    "ritual_ZNK17QQmlInstanceModel7isValidEv": ["bool", "address"],
+    "ritual_ZN17QQmlInstanceModel6objectEiN13QQmlIncubator14IncubationModeE": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZN17QQmlInstanceModel7releaseEP7QObjectNS_12ReusableFlagE": [
+      "int", "address", "address", "int"
+    ],
+    "ritual_ZN17QQmlInstanceModel6cancelEi": ["nothing", "address", "int"],
+    "ritual_ZN17QQmlInstanceModel11stringValueEiRK7QString": [
+      "text", "address", "int", "text"
+    ],
+    "ritual_ZN17QQmlInstanceModel12variantValueEiRK7QString": [
+      "address", "address", "int", "text"
+    ],
+    "ritual_ZN17QQmlInstanceModel15setWatchedRolesERK5QListI10QByteArrayE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QQmlInstanceModel16incubationStatusEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZN17QQmlInstanceModel22drainReusableItemsPoolEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQmlInstanceModel8poolSizeEv": ["int", "address"],
+    "ritual_ZNK17QQmlInstanceModel7indexOfEP7QObjectS1_": [
+      "int", "address", "address", "address"
+    ],
+    "ritual_ZNK17QQmlInstanceModel17abstractItemModelEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QQmlInstanceModel19setRequiredPropertyEiRK7QStringRK8QVariant": [
+      "bool", "address", "int", "text", "address"
+    ],
+    "ritual_own_ZN17QQmlInstanceModel6cancelEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17QQmlInstanceModel22drainReusableItemsPoolEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17QQmlInstanceModel8poolSizeEv": ["int", "address"],
+    "ritual_own_ZNK17QQmlInstanceModel17abstractItemModelEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN17QQmlInstanceModel19setRequiredPropertyEiRK7QStringRK8QVariant": [
+      "bool", "address", "int", "text", "address"
+    ]
+  }
+}

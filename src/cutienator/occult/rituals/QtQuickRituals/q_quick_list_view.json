@@ -1,0 +1,108 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquicklistview_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK14QQuickListView10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QQuickListView2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN14QQuickListView21qt_qmlMarker_attachedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickListViewC1EP10QQuickItem": ["address", "address"],
+    "ritual_ZN14QQuickListViewD1Ev": ["nothing", "address"],
+    "ritual_ZNK14QQuickListView7spacingEv": ["double", "address"],
+    "ritual_ZN14QQuickListView10setSpacingEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK14QQuickListView11orientationEv": ["int", "address"],
+    "ritual_ZN14QQuickListView14setOrientationENS_11OrientationE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN14QQuickListView15sectionCriteriaEv": ["address", "address"],
+    "ritual_ZNK14QQuickListView14currentSectionEv": ["text", "address"],
+    "ritual_ZN14QQuickListView30setHighlightFollowsCurrentItemEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK14QQuickListView21highlightMoveVelocityEv": [
+      "double", "address"
+    ],
+    "ritual_ZN14QQuickListView24setHighlightMoveVelocityEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK14QQuickListView23highlightResizeVelocityEv": [
+      "double", "address"
+    ],
+    "ritual_ZN14QQuickListView26setHighlightResizeVelocityEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK14QQuickListView23highlightResizeDurationEv": [
+      "int", "address"
+    ],
+    "ritual_ZN14QQuickListView26setHighlightResizeDurationEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN14QQuickListView24setHighlightMoveDurationEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK14QQuickListView8snapModeEv": ["int", "address"],
+    "ritual_ZN14QQuickListView11setSnapModeENS_8SnapModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK14QQuickListView17headerPositioningEv": ["int", "address"],
+    "ritual_ZN14QQuickListView20setHeaderPositioningENS_17HeaderPositioningE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK14QQuickListView17footerPositioningEv": ["int", "address"],
+    "ritual_ZN14QQuickListView20setFooterPositioningENS_17FooterPositioningE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN14QQuickListView21qmlAttachedPropertiesEP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN14QQuickListView21incrementCurrentIndexEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickListView21decrementCurrentIndexEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickListView13viewportMovedE6QFlagsIN2Qt11OrientationEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN14QQuickListView13keyPressEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QQuickListView14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN14QQuickListView8initItemEiP7QObject": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZNK14QQuickListView10maxYExtentEv": ["double", "address"],
+    "ritual_ZNK14QQuickListView10maxXExtentEv": ["double", "address"],
+    "ritual_take_QQuickListView": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN14QQuickListView30setHighlightFollowsCurrentItemEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZN14QQuickListView24setHighlightMoveDurationEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN14QQuickListView13viewportMovedE6QFlagsIN2Qt11OrientationEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN14QQuickListView13keyPressEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN14QQuickListView14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN14QQuickListView8initItemEiP7QObject": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZNK14QQuickListView10maxYExtentEv": ["double", "address"],
+    "ritual_own_ZNK14QQuickListView10maxXExtentEv": ["double", "address"]
+  }
+}

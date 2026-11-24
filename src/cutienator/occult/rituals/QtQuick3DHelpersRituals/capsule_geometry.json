@@ -1,0 +1,56 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DHelpers/6.12.0/QtQuick3DHelpers/private/capsulegeometry_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK15CapsuleGeometry10metaObjectEv": ["address", "address"],
+    "ritual_ZN15CapsuleGeometry2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN15CapsuleGeometryC1EP14QQuick3DObject": ["address", "address"],
+    "ritual_ZN15CapsuleGeometryD1Ev": ["nothing", "address"],
+    "ritual_ZNK15CapsuleGeometry13enableNormalsEv": ["bool", "address"],
+    "ritual_ZN15CapsuleGeometry16setEnableNormalsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK15CapsuleGeometry8enableUVEv": ["bool", "address"],
+    "ritual_ZN15CapsuleGeometry11setEnableUVEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK15CapsuleGeometry10longitudesEv": ["int", "address"],
+    "ritual_ZN15CapsuleGeometry13setLongitudesEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15CapsuleGeometry9latitudesEv": ["int", "address"],
+    "ritual_ZN15CapsuleGeometry12setLatitudesEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15CapsuleGeometry5ringsEv": ["int", "address"],
+    "ritual_ZN15CapsuleGeometry8setRingsEi": ["nothing", "address", "int"],
+    "ritual_ZNK15CapsuleGeometry6heightEv": ["float", "address"],
+    "ritual_ZN15CapsuleGeometry9setHeightEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK15CapsuleGeometry8diameterEv": ["float", "address"],
+    "ritual_ZN15CapsuleGeometry11setDiameterEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK15CapsuleGeometry9uvProfileEv": ["int", "address"],
+    "ritual_ZN15CapsuleGeometry12setUVProfileENS_9UVProfileE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15CapsuleGeometry12asynchronousEv": ["bool", "address"],
+    "ritual_ZN15CapsuleGeometry15setAsynchronousEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK15CapsuleGeometry6statusEv": ["int", "address"],
+    "ritual_ZN15CapsuleGeometry16doUpdateGeometryEv": ["nothing", "address"],
+    "ritual_ZN15CapsuleGeometry15requestFinishedEv": ["nothing", "address"],
+    "ritual_ZN15CapsuleGeometry22scheduleGeometryUpdateEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_CapsuleGeometry": ["bool", "address", "chars", "address"]
+  }
+}

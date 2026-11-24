@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDBus/6.12.0/QtDBus/private/qdbusconnection_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN22QDBusConnectionPrivate18WatchedServiceDataC1Ev": ["address"],
+    "ritual_ZN22QDBusConnectionPrivate18WatchedServiceDataC1ERK7QStringi": [
+      "address", "text", "int"
+    ],
+    "ritual_ZN22QDBusConnectionPrivate18WatchedServiceDataD1Ev": [
+      "nothing", "address"
+    ]
+  }
+}

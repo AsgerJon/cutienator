@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/qpa/qplatformintegrationfactory_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN27QPlatformIntegrationFactory4keysERK7QString": [
+      "address", "text"
+    ],
+    "ritual_ZN27QPlatformIntegrationFactory6createERK7QStringRK5QListIS0_ERiPPcS2_": [
+      "address", "text", "address", "address", "address", "text"
+    ],
+    "ritual_ZN27QPlatformIntegrationFactoryD1Ev": ["nothing", "address"]
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQmlMeta/6.12.0/QtQmlMeta/private/qqmltimer_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK9QQmlTimer10metaObjectEv": ["address", "address"],
+    "ritual_ZN9QQmlTimer2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN9QQmlTimerC1EP7QObject": ["address", "address"],
+    "ritual_ZN9QQmlTimer11setIntervalEi": ["nothing", "address", "int"],
+    "ritual_ZNK9QQmlTimer8intervalEv": ["int", "address"],
+    "ritual_ZNK9QQmlTimer9isRunningEv": ["bool", "address"],
+    "ritual_ZN9QQmlTimer10setRunningEb": ["nothing", "address", "bool"],
+    "ritual_ZNK9QQmlTimer11isRepeatingEv": ["bool", "address"],
+    "ritual_ZN9QQmlTimer12setRepeatingEb": ["nothing", "address", "bool"],
+    "ritual_ZNK9QQmlTimer16triggeredOnStartEv": ["bool", "address"],
+    "ritual_ZN9QQmlTimer19setTriggeredOnStartEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN9QQmlTimer10classBeginEv": ["nothing", "address"],
+    "ritual_ZN9QQmlTimer17componentCompleteEv": ["nothing", "address"],
+    "ritual_ZN9QQmlTimer5eventEP6QEvent": ["bool", "address", "address"],
+    "ritual_ZN9QQmlTimer5startEv": ["nothing", "address"],
+    "ritual_ZN9QQmlTimer4stopEv": ["nothing", "address"],
+    "ritual_ZN9QQmlTimer7restartEv": ["nothing", "address"],
+    "ritual_ZN9QQmlTimer6updateEv": ["nothing", "address"],
+    "ritual_ZN9QQmlTimer6tickedEv": ["nothing", "address"],
+    "ritual_cast_QQmlTimer_QQmlParserStatus": ["address", "address"],
+    "ritual_own_ZN9QQmlTimer10classBeginEv": ["nothing", "address"],
+    "ritual_own_ZN9QQmlTimer17componentCompleteEv": ["nothing", "address"],
+    "ritual_own_ZN9QQmlTimer5eventEP6QEvent": ["bool", "address", "address"]
+  }
+}

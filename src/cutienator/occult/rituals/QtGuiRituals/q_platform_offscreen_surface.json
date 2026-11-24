@@ -1,0 +1,31 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/qpa/qplatformoffscreensurface.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN25QPlatformOffscreenSurfaceC1EP17QOffscreenSurface": [
+      "address", "address"
+    ],
+    "ritual_ZN25QPlatformOffscreenSurfaceD1Ev": ["nothing", "address"],
+    "ritual_ZNK25QPlatformOffscreenSurface16offscreenSurfaceEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK25QPlatformOffscreenSurface6screenEv": ["address", "address"],
+    "ritual_ZNK25QPlatformOffscreenSurface6formatEv": ["address", "address"],
+    "ritual_ZNK25QPlatformOffscreenSurface7isValidEv": ["bool", "address"],
+    "ritual_take_QPlatformOffscreenSurface": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK25QPlatformOffscreenSurface6screenEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK25QPlatformOffscreenSurface6formatEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK25QPlatformOffscreenSurface7isValidEv": [
+      "bool", "address"
+    ]
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtPositioning/qgeoshape.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN9QGeoShapeC1Ev": ["address"],
+    "ritual_ZN9QGeoShapeC1ERKS_": ["address", "address"],
+    "ritual_ZN9QGeoShapeD1Ev": ["nothing", "address"],
+    "ritual_ZNK9QGeoShape4typeEv": ["int", "address"],
+    "ritual_ZNK9QGeoShape7isValidEv": ["bool", "address"],
+    "ritual_ZNK9QGeoShape7isEmptyEv": ["bool", "address"],
+    "ritual_ZNK9QGeoShape8containsERK14QGeoCoordinate": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK9QGeoShape20boundingGeoRectangleEv": ["address", "address"],
+    "ritual_ZNK9QGeoShape6centerEv": ["address", "address"],
+    "ritual_ZeqRK9QGeoShapeS1_": ["bool", "address", "address"],
+    "ritual_ZneRK9QGeoShapeS1_": ["bool", "address", "address"],
+    "ritual_ZNK9QGeoShape8toStringEv": ["text", "address"],
+    "ritual_ZN9QGeoShapeC1EP16QGeoShapePrivate": ["address", "address"],
+    "ritual_ZN9QGeoShape6equalsERKS_S1_": ["bool", "address", "address"],
+    "ritual_ZN9QGeoShape6d_funcEv": ["address", "address"],
+    "ritual_ZNK9QGeoShape6d_funcEv": ["address", "address"],
+    "ritual_Zls6QDebugRK9QGeoShape": ["address", "address", "address"],
+    "ritual_ZN9QGeoShape14debugStreamingE6QDebugRKS_": [
+      "address", "address", "address"
+    ]
+  }
+}

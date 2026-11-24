@@ -1,0 +1,96 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qgridlayoutengine_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QGridLayoutItemD1Ev": ["nothing", "address"],
+    "ritual_ZNK15QGridLayoutItem8firstRowEv": ["int", "address"],
+    "ritual_ZNK15QGridLayoutItem11firstColumnEv": ["int", "address"],
+    "ritual_ZNK15QGridLayoutItem7rowSpanEv": ["int", "address"],
+    "ritual_ZNK15QGridLayoutItem10columnSpanEv": ["int", "address"],
+    "ritual_ZNK15QGridLayoutItem7lastRowEv": ["int", "address"],
+    "ritual_ZNK15QGridLayoutItem10lastColumnEv": ["int", "address"],
+    "ritual_ZNK15QGridLayoutItem8firstRowEN2Qt11OrientationE": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK15QGridLayoutItem11firstColumnEN2Qt11OrientationE": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK15QGridLayoutItem7lastRowEN2Qt11OrientationE": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK15QGridLayoutItem10lastColumnEN2Qt11OrientationE": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK15QGridLayoutItem7rowSpanEN2Qt11OrientationE": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK15QGridLayoutItem10columnSpanEN2Qt11OrientationE": [
+      "int", "address", "int"
+    ],
+    "ritual_ZN15QGridLayoutItem11setFirstRowEiN2Qt11OrientationE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN15QGridLayoutItem10setRowSpanEiN2Qt11OrientationE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK15QGridLayoutItem13stretchFactorEN2Qt11OrientationE": [
+      "int", "address", "int"
+    ],
+    "ritual_ZN15QGridLayoutItem16setStretchFactorEiN2Qt11OrientationE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK15QGridLayoutItem9alignmentEv": ["int", "address"],
+    "ritual_ZN15QGridLayoutItem12setAlignmentE6QFlagsIN2Qt13AlignmentFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QGridLayoutItem10sizePolicyEN2Qt11OrientationE": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK15QGridLayoutItem8sizeHintEN2Qt8SizeHintERK6QSizeF": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_ZNK15QGridLayoutItem7isEmptyEv": ["bool", "address"],
+    "ritual_ZN15QGridLayoutItem11setGeometryERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QGridLayoutItem20hasDynamicConstraintEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK15QGridLayoutItem28dynamicConstraintOrientationEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK15QGridLayoutItem12controlTypesE10LayoutSide": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK15QGridLayoutItem8toStringEv": ["text", "address"],
+    "ritual_ZNK15QGridLayoutItem14geometryWithinEddddd6QFlagsIN2Qt13AlignmentFlagEEb": [
+      "address", "address", "double", "double", "double", "double", "double",
+      "int", "bool"
+    ],
+    "ritual_ZNK15QGridLayoutItem3boxEN2Qt11OrientationEbd": [
+      "address", "address", "int", "bool", "double"
+    ],
+    "ritual_ZN15QGridLayoutItem9transposeEv": ["nothing", "address"],
+    "ritual_ZN15QGridLayoutItem18insertOrRemoveRowsEiiN2Qt11OrientationE": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZNK15QGridLayoutItem16effectiveMaxSizeERK6QSizeF": [
+      "address", "address", "address"
+    ],
+    "ritual_take_QGridLayoutItem": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK15QGridLayoutItem7isEmptyEv": ["bool", "address"],
+    "ritual_own_ZNK15QGridLayoutItem20hasDynamicConstraintEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZNK15QGridLayoutItem28dynamicConstraintOrientationEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZNK15QGridLayoutItem12controlTypesE10LayoutSide": [
+      "int", "address", "int"
+    ],
+    "ritual_own_ZNK15QGridLayoutItem8toStringEv": ["text", "address"]
+  }
+}

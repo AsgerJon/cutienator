@@ -1,0 +1,40 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtPrintSupport/qabstractprintdialog.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QAbstractPrintDialog6d_funcEv": ["address", "address"],
+    "ritual_ZNK20QAbstractPrintDialog6d_funcEv": ["address", "address"],
+    "ritual_ZNK20QAbstractPrintDialog10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QAbstractPrintDialog2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN20QAbstractPrintDialogC1EP8QPrinterP7QWidget": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN20QAbstractPrintDialogD1Ev": ["nothing", "address"],
+    "ritual_ZN20QAbstractPrintDialog13setOptionTabsERK5QListIP7QWidgetE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QAbstractPrintDialog13setPrintRangeENS_10PrintRangeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK20QAbstractPrintDialog10printRangeEv": ["int", "address"],
+    "ritual_ZN20QAbstractPrintDialog9setMinMaxEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK20QAbstractPrintDialog7minPageEv": ["int", "address"],
+    "ritual_ZNK20QAbstractPrintDialog7maxPageEv": ["int", "address"],
+    "ritual_ZN20QAbstractPrintDialog9setFromToEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK20QAbstractPrintDialog8fromPageEv": ["int", "address"],
+    "ritual_ZNK20QAbstractPrintDialog6toPageEv": ["int", "address"],
+    "ritual_ZNK20QAbstractPrintDialog7printerEv": ["address", "address"],
+    "ritual_take_QAbstractPrintDialog": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

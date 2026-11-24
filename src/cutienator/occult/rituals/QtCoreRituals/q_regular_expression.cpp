@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/qregularexpression.h, Qt 6.12.0. Changes made here are lost.
+#include <QtCore/qglobal.h>
+#if QT_CONFIG(regularexpression)
 #include <QtCore/qregularexpression.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qstringview.h>
@@ -119,6 +121,7 @@ QRegularExpressionMatch *ritual_ZNK18QRegularExpression5matchERK7QStringxNS_9Mat
           QFlags<QRegularExpression::MatchOption>::fromInt(matchOptions)));
 }
 
+#if QT_DEPRECATED_SINCE(6, 8)
 //  QRegularExpressionMatch QRegularExpression::match(QStringView
 //      subjectView, qsizetype offset, MatchType matchType, MatchOptions
 //      matchOptions) const
@@ -136,6 +139,7 @@ QRegularExpressionMatch *ritual_ZNK18QRegularExpression5matchE11QStringViewxNS_9
           matchType,
           QFlags<QRegularExpression::MatchOption>::fromInt(matchOptions)));
 }
+#endif  // QT_DEPRECATED_SINCE(6, 8)
 
 //  QRegularExpressionMatch QRegularExpression::matchView(QStringView
 //      subjectView, qsizetype offset, MatchType matchType, MatchOptions
@@ -173,6 +177,7 @@ QRegularExpressionMatchIterator *ritual_ZNK18QRegularExpression11globalMatchERK7
           QFlags<QRegularExpression::MatchOption>::fromInt(matchOptions)));
 }
 
+#if QT_DEPRECATED_SINCE(6, 8)
 //  QRegularExpressionMatchIterator
 //      QRegularExpression::globalMatch(QStringView subjectView, qsizetype
 //      offset, MatchType matchType, MatchOptions matchOptions) const
@@ -190,6 +195,7 @@ QRegularExpressionMatchIterator *ritual_ZNK18QRegularExpression11globalMatchE11Q
           matchType,
           QFlags<QRegularExpression::MatchOption>::fromInt(matchOptions)));
 }
+#endif  // QT_DEPRECATED_SINCE(6, 8)
 
 //  QRegularExpressionMatchIterator
 //      QRegularExpression::globalMatchView(QStringView subjectView,
@@ -302,3 +308,5 @@ bool ritual_ZneRK18QRegularExpressionS1_(
     const QRegularExpression *rhs) {
   return operator!=(*lhs, *rhs);
 }
+
+#endif  // QT_CONFIG(regularexpression)

@@ -1,0 +1,112 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickvaluetypes_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QQuickFontValueType20qt_qmlMarker_foreignEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickFontValueType21qt_qmlMarker_extendedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickFontValueType6createERK8QJSValue": [
+      "address", "address"
+    ],
+    "ritual_ZN19QQuickFontValueTypeC1Ev": ["address"],
+    "ritual_ZN19QQuickFontValueTypeC1ERK5QFont": ["address", "address"],
+    "ritual_ZNK19QQuickFontValueType8toStringEv": ["text", "address"],
+    "ritual_ZNK19QQuickFontValueType6familyEv": ["text", "address"],
+    "ritual_ZN19QQuickFontValueType9setFamilyERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK19QQuickFontValueType9styleNameEv": ["text", "address"],
+    "ritual_ZN19QQuickFontValueType12setStyleNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK19QQuickFontValueType4boldEv": ["bool", "address"],
+    "ritual_ZN19QQuickFontValueType7setBoldEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK19QQuickFontValueType6weightEv": ["int", "address"],
+    "ritual_ZN19QQuickFontValueType9setWeightEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK19QQuickFontValueType6italicEv": ["bool", "address"],
+    "ritual_ZN19QQuickFontValueType9setItalicEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK19QQuickFontValueType9underlineEv": ["bool", "address"],
+    "ritual_ZN19QQuickFontValueType12setUnderlineEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK19QQuickFontValueType8overlineEv": ["bool", "address"],
+    "ritual_ZN19QQuickFontValueType11setOverlineEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK19QQuickFontValueType9strikeoutEv": ["bool", "address"],
+    "ritual_ZN19QQuickFontValueType12setStrikeoutEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK19QQuickFontValueType9pointSizeEv": ["double", "address"],
+    "ritual_ZN19QQuickFontValueType12setPointSizeEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK19QQuickFontValueType9pixelSizeEv": ["int", "address"],
+    "ritual_ZN19QQuickFontValueType12setPixelSizeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK19QQuickFontValueType14capitalizationEv": ["int", "address"],
+    "ritual_ZN19QQuickFontValueType17setCapitalizationEN15QQuickFontEnums14CapitalizationE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK19QQuickFontValueType13letterSpacingEv": [
+      "double", "address"
+    ],
+    "ritual_ZN19QQuickFontValueType16setLetterSpacingEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK19QQuickFontValueType11wordSpacingEv": ["double", "address"],
+    "ritual_ZN19QQuickFontValueType14setWordSpacingEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK19QQuickFontValueType17hintingPreferenceEv": [
+      "int", "address"
+    ],
+    "ritual_ZN19QQuickFontValueType20setHintingPreferenceEN15QQuickFontEnums17HintingPreferenceE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK19QQuickFontValueType7kerningEv": ["bool", "address"],
+    "ritual_ZN19QQuickFontValueType10setKerningEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK19QQuickFontValueType13preferShapingEv": ["bool", "address"],
+    "ritual_ZN19QQuickFontValueType16setPreferShapingEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK19QQuickFontValueType8featuresEv": ["address", "address"],
+    "ritual_ZN19QQuickFontValueType11setFeaturesERK4QMapI7QString8QVariantE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QQuickFontValueType12variableAxesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QQuickFontValueType15setVariableAxesERK4QMapI7QString8QVariantE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QQuickFontValueType18contextFontMergingEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN19QQuickFontValueType21setContextFontMergingEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK19QQuickFontValueType21preferTypoLineMetricsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN19QQuickFontValueType24setPreferTypoLineMetricsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN19QQuickFontValueTypeD1Ev": ["nothing", "address"]
+  }
+}

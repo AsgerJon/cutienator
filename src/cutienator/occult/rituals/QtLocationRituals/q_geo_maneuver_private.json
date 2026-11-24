@@ -1,0 +1,55 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLocation/6.12.0/QtLocation/private/qgeomaneuver_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK19QGeoManeuverPrivate6equalsERKS_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK19QGeoManeuverPrivate5validEv": ["bool", "address"],
+    "ritual_ZN19QGeoManeuverPrivate8setValidEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK19QGeoManeuverPrivate2idEv": ["text", "address"],
+    "ritual_ZN19QGeoManeuverPrivate5setIdERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK19QGeoManeuverPrivate8positionEv": ["address", "address"],
+    "ritual_ZN19QGeoManeuverPrivate11setPositionERK14QGeoCoordinate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QGeoManeuverPrivate4textEv": ["text", "address"],
+    "ritual_ZN19QGeoManeuverPrivate7setTextERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK19QGeoManeuverPrivate9directionEv": ["int", "address"],
+    "ritual_ZN19QGeoManeuverPrivate12setDirectionEN12QGeoManeuver20InstructionDirectionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK19QGeoManeuverPrivate21timeToNextInstructionEv": [
+      "int", "address"
+    ],
+    "ritual_ZN19QGeoManeuverPrivate24setTimeToNextInstructionEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK19QGeoManeuverPrivate25distanceToNextInstructionEv": [
+      "double", "address"
+    ],
+    "ritual_ZN19QGeoManeuverPrivate28setDistanceToNextInstructionEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK19QGeoManeuverPrivate8waypointEv": ["address", "address"],
+    "ritual_ZN19QGeoManeuverPrivate11setWaypointERK14QGeoCoordinate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QGeoManeuverPrivate18extendedAttributesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QGeoManeuverPrivate21setExtendedAttributesERK4QMapI7QString8QVariantE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QGeoManeuverPrivateD1Ev": ["nothing", "address"]
+  }
+}

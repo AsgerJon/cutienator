@@ -1,0 +1,92 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtPositioning/6.12.0/QtPositioning/private/qgeopath_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QGeoPathPrivateBaseD1Ev": ["nothing", "address"],
+    "ritual_ZNK19QGeoPathPrivateBase7isValidEv": ["bool", "address"],
+    "ritual_ZNK19QGeoPathPrivateBase7isEmptyEv": ["bool", "address"],
+    "ritual_ZNK19QGeoPathPrivateBase6centerEv": ["address", "address"],
+    "ritual_ZNK19QGeoPathPrivateBase20boundingGeoRectangleEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QGeoPathPrivateBase4pathEv": ["address", "address"],
+    "ritual_ZNK19QGeoPathPrivateBase6lengthExx": [
+      "double", "address", "long long", "long long"
+    ],
+    "ritual_ZNK19QGeoPathPrivateBase4sizeEv": ["long long", "address"],
+    "ritual_ZNK19QGeoPathPrivateBase12coordinateAtEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZNK19QGeoPathPrivateBase18containsCoordinateERK14QGeoCoordinate": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN19QGeoPathPrivateBase9translateEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN19QGeoPathPrivateBase7setPathERK5QListI14QGeoCoordinateE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QGeoPathPrivateBase9clearPathEv": ["nothing", "address"],
+    "ritual_ZN19QGeoPathPrivateBase13addCoordinateERK14QGeoCoordinate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QGeoPathPrivateBase16insertCoordinateExRK14QGeoCoordinate": [
+      "nothing", "address", "long long", "address"
+    ],
+    "ritual_ZN19QGeoPathPrivateBase17replaceCoordinateExRK14QGeoCoordinate": [
+      "nothing", "address", "long long", "address"
+    ],
+    "ritual_ZN19QGeoPathPrivateBase16removeCoordinateERK14QGeoCoordinate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QGeoPathPrivateBase16removeCoordinateEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN19QGeoPathPrivateBase9markDirtyEv": ["nothing", "address"],
+    "ritual_ZNK19QGeoPathPrivateBase24ensureBoundingBoxUpdatedEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QGeoPathPrivateBase": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK19QGeoPathPrivateBase7isValidEv": ["bool", "address"],
+    "ritual_own_ZNK19QGeoPathPrivateBase7isEmptyEv": ["bool", "address"],
+    "ritual_own_ZNK19QGeoPathPrivateBase6centerEv": ["address", "address"],
+    "ritual_own_ZNK19QGeoPathPrivateBase20boundingGeoRectangleEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK19QGeoPathPrivateBase6lengthExx": [
+      "double", "address", "long long", "long long"
+    ],
+    "ritual_own_ZNK19QGeoPathPrivateBase4sizeEv": ["long long", "address"],
+    "ritual_own_ZNK19QGeoPathPrivateBase12coordinateAtEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_own_ZNK19QGeoPathPrivateBase18containsCoordinateERK14QGeoCoordinate": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN19QGeoPathPrivateBase9translateEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_own_ZN19QGeoPathPrivateBase9clearPathEv": ["nothing", "address"],
+    "ritual_own_ZN19QGeoPathPrivateBase13addCoordinateERK14QGeoCoordinate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN19QGeoPathPrivateBase16insertCoordinateExRK14QGeoCoordinate": [
+      "nothing", "address", "long long", "address"
+    ],
+    "ritual_own_ZN19QGeoPathPrivateBase17replaceCoordinateExRK14QGeoCoordinate": [
+      "nothing", "address", "long long", "address"
+    ],
+    "ritual_own_ZN19QGeoPathPrivateBase16removeCoordinateERK14QGeoCoordinate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN19QGeoPathPrivateBase16removeCoordinateEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_own_ZN19QGeoPathPrivateBase9markDirtyEv": ["nothing", "address"]
+  }
+}

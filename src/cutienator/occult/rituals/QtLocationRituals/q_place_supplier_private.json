@@ -1,0 +1,11 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLocation/6.12.0/QtLocation/private/qplacesupplier_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK21QPlaceSupplierPrivate7isEmptyEv": ["bool", "address"],
+    "ritual_ZN21QPlaceSupplierPrivateD1Ev": ["nothing", "address"]
+  }
+}

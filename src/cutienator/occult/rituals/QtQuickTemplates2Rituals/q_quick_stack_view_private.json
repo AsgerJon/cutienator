@@ -1,0 +1,44 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquickstackview_p_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN22QQuickStackViewPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK22QQuickStackViewPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN22QQuickStackViewPrivate3getEP15QQuickStackView": [
+      "address", "address"
+    ],
+    "ritual_ZN22QQuickStackViewPrivate4warnERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN22QQuickStackViewPrivate18warnOfInterruptionERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK22QQuickStackViewPrivate11findElementEP10QQuickItem": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK22QQuickStackViewPrivate11findElementERKN3QV45ValueE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN22QQuickStackViewPrivate18ensureTransitionerEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickStackViewPrivate26viewItemTransitionFinishedEP32QQuickItemViewTransitionableItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQuickStackViewPrivate7setBusyEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN22QQuickStackViewPrivate11depthChangeEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_cast_QQuickStackViewPrivate_QQuickItemViewTransitionChangeListener": [
+      "address", "address"
+    ],
+    "ritual_take_QQuickStackViewPrivate": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

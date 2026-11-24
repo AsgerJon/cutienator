@@ -1,9 +1,16 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/6.12.0/QtWidgets/private/qtabbar_p.h, Qt 6.12.0. Changes made
 //  here are lost.
+#include <QtWidgets/qtwidgetsglobal.h>
+#include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
+#if QT_CONFIG(tabbar)
+#include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/QtWidgets>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/6.12.0/QtWidgets/private/qtabbar_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/qpixmap.h>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include "private/qlayoutengine_p.h"
 #if QT_CONFIG(itemviews)
 #include "qabstractitemdelegate.h"
@@ -35,13 +42,14 @@
 #include "qdebug.h"
 #include "private/qapplication_p.h"
 #include "private/qtabbar_p.h"
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
 //  Qt's source, because Qt's library carries it under no name.
 //  Copyright (C) The Qt Company Ltd. It is licensed
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
-//  'inline' put before it.
+//  'inline' put before it where Qt did not write it.
 
 //  from src/widgets/widgets/qtabbar.cpp, line 68, as _ZN17QMovableTabWidgetC1EP7QWidget
 inline QMovableTabWidget::QMovableTabWidget(QWidget *parent)
@@ -102,3 +110,5 @@ void ritual_own_ZN17QMovableTabWidget10paintEventEP11QPaintEvent(
   static_cast<OwnQMovableTabWidget *>(self)->OwnQMovableTabWidget::paintEvent(
       e);
 }
+
+#endif  // QT_CONFIG(tabbar)

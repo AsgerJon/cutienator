@@ -1,0 +1,35 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qfusionstyle_p_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QFusionStylePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK19QFusionStylePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN19QFusionStylePrivateC1Ev": ["address"],
+    "ritual_ZNK19QFusionStylePrivate18isMacSystemPaletteERK8QPalette": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK19QFusionStylePrivate9highlightERK8QPalette": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK19QFusionStylePrivate15highlightedTextERK8QPalette": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK19QFusionStylePrivate7outlineERK8QPalette": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK19QFusionStylePrivate18highlightedOutlineERK8QPalette": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK19QFusionStylePrivate13tabFrameColorERK8QPalette": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK19QFusionStylePrivate11buttonColorERK8QPalette": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK19QFusionStylePrivate11colorSchemeEv": ["int", "address"],
+    "ritual_ZNK19QFusionStylePrivate14isHighContrastEv": ["bool", "address"]
+  }
+}

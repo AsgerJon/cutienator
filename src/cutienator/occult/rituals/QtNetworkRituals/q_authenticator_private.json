@@ -1,0 +1,29 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/6.12.0/QtNetwork/private/qauthenticator_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN21QAuthenticatorPrivateC1Ev": ["address"],
+    "ritual_ZN21QAuthenticatorPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN21QAuthenticatorPrivate17calculateResponseE14QByteArrayViewS0_11QStringView": [
+      "address", "address", "address", "address", "text"
+    ],
+    "ritual_ZN21QAuthenticatorPrivate10getPrivateERK14QAuthenticator": [
+      "address", "address"
+    ],
+    "ritual_ZN21QAuthenticatorPrivate17digestMd5ResponseE14QByteArrayViewS0_S0_": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN21QAuthenticatorPrivate17parseHttpResponseERK12QHttpHeadersb11QStringView": [
+      "nothing", "address", "address", "bool", "text"
+    ],
+    "ritual_ZN21QAuthenticatorPrivate17updateCredentialsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QAuthenticatorPrivate17isMethodSupportedE14QByteArrayView": [
+      "bool", "address"
+    ]
+  }
+}

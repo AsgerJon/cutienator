@@ -1,0 +1,39 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/qquickframebufferobject.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZN23QQuickFramebufferObject8RendererD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickFramebufferObject8Renderer6renderEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickFramebufferObject8Renderer23createFramebufferObjectERK5QSize": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN23QQuickFramebufferObject8Renderer11synchronizeEPS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK23QQuickFramebufferObject8Renderer17framebufferObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QQuickFramebufferObject8Renderer6updateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickFramebufferObject8Renderer27invalidateFramebufferObjectEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QQuickFramebufferObject_Renderer": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN23QQuickFramebufferObject8Renderer23createFramebufferObjectERK5QSize": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN23QQuickFramebufferObject8Renderer11synchronizeEPS_": [
+      "nothing", "address", "address"
+    ]
+  }
+}

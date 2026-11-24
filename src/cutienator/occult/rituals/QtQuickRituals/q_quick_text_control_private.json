@@ -1,0 +1,35 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquicktextcontrol_p_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN24QQuickTextControlPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK24QQuickTextControlPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN24QQuickTextControlPrivate17setCursorPositionERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QQuickTextControlPrivate17setCursorPositionEiN11QTextCursor8MoveModeE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN24QQuickTextControlPrivate21setClipboardSelectionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuickTextControlPrivate15keyReleaseEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QQuickTextControlPrivate28sendMouseEventToInputContextEP11QMouseEventRK7QPointF": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZNK24QQuickTextControlPrivate12isPreeditingEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN24QQuickTextControlPrivate13commitPreeditEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuickTextControlPrivate13cancelPreeditEv": [
+      "nothing", "address"
+    ]
+  }
+}

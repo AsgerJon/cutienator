@@ -1,0 +1,99 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/qnetworkrequest.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN15QNetworkRequestC1Ev": ["address"],
+    "ritual_ZN15QNetworkRequestC1ERK4QUrl": ["address", "address"],
+    "ritual_ZN15QNetworkRequestC1ERKS_": ["address", "address"],
+    "ritual_ZN15QNetworkRequestD1Ev": ["nothing", "address"],
+    "ritual_ZNK15QNetworkRequesteqERKS_": ["bool", "address", "address"],
+    "ritual_ZNK15QNetworkRequestneERKS_": ["bool", "address", "address"],
+    "ritual_ZNK15QNetworkRequest3urlEv": ["address", "address"],
+    "ritual_ZN15QNetworkRequest6setUrlERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QNetworkRequest7headersEv": ["address", "address"],
+    "ritual_ZN15QNetworkRequest10setHeadersERK12QHttpHeaders": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QNetworkRequest6headerENS_12KnownHeadersE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN15QNetworkRequest9setHeaderENS_12KnownHeadersERK8QVariant": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZNK15QNetworkRequest12hasRawHeaderE14QAnyStringView": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZNK15QNetworkRequest13rawHeaderListEv": ["address", "address"],
+    "ritual_ZNK15QNetworkRequest9rawHeaderE14QAnyStringView": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN15QNetworkRequest12setRawHeaderERK10QByteArrayS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK15QNetworkRequest9attributeENS_9AttributeERK8QVariant": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_ZN15QNetworkRequest12setAttributeENS_9AttributeERK8QVariant": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZNK15QNetworkRequest16sslConfigurationEv": [
+      "address", "address"
+    ],
+    "ritual_ZN15QNetworkRequest19setSslConfigurationERK17QSslConfiguration": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QNetworkRequest20setOriginatingObjectEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QNetworkRequest17originatingObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK15QNetworkRequest8priorityEv": ["int", "address"],
+    "ritual_ZN15QNetworkRequest11setPriorityENS_8PriorityE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QNetworkRequest23maximumRedirectsAllowedEv": [
+      "int", "address"
+    ],
+    "ritual_ZN15QNetworkRequest26setMaximumRedirectsAllowedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QNetworkRequest14peerVerifyNameEv": ["text", "address"],
+    "ritual_ZN15QNetworkRequest17setPeerVerifyNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK15QNetworkRequest18http1ConfigurationEv": [
+      "address", "address"
+    ],
+    "ritual_ZN15QNetworkRequest21setHttp1ConfigurationERK19QHttp1Configuration": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QNetworkRequest18http2ConfigurationEv": [
+      "address", "address"
+    ],
+    "ritual_ZN15QNetworkRequest21setHttp2ConfigurationERK19QHttp2Configuration": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QNetworkRequest32decompressedSafetyCheckThresholdEv": [
+      "long long", "address"
+    ],
+    "ritual_ZN15QNetworkRequest35setDecompressedSafetyCheckThresholdEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZNK15QNetworkRequest22tcpKeepAliveProbeCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZN15QNetworkRequest25setTcpKeepAliveProbeCountEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QNetworkRequest15transferTimeoutEv": ["int", "address"],
+    "ritual_ZN15QNetworkRequest18setTransferTimeoutEi": [
+      "nothing", "address", "int"
+    ]
+  }
+}

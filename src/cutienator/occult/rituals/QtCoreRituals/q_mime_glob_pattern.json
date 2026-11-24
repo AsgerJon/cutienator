@@ -1,0 +1,14 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qmimeglobpattern_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK16QMimeGlobPattern7patternEv": ["text", "address"],
+    "ritual_ZNK16QMimeGlobPattern6weightEv": ["unsigned int", "address"],
+    "ritual_ZNK16QMimeGlobPattern8mimeTypeEv": ["text", "address"],
+    "ritual_ZNK16QMimeGlobPattern15isCaseSensitiveEv": ["bool", "address"],
+    "ritual_ZN16QMimeGlobPatternD1Ev": ["nothing", "address"]
+  }
+}

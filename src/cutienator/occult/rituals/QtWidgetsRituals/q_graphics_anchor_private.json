@@ -1,0 +1,25 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qgraphicsanchorlayout_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN22QGraphicsAnchorPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK22QGraphicsAnchorPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN22QGraphicsAnchorPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN22QGraphicsAnchorPrivate10setSpacingEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN22QGraphicsAnchorPrivate12unsetSpacingEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK22QGraphicsAnchorPrivate7spacingEv": ["double", "address"],
+    "ritual_ZN22QGraphicsAnchorPrivate13setSizePolicyEN11QSizePolicy6PolicyE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN22QGraphicsAnchorPrivate3getEP15QGraphicsAnchor": [
+      "address", "address"
+    ]
+  }
+}

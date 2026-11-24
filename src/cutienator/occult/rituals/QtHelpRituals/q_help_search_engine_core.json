@@ -1,0 +1,44 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtHelp/qhelpsearchenginecore.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK21QHelpSearchEngineCore10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QHelpSearchEngineCore2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN21QHelpSearchEngineCoreC1EP15QHelpEngineCoreP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN21QHelpSearchEngineCoreD1Ev": ["nothing", "address"],
+    "ritual_ZNK21QHelpSearchEngineCore17searchResultCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK21QHelpSearchEngineCore13searchResultsEii": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZNK21QHelpSearchEngineCore11searchInputEv": ["text", "address"],
+    "ritual_ZN21QHelpSearchEngineCore20reindexDocumentationEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QHelpSearchEngineCore14cancelIndexingEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QHelpSearchEngineCore6searchERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN21QHelpSearchEngineCore15cancelSearchingEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QHelpSearchEngineCore26scheduleIndexDocumentationEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QHelpSearchEngineCore": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

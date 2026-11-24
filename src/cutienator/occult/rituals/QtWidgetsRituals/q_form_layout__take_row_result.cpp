@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qformlayout.h, Qt 6.12.0. Changes made here are lost.
+#include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(formlayout)
 #include <QtWidgets/qformlayout.h>
 
 //  QFormLayout::TakeRowResult::~TakeRowResult()
@@ -8,3 +10,5 @@ void ritual_ZN11QFormLayout13TakeRowResultD1Ev(
     QFormLayout::TakeRowResult *self) {
   delete self;
 }
+
+#endif  // QT_CONFIG(formlayout)

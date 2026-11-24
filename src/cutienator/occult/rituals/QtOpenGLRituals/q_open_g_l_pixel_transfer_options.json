@@ -1,0 +1,58 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtOpenGL/qopenglpixeltransferoptions.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN27QOpenGLPixelTransferOptionsC1Ev": ["address"],
+    "ritual_ZN27QOpenGLPixelTransferOptionsC1ERKS_": ["address", "address"],
+    "ritual_ZN27QOpenGLPixelTransferOptionsD1Ev": ["nothing", "address"],
+    "ritual_ZN27QOpenGLPixelTransferOptions12setAlignmentEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK27QOpenGLPixelTransferOptions9alignmentEv": [
+      "int", "address"
+    ],
+    "ritual_ZN27QOpenGLPixelTransferOptions13setSkipImagesEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK27QOpenGLPixelTransferOptions10skipImagesEv": [
+      "int", "address"
+    ],
+    "ritual_ZN27QOpenGLPixelTransferOptions11setSkipRowsEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK27QOpenGLPixelTransferOptions8skipRowsEv": ["int", "address"],
+    "ritual_ZN27QOpenGLPixelTransferOptions13setSkipPixelsEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK27QOpenGLPixelTransferOptions10skipPixelsEv": [
+      "int", "address"
+    ],
+    "ritual_ZN27QOpenGLPixelTransferOptions14setImageHeightEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK27QOpenGLPixelTransferOptions11imageHeightEv": [
+      "int", "address"
+    ],
+    "ritual_ZN27QOpenGLPixelTransferOptions12setRowLengthEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK27QOpenGLPixelTransferOptions9rowLengthEv": [
+      "int", "address"
+    ],
+    "ritual_ZN27QOpenGLPixelTransferOptions28setLeastSignificantByteFirstEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK27QOpenGLPixelTransferOptions26isLeastSignificantBitFirstEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN27QOpenGLPixelTransferOptions19setSwapBytesEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK27QOpenGLPixelTransferOptions18isSwapBytesEnabledEv": [
+      "bool", "address"
+    ]
+  }
+}

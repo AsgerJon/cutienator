@@ -1,0 +1,33 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/abstractintrospection_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN28QDesignerMetaMethodInterfaceD1Ev": ["nothing", "address"],
+    "ritual_ZNK28QDesignerMetaMethodInterface6accessEv": ["int", "address"],
+    "ritual_ZNK28QDesignerMetaMethodInterface10methodTypeEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK28QDesignerMetaMethodInterface14parameterNamesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QDesignerMetaMethodInterface14parameterTypesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QDesignerMetaMethodInterface9signatureEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK28QDesignerMetaMethodInterface19normalizedSignatureEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK28QDesignerMetaMethodInterface3tagEv": ["text", "address"],
+    "ritual_ZNK28QDesignerMetaMethodInterface8typeNameEv": [
+      "text", "address"
+    ],
+    "ritual_take_QDesignerMetaMethodInterface": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

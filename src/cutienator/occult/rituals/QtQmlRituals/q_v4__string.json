@@ -1,0 +1,35 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4string_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN3QV46String12staticVTableEv": ["address"],
+    "ritual_ZN3QV46String10__dataTestEv": ["nothing", "address"],
+    "ritual_ZNK3QV46String11d_uncheckedEv": ["address", "address"],
+    "ritual_ZNK3QV46String1dEv": ["address", "address"],
+    "ritual_ZN3QV46String20defaultInternalClassEPNS_10EngineBaseE": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV46String7subtypeEv": ["unsigned char", "address"],
+    "ritual_ZNK3QV46String10setSubtypeEh": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZNK3QV46String6equalsEPS0_": ["bool", "address", "address"],
+    "ritual_ZNK3QV46String9isEqualToEPKS0_": ["bool", "address", "address"],
+    "ritual_ZN3QV46String8lessThanEPKS0_": ["bool", "address", "address"],
+    "ritual_ZNK3QV46String9toQStringEv": ["text", "address"],
+    "ritual_ZNK3QV46String9hashValueEv": ["unsigned int", "address"],
+    "ritual_ZN3QV46String15createHashValueEPK5QChariPj": [
+      "unsigned int", "address", "int", "address"
+    ],
+    "ritual_ZN3QV46String36createHashValueDisallowingArrayIndexEPK5QChariPj": [
+      "unsigned int", "address", "int", "address"
+    ],
+    "ritual_ZN3QV46String15createHashValueEPKciPj": [
+      "unsigned int", "chars", "int", "address"
+    ],
+    "ritual_ZNK3QV46String15startsWithUpperEv": ["bool", "address"]
+  }
+}

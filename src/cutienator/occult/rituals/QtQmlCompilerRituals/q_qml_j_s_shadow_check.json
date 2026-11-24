@@ -1,0 +1,77 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQmlCompiler/6.12.0/QtQmlCompiler/private/qqmljsshadowcheck_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN17QQmlJSShadowCheckD1Ev": ["nothing", "address"],
+    "ritual_ZN17QQmlJSShadowCheck3runEPKN17QQmlJSCompilePass8FunctionE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN17QQmlJSShadowCheck11handleStoreEiRK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZN17QQmlJSShadowCheck21generate_LoadPropertyEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQmlJSShadowCheck18generate_GetLookupEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQmlJSShadowCheck26generate_GetOptionalLookupEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN17QQmlJSShadowCheck22generate_StorePropertyEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN17QQmlJSShadowCheck18generate_SetLookupEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN17QQmlJSShadowCheck21generate_CallPropertyEiiii": [
+      "nothing", "address", "int", "int", "int", "int"
+    ],
+    "ritual_ZN17QQmlJSShadowCheck27generate_CallPropertyLookupEiiii": [
+      "nothing", "address", "int", "int", "int", "int"
+    ],
+    "ritual_ZN17QQmlJSShadowCheck16startInstructionEN3QV44Moth5Instr4TypeE": [
+      "int", "address", "int"
+    ],
+    "ritual_ZN17QQmlJSShadowCheck14endInstructionEN3QV44Moth5Instr4TypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQmlJSShadowCheck14checkShadowingE21QQmlJSRegisterContentRK7QStringi": [
+      "int", "address", "address", "text", "int"
+    ],
+    "ritual_ZN17QQmlJSShadowCheck15checkResettableE21QQmlJSRegisterContenti": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN17QQmlJSShadowCheck13checkBaseTypeE21QQmlJSRegisterContent": [
+      "int", "address", "address"
+    ],
+    "ritual_take_QQmlJSShadowCheck": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN17QQmlJSShadowCheck21generate_LoadPropertyEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17QQmlJSShadowCheck18generate_GetLookupEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17QQmlJSShadowCheck26generate_GetOptionalLookupEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZN17QQmlJSShadowCheck22generate_StorePropertyEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZN17QQmlJSShadowCheck18generate_SetLookupEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZN17QQmlJSShadowCheck21generate_CallPropertyEiiii": [
+      "nothing", "address", "int", "int", "int", "int"
+    ],
+    "ritual_own_ZN17QQmlJSShadowCheck27generate_CallPropertyLookupEiiii": [
+      "nothing", "address", "int", "int", "int", "int"
+    ],
+    "ritual_own_ZN17QQmlJSShadowCheck14endInstructionEN3QV44Moth5Instr4TypeE": [
+      "nothing", "address", "int"
+    ]
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qdockarealayout_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK15QDockAreaLayout7isValidEv": ["bool", "address"],
+    "ritual_ZN15QDockAreaLayout15constrainedRectE5QRectP7QWidget": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK15QDockAreaLayout13separatorRectEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN15QDockAreaLayout5clearEv": ["nothing", "address"],
+    "ritual_ZNK15QDockAreaLayout6itemAtEPii": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN15QDockAreaLayoutD1Ev": ["nothing", "address"]
+  }
+}

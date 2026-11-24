@@ -1,0 +1,163 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWebSockets/6.12.0/QtWebSockets/private/qwebsocket_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN17QWebSocketPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK17QWebSocketPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN17QWebSocketPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN17QWebSocketPrivate5abortEv": ["nothing", "address"],
+    "ritual_ZNK17QWebSocketPrivate5errorEv": ["int", "address"],
+    "ritual_ZNK17QWebSocketPrivate11errorStringEv": ["text", "address"],
+    "ritual_ZN17QWebSocketPrivate5flushEv": ["bool", "address"],
+    "ritual_ZNK17QWebSocketPrivate12localAddressEv": ["address", "address"],
+    "ritual_ZNK17QWebSocketPrivate9localPortEv": [
+      "unsigned short", "address"
+    ],
+    "ritual_ZNK17QWebSocketPrivate9pauseModeEv": ["int", "address"],
+    "ritual_ZNK17QWebSocketPrivate11peerAddressEv": ["address", "address"],
+    "ritual_ZNK17QWebSocketPrivate8peerNameEv": ["text", "address"],
+    "ritual_ZNK17QWebSocketPrivate8peerPortEv": [
+      "unsigned short", "address"
+    ],
+    "ritual_ZNK17QWebSocketPrivate5proxyEv": ["address", "address"],
+    "ritual_ZN17QWebSocketPrivate8setProxyERK13QNetworkProxy": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QWebSocketPrivate16setMaskGeneratorEPK14QMaskGenerator": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QWebSocketPrivate13maskGeneratorEv": ["address", "address"],
+    "ritual_ZNK17QWebSocketPrivate14readBufferSizeEv": [
+      "long long", "address"
+    ],
+    "ritual_ZN17QWebSocketPrivate6resumeEv": ["nothing", "address"],
+    "ritual_ZN17QWebSocketPrivate12setPauseModeE6QFlagsIN15QAbstractSocket9PauseModeEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QWebSocketPrivate17setReadBufferSizeEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZNK17QWebSocketPrivate5stateEv": ["int", "address"],
+    "ritual_ZNK17QWebSocketPrivate7versionEv": ["int", "address"],
+    "ritual_ZNK17QWebSocketPrivate12resourceNameEv": ["text", "address"],
+    "ritual_ZNK17QWebSocketPrivate7requestEv": ["address", "address"],
+    "ritual_ZNK17QWebSocketPrivate6originEv": ["text", "address"],
+    "ritual_ZNK17QWebSocketPrivate16handshakeOptionsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK17QWebSocketPrivate8protocolEv": ["text", "address"],
+    "ritual_ZNK17QWebSocketPrivate9extensionEv": ["text", "address"],
+    "ritual_ZNK17QWebSocketPrivate9closeCodeEv": ["int", "address"],
+    "ritual_ZNK17QWebSocketPrivate11closeReasonEv": ["text", "address"],
+    "ritual_ZN17QWebSocketPrivate15ignoreSslErrorsERK5QListI9QSslErrorE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QWebSocketPrivate15ignoreSslErrorsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QWebSocketPrivate28continueInterruptedHandshakeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QWebSocketPrivate19setSslConfigurationERK17QSslConfiguration": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QWebSocketPrivate16sslConfigurationEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QWebSocketPrivate25_q_updateSslConfigurationEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QWebSocketPrivate4pingERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QWebSocketPrivate14setSocketStateEN15QAbstractSocket11SocketStateE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QWebSocketPrivate30setMaxAllowedIncomingFrameSizeEy": [
+      "nothing", "address", "unsigned long long"
+    ],
+    "ritual_ZNK17QWebSocketPrivate27maxAllowedIncomingFrameSizeEv": [
+      "unsigned long long", "address"
+    ],
+    "ritual_ZN17QWebSocketPrivate32setMaxAllowedIncomingMessageSizeEy": [
+      "nothing", "address", "unsigned long long"
+    ],
+    "ritual_ZNK17QWebSocketPrivate29maxAllowedIncomingMessageSizeEv": [
+      "unsigned long long", "address"
+    ],
+    "ritual_ZN17QWebSocketPrivate22maxIncomingMessageSizeEv": [
+      "unsigned long long"
+    ],
+    "ritual_ZN17QWebSocketPrivate20maxIncomingFrameSizeEv": [
+      "unsigned long long"
+    ],
+    "ritual_ZNK17QWebSocketPrivate17outgoingFrameSizeEv": [
+      "unsigned long long", "address"
+    ],
+    "ritual_ZN17QWebSocketPrivate10setVersionEN18QWebSocketProtocol7VersionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QWebSocketPrivate15setResourceNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN17QWebSocketPrivate10setRequestERK15QNetworkRequestRK26QWebSocketHandshakeOptions": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN17QWebSocketPrivate9setOriginERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN17QWebSocketPrivate11setProtocolERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN17QWebSocketPrivate12setExtensionERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN17QWebSocketPrivate13enableMaskingEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN17QWebSocketPrivate14setErrorStringERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK17QWebSocketPrivate21requestedSubProtocolsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QWebSocketPrivate15socketDestroyedEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QWebSocketPrivate11processPingERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QWebSocketPrivate11processPongERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QWebSocketPrivate13doWriteFramesERK10QByteArrayb": [
+      "long long", "address", "address", "bool"
+    ],
+    "ritual_ZN17QWebSocketPrivate18releaseConnectionsEPK10QTcpSocket": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QWebSocketPrivate14getFrameHeaderEN18QWebSocketProtocol6OpCodeEyjb": [
+      "address", "address", "int", "unsigned long long", "unsigned int",
+      "bool"
+    ],
+    "ritual_ZNK17QWebSocketPrivate18calculateAcceptKeyERK10QByteArray": [
+      "text", "address", "address"
+    ],
+    "ritual_ZNK17QWebSocketPrivate18generateMaskingKeyEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZNK17QWebSocketPrivate11generateKeyEv": ["address", "address"],
+    "ritual_ZN17QWebSocketPrivate11writeFramesERK5QListI10QByteArrayE": [
+      "long long", "address", "address"
+    ],
+    "ritual_ZN17QWebSocketPrivate10writeFrameERK10QByteArray": [
+      "long long", "address", "address"
+    ],
+    "ritual_ZN17QWebSocketPrivate17emitErrorOccurredEN15QAbstractSocket11SocketErrorE": [
+      "nothing", "address", "int"
+    ]
+  }
+}

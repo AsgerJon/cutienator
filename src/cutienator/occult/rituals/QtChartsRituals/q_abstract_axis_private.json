@@ -1,0 +1,57 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/6.12.0/QtCharts/private/qabstractaxis_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK20QAbstractAxisPrivate10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QAbstractAxisPrivate2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN20QAbstractAxisPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZNK20QAbstractAxisPrivate9alignmentEv": ["int", "address"],
+    "ritual_ZNK20QAbstractAxisPrivate11orientationEv": ["int", "address"],
+    "ritual_ZN20QAbstractAxisPrivate12setAlignmentE6QFlagsIN2Qt13AlignmentFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QAbstractAxisPrivate18setLabelsTruncatedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20QAbstractAxisPrivate16initializeDomainEP14AbstractDomain": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QAbstractAxisPrivate18initializeGraphicsEP13QGraphicsItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QAbstractAxisPrivate15initializeThemeEP10ChartThemeb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN20QAbstractAxisPrivate6setMinERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QAbstractAxisPrivate6setMaxERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QAbstractAxisPrivate8setRangeERK8QVariantS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN20QAbstractAxisPrivate8setRangeEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN20QAbstractAxisPrivate3minEv": ["double", "address"],
+    "ritual_ZN20QAbstractAxisPrivate3maxEv": ["double", "address"],
+    "ritual_ZN20QAbstractAxisPrivate8axisItemEv": ["address", "address"],
+    "ritual_ZN20QAbstractAxisPrivate18handleRangeChangedEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN20QAbstractAxisPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK20QAbstractAxisPrivate6q_funcEv": ["address", "address"],
+    "ritual_take_QAbstractAxisPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN20QAbstractAxisPrivate15initializeThemeEP10ChartThemeb": [
+      "nothing", "address", "address", "bool"
+    ]
+  }
+}

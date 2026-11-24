@@ -1,0 +1,45 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/qpa/qplatformgraphicsbuffer.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK23QPlatformGraphicsBuffer10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QPlatformGraphicsBuffer2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN23QPlatformGraphicsBufferD1Ev": ["nothing", "address"],
+    "ritual_ZNK23QPlatformGraphicsBuffer8isLockedEv": ["int", "address"],
+    "ritual_ZN23QPlatformGraphicsBuffer4lockE6QFlagsINS_10AccessTypeEERK5QRect": [
+      "bool", "address", "int", "address"
+    ],
+    "ritual_ZN23QPlatformGraphicsBuffer6unlockEv": ["nothing", "address"],
+    "ritual_ZNK23QPlatformGraphicsBuffer13bindToTextureERK5QRect": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK23QPlatformGraphicsBuffer12bytesPerLineEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK23QPlatformGraphicsBuffer9byteCountEv": ["int", "address"],
+    "ritual_ZNK23QPlatformGraphicsBuffer6originEv": ["int", "address"],
+    "ritual_ZNK23QPlatformGraphicsBuffer4sizeEv": ["address", "address"],
+    "ritual_ZNK23QPlatformGraphicsBuffer6formatEv": ["address", "address"],
+    "ritual_ZN23QPlatformGraphicsBuffer6doLockE6QFlagsINS_10AccessTypeEERK5QRect": [
+      "bool", "address", "int", "address"
+    ],
+    "ritual_ZN23QPlatformGraphicsBuffer8doUnlockEv": ["nothing", "address"],
+    "ritual_take_QPlatformGraphicsBuffer": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK23QPlatformGraphicsBuffer13bindToTextureERK5QRect": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZNK23QPlatformGraphicsBuffer12bytesPerLineEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZNK23QPlatformGraphicsBuffer6originEv": ["int", "address"]
+  }
+}

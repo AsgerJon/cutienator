@@ -1,0 +1,91 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtLocat",
+    "ion/6.12.0/QtLocation/private/qdeclarativepolygonmapitem_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK26QDeclarativePolygonMapItem10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QDeclarativePolygonMapItem2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN26QDeclarativePolygonMapItemC1EP10QQuickItem": [
+      "address", "address"
+    ],
+    "ritual_ZN26QDeclarativePolygonMapItemD1Ev": ["nothing", "address"],
+    "ritual_ZN26QDeclarativePolygonMapItem6setMapEP18QDeclarativeGeoMapP7QGeoMap": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN26QDeclarativePolygonMapItem22updateMapItemPaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN26QDeclarativePolygonMapItem13addCoordinateERK14QGeoCoordinate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QDeclarativePolygonMapItem16removeCoordinateERK14QGeoCoordinate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK26QDeclarativePolygonMapItem4pathEv": ["address", "address"],
+    "ritual_ZN26QDeclarativePolygonMapItem7setPathERK5QListI14QGeoCoordinateE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK26QDeclarativePolygonMapItem5colorEv": ["address", "address"],
+    "ritual_ZN26QDeclarativePolygonMapItem8setColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QDeclarativePolygonMapItem6borderEv": ["address", "address"],
+    "ritual_ZNK26QDeclarativePolygonMapItem8containsERK7QPointF": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK26QDeclarativePolygonMapItem8geoShapeEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QDeclarativePolygonMapItem11setGeoShapeERK9QGeoShape": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QDeclarativePolygonMapItem24markSourceDirtyAndUpdateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QDeclarativePolygonMapItem23onLinePropertiesChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QDeclarativePolygonMapItem20afterViewportChangedERK26QGeoMapViewportChangeEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QDeclarativePolygonMapItem14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN26QDeclarativePolygonMapItem12updatePolishEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QDeclarativePolygonMapItem": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN26QDeclarativePolygonMapItem6setMapEP18QDeclarativeGeoMapP7QGeoMap": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN26QDeclarativePolygonMapItem22updateMapItemPaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_own_ZNK26QDeclarativePolygonMapItem8containsERK7QPointF": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZNK26QDeclarativePolygonMapItem8geoShapeEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN26QDeclarativePolygonMapItem11setGeoShapeERK9QGeoShape": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN26QDeclarativePolygonMapItem20afterViewportChangedERK26QGeoMapViewportChangeEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN26QDeclarativePolygonMapItem14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN26QDeclarativePolygonMapItem12updatePolishEv": [
+      "nothing", "address"
+    ]
+  }
+}

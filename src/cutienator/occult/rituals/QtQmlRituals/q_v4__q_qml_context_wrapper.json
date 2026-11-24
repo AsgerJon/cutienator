@@ -1,0 +1,23 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4qmlcontext_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN3QV418QQmlContextWrapper12staticVTableEv": ["address"],
+    "ritual_ZN3QV418QQmlContextWrapper10__dataTestEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK3QV418QQmlContextWrapper11d_uncheckedEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV418QQmlContextWrapper1dEv": ["address", "address"],
+    "ritual_ZN3QV418QQmlContextWrapper20defaultInternalClassEPNS_10EngineBaseE": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV418QQmlContextWrapper14getScopeObjectEv": [
+      "address", "address"
+    ]
+  }
+}

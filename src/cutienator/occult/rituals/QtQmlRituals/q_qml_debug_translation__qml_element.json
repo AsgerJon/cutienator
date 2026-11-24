@@ -1,0 +1,11 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmldebugtranslationprotocol_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QQmlDebugTranslation10QmlElementC1Ev": ["address"],
+    "ritual_ZN20QQmlDebugTranslation10QmlElementD1Ev": ["nothing", "address"]
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Particles/6.12.0/QtQuickParticles/private/qquickparticlepainter_p.",
+    "h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK21QQuickParticlePainter10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QQuickParticlePainter2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN21QQuickParticlePainter24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickParticlePainterC1EP10QQuickItem": [
+      "address", "address"
+    ],
+    "ritual_ZN21QQuickParticlePainterD1Ev": ["nothing", "address"],
+    "ritual_ZN21QQuickParticlePainter4loadEP18QQuickParticleData": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QQuickParticlePainter6reloadEP18QQuickParticleData": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QQuickParticlePainter8setCountEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK21QQuickParticlePainter5countEv": ["int", "address"],
+    "ritual_ZN21QQuickParticlePainter21performPendingCommitsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK21QQuickParticlePainter6systemEv": ["address", "address"],
+    "ritual_ZNK21QQuickParticlePainter6groupsEv": ["address", "address"],
+    "ritual_ZN21QQuickParticlePainter10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN21QQuickParticlePainter9setSystemEP20QQuickParticleSystem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QQuickParticlePainter9setGroupsERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QQuickParticlePainter16calcSystemOffsetEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN21QQuickParticlePainter21sceneGraphInvalidatedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickParticlePainter5resetEv": ["nothing", "address"],
+    "ritual_ZN21QQuickParticlePainter17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickParticlePainter10initializeEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN21QQuickParticlePainter6commitEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK21QQuickParticlePainter19recalculateGroupIdsEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QQuickParticlePainter": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN21QQuickParticlePainter10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZN21QQuickParticlePainter21sceneGraphInvalidatedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN21QQuickParticlePainter5resetEv": ["nothing", "address"],
+    "ritual_own_ZN21QQuickParticlePainter17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN21QQuickParticlePainter10initializeEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZN21QQuickParticlePainter6commitEii": [
+      "nothing", "address", "int", "int"
+    ]
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/qjsmanagedvalue.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QJSManagedValueC1Ev": ["address"],
+    "ritual_ZN15QJSManagedValueC1E8QJSValueP9QJSEngine": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN15QJSManagedValueC1ERK17QJSPrimitiveValueP9QJSEngine": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN15QJSManagedValueC1ERK8QVariantP9QJSEngine": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN15QJSManagedValueC1ERK7QStringP9QJSEngine": [
+      "address", "text", "address"
+    ],
+    "ritual_ZN15QJSManagedValueD1Ev": ["nothing", "address"],
+    "ritual_ZNK15QJSManagedValue6engineEv": ["address", "address"],
+    "ritual_ZNK15QJSManagedValue4typeEv": ["int", "address"],
+    "ritual_ZNK15QJSManagedValue11isUndefinedEv": ["bool", "address"],
+    "ritual_ZNK15QJSManagedValue9isBooleanEv": ["bool", "address"],
+    "ritual_ZNK15QJSManagedValue8isNumberEv": ["bool", "address"],
+    "ritual_ZNK15QJSManagedValue8isStringEv": ["bool", "address"],
+    "ritual_ZNK15QJSManagedValue8isObjectEv": ["bool", "address"],
+    "ritual_ZNK15QJSManagedValue8isSymbolEv": ["bool", "address"],
+    "ritual_ZNK15QJSManagedValue10isFunctionEv": ["bool", "address"],
+    "ritual_ZNK15QJSManagedValue9isIntegerEv": ["bool", "address"],
+    "ritual_ZNK15QJSManagedValue6isNullEv": ["bool", "address"],
+    "ritual_ZNK15QJSManagedValue19isRegularExpressionEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK15QJSManagedValue7isArrayEv": ["bool", "address"],
+    "ritual_ZNK15QJSManagedValue5isUrlEv": ["bool", "address"],
+    "ritual_ZNK15QJSManagedValue9isVariantEv": ["bool", "address"],
+    "ritual_ZNK15QJSManagedValue9isQObjectEv": ["bool", "address"],
+    "ritual_ZNK15QJSManagedValue13isQMetaObjectEv": ["bool", "address"],
+    "ritual_ZNK15QJSManagedValue6isDateEv": ["bool", "address"],
+    "ritual_ZNK15QJSManagedValue7isErrorEv": ["bool", "address"],
+    "ritual_ZNK15QJSManagedValue12isJsMetaTypeEv": ["bool", "address"],
+    "ritual_ZNK15QJSManagedValue8toStringEv": ["text", "address"],
+    "ritual_ZNK15QJSManagedValue8toNumberEv": ["double", "address"],
+    "ritual_ZNK15QJSManagedValue9toBooleanEv": ["bool", "address"],
+    "ritual_ZNK15QJSManagedValue11toPrimitiveEv": ["address", "address"],
+    "ritual_ZNK15QJSManagedValue9toJSValueEv": ["address", "address"],
+    "ritual_ZNK15QJSManagedValue9toVariantEv": ["address", "address"],
+    "ritual_ZNK15QJSManagedValue9toIntegerEv": ["int", "address"],
+    "ritual_ZNK15QJSManagedValue19toRegularExpressionEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK15QJSManagedValue5toUrlEv": ["address", "address"],
+    "ritual_ZNK15QJSManagedValue9toQObjectEv": ["address", "address"],
+    "ritual_ZNK15QJSManagedValue13toQMetaObjectEv": ["address", "address"],
+    "ritual_ZNK15QJSManagedValue10toDateTimeEv": ["address", "address"],
+    "ritual_ZNK15QJSManagedValue11hasPropertyERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZNK15QJSManagedValue14hasOwnPropertyERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZNK15QJSManagedValue8propertyERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN15QJSManagedValue11setPropertyERK7QStringRK8QJSValue": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZN15QJSManagedValue14deletePropertyERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZNK15QJSManagedValue11hasPropertyEj": [
+      "bool", "address", "unsigned int"
+    ],
+    "ritual_ZNK15QJSManagedValue14hasOwnPropertyEj": [
+      "bool", "address", "unsigned int"
+    ],
+    "ritual_ZNK15QJSManagedValue8propertyEj": [
+      "address", "address", "unsigned int"
+    ],
+    "ritual_ZN15QJSManagedValue11setPropertyEjRK8QJSValue": [
+      "nothing", "address", "unsigned int", "address"
+    ],
+    "ritual_ZN15QJSManagedValue14deletePropertyEj": [
+      "bool", "address", "unsigned int"
+    ],
+    "ritual_ZNK15QJSManagedValue4callERK5QListI8QJSValueE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK15QJSManagedValue16callWithInstanceERK8QJSValueRK5QListIS0_E": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK15QJSManagedValue17callAsConstructorERK5QListI8QJSValueE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK15QJSManagedValue13jsMetaMembersEv": ["address", "address"],
+    "ritual_ZN15QJSManagedValueC1EPN3QV415ExecutionEngineE": [
+      "address", "address"
+    ]
+  }
+}

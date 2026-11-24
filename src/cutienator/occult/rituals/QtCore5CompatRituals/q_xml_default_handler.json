@@ -1,0 +1,164 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore5Compat/qxml.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QXmlDefaultHandlerC1Ev": ["address"],
+    "ritual_ZN18QXmlDefaultHandlerD1Ev": ["nothing", "address"],
+    "ritual_ZN18QXmlDefaultHandler18setDocumentLocatorEP11QXmlLocator": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QXmlDefaultHandler13startDocumentEv": ["bool", "address"],
+    "ritual_ZN18QXmlDefaultHandler11endDocumentEv": ["bool", "address"],
+    "ritual_ZN18QXmlDefaultHandler18startPrefixMappingERK7QStringS2_": [
+      "bool", "address", "text", "text"
+    ],
+    "ritual_ZN18QXmlDefaultHandler16endPrefixMappingERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN18QXmlDefaultHandler12startElementERK7QStringS2_S2_RK14QXmlAttributes": [
+      "bool", "address", "text", "text", "text", "address"
+    ],
+    "ritual_ZN18QXmlDefaultHandler10endElementERK7QStringS2_S2_": [
+      "bool", "address", "text", "text", "text"
+    ],
+    "ritual_ZN18QXmlDefaultHandler10charactersERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN18QXmlDefaultHandler19ignorableWhitespaceERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN18QXmlDefaultHandler21processingInstructionERK7QStringS2_": [
+      "bool", "address", "text", "text"
+    ],
+    "ritual_ZN18QXmlDefaultHandler13skippedEntityERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN18QXmlDefaultHandler7warningERK18QXmlParseException": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN18QXmlDefaultHandler5errorERK18QXmlParseException": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN18QXmlDefaultHandler10fatalErrorERK18QXmlParseException": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN18QXmlDefaultHandler12notationDeclERK7QStringS2_S2_": [
+      "bool", "address", "text", "text", "text"
+    ],
+    "ritual_ZN18QXmlDefaultHandler18unparsedEntityDeclERK7QStringS2_S2_S2_": [
+      "bool", "address", "text", "text", "text", "text"
+    ],
+    "ritual_ZN18QXmlDefaultHandler8startDTDERK7QStringS2_S2_": [
+      "bool", "address", "text", "text", "text"
+    ],
+    "ritual_ZN18QXmlDefaultHandler6endDTDEv": ["bool", "address"],
+    "ritual_ZN18QXmlDefaultHandler11startEntityERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN18QXmlDefaultHandler9endEntityERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN18QXmlDefaultHandler10startCDATAEv": ["bool", "address"],
+    "ritual_ZN18QXmlDefaultHandler8endCDATAEv": ["bool", "address"],
+    "ritual_ZN18QXmlDefaultHandler7commentERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN18QXmlDefaultHandler13attributeDeclERK7QStringS2_S2_S2_S2_": [
+      "bool", "address", "text", "text", "text", "text", "text"
+    ],
+    "ritual_ZN18QXmlDefaultHandler18internalEntityDeclERK7QStringS2_": [
+      "bool", "address", "text", "text"
+    ],
+    "ritual_ZN18QXmlDefaultHandler18externalEntityDeclERK7QStringS2_S2_": [
+      "bool", "address", "text", "text", "text"
+    ],
+    "ritual_ZNK18QXmlDefaultHandler11errorStringEv": ["text", "address"],
+    "ritual_cast_QXmlDefaultHandler_QXmlErrorHandler": [
+      "address", "address"
+    ],
+    "ritual_cast_QXmlDefaultHandler_QXmlDTDHandler": ["address", "address"],
+    "ritual_cast_QXmlDefaultHandler_QXmlEntityResolver": [
+      "address", "address"
+    ],
+    "ritual_cast_QXmlDefaultHandler_QXmlLexicalHandler": [
+      "address", "address"
+    ],
+    "ritual_cast_QXmlDefaultHandler_QXmlDeclHandler": ["address", "address"],
+    "ritual_take_QXmlDefaultHandler": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN18QXmlDefaultHandler18setDocumentLocatorEP11QXmlLocator": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN18QXmlDefaultHandler13startDocumentEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZN18QXmlDefaultHandler11endDocumentEv": ["bool", "address"],
+    "ritual_own_ZN18QXmlDefaultHandler18startPrefixMappingERK7QStringS2_": [
+      "bool", "address", "text", "text"
+    ],
+    "ritual_own_ZN18QXmlDefaultHandler16endPrefixMappingERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_own_ZN18QXmlDefaultHandler12startElementERK7QStringS2_S2_RK14QXmlAttributes": [
+      "bool", "address", "text", "text", "text", "address"
+    ],
+    "ritual_own_ZN18QXmlDefaultHandler10endElementERK7QStringS2_S2_": [
+      "bool", "address", "text", "text", "text"
+    ],
+    "ritual_own_ZN18QXmlDefaultHandler10charactersERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_own_ZN18QXmlDefaultHandler19ignorableWhitespaceERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_own_ZN18QXmlDefaultHandler21processingInstructionERK7QStringS2_": [
+      "bool", "address", "text", "text"
+    ],
+    "ritual_own_ZN18QXmlDefaultHandler13skippedEntityERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_own_ZN18QXmlDefaultHandler7warningERK18QXmlParseException": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN18QXmlDefaultHandler5errorERK18QXmlParseException": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN18QXmlDefaultHandler10fatalErrorERK18QXmlParseException": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN18QXmlDefaultHandler12notationDeclERK7QStringS2_S2_": [
+      "bool", "address", "text", "text", "text"
+    ],
+    "ritual_own_ZN18QXmlDefaultHandler18unparsedEntityDeclERK7QStringS2_S2_S2_": [
+      "bool", "address", "text", "text", "text", "text"
+    ],
+    "ritual_own_ZN18QXmlDefaultHandler8startDTDERK7QStringS2_S2_": [
+      "bool", "address", "text", "text", "text"
+    ],
+    "ritual_own_ZN18QXmlDefaultHandler6endDTDEv": ["bool", "address"],
+    "ritual_own_ZN18QXmlDefaultHandler11startEntityERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_own_ZN18QXmlDefaultHandler9endEntityERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_own_ZN18QXmlDefaultHandler10startCDATAEv": ["bool", "address"],
+    "ritual_own_ZN18QXmlDefaultHandler8endCDATAEv": ["bool", "address"],
+    "ritual_own_ZN18QXmlDefaultHandler7commentERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_own_ZN18QXmlDefaultHandler13attributeDeclERK7QStringS2_S2_S2_S2_": [
+      "bool", "address", "text", "text", "text", "text", "text"
+    ],
+    "ritual_own_ZN18QXmlDefaultHandler18internalEntityDeclERK7QStringS2_": [
+      "bool", "address", "text", "text"
+    ],
+    "ritual_own_ZN18QXmlDefaultHandler18externalEntityDeclERK7QStringS2_S2_": [
+      "bool", "address", "text", "text", "text"
+    ],
+    "ritual_own_ZNK18QXmlDefaultHandler11errorStringEv": ["text", "address"]
+  }
+}

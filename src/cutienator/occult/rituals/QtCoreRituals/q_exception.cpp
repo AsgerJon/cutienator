@@ -1,13 +1,24 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/qexception.h, Qt 6.12.0. Changes made here are lost.
+#include <QtCore/qglobal.h>
+#if QT_CONFIG(future)
+#if !defined(QT_NO_EXCEPTIONS) || defined(Q_QDOC)
 #include <QtCore/qexception.h>
 #include <cstring>
 
 //  A QException that Python can take functions over in. Every QException
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if QT_CONFIG(future)
+#if !defined(QT_NO_EXCEPTIONS) || defined(Q_QDOC)
 typedef void (*CuteQExceptionCall0)(const void *, int *);
+#endif  // !defined(QT_NO_EXCEPTIONS) || defined(Q_QDOC)
+#endif  // QT_CONFIG(future)
+#if QT_CONFIG(future)
+#if !defined(QT_NO_EXCEPTIONS) || defined(Q_QDOC)
 typedef void * (*CuteQExceptionCall1)(const void *, int *);
+#endif  // !defined(QT_NO_EXCEPTIONS) || defined(Q_QDOC)
+#endif  // QT_CONFIG(future)
 class CuteQException : public QException {
 public:
   using QException::QException;
@@ -15,17 +26,27 @@ public:
   void *taken[2] = {};
 
   bool take(const char *key, void *call) {
+#if QT_CONFIG(future)
+#if !defined(QT_NO_EXCEPTIONS) || defined(Q_QDOC)
     if (!std::strcmp(key, "_ZNK10QException5raiseEv")) {
       taken[0] = call;
       return true;
     }
+#endif  // !defined(QT_NO_EXCEPTIONS) || defined(Q_QDOC)
+#endif  // QT_CONFIG(future)
+#if QT_CONFIG(future)
+#if !defined(QT_NO_EXCEPTIONS) || defined(Q_QDOC)
     if (!std::strcmp(key, "_ZNK10QException5cloneEv")) {
       taken[1] = call;
       return true;
     }
+#endif  // !defined(QT_NO_EXCEPTIONS) || defined(Q_QDOC)
+#endif  // QT_CONFIG(future)
     return false;
   }
 
+#if QT_CONFIG(future)
+#if !defined(QT_NO_EXCEPTIONS) || defined(Q_QDOC)
   //  void QException::raise() const
   void raise() const override {
     if (taken[0]) {
@@ -36,7 +57,11 @@ public:
     }
     QException::raise();
   }
+#endif  // !defined(QT_NO_EXCEPTIONS) || defined(Q_QDOC)
+#endif  // QT_CONFIG(future)
 
+#if QT_CONFIG(future)
+#if !defined(QT_NO_EXCEPTIONS) || defined(Q_QDOC)
   //  QException *QException::clone() const
   QException *clone() const override {
     if (taken[1]) {
@@ -47,6 +72,8 @@ public:
     }
     return QException::clone();
   }
+#endif  // !defined(QT_NO_EXCEPTIONS) || defined(Q_QDOC)
+#endif  // QT_CONFIG(future)
 };
 
 //  QException::QException()
@@ -97,3 +124,6 @@ extern "C" Q_DECL_EXPORT
 QException *ritual_own_ZNK10QException5cloneEv(const QException *self) {
   return self->QException::clone();
 }
+
+#endif  // !defined(QT_NO_EXCEPTIONS) || defined(Q_QDOC)
+#endif  // QT_CONFIG(future)

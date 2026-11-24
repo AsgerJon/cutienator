@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQmlCompiler/6.12.0/QtQmlCompiler/private/qqmljslogger_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZeqRK18QQmlJSDocumentEditS1_": ["bool", "address", "address"],
+    "ritual_ZneRK18QQmlJSDocumentEditS1_": ["bool", "address", "address"],
+    "ritual_ZN18QQmlJSDocumentEditD1Ev": ["nothing", "address"],
+    "ritual_list_make_QQmlJSDocumentEdit": ["address"],
+    "ritual_list_add_QQmlJSDocumentEdit": ["nothing", "address", "address"],
+    "ritual_list_size_QQmlJSDocumentEdit": ["long long", "address"],
+    "ritual_list_at_QQmlJSDocumentEdit": ["address", "address", "long long"],
+    "ritual_list_drop_QQmlJSDocumentEdit": ["nothing", "address"]
+  }
+}

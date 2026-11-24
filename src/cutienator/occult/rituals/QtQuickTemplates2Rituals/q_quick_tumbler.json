@@ -1,0 +1,80 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquicktumbler_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK13QQuickTumbler10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QQuickTumbler2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN13QQuickTumbler21qt_qmlMarker_attachedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13QQuickTumblerC1EP10QQuickItem": ["address", "address"],
+    "ritual_ZN13QQuickTumblerD1Ev": ["nothing", "address"],
+    "ritual_ZNK13QQuickTumbler5modelEv": ["address", "address"],
+    "ritual_ZN13QQuickTumbler8setModelERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QQuickTumbler5countEv": ["int", "address"],
+    "ritual_ZNK13QQuickTumbler12currentIndexEv": ["int", "address"],
+    "ritual_ZN13QQuickTumbler15setCurrentIndexEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK13QQuickTumbler11currentItemEv": ["address", "address"],
+    "ritual_ZNK13QQuickTumbler8delegateEv": ["address", "address"],
+    "ritual_ZN13QQuickTumbler11setDelegateEP13QQmlComponent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QQuickTumbler16visibleItemCountEv": ["int", "address"],
+    "ritual_ZN13QQuickTumbler19setVisibleItemCountEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN13QQuickTumbler21qmlAttachedPropertiesEP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZNK13QQuickTumbler4wrapEv": ["bool", "address"],
+    "ritual_ZN13QQuickTumbler7setWrapEb": ["nothing", "address", "bool"],
+    "ritual_ZN13QQuickTumbler9resetWrapEv": ["nothing", "address"],
+    "ritual_ZNK13QQuickTumbler8isMovingEv": ["bool", "address"],
+    "ritual_ZN13QQuickTumbler19positionViewAtIndexEiNS_12PositionModeE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK13QQuickTumbler17flickDecelerationEv": ["double", "address"],
+    "ritual_ZN13QQuickTumbler20setFlickDecelerationEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN13QQuickTumbler22resetFlickDecelerationEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13QQuickTumbler14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN13QQuickTumbler17componentCompleteEv": ["nothing", "address"],
+    "ritual_ZN13QQuickTumbler17contentItemChangeEP10QQuickItemS1_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN13QQuickTumbler13keyPressEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QQuickTumbler12updatePolishEv": ["nothing", "address"],
+    "ritual_ZNK13QQuickTumbler11defaultFontEv": ["address", "address"],
+    "ritual_ZN13QQuickTumbler6d_funcEv": ["address", "address"],
+    "ritual_ZNK13QQuickTumbler6d_funcEv": ["address", "address"],
+    "ritual_take_QQuickTumbler": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN13QQuickTumbler14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN13QQuickTumbler17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN13QQuickTumbler17contentItemChangeEP10QQuickItemS1_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN13QQuickTumbler13keyPressEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN13QQuickTumbler12updatePolishEv": ["nothing", "address"],
+    "ritual_own_ZNK13QQuickTumbler11defaultFontEv": ["address", "address"]
+  }
+}

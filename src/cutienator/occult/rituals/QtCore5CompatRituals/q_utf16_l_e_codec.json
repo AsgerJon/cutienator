@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore5Compat/6.12.0/QtCore5Compat/private/qutfcodec_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK13QUtf16LECodec4nameEv": ["address", "address"],
+    "ritual_ZNK13QUtf16LECodec7aliasesEv": ["address", "address"],
+    "ritual_ZNK13QUtf16LECodec7mibEnumEv": ["int", "address"],
+    "ritual_take_QUtf16LECodec": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK13QUtf16LECodec4nameEv": ["address", "address"],
+    "ritual_own_ZNK13QUtf16LECodec7mibEnumEv": ["int", "address"]
+  }
+}

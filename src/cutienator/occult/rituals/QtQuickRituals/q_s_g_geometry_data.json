@@ -1,0 +1,28 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qsggeometry_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QSGGeometryDataD1Ev": ["nothing", "address"],
+    "ritual_ZN15QSGGeometryData4dataEPK11QSGGeometry": [
+      "address", "address"
+    ],
+    "ritual_ZN15QSGGeometryData7installEPK11QSGGeometryPS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QSGGeometryData18hasDirtyVertexDataEPK11QSGGeometry": [
+      "bool", "address"
+    ],
+    "ritual_ZN15QSGGeometryData20clearDirtyVertexDataEPK11QSGGeometry": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QSGGeometryData17hasDirtyIndexDataEPK11QSGGeometry": [
+      "bool", "address"
+    ],
+    "ritual_ZN15QSGGeometryData19clearDirtyIndexDataEPK11QSGGeometry": [
+      "nothing", "address"
+    ]
+  }
+}

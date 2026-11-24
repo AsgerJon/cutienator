@@ -1,0 +1,70 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qtextformat_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN21QTextFormatCollectionC1Ev": ["address"],
+    "ritual_ZN21QTextFormatCollectionD1Ev": ["nothing", "address"],
+    "ritual_ZN21QTextFormatCollection5clearEv": ["nothing", "address"],
+    "ritual_ZNK21QTextFormatCollection12objectFormatEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN21QTextFormatCollection15setObjectFormatEiRK11QTextFormat": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZNK21QTextFormatCollection17objectFormatIndexEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZN21QTextFormatCollection20setObjectFormatIndexEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN21QTextFormatCollection17createObjectIndexERK11QTextFormat": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN21QTextFormatCollection14indexForFormatERK11QTextFormat": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK21QTextFormatCollection15hasFormatCachedERK11QTextFormat": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK21QTextFormatCollection6formatEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK21QTextFormatCollection11blockFormatEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK21QTextFormatCollection10charFormatEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK21QTextFormatCollection10listFormatEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK21QTextFormatCollection11tableFormatEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK21QTextFormatCollection11imageFormatEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK21QTextFormatCollection10numFormatsEv": ["int", "address"],
+    "ritual_ZNK21QTextFormatCollection11defaultFontEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QTextFormatCollection14setDefaultFontERK5QFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QTextFormatCollection22setSuperScriptBaselineEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN21QTextFormatCollection20setSubScriptBaselineEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN21QTextFormatCollection17setBaselineOffsetEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK21QTextFormatCollection17defaultTextFormatEv": [
+      "address", "address"
+    ]
+  }
+}

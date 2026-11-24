@@ -1,0 +1,33 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQmlModels/6.12.0/QtQmlModels/private/qqmldelegatecomponent_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18QQmlDelegateChoice10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QQmlDelegateChoice2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZNK18QQmlDelegateChoice9roleValueEv": ["address", "address"],
+    "ritual_ZN18QQmlDelegateChoice12setRoleValueERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QQmlDelegateChoice3rowEv": ["int", "address"],
+    "ritual_ZN18QQmlDelegateChoice6setRowEi": ["nothing", "address", "int"],
+    "ritual_ZNK18QQmlDelegateChoice6columnEv": ["int", "address"],
+    "ritual_ZN18QQmlDelegateChoice9setColumnEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK18QQmlDelegateChoice8delegateEv": ["address", "address"],
+    "ritual_ZN18QQmlDelegateChoice11setDelegateEP13QQmlComponent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QQmlDelegateChoice5matchEiiRK8QVariant": [
+      "bool", "address", "int", "int", "address"
+    ],
+    "ritual_own_ZNK18QQmlDelegateChoice5matchEiiRK8QVariant": [
+      "bool", "address", "int", "int", "address"
+    ]
+  }
+}

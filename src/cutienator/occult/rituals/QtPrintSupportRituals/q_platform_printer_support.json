@@ -1,0 +1,38 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtPrint",
+    "Support/6.12.0/QtPrintSupport/qpa/qplatformprintersupport.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN23QPlatformPrinterSupportC1Ev": ["address"],
+    "ritual_ZN23QPlatformPrinterSupportD1Ev": ["nothing", "address"],
+    "ritual_ZN23QPlatformPrinterSupport23createNativePrintEngineEN8QPrinter11PrinterModeERK7QString": [
+      "address", "address", "int", "text"
+    ],
+    "ritual_ZN23QPlatformPrinterSupport17createPaintEngineEP12QPrintEngineN8QPrinter11PrinterModeE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZNK23QPlatformPrinterSupport23availablePrintDeviceIdsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK23QPlatformPrinterSupport20defaultPrintDeviceIdEv": [
+      "text", "address"
+    ],
+    "ritual_ZN23QPlatformPrinterSupport14createPageSizeERK7QString5QSizeS2_": [
+      "address", "text", "address", "text"
+    ],
+    "ritual_take_QPlatformPrinterSupport": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN23QPlatformPrinterSupport23createNativePrintEngineEN8QPrinter11PrinterModeERK7QString": [
+      "address", "address", "int", "text"
+    ],
+    "ritual_own_ZN23QPlatformPrinterSupport17createPaintEngineEP12QPrintEngineN8QPrinter11PrinterModeE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_own_ZNK23QPlatformPrinterSupport20defaultPrintDeviceIdEv": [
+      "text", "address"
+    ]
+  }
+}

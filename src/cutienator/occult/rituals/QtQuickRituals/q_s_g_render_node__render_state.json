@@ -1,0 +1,30 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/qsgrendernode.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN13QSGRenderNode11RenderStateD1Ev": ["nothing", "address"],
+    "ritual_ZNK13QSGRenderNode11RenderState16projectionMatrixEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK13QSGRenderNode11RenderState11scissorRectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK13QSGRenderNode11RenderState14scissorEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK13QSGRenderNode11RenderState12stencilValueEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK13QSGRenderNode11RenderState14stencilEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK13QSGRenderNode11RenderState10clipRegionEv": [
+      "address", "address"
+    ],
+    "ritual_take_QSGRenderNode_RenderState": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

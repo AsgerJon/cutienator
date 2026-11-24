@@ -1,0 +1,68 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/6.12.0/QtNetwork/private/qtcpserver_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN17QTcpServerPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK17QTcpServerPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN17QTcpServerPrivateC1Ev": ["address"],
+    "ritual_ZN17QTcpServerPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN17QTcpServerPrivate12resolveProxyERK12QHostAddresst": [
+      "address", "address", "address", "unsigned short"
+    ],
+    "ritual_ZN17QTcpServerPrivate22configureCreatedSocketEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK17QTcpServerPrivate23totalPendingConnectionsEv": [
+      "int", "address"
+    ],
+    "ritual_ZN17QTcpServerPrivate16readNotificationEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QTcpServerPrivate17closeNotificationEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QTcpServerPrivate17writeNotificationEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QTcpServerPrivate21exceptionNotificationEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QTcpServerPrivate22connectionNotificationEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QTcpServerPrivate27proxyAuthenticationRequiredERK13QNetworkProxyP14QAuthenticator": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_cast_QTcpServerPrivate_QAbstractSocketEngineReceiver": [
+      "address", "address"
+    ],
+    "ritual_take_QTcpServerPrivate": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN17QTcpServerPrivate22configureCreatedSocketEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZNK17QTcpServerPrivate23totalPendingConnectionsEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZN17QTcpServerPrivate16readNotificationEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN17QTcpServerPrivate17closeNotificationEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN17QTcpServerPrivate17writeNotificationEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN17QTcpServerPrivate21exceptionNotificationEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN17QTcpServerPrivate22connectionNotificationEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN17QTcpServerPrivate27proxyAuthenticationRequiredERK13QNetworkProxyP14QAuthenticator": [
+      "nothing", "address", "address", "address"
+    ]
+  }
+}

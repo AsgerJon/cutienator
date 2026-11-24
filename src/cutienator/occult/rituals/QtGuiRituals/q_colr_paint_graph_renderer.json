@@ -1,0 +1,23 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qcolrpaintgraphrenderer_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN23QColrPaintGraphRendererD1Ev": ["nothing", "address"],
+    "ritual_ZN23QColrPaintGraphRenderer15setBoundingRectE6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK23QColrPaintGraphRenderer12boundingRectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK23QColrPaintGraphRenderer16currentTransformEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK23QColrPaintGraphRenderer11currentPathEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK23QColrPaintGraphRenderer11isRenderingEv": ["bool", "address"]
+  }
+}

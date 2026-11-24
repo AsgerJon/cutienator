@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgrenderpa",
+    "ss_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK12DepthMapPass8passTypeEv": ["int", "address"],
+    "ritual_ZN12DepthMapPass13resetForFrameEv": ["nothing", "address"],
+    "ritual_ZN12DepthMapPass23setMultisamplingEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK12DepthMapPass22isMultisamplingEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN12DepthMapPassD1Ev": ["nothing", "address"]
+  }
+}

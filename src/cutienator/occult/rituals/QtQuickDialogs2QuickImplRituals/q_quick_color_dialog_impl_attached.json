@@ -1,0 +1,54 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Dialogs2QuickImpl/6.12.0/QtQuickDialogs2QuickImpl/private/qquickco",
+    "lordialogimpl_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK29QQuickColorDialogImplAttached10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN29QQuickColorDialogImplAttached2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN29QQuickColorDialogImplAttachedC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZNK29QQuickColorDialogImplAttached9buttonBoxEv": [
+      "address", "address"
+    ],
+    "ritual_ZN29QQuickColorDialogImplAttached12setButtonBoxEP21QQuickDialogButtonBox": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK29QQuickColorDialogImplAttached16eyeDropperButtonEv": [
+      "address", "address"
+    ],
+    "ritual_ZN29QQuickColorDialogImplAttached19setEyeDropperButtonEP20QQuickAbstractButton": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK29QQuickColorDialogImplAttached11colorPickerEv": [
+      "address", "address"
+    ],
+    "ritual_ZN29QQuickColorDialogImplAttached14setColorPickerEP25QQuickAbstractColorPicker": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK29QQuickColorDialogImplAttached11colorInputsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN29QQuickColorDialogImplAttached14setColorInputsEP17QQuickColorInputs": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK29QQuickColorDialogImplAttached11alphaSliderEv": [
+      "address", "address"
+    ],
+    "ritual_ZN29QQuickColorDialogImplAttached14setAlphaSliderEP12QQuickSlider": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN29QQuickColorDialogImplAttached6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK29QQuickColorDialogImplAttached6d_funcEv": [
+      "address", "address"
+    ]
+  }
+}

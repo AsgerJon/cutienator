@@ -1,0 +1,28 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/rhi/qrhi.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN15QRhiShaderStageC1Ev": ["address"],
+    "ritual_ZN15QRhiShaderStageC1ENS_4TypeERK7QShaderNS1_7VariantE": [
+      "address", "int", "address", "int"
+    ],
+    "ritual_ZNK15QRhiShaderStage4typeEv": ["int", "address"],
+    "ritual_ZN15QRhiShaderStage7setTypeENS_4TypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QRhiShaderStage6shaderEv": ["address", "address"],
+    "ritual_ZN15QRhiShaderStage9setShaderERK7QShader": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QRhiShaderStage13shaderVariantEv": ["int", "address"],
+    "ritual_ZN15QRhiShaderStage16setShaderVariantEN7QShader7VariantE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZeqRK15QRhiShaderStageS1_": ["bool", "address", "address"],
+    "ritual_ZneRK15QRhiShaderStageS1_": ["bool", "address", "address"],
+    "ritual_ZN15QRhiShaderStageD1Ev": ["nothing", "address"]
+  }
+}

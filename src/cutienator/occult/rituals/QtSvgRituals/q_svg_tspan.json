@@ -1,0 +1,28 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSvg/6.12.0/QtSvg/private/qsvggraphics_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN9QSvgTspanC1EP8QSvgNodeb": ["address", "address", "bool"],
+    "ritual_ZN9QSvgTspanD1Ev": ["nothing", "address"],
+    "ritual_ZNK9QSvgTspan4typeEv": ["int", "address"],
+    "ritual_ZN9QSvgTspan7addTextE11QStringView": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK9QSvgTspan4textEv": ["text", "address"],
+    "ritual_ZNK9QSvgTspan7isTspanEv": ["bool", "address"],
+    "ritual_ZN9QSvgTspan17setWhitespaceModeEN8QSvgText14WhitespaceModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK9QSvgTspan14whitespaceModeEv": ["int", "address"],
+    "ritual_take_QSvgTspan": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK9QSvgTspan4typeEv": ["int", "address"],
+    "ritual_list_make_QSvgTspan_ptr": ["address"],
+    "ritual_list_add_QSvgTspan_ptr": ["nothing", "address", "address"],
+    "ritual_list_size_QSvgTspan_ptr": ["long long", "address"],
+    "ritual_list_at_QSvgTspan_ptr": ["address", "address", "long long"],
+    "ritual_list_drop_QSvgTspan_ptr": ["nothing", "address"]
+  }
+}

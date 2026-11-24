@@ -1,0 +1,42 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/qquickimageprovider.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK19QQuickImageProvider10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QQuickImageProvider2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN19QQuickImageProviderC1EN21QQmlImageProviderBase9ImageTypeE6QFlagsINS0_4FlagEE": [
+      "address", "int", "int"
+    ],
+    "ritual_ZN19QQuickImageProviderD1Ev": ["nothing", "address"],
+    "ritual_ZNK19QQuickImageProvider9imageTypeEv": ["int", "address"],
+    "ritual_ZNK19QQuickImageProvider5flagsEv": ["int", "address"],
+    "ritual_ZN19QQuickImageProvider12requestImageERK7QStringP5QSizeRKS3_": [
+      "address", "address", "text", "address", "address"
+    ],
+    "ritual_ZN19QQuickImageProvider13requestPixmapERK7QStringP5QSizeRKS3_": [
+      "address", "address", "text", "address", "address"
+    ],
+    "ritual_ZN19QQuickImageProvider14requestTextureERK7QStringP5QSizeRKS3_": [
+      "address", "address", "text", "address", "address"
+    ],
+    "ritual_take_QQuickImageProvider": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK19QQuickImageProvider9imageTypeEv": ["int", "address"],
+    "ritual_own_ZNK19QQuickImageProvider5flagsEv": ["int", "address"],
+    "ritual_own_ZN19QQuickImageProvider12requestImageERK7QStringP5QSizeRKS3_": [
+      "address", "address", "text", "address", "address"
+    ],
+    "ritual_own_ZN19QQuickImageProvider13requestPixmapERK7QStringP5QSizeRKS3_": [
+      "address", "address", "text", "address", "address"
+    ],
+    "ritual_own_ZN19QQuickImageProvider14requestTextureERK7QStringP5QSizeRKS3_": [
+      "address", "address", "text", "address", "address"
+    ]
+  }
+}

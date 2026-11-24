@@ -93,6 +93,7 @@ QPixmap *ritual_ZNK5QIcon6pixmapERK5QSizedNS_4ModeENS_5StateE(
   return new QPixmap(self->pixmap(*size, devicePixelRatio, mode, state));
 }
 
+#if QT_DEPRECATED_SINCE(6, 0)
 //  QPixmap QIcon::pixmap(QWindow *window, const QSize &size, Mode mode,
 //      State state) const
 extern "C" Q_DECL_EXPORT
@@ -104,6 +105,7 @@ QPixmap *ritual_ZNK5QIcon6pixmapEP7QWindowRK5QSizeNS_4ModeENS_5StateE(
     QIcon::State state) {
   return new QPixmap(self->pixmap(window, *size, mode, state));
 }
+#endif  // QT_DEPRECATED_SINCE(6, 0)
 
 //  QSize QIcon::actualSize(const QSize &size, Mode mode, State state) const
 extern "C" Q_DECL_EXPORT
@@ -115,6 +117,7 @@ QSize *ritual_ZNK5QIcon10actualSizeERK5QSizeNS_4ModeENS_5StateE(
   return new QSize(self->actualSize(*size, mode, state));
 }
 
+#if QT_DEPRECATED_SINCE(6, 0)
 //  QSize QIcon::actualSize(QWindow *window, const QSize &size, Mode mode,
 //      State state) const
 extern "C" Q_DECL_EXPORT
@@ -126,6 +129,7 @@ QSize *ritual_ZNK5QIcon10actualSizeEP7QWindowRK5QSizeNS_4ModeENS_5StateE(
     QIcon::State state) {
   return new QSize(self->actualSize(window, *size, mode, state));
 }
+#endif  // QT_DEPRECATED_SINCE(6, 0)
 
 //  QString QIcon::name() const
 extern "C" Q_DECL_EXPORT

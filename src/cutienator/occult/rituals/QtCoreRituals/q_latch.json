@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qlatch_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN6QLatchC1Ei": ["address", "int"],
+    "ritual_ZNK6QLatch7pendingEv": ["int", "address"],
+    "ritual_ZN6QLatch9countDownEi": ["nothing", "address", "int"],
+    "ritual_ZNK6QLatch7tryWaitEv": ["bool", "address"],
+    "ritual_ZN6QLatch4waitEv": ["nothing", "address"],
+    "ritual_ZN6QLatch13arriveAndWaitEi": ["nothing", "address", "int"],
+    "ritual_ZN6QLatch3maxEv": ["int"],
+    "ritual_ZN6QLatch10count_downEi": ["nothing", "address", "int"],
+    "ritual_ZNK6QLatch8try_waitEv": ["bool", "address"],
+    "ritual_ZN6QLatch15arrive_and_waitEi": ["nothing", "address", "int"],
+    "ritual_ZN6QLatch12waitInternalEi": ["nothing", "address", "int"],
+    "ritual_ZN6QLatch6wakeUpEv": ["nothing", "address"]
+  }
+}

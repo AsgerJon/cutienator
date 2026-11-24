@@ -1,8 +1,14 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/6.12.0/QtWidgets/private/qstyleanimation_p.h, Qt 6.12.0.
 //  Changes made here are lost.
+#include <QtWidgets/qtwidgetsglobal.h>
+#include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
+#if QT_CONFIG(animation)
+#include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/QtWidgets>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/6.12.0/QtWidgets/private/qstyleanimation_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #include <QtCore/qdatetime.h>
 #include <QtCore/qmetaobject.h>
@@ -18,75 +24,128 @@ struct OwnQStyleAnimation : QStyleAnimation {
 //  A QStyleAnimation that Python can take functions over in. Every QStyleAnimation
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if QT_CONFIG(animation)
 typedef int (*CuteQStyleAnimationCall0)(const void *, int *);
+#endif  // QT_CONFIG(animation)
+#if QT_CONFIG(animation)
 typedef bool (*CuteQStyleAnimationCall1)(const void *, int *);
+#endif  // QT_CONFIG(animation)
+#if QT_CONFIG(animation)
 typedef void (*CuteQStyleAnimationCall2)(const void *, int, int *);
+#endif  // QT_CONFIG(animation)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(animation)
 typedef bool (*CuteQStyleAnimationCall3)(const void *, QEvent *, int *);
+#endif  // QT_CONFIG(animation)
+#endif  // !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(animation)
 typedef void (*CuteQStyleAnimationCall4)(const void *, int, int, int *);
+#endif  // QT_CONFIG(animation)
+#if QT_CONFIG(animation)
 typedef void (*CuteQStyleAnimationCall5)(const void *, int, int *);
+#endif  // QT_CONFIG(animation)
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQStyleAnimationCall6)(const void *, QObject *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQStyleAnimationCall7)(const void *, QTimerEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQStyleAnimationCall8)(const void *, QChildEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQStyleAnimationCall9)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQStyleAnimationCall10)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQStyleAnimationCall11)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 class CuteQStyleAnimation : public QStyleAnimation {
 public:
   using QStyleAnimation::QStyleAnimation;
   void *taken[12] = {};
 
   bool take(const char *key, void *call) {
+#if QT_CONFIG(animation)
     if (!std::strcmp(key, "_ZNK18QAbstractAnimation8durationEv")) {
       taken[0] = call;
       return true;
     }
+#endif  // QT_CONFIG(animation)
+#if QT_CONFIG(animation)
     if (!std::strcmp(key, "_ZNK15QStyleAnimation14isUpdateNeededEv")) {
       taken[1] = call;
       return true;
     }
+#endif  // QT_CONFIG(animation)
+#if QT_CONFIG(animation)
     if (!std::strcmp(key, "_ZN18QAbstractAnimation17updateCurrentTimeEi")) {
       taken[2] = call;
       return true;
     }
+#endif  // QT_CONFIG(animation)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(animation)
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[3] = call;
       return true;
     }
+#endif  // QT_CONFIG(animation)
+#endif  // !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(animation)
     if (!std::strcmp(key, "_ZN18QAbstractAnimation11updateStateENS_5StateES0_")) {
       taken[4] = call;
       return true;
     }
+#endif  // QT_CONFIG(animation)
+#if QT_CONFIG(animation)
     if (!std::strcmp(key, "_ZN18QAbstractAnimation15updateDirectionENS_9DirectionE")) {
       taken[5] = call;
       return true;
     }
+#endif  // QT_CONFIG(animation)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[6] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[7] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[8] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[9] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[10] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
       taken[11] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
     return false;
   }
 
+#if QT_CONFIG(animation)
   //  int QStyleAnimation::duration() const
   int duration() const override {
     if (taken[0]) {
@@ -97,7 +156,9 @@ public:
     }
     return QStyleAnimation::duration();
   }
+#endif  // QT_CONFIG(animation)
 
+#if QT_CONFIG(animation)
   //  bool QStyleAnimation::isUpdateNeeded() const
   bool isUpdateNeeded() const override {
     if (taken[1]) {
@@ -108,7 +169,9 @@ public:
     }
     return QStyleAnimation::isUpdateNeeded();
   }
+#endif  // QT_CONFIG(animation)
 
+#if QT_CONFIG(animation)
   //  void QStyleAnimation::updateCurrentTime(int time)
   void updateCurrentTime(int time) override {
     if (taken[2]) {
@@ -119,7 +182,10 @@ public:
     }
     QStyleAnimation::updateCurrentTime(time);
   }
+#endif  // QT_CONFIG(animation)
 
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(animation)
   //  bool QAbstractAnimation::event(QEvent *event)
   bool event(QEvent *event) override {
     if (taken[3]) {
@@ -130,7 +196,10 @@ public:
     }
     return QAbstractAnimation::event(event);
   }
+#endif  // QT_CONFIG(animation)
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if QT_CONFIG(animation)
   //  void QAbstractAnimation::updateState(QAbstractAnimation::State
   //      newState, QAbstractAnimation::State oldState)
   void updateState(
@@ -144,7 +213,9 @@ public:
     }
     QAbstractAnimation::updateState(newState, oldState);
   }
+#endif  // QT_CONFIG(animation)
 
+#if QT_CONFIG(animation)
   //  void
   //      QAbstractAnimation::updateDirection(QAbstractAnimation::Direction
   //      direction)
@@ -157,7 +228,9 @@ public:
     }
     QAbstractAnimation::updateDirection(direction);
   }
+#endif  // QT_CONFIG(animation)
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
     if (taken[6]) {
@@ -168,7 +241,9 @@ public:
     }
     return QObject::eventFilter(watched, event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
     if (taken[7]) {
@@ -179,7 +254,9 @@ public:
     }
     QObject::timerEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
     if (taken[8]) {
@@ -190,7 +267,9 @@ public:
     }
     QObject::childEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
     if (taken[9]) {
@@ -201,7 +280,9 @@ public:
     }
     QObject::customEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
     if (taken[10]) {
@@ -212,7 +293,9 @@ public:
     }
     QObject::connectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
     if (taken[11]) {
@@ -223,6 +306,7 @@ public:
     }
     QObject::disconnectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 };
 
 //  const QMetaObject *QStyleAnimation::metaObject() const
@@ -374,3 +458,5 @@ void ritual_own_ZN15QStyleAnimation17updateCurrentTimeEi(
   static_cast<OwnQStyleAnimation *>(self)->OwnQStyleAnimation::updateCurrentTime(
       time);
 }
+
+#endif  // QT_CONFIG(animation)

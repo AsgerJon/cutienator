@@ -1,0 +1,132 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickpath_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK19QQuickPathRectangle10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QQuickPathRectangle2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN19QQuickPathRectangleC1EP7QObject": ["address", "address"],
+    "ritual_ZNK19QQuickPathRectangle5widthEv": ["double", "address"],
+    "ritual_ZN19QQuickPathRectangle8setWidthEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK19QQuickPathRectangle6heightEv": ["double", "address"],
+    "ritual_ZN19QQuickPathRectangle9setHeightEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK19QQuickPathRectangle16strokeAdjustmentEv": [
+      "double", "address"
+    ],
+    "ritual_ZN19QQuickPathRectangle19setStrokeAdjustmentEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK19QQuickPathRectangle6radiusEv": ["double", "address"],
+    "ritual_ZN19QQuickPathRectangle9setRadiusEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK19QQuickPathRectangle13topLeftRadiusEv": [
+      "double", "address"
+    ],
+    "ritual_ZN19QQuickPathRectangle16setTopLeftRadiusEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN19QQuickPathRectangle18resetTopLeftRadiusEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK19QQuickPathRectangle14topRightRadiusEv": [
+      "double", "address"
+    ],
+    "ritual_ZN19QQuickPathRectangle17setTopRightRadiusEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN19QQuickPathRectangle19resetTopRightRadiusEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK19QQuickPathRectangle16bottomLeftRadiusEv": [
+      "double", "address"
+    ],
+    "ritual_ZN19QQuickPathRectangle19setBottomLeftRadiusEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN19QQuickPathRectangle21resetBottomLeftRadiusEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK19QQuickPathRectangle17bottomRightRadiusEv": [
+      "double", "address"
+    ],
+    "ritual_ZN19QQuickPathRectangle20setBottomRightRadiusEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN19QQuickPathRectangle22resetBottomRightRadiusEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK19QQuickPathRectangle12cornerRadiusEN2Qt6CornerE": [
+      "double", "address", "int"
+    ],
+    "ritual_ZN19QQuickPathRectangle15setCornerRadiusEN2Qt6CornerEd": [
+      "nothing", "address", "int", "double"
+    ],
+    "ritual_ZN19QQuickPathRectangle17resetCornerRadiusEN2Qt6CornerE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK19QQuickPathRectangle8hasBevelEv": ["bool", "address"],
+    "ritual_ZN19QQuickPathRectangle8setBevelEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK19QQuickPathRectangle15hasTopLeftBevelEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN19QQuickPathRectangle15setTopLeftBevelEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN19QQuickPathRectangle17resetTopLeftBevelEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK19QQuickPathRectangle16hasTopRightBevelEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN19QQuickPathRectangle16setTopRightBevelEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN19QQuickPathRectangle18resetTopRightBevelEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK19QQuickPathRectangle18hasBottomLeftBevelEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN19QQuickPathRectangle18setBottomLeftBevelEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN19QQuickPathRectangle20resetBottomLeftBevelEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK19QQuickPathRectangle19hasBottomRightBevelEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN19QQuickPathRectangle19setBottomRightBevelEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN19QQuickPathRectangle21resetBottomRightBevelEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK19QQuickPathRectangle11cornerBevelEN2Qt6CornerE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN19QQuickPathRectangle14setCornerBevelEN2Qt6CornerEb": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZN19QQuickPathRectangle16resetCornerBevelEN2Qt6CornerE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN19QQuickPathRectangle23emitCornerRadiusChangedEN2Qt6CornerE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN19QQuickPathRectangle22emitCornerBevelChangedEN2Qt6CornerE": [
+      "nothing", "address", "int"
+    ]
+  }
+}

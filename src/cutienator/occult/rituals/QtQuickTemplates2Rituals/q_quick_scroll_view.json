@@ -1,0 +1,60 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquickscrollview_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK16QQuickScrollView10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QQuickScrollView2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN16QQuickScrollViewC1EP10QQuickItem": ["address", "address"],
+    "ritual_ZN16QQuickScrollViewD1Ev": ["nothing", "address"],
+    "ritual_ZN16QQuickScrollView23effectiveScrollBarWidthEv": [
+      "double", "address"
+    ],
+    "ritual_ZN16QQuickScrollView24effectiveScrollBarHeightEv": [
+      "double", "address"
+    ],
+    "ritual_ZN16QQuickScrollView21childMouseEventFilterEP10QQuickItemP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN16QQuickScrollView11eventFilterEP7QObjectP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN16QQuickScrollView13keyPressEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickScrollView17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickScrollView17contentItemChangeEP10QQuickItemS1_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN16QQuickScrollView17contentSizeChangeERK6QSizeFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK16QQuickScrollView14accessibleRoleEv": ["int", "address"],
+    "ritual_take_QQuickScrollView": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN16QQuickScrollView21childMouseEventFilterEP10QQuickItemP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_own_ZN16QQuickScrollView11eventFilterEP7QObjectP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_own_ZN16QQuickScrollView13keyPressEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16QQuickScrollView17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN16QQuickScrollView17contentItemChangeEP10QQuickItemS1_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN16QQuickScrollView17contentSizeChangeERK6QSizeFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZNK16QQuickScrollView14accessibleRoleEv": ["int", "address"]
+  }
+}

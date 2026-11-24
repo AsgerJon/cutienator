@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/ui4_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN9DomSpacerC1Ev": ["address"],
+    "ritual_ZN9DomSpacerD1Ev": ["nothing", "address"],
+    "ritual_ZNK9DomSpacer16hasAttributeNameEv": ["bool", "address"],
+    "ritual_ZNK9DomSpacer13attributeNameEv": ["text", "address"],
+    "ritual_ZN9DomSpacer16setAttributeNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN9DomSpacer18clearAttributeNameEv": ["nothing", "address"],
+    "ritual_ZNK9DomSpacer15elementPropertyEv": ["address", "address"],
+    "ritual_ZN9DomSpacer18setElementPropertyERK5QListIP11DomPropertyE": [
+      "nothing", "address", "address"
+    ]
+  }
+}

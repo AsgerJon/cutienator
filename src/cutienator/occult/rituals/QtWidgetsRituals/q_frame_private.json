@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qframe_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN13QFramePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK13QFramePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN13QFramePrivateC1Ev": ["address"],
+    "ritual_ZN13QFramePrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN13QFramePrivate16updateFrameWidthEv": ["nothing", "address"],
+    "ritual_ZN13QFramePrivate23updateStyledFrameWidthsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13QFramePrivate4initEv": ["nothing", "address"],
+    "ritual_take_QFramePrivate": ["bool", "address", "chars", "address"]
+  }
+}

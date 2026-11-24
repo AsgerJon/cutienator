@@ -1,0 +1,44 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNfc/6.12.0/QtNfc/private/qnearfieldmanager_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK24QNearFieldManagerPrivate10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QNearFieldManagerPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZNK24QNearFieldManagerPrivate9isEnabledEv": ["bool", "address"],
+    "ritual_ZNK24QNearFieldManagerPrivate11isSupportedEN16QNearFieldTarget12AccessMethodE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN24QNearFieldManagerPrivate20startTargetDetectionEN16QNearFieldTarget12AccessMethodE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN24QNearFieldManagerPrivate19stopTargetDetectionERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN24QNearFieldManagerPrivate18setUserInformationERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_take_QNearFieldManagerPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK24QNearFieldManagerPrivate9isEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZNK24QNearFieldManagerPrivate11isSupportedEN16QNearFieldTarget12AccessMethodE": [
+      "bool", "address", "int"
+    ],
+    "ritual_own_ZN24QNearFieldManagerPrivate20startTargetDetectionEN16QNearFieldTarget12AccessMethodE": [
+      "bool", "address", "int"
+    ],
+    "ritual_own_ZN24QNearFieldManagerPrivate19stopTargetDetectionERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_own_ZN24QNearFieldManagerPrivate18setUserInformationERK7QString": [
+      "nothing", "address", "text"
+    ]
+  }
+}

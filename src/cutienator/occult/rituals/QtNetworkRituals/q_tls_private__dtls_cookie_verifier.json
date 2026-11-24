@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/6.12.0/QtNetwork/private/qtlsbackend_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11QTlsPrivate18DtlsCookieVerifier12verifyClientEP10QUdpSocketRK10QByteArrayRK12QHostAddresst": [
+      "bool", "address", "address", "address", "address", "unsigned short"
+    ],
+    "ritual_ZNK11QTlsPrivate18DtlsCookieVerifier13verifiedHelloEv": [
+      "address", "address"
+    ],
+    "ritual_take_QTlsPrivate_DtlsCookieVerifier": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

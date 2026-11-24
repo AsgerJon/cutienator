@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtScxmlQml/6.12.0/QtScxmlQml/private/statemachineextended_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN25QScxmlStateMachineForeign24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QScxmlStateMachineForeign20qt_qmlMarker_foreignEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QScxmlStateMachineForeign21qt_qmlMarker_extendedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QScxmlStateMachineForeignD1Ev": ["nothing", "address"]
+  }
+}

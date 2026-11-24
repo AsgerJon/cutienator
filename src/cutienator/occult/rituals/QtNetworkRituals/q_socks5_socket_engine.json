@@ -1,0 +1,63 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/6.12.0/QtNetwork/private/qsocks5socketengine_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK19QSocks5SocketEngine10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QSocks5SocketEngine8setProxyERK13QNetworkProxy": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QSocks5SocketEngine16socketDescriptorEv": [
+      "long long", "address"
+    ],
+    "ritual_ZNK19QSocks5SocketEngine7isValidEv": ["bool", "address"],
+    "ritual_ZN19QSocks5SocketEngine19connectToHostByNameERK7QStringt": [
+      "bool", "address", "text", "unsigned short"
+    ],
+    "ritual_ZNK19QSocks5SocketEngine18multicastInterfaceEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QSocks5SocketEngine18waitForReadOrWriteEPbS0_bb14QDeadlineTimerS0_": [
+      "bool", "address", "address", "address", "bool", "bool", "address",
+      "address"
+    ],
+    "ritual_ZNK19QSocks5SocketEngine25isReadNotificationEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK19QSocks5SocketEngine26isWriteNotificationEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK19QSocks5SocketEngine30isExceptionNotificationEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN19QSocks5SocketEngine31setExceptionNotificationEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN19QSocks5SocketEngine6d_funcEv": ["address", "address"],
+    "ritual_ZNK19QSocks5SocketEngine6d_funcEv": ["address", "address"],
+    "ritual_take_QSocks5SocketEngine": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK19QSocks5SocketEngine16socketDescriptorEv": [
+      "long long", "address"
+    ],
+    "ritual_own_ZNK19QSocks5SocketEngine7isValidEv": ["bool", "address"],
+    "ritual_own_ZNK19QSocks5SocketEngine18multicastInterfaceEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK19QSocks5SocketEngine25isReadNotificationEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZNK19QSocks5SocketEngine26isWriteNotificationEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZNK19QSocks5SocketEngine30isExceptionNotificationEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZN19QSocks5SocketEngine31setExceptionNotificationEnabledEb": [
+      "nothing", "address", "bool"
+    ]
+  }
+}

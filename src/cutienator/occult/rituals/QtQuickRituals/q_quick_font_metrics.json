@@ -1,0 +1,59 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickfontmetrics_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QQuickFontMetrics10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QQuickFontMetrics2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QQuickFontMetricsC1EP7QObject": ["address", "address"],
+    "ritual_ZNK17QQuickFontMetrics4fontEv": ["address", "address"],
+    "ritual_ZN17QQuickFontMetrics7setFontERK5QFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QQuickFontMetrics6ascentEv": ["double", "address"],
+    "ritual_ZNK17QQuickFontMetrics7descentEv": ["double", "address"],
+    "ritual_ZNK17QQuickFontMetrics13capitalHeightEv": ["double", "address"],
+    "ritual_ZNK17QQuickFontMetrics6heightEv": ["double", "address"],
+    "ritual_ZNK17QQuickFontMetrics7leadingEv": ["double", "address"],
+    "ritual_ZNK17QQuickFontMetrics11lineSpacingEv": ["double", "address"],
+    "ritual_ZNK17QQuickFontMetrics18minimumLeftBearingEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK17QQuickFontMetrics19minimumRightBearingEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK17QQuickFontMetrics21maximumCharacterWidthEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK17QQuickFontMetrics7xHeightEv": ["double", "address"],
+    "ritual_ZNK17QQuickFontMetrics21averageCharacterWidthEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK17QQuickFontMetrics17underlinePositionEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK17QQuickFontMetrics16overlinePositionEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK17QQuickFontMetrics17strikeOutPositionEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK17QQuickFontMetrics9lineWidthEv": ["double", "address"],
+    "ritual_ZNK17QQuickFontMetrics12advanceWidthERK7QString": [
+      "double", "address", "text"
+    ],
+    "ritual_ZNK17QQuickFontMetrics12boundingRectERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK17QQuickFontMetrics17tightBoundingRectERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK17QQuickFontMetrics10elidedTextERK7QStringN2Qt13TextElideModeEdi": [
+      "text", "address", "text", "int", "double", "int"
+    ]
+  }
+}

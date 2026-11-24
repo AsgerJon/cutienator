@@ -1,0 +1,30 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtDesig",
+    "ner/6.12.0/QtDesigner/private/qdesigner_objectinspector_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18qdesigner_internal24QDesignerObjectInspector10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal24QDesignerObjectInspector2trEPKcS2_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18qdesigner_internal24QDesignerObjectInspector12selectObjectEP7QObject": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal24QDesignerObjectInspector14clearSelectionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal24QDesignerObjectInspector20mainContainerChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_qdesigner_internal_QDesignerObjectInspector": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN18qdesigner_internal24QDesignerObjectInspector20mainContainerChangedEv": [
+      "nothing", "address"
+    ]
+  }
+}

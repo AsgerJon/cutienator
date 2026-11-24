@@ -1,0 +1,75 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/qnetworkdiskcache.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QNetworkDiskCache10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QNetworkDiskCache2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QNetworkDiskCacheC1EP7QObject": ["address", "address"],
+    "ritual_ZN17QNetworkDiskCacheD1Ev": ["nothing", "address"],
+    "ritual_ZNK17QNetworkDiskCache14cacheDirectoryEv": ["text", "address"],
+    "ritual_ZN17QNetworkDiskCache17setCacheDirectoryERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK17QNetworkDiskCache16maximumCacheSizeEv": [
+      "long long", "address"
+    ],
+    "ritual_ZN17QNetworkDiskCache19setMaximumCacheSizeEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZNK17QNetworkDiskCache9cacheSizeEv": ["long long", "address"],
+    "ritual_ZN17QNetworkDiskCache8metaDataERK4QUrl": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN17QNetworkDiskCache14updateMetaDataERK21QNetworkCacheMetaData": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QNetworkDiskCache4dataERK4QUrl": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN17QNetworkDiskCache6removeERK4QUrl": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN17QNetworkDiskCache7prepareERK21QNetworkCacheMetaData": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN17QNetworkDiskCache6insertEP9QIODevice": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QNetworkDiskCache12fileMetaDataERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN17QNetworkDiskCache5clearEv": ["nothing", "address"],
+    "ritual_ZN17QNetworkDiskCache6expireEv": ["long long", "address"],
+    "ritual_ZN17QNetworkDiskCache6d_funcEv": ["address", "address"],
+    "ritual_ZNK17QNetworkDiskCache6d_funcEv": ["address", "address"],
+    "ritual_take_QNetworkDiskCache": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK17QNetworkDiskCache9cacheSizeEv": [
+      "long long", "address"
+    ],
+    "ritual_own_ZN17QNetworkDiskCache8metaDataERK4QUrl": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN17QNetworkDiskCache14updateMetaDataERK21QNetworkCacheMetaData": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN17QNetworkDiskCache4dataERK4QUrl": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN17QNetworkDiskCache6removeERK4QUrl": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN17QNetworkDiskCache7prepareERK21QNetworkCacheMetaData": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN17QNetworkDiskCache6insertEP9QIODevice": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN17QNetworkDiskCache5clearEv": ["nothing", "address"],
+    "ritual_own_ZN17QNetworkDiskCache6expireEv": ["long long", "address"]
+  }
+}

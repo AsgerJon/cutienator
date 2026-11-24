@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtHelp/qhelpsearchresult.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN17QHelpSearchResultC1Ev": ["address"],
+    "ritual_ZN17QHelpSearchResultC1ERKS_": ["address", "address"],
+    "ritual_ZN17QHelpSearchResultC1ERK4QUrlRK7QStringS5_": [
+      "address", "address", "text", "text"
+    ],
+    "ritual_ZN17QHelpSearchResultD1Ev": ["nothing", "address"],
+    "ritual_ZNK17QHelpSearchResult5titleEv": ["text", "address"],
+    "ritual_ZNK17QHelpSearchResult3urlEv": ["address", "address"],
+    "ritual_ZNK17QHelpSearchResult7snippetEv": ["text", "address"],
+    "ritual_list_make_QHelpSearchResult": ["address"],
+    "ritual_list_add_QHelpSearchResult": ["nothing", "address", "address"],
+    "ritual_list_size_QHelpSearchResult": ["long long", "address"],
+    "ritual_list_at_QHelpSearchResult": ["address", "address", "long long"],
+    "ritual_list_drop_QHelpSearchResult": ["nothing", "address"]
+  }
+}

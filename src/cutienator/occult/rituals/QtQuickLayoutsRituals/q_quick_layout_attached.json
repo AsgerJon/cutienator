@@ -1,0 +1,207 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuickLayouts/6.12.0/QtQuickLayouts/private/qquicklayout_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK20QQuickLayoutAttached10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QQuickLayoutAttached2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN20QQuickLayoutAttachedC1EP7QObject": ["address", "address"],
+    "ritual_ZNK20QQuickLayoutAttached12minimumWidthEv": [
+      "double", "address"
+    ],
+    "ritual_ZN20QQuickLayoutAttached15setMinimumWidthEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK20QQuickLayoutAttached17isMinimumWidthSetEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK20QQuickLayoutAttached13minimumHeightEv": [
+      "double", "address"
+    ],
+    "ritual_ZN20QQuickLayoutAttached16setMinimumHeightEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK20QQuickLayoutAttached18isMinimumHeightSetEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK20QQuickLayoutAttached14preferredWidthEv": [
+      "double", "address"
+    ],
+    "ritual_ZN20QQuickLayoutAttached17setPreferredWidthEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK20QQuickLayoutAttached19isPreferredWidthSetEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK20QQuickLayoutAttached15preferredHeightEv": [
+      "double", "address"
+    ],
+    "ritual_ZN20QQuickLayoutAttached18setPreferredHeightEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK20QQuickLayoutAttached20isPreferredHeightSetEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK20QQuickLayoutAttached12maximumWidthEv": [
+      "double", "address"
+    ],
+    "ritual_ZN20QQuickLayoutAttached15setMaximumWidthEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK20QQuickLayoutAttached17isMaximumWidthSetEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK20QQuickLayoutAttached13maximumHeightEv": [
+      "double", "address"
+    ],
+    "ritual_ZN20QQuickLayoutAttached16setMaximumHeightEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK20QQuickLayoutAttached18isMaximumHeightSetEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN20QQuickLayoutAttached22setMinimumImplicitSizeERK6QSizeF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickLayoutAttached22setMaximumImplicitSizeERK6QSizeF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QQuickLayoutAttached9fillWidthEv": ["bool", "address"],
+    "ritual_ZN20QQuickLayoutAttached12setFillWidthEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK20QQuickLayoutAttached14isFillWidthSetEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK20QQuickLayoutAttached10fillHeightEv": ["bool", "address"],
+    "ritual_ZN20QQuickLayoutAttached13setFillHeightEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK20QQuickLayoutAttached15isFillHeightSetEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK20QQuickLayoutAttached20useDefaultSizePolicyEv": [
+      "int", "address"
+    ],
+    "ritual_ZN20QQuickLayoutAttached23setUseDefaultSizePolicyEN12QQuickLayout10SizePolicyE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK20QQuickLayoutAttached3rowEv": ["int", "address"],
+    "ritual_ZN20QQuickLayoutAttached6setRowEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK20QQuickLayoutAttached8isRowSetEv": ["bool", "address"],
+    "ritual_ZNK20QQuickLayoutAttached6columnEv": ["int", "address"],
+    "ritual_ZN20QQuickLayoutAttached9setColumnEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK20QQuickLayoutAttached11isColumnSetEv": ["bool", "address"],
+    "ritual_ZNK20QQuickLayoutAttached7rowSpanEv": ["int", "address"],
+    "ritual_ZN20QQuickLayoutAttached10setRowSpanEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK20QQuickLayoutAttached10columnSpanEv": ["int", "address"],
+    "ritual_ZN20QQuickLayoutAttached13setColumnSpanEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK20QQuickLayoutAttached9alignmentEv": ["int", "address"],
+    "ritual_ZN20QQuickLayoutAttached12setAlignmentE6QFlagsIN2Qt13AlignmentFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK20QQuickLayoutAttached14isAlignmentSetEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK20QQuickLayoutAttached23horizontalStretchFactorEv": [
+      "int", "address"
+    ],
+    "ritual_ZN20QQuickLayoutAttached26setHorizontalStretchFactorEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK20QQuickLayoutAttached28isHorizontalStretchFactorSetEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK20QQuickLayoutAttached21verticalStretchFactorEv": [
+      "int", "address"
+    ],
+    "ritual_ZN20QQuickLayoutAttached24setVerticalStretchFactorEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK20QQuickLayoutAttached26isVerticalStretchFactorSetEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK20QQuickLayoutAttached7marginsEv": ["double", "address"],
+    "ritual_ZN20QQuickLayoutAttached10setMarginsEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK20QQuickLayoutAttached12isMarginsSetEv": ["bool", "address"],
+    "ritual_ZNK20QQuickLayoutAttached10leftMarginEv": ["double", "address"],
+    "ritual_ZN20QQuickLayoutAttached13setLeftMarginEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN20QQuickLayoutAttached15resetLeftMarginEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK20QQuickLayoutAttached15isLeftMarginSetEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK20QQuickLayoutAttached9topMarginEv": ["double", "address"],
+    "ritual_ZN20QQuickLayoutAttached12setTopMarginEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN20QQuickLayoutAttached14resetTopMarginEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK20QQuickLayoutAttached14isTopMarginSetEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK20QQuickLayoutAttached11rightMarginEv": ["double", "address"],
+    "ritual_ZN20QQuickLayoutAttached14setRightMarginEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN20QQuickLayoutAttached16resetRightMarginEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK20QQuickLayoutAttached16isRightMarginSetEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK20QQuickLayoutAttached12bottomMarginEv": [
+      "double", "address"
+    ],
+    "ritual_ZN20QQuickLayoutAttached15setBottomMarginEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN20QQuickLayoutAttached17resetBottomMarginEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK20QQuickLayoutAttached17isBottomMarginSetEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK20QQuickLayoutAttached8qMarginsEv": ["address", "address"],
+    "ritual_ZNK20QQuickLayoutAttached17effectiveQMarginsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QQuickLayoutAttached29setChangesNotificationEnabledEb": [
+      "bool", "address", "bool"
+    ],
+    "ritual_ZNK20QQuickLayoutAttached8sizeHintEN2Qt8SizeHintENS0_11OrientationE": [
+      "double", "address", "int", "int"
+    ],
+    "ritual_ZNK20QQuickLayoutAttached21isExtentExplicitlySetEN2Qt11OrientationENS0_8SizeHintE": [
+      "bool", "address", "int", "int"
+    ],
+    "ritual_ZNK20QQuickLayoutAttached17itemForSizePolicyEb": [
+      "address", "address", "bool"
+    ],
+    "ritual_ZN20QQuickLayoutAttached14invalidateItemEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK20QQuickLayoutAttached12parentLayoutEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QQuickLayoutAttached4itemEv": ["address", "address"]
+  }
+}

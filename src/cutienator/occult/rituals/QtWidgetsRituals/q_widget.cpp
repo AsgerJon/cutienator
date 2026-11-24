@@ -72,12 +72,16 @@ typedef const QSize * (*CuteQWidgetCall3)(const void *, int *);
 typedef int (*CuteQWidgetCall4)(const void *, int, int *);
 typedef bool (*CuteQWidgetCall5)(const void *, int *);
 typedef void * (*CuteQWidgetCall6)(const void *, int *);
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQWidgetCall7)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 typedef void (*CuteQWidgetCall8)(const void *, QMouseEvent *, int *);
 typedef void (*CuteQWidgetCall9)(const void *, QMouseEvent *, int *);
 typedef void (*CuteQWidgetCall10)(const void *, QMouseEvent *, int *);
 typedef void (*CuteQWidgetCall11)(const void *, QMouseEvent *, int *);
+#if QT_CONFIG(wheelevent)
 typedef void (*CuteQWidgetCall12)(const void *, QWheelEvent *, int *);
+#endif  // QT_CONFIG(wheelevent)
 typedef void (*CuteQWidgetCall13)(const void *, QKeyEvent *, int *);
 typedef void (*CuteQWidgetCall14)(const void *, QKeyEvent *, int *);
 typedef void (*CuteQWidgetCall15)(const void *, QFocusEvent *, int *);
@@ -88,13 +92,27 @@ typedef void (*CuteQWidgetCall19)(const void *, QPaintEvent *, int *);
 typedef void (*CuteQWidgetCall20)(const void *, QMoveEvent *, int *);
 typedef void (*CuteQWidgetCall21)(const void *, QResizeEvent *, int *);
 typedef void (*CuteQWidgetCall22)(const void *, QCloseEvent *, int *);
+#if !defined(QT_NO_CONTEXTMENU)
 typedef void (*CuteQWidgetCall23)(const void *, QContextMenuEvent *, int *);
+#endif  // !defined(QT_NO_CONTEXTMENU)
+#if QT_CONFIG(tabletevent)
 typedef void (*CuteQWidgetCall24)(const void *, QTabletEvent *, int *);
+#endif  // QT_CONFIG(tabletevent)
+#if !defined(QT_NO_ACTION)
 typedef void (*CuteQWidgetCall25)(const void *, QActionEvent *, int *);
+#endif  // !defined(QT_NO_ACTION)
+#if QT_CONFIG(draganddrop)
 typedef void (*CuteQWidgetCall26)(const void *, QDragEnterEvent *, int *);
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
 typedef void (*CuteQWidgetCall27)(const void *, QDragMoveEvent *, int *);
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
 typedef void (*CuteQWidgetCall28)(const void *, QDragLeaveEvent *, int *);
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
 typedef void (*CuteQWidgetCall29)(const void *, QDropEvent *, int *);
+#endif  // QT_CONFIG(draganddrop)
 typedef void (*CuteQWidgetCall30)(const void *, QShowEvent *, int *);
 typedef void (*CuteQWidgetCall31)(const void *, QHideEvent *, int *);
 typedef void (*CuteQWidgetCall32)(const void *, QEvent *, int *);
@@ -105,12 +123,24 @@ typedef void * (*CuteQWidgetCall36)(const void *, int *);
 typedef void (*CuteQWidgetCall37)(const void *, QInputMethodEvent *, int *);
 typedef const QVariant * (*CuteQWidgetCall38)(const void *, int, int *);
 typedef bool (*CuteQWidgetCall39)(const void *, bool, int *);
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQWidgetCall40)(const void *, QObject *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQWidgetCall41)(const void *, QTimerEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQWidgetCall42)(const void *, QChildEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQWidgetCall43)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQWidgetCall44)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQWidgetCall45)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 class CuteQWidget : public QWidget {
 public:
   using QWidget::QWidget;
@@ -145,10 +175,12 @@ public:
       taken[6] = call;
       return true;
     }
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[7] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QWidget15mousePressEventEP11QMouseEvent")) {
       taken[8] = call;
       return true;
@@ -165,10 +197,12 @@ public:
       taken[11] = call;
       return true;
     }
+#if QT_CONFIG(wheelevent)
     if (!std::strcmp(key, "_ZN7QWidget10wheelEventEP11QWheelEvent")) {
       taken[12] = call;
       return true;
     }
+#endif  // QT_CONFIG(wheelevent)
     if (!std::strcmp(key, "_ZN7QWidget13keyPressEventEP9QKeyEvent")) {
       taken[13] = call;
       return true;
@@ -209,34 +243,48 @@ public:
       taken[22] = call;
       return true;
     }
+#if !defined(QT_NO_CONTEXTMENU)
     if (!std::strcmp(key, "_ZN7QWidget16contextMenuEventEP17QContextMenuEvent")) {
       taken[23] = call;
       return true;
     }
+#endif  // !defined(QT_NO_CONTEXTMENU)
+#if QT_CONFIG(tabletevent)
     if (!std::strcmp(key, "_ZN7QWidget11tabletEventEP12QTabletEvent")) {
       taken[24] = call;
       return true;
     }
+#endif  // QT_CONFIG(tabletevent)
+#if !defined(QT_NO_ACTION)
     if (!std::strcmp(key, "_ZN7QWidget11actionEventEP12QActionEvent")) {
       taken[25] = call;
       return true;
     }
+#endif  // !defined(QT_NO_ACTION)
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget14dragEnterEventEP15QDragEnterEvent")) {
       taken[26] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget13dragMoveEventEP14QDragMoveEvent")) {
       taken[27] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget14dragLeaveEventEP15QDragLeaveEvent")) {
       taken[28] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget9dropEventEP10QDropEvent")) {
       taken[29] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget9showEventEP10QShowEvent")) {
       taken[30] = call;
       return true;
@@ -277,30 +325,42 @@ public:
       taken[39] = call;
       return true;
     }
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[40] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[41] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[42] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[43] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[44] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
       taken[45] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
     return false;
   }
 
@@ -381,6 +441,7 @@ public:
     return QWidget::paintEngine();
   }
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QWidget::event(QEvent *event)
   bool event(QEvent *event) override {
     if (taken[7]) {
@@ -391,6 +452,7 @@ public:
     }
     return QWidget::event(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
   //  void QWidget::mousePressEvent(QMouseEvent *event)
   void mousePressEvent(QMouseEvent *event) override {
@@ -436,6 +498,7 @@ public:
     QWidget::mouseMoveEvent(event);
   }
 
+#if QT_CONFIG(wheelevent)
   //  void QWidget::wheelEvent(QWheelEvent *event)
   void wheelEvent(QWheelEvent *event) override {
     if (taken[12]) {
@@ -446,6 +509,7 @@ public:
     }
     QWidget::wheelEvent(event);
   }
+#endif  // QT_CONFIG(wheelevent)
 
   //  void QWidget::keyPressEvent(QKeyEvent *event)
   void keyPressEvent(QKeyEvent *event) override {
@@ -557,6 +621,7 @@ public:
     QWidget::closeEvent(event);
   }
 
+#if !defined(QT_NO_CONTEXTMENU)
   //  void QWidget::contextMenuEvent(QContextMenuEvent *event)
   void contextMenuEvent(QContextMenuEvent *event) override {
     if (taken[23]) {
@@ -567,7 +632,9 @@ public:
     }
     QWidget::contextMenuEvent(event);
   }
+#endif  // !defined(QT_NO_CONTEXTMENU)
 
+#if QT_CONFIG(tabletevent)
   //  void QWidget::tabletEvent(QTabletEvent *event)
   void tabletEvent(QTabletEvent *event) override {
     if (taken[24]) {
@@ -578,7 +645,9 @@ public:
     }
     QWidget::tabletEvent(event);
   }
+#endif  // QT_CONFIG(tabletevent)
 
+#if !defined(QT_NO_ACTION)
   //  void QWidget::actionEvent(QActionEvent *event)
   void actionEvent(QActionEvent *event) override {
     if (taken[25]) {
@@ -589,7 +658,9 @@ public:
     }
     QWidget::actionEvent(event);
   }
+#endif  // !defined(QT_NO_ACTION)
 
+#if QT_CONFIG(draganddrop)
   //  void QWidget::dragEnterEvent(QDragEnterEvent *event)
   void dragEnterEvent(QDragEnterEvent *event) override {
     if (taken[26]) {
@@ -600,7 +671,9 @@ public:
     }
     QWidget::dragEnterEvent(event);
   }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
   //  void QWidget::dragMoveEvent(QDragMoveEvent *event)
   void dragMoveEvent(QDragMoveEvent *event) override {
     if (taken[27]) {
@@ -611,7 +684,9 @@ public:
     }
     QWidget::dragMoveEvent(event);
   }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
   //  void QWidget::dragLeaveEvent(QDragLeaveEvent *event)
   void dragLeaveEvent(QDragLeaveEvent *event) override {
     if (taken[28]) {
@@ -622,7 +697,9 @@ public:
     }
     QWidget::dragLeaveEvent(event);
   }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
   //  void QWidget::dropEvent(QDropEvent *event)
   void dropEvent(QDropEvent *event) override {
     if (taken[29]) {
@@ -633,6 +710,7 @@ public:
     }
     QWidget::dropEvent(event);
   }
+#endif  // QT_CONFIG(draganddrop)
 
   //  void QWidget::showEvent(QShowEvent *event)
   void showEvent(QShowEvent *event) override {
@@ -744,6 +822,7 @@ public:
     return QWidget::focusNextPrevChild(next);
   }
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
     if (taken[40]) {
@@ -754,7 +833,9 @@ public:
     }
     return QObject::eventFilter(watched, event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
     if (taken[41]) {
@@ -765,7 +846,9 @@ public:
     }
     QObject::timerEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
     if (taken[42]) {
@@ -776,7 +859,9 @@ public:
     }
     QObject::childEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
     if (taken[43]) {
@@ -787,7 +872,9 @@ public:
     }
     QObject::customEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
     if (taken[44]) {
@@ -798,7 +885,9 @@ public:
     }
     QObject::connectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
     if (taken[45]) {
@@ -809,6 +898,7 @@ public:
     }
     QObject::disconnectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 };
 
 //  const QMetaObject *QWidget::metaObject() const
@@ -821,6 +911,18 @@ const QMetaObject *ritual_ZNK7QWidget10metaObjectEv(const QWidget *self) {
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN7QWidget2trEPKcS1_i(const char *s, const char *c, int n) {
   return new QString(QWidget::tr(s, c, n));
+}
+
+//  QWidgetPrivate *QWidget::d_func()
+extern "C" Q_DECL_EXPORT
+QWidgetPrivate *ritual_ZN7QWidget6d_funcEv(QWidget *self) {
+  return self->d_func();
+}
+
+//  const QWidgetPrivate *QWidget::d_func() const
+extern "C" Q_DECL_EXPORT
+const QWidgetPrivate *ritual_ZNK7QWidget6d_funcEv(const QWidget *self) {
+  return self->d_func();
 }
 
 //  QWidget::QWidget(QWidget *parent, Qt::WindowFlags f)
@@ -879,11 +981,13 @@ void ritual_ZN7QWidget8setStyleEP6QStyle(QWidget *self, QStyle *a0) {
   self->setStyle(a0);
 }
 
+#if QT_DEPRECATED_SINCE(6, 1)
 //  bool QWidget::isTopLevel() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK7QWidget10isTopLevelEv(const QWidget *self) {
   return self->isTopLevel();
 }
+#endif  // QT_DEPRECATED_SINCE(6, 1)
 
 //  bool QWidget::isWindow() const
 extern "C" Q_DECL_EXPORT
@@ -1368,12 +1472,15 @@ QFontInfo *ritual_ZNK7QWidget8fontInfoEv(const QWidget *self) {
   return new QFontInfo(self->fontInfo());
 }
 
+#if !defined(QT_NO_CURSOR)
 //  QCursor QWidget::cursor() const
 extern "C" Q_DECL_EXPORT
 QCursor *ritual_ZNK7QWidget6cursorEv(const QWidget *self) {
   return new QCursor(self->cursor());
 }
+#endif  // !defined(QT_NO_CURSOR)
 
+#if !defined(QT_NO_CURSOR)
 //  void QWidget::setCursor(const QCursor &a0)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7QWidget9setCursorERK7QCursor(
@@ -1381,12 +1488,15 @@ void ritual_ZN7QWidget9setCursorERK7QCursor(
     const QCursor *a0) {
   self->setCursor(*a0);
 }
+#endif  // !defined(QT_NO_CURSOR)
 
+#if !defined(QT_NO_CURSOR)
 //  void QWidget::unsetCursor()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7QWidget11unsetCursorEv(QWidget *self) {
   self->unsetCursor();
 }
+#endif  // !defined(QT_NO_CURSOR)
 
 //  void QWidget::setMouseTracking(bool enable)
 extern "C" Q_DECL_EXPORT
@@ -1482,12 +1592,15 @@ QPixmap *ritual_ZN7QWidget4grabERK5QRect(
   return new QPixmap(self->grab(*rectangle));
 }
 
+#if QT_CONFIG(graphicseffect)
 //  QGraphicsEffect *QWidget::graphicsEffect() const
 extern "C" Q_DECL_EXPORT
 QGraphicsEffect *ritual_ZNK7QWidget14graphicsEffectEv(const QWidget *self) {
   return self->graphicsEffect();
 }
+#endif  // QT_CONFIG(graphicseffect)
 
+#if QT_CONFIG(graphicseffect)
 //  void QWidget::setGraphicsEffect(QGraphicsEffect *effect)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7QWidget17setGraphicsEffectEP15QGraphicsEffect(
@@ -1495,7 +1608,9 @@ void ritual_ZN7QWidget17setGraphicsEffectEP15QGraphicsEffect(
     QGraphicsEffect *effect) {
   self->setGraphicsEffect(effect);
 }
+#endif  // QT_CONFIG(graphicseffect)
 
+#if !defined(QT_NO_GESTURES)
 //  void QWidget::grabGesture(Qt::GestureType type, Qt::GestureFlags flags)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7QWidget11grabGestureEN2Qt11GestureTypeE6QFlagsINS0_11GestureFlagEE(
@@ -1504,7 +1619,9 @@ void ritual_ZN7QWidget11grabGestureEN2Qt11GestureTypeE6QFlagsINS0_11GestureFlagE
     int flags) {
   self->grabGesture(type, QFlags<Qt::GestureFlag>::fromInt(flags));
 }
+#endif  // !defined(QT_NO_GESTURES)
 
+#if !defined(QT_NO_GESTURES)
 //  void QWidget::ungrabGesture(Qt::GestureType type)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7QWidget13ungrabGestureEN2Qt11GestureTypeE(
@@ -1512,6 +1629,7 @@ void ritual_ZN7QWidget13ungrabGestureEN2Qt11GestureTypeE(
     Qt::GestureType type) {
   self->ungrabGesture(type);
 }
+#endif  // !defined(QT_NO_GESTURES)
 
 //  void QWidget::setWindowTitle(const QString &a0)
 extern "C" Q_DECL_EXPORT
@@ -1521,6 +1639,7 @@ void ritual_ZN7QWidget14setWindowTitleERK7QString(
   self->setWindowTitle(*a0);
 }
 
+#if !defined(QT_NO_STYLE_STYLESHEET)
 //  void QWidget::setStyleSheet(const QString &styleSheet)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7QWidget13setStyleSheetERK7QString(
@@ -1528,12 +1647,15 @@ void ritual_ZN7QWidget13setStyleSheetERK7QString(
     const QString *styleSheet) {
   self->setStyleSheet(*styleSheet);
 }
+#endif  // !defined(QT_NO_STYLE_STYLESHEET)
 
+#if !defined(QT_NO_STYLE_STYLESHEET)
 //  QString QWidget::styleSheet() const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK7QWidget10styleSheetEv(const QWidget *self) {
   return new QString(self->styleSheet());
 }
+#endif  // !defined(QT_NO_STYLE_STYLESHEET)
 
 //  QString QWidget::windowTitle() const
 extern "C" Q_DECL_EXPORT
@@ -1615,6 +1737,7 @@ bool ritual_ZNK7QWidget16isWindowModifiedEv(const QWidget *self) {
   return self->isWindowModified();
 }
 
+#if QT_CONFIG(tooltip)
 //  void QWidget::setToolTip(const QString &a0)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7QWidget10setToolTipERK7QString(
@@ -1622,25 +1745,33 @@ void ritual_ZN7QWidget10setToolTipERK7QString(
     const QString *a0) {
   self->setToolTip(*a0);
 }
+#endif  // QT_CONFIG(tooltip)
 
+#if QT_CONFIG(tooltip)
 //  QString QWidget::toolTip() const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK7QWidget7toolTipEv(const QWidget *self) {
   return new QString(self->toolTip());
 }
+#endif  // QT_CONFIG(tooltip)
 
+#if QT_CONFIG(tooltip)
 //  void QWidget::setToolTipDuration(int msec)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7QWidget18setToolTipDurationEi(QWidget *self, int msec) {
   self->setToolTipDuration(msec);
 }
+#endif  // QT_CONFIG(tooltip)
 
+#if QT_CONFIG(tooltip)
 //  int QWidget::toolTipDuration() const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK7QWidget15toolTipDurationEv(const QWidget *self) {
   return self->toolTipDuration();
 }
+#endif  // QT_CONFIG(tooltip)
 
+#if QT_CONFIG(statustip)
 //  void QWidget::setStatusTip(const QString &a0)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7QWidget12setStatusTipERK7QString(
@@ -1648,13 +1779,17 @@ void ritual_ZN7QWidget12setStatusTipERK7QString(
     const QString *a0) {
   self->setStatusTip(*a0);
 }
+#endif  // QT_CONFIG(statustip)
 
+#if QT_CONFIG(statustip)
 //  QString QWidget::statusTip() const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK7QWidget9statusTipEv(const QWidget *self) {
   return new QString(self->statusTip());
 }
+#endif  // QT_CONFIG(statustip)
 
+#if QT_CONFIG(whatsthis)
 //  void QWidget::setWhatsThis(const QString &a0)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7QWidget12setWhatsThisERK7QString(
@@ -1662,19 +1797,25 @@ void ritual_ZN7QWidget12setWhatsThisERK7QString(
     const QString *a0) {
   self->setWhatsThis(*a0);
 }
+#endif  // QT_CONFIG(whatsthis)
 
+#if QT_CONFIG(whatsthis)
 //  QString QWidget::whatsThis() const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK7QWidget9whatsThisEv(const QWidget *self) {
   return new QString(self->whatsThis());
 }
+#endif  // QT_CONFIG(whatsthis)
 
+#if QT_CONFIG(accessibility)
 //  QString QWidget::accessibleName() const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK7QWidget14accessibleNameEv(const QWidget *self) {
   return new QString(self->accessibleName());
 }
+#endif  // QT_CONFIG(accessibility)
 
+#if QT_CONFIG(accessibility)
 //  void QWidget::setAccessibleName(const QString &name)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7QWidget17setAccessibleNameERK7QString(
@@ -1682,13 +1823,17 @@ void ritual_ZN7QWidget17setAccessibleNameERK7QString(
     const QString *name) {
   self->setAccessibleName(*name);
 }
+#endif  // QT_CONFIG(accessibility)
 
+#if QT_CONFIG(accessibility)
 //  QString QWidget::accessibleDescription() const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK7QWidget21accessibleDescriptionEv(const QWidget *self) {
   return new QString(self->accessibleDescription());
 }
+#endif  // QT_CONFIG(accessibility)
 
+#if QT_CONFIG(accessibility)
 //  void QWidget::setAccessibleDescription(const QString &description)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7QWidget24setAccessibleDescriptionERK7QString(
@@ -1696,13 +1841,17 @@ void ritual_ZN7QWidget24setAccessibleDescriptionERK7QString(
     const QString *description) {
   self->setAccessibleDescription(*description);
 }
+#endif  // QT_CONFIG(accessibility)
 
+#if QT_CONFIG(accessibility)
 //  QString QWidget::accessibleIdentifier() const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK7QWidget20accessibleIdentifierEv(const QWidget *self) {
   return new QString(self->accessibleIdentifier());
 }
+#endif  // QT_CONFIG(accessibility)
 
+#if QT_CONFIG(accessibility)
 //  void QWidget::setAccessibleIdentifier(const QString &identifier)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7QWidget23setAccessibleIdentifierERK7QString(
@@ -1710,6 +1859,7 @@ void ritual_ZN7QWidget23setAccessibleIdentifierERK7QString(
     const QString *identifier) {
   self->setAccessibleIdentifier(*identifier);
 }
+#endif  // QT_CONFIG(accessibility)
 
 //  void QWidget::setLayoutDirection(Qt::LayoutDirection direction)
 extern "C" Q_DECL_EXPORT
@@ -1855,6 +2005,7 @@ void ritual_ZN7QWidget9grabMouseEv(QWidget *self) {
   self->grabMouse();
 }
 
+#if !defined(QT_NO_CURSOR)
 //  void QWidget::grabMouse(const QCursor &a0)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7QWidget9grabMouseERK7QCursor(
@@ -1862,6 +2013,7 @@ void ritual_ZN7QWidget9grabMouseERK7QCursor(
     const QCursor *a0) {
   self->grabMouse(*a0);
 }
+#endif  // !defined(QT_NO_CURSOR)
 
 //  void QWidget::releaseMouse()
 extern "C" Q_DECL_EXPORT
@@ -1881,6 +2033,7 @@ void ritual_ZN7QWidget15releaseKeyboardEv(QWidget *self) {
   self->releaseKeyboard();
 }
 
+#if !defined(QT_NO_SHORTCUT)
 //  int QWidget::grabShortcut(const QKeySequence &key, Qt::ShortcutContext
 //      context)
 extern "C" Q_DECL_EXPORT
@@ -1890,13 +2043,17 @@ int ritual_ZN7QWidget12grabShortcutERK12QKeySequenceN2Qt15ShortcutContextE(
     Qt::ShortcutContext context) {
   return self->grabShortcut(*key, context);
 }
+#endif  // !defined(QT_NO_SHORTCUT)
 
+#if !defined(QT_NO_SHORTCUT)
 //  void QWidget::releaseShortcut(int id)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7QWidget15releaseShortcutEi(QWidget *self, int id) {
   self->releaseShortcut(id);
 }
+#endif  // !defined(QT_NO_SHORTCUT)
 
+#if !defined(QT_NO_SHORTCUT)
 //  void QWidget::setShortcutEnabled(int id, bool enable)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7QWidget18setShortcutEnabledEib(
@@ -1905,7 +2062,9 @@ void ritual_ZN7QWidget18setShortcutEnabledEib(
     bool enable) {
   self->setShortcutEnabled(id, enable);
 }
+#endif  // !defined(QT_NO_SHORTCUT)
 
+#if !defined(QT_NO_SHORTCUT)
 //  void QWidget::setShortcutAutoRepeat(int id, bool enable)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7QWidget21setShortcutAutoRepeatEib(
@@ -1914,6 +2073,7 @@ void ritual_ZN7QWidget21setShortcutAutoRepeatEib(
     bool enable) {
   self->setShortcutAutoRepeat(id, enable);
 }
+#endif  // !defined(QT_NO_SHORTCUT)
 
 //  QWidget *QWidget::mouseGrabber()
 extern "C" Q_DECL_EXPORT
@@ -1939,12 +2099,14 @@ void ritual_ZN7QWidget17setUpdatesEnabledEb(QWidget *self, bool enable) {
   self->setUpdatesEnabled(enable);
 }
 
+#if QT_CONFIG(graphicsview)
 //  QGraphicsProxyWidget *QWidget::graphicsProxyWidget() const
 extern "C" Q_DECL_EXPORT
 QGraphicsProxyWidget *ritual_ZNK7QWidget19graphicsProxyWidgetEv(
     const QWidget *self) {
   return self->graphicsProxyWidget();
 }
+#endif  // QT_CONFIG(graphicsview)
 
 //  void QWidget::update()
 extern "C" Q_DECL_EXPORT
@@ -2364,12 +2526,15 @@ void ritual_ZN7QWidget14setAcceptDropsEb(QWidget *self, bool on) {
   self->setAcceptDrops(on);
 }
 
+#if !defined(QT_NO_ACTION)
 //  void QWidget::addAction(QAction *action)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7QWidget9addActionEP7QAction(QWidget *self, QAction *action) {
   self->addAction(action);
 }
+#endif  // !defined(QT_NO_ACTION)
 
+#if !defined(QT_NO_ACTION)
 //  void QWidget::addActions(const QList<QAction *> &actions)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7QWidget10addActionsERK5QListIP7QActionE(
@@ -2377,7 +2542,9 @@ void ritual_ZN7QWidget10addActionsERK5QListIP7QActionE(
     const QList<QAction *> *actions) {
   self->addActions(*actions);
 }
+#endif  // !defined(QT_NO_ACTION)
 
+#if !defined(QT_NO_ACTION)
 //  void QWidget::insertActions(QAction *before, const QList<QAction *>
 //      &actions)
 extern "C" Q_DECL_EXPORT
@@ -2387,7 +2554,9 @@ void ritual_ZN7QWidget13insertActionsEP7QActionRK5QListIS1_E(
     const QList<QAction *> *actions) {
   self->insertActions(before, *actions);
 }
+#endif  // !defined(QT_NO_ACTION)
 
+#if !defined(QT_NO_ACTION)
 //  void QWidget::insertAction(QAction *before, QAction *action)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7QWidget12insertActionEP7QActionS1_(
@@ -2396,7 +2565,9 @@ void ritual_ZN7QWidget12insertActionEP7QActionS1_(
     QAction *action) {
   self->insertAction(before, action);
 }
+#endif  // !defined(QT_NO_ACTION)
 
+#if !defined(QT_NO_ACTION)
 //  void QWidget::removeAction(QAction *action)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7QWidget12removeActionEP7QAction(
@@ -2404,13 +2575,17 @@ void ritual_ZN7QWidget12removeActionEP7QAction(
     QAction *action) {
   self->removeAction(action);
 }
+#endif  // !defined(QT_NO_ACTION)
 
+#if !defined(QT_NO_ACTION)
 //  QList<QAction *> QWidget::actions() const
 extern "C" Q_DECL_EXPORT
 QList<QAction *> *ritual_ZNK7QWidget7actionsEv(const QWidget *self) {
   return new QList<QAction *>(self->actions());
 }
+#endif  // !defined(QT_NO_ACTION)
 
+#if !defined(QT_NO_ACTION)
 //  QAction *QWidget::addAction(const QString &text)
 extern "C" Q_DECL_EXPORT
 QAction *ritual_ZN7QWidget9addActionERK7QString(
@@ -2418,7 +2593,9 @@ QAction *ritual_ZN7QWidget9addActionERK7QString(
     const QString *text) {
   return self->addAction(*text);
 }
+#endif  // !defined(QT_NO_ACTION)
 
+#if !defined(QT_NO_ACTION)
 //  QAction *QWidget::addAction(const QIcon &icon, const QString &text)
 extern "C" Q_DECL_EXPORT
 QAction *ritual_ZN7QWidget9addActionERK5QIconRK7QString(
@@ -2427,7 +2604,9 @@ QAction *ritual_ZN7QWidget9addActionERK5QIconRK7QString(
     const QString *text) {
   return self->addAction(*icon, *text);
 }
+#endif  // !defined(QT_NO_ACTION)
 
+#if !defined(QT_NO_ACTION)
 //  QAction *QWidget::addAction(const QString &text, const QObject *receiver,
 //      const char *member, Qt::ConnectionType type)
 extern "C" Q_DECL_EXPORT
@@ -2439,7 +2618,9 @@ QAction *ritual_ZN7QWidget9addActionERK7QStringPK7QObjectPKcN2Qt14ConnectionType
     Qt::ConnectionType type) {
   return self->addAction(*text, receiver, member, type);
 }
+#endif  // !defined(QT_NO_ACTION)
 
+#if !defined(QT_NO_ACTION)
 //  QAction *QWidget::addAction(const QIcon &icon, const QString &text, const
 //      QObject *receiver, const char *member, Qt::ConnectionType type)
 extern "C" Q_DECL_EXPORT
@@ -2452,7 +2633,10 @@ QAction *ritual_ZN7QWidget9addActionERK5QIconRK7QStringPK7QObjectPKcN2Qt14Connec
     Qt::ConnectionType type) {
   return self->addAction(*icon, *text, receiver, member, type);
 }
+#endif  // !defined(QT_NO_ACTION)
 
+#if !defined(QT_NO_ACTION)
+#if QT_CONFIG(shortcut)
 //  QAction *QWidget::addAction(const QString &text, const QKeySequence
 //      &shortcut)
 extern "C" Q_DECL_EXPORT
@@ -2462,7 +2646,11 @@ QAction *ritual_ZN7QWidget9addActionERK7QStringRK12QKeySequence(
     const QKeySequence *shortcut) {
   return self->addAction(*text, *shortcut);
 }
+#endif  // QT_CONFIG(shortcut)
+#endif  // !defined(QT_NO_ACTION)
 
+#if !defined(QT_NO_ACTION)
+#if QT_CONFIG(shortcut)
 //  QAction *QWidget::addAction(const QIcon &icon, const QString &text, const
 //      QKeySequence &shortcut)
 extern "C" Q_DECL_EXPORT
@@ -2473,7 +2661,11 @@ QAction *ritual_ZN7QWidget9addActionERK5QIconRK7QStringRK12QKeySequence(
     const QKeySequence *shortcut) {
   return self->addAction(*icon, *text, *shortcut);
 }
+#endif  // QT_CONFIG(shortcut)
+#endif  // !defined(QT_NO_ACTION)
 
+#if !defined(QT_NO_ACTION)
+#if QT_CONFIG(shortcut)
 //  QAction *QWidget::addAction(const QString &text, const QKeySequence
 //      &shortcut, const QObject *receiver, const char *member,
 //      Qt::ConnectionType type)
@@ -2487,7 +2679,11 @@ QAction *ritual_ZN7QWidget9addActionERK7QStringRK12QKeySequencePK7QObjectPKcN2Qt
     Qt::ConnectionType type) {
   return self->addAction(*text, *shortcut, receiver, member, type);
 }
+#endif  // QT_CONFIG(shortcut)
+#endif  // !defined(QT_NO_ACTION)
 
+#if !defined(QT_NO_ACTION)
+#if QT_CONFIG(shortcut)
 //  QAction *QWidget::addAction(const QIcon &icon, const QString &text, const
 //      QKeySequence &shortcut, const QObject *receiver, const char *member,
 //      Qt::ConnectionType type)
@@ -2502,6 +2698,8 @@ QAction *ritual_ZN7QWidget9addActionERK5QIconRK7QStringRK12QKeySequencePK7QObjec
     Qt::ConnectionType type) {
   return self->addAction(*icon, *text, *shortcut, receiver, member, type);
 }
+#endif  // QT_CONFIG(shortcut)
+#endif  // !defined(QT_NO_ACTION)
 
 //  QWidget *QWidget::parentWidget() const
 extern "C" Q_DECL_EXPORT
@@ -2700,6 +2898,7 @@ void ritual_ZN7QWidget14mouseMoveEventEP11QMouseEvent(
   self->mouseMoveEvent(event);
 }
 
+#if QT_CONFIG(wheelevent)
 //  void QWidget::wheelEvent(QWheelEvent *event)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7QWidget10wheelEventEP11QWheelEvent(
@@ -2707,6 +2906,7 @@ void ritual_ZN7QWidget10wheelEventEP11QWheelEvent(
     QWheelEvent *event) {
   self->wheelEvent(event);
 }
+#endif  // QT_CONFIG(wheelevent)
 
 //  void QWidget::keyPressEvent(QKeyEvent *event)
 extern "C" Q_DECL_EXPORT
@@ -2786,6 +2986,7 @@ void ritual_ZN7QWidget10closeEventEP11QCloseEvent(
   self->closeEvent(event);
 }
 
+#if !defined(QT_NO_CONTEXTMENU)
 //  void QWidget::contextMenuEvent(QContextMenuEvent *event)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7QWidget16contextMenuEventEP17QContextMenuEvent(
@@ -2793,7 +2994,9 @@ void ritual_ZN7QWidget16contextMenuEventEP17QContextMenuEvent(
     QContextMenuEvent *event) {
   self->contextMenuEvent(event);
 }
+#endif  // !defined(QT_NO_CONTEXTMENU)
 
+#if QT_CONFIG(tabletevent)
 //  void QWidget::tabletEvent(QTabletEvent *event)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7QWidget11tabletEventEP12QTabletEvent(
@@ -2801,7 +3004,9 @@ void ritual_ZN7QWidget11tabletEventEP12QTabletEvent(
     QTabletEvent *event) {
   self->tabletEvent(event);
 }
+#endif  // QT_CONFIG(tabletevent)
 
+#if !defined(QT_NO_ACTION)
 //  void QWidget::actionEvent(QActionEvent *event)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7QWidget11actionEventEP12QActionEvent(
@@ -2809,7 +3014,9 @@ void ritual_ZN7QWidget11actionEventEP12QActionEvent(
     QActionEvent *event) {
   self->actionEvent(event);
 }
+#endif  // !defined(QT_NO_ACTION)
 
+#if QT_CONFIG(draganddrop)
 //  void QWidget::dragEnterEvent(QDragEnterEvent *event)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7QWidget14dragEnterEventEP15QDragEnterEvent(
@@ -2817,7 +3024,9 @@ void ritual_ZN7QWidget14dragEnterEventEP15QDragEnterEvent(
     QDragEnterEvent *event) {
   self->dragEnterEvent(event);
 }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
 //  void QWidget::dragMoveEvent(QDragMoveEvent *event)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7QWidget13dragMoveEventEP14QDragMoveEvent(
@@ -2825,7 +3034,9 @@ void ritual_ZN7QWidget13dragMoveEventEP14QDragMoveEvent(
     QDragMoveEvent *event) {
   self->dragMoveEvent(event);
 }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
 //  void QWidget::dragLeaveEvent(QDragLeaveEvent *event)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7QWidget14dragLeaveEventEP15QDragLeaveEvent(
@@ -2833,7 +3044,9 @@ void ritual_ZN7QWidget14dragLeaveEventEP15QDragLeaveEvent(
     QDragLeaveEvent *event) {
   self->dragLeaveEvent(event);
 }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
 //  void QWidget::dropEvent(QDropEvent *event)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7QWidget9dropEventEP10QDropEvent(
@@ -2841,6 +3054,7 @@ void ritual_ZN7QWidget9dropEventEP10QDropEvent(
     QDropEvent *event) {
   self->dropEvent(event);
 }
+#endif  // QT_CONFIG(draganddrop)
 
 //  void QWidget::showEvent(QShowEvent *event)
 extern "C" Q_DECL_EXPORT
@@ -3085,6 +3299,7 @@ void ritual_own_ZN7QWidget14mouseMoveEventEP11QMouseEvent(
   static_cast<OwnQWidget *>(self)->OwnQWidget::mouseMoveEvent(event);
 }
 
+#if QT_CONFIG(wheelevent)
 //  void QWidget::wheelEvent(QWheelEvent *event)
 extern "C" Q_DECL_EXPORT
 void ritual_own_ZN7QWidget10wheelEventEP11QWheelEvent(
@@ -3092,6 +3307,7 @@ void ritual_own_ZN7QWidget10wheelEventEP11QWheelEvent(
     QWheelEvent *event) {
   static_cast<OwnQWidget *>(self)->OwnQWidget::wheelEvent(event);
 }
+#endif  // QT_CONFIG(wheelevent)
 
 //  void QWidget::keyPressEvent(QKeyEvent *event)
 extern "C" Q_DECL_EXPORT
@@ -3173,6 +3389,7 @@ void ritual_own_ZN7QWidget10closeEventEP11QCloseEvent(
   static_cast<OwnQWidget *>(self)->OwnQWidget::closeEvent(event);
 }
 
+#if !defined(QT_NO_CONTEXTMENU)
 //  void QWidget::contextMenuEvent(QContextMenuEvent *event)
 extern "C" Q_DECL_EXPORT
 void ritual_own_ZN7QWidget16contextMenuEventEP17QContextMenuEvent(
@@ -3180,7 +3397,9 @@ void ritual_own_ZN7QWidget16contextMenuEventEP17QContextMenuEvent(
     QContextMenuEvent *event) {
   static_cast<OwnQWidget *>(self)->OwnQWidget::contextMenuEvent(event);
 }
+#endif  // !defined(QT_NO_CONTEXTMENU)
 
+#if QT_CONFIG(tabletevent)
 //  void QWidget::tabletEvent(QTabletEvent *event)
 extern "C" Q_DECL_EXPORT
 void ritual_own_ZN7QWidget11tabletEventEP12QTabletEvent(
@@ -3188,7 +3407,9 @@ void ritual_own_ZN7QWidget11tabletEventEP12QTabletEvent(
     QTabletEvent *event) {
   static_cast<OwnQWidget *>(self)->OwnQWidget::tabletEvent(event);
 }
+#endif  // QT_CONFIG(tabletevent)
 
+#if !defined(QT_NO_ACTION)
 //  void QWidget::actionEvent(QActionEvent *event)
 extern "C" Q_DECL_EXPORT
 void ritual_own_ZN7QWidget11actionEventEP12QActionEvent(
@@ -3196,7 +3417,9 @@ void ritual_own_ZN7QWidget11actionEventEP12QActionEvent(
     QActionEvent *event) {
   static_cast<OwnQWidget *>(self)->OwnQWidget::actionEvent(event);
 }
+#endif  // !defined(QT_NO_ACTION)
 
+#if QT_CONFIG(draganddrop)
 //  void QWidget::dragEnterEvent(QDragEnterEvent *event)
 extern "C" Q_DECL_EXPORT
 void ritual_own_ZN7QWidget14dragEnterEventEP15QDragEnterEvent(
@@ -3204,7 +3427,9 @@ void ritual_own_ZN7QWidget14dragEnterEventEP15QDragEnterEvent(
     QDragEnterEvent *event) {
   static_cast<OwnQWidget *>(self)->OwnQWidget::dragEnterEvent(event);
 }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
 //  void QWidget::dragMoveEvent(QDragMoveEvent *event)
 extern "C" Q_DECL_EXPORT
 void ritual_own_ZN7QWidget13dragMoveEventEP14QDragMoveEvent(
@@ -3212,7 +3437,9 @@ void ritual_own_ZN7QWidget13dragMoveEventEP14QDragMoveEvent(
     QDragMoveEvent *event) {
   static_cast<OwnQWidget *>(self)->OwnQWidget::dragMoveEvent(event);
 }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
 //  void QWidget::dragLeaveEvent(QDragLeaveEvent *event)
 extern "C" Q_DECL_EXPORT
 void ritual_own_ZN7QWidget14dragLeaveEventEP15QDragLeaveEvent(
@@ -3220,7 +3447,9 @@ void ritual_own_ZN7QWidget14dragLeaveEventEP15QDragLeaveEvent(
     QDragLeaveEvent *event) {
   static_cast<OwnQWidget *>(self)->OwnQWidget::dragLeaveEvent(event);
 }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
 //  void QWidget::dropEvent(QDropEvent *event)
 extern "C" Q_DECL_EXPORT
 void ritual_own_ZN7QWidget9dropEventEP10QDropEvent(
@@ -3228,6 +3457,7 @@ void ritual_own_ZN7QWidget9dropEventEP10QDropEvent(
     QDropEvent *event) {
   static_cast<OwnQWidget *>(self)->OwnQWidget::dropEvent(event);
 }
+#endif  // QT_CONFIG(draganddrop)
 
 //  void QWidget::showEvent(QShowEvent *event)
 extern "C" Q_DECL_EXPORT

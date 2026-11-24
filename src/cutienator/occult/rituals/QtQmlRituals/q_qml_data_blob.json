@@ -1,0 +1,77 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmldatablob_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN12QQmlDataBlobD1Ev": ["nothing", "address"],
+    "ritual_ZN12QQmlDataBlob12startLoadingEv": ["nothing", "address"],
+    "ritual_ZNK12QQmlDataBlob10typeLoaderEv": ["address", "address"],
+    "ritual_ZN12QQmlDataBlob15resetTypeLoaderEv": ["nothing", "address"],
+    "ritual_ZNK12QQmlDataBlob4typeEv": ["int", "address"],
+    "ritual_ZNK12QQmlDataBlob6statusEv": ["int", "address"],
+    "ritual_ZNK12QQmlDataBlob6isNullEv": ["bool", "address"],
+    "ritual_ZNK12QQmlDataBlob9isLoadingEv": ["bool", "address"],
+    "ritual_ZNK12QQmlDataBlob9isWaitingEv": ["bool", "address"],
+    "ritual_ZNK12QQmlDataBlob10isCompleteEv": ["bool", "address"],
+    "ritual_ZNK12QQmlDataBlob7isErrorEv": ["bool", "address"],
+    "ritual_ZNK12QQmlDataBlob17isCompleteOrErrorEv": ["bool", "address"],
+    "ritual_ZNK12QQmlDataBlob7isAsyncEv": ["bool", "address"],
+    "ritual_ZNK12QQmlDataBlob8progressEv": ["double", "address"],
+    "ritual_ZNK12QQmlDataBlob3urlEv": ["address", "address"],
+    "ritual_ZNK12QQmlDataBlob9urlStringEv": ["text", "address"],
+    "ritual_ZNK12QQmlDataBlob8finalUrlEv": ["address", "address"],
+    "ritual_ZNK12QQmlDataBlob14finalUrlStringEv": ["text", "address"],
+    "ritual_ZNK12QQmlDataBlob6errorsEv": ["address", "address"],
+    "ritual_ZN12QQmlDataBlob8setErrorERK9QQmlError": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QQmlDataBlob8setErrorERK5QListI9QQmlErrorE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QQmlDataBlob8setErrorERKN6QQmlJS17DiagnosticMessageE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QQmlDataBlob8setErrorERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN12QQmlDataBlob12dataReceivedERKNS_14SourceCodeDataE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QQmlDataBlob24initializeFromCachedUnitEPKN11QQmlPrivate13CachedQmlUnitE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QQmlDataBlob4doneEv": ["nothing", "address"],
+    "ritual_ZN12QQmlDataBlob12networkErrorEN13QNetworkReply12NetworkErrorE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN12QQmlDataBlob19allDependenciesDoneEv": ["nothing", "address"],
+    "ritual_ZN12QQmlDataBlob23downloadProgressChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN12QQmlDataBlob9completedEv": ["nothing", "address"],
+    "ritual_ZN12QQmlDataBlob7tryDoneEv": ["nothing", "address"],
+    "ritual_ZN12QQmlDataBlob19cancelAllWaitingForEv": ["nothing", "address"],
+    "ritual_ZN12QQmlDataBlob20notifyAllWaitingOnMeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN12QQmlDataBlob9setStatusENS_6StatusE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN12QQmlDataBlob10setIsAsyncEb": ["bool", "address", "bool"],
+    "ritual_ZN12QQmlDataBlob11setProgressEd": ["bool", "address", "double"],
+    "ritual_take_QQmlDataBlob": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN12QQmlDataBlob4doneEv": ["nothing", "address"],
+    "ritual_own_ZN12QQmlDataBlob12networkErrorEN13QNetworkReply12NetworkErrorE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN12QQmlDataBlob19allDependenciesDoneEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN12QQmlDataBlob23downloadProgressChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_own_ZN12QQmlDataBlob9completedEv": ["nothing", "address"]
+  }
+}

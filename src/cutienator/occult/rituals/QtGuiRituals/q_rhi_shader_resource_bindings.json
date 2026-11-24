@@ -1,0 +1,37 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/rhi/qrhi.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK26QRhiShaderResourceBindings12resourceTypeEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK26QRhiShaderResourceBindings14cbeginBindingsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK26QRhiShaderResourceBindings12cendBindingsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK26QRhiShaderResourceBindings9bindingAtEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZNK26QRhiShaderResourceBindings12bindingCountEv": [
+      "long long", "address"
+    ],
+    "ritual_ZNK26QRhiShaderResourceBindings18isLayoutCompatibleEPKS_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN26QRhiShaderResourceBindings6createEv": ["bool", "address"],
+    "ritual_ZN26QRhiShaderResourceBindings15updateResourcesE6QFlagsINS_10UpdateFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_take_QRhiShaderResourceBindings": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK26QRhiShaderResourceBindings12resourceTypeEv": [
+      "int", "address"
+    ]
+  }
+}

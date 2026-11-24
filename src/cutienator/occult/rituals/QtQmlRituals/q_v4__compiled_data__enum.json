@@ -1,0 +1,23 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4compileddata_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK3QV412CompiledData4Enum11enumValueAtEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN3QV412CompiledData4Enum13calculateSizeEi": ["int", "int"],
+    "ritual_ZNK3QV412CompiledData4Enum15enumValuesBeginEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData4Enum13enumValuesEndEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData4Enum14enumValueCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZN3QV412CompiledData4EnumD1Ev": ["nothing", "address"]
+  }
+}

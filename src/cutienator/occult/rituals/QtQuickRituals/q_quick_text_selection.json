@@ -1,0 +1,72 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquicktextselection_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK19QQuickTextSelection10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QQuickTextSelection2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN19QQuickTextSelectionC1EP7QObject": ["address", "address"],
+    "ritual_ZN19QQuickTextSelection10classBeginEv": ["nothing", "address"],
+    "ritual_ZN19QQuickTextSelection17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK19QQuickTextSelection8documentEv": ["address", "address"],
+    "ritual_ZN19QQuickTextSelection11setDocumentEP18QQuickTextDocument": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QQuickTextSelection14selectionStartEv": ["int", "address"],
+    "ritual_ZN19QQuickTextSelection17setSelectionStartEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK19QQuickTextSelection12selectionEndEv": ["int", "address"],
+    "ritual_ZN19QQuickTextSelection15setSelectionEndEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK19QQuickTextSelection4textEv": ["text", "address"],
+    "ritual_ZN19QQuickTextSelection7setTextERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK19QQuickTextSelection4fontEv": ["address", "address"],
+    "ritual_ZN19QQuickTextSelection7setFontERK5QFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QQuickTextSelection5colorEv": ["address", "address"],
+    "ritual_ZN19QQuickTextSelection8setColorE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QQuickTextSelection9alignmentEv": ["int", "address"],
+    "ritual_ZN19QQuickTextSelection12setAlignmentE6QFlagsIN2Qt13AlignmentFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN19QQuickTextSelection18moveSelectionStartENS_13MoveOperationEi": [
+      "bool", "address", "int", "int"
+    ],
+    "ritual_ZN19QQuickTextSelection16moveSelectionEndENS_13MoveOperationEi": [
+      "bool", "address", "int", "int"
+    ],
+    "ritual_ZN19QQuickTextSelection9duplicateEv": ["nothing", "address"],
+    "ritual_ZN19QQuickTextSelection6linkToERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QQuickTextSelection6cursorEv": ["address", "address"],
+    "ritual_ZN19QQuickTextSelection20updateFromCharFormatERK15QTextCharFormat": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickTextSelection21updateFromBlockFormatEv": [
+      "nothing", "address"
+    ],
+    "ritual_cast_QQuickTextSelection_QQmlParserStatus": [
+      "address", "address"
+    ],
+    "ritual_own_ZN19QQuickTextSelection10classBeginEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN19QQuickTextSelection17componentCompleteEv": [
+      "nothing", "address"
+    ]
+  }
+}

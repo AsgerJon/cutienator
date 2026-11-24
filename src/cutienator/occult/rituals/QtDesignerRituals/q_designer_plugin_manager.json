@@ -1,0 +1,80 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/pluginmanager_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK22QDesignerPluginManager10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QDesignerPluginManager2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN22QDesignerPluginManagerC1EP28QDesignerFormEditorInterface": [
+      "address", "address"
+    ],
+    "ritual_ZN22QDesignerPluginManagerC1ERK5QListI7QStringEP28QDesignerFormEditorInterface": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN22QDesignerPluginManagerD1Ev": ["nothing", "address"],
+    "ritual_ZNK22QDesignerPluginManager4coreEv": ["address", "address"],
+    "ritual_ZNK22QDesignerPluginManager8instanceERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK22QDesignerPluginManager17registeredPluginsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QDesignerPluginManager11findPluginsERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK22QDesignerPluginManager11pluginPathsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QDesignerPluginManager14setPluginPathsERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK22QDesignerPluginManager15disabledPluginsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QDesignerPluginManager18setDisabledPluginsERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK22QDesignerPluginManager13failedPluginsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK22QDesignerPluginManager13failureReasonERK7QString": [
+      "text", "address", "text"
+    ],
+    "ritual_ZNK22QDesignerPluginManager9instancesEv": ["address", "address"],
+    "ritual_ZNK22QDesignerPluginManager23registeredCustomWidgetsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK22QDesignerPluginManager16customWidgetDataEP30QDesignerCustomWidgetInterface": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK22QDesignerPluginManager16customWidgetDataERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN22QDesignerPluginManager18registerNewPluginsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN22QDesignerPluginManager18defaultPluginPathsEv": ["address"],
+    "ritual_ZN22QDesignerPluginManager12syncSettingsEv": ["bool", "address"],
+    "ritual_ZN22QDesignerPluginManager17ensureInitializedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QDesignerPluginManager23updateRegisteredPluginsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QDesignerPluginManager12registerPathERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN22QDesignerPluginManager14registerPluginERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_take_QDesignerPluginManager": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

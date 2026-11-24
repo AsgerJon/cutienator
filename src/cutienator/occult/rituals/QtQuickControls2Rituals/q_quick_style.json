@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuickControls2/qquickstyle.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN11QQuickStyle4nameEv": ["text"],
+    "ritual_ZN11QQuickStyle8setStyleERK7QString": ["nothing", "text"],
+    "ritual_ZN11QQuickStyle16setFallbackStyleERK7QString": [
+      "nothing", "text"
+    ],
+    "ritual_ZN11QQuickStyleD1Ev": ["nothing", "address"]
+  }
+}

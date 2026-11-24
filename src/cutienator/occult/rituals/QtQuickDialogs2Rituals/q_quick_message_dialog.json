@@ -1,0 +1,53 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Dialogs2/6.12.0/QtQuickDialogs2/private/qquickmessagedialog_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK19QQuickMessageDialog10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QQuickMessageDialog2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN19QQuickMessageDialog20qmlExtendedNamespaceEv": ["address"],
+    "ritual_ZN19QQuickMessageDialog30qt_qmlMarker_extendedNamespaceEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickMessageDialogC1EP7QObject": ["address", "address"],
+    "ritual_ZNK19QQuickMessageDialog4textEv": ["text", "address"],
+    "ritual_ZN19QQuickMessageDialog7setTextERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK19QQuickMessageDialog15informativeTextEv": [
+      "text", "address"
+    ],
+    "ritual_ZN19QQuickMessageDialog18setInformativeTextERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK19QQuickMessageDialog12detailedTextEv": ["text", "address"],
+    "ritual_ZN19QQuickMessageDialog15setDetailedTextERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK19QQuickMessageDialog7buttonsEv": ["int", "address"],
+    "ritual_ZN19QQuickMessageDialog10setButtonsE6QFlagsIN21QPlatformDialogHelper14StandardButtonEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN19QQuickMessageDialog11handleClickEN21QPlatformDialogHelper14StandardButtonENS0_10ButtonRoleE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN19QQuickMessageDialog8onCreateEP21QPlatformDialogHelper": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickMessageDialog6onShowEP21QPlatformDialogHelper": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QQuickMessageDialog10dialogCodeEv": ["int", "address"],
+    "ritual_own_ZN19QQuickMessageDialog8onCreateEP21QPlatformDialogHelper": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN19QQuickMessageDialog6onShowEP21QPlatformDialogHelper": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK19QQuickMessageDialog10dialogCodeEv": ["int", "address"]
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/rhi/qrhi.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN28QRhiTextureUploadDescriptionC1Ev": ["address"],
+    "ritual_ZN28QRhiTextureUploadDescriptionC1ERK22QRhiTextureUploadEntry": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QRhiTextureUploadDescription13cbeginEntriesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QRhiTextureUploadDescription11cendEntriesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QRhiTextureUploadDescription7entryAtEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZNK28QRhiTextureUploadDescription10entryCountEv": [
+      "long long", "address"
+    ],
+    "ritual_ZN28QRhiTextureUploadDescriptionD1Ev": ["nothing", "address"]
+  }
+}

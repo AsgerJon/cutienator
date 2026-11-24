@@ -1,0 +1,81 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qgnometheme_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11QGnomeTheme6d_funcEv": ["address", "address"],
+    "ritual_ZNK11QGnomeTheme6d_funcEv": ["address", "address"],
+    "ritual_ZN11QGnomeThemeC1Ev": ["address"],
+    "ritual_ZNK11QGnomeTheme9themeHintEN14QPlatformTheme9ThemeHintE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK11QGnomeTheme8fileIconERK9QFileInfo6QFlagsIN14QPlatformTheme10IconOptionEE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZNK11QGnomeTheme4fontEN14QPlatformTheme4FontE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK11QGnomeTheme18standardButtonTextEi": [
+      "text", "address", "int"
+    ],
+    "ritual_ZNK11QGnomeTheme11gtkFontNameEv": ["text", "address"],
+    "ritual_ZN11QGnomeTheme18requestColorSchemeEN2Qt11ColorSchemeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11QGnomeTheme11colorSchemeEv": ["int", "address"],
+    "ritual_ZN11QGnomeTheme17updateColorSchemeEN2Qt11ColorSchemeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN11QGnomeTheme18updateHighContrastEN2Qt18ContrastPreferenceE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN11QGnomeTheme19updateReducedMotionEN2Qt16MotionPreferenceE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11QGnomeTheme21createPlatformMenuBarEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK11QGnomeTheme18contrastPreferenceEv": ["int", "address"],
+    "ritual_ZNK11QGnomeTheme16motionPreferenceEv": ["int", "address"],
+    "ritual_ZNK11QGnomeTheme28createPlatformSystemTrayIconEv": [
+      "address", "address"
+    ],
+    "ritual_take_QGnomeTheme": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK11QGnomeTheme9themeHintEN14QPlatformTheme9ThemeHintE": [
+      "address", "address", "int"
+    ],
+    "ritual_own_ZNK11QGnomeTheme8fileIconERK9QFileInfo6QFlagsIN14QPlatformTheme10IconOptionEE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_own_ZNK11QGnomeTheme4fontEN14QPlatformTheme4FontE": [
+      "address", "address", "int"
+    ],
+    "ritual_own_ZNK11QGnomeTheme18standardButtonTextEi": [
+      "text", "address", "int"
+    ],
+    "ritual_own_ZNK11QGnomeTheme11gtkFontNameEv": ["text", "address"],
+    "ritual_own_ZN11QGnomeTheme18requestColorSchemeEN2Qt11ColorSchemeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZNK11QGnomeTheme11colorSchemeEv": ["int", "address"],
+    "ritual_own_ZN11QGnomeTheme17updateColorSchemeEN2Qt11ColorSchemeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN11QGnomeTheme18updateHighContrastEN2Qt18ContrastPreferenceE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN11QGnomeTheme19updateReducedMotionEN2Qt16MotionPreferenceE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZNK11QGnomeTheme21createPlatformMenuBarEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK11QGnomeTheme18contrastPreferenceEv": ["int", "address"],
+    "ritual_own_ZNK11QGnomeTheme16motionPreferenceEv": ["int", "address"],
+    "ritual_own_ZNK11QGnomeTheme28createPlatformSystemTrayIconEv": [
+      "address", "address"
+    ]
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DUtils/6.12.0/QtQuick3DUtils/private/qssgrenderbasetypes_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QSSGBaseTypePropertyC1Ev": ["address"],
+    "ritual_ZN20QSSGBaseTypePropertyC1ERK10QByteArrayS2_RK8QVariantN21QSSGRenderShaderValue4TypeEi": [
+      "address", "address", "address", "address", "unsigned int", "int"
+    ],
+    "ritual_ZN20QSSGBaseTypePropertyD1Ev": ["nothing", "address"]
+  }
+}

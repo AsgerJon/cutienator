@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGui/qopenglextrafunctions.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
+#if !defined(QT_NO_OPENGL)
 #include <QtGui/qopenglextrafunctions.h>
 
 //  QOpenGLExtraFunctionsPrivate *QOpenGLExtraFunctions::d_func()
@@ -948,3 +950,5 @@ bool ritual_ZN21QOpenGLExtraFunctions13isInitializedEPK28QOpenGLExtraFunctionsPr
     const QOpenGLExtraFunctionsPrivate *d) {
   return QOpenGLExtraFunctions::isInitialized(d);
 }
+
+#endif  // !defined(QT_NO_OPENGL)

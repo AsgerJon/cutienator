@@ -1,0 +1,34 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qcolorspace_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QColorSpacePrivateC1Ev": ["address"],
+    "ritual_ZN18QColorSpacePrivateC1E7QPointFN11QColorSpace16TransferFunctionEf": [
+      "address", "address", "int", "float"
+    ],
+    "ritual_ZN18QColorSpacePrivateC1ERKS_": ["address", "address"],
+    "ritual_ZN18QColorSpacePrivate3getERK11QColorSpace": [
+      "address", "address"
+    ],
+    "ritual_ZNK18QColorSpacePrivate7isValidEv": ["bool", "address"],
+    "ritual_ZN18QColorSpacePrivate19setTransferFunctionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QColorSpacePrivate18identifyColorSpaceEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK18QColorSpacePrivate19transformationToXYZEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18QColorSpacePrivate22isThreeComponentMatrixEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN18QColorSpacePrivate33clearElementListProcessingForEditEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QColorSpacePrivateD1Ev": ["nothing", "address"]
+  }
+}

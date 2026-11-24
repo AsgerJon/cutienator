@@ -1,0 +1,69 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtPositioning/qgeorectangle.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN13QGeoRectangleC1Ev": ["address"],
+    "ritual_ZN13QGeoRectangleC1ERK14QGeoCoordinatedd": [
+      "address", "address", "double", "double"
+    ],
+    "ritual_ZN13QGeoRectangleC1ERK14QGeoCoordinateS2_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN13QGeoRectangleC1ERK5QListI14QGeoCoordinateE": [
+      "address", "address"
+    ],
+    "ritual_ZN13QGeoRectangleC1ERKS_": ["address", "address"],
+    "ritual_ZN13QGeoRectangleC1ERK9QGeoShape": ["address", "address"],
+    "ritual_ZN13QGeoRectangleD1Ev": ["nothing", "address"],
+    "ritual_ZN13QGeoRectangle10setTopLeftERK14QGeoCoordinate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QGeoRectangle7topLeftEv": ["address", "address"],
+    "ritual_ZN13QGeoRectangle11setTopRightERK14QGeoCoordinate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QGeoRectangle8topRightEv": ["address", "address"],
+    "ritual_ZN13QGeoRectangle13setBottomLeftERK14QGeoCoordinate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QGeoRectangle10bottomLeftEv": ["address", "address"],
+    "ritual_ZN13QGeoRectangle14setBottomRightERK14QGeoCoordinate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QGeoRectangle11bottomRightEv": ["address", "address"],
+    "ritual_ZN13QGeoRectangle9setCenterERK14QGeoCoordinate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QGeoRectangle6centerEv": ["address", "address"],
+    "ritual_ZN13QGeoRectangle8setWidthEd": ["nothing", "address", "double"],
+    "ritual_ZNK13QGeoRectangle5widthEv": ["double", "address"],
+    "ritual_ZN13QGeoRectangle9setHeightEd": ["nothing", "address", "double"],
+    "ritual_ZNK13QGeoRectangle6heightEv": ["double", "address"],
+    "ritual_ZNK13QGeoRectangle8containsERKS_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK13QGeoRectangle10intersectsERKS_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN13QGeoRectangle9translateEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZNK13QGeoRectangle10translatedEdd": [
+      "address", "address", "double", "double"
+    ],
+    "ritual_ZN13QGeoRectangle15extendRectangleERK14QGeoCoordinate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QGeoRectangle6unitedERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK13QGeoRectangleorERKS_": ["address", "address", "address"],
+    "ritual_ZN13QGeoRectangleoRERKS_": ["nothing", "address", "address"],
+    "ritual_ZNK13QGeoRectangle8toStringEv": ["text", "address"],
+    "ritual_ZN13QGeoRectangle6d_funcEv": ["address", "address"],
+    "ritual_ZNK13QGeoRectangle6d_funcEv": ["address", "address"]
+  }
+}

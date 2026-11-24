@@ -1,0 +1,56 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qiodevice_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN16QIODevicePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK16QIODevicePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN16QIODevicePrivateC1E16QtPrivate_6_12_0": ["address", "int"],
+    "ritual_ZN16QIODevicePrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN16QIODevicePrivate13putCharHelperEc": [
+      "bool", "address", "char"
+    ],
+    "ritual_ZNK16QIODevicePrivate12isSequentialEv": ["bool", "address"],
+    "ritual_ZNK16QIODevicePrivate13isBufferEmptyEv": ["bool", "address"],
+    "ritual_ZNK16QIODevicePrivate20allWriteBuffersEmptyEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN16QIODevicePrivate10seekBufferEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN16QIODevicePrivate21setCurrentReadChannelEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16QIODevicePrivate22setCurrentWriteChannelEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16QIODevicePrivate19setReadChannelCountEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16QIODevicePrivate20setWriteChannelCountEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16QIODevicePrivate4peekEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN16QIODevicePrivate13skipByReadingEx": [
+      "long long", "address", "long long"
+    ],
+    "ritual_ZN16QIODevicePrivate8skipLineEv": ["long long", "address"],
+    "ritual_ZN16QIODevicePrivate5writeEPKcx": [
+      "nothing", "address", "chars", "long long"
+    ],
+    "ritual_ZNK16QIODevicePrivate18isWriteChunkCachedEPKcx": [
+      "bool", "address", "chars", "long long"
+    ],
+    "ritual_take_QIODevicePrivate": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN16QIODevicePrivate13putCharHelperEc": [
+      "bool", "address", "char"
+    ],
+    "ritual_own_ZN16QIODevicePrivate4peekEx": [
+      "address", "address", "long long"
+    ]
+  }
+}

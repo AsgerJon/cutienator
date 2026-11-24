@@ -1,0 +1,151 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qdatetimeedit_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QDateTimeEditPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK20QDateTimeEditPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN20QDateTimeEditPrivate18readLocaleSettingsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QDateTimeEditPrivate11emitSignalsE10EmitPolicyRK8QVariant": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZNK20QDateTimeEditPrivate13textFromValueERK8QVariant": [
+      "text", "address", "address"
+    ],
+    "ritual_ZNK20QDateTimeEditPrivate13valueFromTextERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN20QDateTimeEditPrivate9interpretE10EmitPolicy": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK20QDateTimeEditPrivate10clearCacheEv": ["nothing", "address"],
+    "ritual_ZN20QDateTimeEditPrivate15newHoverControlERK6QPoint": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN20QDateTimeEditPrivate23updateEditFieldGeometryEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK20QDateTimeEditPrivate14getZeroVariantEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QDateTimeEditPrivate8setRangeERK8QVariantS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK20QDateTimeEditPrivate11displayTextEv": ["text", "address"],
+    "ritual_ZNK20QDateTimeEditPrivate10getMinimumERK9QTimeZone": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK20QDateTimeEditPrivate10getMaximumERK9QTimeZone": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK20QDateTimeEditPrivate6localeEv": ["address", "address"],
+    "ritual_ZNK20QDateTimeEditPrivate14cursorPositionEv": ["int", "address"],
+    "ritual_ZNK20QDateTimeEditPrivate13absoluteIndexEN13QDateTimeEdit7SectionEi": [
+      "int", "address", "int", "int"
+    ],
+    "ritual_ZNK20QDateTimeEditPrivate13absoluteIndexEN15QDateTimeParser11SectionNodeE": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK20QDateTimeEditPrivate6stepByEiib": [
+      "address", "address", "int", "int", "bool"
+    ],
+    "ritual_ZNK20QDateTimeEditPrivate9sectionAtEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK20QDateTimeEditPrivate14closestSectionEib": [
+      "int", "address", "int", "bool"
+    ],
+    "ritual_ZNK20QDateTimeEditPrivate15nextPrevSectionEib": [
+      "int", "address", "int", "bool"
+    ],
+    "ritual_ZN20QDateTimeEditPrivate11setSelectedEib": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZNK20QDateTimeEditPrivate11updateCacheERK8QVariantRK7QString": [
+      "nothing", "address", "address", "text"
+    ],
+    "ritual_ZN20QDateTimeEditPrivate15convertTimeZoneERK9QDateTime": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN20QDateTimeEditPrivate14updateTimeZoneEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK20QDateTimeEditPrivate11valueToTextERK8QVariant": [
+      "text", "address", "address"
+    ],
+    "ritual_ZNK20QDateTimeEditPrivate13dateTimeValueE5QDate5QTime": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN20QDateTimeEditPrivate14_q_resetButtonEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QDateTimeEditPrivate11updateArrowEN6QStyle9StateFlagE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK20QDateTimeEditPrivate20calendarPopupEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN20QDateTimeEditPrivate18syncCalendarWidgetEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK20QDateTimeEditPrivate14isSeparatorKeyEPK9QKeyEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN20QDateTimeEditPrivate15convertSectionsE6QFlagsIN15QDateTimeParser7SectionEE": [
+      "int", "int"
+    ],
+    "ritual_ZN20QDateTimeEditPrivate15convertToPublicEN15QDateTimeParser7SectionE": [
+      "int", "int"
+    ],
+    "ritual_ZN20QDateTimeEditPrivate21positionCalendarPopupEv": [
+      "nothing", "address"
+    ],
+    "ritual_cast_QDateTimeEditPrivate_QDateTimeParser": [
+      "address", "address"
+    ],
+    "ritual_take_QDateTimeEditPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN20QDateTimeEditPrivate11emitSignalsE10EmitPolicyRK8QVariant": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZNK20QDateTimeEditPrivate13textFromValueERK8QVariant": [
+      "text", "address", "address"
+    ],
+    "ritual_own_ZNK20QDateTimeEditPrivate13valueFromTextERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_own_ZNK20QDateTimeEditPrivate10clearCacheEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN20QDateTimeEditPrivate15newHoverControlERK6QPoint": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZN20QDateTimeEditPrivate23updateEditFieldGeometryEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZNK20QDateTimeEditPrivate14getZeroVariantEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN20QDateTimeEditPrivate8setRangeERK8QVariantS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZNK20QDateTimeEditPrivate11displayTextEv": [
+      "text", "address"
+    ],
+    "ritual_own_ZNK20QDateTimeEditPrivate10getMinimumERK9QTimeZone": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZNK20QDateTimeEditPrivate10getMaximumERK9QTimeZone": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZNK20QDateTimeEditPrivate6localeEv": ["address", "address"],
+    "ritual_own_ZNK20QDateTimeEditPrivate14cursorPositionEv": [
+      "int", "address"
+    ]
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "/6.12.0/QtQuick/private/qsgdefaultinternalrectanglenode_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN22QSGSmoothColorMaterialC1Ev": ["address"],
+    "ritual_ZNK22QSGSmoothColorMaterial7compareEPK11QSGMaterial": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK22QSGSmoothColorMaterial4typeEv": ["address", "address"],
+    "ritual_ZNK22QSGSmoothColorMaterial12createShaderEN20QSGRendererInterface10RenderModeE": [
+      "address", "address", "int"
+    ],
+    "ritual_take_QSGSmoothColorMaterial": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK22QSGSmoothColorMaterial7compareEPK11QSGMaterial": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZNK22QSGSmoothColorMaterial4typeEv": ["address", "address"],
+    "ritual_own_ZNK22QSGSmoothColorMaterial12createShaderEN20QSGRendererInterface10RenderModeE": [
+      "address", "address", "int"
+    ]
+  }
+}

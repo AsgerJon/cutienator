@@ -1,0 +1,20 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qrhinull_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QNullComputePipelineC1EP18QRhiImplementation": [
+      "address", "address"
+    ],
+    "ritual_ZN20QNullComputePipelineD1Ev": ["nothing", "address"],
+    "ritual_ZN20QNullComputePipeline7destroyEv": ["nothing", "address"],
+    "ritual_ZN20QNullComputePipeline6createEv": ["bool", "address"],
+    "ritual_take_QNullComputePipeline": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN20QNullComputePipeline7destroyEv": ["nothing", "address"],
+    "ritual_own_ZN20QNullComputePipeline6createEv": ["bool", "address"]
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3D/6.12.0/QtQuick3D/private/qquick3dshaderutils_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK36QQuick3DShaderUtilsRenderablesFilter10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN36QQuick3DShaderUtilsRenderablesFilter2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN36QQuick3DShaderUtilsRenderablesFilterC1Ev": ["address"],
+    "ritual_ZN36QQuick3DShaderUtilsRenderablesFilterD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK36QQuick3DShaderUtilsRenderablesFilter15renderableTypesEv": [
+      "int", "address"
+    ],
+    "ritual_ZN36QQuick3DShaderUtilsRenderablesFilter18setRenderableTypesE6QFlagsINS_14RenderableTypeEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN36QQuick3DShaderUtilsRenderablesFilter12cloneCommandEv": [
+      "address", "address"
+    ],
+    "ritual_take_QQuick3DShaderUtilsRenderablesFilter": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN36QQuick3DShaderUtilsRenderablesFilter12cloneCommandEv": [
+      "address", "address"
+    ]
+  }
+}

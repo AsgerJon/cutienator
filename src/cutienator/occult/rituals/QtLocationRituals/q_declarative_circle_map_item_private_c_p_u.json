@@ -1,0 +1,69 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtLocat",
+    "ion/6.12.0/QtLocation/private/qdeclarativecirclemapitem_p_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN35QDeclarativeCircleMapItemPrivateCPUD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN35QDeclarativeCircleMapItemPrivateCPU23onLinePropertiesChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN35QDeclarativeCircleMapItemPrivateCPU24markSourceDirtyAndUpdateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN35QDeclarativeCircleMapItemPrivateCPU8onMapSetEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN35QDeclarativeCircleMapItemPrivateCPU20onGeoGeometryChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN35QDeclarativeCircleMapItemPrivateCPU21onItemGeometryChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN35QDeclarativeCircleMapItemPrivateCPU20afterViewportChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN35QDeclarativeCircleMapItemPrivateCPU12updatePolishEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN35QDeclarativeCircleMapItemPrivateCPU22updateMapItemPaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK35QDeclarativeCircleMapItemPrivateCPU8containsERK7QPointF": [
+      "bool", "address", "address"
+    ],
+    "ritual_take_QDeclarativeCircleMapItemPrivateCPU": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN35QDeclarativeCircleMapItemPrivateCPU23onLinePropertiesChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN35QDeclarativeCircleMapItemPrivateCPU24markSourceDirtyAndUpdateEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN35QDeclarativeCircleMapItemPrivateCPU8onMapSetEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN35QDeclarativeCircleMapItemPrivateCPU20onGeoGeometryChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN35QDeclarativeCircleMapItemPrivateCPU21onItemGeometryChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN35QDeclarativeCircleMapItemPrivateCPU20afterViewportChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN35QDeclarativeCircleMapItemPrivateCPU12updatePolishEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN35QDeclarativeCircleMapItemPrivateCPU22updateMapItemPaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_own_ZNK35QDeclarativeCircleMapItemPrivateCPU8containsERK7QPointF": [
+      "bool", "address", "address"
+    ]
+  }
+}

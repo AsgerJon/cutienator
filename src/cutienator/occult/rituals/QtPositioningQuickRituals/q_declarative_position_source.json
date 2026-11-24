@@ -1,0 +1,112 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtPosit",
+    "ioningQuick/6.12.0/QtPositioningQuick/private/qdeclarativeposition",
+    "source_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK26QDeclarativePositionSource10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QDeclarativePositionSource2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN26QDeclarativePositionSourceC1Ev": ["address"],
+    "ritual_ZN26QDeclarativePositionSourceD1Ev": ["nothing", "address"],
+    "ritual_ZN26QDeclarativePositionSource17setUpdateIntervalEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN26QDeclarativePositionSource9setActiveEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN26QDeclarativePositionSource30setPreferredPositioningMethodsE6QFlagsINS_17PositioningMethodEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK26QDeclarativePositionSource4nameEv": ["text", "address"],
+    "ritual_ZN26QDeclarativePositionSource7setNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK26QDeclarativePositionSource14updateIntervalEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK26QDeclarativePositionSource8isActiveEv": ["bool", "address"],
+    "ritual_ZNK26QDeclarativePositionSource7isValidEv": ["bool", "address"],
+    "ritual_ZN26QDeclarativePositionSource8positionEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK26QDeclarativePositionSource27supportedPositioningMethodsEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK26QDeclarativePositionSource27preferredPositioningMethodsEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK26QDeclarativePositionSource11sourceErrorEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK26QDeclarativePositionSource14positionSourceEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK26QDeclarativePositionSource12parameterMapEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QDeclarativePositionSource10classBeginEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QDeclarativePositionSource17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QDeclarativePositionSource18setBackendPropertyERK7QStringRK8QVariant": [
+      "bool", "address", "text", "address"
+    ],
+    "ritual_ZNK26QDeclarativePositionSource15backendPropertyERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN26QDeclarativePositionSource6updateEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN26QDeclarativePositionSource5startEv": ["nothing", "address"],
+    "ritual_ZN26QDeclarativePositionSource4stopEv": ["nothing", "address"],
+    "ritual_ZN26QDeclarativePositionSource22positionUpdateReceivedERK16QGeoPositionInfo": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QDeclarativePositionSource22onParameterInitializedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QDeclarativePositionSource40notifySupportedPositioningMethodsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QDeclarativePositionSource11setPositionERK16QGeoPositionInfo": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QDeclarativePositionSource9setSourceEP22QGeoPositionInfoSource": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QDeclarativePositionSource15parametersReadyEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN26QDeclarativePositionSource9tryAttachERK7QStringb": [
+      "nothing", "address", "text", "bool"
+    ],
+    "ritual_ZNK26QDeclarativePositionSource24isValidActualComputationEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK26QDeclarativePositionSource33supportedMethodsActualComputationEv": [
+      "int", "address"
+    ],
+    "ritual_ZN26QDeclarativePositionSource12executeStartEv": [
+      "nothing", "address"
+    ],
+    "ritual_cast_QDeclarativePositionSource_QQmlParserStatus": [
+      "address", "address"
+    ],
+    "ritual_take_QDeclarativePositionSource": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN26QDeclarativePositionSource10classBeginEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN26QDeclarativePositionSource17componentCompleteEv": [
+      "nothing", "address"
+    ]
+  }
+}

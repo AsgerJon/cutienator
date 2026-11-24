@@ -1,0 +1,63 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/qsgtextnode.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11QSGTextNodeD1Ev": ["nothing", "address"],
+    "ritual_ZN11QSGTextNode8setColorE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QSGTextNode5colorEv": ["address", "address"],
+    "ritual_ZN11QSGTextNode12setTextStyleENS_9TextStyleE": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZN11QSGTextNode9textStyleEv": ["unsigned char", "address"],
+    "ritual_ZN11QSGTextNode13setStyleColorE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QSGTextNode10styleColorEv": ["address", "address"],
+    "ritual_ZN11QSGTextNode12setLinkColorE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QSGTextNode9linkColorEv": ["address", "address"],
+    "ritual_ZN11QSGTextNode17setSelectionColorE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QSGTextNode14selectionColorEv": ["address", "address"],
+    "ritual_ZN11QSGTextNode21setSelectionTextColorE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QSGTextNode18selectionTextColorEv": ["address", "address"],
+    "ritual_ZN11QSGTextNode13setRenderTypeENS_10RenderTypeE": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZNK11QSGTextNode10renderTypeEv": ["unsigned char", "address"],
+    "ritual_ZN11QSGTextNode20setRenderTypeQualityEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11QSGTextNode17renderTypeQualityEv": ["int", "address"],
+    "ritual_ZN11QSGTextNode12setFilteringEN10QSGTexture9FilteringE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11QSGTextNode9filteringEv": ["int", "address"],
+    "ritual_ZN11QSGTextNode5clearEv": ["nothing", "address"],
+    "ritual_ZN11QSGTextNode11setViewportERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QSGTextNode8viewportEv": ["address", "address"],
+    "ritual_ZN11QSGTextNode13addTextLayoutE7QPointFP11QTextLayoutiiii": [
+      "nothing", "address", "address", "address", "int", "int", "int", "int"
+    ],
+    "ritual_ZN11QSGTextNode15addTextDocumentE7QPointFP13QTextDocumentii": [
+      "nothing", "address", "address", "address", "int", "int"
+    ],
+    "ritual_ZN11QSGTextNode15doAddTextLayoutE7QPointFP11QTextLayoutiiii": [
+      "nothing", "address", "address", "address", "int", "int", "int", "int"
+    ],
+    "ritual_ZN11QSGTextNode17doAddTextDocumentE7QPointFP13QTextDocumentii": [
+      "nothing", "address", "address", "address", "int", "int"
+    ],
+    "ritual_take_QSGTextNode": ["bool", "address", "chars", "address"]
+  }
+}

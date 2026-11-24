@@ -1,0 +1,41 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/abstractlanguage.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN26QDesignerLanguageExtensionD1Ev": ["nothing", "address"],
+    "ritual_ZNK26QDesignerLanguageExtension4nameEv": ["text", "address"],
+    "ritual_ZN26QDesignerLanguageExtension30createFormWindowSettingsDialogEP28QDesignerFormWindowInterfaceP7QWidget": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN26QDesignerLanguageExtension21createResourceBrowserEP7QWidget": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN26QDesignerLanguageExtension21createPromotionDialogEP28QDesignerFormEditorInterfaceP7QWidget": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN26QDesignerLanguageExtension21createPromotionDialogEP28QDesignerFormEditorInterfaceRK7QStringPS2_P7QWidget": [
+      "address", "address", "address", "text", "address", "address"
+    ],
+    "ritual_ZNK26QDesignerLanguageExtension18isLanguageResourceERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZNK26QDesignerLanguageExtension11classNameOfEP7QObject": [
+      "text", "address", "address"
+    ],
+    "ritual_ZNK26QDesignerLanguageExtension17signalMatchesSlotERK7QStringS2_": [
+      "bool", "address", "text", "text"
+    ],
+    "ritual_ZNK26QDesignerLanguageExtension17widgetBoxContentsEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK26QDesignerLanguageExtension11uiExtensionEv": [
+      "text", "address"
+    ],
+    "ritual_take_QDesignerLanguageExtension": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

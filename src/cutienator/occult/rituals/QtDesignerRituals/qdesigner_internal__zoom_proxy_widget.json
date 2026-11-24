@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/zoomwidget_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_take_qdesigner_internal_ZoomProxyWidget": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN18qdesigner_internal15ZoomProxyWidget10itemChangeEN13QGraphicsItem18GraphicsItemChangeERK8QVariant": [
+      "address", "address", "int", "address"
+    ]
+  }
+}

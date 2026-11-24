@@ -1,0 +1,34 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/6.12.0/QtCharts/private/qlegendmarker_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK20QLegendMarkerPrivate10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QLegendMarkerPrivate2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN20QLegendMarkerPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZNK20QLegendMarkerPrivate4itemEv": ["address", "address"],
+    "ritual_ZN20QLegendMarkerPrivate6seriesEv": ["address", "address"],
+    "ritual_ZN20QLegendMarkerPrivate13relatedObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QLegendMarkerPrivate16invalidateLegendEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QLegendMarkerPrivate18invalidateAllItemsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QLegendMarkerPrivate7updatedEv": ["nothing", "address"],
+    "ritual_ZN20QLegendMarkerPrivate17handleShapeChangeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QLegendMarkerPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK20QLegendMarkerPrivate6q_funcEv": ["address", "address"],
+    "ritual_take_QLegendMarkerPrivate": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

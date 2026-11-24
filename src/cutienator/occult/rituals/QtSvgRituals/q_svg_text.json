@@ -1,0 +1,39 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSvg/6.12.0/QtSvg/private/qsvggraphics_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN8QSvgTextC1EP8QSvgNodeRK7QPointF": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN8QSvgTextD1Ev": ["nothing", "address"],
+    "ritual_ZN8QSvgText11setTextAreaERK6QSizeF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK8QSvgText4typeEv": ["int", "address"],
+    "ritual_ZNK8QSvgText18separateFillStrokeEPK8QPainterRK15QSvgExtraStates": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN8QSvgText8addTspanEP9QSvgTspan": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK8QSvgText6tspansEv": ["address", "address"],
+    "ritual_ZN8QSvgText7addTextE11QStringView": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN8QSvgText12addLineBreakEv": ["nothing", "address"],
+    "ritual_ZN8QSvgText17setWhitespaceModeENS_14WhitespaceModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK8QSvgText8positionEv": ["address", "address"],
+    "ritual_ZNK8QSvgText4sizeEv": ["address", "address"],
+    "ritual_ZNK8QSvgText14whitespaceModeEv": ["int", "address"],
+    "ritual_take_QSvgText": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK8QSvgText4typeEv": ["int", "address"],
+    "ritual_own_ZNK8QSvgText18separateFillStrokeEPK8QPainterRK15QSvgExtraStates": [
+      "bool", "address", "address", "address"
+    ]
+  }
+}

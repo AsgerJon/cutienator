@@ -1,0 +1,20 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickanimation_p_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN24QAbstractAnimationActionD1Ev": ["nothing", "address"],
+    "ritual_ZN24QAbstractAnimationAction8doActionEv": ["nothing", "address"],
+    "ritual_ZNK24QAbstractAnimationAction11debugActionE6QDebugi": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_take_QAbstractAnimationAction": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK24QAbstractAnimationAction11debugActionE6QDebugi": [
+      "nothing", "address", "address", "int"
+    ]
+  }
+}

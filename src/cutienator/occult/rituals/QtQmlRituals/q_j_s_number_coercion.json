@@ -1,0 +1,26 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/qjsnumbercoercion.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN17QJSNumberCoercion9isIntegerEd": ["bool", "double"],
+    "ritual_ZN17QJSNumberCoercion12isArrayIndexEd": ["bool", "double"],
+    "ritual_ZN17QJSNumberCoercion12isArrayIndexEx": ["bool", "long long"],
+    "ritual_ZN17QJSNumberCoercion12isArrayIndexEy": [
+      "bool", "unsigned long long"
+    ],
+    "ritual_ZN17QJSNumberCoercion9toIntegerEd": ["int", "double"],
+    "ritual_ZN17QJSNumberCoercion6equalsEdd": ["bool", "double", "double"],
+    "ritual_ZN17QJSNumberCoercion13roundTowards0Ed": ["double", "double"],
+    "ritual_ZN17QJSNumberCoercionC1Ed": ["address", "double"],
+    "ritual_ZNK17QJSNumberCoercion4signEv": ["int", "address"],
+    "ritual_ZNK17QJSNumberCoercion10isDenormalEv": ["bool", "address"],
+    "ritual_ZNK17QJSNumberCoercion8exponentEv": ["int", "address"],
+    "ritual_ZNK17QJSNumberCoercion11significantEv": [
+      "unsigned long long", "address"
+    ],
+    "ritual_ZN17QJSNumberCoercion9toIntegerEv": ["int", "address"],
+    "ritual_ZN17QJSNumberCoercionD1Ev": ["nothing", "address"]
+  }
+}

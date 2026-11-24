@@ -1,0 +1,35 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgrhiconte",
+    "xt_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN32QSSGRhiShaderResourceBindingList5clearEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN32QSSGRhiShaderResourceBindingListC1Ev": ["address"],
+    "ritual_ZN32QSSGRhiShaderResourceBindingListC1ERKS_": [
+      "address", "address"
+    ],
+    "ritual_ZN32QSSGRhiShaderResourceBindingList16addUniformBufferEi6QFlagsIN25QRhiShaderResourceBinding9StageFlagEEP10QRhiBufferiib": [
+      "nothing", "address", "int", "int", "address", "int", "int", "bool"
+    ],
+    "ritual_ZN32QSSGRhiShaderResourceBindingList10addTextureEi6QFlagsIN25QRhiShaderResourceBinding9StageFlagEEP11QRhiTextureP11QRhiSampler": [
+      "nothing", "address", "int", "int", "address", "address"
+    ],
+    "ritual_ZN32QSSGRhiShaderResourceBindingList12addImageLoadEi6QFlagsIN25QRhiShaderResourceBinding9StageFlagEEP11QRhiTexturei": [
+      "nothing", "address", "int", "int", "address", "int"
+    ],
+    "ritual_ZN32QSSGRhiShaderResourceBindingList13addImageStoreEi6QFlagsIN25QRhiShaderResourceBinding9StageFlagEEP11QRhiTexturei": [
+      "nothing", "address", "int", "int", "address", "int"
+    ],
+    "ritual_ZN32QSSGRhiShaderResourceBindingList17addImageLoadStoreEi6QFlagsIN25QRhiShaderResourceBinding9StageFlagEEP11QRhiTexturei": [
+      "nothing", "address", "int", "int", "address", "int"
+    ],
+    "ritual_ZN32QSSGRhiShaderResourceBindingList16addStorageBufferEi6QFlagsIN25QRhiShaderResourceBinding9StageFlagEEP10QRhiBufferiib": [
+      "nothing", "address", "int", "int", "address", "int", "int", "bool"
+    ],
+    "ritual_ZN32QSSGRhiShaderResourceBindingListD1Ev": ["nothing", "address"]
+  }
+}

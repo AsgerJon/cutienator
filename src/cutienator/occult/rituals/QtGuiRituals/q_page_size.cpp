@@ -4,6 +4,7 @@
 #include <QtCore/qsize.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qrect.h>
+#include <QtCore/qlist.h>
 
 //  QPageSize::QPageSize()
 extern "C" Q_DECL_EXPORT
@@ -267,4 +268,38 @@ QPageSize *ritual_ZN9QPageSizeC1EiRK5QSizeRK7QString(
     const QSize *pointSize,
     const QString *name) {
   return new QPageSize(windowsId, *pointSize, *name);
+}
+
+//  QList<QPageSize>::QList()
+extern "C" Q_DECL_EXPORT
+QList<QPageSize> *ritual_list_make_QPageSize() {
+  return new QList<QPageSize>();
+}
+
+//  void QList<QPageSize>::append(const QPageSize &value)
+extern "C" Q_DECL_EXPORT
+void ritual_list_add_QPageSize(
+    QList<QPageSize> *self,
+    const QPageSize *element) {
+  self->append(*element);
+}
+
+//  qsizetype QList<QPageSize>::size() const
+extern "C" Q_DECL_EXPORT
+long long ritual_list_size_QPageSize(const QList<QPageSize> *self) {
+  return self->size();
+}
+
+//  const QPageSize &QList<QPageSize>::at(qsizetype i) const
+extern "C" Q_DECL_EXPORT
+QPageSize *ritual_list_at_QPageSize(
+    const QList<QPageSize> *self,
+    long long index) {
+  return new QPageSize(self->at(index));
+}
+
+//  QList<QPageSize>::~QList()
+extern "C" Q_DECL_EXPORT
+void ritual_list_drop_QPageSize(QList<QPageSize> *self) {
+  delete self;
 }

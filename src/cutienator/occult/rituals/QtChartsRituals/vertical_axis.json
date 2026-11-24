@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/6.12.0/QtCharts/private/verticalaxis_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN12VerticalAxisD1Ev": ["nothing", "address"],
+    "ritual_ZNK12VerticalAxis8sizeHintEN2Qt8SizeHintERK6QSizeF": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_ZN12VerticalAxis14updateGeometryEv": ["nothing", "address"],
+    "ritual_ZN12VerticalAxis23updateMinorTickGeometryEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_VerticalAxis": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK12VerticalAxis8sizeHintEN2Qt8SizeHintERK6QSizeF": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_own_ZN12VerticalAxis14updateGeometryEv": ["nothing", "address"]
+  }
+}

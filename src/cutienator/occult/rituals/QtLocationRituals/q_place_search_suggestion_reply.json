@@ -1,0 +1,30 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLocation/qplacesearchsuggestionreply.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK27QPlaceSearchSuggestionReply10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QPlaceSearchSuggestionReply2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN27QPlaceSearchSuggestionReplyC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN27QPlaceSearchSuggestionReplyD1Ev": ["nothing", "address"],
+    "ritual_ZNK27QPlaceSearchSuggestionReply11suggestionsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK27QPlaceSearchSuggestionReply4typeEv": ["int", "address"],
+    "ritual_ZN27QPlaceSearchSuggestionReply14setSuggestionsERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QPlaceSearchSuggestionReply": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK27QPlaceSearchSuggestionReply4typeEv": ["int", "address"]
+  }
+}

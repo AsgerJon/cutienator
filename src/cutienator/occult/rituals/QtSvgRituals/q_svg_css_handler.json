@@ -1,0 +1,23 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSvg/6.12.0/QtSvg/private/qsvgcsshandler_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN14QSvgCssHandlerC1Ev": ["address"],
+    "ritual_ZN14QSvgCssHandlerD1Ev": ["nothing", "address"],
+    "ritual_ZN14QSvgCssHandler15createAnimationE11QStringView": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN14QSvgCssHandler17collectAnimationsERKN4QCss10StyleSheetE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QSvgCssHandler15parseStyleSheetE11QStringView": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN14QSvgCssHandler17parseDecltoStringERKN4QCss11DeclarationE": [
+      "text", "address"
+    ]
+  }
+}

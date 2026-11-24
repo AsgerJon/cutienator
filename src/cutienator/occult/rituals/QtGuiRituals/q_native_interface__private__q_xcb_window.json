@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/qpa/qplatformwindow_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN16QNativeInterface7Private10QXcbWindowD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QNativeInterface7Private10QXcbWindow13setWindowTypeE6QFlagsINS1_10WindowTypeEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16QNativeInterface7Private10QXcbWindow13setWindowRoleERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN16QNativeInterface7Private10QXcbWindow17setWindowIconTextERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK16QNativeInterface7Private10QXcbWindow8visualIdEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_take_QNativeInterface_Private_QXcbWindow": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

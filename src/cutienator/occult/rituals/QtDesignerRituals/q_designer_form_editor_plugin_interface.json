@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/abstractformeditorplugin.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN34QDesignerFormEditorPluginInterfaceD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK34QDesignerFormEditorPluginInterface13isInitializedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN34QDesignerFormEditorPluginInterface10initializeEP28QDesignerFormEditorInterface": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK34QDesignerFormEditorPluginInterface6actionEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK34QDesignerFormEditorPluginInterface4coreEv": [
+      "address", "address"
+    ],
+    "ritual_take_QDesignerFormEditorPluginInterface": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

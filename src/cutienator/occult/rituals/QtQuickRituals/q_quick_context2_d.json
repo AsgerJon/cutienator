@@ -1,0 +1,112 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickcontext2d_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK15QQuickContext2D10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QQuickContext2DD1Ev": ["nothing", "address"],
+    "ritual_ZNK15QQuickContext2D12contextNamesEv": ["address", "address"],
+    "ritual_ZN15QQuickContext2D4initEP16QQuickCanvasItemRK4QMapI7QString8QVariantE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN15QQuickContext2D7prepareERK5QSizeS2_RK5QRectS5_bb": [
+      "nothing", "address", "address", "address", "address", "address",
+      "bool", "bool"
+    ],
+    "ritual_ZN15QQuickContext2D5flushEv": ["nothing", "address"],
+    "ritual_ZNK15QQuickContext2D6threadEv": ["address", "address"],
+    "ritual_ZNK15QQuickContext2D7textureEv": ["address", "address"],
+    "ritual_ZN15QQuickContext2D7toImageERK6QRectF": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK15QQuickContext2D7v4valueEv": [
+      "unsigned long long", "address"
+    ],
+    "ritual_ZNK15QQuickContext2D8v4EngineEv": ["address", "address"],
+    "ritual_ZNK15QQuickContext2D6canvasEv": ["address", "address"],
+    "ritual_ZNK15QQuickContext2D6bufferEv": ["address", "address"],
+    "ritual_ZNK15QQuickContext2D11bufferValidEv": ["bool", "address"],
+    "ritual_ZN15QQuickContext2D8popStateEv": ["nothing", "address"],
+    "ritual_ZN15QQuickContext2D9pushStateEv": ["nothing", "address"],
+    "ritual_ZN15QQuickContext2D5resetEv": ["nothing", "address"],
+    "ritual_ZN15QQuickContext2D4fillEv": ["nothing", "address"],
+    "ritual_ZN15QQuickContext2D4clipEv": ["nothing", "address"],
+    "ritual_ZN15QQuickContext2D6strokeEv": ["nothing", "address"],
+    "ritual_ZN15QQuickContext2D8fillRectEdddd": [
+      "nothing", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZN15QQuickContext2D10strokeRectEdddd": [
+      "nothing", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZN15QQuickContext2D9clearRectEdddd": [
+      "nothing", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZN15QQuickContext2D5scaleEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN15QQuickContext2D6rotateEd": ["nothing", "address", "double"],
+    "ritual_ZN15QQuickContext2D5shearEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN15QQuickContext2D9translateEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN15QQuickContext2D9transformEdddddd": [
+      "nothing", "address", "double", "double", "double", "double", "double",
+      "double"
+    ],
+    "ritual_ZN15QQuickContext2D12setTransformEdddddd": [
+      "nothing", "address", "double", "double", "double", "double", "double",
+      "double"
+    ],
+    "ritual_ZN15QQuickContext2D9beginPathEv": ["nothing", "address"],
+    "ritual_ZN15QQuickContext2D9closePathEv": ["nothing", "address"],
+    "ritual_ZN15QQuickContext2D6moveToEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN15QQuickContext2D6lineToEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN15QQuickContext2D16quadraticCurveToEdddd": [
+      "nothing", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZN15QQuickContext2D13bezierCurveToEdddddd": [
+      "nothing", "address", "double", "double", "double", "double", "double",
+      "double"
+    ],
+    "ritual_ZN15QQuickContext2D5arcToEddddd": [
+      "nothing", "address", "double", "double", "double", "double", "double"
+    ],
+    "ritual_ZN15QQuickContext2D11roundedRectEdddddd": [
+      "nothing", "address", "double", "double", "double", "double", "double",
+      "double"
+    ],
+    "ritual_ZN15QQuickContext2D7ellipseEdddd": [
+      "nothing", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZN15QQuickContext2D4textERK7QStringdd": [
+      "nothing", "address", "text", "double", "double"
+    ],
+    "ritual_ZN15QQuickContext2D3arcEdddddb": [
+      "nothing", "address", "double", "double", "double", "double", "double",
+      "bool"
+    ],
+    "ritual_ZN15QQuickContext2D8addArcToERK7QPointFS2_d": [
+      "nothing", "address", "address", "address", "double"
+    ],
+    "ritual_ZNK15QQuickContext2D7surfaceEv": ["address", "address"],
+    "ritual_ZN15QQuickContext2D15setGrabbedImageERK6QImage": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QQuickContext2D": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN15QQuickContext2D7toImageERK6QRectF": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZNK15QQuickContext2D7v4valueEv": [
+      "unsigned long long", "address"
+    ],
+    "ritual_own_ZNK15QQuickContext2D8v4EngineEv": ["address", "address"]
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQmlCompiler/qqmlsa.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN6QQmlSA13FixSuggestion6d_funcEv": ["address", "address"],
+    "ritual_ZNK6QQmlSA13FixSuggestion6d_funcEv": ["address", "address"],
+    "ritual_ZNK6QQmlSA13FixSuggestion11descriptionEv": ["text", "address"],
+    "ritual_ZNK6QQmlSA13FixSuggestion16isAutoApplicableEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN6QQmlSAeqERKNS_13FixSuggestionES2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlSAneERKNS_13FixSuggestionES2_": [
+      "bool", "address", "address"
+    ]
+  }
+}

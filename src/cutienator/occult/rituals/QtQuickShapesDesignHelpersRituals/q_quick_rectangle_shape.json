@@ -1,0 +1,204 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "ShapesDesignHelpers/6.12.0/QtQuickShapesDesignHelpers/private/qqui",
+    "ckrectangleshape_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK20QQuickRectangleShape10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QQuickRectangleShape2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN20QQuickRectangleShapeC1EP10QQuickItem": [
+      "address", "address"
+    ],
+    "ritual_ZN20QQuickRectangleShapeD1Ev": ["nothing", "address"],
+    "ritual_ZNK20QQuickRectangleShape7drawTopEv": ["bool", "address"],
+    "ritual_ZN20QQuickRectangleShape10setDrawTopEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20QQuickRectangleShape12resetDrawTopEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK20QQuickRectangleShape9drawRightEv": ["bool", "address"],
+    "ritual_ZN20QQuickRectangleShape12setDrawRightEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20QQuickRectangleShape14resetDrawRightEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK20QQuickRectangleShape10drawBottomEv": ["bool", "address"],
+    "ritual_ZN20QQuickRectangleShape13setDrawBottomEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20QQuickRectangleShape15resetDrawBottomEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK20QQuickRectangleShape8drawLeftEv": ["bool", "address"],
+    "ritual_ZN20QQuickRectangleShape11setDrawLeftEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20QQuickRectangleShape13resetDrawLeftEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK20QQuickRectangleShape6radiusEv": ["int", "address"],
+    "ritual_ZN20QQuickRectangleShape9setRadiusEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQuickRectangleShape11resetRadiusEv": ["nothing", "address"],
+    "ritual_ZNK20QQuickRectangleShape13topLeftRadiusEv": ["int", "address"],
+    "ritual_ZN20QQuickRectangleShape16setTopLeftRadiusEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQuickRectangleShape18resetTopLeftRadiusEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK20QQuickRectangleShape14topRightRadiusEv": ["int", "address"],
+    "ritual_ZN20QQuickRectangleShape17setTopRightRadiusEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQuickRectangleShape19resetTopRightRadiusEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK20QQuickRectangleShape16bottomLeftRadiusEv": [
+      "int", "address"
+    ],
+    "ritual_ZN20QQuickRectangleShape19setBottomLeftRadiusEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQuickRectangleShape21resetBottomLeftRadiusEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK20QQuickRectangleShape17bottomRightRadiusEv": [
+      "int", "address"
+    ],
+    "ritual_ZN20QQuickRectangleShape20setBottomRightRadiusEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQuickRectangleShape22resetBottomRightRadiusEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK20QQuickRectangleShape8hasBevelEv": ["bool", "address"],
+    "ritual_ZN20QQuickRectangleShape8setBevelEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20QQuickRectangleShape10resetBevelEv": ["nothing", "address"],
+    "ritual_ZNK20QQuickRectangleShape15hasTopLeftBevelEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN20QQuickRectangleShape15setTopLeftBevelEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20QQuickRectangleShape17resetTopLeftBevelEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK20QQuickRectangleShape16hasTopRightBevelEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN20QQuickRectangleShape16setTopRightBevelEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20QQuickRectangleShape18resetTopRightBevelEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK20QQuickRectangleShape18hasBottomLeftBevelEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN20QQuickRectangleShape18setBottomLeftBevelEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20QQuickRectangleShape20resetBottomLeftBevelEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK20QQuickRectangleShape19hasBottomRightBevelEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN20QQuickRectangleShape19setBottomRightBevelEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20QQuickRectangleShape21resetBottomRightBevelEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK20QQuickRectangleShape11strokeColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QQuickRectangleShape14setStrokeColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QQuickRectangleShape11strokeWidthEv": ["double", "address"],
+    "ritual_ZN20QQuickRectangleShape14setStrokeWidthEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK20QQuickRectangleShape9fillColorEv": ["address", "address"],
+    "ritual_ZN20QQuickRectangleShape12setFillColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QQuickRectangleShape8fillRuleEv": ["int", "address"],
+    "ritual_ZN20QQuickRectangleShape11setFillRuleEN15QQuickShapePath8FillRuleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK20QQuickRectangleShape9joinStyleEv": ["int", "address"],
+    "ritual_ZN20QQuickRectangleShape12setJoinStyleEN15QQuickShapePath9JoinStyleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK20QQuickRectangleShape10miterLimitEv": ["int", "address"],
+    "ritual_ZN20QQuickRectangleShape13setMiterLimitEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK20QQuickRectangleShape8capStyleEv": ["int", "address"],
+    "ritual_ZN20QQuickRectangleShape11setCapStyleEN15QQuickShapePath8CapStyleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK20QQuickRectangleShape11strokeStyleEv": ["int", "address"],
+    "ritual_ZN20QQuickRectangleShape14setStrokeStyleEN15QQuickShapePath11StrokeStyleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK20QQuickRectangleShape10dashOffsetEv": ["double", "address"],
+    "ritual_ZN20QQuickRectangleShape13setDashOffsetEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK20QQuickRectangleShape12fillGradientEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QQuickRectangleShape15setFillGradientEP19QQuickShapeGradient": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickRectangleShape17resetFillGradientEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK20QQuickRectangleShape10borderModeEv": ["int", "address"],
+    "ritual_ZN20QQuickRectangleShape13setBorderModeENS_10BorderModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQuickRectangleShape15resetBorderModeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK20QQuickRectangleShape8fillItemEv": ["address", "address"],
+    "ritual_ZN20QQuickRectangleShape11setFillItemEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickRectangleShape17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickRectangleShape10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN20QQuickRectangleShape12updatePolishEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickRectangleShape6d_funcEv": ["address", "address"],
+    "ritual_ZNK20QQuickRectangleShape6d_funcEv": ["address", "address"],
+    "ritual_take_QQuickRectangleShape": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN20QQuickRectangleShape17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN20QQuickRectangleShape10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZN20QQuickRectangleShape12updatePolishEv": [
+      "nothing", "address"
+    ]
+  }
+}

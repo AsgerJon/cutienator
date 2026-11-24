@@ -27,6 +27,9 @@
     "ritual_ZN19QLineEditIconButton19onAnimationFinishedEv": [
       "nothing", "address"
     ],
+    "ritual_ZNK19QLineEditIconButton15lineEditPrivateEv": [
+      "address", "address"
+    ],
     "ritual_own_ZN19QLineEditIconButton11actionEventEP12QActionEvent": [
       "nothing", "address", "address"
     ],

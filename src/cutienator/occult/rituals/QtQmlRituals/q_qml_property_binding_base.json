@@ -1,0 +1,29 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmlpropertybindingbase_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK23QQmlPropertyBindingBase11bindingKindEv": [
+      "unsigned char", "address"
+    ],
+    "ritual_ZNK23QQmlPropertyBindingBase11isUndefinedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN23QQmlPropertyBindingBaseC1EP7QObject17QQmlPropertyIndex9QMetaTypePKN9QtPrivate21BindingFunctionVTableENS_11BindingKindENS_16HasBoundFunctionE": [
+      "address", "address", "address", "address", "address", "unsigned char",
+      "bool"
+    ],
+    "ritual_ZNK23QQmlPropertyBindingBase6targetEv": ["address", "address"],
+    "ritual_ZNK23QQmlPropertyBindingBase11targetIndexEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK23QQmlPropertyBindingBase16hasBoundFunctionEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN23QQmlPropertyBindingBase14setIsUndefinedEb": [
+      "nothing", "address", "bool"
+    ]
+  }
+}

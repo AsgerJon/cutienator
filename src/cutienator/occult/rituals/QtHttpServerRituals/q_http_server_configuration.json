@@ -1,0 +1,66 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtHttpServer/qhttpserverconfiguration.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN24QHttpServerConfigurationC1Ev": ["address"],
+    "ritual_ZN24QHttpServerConfigurationC1ERKS_": ["address", "address"],
+    "ritual_ZN24QHttpServerConfigurationD1Ev": ["nothing", "address"],
+    "ritual_ZN24QHttpServerConfiguration21setRateLimitPerSecondEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZNK24QHttpServerConfiguration18rateLimitPerSecondEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN24QHttpServerConfiguration28setMaximumConnectionsPerHostEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZNK24QHttpServerConfiguration25maximumConnectionsPerHostEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN24QHttpServerConfiguration21setMaximumConnectionsEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZNK24QHttpServerConfiguration18maximumConnectionsEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN24QHttpServerConfiguration17setMaximumUrlSizeEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZNK24QHttpServerConfiguration14maximumUrlSizeEv": [
+      "long long", "address"
+    ],
+    "ritual_ZN24QHttpServerConfiguration25setMaximumTotalHeaderSizeEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZNK24QHttpServerConfiguration22maximumTotalHeaderSizeEv": [
+      "long long", "address"
+    ],
+    "ritual_ZN24QHttpServerConfiguration25setMaximumHeaderFieldSizeEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZNK24QHttpServerConfiguration22maximumHeaderFieldSizeEv": [
+      "long long", "address"
+    ],
+    "ritual_ZN24QHttpServerConfiguration26setMaximumHeaderFieldCountEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZNK24QHttpServerConfiguration23maximumHeaderFieldCountEv": [
+      "long long", "address"
+    ],
+    "ritual_ZN24QHttpServerConfiguration18setMaximumBodySizeEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZNK24QHttpServerConfiguration15maximumBodySizeEv": [
+      "long long", "address"
+    ],
+    "ritual_ZeqRK24QHttpServerConfigurationS1_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZneRK24QHttpServerConfigurationS1_": [
+      "bool", "address", "address"
+    ]
+  }
+}

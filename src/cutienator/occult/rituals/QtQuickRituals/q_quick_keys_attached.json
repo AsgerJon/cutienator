@@ -1,0 +1,80 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickitem_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18QQuickKeysAttached10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QQuickKeysAttached2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18QQuickKeysAttached6d_funcEv": ["address", "address"],
+    "ritual_ZNK18QQuickKeysAttached6d_funcEv": ["address", "address"],
+    "ritual_ZN18QQuickKeysAttached24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickKeysAttached21qt_qmlMarker_attachedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickKeysAttachedC1EP7QObject": ["address", "address"],
+    "ritual_ZN18QQuickKeysAttachedD1Ev": ["nothing", "address"],
+    "ritual_ZNK18QQuickKeysAttached7enabledEv": ["bool", "address"],
+    "ritual_ZN18QQuickKeysAttached10setEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK18QQuickKeysAttached8priorityEv": ["int", "address"],
+    "ritual_ZN18QQuickKeysAttached11setPriorityENS_8PriorityE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18QQuickKeysAttached17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickKeysAttached21qmlAttachedPropertiesEP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN18QQuickKeysAttached10keyPressedEP9QKeyEventb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN18QQuickKeysAttached11keyReleasedEP9QKeyEventb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN18QQuickKeysAttached16inputMethodEventEP17QInputMethodEventb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZNK18QQuickKeysAttached16inputMethodQueryEN2Qt16InputMethodQueryE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN18QQuickKeysAttached21shortcutOverrideEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQuickKeysAttached11keyToSignalEi": ["address", "int"],
+    "ritual_ZNK18QQuickKeysAttached11isConnectedEPKc": [
+      "bool", "address", "chars"
+    ],
+    "ritual_cast_QQuickKeysAttached_QQuickItemKeyFilter": [
+      "address", "address"
+    ],
+    "ritual_take_QQuickKeysAttached": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN18QQuickKeysAttached17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN18QQuickKeysAttached10keyPressedEP9QKeyEventb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_own_ZN18QQuickKeysAttached11keyReleasedEP9QKeyEventb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_own_ZN18QQuickKeysAttached16inputMethodEventEP17QInputMethodEventb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_own_ZNK18QQuickKeysAttached16inputMethodQueryEN2Qt16InputMethodQueryE": [
+      "address", "address", "int"
+    ],
+    "ritual_own_ZN18QQuickKeysAttached21shortcutOverrideEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4identifierhashdata_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN3QV418IdentifierHashDataC1EPNS_15IdentifierTableEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN3QV418IdentifierHashDataC1EPS0_": ["address", "address"],
+    "ritual_ZN3QV418IdentifierHashDataD1Ev": ["nothing", "address"],
+    "ritual_ZNK3QV418IdentifierHashData11markObjectsEPNS_9MarkStackE": [
+      "nothing", "address", "address"
+    ]
+  }
+}

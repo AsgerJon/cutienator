@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDBus/qdbusunixfiledescriptor.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN23QDBusUnixFileDescriptorC1Ev": ["address"],
+    "ritual_ZN23QDBusUnixFileDescriptorC1Ei": ["address", "int"],
+    "ritual_ZN23QDBusUnixFileDescriptorC1ERKS_": ["address", "address"],
+    "ritual_ZN23QDBusUnixFileDescriptorD1Ev": ["nothing", "address"],
+    "ritual_ZNK23QDBusUnixFileDescriptor7isValidEv": ["bool", "address"],
+    "ritual_ZNK23QDBusUnixFileDescriptor14fileDescriptorEv": [
+      "int", "address"
+    ],
+    "ritual_ZN23QDBusUnixFileDescriptor17setFileDescriptorEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN23QDBusUnixFileDescriptor18giveFileDescriptorEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN23QDBusUnixFileDescriptor18takeFileDescriptorEv": [
+      "int", "address"
+    ],
+    "ritual_ZN23QDBusUnixFileDescriptor11isSupportedEv": ["bool"]
+  }
+}

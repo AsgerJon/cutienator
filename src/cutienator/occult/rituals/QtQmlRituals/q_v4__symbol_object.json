@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4symbol_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN3QV412SymbolObject10__dataTestEv": ["nothing", "address"],
+    "ritual_ZNK3QV412SymbolObject11d_uncheckedEv": ["address", "address"],
+    "ritual_ZNK3QV412SymbolObject1dEv": ["address", "address"],
+    "ritual_ZN3QV412SymbolObject20defaultInternalClassEPNS_10EngineBaseE": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV412SymbolObject16defaultPrototypeEPNS_15ExecutionEngineE": [
+      "address", "address"
+    ]
+  }
+}

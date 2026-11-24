@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4codegen_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN3QV48Compiler7Codegen23VolatileMemoryLocations10isVolatileE11QStringView": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN3QV48Compiler7Codegen23VolatileMemoryLocations3addE11QStringView": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN3QV48Compiler7Codegen23VolatileMemoryLocations14setAllVolatileEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN3QV48Compiler7Codegen23VolatileMemoryLocationsD1Ev": [
+      "nothing", "address"
+    ]
+  }
+}

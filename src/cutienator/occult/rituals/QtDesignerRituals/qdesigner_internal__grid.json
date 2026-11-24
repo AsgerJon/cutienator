@@ -1,0 +1,36 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/grid_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18qdesigner_internal4Grid7visibleEv": ["bool", "address"],
+    "ritual_ZN18qdesigner_internal4Grid10setVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK18qdesigner_internal4Grid5snapXEv": ["bool", "address"],
+    "ritual_ZN18qdesigner_internal4Grid8setSnapXEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK18qdesigner_internal4Grid5snapYEv": ["bool", "address"],
+    "ritual_ZN18qdesigner_internal4Grid8setSnapYEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK18qdesigner_internal4Grid6deltaXEv": ["int", "address"],
+    "ritual_ZN18qdesigner_internal4Grid9setDeltaXEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK18qdesigner_internal4Grid6deltaYEv": ["int", "address"],
+    "ritual_ZN18qdesigner_internal4Grid9setDeltaYEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18qdesigner_internaleqERKNS_4GridES2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internalneERKNS_4GridES2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal4GridD1Ev": ["nothing", "address"]
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQmlCo",
+    "mpiler/6.12.0/QtQmlCompiler/private/qqmljscontextualtypes_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK6QQmlJS15ContextualTypes7contextEv": ["int", "address"],
+    "ritual_ZNK6QQmlJS15ContextualTypes7hasTypeERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZNK6QQmlJS15ContextualTypes4typeERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN6QQmlJS15ContextualTypes9clearTypeERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK6QQmlJS15ContextualTypes10isNullTypeERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZNK6QQmlJS15ContextualTypes16hasFileSelectorsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK6QQmlJS15ContextualTypes19currentFileSelectorEv": [
+      "text", "address"
+    ],
+    "ritual_ZN6QQmlJS15ContextualTypes22setCurrentFileSelectorERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN6QQmlJS15ContextualTypes10clearTypesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN6QQmlJS15ContextualTypesD1Ev": ["nothing", "address"]
+  }
+}

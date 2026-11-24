@@ -1,0 +1,41 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtOpenGL/qopengldebug.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18QOpenGLDebugLogger10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QOpenGLDebugLogger2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18QOpenGLDebugLoggerC1EP7QObject": ["address", "address"],
+    "ritual_ZN18QOpenGLDebugLoggerD1Ev": ["nothing", "address"],
+    "ritual_ZN18QOpenGLDebugLogger10initializeEv": ["bool", "address"],
+    "ritual_ZNK18QOpenGLDebugLogger9isLoggingEv": ["bool", "address"],
+    "ritual_ZNK18QOpenGLDebugLogger11loggingModeEv": ["int", "address"],
+    "ritual_ZNK18QOpenGLDebugLogger20maximumMessageLengthEv": [
+      "long long", "address"
+    ],
+    "ritual_ZN18QOpenGLDebugLogger9pushGroupERK7QStringjN19QOpenGLDebugMessage6SourceE": [
+      "nothing", "address", "text", "unsigned int", "int"
+    ],
+    "ritual_ZN18QOpenGLDebugLogger8popGroupEv": ["nothing", "address"],
+    "ritual_ZN18QOpenGLDebugLogger14enableMessagesE6QFlagsIN19QOpenGLDebugMessage6SourceEES0_INS1_4TypeEES0_INS1_8SeverityEE": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZN18QOpenGLDebugLogger15disableMessagesE6QFlagsIN19QOpenGLDebugMessage6SourceEES0_INS1_4TypeEES0_INS1_8SeverityEE": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZNK18QOpenGLDebugLogger14loggedMessagesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18QOpenGLDebugLogger10logMessageERK19QOpenGLDebugMessage": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QOpenGLDebugLogger12startLoggingENS_11LoggingModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18QOpenGLDebugLogger11stopLoggingEv": ["nothing", "address"],
+    "ritual_take_QOpenGLDebugLogger": ["bool", "address", "chars", "address"]
+  }
+}

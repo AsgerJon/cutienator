@@ -1,0 +1,23 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qpropertyanimation_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN25QPropertyAnimationPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK25QPropertyAnimationPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN25QPropertyAnimationPrivate24setTargetObjectForwarderEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QPropertyAnimationPrivate21targetObjectDestroyedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QPropertyAnimationPrivate15setPropertyNameERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QPropertyAnimationPrivate14updatePropertyERK8QVariant": [
+      "nothing", "address", "address"
+    ]
+  }
+}

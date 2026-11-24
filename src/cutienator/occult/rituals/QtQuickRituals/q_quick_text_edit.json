@@ -1,0 +1,375 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquicktextedit_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK14QQuickTextEdit10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QQuickTextEdit2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN14QQuickTextEditC1EP10QQuickItem": ["address", "address"],
+    "ritual_ZN14QQuickTextEditD1Ev": ["nothing", "address"],
+    "ritual_ZNK14QQuickTextEdit4textEv": ["text", "address"],
+    "ritual_ZN14QQuickTextEdit7setTextERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK14QQuickTextEdit11preeditTextEv": ["text", "address"],
+    "ritual_ZNK14QQuickTextEdit10textFormatEv": ["int", "address"],
+    "ritual_ZN14QQuickTextEdit13setTextFormatENS_10TextFormatE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK14QQuickTextEdit4fontEv": ["address", "address"],
+    "ritual_ZN14QQuickTextEdit7setFontERK5QFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QQuickTextEdit5colorEv": ["address", "address"],
+    "ritual_ZN14QQuickTextEdit8setColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QQuickTextEdit14selectionColorEv": ["address", "address"],
+    "ritual_ZN14QQuickTextEdit17setSelectionColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QQuickTextEdit17selectedTextColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZN14QQuickTextEdit20setSelectedTextColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QQuickTextEdit6hAlignEv": ["int", "address"],
+    "ritual_ZN14QQuickTextEdit9setHAlignENS_10HAlignmentE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN14QQuickTextEdit11resetHAlignEv": ["nothing", "address"],
+    "ritual_ZNK14QQuickTextEdit15effectiveHAlignEv": ["int", "address"],
+    "ritual_ZNK14QQuickTextEdit6vAlignEv": ["int", "address"],
+    "ritual_ZN14QQuickTextEdit9setVAlignENS_10VAlignmentE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK14QQuickTextEdit8wrapModeEv": ["int", "address"],
+    "ritual_ZN14QQuickTextEdit11setWrapModeENS_8WrapModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK14QQuickTextEdit9lineCountEv": ["int", "address"],
+    "ritual_ZNK14QQuickTextEdit6lengthEv": ["int", "address"],
+    "ritual_ZNK14QQuickTextEdit15isCursorVisibleEv": ["bool", "address"],
+    "ritual_ZN14QQuickTextEdit16setCursorVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK14QQuickTextEdit14cursorPositionEv": ["int", "address"],
+    "ritual_ZN14QQuickTextEdit17setCursorPositionEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK14QQuickTextEdit14cursorDelegateEv": ["address", "address"],
+    "ritual_ZN14QQuickTextEdit17setCursorDelegateEP13QQmlComponent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QQuickTextEdit13overwriteModeEv": ["bool", "address"],
+    "ritual_ZN14QQuickTextEdit16setOverwriteModeEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK14QQuickTextEdit14selectionStartEv": ["int", "address"],
+    "ritual_ZNK14QQuickTextEdit12selectionEndEv": ["int", "address"],
+    "ritual_ZNK14QQuickTextEdit12selectedTextEv": ["text", "address"],
+    "ritual_ZNK14QQuickTextEdit12focusOnPressEv": ["bool", "address"],
+    "ritual_ZN14QQuickTextEdit15setFocusOnPressEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK14QQuickTextEdit19persistentSelectionEv": ["bool", "address"],
+    "ritual_ZN14QQuickTextEdit22setPersistentSelectionEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK14QQuickTextEdit10textMarginEv": ["double", "address"],
+    "ritual_ZN14QQuickTextEdit13setTextMarginEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK14QQuickTextEdit16inputMethodHintsEv": ["int", "address"],
+    "ritual_ZN14QQuickTextEdit19setInputMethodHintsE6QFlagsIN2Qt15InputMethodHintEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK14QQuickTextEdit16selectByKeyboardEv": ["bool", "address"],
+    "ritual_ZN14QQuickTextEdit19setSelectByKeyboardEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK14QQuickTextEdit13selectByMouseEv": ["bool", "address"],
+    "ritual_ZN14QQuickTextEdit16setSelectByMouseEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK14QQuickTextEdit18mouseSelectionModeEv": ["int", "address"],
+    "ritual_ZN14QQuickTextEdit21setMouseSelectionModeENS_13SelectionModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK14QQuickTextEdit8canPasteEv": ["bool", "address"],
+    "ritual_ZNK14QQuickTextEdit7canUndoEv": ["bool", "address"],
+    "ritual_ZNK14QQuickTextEdit7canRedoEv": ["bool", "address"],
+    "ritual_ZN14QQuickTextEdit17componentCompleteEv": ["nothing", "address"],
+    "ritual_ZNK14QQuickTextEdit16resourcesLoadingEv": ["int", "address"],
+    "ritual_ZN14QQuickTextEdit11setReadOnlyEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK14QQuickTextEdit10isReadOnlyEv": ["bool", "address"],
+    "ritual_ZNK14QQuickTextEdit15cursorRectangleEv": ["address", "address"],
+    "ritual_ZNK14QQuickTextEdit16inputMethodQueryEN2Qt16InputMethodQueryE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK14QQuickTextEdit16inputMethodQueryEN2Qt16InputMethodQueryE8QVariant": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_ZNK14QQuickTextEdit12contentWidthEv": ["double", "address"],
+    "ritual_ZNK14QQuickTextEdit13contentHeightEv": ["double", "address"],
+    "ritual_ZNK14QQuickTextEdit7baseUrlEv": ["address", "address"],
+    "ritual_ZN14QQuickTextEdit10setBaseUrlERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QQuickTextEdit12resetBaseUrlEv": ["nothing", "address"],
+    "ritual_ZNK14QQuickTextEdit19positionToRectangleEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK14QQuickTextEdit10positionAtEdd": [
+      "int", "address", "double", "double"
+    ],
+    "ritual_ZN14QQuickTextEdit19moveCursorSelectionEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN14QQuickTextEdit19moveCursorSelectionEiNS_13SelectionModeE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK14QQuickTextEdit15cursorSelectionEv": ["address", "address"],
+    "ritual_ZNK14QQuickTextEdit12boundingRectEv": ["address", "address"],
+    "ritual_ZNK14QQuickTextEdit8clipRectEv": ["address", "address"],
+    "ritual_ZNK14QQuickTextEdit22isInputMethodComposingEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK14QQuickTextEdit10renderTypeEv": ["int", "address"],
+    "ritual_ZN14QQuickTextEdit13setRenderTypeENS_10RenderTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK14QQuickTextEdit7getTextEii": [
+      "text", "address", "int", "int"
+    ],
+    "ritual_ZNK14QQuickTextEdit16getFormattedTextEii": [
+      "text", "address", "int", "int"
+    ],
+    "ritual_ZN14QQuickTextEdit12textDocumentEv": ["address", "address"],
+    "ritual_ZNK14QQuickTextEdit11hoveredLinkEv": ["text", "address"],
+    "ritual_ZNK14QQuickTextEdit6linkAtEdd": [
+      "text", "address", "double", "double"
+    ],
+    "ritual_ZNK14QQuickTextEdit7paddingEv": ["double", "address"],
+    "ritual_ZN14QQuickTextEdit10setPaddingEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN14QQuickTextEdit12resetPaddingEv": ["nothing", "address"],
+    "ritual_ZNK14QQuickTextEdit10topPaddingEv": ["double", "address"],
+    "ritual_ZN14QQuickTextEdit13setTopPaddingEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN14QQuickTextEdit15resetTopPaddingEv": ["nothing", "address"],
+    "ritual_ZNK14QQuickTextEdit11leftPaddingEv": ["double", "address"],
+    "ritual_ZN14QQuickTextEdit14setLeftPaddingEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN14QQuickTextEdit16resetLeftPaddingEv": ["nothing", "address"],
+    "ritual_ZNK14QQuickTextEdit12rightPaddingEv": ["double", "address"],
+    "ritual_ZN14QQuickTextEdit15setRightPaddingEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN14QQuickTextEdit17resetRightPaddingEv": ["nothing", "address"],
+    "ritual_ZNK14QQuickTextEdit13bottomPaddingEv": ["double", "address"],
+    "ritual_ZN14QQuickTextEdit16setBottomPaddingEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN14QQuickTextEdit18resetBottomPaddingEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK14QQuickTextEdit15tabStopDistanceEv": ["int", "address"],
+    "ritual_ZN14QQuickTextEdit18setTabStopDistanceEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN14QQuickTextEdit10invalidateEv": ["nothing", "address"],
+    "ritual_ZN14QQuickTextEdit9selectAllEv": ["nothing", "address"],
+    "ritual_ZN14QQuickTextEdit10selectWordEv": ["nothing", "address"],
+    "ritual_ZN14QQuickTextEdit6selectEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN14QQuickTextEdit8deselectEv": ["nothing", "address"],
+    "ritual_ZN14QQuickTextEdit13isRightToLeftEii": [
+      "bool", "address", "int", "int"
+    ],
+    "ritual_ZN14QQuickTextEdit3cutEv": ["nothing", "address"],
+    "ritual_ZN14QQuickTextEdit4copyEv": ["nothing", "address"],
+    "ritual_ZN14QQuickTextEdit5pasteEv": ["nothing", "address"],
+    "ritual_ZN14QQuickTextEdit4undoEv": ["nothing", "address"],
+    "ritual_ZN14QQuickTextEdit4redoEv": ["nothing", "address"],
+    "ritual_ZN14QQuickTextEdit6insertEiRK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZN14QQuickTextEdit6removeEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN14QQuickTextEdit6appendERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN14QQuickTextEdit5clearEv": ["nothing", "address"],
+    "ritual_ZN14QQuickTextEdit12q_invalidateEv": ["nothing", "address"],
+    "ritual_ZN14QQuickTextEdit13q_textChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQuickTextEdit16q_contentsChangeEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZN14QQuickTextEdit15updateSelectionEv": ["nothing", "address"],
+    "ritual_ZN14QQuickTextEdit18moveCursorDelegateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickTextEdit12createCursorEv": ["nothing", "address"],
+    "ritual_ZN14QQuickTextEdit17q_canPasteChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQuickTextEdit19updateWholeDocumentEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickTextEdit15invalidateBlockERK10QTextBlock": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QQuickTextEdit12updateCursorEv": ["nothing", "address"],
+    "ritual_ZN14QQuickTextEdit13q_linkHoveredERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN14QQuickTextEdit15q_markerHoveredEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN14QQuickTextEdit17q_updateAlignmentEv": ["nothing", "address"],
+    "ritual_ZN14QQuickTextEdit10updateSizeEv": ["nothing", "address"],
+    "ritual_ZN14QQuickTextEdit17triggerPreprocessEv": ["nothing", "address"],
+    "ritual_ZN14QQuickTextEdit12loadResourceEiRK4QUrl": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_ZN14QQuickTextEdit23resourceRequestFinishedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickTextEdit22markDirtyNodesForRangeEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZN14QQuickTextEdit16updateTotalLinesEv": ["nothing", "address"],
+    "ritual_ZN14QQuickTextEdit20invalidateFontCachesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK14QQuickTextEdit8documentEv": ["address", "address"],
+    "ritual_ZN14QQuickTextEdit11setDocumentEP13QTextDocument": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QQuickTextEdit22setOldSelectionDefaultEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickTextEdit14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN14QQuickTextEdit10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN14QQuickTextEdit5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN14QQuickTextEdit13keyPressEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QQuickTextEdit15keyReleaseEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QQuickTextEdit12focusInEventEP11QFocusEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QQuickTextEdit13focusOutEventEP11QFocusEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QQuickTextEdit15hoverEnterEventEP11QHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QQuickTextEdit14hoverMoveEventEP11QHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QQuickTextEdit15hoverLeaveEventEP11QHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QQuickTextEdit15mousePressEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QQuickTextEdit17mouseReleaseEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QQuickTextEdit21mouseDoubleClickEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QQuickTextEdit14mouseMoveEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QQuickTextEdit16inputMethodEventEP17QInputMethodEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QQuickTextEdit15updatePaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN14QQuickTextEdit12updatePolishEv": ["nothing", "address"],
+    "ritual_ZN14QQuickTextEdit6d_funcEv": ["address", "address"],
+    "ritual_ZNK14QQuickTextEdit6d_funcEv": ["address", "address"],
+    "ritual_cast_QQuickTextEdit_QQuickTextInterface": ["address", "address"],
+    "ritual_take_QQuickTextEdit": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN14QQuickTextEdit17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZNK14QQuickTextEdit16inputMethodQueryEN2Qt16InputMethodQueryE": [
+      "address", "address", "int"
+    ],
+    "ritual_own_ZNK14QQuickTextEdit12boundingRectEv": ["address", "address"],
+    "ritual_own_ZNK14QQuickTextEdit8clipRectEv": ["address", "address"],
+    "ritual_own_ZN14QQuickTextEdit10invalidateEv": ["nothing", "address"],
+    "ritual_own_ZN14QQuickTextEdit14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN14QQuickTextEdit10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZN14QQuickTextEdit5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN14QQuickTextEdit13keyPressEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN14QQuickTextEdit15keyReleaseEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN14QQuickTextEdit12focusInEventEP11QFocusEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN14QQuickTextEdit13focusOutEventEP11QFocusEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN14QQuickTextEdit15hoverEnterEventEP11QHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN14QQuickTextEdit14hoverMoveEventEP11QHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN14QQuickTextEdit15hoverLeaveEventEP11QHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN14QQuickTextEdit15mousePressEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN14QQuickTextEdit17mouseReleaseEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN14QQuickTextEdit21mouseDoubleClickEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN14QQuickTextEdit14mouseMoveEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN14QQuickTextEdit16inputMethodEventEP17QInputMethodEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN14QQuickTextEdit15updatePaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN14QQuickTextEdit12updatePolishEv": ["nothing", "address"]
+  }
+}

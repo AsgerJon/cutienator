@@ -4,6 +4,9 @@
     "QtCore/qcborarray.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN10QCborArray8IteratorC1EP21QCborContainerPrivatex": [
+      "address", "address", "long long"
+    ],
     "ritual_ZN10QCborArray8IteratorC1Ev": ["address"],
     "ritual_ZN10QCborArray8IteratorC1ERKS0_": ["address", "address"],
     "ritual_ZNK10QCborArray8IteratordeEv": ["address", "address"],
@@ -34,6 +37,12 @@
     ],
     "ritual_ZN10QCborArray8Iterator20comparesEqual_helperERKS0_RKNS_13ConstIteratorE": [
       "bool", "address", "address"
+    ],
+    "ritual_ZN10QCborArray8Iterator22compareThreeWay_helperERKS0_S2_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN10QCborArray8Iterator22compareThreeWay_helperERKS0_RKNS_13ConstIteratorE": [
+      "address", "address", "address"
     ],
     "ritual_ZeqRKN10QCborArray8IteratorES2_": ["bool", "address", "address"],
     "ritual_ZneRKN10QCborArray8IteratorES2_": ["bool", "address", "address"],

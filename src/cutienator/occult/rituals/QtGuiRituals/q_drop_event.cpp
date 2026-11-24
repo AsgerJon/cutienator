@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGui/qevent.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
+#if QT_CONFIG(draganddrop)
 #include <QtGui/qevent.h>
 #include <QtCore/qpoint.h>
 #include <cstring>
@@ -7,7 +9,9 @@
 //  A QDropEvent that Python can take functions over in. Every QDropEvent
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if QT_CONFIG(draganddrop)
 typedef void * (*CuteQDropEventCall0)(const void *, int *);
+#endif  // QT_CONFIG(draganddrop)
 typedef void (*CuteQDropEventCall1)(const void *, bool, int *);
 class CuteQDropEvent : public QDropEvent {
 public:
@@ -15,10 +19,12 @@ public:
   void *taken[2] = {};
 
   bool take(const char *key, void *call) {
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZNK6QEvent5cloneEv")) {
       taken[0] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN6QEvent11setAcceptedEb")) {
       taken[1] = call;
       return true;
@@ -26,6 +32,7 @@ public:
     return false;
   }
 
+#if QT_CONFIG(draganddrop)
   //  QDropEvent *QDropEvent::clone() const
   QDropEvent *clone() const override {
     if (taken[0]) {
@@ -36,6 +43,7 @@ public:
     }
     return QDropEvent::clone();
   }
+#endif  // QT_CONFIG(draganddrop)
 
   //  void QEvent::setAccepted(bool accepted)
   void setAccepted(bool accepted) override {
@@ -81,29 +89,37 @@ QDropEvent *ritual_ZN10QDropEventC1ERK7QPointF6QFlagsIN2Qt10DropActionEEPK9QMime
       type);
 }
 
+#if QT_DEPRECATED_SINCE(6, 0)
 //  QPoint QDropEvent::pos() const
 extern "C" Q_DECL_EXPORT
 QPoint *ritual_ZNK10QDropEvent3posEv(const QDropEvent *self) {
   return new QPoint(self->pos());
 }
+#endif  // QT_DEPRECATED_SINCE(6, 0)
 
+#if QT_DEPRECATED_SINCE(6, 0)
 //  QPointF QDropEvent::posF() const
 extern "C" Q_DECL_EXPORT
 QPointF *ritual_ZNK10QDropEvent4posFEv(const QDropEvent *self) {
   return new QPointF(self->posF());
 }
+#endif  // QT_DEPRECATED_SINCE(6, 0)
 
+#if QT_DEPRECATED_SINCE(6, 0)
 //  Qt::MouseButtons QDropEvent::mouseButtons() const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK10QDropEvent12mouseButtonsEv(const QDropEvent *self) {
   return static_cast<int>(self->mouseButtons().toInt());
 }
+#endif  // QT_DEPRECATED_SINCE(6, 0)
 
+#if QT_DEPRECATED_SINCE(6, 0)
 //  Qt::KeyboardModifiers QDropEvent::keyboardModifiers() const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK10QDropEvent17keyboardModifiersEv(const QDropEvent *self) {
   return static_cast<int>(self->keyboardModifiers().toInt());
 }
+#endif  // QT_DEPRECATED_SINCE(6, 0)
 
 //  QPointF QDropEvent::position() const
 extern "C" Q_DECL_EXPORT
@@ -180,3 +196,5 @@ extern "C" Q_DECL_EXPORT
 QDropEvent *ritual_own_ZNK10QDropEvent5cloneEv(const QDropEvent *self) {
   return self->QDropEvent::clone();
 }
+
+#endif  // QT_CONFIG(draganddrop)

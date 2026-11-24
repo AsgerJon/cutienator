@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickitem_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN22QQuickTransformPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK22QQuickTransformPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN22QQuickTransformPrivate3getEP15QQuickTransform": [
+      "address", "address"
+    ],
+    "ritual_ZN22QQuickTransformPrivateC1Ev": ["address"]
+  }
+}

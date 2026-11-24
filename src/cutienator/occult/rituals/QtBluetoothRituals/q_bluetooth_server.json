@@ -1,0 +1,50 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtBluetooth/qbluetoothserver.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK16QBluetoothServer10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QBluetoothServer2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN16QBluetoothServerC1EN21QBluetoothServiceInfo8ProtocolEP7QObject": [
+      "address", "int", "address"
+    ],
+    "ritual_ZN16QBluetoothServerD1Ev": ["nothing", "address"],
+    "ritual_ZN16QBluetoothServer5closeEv": ["nothing", "address"],
+    "ritual_ZN16QBluetoothServer6listenERK17QBluetoothAddresst": [
+      "bool", "address", "address", "unsigned short"
+    ],
+    "ritual_ZN16QBluetoothServer6listenERK14QBluetoothUuidRK7QString": [
+      "address", "address", "address", "text"
+    ],
+    "ritual_ZNK16QBluetoothServer11isListeningEv": ["bool", "address"],
+    "ritual_ZN16QBluetoothServer24setMaxPendingConnectionsEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16QBluetoothServer21maxPendingConnectionsEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK16QBluetoothServer21hasPendingConnectionsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN16QBluetoothServer21nextPendingConnectionEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK16QBluetoothServer13serverAddressEv": ["address", "address"],
+    "ritual_ZNK16QBluetoothServer10serverPortEv": [
+      "unsigned short", "address"
+    ],
+    "ritual_ZN16QBluetoothServer16setSecurityFlagsE6QFlagsIN10QBluetooth8SecurityEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16QBluetoothServer13securityFlagsEv": ["int", "address"],
+    "ritual_ZNK16QBluetoothServer10serverTypeEv": ["int", "address"],
+    "ritual_ZNK16QBluetoothServer5errorEv": ["int", "address"],
+    "ritual_ZN16QBluetoothServer6d_funcEv": ["address", "address"],
+    "ritual_ZNK16QBluetoothServer6d_funcEv": ["address", "address"],
+    "ritual_take_QBluetoothServer": ["bool", "address", "chars", "address"]
+  }
+}

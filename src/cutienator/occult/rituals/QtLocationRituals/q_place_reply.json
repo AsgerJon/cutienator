@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLocation/qplacereply.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK11QPlaceReply10metaObjectEv": ["address", "address"],
+    "ritual_ZN11QPlaceReply2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN11QPlaceReplyC1EP7QObject": ["address", "address"],
+    "ritual_ZN11QPlaceReplyD1Ev": ["nothing", "address"],
+    "ritual_ZNK11QPlaceReply10isFinishedEv": ["bool", "address"],
+    "ritual_ZNK11QPlaceReply4typeEv": ["int", "address"],
+    "ritual_ZNK11QPlaceReply11errorStringEv": ["text", "address"],
+    "ritual_ZNK11QPlaceReply5errorEv": ["int", "address"],
+    "ritual_ZN11QPlaceReply5abortEv": ["nothing", "address"],
+    "ritual_ZN11QPlaceReplyC1EP18QPlaceReplyPrivateP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN11QPlaceReply11setFinishedEb": ["nothing", "address", "bool"],
+    "ritual_ZN11QPlaceReply8setErrorENS_5ErrorERK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_take_QPlaceReply": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK11QPlaceReply4typeEv": ["int", "address"],
+    "ritual_own_ZN11QPlaceReply5abortEv": ["nothing", "address"]
+  }
+}

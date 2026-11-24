@@ -1,0 +1,43 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Dialogs2/6.12.0/QtQuickDialogs2/private/qquickcolordialog_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QQuickColorDialog10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QQuickColorDialog2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QQuickColorDialog20qmlExtendedNamespaceEv": ["address"],
+    "ritual_ZN17QQuickColorDialog30qt_qmlMarker_extendedNamespaceEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuickColorDialogC1EP7QObject": ["address", "address"],
+    "ritual_ZNK17QQuickColorDialog13selectedColorEv": ["address", "address"],
+    "ritual_ZN17QQuickColorDialog16setSelectedColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QQuickColorDialog7optionsEv": ["int", "address"],
+    "ritual_ZN17QQuickColorDialog10setOptionsE6QFlagsIN19QColorDialogOptions17ColorDialogOptionEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQuickColorDialog12resetOptionsEv": ["nothing", "address"],
+    "ritual_ZNK17QQuickColorDialog15useNativeDialogEv": ["bool", "address"],
+    "ritual_ZN17QQuickColorDialog8onCreateEP21QPlatformDialogHelper": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QQuickColorDialog6onShowEP21QPlatformDialogHelper": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK17QQuickColorDialog15useNativeDialogEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZN17QQuickColorDialog8onCreateEP21QPlatformDialogHelper": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN17QQuickColorDialog6onShowEP21QPlatformDialogHelper": [
+      "nothing", "address", "address"
+    ]
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4arraybuffer_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN3QV44Heap11ArrayBuffer4initEm": [
+      "nothing", "address", "size_t"
+    ],
+    "ritual_ZN3QV44Heap11ArrayBuffer4initERK10QByteArray": [
+      "nothing", "address", "address"
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/6.12.0/QtCharts/private/qchartview_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN17QChartViewPrivateC1EP10QChartViewP6QChart": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN17QChartViewPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN17QChartViewPrivate8setChartEP6QChart": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QChartViewPrivate6resizeEv": ["nothing", "address"]
+  }
+}

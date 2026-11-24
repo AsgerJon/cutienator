@@ -1,0 +1,30 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/6.12.0/QtCharts/private/qhorizontalbarseries_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN27QHorizontalBarSeriesPrivateC1EP20QHorizontalBarSeries": [
+      "address", "address"
+    ],
+    "ritual_ZN27QHorizontalBarSeriesPrivate18initializeGraphicsEP13QGraphicsItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN27QHorizontalBarSeriesPrivate16initializeDomainEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QHorizontalBarSeriesPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK27QHorizontalBarSeriesPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN27QHorizontalBarSeriesPrivate18initializeGraphicsEP13QGraphicsItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN27QHorizontalBarSeriesPrivate16initializeDomainEv": [
+      "nothing", "address"
+    ]
+  }
+}

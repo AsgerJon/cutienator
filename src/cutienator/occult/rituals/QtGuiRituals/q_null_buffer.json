@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qrhinull_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11QNullBufferC1EP18QRhiImplementationN10QRhiBuffer4TypeE6QFlagsINS2_9UsageFlagEEj": [
+      "address", "address", "int", "int", "unsigned int"
+    ],
+    "ritual_ZN11QNullBufferD1Ev": ["nothing", "address"],
+    "ritual_ZN11QNullBuffer7destroyEv": ["nothing", "address"],
+    "ritual_ZN11QNullBuffer6createEv": ["bool", "address"],
+    "ritual_take_QNullBuffer": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN11QNullBuffer7destroyEv": ["nothing", "address"],
+    "ritual_own_ZN11QNullBuffer6createEv": ["bool", "address"]
+  }
+}

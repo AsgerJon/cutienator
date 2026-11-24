@@ -1,0 +1,47 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qabstractbutton_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN22QAbstractButtonPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK22QAbstractButtonPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN22QAbstractButtonPrivate4initEv": ["nothing", "address"],
+    "ritual_ZN22QAbstractButtonPrivate5clickEv": ["nothing", "address"],
+    "ritual_ZN22QAbstractButtonPrivate7refreshEv": ["nothing", "address"],
+    "ritual_ZNK22QAbstractButtonPrivate15queryButtonListEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK22QAbstractButtonPrivate18queryCheckedButtonEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QAbstractButtonPrivate13notifyCheckedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QAbstractButtonPrivate14fixFocusPolicyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QAbstractButtonPrivate11emitPressedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QAbstractButtonPrivate12emitReleasedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QAbstractButtonPrivate11emitClickedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QAbstractButtonPrivate11emitToggledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK22QAbstractButtonPrivate16styleButtonStateE6QFlagsIN6QStyle9StateFlagEE": [
+      "int", "address", "int"
+    ],
+    "ritual_take_QAbstractButtonPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK22QAbstractButtonPrivate16styleButtonStateE6QFlagsIN6QStyle9StateFlagEE": [
+      "int", "address", "int"
+    ]
+  }
+}

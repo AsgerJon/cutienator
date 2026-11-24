@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDBus/qdbuspendingreply.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN21QDBusPendingReplyBaseC1Ev": ["address"],
+    "ritual_ZN21QDBusPendingReplyBaseD1Ev": ["nothing", "address"],
+    "ritual_ZN21QDBusPendingReplyBase6assignERK16QDBusPendingCall": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QDBusPendingReplyBase6assignERK12QDBusMessage": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21QDBusPendingReplyBase10argumentAtEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN21QDBusPendingReplyBase12setMetaTypesEiPK9QMetaType": [
+      "nothing", "address", "int", "address"
+    ]
+  }
+}

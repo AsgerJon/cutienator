@@ -1,0 +1,12 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgrenderpa",
+    "ss_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK10Item2DPass8passTypeEv": ["int", "address"],
+    "ritual_ZN10Item2DPass13resetForFrameEv": ["nothing", "address"],
+    "ritual_ZN10Item2DPassD1Ev": ["nothing", "address"]
+  }
+}

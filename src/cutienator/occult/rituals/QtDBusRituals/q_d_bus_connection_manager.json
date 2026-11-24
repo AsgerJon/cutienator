@@ -1,0 +1,38 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDBus/6.12.0/QtDBus/private/qdbusconnectionmanager_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK22QDBusConnectionManager10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QDBusConnectionManagerD1Ev": ["nothing", "address"],
+    "ritual_ZNK22QDBusConnectionManager18existingConnectionERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN22QDBusConnectionManager17removeConnectionsERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QDBusConnectionManager14disconnectFromERK7QStringN22QDBusConnectionPrivate14ConnectionModeE": [
+      "nothing", "address", "text", "int"
+    ],
+    "ritual_ZN22QDBusConnectionManager13addConnectionERK7QStringP22QDBusConnectionPrivate": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZN22QDBusConnectionManager3runEv": ["nothing", "address"],
+    "ritual_ZNK22QDBusConnectionManager10connectionERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN22QDBusConnectionManager16removeConnectionERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN22QDBusConnectionManager13setConnectionERK7QStringP22QDBusConnectionPrivate": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_take_QDBusConnectionManager": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

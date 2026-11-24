@@ -1,0 +1,40 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickstategroup_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK16QQuickStateGroup10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QQuickStateGroup2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN16QQuickStateGroupC1EP7QObject": ["address", "address"],
+    "ritual_ZN16QQuickStateGroupD1Ev": ["nothing", "address"],
+    "ritual_ZNK16QQuickStateGroup5stateEv": ["text", "address"],
+    "ritual_ZN16QQuickStateGroup8setStateERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK16QQuickStateGroup6statesEv": ["address", "address"],
+    "ritual_ZNK16QQuickStateGroup9findStateERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN16QQuickStateGroup11removeStateEP11QQuickState": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickStateGroup10classBeginEv": ["nothing", "address"],
+    "ritual_ZN16QQuickStateGroup17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickStateGroup15updateAutoStateEv": ["bool", "address"],
+    "ritual_ZN16QQuickStateGroup20stateAboutToCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_cast_QQuickStateGroup_QQmlParserStatus": ["address", "address"],
+    "ritual_take_QQuickStateGroup": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN16QQuickStateGroup10classBeginEv": ["nothing", "address"],
+    "ritual_own_ZN16QQuickStateGroup17componentCompleteEv": [
+      "nothing", "address"
+    ]
+  }
+}

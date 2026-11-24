@@ -1,0 +1,46 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore5Compat/qxml.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN14QXmlAttributesC1Ev": ["address"],
+    "ritual_ZN14QXmlAttributesC1ERKS_": ["address", "address"],
+    "ritual_ZN14QXmlAttributesD1Ev": ["nothing", "address"],
+    "ritual_ZNK14QXmlAttributes5indexERK7QString": [
+      "int", "address", "text"
+    ],
+    "ritual_ZNK14QXmlAttributes5indexE13QLatin1String": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK14QXmlAttributes5indexERK7QStringS2_": [
+      "int", "address", "text", "text"
+    ],
+    "ritual_ZNK14QXmlAttributes6lengthEv": ["int", "address"],
+    "ritual_ZNK14QXmlAttributes5countEv": ["int", "address"],
+    "ritual_ZNK14QXmlAttributes9localNameEi": ["text", "address", "int"],
+    "ritual_ZNK14QXmlAttributes5qNameEi": ["text", "address", "int"],
+    "ritual_ZNK14QXmlAttributes3uriEi": ["text", "address", "int"],
+    "ritual_ZNK14QXmlAttributes4typeEi": ["text", "address", "int"],
+    "ritual_ZNK14QXmlAttributes4typeERK7QString": [
+      "text", "address", "text"
+    ],
+    "ritual_ZNK14QXmlAttributes4typeERK7QStringS2_": [
+      "text", "address", "text", "text"
+    ],
+    "ritual_ZNK14QXmlAttributes5valueEi": ["text", "address", "int"],
+    "ritual_ZNK14QXmlAttributes5valueERK7QString": [
+      "text", "address", "text"
+    ],
+    "ritual_ZNK14QXmlAttributes5valueE13QLatin1String": [
+      "text", "address", "address"
+    ],
+    "ritual_ZNK14QXmlAttributes5valueERK7QStringS2_": [
+      "text", "address", "text", "text"
+    ],
+    "ritual_ZN14QXmlAttributes5clearEv": ["nothing", "address"],
+    "ritual_ZN14QXmlAttributes6appendERK7QStringS2_S2_S2_": [
+      "nothing", "address", "text", "text", "text", "text"
+    ]
+  }
+}

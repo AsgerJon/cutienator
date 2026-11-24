@@ -1,0 +1,25 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmljsast_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK6QQmlJS3AST12PropertyName19firstSourceLocationEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK6QQmlJS3AST12PropertyName18lastSourceLocationEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK6QQmlJS3AST12PropertyName8asStringEv": ["text", "address"],
+    "ritual_take_QQmlJS_AST_PropertyName": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK6QQmlJS3AST12PropertyName19firstSourceLocationEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK6QQmlJS3AST12PropertyName18lastSourceLocationEv": [
+      "address", "address"
+    ]
+  }
+}

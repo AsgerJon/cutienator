@@ -1,0 +1,20 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qfileiconprovider_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN24QFileIconProviderPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK24QFileIconProviderPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN24QFileIconProviderPrivateC1EP17QFileIconProvider": [
+      "address", "address"
+    ],
+    "ritual_ZNK24QFileIconProviderPrivate7getIconEN6QStyle14StandardPixmapE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK24QFileIconProviderPrivate7getIconERK9QFileInfo": [
+      "address", "address", "address"
+    ]
+  }
+}

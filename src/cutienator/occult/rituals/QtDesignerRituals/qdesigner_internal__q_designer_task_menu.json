@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/qdesigner_taskmenu_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18qdesigner_internal17QDesignerTaskMenu10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal17QDesignerTaskMenu2trEPKcS2_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_cast_qdesigner_internal_QDesignerTaskMenu_QDesignerTaskMenuExtension": [
+      "address", "address"
+    ],
+    "ritual_take_qdesigner_internal_QDesignerTaskMenu": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

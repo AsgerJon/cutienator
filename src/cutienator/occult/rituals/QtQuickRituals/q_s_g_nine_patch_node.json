@@ -1,0 +1,26 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/qsgninepatchnode.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN16QSGNinePatchNodeD1Ev": ["nothing", "address"],
+    "ritual_ZN16QSGNinePatchNode10setTextureEP10QSGTexture": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QSGNinePatchNode9setBoundsERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QSGNinePatchNode19setDevicePixelRatioEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN16QSGNinePatchNode10setPaddingEdddd": [
+      "nothing", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZN16QSGNinePatchNode6updateEv": ["nothing", "address"],
+    "ritual_ZN16QSGNinePatchNode15rebuildGeometryEP10QSGTextureP11QSGGeometryRK9QVector4DRK6QRectFd": [
+      "nothing", "address", "address", "address", "address", "double"
+    ],
+    "ritual_take_QSGNinePatchNode": ["bool", "address", "chars", "address"]
+  }
+}

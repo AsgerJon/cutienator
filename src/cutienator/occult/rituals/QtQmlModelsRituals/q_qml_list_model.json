@@ -1,0 +1,90 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQmlModels/6.12.0/QtQmlModels/private/qqmllistmodel_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK13QQmlListModel10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QQmlListModel2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN13QQmlListModelC1EP7QObject": ["address", "address"],
+    "ritual_ZN13QQmlListModelD1Ev": ["nothing", "address"],
+    "ritual_ZNK13QQmlListModel5indexEiiRK11QModelIndex": [
+      "address", "address", "int", "int", "address"
+    ],
+    "ritual_ZNK13QQmlListModel8rowCountERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK13QQmlListModel4dataERK11QModelIndexi": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN13QQmlListModel7setDataERK11QModelIndexRK8QVarianti": [
+      "bool", "address", "address", "address", "int"
+    ],
+    "ritual_ZNK13QQmlListModel9roleNamesEv": ["address", "address"],
+    "ritual_ZNK13QQmlListModel4dataEii": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZNK13QQmlListModel5countEv": ["int", "address"],
+    "ritual_ZN13QQmlListModel5clearEv": ["nothing", "address"],
+    "ritual_ZN13QQmlListModel6removeEP14QQmlV4Function": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QQmlListModel6appendEP14QQmlV4Function": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QQmlListModel6insertEP14QQmlV4Function": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QQmlListModel3getEi": ["address", "address", "int"],
+    "ritual_ZN13QQmlListModel3setEiRK8QJSValue": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN13QQmlListModel11setPropertyEiRK7QStringRK8QVariant": [
+      "nothing", "address", "int", "text", "address"
+    ],
+    "ritual_ZN13QQmlListModel4moveEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZN13QQmlListModel4syncEv": ["nothing", "address"],
+    "ritual_ZN13QQmlListModel5agentEv": ["address", "address"],
+    "ritual_ZNK13QQmlListModel12dynamicRolesEv": ["bool", "address"],
+    "ritual_ZN13QQmlListModel15setDynamicRolesEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK13QQmlListModel9listModelEv": ["address", "address"],
+    "ritual_ZN13QQmlListModelC1EPS_P24QQmlListModelWorkerAgent": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN13QQmlListModelC1EPKS_P9ListModelPN3QV415ExecutionEngineEP7QObject": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK13QQmlListModel6engineEv": ["address", "address"],
+    "ritual_ZNK13QQmlListModel7canMoveEiii": [
+      "bool", "address", "int", "int", "int"
+    ],
+    "ritual_ZN13QQmlListModel4syncEPS_S0_": ["bool", "address", "address"],
+    "ritual_ZN13QQmlListModel15createWithOwnerEPS_": ["address", "address"],
+    "ritual_ZN13QQmlListModel26emitItemsAboutToBeInsertedEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN13QQmlListModel17emitItemsInsertedEv": ["nothing", "address"],
+    "ritual_ZN13QQmlListModel14removeElementsEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN13QQmlListModel18updateTranslationsEv": ["nothing", "address"],
+    "ritual_take_QQmlListModel": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK13QQmlListModel5indexEiiRK11QModelIndex": [
+      "address", "address", "int", "int", "address"
+    ],
+    "ritual_own_ZNK13QQmlListModel8rowCountERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZNK13QQmlListModel4dataERK11QModelIndexi": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_own_ZN13QQmlListModel7setDataERK11QModelIndexRK8QVarianti": [
+      "bool", "address", "address", "address", "int"
+    ]
+  }
+}

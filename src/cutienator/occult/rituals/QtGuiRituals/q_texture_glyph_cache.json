@@ -1,0 +1,63 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qtextureglyphcache_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QTextureGlyphCacheD1Ev": ["nothing", "address"],
+    "ritual_ZNK18QTextureGlyphCache16hasPendingGlyphsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN18QTextureGlyphCache19fillInPendingGlyphsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QTextureGlyphCache17createTextureDataEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN18QTextureGlyphCache17resizeTextureDataEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK18QTextureGlyphCache12glyphPaddingEv": ["int", "address"],
+    "ritual_ZN18QTextureGlyphCache16beginFillTextureEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QTextureGlyphCache11fillTextureERKNS_5CoordEjRK11QFixedPoint": [
+      "nothing", "address", "address", "unsigned int", "address"
+    ],
+    "ritual_ZN18QTextureGlyphCache14endFillTextureEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QTextureGlyphCache11createCacheEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN18QTextureGlyphCache11resizeCacheEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK18QTextureGlyphCache6isNullEv": ["bool", "address"],
+    "ritual_ZNK18QTextureGlyphCache15maxTextureWidthEv": ["int", "address"],
+    "ritual_ZNK18QTextureGlyphCache16maxTextureHeightEv": ["int", "address"],
+    "ritual_ZNK18QTextureGlyphCache18textureMapForGlyphEjRK11QFixedPoint": [
+      "address", "address", "unsigned int", "address"
+    ],
+    "ritual_ZNK18QTextureGlyphCache30calculateSubPixelPositionCountEj": [
+      "int", "address", "unsigned int"
+    ],
+    "ritual_take_QTextureGlyphCache": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK18QTextureGlyphCache12glyphPaddingEv": ["int", "address"],
+    "ritual_own_ZN18QTextureGlyphCache16beginFillTextureEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN18QTextureGlyphCache14endFillTextureEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZNK18QTextureGlyphCache15maxTextureWidthEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZNK18QTextureGlyphCache16maxTextureHeightEv": [
+      "int", "address"
+    ]
+  }
+}

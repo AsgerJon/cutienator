@@ -1,0 +1,26 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/6.12.0/QtCharts/private/chartbackground_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15ChartBackgroundC1EP13QGraphicsItem": ["address", "address"],
+    "ritual_ZN15ChartBackgroundD1Ev": ["nothing", "address"],
+    "ritual_ZN15ChartBackground11setDiameterEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK15ChartBackground8diameterEv": ["double", "address"],
+    "ritual_ZN15ChartBackground20setDropShadowEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN15ChartBackground19isDropShadowEnabledEv": ["bool", "address"],
+    "ritual_ZN15ChartBackground5paintEP8QPainterPK24QStyleOptionGraphicsItemP7QWidget": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_take_ChartBackground": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN15ChartBackground5paintEP8QPainterPK24QStyleOptionGraphicsItemP7QWidget": [
+      "nothing", "address", "address", "address", "address"
+    ]
+  }
+}

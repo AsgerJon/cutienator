@@ -1,0 +1,32 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickanimatorjob_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN24QQuickOpacityAnimatorJobC1Ev": ["address"],
+    "ritual_ZN24QQuickOpacityAnimatorJob10invalidateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuickOpacityAnimatorJob17updateCurrentTimeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN24QQuickOpacityAnimatorJob9writeBackEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuickOpacityAnimatorJob8postSyncEv": ["nothing", "address"],
+    "ritual_own_ZN24QQuickOpacityAnimatorJob10invalidateEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN24QQuickOpacityAnimatorJob17updateCurrentTimeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN24QQuickOpacityAnimatorJob9writeBackEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN24QQuickOpacityAnimatorJob8postSyncEv": [
+      "nothing", "address"
+    ]
+  }
+}

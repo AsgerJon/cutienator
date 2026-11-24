@@ -1,0 +1,31 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/rhi/qshader.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN10QShaderKeyC1Ev": ["address"],
+    "ritual_ZN10QShaderKeyC1EN7QShader6SourceERK14QShaderVersionNS0_7VariantE": [
+      "address", "int", "address", "int"
+    ],
+    "ritual_ZNK10QShaderKey6sourceEv": ["int", "address"],
+    "ritual_ZN10QShaderKey9setSourceEN7QShader6SourceE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK10QShaderKey13sourceVersionEv": ["address", "address"],
+    "ritual_ZN10QShaderKey16setSourceVersionERK14QShaderVersion": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10QShaderKey13sourceVariantEv": ["int", "address"],
+    "ritual_ZN10QShaderKey16setSourceVariantEN7QShader7VariantE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10QShaderKeyD1Ev": ["nothing", "address"],
+    "ritual_list_make_QShaderKey": ["address"],
+    "ritual_list_add_QShaderKey": ["nothing", "address", "address"],
+    "ritual_list_size_QShaderKey": ["long long", "address"],
+    "ritual_list_at_QShaderKey": ["address", "address", "long long"],
+    "ritual_list_drop_QShaderKey": ["nothing", "address"]
+  }
+}

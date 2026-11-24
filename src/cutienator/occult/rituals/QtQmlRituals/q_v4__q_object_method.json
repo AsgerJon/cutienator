@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4qobjectwrapper_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN3QV413QObjectMethod12staticVTableEv": ["address"],
+    "ritual_ZN3QV413QObjectMethod10__dataTestEv": ["nothing", "address"],
+    "ritual_ZNK3QV413QObjectMethod11d_uncheckedEv": ["address", "address"],
+    "ritual_ZNK3QV413QObjectMethod1dEv": ["address", "address"],
+    "ritual_ZN3QV413QObjectMethod14virtualDestroyEPNS_4Heap4BaseE": [
+      "nothing", "address"
+    ],
+    "ritual_ZN3QV413QObjectMethod6createEPNS_15ExecutionEngineEPNS_4Heap6ObjectEi": [
+      "unsigned long long", "address", "address", "int"
+    ],
+    "ritual_ZN3QV413QObjectMethod6createEPNS_15ExecutionEngineEPNS_4Heap20QQmlValueTypeWrapperEi": [
+      "unsigned long long", "address", "address", "int"
+    ],
+    "ritual_ZN3QV413QObjectMethod6createEPNS_15ExecutionEngineEPNS_4Heap13QObjectMethodEPNS3_6ObjectES7_": [
+      "unsigned long long", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK3QV413QObjectMethod11methodIndexEv": ["int", "address"],
+    "ritual_ZNK3QV413QObjectMethod6objectEv": ["address", "address"]
+  }
+}

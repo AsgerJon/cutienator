@@ -1,0 +1,25 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmltypecompiler_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QQmlEnumTypeResolver2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN20QQmlEnumTypeResolverC1EP16QQmlTypeCompiler": [
+      "address", "address"
+    ],
+    "ritual_ZN20QQmlEnumTypeResolver19assignEnumToBindingEPN5QmlIR7BindingE11QStringViewi": [
+      "bool", "address", "address", "text", "int"
+    ],
+    "ritual_ZN20QQmlEnumTypeResolver19assignEnumToBindingEPN5QmlIR7BindingERK7QStringi": [
+      "bool", "address", "address", "text", "int"
+    ],
+    "ritual_ZNK20QQmlEnumTypeResolver12evaluateEnumERK7QString11QStringViewS3_Pb": [
+      "int", "address", "text", "text", "text", "address"
+    ],
+    "ritual_ZN20QQmlEnumTypeResolverD1Ev": ["nothing", "address"]
+  }
+}

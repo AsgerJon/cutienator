@@ -1,0 +1,26 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmldatablob_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK12QQmlDataBlob14SourceCodeData7readAllEP7QString": [
+      "text", "address", "address"
+    ],
+    "ritual_ZNK12QQmlDataBlob14SourceCodeData15sourceTimeStampEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK12QQmlDataBlob14SourceCodeData8checksumEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK12QQmlDataBlob14SourceCodeData6existsEv": ["bool", "address"],
+    "ritual_ZNK12QQmlDataBlob14SourceCodeData11isCacheableEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK12QQmlDataBlob14SourceCodeData7isValidEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN12QQmlDataBlob14SourceCodeDataD1Ev": ["nothing", "address"]
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4referenceobject_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN3QV44Heap23ReferenceObjectEndpointC1EPNS0_15ReferenceObjectE": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV44Heap23ReferenceObjectEndpointD1Ev": ["nothing", "address"]
+  }
+}

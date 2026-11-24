@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qorderedmutexlocker_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QOrderedMutexLockerC1EP11QBasicMutexS1_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN19QOrderedMutexLockerD1Ev": ["nothing", "address"],
+    "ritual_ZN19QOrderedMutexLocker6relockEv": ["nothing", "address"],
+    "ritual_ZN19QOrderedMutexLocker7dismissEv": ["nothing", "address"],
+    "ritual_ZN19QOrderedMutexLocker6unlockEv": ["nothing", "address"],
+    "ritual_ZN19QOrderedMutexLocker6relockEP11QBasicMutexS1_": [
+      "bool", "address", "address"
+    ]
+  }
+}

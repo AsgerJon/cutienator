@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGui/qaccessible.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
+#if QT_CONFIG(accessibility)
 #include <QtGui/qaccessible.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qlist.h>
@@ -8,30 +10,43 @@
 //  A QAccessibleActionInterface that Python can take functions over in. Every QAccessibleActionInterface
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if QT_CONFIG(accessibility)
 typedef QString * (*CuteQAccessibleActionInterfaceCall0)(const void *, const QString *, int *);
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
 typedef QString * (*CuteQAccessibleActionInterfaceCall1)(const void *, const QString *, int *);
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
 typedef void (*CuteQAccessibleActionInterfaceCall2)(const void *, const QString *, int *);
+#endif  // QT_CONFIG(accessibility)
 class CuteQAccessibleActionInterface : public QAccessibleActionInterface {
 public:
   using QAccessibleActionInterface::QAccessibleActionInterface;
   void *taken[3] = {};
 
   bool take(const char *key, void *call) {
+#if QT_CONFIG(accessibility)
     if (!std::strcmp(key, "_ZNK26QAccessibleActionInterface19localizedActionNameERK7QString")) {
       taken[0] = call;
       return true;
     }
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
     if (!std::strcmp(key, "_ZNK26QAccessibleActionInterface26localizedActionDescriptionERK7QString")) {
       taken[1] = call;
       return true;
     }
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
     if (!std::strcmp(key, "_ZN26QAccessibleActionInterface8doActionERK7QString")) {
       taken[2] = call;
       return true;
     }
+#endif  // QT_CONFIG(accessibility)
     return false;
   }
 
+#if QT_CONFIG(accessibility)
   //  QString QAccessibleActionInterface::localizedActionName(const QString
   //      &name) const
   QString localizedActionName(const QString &name) const override {
@@ -47,7 +62,9 @@ public:
     }
     return QAccessibleActionInterface::localizedActionName(name);
   }
+#endif  // QT_CONFIG(accessibility)
 
+#if QT_CONFIG(accessibility)
   //  QString QAccessibleActionInterface::localizedActionDescription(const
   //      QString &name) const
   QString localizedActionDescription(const QString &name) const override {
@@ -63,7 +80,9 @@ public:
     }
     return QAccessibleActionInterface::localizedActionDescription(name);
   }
+#endif  // QT_CONFIG(accessibility)
 
+#if QT_CONFIG(accessibility)
   //  void QAccessibleActionInterface::doAction(const QString &actionName)
   void doAction(const QString &actionName) override {
     if (taken[2]) {
@@ -73,6 +92,7 @@ public:
       if (handled) return;
     }
   }
+#endif  // QT_CONFIG(accessibility)
 };
 
 //  QString QAccessibleActionInterface::tr(const char *sourceText, const char
@@ -247,3 +267,5 @@ QString *ritual_own_ZNK26QAccessibleActionInterface26localizedActionDescriptionE
       self->QAccessibleActionInterface::localizedActionDescription(
           *name));
 }
+
+#endif  // QT_CONFIG(accessibility)

@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/qsgrendererinterface.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN20QSGRendererInterfaceD1Ev": ["nothing", "address"],
+    "ritual_ZNK20QSGRendererInterface11graphicsApiEv": ["int", "address"],
+    "ritual_ZNK20QSGRendererInterface10shaderTypeEv": ["int", "address"],
+    "ritual_ZNK20QSGRendererInterface21shaderCompilationTypeEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK20QSGRendererInterface16shaderSourceTypeEv": [
+      "int", "address"
+    ],
+    "ritual_ZN20QSGRendererInterface13isApiRhiBasedENS_11GraphicsApiE": [
+      "bool", "int"
+    ],
+    "ritual_take_QSGRendererInterface": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

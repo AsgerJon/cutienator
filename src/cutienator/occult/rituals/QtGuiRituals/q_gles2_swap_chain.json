@@ -1,0 +1,49 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qrhigles2_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QGles2SwapChainD1Ev": ["nothing", "address"],
+    "ritual_ZN15QGles2SwapChain7destroyEv": ["nothing", "address"],
+    "ritual_ZN15QGles2SwapChain25currentFrameCommandBufferEv": [
+      "address", "address"
+    ],
+    "ritual_ZN15QGles2SwapChain24currentFrameRenderTargetEv": [
+      "address", "address"
+    ],
+    "ritual_ZN15QGles2SwapChain24currentFrameRenderTargetEN13QRhiSwapChain18StereoTargetBufferE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN15QGles2SwapChain16surfacePixelSizeEv": ["address", "address"],
+    "ritual_ZN15QGles2SwapChain17isFormatSupportedEN13QRhiSwapChain6FormatE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN15QGles2SwapChain33newCompatibleRenderPassDescriptorEv": [
+      "address", "address"
+    ],
+    "ritual_ZN15QGles2SwapChain14createOrResizeEv": ["bool", "address"],
+    "ritual_ZN15QGles2SwapChain25initSwapChainRenderTargetEP27QGles2SwapChainRenderTarget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QGles2SwapChain": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN15QGles2SwapChain7destroyEv": ["nothing", "address"],
+    "ritual_own_ZN15QGles2SwapChain25currentFrameCommandBufferEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN15QGles2SwapChain24currentFrameRenderTargetEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN15QGles2SwapChain24currentFrameRenderTargetEN13QRhiSwapChain18StereoTargetBufferE": [
+      "address", "address", "int"
+    ],
+    "ritual_own_ZN15QGles2SwapChain16surfacePixelSizeEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN15QGles2SwapChain17isFormatSupportedEN13QRhiSwapChain6FormatE": [
+      "bool", "address", "int"
+    ],
+    "ritual_own_ZN15QGles2SwapChain14createOrResizeEv": ["bool", "address"]
+  }
+}

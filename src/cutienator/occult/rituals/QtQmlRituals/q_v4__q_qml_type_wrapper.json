@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmltypewrapper_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN3QV415QQmlTypeWrapper12staticVTableEv": ["address"],
+    "ritual_ZN3QV415QQmlTypeWrapper10__dataTestEv": ["nothing", "address"],
+    "ritual_ZNK3QV415QQmlTypeWrapper11d_uncheckedEv": ["address", "address"],
+    "ritual_ZNK3QV415QQmlTypeWrapper1dEv": ["address", "address"],
+    "ritual_ZN3QV415QQmlTypeWrapper16defaultPrototypeEPNS_15ExecutionEngineE": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV415QQmlTypeWrapper6createEPNS_15ExecutionEngineEP7QObjectRK8QQmlTypeNS_4Heap15QQmlTypeWrapper12TypeNameModeE": [
+      "unsigned long long", "address", "address", "address", "unsigned char"
+    ]
+  }
+}

@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/qidentityproxymodel.h, Qt 6.12.0. Changes made here are lost.
+#include <QtCore/qglobal.h>
+#if QT_CONFIG(identityproxymodel)
 #include <QtCore/qidentityproxymodel.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qabstractitemmodel.h>
@@ -13,230 +15,540 @@
 //  A QIdentityProxyModel that Python can take functions over in. Every QIdentityProxyModel
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(identityproxymodel)
 typedef int (*CuteQIdentityProxyModelCall0)(const void *, const QModelIndex *, int *);
+#endif  // QT_CONFIG(identityproxymodel)
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(identityproxymodel)
 typedef const QModelIndex * (*CuteQIdentityProxyModelCall1)(const void *, int, int, const QModelIndex *, int *);
+#endif  // QT_CONFIG(identityproxymodel)
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(proxymodel)
+#if QT_CONFIG(identityproxymodel)
 typedef const QModelIndex * (*CuteQIdentityProxyModelCall2)(const void *, const QModelIndex *, int *);
+#endif  // QT_CONFIG(identityproxymodel)
+#endif  // QT_CONFIG(proxymodel)
+#if QT_CONFIG(proxymodel)
+#if QT_CONFIG(identityproxymodel)
 typedef const QModelIndex * (*CuteQIdentityProxyModelCall3)(const void *, const QModelIndex *, int *);
+#endif  // QT_CONFIG(identityproxymodel)
+#endif  // QT_CONFIG(proxymodel)
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(identityproxymodel)
 typedef const QModelIndex * (*CuteQIdentityProxyModelCall4)(const void *, const QModelIndex *, int *);
+#endif  // QT_CONFIG(identityproxymodel)
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(identityproxymodel)
 typedef int (*CuteQIdentityProxyModelCall5)(const void *, const QModelIndex *, int *);
+#endif  // QT_CONFIG(identityproxymodel)
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(identityproxymodel)
 typedef const QVariant * (*CuteQIdentityProxyModelCall6)(const void *, int, int, int, int *);
+#endif  // QT_CONFIG(identityproxymodel)
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(identityproxymodel)
 typedef bool (*CuteQIdentityProxyModelCall7)(const void *, const QMimeData *, int, int, int, const QModelIndex *, int *);
+#endif  // QT_CONFIG(identityproxymodel)
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(identityproxymodel)
 typedef const QModelIndex * (*CuteQIdentityProxyModelCall8)(const void *, int, int, const QModelIndex *, int *);
+#endif  // QT_CONFIG(identityproxymodel)
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(proxymodel)
+#if QT_CONFIG(identityproxymodel)
 typedef const QItemSelection * (*CuteQIdentityProxyModelCall9)(const void *, const QItemSelection *, int *);
+#endif  // QT_CONFIG(identityproxymodel)
+#endif  // QT_CONFIG(proxymodel)
+#if QT_CONFIG(proxymodel)
+#if QT_CONFIG(identityproxymodel)
 typedef const QItemSelection * (*CuteQIdentityProxyModelCall10)(const void *, const QItemSelection *, int *);
+#endif  // QT_CONFIG(identityproxymodel)
+#endif  // QT_CONFIG(proxymodel)
+#if QT_CONFIG(proxymodel)
+#if QT_CONFIG(identityproxymodel)
 typedef void (*CuteQIdentityProxyModelCall11)(const void *, QAbstractItemModel *, int *);
+#endif  // QT_CONFIG(identityproxymodel)
+#endif  // QT_CONFIG(proxymodel)
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(identityproxymodel)
 typedef bool (*CuteQIdentityProxyModelCall12)(const void *, int, int, const QModelIndex *, int *);
+#endif  // QT_CONFIG(identityproxymodel)
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(identityproxymodel)
 typedef bool (*CuteQIdentityProxyModelCall13)(const void *, int, int, const QModelIndex *, int *);
+#endif  // QT_CONFIG(identityproxymodel)
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(identityproxymodel)
 typedef bool (*CuteQIdentityProxyModelCall14)(const void *, int, int, const QModelIndex *, int *);
+#endif  // QT_CONFIG(identityproxymodel)
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(identityproxymodel)
 typedef bool (*CuteQIdentityProxyModelCall15)(const void *, int, int, const QModelIndex *, int *);
+#endif  // QT_CONFIG(identityproxymodel)
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(identityproxymodel)
 typedef bool (*CuteQIdentityProxyModelCall16)(const void *, const QModelIndex *, int, int, const QModelIndex *, int, int *);
+#endif  // QT_CONFIG(identityproxymodel)
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(identityproxymodel)
 typedef bool (*CuteQIdentityProxyModelCall17)(const void *, const QModelIndex *, int, int, const QModelIndex *, int, int *);
+#endif  // QT_CONFIG(identityproxymodel)
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(proxymodel)
 typedef bool (*CuteQIdentityProxyModelCall18)(const void *, int *);
+#endif  // QT_CONFIG(proxymodel)
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(proxymodel)
 typedef void (*CuteQIdentityProxyModelCall19)(const void *, int *);
+#endif  // QT_CONFIG(proxymodel)
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(proxymodel)
 typedef const QVariant * (*CuteQIdentityProxyModelCall20)(const void *, const QModelIndex *, int, int *);
+#endif  // QT_CONFIG(proxymodel)
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(proxymodel)
 typedef int (*CuteQIdentityProxyModelCall21)(const void *, const QModelIndex *, int *);
+#endif  // QT_CONFIG(proxymodel)
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(proxymodel)
 typedef bool (*CuteQIdentityProxyModelCall22)(const void *, const QModelIndex *, const QVariant *, int, int *);
+#endif  // QT_CONFIG(proxymodel)
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(proxymodel)
 typedef bool (*CuteQIdentityProxyModelCall23)(const void *, int, int, const QVariant *, int, int *);
+#endif  // QT_CONFIG(proxymodel)
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(proxymodel)
 typedef bool (*CuteQIdentityProxyModelCall24)(const void *, const QModelIndex *, int *);
+#endif  // QT_CONFIG(proxymodel)
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(proxymodel)
 typedef const QModelIndex * (*CuteQIdentityProxyModelCall25)(const void *, const QModelIndex *, int *);
+#endif  // QT_CONFIG(proxymodel)
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(proxymodel)
 typedef bool (*CuteQIdentityProxyModelCall26)(const void *, const QModelIndex *, int *);
+#endif  // QT_CONFIG(proxymodel)
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(proxymodel)
 typedef void (*CuteQIdentityProxyModelCall27)(const void *, const QModelIndex *, int *);
+#endif  // QT_CONFIG(proxymodel)
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(proxymodel)
 typedef void (*CuteQIdentityProxyModelCall28)(const void *, int, int, int *);
+#endif  // QT_CONFIG(proxymodel)
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(proxymodel)
 typedef const QSize * (*CuteQIdentityProxyModelCall29)(const void *, const QModelIndex *, int *);
+#endif  // QT_CONFIG(proxymodel)
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(proxymodel)
 typedef bool (*CuteQIdentityProxyModelCall30)(const void *, const QModelIndex *, int *);
+#endif  // QT_CONFIG(proxymodel)
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(proxymodel)
 typedef bool (*CuteQIdentityProxyModelCall31)(const void *, const QMimeData *, int, int, int, const QModelIndex *, int *);
+#endif  // QT_CONFIG(proxymodel)
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(proxymodel)
 typedef int (*CuteQIdentityProxyModelCall32)(const void *, int *);
+#endif  // QT_CONFIG(proxymodel)
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(proxymodel)
 typedef int (*CuteQIdentityProxyModelCall33)(const void *, int *);
+#endif  // QT_CONFIG(proxymodel)
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
 typedef void (*CuteQIdentityProxyModelCall34)(const void *, const QModelIndex *, const QModelRoleDataSpan *, int *);
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
 typedef void (*CuteQIdentityProxyModelCall35)(const void *, int *);
+#endif  // QT_CONFIG(itemmodel)
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQIdentityProxyModelCall36)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQIdentityProxyModelCall37)(const void *, QObject *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQIdentityProxyModelCall38)(const void *, QTimerEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQIdentityProxyModelCall39)(const void *, QChildEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQIdentityProxyModelCall40)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQIdentityProxyModelCall41)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQIdentityProxyModelCall42)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 class CuteQIdentityProxyModel : public QIdentityProxyModel {
 public:
   using QIdentityProxyModel::QIdentityProxyModel;
   void *taken[43] = {};
 
   bool take(const char *key, void *call) {
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(identityproxymodel)
     if (!std::strcmp(key, "_ZNK18QAbstractItemModel11columnCountERK11QModelIndex")) {
       taken[0] = call;
       return true;
     }
+#endif  // QT_CONFIG(identityproxymodel)
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(identityproxymodel)
     if (!std::strcmp(key, "_ZNK18QAbstractItemModel5indexEiiRK11QModelIndex")) {
       taken[1] = call;
       return true;
     }
+#endif  // QT_CONFIG(identityproxymodel)
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(proxymodel)
+#if QT_CONFIG(identityproxymodel)
     if (!std::strcmp(key, "_ZNK19QAbstractProxyModel13mapFromSourceERK11QModelIndex")) {
       taken[2] = call;
       return true;
     }
+#endif  // QT_CONFIG(identityproxymodel)
+#endif  // QT_CONFIG(proxymodel)
+#if QT_CONFIG(proxymodel)
+#if QT_CONFIG(identityproxymodel)
     if (!std::strcmp(key, "_ZNK19QAbstractProxyModel11mapToSourceERK11QModelIndex")) {
       taken[3] = call;
       return true;
     }
+#endif  // QT_CONFIG(identityproxymodel)
+#endif  // QT_CONFIG(proxymodel)
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(identityproxymodel)
     if (!std::strcmp(key, "_ZNK18QAbstractItemModel6parentERK11QModelIndex")) {
       taken[4] = call;
       return true;
     }
+#endif  // QT_CONFIG(identityproxymodel)
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(identityproxymodel)
     if (!std::strcmp(key, "_ZNK18QAbstractItemModel8rowCountERK11QModelIndex")) {
       taken[5] = call;
       return true;
     }
+#endif  // QT_CONFIG(identityproxymodel)
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(identityproxymodel)
     if (!std::strcmp(key, "_ZNK18QAbstractItemModel10headerDataEiN2Qt11OrientationEi")) {
       taken[6] = call;
       return true;
     }
+#endif  // QT_CONFIG(identityproxymodel)
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(identityproxymodel)
     if (!std::strcmp(key, "_ZN18QAbstractItemModel12dropMimeDataEPK9QMimeDataN2Qt10DropActionEiiRK11QModelIndex")) {
       taken[7] = call;
       return true;
     }
+#endif  // QT_CONFIG(identityproxymodel)
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(identityproxymodel)
     if (!std::strcmp(key, "_ZNK18QAbstractItemModel7siblingEiiRK11QModelIndex")) {
       taken[8] = call;
       return true;
     }
+#endif  // QT_CONFIG(identityproxymodel)
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(proxymodel)
+#if QT_CONFIG(identityproxymodel)
     if (!std::strcmp(key, "_ZNK19QAbstractProxyModel22mapSelectionFromSourceERK14QItemSelection")) {
       taken[9] = call;
       return true;
     }
+#endif  // QT_CONFIG(identityproxymodel)
+#endif  // QT_CONFIG(proxymodel)
+#if QT_CONFIG(proxymodel)
+#if QT_CONFIG(identityproxymodel)
     if (!std::strcmp(key, "_ZNK19QAbstractProxyModel20mapSelectionToSourceERK14QItemSelection")) {
       taken[10] = call;
       return true;
     }
+#endif  // QT_CONFIG(identityproxymodel)
+#endif  // QT_CONFIG(proxymodel)
+#if QT_CONFIG(proxymodel)
+#if QT_CONFIG(identityproxymodel)
     if (!std::strcmp(key, "_ZN19QAbstractProxyModel14setSourceModelEP18QAbstractItemModel")) {
       taken[11] = call;
       return true;
     }
+#endif  // QT_CONFIG(identityproxymodel)
+#endif  // QT_CONFIG(proxymodel)
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(identityproxymodel)
     if (!std::strcmp(key, "_ZN18QAbstractItemModel13insertColumnsEiiRK11QModelIndex")) {
       taken[12] = call;
       return true;
     }
+#endif  // QT_CONFIG(identityproxymodel)
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(identityproxymodel)
     if (!std::strcmp(key, "_ZN18QAbstractItemModel10insertRowsEiiRK11QModelIndex")) {
       taken[13] = call;
       return true;
     }
+#endif  // QT_CONFIG(identityproxymodel)
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(identityproxymodel)
     if (!std::strcmp(key, "_ZN18QAbstractItemModel13removeColumnsEiiRK11QModelIndex")) {
       taken[14] = call;
       return true;
     }
+#endif  // QT_CONFIG(identityproxymodel)
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(identityproxymodel)
     if (!std::strcmp(key, "_ZN18QAbstractItemModel10removeRowsEiiRK11QModelIndex")) {
       taken[15] = call;
       return true;
     }
+#endif  // QT_CONFIG(identityproxymodel)
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(identityproxymodel)
     if (!std::strcmp(key, "_ZN18QAbstractItemModel8moveRowsERK11QModelIndexiiS2_i")) {
       taken[16] = call;
       return true;
     }
+#endif  // QT_CONFIG(identityproxymodel)
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(identityproxymodel)
     if (!std::strcmp(key, "_ZN18QAbstractItemModel11moveColumnsERK11QModelIndexiiS2_i")) {
       taken[17] = call;
       return true;
     }
+#endif  // QT_CONFIG(identityproxymodel)
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(proxymodel)
     if (!std::strcmp(key, "_ZN18QAbstractItemModel6submitEv")) {
       taken[18] = call;
       return true;
     }
+#endif  // QT_CONFIG(proxymodel)
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(proxymodel)
     if (!std::strcmp(key, "_ZN18QAbstractItemModel6revertEv")) {
       taken[19] = call;
       return true;
     }
+#endif  // QT_CONFIG(proxymodel)
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(proxymodel)
     if (!std::strcmp(key, "_ZNK18QAbstractItemModel4dataERK11QModelIndexi")) {
       taken[20] = call;
       return true;
     }
+#endif  // QT_CONFIG(proxymodel)
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(proxymodel)
     if (!std::strcmp(key, "_ZNK18QAbstractItemModel5flagsERK11QModelIndex")) {
       taken[21] = call;
       return true;
     }
+#endif  // QT_CONFIG(proxymodel)
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(proxymodel)
     if (!std::strcmp(key, "_ZN18QAbstractItemModel7setDataERK11QModelIndexRK8QVarianti")) {
       taken[22] = call;
       return true;
     }
+#endif  // QT_CONFIG(proxymodel)
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(proxymodel)
     if (!std::strcmp(key, "_ZN18QAbstractItemModel13setHeaderDataEiN2Qt11OrientationERK8QVarianti")) {
       taken[23] = call;
       return true;
     }
+#endif  // QT_CONFIG(proxymodel)
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(proxymodel)
     if (!std::strcmp(key, "_ZN18QAbstractItemModel13clearItemDataERK11QModelIndex")) {
       taken[24] = call;
       return true;
     }
+#endif  // QT_CONFIG(proxymodel)
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(proxymodel)
     if (!std::strcmp(key, "_ZNK18QAbstractItemModel5buddyERK11QModelIndex")) {
       taken[25] = call;
       return true;
     }
+#endif  // QT_CONFIG(proxymodel)
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(proxymodel)
     if (!std::strcmp(key, "_ZNK18QAbstractItemModel12canFetchMoreERK11QModelIndex")) {
       taken[26] = call;
       return true;
     }
+#endif  // QT_CONFIG(proxymodel)
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(proxymodel)
     if (!std::strcmp(key, "_ZN18QAbstractItemModel9fetchMoreERK11QModelIndex")) {
       taken[27] = call;
       return true;
     }
+#endif  // QT_CONFIG(proxymodel)
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(proxymodel)
     if (!std::strcmp(key, "_ZN18QAbstractItemModel4sortEiN2Qt9SortOrderE")) {
       taken[28] = call;
       return true;
     }
+#endif  // QT_CONFIG(proxymodel)
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(proxymodel)
     if (!std::strcmp(key, "_ZNK18QAbstractItemModel4spanERK11QModelIndex")) {
       taken[29] = call;
       return true;
     }
+#endif  // QT_CONFIG(proxymodel)
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(proxymodel)
     if (!std::strcmp(key, "_ZNK18QAbstractItemModel11hasChildrenERK11QModelIndex")) {
       taken[30] = call;
       return true;
     }
+#endif  // QT_CONFIG(proxymodel)
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(proxymodel)
     if (!std::strcmp(key, "_ZNK18QAbstractItemModel15canDropMimeDataEPK9QMimeDataN2Qt10DropActionEiiRK11QModelIndex")) {
       taken[31] = call;
       return true;
     }
+#endif  // QT_CONFIG(proxymodel)
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(proxymodel)
     if (!std::strcmp(key, "_ZNK18QAbstractItemModel20supportedDragActionsEv")) {
       taken[32] = call;
       return true;
     }
+#endif  // QT_CONFIG(proxymodel)
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(proxymodel)
     if (!std::strcmp(key, "_ZNK18QAbstractItemModel20supportedDropActionsEv")) {
       taken[33] = call;
       return true;
     }
+#endif  // QT_CONFIG(proxymodel)
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
     if (!std::strcmp(key, "_ZNK18QAbstractItemModel9multiDataERK11QModelIndex18QModelRoleDataSpan")) {
       taken[34] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
     if (!std::strcmp(key, "_ZN18QAbstractItemModel17resetInternalDataEv")) {
       taken[35] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemmodel)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[36] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[37] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[38] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[39] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[40] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[41] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
       taken[42] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
     return false;
   }
 
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(identityproxymodel)
   //  int QIdentityProxyModel::columnCount(const QModelIndex &parent) const
   int columnCount(const QModelIndex &parent) const override {
     if (taken[0]) {
@@ -247,7 +559,11 @@ public:
     }
     return QIdentityProxyModel::columnCount(parent);
   }
+#endif  // QT_CONFIG(identityproxymodel)
+#endif  // QT_CONFIG(itemmodel)
 
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(identityproxymodel)
   //  QModelIndex QIdentityProxyModel::index(int row, int column, const
   //      QModelIndex &parent) const
   QModelIndex index(
@@ -262,7 +578,11 @@ public:
     }
     return QIdentityProxyModel::index(row, column, parent);
   }
+#endif  // QT_CONFIG(identityproxymodel)
+#endif  // QT_CONFIG(itemmodel)
 
+#if QT_CONFIG(proxymodel)
+#if QT_CONFIG(identityproxymodel)
   //  QModelIndex QIdentityProxyModel::mapFromSource(const QModelIndex
   //      &sourceIndex) const
   QModelIndex mapFromSource(const QModelIndex &sourceIndex) const override {
@@ -274,7 +594,11 @@ public:
     }
     return QIdentityProxyModel::mapFromSource(sourceIndex);
   }
+#endif  // QT_CONFIG(identityproxymodel)
+#endif  // QT_CONFIG(proxymodel)
 
+#if QT_CONFIG(proxymodel)
+#if QT_CONFIG(identityproxymodel)
   //  QModelIndex QIdentityProxyModel::mapToSource(const QModelIndex
   //      &proxyIndex) const
   QModelIndex mapToSource(const QModelIndex &proxyIndex) const override {
@@ -286,7 +610,11 @@ public:
     }
     return QIdentityProxyModel::mapToSource(proxyIndex);
   }
+#endif  // QT_CONFIG(identityproxymodel)
+#endif  // QT_CONFIG(proxymodel)
 
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(identityproxymodel)
   //  QModelIndex QIdentityProxyModel::parent(const QModelIndex &child)
   //      const
   QModelIndex parent(const QModelIndex &child) const override {
@@ -298,7 +626,11 @@ public:
     }
     return QIdentityProxyModel::parent(child);
   }
+#endif  // QT_CONFIG(identityproxymodel)
+#endif  // QT_CONFIG(itemmodel)
 
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(identityproxymodel)
   //  int QIdentityProxyModel::rowCount(const QModelIndex &parent) const
   int rowCount(const QModelIndex &parent) const override {
     if (taken[5]) {
@@ -309,7 +641,11 @@ public:
     }
     return QIdentityProxyModel::rowCount(parent);
   }
+#endif  // QT_CONFIG(identityproxymodel)
+#endif  // QT_CONFIG(itemmodel)
 
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(identityproxymodel)
   //  QVariant QIdentityProxyModel::headerData(int section, Qt::Orientation
   //      orientation, int role) const
   QVariant headerData(
@@ -324,7 +660,11 @@ public:
     }
     return QIdentityProxyModel::headerData(section, orientation, role);
   }
+#endif  // QT_CONFIG(identityproxymodel)
+#endif  // QT_CONFIG(itemmodel)
 
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(identityproxymodel)
   //  bool QIdentityProxyModel::dropMimeData(const QMimeData *data,
   //      Qt::DropAction action, int row, int column, const QModelIndex
   //      &parent)
@@ -342,7 +682,11 @@ public:
     }
     return QIdentityProxyModel::dropMimeData(data, action, row, column, parent);
   }
+#endif  // QT_CONFIG(identityproxymodel)
+#endif  // QT_CONFIG(itemmodel)
 
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(identityproxymodel)
   //  QModelIndex QIdentityProxyModel::sibling(int row, int column, const
   //      QModelIndex &idx) const
   QModelIndex sibling(
@@ -357,7 +701,11 @@ public:
     }
     return QIdentityProxyModel::sibling(row, column, idx);
   }
+#endif  // QT_CONFIG(identityproxymodel)
+#endif  // QT_CONFIG(itemmodel)
 
+#if QT_CONFIG(proxymodel)
+#if QT_CONFIG(identityproxymodel)
   //  QItemSelection QIdentityProxyModel::mapSelectionFromSource(const
   //      QItemSelection &selection) const
   QItemSelection mapSelectionFromSource(
@@ -370,7 +718,11 @@ public:
     }
     return QIdentityProxyModel::mapSelectionFromSource(selection);
   }
+#endif  // QT_CONFIG(identityproxymodel)
+#endif  // QT_CONFIG(proxymodel)
 
+#if QT_CONFIG(proxymodel)
+#if QT_CONFIG(identityproxymodel)
   //  QItemSelection QIdentityProxyModel::mapSelectionToSource(const
   //      QItemSelection &selection) const
   QItemSelection mapSelectionToSource(
@@ -383,7 +735,11 @@ public:
     }
     return QIdentityProxyModel::mapSelectionToSource(selection);
   }
+#endif  // QT_CONFIG(identityproxymodel)
+#endif  // QT_CONFIG(proxymodel)
 
+#if QT_CONFIG(proxymodel)
+#if QT_CONFIG(identityproxymodel)
   //  void QIdentityProxyModel::setSourceModel(QAbstractItemModel
   //      *sourceModel)
   void setSourceModel(QAbstractItemModel *sourceModel) override {
@@ -395,7 +751,11 @@ public:
     }
     QIdentityProxyModel::setSourceModel(sourceModel);
   }
+#endif  // QT_CONFIG(identityproxymodel)
+#endif  // QT_CONFIG(proxymodel)
 
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(identityproxymodel)
   //  bool QIdentityProxyModel::insertColumns(int column, int count, const
   //      QModelIndex &parent)
   bool insertColumns(
@@ -410,7 +770,11 @@ public:
     }
     return QIdentityProxyModel::insertColumns(column, count, parent);
   }
+#endif  // QT_CONFIG(identityproxymodel)
+#endif  // QT_CONFIG(itemmodel)
 
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(identityproxymodel)
   //  bool QIdentityProxyModel::insertRows(int row, int count, const
   //      QModelIndex &parent)
   bool insertRows(int row, int count, const QModelIndex &parent) override {
@@ -422,7 +786,11 @@ public:
     }
     return QIdentityProxyModel::insertRows(row, count, parent);
   }
+#endif  // QT_CONFIG(identityproxymodel)
+#endif  // QT_CONFIG(itemmodel)
 
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(identityproxymodel)
   //  bool QIdentityProxyModel::removeColumns(int column, int count, const
   //      QModelIndex &parent)
   bool removeColumns(
@@ -437,7 +805,11 @@ public:
     }
     return QIdentityProxyModel::removeColumns(column, count, parent);
   }
+#endif  // QT_CONFIG(identityproxymodel)
+#endif  // QT_CONFIG(itemmodel)
 
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(identityproxymodel)
   //  bool QIdentityProxyModel::removeRows(int row, int count, const
   //      QModelIndex &parent)
   bool removeRows(int row, int count, const QModelIndex &parent) override {
@@ -449,7 +821,11 @@ public:
     }
     return QIdentityProxyModel::removeRows(row, count, parent);
   }
+#endif  // QT_CONFIG(identityproxymodel)
+#endif  // QT_CONFIG(itemmodel)
 
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(identityproxymodel)
   //  bool QIdentityProxyModel::moveRows(const QModelIndex &sourceParent,
   //      int sourceRow, int count, const QModelIndex &destinationParent,
   //      int destinationChild)
@@ -467,7 +843,11 @@ public:
     }
     return QIdentityProxyModel::moveRows(sourceParent, sourceRow, count, destinationParent, destinationChild);
   }
+#endif  // QT_CONFIG(identityproxymodel)
+#endif  // QT_CONFIG(itemmodel)
 
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(identityproxymodel)
   //  bool QIdentityProxyModel::moveColumns(const QModelIndex
   //      &sourceParent, int sourceColumn, int count, const QModelIndex
   //      &destinationParent, int destinationChild)
@@ -485,7 +865,11 @@ public:
     }
     return QIdentityProxyModel::moveColumns(sourceParent, sourceColumn, count, destinationParent, destinationChild);
   }
+#endif  // QT_CONFIG(identityproxymodel)
+#endif  // QT_CONFIG(itemmodel)
 
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(proxymodel)
   //  bool QAbstractProxyModel::submit()
   bool submit() override {
     if (taken[18]) {
@@ -496,7 +880,11 @@ public:
     }
     return QAbstractProxyModel::submit();
   }
+#endif  // QT_CONFIG(proxymodel)
+#endif  // QT_CONFIG(itemmodel)
 
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(proxymodel)
   //  void QAbstractProxyModel::revert()
   void revert() override {
     if (taken[19]) {
@@ -507,7 +895,11 @@ public:
     }
     QAbstractProxyModel::revert();
   }
+#endif  // QT_CONFIG(proxymodel)
+#endif  // QT_CONFIG(itemmodel)
 
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(proxymodel)
   //  QVariant QAbstractProxyModel::data(const QModelIndex &proxyIndex, int
   //      role) const
   QVariant data(const QModelIndex &proxyIndex, int role) const override {
@@ -519,7 +911,11 @@ public:
     }
     return QAbstractProxyModel::data(proxyIndex, role);
   }
+#endif  // QT_CONFIG(proxymodel)
+#endif  // QT_CONFIG(itemmodel)
 
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(proxymodel)
   //  Qt::ItemFlags QAbstractProxyModel::flags(const QModelIndex &index)
   //      const
   Qt::ItemFlags flags(const QModelIndex &index) const override {
@@ -531,7 +927,11 @@ public:
     }
     return QAbstractProxyModel::flags(index);
   }
+#endif  // QT_CONFIG(proxymodel)
+#endif  // QT_CONFIG(itemmodel)
 
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(proxymodel)
   //  bool QAbstractProxyModel::setData(const QModelIndex &index, const
   //      QVariant &value, int role)
   bool setData(
@@ -546,7 +946,11 @@ public:
     }
     return QAbstractProxyModel::setData(index, value, role);
   }
+#endif  // QT_CONFIG(proxymodel)
+#endif  // QT_CONFIG(itemmodel)
 
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(proxymodel)
   //  bool QAbstractProxyModel::setHeaderData(int section, Qt::Orientation
   //      orientation, const QVariant &value, int role)
   bool setHeaderData(
@@ -562,7 +966,11 @@ public:
     }
     return QAbstractProxyModel::setHeaderData(section, orientation, value, role);
   }
+#endif  // QT_CONFIG(proxymodel)
+#endif  // QT_CONFIG(itemmodel)
 
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(proxymodel)
   //  bool QAbstractProxyModel::clearItemData(const QModelIndex &index)
   bool clearItemData(const QModelIndex &index) override {
     if (taken[24]) {
@@ -573,7 +981,11 @@ public:
     }
     return QAbstractProxyModel::clearItemData(index);
   }
+#endif  // QT_CONFIG(proxymodel)
+#endif  // QT_CONFIG(itemmodel)
 
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(proxymodel)
   //  QModelIndex QAbstractProxyModel::buddy(const QModelIndex &index)
   //      const
   QModelIndex buddy(const QModelIndex &index) const override {
@@ -585,7 +997,11 @@ public:
     }
     return QAbstractProxyModel::buddy(index);
   }
+#endif  // QT_CONFIG(proxymodel)
+#endif  // QT_CONFIG(itemmodel)
 
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(proxymodel)
   //  bool QAbstractProxyModel::canFetchMore(const QModelIndex &parent)
   //      const
   bool canFetchMore(const QModelIndex &parent) const override {
@@ -597,7 +1013,11 @@ public:
     }
     return QAbstractProxyModel::canFetchMore(parent);
   }
+#endif  // QT_CONFIG(proxymodel)
+#endif  // QT_CONFIG(itemmodel)
 
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(proxymodel)
   //  void QAbstractProxyModel::fetchMore(const QModelIndex &parent)
   void fetchMore(const QModelIndex &parent) override {
     if (taken[27]) {
@@ -608,7 +1028,11 @@ public:
     }
     QAbstractProxyModel::fetchMore(parent);
   }
+#endif  // QT_CONFIG(proxymodel)
+#endif  // QT_CONFIG(itemmodel)
 
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(proxymodel)
   //  void QAbstractProxyModel::sort(int column, Qt::SortOrder order)
   void sort(int column, Qt::SortOrder order) override {
     if (taken[28]) {
@@ -619,7 +1043,11 @@ public:
     }
     QAbstractProxyModel::sort(column, order);
   }
+#endif  // QT_CONFIG(proxymodel)
+#endif  // QT_CONFIG(itemmodel)
 
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(proxymodel)
   //  QSize QAbstractProxyModel::span(const QModelIndex &index) const
   QSize span(const QModelIndex &index) const override {
     if (taken[29]) {
@@ -630,7 +1058,11 @@ public:
     }
     return QAbstractProxyModel::span(index);
   }
+#endif  // QT_CONFIG(proxymodel)
+#endif  // QT_CONFIG(itemmodel)
 
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(proxymodel)
   //  bool QAbstractProxyModel::hasChildren(const QModelIndex &parent)
   //      const
   bool hasChildren(const QModelIndex &parent) const override {
@@ -642,7 +1074,11 @@ public:
     }
     return QAbstractProxyModel::hasChildren(parent);
   }
+#endif  // QT_CONFIG(proxymodel)
+#endif  // QT_CONFIG(itemmodel)
 
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(proxymodel)
   //  bool QAbstractProxyModel::canDropMimeData(const QMimeData *data,
   //      Qt::DropAction action, int row, int column, const QModelIndex
   //      &parent) const
@@ -660,7 +1096,11 @@ public:
     }
     return QAbstractProxyModel::canDropMimeData(data, action, row, column, parent);
   }
+#endif  // QT_CONFIG(proxymodel)
+#endif  // QT_CONFIG(itemmodel)
 
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(proxymodel)
   //  Qt::DropActions QAbstractProxyModel::supportedDragActions() const
   Qt::DropActions supportedDragActions() const override {
     if (taken[32]) {
@@ -671,7 +1111,11 @@ public:
     }
     return QAbstractProxyModel::supportedDragActions();
   }
+#endif  // QT_CONFIG(proxymodel)
+#endif  // QT_CONFIG(itemmodel)
 
+#if QT_CONFIG(itemmodel)
+#if QT_CONFIG(proxymodel)
   //  Qt::DropActions QAbstractProxyModel::supportedDropActions() const
   Qt::DropActions supportedDropActions() const override {
     if (taken[33]) {
@@ -682,7 +1126,10 @@ public:
     }
     return QAbstractProxyModel::supportedDropActions();
   }
+#endif  // QT_CONFIG(proxymodel)
+#endif  // QT_CONFIG(itemmodel)
 
+#if QT_CONFIG(itemmodel)
   //  void QAbstractItemModel::multiData(const QModelIndex &index,
   //      QModelRoleDataSpan roleDataSpan) const
   void multiData(
@@ -696,7 +1143,9 @@ public:
     }
     QAbstractItemModel::multiData(index, roleDataSpan);
   }
+#endif  // QT_CONFIG(itemmodel)
 
+#if QT_CONFIG(itemmodel)
   //  void QAbstractItemModel::resetInternalData()
   void resetInternalData() override {
     if (taken[35]) {
@@ -707,7 +1156,9 @@ public:
     }
     QAbstractItemModel::resetInternalData();
   }
+#endif  // QT_CONFIG(itemmodel)
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QObject::event(QEvent *event)
   bool event(QEvent *event) override {
     if (taken[36]) {
@@ -718,7 +1169,9 @@ public:
     }
     return QObject::event(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
     if (taken[37]) {
@@ -729,7 +1182,9 @@ public:
     }
     return QObject::eventFilter(watched, event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
     if (taken[38]) {
@@ -740,7 +1195,9 @@ public:
     }
     QObject::timerEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
     if (taken[39]) {
@@ -751,7 +1208,9 @@ public:
     }
     QObject::childEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
     if (taken[40]) {
@@ -762,7 +1221,9 @@ public:
     }
     QObject::customEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
     if (taken[41]) {
@@ -773,7 +1234,9 @@ public:
     }
     QObject::connectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
     if (taken[42]) {
@@ -784,6 +1247,7 @@ public:
     }
     QObject::disconnectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 };
 
 //  const QMetaObject *QIdentityProxyModel::metaObject() const
@@ -1061,6 +1525,20 @@ void ritual_ZN19QIdentityProxyModel26setHandleSourceDataChangesEb(
   self->setHandleSourceDataChanges(a0);
 }
 
+//  QIdentityProxyModelPrivate *QIdentityProxyModel::d_func()
+extern "C" Q_DECL_EXPORT
+QIdentityProxyModelPrivate *ritual_ZN19QIdentityProxyModel6d_funcEv(
+    QIdentityProxyModel *self) {
+  return self->d_func();
+}
+
+//  const QIdentityProxyModelPrivate *QIdentityProxyModel::d_func() const
+extern "C" Q_DECL_EXPORT
+const QIdentityProxyModelPrivate *ritual_ZNK19QIdentityProxyModel6d_funcEv(
+    const QIdentityProxyModel *self) {
+  return self->d_func();
+}
+
 //  a Python function taken by a CuteQIdentityProxyModel, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT
@@ -1292,3 +1770,5 @@ bool ritual_own_ZN19QIdentityProxyModel11moveColumnsERK11QModelIndexiiS2_i(
       *destinationParent,
       destinationChild);
 }
+
+#endif  // QT_CONFIG(identityproxymodel)

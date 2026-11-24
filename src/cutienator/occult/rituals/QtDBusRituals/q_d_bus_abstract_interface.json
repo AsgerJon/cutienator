@@ -1,0 +1,90 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDBus/qdbusabstractinterface.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK22QDBusAbstractInterface10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QDBusAbstractInterface2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN22QDBusAbstractInterfaceD1Ev": ["nothing", "address"],
+    "ritual_ZNK22QDBusAbstractInterface7isValidEv": ["bool", "address"],
+    "ritual_ZNK22QDBusAbstractInterface10connectionEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK22QDBusAbstractInterface7serviceEv": ["text", "address"],
+    "ritual_ZNK22QDBusAbstractInterface4pathEv": ["text", "address"],
+    "ritual_ZNK22QDBusAbstractInterface9interfaceEv": ["text", "address"],
+    "ritual_ZNK22QDBusAbstractInterface9lastErrorEv": ["address", "address"],
+    "ritual_ZN22QDBusAbstractInterface10setTimeoutEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK22QDBusAbstractInterface7timeoutEv": ["int", "address"],
+    "ritual_ZN22QDBusAbstractInterface34setInteractiveAuthorizationAllowedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK22QDBusAbstractInterface33isInteractiveAuthorizationAllowedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN22QDBusAbstractInterface4callERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN22QDBusAbstractInterface4callEN5QDBus8CallModeERK7QString": [
+      "address", "address", "int", "text"
+    ],
+    "ritual_ZN22QDBusAbstractInterface20callWithArgumentListEN5QDBus8CallModeERK7QStringRK5QListI8QVariantE": [
+      "address", "address", "int", "text", "address"
+    ],
+    "ritual_ZN22QDBusAbstractInterface16callWithCallbackERK7QStringRK5QListI8QVariantEP7QObjectPKcSB_": [
+      "bool", "address", "text", "address", "address", "chars", "chars"
+    ],
+    "ritual_ZN22QDBusAbstractInterface16callWithCallbackERK7QStringRK5QListI8QVariantEP7QObjectPKc": [
+      "bool", "address", "text", "address", "address", "chars"
+    ],
+    "ritual_ZN22QDBusAbstractInterface9asyncCallERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN22QDBusAbstractInterface25asyncCallWithArgumentListERK7QStringRK5QListI8QVariantE": [
+      "address", "address", "text", "address"
+    ],
+    "ritual_ZN22QDBusAbstractInterfaceC1ERK7QStringS2_PKcRK15QDBusConnectionP7QObject": [
+      "address", "text", "text", "chars", "address", "address"
+    ],
+    "ritual_ZN22QDBusAbstractInterface13connectNotifyERK11QMetaMethod": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QDBusAbstractInterface16disconnectNotifyERK11QMetaMethod": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK22QDBusAbstractInterface15internalPropGetEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN22QDBusAbstractInterface15internalPropSetEPKcRK8QVariant": [
+      "nothing", "address", "chars", "address"
+    ],
+    "ritual_ZNK22QDBusAbstractInterface17internalConstCallEN5QDBus8CallModeERK7QStringRK5QListI8QVariantE": [
+      "address", "address", "int", "text", "address"
+    ],
+    "ritual_ZN22QDBusAbstractInterface6doCallEN5QDBus8CallModeERK7QStringPK8QVariantm": [
+      "address", "address", "int", "text", "address", "size_t"
+    ],
+    "ritual_ZN22QDBusAbstractInterface11doAsyncCallERK7QStringPK8QVariantm": [
+      "address", "address", "text", "address", "size_t"
+    ],
+    "ritual_ZN22QDBusAbstractInterface6d_funcEv": ["address", "address"],
+    "ritual_ZNK22QDBusAbstractInterface6d_funcEv": ["address", "address"],
+    "ritual_take_QDBusAbstractInterface": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN22QDBusAbstractInterface13connectNotifyERK11QMetaMethod": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN22QDBusAbstractInterface16disconnectNotifyERK11QMetaMethod": [
+      "nothing", "address", "address"
+    ]
+  }
+}

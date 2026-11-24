@@ -1,0 +1,32 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquickscrollbar_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK23QQuickScrollBarAttached10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QQuickScrollBarAttached2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN23QQuickScrollBarAttachedC1EP7QObject": ["address", "address"],
+    "ritual_ZN23QQuickScrollBarAttachedD1Ev": ["nothing", "address"],
+    "ritual_ZNK23QQuickScrollBarAttached10horizontalEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QQuickScrollBarAttached13setHorizontalEP15QQuickScrollBar": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK23QQuickScrollBarAttached8verticalEv": ["address", "address"],
+    "ritual_ZN23QQuickScrollBarAttached11setVerticalEP15QQuickScrollBar": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QQuickScrollBarAttached6d_funcEv": ["address", "address"],
+    "ritual_ZNK23QQuickScrollBarAttached6d_funcEv": ["address", "address"],
+    "ritual_take_QQuickScrollBarAttached": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

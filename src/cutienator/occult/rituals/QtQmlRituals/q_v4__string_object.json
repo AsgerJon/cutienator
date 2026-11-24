@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4stringobject_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN3QV412StringObject10__dataTestEv": ["nothing", "address"],
+    "ritual_ZNK3QV412StringObject11d_uncheckedEv": ["address", "address"],
+    "ritual_ZNK3QV412StringObject1dEv": ["address", "address"],
+    "ritual_ZN3QV412StringObject20defaultInternalClassEPNS_10EngineBaseE": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV412StringObject16defaultPrototypeEPNS_15ExecutionEngineE": [
+      "address", "address"
+    ]
+  }
+}

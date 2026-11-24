@@ -1,0 +1,39 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/qvbarmodelmapper.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK16QVBarModelMapper10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QVBarModelMapper2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN16QVBarModelMapperC1EP7QObject": ["address", "address"],
+    "ritual_ZNK16QVBarModelMapper5modelEv": ["address", "address"],
+    "ritual_ZN16QVBarModelMapper8setModelEP18QAbstractItemModel": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QVBarModelMapper6seriesEv": ["address", "address"],
+    "ritual_ZN16QVBarModelMapper9setSeriesEP18QAbstractBarSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QVBarModelMapper17firstBarSetColumnEv": ["int", "address"],
+    "ritual_ZN16QVBarModelMapper20setFirstBarSetColumnEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16QVBarModelMapper16lastBarSetColumnEv": ["int", "address"],
+    "ritual_ZN16QVBarModelMapper19setLastBarSetColumnEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16QVBarModelMapper8firstRowEv": ["int", "address"],
+    "ritual_ZN16QVBarModelMapper11setFirstRowEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16QVBarModelMapper8rowCountEv": ["int", "address"],
+    "ritual_ZN16QVBarModelMapper11setRowCountEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_take_QVBarModelMapper": ["bool", "address", "chars", "address"]
+  }
+}

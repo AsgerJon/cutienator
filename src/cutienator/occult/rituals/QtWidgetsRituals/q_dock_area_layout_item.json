@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qdockarealayout_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QDockAreaLayoutItemC1EP11QLayoutItem": [
+      "address", "address"
+    ],
+    "ritual_ZN19QDockAreaLayoutItemC1EP19QDockAreaLayoutInfo": [
+      "address", "address"
+    ],
+    "ritual_ZN19QDockAreaLayoutItemC1EP16QPlaceHolderItem": [
+      "address", "address"
+    ],
+    "ritual_ZN19QDockAreaLayoutItemC1ERKS_": ["address", "address"],
+    "ritual_ZN19QDockAreaLayoutItemD1Ev": ["nothing", "address"],
+    "ritual_ZNK19QDockAreaLayoutItem4skipEv": ["bool", "address"],
+    "ritual_ZNK19QDockAreaLayoutItem9expansiveEN2Qt11OrientationE": [
+      "bool", "address", "int"
+    ]
+  }
+}

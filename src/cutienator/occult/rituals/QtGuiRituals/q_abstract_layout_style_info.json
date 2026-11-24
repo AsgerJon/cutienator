@@ -1,0 +1,44 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qabstractlayoutstyleinfo_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN24QAbstractLayoutStyleInfoD1Ev": ["nothing", "address"],
+    "ritual_ZNK24QAbstractLayoutStyleInfo21combinedLayoutSpacingE6QFlagsIN13QLayoutPolicy11ControlTypeEES3_N2Qt11OrientationE": [
+      "double", "address", "int", "int", "int"
+    ],
+    "ritual_ZNK24QAbstractLayoutStyleInfo14perItemSpacingEN13QLayoutPolicy11ControlTypeES1_N2Qt11OrientationE": [
+      "double", "address", "int", "int", "int"
+    ],
+    "ritual_ZNK24QAbstractLayoutStyleInfo7spacingEN2Qt11OrientationE": [
+      "double", "address", "int"
+    ],
+    "ritual_ZNK24QAbstractLayoutStyleInfo14hasChangedCoreEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN24QAbstractLayoutStyleInfo10invalidateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK24QAbstractLayoutStyleInfo12windowMarginEN2Qt11OrientationE": [
+      "double", "address", "int"
+    ],
+    "ritual_ZNK24QAbstractLayoutStyleInfo8isWindowEv": ["bool", "address"],
+    "ritual_take_QAbstractLayoutStyleInfo": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK24QAbstractLayoutStyleInfo21combinedLayoutSpacingE6QFlagsIN13QLayoutPolicy11ControlTypeEES3_N2Qt11OrientationE": [
+      "double", "address", "int", "int", "int"
+    ],
+    "ritual_own_ZNK24QAbstractLayoutStyleInfo14perItemSpacingEN13QLayoutPolicy11ControlTypeES1_N2Qt11OrientationE": [
+      "double", "address", "int", "int", "int"
+    ],
+    "ritual_own_ZNK24QAbstractLayoutStyleInfo14hasChangedCoreEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZN24QAbstractLayoutStyleInfo10invalidateEv": [
+      "nothing", "address"
+    ]
+  }
+}

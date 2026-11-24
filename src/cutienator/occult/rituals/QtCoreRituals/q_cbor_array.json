@@ -78,6 +78,9 @@
     "ritual_ZN10QCborArray20comparesEqual_helperERKS_RK10QCborValue": [
       "bool", "address", "address"
     ],
+    "ritual_ZN10QCborArray22compareThreeWay_helperERKS_RK10QCborValue": [
+      "address", "address", "address"
+    ],
     "ritual_ZeqRK10QCborArrayRK10QCborValue": ["bool", "address", "address"],
     "ritual_ZneRK10QCborArrayRK10QCborValue": ["bool", "address", "address"],
     "ritual_ZltRK10QCborArrayRK10QCborValue": ["bool", "address", "address"],
@@ -92,6 +95,9 @@
     "ritual_ZgeRK10QCborValueRK10QCborArray": ["bool", "address", "address"],
     "ritual_ZN10QCborArray20comparesEqual_helperERKS_18QCborValueConstRef": [
       "bool", "address", "address"
+    ],
+    "ritual_ZN10QCborArray22compareThreeWay_helperERKS_18QCborValueConstRef": [
+      "address", "address", "address"
     ],
     "ritual_ZeqRK10QCborArrayRK18QCborValueConstRef": [
       "bool", "address", "address"
@@ -129,6 +135,11 @@
     "ritual_ZgeRK18QCborValueConstRefRK10QCborArray": [
       "bool", "address", "address"
     ],
-    "ritual_ZN10QCborArray6detachEx": ["nothing", "address", "long long"]
+    "ritual_ZN10QCborArray6detachEx": ["nothing", "address", "long long"],
+    "ritual_list_make_QCborArray": ["address"],
+    "ritual_list_add_QCborArray": ["nothing", "address", "address"],
+    "ritual_list_size_QCborArray": ["long long", "address"],
+    "ritual_list_at_QCborArray": ["address", "address", "long long"],
+    "ritual_list_drop_QCborArray": ["nothing", "address"]
   }
 }

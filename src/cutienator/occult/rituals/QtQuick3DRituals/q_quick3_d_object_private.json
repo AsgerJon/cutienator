@@ -1,0 +1,107 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3D/6.12.0/QtQuick3D/private/qquick3dobject_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN21QQuick3DObjectPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK21QQuick3DObjectPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN21QQuick3DObjectPrivate3getEP14QQuick3DObject": [
+      "address", "address"
+    ],
+    "ritual_ZN21QQuick3DObjectPrivate3getEPK14QQuick3DObject": [
+      "address", "address"
+    ],
+    "ritual_ZN21QQuick3DObjectPrivate17updateSpatialNodeEP14QQuick3DObjectP21QSSGRenderGraphObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN21QQuick3DObjectPrivateC1EN21QSSGRenderGraphObject4TypeEj": [
+      "address", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZN21QQuick3DObjectPrivateC1EN21QSSGRenderGraphObject4TypeENS_5FlagsE": [
+      "address", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZN21QQuick3DObjectPrivateC1EN21QSSGRenderGraphObject4TypeE": [
+      "address", "unsigned int"
+    ],
+    "ritual_ZN21QQuick3DObjectPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN21QQuick3DObjectPrivate4initEP14QQuick3DObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21QQuick3DObjectPrivate5stateEv": ["text", "address"],
+    "ritual_ZN21QQuick3DObjectPrivate8setStateERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN21QQuick3DObjectPrivate24_q_resourceObjectDeletedEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QQuick3DObjectPrivate23_q_cleanupContentItem2DEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuick3DObjectPrivate18_q_createJSWrapperEPN3QV415ExecutionEngineE": [
+      "unsigned long long", "address", "address"
+    ],
+    "ritual_ZN21QQuick3DObjectPrivate21addItemChangeListenerEP28QQuick3DObjectChangeListener6QFlagsINS_10ChangeTypeEE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN21QQuick3DObjectPrivate29updateOrAddItemChangeListenerEP28QQuick3DObjectChangeListener6QFlagsINS_10ChangeTypeEE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN21QQuick3DObjectPrivate24removeItemChangeListenerEP28QQuick3DObjectChangeListener6QFlagsINS_10ChangeTypeEE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN21QQuick3DObjectPrivate7_statesEv": ["address", "address"],
+    "ritual_ZNK21QQuick3DObjectPrivate13dirtyToStringEv": [
+      "text", "address"
+    ],
+    "ritual_ZN21QQuick3DObjectPrivate5dirtyENS_9DirtyTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN21QQuick3DObjectPrivate14addToDirtyListEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuick3DObjectPrivate19removeFromDirtyListEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuick3DObjectPrivate7hasFlagENS_5FlagsE": [
+      "bool", "address", "unsigned int"
+    ],
+    "ritual_ZN21QQuick3DObjectPrivate9setCulledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN21QQuick3DObjectPrivate8addChildEP14QQuick3DObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QQuick3DObjectPrivate11removeChildEP14QQuick3DObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QQuick3DObjectPrivate19siblingOrderChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuick3DObjectPrivate17derefSceneManagerEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuick3DObjectPrivate17derefSceneManagerEP14QQuick3DObject": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuick3DObjectPrivate18updateSubFocusItemEP14QQuick3DObjectb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN21QQuick3DObjectPrivate10itemChangeEN14QQuick3DObject10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN21QQuick3DObjectPrivate12updatePolishEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuick3DObjectPrivate22requestSecondaryUpdateEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QQuick3DObjectPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN21QQuick3DObjectPrivate12updatePolishEv": [
+      "nothing", "address"
+    ]
+  }
+}

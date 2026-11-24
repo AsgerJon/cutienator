@@ -1,0 +1,33 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLocation/qgeocodingmanager.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QGeoCodingManager10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QGeoCodingManager2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QGeoCodingManagerD1Ev": ["nothing", "address"],
+    "ritual_ZNK17QGeoCodingManager11managerNameEv": ["text", "address"],
+    "ritual_ZNK17QGeoCodingManager14managerVersionEv": ["int", "address"],
+    "ritual_ZN17QGeoCodingManager7geocodeERK11QGeoAddressRK9QGeoShape": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN17QGeoCodingManager7geocodeERK7QStringiiRK9QGeoShape": [
+      "address", "address", "text", "int", "int", "address"
+    ],
+    "ritual_ZN17QGeoCodingManager14reverseGeocodeERK14QGeoCoordinateRK9QGeoShape": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN17QGeoCodingManager9setLocaleERK7QLocale": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QGeoCodingManager6localeEv": ["address", "address"],
+    "ritual_ZN17QGeoCodingManagerC1EP23QGeoCodingManagerEngineP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_take_QGeoCodingManager": ["bool", "address", "chars", "address"]
+  }
+}

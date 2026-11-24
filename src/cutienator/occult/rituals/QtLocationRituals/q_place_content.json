@@ -1,0 +1,47 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLocation/qplacecontent.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN13QPlaceContentC1ENS_4TypeE": ["address", "int"],
+    "ritual_ZN13QPlaceContentD1Ev": ["nothing", "address"],
+    "ritual_ZN13QPlaceContentC1ERKS_": ["address", "address"],
+    "ritual_ZN13QPlaceContent6detachEv": ["nothing", "address"],
+    "ritual_ZNK13QPlaceContenteqERKS_": ["bool", "address", "address"],
+    "ritual_ZNK13QPlaceContentneERKS_": ["bool", "address", "address"],
+    "ritual_ZNK13QPlaceContent4typeEv": ["int", "address"],
+    "ritual_ZNK13QPlaceContent5valueENS_7DataTagE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN13QPlaceContent8setValueENS_7DataTagERK8QVariant": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZNK13QPlaceContent8supplierEv": ["address", "address"],
+    "ritual_ZN13QPlaceContent11setSupplierERK14QPlaceSupplier": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QPlaceContent4userEv": ["address", "address"],
+    "ritual_ZN13QPlaceContent7setUserERK10QPlaceUser": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QPlaceContent11attributionEv": ["text", "address"],
+    "ritual_ZN13QPlaceContent14setAttributionERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN13QPlaceContent6d_funcEv": ["address", "address"],
+    "ritual_ZNK13QPlaceContent6d_funcEv": ["address", "address"],
+    "ritual_map_make_QMap_int_QPlaceContent": ["address"],
+    "ritual_map_put_QMap_int_QPlaceContent": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_map_size_QMap_int_QPlaceContent": ["long long", "address"],
+    "ritual_map_key_QMap_int_QPlaceContent": ["int", "address", "long long"],
+    "ritual_map_value_QMap_int_QPlaceContent": [
+      "address", "address", "long long"
+    ],
+    "ritual_map_has_QMap_int_QPlaceContent": ["bool", "address", "int"],
+    "ritual_map_get_QMap_int_QPlaceContent": ["address", "address", "int"],
+    "ritual_map_drop_QMap_int_QPlaceContent": ["nothing", "address"]
+  }
+}

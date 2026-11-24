@@ -1,0 +1,29 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/6.12.0/QtCharts/private/axisanimation_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN13AxisAnimationD1Ev": ["nothing", "address"],
+    "ritual_ZN13AxisAnimation16setAnimationTypeENS_9AnimationE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN13AxisAnimation17setAnimationPointERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13AxisAnimation12interpolatedERK8QVariantS2_d": [
+      "address", "address", "address", "address", "double"
+    ],
+    "ritual_ZN13AxisAnimation18updateCurrentValueERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_AxisAnimation": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK13AxisAnimation12interpolatedERK8QVariantS2_d": [
+      "address", "address", "address", "address", "double"
+    ],
+    "ritual_own_ZN13AxisAnimation18updateCurrentValueERK8QVariant": [
+      "nothing", "address", "address"
+    ]
+  }
+}

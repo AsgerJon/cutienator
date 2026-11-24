@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qwidgetitemdata_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QWidgetItemDataC1Ev": ["address"],
+    "ritual_ZN15QWidgetItemDataC1EiRK8QVariant": [
+      "address", "int", "address"
+    ],
+    "ritual_ZNK15QWidgetItemDataeqERKS_": ["bool", "address", "address"],
+    "ritual_ZN15QWidgetItemDataD1Ev": ["nothing", "address"]
+  }
+}

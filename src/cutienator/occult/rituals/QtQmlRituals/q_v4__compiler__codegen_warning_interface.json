@@ -1,0 +1,33 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4codegen_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN3QV48Compiler23CodegenWarningInterface30reportVarUsedBeforeDeclarationERK7QStringS4_N6QQmlJS14SourceLocationES6_": [
+      "nothing", "address", "text", "text", "address", "address"
+    ],
+    "ritual_ZN3QV48Compiler23CodegenWarningInterface35reportFunctionUsedBeforeDeclarationERK7QStringS4_N6QQmlJS14SourceLocationES6_": [
+      "nothing", "address", "text", "text", "address", "address"
+    ],
+    "ritual_ZN3QV48Compiler23CodegenWarningInterface18unreachableVisitorEv": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV48Compiler23CodegenWarningInterfaceD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_take_QV4_Compiler_CodegenWarningInterface": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN3QV48Compiler23CodegenWarningInterface30reportVarUsedBeforeDeclarationERK7QStringS4_N6QQmlJS14SourceLocationES6_": [
+      "nothing", "address", "text", "text", "address", "address"
+    ],
+    "ritual_own_ZN3QV48Compiler23CodegenWarningInterface35reportFunctionUsedBeforeDeclarationERK7QStringS4_N6QQmlJS14SourceLocationES6_": [
+      "nothing", "address", "text", "text", "address", "address"
+    ],
+    "ritual_own_ZN3QV48Compiler23CodegenWarningInterface18unreachableVisitorEv": [
+      "address", "address"
+    ]
+  }
+}

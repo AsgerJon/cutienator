@@ -1,0 +1,180 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Particles/6.12.0/QtQuickParticles/private/qquickimageparticle_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK19QQuickImageParticle10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QQuickImageParticle2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN19QQuickImageParticleC1EP10QQuickItem": ["address", "address"],
+    "ritual_ZN19QQuickImageParticleD1Ev": ["nothing", "address"],
+    "ritual_ZN19QQuickImageParticle12spriteEngineEv": ["address", "address"],
+    "ritual_ZNK19QQuickImageParticle5imageEv": ["address", "address"],
+    "ritual_ZN19QQuickImageParticle8setImageERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QQuickImageParticle10colortableEv": ["address", "address"],
+    "ritual_ZN19QQuickImageParticle13setColortableERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QQuickImageParticle9sizetableEv": ["address", "address"],
+    "ritual_ZN19QQuickImageParticle12setSizetableERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QQuickImageParticle12opacitytableEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QQuickImageParticle15setOpacitytableERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QQuickImageParticle5colorEv": ["address", "address"],
+    "ritual_ZN19QQuickImageParticle8setColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QQuickImageParticle14colorVariationEv": [
+      "double", "address"
+    ],
+    "ritual_ZN19QQuickImageParticle17setColorVariationEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK19QQuickImageParticle14alphaVariationEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK19QQuickImageParticle5alphaEv": ["double", "address"],
+    "ritual_ZNK19QQuickImageParticle12redVariationEv": ["double", "address"],
+    "ritual_ZNK19QQuickImageParticle14greenVariationEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK19QQuickImageParticle13blueVariationEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK19QQuickImageParticle8rotationEv": ["double", "address"],
+    "ritual_ZNK19QQuickImageParticle17rotationVariationEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK19QQuickImageParticle16rotationVelocityEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK19QQuickImageParticle25rotationVelocityVariationEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK19QQuickImageParticle12autoRotationEv": ["bool", "address"],
+    "ritual_ZNK19QQuickImageParticle7xVectorEv": ["address", "address"],
+    "ritual_ZNK19QQuickImageParticle7yVectorEv": ["address", "address"],
+    "ritual_ZNK19QQuickImageParticle18spritesInterpolateEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK19QQuickImageParticle19bypassOptimizationsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK19QQuickImageParticle11entryEffectEv": ["int", "address"],
+    "ritual_ZNK19QQuickImageParticle6statusEv": ["int", "address"],
+    "ritual_ZN19QQuickImageParticle10resetColorEv": ["nothing", "address"],
+    "ritual_ZN19QQuickImageParticle13resetRotationEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickImageParticle16resetDeformationEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickImageParticle17setAlphaVariationEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN19QQuickImageParticle8setAlphaEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN19QQuickImageParticle15setRedVariationEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN19QQuickImageParticle17setGreenVariationEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN19QQuickImageParticle16setBlueVariationEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN19QQuickImageParticle11setRotationEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN19QQuickImageParticle20setRotationVariationEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN19QQuickImageParticle19setRotationVelocityEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN19QQuickImageParticle28setRotationVelocityVariationEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN19QQuickImageParticle15setAutoRotationEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN19QQuickImageParticle10setXVectorEP15QQuickDirection": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickImageParticle10setYVectorEP15QQuickDirection": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickImageParticle21setSpritesInterpolateEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN19QQuickImageParticle22setBypassOptimizationsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN19QQuickImageParticle14setEntryEffectENS_11EntryEffectE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN19QQuickImageParticle5resetEv": ["nothing", "address"],
+    "ritual_ZN19QQuickImageParticle10initializeEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN19QQuickImageParticle6commitEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN19QQuickImageParticle15updatePaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN19QQuickImageParticle21sceneGraphInvalidatedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickImageParticle12createEngineEv": ["nothing", "address"],
+    "ritual_ZN19QQuickImageParticle13spriteAdvanceEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN19QQuickImageParticle13spritesUpdateEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN19QQuickImageParticle24mainThreadFetchImageDataEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickImageParticle20invalidateSceneGraphEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickImageParticle16loadingSomethingEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN19QQuickImageParticle12clearShadowsEv": ["nothing", "address"],
+    "ritual_ZN19QQuickImageParticle14getShadowDatumEP18QQuickParticleData": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN19QQuickImageParticle14checkPerfLevelENS_16PerformanceLevelE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_take_QQuickImageParticle": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN19QQuickImageParticle5resetEv": ["nothing", "address"],
+    "ritual_own_ZN19QQuickImageParticle10initializeEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZN19QQuickImageParticle6commitEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZN19QQuickImageParticle15updatePaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN19QQuickImageParticle21sceneGraphInvalidatedEv": [
+      "nothing", "address"
+    ]
+  }
+}

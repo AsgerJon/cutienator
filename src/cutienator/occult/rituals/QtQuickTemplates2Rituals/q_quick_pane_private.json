@@ -1,0 +1,69 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquickpane_p_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN17QQuickPanePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK17QQuickPanePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN17QQuickPanePrivate4initEv": ["nothing", "address"],
+    "ritual_ZNK17QQuickPanePrivate17contentChildItemsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK17QQuickPanePrivate13getFirstChildEv": ["address", "address"],
+    "ritual_ZN17QQuickPanePrivate14getContentItemEv": ["address", "address"],
+    "ritual_ZNK17QQuickPanePrivate15getContentWidthEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK17QQuickPanePrivate16getContentHeightEv": [
+      "double", "address"
+    ],
+    "ritual_ZN17QQuickPanePrivate24itemImplicitWidthChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QQuickPanePrivate25itemImplicitHeightChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QQuickPanePrivate13itemDestroyedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QQuickPanePrivate21contentChildrenChangeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuickPanePrivate18updateContentWidthEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuickPanePrivate19updateContentHeightEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuickPanePrivate11handlePressERK7QPointFm": [
+      "bool", "address", "address", "unsigned long"
+    ],
+    "ritual_take_QQuickPanePrivate": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK17QQuickPanePrivate13getFirstChildEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN17QQuickPanePrivate14getContentItemEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK17QQuickPanePrivate15getContentWidthEv": [
+      "double", "address"
+    ],
+    "ritual_own_ZNK17QQuickPanePrivate16getContentHeightEv": [
+      "double", "address"
+    ],
+    "ritual_own_ZN17QQuickPanePrivate24itemImplicitWidthChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN17QQuickPanePrivate25itemImplicitHeightChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN17QQuickPanePrivate13itemDestroyedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN17QQuickPanePrivate11handlePressERK7QPointFm": [
+      "bool", "address", "address", "unsigned long"
+    ]
+  }
+}

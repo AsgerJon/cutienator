@@ -1,0 +1,20 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickwindow_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK14QQuickRootItem10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QQuickRootItem2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN14QQuickRootItem22qt_qmlMarker_anonymousEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickRootItemC1Ev": ["address"],
+    "ritual_ZN14QQuickRootItem8setWidthEi": ["nothing", "address", "int"],
+    "ritual_ZN14QQuickRootItem9setHeightEi": ["nothing", "address", "int"],
+    "ritual_take_QQuickRootItem": ["bool", "address", "chars", "address"]
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Controls2Impl/6.12.0/QtQuickControls2Impl/private/qquickanimatedno",
+    "de_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18QQuickAnimatedNode10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QQuickAnimatedNode2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18QQuickAnimatedNodeC1EP10QQuickItem": ["address", "address"],
+    "ritual_ZNK18QQuickAnimatedNode9isRunningEv": ["bool", "address"],
+    "ritual_ZNK18QQuickAnimatedNode11currentTimeEv": ["int", "address"],
+    "ritual_ZN18QQuickAnimatedNode14setCurrentTimeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK18QQuickAnimatedNode8durationEv": ["int", "address"],
+    "ritual_ZN18QQuickAnimatedNode11setDurationEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK18QQuickAnimatedNode9loopCountEv": ["int", "address"],
+    "ritual_ZN18QQuickAnimatedNode12setLoopCountEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18QQuickAnimatedNode4syncEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QQuickAnimatedNode6windowEv": ["address", "address"],
+    "ritual_ZN18QQuickAnimatedNode5startEi": ["nothing", "address", "int"],
+    "ritual_ZN18QQuickAnimatedNode7restartEv": ["nothing", "address"],
+    "ritual_ZN18QQuickAnimatedNode4stopEv": ["nothing", "address"],
+    "ritual_ZN18QQuickAnimatedNode17updateCurrentTimeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18QQuickAnimatedNode7advanceEv": ["nothing", "address"],
+    "ritual_ZN18QQuickAnimatedNode6updateEv": ["nothing", "address"],
+    "ritual_cast_QQuickAnimatedNode_QSGTransformNode": [
+      "address", "address"
+    ],
+    "ritual_own_ZN18QQuickAnimatedNode4syncEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN18QQuickAnimatedNode17updateCurrentTimeEi": [
+      "nothing", "address", "int"
+    ]
+  }
+}

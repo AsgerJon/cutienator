@@ -1,0 +1,54 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3D/6.12.0/QtQuick3D/private/qquick3dresourceloader_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK22QQuick3DResourceLoader10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QQuick3DResourceLoader2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN22QQuick3DResourceLoaderC1EP14QQuick3DObject": [
+      "address", "address"
+    ],
+    "ritual_ZNK22QQuick3DResourceLoader11meshSourcesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QQuick3DResourceLoader14setMeshSourcesERK5QListI4QUrlE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQuick3DResourceLoader19onGeometryDestroyedEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQuick3DResourceLoader18onTextureDestroyedEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQuick3DResourceLoader17updateSpatialNodeEP21QSSGRenderGraphObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN22QQuick3DResourceLoader12markAllDirtyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuick3DResourceLoader10itemChangeEN14QQuick3DObject10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN22QQuick3DResourceLoader9markDirtyENS_23ResourceLoaderDirtyTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN22QQuick3DResourceLoader18updateSceneManagerEP20QQuick3DSceneManager": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN22QQuick3DResourceLoader17updateSpatialNodeEP21QSSGRenderGraphObject": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN22QQuick3DResourceLoader12markAllDirtyEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN22QQuick3DResourceLoader10itemChangeEN14QQuick3DObject10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ]
+  }
+}

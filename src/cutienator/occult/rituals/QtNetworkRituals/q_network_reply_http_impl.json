@@ -1,0 +1,51 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/6.12.0/QtNetwork/private/qnetworkreplyhttpimpl_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK21QNetworkReplyHttpImpl10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QNetworkReplyHttpImplD1Ev": ["nothing", "address"],
+    "ritual_ZN21QNetworkReplyHttpImpl5closeEv": ["nothing", "address"],
+    "ritual_ZN21QNetworkReplyHttpImpl5abortEv": ["nothing", "address"],
+    "ritual_ZNK21QNetworkReplyHttpImpl14bytesAvailableEv": [
+      "long long", "address"
+    ],
+    "ritual_ZNK21QNetworkReplyHttpImpl12isSequentialEv": ["bool", "address"],
+    "ritual_ZNK21QNetworkReplyHttpImpl4sizeEv": ["long long", "address"],
+    "ritual_ZN21QNetworkReplyHttpImpl17setReadBufferSizeEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZNK21QNetworkReplyHttpImpl11canReadLineEv": ["bool", "address"],
+    "ritual_ZN21QNetworkReplyHttpImpl6d_funcEv": ["address", "address"],
+    "ritual_ZNK21QNetworkReplyHttpImpl6d_funcEv": ["address", "address"],
+    "ritual_ZN21QNetworkReplyHttpImpl15ignoreSslErrorsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QNetworkReplyHttpImpl29ignoreSslErrorsImplementationERK5QListI9QSslErrorE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QNetworkReplyHttpImpl33setSslConfigurationImplementationERK17QSslConfiguration": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QNetworkReplyHttpImpl": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK21QNetworkReplyHttpImpl14bytesAvailableEv": [
+      "long long", "address"
+    ],
+    "ritual_own_ZNK21QNetworkReplyHttpImpl12isSequentialEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZNK21QNetworkReplyHttpImpl4sizeEv": ["long long", "address"],
+    "ritual_own_ZNK21QNetworkReplyHttpImpl11canReadLineEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZN21QNetworkReplyHttpImpl33setSslConfigurationImplementationERK17QSslConfiguration": [
+      "nothing", "address", "address"
+    ]
+  }
+}

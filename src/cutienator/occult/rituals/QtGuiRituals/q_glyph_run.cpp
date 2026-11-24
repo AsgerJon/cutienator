@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGui/qglyphrun.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
+#if !defined(QT_NO_RAWFONT)
 #include <QtGui/qglyphrun.h>
 #include <QtGui/qrawfont.h>
 #include <QtCore/qpoint.h>
@@ -219,3 +221,5 @@ extern "C" Q_DECL_EXPORT
 void ritual_list_drop_QGlyphRun(QList<QGlyphRun> *self) {
   delete self;
 }
+
+#endif  // !defined(QT_NO_RAWFONT)

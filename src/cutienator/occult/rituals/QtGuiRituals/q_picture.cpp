@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGui/qpicture.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
+#if !defined(QT_NO_PICTURE)
 #include <QtGui/qpicture.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qrect.h>
@@ -14,9 +16,15 @@ struct OwnQPicture : QPicture {
 //  A QPicture that Python can take functions over in. Every QPicture
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if !defined(QT_NO_PICTURE)
 typedef int (*CuteQPictureCall0)(const void *, int *);
+#endif  // !defined(QT_NO_PICTURE)
+#if !defined(QT_NO_PICTURE)
 typedef void * (*CuteQPictureCall1)(const void *, int *);
+#endif  // !defined(QT_NO_PICTURE)
+#if !defined(QT_NO_PICTURE)
 typedef int (*CuteQPictureCall2)(const void *, int, int *);
+#endif  // !defined(QT_NO_PICTURE)
 typedef void (*CuteQPictureCall3)(const void *, QPainter *, int *);
 typedef void * (*CuteQPictureCall4)(const void *, QPoint *, int *);
 typedef void * (*CuteQPictureCall5)(const void *, int *);
@@ -27,18 +35,24 @@ public:
   void *taken[6] = {};
 
   bool take(const char *key, void *call) {
+#if !defined(QT_NO_PICTURE)
     if (!std::strcmp(key, "_ZNK12QPaintDevice7devTypeEv")) {
       taken[0] = call;
       return true;
     }
+#endif  // !defined(QT_NO_PICTURE)
+#if !defined(QT_NO_PICTURE)
     if (!std::strcmp(key, "_ZNK12QPaintDevice11paintEngineEv")) {
       taken[1] = call;
       return true;
     }
+#endif  // !defined(QT_NO_PICTURE)
+#if !defined(QT_NO_PICTURE)
     if (!std::strcmp(key, "_ZNK12QPaintDevice6metricENS_17PaintDeviceMetricE")) {
       taken[2] = call;
       return true;
     }
+#endif  // !defined(QT_NO_PICTURE)
     if (!std::strcmp(key, "_ZNK12QPaintDevice11initPainterEP8QPainter")) {
       taken[3] = call;
       return true;
@@ -54,6 +68,7 @@ public:
     return false;
   }
 
+#if !defined(QT_NO_PICTURE)
   //  int QPicture::devType() const
   int devType() const override {
     if (taken[0]) {
@@ -64,7 +79,9 @@ public:
     }
     return QPicture::devType();
   }
+#endif  // !defined(QT_NO_PICTURE)
 
+#if !defined(QT_NO_PICTURE)
   //  QPaintEngine *QPicture::paintEngine() const
   QPaintEngine *paintEngine() const override {
     if (taken[1]) {
@@ -75,7 +92,9 @@ public:
     }
     return QPicture::paintEngine();
   }
+#endif  // !defined(QT_NO_PICTURE)
 
+#if !defined(QT_NO_PICTURE)
   //  int QPicture::metric(PaintDeviceMetric m) const
   int metric(QPaintDevice::PaintDeviceMetric m) const override {
     if (taken[2]) {
@@ -86,6 +105,7 @@ public:
     }
     return QPicture::metric(m);
   }
+#endif  // !defined(QT_NO_PICTURE)
 
   //  void QPaintDevice::initPainter(QPainter *painter) const
   void initPainter(QPainter *painter) const override {
@@ -120,6 +140,18 @@ public:
     return QPaintDevice::sharedPainter();
   }
 };
+
+//  QPicturePrivate *QPicture::d_func()
+extern "C" Q_DECL_EXPORT
+QPicturePrivate *ritual_ZN8QPicture6d_funcEv(QPicture *self) {
+  return self->d_func();
+}
+
+//  const QPicturePrivate *QPicture::d_func() const
+extern "C" Q_DECL_EXPORT
+const QPicturePrivate *ritual_ZNK8QPicture6d_funcEv(const QPicture *self) {
+  return self->d_func();
+}
 
 //  QPicture::QPicture(int formatVersion)
 extern "C" Q_DECL_EXPORT
@@ -272,3 +304,5 @@ int ritual_own_ZNK8QPicture6metricEN12QPaintDevice17PaintDeviceMetricE(
     QPaintDevice::PaintDeviceMetric m) {
   return static_cast<const OwnQPicture *>(self)->OwnQPicture::metric(m);
 }
+
+#endif  // !defined(QT_NO_PICTURE)

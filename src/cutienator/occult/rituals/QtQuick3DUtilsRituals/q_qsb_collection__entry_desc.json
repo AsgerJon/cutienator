@@ -1,0 +1,13 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3DUtils/6.12.0/QtQuick3DUtils/private/qqsbcollection_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK14QQsbCollection9EntryDesc11generateShaEv": [
+      "address", "address"
+    ],
+    "ritual_ZN14QQsbCollection9EntryDescD1Ev": ["nothing", "address"]
+  }
+}

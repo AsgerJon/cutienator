@@ -1,0 +1,61 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qsgrhisupport_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN13QSGRhiSupport17instance_internalEv": ["address"],
+    "ritual_ZN13QSGRhiSupport8instanceEv": ["address"],
+    "ritual_ZN13QSGRhiSupport17chooseSampleCountEiP4QRhi": [
+      "int", "int", "address"
+    ],
+    "ritual_ZN13QSGRhiSupport33chooseSampleCountForWindowWithRhiEP7QWindowP4QRhi": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN13QSGRhiSupport26grabAndBlockInCurrentFrameEP4QRhiP17QRhiCommandBufferP11QRhiTexture": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN13QSGRhiSupport15checkEnvQSgInfoEv": ["nothing"],
+    "ritual_ZN13QSGRhiSupport9configureEN20QSGRendererInterface11GraphicsApiE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK13QSGRhiSupport10rhiBackendEv": ["int", "address"],
+    "ritual_ZNK13QSGRhiSupport14rhiBackendNameEv": ["text", "address"],
+    "ritual_ZNK13QSGRhiSupport11graphicsApiEv": ["int", "address"],
+    "ritual_ZNK13QSGRhiSupport17windowSurfaceTypeEv": ["int", "address"],
+    "ritual_ZN13QSGRhiSupport27maybeCreateOffscreenSurfaceEP7QWindow": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN13QSGRhiSupport9createRhiEP12QQuickWindowP8QSurfaceb": [
+      "address", "address", "address", "address", "bool"
+    ],
+    "ritual_ZN13QSGRhiSupport10destroyRhiEP4QRhiRK27QQuickGraphicsConfiguration": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN13QSGRhiSupport19prepareWindowForRhiEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QSGRhiSupport13grabOffscreenEP12QQuickWindow": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN13QSGRhiSupport20applySwapChainFormatEP13QRhiSwapChainP12QQuickWindow": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK13QSGRhiSupport31attemptReinitWithSwRastUponFailEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN13QSGRhiSupportC1Ev": ["address"],
+    "ritual_ZN13QSGRhiSupport13applySettingsEv": ["nothing", "address"],
+    "ritual_ZN13QSGRhiSupport22adjustToPlatformQuirksEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13QSGRhiSupport20preparePipelineCacheEP4QRhiP12QQuickWindow": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN13QSGRhiSupport21finalizePipelineCacheEP4QRhiRK27QQuickGraphicsConfiguration": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN13QSGRhiSupportD1Ev": ["nothing", "address"]
+  }
+}

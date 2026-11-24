@@ -1,0 +1,97 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtLocat",
+    "ion/6.12.0/QtLocation/private/qdeclarativegeomapquickitem_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK27QDeclarativeGeoMapQuickItem10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QDeclarativeGeoMapQuickItem2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN27QDeclarativeGeoMapQuickItemC1EP10QQuickItem": [
+      "address", "address"
+    ],
+    "ritual_ZN27QDeclarativeGeoMapQuickItemD1Ev": ["nothing", "address"],
+    "ritual_ZN27QDeclarativeGeoMapQuickItem6setMapEP18QDeclarativeGeoMapP7QGeoMap": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN27QDeclarativeGeoMapQuickItem13setCoordinateERK14QGeoCoordinate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN27QDeclarativeGeoMapQuickItem10coordinateEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QDeclarativeGeoMapQuickItem13setSourceItemEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN27QDeclarativeGeoMapQuickItem10sourceItemEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QDeclarativeGeoMapQuickItem14setAnchorPointERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK27QDeclarativeGeoMapQuickItem11anchorPointEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QDeclarativeGeoMapQuickItem12setZoomLevelEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK27QDeclarativeGeoMapQuickItem9zoomLevelEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK27QDeclarativeGeoMapQuickItem8geoShapeEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QDeclarativeGeoMapQuickItem11setGeoShapeERK9QGeoShape": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK27QDeclarativeGeoMapQuickItem8containsERK7QPointF": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN27QDeclarativeGeoMapQuickItem14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN27QDeclarativeGeoMapQuickItem12updatePolishEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QDeclarativeGeoMapQuickItem20afterChildrenChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QDeclarativeGeoMapQuickItem20afterViewportChangedERK26QGeoMapViewportChangeEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN27QDeclarativeGeoMapQuickItem11scaleFactorEv": [
+      "double", "address"
+    ],
+    "ritual_take_QDeclarativeGeoMapQuickItem": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN27QDeclarativeGeoMapQuickItem6setMapEP18QDeclarativeGeoMapP7QGeoMap": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZNK27QDeclarativeGeoMapQuickItem8geoShapeEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN27QDeclarativeGeoMapQuickItem11setGeoShapeERK9QGeoShape": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK27QDeclarativeGeoMapQuickItem8containsERK7QPointF": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN27QDeclarativeGeoMapQuickItem14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN27QDeclarativeGeoMapQuickItem12updatePolishEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN27QDeclarativeGeoMapQuickItem20afterChildrenChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN27QDeclarativeGeoMapQuickItem20afterViewportChangedERK26QGeoMapViewportChangeEvent": [
+      "nothing", "address", "address"
+    ]
+  }
+}

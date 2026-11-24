@@ -28,6 +28,7 @@ QByteArray *ritual_ZNK5QFont3Tag8toStringEv(const QFont::Tag *self) {
   return new QByteArray(self->toString());
 }
 
+#if !defined(QT_NO_DEBUG_STREAM)
 //  QDebug operator<<(QDebug debug, Tag tag)
 extern "C" Q_DECL_EXPORT
 QDebug *ritual_Zls6QDebugN5QFont3TagE(
@@ -35,6 +36,7 @@ QDebug *ritual_Zls6QDebugN5QFont3TagE(
     const QFont::Tag *tag) {
   return new QDebug(operator<<(*debug, *tag));
 }
+#endif  // !defined(QT_NO_DEBUG_STREAM)
 
 //  bool operator==(const QFont::Tag &lhs, const QFont::Tag &rhs)
 extern "C" Q_DECL_EXPORT

@@ -1,0 +1,25 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtLabsS",
+    "tyleKit/6.12.0/QtLabsStyleKit/private/qqstylekitcontrols_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18QQStyleKitControls10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QQStyleKitControls24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK18QQStyleKitControls15getControlStyleEj": [
+      "address", "address", "unsigned int"
+    ],
+    "ritual_ZNK18QQStyleKitControls8childrenEv": ["address", "address"],
+    "ritual_ZN18QQStyleKitControls10classBeginEv": ["nothing", "address"],
+    "ritual_ZN18QQStyleKitControls17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_cast_QQStyleKitControls_QQmlParserStatus": [
+      "address", "address"
+    ],
+    "ritual_own_ZN18QQStyleKitControls10classBeginEv": ["nothing", "address"]
+  }
+}

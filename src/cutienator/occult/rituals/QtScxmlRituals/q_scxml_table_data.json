@@ -1,0 +1,25 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtScxml/qscxmltabledata.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QScxmlTableDataD1Ev": ["nothing", "address"],
+    "ritual_ZNK15QScxmlTableData6stringEi": ["text", "address", "int"],
+    "ritual_ZNK15QScxmlTableData13evaluatorInfoEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK15QScxmlTableData14assignmentInfoEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK15QScxmlTableData11foreachInfoEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK15QScxmlTableData12initialSetupEv": ["int", "address"],
+    "ritual_ZNK15QScxmlTableData4nameEv": ["text", "address"],
+    "ritual_ZNK15QScxmlTableData14serviceFactoryEi": [
+      "address", "address", "int"
+    ],
+    "ritual_take_QScxmlTableData": ["bool", "address", "chars", "address"]
+  }
+}

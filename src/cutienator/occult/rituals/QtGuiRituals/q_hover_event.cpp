@@ -145,6 +145,7 @@ QHoverEvent *ritual_ZN11QHoverEventC1EN6QEvent4TypeERK7QPointFS4_S4_6QFlagsIN2Qt
       device);
 }
 
+#if QT_DEPRECATED_SINCE(6, 3)
 //  QHoverEvent::QHoverEvent(Type type, const QPointF &pos, const QPointF
 //      &oldPos, Qt::KeyboardModifiers modifiers, const QPointingDevice
 //      *device)
@@ -162,18 +163,25 @@ QHoverEvent *ritual_ZN11QHoverEventC1EN6QEvent4TypeERK7QPointFS4_6QFlagsIN2Qt16K
       QFlags<Qt::KeyboardModifier>::fromInt(modifiers),
       device);
 }
+#endif  // QT_DEPRECATED_SINCE(6, 3)
 
+#if QT_DEPRECATED_SINCE(6, 0)
+#if !defined(QT_NO_INTEGER_EVENT_COORDINATES)
 //  QPoint QHoverEvent::pos() const
 extern "C" Q_DECL_EXPORT
 QPoint *ritual_ZNK11QHoverEvent3posEv(const QHoverEvent *self) {
   return new QPoint(self->pos());
 }
+#endif  // !defined(QT_NO_INTEGER_EVENT_COORDINATES)
+#endif  // QT_DEPRECATED_SINCE(6, 0)
 
+#if QT_DEPRECATED_SINCE(6, 0)
 //  QPointF QHoverEvent::posF() const
 extern "C" Q_DECL_EXPORT
 QPointF *ritual_ZNK11QHoverEvent4posFEv(const QHoverEvent *self) {
   return new QPointF(self->posF());
 }
+#endif  // QT_DEPRECATED_SINCE(6, 0)
 
 //  bool QHoverEvent::isUpdateEvent() const
 extern "C" Q_DECL_EXPORT

@@ -1,0 +1,270 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qgraphicsitem_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QGraphicsItemPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK20QGraphicsItemPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN20QGraphicsItemPrivateC1Ev": ["address"],
+    "ritual_ZN20QGraphicsItemPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN20QGraphicsItemPrivate3getEPK13QGraphicsItem": [
+      "address", "address"
+    ],
+    "ritual_ZN20QGraphicsItemPrivate3getEP13QGraphicsItem": [
+      "address", "address"
+    ],
+    "ritual_ZN20QGraphicsItemPrivate44updateChildWithGraphicsEffectFlagRecursivelyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QGraphicsItemPrivate18updateAncestorFlagEN13QGraphicsItem16GraphicsItemFlagENS_12AncestorFlagEbb": [
+      "nothing", "address", "int", "int", "bool", "bool"
+    ],
+    "ritual_ZN20QGraphicsItemPrivate19updateAncestorFlagsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QGraphicsItemPrivate18setIsMemberOfGroupEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20QGraphicsItemPrivate12remapItemPosEP6QEventP13QGraphicsItem": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK20QGraphicsItemPrivate28genericMapFromSceneTransformEPK7QWidget": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK20QGraphicsItemPrivate19genericMapFromSceneERK7QPointFPK7QWidget": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK20QGraphicsItemPrivate21itemIsUntransformableEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK20QGraphicsItemPrivate24combineTransformToParentEP10QTransformPKS0_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK20QGraphicsItemPrivate26combineTransformFromParentEP10QTransformPKS0_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN20QGraphicsItemPrivate30updateSceneTransformFromParentEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QGraphicsItemPrivate25movableAncestorIsSelectedEPK13QGraphicsItem": [
+      "bool", "address"
+    ],
+    "ritual_ZN20QGraphicsItemPrivate12setPosHelperERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QGraphicsItemPrivate18setTransformHelperERK10QTransform": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QGraphicsItemPrivate24prependGraphicsTransformEP18QGraphicsTransform": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QGraphicsItemPrivate23appendGraphicsTransformEP18QGraphicsTransform": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QGraphicsItemPrivate16setVisibleHelperEbbbb": [
+      "nothing", "address", "bool", "bool", "bool", "bool"
+    ],
+    "ritual_ZN20QGraphicsItemPrivate16setEnabledHelperEbbb": [
+      "nothing", "address", "bool", "bool", "bool"
+    ],
+    "ritual_ZNK20QGraphicsItemPrivate20discardUpdateRequestEbbb": [
+      "bool", "address", "bool", "bool", "bool"
+    ],
+    "ritual_ZN20QGraphicsItemPrivate16transformChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK20QGraphicsItemPrivate5depthEv": ["int", "address"],
+    "ritual_ZN20QGraphicsItemPrivate42invalidateParentGraphicsEffectsRecursivelyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QGraphicsItemPrivate41invalidateChildGraphicsEffectsRecursivelyENS_16InvalidateReasonE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QGraphicsItemPrivate26invalidateDepthRecursivelyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QGraphicsItemPrivate12resolveDepthEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QGraphicsItemPrivate8addChildEP13QGraphicsItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QGraphicsItemPrivate11removeChildEP13QGraphicsItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QGraphicsItemPrivate19setParentItemHelperEP13QGraphicsItemPK8QVariantS4_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN20QGraphicsItemPrivate26childrenBoundingRectHelperEP10QTransformP6QRectFP13QGraphicsItem": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK20QGraphicsItemPrivate15initStyleOptionEP24QStyleOptionGraphicsItemRK10QTransformRK7QRegionb": [
+      "nothing", "address", "address", "address", "address", "bool"
+    ],
+    "ritual_ZNK20QGraphicsItemPrivate21effectiveBoundingRectEP13QGraphicsItem": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK20QGraphicsItemPrivate26sceneEffectiveBoundingRectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QGraphicsItemPrivate21effectiveBoundingRectERK6QRectF": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN20QGraphicsItemPrivate11resolveFontEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN20QGraphicsItemPrivate14resolvePaletteEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZNK20QGraphicsItemPrivate13isProxyWidgetEv": ["bool", "address"],
+    "ritual_ZNK20QGraphicsItemPrivate5extraENS_5ExtraE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN20QGraphicsItemPrivate8setExtraENS_5ExtraERK8QVariant": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN20QGraphicsItemPrivate10unsetExtraENS_5ExtraE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK20QGraphicsItemPrivate19maybeExtraItemCacheEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QGraphicsItemPrivate14extraItemCacheEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QGraphicsItemPrivate20removeExtraItemCacheEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QGraphicsItemPrivate30updatePaintedViewBoundingRectsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20QGraphicsItemPrivate20ensureSceneTransformEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QGraphicsItemPrivate30hasTranslateOnlySceneTransformEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN20QGraphicsItemPrivate32invalidateChildrenSceneTransformEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK20QGraphicsItemPrivate20calcEffectiveOpacityEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK20QGraphicsItemPrivate13isOpacityNullEv": ["bool", "address"],
+    "ritual_ZN20QGraphicsItemPrivate13isOpacityNullEd": ["bool", "double"],
+    "ritual_ZNK20QGraphicsItemPrivate18isFullyTransparentEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK20QGraphicsItemPrivate16effectiveOpacityEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK20QGraphicsItemPrivate24combineOpacityFromParentEd": [
+      "double", "address", "double"
+    ],
+    "ritual_ZNK20QGraphicsItemPrivate22childrenCombineOpacityEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK20QGraphicsItemPrivate22childrenClippedToShapeEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK20QGraphicsItemPrivate11isInvisibleEv": ["bool", "address"],
+    "ritual_ZN20QGraphicsItemPrivate15markParentDirtyEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20QGraphicsItemPrivate14setFocusHelperEN2Qt11FocusReasonEbb": [
+      "nothing", "address", "int", "bool", "bool"
+    ],
+    "ritual_ZN20QGraphicsItemPrivate16clearFocusHelperEbb": [
+      "nothing", "address", "bool", "bool"
+    ],
+    "ritual_ZN20QGraphicsItemPrivate11setSubFocusEP13QGraphicsItemS1_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN20QGraphicsItemPrivate13clearSubFocusEP13QGraphicsItemS1_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN20QGraphicsItemPrivate15resetFocusProxyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QGraphicsItemPrivate18subFocusItemChangeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QGraphicsItemPrivate20focusScopeItemChangeEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK20QGraphicsItemPrivate17transformToParentEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QGraphicsItemPrivate20ensureSortedChildrenEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QGraphicsItemPrivate14insertionOrderEP13QGraphicsItemS1_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN20QGraphicsItemPrivate28ensureSequentialSiblingIndexEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QGraphicsItemPrivate18sendScenePosChangeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QGraphicsItemPrivate18siblingOrderChangeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK20QGraphicsItemPrivate5widthEv": ["double", "address"],
+    "ritual_ZN20QGraphicsItemPrivate8setWidthEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN20QGraphicsItemPrivate10resetWidthEv": ["nothing", "address"],
+    "ritual_ZNK20QGraphicsItemPrivate6heightEv": ["double", "address"],
+    "ritual_ZN20QGraphicsItemPrivate9setHeightEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN20QGraphicsItemPrivate11resetHeightEv": ["nothing", "address"],
+    "ritual_take_QGraphicsItemPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN20QGraphicsItemPrivate30updateSceneTransformFromParentEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN20QGraphicsItemPrivate12setPosHelperERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20QGraphicsItemPrivate16transformChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN20QGraphicsItemPrivate11resolveFontEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_own_ZN20QGraphicsItemPrivate14resolvePaletteEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_own_ZNK20QGraphicsItemPrivate13isProxyWidgetEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZN20QGraphicsItemPrivate18subFocusItemChangeEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN20QGraphicsItemPrivate20focusScopeItemChangeEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZN20QGraphicsItemPrivate18siblingOrderChangeEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZNK20QGraphicsItemPrivate5widthEv": ["double", "address"],
+    "ritual_own_ZN20QGraphicsItemPrivate8setWidthEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_own_ZN20QGraphicsItemPrivate10resetWidthEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZNK20QGraphicsItemPrivate6heightEv": ["double", "address"],
+    "ritual_own_ZN20QGraphicsItemPrivate9setHeightEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_own_ZN20QGraphicsItemPrivate11resetHeightEv": [
+      "nothing", "address"
+    ]
+  }
+}

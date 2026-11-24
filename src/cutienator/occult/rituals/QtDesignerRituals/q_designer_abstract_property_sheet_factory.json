@@ -1,0 +1,33 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/qdesigner_propertysheet_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK37QDesignerAbstractPropertySheetFactory10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN37QDesignerAbstractPropertySheetFactory2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN37QDesignerAbstractPropertySheetFactoryD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK37QDesignerAbstractPropertySheetFactory9extensionEP7QObjectRK7QString": [
+      "address", "address", "address", "text"
+    ],
+    "ritual_ZN37QDesignerAbstractPropertySheetFactory15objectDestroyedEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK37QDesignerAbstractPropertySheetFactory19createPropertySheetEP7QObjectS1_": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_take_QDesignerAbstractPropertySheetFactory": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK37QDesignerAbstractPropertySheetFactory9extensionEP7QObjectRK7QString": [
+      "address", "address", "address", "text"
+    ]
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/qpolarchart.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK11QPolarChart10metaObjectEv": ["address", "address"],
+    "ritual_ZN11QPolarChart2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN11QPolarChartC1EP13QGraphicsItem6QFlagsIN2Qt10WindowTypeEE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN11QPolarChartD1Ev": ["nothing", "address"],
+    "ritual_ZN11QPolarChart7addAxisEP13QAbstractAxisNS_16PolarOrientationE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZNK11QPolarChart4axesE6QFlagsINS_16PolarOrientationEEP15QAbstractSeries": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_ZN11QPolarChart20axisPolarOrientationEP13QAbstractAxis": [
+      "int", "address"
+    ],
+    "ritual_take_QPolarChart": ["bool", "address", "chars", "address"]
+  }
+}

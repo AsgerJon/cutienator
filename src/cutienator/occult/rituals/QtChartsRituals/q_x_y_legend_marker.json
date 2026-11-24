@@ -1,0 +1,23 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/qxylegendmarker.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK15QXYLegendMarker10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QXYLegendMarker2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN15QXYLegendMarkerC1EP9QXYSeriesP7QLegendP7QObject": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN15QXYLegendMarkerD1Ev": ["nothing", "address"],
+    "ritual_ZN15QXYLegendMarker4typeEv": ["int", "address"],
+    "ritual_ZN15QXYLegendMarker6seriesEv": ["address", "address"],
+    "ritual_ZN15QXYLegendMarker6d_funcEv": ["address", "address"],
+    "ritual_ZNK15QXYLegendMarker6d_funcEv": ["address", "address"],
+    "ritual_take_QXYLegendMarker": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN15QXYLegendMarker4typeEv": ["int", "address"],
+    "ritual_own_ZN15QXYLegendMarker6seriesEv": ["address", "address"]
+  }
+}

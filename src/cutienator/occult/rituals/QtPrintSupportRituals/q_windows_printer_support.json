@@ -1,0 +1,35 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtPrint",
+    "Support/6.12.0/QtPrintSupport/private/qwindowsprintersupport_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN22QWindowsPrinterSupportC1Ev": ["address"],
+    "ritual_ZN22QWindowsPrinterSupportD1Ev": ["nothing", "address"],
+    "ritual_ZN22QWindowsPrinterSupport23createNativePrintEngineEN8QPrinter11PrinterModeERK7QString": [
+      "address", "address", "int", "text"
+    ],
+    "ritual_ZN22QWindowsPrinterSupport17createPaintEngineEP12QPrintEngineN8QPrinter11PrinterModeE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZNK22QWindowsPrinterSupport23availablePrintDeviceIdsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK22QWindowsPrinterSupport20defaultPrintDeviceIdEv": [
+      "text", "address"
+    ],
+    "ritual_take_QWindowsPrinterSupport": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN22QWindowsPrinterSupport23createNativePrintEngineEN8QPrinter11PrinterModeERK7QString": [
+      "address", "address", "int", "text"
+    ],
+    "ritual_own_ZN22QWindowsPrinterSupport17createPaintEngineEP12QPrintEngineN8QPrinter11PrinterModeE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_own_ZNK22QWindowsPrinterSupport20defaultPrintDeviceIdEv": [
+      "text", "address"
+    ]
+  }
+}

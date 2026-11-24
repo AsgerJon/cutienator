@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtMultimedia/6.12.0/QtMultimedia/private/qaudiodevice_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QAudioDevicePrivateC1ERK10QByteArrayN12QAudioDevice4ModeE7QStringbNS_17AudioDeviceFormatE": [
+      "address", "address", "int", "text", "bool", "address"
+    ],
+    "ritual_ZN19QAudioDevicePrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN19QAudioDevicePrivate6handleERK12QAudioDevice": [
+      "address", "address"
+    ]
+  }
+}

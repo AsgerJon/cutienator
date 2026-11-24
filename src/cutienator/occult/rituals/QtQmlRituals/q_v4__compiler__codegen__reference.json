@@ -1,0 +1,73 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4codegen_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK3QV48Compiler7Codegen9Reference8isLValueEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN3QV48Compiler7Codegen9ReferenceC1EPS1_NS2_4TypeE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN3QV48Compiler7Codegen9ReferenceC1ERK7QString": [
+      "address", "text"
+    ],
+    "ritual_ZN3QV48Compiler7Codegen9ReferenceC1ERKS2_": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV48Compiler7Codegen9Reference7isValidEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK3QV48Compiler7Codegen9Reference22loadTriggersSideEffectEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK3QV48Compiler7Codegen9Reference10isConstantEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK3QV48Compiler7Codegen9Reference13isAccumulatorEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK3QV48Compiler7Codegen9Reference7isSuperEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK3QV48Compiler7Codegen9Reference15isSuperPropertyEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK3QV48Compiler7Codegen9Reference11isStackSlotEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK3QV48Compiler7Codegen9Reference10isRegisterEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN3QV48Compiler7Codegen9Reference15fromAccumulatorEPS1_": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV48Compiler7Codegen9Reference9fromSuperEPS1_": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV48Compiler7Codegen9Reference15fromScopedLocalEPS1_ii": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZN3QV48Compiler7Codegen9Reference10fromImportEPS1_i": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN3QV48Compiler7Codegen9Reference8fromNameEPS1_RK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN3QV48Compiler7Codegen9Reference17fromSuperPropertyERKS2_": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV48Compiler7Codegen9Reference9fromConstEPS1_y": [
+      "address", "address", "unsigned long long"
+    ],
+    "ritual_ZNK3QV48Compiler7Codegen9Reference11nameAsIndexEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK3QV48Compiler7Codegen9Reference9stackSlotEv": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV48Compiler7Codegen9ReferenceD1Ev": ["nothing", "address"]
+  }
+}

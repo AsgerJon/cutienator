@@ -6,6 +6,16 @@
 #include <QtGui/qglyphrun.h>
 #include <QtCore/qlist.h>
 
+//  QTextFragment::QTextFragment(const QTextDocumentPrivate *priv, int f, int
+//      fe)
+extern "C" Q_DECL_EXPORT
+QTextFragment *ritual_ZN13QTextFragmentC1EPK20QTextDocumentPrivateii(
+    const QTextDocumentPrivate *priv,
+    int f,
+    int fe) {
+  return new QTextFragment(priv, f, fe);
+}
+
 //  QTextFragment::QTextFragment()
 extern "C" Q_DECL_EXPORT
 QTextFragment *ritual_ZN13QTextFragmentC1Ev() {
@@ -87,6 +97,7 @@ QString *ritual_ZNK13QTextFragment4textEv(const QTextFragment *self) {
   return new QString(self->text());
 }
 
+#if !defined(QT_NO_RAWFONT)
 //  QList<QGlyphRun> QTextFragment::glyphRuns(int from, int length) const
 extern "C" Q_DECL_EXPORT
 QList<QGlyphRun> *ritual_ZNK13QTextFragment9glyphRunsEii(
@@ -95,6 +106,7 @@ QList<QGlyphRun> *ritual_ZNK13QTextFragment9glyphRunsEii(
     int length) {
   return new QList<QGlyphRun>(self->glyphRuns(from, length));
 }
+#endif  // !defined(QT_NO_RAWFONT)
 
 //  QTextFragment::~QTextFragment()
 extern "C" Q_DECL_EXPORT

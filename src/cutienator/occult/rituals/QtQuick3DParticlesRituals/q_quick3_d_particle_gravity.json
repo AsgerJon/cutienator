@@ -1,0 +1,34 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DParticles/6.12.0/QtQuick3DParticles/private/qquick3dparticlegrav",
+    "ity_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK23QQuick3DParticleGravity10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QQuick3DParticleGravity2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN23QQuick3DParticleGravityC1EP12QQuick3DNode": [
+      "address", "address"
+    ],
+    "ritual_ZNK23QQuick3DParticleGravity9magnitudeEv": ["float", "address"],
+    "ritual_ZNK23QQuick3DParticleGravity9directionEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QQuick3DParticleGravity12setDirectionERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QQuick3DParticleGravity12setMagnitudeEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN23QQuick3DParticleGravity14affectParticleERK20QQuick3DParticleDataP27QQuick3DParticleDataCurrentf": [
+      "nothing", "address", "address", "address", "float"
+    ],
+    "ritual_own_ZN23QQuick3DParticleGravity14affectParticleERK20QQuick3DParticleDataP27QQuick3DParticleDataCurrentf": [
+      "nothing", "address", "address", "address", "float"
+    ]
+  }
+}

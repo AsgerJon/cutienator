@@ -7,6 +7,12 @@
 #include <QtCore/qtimezone.h>
 #include <QtCore/qlist.h>
 
+//  QFileInfo::QFileInfo(QFileInfoPrivate *d)
+extern "C" Q_DECL_EXPORT
+QFileInfo *ritual_ZN9QFileInfoC1EP16QFileInfoPrivate(QFileInfoPrivate *d) {
+  return new QFileInfo(d);
+}
+
 //  QFileInfo::QFileInfo()
 extern "C" Q_DECL_EXPORT
 QFileInfo *ritual_ZN9QFileInfoC1Ev() {
@@ -408,6 +414,19 @@ bool ritual_ZeqRK9QFileInfoS1_(const QFileInfo *lhs, const QFileInfo *rhs) {
 extern "C" Q_DECL_EXPORT
 bool ritual_ZneRK9QFileInfoS1_(const QFileInfo *lhs, const QFileInfo *rhs) {
   return operator!=(*lhs, *rhs);
+}
+
+//  QFileInfoPrivate *QFileInfo::d_func()
+extern "C" Q_DECL_EXPORT
+QFileInfoPrivate *ritual_ZN9QFileInfo6d_funcEv(QFileInfo *self) {
+  return self->d_func();
+}
+
+//  const QFileInfoPrivate *QFileInfo::d_func() const
+extern "C" Q_DECL_EXPORT
+const QFileInfoPrivate *ritual_ZNK9QFileInfo6d_funcEv(
+    const QFileInfo *self) {
+  return self->d_func();
 }
 
 //  QList<QFileInfo>::QList()

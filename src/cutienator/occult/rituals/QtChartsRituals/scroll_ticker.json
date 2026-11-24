@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/6.12.0/QtCharts/private/scroller_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK12ScrollTicker10metaObjectEv": ["address", "address"],
+    "ritual_ZN12ScrollTicker2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN12ScrollTickerC1EP8ScrollerP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN12ScrollTicker5startEi": ["nothing", "address", "int"],
+    "ritual_ZN12ScrollTicker4stopEv": ["nothing", "address"],
+    "ritual_ZN12ScrollTicker10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN12ScrollTicker10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ]
+  }
+}

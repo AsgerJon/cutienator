@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtState",
+    "MachineQml/6.12.0/QtStateMachineQml/private/statemachineforeign_p.",
+    "h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN24QSignalTransitionForeign20qt_qmlMarker_foreignEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QSignalTransitionForeign24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QSignalTransitionForeignD1Ev": ["nothing", "address"]
+  }
+}

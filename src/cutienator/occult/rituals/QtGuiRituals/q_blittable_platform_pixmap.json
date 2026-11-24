@@ -1,0 +1,102 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qpixmap_blitter_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN24QBlittablePlatformPixmapD1Ev": ["nothing", "address"],
+    "ritual_ZNK24QBlittablePlatformPixmap15createBlittableERK5QSizeb": [
+      "address", "address", "address", "bool"
+    ],
+    "ritual_ZNK24QBlittablePlatformPixmap9blittableEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QBlittablePlatformPixmap12setBlittableEP10QBlittable": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QBlittablePlatformPixmap6resizeEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK24QBlittablePlatformPixmap6metricEN12QPaintDevice17PaintDeviceMetricE": [
+      "int", "address", "int"
+    ],
+    "ritual_ZN24QBlittablePlatformPixmap4fillERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QBlittablePlatformPixmap6bufferEv": ["address", "address"],
+    "ritual_ZNK24QBlittablePlatformPixmap7toImageEv": ["address", "address"],
+    "ritual_ZNK24QBlittablePlatformPixmap15hasAlphaChannelEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN24QBlittablePlatformPixmap9fromImageERK6QImage6QFlagsIN2Qt19ImageConversionFlagEE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZNK24QBlittablePlatformPixmap16devicePixelRatioEv": [
+      "double", "address"
+    ],
+    "ritual_ZN24QBlittablePlatformPixmap19setDevicePixelRatioEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK24QBlittablePlatformPixmap11paintEngineEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QBlittablePlatformPixmap17markRasterOverlayERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QBlittablePlatformPixmap17markRasterOverlayERK7QPointFRK9QTextItem": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN24QBlittablePlatformPixmap17markRasterOverlayERK12QPainterPath": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QBlittablePlatformPixmap17markRasterOverlayEPK5QRecti": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN24QBlittablePlatformPixmap17markRasterOverlayEPK6QRectFi": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN24QBlittablePlatformPixmap17markRasterOverlayEPK7QPointFi": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN24QBlittablePlatformPixmap17markRasterOverlayEPK6QPointi": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN24QBlittablePlatformPixmap19unmarkRasterOverlayERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QBlittablePlatformPixmap": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN24QBlittablePlatformPixmap6resizeEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZNK24QBlittablePlatformPixmap6metricEN12QPaintDevice17PaintDeviceMetricE": [
+      "int", "address", "int"
+    ],
+    "ritual_own_ZN24QBlittablePlatformPixmap4fillERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN24QBlittablePlatformPixmap6bufferEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK24QBlittablePlatformPixmap7toImageEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK24QBlittablePlatformPixmap15hasAlphaChannelEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZN24QBlittablePlatformPixmap9fromImageERK6QImage6QFlagsIN2Qt19ImageConversionFlagEE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_own_ZNK24QBlittablePlatformPixmap16devicePixelRatioEv": [
+      "double", "address"
+    ],
+    "ritual_own_ZN24QBlittablePlatformPixmap19setDevicePixelRatioEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_own_ZNK24QBlittablePlatformPixmap11paintEngineEv": [
+      "address", "address"
+    ]
+  }
+}

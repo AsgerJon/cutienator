@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtMulti",
+    "media/6.12.0/QtMultimedia/private/qaudio_qiodevice_support_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN9QtPrivate14QDequeIODeviceC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZNK9QtPrivate14QDequeIODevice14bytesAvailableEv": [
+      "long long", "address"
+    ],
+    "ritual_ZN9QtPrivate14QDequeIODevice9writeDataEPKcx": [
+      "long long", "address", "chars", "long long"
+    ]
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/6.12.0/QtCharts/private/candlestickanimation_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK20CandlestickAnimation10metaObjectEv": ["address", "address"],
+    "ritual_ZN20CandlestickAnimation2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN20CandlestickAnimationD1Ev": ["nothing", "address"],
+    "ritual_ZN20CandlestickAnimation14addCandlestickEP11Candlestick": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20CandlestickAnimation20candlestickAnimationEP11Candlestick": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN20CandlestickAnimation26candlestickChangeAnimationEP11Candlestick": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN20CandlestickAnimation17setAnimationStartEP11Candlestick": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20CandlestickAnimation7stopAllEv": ["nothing", "address"],
+    "ritual_ZN20CandlestickAnimation26removeCandlestickAnimationEP11Candlestick": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_CandlestickAnimation": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

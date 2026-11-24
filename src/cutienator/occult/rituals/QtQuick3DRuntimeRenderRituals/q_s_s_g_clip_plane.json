@@ -1,0 +1,26 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgrendercl",
+    "ippingfrustum_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK13QSSGClipPlane8distanceERK9QVector3D": [
+      "float", "address", "address"
+    ],
+    "ritual_ZNK13QSSGClipPlane17intersectWithLineERK9QVector3DS2_": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN13QSSGClipPlane6cornerERK11QSSGBounds3h": [
+      "address", "address", "unsigned char"
+    ],
+    "ritual_ZNK13QSSGClipPlane9intersectERK11QSSGBounds3": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK13QSSGClipPlane15intersectSimpleERK11QSSGBounds3": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN13QSSGClipPlane18calculateBBoxEdgesEv": ["nothing", "address"],
+    "ritual_ZN13QSSGClipPlaneD1Ev": ["nothing", "address"]
+  }
+}

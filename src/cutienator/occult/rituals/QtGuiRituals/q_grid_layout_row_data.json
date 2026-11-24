@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qgridlayoutengine_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QGridLayoutRowData5resetEi": ["nothing", "address", "int"],
+    "ritual_ZNK18QGridLayoutRowData8totalBoxEii": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZN18QGridLayoutRowData8stealBoxEiiiPdS0_": [
+      "nothing", "address", "int", "int", "int", "address", "address"
+    ],
+    "ritual_ZN18QGridLayoutRowDataD1Ev": ["nothing", "address"]
+  }
+}

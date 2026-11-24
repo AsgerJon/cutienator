@@ -1,0 +1,41 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/qpa/qplatformcursor.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QPlatformCursor12changeCursorEP7QCursorP7QWindow": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN15QPlatformCursor17setOverrideCursorERK7QCursor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QPlatformCursor19clearOverrideCursorEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK15QPlatformCursor3posEv": ["address", "address"],
+    "ritual_ZN15QPlatformCursor6setPosERK6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QPlatformCursor4sizeEv": ["address", "address"],
+    "ritual_ZN15QPlatformCursor12capabilitiesEv": ["int"],
+    "ritual_ZN15QPlatformCursor15setCapabilitiesE6QFlagsINS_10CapabilityEE": [
+      "nothing", "int"
+    ],
+    "ritual_ZN15QPlatformCursor13setCapabilityENS_10CapabilityE": [
+      "nothing", "int"
+    ],
+    "ritual_own_ZN15QPlatformCursor17setOverrideCursorERK7QCursor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN15QPlatformCursor19clearOverrideCursorEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZNK15QPlatformCursor3posEv": ["address", "address"],
+    "ritual_own_ZN15QPlatformCursor6setPosERK6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK15QPlatformCursor4sizeEv": ["address", "address"]
+  }
+}

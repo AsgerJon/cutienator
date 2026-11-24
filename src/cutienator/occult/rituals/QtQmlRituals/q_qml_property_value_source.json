@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/qqmlpropertyvaluesource.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN23QQmlPropertyValueSourceD1Ev": ["nothing", "address"],
+    "ritual_ZN23QQmlPropertyValueSource9setTargetERK12QQmlProperty": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QQmlPropertyValueSource": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

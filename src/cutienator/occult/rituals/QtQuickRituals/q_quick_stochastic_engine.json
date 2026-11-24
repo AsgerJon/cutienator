@@ -1,0 +1,77 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickspriteengine_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK22QQuickStochasticEngine10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QQuickStochasticEngine2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN22QQuickStochasticEngineC1EP7QObject": ["address", "address"],
+    "ritual_ZN22QQuickStochasticEngineC1ERK5QListIP21QQuickStochasticStateEP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN22QQuickStochasticEngineD1Ev": ["nothing", "address"],
+    "ritual_ZNK22QQuickStochasticEngine10globalGoalEv": ["text", "address"],
+    "ritual_ZNK22QQuickStochasticEngine5countEv": ["int", "address"],
+    "ritual_ZN22QQuickStochasticEngine8setCountEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN22QQuickStochasticEngine7setGoalEiib": [
+      "nothing", "address", "int", "int", "bool"
+    ],
+    "ritual_ZN22QQuickStochasticEngine5startEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN22QQuickStochasticEngine7restartEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN22QQuickStochasticEngine7advanceEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN22QQuickStochasticEngine4stopEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK22QQuickStochasticEngine8curStateEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK22QQuickStochasticEngine5stateEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK22QQuickStochasticEngine10stateIndexEP21QQuickStochasticState": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK22QQuickStochasticEngine10stateIndexERK7QString": [
+      "int", "address", "text"
+    ],
+    "ritual_ZN22QQuickStochasticEngine10stateCountEv": ["int", "address"],
+    "ritual_ZN22QQuickStochasticEngine13setGlobalGoalERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN22QQuickStochasticEngine13updateSpritesEj": [
+      "unsigned int", "address", "unsigned int"
+    ],
+    "ritual_ZN22QQuickStochasticEngine15addToUpdateListEji": [
+      "nothing", "address", "unsigned int", "int"
+    ],
+    "ritual_ZN22QQuickStochasticEngine9nextStateEii": [
+      "int", "address", "int", "int"
+    ],
+    "ritual_ZN22QQuickStochasticEngine8goalSeekEiii": [
+      "int", "address", "int", "int", "int"
+    ],
+    "ritual_take_QQuickStochasticEngine": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN22QQuickStochasticEngine7restartEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN22QQuickStochasticEngine7advanceEi": [
+      "nothing", "address", "int"
+    ]
+  }
+}

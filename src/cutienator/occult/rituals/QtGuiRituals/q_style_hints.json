@@ -6,6 +6,8 @@
   "rows": {
     "ritual_ZNK11QStyleHints10metaObjectEv": ["address", "address"],
     "ritual_ZN11QStyleHints2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN11QStyleHints6d_funcEv": ["address", "address"],
+    "ritual_ZNK11QStyleHints6d_funcEv": ["address", "address"],
     "ritual_ZN11QStyleHints27setMouseDoubleClickIntervalEi": [
       "nothing", "address", "int"
     ],

@@ -1,0 +1,32 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickpath_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK14QQuickPathQuad10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QQuickPathQuad2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN14QQuickPathQuadC1EP7QObject": ["address", "address"],
+    "ritual_ZNK14QQuickPathQuad8controlXEv": ["double", "address"],
+    "ritual_ZN14QQuickPathQuad11setControlXEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK14QQuickPathQuad8controlYEv": ["double", "address"],
+    "ritual_ZN14QQuickPathQuad11setControlYEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK14QQuickPathQuad16relativeControlXEv": ["double", "address"],
+    "ritual_ZN14QQuickPathQuad19setRelativeControlXEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN14QQuickPathQuad19hasRelativeControlXEv": ["bool", "address"],
+    "ritual_ZNK14QQuickPathQuad16relativeControlYEv": ["double", "address"],
+    "ritual_ZN14QQuickPathQuad19setRelativeControlYEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN14QQuickPathQuad19hasRelativeControlYEv": ["bool", "address"]
+  }
+}

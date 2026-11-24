@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtOpenGL/6.12.0/QtOpenGL/private/qopenglvertexarrayobject_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN30QOpenGLVertexArrayObjectHelperC1EP14QOpenGLContext": [
+      "address", "address"
+    ],
+    "ritual_ZN30QOpenGLVertexArrayObjectHelper21initializeFromContextEP14QOpenGLContext": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN30QOpenGLVertexArrayObjectHelper33vertexArrayObjectHelperForContextEP14QOpenGLContext": [
+      "address", "address"
+    ],
+    "ritual_ZNK30QOpenGLVertexArrayObjectHelper7isValidEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK30QOpenGLVertexArrayObjectHelper17glBindVertexArrayEj": [
+      "nothing", "address", "unsigned int"
+    ]
+  }
+}

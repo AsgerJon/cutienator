@@ -1,0 +1,11 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qlocale_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK11QLocaleData10GroupSizes7isValidEv": ["bool", "address"],
+    "ritual_ZN11QLocaleData10GroupSizesD1Ev": ["nothing", "address"]
+  }
+}

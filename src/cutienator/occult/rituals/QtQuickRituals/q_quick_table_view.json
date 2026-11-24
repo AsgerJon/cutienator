@@ -1,0 +1,277 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquicktableview_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK15QQuickTableView10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QQuickTableView2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN15QQuickTableView21qt_qmlMarker_attachedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickTableViewC1EP10QQuickItem": ["address", "address"],
+    "ritual_ZN15QQuickTableViewD1Ev": ["nothing", "address"],
+    "ritual_ZNK15QQuickTableView4rowsEv": ["int", "address"],
+    "ritual_ZNK15QQuickTableView7columnsEv": ["int", "address"],
+    "ritual_ZNK15QQuickTableView10rowSpacingEv": ["double", "address"],
+    "ritual_ZN15QQuickTableView13setRowSpacingEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK15QQuickTableView13columnSpacingEv": ["double", "address"],
+    "ritual_ZN15QQuickTableView16setColumnSpacingEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK15QQuickTableView17rowHeightProviderEv": [
+      "address", "address"
+    ],
+    "ritual_ZN15QQuickTableView20setRowHeightProviderERK8QJSValue": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QQuickTableView19columnWidthProviderEv": [
+      "address", "address"
+    ],
+    "ritual_ZN15QQuickTableView22setColumnWidthProviderERK8QJSValue": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QQuickTableView5modelEv": ["address", "address"],
+    "ritual_ZN15QQuickTableView8setModelERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QQuickTableView8delegateEv": ["address", "address"],
+    "ritual_ZN15QQuickTableView11setDelegateEP13QQmlComponent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QQuickTableView10reuseItemsEv": ["bool", "address"],
+    "ritual_ZN15QQuickTableView13setReuseItemsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN15QQuickTableView15setContentWidthEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN15QQuickTableView16setContentHeightEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK15QQuickTableView8syncViewEv": ["address", "address"],
+    "ritual_ZN15QQuickTableView11setSyncViewEPS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QQuickTableView13syncDirectionEv": ["int", "address"],
+    "ritual_ZN15QQuickTableView16setSyncDirectionE6QFlagsIN2Qt11OrientationEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QQuickTableView14selectionModelEv": ["address", "address"],
+    "ritual_ZN15QQuickTableView17setSelectionModelEP19QItemSelectionModel": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QQuickTableView7animateEv": ["bool", "address"],
+    "ritual_ZN15QQuickTableView10setAnimateEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK15QQuickTableView20keyNavigationEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN15QQuickTableView23setKeyNavigationEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK15QQuickTableView24pointerNavigationEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN15QQuickTableView27setPointerNavigationEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK15QQuickTableView10leftColumnEv": ["int", "address"],
+    "ritual_ZNK15QQuickTableView11rightColumnEv": ["int", "address"],
+    "ritual_ZNK15QQuickTableView6topRowEv": ["int", "address"],
+    "ritual_ZNK15QQuickTableView9bottomRowEv": ["int", "address"],
+    "ritual_ZNK15QQuickTableView10currentRowEv": ["int", "address"],
+    "ritual_ZNK15QQuickTableView13currentColumnEv": ["int", "address"],
+    "ritual_ZNK15QQuickTableView15alternatingRowsEv": ["bool", "address"],
+    "ritual_ZN15QQuickTableView18setAlternatingRowsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK15QQuickTableView17selectionBehaviorEv": ["int", "address"],
+    "ritual_ZN15QQuickTableView20setSelectionBehaviorENS_17SelectionBehaviorE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QQuickTableView13selectionModeEv": ["int", "address"],
+    "ritual_ZN15QQuickTableView16setSelectionModeENS_13SelectionModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QQuickTableView16resizableColumnsEv": ["bool", "address"],
+    "ritual_ZN15QQuickTableView19setResizableColumnsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK15QQuickTableView13resizableRowsEv": ["bool", "address"],
+    "ritual_ZN15QQuickTableView16setResizableRowsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK15QQuickTableView12editTriggersEv": ["int", "address"],
+    "ritual_ZN15QQuickTableView15setEditTriggersE6QFlagsINS_11EditTriggerEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QQuickTableView19delegateModelAccessEv": [
+      "unsigned char", "address"
+    ],
+    "ritual_ZN15QQuickTableView22setDelegateModelAccessEN17QQmlDelegateModel19DelegateModelAccessE": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZN15QQuickTableView11forceLayoutEv": ["nothing", "address"],
+    "ritual_ZN15QQuickTableView18positionViewAtCellERK6QPoint6QFlagsIN15QQuickFlickable16PositionModeFlagEERK7QPointFRK6QRectF": [
+      "nothing", "address", "address", "int", "address", "address"
+    ],
+    "ritual_ZN15QQuickTableView19positionViewAtIndexERK11QModelIndex6QFlagsIN15QQuickFlickable16PositionModeFlagEERK7QPointFRK6QRectF": [
+      "nothing", "address", "address", "int", "address", "address"
+    ],
+    "ritual_ZN15QQuickTableView17positionViewAtRowEi6QFlagsIN15QQuickFlickable16PositionModeFlagEEdRK6QRectF": [
+      "nothing", "address", "int", "int", "double", "address"
+    ],
+    "ritual_ZN15QQuickTableView20positionViewAtColumnEi6QFlagsIN15QQuickFlickable16PositionModeFlagEEdRK6QRectF": [
+      "nothing", "address", "int", "int", "double", "address"
+    ],
+    "ritual_ZNK15QQuickTableView10itemAtCellERK6QPoint": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK15QQuickTableView14cellAtPositionERK7QPointFb": [
+      "address", "address", "address", "bool"
+    ],
+    "ritual_ZNK15QQuickTableView14cellAtPositionEddb": [
+      "address", "address", "double", "double", "bool"
+    ],
+    "ritual_ZNK15QQuickTableView10modelIndexEii": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZNK15QQuickTableView9cellAtPosERK7QPointFb": [
+      "address", "address", "address", "bool"
+    ],
+    "ritual_ZNK15QQuickTableView9cellAtPosEddb": [
+      "address", "address", "double", "double", "bool"
+    ],
+    "ritual_ZNK15QQuickTableView14isColumnLoadedEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK15QQuickTableView11isRowLoadedEi": ["bool", "address", "int"],
+    "ritual_ZNK15QQuickTableView11columnWidthEi": [
+      "double", "address", "int"
+    ],
+    "ritual_ZNK15QQuickTableView9rowHeightEi": ["double", "address", "int"],
+    "ritual_ZNK15QQuickTableView19implicitColumnWidthEi": [
+      "double", "address", "int"
+    ],
+    "ritual_ZNK15QQuickTableView17implicitRowHeightEi": [
+      "double", "address", "int"
+    ],
+    "ritual_ZNK15QQuickTableView5indexEii": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZNK15QQuickTableView10modelIndexERK6QPoint": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK15QQuickTableView11cellAtIndexERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK15QQuickTableView10rowAtIndexERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK15QQuickTableView13columnAtIndexERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN15QQuickTableView14setColumnWidthEid": [
+      "nothing", "address", "int", "double"
+    ],
+    "ritual_ZN15QQuickTableView17clearColumnWidthsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK15QQuickTableView19explicitColumnWidthEi": [
+      "double", "address", "int"
+    ],
+    "ritual_ZN15QQuickTableView12setRowHeightEid": [
+      "nothing", "address", "int", "double"
+    ],
+    "ritual_ZN15QQuickTableView15clearRowHeightsEv": ["nothing", "address"],
+    "ritual_ZNK15QQuickTableView17explicitRowHeightEi": [
+      "double", "address", "int"
+    ],
+    "ritual_ZN15QQuickTableView4editERK11QModelIndex": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QQuickTableView11closeEditorEv": ["nothing", "address"],
+    "ritual_ZNK15QQuickTableView11itemAtIndexERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK15QQuickTableView10itemAtCellEii": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZN15QQuickTableView18positionViewAtCellEii6QFlagsIN15QQuickFlickable16PositionModeFlagEERK7QPointFRK6QRectF": [
+      "nothing", "address", "int", "int", "int", "address", "address"
+    ],
+    "ritual_ZN15QQuickTableView10moveColumnEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN15QQuickTableView7moveRowEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN15QQuickTableView21clearColumnReorderingEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickTableView18clearRowReorderingEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickTableView21qmlAttachedPropertiesEP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN15QQuickTableView14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN15QQuickTableView13viewportMovedE6QFlagsIN2Qt11OrientationEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN15QQuickTableView13keyPressEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QQuickTableView11eventFilterEP7QObjectP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN15QQuickTableView18componentFinalizedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickTableView6d_funcEv": ["address", "address"],
+    "ritual_ZNK15QQuickTableView6d_funcEv": ["address", "address"],
+    "ritual_ZNK15QQuickTableView10minXExtentEv": ["double", "address"],
+    "ritual_ZNK15QQuickTableView10maxXExtentEv": ["double", "address"],
+    "ritual_ZNK15QQuickTableView10minYExtentEv": ["double", "address"],
+    "ritual_ZNK15QQuickTableView10maxYExtentEv": ["double", "address"],
+    "ritual_cast_QQuickTableView_QQmlFinalizerHook": ["address", "address"],
+    "ritual_take_QQuickTableView": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK15QQuickTableView10modelIndexEii": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_own_ZNK15QQuickTableView10modelIndexERK6QPoint": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZNK15QQuickTableView11cellAtIndexERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN15QQuickTableView14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN15QQuickTableView13viewportMovedE6QFlagsIN2Qt11OrientationEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN15QQuickTableView13keyPressEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN15QQuickTableView11eventFilterEP7QObjectP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_own_ZN15QQuickTableView18componentFinalizedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZNK15QQuickTableView10minXExtentEv": ["double", "address"],
+    "ritual_own_ZNK15QQuickTableView10maxXExtentEv": ["double", "address"],
+    "ritual_own_ZNK15QQuickTableView10minYExtentEv": ["double", "address"],
+    "ritual_own_ZNK15QQuickTableView10maxYExtentEv": ["double", "address"]
+  }
+}

@@ -7,11 +7,13 @@
 #include <QtCore/qbytearray.h>
 #include <QtCore/qlist.h>
 
+#if QT_DEPRECATED_SINCE(6, 0) && !defined(QT_BUILD_GUI_LIB)
 //  QFontDatabase::QFontDatabase()
 extern "C" Q_DECL_EXPORT
 QFontDatabase *ritual_ZN13QFontDatabaseC1Ev() {
   return new QFontDatabase();
 }
+#endif  // QT_DEPRECATED_SINCE(6, 0) && !defined(QT_BUILD_GUI_LIB)
 
 //  QStringList QFontDatabase::families(WritingSystem writingSystem)
 extern "C" Q_DECL_EXPORT

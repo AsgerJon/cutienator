@@ -1,0 +1,120 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qlistview_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QIconModeViewBase9itemIndexERK13QListViewItem": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK17QIconModeViewBase19indexToListViewItemERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN17QIconModeViewBase19doBatchedItemLayoutERK19QListViewLayoutInfoi": [
+      "bool", "address", "address", "int"
+    ],
+    "ritual_ZN17QIconModeViewBase5clearEv": ["nothing", "address"],
+    "ritual_ZN17QIconModeViewBase11setRowCountEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK17QIconModeViewBase15intersectingSetERK5QRect": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN17QIconModeViewBase16scrollContentsByEiib": [
+      "nothing", "address", "int", "int", "bool"
+    ],
+    "ritual_ZN17QIconModeViewBase11dataChangedERK11QModelIndexS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN17QIconModeViewBase15appendHiddenRowEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QIconModeViewBase15removeHiddenRowEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QIconModeViewBase19setPositionForIndexERK6QPointRK11QModelIndex": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN17QIconModeViewBase19filterDragMoveEventEP14QDragMoveEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN17QIconModeViewBase20filterDragLeaveEventEP15QDragLeaveEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN17QIconModeViewBase15filterDropEventEP10QDropEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN17QIconModeViewBase15filterStartDragE6QFlagsIN2Qt10DropActionEE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN17QIconModeViewBase11initBspTreeERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QIconModeViewBase17initDynamicLayoutERK19QListViewLayoutInfo": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN17QIconModeViewBase15doDynamicLayoutERK19QListViewLayoutInfo": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QIconModeViewBase9itemsRectERK5QListI11QModelIndexE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK17QIconModeViewBase16draggedItemsRectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK17QIconModeViewBase10snapToGridERK6QPoint": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN17QIconModeViewBase18updateContentsSizeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK17QIconModeViewBase17draggedItemsDeltaEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QIconModeViewBase8moveItemEiRK6QPoint": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN17QIconModeViewBaseD1Ev": ["nothing", "address"],
+    "ritual_own_ZNK17QIconModeViewBase9itemIndexERK13QListViewItem": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZNK17QIconModeViewBase19indexToListViewItemERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN17QIconModeViewBase19doBatchedItemLayoutERK19QListViewLayoutInfoi": [
+      "bool", "address", "address", "int"
+    ],
+    "ritual_own_ZN17QIconModeViewBase5clearEv": ["nothing", "address"],
+    "ritual_own_ZN17QIconModeViewBase11setRowCountEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17QIconModeViewBase16scrollContentsByEiib": [
+      "nothing", "address", "int", "int", "bool"
+    ],
+    "ritual_own_ZN17QIconModeViewBase11dataChangedERK11QModelIndexS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN17QIconModeViewBase15appendHiddenRowEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17QIconModeViewBase15removeHiddenRowEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17QIconModeViewBase19setPositionForIndexERK6QPointRK11QModelIndex": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN17QIconModeViewBase19filterDragMoveEventEP14QDragMoveEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN17QIconModeViewBase20filterDragLeaveEventEP15QDragLeaveEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN17QIconModeViewBase15filterDropEventEP10QDropEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN17QIconModeViewBase15filterStartDragE6QFlagsIN2Qt10DropActionEE": [
+      "bool", "address", "int"
+    ]
+  }
+}

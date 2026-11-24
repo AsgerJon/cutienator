@@ -1,0 +1,14 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmlobjectcreator_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN27RequiredPropertiesAndTargetC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN27RequiredPropertiesAndTargetC1ERKS_": ["address", "address"],
+    "ritual_ZN27RequiredPropertiesAndTargetD1Ev": ["nothing", "address"]
+  }
+}

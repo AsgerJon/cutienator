@@ -1,0 +1,48 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/rhi/qrhi.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN23QRhiResourceUpdateBatchD1Ev": ["nothing", "address"],
+    "ritual_ZN23QRhiResourceUpdateBatch7releaseEv": ["nothing", "address"],
+    "ritual_ZN23QRhiResourceUpdateBatch5mergeEPS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK23QRhiResourceUpdateBatch18hasOptimalCapacityEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN23QRhiResourceUpdateBatch19updateDynamicBufferEP10QRhiBufferj10QByteArray": [
+      "nothing", "address", "address", "unsigned int", "address"
+    ],
+    "ritual_ZN23QRhiResourceUpdateBatch18uploadStaticBufferEP10QRhiBufferj10QByteArray": [
+      "nothing", "address", "address", "unsigned int", "address"
+    ],
+    "ritual_ZN23QRhiResourceUpdateBatch18uploadStaticBufferEP10QRhiBuffer10QByteArray": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN23QRhiResourceUpdateBatch14readBackBufferEP10QRhiBufferjjP18QRhiReadbackResult": [
+      "nothing", "address", "address", "unsigned int", "unsigned int",
+      "address"
+    ],
+    "ritual_ZN23QRhiResourceUpdateBatch13uploadTextureEP11QRhiTextureRK28QRhiTextureUploadDescription": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN23QRhiResourceUpdateBatch13uploadTextureEP11QRhiTextureRK6QImage": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN23QRhiResourceUpdateBatch11copyTextureEP11QRhiTextureS1_RK26QRhiTextureCopyDescription": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN23QRhiResourceUpdateBatch15readBackTextureERK23QRhiReadbackDescriptionP18QRhiReadbackResult": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN23QRhiResourceUpdateBatch12generateMipsEP11QRhiTexture": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QRhiResourceUpdateBatchC1EP18QRhiImplementation": [
+      "address", "address"
+    ]
+  }
+}

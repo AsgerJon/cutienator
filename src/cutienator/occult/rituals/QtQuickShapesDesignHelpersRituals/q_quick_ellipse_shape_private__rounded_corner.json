@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "ShapesDesignHelpers/6.12.0/QtQuickShapesDesignHelpers/private/qqui",
+    "ckellipseshape_p_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN25QQuickEllipseShapePrivate13RoundedCorner6updateEd9QVector2DS1_S1_dd": [
+      "nothing", "address", "double", "address", "address", "address",
+      "double", "double"
+    ],
+    "ritual_ZN25QQuickEllipseShapePrivate13RoundedCorner5resetEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QQuickEllipseShapePrivate13RoundedCornerD1Ev": [
+      "nothing", "address"
+    ]
+  }
+}

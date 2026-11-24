@@ -1,0 +1,13 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Controls2Fusion/6.12.0/QtQuickControls2Fusion/private/qquickfusion",
+    "theme_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN17QQuickFusionTheme10initializeEP11QQuickTheme": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuickFusionThemeD1Ev": ["nothing", "address"]
+  }
+}

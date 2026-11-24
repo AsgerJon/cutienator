@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGui/qvectornd.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
+#if !defined(QT_NO_VECTOR4D)
 #include <QtGui/qvectornd.h>
 #include <QtCore/qpoint.h>
 #include <QtCore/qvariant.h>
@@ -40,12 +42,15 @@ QVector4D *ritual_ZN9QVector4DC1E7QPointF(const QPointF *point) {
   return new QVector4D(*point);
 }
 
+#if !defined(QT_NO_VECTOR2D)
 //  QVector4D::QVector4D(QVector2D vector)
 extern "C" Q_DECL_EXPORT
 QVector4D *ritual_ZN9QVector4DC1E9QVector2D(const QVector2D *vector) {
   return new QVector4D(*vector);
 }
+#endif  // !defined(QT_NO_VECTOR2D)
 
+#if !defined(QT_NO_VECTOR2D)
 //  QVector4D::QVector4D(QVector2D vector, float zpos, float wpos)
 extern "C" Q_DECL_EXPORT
 QVector4D *ritual_ZN9QVector4DC1E9QVector2Dff(
@@ -54,13 +59,17 @@ QVector4D *ritual_ZN9QVector4DC1E9QVector2Dff(
     float wpos) {
   return new QVector4D(*vector, zpos, wpos);
 }
+#endif  // !defined(QT_NO_VECTOR2D)
 
+#if !defined(QT_NO_VECTOR3D)
 //  QVector4D::QVector4D(QVector3D vector)
 extern "C" Q_DECL_EXPORT
 QVector4D *ritual_ZN9QVector4DC1E9QVector3D(const QVector3D *vector) {
   return new QVector4D(*vector);
 }
+#endif  // !defined(QT_NO_VECTOR3D)
 
+#if !defined(QT_NO_VECTOR3D)
 //  QVector4D::QVector4D(QVector3D vector, float wpos)
 extern "C" Q_DECL_EXPORT
 QVector4D *ritual_ZN9QVector4DC1E9QVector3Df(
@@ -68,6 +77,7 @@ QVector4D *ritual_ZN9QVector4DC1E9QVector3Df(
     float wpos) {
   return new QVector4D(*vector, wpos);
 }
+#endif  // !defined(QT_NO_VECTOR3D)
 
 //  bool QVector4D::isNull() const
 extern "C" Q_DECL_EXPORT
@@ -259,29 +269,37 @@ QVector4D *ritual_Zdv9QVector4DS_(
   return new QVector4D(operator/(*vector, *divisor));
 }
 
+#if !defined(QT_NO_VECTOR2D)
 //  QVector2D QVector4D::toVector2D() const
 extern "C" Q_DECL_EXPORT
 QVector2D *ritual_ZNK9QVector4D10toVector2DEv(const QVector4D *self) {
   return new QVector2D(self->toVector2D());
 }
+#endif  // !defined(QT_NO_VECTOR2D)
 
+#if !defined(QT_NO_VECTOR2D)
 //  QVector2D QVector4D::toVector2DAffine() const
 extern "C" Q_DECL_EXPORT
 QVector2D *ritual_ZNK9QVector4D16toVector2DAffineEv(const QVector4D *self) {
   return new QVector2D(self->toVector2DAffine());
 }
+#endif  // !defined(QT_NO_VECTOR2D)
 
+#if !defined(QT_NO_VECTOR3D)
 //  QVector3D QVector4D::toVector3D() const
 extern "C" Q_DECL_EXPORT
 QVector3D *ritual_ZNK9QVector4D10toVector3DEv(const QVector4D *self) {
   return new QVector3D(self->toVector3D());
 }
+#endif  // !defined(QT_NO_VECTOR3D)
 
+#if !defined(QT_NO_VECTOR3D)
 //  QVector3D QVector4D::toVector3DAffine() const
 extern "C" Q_DECL_EXPORT
 QVector3D *ritual_ZNK9QVector4D16toVector3DAffineEv(const QVector4D *self) {
   return new QVector3D(self->toVector3DAffine());
 }
+#endif  // !defined(QT_NO_VECTOR3D)
 
 //  QPoint QVector4D::toPoint() const
 extern "C" Q_DECL_EXPORT
@@ -301,6 +319,7 @@ QVariant *ritual_ZNK9QVector4Dcv8QVariantEv(const QVector4D *self) {
   return new QVariant(self->operator QVariant());
 }
 
+#if !defined(QT_NO_MATRIX4X4)
 //  QVector4D operator*(const QVector4D &vector, const QMatrix4x4 &matrix)
 extern "C" Q_DECL_EXPORT
 QVector4D *ritual_ZmlRK9QVector4DRK10QMatrix4x4(
@@ -308,9 +327,12 @@ QVector4D *ritual_ZmlRK9QVector4DRK10QMatrix4x4(
     const QMatrix4x4 *matrix) {
   return new QVector4D(operator*(*vector, *matrix));
 }
+#endif  // !defined(QT_NO_MATRIX4X4)
 
 //  QVector4D::~QVector4D()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN9QVector4DD1Ev(QVector4D *self) {
   delete self;
 }
+
+#endif  // !defined(QT_NO_VECTOR4D)

@@ -1,0 +1,26 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/6.12.0/QtCharts/private/qstackedbarseries_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN24QStackedBarSeriesPrivateC1EP17QStackedBarSeries": [
+      "address", "address"
+    ],
+    "ritual_ZN24QStackedBarSeriesPrivate18initializeGraphicsEP13QGraphicsItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QStackedBarSeriesPrivate16initializeDomainEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QStackedBarSeriesPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK24QStackedBarSeriesPrivate6q_funcEv": ["address", "address"],
+    "ritual_own_ZN24QStackedBarSeriesPrivate18initializeGraphicsEP13QGraphicsItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN24QStackedBarSeriesPrivate16initializeDomainEv": [
+      "nothing", "address"
+    ]
+  }
+}

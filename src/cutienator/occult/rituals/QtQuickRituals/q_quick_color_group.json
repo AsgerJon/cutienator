@@ -1,0 +1,147 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickcolorgroup_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK16QQuickColorGroup10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QQuickColorGroup2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN16QQuickColorGroupC1EP7QObject": ["address", "address"],
+    "ritual_ZNK16QQuickColorGroup13alternateBaseEv": ["address", "address"],
+    "ritual_ZN16QQuickColorGroup16setAlternateBaseERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickColorGroup18resetAlternateBaseEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK16QQuickColorGroup4baseEv": ["address", "address"],
+    "ritual_ZN16QQuickColorGroup7setBaseERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickColorGroup9resetBaseEv": ["nothing", "address"],
+    "ritual_ZNK16QQuickColorGroup10brightTextEv": ["address", "address"],
+    "ritual_ZN16QQuickColorGroup13setBrightTextERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickColorGroup15resetBrightTextEv": ["nothing", "address"],
+    "ritual_ZNK16QQuickColorGroup6buttonEv": ["address", "address"],
+    "ritual_ZN16QQuickColorGroup9setButtonERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickColorGroup11resetButtonEv": ["nothing", "address"],
+    "ritual_ZNK16QQuickColorGroup10buttonTextEv": ["address", "address"],
+    "ritual_ZN16QQuickColorGroup13setButtonTextERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickColorGroup15resetButtonTextEv": ["nothing", "address"],
+    "ritual_ZNK16QQuickColorGroup4darkEv": ["address", "address"],
+    "ritual_ZN16QQuickColorGroup7setDarkERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickColorGroup9resetDarkEv": ["nothing", "address"],
+    "ritual_ZNK16QQuickColorGroup9highlightEv": ["address", "address"],
+    "ritual_ZN16QQuickColorGroup12setHighlightERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickColorGroup14resetHighlightEv": ["nothing", "address"],
+    "ritual_ZNK16QQuickColorGroup15highlightedTextEv": [
+      "address", "address"
+    ],
+    "ritual_ZN16QQuickColorGroup18setHighlightedTextERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickColorGroup20resetHighlightedTextEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK16QQuickColorGroup5lightEv": ["address", "address"],
+    "ritual_ZN16QQuickColorGroup8setLightERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickColorGroup10resetLightEv": ["nothing", "address"],
+    "ritual_ZNK16QQuickColorGroup4linkEv": ["address", "address"],
+    "ritual_ZN16QQuickColorGroup7setLinkERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickColorGroup9resetLinkEv": ["nothing", "address"],
+    "ritual_ZNK16QQuickColorGroup11linkVisitedEv": ["address", "address"],
+    "ritual_ZN16QQuickColorGroup14setLinkVisitedERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickColorGroup16resetLinkVisitedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK16QQuickColorGroup3midEv": ["address", "address"],
+    "ritual_ZN16QQuickColorGroup6setMidERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickColorGroup8resetMidEv": ["nothing", "address"],
+    "ritual_ZNK16QQuickColorGroup8midlightEv": ["address", "address"],
+    "ritual_ZN16QQuickColorGroup11setMidlightERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickColorGroup13resetMidlightEv": ["nothing", "address"],
+    "ritual_ZNK16QQuickColorGroup6shadowEv": ["address", "address"],
+    "ritual_ZN16QQuickColorGroup9setShadowERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickColorGroup11resetShadowEv": ["nothing", "address"],
+    "ritual_ZNK16QQuickColorGroup4textEv": ["address", "address"],
+    "ritual_ZN16QQuickColorGroup7setTextERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickColorGroup9resetTextEv": ["nothing", "address"],
+    "ritual_ZNK16QQuickColorGroup11toolTipBaseEv": ["address", "address"],
+    "ritual_ZN16QQuickColorGroup14setToolTipBaseERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickColorGroup16resetToolTipBaseEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK16QQuickColorGroup11toolTipTextEv": ["address", "address"],
+    "ritual_ZN16QQuickColorGroup14setToolTipTextERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickColorGroup16resetToolTipTextEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK16QQuickColorGroup6windowEv": ["address", "address"],
+    "ritual_ZN16QQuickColorGroup9setWindowERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickColorGroup11resetWindowEv": ["nothing", "address"],
+    "ritual_ZNK16QQuickColorGroup10windowTextEv": ["address", "address"],
+    "ritual_ZN16QQuickColorGroup13setWindowTextERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickColorGroup15resetWindowTextEv": ["nothing", "address"],
+    "ritual_ZNK16QQuickColorGroup15placeholderTextEv": [
+      "address", "address"
+    ],
+    "ritual_ZN16QQuickColorGroup18setPlaceholderTextERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickColorGroup20resetPlaceholderTextEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK16QQuickColorGroup6accentEv": ["address", "address"],
+    "ritual_ZN16QQuickColorGroup9setAccentERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickColorGroup11resetAccentEv": ["nothing", "address"],
+    "ritual_ZNK16QQuickColorGroup8groupTagEv": ["int", "address"],
+    "ritual_ZN16QQuickColorGroup11setGroupTagEN8QPalette10ColorGroupE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16QQuickColorGroup15defaultGroupTagEv": ["int"],
+    "ritual_ZNK16QQuickColorGroup17currentColorGroupEv": ["int", "address"],
+    "ritual_ZNK16QQuickColorGroup5colorEN8QPalette9ColorRoleE": [
+      "address", "address", "int"
+    ],
+    "ritual_own_ZNK16QQuickColorGroup17currentColorGroupEv": [
+      "int", "address"
+    ]
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qtoolbararealayout_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN22QToolBarAreaLayoutInfoC1EN9QInternal12DockPositionE": [
+      "address", "int"
+    ],
+    "ritual_ZNK22QToolBarAreaLayoutInfo8sizeHintEv": ["address", "address"],
+    "ritual_ZNK22QToolBarAreaLayoutInfo11minimumSizeEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QToolBarAreaLayoutInfo13insertToolBarEP8QToolBarS1_": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN22QToolBarAreaLayoutInfo10insertItemEP8QToolBarP11QLayoutItem": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN22QToolBarAreaLayoutInfo13removeToolBarEP8QToolBar": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QToolBarAreaLayoutInfo18insertToolBarBreakEP8QToolBar": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QToolBarAreaLayoutInfo18removeToolBarBreakEP8QToolBar": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QToolBarAreaLayoutInfo5clearEv": ["nothing", "address"],
+    "ritual_ZNK22QToolBarAreaLayoutInfo8distanceERK6QPoint": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN22QToolBarAreaLayoutInfoD1Ev": ["nothing", "address"]
+  }
+}

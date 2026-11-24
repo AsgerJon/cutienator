@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmldebugserviceinterfaces_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK22QQmlNativeDebugService10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QQmlNativeDebugService2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN22QQmlNativeDebugServiceD1Ev": ["nothing", "address"],
+    "ritual_ZN22QQmlNativeDebugServiceC1EfP7QObject": [
+      "address", "float", "address"
+    ],
+    "ritual_take_QQmlNativeDebugService": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

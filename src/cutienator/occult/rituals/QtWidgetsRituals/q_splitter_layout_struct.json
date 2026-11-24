@@ -1,0 +1,20 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qsplitter_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN21QSplitterLayoutStructC1Ev": ["address"],
+    "ritual_ZN21QSplitterLayoutStructD1Ev": ["nothing", "address"],
+    "ritual_ZN21QSplitterLayoutStruct13getWidgetSizeEN2Qt11OrientationE": [
+      "int", "address", "int"
+    ],
+    "ritual_ZN21QSplitterLayoutStruct13getHandleSizeEN2Qt11OrientationE": [
+      "int", "address", "int"
+    ],
+    "ritual_ZN21QSplitterLayoutStruct4pickERK5QSizeN2Qt11OrientationE": [
+      "int", "address", "address", "int"
+    ]
+  }
+}

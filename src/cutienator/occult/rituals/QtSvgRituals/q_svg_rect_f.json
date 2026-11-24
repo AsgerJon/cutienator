@@ -1,0 +1,40 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSvg/6.12.0/QtSvg/private/qsvghelper_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN9QSvgRectFC1ERK6QRectFN5QtSvg9UnitTypesES4_S4_S4_": [
+      "address", "address", "unsigned int", "unsigned int", "unsigned int",
+      "unsigned int"
+    ],
+    "ritual_ZNK9QSvgRectF32translationRelativeToBoundingBoxERK6QRectF": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK9QSvgRectF22resolveRelativeLengthsERK6QRectF": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK9QSvgRectF22resolveRelativeLengthsERK6QRectFN5QtSvg9UnitTypesE": [
+      "address", "address", "address", "unsigned int"
+    ],
+    "ritual_ZNK9QSvgRectF5unitXEv": ["unsigned int", "address"],
+    "ritual_ZNK9QSvgRectF5unitYEv": ["unsigned int", "address"],
+    "ritual_ZNK9QSvgRectF5unitWEv": ["unsigned int", "address"],
+    "ritual_ZNK9QSvgRectF5unitHEv": ["unsigned int", "address"],
+    "ritual_ZN9QSvgRectF8setUnitXEN5QtSvg9UnitTypesE": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN9QSvgRectF8setUnitYEN5QtSvg9UnitTypesE": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN9QSvgRectF8setUnitWEN5QtSvg9UnitTypesE": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN9QSvgRectF8setUnitHEN5QtSvg9UnitTypesE": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_Zls6QDebugRK9QSvgRectF": ["address", "address", "address"],
+    "ritual_ZN9QSvgRectFD1Ev": ["nothing", "address"]
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtShaderTools/6.12.0/QtShaderTools/private/qspirvshader_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN12QSpirvShaderC1Ev": ["address"],
+    "ritual_ZN12QSpirvShaderD1Ev": ["nothing", "address"],
+    "ritual_ZN12QSpirvShader14setSpirvBinaryERK10QByteArrayN7QShader5StageE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZNK12QSpirvShader17shaderDescriptionEv": ["address", "address"],
+    "ritual_ZNK12QSpirvShader11spirvBinaryEv": ["address", "address"],
+    "ritual_ZNK12QSpirvShader19remappedSpirvBinaryE6QFlagsINS_9RemapFlagEEP7QString": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_ZNK12QSpirvShader23translationErrorMessageEv": [
+      "text", "address"
+    ]
+  }
+}

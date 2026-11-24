@@ -1,0 +1,43 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/qnetworkinformation.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK19QNetworkInformation10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QNetworkInformation2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZNK19QNetworkInformation12reachabilityEv": ["int", "address"],
+    "ritual_ZNK19QNetworkInformation21isBehindCaptivePortalEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK19QNetworkInformation15transportMediumEv": ["int", "address"],
+    "ritual_ZNK19QNetworkInformation9isMeteredEv": ["bool", "address"],
+    "ritual_ZNK19QNetworkInformation11backendNameEv": ["text", "address"],
+    "ritual_ZNK19QNetworkInformation8supportsE6QFlagsINS_7FeatureEE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK19QNetworkInformation17supportedFeaturesEv": [
+      "int", "address"
+    ],
+    "ritual_ZN19QNetworkInformation18loadDefaultBackendEv": ["bool"],
+    "ritual_ZN19QNetworkInformation17loadBackendByNameE11QStringView": [
+      "bool", "text"
+    ],
+    "ritual_ZN19QNetworkInformation21loadBackendByFeaturesE6QFlagsINS_7FeatureEE": [
+      "bool", "int"
+    ],
+    "ritual_ZN19QNetworkInformation4loadE11QStringView": ["bool", "text"],
+    "ritual_ZN19QNetworkInformation4loadE6QFlagsINS_7FeatureEE": [
+      "bool", "int"
+    ],
+    "ritual_ZN19QNetworkInformation17availableBackendsEv": ["address"],
+    "ritual_ZN19QNetworkInformation8instanceEv": ["address"],
+    "ritual_ZN19QNetworkInformationC1EP26QNetworkInformationBackend": [
+      "address", "address"
+    ],
+    "ritual_ZN19QNetworkInformationD1Ev": ["nothing", "address"]
+  }
+}

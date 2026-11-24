@@ -1,0 +1,115 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQmlCompiler/6.12.0/QtQmlCompiler/private/qqmljsmetatypes_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN16QQmlJSMetaMethodC1Ev": ["address"],
+    "ritual_ZN16QQmlJSMetaMethodC1E7QStringS0_": ["address", "text", "text"],
+    "ritual_ZNK16QQmlJSMetaMethod10methodNameEv": ["text", "address"],
+    "ritual_ZN16QQmlJSMetaMethod13setMethodNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK16QQmlJSMetaMethod14sourceLocationEv": ["address", "address"],
+    "ritual_ZN16QQmlJSMetaMethod17setSourceLocationEN6QQmlJS14SourceLocationE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QQmlJSMetaMethod11returnValueEv": ["address", "address"],
+    "ritual_ZN16QQmlJSMetaMethod14setReturnValueE19QQmlJSMetaParameter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QQmlJSMetaMethod14returnTypeNameEv": ["text", "address"],
+    "ritual_ZN16QQmlJSMetaMethod17setReturnTypeNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK16QQmlJSMetaMethod10parametersEv": ["address", "address"],
+    "ritual_ZNK16QQmlJSMetaMethod14parameterNamesEv": ["address", "address"],
+    "ritual_ZN16QQmlJSMetaMethod13setParametersERK5QListI19QQmlJSMetaParameterE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQmlJSMetaMethod12addParameterERK19QQmlJSMetaParameter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QQmlJSMetaMethod10methodTypeEv": ["int", "address"],
+    "ritual_ZN16QQmlJSMetaMethod13setMethodTypeEN6QQmlSA10MethodTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16QQmlJSMetaMethod6accessEv": ["int", "address"],
+    "ritual_ZNK16QQmlJSMetaMethod8revisionEv": ["int", "address"],
+    "ritual_ZN16QQmlJSMetaMethod11setRevisionEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16QQmlJSMetaMethod8isClonedEv": ["bool", "address"],
+    "ritual_ZN16QQmlJSMetaMethod11setIsClonedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK16QQmlJSMetaMethod13isConstructorEv": ["bool", "address"],
+    "ritual_ZN16QQmlJSMetaMethod16setIsConstructorEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK16QQmlJSMetaMethod20isJavaScriptFunctionEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN16QQmlJSMetaMethod23setIsJavaScriptFunctionEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK16QQmlJSMetaMethod33isImplicitQmlPropertyChangeSignalEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN16QQmlJSMetaMethod36setIsImplicitQmlPropertyChangeSignalEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK16QQmlJSMetaMethod7isConstEv": ["bool", "address"],
+    "ritual_ZN16QQmlJSMetaMethod10setIsConstEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK16QQmlJSMetaMethod7isValidEv": ["bool", "address"],
+    "ritual_ZNK16QQmlJSMetaMethod11annotationsEv": ["address", "address"],
+    "ritual_ZN16QQmlJSMetaMethod14setAnnotationsE5QListI16QQmlJSAnnotationE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQmlJSMetaMethod18setJsFunctionIndexENS_21RelativeFunctionIndexE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16QQmlJSMetaMethod15jsFunctionIndexEv": ["int", "address"],
+    "ritual_ZN16QQmlJSMetaMethod19setConstructorIndexENS_21RelativeFunctionIndexE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16QQmlJSMetaMethod16constructorIndexEv": ["int", "address"],
+    "ritual_ZN16QQmlJSMetaMethod14setMethodIndexENS_21RelativeFunctionIndexE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16QQmlJSMetaMethod11methodIndexEv": ["int", "address"],
+    "ritual_ZN16QQmlJSMetaMethod19setOtherMethodIndexENS_21RelativeFunctionIndexE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16QQmlJSMetaMethod16otherMethodIndexEv": ["int", "address"],
+    "ritual_ZN16QQmlJSMetaMethodD1Ev": ["nothing", "address"],
+    "ritual_list_make_QQmlJSMetaMethod": ["address"],
+    "ritual_list_add_QQmlJSMetaMethod": ["nothing", "address", "address"],
+    "ritual_list_size_QQmlJSMetaMethod": ["long long", "address"],
+    "ritual_list_at_QQmlJSMetaMethod": ["address", "address", "long long"],
+    "ritual_list_drop_QQmlJSMetaMethod": ["nothing", "address"],
+    "ritual_map_make_QHash_QString_QQmlJSMetaMethod": ["address"],
+    "ritual_map_put_QHash_QString_QQmlJSMetaMethod": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_map_size_QHash_QString_QQmlJSMetaMethod": [
+      "long long", "address"
+    ],
+    "ritual_map_key_QHash_QString_QQmlJSMetaMethod": [
+      "text", "address", "long long"
+    ],
+    "ritual_map_value_QHash_QString_QQmlJSMetaMethod": [
+      "address", "address", "long long"
+    ],
+    "ritual_map_has_QHash_QString_QQmlJSMetaMethod": [
+      "bool", "address", "text"
+    ],
+    "ritual_map_get_QHash_QString_QQmlJSMetaMethod": [
+      "address", "address", "text"
+    ],
+    "ritual_map_drop_QHash_QString_QQmlJSMetaMethod": ["nothing", "address"]
+  }
+}

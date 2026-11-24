@@ -692,3 +692,10 @@ void ritual_ZNK12QPainterPath23computeControlPointRectEv(
     const QPainterPath *self) {
   self->computeControlPointRect();
 }
+
+//  QPainterPathPrivate *QPainterPath::d_func() const
+extern "C" Q_DECL_EXPORT
+QPainterPathPrivate *ritual_ZNK12QPainterPath6d_funcEv(
+    const QPainterPath *self) {
+  return self->d_func();
+}

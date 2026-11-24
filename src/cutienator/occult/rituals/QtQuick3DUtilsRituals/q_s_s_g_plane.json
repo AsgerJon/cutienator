@@ -1,0 +1,32 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3DUtils/6.12.0/QtQuick3DUtils/private/qssgplane_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN9QSSGPlaneC1Ev": ["address"],
+    "ritual_ZN9QSSGPlaneC1Effff": [
+      "address", "float", "float", "float", "float"
+    ],
+    "ritual_ZN9QSSGPlaneC1ERK9QVector3Df": ["address", "address", "float"],
+    "ritual_ZN9QSSGPlaneC1ERK9QVector3DS2_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN9QSSGPlaneC1ERK9QVector3DS2_S2_": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK9QSSGPlane8distanceERK9QVector3D": [
+      "float", "address", "address"
+    ],
+    "ritual_ZNK9QSSGPlane8containsERK9QVector3D": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK9QSSGPlane7projectERK9QVector3D": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK9QSSGPlane12pointInPlaneEv": ["address", "address"],
+    "ritual_ZN9QSSGPlane9normalizeEv": ["nothing", "address"],
+    "ritual_ZN9QSSGPlaneD1Ev": ["nothing", "address"]
+  }
+}

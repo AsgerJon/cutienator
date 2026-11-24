@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/ssg/qssgrendercontex",
+    "tcore.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN26QSSGRenderContextInterfaceC1EP4QRhi": ["address", "address"],
+    "ritual_ZN26QSSGRenderContextInterfaceD1Ev": ["nothing", "address"],
+    "ritual_ZNK26QSSGRenderContextInterface3rhiEv": ["address", "address"],
+    "ritual_ZN26QSSGRenderContextInterface4initEv": ["nothing", "address"],
+    "ritual_ZN26QSSGRenderContextInterface22releaseCachedResourcesEv": [
+      "nothing", "address"
+    ]
+  }
+}

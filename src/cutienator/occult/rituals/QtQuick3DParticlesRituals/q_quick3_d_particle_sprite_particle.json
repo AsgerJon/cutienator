@@ -1,0 +1,174 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DParticles/6.12.0/QtQuick3DParticles/private/qquick3dparticlespri",
+    "teparticle_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK30QQuick3DParticleSpriteParticle10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN30QQuick3DParticleSpriteParticle2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN30QQuick3DParticleSpriteParticleC1EP12QQuick3DNode": [
+      "address", "address"
+    ],
+    "ritual_ZN30QQuick3DParticleSpriteParticleD1Ev": ["nothing", "address"],
+    "ritual_ZNK30QQuick3DParticleSpriteParticle9blendModeEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK30QQuick3DParticleSpriteParticle6spriteEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK30QQuick3DParticleSpriteParticle14spriteSequenceEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK30QQuick3DParticleSpriteParticle9billboardEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK30QQuick3DParticleSpriteParticle13particleScaleEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK30QQuick3DParticleSpriteParticle10colorTableEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK30QQuick3DParticleSpriteParticle7offsetXEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK30QQuick3DParticleSpriteParticle7offsetYEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK30QQuick3DParticleSpriteParticle16castsReflectionsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN30QQuick3DParticleSpriteParticle12setBlendModeENS_9BlendModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN30QQuick3DParticleSpriteParticle9setSpriteEP15QQuick3DTexture": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN30QQuick3DParticleSpriteParticle17setSpriteSequenceEP30QQuick3DParticleSpriteSequence": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN30QQuick3DParticleSpriteParticle12setBillboardEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN30QQuick3DParticleSpriteParticle16setParticleScaleEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN30QQuick3DParticleSpriteParticle13setColorTableEP15QQuick3DTexture": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN30QQuick3DParticleSpriteParticle10setOffsetXEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN30QQuick3DParticleSpriteParticle10setOffsetYEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN30QQuick3DParticleSpriteParticle19setCastsReflectionsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN30QQuick3DParticleSpriteParticle10itemChangeEN14QQuick3DObject10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN30QQuick3DParticleSpriteParticle5resetEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuick3DParticleSpriteParticle17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuick3DParticleSpriteParticle16nextCurrentIndexEPK23QQuick3DParticleEmitter": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN30QQuick3DParticleSpriteParticle15setParticleDataEiRK9QVector3DS2_RK9QVector4Dfff": [
+      "nothing", "address", "int", "address", "address", "address", "float",
+      "float", "float"
+    ],
+    "ritual_ZN30QQuick3DParticleSpriteParticle17resetParticleDataEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN30QQuick3DParticleSpriteParticle15commitParticlesEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN30QQuick3DParticleSpriteParticle12setDepthBiasEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN30QQuick3DParticleSpriteParticle16onLightDestroyedEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN30QQuick3DParticleSpriteParticle18updateParticleNodeEPKNS_18ParticleUpdateNodeEP21QSSGRenderGraphObject": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN30QQuick3DParticleSpriteParticle22handleMaxAmountChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN30QQuick3DParticleSpriteParticle19handleSystemChangedEP22QQuick3DParticleSystem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN30QQuick3DParticleSpriteParticle11updateNodesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuick3DParticleSpriteParticle11deleteNodesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuick3DParticleSpriteParticle14markNodesDirtyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuick3DParticleSpriteParticle16updateNodeLayersEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuick3DParticleSpriteParticle15mapFeatureLevelENS_12FeatureLevelE": [
+      "unsigned char", "int"
+    ],
+    "ritual_ZN30QQuick3DParticleSpriteParticle20updateParticleBufferEPNS_18ParticleUpdateNodeEP21QSSGRenderGraphObject": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN30QQuick3DParticleSpriteParticle28updateAnimatedParticleBufferEPNS_18ParticleUpdateNodeEP21QSSGRenderGraphObject": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN30QQuick3DParticleSpriteParticle18updateSceneManagerEP20QQuick3DSceneManager": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN30QQuick3DParticleSpriteParticle18updateFeatureLevelEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QQuick3DParticleSpriteParticle": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN30QQuick3DParticleSpriteParticle10itemChangeEN14QQuick3DObject10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZN30QQuick3DParticleSpriteParticle5resetEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN30QQuick3DParticleSpriteParticle17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN30QQuick3DParticleSpriteParticle16nextCurrentIndexEPK23QQuick3DParticleEmitter": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZN30QQuick3DParticleSpriteParticle15setParticleDataEiRK9QVector3DS2_RK9QVector4Dfff": [
+      "nothing", "address", "int", "address", "address", "address", "float",
+      "float", "float"
+    ],
+    "ritual_own_ZN30QQuick3DParticleSpriteParticle17resetParticleDataEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN30QQuick3DParticleSpriteParticle15commitParticlesEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_own_ZN30QQuick3DParticleSpriteParticle12setDepthBiasEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_own_ZN30QQuick3DParticleSpriteParticle22handleMaxAmountChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN30QQuick3DParticleSpriteParticle19handleSystemChangedEP22QQuick3DParticleSystem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN30QQuick3DParticleSpriteParticle16updateNodeLayersEv": [
+      "nothing", "address"
+    ]
+  }
+}

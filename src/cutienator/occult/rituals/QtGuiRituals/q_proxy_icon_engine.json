@@ -1,0 +1,58 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qiconengine_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN16QProxyIconEngine5paintEP8QPainterRK5QRectN5QIcon4ModeENS5_5StateE": [
+      "nothing", "address", "address", "address", "int", "int"
+    ],
+    "ritual_ZN16QProxyIconEngine10actualSizeERK5QSizeN5QIcon4ModeENS3_5StateE": [
+      "address", "address", "address", "int", "int"
+    ],
+    "ritual_ZN16QProxyIconEngine6pixmapERK5QSizeN5QIcon4ModeENS3_5StateE": [
+      "address", "address", "address", "int", "int"
+    ],
+    "ritual_ZN16QProxyIconEngine9addPixmapERK7QPixmapN5QIcon4ModeENS3_5StateE": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN16QProxyIconEngine7addFileERK7QStringRK5QSizeN5QIcon4ModeENS6_5StateE": [
+      "nothing", "address", "text", "address", "int", "int"
+    ],
+    "ritual_ZNK16QProxyIconEngine3keyEv": ["text", "address"],
+    "ritual_ZNK16QProxyIconEngine5cloneEv": ["address", "address"],
+    "ritual_ZN16QProxyIconEngine14availableSizesEN5QIcon4ModeENS0_5StateE": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZN16QProxyIconEngine8iconNameEv": ["text", "address"],
+    "ritual_ZN16QProxyIconEngine6isNullEv": ["bool", "address"],
+    "ritual_ZN16QProxyIconEngine12scaledPixmapERK5QSizeN5QIcon4ModeENS3_5StateEd": [
+      "address", "address", "address", "int", "int", "double"
+    ],
+    "ritual_ZNK16QProxyIconEngine13proxiedEngineEv": ["address", "address"],
+    "ritual_take_QProxyIconEngine": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN16QProxyIconEngine5paintEP8QPainterRK5QRectN5QIcon4ModeENS5_5StateE": [
+      "nothing", "address", "address", "address", "int", "int"
+    ],
+    "ritual_own_ZN16QProxyIconEngine10actualSizeERK5QSizeN5QIcon4ModeENS3_5StateE": [
+      "address", "address", "address", "int", "int"
+    ],
+    "ritual_own_ZN16QProxyIconEngine6pixmapERK5QSizeN5QIcon4ModeENS3_5StateE": [
+      "address", "address", "address", "int", "int"
+    ],
+    "ritual_own_ZN16QProxyIconEngine9addPixmapERK7QPixmapN5QIcon4ModeENS3_5StateE": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_own_ZN16QProxyIconEngine7addFileERK7QStringRK5QSizeN5QIcon4ModeENS6_5StateE": [
+      "nothing", "address", "text", "address", "int", "int"
+    ],
+    "ritual_own_ZNK16QProxyIconEngine3keyEv": ["text", "address"],
+    "ritual_own_ZNK16QProxyIconEngine5cloneEv": ["address", "address"],
+    "ritual_own_ZN16QProxyIconEngine8iconNameEv": ["text", "address"],
+    "ritual_own_ZN16QProxyIconEngine6isNullEv": ["bool", "address"],
+    "ritual_own_ZN16QProxyIconEngine12scaledPixmapERK5QSizeN5QIcon4ModeENS3_5StateEd": [
+      "address", "address", "address", "int", "int", "double"
+    ]
+  }
+}

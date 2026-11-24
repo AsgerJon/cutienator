@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtBluet",
+    "ooth/6.12.0/QtBluetooth/private/bluezperipheralapplication_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK28QtBluezPeripheralApplication10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QtBluezPeripheralApplicationD1Ev": ["nothing", "address"],
+    "ritual_ZN28QtBluezPeripheralApplication18registrationNeededEv": [
+      "bool", "address"
+    ],
+    "ritual_take_QtBluezPeripheralApplication": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

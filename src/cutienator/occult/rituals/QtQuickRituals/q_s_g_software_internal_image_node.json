@@ -1,0 +1,78 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qsgsoftwareinternalimagenode_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN28QSGSoftwareInternalImageNode13setTargetRectERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QSGSoftwareInternalImageNode18setInnerTargetRectERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QSGSoftwareInternalImageNode18setInnerSourceRectERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QSGSoftwareInternalImageNode16setSubSourceRectERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QSGSoftwareInternalImageNode10setTextureEP10QSGTexture": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QSGSoftwareInternalImageNode9setMirrorEbb": [
+      "nothing", "address", "bool", "bool"
+    ],
+    "ritual_ZN28QSGSoftwareInternalImageNode18setMipmapFilteringEN10QSGTexture9FilteringE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN28QSGSoftwareInternalImageNode12setFilteringEN10QSGTexture9FilteringE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN28QSGSoftwareInternalImageNode21setHorizontalWrapModeEN10QSGTexture8WrapModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN28QSGSoftwareInternalImageNode19setVerticalWrapModeEN10QSGTexture8WrapModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN28QSGSoftwareInternalImageNode6updateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QSGSoftwareInternalImageNode10preprocessEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK28QSGSoftwareInternalImageNode4rectEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN28QSGSoftwareInternalImageNode13setTargetRectERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN28QSGSoftwareInternalImageNode18setInnerTargetRectERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN28QSGSoftwareInternalImageNode18setInnerSourceRectERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN28QSGSoftwareInternalImageNode16setSubSourceRectERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN28QSGSoftwareInternalImageNode9setMirrorEbb": [
+      "nothing", "address", "bool", "bool"
+    ],
+    "ritual_own_ZN28QSGSoftwareInternalImageNode18setMipmapFilteringEN10QSGTexture9FilteringE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN28QSGSoftwareInternalImageNode12setFilteringEN10QSGTexture9FilteringE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN28QSGSoftwareInternalImageNode21setHorizontalWrapModeEN10QSGTexture8WrapModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN28QSGSoftwareInternalImageNode19setVerticalWrapModeEN10QSGTexture8WrapModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN28QSGSoftwareInternalImageNode10preprocessEv": [
+      "nothing", "address"
+    ]
+  }
+}

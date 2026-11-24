@@ -1,0 +1,92 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qsgrenderer_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11QSGRendererD1Ev": ["nothing", "address"],
+    "ritual_ZNK11QSGRenderer23currentProjectionMatrixEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK11QSGRenderer22currentModelViewMatrixEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK11QSGRenderer21currentCombinedMatrixEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK11QSGRenderer14currentOpacityEv": ["double", "address"],
+    "ritual_ZNK11QSGRenderer11determinantEv": ["double", "address"],
+    "ritual_ZN11QSGRenderer19setDevicePixelRatioEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK11QSGRenderer16devicePixelRatioEv": ["double", "address"],
+    "ritual_ZNK11QSGRenderer7contextEv": ["address", "address"],
+    "ritual_ZNK11QSGRenderer10isMirroredEv": ["bool", "address"],
+    "ritual_ZN11QSGRenderer11renderSceneEv": ["nothing", "address"],
+    "ritual_ZN11QSGRenderer18prepareSceneInlineEv": ["nothing", "address"],
+    "ritual_ZN11QSGRenderer17renderSceneInlineEv": ["nothing", "address"],
+    "ritual_ZN11QSGRenderer11nodeChangedEP7QSGNode6QFlagsINS0_13DirtyStateBitEE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZNK11QSGRenderer11nodeUpdaterEv": ["address", "address"],
+    "ritual_ZN11QSGRenderer14setNodeUpdaterEP14QSGNodeUpdater": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QSGRenderer5stateE6QFlagsIN17QSGMaterialShader11RenderState10DirtyStateEE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN11QSGRenderer20setVisualizationModeERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QSGRenderer40hasVisualizationModeWithContinuousUpdateEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN11QSGRenderer22releaseCachedResourcesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN11QSGRenderer16clearChangedFlagEv": ["nothing", "address"],
+    "ritual_ZNK11QSGRenderer18currentUniformDataEv": ["address", "address"],
+    "ritual_ZNK11QSGRenderer26currentResourceUpdateBatchEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK11QSGRenderer10currentRhiEv": ["address", "address"],
+    "ritual_ZN11QSGRenderer15setRenderTargetERK15QSGRenderTarget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QSGRenderer12renderTargetEv": ["address", "address"],
+    "ritual_ZN11QSGRenderer6renderEv": ["nothing", "address"],
+    "ritual_ZN11QSGRenderer13prepareInlineEv": ["nothing", "address"],
+    "ritual_ZN11QSGRenderer12renderInlineEv": ["nothing", "address"],
+    "ritual_ZN11QSGRenderer10preprocessEv": ["nothing", "address"],
+    "ritual_ZN11QSGRenderer20addNodesToPreprocessEP7QSGNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QSGRenderer23removeNodesToPreprocessEP7QSGNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QSGRenderer": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN11QSGRenderer11renderSceneEv": ["nothing", "address"],
+    "ritual_own_ZN11QSGRenderer18prepareSceneInlineEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN11QSGRenderer17renderSceneInlineEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN11QSGRenderer11nodeChangedEP7QSGNode6QFlagsINS0_13DirtyStateBitEE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_own_ZN11QSGRenderer20setVisualizationModeERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK11QSGRenderer40hasVisualizationModeWithContinuousUpdateEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZN11QSGRenderer22releaseCachedResourcesEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN11QSGRenderer13prepareInlineEv": ["nothing", "address"],
+    "ritual_own_ZN11QSGRenderer12renderInlineEv": ["nothing", "address"],
+    "ritual_own_ZN11QSGRenderer10preprocessEv": ["nothing", "address"]
+  }
+}

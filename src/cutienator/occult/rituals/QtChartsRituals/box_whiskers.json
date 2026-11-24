@@ -1,0 +1,78 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/6.12.0/QtCharts/private/boxwhiskers_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK11BoxWhiskers10metaObjectEv": ["address", "address"],
+    "ritual_ZN11BoxWhiskers2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN11BoxWhiskersC1EP7QBoxSetP14AbstractDomainP15QGraphicsObject": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN11BoxWhiskersD1Ev": ["nothing", "address"],
+    "ritual_ZN11BoxWhiskers8setBrushERK6QBrush": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11BoxWhiskers6setPenERK4QPen": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11BoxWhiskers9setLayoutERK15BoxWhiskersData": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11BoxWhiskers14setBoxOutlinedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN11BoxWhiskers11setBoxWidthEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN11BoxWhiskers15mousePressEventEP24QGraphicsSceneMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11BoxWhiskers15hoverEnterEventEP24QGraphicsSceneHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11BoxWhiskers15hoverLeaveEventEP24QGraphicsSceneHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11BoxWhiskers17mouseReleaseEventEP24QGraphicsSceneMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11BoxWhiskers21mouseDoubleClickEventEP24QGraphicsSceneMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11BoxWhiskers12boundingRectEv": ["address", "address"],
+    "ritual_ZN11BoxWhiskers5paintEP8QPainterPK24QStyleOptionGraphicsItemP7QWidget": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN11BoxWhiskers14updateGeometryEP14AbstractDomain": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11BoxWhiskers8sizeHintEN2Qt8SizeHintERK6QSizeF": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_ZN11BoxWhiskers11setGeometryERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_BoxWhiskers": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN11BoxWhiskers15mousePressEventEP24QGraphicsSceneMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN11BoxWhiskers15hoverEnterEventEP24QGraphicsSceneHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN11BoxWhiskers15hoverLeaveEventEP24QGraphicsSceneHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN11BoxWhiskers17mouseReleaseEventEP24QGraphicsSceneMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN11BoxWhiskers21mouseDoubleClickEventEP24QGraphicsSceneMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK11BoxWhiskers12boundingRectEv": ["address", "address"],
+    "ritual_own_ZN11BoxWhiskers5paintEP8QPainterPK24QStyleOptionGraphicsItemP7QWidget": [
+      "nothing", "address", "address", "address", "address"
+    ]
+  }
+}

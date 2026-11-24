@@ -1,0 +1,25 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgrenderus",
+    "erpass_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QSSGRenderUserPassC1Ev": ["address"],
+    "ritual_ZN18QSSGRenderUserPassD1Ev": ["nothing", "address"],
+    "ritual_ZNK18QSSGRenderUserPass7isDirtyENS_9DirtyFlagE": [
+      "bool", "address", "unsigned char"
+    ],
+    "ritual_ZN18QSSGRenderUserPass9markDirtyENS_9DirtyFlagE": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZN18QSSGRenderUserPass10clearDirtyENS_9DirtyFlagE": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZNK18QSSGRenderUserPass7isReadyEv": ["bool", "address"],
+    "ritual_ZN18QSSGRenderUserPass18setDependencyIndexEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN18QSSGRenderUserPass13resetCommandsEv": ["nothing", "address"]
+  }
+}

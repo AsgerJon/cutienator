@@ -1,0 +1,29 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qmimemagicrulematcher_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN21QMimeMagicRuleMatcherC1ERK7QStringj": [
+      "address", "text", "unsigned int"
+    ],
+    "ritual_ZN21QMimeMagicRuleMatcher7addRuleERK14QMimeMagicRule": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QMimeMagicRuleMatcher8addRulesERK5QListI14QMimeMagicRuleE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21QMimeMagicRuleMatcher10magicRulesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK21QMimeMagicRuleMatcher7matchesERK10QByteArray": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK21QMimeMagicRuleMatcher8priorityEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZNK21QMimeMagicRuleMatcher8mimetypeEv": ["text", "address"],
+    "ritual_ZN21QMimeMagicRuleMatcherD1Ev": ["nothing", "address"]
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qtoolbar_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QToolBarPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK15QToolBarPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN15QToolBarPrivateC1Ev": ["address"],
+    "ritual_ZN15QToolBarPrivate13_q_toggleViewEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN15QToolBarPrivate17_q_updateIconSizeERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QToolBarPrivate24_q_updateToolButtonStyleEN2Qt15ToolButtonStyleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_take_QToolBarPrivate": ["bool", "address", "chars", "address"]
+  }
+}

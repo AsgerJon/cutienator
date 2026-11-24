@@ -1,0 +1,88 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssglayerren",
+    "derdata_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QSSGLayerRenderDataD1Ev": ["nothing", "address"],
+    "ritual_ZN19QSSGLayerRenderData22prepareResourceLoadersEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QSSGLayerRenderData16prepareForRenderEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QSSGLayerRenderData32prepareReflectionProbesForRenderEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QSSGLayerRenderData20getRenderableItem2DsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QSSGLayerRenderData13resetForFrameEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK19QSSGLayerRenderData17getShaderFeaturesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QSSGLayerRenderData16getPipelineStateEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QSSGLayerRenderData26maybeProcessLightmapBakingEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK19QSSGLayerRenderData9getCameraE12QSSGCameraId": [
+      "address", "address", "unsigned long long"
+    ],
+    "ritual_ZNK19QSSGLayerRenderData12activeCameraEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QSSGLayerRenderData19getCameraRenderDataEPK16QSSGRenderCamera": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK19QSSGLayerRenderData19getCameraRenderDataEPK16QSSGRenderCamera": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK19QSSGLayerRenderData16contextInterfaceEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QSSGLayerRenderData16isZPrePassActiveEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN19QSSGLayerRenderData21setZPrePassPrepResultEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK19QSSGLayerRenderData31getDefaultMaterialPropertyTableEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QSSGLayerRenderData32getParticleMaterialPropertyTableEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QSSGLayerRenderData24getOitRenderContextConstEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QSSGLayerRenderData17prepareInstancingEP14QSSGRhiContextP20QSSGSubsetRenderableRK9QVector3DS6_ff": [
+      "bool", "address", "address", "address", "address", "float", "float"
+    ],
+    "ritual_ZN19QSSGLayerRenderData15getRenderResultEN16QSSGRenderResult3KeyE": [
+      "address", "address", "unsigned int"
+    ],
+    "ritual_ZNK19QSSGLayerRenderData15getRenderResultEN16QSSGRenderResult3KeyE": [
+      "address", "address", "unsigned int"
+    ],
+    "ritual_ZN19QSSGLayerRenderData22resolveLayerIblTextureEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK19QSSGLayerRenderData17getCameraDataImplEPK16QSSGRenderCamera": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN19QSSGLayerRenderData10getCurrentERK13QSSGFrameData": [
+      "address", "address"
+    ],
+    "ritual_ZN19QSSGLayerRenderData24updateFilteredLayerNodesEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN19QSSGLayerRenderData23ensureCachedCameraDatasEv": [
+      "nothing", "address"
+    ]
+  }
+}

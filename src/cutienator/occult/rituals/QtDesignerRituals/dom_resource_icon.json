@@ -1,0 +1,145 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/ui4_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15DomResourceIconC1Ev": ["address"],
+    "ritual_ZN15DomResourceIconD1Ev": ["nothing", "address"],
+    "ritual_ZNK15DomResourceIcon4textEv": ["text", "address"],
+    "ritual_ZN15DomResourceIcon7setTextERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK15DomResourceIcon17hasAttributeThemeEv": ["bool", "address"],
+    "ritual_ZNK15DomResourceIcon14attributeThemeEv": ["text", "address"],
+    "ritual_ZN15DomResourceIcon17setAttributeThemeERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN15DomResourceIcon19clearAttributeThemeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK15DomResourceIcon20hasAttributeResourceEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK15DomResourceIcon17attributeResourceEv": ["text", "address"],
+    "ritual_ZN15DomResourceIcon20setAttributeResourceERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN15DomResourceIcon22clearAttributeResourceEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK15DomResourceIcon16elementNormalOffEv": [
+      "address", "address"
+    ],
+    "ritual_ZN15DomResourceIcon20takeElementNormalOffEv": [
+      "address", "address"
+    ],
+    "ritual_ZN15DomResourceIcon19setElementNormalOffEP17DomResourcePixmap": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15DomResourceIcon19hasElementNormalOffEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN15DomResourceIcon21clearElementNormalOffEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK15DomResourceIcon15elementNormalOnEv": ["address", "address"],
+    "ritual_ZN15DomResourceIcon19takeElementNormalOnEv": [
+      "address", "address"
+    ],
+    "ritual_ZN15DomResourceIcon18setElementNormalOnEP17DomResourcePixmap": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15DomResourceIcon18hasElementNormalOnEv": ["bool", "address"],
+    "ritual_ZN15DomResourceIcon20clearElementNormalOnEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK15DomResourceIcon18elementDisabledOffEv": [
+      "address", "address"
+    ],
+    "ritual_ZN15DomResourceIcon22takeElementDisabledOffEv": [
+      "address", "address"
+    ],
+    "ritual_ZN15DomResourceIcon21setElementDisabledOffEP17DomResourcePixmap": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15DomResourceIcon21hasElementDisabledOffEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN15DomResourceIcon23clearElementDisabledOffEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK15DomResourceIcon17elementDisabledOnEv": [
+      "address", "address"
+    ],
+    "ritual_ZN15DomResourceIcon21takeElementDisabledOnEv": [
+      "address", "address"
+    ],
+    "ritual_ZN15DomResourceIcon20setElementDisabledOnEP17DomResourcePixmap": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15DomResourceIcon20hasElementDisabledOnEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN15DomResourceIcon22clearElementDisabledOnEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK15DomResourceIcon16elementActiveOffEv": [
+      "address", "address"
+    ],
+    "ritual_ZN15DomResourceIcon20takeElementActiveOffEv": [
+      "address", "address"
+    ],
+    "ritual_ZN15DomResourceIcon19setElementActiveOffEP17DomResourcePixmap": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15DomResourceIcon19hasElementActiveOffEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN15DomResourceIcon21clearElementActiveOffEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK15DomResourceIcon15elementActiveOnEv": ["address", "address"],
+    "ritual_ZN15DomResourceIcon19takeElementActiveOnEv": [
+      "address", "address"
+    ],
+    "ritual_ZN15DomResourceIcon18setElementActiveOnEP17DomResourcePixmap": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15DomResourceIcon18hasElementActiveOnEv": ["bool", "address"],
+    "ritual_ZN15DomResourceIcon20clearElementActiveOnEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK15DomResourceIcon18elementSelectedOffEv": [
+      "address", "address"
+    ],
+    "ritual_ZN15DomResourceIcon22takeElementSelectedOffEv": [
+      "address", "address"
+    ],
+    "ritual_ZN15DomResourceIcon21setElementSelectedOffEP17DomResourcePixmap": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15DomResourceIcon21hasElementSelectedOffEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN15DomResourceIcon23clearElementSelectedOffEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK15DomResourceIcon17elementSelectedOnEv": [
+      "address", "address"
+    ],
+    "ritual_ZN15DomResourceIcon21takeElementSelectedOnEv": [
+      "address", "address"
+    ],
+    "ritual_ZN15DomResourceIcon20setElementSelectedOnEP17DomResourcePixmap": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15DomResourceIcon20hasElementSelectedOnEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN15DomResourceIcon22clearElementSelectedOnEv": [
+      "nothing", "address"
+    ]
+  }
+}

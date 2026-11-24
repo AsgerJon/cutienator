@@ -1,0 +1,30 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtMultimedia/qvideoframeinput.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK16QVideoFrameInput10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QVideoFrameInput2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN16QVideoFrameInputC1EP7QObject": ["address", "address"],
+    "ritual_ZN16QVideoFrameInputC1ERK17QVideoFrameFormatP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN16QVideoFrameInputD1Ev": ["nothing", "address"],
+    "ritual_ZN16QVideoFrameInput14sendVideoFrameERK11QVideoFrame": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK16QVideoFrameInput6formatEv": ["address", "address"],
+    "ritual_ZNK16QVideoFrameInput14captureSessionEv": ["address", "address"],
+    "ritual_ZN16QVideoFrameInput17setCaptureSessionEP20QMediaCaptureSession": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QVideoFrameInput23platformVideoFrameInputEv": [
+      "address", "address"
+    ],
+    "ritual_take_QVideoFrameInput": ["bool", "address", "chars", "address"]
+  }
+}

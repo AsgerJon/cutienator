@@ -1,0 +1,37 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtPrint",
+    "Support/6.12.0/QtPrintSupport/private/qpaintengine_alpha_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN24QAlphaPaintEnginePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK24QAlphaPaintEnginePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN24QAlphaPaintEnginePrivateC1Ev": ["address"],
+    "ritual_ZN24QAlphaPaintEnginePrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN24QAlphaPaintEnginePrivate12addAlphaRectERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QAlphaPaintEnginePrivate12addDirtyRectERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK24QAlphaPaintEnginePrivate22canSeeTroughBackgroundEbRK6QRectF": [
+      "bool", "address", "bool", "address"
+    ],
+    "ritual_ZN24QAlphaPaintEnginePrivate11addPenWidthERK12QPainterPath": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN24QAlphaPaintEnginePrivate14drawAlphaImageERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK24QAlphaPaintEnginePrivate14fullyContainedERK6QRectF": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN24QAlphaPaintEnginePrivate10resetStateEP8QPainter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QAlphaPaintEnginePrivate": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

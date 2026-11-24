@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qsgrenderer_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QSGRenderTargetC1Ev": ["address"],
+    "ritual_ZN15QSGRenderTargetC1EP16QRhiRenderTargetP24QRhiRenderPassDescriptorP17QRhiCommandBuffer": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN15QSGRenderTargetC1EP12QPaintDevice": ["address", "address"],
+    "ritual_ZN15QSGRenderTargetD1Ev": ["nothing", "address"]
+  }
+}

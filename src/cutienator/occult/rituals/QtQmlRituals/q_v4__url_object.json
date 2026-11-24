@@ -1,0 +1,30 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4urlobject_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN3QV49UrlObject10__dataTestEv": ["nothing", "address"],
+    "ritual_ZNK3QV49UrlObject11d_uncheckedEv": ["address", "address"],
+    "ritual_ZNK3QV49UrlObject1dEv": ["address", "address"],
+    "ritual_ZN3QV49UrlObject14virtualDestroyEPNS_4Heap4BaseE": [
+      "nothing", "address"
+    ],
+    "ritual_ZN3QV49UrlObject16defaultPrototypeEPNS_15ExecutionEngineE": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV49UrlObject4hashEv": ["text", "address"],
+    "ritual_ZNK3QV49UrlObject4hostEv": ["text", "address"],
+    "ritual_ZNK3QV49UrlObject8hostnameEv": ["text", "address"],
+    "ritual_ZNK3QV49UrlObject4hrefEv": ["text", "address"],
+    "ritual_ZNK3QV49UrlObject6originEv": ["text", "address"],
+    "ritual_ZNK3QV49UrlObject8passwordEv": ["text", "address"],
+    "ritual_ZNK3QV49UrlObject8pathnameEv": ["text", "address"],
+    "ritual_ZNK3QV49UrlObject4portEv": ["text", "address"],
+    "ritual_ZNK3QV49UrlObject8protocolEv": ["text", "address"],
+    "ritual_ZNK3QV49UrlObject8usernameEv": ["text", "address"],
+    "ritual_ZNK3QV49UrlObject6toQUrlEv": ["address", "address"],
+    "ritual_ZNK3QV49UrlObject6constDEv": ["address", "address"]
+  }
+}

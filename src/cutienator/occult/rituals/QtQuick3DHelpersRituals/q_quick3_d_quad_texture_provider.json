@@ -1,0 +1,36 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DHelpers/6.12.0/QtQuick3DHelpers/private/qquick3dquadtextureprovi",
+    "der_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK27QQuick3DQuadTextureProvider10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK27QQuick3DQuadTextureProvider14fragmentShaderEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK27QQuick3DQuadTextureProvider18fragmentShaderCodeEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK27QQuick3DQuadTextureProvider5widthEv": ["int", "address"],
+    "ritual_ZNK27QQuick3DQuadTextureProvider6heightEv": ["int", "address"],
+    "ritual_ZNK27QQuick3DQuadTextureProvider6formatEv": ["int", "address"],
+    "ritual_ZN27QQuick3DQuadTextureProvider24markTrackedPropertyDirtyE13QMetaPropertyN30QQuick3DPropertyChangedTracker17DirtyPropertyHintE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN27QQuick3DQuadTextureProvider9markDirtyENS_5DirtyE": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_cast_QQuick3DQuadTextureProvider_QQuick3DPropertyChangedTracker": [
+      "address", "address"
+    ],
+    "ritual_take_QQuick3DQuadTextureProvider": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN27QQuick3DQuadTextureProvider24markTrackedPropertyDirtyE13QMetaPropertyN30QQuick3DPropertyChangedTracker17DirtyPropertyHintE": [
+      "nothing", "address", "address", "int"
+    ]
+  }
+}

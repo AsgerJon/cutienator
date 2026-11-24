@@ -1,0 +1,56 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/qnetworkdatagram.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN16QNetworkDatagramC1Ev": ["address"],
+    "ritual_ZN16QNetworkDatagramC1ERK10QByteArrayRK12QHostAddresst": [
+      "address", "address", "address", "unsigned short"
+    ],
+    "ritual_ZN16QNetworkDatagramC1ERKS_": ["address", "address"],
+    "ritual_ZN16QNetworkDatagramD1Ev": ["nothing", "address"],
+    "ritual_ZN16QNetworkDatagram5clearEv": ["nothing", "address"],
+    "ritual_ZNK16QNetworkDatagram7isValidEv": ["bool", "address"],
+    "ritual_ZNK16QNetworkDatagram6isNullEv": ["bool", "address"],
+    "ritual_ZNK16QNetworkDatagram14interfaceIndexEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN16QNetworkDatagram17setInterfaceIndexEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZNK16QNetworkDatagram13senderAddressEv": ["address", "address"],
+    "ritual_ZNK16QNetworkDatagram18destinationAddressEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK16QNetworkDatagram10senderPortEv": ["int", "address"],
+    "ritual_ZNK16QNetworkDatagram15destinationPortEv": ["int", "address"],
+    "ritual_ZN16QNetworkDatagram9setSenderERK12QHostAddresst": [
+      "nothing", "address", "address", "unsigned short"
+    ],
+    "ritual_ZN16QNetworkDatagram14setDestinationERK12QHostAddresst": [
+      "nothing", "address", "address", "unsigned short"
+    ],
+    "ritual_ZNK16QNetworkDatagram8hopLimitEv": ["int", "address"],
+    "ritual_ZN16QNetworkDatagram11setHopLimitEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16QNetworkDatagram4dataEv": ["address", "address"],
+    "ritual_ZN16QNetworkDatagram7setDataERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNKR16QNetworkDatagram9makeReplyERK10QByteArray": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK16QNetworkDatagram16makeReply_helperERK10QByteArray": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN16QNetworkDatagram24makeReply_helper_inplaceERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QNetworkDatagram7destroyEP23QNetworkDatagramPrivate": [
+      "nothing", "address"
+    ]
+  }
+}

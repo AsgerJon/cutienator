@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquicktextnodeengine_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QQuickTextNodeEngine17BinaryTreeNodeKeyC1EPNS_14BinaryTreeNodeE": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QQuickTextNodeEngine17BinaryTreeNodeKeyeqERKS0_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN20QQuickTextNodeEngine17BinaryTreeNodeKeyD1Ev": [
+      "nothing", "address"
+    ]
+  }
+}

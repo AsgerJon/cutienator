@@ -1,0 +1,46 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qpaintengine_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QPaintEnginePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK19QPaintEnginePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN19QPaintEnginePrivateC1Ev": ["address"],
+    "ritual_ZN19QPaintEnginePrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN19QPaintEnginePrivate16updateSystemClipEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QPaintEnginePrivate18setSystemTransformERK10QTransform": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QPaintEnginePrivate17setSystemViewportERK7QRegion": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QPaintEnginePrivate29setSystemTransformAndViewportERK10QTransformRK7QRegion": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN19QPaintEnginePrivate18systemStateChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QPaintEnginePrivate15drawBoxTextItemERK7QPointFRK12QTextItemInt": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN19QPaintEnginePrivate3getEP12QPaintEngine": [
+      "address", "address"
+    ],
+    "ritual_ZN19QPaintEnginePrivate15aggregateEngineEv": [
+      "address", "address"
+    ],
+    "ritual_take_QPaintEnginePrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN19QPaintEnginePrivate18systemStateChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN19QPaintEnginePrivate15aggregateEngineEv": [
+      "address", "address"
+    ]
+  }
+}

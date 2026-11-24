@@ -1,0 +1,78 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qsgadaptationlayer_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN26QSGDistanceFieldGlyphCacheD1Ev": ["nothing", "address"],
+    "ritual_ZNK26QSGDistanceFieldGlyphCache13referenceFontEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK26QSGDistanceFieldGlyphCache9fontScaleEd": [
+      "double", "address", "double"
+    ],
+    "ritual_ZNK26QSGDistanceFieldGlyphCache19distanceFieldRadiusEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK26QSGDistanceFieldGlyphCache10glyphCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK26QSGDistanceFieldGlyphCache21doubleGlyphResolutionEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK26QSGDistanceFieldGlyphCache17renderTypeQualityEv": [
+      "int", "address"
+    ],
+    "ritual_ZN26QSGDistanceFieldGlyphCache12glyphMetricsEjd": [
+      "address", "address", "unsigned int", "double"
+    ],
+    "ritual_ZN26QSGDistanceFieldGlyphCache13glyphTexCoordEj": [
+      "address", "address", "unsigned int"
+    ],
+    "ritual_ZN26QSGDistanceFieldGlyphCache12glyphTextureEj": [
+      "address", "address", "unsigned int"
+    ],
+    "ritual_ZN26QSGDistanceFieldGlyphCache6updateEv": ["nothing", "address"],
+    "ritual_ZN26QSGDistanceFieldGlyphCache17registerGlyphNodeEP29QSGDistanceFieldGlyphConsumer": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QSGDistanceFieldGlyphCache19unregisterGlyphNodeEP29QSGDistanceFieldGlyphConsumer": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QSGDistanceFieldGlyphCache20processPendingGlyphsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK26QSGDistanceFieldGlyphCache29eightBitFormatIsAlphaSwizzledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK26QSGDistanceFieldGlyphCache31screenSpaceDerivativesSupportedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK26QSGDistanceFieldGlyphCache8isActiveEv": ["bool", "address"],
+    "ritual_ZN26QSGDistanceFieldGlyphCache11storeGlyphsERK5QListI14QDistanceFieldE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QSGDistanceFieldGlyphCache11removeGlyphEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN26QSGDistanceFieldGlyphCache16updateRhiTextureEP11QRhiTextureS1_RK5QSize": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN26QSGDistanceFieldGlyphCache13containsGlyphEj": [
+      "bool", "address", "unsigned int"
+    ],
+    "ritual_ZNK26QSGDistanceFieldGlyphCache12baseFontSizeEv": [
+      "int", "address"
+    ],
+    "ritual_take_QSGDistanceFieldGlyphCache": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN26QSGDistanceFieldGlyphCache20processPendingGlyphsEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZNK26QSGDistanceFieldGlyphCache8isActiveEv": [
+      "bool", "address"
+    ]
+  }
+}

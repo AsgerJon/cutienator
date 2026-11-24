@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qsharedpointer_impl.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN15QtSharedPointer20ExternalRefCountDataD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QtSharedPointer20ExternalRefCountData7destroyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QtSharedPointer20ExternalRefCountData9getAndRefEPK7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN15QtSharedPointer20ExternalRefCountData16setQObjectSharedEPK7QObjectb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN15QtSharedPointer20ExternalRefCountData18checkQObjectSharedEPK7QObject": [
+      "nothing", "address", "address"
+    ]
+  }
+}

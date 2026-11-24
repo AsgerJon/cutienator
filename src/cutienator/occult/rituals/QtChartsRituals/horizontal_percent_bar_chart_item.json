@@ -1,0 +1,45 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtChart",
+    "s/6.12.0/QtCharts/private/horizontalpercentbarchartitem_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK29HorizontalPercentBarChartItem10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN29HorizontalPercentBarChartItem2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN29HorizontalPercentBarChartItemC1EP18QAbstractBarSeriesP13QGraphicsItem": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN29HorizontalPercentBarChartItem17generateLabelTextEiid": [
+      "text", "address", "int", "int", "double"
+    ],
+    "ritual_ZN29HorizontalPercentBarChartItem15calculateLayoutEv": [
+      "address", "address"
+    ],
+    "ritual_ZN29HorizontalPercentBarChartItem16initializeLayoutEiiib": [
+      "nothing", "address", "int", "int", "int", "bool"
+    ],
+    "ritual_ZN29HorizontalPercentBarChartItem15markLabelsDirtyEP7QBarSetii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN29HorizontalPercentBarChartItem12topLeftPointEidd": [
+      "address", "address", "int", "double", "double"
+    ],
+    "ritual_ZN29HorizontalPercentBarChartItem16bottomRightPointEidd": [
+      "address", "address", "int", "double", "double"
+    ],
+    "ritual_own_ZN29HorizontalPercentBarChartItem17generateLabelTextEiid": [
+      "text", "address", "int", "int", "double"
+    ],
+    "ritual_own_ZN29HorizontalPercentBarChartItem16initializeLayoutEiiib": [
+      "nothing", "address", "int", "int", "int", "bool"
+    ],
+    "ritual_own_ZN29HorizontalPercentBarChartItem15markLabelsDirtyEP7QBarSetii": [
+      "nothing", "address", "address", "int", "int"
+    ]
+  }
+}

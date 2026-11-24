@@ -1,0 +1,38 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4resolvedtypereference_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN3QV421ResolvedTypeReferenceC1Ev": ["address"],
+    "ritual_ZNK3QV421ResolvedTypeReference4typeEv": ["address", "address"],
+    "ritual_ZN3QV421ResolvedTypeReference7setTypeE8QQmlType": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK3QV421ResolvedTypeReference17typePropertyCacheEv": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV421ResolvedTypeReference20setTypePropertyCacheEN17QQmlPropertyCache8ConstPtrE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK3QV421ResolvedTypeReference7versionEv": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV421ResolvedTypeReference10setVersionE13QTypeRevision": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK3QV421ResolvedTypeReference18isFullyDynamicTypeEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN3QV421ResolvedTypeReference19setFullyDynamicTypeEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK3QV421ResolvedTypeReference15isSelfReferenceEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN3QV421ResolvedTypeReference18setIsSelfReferenceEb": [
+      "nothing", "address", "bool"
+    ]
+  }
+}

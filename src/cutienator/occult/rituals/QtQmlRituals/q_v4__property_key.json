@@ -1,0 +1,36 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4propertykey_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK3QV411PropertyKey9isManagedEv": ["bool", "address"],
+    "ritual_ZNK3QV411PropertyKey5valueEv": ["unsigned int", "address"],
+    "ritual_ZN3QV411PropertyKey7invalidEv": ["address"],
+    "ritual_ZN3QV411PropertyKey14fromArrayIndexEj": [
+      "address", "unsigned int"
+    ],
+    "ritual_ZNK3QV411PropertyKey16isStringOrSymbolEv": ["bool", "address"],
+    "ritual_ZNK3QV411PropertyKey12asArrayIndexEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZNK3QV411PropertyKey12isArrayIndexEv": ["bool", "address"],
+    "ritual_ZNK3QV411PropertyKey7isValidEv": ["bool", "address"],
+    "ritual_ZNK3QV411PropertyKey8isStringEv": ["bool", "address"],
+    "ritual_ZNK3QV411PropertyKey8isSymbolEv": ["bool", "address"],
+    "ritual_ZNK3QV411PropertyKey29isCanonicalNumericIndexStringEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK3QV411PropertyKey9toQStringEv": ["text", "address"],
+    "ritual_ZN3QV411PropertyKey16toStringOrSymbolEPNS_15ExecutionEngineE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK3QV411PropertyKey2idEv": ["unsigned long long", "address"],
+    "ritual_ZN3QV411PropertyKey6fromIdEy": ["address", "unsigned long long"],
+    "ritual_ZNK3QV411PropertyKeyeqERKS0_": ["bool", "address", "address"],
+    "ritual_ZNK3QV411PropertyKeyneERKS0_": ["bool", "address", "address"],
+    "ritual_ZNK3QV411PropertyKeyltERKS0_": ["bool", "address", "address"],
+    "ritual_ZN3QV411PropertyKeyD1Ev": ["nothing", "address"]
+  }
+}

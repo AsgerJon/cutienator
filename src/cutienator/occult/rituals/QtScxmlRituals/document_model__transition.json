@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtScxml/6.12.0/QtScxml/private/qscxmlcompiler_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN13DocumentModel10TransitionC1ERKNS_11XmlLocationE": [
+      "address", "address"
+    ],
+    "ritual_ZN13DocumentModel10Transition12asTransitionEv": [
+      "address", "address"
+    ],
+    "ritual_ZN13DocumentModel10Transition6acceptEPNS_11NodeVisitorE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_DocumentModel_Transition": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN13DocumentModel10Transition12asTransitionEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN13DocumentModel10Transition6acceptEPNS_11NodeVisitorE": [
+      "nothing", "address", "address"
+    ]
+  }
+}

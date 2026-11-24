@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/6.12.0/QtNetwork/private/qnetworkaccesscachebackend_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN26QNetworkAccessCacheBackendD1Ev": ["nothing", "address"],
+    "ritual_ZN26QNetworkAccessCacheBackend4openEv": ["nothing", "address"],
+    "ritual_ZN26QNetworkAccessCacheBackend5startEv": ["bool", "address"],
+    "ritual_ZNK26QNetworkAccessCacheBackend14bytesAvailableEv": [
+      "long long", "address"
+    ],
+    "ritual_take_QNetworkAccessCacheBackend": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN26QNetworkAccessCacheBackend5startEv": ["bool", "address"],
+    "ritual_own_ZNK26QNetworkAccessCacheBackend14bytesAvailableEv": [
+      "long long", "address"
+    ]
+  }
+}

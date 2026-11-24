@@ -1,0 +1,38 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLocation/qplacecontentrequest.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QPlaceContentRequestC1Ev": ["address"],
+    "ritual_ZN20QPlaceContentRequestC1ERKS_": ["address", "address"],
+    "ritual_ZN20QPlaceContentRequestD1Ev": ["nothing", "address"],
+    "ritual_ZeqRK20QPlaceContentRequestS1_": ["bool", "address", "address"],
+    "ritual_ZneRK20QPlaceContentRequestS1_": ["bool", "address", "address"],
+    "ritual_ZNK20QPlaceContentRequest11contentTypeEv": ["int", "address"],
+    "ritual_ZN20QPlaceContentRequest14setContentTypeEN13QPlaceContent4TypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK20QPlaceContentRequest7placeIdEv": ["text", "address"],
+    "ritual_ZN20QPlaceContentRequest10setPlaceIdERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK20QPlaceContentRequest14contentContextEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QPlaceContentRequest17setContentContextERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QPlaceContentRequest5limitEv": ["int", "address"],
+    "ritual_ZN20QPlaceContentRequest8setLimitEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QPlaceContentRequest5clearEv": ["nothing", "address"],
+    "ritual_ZNK20QPlaceContentRequest7isEqualERKS_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN20QPlaceContentRequest6d_funcEv": ["address", "address"],
+    "ritual_ZNK20QPlaceContentRequest6d_funcEv": ["address", "address"]
+  }
+}

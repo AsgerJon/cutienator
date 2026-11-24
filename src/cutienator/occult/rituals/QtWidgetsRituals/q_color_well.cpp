@@ -1,9 +1,16 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/6.12.0/QtWidgets/private/qcolorwell_p.h, Qt 6.12.0. Changes
 //  made here are lost.
+#include <QtWidgets/qtwidgetsglobal.h>
+#include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
+#if QT_CONFIG(colordialog)
+#include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/QtWidgets>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/6.12.0/QtWidgets/private/qcolorwell_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qrect.h>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include "qcolordialog.h"
 #if QT_CONFIG(accessibility)
 #include "qaccessible.h"
@@ -48,13 +55,14 @@
 #include <private/qguiapplication_p.h>
 #include <QtCore/qpointer.h>
 #include <algorithm>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
 //  Qt's source, because Qt's library carries it under no name.
 //  Copyright (C) The Qt Company Ltd. It is licensed
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
-//  'inline' put before it.
+//  'inline' put before it where Qt did not write it.
 
 //  from src/widgets/dialogs/qcolordialog.cpp, line 274, as _ZN10QWellArray15mousePressEventEP11QMouseEvent
 inline void QWellArray::mousePressEvent(QMouseEvent *e)
@@ -124,6 +132,7 @@ inline void QColorWell::mouseReleaseEvent(QMouseEvent *e)
 }
 
 //  from src/widgets/dialogs/qcolordialog.cpp, line 563, as _ZN10QColorWell14dragEnterEventEP15QDragEnterEvent
+#if QT_CONFIG(draganddrop)
 inline void QColorWell::dragEnterEvent(QDragEnterEvent *e)
 {
     if (qvariant_cast<QColor>(e->mimeData()->colorData()).isValid())
@@ -131,15 +140,19 @@ inline void QColorWell::dragEnterEvent(QDragEnterEvent *e)
     else
         e->ignore();
 }
+#endif  // QT_CONFIG(draganddrop)
 
 //  from src/widgets/dialogs/qcolordialog.cpp, line 571, as _ZN10QColorWell14dragLeaveEventEP15QDragLeaveEvent
+#if QT_CONFIG(draganddrop)
 inline void QColorWell::dragLeaveEvent(QDragLeaveEvent *)
 {
     if (hasFocus())
         parentWidget()->setFocus();
 }
+#endif  // QT_CONFIG(draganddrop)
 
 //  from src/widgets/dialogs/qcolordialog.cpp, line 577, as _ZN10QColorWell13dragMoveEventEP14QDragMoveEvent
+#if QT_CONFIG(draganddrop)
 inline void QColorWell::dragMoveEvent(QDragMoveEvent *e)
 {
     if (qvariant_cast<QColor>(e->mimeData()->colorData()).isValid()) {
@@ -149,8 +162,10 @@ inline void QColorWell::dragMoveEvent(QDragMoveEvent *e)
         e->ignore();
     }
 }
+#endif  // QT_CONFIG(draganddrop)
 
 //  from src/widgets/dialogs/qcolordialog.cpp, line 587, as _ZN10QColorWell9dropEventEP10QDropEvent
+#if QT_CONFIG(draganddrop)
 inline void QColorWell::dropEvent(QDropEvent *e)
 {
     QColor col = qvariant_cast<QColor>(e->mimeData()->colorData());
@@ -162,6 +177,7 @@ inline void QColorWell::dropEvent(QDropEvent *e)
         e->ignore();
     }
 }
+#endif  // QT_CONFIG(draganddrop)
 //  -----------------------------------------------------------------------
 
 //  Only a class built on QColorWell may call these functions of it.
@@ -219,6 +235,7 @@ void ritual_ZN10QColorWell17mouseReleaseEventEP11QMouseEvent(
   self->mouseReleaseEvent(e);
 }
 
+#if QT_CONFIG(draganddrop)
 //  void QColorWell::dragEnterEvent(QDragEnterEvent *e)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10QColorWell14dragEnterEventEP15QDragEnterEvent(
@@ -226,7 +243,9 @@ void ritual_ZN10QColorWell14dragEnterEventEP15QDragEnterEvent(
     QDragEnterEvent *e) {
   self->dragEnterEvent(e);
 }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
 //  void QColorWell::dragLeaveEvent(QDragLeaveEvent *e)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10QColorWell14dragLeaveEventEP15QDragLeaveEvent(
@@ -234,7 +253,9 @@ void ritual_ZN10QColorWell14dragLeaveEventEP15QDragLeaveEvent(
     QDragLeaveEvent *e) {
   self->dragLeaveEvent(e);
 }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
 //  void QColorWell::dragMoveEvent(QDragMoveEvent *e)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10QColorWell13dragMoveEventEP14QDragMoveEvent(
@@ -242,7 +263,9 @@ void ritual_ZN10QColorWell13dragMoveEventEP14QDragMoveEvent(
     QDragMoveEvent *e) {
   self->dragMoveEvent(e);
 }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
 //  void QColorWell::dropEvent(QDropEvent *e)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10QColorWell9dropEventEP10QDropEvent(
@@ -250,6 +273,7 @@ void ritual_ZN10QColorWell9dropEventEP10QDropEvent(
     QDropEvent *e) {
   self->dropEvent(e);
 }
+#endif  // QT_CONFIG(draganddrop)
 
 //  void QColorWell::paintCellContents(QPainter *a0, int row, int col, const
 //      QRect &a3)
@@ -291,6 +315,7 @@ void ritual_own_ZN10QColorWell17mouseReleaseEventEP11QMouseEvent(
   static_cast<OwnQColorWell *>(self)->OwnQColorWell::mouseReleaseEvent(e);
 }
 
+#if QT_CONFIG(draganddrop)
 //  void QColorWell::dragEnterEvent(QDragEnterEvent *e)
 extern "C" Q_DECL_EXPORT
 void ritual_own_ZN10QColorWell14dragEnterEventEP15QDragEnterEvent(
@@ -298,7 +323,9 @@ void ritual_own_ZN10QColorWell14dragEnterEventEP15QDragEnterEvent(
     QDragEnterEvent *e) {
   static_cast<OwnQColorWell *>(self)->OwnQColorWell::dragEnterEvent(e);
 }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
 //  void QColorWell::dragLeaveEvent(QDragLeaveEvent *e)
 extern "C" Q_DECL_EXPORT
 void ritual_own_ZN10QColorWell14dragLeaveEventEP15QDragLeaveEvent(
@@ -306,7 +333,9 @@ void ritual_own_ZN10QColorWell14dragLeaveEventEP15QDragLeaveEvent(
     QDragLeaveEvent *e) {
   static_cast<OwnQColorWell *>(self)->OwnQColorWell::dragLeaveEvent(e);
 }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
 //  void QColorWell::dragMoveEvent(QDragMoveEvent *e)
 extern "C" Q_DECL_EXPORT
 void ritual_own_ZN10QColorWell13dragMoveEventEP14QDragMoveEvent(
@@ -314,3 +343,6 @@ void ritual_own_ZN10QColorWell13dragMoveEventEP14QDragMoveEvent(
     QDragMoveEvent *e) {
   static_cast<OwnQColorWell *>(self)->OwnQColorWell::dragMoveEvent(e);
 }
+#endif  // QT_CONFIG(draganddrop)
+
+#endif  // QT_CONFIG(colordialog)

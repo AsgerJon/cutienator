@@ -1,0 +1,95 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/qqmlcomponent.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK13QQmlComponent10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QQmlComponent2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN13QQmlComponent6d_funcEv": ["address", "address"],
+    "ritual_ZNK13QQmlComponent6d_funcEv": ["address", "address"],
+    "ritual_ZN13QQmlComponentC1EP7QObject": ["address", "address"],
+    "ritual_ZN13QQmlComponentC1EP10QQmlEngineP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN13QQmlComponentC1EP10QQmlEngineRK7QStringP7QObject": [
+      "address", "address", "text", "address"
+    ],
+    "ritual_ZN13QQmlComponentC1EP10QQmlEngineRK7QStringNS_15CompilationModeEP7QObject": [
+      "address", "address", "text", "int", "address"
+    ],
+    "ritual_ZN13QQmlComponentC1EP10QQmlEngineRK4QUrlP7QObject": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN13QQmlComponentC1EP10QQmlEngineRK4QUrlNS_15CompilationModeEP7QObject": [
+      "address", "address", "address", "int", "address"
+    ],
+    "ritual_ZN13QQmlComponentC1EP10QQmlEngine14QAnyStringViewS2_P7QObject": [
+      "address", "address", "text", "text", "address"
+    ],
+    "ritual_ZN13QQmlComponentC1EP10QQmlEngine14QAnyStringViewS2_NS_15CompilationModeEP7QObject": [
+      "address", "address", "text", "text", "int", "address"
+    ],
+    "ritual_ZN13QQmlComponentD1Ev": ["nothing", "address"],
+    "ritual_ZNK13QQmlComponent6statusEv": ["int", "address"],
+    "ritual_ZNK13QQmlComponent6isNullEv": ["bool", "address"],
+    "ritual_ZNK13QQmlComponent7isReadyEv": ["bool", "address"],
+    "ritual_ZNK13QQmlComponent7isErrorEv": ["bool", "address"],
+    "ritual_ZNK13QQmlComponent9isLoadingEv": ["bool", "address"],
+    "ritual_ZNK13QQmlComponent7isBoundEv": ["bool", "address"],
+    "ritual_ZNK13QQmlComponent6errorsEv": ["address", "address"],
+    "ritual_ZNK13QQmlComponent11errorStringEv": ["text", "address"],
+    "ritual_ZNK13QQmlComponent8progressEv": ["double", "address"],
+    "ritual_ZNK13QQmlComponent3urlEv": ["address", "address"],
+    "ritual_ZN13QQmlComponent6createEP11QQmlContext": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN13QQmlComponent27createWithInitialPropertiesERK4QMapI7QString8QVariantEP11QQmlContext": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN13QQmlComponent20setInitialPropertiesEP7QObjectRK4QMapI7QString8QVariantE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN13QQmlComponent11beginCreateEP11QQmlContext": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN13QQmlComponent14completeCreateEv": ["nothing", "address"],
+    "ritual_ZNK13QQmlComponent15creationContextEv": ["address", "address"],
+    "ritual_ZNK13QQmlComponent6engineEv": ["address", "address"],
+    "ritual_ZN13QQmlComponent21qmlAttachedPropertiesEP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN13QQmlComponent7loadUrlERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QQmlComponent7loadUrlERK4QUrlNS_15CompilationModeE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN13QQmlComponent14loadFromModuleE14QAnyStringViewS0_NS_15CompilationModeE": [
+      "nothing", "address", "text", "text", "int"
+    ],
+    "ritual_ZN13QQmlComponent7setDataERK10QByteArrayRK4QUrl": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN13QQmlComponent12createObjectEP14QQmlV4Function": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QQmlComponent12createObjectEP7QObjectRK4QMapI7QString8QVariantE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN13QQmlComponent14incubateObjectEP14QQmlV4Function": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QQmlComponentC1EP10QQmlEnginePN3QV425ExecutableCompilationUnitEiP7QObject": [
+      "address", "address", "address", "int", "address"
+    ],
+    "ritual_take_QQmlComponent": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN13QQmlComponent6createEP11QQmlContext": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN13QQmlComponent11beginCreateEP11QQmlContext": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN13QQmlComponent14completeCreateEv": ["nothing", "address"]
+  }
+}

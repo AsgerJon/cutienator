@@ -1,0 +1,275 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qabstractitemview_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN24QAbstractItemViewPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK24QAbstractItemViewPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN24QAbstractItemViewPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN24QAbstractItemViewPrivate4initEv": ["nothing", "address"],
+    "ritual_ZN24QAbstractItemViewPrivate11rowsRemovedERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN24QAbstractItemViewPrivate12rowsInsertedERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN24QAbstractItemViewPrivate23columnsAboutToBeRemovedERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN24QAbstractItemViewPrivate14columnsRemovedERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN24QAbstractItemViewPrivate15columnsInsertedERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN24QAbstractItemViewPrivate14modelDestroyedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QAbstractItemViewPrivate13layoutChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QAbstractItemViewPrivate9rowsMovedERK11QModelIndexiiS2_i": [
+      "nothing", "address", "address", "int", "int", "address", "int"
+    ],
+    "ritual_ZN24QAbstractItemViewPrivate12columnsMovedERK11QModelIndexiiS2_i": [
+      "nothing", "address", "address", "int", "int", "address", "int"
+    ],
+    "ritual_ZNK24QAbstractItemViewPrivate15intersectedRectE5QRectRK11QModelIndexS3_": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN24QAbstractItemViewPrivate17headerDataChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QAbstractItemViewPrivate20scrollerStateChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QAbstractItemViewPrivate9fetchMoreEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK24QAbstractItemViewPrivate10shouldEditEN17QAbstractItemView11EditTriggerERK11QModelIndex": [
+      "bool", "address", "int", "address"
+    ],
+    "ritual_ZNK24QAbstractItemViewPrivate18shouldForwardEventEN17QAbstractItemView11EditTriggerEPK6QEvent": [
+      "bool", "address", "int", "address"
+    ],
+    "ritual_ZNK24QAbstractItemViewPrivate16shouldAutoScrollERK6QPoint": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN24QAbstractItemViewPrivate20doDelayedItemsLayoutEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK24QAbstractItemViewPrivate27interruptDelayedItemsLayoutEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QAbstractItemViewPrivate14updateGeometryEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QAbstractItemViewPrivate15startAutoScrollEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QAbstractItemViewPrivate14stopAutoScrollEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QAbstractItemViewPrivate6dropOnEP10QDropEventPiS2_P11QModelIndex": [
+      "bool", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN24QAbstractItemViewPrivate16droppingOnItselfEP10QDropEventRK11QModelIndex": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN24QAbstractItemViewPrivate6editorERK11QModelIndexRK20QStyleOptionViewItem": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK24QAbstractItemViewPrivate17sendDelegateEventERK11QModelIndexP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN24QAbstractItemViewPrivate10openEditorERK11QModelIndexP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN24QAbstractItemViewPrivate16updateEditorDataERK11QModelIndexS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN24QAbstractItemViewPrivate17selectAllInEditorEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK24QAbstractItemViewPrivate21multiSelectionCommandERK11QModelIndexPK6QEvent": [
+      "int", "address", "address", "address"
+    ],
+    "ritual_ZNK24QAbstractItemViewPrivate24extendedSelectionCommandERK11QModelIndexPK6QEvent": [
+      "int", "address", "address", "address"
+    ],
+    "ritual_ZNK24QAbstractItemViewPrivate26contiguousSelectionCommandERK11QModelIndexPK6QEvent": [
+      "int", "address", "address", "address"
+    ],
+    "ritual_ZN24QAbstractItemViewPrivate9selectAllE6QFlagsIN19QItemSelectionModel13SelectionFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN24QAbstractItemViewPrivate13setHoverIndexERK21QPersistentModelIndex": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QAbstractItemViewPrivate14checkMouseMoveERK21QPersistentModelIndex": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QAbstractItemViewPrivate14checkMouseMoveERK6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK24QAbstractItemViewPrivate22selectionBehaviorFlagsEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK24QAbstractItemViewPrivate8positionERK6QPointRK5QRectRK11QModelIndex": [
+      "int", "address", "address", "address", "address"
+    ],
+    "ritual_ZN24QAbstractItemViewPrivate7canDropEP10QDropEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN24QAbstractItemViewPrivate18paintDropIndicatorEP8QPainter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK24QAbstractItemViewPrivate19draggablePaintPairsERK5QListI11QModelIndexEP5QRect": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK24QAbstractItemViewPrivate25adjustViewOptionsForIndexEP20QStyleOptionViewItemRK11QModelIndex": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK24QAbstractItemViewPrivate13releaseEditorEP7QWidgetRK11QModelIndex": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK24QAbstractItemViewPrivate19executePostedLayoutEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QAbstractItemViewPrivate14setDirtyRegionERK7QRegion": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QAbstractItemViewPrivate17scrollDirtyRegionEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN24QAbstractItemViewPrivate16scrollContentsByEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN24QAbstractItemViewPrivate17updateDirtyRegionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QAbstractItemViewPrivate13clearOrRemoveEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QAbstractItemViewPrivate26checkPersistentEditorFocusEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK24QAbstractItemViewPrivate14renderToPixmapERK5QListI11QModelIndexEP5QRect": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK24QAbstractItemViewPrivate6offsetEv": ["address", "address"],
+    "ritual_ZNK24QAbstractItemViewPrivate14editorForIndexERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK24QAbstractItemViewPrivate9hasEditorERK11QModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK24QAbstractItemViewPrivate14indexForEditorEP7QWidget": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN24QAbstractItemViewPrivate9addEditorERK11QModelIndexP7QWidgetb": [
+      "nothing", "address", "address", "address", "bool"
+    ],
+    "ritual_ZN24QAbstractItemViewPrivate12removeEditorEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK24QAbstractItemViewPrivate11isAnimatingEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK24QAbstractItemViewPrivate12isIndexValidERK11QModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK24QAbstractItemViewPrivate17isIndexSelectableERK11QModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK24QAbstractItemViewPrivate14isIndexEnabledERK11QModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK24QAbstractItemViewPrivate18isIndexDropEnabledERK11QModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK24QAbstractItemViewPrivate18isIndexDragEnabledERK11QModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK24QAbstractItemViewPrivate16selectionAllowedERK11QModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK24QAbstractItemViewPrivate20accessibleChildIndexERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK24QAbstractItemViewPrivate14contentsOffsetEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK24QAbstractItemViewPrivate16delegateRefCountEPK21QAbstractItemDelegate": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK24QAbstractItemViewPrivate12isPersistentERK11QModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK24QAbstractItemViewPrivate24selectedDraggableIndexesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QAbstractItemViewPrivate14maybeStartDragE6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QAbstractItemViewPrivate14doDelayedResetEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK24QAbstractItemViewPrivate10visualRectERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK24QAbstractItemViewPrivate16delegateForIndexERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_take_QAbstractItemViewPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN24QAbstractItemViewPrivate11rowsRemovedERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_own_ZN24QAbstractItemViewPrivate12rowsInsertedERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_own_ZN24QAbstractItemViewPrivate14columnsRemovedERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_own_ZN24QAbstractItemViewPrivate15columnsInsertedERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_own_ZN24QAbstractItemViewPrivate14modelDestroyedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN24QAbstractItemViewPrivate13layoutChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN24QAbstractItemViewPrivate9rowsMovedERK11QModelIndexiiS2_i": [
+      "nothing", "address", "address", "int", "int", "address", "int"
+    ],
+    "ritual_own_ZN24QAbstractItemViewPrivate12columnsMovedERK11QModelIndexiiS2_i": [
+      "nothing", "address", "address", "int", "int", "address", "int"
+    ],
+    "ritual_own_ZNK24QAbstractItemViewPrivate15intersectedRectE5QRectRK11QModelIndexS3_": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN24QAbstractItemViewPrivate9selectAllE6QFlagsIN19QItemSelectionModel13SelectionFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZNK24QAbstractItemViewPrivate25adjustViewOptionsForIndexEP20QStyleOptionViewItemRK11QModelIndex": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZNK24QAbstractItemViewPrivate16selectionAllowedERK11QModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZNK24QAbstractItemViewPrivate20accessibleChildIndexERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZNK24QAbstractItemViewPrivate14contentsOffsetEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK24QAbstractItemViewPrivate10visualRectERK11QModelIndex": [
+      "address", "address", "address"
+    ]
+  }
+}

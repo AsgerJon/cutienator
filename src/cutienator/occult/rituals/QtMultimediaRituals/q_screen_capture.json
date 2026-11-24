@@ -1,0 +1,33 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtMultimedia/qscreencapture.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK14QScreenCapture10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QScreenCapture2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN14QScreenCaptureC1EP7QObject": ["address", "address"],
+    "ritual_ZN14QScreenCaptureD1Ev": ["nothing", "address"],
+    "ritual_ZNK14QScreenCapture14captureSessionEv": ["address", "address"],
+    "ritual_ZN14QScreenCapture9setScreenEP7QScreen": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QScreenCapture6screenEv": ["address", "address"],
+    "ritual_ZNK14QScreenCapture8isActiveEv": ["bool", "address"],
+    "ritual_ZNK14QScreenCapture5errorEv": ["int", "address"],
+    "ritual_ZNK14QScreenCapture11errorStringEv": ["text", "address"],
+    "ritual_ZN14QScreenCapture9setActiveEb": ["nothing", "address", "bool"],
+    "ritual_ZN14QScreenCapture5startEv": ["nothing", "address"],
+    "ritual_ZN14QScreenCapture4stopEv": ["nothing", "address"],
+    "ritual_ZN14QScreenCapture17setCaptureSessionEP20QMediaCaptureSession": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QScreenCapture21platformScreenCaptureEv": [
+      "address", "address"
+    ],
+    "ritual_take_QScreenCapture": ["bool", "address", "chars", "address"]
+  }
+}

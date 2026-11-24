@@ -1,0 +1,113 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmltypeloader_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN14QQmlTypeLoader2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN14QQmlTypeLoaderC1EPN3QV415ExecutionEngineE": [
+      "address", "address"
+    ],
+    "ritual_ZN14QQmlTypeLoaderD1Ev": ["nothing", "address"],
+    "ritual_ZN14QQmlTypeLoader15sanitizeUNCPathEP7QString": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK14QQmlTypeLoader13cleanFilePathERK7QString": [
+      "text", "address", "text"
+    ],
+    "ritual_ZNK14QQmlTypeLoader10fileExistsERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZNK14QQmlTypeLoader10fileExistsERK7QStringS2_": [
+      "bool", "address", "text", "text"
+    ],
+    "ritual_ZN14QQmlTypeLoader15directoryExistsERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN14QQmlTypeLoader13qmldirContentERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN14QQmlTypeLoader16setQmldirContentERK7QStringS2_": [
+      "nothing", "address", "text", "text"
+    ],
+    "ritual_ZN14QQmlTypeLoader10clearCacheEv": ["nothing", "address"],
+    "ritual_ZN14QQmlTypeLoader9trimCacheEv": ["nothing", "address"],
+    "ritual_ZN14QQmlTypeLoader15removeFromCacheERK4QUrl": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK14QQmlTypeLoader12isTypeLoadedERK4QUrl": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK14QQmlTypeLoader14isScriptLoadedERK4QUrl": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN14QQmlTypeLoader16initializeEngineEP28QQmlEngineExtensionInterfacePKc": [
+      "nothing", "address", "address", "chars"
+    ],
+    "ritual_ZN14QQmlTypeLoader16initializeEngineEP22QQmlExtensionInterfacePKc": [
+      "nothing", "address", "address", "chars"
+    ],
+    "ritual_ZN14QQmlTypeLoader10invalidateEv": ["nothing", "address"],
+    "ritual_ZN14QQmlTypeLoader17addUrlInterceptorEP26QQmlAbstractUrlInterceptor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QQmlTypeLoader20removeUrlInterceptorEP26QQmlAbstractUrlInterceptor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QQmlTypeLoader15urlInterceptorsEv": ["address", "address"],
+    "ritual_ZNK14QQmlTypeLoader12interceptUrlERK4QUrlN26QQmlAbstractUrlInterceptor8DataTypeE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZNK14QQmlTypeLoader18hasUrlInterceptorsEv": ["bool", "address"],
+    "ritual_ZNK14QQmlTypeLoader8profilerEv": ["address", "address"],
+    "ritual_ZN14QQmlTypeLoader11setProfilerEP12QQmlProfiler": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QQmlTypeLoader14importPathListEv": ["address", "address"],
+    "ritual_ZN14QQmlTypeLoader17setImportPathListERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QQmlTypeLoader13addImportPathERK7QStringNS_11AddPathModeE": [
+      "nothing", "address", "text", "int"
+    ],
+    "ritual_ZNK14QQmlTypeLoader14pluginPathListEv": ["address", "address"],
+    "ritual_ZN14QQmlTypeLoader17setPluginPathListERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QQmlTypeLoader13addPluginPathERK7QStringNS_11AddPathModeE": [
+      "nothing", "address", "text", "int"
+    ],
+    "ritual_ZN14QQmlTypeLoader30setNetworkAccessManagerFactoryEP31QQmlNetworkAccessManagerFactory": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QQmlTypeLoader26createNetworkAccessManagerEP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN14QQmlTypeLoader14writeCacheFileEv": ["bool", "address"],
+    "ritual_ZN14QQmlTypeLoader13readCacheFileEv": ["bool", "address"],
+    "ritual_ZN14QQmlTypeLoader11isDebuggingEv": ["bool", "address"],
+    "ritual_ZNK14QQmlTypeLoader13urlsForModuleERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN14QQmlTypeLoader10isResourceERK7QString": ["bool", "text"],
+    "ritual_ZNK14QQmlTypeLoader6threadEv": ["address", "address"],
+    "ritual_ZNK14QQmlTypeLoader6engineEv": ["address", "address"],
+    "ritual_ZN14QQmlTypeLoader11startThreadEv": ["nothing", "address"],
+    "ritual_ZN14QQmlTypeLoader14shutdownThreadEv": ["nothing", "address"],
+    "ritual_ZN14QQmlTypeLoader12ensureThreadEv": ["address", "address"],
+    "ritual_ZN14QQmlTypeLoader20networkReplyFinishedEP13QNetworkReply": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QQmlTypeLoader20networkReplyProgressEP13QNetworkReplyxx": [
+      "nothing", "address", "address", "long long", "long long"
+    ],
+    "ritual_ZNK14QQmlTypeLoader14importPathListENS_8PathTypeE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN14QQmlTypeLoader15clearQmldirInfoEv": ["nothing", "address"],
+    "ritual_ZN14QQmlTypeLoader12aotCacheModeEv": ["int", "address"]
+  }
+}

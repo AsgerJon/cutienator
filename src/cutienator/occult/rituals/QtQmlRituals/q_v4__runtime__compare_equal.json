@@ -1,0 +1,13 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4runtimeapi_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN3QV47Runtime12CompareEqual4callERKNS_5ValueES4_": [
+      "unsigned int", "address", "address"
+    ],
+    "ritual_ZN3QV47Runtime12CompareEqualD1Ev": ["nothing", "address"]
+  }
+}

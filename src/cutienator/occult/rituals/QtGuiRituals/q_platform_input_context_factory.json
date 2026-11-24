@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/qpa/qplatforminputcontextfactory_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN28QPlatformInputContextFactory4keysEv": ["address"],
+    "ritual_ZN28QPlatformInputContextFactory9requestedEv": ["address"],
+    "ritual_ZN28QPlatformInputContextFactory6createERK5QListI7QStringE": [
+      "address", "address"
+    ],
+    "ritual_ZN28QPlatformInputContextFactory6createERK7QString": [
+      "address", "text"
+    ],
+    "ritual_ZN28QPlatformInputContextFactory6createEv": ["address"],
+    "ritual_ZN28QPlatformInputContextFactoryD1Ev": ["nothing", "address"]
+  }
+}

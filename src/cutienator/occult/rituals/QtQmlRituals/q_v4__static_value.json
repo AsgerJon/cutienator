@@ -1,0 +1,97 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4staticvalue_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN3QV411StaticValueC1Ev": ["address"],
+    "ritual_ZN3QV411StaticValueC1Ey": ["address", "unsigned long long"],
+    "ritual_ZNK3QV411StaticValue8rawValueEv": [
+      "unsigned long long", "address"
+    ],
+    "ritual_ZN3QV411StaticValue11setRawValueEy": [
+      "nothing", "address", "unsigned long long"
+    ],
+    "ritual_ZN3QV411StaticValue11valueOffsetEv": ["int"],
+    "ritual_ZN3QV411StaticValue9tagOffsetEv": ["int"],
+    "ritual_ZN3QV411StaticValue8tagValueEjj": [
+      "unsigned long long", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZN3QV411StaticValue11setTagValueEjj": [
+      "nothing", "address", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZNK3QV411StaticValue5valueEv": ["unsigned int", "address"],
+    "ritual_ZNK3QV411StaticValue3tagEv": ["unsigned int", "address"],
+    "ritual_ZN3QV411StaticValue6setTagEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZNK3QV411StaticValue6int_32Ev": ["int", "address"],
+    "ritual_ZN3QV411StaticValue9setInt_32Ei": ["nothing", "address", "int"],
+    "ritual_ZNK3QV411StaticValue7uint_32Ev": ["unsigned int", "address"],
+    "ritual_ZN3QV411StaticValue8setEmptyEv": ["nothing", "address"],
+    "ritual_ZN3QV411StaticValue10tagBitMaskENS0_6TagBitE": [
+      "unsigned long long", "int"
+    ],
+    "ritual_ZNK3QV411StaticValue4typeEv": ["int", "address"],
+    "ritual_ZNK3QV411StaticValue9quickTypeEv": [
+      "unsigned long long", "address"
+    ],
+    "ritual_ZNK3QV411StaticValue7isEmptyEv": ["bool", "address"],
+    "ritual_ZNK3QV411StaticValue6isNullEv": ["bool", "address"],
+    "ritual_ZNK3QV411StaticValue9isBooleanEv": ["bool", "address"],
+    "ritual_ZNK3QV411StaticValue9isIntegerEv": ["bool", "address"],
+    "ritual_ZNK3QV411StaticValue17isNullOrUndefinedEv": ["bool", "address"],
+    "ritual_ZNK3QV411StaticValue11isUndefinedEv": ["bool", "address"],
+    "ritual_ZNK3QV411StaticValue8isDoubleEv": ["bool", "address"],
+    "ritual_ZNK3QV411StaticValue8isNumberEv": ["bool", "address"],
+    "ritual_ZNK3QV411StaticValue20isManagedOrUndefinedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK3QV411StaticValue9isManagedEv": ["bool", "address"],
+    "ritual_ZNK3QV411StaticValue11isIntOrBoolEv": ["bool", "address"],
+    "ritual_ZNK3QV411StaticValue17integerCompatibleEv": ["bool", "address"],
+    "ritual_ZN3QV411StaticValue17integerCompatibleES0_S0_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN3QV411StaticValue10bothDoubleES0_S0_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK3QV411StaticValue5isNaNEv": ["bool", "address"],
+    "ritual_ZNK3QV411StaticValue13isPositiveIntEv": ["bool", "address"],
+    "ritual_ZNK3QV411StaticValue11doubleValueEv": ["double", "address"],
+    "ritual_ZN3QV411StaticValue9setDoubleEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN3QV411StaticValue7isInt32Ev": ["bool", "address"],
+    "ritual_ZN3QV411StaticValue7isInt32Ed": ["bool", "double"],
+    "ritual_ZNK3QV411StaticValue8asDoubleEv": ["double", "address"],
+    "ritual_ZNK3QV411StaticValue12booleanValueEv": ["bool", "address"],
+    "ritual_ZNK3QV411StaticValue12integerValueEv": ["int", "address"],
+    "ritual_ZN3QV411StaticValue20tryIntegerConversionEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK3QV411StaticValue9toBooleanEv": ["bool", "address"],
+    "ritual_ZNK3QV411StaticValue7toInt32Ev": ["int", "address"],
+    "ritual_ZNK3QV411StaticValue15asReturnedValueEv": [
+      "unsigned long long", "address"
+    ],
+    "ritual_ZN3QV411StaticValue17fromReturnedValueEy": [
+      "address", "unsigned long long"
+    ],
+    "ritual_ZN3QV411StaticValue10emptyValueEv": ["address"],
+    "ritual_ZN3QV411StaticValue11fromBooleanEb": ["address", "bool"],
+    "ritual_ZN3QV411StaticValue9fromInt32Ei": ["address", "int"],
+    "ritual_ZN3QV411StaticValue14undefinedValueEv": ["address"],
+    "ritual_ZN3QV411StaticValue9nullValueEv": ["address"],
+    "ritual_ZN3QV411StaticValue10fromDoubleEd": ["address", "double"],
+    "ritual_ZN3QV411StaticValue10fromUInt32Ej": ["address", "unsigned int"],
+    "ritual_ZN3QV411StaticValue9toIntegerEd": ["double", "double"],
+    "ritual_ZN3QV411StaticValue7toInt32Ed": ["int", "double"],
+    "ritual_ZN3QV411StaticValue8toUInt32Ed": ["unsigned int", "double"],
+    "ritual_ZN3QV411StaticValue4setMEPNS_4Heap4BaseE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN3QV411StaticValueD1Ev": ["nothing", "address"]
+  }
+}

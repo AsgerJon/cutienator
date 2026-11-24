@@ -1,0 +1,42 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/qdesigner_utils_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18qdesigner_internal29PropertySheetTranslatableData12translatableEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN18qdesigner_internal29PropertySheetTranslatableData15setTranslatableEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK18qdesigner_internal29PropertySheetTranslatableData14disambiguationEv": [
+      "text", "address"
+    ],
+    "ritual_ZN18qdesigner_internal29PropertySheetTranslatableData17setDisambiguationERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK18qdesigner_internal29PropertySheetTranslatableData7commentEv": [
+      "text", "address"
+    ],
+    "ritual_ZN18qdesigner_internal29PropertySheetTranslatableData10setCommentERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK18qdesigner_internal29PropertySheetTranslatableData2idEv": [
+      "text", "address"
+    ],
+    "ritual_ZN18qdesigner_internal29PropertySheetTranslatableData5setIdERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN18qdesigner_internaleqERKNS_29PropertySheetTranslatableDataES2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internalneERKNS_29PropertySheetTranslatableDataES2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal29PropertySheetTranslatableDataD1Ev": [
+      "nothing", "address"
+    ]
+  }
+}

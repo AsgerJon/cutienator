@@ -1,0 +1,79 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qsgrhitextureglyphcache_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN23QSGRhiTextureGlyphCacheC1EP23QSGDefaultRenderContextN11QFontEngine11GlyphFormatERK10QTransformRK6QColor": [
+      "address", "address", "int", "address", "address"
+    ],
+    "ritual_ZN23QSGRhiTextureGlyphCacheD1Ev": ["nothing", "address"],
+    "ritual_ZN23QSGRhiTextureGlyphCache17createTextureDataEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN23QSGRhiTextureGlyphCache17resizeTextureDataEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN23QSGRhiTextureGlyphCache16beginFillTextureEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QSGRhiTextureGlyphCache11fillTextureERKN18QTextureGlyphCache5CoordEjRK11QFixedPoint": [
+      "nothing", "address", "address", "unsigned int", "address"
+    ],
+    "ritual_ZN23QSGRhiTextureGlyphCache14endFillTextureEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK23QSGRhiTextureGlyphCache12glyphPaddingEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK23QSGRhiTextureGlyphCache15maxTextureWidthEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK23QSGRhiTextureGlyphCache16maxTextureHeightEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK23QSGRhiTextureGlyphCache7textureEv": ["address", "address"],
+    "ritual_ZN23QSGRhiTextureGlyphCache21commitResourceUpdatesEP23QRhiResourceUpdateBatch": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK23QSGRhiTextureGlyphCache5widthEv": ["int", "address"],
+    "ritual_ZNK23QSGRhiTextureGlyphCache6heightEv": ["int", "address"],
+    "ritual_ZNK23QSGRhiTextureGlyphCache29eightBitFormatIsAlphaSwizzledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN23QSGRhiTextureGlyphCache17prepareGlyphImageEP6QImage": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QSGRhiTextureGlyphCache18createEmptyTextureEN11QRhiTexture6FormatE": [
+      "address", "address", "int"
+    ],
+    "ritual_take_QSGRhiTextureGlyphCache": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN23QSGRhiTextureGlyphCache17createTextureDataEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZN23QSGRhiTextureGlyphCache17resizeTextureDataEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZN23QSGRhiTextureGlyphCache16beginFillTextureEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN23QSGRhiTextureGlyphCache11fillTextureERKN18QTextureGlyphCache5CoordEjRK11QFixedPoint": [
+      "nothing", "address", "address", "unsigned int", "address"
+    ],
+    "ritual_own_ZN23QSGRhiTextureGlyphCache14endFillTextureEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZNK23QSGRhiTextureGlyphCache12glyphPaddingEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZNK23QSGRhiTextureGlyphCache15maxTextureWidthEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZNK23QSGRhiTextureGlyphCache16maxTextureHeightEv": [
+      "int", "address"
+    ]
+  }
+}

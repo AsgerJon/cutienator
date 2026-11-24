@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQmlModels/6.12.0/QtQmlModels/private/qqmllistcompositor_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QQmlListCompositor15insert_iteratorC1Ev": ["address"],
+    "ritual_ZN18QQmlListCompositor15insert_iteratorC1ERKNS_8iteratorE": [
+      "address", "address"
+    ],
+    "ritual_ZN18QQmlListCompositor15insert_iteratorC1EPNS_5RangeEiNS_5GroupEi": [
+      "address", "address", "int", "int", "int"
+    ],
+    "ritual_ZN18QQmlListCompositor15insert_iteratorD1Ev": [
+      "nothing", "address"
+    ]
+  }
+}

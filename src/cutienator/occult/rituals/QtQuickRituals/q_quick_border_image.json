@@ -1,0 +1,60 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickborderimage_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QQuickBorderImage10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QQuickBorderImage2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QQuickBorderImageC1EP10QQuickItem": ["address", "address"],
+    "ritual_ZN17QQuickBorderImageD1Ev": ["nothing", "address"],
+    "ritual_ZN17QQuickBorderImage6borderEv": ["address", "address"],
+    "ritual_ZNK17QQuickBorderImage18horizontalTileModeEv": [
+      "int", "address"
+    ],
+    "ritual_ZN17QQuickBorderImage21setHorizontalTileModeENS_8TileModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK17QQuickBorderImage16verticalTileModeEv": ["int", "address"],
+    "ritual_ZN17QQuickBorderImage19setVerticalTileModeENS_8TileModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQuickBorderImage9setSourceERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QQuickBorderImage4loadEv": ["nothing", "address"],
+    "ritual_ZN17QQuickBorderImage12pixmapChangeEv": ["nothing", "address"],
+    "ritual_ZN17QQuickBorderImage15updatePaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN17QQuickBorderImage18setGridScaledImageERK21QQuickGridScaledImage": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QQuickBorderImage8doUpdateEv": ["nothing", "address"],
+    "ritual_ZN17QQuickBorderImage15requestFinishedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuickBorderImage18sciRequestFinishedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuickBorderImage6d_funcEv": ["address", "address"],
+    "ritual_ZNK17QQuickBorderImage6d_funcEv": ["address", "address"],
+    "ritual_take_QQuickBorderImage": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN17QQuickBorderImage9setSourceERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN17QQuickBorderImage4loadEv": ["nothing", "address"],
+    "ritual_own_ZN17QQuickBorderImage12pixmapChangeEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN17QQuickBorderImage15updatePaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN17QQuickBorderImage15requestFinishedEv": [
+      "nothing", "address"
+    ]
+  }
+}

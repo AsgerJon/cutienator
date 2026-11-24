@@ -1,0 +1,96 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Dialogs2QuickImpl/6.12.0/QtQuickDialogs2QuickImpl/private/qquickfo",
+    "lderbreadcrumbbar_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK25QQuickFolderBreadcrumbBar10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QQuickFolderBreadcrumbBar2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN25QQuickFolderBreadcrumbBarC1EP10QQuickItem": [
+      "address", "address"
+    ],
+    "ritual_ZNK25QQuickFolderBreadcrumbBar6dialogEv": ["address", "address"],
+    "ritual_ZN25QQuickFolderBreadcrumbBar9setDialogEP12QQuickDialog": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QQuickFolderBreadcrumbBar14buttonDelegateEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QQuickFolderBreadcrumbBar17setButtonDelegateEP13QQmlComponent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QQuickFolderBreadcrumbBar17separatorDelegateEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QQuickFolderBreadcrumbBar20setSeparatorDelegateEP13QQmlComponent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QQuickFolderBreadcrumbBar8upButtonEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QQuickFolderBreadcrumbBar11setUpButtonEP20QQuickAbstractButton": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK25QQuickFolderBreadcrumbBar15upButtonSpacingEv": [
+      "int", "address"
+    ],
+    "ritual_ZN25QQuickFolderBreadcrumbBar18setUpButtonSpacingEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN25QQuickFolderBreadcrumbBar9textFieldEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QQuickFolderBreadcrumbBar12setTextFieldEP15QQuickTextField": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QQuickFolderBreadcrumbBar5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN25QQuickFolderBreadcrumbBar13keyPressEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QQuickFolderBreadcrumbBar17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QQuickFolderBreadcrumbBar10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZNK25QQuickFolderBreadcrumbBar9isContentEP10QQuickItem": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK25QQuickFolderBreadcrumbBar11defaultFontEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK25QQuickFolderBreadcrumbBar14accessibleRoleEv": [
+      "int", "address"
+    ],
+    "ritual_ZN25QQuickFolderBreadcrumbBar6d_funcEv": ["address", "address"],
+    "ritual_ZNK25QQuickFolderBreadcrumbBar6d_funcEv": ["address", "address"],
+    "ritual_own_ZN25QQuickFolderBreadcrumbBar5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN25QQuickFolderBreadcrumbBar13keyPressEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN25QQuickFolderBreadcrumbBar17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN25QQuickFolderBreadcrumbBar10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZNK25QQuickFolderBreadcrumbBar9isContentEP10QQuickItem": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZNK25QQuickFolderBreadcrumbBar11defaultFontEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK25QQuickFolderBreadcrumbBar14accessibleRoleEv": [
+      "int", "address"
+    ]
+  }
+}

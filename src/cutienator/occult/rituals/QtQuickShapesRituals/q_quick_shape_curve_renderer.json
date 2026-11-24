@@ -1,0 +1,133 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Shapes/6.12.0/QtQuickShapes/private/qquickshapecurverenderer_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN24QQuickShapeCurveRendererC1EP10QQuickItem": [
+      "address", "address"
+    ],
+    "ritual_ZN24QQuickShapeCurveRendererD1Ev": ["nothing", "address"],
+    "ritual_ZN24QQuickShapeCurveRenderer9beginSyncEiPb": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN24QQuickShapeCurveRenderer7setPathEiRK12QPainterPath6QFlagsIN15QQuickShapePath8PathHintEE": [
+      "nothing", "address", "int", "address", "int"
+    ],
+    "ritual_ZN24QQuickShapeCurveRenderer14setStrokeColorEiRK6QColor": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN24QQuickShapeCurveRenderer14setStrokeWidthEid": [
+      "nothing", "address", "int", "double"
+    ],
+    "ritual_ZN24QQuickShapeCurveRenderer17setCosmeticStrokeEib": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZN24QQuickShapeCurveRenderer12setFillColorEiRK6QColor": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN24QQuickShapeCurveRenderer11setFillRuleEiN15QQuickShapePath8FillRuleE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN24QQuickShapeCurveRenderer12setJoinStyleEiN15QQuickShapePath9JoinStyleEi": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZN24QQuickShapeCurveRenderer11setCapStyleEiN15QQuickShapePath8CapStyleE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN24QQuickShapeCurveRenderer15setFillGradientEiP19QQuickShapeGradient": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN24QQuickShapeCurveRenderer17setStrokeGradientEiP19QQuickShapeGradient": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN24QQuickShapeCurveRenderer22setFillTextureProviderEiP10QQuickItem": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN24QQuickShapeCurveRenderer16setFillTransformEiRK12QSGTransform": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN24QQuickShapeCurveRenderer7endSyncEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK24QQuickShapeCurveRenderer5flagsEv": ["int", "address"],
+    "ritual_ZN24QQuickShapeCurveRenderer17handleSceneChangeEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QQuickShapeCurveRenderer10updateNodeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuickShapeCurveRenderer11setRootNodeEP7QSGNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QQuickShapeCurveRenderer19clearNodeReferencesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuickShapeCurveRenderer18debugVisualizationEv": ["int"],
+    "ritual_ZN24QQuickShapeCurveRenderer21setDebugVisualizationEi": [
+      "nothing", "int"
+    ],
+    "ritual_ZN24QQuickShapeCurveRenderer20maybeUpdateAsyncItemEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuickShapeCurveRenderer12addFillNodesERK9QQuadPath": [
+      "address", "address"
+    ],
+    "ritual_ZN24QQuickShapeCurveRenderer28addTriangulatingStrokerNodesERK9QQuadPathRK4QPen": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN24QQuickShapeCurveRenderer19addCurveStrokeNodesERK9QQuadPathRK4QPen": [
+      "address", "address", "address"
+    ],
+    "ritual_take_QQuickShapeCurveRenderer": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN24QQuickShapeCurveRenderer7setPathEiRK12QPainterPath6QFlagsIN15QQuickShapePath8PathHintEE": [
+      "nothing", "address", "int", "address", "int"
+    ],
+    "ritual_own_ZN24QQuickShapeCurveRenderer14setStrokeColorEiRK6QColor": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZN24QQuickShapeCurveRenderer14setStrokeWidthEid": [
+      "nothing", "address", "int", "double"
+    ],
+    "ritual_own_ZN24QQuickShapeCurveRenderer17setCosmeticStrokeEib": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_own_ZN24QQuickShapeCurveRenderer12setFillColorEiRK6QColor": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZN24QQuickShapeCurveRenderer11setFillRuleEiN15QQuickShapePath8FillRuleE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZN24QQuickShapeCurveRenderer12setJoinStyleEiN15QQuickShapePath9JoinStyleEi": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_own_ZN24QQuickShapeCurveRenderer11setCapStyleEiN15QQuickShapePath8CapStyleE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZN24QQuickShapeCurveRenderer15setFillGradientEiP19QQuickShapeGradient": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZN24QQuickShapeCurveRenderer17setStrokeGradientEiP19QQuickShapeGradient": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZN24QQuickShapeCurveRenderer22setFillTextureProviderEiP10QQuickItem": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZN24QQuickShapeCurveRenderer16setFillTransformEiRK12QSGTransform": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZN24QQuickShapeCurveRenderer7endSyncEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZNK24QQuickShapeCurveRenderer5flagsEv": ["int", "address"],
+    "ritual_own_ZN24QQuickShapeCurveRenderer17handleSceneChangeEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN24QQuickShapeCurveRenderer10updateNodeEv": [
+      "nothing", "address"
+    ]
+  }
+}

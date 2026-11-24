@@ -6,6 +6,8 @@
   "rows": {
     "ritual_ZNK9QShortcut10metaObjectEv": ["address", "address"],
     "ritual_ZN9QShortcut2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN9QShortcut6d_funcEv": ["address", "address"],
+    "ritual_ZNK9QShortcut6d_funcEv": ["address", "address"],
     "ritual_ZN9QShortcutC1EP7QObject": ["address", "address"],
     "ritual_ZN9QShortcutC1ERK12QKeySequenceP7QObjectPKcS6_N2Qt15ShortcutContextE": [
       "address", "address", "address", "chars", "chars", "int"

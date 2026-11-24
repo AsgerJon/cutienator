@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtOpenGL/6.12.0/QtOpenGL/private/qopenglframebufferobject_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN31QOpenGLFramebufferObjectPrivate15ColorAttachmentC1Ev": [
+      "address"
+    ],
+    "ritual_ZN31QOpenGLFramebufferObjectPrivate15ColorAttachmentC1ERK5QSizej": [
+      "address", "address", "unsigned int"
+    ],
+    "ritual_ZN31QOpenGLFramebufferObjectPrivate15ColorAttachmentD1Ev": [
+      "nothing", "address"
+    ]
+  }
+}

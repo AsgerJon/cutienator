@@ -1,0 +1,54 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQmlCompiler/6.12.0/QtQmlCompiler/private/qqmlsa_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN6QQmlSA19GenericPropertyPass16onBindingDefaultEPNS_12PropertyPassERKNS_7ElementERK7QStringRKNS_7BindingES5_S5_": [
+      "nothing", "address", "address", "text", "address", "address",
+      "address"
+    ],
+    "ritual_ZN6QQmlSA19GenericPropertyPass13onReadDefaultEPNS_12PropertyPassERKNS_7ElementERK7QStringS5_NS_14SourceLocationE": [
+      "nothing", "address", "address", "text", "address", "address"
+    ],
+    "ritual_ZN6QQmlSA19GenericPropertyPass13onCallDefaultEPNS_12PropertyPassERKNS_7ElementERK7QStringS5_NS_14SourceLocationE": [
+      "nothing", "address", "address", "text", "address", "address"
+    ],
+    "ritual_ZN6QQmlSA19GenericPropertyPass14onWriteDefaultEPNS_12PropertyPassERKNS_7ElementERK7QStringS5_S5_NS_14SourceLocationE": [
+      "nothing", "address", "address", "text", "address", "address",
+      "address"
+    ],
+    "ritual_ZN6QQmlSA19GenericPropertyPass9onBindingERKNS_7ElementERK7QStringRKNS_7BindingES3_S3_": [
+      "nothing", "address", "address", "text", "address", "address",
+      "address"
+    ],
+    "ritual_ZN6QQmlSA19GenericPropertyPass6onReadERKNS_7ElementERK7QStringS3_NS_14SourceLocationE": [
+      "nothing", "address", "address", "text", "address", "address"
+    ],
+    "ritual_ZN6QQmlSA19GenericPropertyPass6onCallERKNS_7ElementERK7QStringS3_NS_14SourceLocationE": [
+      "nothing", "address", "address", "text", "address", "address"
+    ],
+    "ritual_ZN6QQmlSA19GenericPropertyPass7onWriteERKNS_7ElementERK7QStringS3_S3_NS_14SourceLocationE": [
+      "nothing", "address", "address", "text", "address", "address",
+      "address"
+    ],
+    "ritual_take_QQmlSA_GenericPropertyPass": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN6QQmlSA19GenericPropertyPass9onBindingERKNS_7ElementERK7QStringRKNS_7BindingES3_S3_": [
+      "nothing", "address", "address", "text", "address", "address",
+      "address"
+    ],
+    "ritual_own_ZN6QQmlSA19GenericPropertyPass6onReadERKNS_7ElementERK7QStringS3_NS_14SourceLocationE": [
+      "nothing", "address", "address", "text", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlSA19GenericPropertyPass6onCallERKNS_7ElementERK7QStringS3_NS_14SourceLocationE": [
+      "nothing", "address", "address", "text", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlSA19GenericPropertyPass7onWriteERKNS_7ElementERK7QStringS3_S3_NS_14SourceLocationE": [
+      "nothing", "address", "address", "text", "address", "address",
+      "address"
+    ]
+  }
+}

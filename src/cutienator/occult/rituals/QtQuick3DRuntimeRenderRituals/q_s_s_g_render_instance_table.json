@@ -1,0 +1,49 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgrenderin",
+    "stancetable_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN23QSSGRenderInstanceTableC1Ev": ["address"],
+    "ritual_ZNK23QSSGRenderInstanceTable5countEv": ["int", "address"],
+    "ritual_ZNK23QSSGRenderInstanceTable8dataSizeEv": [
+      "long long", "address"
+    ],
+    "ritual_ZN23QSSGRenderInstanceTable7setDataERK10QByteArrayii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN23QSSGRenderInstanceTable24setInstanceCountOverrideEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK23QSSGRenderInstanceTable6serialEv": ["int", "address"],
+    "ritual_ZNK23QSSGRenderInstanceTable6strideEv": ["int", "address"],
+    "ritual_ZN23QSSGRenderInstanceTable15hasTransparencyEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN23QSSGRenderInstanceTable18setHasTransparencyEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN23QSSGRenderInstanceTable15setDepthSortingEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN23QSSGRenderInstanceTable21isDepthSortingEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK23QSSGRenderInstanceTable12getTransformEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN23QSSGRenderInstanceTable22setShadowBoundsMinimumERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QSSGRenderInstanceTable22setShadowBoundsMaximumERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK23QSSGRenderInstanceTable22getShadowBoundsMinimumEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK23QSSGRenderInstanceTable22getShadowBoundsMaximumEv": [
+      "address", "address"
+    ]
+  }
+}

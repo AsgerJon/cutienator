@@ -1,0 +1,70 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLocation/6.12.0/QtLocation/private/qgeoprojection_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN14QGeoProjectionD1Ev": ["nothing", "address"],
+    "ritual_ZN14QGeoProjection14setVisibleAreaERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QGeoProjection15setViewportSizeERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QGeoProjection13setCameraDataERK14QGeoCameraDatab": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZNK14QGeoProjection10cameraDataEv": ["address", "address"],
+    "ritual_ZNK14QGeoProjection11minimumZoomEv": ["double", "address"],
+    "ritual_ZNK14QGeoProjection27maximumCenterLatitudeAtZoomERK14QGeoCameraData": [
+      "double", "address", "address"
+    ],
+    "ritual_ZNK14QGeoProjection27minimumCenterLatitudeAtZoomERK14QGeoCameraData": [
+      "double", "address", "address"
+    ],
+    "ritual_ZNK14QGeoProjection24itemPositionToCoordinateERK15QDoubleVector2Db": [
+      "address", "address", "address", "bool"
+    ],
+    "ritual_ZNK14QGeoProjection24coordinateToItemPositionERK14QGeoCoordinateb": [
+      "address", "address", "address", "bool"
+    ],
+    "ritual_ZNK14QGeoProjection15projectionGroupEv": ["int", "address"],
+    "ritual_ZNK14QGeoProjection5datumEv": ["int", "address"],
+    "ritual_ZNK14QGeoProjection14projectionTypeEv": ["int", "address"],
+    "ritual_ZNK14QGeoProjection23anchorCoordinateToPointERK14QGeoCoordinateRK7QPointF": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK14QGeoProjection13visibleRegionEv": ["address", "address"],
+    "ritual_ZN14QGeoProjection10setBearingEdRK14QGeoCoordinate": [
+      "bool", "address", "double", "address"
+    ],
+    "ritual_ZNK14QGeoProjection24projectionTransformationEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK14QGeoProjection33projectionTransformation_centeredEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK14QGeoProjection12qsgTransformEv": ["address", "address"],
+    "ritual_ZNK14QGeoProjection14centerMercatorEv": ["address", "address"],
+    "ritual_ZN14QGeoProjection24setItemToWindowTransformERK10QTransform": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QGeoProjection21itemToWindowTransformEv": [
+      "address", "address"
+    ],
+    "ritual_take_QGeoProjection": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK14QGeoProjection23anchorCoordinateToPointERK14QGeoCoordinateRK7QPointF": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_own_ZNK14QGeoProjection13visibleRegionEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN14QGeoProjection10setBearingEdRK14QGeoCoordinate": [
+      "bool", "address", "double", "address"
+    ],
+    "ritual_own_ZNK14QGeoProjection21itemToWindowTransformEv": [
+      "address", "address"
+    ]
+  }
+}

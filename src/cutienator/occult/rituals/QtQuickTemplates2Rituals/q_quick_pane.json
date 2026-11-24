@@ -1,0 +1,42 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuickTemplates2/6.12.0/QtQuickTemplates2/private/qquickpane_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK10QQuickPane10metaObjectEv": ["address", "address"],
+    "ritual_ZN10QQuickPane2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN10QQuickPaneC1EP10QQuickItem": ["address", "address"],
+    "ritual_ZN10QQuickPaneD1Ev": ["nothing", "address"],
+    "ritual_ZNK10QQuickPane12contentWidthEv": ["double", "address"],
+    "ritual_ZN10QQuickPane15setContentWidthEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN10QQuickPane17resetContentWidthEv": ["nothing", "address"],
+    "ritual_ZNK10QQuickPane13contentHeightEv": ["double", "address"],
+    "ritual_ZN10QQuickPane16setContentHeightEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN10QQuickPane18resetContentHeightEv": ["nothing", "address"],
+    "ritual_ZN10QQuickPane17componentCompleteEv": ["nothing", "address"],
+    "ritual_ZN10QQuickPane17contentItemChangeEP10QQuickItemS1_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN10QQuickPane17contentSizeChangeERK6QSizeFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK10QQuickPane14accessibleRoleEv": ["int", "address"],
+    "ritual_ZN10QQuickPane6d_funcEv": ["address", "address"],
+    "ritual_ZNK10QQuickPane6d_funcEv": ["address", "address"],
+    "ritual_take_QQuickPane": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN10QQuickPane17componentCompleteEv": ["nothing", "address"],
+    "ritual_own_ZN10QQuickPane17contentItemChangeEP10QQuickItemS1_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN10QQuickPane17contentSizeChangeERK6QSizeFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZNK10QQuickPane14accessibleRoleEv": ["int", "address"]
+  }
+}

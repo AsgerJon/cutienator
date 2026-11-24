@@ -1,0 +1,26 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtPositioning/6.12.0/QtPositioning/private/qgeopolygon_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN23QGeoPolygonPrivateEagerC1Ev": ["address"],
+    "ritual_ZN23QGeoPolygonPrivateEagerC1ERK5QListI14QGeoCoordinateE": [
+      "address", "address"
+    ],
+    "ritual_ZN23QGeoPolygonPrivateEagerC1ERKS_": ["address", "address"],
+    "ritual_ZN23QGeoPolygonPrivateEagerD1Ev": ["nothing", "address"],
+    "ritual_ZNK23QGeoPolygonPrivateEager5cloneEv": ["address", "address"],
+    "ritual_ZN23QGeoPolygonPrivateEager9translateEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN23QGeoPolygonPrivateEager9markDirtyEv": ["nothing", "address"],
+    "ritual_ZN23QGeoPolygonPrivateEager13addCoordinateERK14QGeoCoordinate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QGeoPolygonPrivateEager17updateBoundingBoxEv": [
+      "nothing", "address"
+    ]
+  }
+}

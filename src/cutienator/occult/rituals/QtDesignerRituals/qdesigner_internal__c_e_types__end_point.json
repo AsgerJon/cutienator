@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/connectionedit_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18qdesigner_internal7CETypes8EndPointC1EPNS_10ConnectionENS1_4TypeE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK18qdesigner_internal7CETypes8EndPoint6isNullEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal7CETypes8EndPointeqERKS1_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal7CETypes8EndPointneERKS1_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal7CETypes8EndPointD1Ev": [
+      "nothing", "address"
+    ]
+  }
+}

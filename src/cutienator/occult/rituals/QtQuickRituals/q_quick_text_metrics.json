@@ -1,0 +1,42 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquicktextmetrics_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QQuickTextMetrics10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QQuickTextMetrics2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QQuickTextMetricsC1EP7QObject": ["address", "address"],
+    "ritual_ZNK17QQuickTextMetrics4fontEv": ["address", "address"],
+    "ritual_ZN17QQuickTextMetrics7setFontERK5QFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QQuickTextMetrics4textEv": ["text", "address"],
+    "ritual_ZN17QQuickTextMetrics7setTextERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK17QQuickTextMetrics5elideEv": ["int", "address"],
+    "ritual_ZN17QQuickTextMetrics8setElideEN2Qt13TextElideModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK17QQuickTextMetrics10elideWidthEv": ["double", "address"],
+    "ritual_ZN17QQuickTextMetrics13setElideWidthEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK17QQuickTextMetrics12advanceWidthEv": ["double", "address"],
+    "ritual_ZNK17QQuickTextMetrics12boundingRectEv": ["address", "address"],
+    "ritual_ZNK17QQuickTextMetrics5widthEv": ["double", "address"],
+    "ritual_ZNK17QQuickTextMetrics6heightEv": ["double", "address"],
+    "ritual_ZNK17QQuickTextMetrics17tightBoundingRectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK17QQuickTextMetrics10elidedTextEv": ["text", "address"],
+    "ritual_ZNK17QQuickTextMetrics10renderTypeEv": ["int", "address"],
+    "ritual_ZN17QQuickTextMetrics13setRenderTypeEN10QQuickText10RenderTypeE": [
+      "nothing", "address", "int"
+    ]
+  }
+}

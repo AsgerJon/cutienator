@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/6.12.0/QtNetwork/private/qhttpthreaddelegate_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK19QHttpThreadDelegate10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QHttpThreadDelegateD1Ev": ["nothing", "address"],
+    "ritual_ZN19QHttpThreadDelegate12abortRequestEv": ["nothing", "address"],
+    "ritual_ZN19QHttpThreadDelegate21readBufferSizeChangedEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN19QHttpThreadDelegate15readBufferFreedEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN19QHttpThreadDelegate32synchronousFinishedWithErrorSlotEN13QNetworkReply12NetworkErrorERK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZN19QHttpThreadDelegate28synchronousHeaderChangedSlotEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QHttpThreadDelegate": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

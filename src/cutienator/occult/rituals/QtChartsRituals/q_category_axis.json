@@ -1,0 +1,41 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/qcategoryaxis.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK13QCategoryAxis10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QCategoryAxis2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN13QCategoryAxisC1EP7QObject": ["address", "address"],
+    "ritual_ZN13QCategoryAxisD1Ev": ["nothing", "address"],
+    "ritual_ZNK13QCategoryAxis4typeEv": ["int", "address"],
+    "ritual_ZN13QCategoryAxis6appendERK7QStringd": [
+      "nothing", "address", "text", "double"
+    ],
+    "ritual_ZN13QCategoryAxis6removeERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN13QCategoryAxis12replaceLabelERK7QStringS2_": [
+      "nothing", "address", "text", "text"
+    ],
+    "ritual_ZNK13QCategoryAxis10startValueERK7QString": [
+      "double", "address", "text"
+    ],
+    "ritual_ZN13QCategoryAxis13setStartValueEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK13QCategoryAxis8endValueERK7QString": [
+      "double", "address", "text"
+    ],
+    "ritual_ZN13QCategoryAxis16categoriesLabelsEv": ["address", "address"],
+    "ritual_ZNK13QCategoryAxis5countEv": ["int", "address"],
+    "ritual_ZNK13QCategoryAxis14labelsPositionEv": ["int", "address"],
+    "ritual_ZN13QCategoryAxis17setLabelsPositionENS_18AxisLabelsPositionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN13QCategoryAxis6d_funcEv": ["address", "address"],
+    "ritual_ZNK13QCategoryAxis6d_funcEv": ["address", "address"],
+    "ritual_take_QCategoryAxis": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK13QCategoryAxis4typeEv": ["int", "address"]
+  }
+}

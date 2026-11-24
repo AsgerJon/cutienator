@@ -1,0 +1,86 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickshadereffect_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18QQuickShaderEffect10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QQuickShaderEffect2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18QQuickShaderEffectC1EP10QQuickItem": ["address", "address"],
+    "ritual_ZN18QQuickShaderEffectD1Ev": ["nothing", "address"],
+    "ritual_ZNK18QQuickShaderEffect14fragmentShaderEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18QQuickShaderEffect17setFragmentShaderERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QQuickShaderEffect12vertexShaderEv": ["address", "address"],
+    "ritual_ZN18QQuickShaderEffect15setVertexShaderERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QQuickShaderEffect8blendingEv": ["bool", "address"],
+    "ritual_ZN18QQuickShaderEffect11setBlendingEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK18QQuickShaderEffect4meshEv": ["address", "address"],
+    "ritual_ZN18QQuickShaderEffect7setMeshERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QQuickShaderEffect8cullModeEv": ["int", "address"],
+    "ritual_ZN18QQuickShaderEffect11setCullModeENS_8CullModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK18QQuickShaderEffect21supportsAtlasTexturesEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN18QQuickShaderEffect24setSupportsAtlasTexturesEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK18QQuickShaderEffect3logEv": ["text", "address"],
+    "ritual_ZNK18QQuickShaderEffect6statusEv": ["int", "address"],
+    "ritual_ZNK18QQuickShaderEffect19isComponentCompleteEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN18QQuickShaderEffect18updateUniformValueERK10QByteArrayRK8QVariant": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN18QQuickShaderEffect5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN18QQuickShaderEffect14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN18QQuickShaderEffect15updatePaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN18QQuickShaderEffect17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickShaderEffect10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN18QQuickShaderEffect6d_funcEv": ["address", "address"],
+    "ritual_ZNK18QQuickShaderEffect6d_funcEv": ["address", "address"],
+    "ritual_take_QQuickShaderEffect": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN18QQuickShaderEffect5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN18QQuickShaderEffect14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN18QQuickShaderEffect15updatePaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN18QQuickShaderEffect17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN18QQuickShaderEffect10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ]
+  }
+}

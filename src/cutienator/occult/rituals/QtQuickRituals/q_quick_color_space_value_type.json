@@ -1,0 +1,42 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickvaluetypes_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN25QQuickColorSpaceValueType22qt_qmlMarker_anonymousEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QQuickColorSpaceValueType20qt_qmlMarker_foreignEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QQuickColorSpaceValueType21qt_qmlMarker_extendedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QQuickColorSpaceValueType6createERK8QJSValue": [
+      "address", "address"
+    ],
+    "ritual_ZNK25QQuickColorSpaceValueType15namedColorSpaceEv": [
+      "int", "address"
+    ],
+    "ritual_ZN25QQuickColorSpaceValueType18setNamedColorSpaceEN21QQuickColorSpaceEnums15NamedColorSpaceE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK25QQuickColorSpaceValueType9primariesEv": ["int", "address"],
+    "ritual_ZN25QQuickColorSpaceValueType12setPrimariesEN21QQuickColorSpaceEnums9PrimariesE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK25QQuickColorSpaceValueType16transferFunctionEv": [
+      "int", "address"
+    ],
+    "ritual_ZN25QQuickColorSpaceValueType19setTransferFunctionEN21QQuickColorSpaceEnums16TransferFunctionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK25QQuickColorSpaceValueType5gammaEv": ["float", "address"],
+    "ritual_ZN25QQuickColorSpaceValueType8setGammaEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN25QQuickColorSpaceValueTypeD1Ev": ["nothing", "address"]
+  }
+}

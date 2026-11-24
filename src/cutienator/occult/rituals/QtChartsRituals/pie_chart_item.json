@@ -1,0 +1,82 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/6.12.0/QtCharts/private/piechartitem_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK12PieChartItem10metaObjectEv": ["address", "address"],
+    "ritual_ZN12PieChartItem2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN12PieChartItemC1EP10QPieSeriesP13QGraphicsItem": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN12PieChartItemD1Ev": ["nothing", "address"],
+    "ritual_ZNK12PieChartItem12boundingRectEv": ["address", "address"],
+    "ritual_ZN12PieChartItem5paintEP8QPainterPK24QStyleOptionGraphicsItemP7QWidget": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK12PieChartItem9animationEv": ["address", "address"],
+    "ritual_ZN12PieChartItem15hoverEnterEventEP24QGraphicsSceneHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12PieChartItem15hoverLeaveEventEP24QGraphicsSceneHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12PieChartItem15mousePressEventEP24QGraphicsSceneMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12PieChartItem17mouseReleaseEventEP24QGraphicsSceneMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12PieChartItem21mouseDoubleClickEventEP24QGraphicsSceneMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12PieChartItem19handleDomainUpdatedEv": ["nothing", "address"],
+    "ritual_ZN12PieChartItem12updateLayoutEv": ["nothing", "address"],
+    "ritual_ZN12PieChartItem17handleSlicesAddedERK5QListIP9QPieSliceE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12PieChartItem19handleSlicesRemovedERK5QListIP9QPieSliceE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12PieChartItem18handleSliceChangedEv": ["nothing", "address"],
+    "ritual_ZN12PieChartItem26handleSeriesVisibleChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN12PieChartItem20handleOpacityChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN12PieChartItem12setAnimationEP12PieAnimation": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12PieChartItem7cleanupEv": ["nothing", "address"],
+    "ritual_ZN12PieChartItem19updateSliceGeometryEP9QPieSlice": [
+      "address", "address", "address"
+    ],
+    "ritual_take_PieChartItem": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK12PieChartItem12boundingRectEv": ["address", "address"],
+    "ritual_own_ZN12PieChartItem5paintEP8QPainterPK24QStyleOptionGraphicsItemP7QWidget": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZNK12PieChartItem9animationEv": ["address", "address"],
+    "ritual_own_ZN12PieChartItem15hoverEnterEventEP24QGraphicsSceneHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN12PieChartItem15hoverLeaveEventEP24QGraphicsSceneHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN12PieChartItem15mousePressEventEP24QGraphicsSceneMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN12PieChartItem17mouseReleaseEventEP24QGraphicsSceneMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN12PieChartItem21mouseDoubleClickEventEP24QGraphicsSceneMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN12PieChartItem19handleDomainUpdatedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN12PieChartItem7cleanupEv": ["nothing", "address"]
+  }
+}

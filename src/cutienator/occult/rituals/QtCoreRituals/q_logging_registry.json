@@ -1,0 +1,20 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qloggingregistry_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN16QLoggingRegistry16registerCategoryEP16QLoggingCategory9QtMsgType": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN16QLoggingRegistry18unregisterCategoryEP16QLoggingCategory": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QLoggingRegistry38registerEnvironmentOverrideForCategoryEPKcS1_": [
+      "nothing", "address", "chars", "chars"
+    ],
+    "ritual_ZN16QLoggingRegistry8instanceEv": ["address"],
+    "ritual_ZN16QLoggingRegistry11updateRulesEv": ["nothing", "address"]
+  }
+}

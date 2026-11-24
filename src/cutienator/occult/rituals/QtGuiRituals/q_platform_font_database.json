@@ -1,0 +1,109 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/qpa/qplatformfontdatabase.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN21QPlatformFontDatabaseD1Ev": ["nothing", "address"],
+    "ritual_ZN21QPlatformFontDatabase20populateFontDatabaseEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QPlatformFontDatabase21populateFamilyAliasesERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN21QPlatformFontDatabase14populateFamilyERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN21QPlatformFontDatabase10invalidateEv": ["nothing", "address"],
+    "ritual_ZNK21QPlatformFontDatabase18fallbacksForFamilyERK7QStringN5QFont5StyleENS3_9StyleHintEN20QFontDatabasePrivate14ExtendedScriptE": [
+      "address", "address", "text", "int", "int", "int"
+    ],
+    "ritual_ZN21QPlatformFontDatabase18addApplicationFontERK10QByteArrayRK7QStringPN20QFontDatabasePrivate15ApplicationFontE": [
+      "address", "address", "address", "text", "address"
+    ],
+    "ritual_ZN21QPlatformFontDatabase10fontEngineERK10QByteArraydN5QFont17HintingPreferenceE": [
+      "address", "address", "address", "double", "int"
+    ],
+    "ritual_ZN21QPlatformFontDatabase15fontEngineMultiEP11QFontEngineN20QFontDatabasePrivate14ExtendedScriptE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZNK21QPlatformFontDatabase7fontDirEv": ["text", "address"],
+    "ritual_ZNK21QPlatformFontDatabase11defaultFontEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK21QPlatformFontDatabase19isPrivateFontFamilyERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZNK21QPlatformFontDatabase22resolveFontFamilyAliasERK7QString": [
+      "text", "address", "text"
+    ],
+    "ritual_ZNK21QPlatformFontDatabase19fontsAlwaysScalableEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK21QPlatformFontDatabase32supportsVariableApplicationFontsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK21QPlatformFontDatabase19supportsColrv0FontsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QPlatformFontDatabase30writingSystemsFromTrueTypeBitsEPjS0_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN21QPlatformFontDatabase26writingSystemsFromOS2TableEPKcm": [
+      "address", "chars", "size_t"
+    ],
+    "ritual_ZN21QPlatformFontDatabase18registerFontFamilyERK7QString": [
+      "nothing", "text"
+    ],
+    "ritual_ZN21QPlatformFontDatabase25registerAliasToFontFamilyERK7QStringS2_": [
+      "nothing", "text", "text"
+    ],
+    "ritual_ZN21QPlatformFontDatabase22repopulateFontDatabaseEv": [
+      "nothing"
+    ],
+    "ritual_ZN21QPlatformFontDatabase17isFamilyPopulatedERK7QString": [
+      "bool", "text"
+    ],
+    "ritual_take_QPlatformFontDatabase": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN21QPlatformFontDatabase20populateFontDatabaseEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN21QPlatformFontDatabase21populateFamilyAliasesERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_own_ZN21QPlatformFontDatabase14populateFamilyERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_own_ZN21QPlatformFontDatabase10invalidateEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN21QPlatformFontDatabase10fontEngineERK10QByteArraydN5QFont17HintingPreferenceE": [
+      "address", "address", "address", "double", "int"
+    ],
+    "ritual_own_ZN21QPlatformFontDatabase15fontEngineMultiEP11QFontEngineN20QFontDatabasePrivate14ExtendedScriptE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_own_ZNK21QPlatformFontDatabase7fontDirEv": ["text", "address"],
+    "ritual_own_ZNK21QPlatformFontDatabase11defaultFontEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK21QPlatformFontDatabase19isPrivateFontFamilyERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_own_ZNK21QPlatformFontDatabase22resolveFontFamilyAliasERK7QString": [
+      "text", "address", "text"
+    ],
+    "ritual_own_ZNK21QPlatformFontDatabase19fontsAlwaysScalableEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZNK21QPlatformFontDatabase32supportsVariableApplicationFontsEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZNK21QPlatformFontDatabase19supportsColrv0FontsEv": [
+      "bool", "address"
+    ]
+  }
+}

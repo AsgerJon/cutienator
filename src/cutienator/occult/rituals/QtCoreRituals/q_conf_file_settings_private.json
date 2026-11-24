@@ -1,0 +1,49 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qsettings_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN24QConfFileSettingsPrivate6removeERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN24QConfFileSettingsPrivate3setERK7QStringRK8QVariant": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZNK24QConfFileSettingsPrivate8childrenERK7QStringN16QSettingsPrivate9ChildSpecE": [
+      "address", "address", "text", "int"
+    ],
+    "ritual_ZN24QConfFileSettingsPrivate5clearEv": ["nothing", "address"],
+    "ritual_ZN24QConfFileSettingsPrivate4syncEv": ["nothing", "address"],
+    "ritual_ZN24QConfFileSettingsPrivate5flushEv": ["nothing", "address"],
+    "ritual_ZNK24QConfFileSettingsPrivate10isWritableEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK24QConfFileSettingsPrivate8fileNameEv": ["text", "address"],
+    "ritual_ZNK24QConfFileSettingsPrivate12getConfFilesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QConfFileSettingsPrivate10initAccessEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QConfFileSettingsPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN24QConfFileSettingsPrivate3setERK7QStringRK8QVariant": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_own_ZN24QConfFileSettingsPrivate5flushEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZNK24QConfFileSettingsPrivate10isWritableEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZNK24QConfFileSettingsPrivate8fileNameEv": [
+      "text", "address"
+    ],
+    "ritual_own_ZN24QConfFileSettingsPrivate10initAccessEv": [
+      "nothing", "address"
+    ]
+  }
+}

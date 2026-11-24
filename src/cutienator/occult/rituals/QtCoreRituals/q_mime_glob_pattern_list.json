@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qmimeglobpattern_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK20QMimeGlobPatternList10hasPatternE11QStringViewS0_": [
+      "bool", "address", "text", "text"
+    ],
+    "ritual_ZN20QMimeGlobPatternList14removeMimeTypeE11QStringView": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN20QMimeGlobPatternListD1Ev": ["nothing", "address"]
+  }
+}

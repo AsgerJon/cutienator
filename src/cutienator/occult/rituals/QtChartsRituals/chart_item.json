@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/6.12.0/QtCharts/private/chartitem_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK9ChartItem10metaObjectEv": ["address", "address"],
+    "ritual_ZN9ChartItem2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZNK9ChartItem6domainEv": ["address", "address"],
+    "ritual_ZN9ChartItem7cleanupEv": ["nothing", "address"],
+    "ritual_ZNK9ChartItem13seriesPrivateEv": ["address", "address"],
+    "ritual_ZN9ChartItem19handleDomainUpdatedEv": ["nothing", "address"],
+    "ritual_own_ZN9ChartItem7cleanupEv": ["nothing", "address"],
+    "ritual_own_ZN9ChartItem19handleDomainUpdatedEv": ["nothing", "address"],
+    "ritual_list_make_ChartItem_ptr": ["address"],
+    "ritual_list_add_ChartItem_ptr": ["nothing", "address", "address"],
+    "ritual_list_size_ChartItem_ptr": ["long long", "address"],
+    "ritual_list_at_ChartItem_ptr": ["address", "address", "long long"],
+    "ritual_list_drop_ChartItem_ptr": ["nothing", "address"]
+  }
+}

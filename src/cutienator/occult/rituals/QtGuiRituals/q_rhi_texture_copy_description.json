@@ -1,0 +1,53 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/rhi/qrhi.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN26QRhiTextureCopyDescriptionC1Ev": ["address"],
+    "ritual_ZNK26QRhiTextureCopyDescription9pixelSizeEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QRhiTextureCopyDescription12setPixelSizeERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK26QRhiTextureCopyDescription11sourceLayerEv": [
+      "int", "address"
+    ],
+    "ritual_ZN26QRhiTextureCopyDescription14setSourceLayerEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK26QRhiTextureCopyDescription11sourceLevelEv": [
+      "int", "address"
+    ],
+    "ritual_ZN26QRhiTextureCopyDescription14setSourceLevelEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK26QRhiTextureCopyDescription13sourceTopLeftEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QRhiTextureCopyDescription16setSourceTopLeftERK6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK26QRhiTextureCopyDescription16destinationLayerEv": [
+      "int", "address"
+    ],
+    "ritual_ZN26QRhiTextureCopyDescription19setDestinationLayerEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK26QRhiTextureCopyDescription16destinationLevelEv": [
+      "int", "address"
+    ],
+    "ritual_ZN26QRhiTextureCopyDescription19setDestinationLevelEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK26QRhiTextureCopyDescription18destinationTopLeftEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QRhiTextureCopyDescription21setDestinationTopLeftERK6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QRhiTextureCopyDescriptionD1Ev": ["nothing", "address"]
+  }
+}

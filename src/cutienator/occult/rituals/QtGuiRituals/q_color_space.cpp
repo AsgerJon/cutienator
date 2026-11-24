@@ -283,6 +283,7 @@ bool ritual_ZNK11QColorSpace6equalsERKS_(
   return self->equals(*other);
 }
 
+#if !defined(QT_NO_DEBUG_STREAM)
 //  QDebug operator<<(QDebug dbg, const QColorSpace &colorSpace)
 extern "C" Q_DECL_EXPORT
 QDebug *ritual_Zls6QDebugRK11QColorSpace(
@@ -290,3 +291,4 @@ QDebug *ritual_Zls6QDebugRK11QColorSpace(
     const QColorSpace *colorSpace) {
   return new QDebug(operator<<(*dbg, *colorSpace));
 }
+#endif  // !defined(QT_NO_DEBUG_STREAM)

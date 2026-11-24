@@ -1,0 +1,48 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DParticles/6.12.0/QtQuick3DParticles/private/qquick3dparticlepoin",
+    "trotator_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK28QQuick3DParticlePointRotator10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QQuick3DParticlePointRotator2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN28QQuick3DParticlePointRotatorC1EP12QQuick3DNode": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QQuick3DParticlePointRotator9magnitudeEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK28QQuick3DParticlePointRotator9directionEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QQuick3DParticlePointRotator10pivotPointEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QQuick3DParticlePointRotator12setMagnitudeEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN28QQuick3DParticlePointRotator12setDirectionERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QQuick3DParticlePointRotator13setPivotPointERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QQuick3DParticlePointRotator15prepareToAffectEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QQuick3DParticlePointRotator14affectParticleERK20QQuick3DParticleDataP27QQuick3DParticleDataCurrentf": [
+      "nothing", "address", "address", "address", "float"
+    ],
+    "ritual_own_ZN28QQuick3DParticlePointRotator15prepareToAffectEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN28QQuick3DParticlePointRotator14affectParticleERK20QQuick3DParticleDataP27QQuick3DParticleDataCurrentf": [
+      "nothing", "address", "address", "address", "float"
+    ]
+  }
+}

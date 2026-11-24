@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmljsast_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_take_QQmlJS_AST_ClassDeclaration": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST16ClassDeclaration7accept0EPNS0_11BaseVisitorE": [
+      "nothing", "address", "address"
+    ]
+  }
+}

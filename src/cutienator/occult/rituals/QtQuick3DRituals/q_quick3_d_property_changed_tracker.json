@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3D/6.12.0/QtQuick3D/private/qquick3dshaderutils_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN30QQuick3DPropertyChangedTrackerD1Ev": ["nothing", "address"],
+    "ritual_ZN30QQuick3DPropertyChangedTracker18addPropertyWatcherE13QMetaPropertyNS_17DirtyPropertyHintEP14QQuick3DObject": [
+      "nothing", "address", "address", "int", "address"
+    ],
+    "ritual_ZN30QQuick3DPropertyChangedTracker24markTrackedPropertyDirtyE13QMetaPropertyNS_17DirtyPropertyHintE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_take_QQuick3DPropertyChangedTracker": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

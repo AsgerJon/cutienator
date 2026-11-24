@@ -1,0 +1,30 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgrendersh",
+    "adercache_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QSSGShaderFeatures14asDefineStringENS_7FeatureE": [
+      "chars", "unsigned int"
+    ],
+    "ritual_ZN18QSSGShaderFeatures9fromIndexEj": [
+      "unsigned int", "unsigned int"
+    ],
+    "ritual_ZNK18QSSGShaderFeatures6isNullEv": ["bool", "address"],
+    "ritual_ZNK18QSSGShaderFeatures5isSetENS_7FeatureE": [
+      "bool", "address", "unsigned int"
+    ],
+    "ritual_ZN18QSSGShaderFeatures3setENS_7FeatureEb": [
+      "nothing", "address", "unsigned int", "bool"
+    ],
+    "ritual_Zeq18QSSGShaderFeaturesS_": ["bool", "address", "address"],
+    "ritual_ZN18QSSGShaderFeatures18disableTonemappingEv": [
+      "nothing", "address"
+    ],
+    "ritual_Zls6QDebugRK18QSSGShaderFeatures": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18QSSGShaderFeaturesD1Ev": ["nothing", "address"]
+  }
+}

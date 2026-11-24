@@ -1,0 +1,53 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtBluetooth/qbluetoothdevicediscoveryagent.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK30QBluetoothDeviceDiscoveryAgent10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN30QBluetoothDeviceDiscoveryAgent2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN30QBluetoothDeviceDiscoveryAgentC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN30QBluetoothDeviceDiscoveryAgentC1ERK17QBluetoothAddressP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN30QBluetoothDeviceDiscoveryAgentD1Ev": ["nothing", "address"],
+    "ritual_ZNK30QBluetoothDeviceDiscoveryAgent8isActiveEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK30QBluetoothDeviceDiscoveryAgent5errorEv": ["int", "address"],
+    "ritual_ZNK30QBluetoothDeviceDiscoveryAgent11errorStringEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK30QBluetoothDeviceDiscoveryAgent17discoveredDevicesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN30QBluetoothDeviceDiscoveryAgent28setLowEnergyDiscoveryTimeoutEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK30QBluetoothDeviceDiscoveryAgent25lowEnergyDiscoveryTimeoutEv": [
+      "int", "address"
+    ],
+    "ritual_ZN30QBluetoothDeviceDiscoveryAgent25supportedDiscoveryMethodsEv": [
+      "int"
+    ],
+    "ritual_ZN30QBluetoothDeviceDiscoveryAgent5startEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QBluetoothDeviceDiscoveryAgent5startE6QFlagsINS_15DiscoveryMethodEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN30QBluetoothDeviceDiscoveryAgent4stopEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QBluetoothDeviceDiscoveryAgent": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

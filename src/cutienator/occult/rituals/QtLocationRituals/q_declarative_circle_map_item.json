@@ -1,0 +1,89 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtLocat",
+    "ion/6.12.0/QtLocation/private/qdeclarativecirclemapitem_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK25QDeclarativeCircleMapItem10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QDeclarativeCircleMapItem2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN25QDeclarativeCircleMapItemC1EP10QQuickItem": [
+      "address", "address"
+    ],
+    "ritual_ZN25QDeclarativeCircleMapItemD1Ev": ["nothing", "address"],
+    "ritual_ZN25QDeclarativeCircleMapItem6setMapEP18QDeclarativeGeoMapP7QGeoMap": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN25QDeclarativeCircleMapItem22updateMapItemPaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN25QDeclarativeCircleMapItem6centerEv": ["address", "address"],
+    "ritual_ZN25QDeclarativeCircleMapItem9setCenterERK14QGeoCoordinate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK25QDeclarativeCircleMapItem6radiusEv": ["double", "address"],
+    "ritual_ZN25QDeclarativeCircleMapItem9setRadiusEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK25QDeclarativeCircleMapItem5colorEv": ["address", "address"],
+    "ritual_ZN25QDeclarativeCircleMapItem8setColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QDeclarativeCircleMapItem6borderEv": ["address", "address"],
+    "ritual_ZNK25QDeclarativeCircleMapItem8containsERK7QPointF": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK25QDeclarativeCircleMapItem8geoShapeEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QDeclarativeCircleMapItem11setGeoShapeERK9QGeoShape": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QDeclarativeCircleMapItem14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN25QDeclarativeCircleMapItem12updatePolishEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QDeclarativeCircleMapItem24markSourceDirtyAndUpdateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QDeclarativeCircleMapItem23onLinePropertiesChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QDeclarativeCircleMapItem20afterViewportChangedERK26QGeoMapViewportChangeEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QDeclarativeCircleMapItem": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN25QDeclarativeCircleMapItem6setMapEP18QDeclarativeGeoMapP7QGeoMap": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN25QDeclarativeCircleMapItem22updateMapItemPaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_own_ZNK25QDeclarativeCircleMapItem8containsERK7QPointF": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZNK25QDeclarativeCircleMapItem8geoShapeEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN25QDeclarativeCircleMapItem11setGeoShapeERK9QGeoShape": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN25QDeclarativeCircleMapItem14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN25QDeclarativeCircleMapItem12updatePolishEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN25QDeclarativeCircleMapItem20afterViewportChangedERK26QGeoMapViewportChangeEvent": [
+      "nothing", "address", "address"
+    ]
+  }
+}

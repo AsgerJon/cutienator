@@ -1,0 +1,14 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQmlCore/6.12.0/QtQmlCore/private/qqmlpermissions_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK20QQmlCameraPermission10metaObjectEv": ["address", "address"],
+    "ritual_ZNK20QQmlCameraPermission6statusEv": ["int", "address"],
+    "ritual_take_QQmlCameraPermission": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

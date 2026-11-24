@@ -1,0 +1,36 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSql/6.12.0/QtSql/private/qsqlresult_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN17QSqlResultPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK17QSqlResultPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN17QSqlResultPrivateC1EP10QSqlResultPK10QSqlDriver": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN17QSqlResultPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN17QSqlResultPrivate11clearValuesEv": ["nothing", "address"],
+    "ritual_ZN17QSqlResultPrivate14resetBindCountEv": ["nothing", "address"],
+    "ritual_ZN17QSqlResultPrivate10clearIndexEv": ["nothing", "address"],
+    "ritual_ZN17QSqlResultPrivate5clearEv": ["nothing", "address"],
+    "ritual_ZNK17QSqlResultPrivate11fieldSerialEx": [
+      "text", "address", "long long"
+    ],
+    "ritual_ZNK17QSqlResultPrivate24positionalToNamedBindingERK7QString": [
+      "text", "address", "text"
+    ],
+    "ritual_ZN17QSqlResultPrivate24namedToPositionalBindingERK7QString": [
+      "text", "address", "text"
+    ],
+    "ritual_ZNK17QSqlResultPrivate8holderAtEi": ["text", "address", "int"],
+    "ritual_ZN17QSqlResultPrivate13isVariantNullERK8QVariant": [
+      "bool", "address"
+    ],
+    "ritual_take_QSqlResultPrivate": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK17QSqlResultPrivate11fieldSerialEx": [
+      "text", "address", "long long"
+    ]
+  }
+}

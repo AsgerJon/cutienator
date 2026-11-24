@@ -1,0 +1,63 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickvaluetypes_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN23QQuickVector2DValueType20qt_qmlMarker_foreignEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickVector2DValueType21qt_qmlMarker_extendedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickVector2DValueType6createERK8QJSValue": [
+      "address", "address"
+    ],
+    "ritual_ZN23QQuickVector2DValueTypeC1Ev": ["address"],
+    "ritual_ZN23QQuickVector2DValueTypeC1ERK9QVector2D": [
+      "address", "address"
+    ],
+    "ritual_ZNK23QQuickVector2DValueType8toStringEv": ["text", "address"],
+    "ritual_ZNK23QQuickVector2DValueType1xEv": ["double", "address"],
+    "ritual_ZNK23QQuickVector2DValueType1yEv": ["double", "address"],
+    "ritual_ZN23QQuickVector2DValueType4setXEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN23QQuickVector2DValueType4setYEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK23QQuickVector2DValueType10dotProductERK9QVector2D": [
+      "double", "address", "address"
+    ],
+    "ritual_ZNK23QQuickVector2DValueType5timesERK9QVector2D": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK23QQuickVector2DValueType5timesEd": [
+      "address", "address", "double"
+    ],
+    "ritual_ZNK23QQuickVector2DValueType4plusERK9QVector2D": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK23QQuickVector2DValueType5minusERK9QVector2D": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK23QQuickVector2DValueType10normalizedEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK23QQuickVector2DValueType6lengthEv": ["double", "address"],
+    "ritual_ZNK23QQuickVector2DValueType10toVector3dEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK23QQuickVector2DValueType10toVector4dEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK23QQuickVector2DValueType11fuzzyEqualsERK9QVector2Dd": [
+      "bool", "address", "address", "double"
+    ],
+    "ritual_ZNK23QQuickVector2DValueType11fuzzyEqualsERK9QVector2D": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN23QQuickVector2DValueTypeD1Ev": ["nothing", "address"]
+  }
+}

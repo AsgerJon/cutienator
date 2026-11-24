@@ -1,0 +1,23 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qdockwidget_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QDockWidgetPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK18QDockWidgetPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN18QDockWidgetPrivate10toggleViewEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN18QDockWidgetPrivate14toggleTopLevelEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QDockWidgetPrivate16toDockWidgetAreaEN9QInternal12DockPositionE": [
+      "int", "int"
+    ],
+    "ritual_ZN18QDockWidgetPrivate19recalculatePressPosEP12QResizeEvent": [
+      "nothing", "address", "address"
+    ]
+  }
+}

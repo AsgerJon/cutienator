@@ -1,0 +1,81 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qsgsoftwarecontext_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18QSGSoftwareContext10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QSGSoftwareContext19createRenderContextEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18QSGSoftwareContext27createInternalRectangleNodeEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18QSGSoftwareContext23createInternalImageNodeEP16QSGRenderContext": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18QSGSoftwareContext17createPainterNodeEP17QQuickPaintedItem": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18QSGSoftwareContext15createGlyphNodeEP16QSGRenderContextN11QSGTextNode10RenderTypeE": [
+      "address", "address", "address", "unsigned char"
+    ],
+    "ritual_ZN18QSGSoftwareContext11createLayerEP16QSGRenderContext": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK18QSGSoftwareContext20defaultSurfaceFormatEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18QSGSoftwareContext17rendererInterfaceEP16QSGRenderContext": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18QSGSoftwareContext19createRectangleNodeEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18QSGSoftwareContext15createImageNodeEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18QSGSoftwareContext19createNinePatchNodeEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18QSGSoftwareContext16createSpriteNodeEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18QSGSoftwareContext21processTextRenderTypeEN11QSGTextNode10RenderTypeE": [
+      "unsigned char", "address", "unsigned char"
+    ],
+    "ritual_ZNK18QSGSoftwareContext11graphicsApiEv": ["int", "address"],
+    "ritual_ZNK18QSGSoftwareContext10shaderTypeEv": ["int", "address"],
+    "ritual_ZNK18QSGSoftwareContext21shaderCompilationTypeEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK18QSGSoftwareContext16shaderSourceTypeEv": ["int", "address"],
+    "ritual_cast_QSGSoftwareContext_QSGRendererInterface": [
+      "address", "address"
+    ],
+    "ritual_take_QSGSoftwareContext": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK18QSGSoftwareContext20defaultSurfaceFormatEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN18QSGSoftwareContext17rendererInterfaceEP16QSGRenderContext": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN18QSGSoftwareContext19createRectangleNodeEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN18QSGSoftwareContext21processTextRenderTypeEN11QSGTextNode10RenderTypeE": [
+      "unsigned char", "address", "unsigned char"
+    ],
+    "ritual_own_ZNK18QSGSoftwareContext11graphicsApiEv": ["int", "address"],
+    "ritual_own_ZNK18QSGSoftwareContext10shaderTypeEv": ["int", "address"],
+    "ritual_own_ZNK18QSGSoftwareContext21shaderCompilationTypeEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZNK18QSGSoftwareContext16shaderSourceTypeEv": [
+      "int", "address"
+    ]
+  }
+}

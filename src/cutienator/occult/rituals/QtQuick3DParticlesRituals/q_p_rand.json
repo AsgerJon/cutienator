@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DParticles/6.12.0/QtQuick3DParticles/private/qquick3dparticlerand",
+    "omizer_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN6QPRand4initEji": [
+      "nothing", "address", "unsigned int", "int"
+    ],
+    "ritual_ZN6QPRand16setDeterministicEb": ["nothing", "address", "bool"],
+    "ritual_ZN6QPRand3getEiNS_8UserTypeE": [
+      "float", "address", "int", "int"
+    ],
+    "ritual_ZN6QPRand3getEv": ["float", "address"],
+    "ritual_ZNK6QPRand9generatorEv": ["address", "address"],
+    "ritual_ZN6QPRandD1Ev": ["nothing", "address"]
+  }
+}

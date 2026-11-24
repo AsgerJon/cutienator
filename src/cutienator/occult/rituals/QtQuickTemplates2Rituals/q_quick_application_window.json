@@ -1,0 +1,85 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquickapplicationwindo",
+    "w_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK23QQuickApplicationWindow10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QQuickApplicationWindow2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN23QQuickApplicationWindow21qt_qmlMarker_attachedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickApplicationWindowC1EP7QWindow": ["address", "address"],
+    "ritual_ZN23QQuickApplicationWindowD1Ev": ["nothing", "address"],
+    "ritual_ZN23QQuickApplicationWindow21qmlAttachedPropertiesEP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZNK23QQuickApplicationWindow10backgroundEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QQuickApplicationWindow13setBackgroundEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK23QQuickApplicationWindow11contentItemEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK23QQuickApplicationWindow18activeFocusControlEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK23QQuickApplicationWindow6headerEv": ["address", "address"],
+    "ritual_ZN23QQuickApplicationWindow9setHeaderEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK23QQuickApplicationWindow6footerEv": ["address", "address"],
+    "ritual_ZN23QQuickApplicationWindow9setFooterEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK23QQuickApplicationWindow4fontEv": ["address", "address"],
+    "ritual_ZN23QQuickApplicationWindow7setFontERK5QFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QQuickApplicationWindow9resetFontEv": ["nothing", "address"],
+    "ritual_ZNK23QQuickApplicationWindow6localeEv": ["address", "address"],
+    "ritual_ZN23QQuickApplicationWindow9setLocaleERK7QLocale": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QQuickApplicationWindow11resetLocaleEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK23QQuickApplicationWindow7menuBarEv": ["address", "address"],
+    "ritual_ZN23QQuickApplicationWindow10setMenuBarEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK23QQuickApplicationWindow19isComponentCompleteEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN23QQuickApplicationWindow10classBeginEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickApplicationWindow17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickApplicationWindow11resizeEventEP12QResizeEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QQuickApplicationWindow6d_funcEv": ["address", "address"],
+    "ritual_ZNK23QQuickApplicationWindow6d_funcEv": ["address", "address"],
+    "ritual_take_QQuickApplicationWindow": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN23QQuickApplicationWindow10classBeginEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN23QQuickApplicationWindow17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN23QQuickApplicationWindow11resizeEventEP12QResizeEvent": [
+      "nothing", "address", "address"
+    ]
+  }
+}

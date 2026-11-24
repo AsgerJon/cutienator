@@ -1,0 +1,25 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Layouts/6.12.0/QtQuickLayouts/private/qquicklinearlayout_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN27QQuickGridLayoutBasePrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK27QQuickGridLayoutBasePrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QQuickGridLayoutBasePrivateC1Ev": ["address"],
+    "ritual_ZN27QQuickGridLayoutBasePrivate12mirrorChangeEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QQuickGridLayoutBasePrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN27QQuickGridLayoutBasePrivate12mirrorChangeEv": [
+      "nothing", "address"
+    ]
+  }
+}

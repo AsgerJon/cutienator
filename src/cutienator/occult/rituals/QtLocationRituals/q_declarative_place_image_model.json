@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtLocat",
+    "ion/6.12.0/QtLocation/private/qdeclarativeplacecontentmodel_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN27QDeclarativePlaceImageModelC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_take_QDeclarativePlaceImageModel": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

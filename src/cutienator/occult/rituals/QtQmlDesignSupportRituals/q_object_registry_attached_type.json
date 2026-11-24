@@ -1,0 +1,44 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQmlDe",
+    "signSupport/6.12.0/QtQmlDesignSupport/private/qobjectregistry_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK27QObjectRegistryAttachedType10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QObjectRegistryAttachedType2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN27QObjectRegistryAttachedType22qt_qmlMarker_anonymousEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QObjectRegistryAttachedTypeC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN27QObjectRegistryAttachedTypeD1Ev": ["nothing", "address"],
+    "ritual_ZNK27QObjectRegistryAttachedType3keyEv": ["text", "address"],
+    "ritual_ZN27QObjectRegistryAttachedType6setKeyERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN27QObjectRegistryAttachedType10classBeginEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QObjectRegistryAttachedType17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_cast_QObjectRegistryAttachedType_QQmlParserStatus": [
+      "address", "address"
+    ],
+    "ritual_take_QObjectRegistryAttachedType": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN27QObjectRegistryAttachedType10classBeginEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN27QObjectRegistryAttachedType17componentCompleteEv": [
+      "nothing", "address"
+    ]
+  }
+}

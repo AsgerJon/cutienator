@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickwheelhandler_p_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN25QQuickWheelHandlerPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK25QQuickWheelHandlerPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN25QQuickWheelHandlerPrivate3getEP18QQuickWheelHandler": [
+      "address", "address"
+    ],
+    "ritual_ZN25QQuickWheelHandlerPrivate3getEPK18QQuickWheelHandler": [
+      "address", "address"
+    ],
+    "ritual_ZN25QQuickWheelHandlerPrivateC1Ev": ["address"],
+    "ritual_take_QQuickWheelHandlerPrivate": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qsgcurveglyphnode_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN17QSGCurveGlyphNodeC1EP16QSGRenderContext": [
+      "address", "address"
+    ],
+    "ritual_ZN17QSGCurveGlyphNodeD1Ev": ["nothing", "address"],
+    "ritual_ZN17QSGCurveGlyphNode9setGlyphsERK7QPointFRK9QGlyphRun": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN17QSGCurveGlyphNode6updateEv": ["nothing", "address"],
+    "ritual_ZN17QSGCurveGlyphNode10preprocessEv": ["nothing", "address"],
+    "ritual_ZN17QSGCurveGlyphNode28setPreferredAntialiasingModeEN12QSGGlyphNode16AntialiasingModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QSGCurveGlyphNode14updateGeometryEv": ["nothing", "address"],
+    "ritual_ZN17QSGCurveGlyphNode8setColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QSGCurveGlyphNode8setStyleEN10QQuickText9TextStyleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QSGCurveGlyphNode13setStyleColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QSGCurveGlyphNode8baseLineEv": ["address", "address"],
+    "ritual_ZN17QSGCurveGlyphNode7recycleEv": ["nothing", "address"],
+    "ritual_ZN17QSGCurveGlyphNode7cleanupEv": ["nothing", "address"],
+    "ritual_take_QSGCurveGlyphNode": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN17QSGCurveGlyphNode9setGlyphsERK7QPointFRK9QGlyphRun": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN17QSGCurveGlyphNode6updateEv": ["nothing", "address"],
+    "ritual_own_ZN17QSGCurveGlyphNode10preprocessEv": ["nothing", "address"],
+    "ritual_own_ZN17QSGCurveGlyphNode28setPreferredAntialiasingModeEN12QSGGlyphNode16AntialiasingModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17QSGCurveGlyphNode8setColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN17QSGCurveGlyphNode8setStyleEN10QQuickText9TextStyleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17QSGCurveGlyphNode13setStyleColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK17QSGCurveGlyphNode8baseLineEv": ["address", "address"],
+    "ritual_own_ZN17QSGCurveGlyphNode7recycleEv": ["nothing", "address"]
+  }
+}

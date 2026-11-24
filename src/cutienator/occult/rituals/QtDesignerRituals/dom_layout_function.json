@@ -1,0 +1,31 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/ui4_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN17DomLayoutFunctionC1Ev": ["address"],
+    "ritual_ZN17DomLayoutFunctionD1Ev": ["nothing", "address"],
+    "ritual_ZNK17DomLayoutFunction19hasAttributeSpacingEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK17DomLayoutFunction16attributeSpacingEv": ["text", "address"],
+    "ritual_ZN17DomLayoutFunction19setAttributeSpacingERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN17DomLayoutFunction21clearAttributeSpacingEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK17DomLayoutFunction18hasAttributeMarginEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK17DomLayoutFunction15attributeMarginEv": ["text", "address"],
+    "ritual_ZN17DomLayoutFunction18setAttributeMarginERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN17DomLayoutFunction20clearAttributeMarginEv": [
+      "nothing", "address"
+    ]
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/rhi/qrhi.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN39QRhiTextureSubresourceUploadDescriptionC1Ev": ["address"],
+    "ritual_ZN39QRhiTextureSubresourceUploadDescriptionC1ERK6QImage": [
+      "address", "address"
+    ],
+    "ritual_ZN39QRhiTextureSubresourceUploadDescriptionC1ERK10QByteArray": [
+      "address", "address"
+    ],
+    "ritual_ZNK39QRhiTextureSubresourceUploadDescription5imageEv": [
+      "address", "address"
+    ],
+    "ritual_ZN39QRhiTextureSubresourceUploadDescription8setImageERK6QImage": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK39QRhiTextureSubresourceUploadDescription4dataEv": [
+      "address", "address"
+    ],
+    "ritual_ZN39QRhiTextureSubresourceUploadDescription7setDataERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK39QRhiTextureSubresourceUploadDescription10dataStrideEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN39QRhiTextureSubresourceUploadDescription13setDataStrideEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZNK39QRhiTextureSubresourceUploadDescription18destinationTopLeftEv": [
+      "address", "address"
+    ],
+    "ritual_ZN39QRhiTextureSubresourceUploadDescription21setDestinationTopLeftERK6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK39QRhiTextureSubresourceUploadDescription10sourceSizeEv": [
+      "address", "address"
+    ],
+    "ritual_ZN39QRhiTextureSubresourceUploadDescription13setSourceSizeERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK39QRhiTextureSubresourceUploadDescription13sourceTopLeftEv": [
+      "address", "address"
+    ],
+    "ritual_ZN39QRhiTextureSubresourceUploadDescription16setSourceTopLeftERK6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN39QRhiTextureSubresourceUploadDescriptionD1Ev": [
+      "nothing", "address"
+    ]
+  }
+}

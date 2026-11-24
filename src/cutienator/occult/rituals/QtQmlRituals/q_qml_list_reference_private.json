@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmllist_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN24QQmlListReferencePrivateC1Ev": ["address"],
+    "ritual_ZN24QQmlListReferencePrivate6addrefEv": ["nothing", "address"],
+    "ritual_ZN24QQmlListReferencePrivate7releaseEv": ["nothing", "address"],
+    "ritual_ZN24QQmlListReferencePrivate3getEP17QQmlListReference": [
+      "address", "address"
+    ],
+    "ritual_ZN24QQmlListReferencePrivate11elementTypeEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QQmlListReferencePrivateD1Ev": ["nothing", "address"]
+  }
+}

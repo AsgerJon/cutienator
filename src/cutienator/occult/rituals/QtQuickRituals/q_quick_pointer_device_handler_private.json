@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickpointerdevicehandler_p_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN33QQuickPointerDeviceHandlerPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK33QQuickPointerDeviceHandlerPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN33QQuickPointerDeviceHandlerPrivate3getEP26QQuickPointerDeviceHandler": [
+      "address", "address"
+    ],
+    "ritual_ZN33QQuickPointerDeviceHandlerPrivate3getEPK26QQuickPointerDeviceHandler": [
+      "address", "address"
+    ],
+    "ritual_take_QQuickPointerDeviceHandlerPrivate": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

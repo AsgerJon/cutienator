@@ -1,0 +1,28 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qgraphicsgridlayoutengine_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK25QGraphicsGridLayoutEngine14findLayoutItemEP19QGraphicsLayoutItem": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK25QGraphicsGridLayoutEngine7indexOfEP19QGraphicsLayoutItem": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN25QGraphicsGridLayoutEngine12setAlignmentEP19QGraphicsLayoutItem6QFlagsIN2Qt13AlignmentFlagEE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZNK25QGraphicsGridLayoutEngine9alignmentEP19QGraphicsLayoutItem": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN25QGraphicsGridLayoutEngine16setStretchFactorEP19QGraphicsLayoutItemiN2Qt11OrientationE": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZNK25QGraphicsGridLayoutEngine13stretchFactorEP19QGraphicsLayoutItemN2Qt11OrientationE": [
+      "int", "address", "address", "int"
+    ],
+    "ritual_ZN25QGraphicsGridLayoutEngineD1Ev": ["nothing", "address"]
+  }
+}

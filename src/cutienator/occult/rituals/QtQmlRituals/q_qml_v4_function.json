@@ -1,0 +1,20 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4engine_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK14QQmlV4Function6lengthEv": ["int", "address"],
+    "ritual_ZNK14QQmlV4FunctionixEi": [
+      "unsigned long long", "address", "int"
+    ],
+    "ritual_ZN14QQmlV4Function14setReturnValueEy": [
+      "nothing", "address", "unsigned long long"
+    ],
+    "ritual_ZNK14QQmlV4Function8v4engineEv": ["address", "address"],
+    "ritual_ZN14QQmlV4FunctionC1EPN3QV48CallDataEPNS0_5ValueEPNS0_15ExecutionEngineE": [
+      "address", "address", "address", "address"
+    ]
+  }
+}

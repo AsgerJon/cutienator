@@ -6,6 +6,8 @@
   "rows": {
     "ritual_ZNK10QUndoStack10metaObjectEv": ["address", "address"],
     "ritual_ZN10QUndoStack2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN10QUndoStack6d_funcEv": ["address", "address"],
+    "ritual_ZNK10QUndoStack6d_funcEv": ["address", "address"],
     "ritual_ZN10QUndoStackC1EP7QObject": ["address", "address"],
     "ritual_ZN10QUndoStackD1Ev": ["nothing", "address"],
     "ritual_ZN10QUndoStack5clearEv": ["nothing", "address"],

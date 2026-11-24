@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/qqmlprivate.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11QQmlPrivate23AOTTrackedLocalsStorageD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK11QQmlPrivate23AOTTrackedLocalsStorage11markObjectsEPN3QV49MarkStackE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QQmlPrivate_AOTTrackedLocalsStorage": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

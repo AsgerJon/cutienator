@@ -1,0 +1,29 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmltypenamecache_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN17QQmlTypeNameCacheD1Ev": ["nothing", "address"],
+    "ritual_ZNK17QQmlTypeNameCache7isEmptyEv": ["bool", "address"],
+    "ritual_ZN17QQmlTypeNameCache3addERK13QHashedStringiS2_": [
+      "nothing", "address", "address", "int", "address"
+    ],
+    "ritual_ZN17QQmlTypeNameCache3addERK13QHashedStringRK4QUrlS2_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN17QQmlTypeNameCache17toHashedStringRefERK16QHashedStringRef": [
+      "address", "address"
+    ],
+    "ritual_ZN17QQmlTypeNameCache17toHashedStringRefEPKN3QV46StringE": [
+      "address", "address"
+    ],
+    "ritual_ZN17QQmlTypeNameCache9toQStringERK16QHashedStringRef": [
+      "text", "address"
+    ],
+    "ritual_ZN17QQmlTypeNameCache9toQStringEPKN3QV46StringE": [
+      "text", "address"
+    ]
+  }
+}

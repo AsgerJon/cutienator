@@ -1,0 +1,32 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qvectorpath_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11QVectorPathD1Ev": ["nothing", "address"],
+    "ritual_ZNK11QVectorPath16controlPointRectEv": ["address", "address"],
+    "ritual_ZNK11QVectorPath5shapeEv": ["int", "address"],
+    "ritual_ZNK11QVectorPath8isConvexEv": ["bool", "address"],
+    "ritual_ZNK11QVectorPath8isCurvedEv": ["bool", "address"],
+    "ritual_ZNK11QVectorPath11isCacheableEv": ["bool", "address"],
+    "ritual_ZNK11QVectorPath16hasImplicitCloseEv": ["bool", "address"],
+    "ritual_ZNK11QVectorPath15hasExplicitOpenEv": ["bool", "address"],
+    "ritual_ZNK11QVectorPath14hasWindingFillEv": ["bool", "address"],
+    "ritual_ZNK11QVectorPath13makeCacheableEv": ["nothing", "address"],
+    "ritual_ZNK11QVectorPath5hintsEv": ["unsigned int", "address"],
+    "ritual_ZNK11QVectorPath7isEmptyEv": ["bool", "address"],
+    "ritual_ZNK11QVectorPath12elementCountEv": ["int", "address"],
+    "ritual_ZNK11QVectorPath20convertToPainterPathEv": [
+      "address", "address"
+    ],
+    "ritual_ZN11QVectorPath12polygonFlagsEN12QPaintEngine15PolygonDrawModeE": [
+      "unsigned int", "int"
+    ],
+    "ritual_ZNK11QVectorPath15lookupCacheDataEP14QPaintEngineEx": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK11QVectorPath6isRectEv": ["bool", "address"]
+  }
+}

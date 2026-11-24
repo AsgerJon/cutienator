@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qstandarditemmodel_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN17QStandardItemDataC1Ev": ["address"],
+    "ritual_ZN17QStandardItemDataC1EiRK8QVariant": [
+      "address", "int", "address"
+    ],
+    "ritual_ZNK17QStandardItemDataeqERKS_": ["bool", "address", "address"],
+    "ritual_ZN17QStandardItemDataD1Ev": ["nothing", "address"]
+  }
+}

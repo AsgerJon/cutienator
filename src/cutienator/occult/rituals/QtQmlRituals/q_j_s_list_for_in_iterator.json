@@ -1,0 +1,11 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/qjslist.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK20QJSListForInIterator7hasNextEv": ["bool", "address"],
+    "ritual_ZN20QJSListForInIterator4nextEv": ["long long", "address"],
+    "ritual_ZN20QJSListForInIteratorD1Ev": ["nothing", "address"]
+  }
+}

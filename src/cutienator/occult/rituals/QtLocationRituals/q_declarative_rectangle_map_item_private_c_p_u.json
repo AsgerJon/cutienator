@@ -1,0 +1,69 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtLocat",
+    "ion/6.12.0/QtLocation/private/qdeclarativerectanglemapitem_p_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN38QDeclarativeRectangleMapItemPrivateCPUD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN38QDeclarativeRectangleMapItemPrivateCPU23onLinePropertiesChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN38QDeclarativeRectangleMapItemPrivateCPU24markSourceDirtyAndUpdateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN38QDeclarativeRectangleMapItemPrivateCPU8onMapSetEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN38QDeclarativeRectangleMapItemPrivateCPU20onGeoGeometryChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN38QDeclarativeRectangleMapItemPrivateCPU21onItemGeometryChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN38QDeclarativeRectangleMapItemPrivateCPU20afterViewportChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN38QDeclarativeRectangleMapItemPrivateCPU12updatePolishEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN38QDeclarativeRectangleMapItemPrivateCPU22updateMapItemPaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK38QDeclarativeRectangleMapItemPrivateCPU8containsERK7QPointF": [
+      "bool", "address", "address"
+    ],
+    "ritual_take_QDeclarativeRectangleMapItemPrivateCPU": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN38QDeclarativeRectangleMapItemPrivateCPU23onLinePropertiesChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN38QDeclarativeRectangleMapItemPrivateCPU24markSourceDirtyAndUpdateEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN38QDeclarativeRectangleMapItemPrivateCPU8onMapSetEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN38QDeclarativeRectangleMapItemPrivateCPU20onGeoGeometryChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN38QDeclarativeRectangleMapItemPrivateCPU21onItemGeometryChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN38QDeclarativeRectangleMapItemPrivateCPU20afterViewportChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN38QDeclarativeRectangleMapItemPrivateCPU12updatePolishEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN38QDeclarativeRectangleMapItemPrivateCPU22updateMapItemPaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_own_ZNK38QDeclarativeRectangleMapItemPrivateCPU8containsERK7QPointF": [
+      "bool", "address", "address"
+    ]
+  }
+}

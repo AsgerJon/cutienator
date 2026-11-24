@@ -1,0 +1,35 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/6.12.0/QtNetwork/private/qbytedatabuffer_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QByteDataBuffer12squeezeFirstEv": ["nothing", "address"],
+    "ritual_ZN15QByteDataBuffer6appendERKS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QByteDataBuffer6appendERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QByteDataBuffer7prependERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QByteDataBuffer4readEv": ["address", "address"],
+    "ritual_ZN15QByteDataBuffer7readAllEv": ["address", "address"],
+    "ritual_ZN15QByteDataBuffer4readEx": ["address", "address", "long long"],
+    "ritual_ZNK15QByteDataBuffer11readPointerEv": ["address", "address"],
+    "ritual_ZN15QByteDataBuffer18advanceReadPointerEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN15QByteDataBuffer7getCharEv": ["char", "address"],
+    "ritual_ZN15QByteDataBuffer5clearEv": ["nothing", "address"],
+    "ritual_ZNK15QByteDataBuffer10byteAmountEv": ["long long", "address"],
+    "ritual_ZNK15QByteDataBuffer11bufferCountEv": ["long long", "address"],
+    "ritual_ZNK15QByteDataBuffer7isEmptyEv": ["bool", "address"],
+    "ritual_ZNK15QByteDataBuffer13sizeNextBlockEv": ["long long", "address"],
+    "ritual_ZNK15QByteDataBuffer11canReadLineEv": ["bool", "address"],
+    "ritual_ZNK15QByteDataBuffer4lastEv": ["address", "address"],
+    "ritual_ZN15QByteDataBufferD1Ev": ["nothing", "address"]
+  }
+}

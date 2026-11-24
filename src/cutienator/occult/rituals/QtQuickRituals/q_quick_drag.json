@@ -1,0 +1,49 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickdrag_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK10QQuickDrag10metaObjectEv": ["address", "address"],
+    "ritual_ZN10QQuickDrag2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN10QQuickDrag24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10QQuickDrag21qt_qmlMarker_attachedEv": ["nothing", "address"],
+    "ritual_ZN10QQuickDragC1EP7QObject": ["address", "address"],
+    "ritual_ZN10QQuickDragD1Ev": ["nothing", "address"],
+    "ritual_ZNK10QQuickDrag6targetEv": ["address", "address"],
+    "ritual_ZN10QQuickDrag9setTargetEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QQuickDrag11resetTargetEv": ["nothing", "address"],
+    "ritual_ZNK10QQuickDrag4axisEv": ["int", "address"],
+    "ritual_ZN10QQuickDrag7setAxisENS_4AxisE": ["nothing", "address", "int"],
+    "ritual_ZNK10QQuickDrag4xminEv": ["double", "address"],
+    "ritual_ZN10QQuickDrag7setXminEd": ["nothing", "address", "double"],
+    "ritual_ZNK10QQuickDrag4xmaxEv": ["double", "address"],
+    "ritual_ZN10QQuickDrag7setXmaxEd": ["nothing", "address", "double"],
+    "ritual_ZNK10QQuickDrag4yminEv": ["double", "address"],
+    "ritual_ZN10QQuickDrag7setYminEd": ["nothing", "address", "double"],
+    "ritual_ZNK10QQuickDrag4ymaxEv": ["double", "address"],
+    "ritual_ZN10QQuickDrag7setYmaxEd": ["nothing", "address", "double"],
+    "ritual_ZNK10QQuickDrag8smoothedEv": ["bool", "address"],
+    "ritual_ZN10QQuickDrag11setSmoothedEb": ["nothing", "address", "bool"],
+    "ritual_ZNK10QQuickDrag9thresholdEv": ["double", "address"],
+    "ritual_ZN10QQuickDrag12setThresholdEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN10QQuickDrag14resetThresholdEv": ["nothing", "address"],
+    "ritual_ZNK10QQuickDrag6activeEv": ["bool", "address"],
+    "ritual_ZN10QQuickDrag9setActiveEb": ["nothing", "address", "bool"],
+    "ritual_ZNK10QQuickDrag14filterChildrenEv": ["bool", "address"],
+    "ritual_ZN10QQuickDrag17setFilterChildrenEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN10QQuickDrag21qmlAttachedPropertiesEP7QObject": [
+      "address", "address"
+    ],
+    "ritual_take_QQuickDrag": ["bool", "address", "chars", "address"]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qrangemodel_impl.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QRangeModelDetails18AutoConnectContextC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN18QRangeModelDetails18AutoConnectContextD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_take_QRangeModelDetails_AutoConnectContext": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

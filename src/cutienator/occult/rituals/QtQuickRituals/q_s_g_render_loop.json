@@ -1,0 +1,80 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qsgrenderloop_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK13QSGRenderLoop10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QSGRenderLoop2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN13QSGRenderLoopD1Ev": ["nothing", "address"],
+    "ritual_ZN13QSGRenderLoop4showEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QSGRenderLoop4hideEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QSGRenderLoop6resizeEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QSGRenderLoop15windowDestroyedEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QSGRenderLoop15exposureChangedEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QSGRenderLoop4grabEP12QQuickWindow": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN13QSGRenderLoop6updateEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QSGRenderLoop11maybeUpdateEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QSGRenderLoop19handleUpdateRequestEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QSGRenderLoop15animationDriverEv": ["address", "address"],
+    "ritual_ZNK13QSGRenderLoop17sceneGraphContextEv": ["address", "address"],
+    "ritual_ZNK13QSGRenderLoop19createRenderContextEP10QSGContext": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN13QSGRenderLoop16releaseResourcesEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QSGRenderLoop7postJobEP12QQuickWindowP9QRunnable": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN13QSGRenderLoop9addWindowEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QSGRenderLoop12removeWindowEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QSGRenderLoop17windowSurfaceTypeEv": ["int", "address"],
+    "ritual_ZN13QSGRenderLoop8instanceEv": ["address"],
+    "ritual_ZN13QSGRenderLoop11setInstanceEPS_": ["nothing", "address"],
+    "ritual_ZNK13QSGRenderLoop20interleaveIncubationEv": ["bool", "address"],
+    "ritual_ZNK13QSGRenderLoop5flagsEv": ["int", "address"],
+    "ritual_ZN13QSGRenderLoop7cleanupEv": ["nothing"],
+    "ritual_ZN13QSGRenderLoop28handleContextCreationFailureEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QSGRenderLoop": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN13QSGRenderLoop6resizeEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN13QSGRenderLoop19handleUpdateRequestEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN13QSGRenderLoop7postJobEP12QQuickWindowP9QRunnable": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZNK13QSGRenderLoop17windowSurfaceTypeEv": ["int", "address"],
+    "ritual_own_ZNK13QSGRenderLoop20interleaveIncubationEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZNK13QSGRenderLoop5flagsEv": ["int", "address"]
+  }
+}

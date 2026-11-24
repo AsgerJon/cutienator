@@ -1,0 +1,48 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/6.12.0/QtNetwork/private/qhttpthreaddelegate_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK41QNonContiguousByteDeviceThreadForwardImpl10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN41QNonContiguousByteDeviceThreadForwardImplD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK41QNonContiguousByteDeviceThreadForwardImpl3posEv": [
+      "long long", "address"
+    ],
+    "ritual_ZN41QNonContiguousByteDeviceThreadForwardImpl11readPointerExRx": [
+      "chars", "address", "long long", "address"
+    ],
+    "ritual_ZN41QNonContiguousByteDeviceThreadForwardImpl18advanceReadPointerEx": [
+      "bool", "address", "long long"
+    ],
+    "ritual_ZNK41QNonContiguousByteDeviceThreadForwardImpl5atEndEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN41QNonContiguousByteDeviceThreadForwardImpl5resetEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK41QNonContiguousByteDeviceThreadForwardImpl4sizeEv": [
+      "long long", "address"
+    ],
+    "ritual_ZN41QNonContiguousByteDeviceThreadForwardImpl12haveDataSlotExRK10QByteArraybx": [
+      "nothing", "address", "long long", "address", "bool", "long long"
+    ],
+    "ritual_take_QNonContiguousByteDeviceThreadForwardImpl": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK41QNonContiguousByteDeviceThreadForwardImpl3posEv": [
+      "long long", "address"
+    ],
+    "ritual_own_ZNK41QNonContiguousByteDeviceThreadForwardImpl5atEndEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZNK41QNonContiguousByteDeviceThreadForwardImpl4sizeEv": [
+      "long long", "address"
+    ]
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qabstractslider_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN22QAbstractSliderPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK22QAbstractSliderPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN22QAbstractSliderPrivateC1Ev": ["address"],
+    "ritual_ZN22QAbstractSliderPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN22QAbstractSliderPrivate8setStepsEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK22QAbstractSliderPrivate19effectiveSingleStepEv": [
+      "int", "address"
+    ],
+    "ritual_ZN22QAbstractSliderPrivate24itemviewChangeSingleStepEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK22QAbstractSliderPrivate5boundEi": ["int", "address", "int"],
+    "ritual_ZNK22QAbstractSliderPrivate15overflowSafeAddEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZN22QAbstractSliderPrivate25setAdjustedSliderPositionEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN22QAbstractSliderPrivate13scrollByDeltaEN2Qt11OrientationE6QFlagsINS0_16KeyboardModifierEEi": [
+      "bool", "address", "int", "int", "int"
+    ],
+    "ritual_take_QAbstractSliderPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK22QAbstractSliderPrivate5boundEi": [
+      "int", "address", "int"
+    ]
+  }
+}

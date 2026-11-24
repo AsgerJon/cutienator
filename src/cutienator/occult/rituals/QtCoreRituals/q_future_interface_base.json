@@ -120,6 +120,9 @@
       "nothing", "address"
     ],
     "ritual_ZNK20QFutureInterfaceBase12hasExceptionEv": ["bool", "address"],
+    "ritual_ZNK20QFutureInterfaceBase15resultStoreBaseEv": [
+      "address", "address"
+    ],
     "ritual_ZNK20QFutureInterfaceBaseeqERKS_": [
       "bool", "address", "address"
     ],

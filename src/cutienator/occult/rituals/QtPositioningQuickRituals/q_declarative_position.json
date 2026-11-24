@@ -1,0 +1,126 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtPosit",
+    "ioningQuick/6.12.0/QtPositioningQuick/private/qdeclarativeposition",
+    "_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK20QDeclarativePosition10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QDeclarativePosition2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN20QDeclarativePositionC1EP7QObject": ["address", "address"],
+    "ritual_ZN20QDeclarativePositionD1Ev": ["nothing", "address"],
+    "ritual_ZNK20QDeclarativePosition15isLatitudeValidEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK20QDeclarativePosition16isLongitudeValidEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK20QDeclarativePosition15isAltitudeValidEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK20QDeclarativePosition9timestampEv": ["address", "address"],
+    "ritual_ZNK20QDeclarativePosition5speedEv": ["double", "address"],
+    "ritual_ZNK20QDeclarativePosition12isSpeedValidEv": ["bool", "address"],
+    "ritual_ZNK20QDeclarativePosition10coordinateEv": ["address", "address"],
+    "ritual_ZNK20QDeclarativePosition25isHorizontalAccuracyValidEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK20QDeclarativePosition18horizontalAccuracyEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK20QDeclarativePosition23isVerticalAccuracyValidEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK20QDeclarativePosition16verticalAccuracyEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK20QDeclarativePosition16isDirectionValidEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK20QDeclarativePosition9directionEv": ["double", "address"],
+    "ritual_ZNK20QDeclarativePosition20isVerticalSpeedValidEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK20QDeclarativePosition13verticalSpeedEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK20QDeclarativePosition24isMagneticVariationValidEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK20QDeclarativePosition17magneticVariationEv": [
+      "double", "address"
+    ],
+    "ritual_ZN20QDeclarativePosition11setPositionERK16QGeoPositionInfo": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QDeclarativePosition8positionEv": ["address", "address"],
+    "ritual_ZNK20QDeclarativePosition24isDirectionAccuracyValidEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK20QDeclarativePosition17directionAccuracyEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK20QDeclarativePosition32isLatitudeValidActualCalculationEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK20QDeclarativePosition33isLongitudeValidActualCalculationEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK20QDeclarativePosition32isAltitudeValidActualCalculationEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK20QDeclarativePosition27coordinateActualCalculationEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QDeclarativePosition26timestampActualCalculationEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QDeclarativePosition22speedActualCalculationEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK20QDeclarativePosition29isSpeedValidActualCalculationEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK20QDeclarativePosition35horizontalAccuracyActualCalculationEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK20QDeclarativePosition33verticalAccuracyActualCalculationEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK20QDeclarativePosition42isHorizontalAccuracyValidActualCalculationEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK20QDeclarativePosition40isVerticalAccuracyValidActualCalculationEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK20QDeclarativePosition33isDirectionValidActualCalculationEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK20QDeclarativePosition26directionActualCalculationEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK20QDeclarativePosition37isVerticalSpeedValidActualCalculationEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK20QDeclarativePosition30verticalSpeedActualCalculationEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK20QDeclarativePosition34magneticVariationActualCalculationEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK20QDeclarativePosition41isMagneticVariationValidActualCalculationEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK20QDeclarativePosition34directionAccuracyActualCalculationEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK20QDeclarativePosition41isDirectionAccuracyValidActualCalculationEv": [
+      "bool", "address"
+    ],
+    "ritual_take_QDeclarativePosition": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

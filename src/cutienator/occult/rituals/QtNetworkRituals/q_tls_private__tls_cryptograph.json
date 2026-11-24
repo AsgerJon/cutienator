@@ -1,0 +1,64 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/6.12.0/QtNetwork/private/qtlsbackend_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11QTlsPrivate14TlsCryptographD1Ev": ["nothing", "address"],
+    "ritual_ZN11QTlsPrivate14TlsCryptograph4initEP10QSslSocketP17QSslSocketPrivate": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK11QTlsPrivate14TlsCryptograph9tlsErrorsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN11QTlsPrivate14TlsCryptograph21startClientEncryptionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN11QTlsPrivate14TlsCryptograph21startServerEncryptionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN11QTlsPrivate14TlsCryptograph17continueHandshakeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN11QTlsPrivate14TlsCryptograph27enableHandshakeContinuationEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN11QTlsPrivate14TlsCryptograph18disconnectFromHostEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN11QTlsPrivate14TlsCryptograph12disconnectedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN11QTlsPrivate14TlsCryptograph13cancelCAFetchEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK11QTlsPrivate14TlsCryptograph13sessionCipherEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK11QTlsPrivate14TlsCryptograph15sessionProtocolEv": [
+      "int", "address"
+    ],
+    "ritual_ZN11QTlsPrivate14TlsCryptograph8transmitEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK11QTlsPrivate14TlsCryptograph18hasUndecryptedDataEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK11QTlsPrivate14TlsCryptograph5ocspsEv": [
+      "address", "address"
+    ],
+    "ritual_take_QTlsPrivate_TlsCryptograph": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN11QTlsPrivate14TlsCryptograph27enableHandshakeContinuationEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN11QTlsPrivate14TlsCryptograph13cancelCAFetchEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZNK11QTlsPrivate14TlsCryptograph18hasUndecryptedDataEv": [
+      "bool", "address"
+    ]
+  }
+}

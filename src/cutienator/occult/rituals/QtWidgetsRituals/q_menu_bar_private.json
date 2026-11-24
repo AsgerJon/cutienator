@@ -1,0 +1,40 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qmenubar_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QMenuBarPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK15QMenuBarPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN15QMenuBarPrivateC1Ev": ["address"],
+    "ritual_ZN15QMenuBarPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZNK15QMenuBarPrivate15calcActionRectsEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN15QMenuBarPrivate14activateActionEP7QActionNS0_11ActionEventE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN15QMenuBarPrivate18_q_actionTriggeredEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QMenuBarPrivate16_q_actionHoveredEv": ["nothing", "address"],
+    "ritual_ZN15QMenuBarPrivate9isVisibleEP7QAction": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN15QMenuBarPrivate14handleReparentEv": ["nothing", "address"],
+    "ritual_ZN15QMenuBarPrivate15getPlatformMenuEPK7QAction": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN15QMenuBarPrivate25findInsertionPlatformMenuEPK7QAction": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN15QMenuBarPrivate24copyActionToPlatformMenuEPK7QActionP13QPlatformMenu": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK15QMenuBarPrivate7indexOfEP7QAction": [
+      "int", "address", "address"
+    ],
+    "ritual_take_QMenuBarPrivate": ["bool", "address", "chars", "address"]
+  }
+}

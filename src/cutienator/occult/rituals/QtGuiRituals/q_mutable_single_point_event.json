@@ -1,0 +1,31 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qevent_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN24QMutableSinglePointEventC1EN6QEvent4TypeEPK15QPointingDeviceRK11QEventPointN2Qt11MouseButtonE6QFlagsIS9_ESA_INS8_16KeyboardModifierEENS8_16MouseEventSourceE": [
+      "address", "int", "address", "address", "int", "int", "int", "int"
+    ],
+    "ritual_ZN24QMutableSinglePointEventD1Ev": ["nothing", "address"],
+    "ritual_ZN24QMutableSinglePointEvent9setSourceEN2Qt16MouseEventSourceE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN24QMutableSinglePointEvent13isDoubleClickEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN24QMutableSinglePointEvent14setDoubleClickEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN24QMutableSinglePointEvent13isDoubleClickEPK17QSinglePointEvent": [
+      "bool", "address"
+    ],
+    "ritual_ZN24QMutableSinglePointEvent14setDoubleClickEP17QSinglePointEventb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_take_QMutableSinglePointEvent": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

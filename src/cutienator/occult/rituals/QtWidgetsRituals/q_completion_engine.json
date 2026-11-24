@@ -1,0 +1,34 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qcompleter_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN17QCompletionEngineD1Ev": ["nothing", "address"],
+    "ritual_ZN17QCompletionEngine6filterERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QCompletionEngine13filterHistoryEv": ["address", "address"],
+    "ritual_ZNK17QCompletionEngine9matchHintERK7QStringRK11QModelIndexP10QMatchData": [
+      "bool", "address", "text", "address", "address"
+    ],
+    "ritual_ZN17QCompletionEngine11saveInCacheE7QStringRK11QModelIndexRK10QMatchData": [
+      "nothing", "address", "text", "address", "address"
+    ],
+    "ritual_ZNK17QCompletionEngine11lookupCacheERK7QStringRK11QModelIndexP10QMatchData": [
+      "bool", "address", "text", "address", "address"
+    ],
+    "ritual_ZN17QCompletionEngine14filterOnDemandEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QCompletionEngine6filterERK7QStringRK11QModelIndexi": [
+      "address", "address", "text", "address", "int"
+    ],
+    "ritual_ZNK17QCompletionEngine10matchCountEv": ["int", "address"],
+    "ritual_take_QCompletionEngine": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN17QCompletionEngine14filterOnDemandEi": [
+      "nothing", "address", "int"
+    ]
+  }
+}

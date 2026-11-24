@@ -1,0 +1,25 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmlpropertyvalueinterceptor_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN28QQmlPropertyValueInterceptorD1Ev": ["nothing", "address"],
+    "ritual_ZN28QQmlPropertyValueInterceptor9setTargetERK12QQmlProperty": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QQmlPropertyValueInterceptor5writeERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QQmlPropertyValueInterceptor8bindableEP16QUntypedBindableS0_": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_take_QQmlPropertyValueInterceptor": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN28QQmlPropertyValueInterceptor8bindableEP16QUntypedBindableS0_": [
+      "bool", "address", "address", "address"
+    ]
+  }
+}

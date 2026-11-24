@@ -1,0 +1,23 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qpathclipper_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN12QPathClipperC1ERK12QPainterPathS2_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN12QPathClipper4clipENS_9OperationE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN12QPathClipper9intersectEv": ["bool", "address"],
+    "ritual_ZN12QPathClipper8containsEv": ["bool", "address"],
+    "ritual_ZN12QPathClipper10pathToRectERK12QPainterPathP6QRectF": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN12QPathClipper9intersectERK12QPainterPathRK6QRectF": [
+      "address", "address", "address"
+    ]
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Particles/6.12.0/QtQuickParticles/private/qquickparticlesystem_p.h",
+    ", Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QQuickParticleData18setInstantaneousAXEfP20QQuickParticleSystem": [
+      "nothing", "address", "float", "address"
+    ],
+    "ritual_ZN18QQuickParticleData18setInstantaneousVXEfP20QQuickParticleSystem": [
+      "nothing", "address", "float", "address"
+    ],
+    "ritual_ZN18QQuickParticleData17setInstantaneousXEfP20QQuickParticleSystem": [
+      "nothing", "address", "float", "address"
+    ],
+    "ritual_ZN18QQuickParticleData18setInstantaneousAYEfP20QQuickParticleSystem": [
+      "nothing", "address", "float", "address"
+    ],
+    "ritual_ZN18QQuickParticleData18setInstantaneousVYEfP20QQuickParticleSystem": [
+      "nothing", "address", "float", "address"
+    ],
+    "ritual_ZN18QQuickParticleData17setInstantaneousYEfP20QQuickParticleSystem": [
+      "nothing", "address", "float", "address"
+    ],
+    "ritual_ZNK18QQuickParticleData4curXEP20QQuickParticleSystem": [
+      "float", "address", "address"
+    ],
+    "ritual_ZNK18QQuickParticleData5curVXEP20QQuickParticleSystem": [
+      "float", "address", "address"
+    ],
+    "ritual_ZNK18QQuickParticleData5curAXEv": ["float", "address"],
+    "ritual_ZNK18QQuickParticleData5curAXEP20QQuickParticleSystem": [
+      "float", "address", "address"
+    ],
+    "ritual_ZNK18QQuickParticleData4curYEP20QQuickParticleSystem": [
+      "float", "address", "address"
+    ],
+    "ritual_ZNK18QQuickParticleData5curVYEP20QQuickParticleSystem": [
+      "float", "address", "address"
+    ],
+    "ritual_ZNK18QQuickParticleData5curAYEv": ["float", "address"],
+    "ritual_ZNK18QQuickParticleData5curAYEP20QQuickParticleSystem": [
+      "float", "address", "address"
+    ],
+    "ritual_ZNK18QQuickParticleData9debugDumpEP20QQuickParticleSystem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QQuickParticleData10stillAliveEP20QQuickParticleSystem": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK18QQuickParticleData5aliveEP20QQuickParticleSystem": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK18QQuickParticleData8lifeLeftEP20QQuickParticleSystem": [
+      "float", "address", "address"
+    ],
+    "ritual_ZNK18QQuickParticleData7curSizeEP20QQuickParticleSystem": [
+      "float", "address", "address"
+    ],
+    "ritual_ZN18QQuickParticleData7v4ValueEP20QQuickParticleSystem": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18QQuickParticleData10extendLifeEfP20QQuickParticleSystem": [
+      "nothing", "address", "float", "address"
+    ],
+    "ritual_ZN18QQuickParticleData7EPSILONEv": ["float"],
+    "ritual_ZN18QQuickParticleDataD1Ev": ["nothing", "address"],
+    "ritual_list_make_QQuickParticleData_ptr": ["address"],
+    "ritual_list_add_QQuickParticleData_ptr": [
+      "nothing", "address", "address"
+    ],
+    "ritual_list_size_QQuickParticleData_ptr": ["long long", "address"],
+    "ritual_list_at_QQuickParticleData_ptr": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_QQuickParticleData_ptr": ["nothing", "address"]
+  }
+}

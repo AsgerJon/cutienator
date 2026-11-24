@@ -1,0 +1,54 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Particles/6.12.0/QtQuickParticles/private/qquicktrailemitter_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18QQuickTrailEmitter10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QQuickTrailEmitter2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18QQuickTrailEmitterC1EP10QQuickItem": ["address", "address"],
+    "ritual_ZN18QQuickTrailEmitter10emitWindowEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18QQuickTrailEmitter5resetEv": ["nothing", "address"],
+    "ritual_ZNK18QQuickTrailEmitter29particlesPerParticlePerSecondEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK18QQuickTrailEmitter17emitterXVariationEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK18QQuickTrailEmitter17emitterYVariationEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK18QQuickTrailEmitter6followEv": ["text", "address"],
+    "ritual_ZNK18QQuickTrailEmitter12emissonShapeEv": ["address", "address"],
+    "ritual_ZN18QQuickTrailEmitter32setParticlesPerParticlePerSecondEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18QQuickTrailEmitter20setEmitterXVariationEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN18QQuickTrailEmitter20setEmitterYVariationEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN18QQuickTrailEmitter9setFollowERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN18QQuickTrailEmitter16setEmissionShapeEP22QQuickParticleExtruder": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQuickTrailEmitter24recalcParticlesPerSecondEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickTrailEmitter21isEmitFollowConnectedEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZN18QQuickTrailEmitter10emitWindowEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN18QQuickTrailEmitter5resetEv": ["nothing", "address"]
+  }
+}

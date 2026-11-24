@@ -1,0 +1,39 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qabstractfileiconprovider_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN32QAbstractFileIconProviderPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK32QAbstractFileIconProviderPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN32QAbstractFileIconProviderPrivateC1EP25QAbstractFileIconProvider": [
+      "address", "address"
+    ],
+    "ritual_ZN32QAbstractFileIconProviderPrivateD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK32QAbstractFileIconProviderPrivate20getPlatformThemeIconEN25QAbstractFileIconProvider8IconTypeE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK32QAbstractFileIconProviderPrivate16getIconThemeIconEN25QAbstractFileIconProvider8IconTypeE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK32QAbstractFileIconProviderPrivate20getPlatformThemeIconERK9QFileInfo": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK32QAbstractFileIconProviderPrivate16getIconThemeIconERK9QFileInfo": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN32QAbstractFileIconProviderPrivate18clearIconTypeCacheEv": [
+      "nothing"
+    ],
+    "ritual_ZN32QAbstractFileIconProviderPrivate11getFileTypeERK9QFileInfo": [
+      "text", "address"
+    ]
+  }
+}

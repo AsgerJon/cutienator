@@ -4,6 +4,7 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qanystringview.h>
 #include <QtCore/qjsonvalue.h>
+#include <QtCore/qcompare.h>
 
 //  QJsonObject::const_iterator::const_iterator()
 extern "C" Q_DECL_EXPORT
@@ -141,6 +142,19 @@ bool ritual_ZN11QJsonObject14const_iterator20comparesEqual_helperERKS0_S2_(
     const QJsonObject::const_iterator *lhs,
     const QJsonObject::const_iterator *rhs) {
   return QJsonObject::const_iterator::comparesEqual_helper(*lhs, *rhs);
+}
+
+//  Qt::strong_ordering
+//      QJsonObject::const_iterator::compareThreeWay_helper(const
+//      const_iterator &lhs, const const_iterator &rhs)
+extern "C" Q_DECL_EXPORT
+Qt::strong_ordering *ritual_ZN11QJsonObject14const_iterator22compareThreeWay_helperERKS0_S2_(
+    const QJsonObject::const_iterator *lhs,
+    const QJsonObject::const_iterator *rhs) {
+  return new Qt::strong_ordering(
+      QJsonObject::const_iterator::compareThreeWay_helper(
+          *lhs,
+          *rhs));
 }
 
 //  bool operator==(const const_iterator &lhs, const const_iterator &rhs)

@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qscroller.h, Qt 6.12.0. Changes made here are lost.
+#include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(scroller)
 #include <QtWidgets/qscroller.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qpoint.h>
@@ -42,6 +44,7 @@ const QScroller *ritual_ZN9QScroller8scrollerEPK7QObject(
   return QScroller::scroller(target);
 }
 
+#if !defined(QT_NO_GESTURES)
 //  Qt::GestureType QScroller::grabGesture(QObject *target,
 //      ScrollerGestureType gestureType)
 extern "C" Q_DECL_EXPORT
@@ -50,19 +53,24 @@ Qt::GestureType ritual_ZN9QScroller11grabGestureEP7QObjectNS_19ScrollerGestureTy
     QScroller::ScrollerGestureType gestureType) {
   return QScroller::grabGesture(target, gestureType);
 }
+#endif  // !defined(QT_NO_GESTURES)
 
+#if !defined(QT_NO_GESTURES)
 //  Qt::GestureType QScroller::grabbedGesture(QObject *target)
 extern "C" Q_DECL_EXPORT
 Qt::GestureType ritual_ZN9QScroller14grabbedGestureEP7QObject(
     QObject *target) {
   return QScroller::grabbedGesture(target);
 }
+#endif  // !defined(QT_NO_GESTURES)
 
+#if !defined(QT_NO_GESTURES)
 //  void QScroller::ungrabGesture(QObject *target)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN9QScroller13ungrabGestureEP7QObject(QObject *target) {
   QScroller::ungrabGesture(target);
 }
+#endif  // !defined(QT_NO_GESTURES)
 
 //  QList<QScroller *> QScroller::activeScrollers()
 extern "C" Q_DECL_EXPORT
@@ -254,3 +262,5 @@ extern "C" Q_DECL_EXPORT
 void ritual_list_drop_QScroller_ptr(QList<QScroller *> *self) {
   delete self;
 }
+
+#endif  // QT_CONFIG(scroller)

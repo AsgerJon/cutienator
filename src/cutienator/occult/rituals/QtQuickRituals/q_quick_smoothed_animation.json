@@ -1,0 +1,45 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquicksmoothedanimation_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK23QQuickSmoothedAnimation10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QQuickSmoothedAnimation2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN23QQuickSmoothedAnimation6d_funcEv": ["address", "address"],
+    "ritual_ZNK23QQuickSmoothedAnimation6d_funcEv": ["address", "address"],
+    "ritual_ZN23QQuickSmoothedAnimationC1EP7QObject": ["address", "address"],
+    "ritual_ZNK23QQuickSmoothedAnimation13reversingModeEv": [
+      "int", "address"
+    ],
+    "ritual_ZN23QQuickSmoothedAnimation16setReversingModeENS_13ReversingModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK23QQuickSmoothedAnimation8durationEv": ["int", "address"],
+    "ritual_ZN23QQuickSmoothedAnimation11setDurationEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK23QQuickSmoothedAnimation8velocityEv": ["double", "address"],
+    "ritual_ZN23QQuickSmoothedAnimation11setVelocityEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK23QQuickSmoothedAnimation17maximumEasingTimeEv": [
+      "int", "address"
+    ],
+    "ritual_ZN23QQuickSmoothedAnimation20setMaximumEasingTimeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_take_QQuickSmoothedAnimation": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK23QQuickSmoothedAnimation8durationEv": ["int", "address"],
+    "ritual_own_ZN23QQuickSmoothedAnimation11setDurationEi": [
+      "nothing", "address", "int"
+    ]
+  }
+}

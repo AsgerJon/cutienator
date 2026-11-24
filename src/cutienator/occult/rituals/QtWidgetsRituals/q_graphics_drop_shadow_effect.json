@@ -49,6 +49,8 @@
     "ritual_ZN25QGraphicsDropShadowEffect4drawEP8QPainter": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN25QGraphicsDropShadowEffect6d_funcEv": ["address", "address"],
+    "ritual_ZNK25QGraphicsDropShadowEffect6d_funcEv": ["address", "address"],
     "ritual_take_QGraphicsDropShadowEffect": [
       "bool", "address", "chars", "address"
     ],

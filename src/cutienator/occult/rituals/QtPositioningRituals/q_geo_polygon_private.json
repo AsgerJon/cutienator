@@ -1,0 +1,52 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtPositioning/6.12.0/QtPositioning/private/qgeopolygon_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QGeoPolygonPrivateC1Ev": ["address"],
+    "ritual_ZN18QGeoPolygonPrivateC1ERK5QListI14QGeoCoordinateE": [
+      "address", "address"
+    ],
+    "ritual_ZN18QGeoPolygonPrivateC1ERKS_": ["address", "address"],
+    "ritual_ZN18QGeoPolygonPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZNK18QGeoPolygonPrivate5cloneEv": ["address", "address"],
+    "ritual_ZNK18QGeoPolygonPrivate7isValidEv": ["bool", "address"],
+    "ritual_ZNK18QGeoPolygonPrivate8containsERK14QGeoCoordinate": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN18QGeoPolygonPrivate9translateEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN18QGeoPolygonPrivate9markDirtyEv": ["nothing", "address"],
+    "ritual_ZNK18QGeoPolygonPrivate10holesCountEv": ["long long", "address"],
+    "ritual_ZNK18QGeoPolygonPrivate15polygonContainsERK14QGeoCoordinate": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK18QGeoPolygonPrivate8holePathEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN18QGeoPolygonPrivate7addHoleERK5QListI14QGeoCoordinateE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QGeoPolygonPrivate10removeHoleEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZNK18QGeoPolygonPrivate24ensureClipperPathUpdatedEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QGeoPolygonPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK18QGeoPolygonPrivate5cloneEv": ["address", "address"],
+    "ritual_own_ZNK18QGeoPolygonPrivate7isValidEv": ["bool", "address"],
+    "ritual_own_ZNK18QGeoPolygonPrivate8containsERK14QGeoCoordinate": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN18QGeoPolygonPrivate9translateEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_own_ZN18QGeoPolygonPrivate9markDirtyEv": ["nothing", "address"]
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qopenglprogrambinarycache_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN25QOpenGLProgramBinaryCacheC1Ev": ["address"],
+    "ritual_ZN25QOpenGLProgramBinaryCache4loadERK10QByteArrayj": [
+      "bool", "address", "address", "unsigned int"
+    ],
+    "ritual_ZN25QOpenGLProgramBinaryCache4saveERK10QByteArrayj": [
+      "nothing", "address", "address", "unsigned int"
+    ],
+    "ritual_ZNK25QOpenGLProgramBinaryCache13cacheFileNameERK10QByteArray": [
+      "text", "address", "address"
+    ],
+    "ritual_ZNK25QOpenGLProgramBinaryCache12verifyHeaderERK10QByteArray": [
+      "bool", "address", "address"
+    ]
+  }
+}

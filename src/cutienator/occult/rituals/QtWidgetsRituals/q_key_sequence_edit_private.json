@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qkeysequenceedit_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN23QKeySequenceEditPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK23QKeySequenceEditPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN23QKeySequenceEditPrivate4initEv": ["nothing", "address"],
+    "ritual_ZN23QKeySequenceEditPrivate18translateModifiersE6QFlagsIN2Qt16KeyboardModifierEERK7QString": [
+      "int", "address", "int", "text"
+    ],
+    "ritual_ZN23QKeySequenceEditPrivate10resetStateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QKeySequenceEditPrivate13finishEditingEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QKeySequenceEditPrivate18rebuildKeySequenceEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QKeySequenceEditPrivate": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

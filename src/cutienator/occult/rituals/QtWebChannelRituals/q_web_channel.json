@@ -1,0 +1,39 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWebChannel/qwebchannel.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK11QWebChannel10metaObjectEv": ["address", "address"],
+    "ritual_ZN11QWebChannel2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN11QWebChannelC1EP7QObject": ["address", "address"],
+    "ritual_ZN11QWebChannelD1Ev": ["nothing", "address"],
+    "ritual_ZN11QWebChannel15registerObjectsERK5QHashI7QStringP7QObjectE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QWebChannel17registeredObjectsEv": ["address", "address"],
+    "ritual_ZN11QWebChannel14registerObjectERK7QStringP7QObject": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZN11QWebChannel16deregisterObjectEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QWebChannel12blockUpdatesEv": ["bool", "address"],
+    "ritual_ZN11QWebChannel15setBlockUpdatesEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK11QWebChannel22propertyUpdateIntervalEv": ["int", "address"],
+    "ritual_ZN11QWebChannel25setPropertyUpdateIntervalEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN11QWebChannel9connectToEP28QWebChannelAbstractTransport": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QWebChannel14disconnectFromEP28QWebChannelAbstractTransport": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QWebChannel6d_funcEv": ["address", "address"],
+    "ritual_ZNK11QWebChannel6d_funcEv": ["address", "address"],
+    "ritual_take_QWebChannel": ["bool", "address", "chars", "address"]
+  }
+}

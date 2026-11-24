@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4variantobject_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK3QV44Heap13VariantObject4dataEv": ["address", "address"],
+    "ritual_ZN3QV44Heap13VariantObject23addVmePropertyReferenceEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN3QV44Heap13VariantObject26removeVmePropertyReferenceEv": [
+      "nothing", "address"
+    ]
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/qjsvalue.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN8QJSValueC1ENS_12SpecialValueE": ["address", "int"],
+    "ritual_ZN8QJSValueD1Ev": ["nothing", "address"],
+    "ritual_ZN8QJSValueC1ERKS_": ["address", "address"],
+    "ritual_ZN8QJSValueC1Eb": ["address", "bool"],
+    "ritual_ZN8QJSValueC1Ei": ["address", "int"],
+    "ritual_ZN8QJSValueC1Ej": ["address", "unsigned int"],
+    "ritual_ZN8QJSValueC1Ed": ["address", "double"],
+    "ritual_ZN8QJSValueC1ERK7QString": ["address", "text"],
+    "ritual_ZN8QJSValueC1ERK13QLatin1String": ["address", "address"],
+    "ritual_ZN8QJSValueC1EPKc": ["address", "chars"],
+    "ritual_ZNK8QJSValue6isBoolEv": ["bool", "address"],
+    "ritual_ZNK8QJSValue8isNumberEv": ["bool", "address"],
+    "ritual_ZNK8QJSValue6isNullEv": ["bool", "address"],
+    "ritual_ZNK8QJSValue8isStringEv": ["bool", "address"],
+    "ritual_ZNK8QJSValue11isUndefinedEv": ["bool", "address"],
+    "ritual_ZNK8QJSValue9isVariantEv": ["bool", "address"],
+    "ritual_ZNK8QJSValue9isQObjectEv": ["bool", "address"],
+    "ritual_ZNK8QJSValue13isQMetaObjectEv": ["bool", "address"],
+    "ritual_ZNK8QJSValue8isObjectEv": ["bool", "address"],
+    "ritual_ZNK8QJSValue6isDateEv": ["bool", "address"],
+    "ritual_ZNK8QJSValue8isRegExpEv": ["bool", "address"],
+    "ritual_ZNK8QJSValue7isArrayEv": ["bool", "address"],
+    "ritual_ZNK8QJSValue7isErrorEv": ["bool", "address"],
+    "ritual_ZNK8QJSValue5isUrlEv": ["bool", "address"],
+    "ritual_ZNK8QJSValue8toStringEv": ["text", "address"],
+    "ritual_ZNK8QJSValue8toNumberEv": ["double", "address"],
+    "ritual_ZNK8QJSValue5toIntEv": ["int", "address"],
+    "ritual_ZNK8QJSValue6toUIntEv": ["unsigned int", "address"],
+    "ritual_ZNK8QJSValue6toBoolEv": ["bool", "address"],
+    "ritual_ZNK8QJSValue9toVariantEv": ["address", "address"],
+    "ritual_ZNK8QJSValue9toVariantENS_24ObjectConversionBehaviorE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK8QJSValue11toPrimitiveEv": ["address", "address"],
+    "ritual_ZNK8QJSValue9toQObjectEv": ["address", "address"],
+    "ritual_ZNK8QJSValue13toQMetaObjectEv": ["address", "address"],
+    "ritual_ZNK8QJSValue10toDateTimeEv": ["address", "address"],
+    "ritual_ZNK8QJSValue6equalsERKS_": ["bool", "address", "address"],
+    "ritual_ZNK8QJSValue14strictlyEqualsERKS_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK8QJSValue9prototypeEv": ["address", "address"],
+    "ritual_ZN8QJSValue12setPrototypeERKS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK8QJSValue8propertyERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN8QJSValue11setPropertyERK7QStringRKS_": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZNK8QJSValue11hasPropertyERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZNK8QJSValue14hasOwnPropertyERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZNK8QJSValue8propertyEj": ["address", "address", "unsigned int"],
+    "ritual_ZN8QJSValue11setPropertyEjRKS_": [
+      "nothing", "address", "unsigned int", "address"
+    ],
+    "ritual_ZN8QJSValue14deletePropertyERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZNK8QJSValue10isCallableEv": ["bool", "address"],
+    "ritual_ZNK8QJSValue4callERK5QListIS_E": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK8QJSValue16callWithInstanceERKS_RK5QListIS_E": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK8QJSValue17callAsConstructorERK5QListIS_E": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK8QJSValue9errorTypeEv": ["int", "address"],
+    "ritual_list_make_QJSValue": ["address"],
+    "ritual_list_add_QJSValue": ["nothing", "address", "address"],
+    "ritual_list_size_QJSValue": ["long long", "address"],
+    "ritual_list_at_QJSValue": ["address", "address", "long long"],
+    "ritual_list_drop_QJSValue": ["nothing", "address"]
+  }
+}

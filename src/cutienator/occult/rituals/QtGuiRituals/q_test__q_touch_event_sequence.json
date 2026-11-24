@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/qtestsupport_gui.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN5QTest19QTouchEventSequenceD1Ev": ["nothing", "address"],
+    "ritual_ZN5QTest19QTouchEventSequence6commitEb": [
+      "bool", "address", "bool"
+    ],
+    "ritual_take_QTest_QTouchEventSequence": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN5QTest19QTouchEventSequence6commitEb": [
+      "bool", "address", "bool"
+    ]
+  }
+}

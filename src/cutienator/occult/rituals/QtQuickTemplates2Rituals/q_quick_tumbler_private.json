@@ -1,0 +1,108 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquicktumbler_p_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QQuickTumblerPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK20QQuickTumblerPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN20QQuickTumblerPrivate17determineViewTypeEP10QQuickItem": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN20QQuickTumblerPrivate13resetViewDataEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK20QQuickTumblerPrivate25viewContentItemChildItemsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QQuickTumblerPrivate3getEP13QQuickTumbler": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QQuickTumblerPrivate14defaultPaletteEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QQuickTumblerPrivate20_q_updateItemHeightsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickTumblerPrivate19_q_updateItemWidthsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickTumblerPrivate28_q_onViewCurrentIndexChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickTumblerPrivate21_q_onViewCountChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickTumblerPrivate22_q_onViewOffsetChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickTumblerPrivate24_q_onViewContentYChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickTumblerPrivate22calculateDisplacementsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickTumblerPrivate18disconnectFromViewEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickTumblerPrivate13setupViewDataEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickTumblerPrivate29warnAboutIncorrectContentItemEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickTumblerPrivate16syncCurrentIndexEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickTumblerPrivate22setPendingCurrentIndexEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQuickTumblerPrivate28propertyChangeReasonToStringENS_20PropertyChangeReasonE": [
+      "text", "int"
+    ],
+    "ritual_ZN20QQuickTumblerPrivate15setCurrentIndexEiNS_20PropertyChangeReasonE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN20QQuickTumblerPrivate8setCountEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQuickTumblerPrivate19setWrapBasedOnCountEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickTumblerPrivate7setWrapEbN4QQml13PropertyUtils5StateE": [
+      "nothing", "address", "bool", "int"
+    ],
+    "ritual_ZNK20QQuickTumblerPrivate26effectiveFlickDecelerationEv": [
+      "double", "address"
+    ],
+    "ritual_ZN20QQuickTumblerPrivate13beginSetModelEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickTumblerPrivate11endSetModelEv": ["nothing", "address"],
+    "ritual_ZN20QQuickTumblerPrivate14itemChildAddedEP10QQuickItemS1_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN20QQuickTumblerPrivate16itemChildRemovedEP10QQuickItemS1_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN20QQuickTumblerPrivate19itemGeometryChangedEP10QQuickItem20QQuickGeometryChangeRK6QRectF": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_take_QQuickTumblerPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK20QQuickTumblerPrivate14defaultPaletteEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN20QQuickTumblerPrivate14itemChildAddedEP10QQuickItemS1_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN20QQuickTumblerPrivate16itemChildRemovedEP10QQuickItemS1_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN20QQuickTumblerPrivate19itemGeometryChangedEP10QQuickItem20QQuickGeometryChangeRK6QRectF": [
+      "nothing", "address", "address", "address", "address"
+    ]
+  }
+}

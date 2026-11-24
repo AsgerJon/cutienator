@@ -1,0 +1,40 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLocation/6.12.0/QtLocation/private/qgeotilefetcher_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK15QGeoTileFetcher10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QGeoTileFetcher2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN15QGeoTileFetcher6d_funcEv": ["address", "address"],
+    "ritual_ZNK15QGeoTileFetcher6d_funcEv": ["address", "address"],
+    "ritual_ZN15QGeoTileFetcherD1Ev": ["nothing", "address"],
+    "ritual_ZN15QGeoTileFetcher15requestNextTileEv": ["nothing", "address"],
+    "ritual_ZN15QGeoTileFetcher8finishedEv": ["nothing", "address"],
+    "ritual_ZN15QGeoTileFetcher10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QGeoTileFetcher11initializedEv": ["bool", "address"],
+    "ritual_ZNK15QGeoTileFetcher15fetchingEnabledEv": ["bool", "address"],
+    "ritual_ZN15QGeoTileFetcher12getTileImageERK12QGeoTileSpec": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN15QGeoTileFetcher11handleReplyEP17QGeoTiledMapReplyRK12QGeoTileSpec": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_take_QGeoTileFetcher": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN15QGeoTileFetcher10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK15QGeoTileFetcher11initializedEv": ["bool", "address"],
+    "ritual_own_ZNK15QGeoTileFetcher15fetchingEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZN15QGeoTileFetcher11handleReplyEP17QGeoTiledMapReplyRK12QGeoTileSpec": [
+      "nothing", "address", "address", "address"
+    ]
+  }
+}

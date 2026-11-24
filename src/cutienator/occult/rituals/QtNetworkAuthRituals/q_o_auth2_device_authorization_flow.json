@@ -1,0 +1,68 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetworkAuth/qoauth2deviceauthorizationflow.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK30QOAuth2DeviceAuthorizationFlow10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN30QOAuth2DeviceAuthorizationFlow2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN30QOAuth2DeviceAuthorizationFlowC1Ev": ["address"],
+    "ritual_ZN30QOAuth2DeviceAuthorizationFlowC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN30QOAuth2DeviceAuthorizationFlowC1EP21QNetworkAccessManagerP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN30QOAuth2DeviceAuthorizationFlowD1Ev": ["nothing", "address"],
+    "ritual_ZNK30QOAuth2DeviceAuthorizationFlow8userCodeEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK30QOAuth2DeviceAuthorizationFlow15verificationUrlEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK30QOAuth2DeviceAuthorizationFlow23completeVerificationUrlEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK30QOAuth2DeviceAuthorizationFlow9isPollingEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK30QOAuth2DeviceAuthorizationFlow20userCodeExpirationAtEv": [
+      "address", "address"
+    ],
+    "ritual_ZN30QOAuth2DeviceAuthorizationFlow5grantEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QOAuth2DeviceAuthorizationFlow17startTokenPollingEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN30QOAuth2DeviceAuthorizationFlow16stopTokenPollingEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QOAuth2DeviceAuthorizationFlow5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN30QOAuth2DeviceAuthorizationFlow27refreshTokensImplementationEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QOAuth2DeviceAuthorizationFlow6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK30QOAuth2DeviceAuthorizationFlow6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_take_QOAuth2DeviceAuthorizationFlow": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN30QOAuth2DeviceAuthorizationFlow5grantEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN30QOAuth2DeviceAuthorizationFlow5eventEP6QEvent": [
+      "bool", "address", "address"
+    ]
+  }
+}

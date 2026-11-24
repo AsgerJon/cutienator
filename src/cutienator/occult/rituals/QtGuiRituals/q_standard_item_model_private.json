@@ -1,0 +1,50 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qstandarditemmodel_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN25QStandardItemModelPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK25QStandardItemModelPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN25QStandardItemModelPrivateC1Ev": ["address"],
+    "ritual_ZN25QStandardItemModelPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN25QStandardItemModelPrivate4initEv": ["nothing", "address"],
+    "ritual_ZNK25QStandardItemModelPrivate10createItemEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK25QStandardItemModelPrivate13itemFromIndexERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN25QStandardItemModelPrivate21rowsAboutToBeInsertedEP13QStandardItemii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN25QStandardItemModelPrivate24columnsAboutToBeInsertedEP13QStandardItemii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN25QStandardItemModelPrivate20rowsAboutToBeRemovedEP13QStandardItemii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN25QStandardItemModelPrivate23columnsAboutToBeRemovedEP13QStandardItemii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN25QStandardItemModelPrivate12rowsInsertedEP13QStandardItemii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN25QStandardItemModelPrivate15columnsInsertedEP13QStandardItemii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN25QStandardItemModelPrivate11rowsRemovedEP13QStandardItemii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN25QStandardItemModelPrivate14columnsRemovedEP13QStandardItemii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN25QStandardItemModelPrivate18_q_emitItemChangedERK11QModelIndexS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_take_QStandardItemModelPrivate": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

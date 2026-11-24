@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qabstractscrollarea.h, Qt 6.12.0. Changes made here are lost.
+#include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(scrollarea)
 #include <QtWidgets/qabstractscrollarea.h>
 #include <QtCore/qstring.h>
 #include <QtWidgets/qwidget.h>
@@ -36,27 +38,85 @@ struct OwnQAbstractScrollArea : QAbstractScrollArea {
 //  A QAbstractScrollArea that Python can take functions over in. Every QAbstractScrollArea
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if QT_CONFIG(scrollarea)
 typedef const QSize * (*CuteQAbstractScrollAreaCall0)(const void *, int *);
+#endif  // QT_CONFIG(scrollarea)
+#if QT_CONFIG(scrollarea)
 typedef const QSize * (*CuteQAbstractScrollAreaCall1)(const void *, int *);
+#endif  // QT_CONFIG(scrollarea)
+#if QT_CONFIG(scrollarea)
 typedef void (*CuteQAbstractScrollAreaCall2)(const void *, QWidget *, int *);
+#endif  // QT_CONFIG(scrollarea)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(scrollarea)
 typedef bool (*CuteQAbstractScrollAreaCall3)(const void *, QObject *, QEvent *, int *);
+#endif  // QT_CONFIG(scrollarea)
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(scrollarea)
 typedef bool (*CuteQAbstractScrollAreaCall4)(const void *, QEvent *, int *);
+#endif  // QT_CONFIG(scrollarea)
+#endif  // !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(scrollarea)
 typedef bool (*CuteQAbstractScrollAreaCall5)(const void *, QEvent *, int *);
+#endif  // QT_CONFIG(scrollarea)
+#if QT_CONFIG(scrollarea)
 typedef void (*CuteQAbstractScrollAreaCall6)(const void *, QResizeEvent *, int *);
+#endif  // QT_CONFIG(scrollarea)
+#if QT_CONFIG(scrollarea)
 typedef void (*CuteQAbstractScrollAreaCall7)(const void *, QPaintEvent *, int *);
+#endif  // QT_CONFIG(scrollarea)
+#if QT_CONFIG(scrollarea)
 typedef void (*CuteQAbstractScrollAreaCall8)(const void *, QMouseEvent *, int *);
+#endif  // QT_CONFIG(scrollarea)
+#if QT_CONFIG(scrollarea)
 typedef void (*CuteQAbstractScrollAreaCall9)(const void *, QMouseEvent *, int *);
+#endif  // QT_CONFIG(scrollarea)
+#if QT_CONFIG(scrollarea)
 typedef void (*CuteQAbstractScrollAreaCall10)(const void *, QMouseEvent *, int *);
+#endif  // QT_CONFIG(scrollarea)
+#if QT_CONFIG(scrollarea)
 typedef void (*CuteQAbstractScrollAreaCall11)(const void *, QMouseEvent *, int *);
+#endif  // QT_CONFIG(scrollarea)
+#if QT_CONFIG(wheelevent)
+#if QT_CONFIG(scrollarea)
 typedef void (*CuteQAbstractScrollAreaCall12)(const void *, QWheelEvent *, int *);
+#endif  // QT_CONFIG(scrollarea)
+#endif  // QT_CONFIG(wheelevent)
+#if !defined(QT_NO_CONTEXTMENU)
+#if QT_CONFIG(scrollarea)
 typedef void (*CuteQAbstractScrollAreaCall13)(const void *, QContextMenuEvent *, int *);
+#endif  // QT_CONFIG(scrollarea)
+#endif  // !defined(QT_NO_CONTEXTMENU)
+#if QT_CONFIG(draganddrop)
+#if QT_CONFIG(scrollarea)
 typedef void (*CuteQAbstractScrollAreaCall14)(const void *, QDragEnterEvent *, int *);
+#endif  // QT_CONFIG(scrollarea)
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
+#if QT_CONFIG(scrollarea)
 typedef void (*CuteQAbstractScrollAreaCall15)(const void *, QDragMoveEvent *, int *);
+#endif  // QT_CONFIG(scrollarea)
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
+#if QT_CONFIG(scrollarea)
 typedef void (*CuteQAbstractScrollAreaCall16)(const void *, QDragLeaveEvent *, int *);
+#endif  // QT_CONFIG(scrollarea)
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
+#if QT_CONFIG(scrollarea)
 typedef void (*CuteQAbstractScrollAreaCall17)(const void *, QDropEvent *, int *);
+#endif  // QT_CONFIG(scrollarea)
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(scrollarea)
 typedef void (*CuteQAbstractScrollAreaCall18)(const void *, QKeyEvent *, int *);
+#endif  // QT_CONFIG(scrollarea)
+#if QT_CONFIG(scrollarea)
 typedef void (*CuteQAbstractScrollAreaCall19)(const void *, int, int, int *);
+#endif  // QT_CONFIG(scrollarea)
+#if QT_CONFIG(scrollarea)
 typedef const QSize * (*CuteQAbstractScrollAreaCall20)(const void *, int *);
+#endif  // QT_CONFIG(scrollarea)
 typedef void (*CuteQAbstractScrollAreaCall21)(const void *, QEvent *, int *);
 typedef void (*CuteQAbstractScrollAreaCall22)(const void *, QStyleOptionFrame *, int *);
 typedef int (*CuteQAbstractScrollAreaCall23)(const void *, int *);
@@ -71,8 +131,12 @@ typedef void (*CuteQAbstractScrollAreaCall31)(const void *, QEnterEvent *, int *
 typedef void (*CuteQAbstractScrollAreaCall32)(const void *, QEvent *, int *);
 typedef void (*CuteQAbstractScrollAreaCall33)(const void *, QMoveEvent *, int *);
 typedef void (*CuteQAbstractScrollAreaCall34)(const void *, QCloseEvent *, int *);
+#if QT_CONFIG(tabletevent)
 typedef void (*CuteQAbstractScrollAreaCall35)(const void *, QTabletEvent *, int *);
+#endif  // QT_CONFIG(tabletevent)
+#if !defined(QT_NO_ACTION)
 typedef void (*CuteQAbstractScrollAreaCall36)(const void *, QActionEvent *, int *);
+#endif  // !defined(QT_NO_ACTION)
 typedef void (*CuteQAbstractScrollAreaCall37)(const void *, QShowEvent *, int *);
 typedef void (*CuteQAbstractScrollAreaCall38)(const void *, QHideEvent *, int *);
 typedef int (*CuteQAbstractScrollAreaCall39)(const void *, int, int *);
@@ -82,101 +146,169 @@ typedef void * (*CuteQAbstractScrollAreaCall42)(const void *, int *);
 typedef void (*CuteQAbstractScrollAreaCall43)(const void *, QInputMethodEvent *, int *);
 typedef const QVariant * (*CuteQAbstractScrollAreaCall44)(const void *, int, int *);
 typedef bool (*CuteQAbstractScrollAreaCall45)(const void *, bool, int *);
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQAbstractScrollAreaCall46)(const void *, QTimerEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQAbstractScrollAreaCall47)(const void *, QChildEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQAbstractScrollAreaCall48)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQAbstractScrollAreaCall49)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQAbstractScrollAreaCall50)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 class CuteQAbstractScrollArea : public QAbstractScrollArea {
 public:
   using QAbstractScrollArea::QAbstractScrollArea;
   void *taken[51] = {};
 
   bool take(const char *key, void *call) {
+#if QT_CONFIG(scrollarea)
     if (!std::strcmp(key, "_ZNK7QWidget15minimumSizeHintEv")) {
       taken[0] = call;
       return true;
     }
+#endif  // QT_CONFIG(scrollarea)
+#if QT_CONFIG(scrollarea)
     if (!std::strcmp(key, "_ZNK7QWidget8sizeHintEv")) {
       taken[1] = call;
       return true;
     }
+#endif  // QT_CONFIG(scrollarea)
+#if QT_CONFIG(scrollarea)
     if (!std::strcmp(key, "_ZN19QAbstractScrollArea13setupViewportEP7QWidget")) {
       taken[2] = call;
       return true;
     }
+#endif  // QT_CONFIG(scrollarea)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(scrollarea)
     if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[3] = call;
       return true;
     }
+#endif  // QT_CONFIG(scrollarea)
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(scrollarea)
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[4] = call;
       return true;
     }
+#endif  // QT_CONFIG(scrollarea)
+#endif  // !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(scrollarea)
     if (!std::strcmp(key, "_ZN19QAbstractScrollArea13viewportEventEP6QEvent")) {
       taken[5] = call;
       return true;
     }
+#endif  // QT_CONFIG(scrollarea)
+#if QT_CONFIG(scrollarea)
     if (!std::strcmp(key, "_ZN7QWidget11resizeEventEP12QResizeEvent")) {
       taken[6] = call;
       return true;
     }
+#endif  // QT_CONFIG(scrollarea)
+#if QT_CONFIG(scrollarea)
     if (!std::strcmp(key, "_ZN7QWidget10paintEventEP11QPaintEvent")) {
       taken[7] = call;
       return true;
     }
+#endif  // QT_CONFIG(scrollarea)
+#if QT_CONFIG(scrollarea)
     if (!std::strcmp(key, "_ZN7QWidget15mousePressEventEP11QMouseEvent")) {
       taken[8] = call;
       return true;
     }
+#endif  // QT_CONFIG(scrollarea)
+#if QT_CONFIG(scrollarea)
     if (!std::strcmp(key, "_ZN7QWidget17mouseReleaseEventEP11QMouseEvent")) {
       taken[9] = call;
       return true;
     }
+#endif  // QT_CONFIG(scrollarea)
+#if QT_CONFIG(scrollarea)
     if (!std::strcmp(key, "_ZN7QWidget21mouseDoubleClickEventEP11QMouseEvent")) {
       taken[10] = call;
       return true;
     }
+#endif  // QT_CONFIG(scrollarea)
+#if QT_CONFIG(scrollarea)
     if (!std::strcmp(key, "_ZN7QWidget14mouseMoveEventEP11QMouseEvent")) {
       taken[11] = call;
       return true;
     }
+#endif  // QT_CONFIG(scrollarea)
+#if QT_CONFIG(wheelevent)
+#if QT_CONFIG(scrollarea)
     if (!std::strcmp(key, "_ZN7QWidget10wheelEventEP11QWheelEvent")) {
       taken[12] = call;
       return true;
     }
+#endif  // QT_CONFIG(scrollarea)
+#endif  // QT_CONFIG(wheelevent)
+#if !defined(QT_NO_CONTEXTMENU)
+#if QT_CONFIG(scrollarea)
     if (!std::strcmp(key, "_ZN7QWidget16contextMenuEventEP17QContextMenuEvent")) {
       taken[13] = call;
       return true;
     }
+#endif  // QT_CONFIG(scrollarea)
+#endif  // !defined(QT_NO_CONTEXTMENU)
+#if QT_CONFIG(draganddrop)
+#if QT_CONFIG(scrollarea)
     if (!std::strcmp(key, "_ZN7QWidget14dragEnterEventEP15QDragEnterEvent")) {
       taken[14] = call;
       return true;
     }
+#endif  // QT_CONFIG(scrollarea)
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
+#if QT_CONFIG(scrollarea)
     if (!std::strcmp(key, "_ZN7QWidget13dragMoveEventEP14QDragMoveEvent")) {
       taken[15] = call;
       return true;
     }
+#endif  // QT_CONFIG(scrollarea)
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
+#if QT_CONFIG(scrollarea)
     if (!std::strcmp(key, "_ZN7QWidget14dragLeaveEventEP15QDragLeaveEvent")) {
       taken[16] = call;
       return true;
     }
+#endif  // QT_CONFIG(scrollarea)
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
+#if QT_CONFIG(scrollarea)
     if (!std::strcmp(key, "_ZN7QWidget9dropEventEP10QDropEvent")) {
       taken[17] = call;
       return true;
     }
+#endif  // QT_CONFIG(scrollarea)
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(scrollarea)
     if (!std::strcmp(key, "_ZN7QWidget13keyPressEventEP9QKeyEvent")) {
       taken[18] = call;
       return true;
     }
+#endif  // QT_CONFIG(scrollarea)
+#if QT_CONFIG(scrollarea)
     if (!std::strcmp(key, "_ZN19QAbstractScrollArea16scrollContentsByEii")) {
       taken[19] = call;
       return true;
     }
+#endif  // QT_CONFIG(scrollarea)
+#if QT_CONFIG(scrollarea)
     if (!std::strcmp(key, "_ZNK19QAbstractScrollArea16viewportSizeHintEv")) {
       taken[20] = call;
       return true;
     }
+#endif  // QT_CONFIG(scrollarea)
     if (!std::strcmp(key, "_ZN7QWidget11changeEventEP6QEvent")) {
       taken[21] = call;
       return true;
@@ -233,14 +365,18 @@ public:
       taken[34] = call;
       return true;
     }
+#if QT_CONFIG(tabletevent)
     if (!std::strcmp(key, "_ZN7QWidget11tabletEventEP12QTabletEvent")) {
       taken[35] = call;
       return true;
     }
+#endif  // QT_CONFIG(tabletevent)
+#if !defined(QT_NO_ACTION)
     if (!std::strcmp(key, "_ZN7QWidget11actionEventEP12QActionEvent")) {
       taken[36] = call;
       return true;
     }
+#endif  // !defined(QT_NO_ACTION)
     if (!std::strcmp(key, "_ZN7QWidget9showEventEP10QShowEvent")) {
       taken[37] = call;
       return true;
@@ -277,29 +413,40 @@ public:
       taken[45] = call;
       return true;
     }
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[46] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[47] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[48] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[49] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
       taken[50] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
     return false;
   }
 
+#if QT_CONFIG(scrollarea)
   //  QSize QAbstractScrollArea::minimumSizeHint() const
   QSize minimumSizeHint() const override {
     if (taken[0]) {
@@ -310,7 +457,9 @@ public:
     }
     return QAbstractScrollArea::minimumSizeHint();
   }
+#endif  // QT_CONFIG(scrollarea)
 
+#if QT_CONFIG(scrollarea)
   //  QSize QAbstractScrollArea::sizeHint() const
   QSize sizeHint() const override {
     if (taken[1]) {
@@ -321,7 +470,9 @@ public:
     }
     return QAbstractScrollArea::sizeHint();
   }
+#endif  // QT_CONFIG(scrollarea)
 
+#if QT_CONFIG(scrollarea)
   //  void QAbstractScrollArea::setupViewport(QWidget *viewport)
   void setupViewport(QWidget *viewport) override {
     if (taken[2]) {
@@ -332,7 +483,10 @@ public:
     }
     QAbstractScrollArea::setupViewport(viewport);
   }
+#endif  // QT_CONFIG(scrollarea)
 
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(scrollarea)
   //  bool QAbstractScrollArea::eventFilter(QObject *a0, QEvent *a1)
   bool eventFilter(QObject *a0, QEvent *a1) override {
     if (taken[3]) {
@@ -343,7 +497,11 @@ public:
     }
     return QAbstractScrollArea::eventFilter(a0, a1);
   }
+#endif  // QT_CONFIG(scrollarea)
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(scrollarea)
   //  bool QAbstractScrollArea::event(QEvent *a0)
   bool event(QEvent *a0) override {
     if (taken[4]) {
@@ -354,7 +512,10 @@ public:
     }
     return QAbstractScrollArea::event(a0);
   }
+#endif  // QT_CONFIG(scrollarea)
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if QT_CONFIG(scrollarea)
   //  bool QAbstractScrollArea::viewportEvent(QEvent *a0)
   bool viewportEvent(QEvent *a0) override {
     if (taken[5]) {
@@ -365,7 +526,9 @@ public:
     }
     return QAbstractScrollArea::viewportEvent(a0);
   }
+#endif  // QT_CONFIG(scrollarea)
 
+#if QT_CONFIG(scrollarea)
   //  void QAbstractScrollArea::resizeEvent(QResizeEvent *a0)
   void resizeEvent(QResizeEvent *a0) override {
     if (taken[6]) {
@@ -376,7 +539,9 @@ public:
     }
     QAbstractScrollArea::resizeEvent(a0);
   }
+#endif  // QT_CONFIG(scrollarea)
 
+#if QT_CONFIG(scrollarea)
   //  void QAbstractScrollArea::paintEvent(QPaintEvent *a0)
   void paintEvent(QPaintEvent *a0) override {
     if (taken[7]) {
@@ -387,7 +552,9 @@ public:
     }
     QAbstractScrollArea::paintEvent(a0);
   }
+#endif  // QT_CONFIG(scrollarea)
 
+#if QT_CONFIG(scrollarea)
   //  void QAbstractScrollArea::mousePressEvent(QMouseEvent *a0)
   void mousePressEvent(QMouseEvent *a0) override {
     if (taken[8]) {
@@ -398,7 +565,9 @@ public:
     }
     QAbstractScrollArea::mousePressEvent(a0);
   }
+#endif  // QT_CONFIG(scrollarea)
 
+#if QT_CONFIG(scrollarea)
   //  void QAbstractScrollArea::mouseReleaseEvent(QMouseEvent *a0)
   void mouseReleaseEvent(QMouseEvent *a0) override {
     if (taken[9]) {
@@ -409,7 +578,9 @@ public:
     }
     QAbstractScrollArea::mouseReleaseEvent(a0);
   }
+#endif  // QT_CONFIG(scrollarea)
 
+#if QT_CONFIG(scrollarea)
   //  void QAbstractScrollArea::mouseDoubleClickEvent(QMouseEvent *a0)
   void mouseDoubleClickEvent(QMouseEvent *a0) override {
     if (taken[10]) {
@@ -420,7 +591,9 @@ public:
     }
     QAbstractScrollArea::mouseDoubleClickEvent(a0);
   }
+#endif  // QT_CONFIG(scrollarea)
 
+#if QT_CONFIG(scrollarea)
   //  void QAbstractScrollArea::mouseMoveEvent(QMouseEvent *a0)
   void mouseMoveEvent(QMouseEvent *a0) override {
     if (taken[11]) {
@@ -431,7 +604,10 @@ public:
     }
     QAbstractScrollArea::mouseMoveEvent(a0);
   }
+#endif  // QT_CONFIG(scrollarea)
 
+#if QT_CONFIG(wheelevent)
+#if QT_CONFIG(scrollarea)
   //  void QAbstractScrollArea::wheelEvent(QWheelEvent *a0)
   void wheelEvent(QWheelEvent *a0) override {
     if (taken[12]) {
@@ -442,7 +618,11 @@ public:
     }
     QAbstractScrollArea::wheelEvent(a0);
   }
+#endif  // QT_CONFIG(scrollarea)
+#endif  // QT_CONFIG(wheelevent)
 
+#if !defined(QT_NO_CONTEXTMENU)
+#if QT_CONFIG(scrollarea)
   //  void QAbstractScrollArea::contextMenuEvent(QContextMenuEvent *a0)
   void contextMenuEvent(QContextMenuEvent *a0) override {
     if (taken[13]) {
@@ -453,7 +633,11 @@ public:
     }
     QAbstractScrollArea::contextMenuEvent(a0);
   }
+#endif  // QT_CONFIG(scrollarea)
+#endif  // !defined(QT_NO_CONTEXTMENU)
 
+#if QT_CONFIG(draganddrop)
+#if QT_CONFIG(scrollarea)
   //  void QAbstractScrollArea::dragEnterEvent(QDragEnterEvent *a0)
   void dragEnterEvent(QDragEnterEvent *a0) override {
     if (taken[14]) {
@@ -464,7 +648,11 @@ public:
     }
     QAbstractScrollArea::dragEnterEvent(a0);
   }
+#endif  // QT_CONFIG(scrollarea)
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
+#if QT_CONFIG(scrollarea)
   //  void QAbstractScrollArea::dragMoveEvent(QDragMoveEvent *a0)
   void dragMoveEvent(QDragMoveEvent *a0) override {
     if (taken[15]) {
@@ -475,7 +663,11 @@ public:
     }
     QAbstractScrollArea::dragMoveEvent(a0);
   }
+#endif  // QT_CONFIG(scrollarea)
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
+#if QT_CONFIG(scrollarea)
   //  void QAbstractScrollArea::dragLeaveEvent(QDragLeaveEvent *a0)
   void dragLeaveEvent(QDragLeaveEvent *a0) override {
     if (taken[16]) {
@@ -486,7 +678,11 @@ public:
     }
     QAbstractScrollArea::dragLeaveEvent(a0);
   }
+#endif  // QT_CONFIG(scrollarea)
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
+#if QT_CONFIG(scrollarea)
   //  void QAbstractScrollArea::dropEvent(QDropEvent *a0)
   void dropEvent(QDropEvent *a0) override {
     if (taken[17]) {
@@ -497,7 +693,10 @@ public:
     }
     QAbstractScrollArea::dropEvent(a0);
   }
+#endif  // QT_CONFIG(scrollarea)
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(scrollarea)
   //  void QAbstractScrollArea::keyPressEvent(QKeyEvent *a0)
   void keyPressEvent(QKeyEvent *a0) override {
     if (taken[18]) {
@@ -508,7 +707,9 @@ public:
     }
     QAbstractScrollArea::keyPressEvent(a0);
   }
+#endif  // QT_CONFIG(scrollarea)
 
+#if QT_CONFIG(scrollarea)
   //  void QAbstractScrollArea::scrollContentsBy(int dx, int dy)
   void scrollContentsBy(int dx, int dy) override {
     if (taken[19]) {
@@ -519,7 +720,9 @@ public:
     }
     QAbstractScrollArea::scrollContentsBy(dx, dy);
   }
+#endif  // QT_CONFIG(scrollarea)
 
+#if QT_CONFIG(scrollarea)
   //  QSize QAbstractScrollArea::viewportSizeHint() const
   QSize viewportSizeHint() const override {
     if (taken[20]) {
@@ -530,6 +733,7 @@ public:
     }
     return QAbstractScrollArea::viewportSizeHint();
   }
+#endif  // QT_CONFIG(scrollarea)
 
   //  void QFrame::changeEvent(QEvent *a0)
   void changeEvent(QEvent *a0) override {
@@ -685,6 +889,7 @@ public:
     QWidget::closeEvent(event);
   }
 
+#if QT_CONFIG(tabletevent)
   //  void QWidget::tabletEvent(QTabletEvent *event)
   void tabletEvent(QTabletEvent *event) override {
     if (taken[35]) {
@@ -695,7 +900,9 @@ public:
     }
     QWidget::tabletEvent(event);
   }
+#endif  // QT_CONFIG(tabletevent)
 
+#if !defined(QT_NO_ACTION)
   //  void QWidget::actionEvent(QActionEvent *event)
   void actionEvent(QActionEvent *event) override {
     if (taken[36]) {
@@ -706,6 +913,7 @@ public:
     }
     QWidget::actionEvent(event);
   }
+#endif  // !defined(QT_NO_ACTION)
 
   //  void QWidget::showEvent(QShowEvent *event)
   void showEvent(QShowEvent *event) override {
@@ -806,6 +1014,7 @@ public:
     return QWidget::focusNextPrevChild(next);
   }
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
     if (taken[46]) {
@@ -816,7 +1025,9 @@ public:
     }
     QObject::timerEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
     if (taken[47]) {
@@ -827,7 +1038,9 @@ public:
     }
     QObject::childEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
     if (taken[48]) {
@@ -838,7 +1051,9 @@ public:
     }
     QObject::customEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
     if (taken[49]) {
@@ -849,7 +1064,9 @@ public:
     }
     QObject::connectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
     if (taken[50]) {
@@ -860,6 +1077,7 @@ public:
     }
     QObject::disconnectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 };
 
 //  const QMetaObject *QAbstractScrollArea::metaObject() const
@@ -1152,6 +1370,7 @@ void ritual_ZN19QAbstractScrollArea14mouseMoveEventEP11QMouseEvent(
   self->mouseMoveEvent(a0);
 }
 
+#if QT_CONFIG(wheelevent)
 //  void QAbstractScrollArea::wheelEvent(QWheelEvent *a0)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QAbstractScrollArea10wheelEventEP11QWheelEvent(
@@ -1159,7 +1378,9 @@ void ritual_ZN19QAbstractScrollArea10wheelEventEP11QWheelEvent(
     QWheelEvent *a0) {
   self->wheelEvent(a0);
 }
+#endif  // QT_CONFIG(wheelevent)
 
+#if !defined(QT_NO_CONTEXTMENU)
 //  void QAbstractScrollArea::contextMenuEvent(QContextMenuEvent *a0)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QAbstractScrollArea16contextMenuEventEP17QContextMenuEvent(
@@ -1167,7 +1388,9 @@ void ritual_ZN19QAbstractScrollArea16contextMenuEventEP17QContextMenuEvent(
     QContextMenuEvent *a0) {
   self->contextMenuEvent(a0);
 }
+#endif  // !defined(QT_NO_CONTEXTMENU)
 
+#if QT_CONFIG(draganddrop)
 //  void QAbstractScrollArea::dragEnterEvent(QDragEnterEvent *a0)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QAbstractScrollArea14dragEnterEventEP15QDragEnterEvent(
@@ -1175,7 +1398,9 @@ void ritual_ZN19QAbstractScrollArea14dragEnterEventEP15QDragEnterEvent(
     QDragEnterEvent *a0) {
   self->dragEnterEvent(a0);
 }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
 //  void QAbstractScrollArea::dragMoveEvent(QDragMoveEvent *a0)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QAbstractScrollArea13dragMoveEventEP14QDragMoveEvent(
@@ -1183,7 +1408,9 @@ void ritual_ZN19QAbstractScrollArea13dragMoveEventEP14QDragMoveEvent(
     QDragMoveEvent *a0) {
   self->dragMoveEvent(a0);
 }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
 //  void QAbstractScrollArea::dragLeaveEvent(QDragLeaveEvent *a0)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QAbstractScrollArea14dragLeaveEventEP15QDragLeaveEvent(
@@ -1191,7 +1418,9 @@ void ritual_ZN19QAbstractScrollArea14dragLeaveEventEP15QDragLeaveEvent(
     QDragLeaveEvent *a0) {
   self->dragLeaveEvent(a0);
 }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
 //  void QAbstractScrollArea::dropEvent(QDropEvent *a0)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN19QAbstractScrollArea9dropEventEP10QDropEvent(
@@ -1199,6 +1428,7 @@ void ritual_ZN19QAbstractScrollArea9dropEventEP10QDropEvent(
     QDropEvent *a0) {
   self->dropEvent(a0);
 }
+#endif  // QT_CONFIG(draganddrop)
 
 //  void QAbstractScrollArea::keyPressEvent(QKeyEvent *a0)
 extern "C" Q_DECL_EXPORT
@@ -1222,6 +1452,20 @@ extern "C" Q_DECL_EXPORT
 QSize *ritual_ZNK19QAbstractScrollArea16viewportSizeHintEv(
     const QAbstractScrollArea *self) {
   return new QSize(self->viewportSizeHint());
+}
+
+//  QAbstractScrollAreaPrivate *QAbstractScrollArea::d_func()
+extern "C" Q_DECL_EXPORT
+QAbstractScrollAreaPrivate *ritual_ZN19QAbstractScrollArea6d_funcEv(
+    QAbstractScrollArea *self) {
+  return self->d_func();
+}
+
+//  const QAbstractScrollAreaPrivate *QAbstractScrollArea::d_func() const
+extern "C" Q_DECL_EXPORT
+const QAbstractScrollAreaPrivate *ritual_ZNK19QAbstractScrollArea6d_funcEv(
+    const QAbstractScrollArea *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQAbstractScrollArea, for the function
@@ -1339,6 +1583,7 @@ void ritual_own_ZN19QAbstractScrollArea14mouseMoveEventEP11QMouseEvent(
       a0);
 }
 
+#if QT_CONFIG(wheelevent)
 //  void QAbstractScrollArea::wheelEvent(QWheelEvent *a0)
 extern "C" Q_DECL_EXPORT
 void ritual_own_ZN19QAbstractScrollArea10wheelEventEP11QWheelEvent(
@@ -1347,7 +1592,9 @@ void ritual_own_ZN19QAbstractScrollArea10wheelEventEP11QWheelEvent(
   static_cast<OwnQAbstractScrollArea *>(self)->OwnQAbstractScrollArea::wheelEvent(
       a0);
 }
+#endif  // QT_CONFIG(wheelevent)
 
+#if !defined(QT_NO_CONTEXTMENU)
 //  void QAbstractScrollArea::contextMenuEvent(QContextMenuEvent *a0)
 extern "C" Q_DECL_EXPORT
 void ritual_own_ZN19QAbstractScrollArea16contextMenuEventEP17QContextMenuEvent(
@@ -1356,7 +1603,9 @@ void ritual_own_ZN19QAbstractScrollArea16contextMenuEventEP17QContextMenuEvent(
   static_cast<OwnQAbstractScrollArea *>(self)->OwnQAbstractScrollArea::contextMenuEvent(
       a0);
 }
+#endif  // !defined(QT_NO_CONTEXTMENU)
 
+#if QT_CONFIG(draganddrop)
 //  void QAbstractScrollArea::dragEnterEvent(QDragEnterEvent *a0)
 extern "C" Q_DECL_EXPORT
 void ritual_own_ZN19QAbstractScrollArea14dragEnterEventEP15QDragEnterEvent(
@@ -1365,7 +1614,9 @@ void ritual_own_ZN19QAbstractScrollArea14dragEnterEventEP15QDragEnterEvent(
   static_cast<OwnQAbstractScrollArea *>(self)->OwnQAbstractScrollArea::dragEnterEvent(
       a0);
 }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
 //  void QAbstractScrollArea::dragMoveEvent(QDragMoveEvent *a0)
 extern "C" Q_DECL_EXPORT
 void ritual_own_ZN19QAbstractScrollArea13dragMoveEventEP14QDragMoveEvent(
@@ -1374,7 +1625,9 @@ void ritual_own_ZN19QAbstractScrollArea13dragMoveEventEP14QDragMoveEvent(
   static_cast<OwnQAbstractScrollArea *>(self)->OwnQAbstractScrollArea::dragMoveEvent(
       a0);
 }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
 //  void QAbstractScrollArea::dragLeaveEvent(QDragLeaveEvent *a0)
 extern "C" Q_DECL_EXPORT
 void ritual_own_ZN19QAbstractScrollArea14dragLeaveEventEP15QDragLeaveEvent(
@@ -1383,7 +1636,9 @@ void ritual_own_ZN19QAbstractScrollArea14dragLeaveEventEP15QDragLeaveEvent(
   static_cast<OwnQAbstractScrollArea *>(self)->OwnQAbstractScrollArea::dragLeaveEvent(
       a0);
 }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
 //  void QAbstractScrollArea::dropEvent(QDropEvent *a0)
 extern "C" Q_DECL_EXPORT
 void ritual_own_ZN19QAbstractScrollArea9dropEventEP10QDropEvent(
@@ -1392,6 +1647,7 @@ void ritual_own_ZN19QAbstractScrollArea9dropEventEP10QDropEvent(
   static_cast<OwnQAbstractScrollArea *>(self)->OwnQAbstractScrollArea::dropEvent(
       a0);
 }
+#endif  // QT_CONFIG(draganddrop)
 
 //  void QAbstractScrollArea::keyPressEvent(QKeyEvent *a0)
 extern "C" Q_DECL_EXPORT
@@ -1420,3 +1676,5 @@ QSize *ritual_own_ZNK19QAbstractScrollArea16viewportSizeHintEv(
   return new QSize(
       static_cast<const OwnQAbstractScrollArea *>(self)->OwnQAbstractScrollArea::viewportSizeHint());
 }
+
+#endif  // QT_CONFIG(scrollarea)

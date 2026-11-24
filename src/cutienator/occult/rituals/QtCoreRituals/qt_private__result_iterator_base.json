@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qresultstore.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN9QtPrivateeqERKNS_18ResultIteratorBaseES2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN9QtPrivateneERKNS_18ResultIteratorBaseES2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN9QtPrivate18ResultIteratorBaseD1Ev": ["nothing", "address"]
+  }
+}

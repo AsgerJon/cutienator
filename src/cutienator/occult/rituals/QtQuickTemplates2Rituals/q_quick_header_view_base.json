@@ -1,0 +1,26 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquickheaderview_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK20QQuickHeaderViewBase10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QQuickHeaderViewBase2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN20QQuickHeaderViewBase6d_funcEv": ["address", "address"],
+    "ritual_ZNK20QQuickHeaderViewBase6d_funcEv": ["address", "address"],
+    "ritual_ZN20QQuickHeaderViewBaseC1EN2Qt11OrientationEP10QQuickItem": [
+      "address", "int", "address"
+    ],
+    "ritual_ZN20QQuickHeaderViewBaseD1Ev": ["nothing", "address"],
+    "ritual_ZNK20QQuickHeaderViewBase8textRoleEv": ["text", "address"],
+    "ritual_ZN20QQuickHeaderViewBase11setTextRoleERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_take_QQuickHeaderViewBase": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

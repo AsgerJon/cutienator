@@ -1,0 +1,94 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qfilesystemmodel_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN23QFileSystemModelPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK23QFileSystemModelPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN23QFileSystemModelPrivateC1Ev": ["address"],
+    "ritual_ZN23QFileSystemModelPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN23QFileSystemModelPrivate4initEv": ["nothing", "address"],
+    "ritual_ZNK23QFileSystemModelPrivate16isHiddenByFilterEPNS_15QFileSystemNodeERK11QModelIndex": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZNK23QFileSystemModelPrivate4nodeERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK23QFileSystemModelPrivate4nodeERK7QStringb": [
+      "address", "address", "text", "bool"
+    ],
+    "ritual_ZN23QFileSystemModelPrivate5indexERK7QStringi": [
+      "address", "address", "text", "int"
+    ],
+    "ritual_ZNK23QFileSystemModelPrivate5indexEPKNS_15QFileSystemNodeEi": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZNK23QFileSystemModelPrivate18filtersAcceptsNodeEPKNS_15QFileSystemNodeE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK23QFileSystemModelPrivate15passNameFiltersEPKNS_15QFileSystemNodeE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN23QFileSystemModelPrivate10removeNodeEPNS_15QFileSystemNodeERK7QString": [
+      "nothing", "address", "address", "text"
+    ],
+    "ritual_ZN23QFileSystemModelPrivate7addNodeEPNS_15QFileSystemNodeERK7QStringRK9QFileInfo": [
+      "address", "address", "address", "text", "address"
+    ],
+    "ritual_ZN23QFileSystemModelPrivate15addVisibleFilesEPNS_15QFileSystemNodeERK5QListI7QStringE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN23QFileSystemModelPrivate17removeVisibleFileEPNS_15QFileSystemNodeEi": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN23QFileSystemModelPrivate12sortChildrenEiRK11QModelIndex": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZNK23QFileSystemModelPrivate24translateVisibleLocationEPNS_15QFileSystemNodeEi": [
+      "int", "address", "address", "int"
+    ],
+    "ritual_ZN23QFileSystemModelPrivate10myComputerEv": ["text"],
+    "ritual_ZN23QFileSystemModelPrivate11delayedSortEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK23QFileSystemModelPrivate4iconERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK23QFileSystemModelPrivate4nameERK11QModelIndex": [
+      "text", "address", "address"
+    ],
+    "ritual_ZNK23QFileSystemModelPrivate11displayNameERK11QModelIndex": [
+      "text", "address", "address"
+    ],
+    "ritual_ZNK23QFileSystemModelPrivate8filePathERK11QModelIndex": [
+      "text", "address", "address"
+    ],
+    "ritual_ZNK23QFileSystemModelPrivate4sizeERK11QModelIndex": [
+      "text", "address", "address"
+    ],
+    "ritual_ZN23QFileSystemModelPrivate4sizeEx": ["text", "long long"],
+    "ritual_ZNK23QFileSystemModelPrivate4typeERK11QModelIndex": [
+      "text", "address", "address"
+    ],
+    "ritual_ZNK23QFileSystemModelPrivate4timeERK11QModelIndex": [
+      "text", "address", "address"
+    ],
+    "ritual_ZN23QFileSystemModelPrivate16directoryChangedERK7QStringRK5QListIS0_E": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZN23QFileSystemModelPrivate18performDelayedSortEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QFileSystemModelPrivate12resolvedNameERK7QStringS2_": [
+      "nothing", "address", "text", "text"
+    ],
+    "ritual_ZN23QFileSystemModelPrivate24rebuildNameFilterRegexpsEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QFileSystemModelPrivate": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

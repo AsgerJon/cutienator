@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qabstractitemmodel_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN25QAbstractItemModelPrivate6ChangeC1Ev": ["address"],
+    "ritual_ZN25QAbstractItemModelPrivate6ChangeC1ERK11QModelIndexii": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZNK25QAbstractItemModelPrivate6Change7isValidEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN25QAbstractItemModelPrivate6ChangeD1Ev": ["nothing", "address"]
+  }
+}

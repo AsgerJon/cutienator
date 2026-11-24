@@ -1,0 +1,12 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtPosit",
+    "ioning/6.12.0/QtPositioning/private/qnmeapositioninfosource_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11QNmeaReaderD1Ev": ["nothing", "address"],
+    "ritual_ZN11QNmeaReader17readAvailableDataEv": ["nothing", "address"],
+    "ritual_take_QNmeaReader": ["bool", "address", "chars", "address"]
+  }
+}

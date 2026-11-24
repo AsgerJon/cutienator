@@ -1,0 +1,50 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtXml/6.12.0/QtXml/private/qdom_p.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QDomElementPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZNK18QDomElementPrivate9attributeERK7QStringS2_": [
+      "text", "address", "text", "text"
+    ],
+    "ritual_ZNK18QDomElementPrivate11attributeNSERK7QStringS2_S2_": [
+      "text", "address", "text", "text", "text"
+    ],
+    "ritual_ZN18QDomElementPrivate15removeAttributeERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN18QDomElementPrivate13attributeNodeERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN18QDomElementPrivate15attributeNodeNSERK7QStringS2_": [
+      "address", "address", "text", "text"
+    ],
+    "ritual_ZN18QDomElementPrivate16setAttributeNodeEP15QDomAttrPrivate": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18QDomElementPrivate18setAttributeNodeNSEP15QDomAttrPrivate": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18QDomElementPrivate19removeAttributeNodeEP15QDomAttrPrivate": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK18QDomElementPrivate12hasAttributeERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZNK18QDomElementPrivate14hasAttributeNSERK7QStringS2_": [
+      "bool", "address", "text", "text"
+    ],
+    "ritual_ZN18QDomElementPrivate10attributesEv": ["address", "address"],
+    "ritual_ZNK18QDomElementPrivate13hasAttributesEv": ["bool", "address"],
+    "ritual_ZNK18QDomElementPrivate8nodeTypeEv": ["int", "address"],
+    "ritual_ZN18QDomElementPrivate9cloneNodeEb": [
+      "address", "address", "bool"
+    ],
+    "ritual_take_QDomElementPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK18QDomElementPrivate8nodeTypeEv": ["int", "address"]
+  }
+}

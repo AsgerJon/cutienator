@@ -1,0 +1,14 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qsgrendernode_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QSGRenderNodePrivateC1Ev": ["address"],
+    "ritual_ZN20QSGRenderNodePrivate3getEP13QSGRenderNode": [
+      "address", "address"
+    ],
+    "ritual_ZN20QSGRenderNodePrivateD1Ev": ["nothing", "address"]
+  }
+}

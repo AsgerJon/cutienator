@@ -1,0 +1,138 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquicksearchfield_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QQuickSearchField10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QQuickSearchField2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QQuickSearchFieldC1EP10QQuickItem": ["address", "address"],
+    "ritual_ZN17QQuickSearchFieldD1Ev": ["nothing", "address"],
+    "ritual_ZNK17QQuickSearchField15suggestionModelEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QQuickSearchField18setSuggestionModelERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QQuickSearchField13delegateModelEv": ["address", "address"],
+    "ritual_ZNK17QQuickSearchField15suggestionCountEv": ["int", "address"],
+    "ritual_ZNK17QQuickSearchField12currentIndexEv": ["int", "address"],
+    "ritual_ZN17QQuickSearchField15setCurrentIndexEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK17QQuickSearchField16highlightedIndexEv": ["int", "address"],
+    "ritual_ZNK17QQuickSearchField4textEv": ["text", "address"],
+    "ritual_ZN17QQuickSearchField7setTextERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK17QQuickSearchField8textRoleEv": ["text", "address"],
+    "ritual_ZN17QQuickSearchField11setTextRoleERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK17QQuickSearchField6isLiveEv": ["bool", "address"],
+    "ritual_ZN17QQuickSearchField7setLiveEb": ["nothing", "address", "bool"],
+    "ritual_ZNK17QQuickSearchField15searchIndicatorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK17QQuickSearchField14clearIndicatorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK17QQuickSearchField5popupEv": ["address", "address"],
+    "ritual_ZN17QQuickSearchField8setPopupEP11QQuickPopup": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QQuickSearchField8delegateEv": ["address", "address"],
+    "ritual_ZN17QQuickSearchField11setDelegateEP13QQmlComponent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QQuickSearchField15placeholderTextEv": ["text", "address"],
+    "ritual_ZN17QQuickSearchField18setPlaceholderTextERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK17QQuickSearchField17selectTextByMouseEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN17QQuickSearchField20setSelectTextByMouseEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK17QQuickSearchField12selectedTextEv": ["text", "address"],
+    "ritual_ZNK17QQuickSearchField14selectionStartEv": ["int", "address"],
+    "ritual_ZNK17QQuickSearchField12selectionEndEv": ["int", "address"],
+    "ritual_ZNK17QQuickSearchField14cursorPositionEv": ["int", "address"],
+    "ritual_ZN17QQuickSearchField17setCursorPositionEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQuickSearchField6selectEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN17QQuickSearchField10selectWordEv": ["nothing", "address"],
+    "ritual_ZN17QQuickSearchField9selectAllEv": ["nothing", "address"],
+    "ritual_ZN17QQuickSearchField8deselectEv": ["nothing", "address"],
+    "ritual_ZN17QQuickSearchField11eventFilterEP7QObjectP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN17QQuickSearchField12focusInEventEP11QFocusEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QQuickSearchField13focusOutEventEP11QFocusEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QQuickSearchField15hoverEnterEventEP11QHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QQuickSearchField14hoverMoveEventEP11QHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QQuickSearchField15hoverLeaveEventEP11QHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QQuickSearchField13keyPressEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QQuickSearchField10classBeginEv": ["nothing", "address"],
+    "ritual_ZN17QQuickSearchField17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuickSearchField17contentItemChangeEP10QQuickItemS1_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN17QQuickSearchField10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_take_QQuickSearchField": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN17QQuickSearchField11eventFilterEP7QObjectP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_own_ZN17QQuickSearchField12focusInEventEP11QFocusEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN17QQuickSearchField13focusOutEventEP11QFocusEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN17QQuickSearchField15hoverEnterEventEP11QHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN17QQuickSearchField14hoverMoveEventEP11QHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN17QQuickSearchField15hoverLeaveEventEP11QHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN17QQuickSearchField13keyPressEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN17QQuickSearchField10classBeginEv": ["nothing", "address"],
+    "ritual_own_ZN17QQuickSearchField17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN17QQuickSearchField17contentItemChangeEP10QQuickItemS1_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN17QQuickSearchField10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ]
+  }
+}

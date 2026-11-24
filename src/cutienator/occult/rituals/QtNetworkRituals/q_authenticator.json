@@ -1,0 +1,35 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/qauthenticator.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN14QAuthenticatorC1Ev": ["address"],
+    "ritual_ZN14QAuthenticatorD1Ev": ["nothing", "address"],
+    "ritual_ZN14QAuthenticatorC1ERKS_": ["address", "address"],
+    "ritual_ZNK14QAuthenticatoreqERKS_": ["bool", "address", "address"],
+    "ritual_ZNK14QAuthenticatorneERKS_": ["bool", "address", "address"],
+    "ritual_ZNK14QAuthenticator4userEv": ["text", "address"],
+    "ritual_ZN14QAuthenticator7setUserERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK14QAuthenticator8passwordEv": ["text", "address"],
+    "ritual_ZN14QAuthenticator11setPasswordERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK14QAuthenticator5realmEv": ["text", "address"],
+    "ritual_ZN14QAuthenticator8setRealmERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK14QAuthenticator6optionERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK14QAuthenticator7optionsEv": ["address", "address"],
+    "ritual_ZN14QAuthenticator9setOptionERK7QStringRK8QVariant": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZNK14QAuthenticator6isNullEv": ["bool", "address"],
+    "ritual_ZN14QAuthenticator6detachEv": ["nothing", "address"],
+    "ritual_ZN14QAuthenticator5clearEv": ["nothing", "address"]
+  }
+}

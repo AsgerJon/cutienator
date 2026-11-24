@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtPositioning/6.12.0/QtPositioning/private/qgeopath_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN13QGeoPathEagerC1Ev": ["address"],
+    "ritual_ZN13QGeoPathEagerC1ERK5QListI14QGeoCoordinateERKd": [
+      "address", "address", "double"
+    ],
+    "ritual_ZN13QGeoPathEagerC1ERK8QGeoPath": ["address", "address"],
+    "ritual_ZN13QGeoPathEagerC1ERK9QGeoShape": ["address", "address"],
+    "ritual_ZN13QGeoPathEagerD1Ev": ["nothing", "address"]
+  }
+}

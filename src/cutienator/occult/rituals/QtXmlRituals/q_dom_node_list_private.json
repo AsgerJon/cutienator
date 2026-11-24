@@ -1,0 +1,35 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtXml/6.12.0/QtXml/private/qdom_p.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QDomNodeListPrivateC1EP15QDomNodePrivate": [
+      "address", "address"
+    ],
+    "ritual_ZN19QDomNodeListPrivateC1EP15QDomNodePrivateRK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN19QDomNodeListPrivateC1EP15QDomNodePrivateRK7QStringS4_": [
+      "address", "address", "text", "text"
+    ],
+    "ritual_ZN19QDomNodeListPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZNK19QDomNodeListPrivate10createListEv": ["nothing", "address"],
+    "ritual_ZNK19QDomNodeListPrivate9checkNodeEP15QDomNodePrivate": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK19QDomNodeListPrivate15findNextInOrderEP15QDomNodePrivate": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK19QDomNodeListPrivate15findPrevInOrderEP15QDomNodePrivate": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK19QDomNodeListPrivate15maybeCreateListEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN19QDomNodeListPrivate4itemEi": ["address", "address", "int"],
+    "ritual_ZNK19QDomNodeListPrivate6lengthEv": ["int", "address"],
+    "ritual_ZNK19QDomNodeListPrivate14noexceptLengthEv": ["int", "address"]
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qsgsoftwarerenderloop_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK21QSGSoftwareRenderLoop10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QSGSoftwareRenderLoopD1Ev": ["nothing", "address"],
+    "ritual_ZN21QSGSoftwareRenderLoop4showEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QSGSoftwareRenderLoop4hideEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QSGSoftwareRenderLoop15windowDestroyedEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QSGSoftwareRenderLoop15exposureChangedEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QSGSoftwareRenderLoop4grabEP12QQuickWindow": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN21QSGSoftwareRenderLoop11maybeUpdateEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QSGSoftwareRenderLoop6updateEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QSGSoftwareRenderLoop19handleUpdateRequestEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QSGSoftwareRenderLoop16releaseResourcesEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21QSGSoftwareRenderLoop17windowSurfaceTypeEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK21QSGSoftwareRenderLoop15animationDriverEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK21QSGSoftwareRenderLoop17sceneGraphContextEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK21QSGSoftwareRenderLoop19createRenderContextEP10QSGContext": [
+      "address", "address", "address"
+    ],
+    "ritual_take_QSGSoftwareRenderLoop": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN21QSGSoftwareRenderLoop4showEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN21QSGSoftwareRenderLoop4hideEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN21QSGSoftwareRenderLoop15windowDestroyedEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN21QSGSoftwareRenderLoop11maybeUpdateEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN21QSGSoftwareRenderLoop6updateEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN21QSGSoftwareRenderLoop16releaseResourcesEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK21QSGSoftwareRenderLoop17windowSurfaceTypeEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZNK21QSGSoftwareRenderLoop15animationDriverEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK21QSGSoftwareRenderLoop17sceneGraphContextEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK21QSGSoftwareRenderLoop19createRenderContextEP10QSGContext": [
+      "address", "address", "address"
+    ]
+  }
+}

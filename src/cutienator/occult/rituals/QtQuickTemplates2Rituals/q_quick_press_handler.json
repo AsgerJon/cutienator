@@ -1,0 +1,28 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquickpresshandler_p_p",
+    ".h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QQuickPressHandler15mousePressEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQuickPressHandler14mouseMoveEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQuickPressHandler17mouseReleaseEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQuickPressHandler10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQuickPressHandler22clearDelayedMouseEventEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickPressHandler8isActiveEv": ["bool", "address"],
+    "ritual_ZN18QQuickPressHandler17isSignalConnectedEP10QQuickItemPKcRi": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

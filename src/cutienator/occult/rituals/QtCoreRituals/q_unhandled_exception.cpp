@@ -1,5 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/qexception.h, Qt 6.12.0. Changes made here are lost.
+#include <QtCore/qglobal.h>
+#if QT_CONFIG(future)
+#if !defined(QT_NO_EXCEPTIONS) || defined(Q_QDOC)
 #include <QtCore/qexception.h>
 
 //  QUnhandledException::~QUnhandledException()
@@ -29,3 +32,6 @@ QUnhandledException *ritual_ZNK19QUnhandledException5cloneEv(
     const QUnhandledException *self) {
   return self->clone();
 }
+
+#endif  // !defined(QT_NO_EXCEPTIONS) || defined(Q_QDOC)
+#endif  // QT_CONFIG(future)

@@ -1,0 +1,63 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/qnetworkcookie.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN14QNetworkCookieC1ERK10QByteArrayS2_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN14QNetworkCookieC1ERKS_": ["address", "address"],
+    "ritual_ZN14QNetworkCookieD1Ev": ["nothing", "address"],
+    "ritual_ZNK14QNetworkCookieeqERKS_": ["bool", "address", "address"],
+    "ritual_ZNK14QNetworkCookieneERKS_": ["bool", "address", "address"],
+    "ritual_ZNK14QNetworkCookie8isSecureEv": ["bool", "address"],
+    "ritual_ZN14QNetworkCookie9setSecureEb": ["nothing", "address", "bool"],
+    "ritual_ZNK14QNetworkCookie10isHttpOnlyEv": ["bool", "address"],
+    "ritual_ZN14QNetworkCookie11setHttpOnlyEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK14QNetworkCookie14sameSitePolicyEv": ["int", "address"],
+    "ritual_ZN14QNetworkCookie17setSameSitePolicyENS_8SameSiteE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK14QNetworkCookie15isSessionCookieEv": ["bool", "address"],
+    "ritual_ZNK14QNetworkCookie14expirationDateEv": ["address", "address"],
+    "ritual_ZN14QNetworkCookie17setExpirationDateERK9QDateTime": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QNetworkCookie6domainEv": ["text", "address"],
+    "ritual_ZN14QNetworkCookie9setDomainERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK14QNetworkCookie4pathEv": ["text", "address"],
+    "ritual_ZN14QNetworkCookie7setPathERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK14QNetworkCookie4nameEv": ["address", "address"],
+    "ritual_ZN14QNetworkCookie7setNameERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QNetworkCookie5valueEv": ["address", "address"],
+    "ritual_ZN14QNetworkCookie8setValueERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QNetworkCookie9toRawFormENS_7RawFormE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK14QNetworkCookie17hasSameIdentifierERKS_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN14QNetworkCookie9normalizeERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QNetworkCookie12parseCookiesE14QByteArrayView": [
+      "address", "address"
+    ],
+    "ritual_list_make_QNetworkCookie": ["address"],
+    "ritual_list_add_QNetworkCookie": ["nothing", "address", "address"],
+    "ritual_list_size_QNetworkCookie": ["long long", "address"],
+    "ritual_list_at_QNetworkCookie": ["address", "address", "long long"],
+    "ritual_list_drop_QNetworkCookie": ["nothing", "address"]
+  }
+}

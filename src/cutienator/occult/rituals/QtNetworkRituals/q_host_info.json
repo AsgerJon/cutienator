@@ -1,0 +1,42 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/qhostinfo.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN9QHostInfoC1Ei": ["address", "int"],
+    "ritual_ZN9QHostInfoC1ERKS_": ["address", "address"],
+    "ritual_ZN9QHostInfoD1Ev": ["nothing", "address"],
+    "ritual_ZNK9QHostInfo8hostNameEv": ["text", "address"],
+    "ritual_ZN9QHostInfo11setHostNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK9QHostInfo9addressesEv": ["address", "address"],
+    "ritual_ZN9QHostInfo12setAddressesERK5QListI12QHostAddressE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9QHostInfo5errorEv": ["int", "address"],
+    "ritual_ZN9QHostInfo8setErrorENS_13HostInfoErrorE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK9QHostInfo11errorStringEv": ["text", "address"],
+    "ritual_ZN9QHostInfo14setErrorStringERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN9QHostInfo11setLookupIdEi": ["nothing", "address", "int"],
+    "ritual_ZNK9QHostInfo8lookupIdEv": ["int", "address"],
+    "ritual_ZN9QHostInfo10lookupHostERK7QStringPK7QObjectPKc": [
+      "int", "text", "address", "chars"
+    ],
+    "ritual_ZN9QHostInfo15abortHostLookupEi": ["nothing", "int"],
+    "ritual_ZN9QHostInfo8fromNameERK7QString": ["address", "text"],
+    "ritual_ZN9QHostInfo13localHostNameEv": ["text"],
+    "ritual_ZN9QHostInfo15localDomainNameEv": ["text"],
+    "ritual_ZN9QHostInfo10clearCacheEv": ["nothing"],
+    "ritual_ZN9QHostInfo6d_funcEv": ["address", "address"],
+    "ritual_ZNK9QHostInfo6d_funcEv": ["address", "address"],
+    "ritual_ZN9QHostInfo14lookupHostImplERK7QStringPK7QObjectPN9QtPrivate15QSlotObjectBaseEPKc": [
+      "int", "text", "address", "address", "chars"
+    ]
+  }
+}

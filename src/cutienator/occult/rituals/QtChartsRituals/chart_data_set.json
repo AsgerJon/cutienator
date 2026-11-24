@@ -1,0 +1,73 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/6.12.0/QtCharts/private/chartdataset_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK12ChartDataSet10metaObjectEv": ["address", "address"],
+    "ritual_ZN12ChartDataSet2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN12ChartDataSetC1EP6QChart": ["address", "address"],
+    "ritual_ZN12ChartDataSetD1Ev": ["nothing", "address"],
+    "ritual_ZN12ChartDataSet9addSeriesEP15QAbstractSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12ChartDataSet12removeSeriesEP15QAbstractSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12ChartDataSet6seriesEv": ["address", "address"],
+    "ritual_ZN12ChartDataSet7addAxisEP13QAbstractAxis6QFlagsIN2Qt13AlignmentFlagEE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN12ChartDataSet10removeAxisEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12ChartDataSet4axesEv": ["address", "address"],
+    "ritual_ZN12ChartDataSet10attachAxisEP15QAbstractSeriesP13QAbstractAxis": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN12ChartDataSet10detachAxisEP15QAbstractSeriesP13QAbstractAxis": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN12ChartDataSet17createDefaultAxesEv": ["nothing", "address"],
+    "ritual_ZN12ChartDataSet12zoomInDomainERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12ChartDataSet13zoomOutDomainERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12ChartDataSet15zoomResetDomainEv": ["nothing", "address"],
+    "ritual_ZN12ChartDataSet14isZoomedDomainEv": ["bool", "address"],
+    "ritual_ZN12ChartDataSet12scrollDomainEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN12ChartDataSet10mapToValueERK7QPointFP15QAbstractSeries": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN12ChartDataSet13mapToPositionERK7QPointFP15QAbstractSeries": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN12ChartDataSet21glXYSeriesDataManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZN12ChartDataSet12createDomainEN14AbstractDomain10DomainTypeE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK12ChartDataSet15domainForSeriesEP15QAbstractSeries": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN12ChartDataSet14reverseChangedEv": ["nothing", "address"],
+    "ritual_ZN12ChartDataSet10createAxesE6QFlagsIN13QAbstractAxis8AxisTypeEEN2Qt11OrientationE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN12ChartDataSet12selectDomainERK5QListIP13QAbstractAxisE": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN12ChartDataSet13deleteAllAxesEv": ["nothing", "address"],
+    "ritual_ZN12ChartDataSet15deleteAllSeriesEv": ["nothing", "address"],
+    "ritual_ZN12ChartDataSet19findMinMaxForSeriesERK5QListIP15QAbstractSeriesE6QFlagsIN2Qt11OrientationEERdSA_": [
+      "nothing", "address", "address", "int", "address", "address"
+    ],
+    "ritual_take_ChartDataSet": ["bool", "address", "chars", "address"]
+  }
+}

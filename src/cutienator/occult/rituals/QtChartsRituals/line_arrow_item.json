@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/6.12.0/QtCharts/private/linearrowitem_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN13LineArrowItemC1EP16ChartAxisElementP13QGraphicsItem": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN13LineArrowItem15mousePressEventEP24QGraphicsSceneMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13LineArrowItem12boundingRectEv": ["address", "address"],
+    "ritual_ZNK13LineArrowItem5shapeEv": ["address", "address"],
+    "ritual_own_ZN13LineArrowItem15mousePressEventEP24QGraphicsSceneMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK13LineArrowItem12boundingRectEv": ["address", "address"],
+    "ritual_own_ZNK13LineArrowItem5shapeEv": ["address", "address"]
+  }
+}

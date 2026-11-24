@@ -1,0 +1,67 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qhashedstring_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN16QHashedStringRefC1Ev": ["address"],
+    "ritual_ZN16QHashedStringRefC1ERK7QString": ["address", "text"],
+    "ritual_ZN16QHashedStringRefC1E11QStringView": ["address", "text"],
+    "ritual_ZN16QHashedStringRefC1EPK5QChari": ["address", "address", "int"],
+    "ritual_ZN16QHashedStringRefC1EPK5QCharij": [
+      "address", "address", "int", "unsigned int"
+    ],
+    "ritual_ZN16QHashedStringRefC1ERK13QHashedString": [
+      "address", "address"
+    ],
+    "ritual_ZN16QHashedStringRefC1ERKS_": ["address", "address"],
+    "ritual_ZNK16QHashedStringRefeqERK7QString": ["bool", "address", "text"],
+    "ritual_ZNK16QHashedStringRefeqERK13QHashedString": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK16QHashedStringRefeqERKS_": ["bool", "address", "address"],
+    "ritual_ZNK16QHashedStringRefeqERK17QHashedCStringRef": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK16QHashedStringRefneERK7QString": ["bool", "address", "text"],
+    "ritual_ZNK16QHashedStringRefneERK13QHashedString": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK16QHashedStringRefneERKS_": ["bool", "address", "address"],
+    "ritual_ZNK16QHashedStringRefneERK17QHashedCStringRef": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK16QHashedStringRef4hashEv": ["unsigned int", "address"],
+    "ritual_ZN16QHashedStringRef4dataEv": ["address", "address"],
+    "ritual_ZNK16QHashedStringRef2atEi": ["address", "address", "int"],
+    "ritual_ZNK16QHashedStringRef9constDataEv": ["address", "address"],
+    "ritual_ZNK16QHashedStringRef10startsWithERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZNK16QHashedStringRef8endsWithERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZNK16QHashedStringRef7indexOfERK5QChari": [
+      "int", "address", "address", "int"
+    ],
+    "ritual_ZNK16QHashedStringRef3midEii": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZNK16QHashedStringRef5splitE5QChar": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK16QHashedStringRef7isEmptyEv": ["bool", "address"],
+    "ritual_ZNK16QHashedStringRef6lengthEv": ["int", "address"],
+    "ritual_ZNK16QHashedStringRef15startsWithUpperEv": ["bool", "address"],
+    "ritual_ZNK16QHashedStringRef8toStringEv": ["text", "address"],
+    "ritual_ZNK16QHashedStringRef8isLatin1Ev": ["bool", "address"],
+    "ritual_ZNK16QHashedStringRef11computeHashEv": ["nothing", "address"],
+    "ritual_ZN16QHashedStringRefD1Ev": ["nothing", "address"],
+    "ritual_list_make_QHashedStringRef": ["address"],
+    "ritual_list_add_QHashedStringRef": ["nothing", "address", "address"],
+    "ritual_list_size_QHashedStringRef": ["long long", "address"],
+    "ritual_list_at_QHashedStringRef": ["address", "address", "long long"],
+    "ritual_list_drop_QHashedStringRef": ["nothing", "address"]
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3D/6.12.0/QtQuick3D/ssg/qquick3dextensionhelpers.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN24QQuick3DExtensionHelpersC1Ev": ["address"],
+    "ritual_ZN24QQuick3DExtensionHelpers13getNodeIdTypeE10QSSGNodeId": [
+      "unsigned int", "unsigned long long"
+    ],
+    "ritual_ZN24QQuick3DExtensionHelpersD1Ev": ["nothing", "address"]
+  }
+}

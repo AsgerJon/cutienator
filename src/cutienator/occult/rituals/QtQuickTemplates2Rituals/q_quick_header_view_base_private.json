@@ -1,0 +1,74 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquickheaderview_p_p.h",
+    ", Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN27QQuickHeaderViewBasePrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK27QQuickHeaderViewBasePrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QQuickHeaderViewBasePrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN27QQuickHeaderViewBasePrivate3getEP20QQuickHeaderViewBase": [
+      "address", "address"
+    ],
+    "ritual_ZN27QQuickHeaderViewBasePrivate4initEv": ["nothing", "address"],
+    "ritual_ZNK27QQuickHeaderViewBasePrivate11orientationEv": [
+      "int", "address"
+    ],
+    "ritual_ZN27QQuickHeaderViewBasePrivate14setOrientationEN2Qt11OrientationE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK27QQuickHeaderViewBasePrivate9modelImplEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QQuickHeaderViewBasePrivate12setModelImplERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN27QQuickHeaderViewBasePrivate9syncModelEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QQuickHeaderViewBasePrivate12syncSyncViewEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QQuickHeaderViewBasePrivate20selectionSourceModelEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QQuickHeaderViewBasePrivate16initItemCallbackEiP7QObject": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZNK27QQuickHeaderViewBasePrivate15logicalRowIndexEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK27QQuickHeaderViewBasePrivate18logicalColumnIndexEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK27QQuickHeaderViewBasePrivate14visualRowIndexEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK27QQuickHeaderViewBasePrivate17visualColumnIndexEi": [
+      "int", "address", "int"
+    ],
+    "ritual_take_QQuickHeaderViewBasePrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK27QQuickHeaderViewBasePrivate9modelImplEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN27QQuickHeaderViewBasePrivate12setModelImplERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN27QQuickHeaderViewBasePrivate9syncModelEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN27QQuickHeaderViewBasePrivate12syncSyncViewEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN27QQuickHeaderViewBasePrivate20selectionSourceModelEv": [
+      "address", "address"
+    ]
+  }
+}

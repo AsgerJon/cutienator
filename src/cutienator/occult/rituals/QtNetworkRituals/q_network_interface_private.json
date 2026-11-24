@@ -1,0 +1,28 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/6.12.0/QtNetwork/private/qnetworkinterface_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN24QNetworkInterfacePrivateC1Ev": ["address"],
+    "ritual_ZN24QNetworkInterfacePrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN24QNetworkInterfacePrivate13makeHwAddressEiPh": [
+      "text", "int", "address"
+    ],
+    "ritual_ZN24QNetworkInterfacePrivate23calculateDnsEligibilityEP20QNetworkAddressEntrybb": [
+      "nothing", "address", "bool", "bool"
+    ],
+    "ritual_list_make_QNetworkInterfacePrivate_ptr": ["address"],
+    "ritual_list_add_QNetworkInterfacePrivate_ptr": [
+      "nothing", "address", "address"
+    ],
+    "ritual_list_size_QNetworkInterfacePrivate_ptr": [
+      "long long", "address"
+    ],
+    "ritual_list_at_QNetworkInterfacePrivate_ptr": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_QNetworkInterfacePrivate_ptr": ["nothing", "address"]
+  }
+}

@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/qxmlstream.h, Qt 6.12.0. Changes made here are lost.
+#include <QtCore/qglobal.h>
+#if QT_CONFIG(xmlstream)
 #include <QtCore/qxmlstream.h>
 #include <QtCore/qstringview.h>
 #include <QtCore/qstring.h>
@@ -108,3 +110,5 @@ void ritual_list_drop_QXmlStreamEntityDeclaration(
     QList<QXmlStreamEntityDeclaration> *self) {
   delete self;
 }
+
+#endif  // QT_CONFIG(xmlstream)

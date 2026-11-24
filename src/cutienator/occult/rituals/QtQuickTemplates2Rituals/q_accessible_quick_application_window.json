@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qaccessiblequickapplic",
+    "ationwindow_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK33QAccessibleQuickApplicationWindow14attributeValueEN11QAccessible9AttributeE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK33QAccessibleQuickApplicationWindow17applicationWindowEv": [
+      "address", "address"
+    ],
+    "ritual_cast_QAccessibleQuickApplicationWindow_QAccessibleAttributesInterface": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK33QAccessibleQuickApplicationWindow14attributeValueEN11QAccessible9AttributeE": [
+      "address", "address", "int"
+    ]
+  }
+}

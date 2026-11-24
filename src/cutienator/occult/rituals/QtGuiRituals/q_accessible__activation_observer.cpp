@@ -1,25 +1,32 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGui/qaccessible_base.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
+#if QT_CONFIG(accessibility)
 #include <QtGui/qaccessible.h>
 #include <cstring>
 
 //  A QAccessible::ActivationObserver that Python can take functions over in. Every QAccessible::ActivationObserver
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if QT_CONFIG(accessibility)
 typedef void (*CuteQAccessible_ActivationObserverCall0)(const void *, bool, int *);
+#endif  // QT_CONFIG(accessibility)
 class CuteQAccessible_ActivationObserver : public QAccessible::ActivationObserver {
 public:
   using QAccessible::ActivationObserver::ActivationObserver;
   void *taken[1] = {};
 
   bool take(const char *key, void *call) {
+#if QT_CONFIG(accessibility)
     if (!std::strcmp(key, "_ZN11QAccessible18ActivationObserver26accessibilityActiveChangedEb")) {
       taken[0] = call;
       return true;
     }
+#endif  // QT_CONFIG(accessibility)
     return false;
   }
 
+#if QT_CONFIG(accessibility)
   //  void QAccessible::ActivationObserver::accessibilityActiveChanged(bool
   //      active)
   void accessibilityActiveChanged(bool active) override {
@@ -30,6 +37,7 @@ public:
       if (handled) return;
     }
   }
+#endif  // QT_CONFIG(accessibility)
 };
 
 //  QAccessible::ActivationObserver::~ActivationObserver()
@@ -57,3 +65,5 @@ bool ritual_take_QAccessible_ActivationObserver(
     void *call) {
   return static_cast<CuteQAccessible_ActivationObserver *>(self)->take(key, call);
 }
+
+#endif  // QT_CONFIG(accessibility)

@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/qqmlabstracturlinterceptor.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZN26QQmlAbstractUrlInterceptorD1Ev": ["nothing", "address"],
+    "ritual_ZN26QQmlAbstractUrlInterceptor9interceptERK4QUrlNS_8DataTypeE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_take_QQmlAbstractUrlInterceptor": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_list_make_QQmlAbstractUrlInterceptor_ptr": ["address"],
+    "ritual_list_add_QQmlAbstractUrlInterceptor_ptr": [
+      "nothing", "address", "address"
+    ],
+    "ritual_list_size_QQmlAbstractUrlInterceptor_ptr": [
+      "long long", "address"
+    ],
+    "ritual_list_at_QQmlAbstractUrlInterceptor_ptr": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_QQmlAbstractUrlInterceptor_ptr": ["nothing", "address"]
+  }
+}

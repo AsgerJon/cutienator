@@ -1,0 +1,102 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLocation/qplace.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN6QPlaceC1Ev": ["address"],
+    "ritual_ZN6QPlaceC1ERKS_": ["address", "address"],
+    "ritual_ZN6QPlaceD1Ev": ["nothing", "address"],
+    "ritual_ZeqRK6QPlaceS1_": ["bool", "address", "address"],
+    "ritual_ZneRK6QPlaceS1_": ["bool", "address", "address"],
+    "ritual_ZNK6QPlace10categoriesEv": ["address", "address"],
+    "ritual_ZN6QPlace11setCategoryERK14QPlaceCategory": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QPlace13setCategoriesERK5QListI14QPlaceCategoryE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK6QPlace8locationEv": ["address", "address"],
+    "ritual_ZN6QPlace11setLocationERK12QGeoLocation": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK6QPlace7ratingsEv": ["address", "address"],
+    "ritual_ZN6QPlace10setRatingsERK13QPlaceRatings": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK6QPlace8supplierEv": ["address", "address"],
+    "ritual_ZN6QPlace11setSupplierERK14QPlaceSupplier": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK6QPlace11attributionEv": ["text", "address"],
+    "ritual_ZN6QPlace14setAttributionERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK6QPlace4iconEv": ["address", "address"],
+    "ritual_ZN6QPlace7setIconERK10QPlaceIcon": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK6QPlace7contentEN13QPlaceContent4TypeE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN6QPlace10setContentEN13QPlaceContent4TypeERK4QMapIiS0_E": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN6QPlace13insertContentEN13QPlaceContent4TypeERK4QMapIiS0_E": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZNK6QPlace17totalContentCountEN13QPlaceContent4TypeE": [
+      "int", "address", "int"
+    ],
+    "ritual_ZN6QPlace20setTotalContentCountEN13QPlaceContent4TypeEi": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK6QPlace4nameEv": ["text", "address"],
+    "ritual_ZN6QPlace7setNameERK7QString": ["nothing", "address", "text"],
+    "ritual_ZNK6QPlace7placeIdEv": ["text", "address"],
+    "ritual_ZN6QPlace10setPlaceIdERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK6QPlace12primaryPhoneEv": ["text", "address"],
+    "ritual_ZNK6QPlace10primaryFaxEv": ["text", "address"],
+    "ritual_ZNK6QPlace12primaryEmailEv": ["text", "address"],
+    "ritual_ZNK6QPlace14primaryWebsiteEv": ["address", "address"],
+    "ritual_ZNK6QPlace14detailsFetchedEv": ["bool", "address"],
+    "ritual_ZN6QPlace17setDetailsFetchedEb": ["nothing", "address", "bool"],
+    "ritual_ZNK6QPlace22extendedAttributeTypesEv": ["address", "address"],
+    "ritual_ZNK6QPlace17extendedAttributeERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN6QPlace20setExtendedAttributeERK7QStringRK15QPlaceAttribute": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZN6QPlace23removeExtendedAttributeERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK6QPlace12contactTypesEv": ["address", "address"],
+    "ritual_ZNK6QPlace14contactDetailsERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN6QPlace17setContactDetailsERK7QString5QListI19QPlaceContactDetailE": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZN6QPlace19appendContactDetailERK7QStringRK19QPlaceContactDetail": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZN6QPlace20removeContactDetailsERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK6QPlace10visibilityEv": ["int", "address"],
+    "ritual_ZN6QPlace13setVisibilityEN9QLocation10VisibilityE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK6QPlace7isEmptyEv": ["bool", "address"],
+    "ritual_ZNK6QPlace7isEqualERKS_": ["bool", "address", "address"],
+    "ritual_ZNK6QPlace6d_funcEv": ["address", "address"],
+    "ritual_list_make_QPlace": ["address"],
+    "ritual_list_add_QPlace": ["nothing", "address", "address"],
+    "ritual_list_size_QPlace": ["long long", "address"],
+    "ritual_list_at_QPlace": ["address", "address", "long long"],
+    "ritual_list_drop_QPlace": ["nothing", "address"]
+  }
+}

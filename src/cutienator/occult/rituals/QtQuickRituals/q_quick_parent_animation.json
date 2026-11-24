@@ -1,0 +1,33 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickitemanimation_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK21QQuickParentAnimation10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QQuickParentAnimation2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN21QQuickParentAnimation6d_funcEv": ["address", "address"],
+    "ritual_ZNK21QQuickParentAnimation6d_funcEv": ["address", "address"],
+    "ritual_ZN21QQuickParentAnimationC1EP7QObject": ["address", "address"],
+    "ritual_ZNK21QQuickParentAnimation6targetEv": ["address", "address"],
+    "ritual_ZN21QQuickParentAnimation15setTargetObjectEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21QQuickParentAnimation9newParentEv": ["address", "address"],
+    "ritual_ZN21QQuickParentAnimation12setNewParentEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21QQuickParentAnimation3viaEv": ["address", "address"],
+    "ritual_ZN21QQuickParentAnimation6setViaEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QQuickParentAnimation": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

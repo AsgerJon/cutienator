@@ -120,6 +120,8 @@
     "ritual_ZN20QGraphicsProxyWidget14newProxyWidgetEPK7QWidget": [
       "address", "address", "address"
     ],
+    "ritual_ZN20QGraphicsProxyWidget6d_funcEv": ["address", "address"],
+    "ritual_ZNK20QGraphicsProxyWidget6d_funcEv": ["address", "address"],
     "ritual_take_QGraphicsProxyWidget": [
       "bool", "address", "chars", "address"
     ],

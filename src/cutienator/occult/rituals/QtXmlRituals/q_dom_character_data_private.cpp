@@ -1,0 +1,818 @@
+//  Written by dev_tooling.RitualGenerator from the records of
+//  QtXml/6.12.0/QtXml/private/qdom_p.h, Qt 6.12.0. Changes made here are
+//  lost.
+#include <QtXml/qtxmlglobal.h>
+#include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
+#if QT_CONFIG(dom)
+#include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
+#include <QtXml/QtXml>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtXml/6.12.0/QtXml/private/qdom_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qstring.h>
+#include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <qplatformdefs.h>
+#include <qdom.h>
+#include "private/qxmlutils_p.h"
+#if QT_CONFIG(dom)
+#include "qdom_p.h"
+#include "qdomhelpers_p.h"
+#include <qatomic.h>
+#include <qbuffer.h>
+#include <qiodevice.h>
+#if QT_CONFIG(regularexpression)
+#include <qregularexpression.h>
+#endif
+#include <qtextstream.h>
+#include <qvariant.h>
+#include <qshareddata.h>
+#include <qdebug.h>
+#include <qxmlstream.h>
+#include <private/qduplicatetracker_p.h>
+#include <private/qstringiterator_p.h>
+#include <qvarlengtharray.h>
+#include <stdio.h>
+#include <limits>
+#include <memory>
+#endif
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from src/xml/dom/qdom.cpp, line 1454, as _ZN15QDomNodePrivate11appendChildEPS_
+#if QT_CONFIG(dom)
+inline QDomNodePrivate* QDomNodePrivate::appendChild(QDomNodePrivate* newChild)
+{
+    // No reference manipulation needed. Done in insertAfter.
+    return insertAfter(newChild, nullptr);
+}
+#endif  // QT_CONFIG(dom)
+
+//  from src/xml/dom/qdom.cpp, line 1230, as _ZN15QDomNodePrivate11insertAfterEPS_S0_
+#if QT_CONFIG(dom)
+inline QDomNodePrivate* QDomNodePrivate::insertAfter(QDomNodePrivate* newChild, QDomNodePrivate* refChild)
+{
+    // Error check
+    if (!newChild)
+        return nullptr;
+
+    // Error check
+    if (newChild == refChild)
+        return nullptr;
+
+    // Error check
+    if (refChild && refChild->parent() != this)
+        return nullptr;
+
+    // "mark lists as dirty"
+    QDomDocumentPrivate *const doc = ownerDocument();
+    if (doc)
+        doc->nodeListTime++;
+
+    // Special handling for inserting a fragment. We just insert
+    // all elements of the fragment instead of the fragment itself.
+    if (newChild->isDocumentFragment()) {
+        // Fragment is empty ?
+        if (newChild->first == nullptr)
+            return newChild;
+
+        // New parent
+        QDomNodePrivate* n = newChild->first;
+        while (n) {
+            n->setParent(this);
+            n = n->next;
+        }
+
+        // Insert at the end
+        if (!refChild || refChild->next == nullptr) {
+            if (last)
+                last->next = newChild->first;
+            newChild->first->prev = last;
+            if (!first)
+                first = newChild->first;
+            last = newChild->last;
+        } else { // Insert in the middle
+            newChild->first->prev = refChild;
+            newChild->last->next = refChild->next;
+            refChild->next->prev = newChild->last;
+            refChild->next = newChild->first;
+        }
+
+        // No need to increase the reference since QDomDocumentFragment
+        // does not decrease the reference.
+
+        // Remove the nodes from the fragment
+        newChild->first = nullptr;
+        newChild->last = nullptr;
+        return newChild;
+    }
+
+    // Release new node from its current parent
+    if (newChild->parent())
+        newChild->parent()->removeChild(newChild);
+
+    // No more errors can occur now, so we take
+    // ownership of the node
+    newChild->ref.ref();
+
+    newChild->setParent(this);
+
+    // Insert at the end
+    if (!refChild) {
+        if (last)
+            last->next = newChild;
+        newChild->prev = last;
+        if (!first)
+            first = newChild;
+        last = newChild;
+        return newChild;
+    }
+
+    if (refChild->next == nullptr) {
+        if (last)
+            last->next = newChild;
+        newChild->prev = last;
+        if (!first)
+            first = newChild;
+        last = newChild;
+        return newChild;
+    }
+
+    newChild->prev = refChild;
+    newChild->next = refChild->next;
+    refChild->next->prev = newChild;
+    refChild->next = newChild;
+
+    return newChild;
+}
+#endif  // QT_CONFIG(dom)
+
+//  from src/xml/dom/qdom.cpp, line 1418, as _ZN15QDomNodePrivate11removeChildEPS_
+#if QT_CONFIG(dom)
+inline QDomNodePrivate* QDomNodePrivate::removeChild(QDomNodePrivate* oldChild)
+{
+    // Error check
+    if (oldChild->parent() != this)
+        return nullptr;
+
+    // "mark lists as dirty"
+    QDomDocumentPrivate *const doc = ownerDocument();
+    if (doc)
+        doc->nodeListTime++;
+
+    // Perhaps oldChild was just created with "createElement" or that. In this case
+    // its parent is QDomDocument but it is not part of the documents child list.
+    if (oldChild->next == nullptr && oldChild->prev == nullptr && first != oldChild)
+        return nullptr;
+
+    if (oldChild->next)
+        oldChild->next->prev = oldChild->prev;
+    if (oldChild->prev)
+        oldChild->prev->next = oldChild->next;
+
+    if (last == oldChild)
+        last = oldChild->prev;
+    if (first == oldChild)
+        first = oldChild->next;
+
+    oldChild->setNoParent();
+    oldChild->next = nullptr;
+    oldChild->prev = nullptr;
+
+    // We are no longer interested in the old node
+    oldChild->ref.deref();
+
+    return oldChild;
+}
+#endif  // QT_CONFIG(dom)
+
+//  from src/xml/dom/qdom.cpp, line 1135, as _ZN15QDomNodePrivate12insertBeforeEPS_S0_
+#if QT_CONFIG(dom)
+inline QDomNodePrivate* QDomNodePrivate::insertBefore(QDomNodePrivate* newChild, QDomNodePrivate* refChild)
+{
+    // Error check
+    if (!newChild)
+        return nullptr;
+
+    // Error check
+    if (newChild == refChild)
+        return nullptr;
+
+    // Error check
+    if (refChild && refChild->parent() != this)
+        return nullptr;
+
+    // "mark lists as dirty"
+    QDomDocumentPrivate *const doc = ownerDocument();
+    if (doc)
+        doc->nodeListTime++;
+
+    // Special handling for inserting a fragment. We just insert
+    // all elements of the fragment instead of the fragment itself.
+    if (newChild->isDocumentFragment()) {
+        // Fragment is empty ?
+        if (newChild->first == nullptr)
+            return newChild;
+
+        // New parent
+        QDomNodePrivate* n = newChild->first;
+        while (n)  {
+            n->setParent(this);
+            n = n->next;
+        }
+
+        // Insert at the beginning ?
+        if (!refChild || refChild->prev == nullptr) {
+            if (first)
+                first->prev = newChild->last;
+            newChild->last->next = first;
+            if (!last)
+                last = newChild->last;
+            first = newChild->first;
+        } else {
+            // Insert in the middle
+            newChild->last->next = refChild;
+            newChild->first->prev = refChild->prev;
+            refChild->prev->next = newChild->first;
+            refChild->prev = newChild->last;
+        }
+
+        // No need to increase the reference since QDomDocumentFragment
+        // does not decrease the reference.
+
+        // Remove the nodes from the fragment
+        newChild->first = nullptr;
+        newChild->last = nullptr;
+        return newChild;
+    }
+
+    // No more errors can occur now, so we take
+    // ownership of the node.
+    newChild->ref.ref();
+
+    if (newChild->parent())
+        newChild->parent()->removeChild(newChild);
+
+    newChild->setParent(this);
+
+    if (!refChild) {
+        if (first)
+            first->prev = newChild;
+        newChild->next = first;
+        if (!last)
+            last = newChild;
+        first = newChild;
+        return newChild;
+    }
+
+    if (refChild->prev == nullptr) {
+        if (first)
+            first->prev = newChild;
+        newChild->next = first;
+        if (!last)
+            last = newChild;
+        first = newChild;
+        return newChild;
+    }
+
+    newChild->next = refChild;
+    newChild->prev = refChild->prev;
+    refChild->prev->next = newChild;
+    refChild->prev = newChild;
+
+    return newChild;
+}
+#endif  // QT_CONFIG(dom)
+
+//  from src/xml/dom/qdom.cpp, line 1326, as _ZN15QDomNodePrivate12replaceChildEPS_S0_
+#if QT_CONFIG(dom)
+inline QDomNodePrivate* QDomNodePrivate::replaceChild(QDomNodePrivate* newChild, QDomNodePrivate* oldChild)
+{
+    if (!newChild || !oldChild)
+        return nullptr;
+    if (oldChild->parent() != this)
+        return nullptr;
+    if (newChild == oldChild)
+        return nullptr;
+
+    // mark lists as dirty
+    QDomDocumentPrivate *const doc = ownerDocument();
+    if (doc)
+        doc->nodeListTime++;
+
+    // Special handling for inserting a fragment. We just insert
+    // all elements of the fragment instead of the fragment itself.
+    if (newChild->isDocumentFragment()) {
+        // Fragment is empty ?
+        if (newChild->first == nullptr)
+            return newChild;
+
+        // New parent
+        QDomNodePrivate* n = newChild->first;
+        while (n) {
+            n->setParent(this);
+            n = n->next;
+        }
+
+
+        if (oldChild->next)
+            oldChild->next->prev = newChild->last;
+        if (oldChild->prev)
+            oldChild->prev->next = newChild->first;
+
+        newChild->last->next = oldChild->next;
+        newChild->first->prev = oldChild->prev;
+
+        if (first == oldChild)
+            first = newChild->first;
+        if (last == oldChild)
+            last = newChild->last;
+
+        oldChild->setNoParent();
+        oldChild->next = nullptr;
+        oldChild->prev = nullptr;
+
+        // No need to increase the reference since QDomDocumentFragment
+        // does not decrease the reference.
+
+        // Remove the nodes from the fragment
+        newChild->first = nullptr;
+        newChild->last = nullptr;
+
+        // We are no longer interested in the old node
+        oldChild->ref.deref();
+
+        return oldChild;
+    }
+
+    // No more errors can occur now, so we take
+    // ownership of the node
+    newChild->ref.ref();
+
+    // Release new node from its current parent
+    if (newChild->parent())
+        newChild->parent()->removeChild(newChild);
+
+    newChild->setParent(this);
+
+    if (oldChild->next)
+        oldChild->next->prev = newChild;
+    if (oldChild->prev)
+        oldChild->prev->next = newChild;
+
+    newChild->next = oldChild->next;
+    newChild->prev = oldChild->prev;
+
+    if (first == oldChild)
+        first = newChild;
+    if (last == oldChild)
+        last = newChild;
+
+    oldChild->setNoParent();
+    oldChild->next = nullptr;
+    oldChild->prev = nullptr;
+
+    // We are no longer interested in the old node
+    oldChild->ref.deref();
+
+    return oldChild;
+}
+#endif  // QT_CONFIG(dom)
+
+//  from src/xml/dom/qdom.cpp, line 1108, as _ZN15QDomNodePrivate5clearEv
+#if QT_CONFIG(dom)
+inline void QDomNodePrivate::clear()
+{
+    QDomNodePrivate* p = first;
+    QDomNodePrivate* n;
+
+    while (p) {
+        n = p->next;
+        if (!p->ref.deref())
+            delete p;
+        p = n;
+    }
+    first = nullptr;
+    last = nullptr;
+}
+#endif  // QT_CONFIG(dom)
+
+//  from src/xml/dom/qdom.cpp, line 3531, as _ZNK24QDomCharacterDataPrivate10dataLengthEv
+#if QT_CONFIG(dom)
+inline int QDomCharacterDataPrivate::dataLength() const
+{
+    return value.size();
+}
+#endif  // QT_CONFIG(dom)
+
+//  from src/xml/dom/qdom.cpp, line 3536, as _ZNK24QDomCharacterDataPrivate13substringDataEmm
+#if QT_CONFIG(dom)
+inline QString QDomCharacterDataPrivate::substringData(unsigned long offset, unsigned long n) const
+{
+    return value.mid(offset, n);
+}
+#endif  // QT_CONFIG(dom)
+
+//  from src/xml/dom/qdom.cpp, line 3556, as _ZN24QDomCharacterDataPrivate10appendDataERK7QString
+#if QT_CONFIG(dom)
+inline void QDomCharacterDataPrivate::appendData(const QString& arg)
+{
+    value += arg;
+}
+#endif  // QT_CONFIG(dom)
+
+//  from src/xml/dom/qdom.cpp, line 3541, as _ZN24QDomCharacterDataPrivate10insertDataEmRK7QString
+#if QT_CONFIG(dom)
+inline void QDomCharacterDataPrivate::insertData(unsigned long offset, const QString& arg)
+{
+    value.insert(offset, arg);
+}
+#endif  // QT_CONFIG(dom)
+
+//  from src/xml/dom/qdom.cpp, line 3546, as _ZN24QDomCharacterDataPrivate10deleteDataEmm
+#if QT_CONFIG(dom)
+inline void QDomCharacterDataPrivate::deleteData(unsigned long offset, unsigned long n)
+{
+    value.remove(offset, n);
+}
+#endif  // QT_CONFIG(dom)
+
+//  from src/xml/dom/qdom.cpp, line 3551, as _ZN24QDomCharacterDataPrivate11replaceDataEmmRK7QString
+#if QT_CONFIG(dom)
+inline void QDomCharacterDataPrivate::replaceData(unsigned long offset, unsigned long n, const QString& arg)
+{
+    value.replace(offset, n, arg);
+}
+#endif  // QT_CONFIG(dom)
+
+//  from src/xml/dom/qdom.cpp, line 3523, as _ZN24QDomCharacterDataPrivate9cloneNodeEb
+#if QT_CONFIG(dom)
+inline QDomNodePrivate* QDomCharacterDataPrivate::cloneNode(bool deep)
+{
+    QDomNodePrivate* p = new QDomCharacterDataPrivate(this, deep);
+    // We are not interested in this node
+    p->ref.deref();
+    return p;
+}
+#endif  // QT_CONFIG(dom)
+//  -----------------------------------------------------------------------
+
+//  A QDomCharacterDataPrivate that Python can take functions over in. Every QDomCharacterDataPrivate
+//  Python makes is one. Each function below asks the Python
+//  function handed over for it, and runs Qt's own without one.
+#if QT_CONFIG(dom)
+typedef int (*CuteQDomCharacterDataPrivateCall0)(const void *, int *);
+#endif  // QT_CONFIG(dom)
+#if QT_CONFIG(dom)
+typedef void * (*CuteQDomCharacterDataPrivateCall1)(const void *, bool, int *);
+#endif  // QT_CONFIG(dom)
+#if QT_CONFIG(dom)
+typedef void (*CuteQDomCharacterDataPrivateCall2)(const void *, const QString *, int *);
+#endif  // QT_CONFIG(dom)
+#if QT_CONFIG(dom)
+typedef void * (*CuteQDomCharacterDataPrivateCall3)(const void *, QDomNodePrivate *, QDomNodePrivate *, int *);
+#endif  // QT_CONFIG(dom)
+#if QT_CONFIG(dom)
+typedef void * (*CuteQDomCharacterDataPrivateCall4)(const void *, QDomNodePrivate *, QDomNodePrivate *, int *);
+#endif  // QT_CONFIG(dom)
+#if QT_CONFIG(dom)
+typedef void * (*CuteQDomCharacterDataPrivateCall5)(const void *, QDomNodePrivate *, QDomNodePrivate *, int *);
+#endif  // QT_CONFIG(dom)
+#if QT_CONFIG(dom)
+typedef void * (*CuteQDomCharacterDataPrivateCall6)(const void *, QDomNodePrivate *, int *);
+#endif  // QT_CONFIG(dom)
+#if QT_CONFIG(dom)
+typedef void * (*CuteQDomCharacterDataPrivateCall7)(const void *, QDomNodePrivate *, int *);
+#endif  // QT_CONFIG(dom)
+#if QT_CONFIG(dom)
+typedef void (*CuteQDomCharacterDataPrivateCall8)(const void *, int *);
+#endif  // QT_CONFIG(dom)
+#if QT_CONFIG(dom)
+typedef void (*CuteQDomCharacterDataPrivateCall9)(const void *, int *);
+#endif  // QT_CONFIG(dom)
+class CuteQDomCharacterDataPrivate : public QDomCharacterDataPrivate {
+public:
+  using QDomCharacterDataPrivate::QDomCharacterDataPrivate;
+  CuteQDomCharacterDataPrivate(const QDomCharacterDataPrivate &other) : QDomCharacterDataPrivate(other) {}
+  void *taken[10] = {};
+
+  bool take(const char *key, void *call) {
+#if QT_CONFIG(dom)
+    if (!std::strcmp(key, "_ZNK15QDomNodePrivate8nodeTypeEv")) {
+      taken[0] = call;
+      return true;
+    }
+#endif  // QT_CONFIG(dom)
+#if QT_CONFIG(dom)
+    if (!std::strcmp(key, "_ZN15QDomNodePrivate9cloneNodeEb")) {
+      taken[1] = call;
+      return true;
+    }
+#endif  // QT_CONFIG(dom)
+#if QT_CONFIG(dom)
+    if (!std::strcmp(key, "_ZN15QDomNodePrivate12setNodeValueERK7QString")) {
+      taken[2] = call;
+      return true;
+    }
+#endif  // QT_CONFIG(dom)
+#if QT_CONFIG(dom)
+    if (!std::strcmp(key, "_ZN15QDomNodePrivate12insertBeforeEPS_S0_")) {
+      taken[3] = call;
+      return true;
+    }
+#endif  // QT_CONFIG(dom)
+#if QT_CONFIG(dom)
+    if (!std::strcmp(key, "_ZN15QDomNodePrivate11insertAfterEPS_S0_")) {
+      taken[4] = call;
+      return true;
+    }
+#endif  // QT_CONFIG(dom)
+#if QT_CONFIG(dom)
+    if (!std::strcmp(key, "_ZN15QDomNodePrivate12replaceChildEPS_S0_")) {
+      taken[5] = call;
+      return true;
+    }
+#endif  // QT_CONFIG(dom)
+#if QT_CONFIG(dom)
+    if (!std::strcmp(key, "_ZN15QDomNodePrivate11removeChildEPS_")) {
+      taken[6] = call;
+      return true;
+    }
+#endif  // QT_CONFIG(dom)
+#if QT_CONFIG(dom)
+    if (!std::strcmp(key, "_ZN15QDomNodePrivate11appendChildEPS_")) {
+      taken[7] = call;
+      return true;
+    }
+#endif  // QT_CONFIG(dom)
+#if QT_CONFIG(dom)
+    if (!std::strcmp(key, "_ZN15QDomNodePrivate9normalizeEv")) {
+      taken[8] = call;
+      return true;
+    }
+#endif  // QT_CONFIG(dom)
+#if QT_CONFIG(dom)
+    if (!std::strcmp(key, "_ZN15QDomNodePrivate5clearEv")) {
+      taken[9] = call;
+      return true;
+    }
+#endif  // QT_CONFIG(dom)
+    return false;
+  }
+
+#if QT_CONFIG(dom)
+  //  QDomNode::NodeType QDomCharacterDataPrivate::nodeType() const
+  QDomNode::NodeType nodeType() const override {
+    if (taken[0]) {
+      int handled = 0;
+      CuteQDomCharacterDataPrivateCall0 call = reinterpret_cast<CuteQDomCharacterDataPrivateCall0>(taken[0]);
+      int given = call(this, &handled);
+      if (handled) return static_cast<QDomNode::NodeType>(given);
+    }
+    return QDomCharacterDataPrivate::nodeType();
+  }
+#endif  // QT_CONFIG(dom)
+
+#if QT_CONFIG(dom)
+  //  QDomNodePrivate *QDomCharacterDataPrivate::cloneNode(bool deep)
+  QDomNodePrivate *cloneNode(bool deep) override {
+    if (taken[1]) {
+      int handled = 0;
+      CuteQDomCharacterDataPrivateCall1 call = reinterpret_cast<CuteQDomCharacterDataPrivateCall1>(taken[1]);
+      void * given = call(this, deep, &handled);
+      if (handled) return static_cast<QDomNodePrivate *>(given);
+    }
+    return QDomCharacterDataPrivate::cloneNode(deep);
+  }
+#endif  // QT_CONFIG(dom)
+
+#if QT_CONFIG(dom)
+  //  void QDomNodePrivate::setNodeValue(const QString &v)
+  void setNodeValue(const QString &v) override {
+    if (taken[2]) {
+      int handled = 0;
+      CuteQDomCharacterDataPrivateCall2 call = reinterpret_cast<CuteQDomCharacterDataPrivateCall2>(taken[2]);
+      call(this, &v, &handled);
+      if (handled) return;
+    }
+    QDomNodePrivate::setNodeValue(v);
+  }
+#endif  // QT_CONFIG(dom)
+
+#if QT_CONFIG(dom)
+  //  QDomNodePrivate *QDomNodePrivate::insertBefore(QDomNodePrivate
+  //      *newChild, QDomNodePrivate *refChild)
+  QDomNodePrivate *insertBefore(
+      QDomNodePrivate *newChild,
+      QDomNodePrivate *refChild) override {
+    if (taken[3]) {
+      int handled = 0;
+      CuteQDomCharacterDataPrivateCall3 call = reinterpret_cast<CuteQDomCharacterDataPrivateCall3>(taken[3]);
+      void * given = call(this, newChild, refChild, &handled);
+      if (handled) return static_cast<QDomNodePrivate *>(given);
+    }
+    return QDomNodePrivate::insertBefore(newChild, refChild);
+  }
+#endif  // QT_CONFIG(dom)
+
+#if QT_CONFIG(dom)
+  //  QDomNodePrivate *QDomNodePrivate::insertAfter(QDomNodePrivate
+  //      *newChild, QDomNodePrivate *refChild)
+  QDomNodePrivate *insertAfter(
+      QDomNodePrivate *newChild,
+      QDomNodePrivate *refChild) override {
+    if (taken[4]) {
+      int handled = 0;
+      CuteQDomCharacterDataPrivateCall4 call = reinterpret_cast<CuteQDomCharacterDataPrivateCall4>(taken[4]);
+      void * given = call(this, newChild, refChild, &handled);
+      if (handled) return static_cast<QDomNodePrivate *>(given);
+    }
+    return QDomNodePrivate::insertAfter(newChild, refChild);
+  }
+#endif  // QT_CONFIG(dom)
+
+#if QT_CONFIG(dom)
+  //  QDomNodePrivate *QDomNodePrivate::replaceChild(QDomNodePrivate
+  //      *newChild, QDomNodePrivate *oldChild)
+  QDomNodePrivate *replaceChild(
+      QDomNodePrivate *newChild,
+      QDomNodePrivate *oldChild) override {
+    if (taken[5]) {
+      int handled = 0;
+      CuteQDomCharacterDataPrivateCall5 call = reinterpret_cast<CuteQDomCharacterDataPrivateCall5>(taken[5]);
+      void * given = call(this, newChild, oldChild, &handled);
+      if (handled) return static_cast<QDomNodePrivate *>(given);
+    }
+    return QDomNodePrivate::replaceChild(newChild, oldChild);
+  }
+#endif  // QT_CONFIG(dom)
+
+#if QT_CONFIG(dom)
+  //  QDomNodePrivate *QDomNodePrivate::removeChild(QDomNodePrivate
+  //      *oldChild)
+  QDomNodePrivate *removeChild(QDomNodePrivate *oldChild) override {
+    if (taken[6]) {
+      int handled = 0;
+      CuteQDomCharacterDataPrivateCall6 call = reinterpret_cast<CuteQDomCharacterDataPrivateCall6>(taken[6]);
+      void * given = call(this, oldChild, &handled);
+      if (handled) return static_cast<QDomNodePrivate *>(given);
+    }
+    return QDomNodePrivate::removeChild(oldChild);
+  }
+#endif  // QT_CONFIG(dom)
+
+#if QT_CONFIG(dom)
+  //  QDomNodePrivate *QDomNodePrivate::appendChild(QDomNodePrivate
+  //      *newChild)
+  QDomNodePrivate *appendChild(QDomNodePrivate *newChild) override {
+    if (taken[7]) {
+      int handled = 0;
+      CuteQDomCharacterDataPrivateCall7 call = reinterpret_cast<CuteQDomCharacterDataPrivateCall7>(taken[7]);
+      void * given = call(this, newChild, &handled);
+      if (handled) return static_cast<QDomNodePrivate *>(given);
+    }
+    return QDomNodePrivate::appendChild(newChild);
+  }
+#endif  // QT_CONFIG(dom)
+
+#if QT_CONFIG(dom)
+  //  void QDomNodePrivate::normalize()
+  void normalize() override {
+    if (taken[8]) {
+      int handled = 0;
+      CuteQDomCharacterDataPrivateCall8 call = reinterpret_cast<CuteQDomCharacterDataPrivateCall8>(taken[8]);
+      call(this, &handled);
+      if (handled) return;
+    }
+    QDomNodePrivate::normalize();
+  }
+#endif  // QT_CONFIG(dom)
+
+#if QT_CONFIG(dom)
+  //  void QDomNodePrivate::clear()
+  void clear() override {
+    if (taken[9]) {
+      int handled = 0;
+      CuteQDomCharacterDataPrivateCall9 call = reinterpret_cast<CuteQDomCharacterDataPrivateCall9>(taken[9]);
+      call(this, &handled);
+      if (handled) return;
+    }
+    QDomNodePrivate::clear();
+  }
+#endif  // QT_CONFIG(dom)
+};
+
+#if QT_CONFIG(dom)
+//  int QDomCharacterDataPrivate::dataLength() const
+extern "C" Q_DECL_EXPORT
+int ritual_ZNK24QDomCharacterDataPrivate10dataLengthEv(
+    const QDomCharacterDataPrivate *self) {
+  return self->dataLength();
+}
+#endif  // QT_CONFIG(dom)
+
+#if QT_CONFIG(dom)
+//  QString QDomCharacterDataPrivate::substringData(unsigned long offset,
+//      unsigned long count) const
+extern "C" Q_DECL_EXPORT
+QString *ritual_ZNK24QDomCharacterDataPrivate13substringDataEmm(
+    const QDomCharacterDataPrivate *self,
+    unsigned long offset,
+    unsigned long count) {
+  return new QString(self->substringData(offset, count));
+}
+#endif  // QT_CONFIG(dom)
+
+#if QT_CONFIG(dom)
+//  void QDomCharacterDataPrivate::appendData(const QString &arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QDomCharacterDataPrivate10appendDataERK7QString(
+    QDomCharacterDataPrivate *self,
+    const QString *arg) {
+  self->appendData(*arg);
+}
+#endif  // QT_CONFIG(dom)
+
+#if QT_CONFIG(dom)
+//  void QDomCharacterDataPrivate::insertData(unsigned long offset, const
+//      QString &arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QDomCharacterDataPrivate10insertDataEmRK7QString(
+    QDomCharacterDataPrivate *self,
+    unsigned long offset,
+    const QString *arg) {
+  self->insertData(offset, *arg);
+}
+#endif  // QT_CONFIG(dom)
+
+#if QT_CONFIG(dom)
+//  void QDomCharacterDataPrivate::deleteData(unsigned long offset, unsigned
+//      long count)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QDomCharacterDataPrivate10deleteDataEmm(
+    QDomCharacterDataPrivate *self,
+    unsigned long offset,
+    unsigned long count) {
+  self->deleteData(offset, count);
+}
+#endif  // QT_CONFIG(dom)
+
+#if QT_CONFIG(dom)
+//  void QDomCharacterDataPrivate::replaceData(unsigned long offset, unsigned
+//      long count, const QString &arg)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QDomCharacterDataPrivate11replaceDataEmmRK7QString(
+    QDomCharacterDataPrivate *self,
+    unsigned long offset,
+    unsigned long count,
+    const QString *arg) {
+  self->replaceData(offset, count, *arg);
+}
+#endif  // QT_CONFIG(dom)
+
+//  QDomNode::NodeType QDomCharacterDataPrivate::nodeType() const
+extern "C" Q_DECL_EXPORT
+QDomNode::NodeType ritual_ZNK24QDomCharacterDataPrivate8nodeTypeEv(
+    const QDomCharacterDataPrivate *self) {
+  return self->nodeType();
+}
+
+//  QDomNodePrivate *QDomCharacterDataPrivate::cloneNode(bool deep)
+extern "C" Q_DECL_EXPORT
+QDomNodePrivate *ritual_ZN24QDomCharacterDataPrivate9cloneNodeEb(
+    QDomCharacterDataPrivate *self,
+    bool deep) {
+  return self->cloneNode(deep);
+}
+
+//  QDomCharacterDataPrivate::~QDomCharacterDataPrivate()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QDomCharacterDataPrivateD1Ev(
+    QDomCharacterDataPrivate *self) {
+  delete self;
+}
+
+//  a Python function taken by a CuteQDomCharacterDataPrivate, for the
+//      function named by the key
+extern "C" Q_DECL_EXPORT
+bool ritual_take_QDomCharacterDataPrivate(
+    QDomCharacterDataPrivate *self,
+    const char *key,
+    void *call) {
+  return static_cast<CuteQDomCharacterDataPrivate *>(self)->take(key, call);
+}
+
+//  QDomNode::NodeType QDomCharacterDataPrivate::nodeType() const
+extern "C" Q_DECL_EXPORT
+QDomNode::NodeType ritual_own_ZNK24QDomCharacterDataPrivate8nodeTypeEv(
+    const QDomCharacterDataPrivate *self) {
+  return self->QDomCharacterDataPrivate::nodeType();
+}
+
+#endif  // QT_CONFIG(dom)

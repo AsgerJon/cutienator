@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qrhi_p.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZNK23QRhiPassResourceTracker7isEmptyEv": ["bool", "address"],
+    "ritual_ZN23QRhiPassResourceTracker5resetEv": ["nothing", "address"],
+    "ritual_ZN23QRhiPassResourceTracker24toPassTrackerBufferStageE6QFlagsIN25QRhiShaderResourceBinding9StageFlagEE": [
+      "int", "int"
+    ],
+    "ritual_ZN23QRhiPassResourceTracker25toPassTrackerTextureStageE6QFlagsIN25QRhiShaderResourceBinding9StageFlagEE": [
+      "int", "int"
+    ],
+    "ritual_ZN23QRhiPassResourceTrackerD1Ev": ["nothing", "address"]
+  }
+}

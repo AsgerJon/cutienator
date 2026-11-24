@@ -1,0 +1,64 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickimage_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK11QQuickImage10metaObjectEv": ["address", "address"],
+    "ritual_ZN11QQuickImage2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN11QQuickImageC1EP10QQuickItem": ["address", "address"],
+    "ritual_ZN11QQuickImageD1Ev": ["nothing", "address"],
+    "ritual_ZNK11QQuickImage8fillModeEv": ["int", "address"],
+    "ritual_ZN11QQuickImage11setFillModeENS_8FillModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11QQuickImage12paintedWidthEv": ["double", "address"],
+    "ritual_ZNK11QQuickImage13paintedHeightEv": ["double", "address"],
+    "ritual_ZNK11QQuickImage12boundingRectEv": ["address", "address"],
+    "ritual_ZNK11QQuickImage19horizontalAlignmentEv": ["int", "address"],
+    "ritual_ZN11QQuickImage22setHorizontalAlignmentENS_10HAlignmentE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11QQuickImage17verticalAlignmentEv": ["int", "address"],
+    "ritual_ZN11QQuickImage20setVerticalAlignmentENS_10VAlignmentE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11QQuickImage17isTextureProviderEv": ["bool", "address"],
+    "ritual_ZNK11QQuickImage15textureProviderEv": ["address", "address"],
+    "ritual_ZNK11QQuickImage6mipmapEv": ["bool", "address"],
+    "ritual_ZN11QQuickImage9setMipmapEb": ["nothing", "address", "bool"],
+    "ritual_ZN11QQuickImage28emitAutoTransformBaseChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN11QQuickImage20invalidateSceneGraphEv": ["nothing", "address"],
+    "ritual_ZN11QQuickImage12pixmapChangeEv": ["nothing", "address"],
+    "ritual_ZN11QQuickImage21updatePaintedGeometryEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN11QQuickImage16releaseResourcesEv": ["nothing", "address"],
+    "ritual_ZN11QQuickImage14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN11QQuickImage15updatePaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN11QQuickImage6d_funcEv": ["address", "address"],
+    "ritual_ZNK11QQuickImage6d_funcEv": ["address", "address"],
+    "ritual_take_QQuickImage": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK11QQuickImage12boundingRectEv": ["address", "address"],
+    "ritual_own_ZNK11QQuickImage17isTextureProviderEv": ["bool", "address"],
+    "ritual_own_ZNK11QQuickImage15textureProviderEv": ["address", "address"],
+    "ritual_own_ZN11QQuickImage28emitAutoTransformBaseChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN11QQuickImage12pixmapChangeEv": ["nothing", "address"],
+    "ritual_own_ZN11QQuickImage16releaseResourcesEv": ["nothing", "address"],
+    "ritual_own_ZN11QQuickImage14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN11QQuickImage15updatePaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
+      "address", "address", "address", "address"
+    ]
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4include_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN10QV4Include14method_includeEPN3QV415ExecutionEngineERK4QUrlRK8QJSValue": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN10QV4Include5readyEP17QQmlNotifyingBlob": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QV4Include8callbackEPN3QV414FunctionObjectEPNS0_6ObjectE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QV4Include11resultValueEPN3QV415ExecutionEngineE": [
+      "unsigned long long", "address"
+    ],
+    "ritual_ZN10QV4Include19populateResultValueEPN3QV46ObjectENS_6StatusERK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZN10QV4Include17processScriptBlobEP14QQmlScriptBlobPN3QV46ObjectEPNS2_14FunctionObjectEPNS2_10QmlContextE": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN10QV4IncludeC1EPN3QV46ObjectEPNS0_14FunctionObjectEPNS0_10QmlContextE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN10QV4IncludeD1Ev": ["nothing", "address"]
+  }
+}

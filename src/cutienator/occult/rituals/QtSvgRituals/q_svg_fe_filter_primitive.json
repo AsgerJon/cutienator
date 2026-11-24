@@ -1,0 +1,40 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSvg/6.12.0/QtSvg/private/qsvgfilter_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN21QSvgFeFilterPrimitiveD1Ev": ["nothing", "address"],
+    "ritual_ZNK21QSvgFeFilterPrimitive14localSubRegionERK6QRectFS2_N5QtSvg9UnitTypesES4_": [
+      "address", "address", "address", "address", "unsigned int",
+      "unsigned int"
+    ],
+    "ritual_ZNK21QSvgFeFilterPrimitive15globalSubRegionEP8QPainterRK6QRectFS4_N5QtSvg9UnitTypesES6_": [
+      "address", "address", "address", "address", "address", "unsigned int",
+      "unsigned int"
+    ],
+    "ritual_ZNK21QSvgFeFilterPrimitive23clipToTransformedBoundsEP6QImageP8QPainterRK6QRectF": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK21QSvgFeFilterPrimitive5applyERK4QMapI7QString6QImageEP8QPainterRK6QRectFSA_N5QtSvg9UnitTypesESC_": [
+      "address", "address", "address", "address", "address", "address",
+      "unsigned int", "unsigned int"
+    ],
+    "ritual_ZNK21QSvgFeFilterPrimitive19requiresSourceAlphaEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK21QSvgFeFilterPrimitive5inputEv": ["text", "address"],
+    "ritual_ZNK21QSvgFeFilterPrimitive6resultEv": ["text", "address"],
+    "ritual_ZNK21QSvgFeFilterPrimitive4rectEv": ["address", "address"],
+    "ritual_ZN21QSvgFeFilterPrimitive21castToFilterPrimitiveEPK8QSvgNode": [
+      "address", "address"
+    ],
+    "ritual_take_QSvgFeFilterPrimitive": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK21QSvgFeFilterPrimitive19requiresSourceAlphaEv": [
+      "bool", "address"
+    ]
+  }
+}

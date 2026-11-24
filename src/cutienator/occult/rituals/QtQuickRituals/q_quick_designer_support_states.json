@@ -1,0 +1,28 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickdesignersupportstates_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN27QQuickDesignerSupportStates13isStateActiveEP7QObjectP11QQmlContext": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN27QQuickDesignerSupportStates13activateStateEP7QObjectP11QQmlContext": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN27QQuickDesignerSupportStates15deactivateStateEP7QObject": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QQuickDesignerSupportStates23changeValueInRevertListEP7QObjectS1_RK10QByteArrayRK8QVariant": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZN27QQuickDesignerSupportStates18updateStateBindingEP7QObjectS1_RK10QByteArrayRK7QString": [
+      "bool", "address", "address", "address", "text"
+    ],
+    "ritual_ZN27QQuickDesignerSupportStates18resetStatePropertyEP7QObjectS1_RK10QByteArrayRK8QVariant": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZN27QQuickDesignerSupportStatesD1Ev": ["nothing", "address"]
+  }
+}

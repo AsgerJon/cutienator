@@ -1,0 +1,32 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qstandardgestures_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN23QSwipeGestureRecognizerC1Ev": ["address"],
+    "ritual_ZN23QSwipeGestureRecognizer6createEP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN23QSwipeGestureRecognizer9recognizeEP8QGestureP7QObjectP6QEvent": [
+      "int", "address", "address", "address", "address"
+    ],
+    "ritual_ZN23QSwipeGestureRecognizer5resetEP8QGesture": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QSwipeGestureRecognizerD1Ev": ["nothing", "address"],
+    "ritual_take_QSwipeGestureRecognizer": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN23QSwipeGestureRecognizer6createEP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN23QSwipeGestureRecognizer9recognizeEP8QGestureP7QObjectP6QEvent": [
+      "int", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN23QSwipeGestureRecognizer5resetEP8QGesture": [
+      "nothing", "address", "address"
+    ]
+  }
+}

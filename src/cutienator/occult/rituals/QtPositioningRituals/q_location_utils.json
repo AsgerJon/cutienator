@@ -1,0 +1,63 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtPositioning/6.12.0/QtPositioning/private/qlocationutils_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN14QLocationUtils10isValidLatEd": ["bool", "double"],
+    "ritual_ZN14QLocationUtils11isValidLongEd": ["bool", "double"],
+    "ritual_ZN14QLocationUtils7clipLatEdd": ["double", "double", "double"],
+    "ritual_ZN14QLocationUtils8wrapLongEd": ["double", "double"],
+    "ritual_ZN14QLocationUtils27azimuthToCardinalDirection4Ed": [
+      "int", "double"
+    ],
+    "ritual_ZN14QLocationUtils27azimuthToCardinalDirection8Ed": [
+      "int", "double"
+    ],
+    "ritual_ZN14QLocationUtils28azimuthToCardinalDirection16Ed": [
+      "int", "double"
+    ],
+    "ritual_ZN14QLocationUtils11wrapLongExtEd": ["double", "double"],
+    "ritual_ZN14QLocationUtils14mirrorAzimuthXEd": ["double", "double"],
+    "ritual_ZN14QLocationUtils14mirrorAzimuthYEd": ["double", "double"],
+    "ritual_ZN14QLocationUtils7radiansEd": ["double", "double"],
+    "ritual_ZN14QLocationUtils7degreesEd": ["double", "double"],
+    "ritual_ZN14QLocationUtils15earthMeanRadiusEv": ["double"],
+    "ritual_ZN14QLocationUtils22earthMeanCircumferenceEv": ["double"],
+    "ritual_ZN14QLocationUtils19mercatorMaxLatitudeEv": ["double"],
+    "ritual_ZN14QLocationUtils14antipodalPointERK14QGeoCoordinate": [
+      "address", "address"
+    ],
+    "ritual_ZN14QLocationUtils16mapLeftLongitudeEd": ["double", "double"],
+    "ritual_ZN14QLocationUtils17mapRightLongitudeEd": ["double", "double"],
+    "ritual_ZN14QLocationUtils12split_doubleEdPfS0_": [
+      "nothing", "double", "address", "address"
+    ],
+    "ritual_ZN14QLocationUtils14metersPerPixelEdRK14QGeoCoordinate": [
+      "double", "double", "address"
+    ],
+    "ritual_ZN14QLocationUtils19getNmeaSentenceTypeE14QByteArrayView": [
+      "int", "address"
+    ],
+    "ritual_ZN14QLocationUtils18getSatelliteSystemE14QByteArrayView": [
+      "int", "address"
+    ],
+    "ritual_ZN14QLocationUtils31getSatelliteSystemBySatelliteIdEi": [
+      "int", "int"
+    ],
+    "ritual_ZN14QLocationUtils18getPosInfoFromNmeaE14QByteArrayViewP16QGeoPositionInfodPb": [
+      "bool", "address", "address", "double", "address"
+    ],
+    "ritual_ZN14QLocationUtils20hasValidNmeaChecksumE14QByteArrayView": [
+      "bool", "address"
+    ],
+    "ritual_ZN14QLocationUtils11getNmeaTimeERK10QByteArrayP5QTime": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN14QLocationUtils14getNmeaLatLongERK10QByteArraycS2_cPdS3_": [
+      "bool", "address", "char", "address", "char", "address", "address"
+    ],
+    "ritual_ZN14QLocationUtilsD1Ev": ["nothing", "address"]
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qabstractitemmodel_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN25QPersistentModelIndexDataC1Ev": ["address"],
+    "ritual_ZN25QPersistentModelIndexDataC1ERK11QModelIndex": [
+      "address", "address"
+    ],
+    "ritual_ZN25QPersistentModelIndexData6createERK11QModelIndex": [
+      "address", "address"
+    ],
+    "ritual_ZN25QPersistentModelIndexData7destroyEPS_": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QPersistentModelIndexDataD1Ev": ["nothing", "address"],
+    "ritual_list_make_QPersistentModelIndexData_ptr": ["address"],
+    "ritual_list_add_QPersistentModelIndexData_ptr": [
+      "nothing", "address", "address"
+    ],
+    "ritual_list_size_QPersistentModelIndexData_ptr": [
+      "long long", "address"
+    ],
+    "ritual_list_at_QPersistentModelIndexData_ptr": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_QPersistentModelIndexData_ptr": ["nothing", "address"]
+  }
+}

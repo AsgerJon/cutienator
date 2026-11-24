@@ -1,0 +1,237 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qfiledialog_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QFileDialogPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK18QFileDialogPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN18QFileDialogPrivateC1Ev": ["address"],
+    "ritual_ZNK18QFileDialogPrivate24platformFileDialogHelperEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18QFileDialogPrivate17createToolButtonsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QFileDialogPrivate17createMenuActionsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QFileDialogPrivate13createWidgetsEv": ["nothing", "address"],
+    "ritual_ZN18QFileDialogPrivate4initERK15QFileDialogArgs": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QFileDialogPrivate21itemViewKeyboardEventEP9QKeyEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN18QFileDialogPrivate22getEnvironmentVariableERK7QString": [
+      "text", "address", "text"
+    ],
+    "ritual_ZNK18QFileDialogPrivate10typedFilesEv": ["address", "address"],
+    "ritual_ZNK18QFileDialogPrivate17userSelectedFilesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18QFileDialogPrivate23addDefaultSuffixToFilesERK5QListI7QStringE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK18QFileDialogPrivate22addDefaultSuffixToUrlsERK5QListI4QUrlE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18QFileDialogPrivate15removeDirectoryERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN18QFileDialogPrivate19setLabelTextControlEN11QFileDialog11DialogLabelERK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZN18QFileDialogPrivate17updateLookInLabelEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QFileDialogPrivate19updateFileNameLabelEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QFileDialogPrivate19updateFileTypeLabelEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QFileDialogPrivate18updateOkButtonTextEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN18QFileDialogPrivate22updateCancelButtonTextEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK18QFileDialogPrivate11mapToSourceERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK18QFileDialogPrivate13mapFromSourceERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK18QFileDialogPrivate8rootPathEv": ["text", "address"],
+    "ritual_ZNK18QFileDialogPrivate8lineEditEv": ["address", "address"],
+    "ritual_ZN18QFileDialogPrivate13maxNameLengthERK7QString": [
+      "long", "text"
+    ],
+    "ritual_ZNK18QFileDialogPrivate8basenameERK7QString": [
+      "text", "address", "text"
+    ],
+    "ritual_ZNK18QFileDialogPrivate13filterForModeE6QFlagsIN4QDir6FilterEE": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK18QFileDialogPrivate11currentViewEv": ["address", "address"],
+    "ritual_ZN18QFileDialogPrivate10toInternalERK7QString": ["text", "text"],
+    "ritual_ZN18QFileDialogPrivate12saveSettingsEv": ["nothing", "address"],
+    "ritual_ZN18QFileDialogPrivate19restoreFromSettingsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN18QFileDialogPrivate23setLastVisitedDirectoryERK4QUrl": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QFileDialogPrivate22retranslateWindowTitleEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QFileDialogPrivate18retranslateStringsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QFileDialogPrivate17emitFilesSelectedERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QFileDialogPrivate20saveHistorySelectionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QFileDialogPrivate6goHomeEv": ["nothing", "address"],
+    "ritual_ZN18QFileDialogPrivate11pathChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN18QFileDialogPrivate16navigateBackwardEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QFileDialogPrivate15navigateForwardEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QFileDialogPrivate16navigateToParentEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QFileDialogPrivate15createDirectoryEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QFileDialogPrivate12showListViewEv": ["nothing", "address"],
+    "ritual_ZN18QFileDialogPrivate15showDetailsViewEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QFileDialogPrivate15showContextMenuERK6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QFileDialogPrivate13renameCurrentEv": ["nothing", "address"],
+    "ritual_ZN18QFileDialogPrivate13deleteCurrentEv": ["nothing", "address"],
+    "ritual_ZN18QFileDialogPrivate10showHiddenEv": ["nothing", "address"],
+    "ritual_ZN18QFileDialogPrivate10showHeaderEP7QAction": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QFileDialogPrivate14updateOkButtonEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QFileDialogPrivate14currentChangedERK11QModelIndex": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QFileDialogPrivate14enterDirectoryERK11QModelIndex": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QFileDialogPrivate15emitUrlSelectedERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QFileDialogPrivate16emitUrlsSelectedERK5QListI4QUrlE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QFileDialogPrivate20nativeCurrentChangedERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QFileDialogPrivate20nativeEnterDirectoryERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QFileDialogPrivate13goToDirectoryERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN18QFileDialogPrivate13useNameFilterEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18QFileDialogPrivate16selectionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QFileDialogPrivate7goToUrlERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QFileDialogPrivate20autoCompleteFileNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN18QFileDialogPrivate12rowsInsertedERK11QModelIndex": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QFileDialogPrivate11fileRenamedERK7QStringS2_S2_": [
+      "nothing", "address", "text", "text", "text"
+    ],
+    "ritual_ZNK18QFileDialogPrivate17canBeNativeDialogEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN18QFileDialogPrivate10setVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK18QFileDialogPrivate12usingWidgetsEv": ["bool", "address"],
+    "ritual_ZN18QFileDialogPrivate16setDirectory_sysERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QFileDialogPrivate13directory_sysEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18QFileDialogPrivate14selectFile_sysERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QFileDialogPrivate17selectedFiles_sysEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18QFileDialogPrivate13setFilter_sysEv": ["nothing", "address"],
+    "ritual_ZN18QFileDialogPrivate24selectMimeTypeFilter_sysERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK18QFileDialogPrivate26selectedMimeTypeFilter_sysEv": [
+      "text", "address"
+    ],
+    "ritual_ZN18QFileDialogPrivate20selectNameFilter_sysERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK18QFileDialogPrivate22selectedNameFilter_sysEv": [
+      "text", "address"
+    ],
+    "ritual_ZN18QFileDialogPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN18QFileDialogPrivate10initHelperEP21QPlatformDialogHelper": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QFileDialogPrivate17helperPrepareShowEP21QPlatformDialogHelper": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QFileDialogPrivate10helperDoneEN7QDialog10DialogCodeEP21QPlatformDialogHelper": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN18QFileDialogPrivate12itemNotFoundERK7QStringN11QFileDialog8FileModeE": [
+      "nothing", "address", "text", "int"
+    ],
+    "ritual_ZN18QFileDialogPrivate17itemAlreadyExistsERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_take_QFileDialogPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK18QFileDialogPrivate17canBeNativeDialogEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZN18QFileDialogPrivate10setVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZN18QFileDialogPrivate10initHelperEP21QPlatformDialogHelper": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN18QFileDialogPrivate17helperPrepareShowEP21QPlatformDialogHelper": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN18QFileDialogPrivate10helperDoneEN7QDialog10DialogCodeEP21QPlatformDialogHelper": [
+      "nothing", "address", "int", "address"
+    ]
+  }
+}

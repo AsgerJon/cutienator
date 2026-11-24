@@ -1,0 +1,49 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qaccessiblequickflickable_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN25QAccessibleQuickFlickableC1EP15QQuickFlickable": [
+      "address", "address"
+    ],
+    "ritual_ZNK25QAccessibleQuickFlickable11contentSizeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK25QAccessibleQuickFlickable8positionEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK25QAccessibleQuickFlickable12viewportSizeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK25QAccessibleQuickFlickable9isIndexedEv": ["bool", "address"],
+    "ritual_ZN25QAccessibleQuickFlickable11setPositionE7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK25QAccessibleQuickFlickable9flickableEv": [
+      "address", "address"
+    ],
+    "ritual_cast_QAccessibleQuickFlickable_QAccessibleViewportInterface": [
+      "address", "address"
+    ],
+    "ritual_take_QAccessibleQuickFlickable": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK25QAccessibleQuickFlickable11contentSizeEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK25QAccessibleQuickFlickable8positionEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK25QAccessibleQuickFlickable12viewportSizeEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK25QAccessibleQuickFlickable9isIndexedEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZN25QAccessibleQuickFlickable11setPositionE7QPointF": [
+      "nothing", "address", "address"
+    ]
+  }
+}

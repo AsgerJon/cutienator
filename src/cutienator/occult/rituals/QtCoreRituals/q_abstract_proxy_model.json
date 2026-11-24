@@ -90,6 +90,8 @@
       "int", "address"
     ],
     "ritual_ZNK19QAbstractProxyModel9roleNamesEv": ["address", "address"],
+    "ritual_ZN19QAbstractProxyModel6d_funcEv": ["address", "address"],
+    "ritual_ZNK19QAbstractProxyModel6d_funcEv": ["address", "address"],
     "ritual_take_QAbstractProxyModel": [
       "bool", "address", "chars", "address"
     ],

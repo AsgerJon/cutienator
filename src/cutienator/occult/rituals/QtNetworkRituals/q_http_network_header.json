@@ -1,0 +1,30 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/6.12.0/QtNetwork/private/qhttpnetworkheader_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QHttpNetworkHeaderD1Ev": ["nothing", "address"],
+    "ritual_ZNK18QHttpNetworkHeader3urlEv": ["address", "address"],
+    "ritual_ZN18QHttpNetworkHeader6setUrlERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QHttpNetworkHeader12majorVersionEv": ["int", "address"],
+    "ritual_ZNK18QHttpNetworkHeader12minorVersionEv": ["int", "address"],
+    "ritual_ZNK18QHttpNetworkHeader13contentLengthEv": [
+      "long long", "address"
+    ],
+    "ritual_ZN18QHttpNetworkHeader16setContentLengthEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZNK18QHttpNetworkHeader6headerEv": ["address", "address"],
+    "ritual_ZNK18QHttpNetworkHeader11headerFieldE14QByteArrayViewRK10QByteArray": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN18QHttpNetworkHeader14setHeaderFieldERK10QByteArrayS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_take_QHttpNetworkHeader": ["bool", "address", "chars", "address"]
+  }
+}

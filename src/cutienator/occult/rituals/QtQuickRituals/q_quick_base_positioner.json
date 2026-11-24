@@ -1,0 +1,114 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickpositioners_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK20QQuickBasePositioner10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QQuickBasePositioner2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN20QQuickBasePositioner24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickBasePositioner21qt_qmlMarker_attachedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickBasePositionerD1Ev": ["nothing", "address"],
+    "ritual_ZNK20QQuickBasePositioner7spacingEv": ["double", "address"],
+    "ritual_ZN20QQuickBasePositioner10setSpacingEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK20QQuickBasePositioner8populateEv": ["address", "address"],
+    "ritual_ZN20QQuickBasePositioner11setPopulateEP16QQuickTransition": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QQuickBasePositioner4moveEv": ["address", "address"],
+    "ritual_ZN20QQuickBasePositioner7setMoveEP16QQuickTransition": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QQuickBasePositioner3addEv": ["address", "address"],
+    "ritual_ZN20QQuickBasePositioner6setAddEP16QQuickTransition": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickBasePositioner21qmlAttachedPropertiesEP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QQuickBasePositioner24updateAttachedPropertiesEP24QQuickPositionerAttachedP10QQuickItem": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK20QQuickBasePositioner7paddingEv": ["double", "address"],
+    "ritual_ZN20QQuickBasePositioner10setPaddingEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN20QQuickBasePositioner12resetPaddingEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK20QQuickBasePositioner10topPaddingEv": ["double", "address"],
+    "ritual_ZN20QQuickBasePositioner13setTopPaddingEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN20QQuickBasePositioner15resetTopPaddingEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK20QQuickBasePositioner11leftPaddingEv": ["double", "address"],
+    "ritual_ZN20QQuickBasePositioner14setLeftPaddingEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN20QQuickBasePositioner16resetLeftPaddingEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK20QQuickBasePositioner12rightPaddingEv": [
+      "double", "address"
+    ],
+    "ritual_ZN20QQuickBasePositioner15setRightPaddingEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN20QQuickBasePositioner17resetRightPaddingEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK20QQuickBasePositioner13bottomPaddingEv": [
+      "double", "address"
+    ],
+    "ritual_ZN20QQuickBasePositioner16setBottomPaddingEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN20QQuickBasePositioner18resetBottomPaddingEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickBasePositioner11forceLayoutEv": ["nothing", "address"],
+    "ritual_ZN20QQuickBasePositioner17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickBasePositioner10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN20QQuickBasePositioner12updatePolishEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickBasePositioner14prePositioningEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickBasePositioner13doPositioningEP6QSizeF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickBasePositioner24reportConflictingAnchorsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickBasePositioner6d_funcEv": ["address", "address"],
+    "ritual_ZNK20QQuickBasePositioner6d_funcEv": ["address", "address"],
+    "ritual_take_QQuickBasePositioner": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN20QQuickBasePositioner17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN20QQuickBasePositioner10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZN20QQuickBasePositioner12updatePolishEv": [
+      "nothing", "address"
+    ]
+  }
+}

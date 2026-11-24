@@ -1,0 +1,31 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/6.12.0/QtNetwork/private/qabstractprotocolhandler_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN24QAbstractProtocolHandlerD1Ev": ["nothing", "address"],
+    "ritual_ZN24QAbstractProtocolHandler15_q_receiveReplyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QAbstractProtocolHandler12_q_readyReadEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QAbstractProtocolHandler11sendRequestEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN24QAbstractProtocolHandler14tryRemoveReplyEP17QHttpNetworkReply": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN24QAbstractProtocolHandler8setReplyEP17QHttpNetworkReply": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QAbstractProtocolHandler": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN24QAbstractProtocolHandler14tryRemoveReplyEP17QHttpNetworkReply": [
+      "bool", "address", "address"
+    ]
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3DUtils/6.12.0/QtQuick3DUtils/private/qssgmesh_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN8QSSGMesh12MeshInternal24byteSizeForComponentTypeE23QSSGRenderComponentType": [
+      "unsigned int", "int"
+    ],
+    "ritual_ZN8QSSGMesh12MeshInternal19getPositionAttrNameEv": ["chars"],
+    "ritual_ZN8QSSGMesh12MeshInternal17getNormalAttrNameEv": ["chars"],
+    "ritual_ZN8QSSGMesh12MeshInternal14getUV0AttrNameEv": ["chars"],
+    "ritual_ZN8QSSGMesh12MeshInternal14getUV1AttrNameEv": ["chars"],
+    "ritual_ZN8QSSGMesh12MeshInternal21getLightmapUVAttrNameEv": ["chars"],
+    "ritual_ZN8QSSGMesh12MeshInternal17getTexTanAttrNameEv": ["chars"],
+    "ritual_ZN8QSSGMesh12MeshInternal22getTexBinormalAttrNameEv": ["chars"],
+    "ritual_ZN8QSSGMesh12MeshInternal16getColorAttrNameEv": ["chars"],
+    "ritual_ZN8QSSGMesh12MeshInternal16getJointAttrNameEv": ["chars"],
+    "ritual_ZN8QSSGMesh12MeshInternal17getWeightAttrNameEv": ["chars"],
+    "ritual_ZN8QSSGMesh12MeshInternalD1Ev": ["nothing", "address"]
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qdistancefield_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN14QDistanceFieldC1Ev": ["address"],
+    "ritual_ZN14QDistanceFieldC1Eii": ["address", "int", "int"],
+    "ritual_ZN14QDistanceFieldC1ERK8QRawFontjb": [
+      "address", "address", "unsigned int", "bool"
+    ],
+    "ritual_ZN14QDistanceFieldC1EP11QFontEnginejb": [
+      "address", "address", "unsigned int", "bool"
+    ],
+    "ritual_ZN14QDistanceFieldC1ERK12QPainterPathjb": [
+      "address", "address", "unsigned int", "bool"
+    ],
+    "ritual_ZN14QDistanceFieldC1E5QSizeRK12QPainterPathjb": [
+      "address", "address", "address", "unsigned int", "bool"
+    ],
+    "ritual_ZNK14QDistanceField6isNullEv": ["bool", "address"],
+    "ritual_ZNK14QDistanceField5glyphEv": ["unsigned int", "address"],
+    "ritual_ZN14QDistanceField8setGlyphERK8QRawFontjb": [
+      "nothing", "address", "address", "unsigned int", "bool"
+    ],
+    "ritual_ZN14QDistanceField8setGlyphEP11QFontEnginejb": [
+      "nothing", "address", "address", "unsigned int", "bool"
+    ],
+    "ritual_ZNK14QDistanceField5widthEv": ["int", "address"],
+    "ritual_ZNK14QDistanceField6heightEv": ["int", "address"],
+    "ritual_ZNK14QDistanceField4copyERK5QRect": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK14QDistanceField4copyEiiii": [
+      "address", "address", "int", "int", "int", "int"
+    ],
+    "ritual_ZNK14QDistanceField7toImageEN6QImage6FormatE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN14QDistanceFieldC1EP18QDistanceFieldData": [
+      "address", "address"
+    ],
+    "ritual_ZN14QDistanceFieldD1Ev": ["nothing", "address"]
+  }
+}

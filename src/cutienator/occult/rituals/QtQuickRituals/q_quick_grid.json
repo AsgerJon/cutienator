@@ -1,0 +1,54 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickpositioners_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK10QQuickGrid10metaObjectEv": ["address", "address"],
+    "ritual_ZN10QQuickGrid2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN10QQuickGridC1EP10QQuickItem": ["address", "address"],
+    "ritual_ZNK10QQuickGrid4rowsEv": ["int", "address"],
+    "ritual_ZN10QQuickGrid7setRowsEi": ["nothing", "address", "int"],
+    "ritual_ZNK10QQuickGrid7columnsEv": ["int", "address"],
+    "ritual_ZN10QQuickGrid10setColumnsEi": ["nothing", "address", "int"],
+    "ritual_ZNK10QQuickGrid10rowSpacingEv": ["double", "address"],
+    "ritual_ZN10QQuickGrid13setRowSpacingEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN10QQuickGrid15resetRowSpacingEv": ["nothing", "address"],
+    "ritual_ZNK10QQuickGrid13columnSpacingEv": ["double", "address"],
+    "ritual_ZN10QQuickGrid16setColumnSpacingEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN10QQuickGrid18resetColumnSpacingEv": ["nothing", "address"],
+    "ritual_ZNK10QQuickGrid4flowEv": ["int", "address"],
+    "ritual_ZN10QQuickGrid7setFlowENS_4FlowE": ["nothing", "address", "int"],
+    "ritual_ZNK10QQuickGrid15layoutDirectionEv": ["int", "address"],
+    "ritual_ZN10QQuickGrid18setLayoutDirectionEN2Qt15LayoutDirectionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK10QQuickGrid24effectiveLayoutDirectionEv": ["int", "address"],
+    "ritual_ZNK10QQuickGrid10hItemAlignEv": ["int", "address"],
+    "ritual_ZN10QQuickGrid13setHItemAlignENS_10HAlignmentE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK10QQuickGrid15effectiveHAlignEv": ["int", "address"],
+    "ritual_ZNK10QQuickGrid10vItemAlignEv": ["int", "address"],
+    "ritual_ZN10QQuickGrid13setVItemAlignENS_10VAlignmentE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10QQuickGrid13doPositioningEP6QSizeF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QQuickGrid24reportConflictingAnchorsEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN10QQuickGrid13doPositioningEP6QSizeF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN10QQuickGrid24reportConflictingAnchorsEv": [
+      "nothing", "address"
+    ]
+  }
+}

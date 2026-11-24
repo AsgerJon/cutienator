@@ -1,0 +1,54 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLocation/qgeoroutingmanager.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK18QGeoRoutingManager10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QGeoRoutingManager2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18QGeoRoutingManagerD1Ev": ["nothing", "address"],
+    "ritual_ZNK18QGeoRoutingManager11managerNameEv": ["text", "address"],
+    "ritual_ZNK18QGeoRoutingManager14managerVersionEv": ["int", "address"],
+    "ritual_ZN18QGeoRoutingManager14calculateRouteERK16QGeoRouteRequest": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18QGeoRoutingManager11updateRouteERK9QGeoRouteRK14QGeoCoordinate": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK18QGeoRoutingManager20supportedTravelModesEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK18QGeoRoutingManager21supportedFeatureTypesEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK18QGeoRoutingManager23supportedFeatureWeightsEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK18QGeoRoutingManager27supportedRouteOptimizationsEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK18QGeoRoutingManager23supportedSegmentDetailsEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK18QGeoRoutingManager24supportedManeuverDetailsEv": [
+      "int", "address"
+    ],
+    "ritual_ZN18QGeoRoutingManager9setLocaleERK7QLocale": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QGeoRoutingManager6localeEv": ["address", "address"],
+    "ritual_ZN18QGeoRoutingManager20setMeasurementSystemEN7QLocale17MeasurementSystemE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK18QGeoRoutingManager17measurementSystemEv": [
+      "int", "address"
+    ],
+    "ritual_ZN18QGeoRoutingManagerC1EP24QGeoRoutingManagerEngineP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_take_QGeoRoutingManager": ["bool", "address", "chars", "address"]
+  }
+}

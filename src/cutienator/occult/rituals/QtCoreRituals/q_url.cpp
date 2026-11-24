@@ -19,6 +19,7 @@ QUrl *ritual_ZN4QUrlC1ERKS_(const QUrl *copy) {
   return new QUrl(*copy);
 }
 
+#if !(defined(QT_NO_URL_CAST_FROM_STRING))
 //  QUrl::QUrl(const QString &url, ParsingMode mode)
 extern "C" Q_DECL_EXPORT
 QUrl *ritual_ZN4QUrlC1ERK7QStringNS_11ParsingModeE(
@@ -26,6 +27,7 @@ QUrl *ritual_ZN4QUrlC1ERK7QStringNS_11ParsingModeE(
     QUrl::ParsingMode mode) {
   return new QUrl(*url, mode);
 }
+#endif  // !(defined(QT_NO_URL_CAST_FROM_STRING))
 
 //  QUrl::~QUrl()
 extern "C" Q_DECL_EXPORT

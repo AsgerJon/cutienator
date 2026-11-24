@@ -1,0 +1,44 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/qsslpresharedkeyauthenticator.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN29QSslPreSharedKeyAuthenticatorC1Ev": ["address"],
+    "ritual_ZN29QSslPreSharedKeyAuthenticatorD1Ev": ["nothing", "address"],
+    "ritual_ZN29QSslPreSharedKeyAuthenticatorC1ERKS_": [
+      "address", "address"
+    ],
+    "ritual_ZNK29QSslPreSharedKeyAuthenticator12identityHintEv": [
+      "address", "address"
+    ],
+    "ritual_ZN29QSslPreSharedKeyAuthenticator11setIdentityERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK29QSslPreSharedKeyAuthenticator8identityEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK29QSslPreSharedKeyAuthenticator21maximumIdentityLengthEv": [
+      "int", "address"
+    ],
+    "ritual_ZN29QSslPreSharedKeyAuthenticator15setPreSharedKeyERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK29QSslPreSharedKeyAuthenticator12preSharedKeyEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK29QSslPreSharedKeyAuthenticator25maximumPreSharedKeyLengthEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK29QSslPreSharedKeyAuthenticator7isEqualERKS_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZeqRK29QSslPreSharedKeyAuthenticatorS1_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZneRK29QSslPreSharedKeyAuthenticatorS1_": [
+      "bool", "address", "address"
+    ]
+  }
+}

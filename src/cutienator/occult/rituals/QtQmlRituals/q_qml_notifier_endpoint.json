@@ -1,0 +1,44 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmlnotifierendpoint_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QQmlNotifierEndpointC1ENS_8CallbackE": ["address", "int"],
+    "ritual_ZN20QQmlNotifierEndpointD1Ev": ["nothing", "address"],
+    "ritual_ZNK20QQmlNotifierEndpoint11isConnectedEv": ["bool", "address"],
+    "ritual_ZNK20QQmlNotifierEndpoint11isConnectedEP7QObjecti": [
+      "bool", "address", "address", "int"
+    ],
+    "ritual_ZNK20QQmlNotifierEndpoint11isConnectedEP12QQmlNotifier": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN20QQmlNotifierEndpoint10disconnectEv": ["nothing", "address"],
+    "ritual_ZNK20QQmlNotifierEndpoint11isNotifyingEv": ["bool", "address"],
+    "ritual_ZN20QQmlNotifierEndpoint14startNotifyingEPx": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQmlNotifierEndpoint13stopNotifyingEPx": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQmlNotifierEndpoint12cancelNotifyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK20QQmlNotifierEndpoint11signalIndexEv": ["int", "address"],
+    "ritual_ZNK20QQmlNotifierEndpoint12callbackTypeEv": ["int", "address"],
+    "ritual_ZNK20QQmlNotifierEndpoint12nextEndpointEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QQmlNotifierEndpoint6senderEv": ["long long", "address"],
+    "ritual_ZN20QQmlNotifierEndpoint9setSenderEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZNK20QQmlNotifierEndpoint14senderAsObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QQmlNotifierEndpoint16senderAsNotifierEv": [
+      "address", "address"
+    ]
+  }
+}

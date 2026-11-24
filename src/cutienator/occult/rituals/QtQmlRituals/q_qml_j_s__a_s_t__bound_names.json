@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmljsast_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK6QQmlJS3AST10BoundNames7indexOfERK7QStringi": [
+      "int", "address", "text", "int"
+    ],
+    "ritual_ZNK6QQmlJS3AST10BoundNames8containsERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN6QQmlJS3AST10BoundNamesD1Ev": ["nothing", "address"]
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmlsignalnames_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QQmlSignalNames31propertyNameToChangedSignalNameE11QStringView": [
+      "text", "text"
+    ],
+    "ritual_ZN15QQmlSignalNames32propertyNameToChangedHandlerNameE11QStringView": [
+      "text", "text"
+    ],
+    "ritual_ZN15QQmlSignalNames23signalNameToHandlerNameE14QAnyStringView": [
+      "text", "text"
+    ],
+    "ritual_ZN15QQmlSignalNames20isChangedHandlerNameE11QStringView": [
+      "bool", "text"
+    ],
+    "ritual_ZN15QQmlSignalNames19isChangedSignalNameE11QStringView": [
+      "bool", "text"
+    ],
+    "ritual_ZN15QQmlSignalNames13isHandlerNameE11QStringView": [
+      "bool", "text"
+    ],
+    "ritual_ZN15QQmlSignalNames23addPrefixToPropertyNameE11QStringViewS0_": [
+      "text", "text", "text"
+    ],
+    "ritual_ZN15QQmlSignalNamesD1Ev": ["nothing", "address"]
+  }
+}

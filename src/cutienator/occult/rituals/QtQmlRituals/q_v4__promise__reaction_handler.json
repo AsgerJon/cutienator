@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4promiseobject_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK3QV47Promise15ReactionHandler10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_take_QV4_Promise_ReactionHandler": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

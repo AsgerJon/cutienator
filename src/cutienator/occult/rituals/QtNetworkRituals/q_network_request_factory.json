@@ -1,0 +1,98 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/qnetworkrequestfactory.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZN22QNetworkRequestFactoryC1Ev": ["address"],
+    "ritual_ZN22QNetworkRequestFactoryC1ERK4QUrl": ["address", "address"],
+    "ritual_ZN22QNetworkRequestFactoryD1Ev": ["nothing", "address"],
+    "ritual_ZN22QNetworkRequestFactoryC1ERKS_": ["address", "address"],
+    "ritual_ZNK22QNetworkRequestFactory7baseUrlEv": ["address", "address"],
+    "ritual_ZN22QNetworkRequestFactory10setBaseUrlERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK22QNetworkRequestFactory16sslConfigurationEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QNetworkRequestFactory19setSslConfigurationERK17QSslConfiguration": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK22QNetworkRequestFactory13createRequestEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK22QNetworkRequestFactory13createRequestERK9QUrlQuery": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK22QNetworkRequestFactory13createRequestERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK22QNetworkRequestFactory13createRequestERK7QStringRK9QUrlQuery": [
+      "address", "address", "text", "address"
+    ],
+    "ritual_ZN22QNetworkRequestFactory16setCommonHeadersERK12QHttpHeaders": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK22QNetworkRequestFactory13commonHeadersEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QNetworkRequestFactory18clearCommonHeadersEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK22QNetworkRequestFactory11bearerTokenEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QNetworkRequestFactory14setBearerTokenERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QNetworkRequestFactory16clearBearerTokenEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK22QNetworkRequestFactory8userNameEv": ["text", "address"],
+    "ritual_ZN22QNetworkRequestFactory11setUserNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN22QNetworkRequestFactory13clearUserNameEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK22QNetworkRequestFactory8passwordEv": ["text", "address"],
+    "ritual_ZN22QNetworkRequestFactory11setPasswordERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN22QNetworkRequestFactory13clearPasswordEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK22QNetworkRequestFactory15queryParametersEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QNetworkRequestFactory18setQueryParametersERK9QUrlQuery": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QNetworkRequestFactory20clearQueryParametersEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QNetworkRequestFactory11setPriorityEN15QNetworkRequest8PriorityE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK22QNetworkRequestFactory8priorityEv": ["int", "address"],
+    "ritual_ZNK22QNetworkRequestFactory9attributeEN15QNetworkRequest9AttributeE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK22QNetworkRequestFactory9attributeEN15QNetworkRequest9AttributeERK8QVariant": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_ZN22QNetworkRequestFactory12setAttributeEN15QNetworkRequest9AttributeERK8QVariant": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN22QNetworkRequestFactory14clearAttributeEN15QNetworkRequest9AttributeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN22QNetworkRequestFactory15clearAttributesEv": [
+      "nothing", "address"
+    ],
+    "ritual_Zls6QDebugRK22QNetworkRequestFactory": [
+      "address", "address", "address"
+    ]
+  }
+}

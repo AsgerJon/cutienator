@@ -1,0 +1,45 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtScxml/qscxmlevent.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11QScxmlEventC1Ev": ["address"],
+    "ritual_ZN11QScxmlEventD1Ev": ["nothing", "address"],
+    "ritual_ZN11QScxmlEventC1ERKS_": ["address", "address"],
+    "ritual_ZNK11QScxmlEvent4nameEv": ["text", "address"],
+    "ritual_ZN11QScxmlEvent7setNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK11QScxmlEvent9eventTypeEv": ["int", "address"],
+    "ritual_ZNK11QScxmlEvent9scxmlTypeEv": ["text", "address"],
+    "ritual_ZNK11QScxmlEvent6sendIdEv": ["text", "address"],
+    "ritual_ZN11QScxmlEvent9setSendIdERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK11QScxmlEvent6originEv": ["text", "address"],
+    "ritual_ZN11QScxmlEvent9setOriginERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK11QScxmlEvent10originTypeEv": ["text", "address"],
+    "ritual_ZN11QScxmlEvent13setOriginTypeERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK11QScxmlEvent8invokeIdEv": ["text", "address"],
+    "ritual_ZN11QScxmlEvent11setInvokeIdERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK11QScxmlEvent5delayEv": ["int", "address"],
+    "ritual_ZN11QScxmlEvent8setDelayEi": ["nothing", "address", "int"],
+    "ritual_ZN11QScxmlEvent5clearEv": ["nothing", "address"],
+    "ritual_ZNK11QScxmlEvent4dataEv": ["address", "address"],
+    "ritual_ZN11QScxmlEvent7setDataERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QScxmlEvent12isErrorEventEv": ["bool", "address"],
+    "ritual_ZNK11QScxmlEvent12errorMessageEv": ["text", "address"],
+    "ritual_ZN11QScxmlEvent15setErrorMessageERK7QString": [
+      "nothing", "address", "text"
+    ]
+  }
+}

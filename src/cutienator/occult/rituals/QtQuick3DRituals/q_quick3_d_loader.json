@@ -1,0 +1,69 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3D/6.12.0/QtQuick3D/private/qquick3dloader_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK14QQuick3DLoader10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QQuick3DLoader2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN14QQuick3DLoaderC1EP12QQuick3DNode": ["address", "address"],
+    "ritual_ZN14QQuick3DLoaderD1Ev": ["nothing", "address"],
+    "ritual_ZNK14QQuick3DLoader6activeEv": ["bool", "address"],
+    "ritual_ZN14QQuick3DLoader9setActiveEb": ["nothing", "address", "bool"],
+    "ritual_ZN14QQuick3DLoader9setSourceEP14QQmlV4Function": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QQuick3DLoader6sourceEv": ["address", "address"],
+    "ritual_ZN14QQuick3DLoader9setSourceERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QQuick3DLoader15sourceComponentEv": ["address", "address"],
+    "ritual_ZN14QQuick3DLoader18setSourceComponentEP13QQmlComponent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QQuick3DLoader20resetSourceComponentEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK14QQuick3DLoader6statusEv": ["int", "address"],
+    "ritual_ZNK14QQuick3DLoader8progressEv": ["double", "address"],
+    "ritual_ZNK14QQuick3DLoader12asynchronousEv": ["bool", "address"],
+    "ritual_ZN14QQuick3DLoader15setAsynchronousEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK14QQuick3DLoader4itemEv": ["address", "address"],
+    "ritual_ZN14QQuick3DLoader17componentCompleteEv": ["nothing", "address"],
+    "ritual_ZN14QQuick3DLoader12sourceLoadedEv": ["nothing", "address"],
+    "ritual_ZN14QQuick3DLoader9setSourceERK4QUrlb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN14QQuick3DLoader14loadFromSourceEv": ["nothing", "address"],
+    "ritual_ZN14QQuick3DLoader23loadFromSourceComponentEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuick3DLoader5clearEv": ["nothing", "address"],
+    "ritual_ZN14QQuick3DLoader4loadEv": ["nothing", "address"],
+    "ritual_ZN14QQuick3DLoader21incubatorStateChangedEN13QQmlIncubator6StatusE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN14QQuick3DLoader15setInitialStateEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QQuick3DLoader28disposeInitialPropertyValuesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuick3DLoader16resolveSourceUrlEP14QQmlV4Function": [
+      "address", "address"
+    ],
+    "ritual_ZN14QQuick3DLoader28extractInitialPropertyValuesEP14QQmlV4FunctionPb": [
+      "unsigned long long", "address", "address", "address"
+    ],
+    "ritual_ZN14QQuick3DLoader15createComponentEv": ["nothing", "address"],
+    "ritual_take_QQuick3DLoader": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN14QQuick3DLoader17componentCompleteEv": [
+      "nothing", "address"
+    ]
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLocation/qplaceratings.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN13QPlaceRatingsC1Ev": ["address"],
+    "ritual_ZN13QPlaceRatingsC1ERKS_": ["address", "address"],
+    "ritual_ZN13QPlaceRatingsD1Ev": ["nothing", "address"],
+    "ritual_ZeqRK13QPlaceRatingsS1_": ["bool", "address", "address"],
+    "ritual_ZneRK13QPlaceRatingsS1_": ["bool", "address", "address"],
+    "ritual_ZNK13QPlaceRatings7averageEv": ["double", "address"],
+    "ritual_ZN13QPlaceRatings10setAverageEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK13QPlaceRatings5countEv": ["int", "address"],
+    "ritual_ZN13QPlaceRatings8setCountEi": ["nothing", "address", "int"],
+    "ritual_ZNK13QPlaceRatings7maximumEv": ["double", "address"],
+    "ritual_ZN13QPlaceRatings10setMaximumEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK13QPlaceRatings7isEmptyEv": ["bool", "address"],
+    "ritual_ZNK13QPlaceRatings7isEqualERKS_": ["bool", "address", "address"]
+  }
+}

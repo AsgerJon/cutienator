@@ -1,0 +1,94 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/qquickview.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK10QQuickView10metaObjectEv": ["address", "address"],
+    "ritual_ZN10QQuickView2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN10QQuickViewC1EP7QWindow": ["address", "address"],
+    "ritual_ZN10QQuickViewC1EP10QQmlEngineP7QWindow": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN10QQuickViewC1ERK4QUrlP7QWindow": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN10QQuickViewC1E14QAnyStringViewS0_P7QWindow": [
+      "address", "text", "text", "address"
+    ],
+    "ritual_ZN10QQuickViewC1ERK4QUrlP19QQuickRenderControl": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN10QQuickViewD1Ev": ["nothing", "address"],
+    "ritual_ZNK10QQuickView6sourceEv": ["address", "address"],
+    "ritual_ZNK10QQuickView6engineEv": ["address", "address"],
+    "ritual_ZNK10QQuickView11rootContextEv": ["address", "address"],
+    "ritual_ZNK10QQuickView10rootObjectEv": ["address", "address"],
+    "ritual_ZNK10QQuickView10resizeModeEv": ["int", "address"],
+    "ritual_ZN10QQuickView13setResizeModeENS_10ResizeModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK10QQuickView6statusEv": ["int", "address"],
+    "ritual_ZNK10QQuickView6errorsEv": ["address", "address"],
+    "ritual_ZNK10QQuickView8sizeHintEv": ["address", "address"],
+    "ritual_ZNK10QQuickView11initialSizeEv": ["address", "address"],
+    "ritual_ZN10QQuickView9setSourceERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QQuickView14loadFromModuleE14QAnyStringViewS0_": [
+      "nothing", "address", "text", "text"
+    ],
+    "ritual_ZN10QQuickView20setInitialPropertiesERK4QMapI7QString8QVariantE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QQuickView10setContentERK4QUrlP13QQmlComponentP7QObject": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN10QQuickView15continueExecuteEv": ["nothing", "address"],
+    "ritual_ZN10QQuickView11resizeEventEP12QResizeEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QQuickView10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QQuickView13keyPressEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QQuickView15keyReleaseEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QQuickView15mousePressEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QQuickView17mouseReleaseEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QQuickView14mouseMoveEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QQuickView6d_funcEv": ["address", "address"],
+    "ritual_ZNK10QQuickView6d_funcEv": ["address", "address"],
+    "ritual_take_QQuickView": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN10QQuickView11resizeEventEP12QResizeEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN10QQuickView10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN10QQuickView13keyPressEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN10QQuickView15keyReleaseEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN10QQuickView15mousePressEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN10QQuickView17mouseReleaseEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN10QQuickView14mouseMoveEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ]
+  }
+}

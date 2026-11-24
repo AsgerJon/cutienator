@@ -1,0 +1,82 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qsgabstractsoftwarerenderer_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN27QSGAbstractSoftwareRendererD1Ev": ["nothing", "address"],
+    "ritual_ZNK27QSGAbstractSoftwareRenderer14renderableNodeEP7QSGNode": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN27QSGAbstractSoftwareRenderer14addNodeMappingEP7QSGNodeP25QSGSoftwareRenderableNode": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN27QSGAbstractSoftwareRenderer20appendRenderableNodeEP25QSGSoftwareRenderableNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN27QSGAbstractSoftwareRenderer11nodeChangedEP7QSGNode6QFlagsINS0_13DirtyStateBitEE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN27QSGAbstractSoftwareRenderer9markDirtyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QSGAbstractSoftwareRenderer20setClearColorEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK27QSGAbstractSoftwareRenderer17clearColorEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN27QSGAbstractSoftwareRenderer11renderNodesEP8QPainter": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN27QSGAbstractSoftwareRenderer15buildRenderListEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QSGAbstractSoftwareRenderer18optimizeRenderListEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QSGAbstractSoftwareRenderer18setBackgroundColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN27QSGAbstractSoftwareRenderer17setBackgroundRectERK5QRectd": [
+      "nothing", "address", "address", "double"
+    ],
+    "ritual_ZN27QSGAbstractSoftwareRenderer15backgroundColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QSGAbstractSoftwareRenderer14backgroundRectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK27QSGAbstractSoftwareRenderer8isOpaqueEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK27QSGAbstractSoftwareRenderer15renderableNodesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QSGAbstractSoftwareRenderer9nodeAddedEP7QSGNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN27QSGAbstractSoftwareRenderer11nodeRemovedEP7QSGNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN27QSGAbstractSoftwareRenderer19nodeGeometryUpdatedEP7QSGNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN27QSGAbstractSoftwareRenderer19nodeMaterialUpdatedEP7QSGNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN27QSGAbstractSoftwareRenderer17nodeMatrixUpdatedEP7QSGNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN27QSGAbstractSoftwareRenderer18nodeOpacityUpdatedEP7QSGNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QSGAbstractSoftwareRenderer": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN27QSGAbstractSoftwareRenderer11nodeChangedEP7QSGNode6QFlagsINS0_13DirtyStateBitEE": [
+      "nothing", "address", "address", "int"
+    ]
+  }
+}

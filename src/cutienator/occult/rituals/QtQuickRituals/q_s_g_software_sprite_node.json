@@ -1,0 +1,65 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qsgsoftwarespritenode_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN21QSGSoftwareSpriteNodeD1Ev": ["nothing", "address"],
+    "ritual_ZN21QSGSoftwareSpriteNode10setTextureEP10QSGTexture": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QSGSoftwareSpriteNode7setTimeEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN21QSGSoftwareSpriteNode10setSourceAERK6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QSGSoftwareSpriteNode10setSourceBERK6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QSGSoftwareSpriteNode13setSpriteSizeERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QSGSoftwareSpriteNode12setSheetSizeERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QSGSoftwareSpriteNode7setSizeERK6QSizeF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QSGSoftwareSpriteNode12setFilteringEN10QSGTexture9FilteringE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN21QSGSoftwareSpriteNode6updateEv": ["nothing", "address"],
+    "ritual_ZN21QSGSoftwareSpriteNode5paintEP8QPainter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21QSGSoftwareSpriteNode8isOpaqueEv": ["bool", "address"],
+    "ritual_ZNK21QSGSoftwareSpriteNode4rectEv": ["address", "address"],
+    "ritual_take_QSGSoftwareSpriteNode": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN21QSGSoftwareSpriteNode7setTimeEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_own_ZN21QSGSoftwareSpriteNode10setSourceAERK6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN21QSGSoftwareSpriteNode10setSourceBERK6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN21QSGSoftwareSpriteNode13setSpriteSizeERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN21QSGSoftwareSpriteNode12setSheetSizeERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN21QSGSoftwareSpriteNode7setSizeERK6QSizeF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN21QSGSoftwareSpriteNode12setFilteringEN10QSGTexture9FilteringE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN21QSGSoftwareSpriteNode6updateEv": ["nothing", "address"]
+  }
+}

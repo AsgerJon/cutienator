@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4persistent_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN3QV422PersistentValueStorage4freeEPNS_5ValueE": [
+      "nothing", "address"
+    ],
+    "ritual_ZN3QV422PersistentValueStorage9getEngineEPKNS_5ValueE": [
+      "address", "address"
+    ]
+  }
+}

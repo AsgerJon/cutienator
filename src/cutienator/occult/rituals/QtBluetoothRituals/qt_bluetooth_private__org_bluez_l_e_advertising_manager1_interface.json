@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtBluetooth/6.12.0/QtBluetooth/private/leadvertisingmanager1_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18QtBluetoothPrivate38OrgBluezLEAdvertisingManager1Interface10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18QtBluetoothPrivate38OrgBluezLEAdvertisingManager1Interface19staticInterfaceNameEv": [
+      "chars"
+    ],
+    "ritual_ZNK18QtBluetoothPrivate38OrgBluezLEAdvertisingManager1Interface15activeInstancesEv": [
+      "unsigned char", "address"
+    ],
+    "ritual_ZNK18QtBluetoothPrivate38OrgBluezLEAdvertisingManager1Interface17supportedIncludesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18QtBluetoothPrivate38OrgBluezLEAdvertisingManager1Interface18supportedInstancesEv": [
+      "unsigned char", "address"
+    ],
+    "ritual_take_QtBluetoothPrivate_OrgBluezLEAdvertisingManager1Interface": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

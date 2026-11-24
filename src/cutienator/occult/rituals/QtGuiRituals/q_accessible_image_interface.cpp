@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGui/qaccessible.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
+#if QT_CONFIG(accessibility)
 #include <QtGui/qaccessible.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qsize.h>
@@ -9,30 +11,43 @@
 //  A QAccessibleImageInterface that Python can take functions over in. Every QAccessibleImageInterface
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if QT_CONFIG(accessibility)
 typedef QString * (*CuteQAccessibleImageInterfaceCall0)(const void *, int *);
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
 typedef const QSize * (*CuteQAccessibleImageInterfaceCall1)(const void *, int *);
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
 typedef const QPoint * (*CuteQAccessibleImageInterfaceCall2)(const void *, int *);
+#endif  // QT_CONFIG(accessibility)
 class CuteQAccessibleImageInterface : public QAccessibleImageInterface {
 public:
   using QAccessibleImageInterface::QAccessibleImageInterface;
   void *taken[3] = {};
 
   bool take(const char *key, void *call) {
+#if QT_CONFIG(accessibility)
     if (!std::strcmp(key, "_ZNK25QAccessibleImageInterface16imageDescriptionEv")) {
       taken[0] = call;
       return true;
     }
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
     if (!std::strcmp(key, "_ZNK25QAccessibleImageInterface9imageSizeEv")) {
       taken[1] = call;
       return true;
     }
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
     if (!std::strcmp(key, "_ZNK25QAccessibleImageInterface13imagePositionEv")) {
       taken[2] = call;
       return true;
     }
+#endif  // QT_CONFIG(accessibility)
     return false;
   }
 
+#if QT_CONFIG(accessibility)
   //  QString QAccessibleImageInterface::imageDescription() const
   QString imageDescription() const override {
     if (taken[0]) {
@@ -47,7 +62,9 @@ public:
     }
     return {};
   }
+#endif  // QT_CONFIG(accessibility)
 
+#if QT_CONFIG(accessibility)
   //  QSize QAccessibleImageInterface::imageSize() const
   QSize imageSize() const override {
     if (taken[1]) {
@@ -58,7 +75,9 @@ public:
     }
     return {};
   }
+#endif  // QT_CONFIG(accessibility)
 
+#if QT_CONFIG(accessibility)
   //  QPoint QAccessibleImageInterface::imagePosition() const
   QPoint imagePosition() const override {
     if (taken[2]) {
@@ -69,6 +88,7 @@ public:
     }
     return {};
   }
+#endif  // QT_CONFIG(accessibility)
 };
 
 //  QAccessibleImageInterface::~QAccessibleImageInterface()
@@ -108,3 +128,5 @@ bool ritual_take_QAccessibleImageInterface(
     void *call) {
   return static_cast<CuteQAccessibleImageInterface *>(self)->take(key, call);
 }
+
+#endif  // QT_CONFIG(accessibility)

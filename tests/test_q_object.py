@@ -6,6 +6,7 @@ rituals.
 #  Copyright (c) 2026 Asger Jon Vistisen
 from __future__ import annotations
 
+import re
 from typing import TYPE_CHECKING
 
 from worktoy.waitaminute.dispatch import DispatchException
@@ -395,8 +396,30 @@ class TestQObject(BaseTest):
       Ugly.at(address)
 
   def test_every_listed_ritual_is_offered(self) -> None:
-    """The shared object offers each ritual 'Rituals' lists."""
+    """The shared object offers each ritual 'Rituals' lists, but for
+    those 'Rituals.getMissing' names."""
     opened = Rituals.getOpened()
+    missing = Rituals.getMissing()
     for ritualName in Rituals.getRitualNames():
       with self.subTest(ritualName=ritualName):
-        self.assertTrue(hasattr(opened, ritualName))
+        offered = hasattr(opened, ritualName)
+        self.assertIs(offered, ritualName not in missing)
+
+  def test_a_missing_ritual_stands_under_an_if(self) -> None:
+    """A ritual the shared object does not offer stands in its ritual
+    file between Qt's own '#if' lines, which do not hold here."""
+    underIf = set()
+    for ritualFile in Rituals.getRitualFiles():
+      depth = 0
+      with open(ritualFile, encoding='utf-8') as file:
+        for line in file:
+          word = ''.join(line.split())
+          if word.startswith('#if') and 'CUTIENATOR' not in word:
+            depth += 1
+          elif word.startswith('#endif') and 'CUTIENATOR' not in word:
+            depth -= 1
+          elif depth and not word.startswith('//'):
+            underIf.update(re.findall(r'\b(ritual\w+)\(', line))
+    for ritualName in sorted(Rituals.getMissing()):
+      with self.subTest(ritualName=ritualName):
+        self.assertIn(ritualName, underIf)

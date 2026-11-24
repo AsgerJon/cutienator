@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmllocale_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN10QQmlLocale22qt_qmlMarker_anonymousEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10QQmlLocale6localeEPN3QV415ExecutionEngineERK7QString": [
+      "unsigned long long", "address", "text"
+    ],
+    "ritual_ZN10QQmlLocale27registerStringLocaleCompareEPN3QV415ExecutionEngineE": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10QQmlLocale20method_localeCompareEPKN3QV414FunctionObjectEPKNS0_5ValueES6_i": [
+      "unsigned long long", "address", "address", "address", "int"
+    ],
+    "ritual_ZN10QQmlLocaleD1Ev": ["nothing", "address"]
+  }
+}

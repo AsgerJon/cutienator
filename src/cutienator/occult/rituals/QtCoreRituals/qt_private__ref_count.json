@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qrefcount.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN9QtPrivate8RefCount3refEv": ["bool", "address"],
+    "ritual_ZN9QtPrivate8RefCount5derefEv": ["bool", "address"],
+    "ritual_ZNK9QtPrivate8RefCount8isStaticEv": ["bool", "address"],
+    "ritual_ZNK9QtPrivate8RefCount8isSharedEv": ["bool", "address"],
+    "ritual_ZN9QtPrivate8RefCount15initializeOwnedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN9QtPrivate8RefCount20initializeUnsharableEv": [
+      "nothing", "address"
+    ]
+  }
+}

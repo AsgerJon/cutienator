@@ -1,5 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/qprocess.h, Qt 6.12.0. Changes made here are lost.
+#include <QtCore/qglobal.h>
+#if QT_CONFIG(processenvironment)
+#if QT_CONFIG(process)
 #include <QtCore/qprocess.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qbytearray.h>
@@ -11,12 +14,36 @@
 //  A QProcess that Python can take functions over in. Every QProcess
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if QT_CONFIG(processenvironment)
+#if QT_CONFIG(process)
 typedef bool (*CuteQProcessCall0)(const void *, int, int *);
+#endif  // QT_CONFIG(process)
+#endif  // QT_CONFIG(processenvironment)
+#if QT_CONFIG(processenvironment)
+#if QT_CONFIG(process)
 typedef bool (*CuteQProcessCall1)(const void *, int, int *);
+#endif  // QT_CONFIG(process)
+#endif  // QT_CONFIG(processenvironment)
+#if QT_CONFIG(processenvironment)
+#if QT_CONFIG(process)
 typedef bool (*CuteQProcessCall2)(const void *, int, int *);
+#endif  // QT_CONFIG(process)
+#endif  // QT_CONFIG(processenvironment)
+#if QT_CONFIG(processenvironment)
+#if QT_CONFIG(process)
 typedef qint64 (*CuteQProcessCall3)(const void *, int *);
+#endif  // QT_CONFIG(process)
+#endif  // QT_CONFIG(processenvironment)
+#if QT_CONFIG(processenvironment)
+#if QT_CONFIG(process)
 typedef bool (*CuteQProcessCall4)(const void *, int *);
+#endif  // QT_CONFIG(process)
+#endif  // QT_CONFIG(processenvironment)
+#if QT_CONFIG(processenvironment)
+#if QT_CONFIG(process)
 typedef void (*CuteQProcessCall5)(const void *, int *);
+#endif  // QT_CONFIG(process)
+#endif  // QT_CONFIG(processenvironment)
 typedef qint64 (*CuteQProcessCall6)(const void *, int *);
 typedef qint64 (*CuteQProcessCall7)(const void *, int *);
 typedef bool (*CuteQProcessCall8)(const void *, qint64, int *);
@@ -25,43 +52,81 @@ typedef bool (*CuteQProcessCall10)(const void *, int *);
 typedef qint64 (*CuteQProcessCall11)(const void *, int *);
 typedef bool (*CuteQProcessCall12)(const void *, int *);
 typedef qint64 (*CuteQProcessCall13)(const void *, qint64, int *);
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQProcessCall14)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQProcessCall15)(const void *, QObject *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQProcessCall16)(const void *, QTimerEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQProcessCall17)(const void *, QChildEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQProcessCall18)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQProcessCall19)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQProcessCall20)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 class CuteQProcess : public QProcess {
 public:
   using QProcess::QProcess;
   void *taken[21] = {};
 
   bool take(const char *key, void *call) {
+#if QT_CONFIG(processenvironment)
+#if QT_CONFIG(process)
     if (!std::strcmp(key, "_ZN9QIODevice4openE6QFlagsIN13QIODeviceBase12OpenModeFlagEE")) {
       taken[0] = call;
       return true;
     }
+#endif  // QT_CONFIG(process)
+#endif  // QT_CONFIG(processenvironment)
+#if QT_CONFIG(processenvironment)
+#if QT_CONFIG(process)
     if (!std::strcmp(key, "_ZN9QIODevice16waitForReadyReadEi")) {
       taken[1] = call;
       return true;
     }
+#endif  // QT_CONFIG(process)
+#endif  // QT_CONFIG(processenvironment)
+#if QT_CONFIG(processenvironment)
+#if QT_CONFIG(process)
     if (!std::strcmp(key, "_ZN9QIODevice19waitForBytesWrittenEi")) {
       taken[2] = call;
       return true;
     }
+#endif  // QT_CONFIG(process)
+#endif  // QT_CONFIG(processenvironment)
+#if QT_CONFIG(processenvironment)
+#if QT_CONFIG(process)
     if (!std::strcmp(key, "_ZNK9QIODevice12bytesToWriteEv")) {
       taken[3] = call;
       return true;
     }
+#endif  // QT_CONFIG(process)
+#endif  // QT_CONFIG(processenvironment)
+#if QT_CONFIG(processenvironment)
+#if QT_CONFIG(process)
     if (!std::strcmp(key, "_ZNK9QIODevice12isSequentialEv")) {
       taken[4] = call;
       return true;
     }
+#endif  // QT_CONFIG(process)
+#endif  // QT_CONFIG(processenvironment)
+#if QT_CONFIG(processenvironment)
+#if QT_CONFIG(process)
     if (!std::strcmp(key, "_ZN9QIODevice5closeEv")) {
       taken[5] = call;
       return true;
     }
+#endif  // QT_CONFIG(process)
+#endif  // QT_CONFIG(processenvironment)
     if (!std::strcmp(key, "_ZNK9QIODevice3posEv")) {
       taken[6] = call;
       return true;
@@ -94,37 +159,53 @@ public:
       taken[13] = call;
       return true;
     }
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[14] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[15] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[16] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[17] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[18] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[19] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
       taken[20] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
     return false;
   }
 
+#if QT_CONFIG(processenvironment)
+#if QT_CONFIG(process)
   //  bool QProcess::open(OpenMode mode)
   bool open(QIODeviceBase::OpenMode mode) override {
     if (taken[0]) {
@@ -135,7 +216,11 @@ public:
     }
     return QProcess::open(mode);
   }
+#endif  // QT_CONFIG(process)
+#endif  // QT_CONFIG(processenvironment)
 
+#if QT_CONFIG(processenvironment)
+#if QT_CONFIG(process)
   //  bool QProcess::waitForReadyRead(int msecs)
   bool waitForReadyRead(int msecs) override {
     if (taken[1]) {
@@ -146,7 +231,11 @@ public:
     }
     return QProcess::waitForReadyRead(msecs);
   }
+#endif  // QT_CONFIG(process)
+#endif  // QT_CONFIG(processenvironment)
 
+#if QT_CONFIG(processenvironment)
+#if QT_CONFIG(process)
   //  bool QProcess::waitForBytesWritten(int msecs)
   bool waitForBytesWritten(int msecs) override {
     if (taken[2]) {
@@ -157,7 +246,11 @@ public:
     }
     return QProcess::waitForBytesWritten(msecs);
   }
+#endif  // QT_CONFIG(process)
+#endif  // QT_CONFIG(processenvironment)
 
+#if QT_CONFIG(processenvironment)
+#if QT_CONFIG(process)
   //  qint64 QProcess::bytesToWrite() const
   qint64 bytesToWrite() const override {
     if (taken[3]) {
@@ -168,7 +261,11 @@ public:
     }
     return QProcess::bytesToWrite();
   }
+#endif  // QT_CONFIG(process)
+#endif  // QT_CONFIG(processenvironment)
 
+#if QT_CONFIG(processenvironment)
+#if QT_CONFIG(process)
   //  bool QProcess::isSequential() const
   bool isSequential() const override {
     if (taken[4]) {
@@ -179,7 +276,11 @@ public:
     }
     return QProcess::isSequential();
   }
+#endif  // QT_CONFIG(process)
+#endif  // QT_CONFIG(processenvironment)
 
+#if QT_CONFIG(processenvironment)
+#if QT_CONFIG(process)
   //  void QProcess::close()
   void close() override {
     if (taken[5]) {
@@ -190,6 +291,8 @@ public:
     }
     QProcess::close();
   }
+#endif  // QT_CONFIG(process)
+#endif  // QT_CONFIG(processenvironment)
 
   //  qint64 QIODevice::pos() const
   qint64 pos() const override {
@@ -279,6 +382,7 @@ public:
     return QIODevice::skipData(maxSize);
   }
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QObject::event(QEvent *event)
   bool event(QEvent *event) override {
     if (taken[14]) {
@@ -289,7 +393,9 @@ public:
     }
     return QObject::event(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
     if (taken[15]) {
@@ -300,7 +406,9 @@ public:
     }
     return QObject::eventFilter(watched, event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
     if (taken[16]) {
@@ -311,7 +419,9 @@ public:
     }
     QObject::timerEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
     if (taken[17]) {
@@ -322,7 +432,9 @@ public:
     }
     QObject::childEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
     if (taken[18]) {
@@ -333,7 +445,9 @@ public:
     }
     QObject::customEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
     if (taken[19]) {
@@ -344,7 +458,9 @@ public:
     }
     QObject::connectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
     if (taken[20]) {
@@ -355,6 +471,7 @@ public:
     }
     QObject::disconnectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 };
 
 //  const QMetaObject *QProcess::metaObject() const
@@ -554,6 +671,49 @@ void ritual_ZN8QProcess24setStandardOutputProcessEPS_(
     QProcess *destination) {
   self->setStandardOutputProcess(destination);
 }
+
+#if defined(Q_OS_UNIX) || defined(Q_QDOC)
+//  void QProcess::failChildProcessModifier(const char *description, int
+//      error)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QProcess24failChildProcessModifierEPKci(
+    QProcess *self,
+    const char *description,
+    int error) {
+  self->failChildProcessModifier(description, error);
+}
+#endif  // defined(Q_OS_UNIX) || defined(Q_QDOC)
+
+#if defined(Q_OS_UNIX) || defined(Q_QDOC)
+//  UnixProcessParameters QProcess::unixProcessParameters() const
+extern "C" Q_DECL_EXPORT
+QProcess::UnixProcessParameters *ritual_ZNK8QProcess21unixProcessParametersEv(
+    const QProcess *self) {
+  return new QProcess::UnixProcessParameters(self->unixProcessParameters());
+}
+#endif  // defined(Q_OS_UNIX) || defined(Q_QDOC)
+
+#if defined(Q_OS_UNIX) || defined(Q_QDOC)
+//  void QProcess::setUnixProcessParameters(const UnixProcessParameters
+//      &params)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QProcess24setUnixProcessParametersERKNS_21UnixProcessParametersE(
+    QProcess *self,
+    const QProcess::UnixProcessParameters *params) {
+  self->setUnixProcessParameters(*params);
+}
+#endif  // defined(Q_OS_UNIX) || defined(Q_QDOC)
+
+#if defined(Q_OS_UNIX) || defined(Q_QDOC)
+//  void QProcess::setUnixProcessParameters(UnixProcessFlags flagsOnly)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN8QProcess24setUnixProcessParametersE6QFlagsINS_15UnixProcessFlagEE(
+    QProcess *self,
+    int flagsOnly) {
+  self->setUnixProcessParameters(
+      QFlags<QProcess::UnixProcessFlag>::fromInt(flagsOnly));
+}
+#endif  // defined(Q_OS_UNIX) || defined(Q_QDOC)
 
 //  QString QProcess::workingDirectory() const
 extern "C" Q_DECL_EXPORT
@@ -756,6 +916,18 @@ qint64 ritual_ZN8QProcess9writeDataEPKcx(
   return self->writeData(data, len);
 }
 
+//  QProcessPrivate *QProcess::d_func()
+extern "C" Q_DECL_EXPORT
+QProcessPrivate *ritual_ZN8QProcess6d_funcEv(QProcess *self) {
+  return self->d_func();
+}
+
+//  const QProcessPrivate *QProcess::d_func() const
+extern "C" Q_DECL_EXPORT
+const QProcessPrivate *ritual_ZNK8QProcess6d_funcEv(const QProcess *self) {
+  return self->d_func();
+}
+
 //  a Python function taken by a CuteQProcess, for the function named by the
 //      key
 extern "C" Q_DECL_EXPORT
@@ -803,3 +975,6 @@ extern "C" Q_DECL_EXPORT
 void ritual_own_ZN8QProcess5closeEv(QProcess *self) {
   self->QProcess::close();
 }
+
+#endif  // QT_CONFIG(process)
+#endif  // QT_CONFIG(processenvironment)

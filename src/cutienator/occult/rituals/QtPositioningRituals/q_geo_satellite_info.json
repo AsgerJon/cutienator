@@ -1,0 +1,55 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtPositioning/qgeosatelliteinfo.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZN17QGeoSatelliteInfoC1Ev": ["address"],
+    "ritual_ZN17QGeoSatelliteInfoC1ERKS_": ["address", "address"],
+    "ritual_ZN17QGeoSatelliteInfoD1Ev": ["nothing", "address"],
+    "ritual_ZeqRK17QGeoSatelliteInfoS1_": ["bool", "address", "address"],
+    "ritual_ZneRK17QGeoSatelliteInfoS1_": ["bool", "address", "address"],
+    "ritual_ZN17QGeoSatelliteInfo18setSatelliteSystemENS_15SatelliteSystemE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK17QGeoSatelliteInfo15satelliteSystemEv": ["int", "address"],
+    "ritual_ZN17QGeoSatelliteInfo22setSatelliteIdentifierEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK17QGeoSatelliteInfo19satelliteIdentifierEv": [
+      "int", "address"
+    ],
+    "ritual_ZN17QGeoSatelliteInfo17setSignalStrengthEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK17QGeoSatelliteInfo14signalStrengthEv": ["int", "address"],
+    "ritual_ZN17QGeoSatelliteInfo12setAttributeENS_9AttributeEd": [
+      "nothing", "address", "int", "double"
+    ],
+    "ritual_ZNK17QGeoSatelliteInfo9attributeENS_9AttributeE": [
+      "double", "address", "int"
+    ],
+    "ritual_ZN17QGeoSatelliteInfo15removeAttributeENS_9AttributeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK17QGeoSatelliteInfo12hasAttributeENS_9AttributeE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN17QGeoSatelliteInfo6detachEv": ["nothing", "address"],
+    "ritual_ZN17QGeoSatelliteInfo6equalsERKS_S1_": [
+      "bool", "address", "address"
+    ],
+    "ritual_Zls6QDebugRK17QGeoSatelliteInfo": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN17QGeoSatelliteInfo14debugStreamingE6QDebugRKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_list_make_QGeoSatelliteInfo": ["address"],
+    "ritual_list_add_QGeoSatelliteInfo": ["nothing", "address", "address"],
+    "ritual_list_size_QGeoSatelliteInfo": ["long long", "address"],
+    "ritual_list_at_QGeoSatelliteInfo": ["address", "address", "long long"],
+    "ritual_list_drop_QGeoSatelliteInfo": ["nothing", "address"]
+  }
+}

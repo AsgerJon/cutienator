@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qrhinull_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN12QNullSamplerC1EP18QRhiImplementationN11QRhiSampler6FilterES3_S3_NS2_11AddressModeES4_S4_": [
+      "address", "address", "int", "int", "int", "int", "int", "int"
+    ],
+    "ritual_ZN12QNullSamplerD1Ev": ["nothing", "address"],
+    "ritual_ZN12QNullSampler7destroyEv": ["nothing", "address"],
+    "ritual_ZN12QNullSampler6createEv": ["bool", "address"],
+    "ritual_take_QNullSampler": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN12QNullSampler7destroyEv": ["nothing", "address"],
+    "ritual_own_ZN12QNullSampler6createEv": ["bool", "address"]
+  }
+}

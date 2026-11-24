@@ -1,0 +1,199 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qaccessiblequickitem_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QAccessibleQuickItemC1EP10QQuickItem": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QAccessibleQuickItem7isValidEv": ["bool", "address"],
+    "ritual_ZNK20QAccessibleQuickItem6windowEv": ["address", "address"],
+    "ritual_ZNK20QAccessibleQuickItem4rectEv": ["address", "address"],
+    "ritual_ZNK20QAccessibleQuickItem8viewRectEv": ["address", "address"],
+    "ritual_ZNK20QAccessibleQuickItem13clipsChildrenEv": ["bool", "address"],
+    "ritual_ZNK20QAccessibleQuickItem7childAtEii": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZNK20QAccessibleQuickItem6parentEv": ["address", "address"],
+    "ritual_ZNK20QAccessibleQuickItem5childEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK20QAccessibleQuickItem10childCountEv": ["int", "address"],
+    "ritual_ZNK20QAccessibleQuickItem12indexOfChildEPK20QAccessibleInterface": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK20QAccessibleQuickItem10childItemsEv": ["address", "address"],
+    "ritual_ZNK20QAccessibleQuickItem5stateEv": ["address", "address"],
+    "ritual_ZNK20QAccessibleQuickItem4roleEv": ["int", "address"],
+    "ritual_ZNK20QAccessibleQuickItem4textEN11QAccessible4TextE": [
+      "text", "address", "int"
+    ],
+    "ritual_ZN20QAccessibleQuickItem7setTextEN11QAccessible4TextERK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZNK20QAccessibleQuickItem12isAccessibleEv": ["bool", "address"],
+    "ritual_ZNK20QAccessibleQuickItem11actionNamesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QAccessibleQuickItem8doActionERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK20QAccessibleQuickItem20keyBindingsForActionERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK20QAccessibleQuickItem12currentValueEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QAccessibleQuickItem15setCurrentValueERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QAccessibleQuickItem12maximumValueEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QAccessibleQuickItem12minimumValueEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QAccessibleQuickItem15minimumStepSizeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QAccessibleQuickItem9selectionEiPiS0_": [
+      "nothing", "address", "int", "address", "address"
+    ],
+    "ritual_ZNK20QAccessibleQuickItem14selectionCountEv": ["int", "address"],
+    "ritual_ZN20QAccessibleQuickItem12addSelectionEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN20QAccessibleQuickItem15removeSelectionEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QAccessibleQuickItem12setSelectionEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZNK20QAccessibleQuickItem14cursorPositionEv": ["int", "address"],
+    "ritual_ZN20QAccessibleQuickItem17setCursorPositionEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK20QAccessibleQuickItem4textEii": [
+      "text", "address", "int", "int"
+    ],
+    "ritual_ZNK20QAccessibleQuickItem16textBeforeOffsetEiN11QAccessible16TextBoundaryTypeEPiS2_": [
+      "text", "address", "int", "int", "address", "address"
+    ],
+    "ritual_ZNK20QAccessibleQuickItem15textAfterOffsetEiN11QAccessible16TextBoundaryTypeEPiS2_": [
+      "text", "address", "int", "int", "address", "address"
+    ],
+    "ritual_ZNK20QAccessibleQuickItem12textAtOffsetEiN11QAccessible16TextBoundaryTypeEPiS2_": [
+      "text", "address", "int", "int", "address", "address"
+    ],
+    "ritual_ZNK20QAccessibleQuickItem14characterCountEv": ["int", "address"],
+    "ritual_ZNK20QAccessibleQuickItem13characterRectEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK20QAccessibleQuickItem13offsetAtPointERK6QPoint": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN20QAccessibleQuickItem17scrollToSubstringEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK20QAccessibleQuickItem10attributesEiPiS0_": [
+      "text", "address", "int", "address", "address"
+    ],
+    "ritual_ZNK20QAccessibleQuickItem12textDocumentEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QAccessibleQuickItem14attributeValueEN11QAccessible9AttributeE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK20QAccessibleQuickItem4itemEv": ["address", "address"],
+    "ritual_cast_QAccessibleQuickItem_QAccessibleActionInterface": [
+      "address", "address"
+    ],
+    "ritual_cast_QAccessibleQuickItem_QAccessibleValueInterface": [
+      "address", "address"
+    ],
+    "ritual_cast_QAccessibleQuickItem_QAccessibleTextInterface": [
+      "address", "address"
+    ],
+    "ritual_cast_QAccessibleQuickItem_QAccessibleAttributesInterface": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK20QAccessibleQuickItem7isValidEv": ["bool", "address"],
+    "ritual_own_ZNK20QAccessibleQuickItem6windowEv": ["address", "address"],
+    "ritual_own_ZNK20QAccessibleQuickItem4rectEv": ["address", "address"],
+    "ritual_own_ZNK20QAccessibleQuickItem7childAtEii": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_own_ZNK20QAccessibleQuickItem6parentEv": ["address", "address"],
+    "ritual_own_ZNK20QAccessibleQuickItem5childEi": [
+      "address", "address", "int"
+    ],
+    "ritual_own_ZNK20QAccessibleQuickItem10childCountEv": ["int", "address"],
+    "ritual_own_ZNK20QAccessibleQuickItem12indexOfChildEPK20QAccessibleInterface": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZNK20QAccessibleQuickItem5stateEv": ["address", "address"],
+    "ritual_own_ZNK20QAccessibleQuickItem4roleEv": ["int", "address"],
+    "ritual_own_ZNK20QAccessibleQuickItem4textEN11QAccessible4TextE": [
+      "text", "address", "int"
+    ],
+    "ritual_own_ZN20QAccessibleQuickItem7setTextEN11QAccessible4TextERK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_own_ZN20QAccessibleQuickItem8doActionERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_own_ZNK20QAccessibleQuickItem12currentValueEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN20QAccessibleQuickItem15setCurrentValueERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK20QAccessibleQuickItem12maximumValueEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK20QAccessibleQuickItem12minimumValueEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK20QAccessibleQuickItem15minimumStepSizeEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK20QAccessibleQuickItem14selectionCountEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZN20QAccessibleQuickItem12addSelectionEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZN20QAccessibleQuickItem15removeSelectionEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN20QAccessibleQuickItem12setSelectionEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_own_ZNK20QAccessibleQuickItem14cursorPositionEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZN20QAccessibleQuickItem17setCursorPositionEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZNK20QAccessibleQuickItem4textEii": [
+      "text", "address", "int", "int"
+    ],
+    "ritual_own_ZNK20QAccessibleQuickItem14characterCountEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZNK20QAccessibleQuickItem13characterRectEi": [
+      "address", "address", "int"
+    ],
+    "ritual_own_ZNK20QAccessibleQuickItem13offsetAtPointERK6QPoint": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZN20QAccessibleQuickItem17scrollToSubstringEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZNK20QAccessibleQuickItem14attributeValueEN11QAccessible9AttributeE": [
+      "address", "address", "int"
+    ]
+  }
+}

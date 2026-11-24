@@ -1,0 +1,13 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qresultstore.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN9QtPrivate10ResultItemC1Ev": ["address"],
+    "ritual_ZNK9QtPrivate10ResultItem7isValidEv": ["bool", "address"],
+    "ritual_ZNK9QtPrivate10ResultItem8isVectorEv": ["bool", "address"],
+    "ritual_ZNK9QtPrivate10ResultItem5countEv": ["int", "address"],
+    "ritual_ZN9QtPrivate10ResultItemD1Ev": ["nothing", "address"]
+  }
+}

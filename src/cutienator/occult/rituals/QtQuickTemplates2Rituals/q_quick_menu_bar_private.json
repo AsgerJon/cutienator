@@ -1,0 +1,114 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquickmenubar_p_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QQuickMenuBarPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK20QQuickMenuBarPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN20QQuickMenuBarPrivate3getEP13QQuickMenuBar": [
+      "address", "address"
+    ],
+    "ritual_ZN20QQuickMenuBarPrivate22createItemFromDelegateEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QQuickMenuBarPrivate17createMenuBarItemEP10QQuickMenu": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN20QQuickMenuBarPrivate15openCurrentMenuEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickMenuBarPrivate16closeCurrentMenuEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickMenuBarPrivate16activateMenuItemEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQuickMenuBarPrivate12activateItemEP17QQuickMenuBarItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickMenuBarPrivate16activateNextItemEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickMenuBarPrivate20activatePreviousItemEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickMenuBarPrivate13onItemHoveredEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickMenuBarPrivate15onItemTriggeredEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickMenuBarPrivate17onMenuAboutToHideEP10QQuickMenu": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickMenuBarPrivate10insertMenuEiP10QQuickMenuP17QQuickMenuBarItem": [
+      "nothing", "address", "int", "address", "address"
+    ],
+    "ritual_ZN20QQuickMenuBarPrivate8takeMenuEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN20QQuickMenuBarPrivate16insertNativeMenuEP10QQuickMenu": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickMenuBarPrivate16removeNativeMenuEP10QQuickMenu": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickMenuBarPrivate24syncMenuBarItemVisibiltyEP17QQuickMenuBarItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QQuickMenuBarPrivate6windowEv": ["address", "address"],
+    "ritual_ZNK20QQuickMenuBarPrivate9menuIndexEP10QQuickMenu": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK20QQuickMenuBarPrivate12nativeHandleEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QQuickMenuBarPrivate16useNativeMenuBarEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK20QQuickMenuBarPrivate13useNativeMenuEPK10QQuickMenu": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN20QQuickMenuBarPrivate24syncNativeMenuBarVisibleEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickMenuBarPrivate19createNativeMenuBarEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickMenuBarPrivate19removeNativeMenuBarEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK20QQuickMenuBarPrivate15getContentWidthEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK20QQuickMenuBarPrivate16getContentHeightEv": [
+      "double", "address"
+    ],
+    "ritual_ZN20QQuickMenuBarPrivate24itemImplicitWidthChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickMenuBarPrivate25itemImplicitHeightChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QQuickMenuBarPrivate14defaultPaletteEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK20QQuickMenuBarPrivate15getContentWidthEv": [
+      "double", "address"
+    ],
+    "ritual_own_ZNK20QQuickMenuBarPrivate16getContentHeightEv": [
+      "double", "address"
+    ],
+    "ritual_own_ZN20QQuickMenuBarPrivate24itemImplicitWidthChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20QQuickMenuBarPrivate25itemImplicitHeightChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK20QQuickMenuBarPrivate14defaultPaletteEv": [
+      "address", "address"
+    ]
+  }
+}

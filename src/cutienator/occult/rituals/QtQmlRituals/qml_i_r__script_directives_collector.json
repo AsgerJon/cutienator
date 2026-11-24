@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmlirbuilder_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN5QmlIR25ScriptDirectivesCollectorD1Ev": ["nothing", "address"],
+    "ritual_take_QmlIR_ScriptDirectivesCollector": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN5QmlIR25ScriptDirectivesCollector13pragmaLibraryEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN5QmlIR25ScriptDirectivesCollector10importFileERK7QStringS3_ii": [
+      "nothing", "address", "text", "text", "int", "int"
+    ],
+    "ritual_own_ZN5QmlIR25ScriptDirectivesCollector12importModuleERK7QStringS3_S3_ii": [
+      "nothing", "address", "text", "text", "text", "int", "int"
+    ]
+  }
+}

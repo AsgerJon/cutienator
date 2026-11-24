@@ -1,0 +1,36 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qparallelanimationgroup_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN30QParallelAnimationGroupPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK30QParallelAnimationGroupPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK30QParallelAnimationGroupPrivate20shouldAnimationStartEP18QAbstractAnimationb": [
+      "bool", "address", "address", "bool"
+    ],
+    "ritual_ZN30QParallelAnimationGroupPrivate15applyGroupStateEP18QAbstractAnimation": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK30QParallelAnimationGroupPrivate31isUncontrolledAnimationFinishedEP18QAbstractAnimation": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN30QParallelAnimationGroupPrivate29connectUncontrolledAnimationsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QParallelAnimationGroupPrivate16animationRemovedExP18QAbstractAnimation": [
+      "nothing", "address", "long long", "address"
+    ],
+    "ritual_take_QParallelAnimationGroupPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN30QParallelAnimationGroupPrivate16animationRemovedExP18QAbstractAnimation": [
+      "nothing", "address", "long long", "address"
+    ]
+  }
+}

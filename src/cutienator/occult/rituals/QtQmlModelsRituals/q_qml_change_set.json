@@ -1,0 +1,31 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQmlModels/6.12.0/QtQmlModels/private/qqmlchangeset_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN13QQmlChangeSet22qt_qmlMarker_anonymousEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13QQmlChangeSetC1Ev": ["address"],
+    "ritual_ZN13QQmlChangeSetC1ERKS_": ["address", "address"],
+    "ritual_ZN13QQmlChangeSetD1Ev": ["nothing", "address"],
+    "ritual_ZN13QQmlChangeSet6insertEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN13QQmlChangeSet6removeEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN13QQmlChangeSet4moveEiiii": [
+      "nothing", "address", "int", "int", "int", "int"
+    ],
+    "ritual_ZN13QQmlChangeSet6changeEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN13QQmlChangeSet5applyERKS_": ["nothing", "address", "address"],
+    "ritual_ZNK13QQmlChangeSet7isEmptyEv": ["bool", "address"],
+    "ritual_ZN13QQmlChangeSet5clearEv": ["nothing", "address"],
+    "ritual_ZNK13QQmlChangeSet10differenceEv": ["int", "address"]
+  }
+}

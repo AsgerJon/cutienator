@@ -1,0 +1,20 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtPrintSupport/6.12.0/QtPrintSupport/private/qpagesetupdialog_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN23QPageSetupDialogPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK23QPageSetupDialogPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN23QPageSetupDialogPrivateC1EP8QPrinter": [
+      "address", "address"
+    ],
+    "ritual_ZN23QPageSetupDialogPrivate10setPrinterEP8QPrinter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QPageSetupDialogPrivate": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

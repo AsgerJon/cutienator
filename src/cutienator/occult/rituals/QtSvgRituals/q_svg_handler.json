@@ -1,0 +1,63 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSvg/6.12.0/QtSvg/private/qsvghandler_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11QSvgHandlerC1EP9QIODevice6QFlagsIN5QtSvg6OptionEENS3_12AnimatorTypeE": [
+      "address", "address", "int", "unsigned int"
+    ],
+    "ritual_ZN11QSvgHandlerC1ERK10QByteArray6QFlagsIN5QtSvg6OptionEENS4_12AnimatorTypeE": [
+      "address", "address", "int", "unsigned int"
+    ],
+    "ritual_ZN11QSvgHandlerD1Ev": ["nothing", "address"],
+    "ritual_ZNK11QSvgHandler6deviceEv": ["address", "address"],
+    "ritual_ZNK11QSvgHandler8documentEv": ["address", "address"],
+    "ritual_ZNK11QSvgHandler2okEv": ["bool", "address"],
+    "ritual_ZNK11QSvgHandler11errorStringEv": ["text", "address"],
+    "ritual_ZNK11QSvgHandler10lineNumberEv": ["int", "address"],
+    "ritual_ZN11QSvgHandler26setDefaultCoordinateSystemEN7QGuiSvg10LengthTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11QSvgHandler23defaultCoordinateSystemEv": ["int", "address"],
+    "ritual_ZN11QSvgHandler9pushColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QSvgHandler13pushColorCopyEv": ["nothing", "address"],
+    "ritual_ZN11QSvgHandler8popColorEv": ["nothing", "address"],
+    "ritual_ZNK11QSvgHandler12currentColorEv": ["address", "address"],
+    "ritual_ZN11QSvgHandler19pushUnresolvedStyleEP17QSvgStyleProperty": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QSvgHandler23setCurrentSvgFontFamilyE11QStringView": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN11QSvgHandler10setInStyleEb": ["nothing", "address", "bool"],
+    "ritual_ZNK11QSvgHandler7inStyleEv": ["bool", "address"],
+    "ritual_ZN11QSvgHandler13setAnimPeriodEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK11QSvgHandler17animationDurationEv": ["int", "address"],
+    "ritual_ZNK11QSvgHandler10defaultPenEv": ["address", "address"],
+    "ritual_ZNK11QSvgHandler7optionsEv": ["int", "address"],
+    "ritual_ZNK11QSvgHandler12animatorTypeEv": ["unsigned int", "address"],
+    "ritual_ZNK11QSvgHandler17trustedSourceModeEv": ["bool", "address"],
+    "ritual_ZN11QSvgHandler12startElementE11QStringViewRK20QXmlStreamAttributes": [
+      "bool", "address", "text", "address"
+    ],
+    "ritual_ZN11QSvgHandler10endElementE11QStringView": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN11QSvgHandler10charactersE11QStringView": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN11QSvgHandler21processingInstructionE11QStringViewS0_": [
+      "bool", "address", "text", "text"
+    ],
+    "ritual_ZN11QSvgHandler4initEv": ["nothing", "address"],
+    "ritual_ZN11QSvgHandler5parseEv": ["nothing", "address"],
+    "ritual_ZN11QSvgHandler19resolvePaintServersEv": ["nothing", "address"],
+    "ritual_ZN11QSvgHandler12resolveNodesEv": ["nothing", "address"]
+  }
+}

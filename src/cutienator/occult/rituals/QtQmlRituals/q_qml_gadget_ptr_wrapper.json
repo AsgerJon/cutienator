@@ -1,0 +1,44 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmlvaluetype_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK20QQmlGadgetPtrWrapper10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QQmlGadgetPtrWrapper2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN20QQmlGadgetPtrWrapper8instanceEP10QQmlEngine9QMetaType": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN20QQmlGadgetPtrWrapperC1EP13QQmlValueTypeP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN20QQmlGadgetPtrWrapperD1Ev": ["nothing", "address"],
+    "ritual_ZN20QQmlGadgetPtrWrapper4readEP7QObjecti": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZNK20QQmlGadgetPtrWrapper5writeEP7QObjecti6QFlagsIN16QQmlPropertyData9WriteFlagEEi": [
+      "nothing", "address", "address", "int", "int", "int"
+    ],
+    "ritual_ZNK20QQmlGadgetPtrWrapper5valueEv": ["address", "address"],
+    "ritual_ZN20QQmlGadgetPtrWrapper8setValueERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QQmlGadgetPtrWrapper8metaTypeEv": ["address", "address"],
+    "ritual_ZNK20QQmlGadgetPtrWrapper8propertyEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK20QQmlGadgetPtrWrapper12readOnGadgetERK13QMetaProperty": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN20QQmlGadgetPtrWrapper13writeOnGadgetERK13QMetaPropertyRK8QVariant": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK20QQmlGadgetPtrWrapper9valueTypeEv": ["address", "address"],
+    "ritual_take_QQmlGadgetPtrWrapper": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

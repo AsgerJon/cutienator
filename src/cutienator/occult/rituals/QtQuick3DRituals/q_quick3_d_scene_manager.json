@@ -1,0 +1,59 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3D/6.12.0/QtQuick3D/private/qquick3dscenemanager_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK20QQuick3DSceneManager10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QQuick3DSceneManager2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN20QQuick3DSceneManagerC1EP7QObject": ["address", "address"],
+    "ritual_ZN20QQuick3DSceneManagerD1Ev": ["nothing", "address"],
+    "ritual_ZN20QQuick3DSceneManager9setWindowEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuick3DSceneManager6windowEv": ["address", "address"],
+    "ritual_ZN20QQuick3DSceneManager9dirtyItemEP14QQuick3DObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuick3DSceneManager13requestUpdateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuick3DSceneManager7cleanupEP21QSSGRenderGraphObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuick3DSceneManager11polishItemsEv": ["nothing", "address"],
+    "ritual_ZN20QQuick3DSceneManager11forcePolishEv": ["nothing", "address"],
+    "ritual_ZN20QQuick3DSceneManager4syncEv": ["nothing", "address"],
+    "ritual_ZN20QQuick3DSceneManager7preSyncEv": ["nothing", "address"],
+    "ritual_ZN20QQuick3DSceneManager12cleanupNodesEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN20QQuick3DSceneManager24updateDirtyResourceNodesEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN20QQuick3DSceneManager23updateDirtySpatialNodesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuick3DSceneManager20updateDiryExtensionsEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN20QQuick3DSceneManager29updateDirtyResourceSecondPassEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN20QQuick3DSceneManager19updateDirtyResourceEP14QQuick3DObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuick3DSceneManager22updateDirtySpatialNodeEP12QQuick3DNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QQuick3DSceneManager10lookUpNodeEPK21QSSGRenderGraphObject": [
+      "address", "address", "address"
+    ],
+    "ritual_take_QQuick3DSceneManager": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

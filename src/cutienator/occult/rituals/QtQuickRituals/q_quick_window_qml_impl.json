@@ -1,0 +1,85 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickwindowmodule_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK19QQuickWindowQmlImpl10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QQuickWindowQmlImpl2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN19QQuickWindowQmlImpl21qt_qmlMarker_attachedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickWindowQmlImplC1EP7QWindow": ["address", "address"],
+    "ritual_ZN19QQuickWindowQmlImplD1Ev": ["nothing", "address"],
+    "ritual_ZN19QQuickWindowQmlImpl10setVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN19QQuickWindowQmlImpl13setVisibilityEN7QWindow10VisibilityE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK19QQuickWindowQmlImpl6screenEv": ["address", "address"],
+    "ritual_ZN19QQuickWindowQmlImpl9setScreenEP16QQuickScreenInfo": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QQuickWindowQmlImpl12visualParentEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QQuickWindowQmlImpl15setVisualParentEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickWindowQmlImpl19visualParentChangedEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickWindowQmlImpl4setXEi": ["nothing", "address", "int"],
+    "ritual_ZNK19QQuickWindowQmlImpl1xEv": ["int", "address"],
+    "ritual_ZN19QQuickWindowQmlImpl4setYEi": ["nothing", "address", "int"],
+    "ritual_ZNK19QQuickWindowQmlImpl1yEv": ["int", "address"],
+    "ritual_ZN19QQuickWindowQmlImpl4setZEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK19QQuickWindowQmlImpl1zEv": ["double", "address"],
+    "ritual_ZN19QQuickWindowQmlImpl8zChangedEv": ["nothing", "address"],
+    "ritual_ZN19QQuickWindowQmlImpl21qmlAttachedPropertiesEP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN19QQuickWindowQmlImpl10classBeginEv": ["nothing", "address"],
+    "ritual_ZN19QQuickWindowQmlImpl17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickWindowQmlImpl5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN19QQuickWindowQmlImpl21applyWindowVisibilityEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickWindowQmlImpl21updateTransientParentEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickWindowQmlImpl22transientParentVisibleEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN19QQuickWindowQmlImpl17applyVisualParentEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickWindowQmlImpl6d_funcEv": ["address", "address"],
+    "ritual_ZNK19QQuickWindowQmlImpl6d_funcEv": ["address", "address"],
+    "ritual_cast_QQuickWindowQmlImpl_QQmlParserStatus": [
+      "address", "address"
+    ],
+    "ritual_take_QQuickWindowQmlImpl": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN19QQuickWindowQmlImpl10classBeginEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN19QQuickWindowQmlImpl17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN19QQuickWindowQmlImpl5eventEP6QEvent": [
+      "bool", "address", "address"
+    ]
+  }
+}

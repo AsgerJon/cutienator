@@ -1,0 +1,76 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4compiler_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN3QV48Compiler15JSUnitGenerator20generateUnitChecksumEPNS_12CompiledData4UnitE": [
+      "nothing", "address"
+    ],
+    "ritual_ZN3QV48Compiler15JSUnitGeneratorC1EPNS0_6ModuleE": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV48Compiler15JSUnitGenerator14registerStringERK7QString": [
+      "int", "address", "text"
+    ],
+    "ritual_ZNK3QV48Compiler15JSUnitGenerator11getStringIdERK7QString": [
+      "int", "address", "text"
+    ],
+    "ritual_ZNK3QV48Compiler15JSUnitGenerator11hasStringIdERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZNK3QV48Compiler15JSUnitGenerator14stringForIndexEi": [
+      "text", "address", "int"
+    ],
+    "ritual_ZN3QV48Compiler15JSUnitGenerator20registerGetterLookupERK7QStringNS1_10LookupModeE": [
+      "int", "address", "text", "int"
+    ],
+    "ritual_ZN3QV48Compiler15JSUnitGenerator20registerGetterLookupEiNS1_10LookupModeE": [
+      "int", "address", "int", "int"
+    ],
+    "ritual_ZN3QV48Compiler15JSUnitGenerator20registerSetterLookupERK7QString": [
+      "int", "address", "text"
+    ],
+    "ritual_ZN3QV48Compiler15JSUnitGenerator20registerSetterLookupEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZN3QV48Compiler15JSUnitGenerator26registerGlobalGetterLookupEiNS1_10LookupModeE": [
+      "int", "address", "int", "int"
+    ],
+    "ritual_ZN3QV48Compiler15JSUnitGenerator38registerQmlContextPropertyGetterLookupEiNS1_10LookupModeE": [
+      "int", "address", "int", "int"
+    ],
+    "ritual_ZNK3QV48Compiler15JSUnitGenerator15lookupNameIndexEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK3QV48Compiler15JSUnitGenerator10lookupNameEi": [
+      "text", "address", "int"
+    ],
+    "ritual_ZN3QV48Compiler15JSUnitGenerator14registerRegExpEPN6QQmlJS3AST13RegExpLiteralE": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN3QV48Compiler15JSUnitGenerator16registerConstantEy": [
+      "int", "address", "unsigned long long"
+    ],
+    "ritual_ZNK3QV48Compiler15JSUnitGenerator8constantEi": [
+      "unsigned long long", "address", "int"
+    ],
+    "ritual_ZN3QV48Compiler15JSUnitGenerator15registerJSClassERK5QListI7QStringE": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK3QV48Compiler15JSUnitGenerator11jsClassSizeEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK3QV48Compiler15JSUnitGenerator13jsClassMemberEii": [
+      "text", "address", "int", "int"
+    ],
+    "ritual_ZN3QV48Compiler15JSUnitGenerator19registerTranslationERKNS_12CompiledData15TranslationDataE": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN3QV48Compiler15JSUnitGenerator12generateUnitENS1_15GeneratorOptionE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN3QV48Compiler15JSUnitGeneratorD1Ev": ["nothing", "address"]
+  }
+}

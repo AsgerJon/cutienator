@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qgraphicslayout_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN22QGraphicsLayoutPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK22QGraphicsLayoutPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN22QGraphicsLayoutPrivate18reparentChildItemsEP13QGraphicsItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK22QGraphicsLayoutPrivate9getMarginEPddN6QStyle11PixelMetricE": [
+      "nothing", "address", "address", "double", "int"
+    ],
+    "ritual_ZNK22QGraphicsLayoutPrivate15visualDirectionEv": [
+      "int", "address"
+    ],
+    "ritual_ZN22QGraphicsLayoutPrivate17activateRecursiveEP19QGraphicsLayoutItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QGraphicsLayoutPrivateD1Ev": ["nothing", "address"]
+  }
+}

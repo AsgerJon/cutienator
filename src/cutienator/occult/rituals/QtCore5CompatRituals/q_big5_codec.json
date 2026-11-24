@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore5Compat/6.12.0/QtCore5Compat/private/qbig5codec_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN10QBig5Codec5_nameEv": ["address"],
+    "ritual_ZN10QBig5Codec8_aliasesEv": ["address"],
+    "ritual_ZN10QBig5Codec8_mibEnumEv": ["int"],
+    "ritual_ZNK10QBig5Codec4nameEv": ["address", "address"],
+    "ritual_ZNK10QBig5Codec7aliasesEv": ["address", "address"],
+    "ritual_ZNK10QBig5Codec7mibEnumEv": ["int", "address"],
+    "ritual_take_QBig5Codec": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK10QBig5Codec4nameEv": ["address", "address"],
+    "ritual_own_ZNK10QBig5Codec7mibEnumEv": ["int", "address"]
+  }
+}

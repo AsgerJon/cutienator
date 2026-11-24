@@ -1,0 +1,108 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/6.12.0/QtCharts/private/legendmarkeritem_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK16LegendMarkerItem10metaObjectEv": ["address", "address"],
+    "ritual_ZN16LegendMarkerItem2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN16LegendMarkerItemC1EP20QLegendMarkerPrivateP15QGraphicsObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN16LegendMarkerItemD1Ev": ["nothing", "address"],
+    "ritual_ZN16LegendMarkerItem6setPenERK4QPen": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16LegendMarkerItem3penEv": ["address", "address"],
+    "ritual_ZN16LegendMarkerItem8setBrushERK6QBrush": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16LegendMarkerItem5brushEv": ["address", "address"],
+    "ritual_ZN16LegendMarkerItem12setSeriesPenERK4QPen": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16LegendMarkerItem14setSeriesBrushERK6QBrush": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16LegendMarkerItem20setSeriesLightMarkerERK6QImage": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16LegendMarkerItem7setFontERK5QFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16LegendMarkerItem4fontEv": ["address", "address"],
+    "ritual_ZN16LegendMarkerItem8setLabelE7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK16LegendMarkerItem5labelEv": ["text", "address"],
+    "ritual_ZN16LegendMarkerItem13setLabelBrushERK6QBrush": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16LegendMarkerItem10labelBrushEv": ["address", "address"],
+    "ritual_ZN16LegendMarkerItem11setGeometryERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16LegendMarkerItem12boundingRectEv": ["address", "address"],
+    "ritual_ZNK16LegendMarkerItem10markerRectEv": ["address", "address"],
+    "ritual_ZN16LegendMarkerItem5paintEP8QPainterPK24QStyleOptionGraphicsItemP7QWidget": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK16LegendMarkerItem8sizeHintEN2Qt8SizeHintERK6QSizeF": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_ZN16LegendMarkerItem15hoverEnterEventEP24QGraphicsSceneHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16LegendMarkerItem15hoverLeaveEventEP24QGraphicsSceneHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16LegendMarkerItem14displayedLabelEv": ["text", "address"],
+    "ritual_ZN16LegendMarkerItem10setToolTipERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK16LegendMarkerItem11markerShapeEv": ["int", "address"],
+    "ritual_ZN16LegendMarkerItem14setMarkerShapeEN7QLegend11MarkerShapeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16LegendMarkerItem24updateMarkerShapeAndSizeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK16LegendMarkerItem20effectiveMarkerShapeEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK16LegendMarkerItem20effectiveMarkerWidthEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK16LegendMarkerItem8itemTypeEv": ["int", "address"],
+    "ritual_ZN16LegendMarkerItem18setItemBrushAndPenEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16LegendMarkerItem11setItemRectEv": ["nothing", "address"],
+    "ritual_ZNK16LegendMarkerItem11useMaxWidthEv": ["bool", "address"],
+    "ritual_cast_LegendMarkerItem_QGraphicsLayoutItem": [
+      "address", "address"
+    ],
+    "ritual_take_LegendMarkerItem": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN16LegendMarkerItem11setGeometryERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK16LegendMarkerItem12boundingRectEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN16LegendMarkerItem5paintEP8QPainterPK24QStyleOptionGraphicsItemP7QWidget": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZNK16LegendMarkerItem8sizeHintEN2Qt8SizeHintERK6QSizeF": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_own_ZN16LegendMarkerItem15hoverEnterEventEP24QGraphicsSceneHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16LegendMarkerItem15hoverLeaveEventEP24QGraphicsSceneHoverEvent": [
+      "nothing", "address", "address"
+    ]
+  }
+}

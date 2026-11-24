@@ -1,0 +1,75 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/qjsengine.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK9QJSEngine10metaObjectEv": ["address", "address"],
+    "ritual_ZN9QJSEngine2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN9QJSEngineC1Ev": ["address"],
+    "ritual_ZN9QJSEngineC1EP7QObject": ["address", "address"],
+    "ritual_ZN9QJSEngineD1Ev": ["nothing", "address"],
+    "ritual_ZNK9QJSEngine12globalObjectEv": ["address", "address"],
+    "ritual_ZN9QJSEngine12importModuleERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN9QJSEngine14registerModuleERK7QStringRK8QJSValue": [
+      "bool", "address", "text", "address"
+    ],
+    "ritual_ZN9QJSEngine9newObjectEv": ["address", "address"],
+    "ritual_ZN9QJSEngine9newSymbolERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN9QJSEngine8newArrayEj": ["address", "address", "unsigned int"],
+    "ritual_ZN9QJSEngine10newQObjectEP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN9QJSEngine14newQMetaObjectEPK11QMetaObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN9QJSEngine14newErrorObjectEN8QJSValue9ErrorTypeERK7QString": [
+      "address", "address", "int", "text"
+    ],
+    "ritual_ZN9QJSEngine14collectGarbageEv": ["nothing", "address"],
+    "ritual_ZN9QJSEngine18setObjectOwnershipEP7QObjectNS_15ObjectOwnershipE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN9QJSEngine15objectOwnershipEP7QObject": ["int", "address"],
+    "ritual_ZN9QJSEngine17installExtensionsE6QFlagsINS_9ExtensionEERK8QJSValue": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN9QJSEngine14setInterruptedEb": ["nothing", "address", "bool"],
+    "ritual_ZNK9QJSEngine13isInterruptedEv": ["bool", "address"],
+    "ritual_ZNK9QJSEngine6handleEv": ["address", "address"],
+    "ritual_ZN9QJSEngine10throwErrorERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN9QJSEngine10throwErrorEN8QJSValue9ErrorTypeERK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZN9QJSEngine10throwErrorERK8QJSValue": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9QJSEngine8hasErrorEv": ["bool", "address"],
+    "ritual_ZN9QJSEngine10catchErrorEv": ["address", "address"],
+    "ritual_ZNK9QJSEngine10uiLanguageEv": ["text", "address"],
+    "ritual_ZN9QJSEngine13setUiLanguageERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN9QJSEngine22convertQObjectToStringEP7QObject": [
+      "text", "address", "address"
+    ],
+    "ritual_ZN9QJSEngine23convertDateTimeToStringERK9QDateTime": [
+      "text", "address", "address"
+    ],
+    "ritual_ZN9QJSEngine23convertDateTimeToNumberERK9QDateTime": [
+      "double", "address", "address"
+    ],
+    "ritual_ZN9QJSEngine21convertDateTimeToDateERK9QDateTime": [
+      "address", "address"
+    ],
+    "ritual_ZN9QJSEngine6d_funcEv": ["address", "address"],
+    "ritual_ZNK9QJSEngine6d_funcEv": ["address", "address"],
+    "ritual_take_QJSEngine": ["bool", "address", "chars", "address"]
+  }
+}

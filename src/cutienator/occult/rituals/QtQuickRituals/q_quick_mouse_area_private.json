@@ -1,0 +1,37 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickmousearea_p_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN22QQuickMouseAreaPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK22QQuickMouseAreaPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN22QQuickMouseAreaPrivateC1Ev": ["address"],
+    "ritual_ZN22QQuickMouseAreaPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN22QQuickMouseAreaPrivate9saveEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQuickMouseAreaPrivate9propagateEP16QQuickMouseEventNS_13PropagateTypeE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN22QQuickMouseAreaPrivate15propagateHelperEP16QQuickMouseEventP10QQuickItemRK7QPointFNS_13PropagateTypeE": [
+      "bool", "address", "address", "address", "address", "int"
+    ],
+    "ritual_ZN22QQuickMouseAreaPrivate23isPressAndHoldConnectedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN22QQuickMouseAreaPrivate22isDoubleClickConnectedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN22QQuickMouseAreaPrivate16isClickConnectedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN22QQuickMouseAreaPrivate16isWheelConnectedEv": [
+      "bool", "address"
+    ],
+    "ritual_take_QQuickMouseAreaPrivate": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qdbusplatformmenu_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QDBusPlatformMenu10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QDBusPlatformMenuD1Ev": ["nothing", "address"],
+    "ritual_ZN17QDBusPlatformMenu14insertMenuItemEP17QPlatformMenuItemS1_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN17QDBusPlatformMenu14removeMenuItemEP17QPlatformMenuItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QDBusPlatformMenu12syncMenuItemEP17QPlatformMenuItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QDBusPlatformMenu25syncSeparatorsCollapsibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK17QDBusPlatformMenu4textEv": ["text", "address"],
+    "ritual_ZN17QDBusPlatformMenu7setTextERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK17QDBusPlatformMenu4iconEv": ["address", "address"],
+    "ritual_ZN17QDBusPlatformMenu7setIconERK5QIcon": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QDBusPlatformMenu9isEnabledEv": ["bool", "address"],
+    "ritual_ZN17QDBusPlatformMenu10setEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK17QDBusPlatformMenu9isVisibleEv": ["bool", "address"],
+    "ritual_ZN17QDBusPlatformMenu10setVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN17QDBusPlatformMenu15setMinimumWidthEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QDBusPlatformMenu7setFontERK5QFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QDBusPlatformMenu11setMenuTypeEN13QPlatformMenu8MenuTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QDBusPlatformMenu21setContainingMenuItemEP21QDBusPlatformMenuItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QDBusPlatformMenu9showPopupEPK7QWindowRK5QRectPK17QPlatformMenuItem": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN17QDBusPlatformMenu7dismissEv": ["nothing", "address"],
+    "ritual_ZNK17QDBusPlatformMenu10menuItemAtEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK17QDBusPlatformMenu14menuItemForTagEy": [
+      "address", "address", "unsigned long long"
+    ],
+    "ritual_ZNK17QDBusPlatformMenu5itemsEv": ["address", "address"],
+    "ritual_ZNK17QDBusPlatformMenu14createMenuItemEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK17QDBusPlatformMenu13createSubMenuEv": ["address", "address"],
+    "ritual_ZNK17QDBusPlatformMenu8revisionEv": ["unsigned int", "address"],
+    "ritual_take_QDBusPlatformMenu": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN17QDBusPlatformMenu25syncSeparatorsCollapsibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZN17QDBusPlatformMenu7setTextERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_own_ZN17QDBusPlatformMenu7setIconERK5QIcon": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK17QDBusPlatformMenu9isEnabledEv": ["bool", "address"],
+    "ritual_own_ZN17QDBusPlatformMenu10setEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZN17QDBusPlatformMenu10setVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZN17QDBusPlatformMenu15setMinimumWidthEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17QDBusPlatformMenu7setFontERK5QFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN17QDBusPlatformMenu11setMenuTypeEN13QPlatformMenu8MenuTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17QDBusPlatformMenu7dismissEv": ["nothing", "address"],
+    "ritual_own_ZNK17QDBusPlatformMenu10menuItemAtEi": [
+      "address", "address", "int"
+    ],
+    "ritual_own_ZNK17QDBusPlatformMenu14menuItemForTagEy": [
+      "address", "address", "unsigned long long"
+    ]
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qsgadaptationlayer_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN13QSGSpriteNodeD1Ev": ["nothing", "address"],
+    "ritual_ZN13QSGSpriteNode10setTextureEP10QSGTexture": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QSGSpriteNode7setTimeEf": ["nothing", "address", "float"],
+    "ritual_ZN13QSGSpriteNode10setSourceAERK6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QSGSpriteNode10setSourceBERK6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QSGSpriteNode13setSpriteSizeERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QSGSpriteNode12setSheetSizeERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QSGSpriteNode7setSizeERK6QSizeF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QSGSpriteNode12setFilteringEN10QSGTexture9FilteringE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN13QSGSpriteNode6updateEv": ["nothing", "address"],
+    "ritual_ZN13QSGSpriteNode6acceptEP16QSGNodeVisitorEx": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QSGSpriteNode": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN13QSGSpriteNode6acceptEP16QSGNodeVisitorEx": [
+      "nothing", "address", "address"
+    ]
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquickswipeview_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK15QQuickSwipeView10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QQuickSwipeView2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN15QQuickSwipeView21qt_qmlMarker_attachedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickSwipeViewC1EP10QQuickItem": ["address", "address"],
+    "ritual_ZN15QQuickSwipeView21qmlAttachedPropertiesEP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZNK15QQuickSwipeView13isInteractiveEv": ["bool", "address"],
+    "ritual_ZN15QQuickSwipeView14setInteractiveEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK15QQuickSwipeView11orientationEv": ["int", "address"],
+    "ritual_ZN15QQuickSwipeView14setOrientationEN2Qt11OrientationE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QQuickSwipeView12isHorizontalEv": ["bool", "address"],
+    "ritual_ZNK15QQuickSwipeView10isVerticalEv": ["bool", "address"],
+    "ritual_ZN15QQuickSwipeView17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickSwipeView14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN15QQuickSwipeView9itemAddedEiP10QQuickItem": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN15QQuickSwipeView9itemMovedEiP10QQuickItem": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN15QQuickSwipeView11itemRemovedEiP10QQuickItem": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZNK15QQuickSwipeView14accessibleRoleEv": ["int", "address"],
+    "ritual_own_ZN15QQuickSwipeView17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN15QQuickSwipeView14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN15QQuickSwipeView9itemAddedEiP10QQuickItem": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZN15QQuickSwipeView9itemMovedEiP10QQuickItem": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZN15QQuickSwipeView11itemRemovedEiP10QQuickItem": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZNK15QQuickSwipeView14accessibleRoleEv": ["int", "address"]
+  }
+}

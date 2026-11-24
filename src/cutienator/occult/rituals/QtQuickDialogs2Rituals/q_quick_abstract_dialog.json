@@ -1,0 +1,122 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Dialogs2/6.12.0/QtQuickDialogs2/private/qquickabstractdialog_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK20QQuickAbstractDialog10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QQuickAbstractDialog2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN20QQuickAbstractDialog22qt_qmlMarker_anonymousEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickAbstractDialogC1E16QQuickDialogTypeP7QObject": [
+      "address", "int", "address"
+    ],
+    "ritual_ZN20QQuickAbstractDialogD1Ev": ["nothing", "address"],
+    "ritual_ZNK20QQuickAbstractDialog6handleEv": ["address", "address"],
+    "ritual_ZNK20QQuickAbstractDialog12parentWindowEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QQuickAbstractDialog15setParentWindowEP7QWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickAbstractDialog17resetParentWindowEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK20QQuickAbstractDialog5titleEv": ["text", "address"],
+    "ritual_ZN20QQuickAbstractDialog8setTitleERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK20QQuickAbstractDialog5flagsEv": ["int", "address"],
+    "ritual_ZN20QQuickAbstractDialog8setFlagsE6QFlagsIN2Qt10WindowTypeEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK20QQuickAbstractDialog8modalityEv": ["int", "address"],
+    "ritual_ZN20QQuickAbstractDialog11setModalityEN2Qt14WindowModalityE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK20QQuickAbstractDialog9isVisibleEv": ["bool", "address"],
+    "ritual_ZN20QQuickAbstractDialog10setVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK20QQuickAbstractDialog6resultEv": ["int", "address"],
+    "ritual_ZN20QQuickAbstractDialog9setResultEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK20QQuickAbstractDialog9popupTypeEv": ["int", "address"],
+    "ritual_ZN20QQuickAbstractDialog12setPopupTypeEN11QQuickPopup9PopupTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQuickAbstractDialog14resetPopupTypeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickAbstractDialog4openEv": ["nothing", "address"],
+    "ritual_ZN20QQuickAbstractDialog5closeEv": ["nothing", "address"],
+    "ritual_ZN20QQuickAbstractDialog6acceptEv": ["nothing", "address"],
+    "ritual_ZN20QQuickAbstractDialog6rejectEv": ["nothing", "address"],
+    "ritual_ZN20QQuickAbstractDialog4doneEi": ["nothing", "address", "int"],
+    "ritual_ZN20QQuickAbstractDialog10classBeginEv": ["nothing", "address"],
+    "ritual_ZN20QQuickAbstractDialog17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickAbstractDialog6createENS_13CreateOptionsE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN20QQuickAbstractDialog7destroyEv": ["nothing", "address"],
+    "ritual_ZNK20QQuickAbstractDialog15useNativeDialogEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN20QQuickAbstractDialog8onCreateEP21QPlatformDialogHelper": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickAbstractDialog6onShowEP21QPlatformDialogHelper": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickAbstractDialog6onHideEP21QPlatformDialogHelper": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QQuickAbstractDialog10dialogCodeEv": ["int", "address"],
+    "ritual_ZNK20QQuickAbstractDialog14findParentItemEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QQuickAbstractDialog13windowForOpenEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QQuickAbstractDialog12deferredOpenEP7QWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_cast_QQuickAbstractDialog_QQmlParserStatus": [
+      "address", "address"
+    ],
+    "ritual_take_QQuickAbstractDialog": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN20QQuickAbstractDialog6acceptEv": ["nothing", "address"],
+    "ritual_own_ZN20QQuickAbstractDialog6rejectEv": ["nothing", "address"],
+    "ritual_own_ZN20QQuickAbstractDialog4doneEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN20QQuickAbstractDialog10classBeginEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN20QQuickAbstractDialog17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZNK20QQuickAbstractDialog15useNativeDialogEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZN20QQuickAbstractDialog8onCreateEP21QPlatformDialogHelper": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20QQuickAbstractDialog6onShowEP21QPlatformDialogHelper": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20QQuickAbstractDialog6onHideEP21QPlatformDialogHelper": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK20QQuickAbstractDialog10dialogCodeEv": ["int", "address"]
+  }
+}

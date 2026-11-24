@@ -1,0 +1,29 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNfc/qndeffilter.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11QNdefFilterC1Ev": ["address"],
+    "ritual_ZN11QNdefFilterC1ERKS_": ["address", "address"],
+    "ritual_ZN11QNdefFilterD1Ev": ["nothing", "address"],
+    "ritual_ZN11QNdefFilter5clearEv": ["nothing", "address"],
+    "ritual_ZN11QNdefFilter13setOrderMatchEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK11QNdefFilter10orderMatchEv": ["bool", "address"],
+    "ritual_ZN11QNdefFilter12appendRecordEN11QNdefRecord14TypeNameFormatERK10QByteArrayjj": [
+      "bool", "address", "int", "address", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZN11QNdefFilter12appendRecordERKNS_6RecordE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK11QNdefFilter11recordCountEv": ["long long", "address"],
+    "ritual_ZNK11QNdefFilter8recordAtEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZNK11QNdefFilter5matchERK12QNdefMessage": [
+      "bool", "address", "address"
+    ]
+  }
+}

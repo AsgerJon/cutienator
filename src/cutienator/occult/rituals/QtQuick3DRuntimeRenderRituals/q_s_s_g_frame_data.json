@@ -1,0 +1,36 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/ssg/qssgrenderextens",
+    "ions.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK13QSSGFrameData21scheduleRenderResultsE6QFlagsINS_12RenderResultEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK13QSSGFrameData15getRenderResultENS_12RenderResultE": [
+      "address", "address", "unsigned int"
+    ],
+    "ritual_ZNK13QSSGFrameData15getRenderResultE14QSSGResourceIdNS_18AttachmentSelectorE": [
+      "address", "address", "unsigned long long", "unsigned int"
+    ],
+    "ritual_ZNK13QSSGFrameData18getAttachmentCountE14QSSGResourceId": [
+      "long long", "address", "unsigned long long"
+    ],
+    "ritual_ZNK13QSSGFrameData16getPipelineStateEv": ["address", "address"],
+    "ritual_ZNK13QSSGFrameData12activeCameraEv": [
+      "unsigned long long", "address"
+    ],
+    "ritual_ZNK13QSSGFrameData16contextInterfaceEv": ["address", "address"],
+    "ritual_ZN13QSSGFrameData5clearEv": ["nothing", "address"],
+    "ritual_ZNK13QSSGFrameData10getCurrentEv": ["address", "address"],
+    "ritual_ZNK13QSSGFrameData21scheduleRenderResultsE14QSSGResourceId": [
+      "nothing", "address", "unsigned long long"
+    ],
+    "ritual_ZN13QSSGFrameDataC1Ev": ["address"],
+    "ritual_ZN13QSSGFrameDataC1EP26QSSGRenderContextInterface": [
+      "address", "address"
+    ],
+    "ritual_ZN13QSSGFrameDataD1Ev": ["nothing", "address"]
+  }
+}

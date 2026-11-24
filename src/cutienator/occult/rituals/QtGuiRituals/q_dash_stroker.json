@@ -1,0 +1,32 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qstroker_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN12QDashStrokerC1EP8QStroker": ["address", "address"],
+    "ritual_ZN12QDashStrokerD1Ev": ["nothing", "address"],
+    "ritual_ZNK12QDashStroker7strokerEv": ["address", "address"],
+    "ritual_ZN12QDashStroker15repetitionLimitEv": ["int"],
+    "ritual_ZN12QDashStroker13setDashOffsetEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK12QDashStroker10dashOffsetEv": ["double", "address"],
+    "ritual_ZN12QDashStroker3endEv": ["nothing", "address"],
+    "ritual_ZN12QDashStroker14setStrokeWidthEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN12QDashStroker13setMiterLimitEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN12QDashStroker21processCurrentSubpathEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QDashStroker": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN12QDashStroker3endEv": ["nothing", "address"],
+    "ritual_own_ZN12QDashStroker21processCurrentSubpathEv": [
+      "nothing", "address"
+    ]
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/abstractresourcebrowser.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZNK33QDesignerResourceBrowserInterface10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN33QDesignerResourceBrowserInterface2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN33QDesignerResourceBrowserInterfaceD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN33QDesignerResourceBrowserInterface14setCurrentPathERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK33QDesignerResourceBrowserInterface11currentPathEv": [
+      "text", "address"
+    ],
+    "ritual_take_QDesignerResourceBrowserInterface": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

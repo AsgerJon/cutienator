@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qrhi_p.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZN30QRhiResourceUpdateBatchPrivate5mergeEPS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK30QRhiResourceUpdateBatchPrivate18hasOptimalCapacityEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN30QRhiResourceUpdateBatchPrivate11trimOpListsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QRhiResourceUpdateBatchPrivate3getEP23QRhiResourceUpdateBatch": [
+      "address", "address"
+    ],
+    "ritual_ZN30QRhiResourceUpdateBatchPrivateD1Ev": ["nothing", "address"]
+  }
+}

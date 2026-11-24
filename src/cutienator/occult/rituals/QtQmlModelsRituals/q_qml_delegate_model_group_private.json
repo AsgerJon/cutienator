@@ -1,0 +1,25 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQmlModels/6.12.0/QtQmlModels/private/qqmldelegatemodel_p_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN29QQmlDelegateModelGroupPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK29QQmlDelegateModelGroupPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN29QQmlDelegateModelGroupPrivateC1Ev": ["address"],
+    "ritual_ZN29QQmlDelegateModelGroupPrivate3getEP22QQmlDelegateModelGroup": [
+      "address", "address"
+    ],
+    "ritual_ZN29QQmlDelegateModelGroupPrivate18isChangedConnectedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN29QQmlDelegateModelGroupPrivate16emitModelUpdatedEb": [
+      "nothing", "address", "bool"
+    ]
+  }
+}

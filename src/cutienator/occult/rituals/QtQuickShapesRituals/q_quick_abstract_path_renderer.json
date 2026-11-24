@@ -1,0 +1,75 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuickShapes/6.12.0/QtQuickShapes/private/qquickshape_p_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN26QQuickAbstractPathRendererD1Ev": ["nothing", "address"],
+    "ritual_ZN26QQuickAbstractPathRenderer9beginSyncEiPb": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN26QQuickAbstractPathRenderer7endSyncEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK26QQuickAbstractPathRenderer5flagsEv": ["int", "address"],
+    "ritual_ZN26QQuickAbstractPathRenderer7setPathEiPK10QQuickPath": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN26QQuickAbstractPathRenderer7setPathEiRK12QPainterPath6QFlagsIN15QQuickShapePath8PathHintEE": [
+      "nothing", "address", "int", "address", "int"
+    ],
+    "ritual_ZN26QQuickAbstractPathRenderer14setStrokeColorEiRK6QColor": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN26QQuickAbstractPathRenderer14setStrokeWidthEid": [
+      "nothing", "address", "int", "double"
+    ],
+    "ritual_ZN26QQuickAbstractPathRenderer17setCosmeticStrokeEib": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZN26QQuickAbstractPathRenderer12setJoinStyleEiN15QQuickShapePath9JoinStyleEi": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZN26QQuickAbstractPathRenderer11setCapStyleEiN15QQuickShapePath8CapStyleE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN26QQuickAbstractPathRenderer12setFillColorEiRK6QColor": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN26QQuickAbstractPathRenderer11setFillRuleEiN15QQuickShapePath8FillRuleE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN26QQuickAbstractPathRenderer15setFillGradientEiP19QQuickShapeGradient": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN26QQuickAbstractPathRenderer17setStrokeGradientEiP19QQuickShapeGradient": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN26QQuickAbstractPathRenderer22setFillTextureProviderEiP10QQuickItem": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN26QQuickAbstractPathRenderer16setFillTransformEiRK12QSGTransform": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN26QQuickAbstractPathRenderer21setTriangulationScaleEid": [
+      "nothing", "address", "int", "double"
+    ],
+    "ritual_ZN26QQuickAbstractPathRenderer17handleSceneChangeEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QQuickAbstractPathRenderer10updateNodeEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QQuickAbstractPathRenderer": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK26QQuickAbstractPathRenderer5flagsEv": ["int", "address"],
+    "ritual_own_ZN26QQuickAbstractPathRenderer7setPathEiPK10QQuickPath": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZN26QQuickAbstractPathRenderer21setTriangulationScaleEid": [
+      "nothing", "address", "int", "double"
+    ]
+  }
+}

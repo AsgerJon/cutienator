@@ -1,0 +1,31 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/qdesigner_dockwidget_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK19QDesignerDockWidget10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QDesignerDockWidget2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN19QDesignerDockWidgetC1EP7QWidget": ["address", "address"],
+    "ritual_ZN19QDesignerDockWidgetD1Ev": ["nothing", "address"],
+    "ritual_ZNK19QDesignerDockWidget6dockedEv": ["bool", "address"],
+    "ritual_ZN19QDesignerDockWidget9setDockedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK19QDesignerDockWidget14dockWidgetAreaEv": ["int", "address"],
+    "ritual_ZN19QDesignerDockWidget17setDockWidgetAreaEN2Qt14DockWidgetAreaE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK19QDesignerDockWidget12inMainWindowEv": ["bool", "address"],
+    "ritual_ZNK19QDesignerDockWidget10formWindowEv": ["address", "address"],
+    "ritual_ZNK19QDesignerDockWidget14findMainWindowEv": [
+      "address", "address"
+    ],
+    "ritual_take_QDesignerDockWidget": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

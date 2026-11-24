@@ -1,0 +1,62 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLocation/qgeorouterequest.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN16QGeoRouteRequestC1ERK5QListI14QGeoCoordinateE": [
+      "address", "address"
+    ],
+    "ritual_ZN16QGeoRouteRequestC1ERK14QGeoCoordinateS2_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN16QGeoRouteRequestC1ERKS_": ["address", "address"],
+    "ritual_ZN16QGeoRouteRequestD1Ev": ["nothing", "address"],
+    "ritual_ZeqRK16QGeoRouteRequestS1_": ["bool", "address", "address"],
+    "ritual_ZneRK16QGeoRouteRequestS1_": ["bool", "address", "address"],
+    "ritual_ZN16QGeoRouteRequest12setWaypointsERK5QListI14QGeoCoordinateE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QGeoRouteRequest9waypointsEv": ["address", "address"],
+    "ritual_ZN16QGeoRouteRequest15setExcludeAreasERK5QListI13QGeoRectangleE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QGeoRouteRequest12excludeAreasEv": ["address", "address"],
+    "ritual_ZN16QGeoRouteRequest26setNumberAlternativeRoutesEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16QGeoRouteRequest23numberAlternativeRoutesEv": [
+      "int", "address"
+    ],
+    "ritual_ZN16QGeoRouteRequest14setTravelModesE6QFlagsINS_10TravelModeEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16QGeoRouteRequest11travelModesEv": ["int", "address"],
+    "ritual_ZN16QGeoRouteRequest16setFeatureWeightENS_11FeatureTypeENS_13FeatureWeightE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK16QGeoRouteRequest13featureWeightENS_11FeatureTypeE": [
+      "int", "address", "int"
+    ],
+    "ritual_ZN16QGeoRouteRequest20setRouteOptimizationE6QFlagsINS_17RouteOptimizationEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16QGeoRouteRequest17routeOptimizationEv": ["int", "address"],
+    "ritual_ZN16QGeoRouteRequest16setSegmentDetailENS_13SegmentDetailE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16QGeoRouteRequest13segmentDetailEv": ["int", "address"],
+    "ritual_ZN16QGeoRouteRequest17setManeuverDetailENS_14ManeuverDetailE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16QGeoRouteRequest14maneuverDetailEv": ["int", "address"],
+    "ritual_ZN16QGeoRouteRequest16setDepartureTimeERK9QDateTime": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QGeoRouteRequest13departureTimeEv": ["address", "address"],
+    "ritual_ZNK16QGeoRouteRequest7isEqualERKS_": [
+      "bool", "address", "address"
+    ]
+  }
+}

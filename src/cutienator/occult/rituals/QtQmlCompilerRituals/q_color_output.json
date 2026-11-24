@@ -1,0 +1,30 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQmlCompiler/6.12.0/QtQmlCompiler/private/qcoloroutput_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN12QColorOutputC1Ev": ["address"],
+    "ritual_ZN12QColorOutputD1Ev": ["nothing", "address"],
+    "ritual_ZNK12QColorOutput8isSilentEv": ["bool", "address"],
+    "ritual_ZN12QColorOutput9setSilentEb": ["nothing", "address", "bool"],
+    "ritual_ZN12QColorOutput13insertMappingEi6QFlagsINS_18ColorCodeComponentEE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN12QColorOutput14writeUncoloredERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN12QColorOutput5writeE11QStringViewi": [
+      "nothing", "address", "text", "int"
+    ],
+    "ritual_ZN12QColorOutput20writePrefixedMessageERK7QString9QtMsgTypeS2_": [
+      "nothing", "address", "text", "int", "text"
+    ],
+    "ritual_ZNK12QColorOutput8colorifyE11QStringViewi": [
+      "text", "address", "text", "int"
+    ],
+    "ritual_ZN12QColorOutput11flushBufferEv": ["nothing", "address"],
+    "ritual_ZN12QColorOutput13discardBufferEv": ["nothing", "address"]
+  }
+}

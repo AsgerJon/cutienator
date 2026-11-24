@@ -1,0 +1,234 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSvg/6.12.0/QtSvg/private/qsvgvisitor_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11QSvgVisitorC1Ev": ["address"],
+    "ritual_ZN11QSvgVisitorD1Ev": ["nothing", "address"],
+    "ritual_ZN11QSvgVisitor8traverseEPK17QSvgStructureNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QSvgVisitor8traverseEPK8QSvgNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QSvgVisitor9visitNodeEPK8QSvgNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QSvgVisitor23visitStructureNodeStartEPK17QSvgStructureNode": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN11QSvgVisitor21visitStructureNodeEndEPK17QSvgStructureNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QSvgVisitor16visitAnimateNodeEPK15QSvgAnimateNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QSvgVisitor16visitEllipseNodeEPK11QSvgEllipse": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QSvgVisitor14visitImageNodeEPK9QSvgImage": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QSvgVisitor13visitLineNodeEPK8QSvgLine": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QSvgVisitor13visitPathNodeEPK8QSvgPath": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QSvgVisitor16visitPolygonNodeEPK11QSvgPolygon": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QSvgVisitor17visitPolylineNodeEPK12QSvgPolyline": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QSvgVisitor13visitRectNodeEPK8QSvgRect": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QSvgVisitor13visitTextNodeEPK8QSvgText": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QSvgVisitor14visitTspanNodeEPK9QSvgTspan": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QSvgVisitor12visitUseNodeEPK7QSvgUse": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QSvgVisitor14visitVideoNodeEPK9QSvgVideo": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QSvgVisitor22visitDocumentNodeStartEPK12QSvgDocument": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN11QSvgVisitor20visitDocumentNodeEndEPK12QSvgDocument": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QSvgVisitor19visitGroupNodeStartEPK5QSvgG": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN11QSvgVisitor17visitGroupNodeEndEPK5QSvgG": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QSvgVisitor18visitDefsNodeStartEPK8QSvgDefs": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN11QSvgVisitor16visitDefsNodeEndEPK8QSvgDefs": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QSvgVisitor20visitSwitchNodeStartEPK10QSvgSwitch": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN11QSvgVisitor18visitSwitchNodeEndEPK10QSvgSwitch": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QSvgVisitor18visitMaskNodeStartEPK8QSvgMask": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN11QSvgVisitor16visitMaskNodeEndEPK8QSvgMask": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QSvgVisitor20visitSymbolNodeStartEPK10QSvgSymbol": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN11QSvgVisitor18visitSymbolNodeEndEPK10QSvgSymbol": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QSvgVisitor20visitMarkerNodeStartEPK10QSvgMarker": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN11QSvgVisitor18visitMarkerNodeEndEPK10QSvgMarker": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QSvgVisitor21visitPatternNodeStartEPK11QSvgPattern": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN11QSvgVisitor19visitPatternNodeEndEPK11QSvgPattern": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QSvgVisitor20visitFilterNodeStartEPK19QSvgFilterContainer": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN11QSvgVisitor18visitFilterNodeEndEPK19QSvgFilterContainer": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QSvgVisitor31visitFeFilterPrimitiveNodeStartEPK21QSvgFeFilterPrimitive": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN11QSvgVisitor29visitFeFilterPrimitiveNodeEndEPK21QSvgFeFilterPrimitive": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QSvgVisitor": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN11QSvgVisitor8traverseEPK17QSvgStructureNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN11QSvgVisitor8traverseEPK8QSvgNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN11QSvgVisitor9visitNodeEPK8QSvgNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN11QSvgVisitor23visitStructureNodeStartEPK17QSvgStructureNode": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN11QSvgVisitor21visitStructureNodeEndEPK17QSvgStructureNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN11QSvgVisitor16visitAnimateNodeEPK15QSvgAnimateNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN11QSvgVisitor16visitEllipseNodeEPK11QSvgEllipse": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN11QSvgVisitor14visitImageNodeEPK9QSvgImage": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN11QSvgVisitor13visitLineNodeEPK8QSvgLine": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN11QSvgVisitor13visitPathNodeEPK8QSvgPath": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN11QSvgVisitor16visitPolygonNodeEPK11QSvgPolygon": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN11QSvgVisitor17visitPolylineNodeEPK12QSvgPolyline": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN11QSvgVisitor13visitRectNodeEPK8QSvgRect": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN11QSvgVisitor13visitTextNodeEPK8QSvgText": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN11QSvgVisitor14visitTspanNodeEPK9QSvgTspan": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN11QSvgVisitor12visitUseNodeEPK7QSvgUse": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN11QSvgVisitor14visitVideoNodeEPK9QSvgVideo": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN11QSvgVisitor22visitDocumentNodeStartEPK12QSvgDocument": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN11QSvgVisitor20visitDocumentNodeEndEPK12QSvgDocument": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN11QSvgVisitor19visitGroupNodeStartEPK5QSvgG": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN11QSvgVisitor17visitGroupNodeEndEPK5QSvgG": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN11QSvgVisitor18visitDefsNodeStartEPK8QSvgDefs": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN11QSvgVisitor16visitDefsNodeEndEPK8QSvgDefs": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN11QSvgVisitor20visitSwitchNodeStartEPK10QSvgSwitch": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN11QSvgVisitor18visitSwitchNodeEndEPK10QSvgSwitch": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN11QSvgVisitor18visitMaskNodeStartEPK8QSvgMask": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN11QSvgVisitor16visitMaskNodeEndEPK8QSvgMask": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN11QSvgVisitor20visitSymbolNodeStartEPK10QSvgSymbol": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN11QSvgVisitor18visitSymbolNodeEndEPK10QSvgSymbol": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN11QSvgVisitor20visitMarkerNodeStartEPK10QSvgMarker": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN11QSvgVisitor18visitMarkerNodeEndEPK10QSvgMarker": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN11QSvgVisitor21visitPatternNodeStartEPK11QSvgPattern": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN11QSvgVisitor19visitPatternNodeEndEPK11QSvgPattern": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN11QSvgVisitor20visitFilterNodeStartEPK19QSvgFilterContainer": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN11QSvgVisitor18visitFilterNodeEndEPK19QSvgFilterContainer": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN11QSvgVisitor31visitFeFilterPrimitiveNodeStartEPK21QSvgFeFilterPrimitive": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN11QSvgVisitor29visitFeFilterPrimitiveNodeEndEPK21QSvgFeFilterPrimitive": [
+      "nothing", "address", "address"
+    ]
+  }
+}

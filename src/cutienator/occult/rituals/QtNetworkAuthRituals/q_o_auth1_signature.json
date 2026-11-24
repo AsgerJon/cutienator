@@ -1,0 +1,52 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetworkAuth/qoauth1signature.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN16QOAuth1SignatureC1ERKS_": ["address", "address"],
+    "ritual_ZN16QOAuth1SignatureD1Ev": ["nothing", "address"],
+    "ritual_ZNK16QOAuth1Signature17httpRequestMethodEv": ["int", "address"],
+    "ritual_ZN16QOAuth1Signature20setHttpRequestMethodENS_17HttpRequestMethodE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16QOAuth1Signature18customMethodStringEv": [
+      "address", "address"
+    ],
+    "ritual_ZN16QOAuth1Signature21setCustomMethodStringERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QOAuth1Signature3urlEv": ["address", "address"],
+    "ritual_ZN16QOAuth1Signature6setUrlERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QOAuth1Signature14addRequestBodyERK9QUrlQuery": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QOAuth1Signature6insertERK7QStringRK8QVariant": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZNK16QOAuth1Signature4keysEv": ["address", "address"],
+    "ritual_ZN16QOAuth1Signature4takeERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK16QOAuth1Signature5valueERK7QStringRK8QVariant": [
+      "address", "address", "text", "address"
+    ],
+    "ritual_ZNK16QOAuth1Signature15clientSharedKeyEv": ["text", "address"],
+    "ritual_ZN16QOAuth1Signature18setClientSharedKeyERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK16QOAuth1Signature11tokenSecretEv": ["text", "address"],
+    "ritual_ZN16QOAuth1Signature14setTokenSecretERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK16QOAuth1Signature8hmacSha1Ev": ["address", "address"],
+    "ritual_ZNK16QOAuth1Signature7rsaSha1Ev": ["address", "address"],
+    "ritual_ZNK16QOAuth1Signature9plainTextEv": ["address", "address"],
+    "ritual_ZN16QOAuth1Signature9plainTextERK7QStringS2_": [
+      "address", "text", "text"
+    ]
+  }
+}

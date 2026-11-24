@@ -1,0 +1,130 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DParticles/6.12.0/QtQuick3DParticles/private/qquick3dparticlemode",
+    "lblendparticle_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK34QQuick3DParticleModelBlendParticle10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN34QQuick3DParticleModelBlendParticle2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN34QQuick3DParticleModelBlendParticleC1EP12QQuick3DNode": [
+      "address", "address"
+    ],
+    "ritual_ZN34QQuick3DParticleModelBlendParticleD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK34QQuick3DParticleModelBlendParticle8delegateEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK34QQuick3DParticleModelBlendParticle7endNodeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK34QQuick3DParticleModelBlendParticle14modelBlendModeEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK34QQuick3DParticleModelBlendParticle7endTimeEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK34QQuick3DParticleModelBlendParticle14activationNodeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK34QQuick3DParticleModelBlendParticle8emitModeEv": [
+      "int", "address"
+    ],
+    "ritual_ZN34QQuick3DParticleModelBlendParticle11setDelegateEP13QQmlComponent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN34QQuick3DParticleModelBlendParticle10setEndNodeEP12QQuick3DNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN34QQuick3DParticleModelBlendParticle10setEndTimeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN34QQuick3DParticleModelBlendParticle17setModelBlendModeENS_14ModelBlendModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN34QQuick3DParticleModelBlendParticle17setActivationNodeEP12QQuick3DNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN34QQuick3DParticleModelBlendParticle11setEmitModeENS_18ModelBlendEmitModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN34QQuick3DParticleModelBlendParticle10itemChangeEN14QQuick3DObject10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN34QQuick3DParticleModelBlendParticle5resetEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK34QQuick3DParticleModelBlendParticle12lastParticleEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN34QQuick3DParticleModelBlendParticle14doSetMaxAmountEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN34QQuick3DParticleModelBlendParticle17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN34QQuick3DParticleModelBlendParticle16nextCurrentIndexEPK23QQuick3DParticleEmitter": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN34QQuick3DParticleModelBlendParticle15setParticleDataEiRK9QVector3DS2_RK9QVector4Dff": [
+      "nothing", "address", "int", "address", "address", "address", "float",
+      "float"
+    ],
+    "ritual_ZNK34QQuick3DParticleModelBlendParticle14particleCenterEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK34QQuick3DParticleModelBlendParticle19particleEndPositionEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK34QQuick3DParticleModelBlendParticle19particleEndRotationEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN34QQuick3DParticleModelBlendParticle11randomIndexEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZN34QQuick3DParticleModelBlendParticle15commitParticlesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN34QQuick3DParticleModelBlendParticle17updateSpatialNodeEP21QSSGRenderGraphObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN34QQuick3DParticleModelBlendParticle20updateParticleBufferEP18QSSGParticleBufferRK10QMatrix4x4": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN34QQuick3DParticleModelBlendParticle10regenerateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN34QQuick3DParticleModelBlendParticle15updateParticlesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN34QQuick3DParticleModelBlendParticle20handleEndNodeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QQuick3DParticleModelBlendParticle": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN34QQuick3DParticleModelBlendParticle10itemChangeEN14QQuick3DObject10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZN34QQuick3DParticleModelBlendParticle5resetEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN34QQuick3DParticleModelBlendParticle14doSetMaxAmountEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN34QQuick3DParticleModelBlendParticle17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN34QQuick3DParticleModelBlendParticle16nextCurrentIndexEPK23QQuick3DParticleEmitter": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZN34QQuick3DParticleModelBlendParticle17updateSpatialNodeEP21QSSGRenderGraphObject": [
+      "address", "address", "address"
+    ]
+  }
+}

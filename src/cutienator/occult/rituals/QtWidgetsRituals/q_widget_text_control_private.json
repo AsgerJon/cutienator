@@ -1,0 +1,147 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qwidgettextcontrol_p_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN25QWidgetTextControlPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK25QWidgetTextControlPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN25QWidgetTextControlPrivate23updateCurrentCharFormatEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QWidgetTextControlPrivate6indentEv": ["nothing", "address"],
+    "ritual_ZN25QWidgetTextControlPrivate7outdentEv": ["nothing", "address"],
+    "ritual_ZN25QWidgetTextControlPrivate17gotoNextTableCellEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QWidgetTextControlPrivate21gotoPreviousTableCellEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QWidgetTextControlPrivate20createAutoBulletListEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QWidgetTextControlPrivate4initEN2Qt10TextFormatERK7QStringP13QTextDocument": [
+      "nothing", "address", "int", "text", "address"
+    ],
+    "ritual_ZN25QWidgetTextControlPrivate10setContentEN2Qt10TextFormatERK7QStringP13QTextDocument": [
+      "nothing", "address", "int", "text", "address"
+    ],
+    "ritual_ZN25QWidgetTextControlPrivate9startDragEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QWidgetTextControlPrivate17setCursorPositionERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QWidgetTextControlPrivate17setCursorPositionEiN11QTextCursor8MoveModeE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN25QWidgetTextControlPrivate13repaintCursorEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QWidgetTextControlPrivate16repaintSelectionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QWidgetTextControlPrivate25repaintOldAndNewSelectionERK11QTextCursor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QWidgetTextControlPrivate16selectionChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN25QWidgetTextControlPrivate38_q_updateCurrentCharFormatAndSelectionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QWidgetTextControlPrivate21setClipboardSelectionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QWidgetTextControlPrivate23_q_emitCursorPosChangedERK11QTextCursor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QWidgetTextControlPrivate18_q_contentsChangedEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZN25QWidgetTextControlPrivate16setCursorVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN25QWidgetTextControlPrivate20updateCursorBlinkingEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QWidgetTextControlPrivate24extendBlockwiseSelectionEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN25QWidgetTextControlPrivate17_q_deleteSelectedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK25QWidgetTextControlPrivate37cursorRectPlusUnicodeDirectionMarkersERK11QTextCursor": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK25QWidgetTextControlPrivate15rectForPositionEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK25QWidgetTextControlPrivate15anchorForCursorERK11QTextCursor": [
+      "text", "address", "address"
+    ],
+    "ritual_ZN25QWidgetTextControlPrivate23updateHighlightedAnchorE7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QWidgetTextControlPrivate22resetHighlightedAnchorEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QWidgetTextControlPrivate17mouseReleaseEventEP6QEventN2Qt11MouseButtonERK7QPointF6QFlagsINS2_16KeyboardModifierEES7_IS3_ES6_": [
+      "nothing", "address", "address", "int", "address", "int", "int",
+      "address"
+    ],
+    "ritual_ZN25QWidgetTextControlPrivate28sendMouseEventToInputContextEP6QEventNS0_4TypeEN2Qt11MouseButtonERK7QPointF6QFlagsINS3_16KeyboardModifierEES8_IS4_ES7_": [
+      "bool", "address", "address", "int", "int", "address", "int", "int",
+      "address"
+    ],
+    "ritual_ZN25QWidgetTextControlPrivate16contextMenuEventERK7QPointFS2_P7QWidget": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN25QWidgetTextControlPrivate10focusEventEP11QFocusEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QWidgetTextControlPrivate14dragEnterEventEP6QEventPK9QMimeData": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN25QWidgetTextControlPrivate14dragLeaveEventEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QWidgetTextControlPrivate13dragMoveEventEP6QEventPK9QMimeDataRK7QPointF": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZN25QWidgetTextControlPrivate9dropEventEPK9QMimeDataRK7QPointFN2Qt10DropActionEP7QObject": [
+      "bool", "address", "address", "address", "int", "address"
+    ],
+    "ritual_ZN25QWidgetTextControlPrivate16inputMethodEventEP17QInputMethodEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QWidgetTextControlPrivate23activateLinkUnderCursorE7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN25QWidgetTextControlPrivate11showToolTipERK6QPointRK7QPointFP7QWidget": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK25QWidgetTextControlPrivate12isPreeditingEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN25QWidgetTextControlPrivate13commitPreeditEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QWidgetTextControlPrivate24insertParagraphSeparatorEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QWidgetTextControlPrivate6appendERK7QStringN2Qt10TextFormatE": [
+      "nothing", "address", "text", "int"
+    ],
+    "ritual_ZN25QWidgetTextControlPrivate11_q_copyLinkEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QWidgetTextControlPrivate14_q_updateBlockERK10QTextBlock": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QWidgetTextControlPrivate24_q_documentLayoutChangedEv": [
+      "nothing", "address"
+    ]
+  }
+}

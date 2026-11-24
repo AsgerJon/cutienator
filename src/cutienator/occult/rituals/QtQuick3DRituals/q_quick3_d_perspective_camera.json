@@ -1,0 +1,44 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3D/6.12.0/QtQuick3D/private/qquick3dperspectivecamera_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK25QQuick3DPerspectiveCamera10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QQuick3DPerspectiveCamera2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN25QQuick3DPerspectiveCameraC1EP12QQuick3DNode": [
+      "address", "address"
+    ],
+    "ritual_ZNK25QQuick3DPerspectiveCamera8clipNearEv": ["float", "address"],
+    "ritual_ZNK25QQuick3DPerspectiveCamera7clipFarEv": ["float", "address"],
+    "ritual_ZNK25QQuick3DPerspectiveCamera11fieldOfViewEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK25QQuick3DPerspectiveCamera22fieldOfViewOrientationEv": [
+      "int", "address"
+    ],
+    "ritual_ZN25QQuick3DPerspectiveCamera11setClipNearEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN25QQuick3DPerspectiveCamera10setClipFarEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN25QQuick3DPerspectiveCamera14setFieldOfViewEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN25QQuick3DPerspectiveCamera25setFieldOfViewOrientationENS_22FieldOfViewOrientationE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN25QQuick3DPerspectiveCamera17updateSpatialNodeEP21QSSGRenderGraphObject": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN25QQuick3DPerspectiveCamera17updateSpatialNodeEP21QSSGRenderGraphObject": [
+      "address", "address", "address"
+    ]
+  }
+}

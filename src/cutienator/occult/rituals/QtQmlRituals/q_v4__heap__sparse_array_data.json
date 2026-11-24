@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4arraydata_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN3QV44Heap15SparseArrayData7destroyEv": ["nothing", "address"],
+    "ritual_ZNK3QV44Heap15SparseArrayData11mappedIndexEj": [
+      "unsigned int", "address", "unsigned int"
+    ],
+    "ritual_ZNK3QV44Heap15SparseArrayData10attributesEj": [
+      "address", "address", "unsigned int"
+    ]
+  }
+}

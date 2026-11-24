@@ -1,0 +1,44 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/rhi/qrhi.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN24QRhiVertexInputAttributeC1Ev": ["address"],
+    "ritual_ZN24QRhiVertexInputAttributeC1EiiNS_6FormatEji": [
+      "address", "int", "int", "int", "unsigned int", "int"
+    ],
+    "ritual_ZNK24QRhiVertexInputAttribute7bindingEv": ["int", "address"],
+    "ritual_ZN24QRhiVertexInputAttribute10setBindingEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK24QRhiVertexInputAttribute8locationEv": ["int", "address"],
+    "ritual_ZN24QRhiVertexInputAttribute11setLocationEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK24QRhiVertexInputAttribute6formatEv": ["int", "address"],
+    "ritual_ZN24QRhiVertexInputAttribute9setFormatENS_6FormatE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK24QRhiVertexInputAttribute6offsetEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN24QRhiVertexInputAttribute9setOffsetEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZNK24QRhiVertexInputAttribute11matrixSliceEv": [
+      "int", "address"
+    ],
+    "ritual_ZN24QRhiVertexInputAttribute14setMatrixSliceEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZeqRK24QRhiVertexInputAttributeS1_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZneRK24QRhiVertexInputAttributeS1_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN24QRhiVertexInputAttributeD1Ev": ["nothing", "address"]
+  }
+}

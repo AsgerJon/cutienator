@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4writebarrier_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN3QV412WriteBarrier21HeapObjectWrapperBase5clearEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN3QV412WriteBarrier21HeapObjectWrapperBaseD1Ev": [
+      "nothing", "address"
+    ]
+  }
+}

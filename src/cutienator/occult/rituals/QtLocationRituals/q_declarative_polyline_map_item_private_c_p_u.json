@@ -1,0 +1,81 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtLocat",
+    "ion/6.12.0/QtLocation/private/qdeclarativepolylinemapitem_p_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN37QDeclarativePolylineMapItemPrivateCPUD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN37QDeclarativePolylineMapItemPrivateCPU23onLinePropertiesChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN37QDeclarativePolylineMapItemPrivateCPU24markSourceDirtyAndUpdateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN37QDeclarativePolylineMapItemPrivateCPU15regenerateCacheEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN37QDeclarativePolylineMapItemPrivateCPU11updateCacheEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN37QDeclarativePolylineMapItemPrivateCPU20afterViewportChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN37QDeclarativePolylineMapItemPrivateCPU8onMapSetEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN37QDeclarativePolylineMapItemPrivateCPU20onGeoGeometryChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN37QDeclarativePolylineMapItemPrivateCPU20onGeoGeometryUpdatedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN37QDeclarativePolylineMapItemPrivateCPU21onItemGeometryChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN37QDeclarativePolylineMapItemPrivateCPU12updatePolishEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN37QDeclarativePolylineMapItemPrivateCPU22updateMapItemPaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK37QDeclarativePolylineMapItemPrivateCPU8containsERK7QPointF": [
+      "bool", "address", "address"
+    ],
+    "ritual_take_QDeclarativePolylineMapItemPrivateCPU": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN37QDeclarativePolylineMapItemPrivateCPU23onLinePropertiesChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN37QDeclarativePolylineMapItemPrivateCPU24markSourceDirtyAndUpdateEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN37QDeclarativePolylineMapItemPrivateCPU20afterViewportChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN37QDeclarativePolylineMapItemPrivateCPU8onMapSetEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN37QDeclarativePolylineMapItemPrivateCPU20onGeoGeometryChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN37QDeclarativePolylineMapItemPrivateCPU20onGeoGeometryUpdatedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN37QDeclarativePolylineMapItemPrivateCPU21onItemGeometryChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN37QDeclarativePolylineMapItemPrivateCPU12updatePolishEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN37QDeclarativePolylineMapItemPrivateCPU22updateMapItemPaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_own_ZNK37QDeclarativePolylineMapItemPrivateCPU8containsERK7QPointF": [
+      "bool", "address", "address"
+    ]
+  }
+}

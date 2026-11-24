@@ -1,0 +1,31 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtLabsP",
+    "latform/6.12.0/QtLabsPlatform/private/qquicklabsplatformmenuitemgr",
+    "oup_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK31QQuickLabsPlatformMenuItemGroup10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN31QQuickLabsPlatformMenuItemGroupD1Ev": ["nothing", "address"],
+    "ritual_ZNK31QQuickLabsPlatformMenuItemGroup9isEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK31QQuickLabsPlatformMenuItemGroup9isVisibleEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK31QQuickLabsPlatformMenuItemGroup11isExclusiveEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK31QQuickLabsPlatformMenuItemGroup11checkedItemEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK31QQuickLabsPlatformMenuItemGroup11findCurrentEv": [
+      "address", "address"
+    ],
+    "ritual_take_QQuickLabsPlatformMenuItemGroup": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

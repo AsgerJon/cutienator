@@ -1,0 +1,38 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "ShapesDesignHelpers/6.12.0/QtQuickShapesDesignHelpers/private/qqui",
+    "ckregularpolygonshape_p_p.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN32QQuickRegularPolygonShapePrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK32QQuickRegularPolygonShapePrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN32QQuickRegularPolygonShapePrivateC1Ev": ["address"],
+    "ritual_ZN32QQuickRegularPolygonShapePrivateD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN32QQuickRegularPolygonShapePrivate10updatePathEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN32QQuickRegularPolygonShapePrivate12updatePointsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN32QQuickRegularPolygonShapePrivate15updateBisectorsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN32QQuickRegularPolygonShapePrivate20constructPolygonPathEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN32QQuickRegularPolygonShapePrivate27constructRoundedPolygonPathEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QQuickRegularPolygonShapePrivate": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

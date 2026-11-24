@@ -1,0 +1,67 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qmdisubwindow_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QMdiSubWindowPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK20QMdiSubWindowPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN20QMdiSubWindowPrivate23_q_updateStaysOnTopHintEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QMdiSubWindowPrivate16removeBaseWidgetEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QMdiSubWindowPrivate16initOperationMapEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK20QMdiSubWindowPrivate12getOperationERK6QPoint": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN20QMdiSubWindowPrivate17ensureWindowStateEN2Qt11WindowStateE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QMdiSubWindowPrivate19leaveRubberBandModeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK20QMdiSubWindowPrivate14desktopPaletteEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QMdiSubWindowPrivate14setFocusWidgetEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QMdiSubWindowPrivate12restoreFocusEv": ["bool", "address"],
+    "ritual_ZN20QMdiSubWindowPrivate16storeFocusWidgetEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QMdiSubWindowPrivate10setEnabledENS_17WindowStateActionEb": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZN20QMdiSubWindowPrivate15addToSystemMenuENS_17WindowStateActionERK7QStringPKc": [
+      "nothing", "address", "int", "text", "chars"
+    ],
+    "ritual_ZNK20QMdiSubWindowPrivate18setSizeGripVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK20QMdiSubWindowPrivate25originalWindowTitleHelperEv": [
+      "text", "address"
+    ],
+    "ritual_ZN20QMdiSubWindowPrivate14setNewGeometryEP5QRect": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QMdiSubWindowPrivate9hasBorderERK20QStyleOptionTitleBar": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK20QMdiSubWindowPrivate9autoRaiseEv": ["bool", "address"],
+    "ritual_ZNK20QMdiSubWindowPrivate17isResizeOperationEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK20QMdiSubWindowPrivate15isMoveOperationEv": [
+      "bool", "address"
+    ],
+    "ritual_take_QMdiSubWindowPrivate": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

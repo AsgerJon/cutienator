@@ -1,0 +1,67 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLabsStyleKit/6.12.0/QtLabsStyleKit/private/qqstylekitstyle_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK15QQStyleKitStyle10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QQStyleKitStyle2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN15QQStyleKitStyleC1EP7QObject": ["address", "address"],
+    "ritual_ZN15QQStyleKitStyleD1Ev": ["nothing", "address"],
+    "ritual_ZNK15QQStyleKitStyle7paletteEv": ["address", "address"],
+    "ritual_ZNK15QQStyleKitStyle13fallbackStyleEv": ["address", "address"],
+    "ritual_ZN15QQStyleKitStyle16setFallbackStyleEPS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QQStyleKitStyle5lightEv": ["address", "address"],
+    "ritual_ZN15QQStyleKitStyle8setLightEP13QQmlComponent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QQStyleKitStyle4darkEv": ["address", "address"],
+    "ritual_ZN15QQStyleKitStyle7setDarkEP13QQmlComponent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QQStyleKitStyle12customThemesEv": ["address", "address"],
+    "ritual_ZNK15QQStyleKitStyle19availableThemeNamesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK15QQStyleKitStyle16customThemeNamesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN15QQStyleKitStyle12setThemeNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK15QQStyleKitStyle9themeNameEv": ["text", "address"],
+    "ritual_ZNK15QQStyleKitStyle5themeEv": ["address", "address"],
+    "ritual_ZN15QQStyleKitStyle13recreateThemeEv": ["nothing", "address"],
+    "ritual_ZNK15QQStyleKitStyle6loadedEv": ["bool", "address"],
+    "ritual_ZN15QQStyleKitStyle7currentEv": ["address"],
+    "ritual_ZNK15QQStyleKitStyle21paletteForControlTypeEj": [
+      "address", "address", "unsigned int"
+    ],
+    "ritual_ZNK15QQStyleKitStyle18fontForControlTypeEj": [
+      "address", "address", "unsigned int"
+    ],
+    "ritual_ZN15QQStyleKitStyle17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQStyleKitStyle11parseThemesEv": ["nothing", "address"],
+    "ritual_ZN15QQStyleKitStyle12reapplyStyleEv": ["nothing", "address"],
+    "ritual_ZN15QQStyleKitStyle20executeFallbackStyleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN15QQStyleKitStyle16syncFromQPaletteERK8QPalette": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QQStyleKitStyle16effectivePaletteEv": [
+      "address", "address"
+    ],
+    "ritual_take_QQStyleKitStyle": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN15QQStyleKitStyle17componentCompleteEv": [
+      "nothing", "address"
+    ]
+  }
+}

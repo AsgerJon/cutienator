@@ -1,0 +1,46 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLabsSettings/6.12.0/QtLabsSettings/private/qqmlsettings_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK16QQmlSettingsLabs10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QQmlSettingsLabs2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN16QQmlSettingsLabsC1EP7QObject": ["address", "address"],
+    "ritual_ZN16QQmlSettingsLabsD1Ev": ["nothing", "address"],
+    "ritual_ZNK16QQmlSettingsLabs8categoryEv": ["text", "address"],
+    "ritual_ZN16QQmlSettingsLabs11setCategoryERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK16QQmlSettingsLabs8fileNameEv": ["text", "address"],
+    "ritual_ZN16QQmlSettingsLabs11setFileNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK16QQmlSettingsLabs5valueERK7QStringRK8QVariant": [
+      "address", "address", "text", "address"
+    ],
+    "ritual_ZN16QQmlSettingsLabs8setValueERK7QStringRK8QVariant": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZN16QQmlSettingsLabs4syncEv": ["nothing", "address"],
+    "ritual_ZN16QQmlSettingsLabs10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQmlSettingsLabs10classBeginEv": ["nothing", "address"],
+    "ritual_ZN16QQmlSettingsLabs17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_cast_QQmlSettingsLabs_QQmlParserStatus": ["address", "address"],
+    "ritual_take_QQmlSettingsLabs": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN16QQmlSettingsLabs10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16QQmlSettingsLabs10classBeginEv": ["nothing", "address"],
+    "ritual_own_ZN16QQmlSettingsLabs17componentCompleteEv": [
+      "nothing", "address"
+    ]
+  }
+}

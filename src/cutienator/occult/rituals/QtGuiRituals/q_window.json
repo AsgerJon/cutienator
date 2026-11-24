@@ -6,6 +6,8 @@
   "rows": {
     "ritual_ZNK7QWindow10metaObjectEv": ["address", "address"],
     "ritual_ZN7QWindow2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN7QWindow6d_funcEv": ["address", "address"],
+    "ritual_ZNK7QWindow6d_funcEv": ["address", "address"],
     "ritual_ZN7QWindowC1EP7QScreen": ["address", "address"],
     "ritual_ZN7QWindowC1EPS_": ["address", "address"],
     "ritual_ZN7QWindowD1Ev": ["nothing", "address"],
@@ -124,6 +126,7 @@
     "ritual_ZN7QWindow7setIconERK5QIcon": ["nothing", "address", "address"],
     "ritual_ZNK7QWindow4iconEv": ["address", "address"],
     "ritual_ZN7QWindow7destroyEv": ["nothing", "address"],
+    "ritual_ZNK7QWindow6handleEv": ["address", "address"],
     "ritual_ZN7QWindow22setKeyboardGrabEnabledEb": [
       "bool", "address", "bool"
     ],
@@ -239,6 +242,7 @@
     "ritual_ZN7QWindow11tabletEventEP12QTabletEvent": [
       "nothing", "address", "address"
     ],
+    "ritual_ZNK7QWindow13surfaceHandleEv": ["address", "address"],
     "ritual_cast_QWindow_QSurface": ["address", "address"],
     "ritual_take_QWindow": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK7QWindow11surfaceTypeEv": ["int", "address"],
@@ -301,6 +305,7 @@
     "ritual_own_ZN7QWindow11tabletEventEP12QTabletEvent": [
       "nothing", "address", "address"
     ],
+    "ritual_own_ZNK7QWindow13surfaceHandleEv": ["address", "address"],
     "ritual_list_make_QWindow_ptr": ["address"],
     "ritual_list_add_QWindow_ptr": ["nothing", "address", "address"],
     "ritual_list_size_QWindow_ptr": ["long long", "address"],

@@ -1,0 +1,43 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3D/6.12.0/QtQuick3D/private/qquick3dquaternionutils_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK23QQuick3DQuaternionUtils10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QQuick3DQuaternionUtils2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN23QQuick3DQuaternionUtils22qt_qmlMarker_singletonEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuick3DQuaternionUtilsC1EP7QObject": ["address", "address"],
+    "ritual_ZN23QQuick3DQuaternionUtils17fromAxesAndAnglesERK9QVector3DfS2_fS2_f": [
+      "address", "address", "float", "address", "float", "address", "float"
+    ],
+    "ritual_ZN23QQuick3DQuaternionUtils17fromAxesAndAnglesERK9QVector3DfS2_f": [
+      "address", "address", "float", "address", "float"
+    ],
+    "ritual_ZN23QQuick3DQuaternionUtils16fromAxisAndAngleEffff": [
+      "address", "float", "float", "float", "float"
+    ],
+    "ritual_ZN23QQuick3DQuaternionUtils16fromAxisAndAngleERK9QVector3Df": [
+      "address", "address", "float"
+    ],
+    "ritual_ZN23QQuick3DQuaternionUtils15fromEulerAnglesEfff": [
+      "address", "float", "float", "float"
+    ],
+    "ritual_ZN23QQuick3DQuaternionUtils15fromEulerAnglesERK9QVector3D": [
+      "address", "address"
+    ],
+    "ritual_ZN23QQuick3DQuaternionUtils6lookAtERK9QVector3DS2_S2_S2_": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_take_QQuick3DQuaternionUtils": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

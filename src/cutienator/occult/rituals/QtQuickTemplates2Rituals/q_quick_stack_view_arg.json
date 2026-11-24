@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquickstackview_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QQuickStackViewArg22qt_qmlMarker_anonymousEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickStackViewArgC1Ev": ["address"],
+    "ritual_ZN18QQuickStackViewArgC1EP10QQuickItem": ["address", "address"],
+    "ritual_ZN18QQuickStackViewArgC1ERK4QUrl": ["address", "address"],
+    "ritual_ZN18QQuickStackViewArgC1EP13QQmlComponent": [
+      "address", "address"
+    ],
+    "ritual_ZN18QQuickStackViewArgC1ERK4QMapI7QString8QVariantE": [
+      "address", "address"
+    ],
+    "ritual_ZN18QQuickStackViewArgD1Ev": ["nothing", "address"],
+    "ritual_list_make_QQuickStackViewArg": ["address"],
+    "ritual_list_add_QQuickStackViewArg": ["nothing", "address", "address"],
+    "ritual_list_size_QQuickStackViewArg": ["long long", "address"],
+    "ritual_list_at_QQuickStackViewArg": ["address", "address", "long long"],
+    "ritual_list_drop_QQuickStackViewArg": ["nothing", "address"]
+  }
+}

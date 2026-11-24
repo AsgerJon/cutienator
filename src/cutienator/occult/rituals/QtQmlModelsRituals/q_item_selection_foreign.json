@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQmlMo",
+    "dels/6.12.0/QtQmlModels/private/qqmlmodelindexvaluetype_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN21QItemSelectionForeign22qt_qmlMarker_anonymousEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QItemSelectionForeign21qt_qmlMarker_sequenceEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QItemSelectionForeign20qt_qmlMarker_foreignEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QItemSelectionForeignD1Ev": ["nothing", "address"]
+  }
+}

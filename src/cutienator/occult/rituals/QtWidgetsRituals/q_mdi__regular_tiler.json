@@ -1,0 +1,12 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qmdiarea_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK4QMdi12RegularTiler4typeEv": ["int", "address"],
+    "ritual_ZN4QMdi12RegularTilerD1Ev": ["nothing", "address"],
+    "ritual_own_ZNK4QMdi12RegularTiler4typeEv": ["int", "address"]
+  }
+}

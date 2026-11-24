@@ -1,0 +1,510 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qwidget_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN14QWidgetPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK14QWidgetPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN14QWidgetPrivateC1E16QtPrivate_6_12_0": ["address", "int"],
+    "ritual_ZN14QWidgetPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN14QWidgetPrivate3getEP7QWidget": ["address", "address"],
+    "ritual_ZN14QWidgetPrivate3getEPK7QWidget": ["address", "address"],
+    "ritual_ZN14QWidgetPrivate21checkRestoredGeometryERK5QRectPS0_i": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZNK14QWidgetPrivate9extraDataEv": ["address", "address"],
+    "ritual_ZNK14QWidgetPrivate7topDataEv": ["address", "address"],
+    "ritual_ZNK14QWidgetPrivate12maybeTopDataEv": ["address", "address"],
+    "ritual_ZNK14QWidgetPrivate13sharedPainterEv": ["address", "address"],
+    "ritual_ZN14QWidgetPrivate16setSharedPainterEP8QPainter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QWidgetPrivate19maybeRepaintManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK14QWidgetPrivate3rhiEv": ["address", "address"],
+    "ritual_ZNK14QWidgetPrivate12windowHandleENS_16WindowHandleModeE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK14QWidgetPrivate22_q_closestWindowHandleEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK14QWidgetPrivate16associatedScreenEv": ["address", "address"],
+    "ritual_ZN14QWidgetPrivate4initEP7QWidget6QFlagsIN2Qt10WindowTypeEE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN14QWidgetPrivate6createEv": ["nothing", "address"],
+    "ritual_ZN14QWidgetPrivate17createRecursivelyEv": ["nothing", "address"],
+    "ritual_ZN14QWidgetPrivate11createWinIdEv": ["nothing", "address"],
+    "ritual_ZN14QWidgetPrivate17setScreenForPointERK6QPoint": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN14QWidgetPrivate9setScreenEP7QScreen": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN14QWidgetPrivate13createTLExtraEv": ["nothing", "address"],
+    "ritual_ZN14QWidgetPrivate11createExtraEv": ["nothing", "address"],
+    "ritual_ZN14QWidgetPrivate11deleteExtraEv": ["nothing", "address"],
+    "ritual_ZN14QWidgetPrivate14createSysExtraEv": ["nothing", "address"],
+    "ritual_ZN14QWidgetPrivate14deleteSysExtraEv": ["nothing", "address"],
+    "ritual_ZN14QWidgetPrivate16createTLSysExtraEv": ["nothing", "address"],
+    "ritual_ZN14QWidgetPrivate16deleteTLSysExtraEv": ["nothing", "address"],
+    "ritual_ZN14QWidgetPrivate22updateSystemBackgroundEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QWidgetPrivate22propagatePaletteChangeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QWidgetPrivate17setPalette_helperERK8QPalette": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QWidgetPrivate14resolvePaletteEv": ["nothing", "address"],
+    "ritual_ZNK14QWidgetPrivate20naturalWidgetPaletteEy": [
+      "address", "address", "unsigned long long"
+    ],
+    "ritual_ZN14QWidgetPrivate11setMask_sysERK7QRegion": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QWidgetPrivate9raise_sysEv": ["nothing", "address"],
+    "ritual_ZN14QWidgetPrivate9lower_sysEv": ["nothing", "address"],
+    "ritual_ZN14QWidgetPrivate14stackUnder_sysEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QWidgetPrivate17deepestFocusProxyEv": [
+      "address", "address"
+    ],
+    "ritual_ZN14QWidgetPrivate12setFocus_sysEv": ["nothing", "address"],
+    "ritual_ZN14QWidgetPrivate16updateFocusChildEv": ["nothing", "address"],
+    "ritual_ZN14QWidgetPrivate10updateFontERK5QFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QWidgetPrivate14setFont_helperERK5QFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QWidgetPrivate9localFontEv": ["address", "address"],
+    "ritual_ZN14QWidgetPrivate11resolveFontEv": ["nothing", "address"],
+    "ritual_ZNK14QWidgetPrivate17naturalWidgetFontEj": [
+      "address", "address", "unsigned int"
+    ],
+    "ritual_ZN14QWidgetPrivate25setLayoutDirection_helperEN2Qt15LayoutDirectionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN14QWidgetPrivate22resolveLayoutDirectionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QWidgetPrivate16setLocale_helperERK7QLocaleb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN14QWidgetPrivate13resolveLocaleEv": ["nothing", "address"],
+    "ritual_ZN14QWidgetPrivate15setStyle_helperEP6QStyleb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN14QWidgetPrivate12inheritStyleEv": ["nothing", "address"],
+    "ritual_ZN14QWidgetPrivate24setUpdatesEnabled_helperEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK14QWidgetPrivate17updateBrushOriginEP8QPainterRK6QBrush": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZNK14QWidgetPrivate15paintBackgroundEP8QPainterRK7QRegion6QFlagsINS_14DrawWidgetFlagEE": [
+      "nothing", "address", "address", "address", "int"
+    ],
+    "ritual_ZNK14QWidgetPrivate13isAboutToShowEv": ["bool", "address"],
+    "ritual_ZN14QWidgetPrivate15prepareToRenderERK7QRegion6QFlagsIN7QWidget10RenderFlagEE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN14QWidgetPrivate13render_helperEP8QPainterRK6QPointRK7QRegion6QFlagsIN7QWidget10RenderFlagEE": [
+      "nothing", "address", "address", "address", "address", "int"
+    ],
+    "ritual_ZN14QWidgetPrivate6renderEP12QPaintDeviceRK6QPointRK7QRegion6QFlagsIN7QWidget10RenderFlagEE": [
+      "nothing", "address", "address", "address", "address", "int"
+    ],
+    "ritual_ZN14QWidgetPrivate10drawWidgetEP12QPaintDeviceRK7QRegionRK6QPoint6QFlagsINS_14DrawWidgetFlagEEP8QPainterP21QWidgetRepaintManager": [
+      "nothing", "address", "address", "address", "address", "int",
+      "address", "address"
+    ],
+    "ritual_ZN14QWidgetPrivate14sendPaintEventERK7QRegion": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QWidgetPrivate22paintSiblingsRecursiveEP12QPaintDeviceRK5QListIP7QObjectEiRK7QRegionRK6QPoint6QFlagsINS_14DrawWidgetFlagEEP8QPainterP21QWidgetRepaintManager": [
+      "nothing", "address", "address", "address", "int", "address",
+      "address", "int", "address", "address"
+    ],
+    "ritual_ZN14QWidgetPrivate26nearestGraphicsProxyWidgetEPK7QWidget": [
+      "address", "address"
+    ],
+    "ritual_ZNK14QWidgetPrivate19shouldPaintOnScreenEv": ["bool", "address"],
+    "ritual_ZN14QWidgetPrivate13paintOnScreenERK7QRegion": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QWidgetPrivate8clipRectEv": ["address", "address"],
+    "ritual_ZNK14QWidgetPrivate10clipRegionEv": ["address", "address"],
+    "ritual_ZN14QWidgetPrivate13setSystemClipEP12QPaintEnginedRK7QRegion": [
+      "nothing", "address", "address", "double", "address"
+    ],
+    "ritual_ZN14QWidgetPrivate14updateIsOpaqueEv": ["nothing", "address"],
+    "ritual_ZN14QWidgetPrivate9setOpaqueEb": ["nothing", "address", "bool"],
+    "ritual_ZN14QWidgetPrivate19updateIsTranslucentEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QWidgetPrivate36invalidateGraphicsEffectsRecursivelyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK14QWidgetPrivate17getOpaqueChildrenEv": [
+      "address", "address"
+    ],
+    "ritual_ZN14QWidgetPrivate20setDirtyOpaqueRegionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QWidgetPrivate5closeEv": ["bool", "address"],
+    "ritual_ZN14QWidgetPrivate11handleCloseENS_9CloseModeE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN14QWidgetPrivate20setWindowIcon_helperEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QWidgetPrivate17setWindowIcon_sysEv": ["nothing", "address"],
+    "ritual_ZN14QWidgetPrivate20setWindowOpacity_sysEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN14QWidgetPrivate26adjustQuitOnCloseAttributeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QWidgetPrivate14scrollChildrenEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN14QWidgetPrivate8moveRectERK5QRectii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN14QWidgetPrivate10scrollRectERK5QRectii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN14QWidgetPrivate35invalidateBackingStore_resizeHelperERK6QPointRK5QSize": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK14QWidgetPrivate16overlappedRegionERK5QRectb": [
+      "address", "address", "address", "bool"
+    ],
+    "ritual_ZNK14QWidgetPrivate12isOverlappedERK5QRect": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN14QWidgetPrivate16syncBackingStoreEv": ["nothing", "address"],
+    "ritual_ZN14QWidgetPrivate16syncBackingStoreERK7QRegion": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QWidgetPrivate24shouldDiscardSyncRequestEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN14QWidgetPrivate21updateWidgetTransformEP6QEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QWidgetPrivate20reparentFocusWidgetsEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QWidgetPrivate8setWinIdEy": [
+      "nothing", "address", "unsigned long long"
+    ],
+    "ritual_ZN14QWidgetPrivate12showChildrenEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN14QWidgetPrivate12hideChildrenEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN14QWidgetPrivate13setParent_sysEP7QWidget6QFlagsIN2Qt10WindowTypeEE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN14QWidgetPrivate21reparentWidgetWindowsEP7QWidget6QFlagsIN2Qt10WindowTypeEE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN14QWidgetPrivate28reparentWidgetWindowChildrenEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QWidgetPrivate10scroll_sysEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN14QWidgetPrivate10scroll_sysEiiRK5QRect": [
+      "nothing", "address", "int", "int", "address"
+    ],
+    "ritual_ZN14QWidgetPrivate23deactivateWidgetCleanupEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QWidgetPrivate15setGeometry_sysEiiiib": [
+      "nothing", "address", "int", "int", "int", "int", "bool"
+    ],
+    "ritual_ZN14QWidgetPrivate19fixPosIncludesFrameEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QWidgetPrivate30sendPendingMoveAndResizeEventsEbb": [
+      "nothing", "address", "bool", "bool"
+    ],
+    "ritual_ZN14QWidgetPrivate31activateChildLayoutsRecursivelyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QWidgetPrivate14show_recursiveEv": ["nothing", "address"],
+    "ritual_ZN14QWidgetPrivate11show_helperEv": ["nothing", "address"],
+    "ritual_ZN14QWidgetPrivate8show_sysEv": ["nothing", "address"],
+    "ritual_ZN14QWidgetPrivate8hide_sysEv": ["nothing", "address"],
+    "ritual_ZN14QWidgetPrivate11hide_helperEv": ["nothing", "address"],
+    "ritual_ZNK14QWidgetPrivate18isExplicitlyHiddenEv": ["bool", "address"],
+    "ritual_ZN14QWidgetPrivate18_q_showIfNotHiddenEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QWidgetPrivate10setVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN14QWidgetPrivate17setEnabled_helperEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN14QWidgetPrivate16updateFrameStrutEv": ["nothing", "address"],
+    "ritual_ZNK14QWidgetPrivate10frameStrutEv": ["address", "address"],
+    "ritual_ZN14QWidgetPrivate21setWindowIconText_sysERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN14QWidgetPrivate24setWindowIconText_helperERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN14QWidgetPrivate18setWindowTitle_sysERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN14QWidgetPrivate21setWindowFilePath_sysERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN14QWidgetPrivate13setCursor_sysERK7QCursor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QWidgetPrivate15unsetCursor_sysEv": ["nothing", "address"],
+    "ritual_ZN14QWidgetPrivate21setWindowTitle_helperERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN14QWidgetPrivate24setWindowFilePath_helperERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN14QWidgetPrivate24setWindowModified_helperEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QWidgetPrivate14setWindowFlagsE6QFlagsIN2Qt10WindowTypeEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN14QWidgetPrivate21setMinimumSize_helperERiS0_": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN14QWidgetPrivate21setMaximumSize_helperERiS0_": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN14QWidgetPrivate18setConstraints_sysEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK14QWidgetPrivate22pointInsideRectAndMaskERK7QPointF": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK14QWidgetPrivate14childAt_helperERK7QPointFb": [
+      "address", "address", "address", "bool"
+    ],
+    "ritual_ZNK14QWidgetPrivate22childAtRecursiveHelperERK7QPointFb": [
+      "address", "address", "address", "bool"
+    ],
+    "ritual_ZN14QWidgetPrivate21updateGeometry_helperEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK14QWidgetPrivate20getLayoutItemMarginsEPiS0_S0_S0_": [
+      "nothing", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN14QWidgetPrivate20setLayoutItemMarginsEiiii": [
+      "nothing", "address", "int", "int", "int", "int"
+    ],
+    "ritual_ZN14QWidgetPrivate20setLayoutItemMarginsEN6QStyle10SubElementEPK12QStyleOption": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN14QWidgetPrivate18updateContentsRectEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK14QWidgetPrivate15safeAreaMarginsEv": ["address", "address"],
+    "ritual_ZN14QWidgetPrivate14aboutToDestroyEv": ["nothing", "address"],
+    "ritual_ZN14QWidgetPrivate8recreateEv": ["nothing", "address"],
+    "ritual_ZN14QWidgetPrivate20effectiveFocusWidgetEv": [
+      "address", "address"
+    ],
+    "ritual_ZN14QWidgetPrivate12setModal_sysEv": ["nothing", "address"],
+    "ritual_ZN14QWidgetPrivate18parentGraphicsViewEPK7QWidget": [
+      "address", "address"
+    ],
+    "ritual_ZN14QWidgetPrivate14screenGeometryEPK7QWidget": [
+      "address", "address"
+    ],
+    "ritual_ZN14QWidgetPrivate23availableScreenGeometryEPK7QWidget": [
+      "address", "address"
+    ],
+    "ritual_ZN14QWidgetPrivate6screenEPK7QWidgetRK6QPointb": [
+      "address", "address", "address", "bool"
+    ],
+    "ritual_ZN14QWidgetPrivate14screenGeometryEPK7QWidgetRK6QPointb": [
+      "address", "address", "address", "bool"
+    ],
+    "ritual_ZN14QWidgetPrivate23availableScreenGeometryEPK7QWidgetRK6QPointb": [
+      "address", "address", "address", "bool"
+    ],
+    "ritual_ZN14QWidgetPrivate13setRedirectedEP12QPaintDeviceRK6QPoint": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK14QWidgetPrivate10redirectedEP6QPoint": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN14QWidgetPrivate17restoreRedirectedEv": ["nothing", "address"],
+    "ritual_ZN14QWidgetPrivate21enforceNativeChildrenEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK14QWidgetPrivate20nativeChildrenForcedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK14QWidgetPrivate16effectiveRectForERK7QRegion": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK14QWidgetPrivate16effectiveRectForERK5QRect": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK14QWidgetPrivate12adjustedSizeEv": ["address", "address"],
+    "ritual_ZN14QWidgetPrivate24handleSoftwareInputPanelEN2Qt11MouseButtonEb": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZN14QWidgetPrivate24handleSoftwareInputPanelEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN14QWidgetPrivate13setWSGeometryEv": ["nothing", "address"],
+    "ritual_ZNK14QWidgetPrivate7mapToWSERK6QPoint": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK14QWidgetPrivate9mapFromWSERK6QPoint": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK14QWidgetPrivate7mapToWSERK5QRect": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK14QWidgetPrivate9mapFromWSERK5QRect": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN14QWidgetPrivate11focusObjectEv": ["address", "address"],
+    "ritual_ZNK14QWidgetPrivate9rhiConfigEv": ["address", "address"],
+    "ritual_ZNK14QWidgetPrivate7textureEv": ["address", "address"],
+    "ritual_ZN14QWidgetPrivate16textureListFlagsEv": ["int", "address"],
+    "ritual_ZN14QWidgetPrivate15grabFramebufferEv": ["address", "address"],
+    "ritual_ZN14QWidgetPrivate25beginBackingStorePaintingEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QWidgetPrivate23endBackingStorePaintingEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QWidgetPrivate12beginComposeEv": ["nothing", "address"],
+    "ritual_ZN14QWidgetPrivate10endComposeEv": ["nothing", "address"],
+    "ritual_ZN14QWidgetPrivate18setRenderToTextureEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QWidgetPrivate19setTextureChildSeenEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QWidgetPrivate17sendComposeStatusEP7QWidgetb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN14QWidgetPrivate29initializeViewportFramebufferEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QWidgetPrivate25resizeViewportFramebufferEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QWidgetPrivate14resolveSamplesEv": ["nothing", "address"],
+    "ritual_ZN14QWidgetPrivate15isStereoEnabledEv": ["bool", "address"],
+    "ritual_ZN14QWidgetPrivate24toggleStereoTargetBufferEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN14QWidgetPrivate21setWidgetParentHelperEP7QObjectS1_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QWidgetPrivate35closestParentWidgetWithWindowHandleEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK14QWidgetPrivate27nextPrevElementInFocusChainENS_14FocusDirectionE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN14QWidgetPrivate20removeFromFocusChainE6QFlagsINS_21FocusChainRemovalRuleEENS_14FocusDirectionE": [
+      "bool", "address", "int", "int"
+    ],
+    "ritual_ZN14QWidgetPrivate20insertIntoFocusChainENS_14FocusDirectionEP7QWidget": [
+      "bool", "address", "int", "address"
+    ],
+    "ritual_ZN14QWidgetPrivate20insertIntoFocusChainERK5QListIP7QWidgetENS_14FocusDirectionES2_": [
+      "bool", "address", "int", "address"
+    ],
+    "ritual_ZN14QWidgetPrivate26insertIntoFocusChainBeforeEP7QWidget": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN14QWidgetPrivate25insertIntoFocusChainAfterEP7QWidget": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN14QWidgetPrivate18takeFromFocusChainEP7QWidgetS1_NS_14FocusDirectionE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN14QWidgetPrivate21reparentFocusChildrenENS_14FocusDirectionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN14QWidgetPrivate23determineLastFocusChildEP7QWidget": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN14QWidgetPrivate14initFocusChainEv": ["nothing", "address"],
+    "ritual_ZNK14QWidgetPrivate14isInFocusChainEv": ["bool", "address"],
+    "ritual_ZNK14QWidgetPrivate22isFocusChainConsistentEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN14QWidgetPrivate19setNetWmWindowTypesEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN14QWidgetPrivate17stealKeyboardGrabEb": [
+      "bool", "address", "bool"
+    ],
+    "ritual_ZN14QWidgetPrivate14stealMouseGrabEb": [
+      "bool", "address", "bool"
+    ],
+    "ritual_ZNK14QWidgetPrivate23hasChildWithFocusPolicyEN2Qt11FocusPolicyEPK7QWidget": [
+      "bool", "address", "int", "address"
+    ],
+    "ritual_take_QWidgetPrivate": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN14QWidgetPrivate10setVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZN14QWidgetPrivate14setWindowFlagsE6QFlagsIN2Qt10WindowTypeEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN14QWidgetPrivate14aboutToDestroyEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN14QWidgetPrivate8recreateEv": ["nothing", "address"],
+    "ritual_own_ZN14QWidgetPrivate11focusObjectEv": ["address", "address"],
+    "ritual_own_ZNK14QWidgetPrivate9rhiConfigEv": ["address", "address"],
+    "ritual_own_ZNK14QWidgetPrivate7textureEv": ["address", "address"],
+    "ritual_own_ZN14QWidgetPrivate16textureListFlagsEv": ["int", "address"],
+    "ritual_own_ZN14QWidgetPrivate15grabFramebufferEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN14QWidgetPrivate25beginBackingStorePaintingEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN14QWidgetPrivate23endBackingStorePaintingEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN14QWidgetPrivate12beginComposeEv": ["nothing", "address"],
+    "ritual_own_ZN14QWidgetPrivate10endComposeEv": ["nothing", "address"],
+    "ritual_own_ZN14QWidgetPrivate29initializeViewportFramebufferEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN14QWidgetPrivate25resizeViewportFramebufferEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN14QWidgetPrivate14resolveSamplesEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN14QWidgetPrivate15isStereoEnabledEv": ["bool", "address"],
+    "ritual_own_ZN14QWidgetPrivate24toggleStereoTargetBufferEv": [
+      "bool", "address"
+    ]
+  }
+}

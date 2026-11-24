@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qgraphicssceneevent.h, Qt 6.12.0. Changes made here are lost.
+#include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(graphicsview)
 #include <QtWidgets/qgraphicssceneevent.h>
 #include <QtCore/qsize.h>
 #include <cstring>
@@ -101,3 +103,5 @@ bool ritual_take_QGraphicsSceneResizeEvent(
     void *call) {
   return static_cast<CuteQGraphicsSceneResizeEvent *>(self)->take(key, call);
 }
+
+#endif  // QT_CONFIG(graphicsview)

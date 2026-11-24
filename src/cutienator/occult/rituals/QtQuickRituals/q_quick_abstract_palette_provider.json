@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickabstractpaletteprovider_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN29QQuickAbstractPaletteProviderD1Ev": ["nothing", "address"],
+    "ritual_ZNK29QQuickAbstractPaletteProvider14defaultPaletteEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK29QQuickAbstractPaletteProvider13parentPaletteERK8QPalette": [
+      "address", "address", "address"
+    ],
+    "ritual_take_QQuickAbstractPaletteProvider": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK29QQuickAbstractPaletteProvider13parentPaletteERK8QPalette": [
+      "address", "address", "address"
+    ]
+  }
+}

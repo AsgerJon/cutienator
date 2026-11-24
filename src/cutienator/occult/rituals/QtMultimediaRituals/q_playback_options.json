@@ -1,0 +1,33 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtMultimedia/qplaybackoptions.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN16QPlaybackOptionsC1Ev": ["address"],
+    "ritual_ZN16QPlaybackOptionsC1ERKS_": ["address", "address"],
+    "ritual_ZN16QPlaybackOptionsD1Ev": ["nothing", "address"],
+    "ritual_ZN16QPlaybackOptions19resetNetworkTimeoutEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK16QPlaybackOptions14playbackIntentEv": ["int", "address"],
+    "ritual_ZN16QPlaybackOptions17setPlaybackIntentENS_14PlaybackIntentE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16QPlaybackOptions19resetPlaybackIntentEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK16QPlaybackOptions9probeSizeEv": ["long long", "address"],
+    "ritual_ZN16QPlaybackOptions12setProbeSizeEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN16QPlaybackOptions14resetProbeSizeEv": ["nothing", "address"],
+    "ritual_ZeqRK16QPlaybackOptionsS1_": ["bool", "address", "address"],
+    "ritual_ZneRK16QPlaybackOptionsS1_": ["bool", "address", "address"],
+    "ritual_ZltRK16QPlaybackOptionsS1_": ["bool", "address", "address"],
+    "ritual_ZgtRK16QPlaybackOptionsS1_": ["bool", "address", "address"],
+    "ritual_ZleRK16QPlaybackOptionsS1_": ["bool", "address", "address"],
+    "ritual_ZgeRK16QPlaybackOptionsS1_": ["bool", "address", "address"]
+  }
+}

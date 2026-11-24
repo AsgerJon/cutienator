@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtBluet",
+    "ooth/6.12.0/QtBluetooth/private/qlowenergycontroller_bluezdbus_p.h",
+    ", Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK36QLowEnergyControllerPrivateBluezDBus3mtuEv": [
+      "int", "address"
+    ],
+    "ritual_ZN36QLowEnergyControllerPrivateBluezDBus35handlePeripheralRemoteDeviceChangedERK17QBluetoothAddressRK7QStringt": [
+      "nothing", "address", "address", "text", "unsigned short"
+    ]
+  }
+}

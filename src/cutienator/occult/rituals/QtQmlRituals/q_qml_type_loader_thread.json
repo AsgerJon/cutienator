@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmltypeloaderthread_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QQmlTypeLoaderThreadD1Ev": ["nothing", "address"],
+    "ritual_ZN20QQmlTypeLoaderThread23initializeExtensionMainEP22QQmlExtensionInterfacePKc": [
+      "nothing", "address", "address", "chars"
+    ],
+    "ritual_ZN20QQmlTypeLoaderThread29initializeEngineExtensionMainEP28QQmlEngineExtensionInterfacePKc": [
+      "nothing", "address", "address", "chars"
+    ]
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qrhinull_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN12QNullTextureC1EP18QRhiImplementationN11QRhiTexture6FormatERK5QSizeiii6QFlagsINS2_4FlagEE": [
+      "address", "address", "int", "address", "int", "int", "int", "int"
+    ],
+    "ritual_ZN12QNullTextureD1Ev": ["nothing", "address"],
+    "ritual_ZN12QNullTexture7destroyEv": ["nothing", "address"],
+    "ritual_ZN12QNullTexture6createEv": ["bool", "address"],
+    "ritual_ZN12QNullTexture10createFromEN11QRhiTexture13NativeTextureE": [
+      "bool", "address", "address"
+    ],
+    "ritual_take_QNullTexture": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN12QNullTexture7destroyEv": ["nothing", "address"],
+    "ritual_own_ZN12QNullTexture6createEv": ["bool", "address"],
+    "ritual_own_ZN12QNullTexture10createFromEN11QRhiTexture13NativeTextureE": [
+      "bool", "address", "address"
+    ]
+  }
+}

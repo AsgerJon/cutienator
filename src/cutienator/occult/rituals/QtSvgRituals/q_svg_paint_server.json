@@ -1,0 +1,12 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSvg/6.12.0/QtSvg/private/qsvgpaintserver_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QSvgPaintServerD1Ev": ["nothing", "address"],
+    "ritual_ZNK15QSvgPaintServer4typeEv": ["signed char", "address"],
+    "ritual_take_QSvgPaintServer": ["bool", "address", "chars", "address"]
+  }
+}

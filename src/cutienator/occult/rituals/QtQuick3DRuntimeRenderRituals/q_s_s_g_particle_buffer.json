@@ -1,0 +1,32 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgrenderpa",
+    "rticles_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QSSGParticleBuffer6resizeEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN18QSSGParticleBuffer10resizeLineEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN18QSSGParticleBuffer9setBoundsERK11QSSGBounds3": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QSSGParticleBuffer7pointerEv": ["chars", "address"],
+    "ritual_ZNK18QSSGParticleBuffer17particlesPerSliceEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK18QSSGParticleBuffer11sliceStrideEv": ["int", "address"],
+    "ritual_ZNK18QSSGParticleBuffer13particleCountEv": ["int", "address"],
+    "ritual_ZNK18QSSGParticleBuffer10sliceCountEv": ["int", "address"],
+    "ritual_ZNK18QSSGParticleBuffer4sizeEv": ["address", "address"],
+    "ritual_ZNK18QSSGParticleBuffer4dataEv": ["address", "address"],
+    "ritual_ZNK18QSSGParticleBuffer6boundsEv": ["address", "address"],
+    "ritual_ZNK18QSSGParticleBuffer10bufferSizeEv": ["int", "address"],
+    "ritual_ZNK18QSSGParticleBuffer6serialEv": ["int", "address"],
+    "ritual_ZNK18QSSGParticleBuffer8segmentsEv": ["int", "address"],
+    "ritual_ZN18QSSGParticleBufferD1Ev": ["nothing", "address"]
+  }
+}

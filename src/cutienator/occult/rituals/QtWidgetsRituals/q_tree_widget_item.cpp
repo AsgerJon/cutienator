@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qtreewidget.h, Qt 6.12.0. Changes made here are lost.
+#include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(treewidget)
 #include <QtWidgets/qtreewidget.h>
 #include <QtCore/qstring.h>
 #include <QtGui/qicon.h>
@@ -13,9 +15,15 @@
 //  A QTreeWidgetItem that Python can take functions over in. Every QTreeWidgetItem
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if QT_CONFIG(treewidget)
 typedef void * (*CuteQTreeWidgetItemCall0)(const void *, int *);
+#endif  // QT_CONFIG(treewidget)
+#if QT_CONFIG(treewidget)
 typedef const QVariant * (*CuteQTreeWidgetItemCall1)(const void *, int, int, int *);
+#endif  // QT_CONFIG(treewidget)
+#if QT_CONFIG(treewidget)
 typedef void (*CuteQTreeWidgetItemCall2)(const void *, int, int, const QVariant *, int *);
+#endif  // QT_CONFIG(treewidget)
 class CuteQTreeWidgetItem : public QTreeWidgetItem {
 public:
   using QTreeWidgetItem::QTreeWidgetItem;
@@ -23,21 +31,28 @@ public:
   void *taken[3] = {};
 
   bool take(const char *key, void *call) {
+#if QT_CONFIG(treewidget)
     if (!std::strcmp(key, "_ZNK15QTreeWidgetItem5cloneEv")) {
       taken[0] = call;
       return true;
     }
+#endif  // QT_CONFIG(treewidget)
+#if QT_CONFIG(treewidget)
     if (!std::strcmp(key, "_ZNK15QTreeWidgetItem4dataEii")) {
       taken[1] = call;
       return true;
     }
+#endif  // QT_CONFIG(treewidget)
+#if QT_CONFIG(treewidget)
     if (!std::strcmp(key, "_ZN15QTreeWidgetItem7setDataEiiRK8QVariant")) {
       taken[2] = call;
       return true;
     }
+#endif  // QT_CONFIG(treewidget)
     return false;
   }
 
+#if QT_CONFIG(treewidget)
   //  QTreeWidgetItem *QTreeWidgetItem::clone() const
   QTreeWidgetItem *clone() const override {
     if (taken[0]) {
@@ -48,7 +63,9 @@ public:
     }
     return QTreeWidgetItem::clone();
   }
+#endif  // QT_CONFIG(treewidget)
 
+#if QT_CONFIG(treewidget)
   //  QVariant QTreeWidgetItem::data(int column, int role) const
   QVariant data(int column, int role) const override {
     if (taken[1]) {
@@ -59,7 +76,9 @@ public:
     }
     return QTreeWidgetItem::data(column, role);
   }
+#endif  // QT_CONFIG(treewidget)
 
+#if QT_CONFIG(treewidget)
   //  void QTreeWidgetItem::setData(int column, int role, const QVariant
   //      &value)
   void setData(int column, int role, const QVariant &value) override {
@@ -71,6 +90,7 @@ public:
     }
     QTreeWidgetItem::setData(column, role, value);
   }
+#endif  // QT_CONFIG(treewidget)
 };
 
 //  QTreeWidgetItem::QTreeWidgetItem(int type)
@@ -323,6 +343,7 @@ void ritual_ZN15QTreeWidgetItem12setStatusTipEiRK7QString(
   self->setStatusTip(column, *statusTip);
 }
 
+#if QT_CONFIG(tooltip)
 //  QString QTreeWidgetItem::toolTip(int column) const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK15QTreeWidgetItem7toolTipEi(
@@ -330,7 +351,9 @@ QString *ritual_ZNK15QTreeWidgetItem7toolTipEi(
     int column) {
   return new QString(self->toolTip(column));
 }
+#endif  // QT_CONFIG(tooltip)
 
+#if QT_CONFIG(tooltip)
 //  void QTreeWidgetItem::setToolTip(int column, const QString &toolTip)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QTreeWidgetItem10setToolTipEiRK7QString(
@@ -339,7 +362,9 @@ void ritual_ZN15QTreeWidgetItem10setToolTipEiRK7QString(
     const QString *toolTip) {
   self->setToolTip(column, *toolTip);
 }
+#endif  // QT_CONFIG(tooltip)
 
+#if QT_CONFIG(whatsthis)
 //  QString QTreeWidgetItem::whatsThis(int column) const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK15QTreeWidgetItem9whatsThisEi(
@@ -347,7 +372,9 @@ QString *ritual_ZNK15QTreeWidgetItem9whatsThisEi(
     int column) {
   return new QString(self->whatsThis(column));
 }
+#endif  // QT_CONFIG(whatsthis)
 
+#if QT_CONFIG(whatsthis)
 //  void QTreeWidgetItem::setWhatsThis(int column, const QString &whatsThis)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QTreeWidgetItem12setWhatsThisEiRK7QString(
@@ -356,6 +383,7 @@ void ritual_ZN15QTreeWidgetItem12setWhatsThisEiRK7QString(
     const QString *whatsThis) {
   self->setWhatsThis(column, *whatsThis);
 }
+#endif  // QT_CONFIG(whatsthis)
 
 //  QFont QTreeWidgetItem::font(int column) const
 extern "C" Q_DECL_EXPORT
@@ -374,6 +402,7 @@ void ritual_ZN15QTreeWidgetItem7setFontEiRK5QFont(
   self->setFont(column, *font);
 }
 
+#if QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
 //  int QTreeWidgetItem::textAlignment(int column) const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK15QTreeWidgetItem13textAlignmentEi(
@@ -381,7 +410,9 @@ int ritual_ZNK15QTreeWidgetItem13textAlignmentEi(
     int column) {
   return self->textAlignment(column);
 }
+#endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
 
+#if QT_DEPRECATED_SINCE(6, 4)
 //  void QTreeWidgetItem::setTextAlignment(int column, int alignment)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QTreeWidgetItem16setTextAlignmentEii(
@@ -390,7 +421,9 @@ void ritual_ZN15QTreeWidgetItem16setTextAlignmentEii(
     int alignment) {
   self->setTextAlignment(column, alignment);
 }
+#endif  // QT_DEPRECATED_SINCE(6, 4)
 
+#if QT_DEPRECATED_SINCE(6, 4)
 //  void QTreeWidgetItem::setTextAlignment(int column, Qt::AlignmentFlag
 //      alignment)
 extern "C" Q_DECL_EXPORT
@@ -400,6 +433,7 @@ void ritual_ZN15QTreeWidgetItem16setTextAlignmentEiN2Qt13AlignmentFlagE(
     Qt::AlignmentFlag alignment) {
   self->setTextAlignment(column, alignment);
 }
+#endif  // QT_DEPRECATED_SINCE(6, 4)
 
 //  void QTreeWidgetItem::setTextAlignment(int column, Qt::Alignment
 //      alignment)
@@ -735,3 +769,5 @@ extern "C" Q_DECL_EXPORT
 void ritual_list_drop_QTreeWidgetItem_ptr(QList<QTreeWidgetItem *> *self) {
   delete self;
 }
+
+#endif  // QT_CONFIG(treewidget)

@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSql/qsqldriverplugin.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK16QSqlDriverPlugin10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QSqlDriverPlugin2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN16QSqlDriverPluginD1Ev": ["nothing", "address"],
+    "ritual_ZN16QSqlDriverPlugin6createERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_take_QSqlDriverPlugin": ["bool", "address", "chars", "address"]
+  }
+}

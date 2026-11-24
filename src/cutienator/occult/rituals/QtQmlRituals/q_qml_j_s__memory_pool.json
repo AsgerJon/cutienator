@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmljsmemorypool_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN6QQmlJS10MemoryPoolC1Ev": ["address"],
+    "ritual_ZN6QQmlJS10MemoryPoolD1Ev": ["nothing", "address"],
+    "ritual_ZN6QQmlJS10MemoryPool5resetEv": ["nothing", "address"],
+    "ritual_ZN6QQmlJS10MemoryPool9newStringE7QString": [
+      "text", "address", "text"
+    ]
+  }
+}

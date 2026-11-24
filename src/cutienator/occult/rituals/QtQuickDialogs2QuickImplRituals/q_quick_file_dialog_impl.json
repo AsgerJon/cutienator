@@ -1,0 +1,74 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Dialogs2QuickImpl/6.12.0/QtQuickDialogs2QuickImpl/private/qquickfi",
+    "ledialogimpl_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK20QQuickFileDialogImpl10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QQuickFileDialogImpl2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN20QQuickFileDialogImpl21qt_qmlMarker_attachedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickFileDialogImplC1EP7QObject": ["address", "address"],
+    "ritual_ZN20QQuickFileDialogImpl21qmlAttachedPropertiesEP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QQuickFileDialogImpl13currentFolderEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QQuickFileDialogImpl16setCurrentFolderERK4QUrlNS_9SetReasonE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZNK20QQuickFileDialogImpl12selectedFileEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QQuickFileDialogImpl15setSelectedFileERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickFileDialogImpl38setInitialCurrentFolderAndSelectedFileERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QQuickFileDialogImpl11nameFiltersEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QQuickFileDialogImpl16resetNameFiltersEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK20QQuickFileDialogImpl18selectedNameFilterEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QQuickFileDialogImpl14setAcceptLabelERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN20QQuickFileDialogImpl14setRejectLabelERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK20QQuickFileDialogImpl8fileNameEv": ["text", "address"],
+    "ritual_ZN20QQuickFileDialogImpl11setFileNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK20QQuickFileDialogImpl17currentFolderNameEv": [
+      "text", "address"
+    ],
+    "ritual_ZN20QQuickFileDialogImpl16selectNameFilterERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN20QQuickFileDialogImpl17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickFileDialogImpl10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN20QQuickFileDialogImpl6d_funcEv": ["address", "address"],
+    "ritual_ZNK20QQuickFileDialogImpl6d_funcEv": ["address", "address"],
+    "ritual_own_ZN20QQuickFileDialogImpl17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN20QQuickFileDialogImpl10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ]
+  }
+}

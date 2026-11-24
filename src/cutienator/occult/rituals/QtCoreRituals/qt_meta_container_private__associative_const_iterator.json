@@ -1,0 +1,20 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qmetaassociation.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK22QtMetaContainerPrivate24AssociativeConstIterator3keyEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK22QtMetaContainerPrivate24AssociativeConstIterator5valueEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK22QtMetaContainerPrivate24AssociativeConstIteratordeEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QtMetaContainerPrivate24AssociativeConstIteratorD1Ev": [
+      "nothing", "address"
+    ]
+  }
+}

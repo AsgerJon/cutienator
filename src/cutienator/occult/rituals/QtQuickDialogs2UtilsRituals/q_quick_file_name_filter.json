@@ -1,0 +1,30 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Dialogs2Utils/6.12.0/QtQuickDialogs2Utils/private/qquickfilenamefi",
+    "lter_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK20QQuickFileNameFilter10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QQuickFileNameFilter2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN20QQuickFileNameFilterC1EP7QObject": ["address", "address"],
+    "ritual_ZNK20QQuickFileNameFilter5indexEv": ["int", "address"],
+    "ritual_ZN20QQuickFileNameFilter8setIndexEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK20QQuickFileNameFilter4nameEv": ["text", "address"],
+    "ritual_ZNK20QQuickFileNameFilter10extensionsEv": ["address", "address"],
+    "ritual_ZNK20QQuickFileNameFilter5globsEv": ["address", "address"],
+    "ritual_ZN20QQuickFileNameFilter6updateERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK20QQuickFileNameFilter11nameFiltersEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QQuickFileNameFilter10nameFilterEi": [
+      "text", "address", "int"
+    ]
+  }
+}

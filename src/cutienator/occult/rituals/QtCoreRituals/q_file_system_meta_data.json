@@ -1,0 +1,53 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qfilesystemmetadata_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QFileSystemMetaDataC1Ev": ["address"],
+    "ritual_ZNK19QFileSystemMetaData8hasFlagsE6QFlagsINS_12MetaDataFlagEE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN19QFileSystemMetaData12missingFlagsE6QFlagsINS_12MetaDataFlagEE": [
+      "int", "address", "int"
+    ],
+    "ritual_ZN19QFileSystemMetaData5clearEv": ["nothing", "address"],
+    "ritual_ZN19QFileSystemMetaData10clearFlagsE6QFlagsINS_12MetaDataFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK19QFileSystemMetaData6existsEv": ["bool", "address"],
+    "ritual_ZNK19QFileSystemMetaData6isLinkEv": ["bool", "address"],
+    "ritual_ZNK19QFileSystemMetaData6isFileEv": ["bool", "address"],
+    "ritual_ZNK19QFileSystemMetaData11isDirectoryEv": ["bool", "address"],
+    "ritual_ZNK19QFileSystemMetaData8isBundleEv": ["bool", "address"],
+    "ritual_ZNK19QFileSystemMetaData7isAliasEv": ["bool", "address"],
+    "ritual_ZNK19QFileSystemMetaData12isLegacyLinkEv": ["bool", "address"],
+    "ritual_ZNK19QFileSystemMetaData12isSequentialEv": ["bool", "address"],
+    "ritual_ZNK19QFileSystemMetaData8isHiddenEv": ["bool", "address"],
+    "ritual_ZNK19QFileSystemMetaData10wasDeletedEv": ["bool", "address"],
+    "ritual_ZNK19QFileSystemMetaData9isLnkFileEv": ["bool", "address"],
+    "ritual_ZNK19QFileSystemMetaData10isJunctionEv": ["bool", "address"],
+    "ritual_ZNK19QFileSystemMetaData4sizeEv": ["long long", "address"],
+    "ritual_ZN19QFileSystemMetaData14setPermissionsE6QFlagsIN11QFileDevice10PermissionEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK19QFileSystemMetaData10accessTimeEv": ["address", "address"],
+    "ritual_ZNK19QFileSystemMetaData9birthTimeEv": ["address", "address"],
+    "ritual_ZNK19QFileSystemMetaData18metadataChangeTimeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QFileSystemMetaData16modificationTimeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QFileSystemMetaData6userIdEv": ["unsigned int", "address"],
+    "ritual_ZNK19QFileSystemMetaData7groupIdEv": ["unsigned int", "address"],
+    "ritual_ZNK19QFileSystemMetaData7ownerIdEN19QAbstractFileEngine9FileOwnerE": [
+      "unsigned int", "address", "int"
+    ],
+    "ritual_ZNK19QFileSystemMetaData10isReadableEv": ["bool", "address"],
+    "ritual_ZNK19QFileSystemMetaData10isWritableEv": ["bool", "address"],
+    "ritual_ZNK19QFileSystemMetaData12isExecutableEv": ["bool", "address"],
+    "ritual_ZN19QFileSystemMetaDataD1Ev": ["nothing", "address"]
+  }
+}

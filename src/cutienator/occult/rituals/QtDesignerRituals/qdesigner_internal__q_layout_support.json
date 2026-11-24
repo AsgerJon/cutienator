@@ -1,0 +1,69 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/qlayout_widget_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18qdesigner_internal14QLayoutSupport10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal14QLayoutSupport2trEPKcS2_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZNK18qdesigner_internal14QLayoutSupport10formWindowEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal14QLayoutSupport6helperEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal14QLayoutSupport12currentIndexEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal14QLayoutSupport17currentInsertModeEv": [
+      "int", "address"
+    ],
+    "ritual_ZN18qdesigner_internal14QLayoutSupport38setCurrentCellFromIndicatorOnEmptyCellEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18qdesigner_internal14QLayoutSupport27setCurrentCellFromIndicatorEN2Qt11OrientationEii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZNK18qdesigner_internal14QLayoutSupport16extendedGeometryEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK18qdesigner_internal14QLayoutSupport28supportsIndicatorOrientationEN2Qt11OrientationE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK18qdesigner_internal14QLayoutSupport6widgetEv": [
+      "address", "address"
+    ],
+    "ritual_cast_qdesigner_internal_QLayoutSupport_QDesignerLayoutDecorationExtension": [
+      "address", "address"
+    ],
+    "ritual_take_qdesigner_internal_QLayoutSupport": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK18qdesigner_internal14QLayoutSupport12currentIndexEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZNK18qdesigner_internal14QLayoutSupport17currentInsertModeEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZNK18qdesigner_internal14QLayoutSupport10findItemAtERK6QPoint": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZNK18qdesigner_internal14QLayoutSupport7indexOfEP7QWidget": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZNK18qdesigner_internal14QLayoutSupport7indexOfEP11QLayoutItem": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZN18qdesigner_internal14QLayoutSupport15adjustIndicatorERK6QPointi": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_own_ZNK18qdesigner_internal14QLayoutSupport8itemInfoEi": [
+      "address", "address", "int"
+    ]
+  }
+}

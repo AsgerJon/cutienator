@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDBus/6.12.0/QtDBus/private/qdbusabstractadaptor_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK21QDBusAdaptorConnector11AdaptorDataltERKS0_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK21QDBusAdaptorConnector11AdaptorDataltERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZNK21QDBusAdaptorConnector11AdaptorDataltE14QByteArrayView": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN21QDBusAdaptorConnector11AdaptorDataD1Ev": [
+      "nothing", "address"
+    ]
+  }
+}

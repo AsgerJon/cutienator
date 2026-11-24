@@ -1,0 +1,39 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtHttpServer/6.12.0/QtHttpServer/private/qhttpserverparser_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN17QHttpServerParserC1ERK12QHostAddresstS2_tP24QHttpServerRequestFilter": [
+      "address", "address", "unsigned short", "address", "unsigned short",
+      "address"
+    ],
+    "ritual_ZN17QHttpServerParser12sendContinueEP9QIODevice": [
+      "long long", "address", "address"
+    ],
+    "ritual_ZN17QHttpServerParser12readBodyFastEP9QIODevice": [
+      "long long", "address", "address"
+    ],
+    "ritual_ZN17QHttpServerParser18readRequestBodyRawEP9QIODevicex": [
+      "long long", "address", "address", "long long"
+    ],
+    "ritual_ZN17QHttpServerParser12getChunkSizeEP9QIODevicePx": [
+      "long long", "address", "address", "address"
+    ],
+    "ritual_ZN17QHttpServerParser16isUrlSizeAllowedE14QByteArrayView": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN17QHttpServerParser5clearEv": ["nothing", "address"],
+    "ritual_ZNK17QHttpServerParser13contentLengthEv": [
+      "long long", "address"
+    ],
+    "ritual_ZNK17QHttpServerParser11headerFieldERK10QByteArray": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK17QHttpServerParser25getClientIpAddressAndPortEv": [
+      "text", "address"
+    ],
+    "ritual_ZN17QHttpServerParserD1Ev": ["nothing", "address"]
+  }
+}

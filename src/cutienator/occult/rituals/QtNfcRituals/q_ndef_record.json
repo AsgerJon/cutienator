@@ -1,0 +1,45 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNfc/qndefrecord.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11QNdefRecordC1Ev": ["address"],
+    "ritual_ZN11QNdefRecordD1Ev": ["nothing", "address"],
+    "ritual_ZN11QNdefRecordC1ERKS_": ["address", "address"],
+    "ritual_ZN11QNdefRecord17setTypeNameFormatENS_14TypeNameFormatE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11QNdefRecord14typeNameFormatEv": ["int", "address"],
+    "ritual_ZN11QNdefRecord7setTypeERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QNdefRecord4typeEv": ["address", "address"],
+    "ritual_ZN11QNdefRecord5setIdERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QNdefRecord2idEv": ["address", "address"],
+    "ritual_ZN11QNdefRecord10setPayloadERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QNdefRecord7payloadEv": ["address", "address"],
+    "ritual_ZNK11QNdefRecord7isEmptyEv": ["bool", "address"],
+    "ritual_ZNK11QNdefRecordeqERKS_": ["bool", "address", "address"],
+    "ritual_ZNK11QNdefRecordneERKS_": ["bool", "address", "address"],
+    "ritual_ZN11QNdefRecord5clearEv": ["nothing", "address"],
+    "ritual_ZN11QNdefRecordC1ERKS_NS_14TypeNameFormatERK10QByteArray": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_ZN11QNdefRecordC1ERKS_NS_14TypeNameFormatE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN11QNdefRecordC1ENS_14TypeNameFormatERK10QByteArray": [
+      "address", "int", "address"
+    ],
+    "ritual_list_make_QNdefRecord": ["address"],
+    "ritual_list_add_QNdefRecord": ["nothing", "address", "address"],
+    "ritual_list_size_QNdefRecord": ["long long", "address"],
+    "ritual_list_at_QNdefRecord": ["address", "address", "long long"],
+    "ritual_list_drop_QNdefRecord": ["nothing", "address"]
+  }
+}

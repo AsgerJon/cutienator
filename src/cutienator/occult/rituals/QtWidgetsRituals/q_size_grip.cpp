@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qsizegrip.h, Qt 6.12.0. Changes made here are lost.
+#include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(sizegrip)
 #include <QtWidgets/qsizegrip.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qsize.h>
@@ -24,24 +26,52 @@ struct OwnQSizeGrip : QSizeGrip {
 //  A QSizeGrip that Python can take functions over in. Every QSizeGrip
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if QT_CONFIG(sizegrip)
 typedef const QSize * (*CuteQSizeGripCall0)(const void *, int *);
+#endif  // QT_CONFIG(sizegrip)
+#if QT_CONFIG(sizegrip)
 typedef void (*CuteQSizeGripCall1)(const void *, bool, int *);
+#endif  // QT_CONFIG(sizegrip)
+#if QT_CONFIG(sizegrip)
 typedef void (*CuteQSizeGripCall2)(const void *, QPaintEvent *, int *);
+#endif  // QT_CONFIG(sizegrip)
+#if QT_CONFIG(sizegrip)
 typedef void (*CuteQSizeGripCall3)(const void *, QMouseEvent *, int *);
+#endif  // QT_CONFIG(sizegrip)
+#if QT_CONFIG(sizegrip)
 typedef void (*CuteQSizeGripCall4)(const void *, QMouseEvent *, int *);
+#endif  // QT_CONFIG(sizegrip)
+#if QT_CONFIG(sizegrip)
 typedef void (*CuteQSizeGripCall5)(const void *, QMouseEvent *, int *);
+#endif  // QT_CONFIG(sizegrip)
+#if QT_CONFIG(sizegrip)
 typedef void (*CuteQSizeGripCall6)(const void *, QMoveEvent *, int *);
+#endif  // QT_CONFIG(sizegrip)
+#if QT_CONFIG(sizegrip)
 typedef void (*CuteQSizeGripCall7)(const void *, QShowEvent *, int *);
+#endif  // QT_CONFIG(sizegrip)
+#if QT_CONFIG(sizegrip)
 typedef void (*CuteQSizeGripCall8)(const void *, QHideEvent *, int *);
+#endif  // QT_CONFIG(sizegrip)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(sizegrip)
 typedef bool (*CuteQSizeGripCall9)(const void *, QObject *, QEvent *, int *);
+#endif  // QT_CONFIG(sizegrip)
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(sizegrip)
 typedef bool (*CuteQSizeGripCall10)(const void *, QEvent *, int *);
+#endif  // QT_CONFIG(sizegrip)
+#endif  // !defined(QT_NO_QOBJECT)
 typedef int (*CuteQSizeGripCall11)(const void *, int *);
 typedef const QSize * (*CuteQSizeGripCall12)(const void *, int *);
 typedef int (*CuteQSizeGripCall13)(const void *, int, int *);
 typedef bool (*CuteQSizeGripCall14)(const void *, int *);
 typedef void * (*CuteQSizeGripCall15)(const void *, int *);
 typedef void (*CuteQSizeGripCall16)(const void *, QMouseEvent *, int *);
+#if QT_CONFIG(wheelevent)
 typedef void (*CuteQSizeGripCall17)(const void *, QWheelEvent *, int *);
+#endif  // QT_CONFIG(wheelevent)
 typedef void (*CuteQSizeGripCall18)(const void *, QKeyEvent *, int *);
 typedef void (*CuteQSizeGripCall19)(const void *, QKeyEvent *, int *);
 typedef void (*CuteQSizeGripCall20)(const void *, QFocusEvent *, int *);
@@ -50,13 +80,27 @@ typedef void (*CuteQSizeGripCall22)(const void *, QEnterEvent *, int *);
 typedef void (*CuteQSizeGripCall23)(const void *, QEvent *, int *);
 typedef void (*CuteQSizeGripCall24)(const void *, QResizeEvent *, int *);
 typedef void (*CuteQSizeGripCall25)(const void *, QCloseEvent *, int *);
+#if !defined(QT_NO_CONTEXTMENU)
 typedef void (*CuteQSizeGripCall26)(const void *, QContextMenuEvent *, int *);
+#endif  // !defined(QT_NO_CONTEXTMENU)
+#if QT_CONFIG(tabletevent)
 typedef void (*CuteQSizeGripCall27)(const void *, QTabletEvent *, int *);
+#endif  // QT_CONFIG(tabletevent)
+#if !defined(QT_NO_ACTION)
 typedef void (*CuteQSizeGripCall28)(const void *, QActionEvent *, int *);
+#endif  // !defined(QT_NO_ACTION)
+#if QT_CONFIG(draganddrop)
 typedef void (*CuteQSizeGripCall29)(const void *, QDragEnterEvent *, int *);
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
 typedef void (*CuteQSizeGripCall30)(const void *, QDragMoveEvent *, int *);
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
 typedef void (*CuteQSizeGripCall31)(const void *, QDragLeaveEvent *, int *);
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
 typedef void (*CuteQSizeGripCall32)(const void *, QDropEvent *, int *);
+#endif  // QT_CONFIG(draganddrop)
 typedef void (*CuteQSizeGripCall33)(const void *, QEvent *, int *);
 typedef int (*CuteQSizeGripCall34)(const void *, int, int *);
 typedef void (*CuteQSizeGripCall35)(const void *, QPainter *, int *);
@@ -65,61 +109,97 @@ typedef void * (*CuteQSizeGripCall37)(const void *, int *);
 typedef void (*CuteQSizeGripCall38)(const void *, QInputMethodEvent *, int *);
 typedef const QVariant * (*CuteQSizeGripCall39)(const void *, int, int *);
 typedef bool (*CuteQSizeGripCall40)(const void *, bool, int *);
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQSizeGripCall41)(const void *, QTimerEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQSizeGripCall42)(const void *, QChildEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQSizeGripCall43)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQSizeGripCall44)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQSizeGripCall45)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 class CuteQSizeGrip : public QSizeGrip {
 public:
   using QSizeGrip::QSizeGrip;
   void *taken[46] = {};
 
   bool take(const char *key, void *call) {
+#if QT_CONFIG(sizegrip)
     if (!std::strcmp(key, "_ZNK7QWidget8sizeHintEv")) {
       taken[0] = call;
       return true;
     }
+#endif  // QT_CONFIG(sizegrip)
+#if QT_CONFIG(sizegrip)
     if (!std::strcmp(key, "_ZN7QWidget10setVisibleEb")) {
       taken[1] = call;
       return true;
     }
+#endif  // QT_CONFIG(sizegrip)
+#if QT_CONFIG(sizegrip)
     if (!std::strcmp(key, "_ZN7QWidget10paintEventEP11QPaintEvent")) {
       taken[2] = call;
       return true;
     }
+#endif  // QT_CONFIG(sizegrip)
+#if QT_CONFIG(sizegrip)
     if (!std::strcmp(key, "_ZN7QWidget15mousePressEventEP11QMouseEvent")) {
       taken[3] = call;
       return true;
     }
+#endif  // QT_CONFIG(sizegrip)
+#if QT_CONFIG(sizegrip)
     if (!std::strcmp(key, "_ZN7QWidget14mouseMoveEventEP11QMouseEvent")) {
       taken[4] = call;
       return true;
     }
+#endif  // QT_CONFIG(sizegrip)
+#if QT_CONFIG(sizegrip)
     if (!std::strcmp(key, "_ZN7QWidget17mouseReleaseEventEP11QMouseEvent")) {
       taken[5] = call;
       return true;
     }
+#endif  // QT_CONFIG(sizegrip)
+#if QT_CONFIG(sizegrip)
     if (!std::strcmp(key, "_ZN7QWidget9moveEventEP10QMoveEvent")) {
       taken[6] = call;
       return true;
     }
+#endif  // QT_CONFIG(sizegrip)
+#if QT_CONFIG(sizegrip)
     if (!std::strcmp(key, "_ZN7QWidget9showEventEP10QShowEvent")) {
       taken[7] = call;
       return true;
     }
+#endif  // QT_CONFIG(sizegrip)
+#if QT_CONFIG(sizegrip)
     if (!std::strcmp(key, "_ZN7QWidget9hideEventEP10QHideEvent")) {
       taken[8] = call;
       return true;
     }
+#endif  // QT_CONFIG(sizegrip)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(sizegrip)
     if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[9] = call;
       return true;
     }
+#endif  // QT_CONFIG(sizegrip)
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(sizegrip)
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[10] = call;
       return true;
     }
+#endif  // QT_CONFIG(sizegrip)
+#endif  // !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZNK12QPaintDevice7devTypeEv")) {
       taken[11] = call;
       return true;
@@ -144,10 +224,12 @@ public:
       taken[16] = call;
       return true;
     }
+#if QT_CONFIG(wheelevent)
     if (!std::strcmp(key, "_ZN7QWidget10wheelEventEP11QWheelEvent")) {
       taken[17] = call;
       return true;
     }
+#endif  // QT_CONFIG(wheelevent)
     if (!std::strcmp(key, "_ZN7QWidget13keyPressEventEP9QKeyEvent")) {
       taken[18] = call;
       return true;
@@ -180,34 +262,48 @@ public:
       taken[25] = call;
       return true;
     }
+#if !defined(QT_NO_CONTEXTMENU)
     if (!std::strcmp(key, "_ZN7QWidget16contextMenuEventEP17QContextMenuEvent")) {
       taken[26] = call;
       return true;
     }
+#endif  // !defined(QT_NO_CONTEXTMENU)
+#if QT_CONFIG(tabletevent)
     if (!std::strcmp(key, "_ZN7QWidget11tabletEventEP12QTabletEvent")) {
       taken[27] = call;
       return true;
     }
+#endif  // QT_CONFIG(tabletevent)
+#if !defined(QT_NO_ACTION)
     if (!std::strcmp(key, "_ZN7QWidget11actionEventEP12QActionEvent")) {
       taken[28] = call;
       return true;
     }
+#endif  // !defined(QT_NO_ACTION)
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget14dragEnterEventEP15QDragEnterEvent")) {
       taken[29] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget13dragMoveEventEP14QDragMoveEvent")) {
       taken[30] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget14dragLeaveEventEP15QDragLeaveEvent")) {
       taken[31] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget9dropEventEP10QDropEvent")) {
       taken[32] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget11changeEventEP6QEvent")) {
       taken[33] = call;
       return true;
@@ -240,29 +336,40 @@ public:
       taken[40] = call;
       return true;
     }
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[41] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[42] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[43] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[44] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
       taken[45] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
     return false;
   }
 
+#if QT_CONFIG(sizegrip)
   //  QSize QSizeGrip::sizeHint() const
   QSize sizeHint() const override {
     if (taken[0]) {
@@ -273,7 +380,9 @@ public:
     }
     return QSizeGrip::sizeHint();
   }
+#endif  // QT_CONFIG(sizegrip)
 
+#if QT_CONFIG(sizegrip)
   //  void QSizeGrip::setVisible(bool a0)
   void setVisible(bool a0) override {
     if (taken[1]) {
@@ -284,7 +393,9 @@ public:
     }
     QSizeGrip::setVisible(a0);
   }
+#endif  // QT_CONFIG(sizegrip)
 
+#if QT_CONFIG(sizegrip)
   //  void QSizeGrip::paintEvent(QPaintEvent *a0)
   void paintEvent(QPaintEvent *a0) override {
     if (taken[2]) {
@@ -295,7 +406,9 @@ public:
     }
     QSizeGrip::paintEvent(a0);
   }
+#endif  // QT_CONFIG(sizegrip)
 
+#if QT_CONFIG(sizegrip)
   //  void QSizeGrip::mousePressEvent(QMouseEvent *a0)
   void mousePressEvent(QMouseEvent *a0) override {
     if (taken[3]) {
@@ -306,7 +419,9 @@ public:
     }
     QSizeGrip::mousePressEvent(a0);
   }
+#endif  // QT_CONFIG(sizegrip)
 
+#if QT_CONFIG(sizegrip)
   //  void QSizeGrip::mouseMoveEvent(QMouseEvent *a0)
   void mouseMoveEvent(QMouseEvent *a0) override {
     if (taken[4]) {
@@ -317,7 +432,9 @@ public:
     }
     QSizeGrip::mouseMoveEvent(a0);
   }
+#endif  // QT_CONFIG(sizegrip)
 
+#if QT_CONFIG(sizegrip)
   //  void QSizeGrip::mouseReleaseEvent(QMouseEvent *mouseEvent)
   void mouseReleaseEvent(QMouseEvent *mouseEvent) override {
     if (taken[5]) {
@@ -328,7 +445,9 @@ public:
     }
     QSizeGrip::mouseReleaseEvent(mouseEvent);
   }
+#endif  // QT_CONFIG(sizegrip)
 
+#if QT_CONFIG(sizegrip)
   //  void QSizeGrip::moveEvent(QMoveEvent *moveEvent)
   void moveEvent(QMoveEvent *moveEvent) override {
     if (taken[6]) {
@@ -339,7 +458,9 @@ public:
     }
     QSizeGrip::moveEvent(moveEvent);
   }
+#endif  // QT_CONFIG(sizegrip)
 
+#if QT_CONFIG(sizegrip)
   //  void QSizeGrip::showEvent(QShowEvent *showEvent)
   void showEvent(QShowEvent *showEvent) override {
     if (taken[7]) {
@@ -350,7 +471,9 @@ public:
     }
     QSizeGrip::showEvent(showEvent);
   }
+#endif  // QT_CONFIG(sizegrip)
 
+#if QT_CONFIG(sizegrip)
   //  void QSizeGrip::hideEvent(QHideEvent *hideEvent)
   void hideEvent(QHideEvent *hideEvent) override {
     if (taken[8]) {
@@ -361,7 +484,10 @@ public:
     }
     QSizeGrip::hideEvent(hideEvent);
   }
+#endif  // QT_CONFIG(sizegrip)
 
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(sizegrip)
   //  bool QSizeGrip::eventFilter(QObject *a0, QEvent *a1)
   bool eventFilter(QObject *a0, QEvent *a1) override {
     if (taken[9]) {
@@ -372,7 +498,11 @@ public:
     }
     return QSizeGrip::eventFilter(a0, a1);
   }
+#endif  // QT_CONFIG(sizegrip)
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(sizegrip)
   //  bool QSizeGrip::event(QEvent *a0)
   bool event(QEvent *a0) override {
     if (taken[10]) {
@@ -383,6 +513,8 @@ public:
     }
     return QSizeGrip::event(a0);
   }
+#endif  // QT_CONFIG(sizegrip)
+#endif  // !defined(QT_NO_QOBJECT)
 
   //  int QWidget::devType() const
   int devType() const override {
@@ -450,6 +582,7 @@ public:
     QWidget::mouseDoubleClickEvent(event);
   }
 
+#if QT_CONFIG(wheelevent)
   //  void QWidget::wheelEvent(QWheelEvent *event)
   void wheelEvent(QWheelEvent *event) override {
     if (taken[17]) {
@@ -460,6 +593,7 @@ public:
     }
     QWidget::wheelEvent(event);
   }
+#endif  // QT_CONFIG(wheelevent)
 
   //  void QWidget::keyPressEvent(QKeyEvent *event)
   void keyPressEvent(QKeyEvent *event) override {
@@ -549,6 +683,7 @@ public:
     QWidget::closeEvent(event);
   }
 
+#if !defined(QT_NO_CONTEXTMENU)
   //  void QWidget::contextMenuEvent(QContextMenuEvent *event)
   void contextMenuEvent(QContextMenuEvent *event) override {
     if (taken[26]) {
@@ -559,7 +694,9 @@ public:
     }
     QWidget::contextMenuEvent(event);
   }
+#endif  // !defined(QT_NO_CONTEXTMENU)
 
+#if QT_CONFIG(tabletevent)
   //  void QWidget::tabletEvent(QTabletEvent *event)
   void tabletEvent(QTabletEvent *event) override {
     if (taken[27]) {
@@ -570,7 +707,9 @@ public:
     }
     QWidget::tabletEvent(event);
   }
+#endif  // QT_CONFIG(tabletevent)
 
+#if !defined(QT_NO_ACTION)
   //  void QWidget::actionEvent(QActionEvent *event)
   void actionEvent(QActionEvent *event) override {
     if (taken[28]) {
@@ -581,7 +720,9 @@ public:
     }
     QWidget::actionEvent(event);
   }
+#endif  // !defined(QT_NO_ACTION)
 
+#if QT_CONFIG(draganddrop)
   //  void QWidget::dragEnterEvent(QDragEnterEvent *event)
   void dragEnterEvent(QDragEnterEvent *event) override {
     if (taken[29]) {
@@ -592,7 +733,9 @@ public:
     }
     QWidget::dragEnterEvent(event);
   }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
   //  void QWidget::dragMoveEvent(QDragMoveEvent *event)
   void dragMoveEvent(QDragMoveEvent *event) override {
     if (taken[30]) {
@@ -603,7 +746,9 @@ public:
     }
     QWidget::dragMoveEvent(event);
   }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
   //  void QWidget::dragLeaveEvent(QDragLeaveEvent *event)
   void dragLeaveEvent(QDragLeaveEvent *event) override {
     if (taken[31]) {
@@ -614,7 +759,9 @@ public:
     }
     QWidget::dragLeaveEvent(event);
   }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
   //  void QWidget::dropEvent(QDropEvent *event)
   void dropEvent(QDropEvent *event) override {
     if (taken[32]) {
@@ -625,6 +772,7 @@ public:
     }
     QWidget::dropEvent(event);
   }
+#endif  // QT_CONFIG(draganddrop)
 
   //  void QWidget::changeEvent(QEvent *a0)
   void changeEvent(QEvent *a0) override {
@@ -714,6 +862,7 @@ public:
     return QWidget::focusNextPrevChild(next);
   }
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
     if (taken[41]) {
@@ -724,7 +873,9 @@ public:
     }
     QObject::timerEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
     if (taken[42]) {
@@ -735,7 +886,9 @@ public:
     }
     QObject::childEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
     if (taken[43]) {
@@ -746,7 +899,9 @@ public:
     }
     QObject::customEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
     if (taken[44]) {
@@ -757,7 +912,9 @@ public:
     }
     QObject::connectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
     if (taken[45]) {
@@ -768,6 +925,7 @@ public:
     }
     QObject::disconnectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 };
 
 //  const QMetaObject *QSizeGrip::metaObject() const
@@ -973,3 +1131,5 @@ extern "C" Q_DECL_EXPORT
 bool ritual_own_ZN9QSizeGrip5eventEP6QEvent(QSizeGrip *self, QEvent *a0) {
   return static_cast<OwnQSizeGrip *>(self)->OwnQSizeGrip::event(a0);
 }
+
+#endif  // QT_CONFIG(sizegrip)

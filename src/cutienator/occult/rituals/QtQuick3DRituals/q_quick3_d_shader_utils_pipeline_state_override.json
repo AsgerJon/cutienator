@@ -1,0 +1,208 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3D/6.12.0/QtQuick3D/private/qquick3dshaderutils_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK40QQuick3DShaderUtilsPipelineStateOverride10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN40QQuick3DShaderUtilsPipelineStateOverrideC1Ev": ["address"],
+    "ritual_ZN40QQuick3DShaderUtilsPipelineStateOverrideD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK40QQuick3DShaderUtilsPipelineStateOverride16depthTestEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride19setDepthTestEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride21resetDepthTestEnabledEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK40QQuick3DShaderUtilsPipelineStateOverride17depthWriteEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride20setDepthWriteEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride22resetDepthWriteEnabledEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK40QQuick3DShaderUtilsPipelineStateOverride12blendEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride15setBlendEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride17resetBlendEnabledEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK40QQuick3DShaderUtilsPipelineStateOverride20usesStencilReferenceEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride23setUsesStencilReferenceEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride25resetUsesStencilReferenceEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK40QQuick3DShaderUtilsPipelineStateOverride11usesScissorEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride14setUsesScissorEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride16resetUsesScissorEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK40QQuick3DShaderUtilsPipelineStateOverride13depthFunctionEv": [
+      "int", "address"
+    ],
+    "ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride16setDepthFunctionENS_16CompareOperationE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride18resetDepthFunctionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK40QQuick3DShaderUtilsPipelineStateOverride8cullModeEv": [
+      "int", "address"
+    ],
+    "ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride11setCullModeENS_8CullModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride13resetCullModeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK40QQuick3DShaderUtilsPipelineStateOverride11polygonModeEv": [
+      "int", "address"
+    ],
+    "ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride14setPolygonModeENS_11PolygonModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride16resetPolygonModeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK40QQuick3DShaderUtilsPipelineStateOverride16stencilWriteMaskEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride19setStencilWriteMaskEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride21resetStencilWriteMaskEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK40QQuick3DShaderUtilsPipelineStateOverride16stencilReferenceEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride19setStencilReferenceEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride21resetStencilReferenceEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK40QQuick3DShaderUtilsPipelineStateOverride8viewportEv": [
+      "address", "address"
+    ],
+    "ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride11setViewportERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride13resetViewportEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK40QQuick3DShaderUtilsPipelineStateOverride7scissorEv": [
+      "address", "address"
+    ],
+    "ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride10setScissorERK5QRect": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride12resetScissorEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK40QQuick3DShaderUtilsPipelineStateOverride12targetBlend0Ev": [
+      "address", "address"
+    ],
+    "ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride15setTargetBlend0ERK29QQuick3DRenderPassTargetBlend": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride17resetTargetBlend0Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK40QQuick3DShaderUtilsPipelineStateOverride12targetBlend1Ev": [
+      "address", "address"
+    ],
+    "ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride15setTargetBlend1ERK29QQuick3DRenderPassTargetBlend": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride17resetTargetBlend1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK40QQuick3DShaderUtilsPipelineStateOverride12targetBlend2Ev": [
+      "address", "address"
+    ],
+    "ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride15setTargetBlend2ERK29QQuick3DRenderPassTargetBlend": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride17resetTargetBlend2Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK40QQuick3DShaderUtilsPipelineStateOverride12targetBlend3Ev": [
+      "address", "address"
+    ],
+    "ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride15setTargetBlend3ERK29QQuick3DRenderPassTargetBlend": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride17resetTargetBlend3Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK40QQuick3DShaderUtilsPipelineStateOverride12targetBlend4Ev": [
+      "address", "address"
+    ],
+    "ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride15setTargetBlend4ERK29QQuick3DRenderPassTargetBlend": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride17resetTargetBlend4Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK40QQuick3DShaderUtilsPipelineStateOverride12targetBlend5Ev": [
+      "address", "address"
+    ],
+    "ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride15setTargetBlend5ERK29QQuick3DRenderPassTargetBlend": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride17resetTargetBlend5Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK40QQuick3DShaderUtilsPipelineStateOverride12targetBlend6Ev": [
+      "address", "address"
+    ],
+    "ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride15setTargetBlend6ERK29QQuick3DRenderPassTargetBlend": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride17resetTargetBlend6Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK40QQuick3DShaderUtilsPipelineStateOverride12targetBlend7Ev": [
+      "address", "address"
+    ],
+    "ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride15setTargetBlend7ERK29QQuick3DRenderPassTargetBlend": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride17resetTargetBlend7Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN40QQuick3DShaderUtilsPipelineStateOverride12cloneCommandEv": [
+      "address", "address"
+    ],
+    "ritual_take_QQuick3DShaderUtilsPipelineStateOverride": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN40QQuick3DShaderUtilsPipelineStateOverride12cloneCommandEv": [
+      "address", "address"
+    ]
+  }
+}

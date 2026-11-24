@@ -1,0 +1,31 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/abstractsettings.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN26QDesignerSettingsInterfaceD1Ev": ["nothing", "address"],
+    "ritual_ZN26QDesignerSettingsInterface10beginGroupERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN26QDesignerSettingsInterface8endGroupEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK26QDesignerSettingsInterface8containsERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN26QDesignerSettingsInterface8setValueERK7QStringRK8QVariant": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZNK26QDesignerSettingsInterface5valueERK7QStringRK8QVariant": [
+      "address", "address", "text", "address"
+    ],
+    "ritual_ZN26QDesignerSettingsInterface6removeERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_take_QDesignerSettingsInterface": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

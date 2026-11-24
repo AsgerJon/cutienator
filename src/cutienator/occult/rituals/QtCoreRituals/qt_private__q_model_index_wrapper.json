@@ -1,0 +1,34 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qabstractitemmodel_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN9QtPrivate18QModelIndexWrapperC1ERK11QModelIndex": [
+      "address", "address"
+    ],
+    "ritual_ZNK9QtPrivate18QModelIndexWrappercv11QModelIndexEv": [
+      "address", "address"
+    ],
+    "ritual_ZN9QtPrivateeqERKNS_18QModelIndexWrapperES2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN9QtPrivateneERKNS_18QModelIndexWrapperES2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN9QtPrivateeqERKNS_18QModelIndexWrapperERK11QModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN9QtPrivateneERKNS_18QModelIndexWrapperERK11QModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN9QtPrivateeqERK11QModelIndexRKNS_18QModelIndexWrapperE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN9QtPrivateneERK11QModelIndexRKNS_18QModelIndexWrapperE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN9QtPrivate18QModelIndexWrapperD1Ev": ["nothing", "address"]
+  }
+}

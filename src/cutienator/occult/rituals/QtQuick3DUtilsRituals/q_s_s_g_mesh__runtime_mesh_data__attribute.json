@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3DUtils/6.12.0/QtQuick3DUtils/private/qssgmesh_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK8QSSGMesh15RuntimeMeshData9Attribute14componentCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZN8QSSGMesh15RuntimeMeshData9AttributeD1Ev": [
+      "nothing", "address"
+    ]
+  }
+}

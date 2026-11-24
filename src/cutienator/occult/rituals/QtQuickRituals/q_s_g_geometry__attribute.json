@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/qsggeometry.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11QSGGeometry9Attribute6createEiiib": [
+      "address", "int", "int", "int", "bool"
+    ],
+    "ritual_ZN11QSGGeometry9Attribute23createWithAttributeTypeEiiiNS_13AttributeTypeE": [
+      "address", "int", "int", "int", "int"
+    ],
+    "ritual_ZN11QSGGeometry9AttributeD1Ev": ["nothing", "address"]
+  }
+}

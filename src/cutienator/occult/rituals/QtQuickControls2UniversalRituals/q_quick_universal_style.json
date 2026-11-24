@@ -1,0 +1,159 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Controls2Universal/6.12.0/QtQuickControls2Universal/private/qquick",
+    "universalstyle_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK20QQuickUniversalStyle10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QQuickUniversalStyle2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN20QQuickUniversalStyle21qt_qmlMarker_attachedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickUniversalStyle24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickUniversalStyleC1EP7QObject": ["address", "address"],
+    "ritual_ZN20QQuickUniversalStyle21qmlAttachedPropertiesEP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QQuickUniversalStyle5themeEv": ["int", "address"],
+    "ritual_ZN20QQuickUniversalStyle8setThemeENS_5ThemeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQuickUniversalStyle12inheritThemeENS_5ThemeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQuickUniversalStyle14propagateThemeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickUniversalStyle10resetThemeEv": ["nothing", "address"],
+    "ritual_ZNK20QQuickUniversalStyle6accentEv": ["address", "address"],
+    "ritual_ZN20QQuickUniversalStyle9setAccentERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickUniversalStyle13inheritAccentEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN20QQuickUniversalStyle15propagateAccentEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickUniversalStyle11resetAccentEv": ["nothing", "address"],
+    "ritual_ZNK20QQuickUniversalStyle10foregroundEv": ["address", "address"],
+    "ritual_ZN20QQuickUniversalStyle13setForegroundERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickUniversalStyle17inheritForegroundEjb": [
+      "nothing", "address", "unsigned int", "bool"
+    ],
+    "ritual_ZN20QQuickUniversalStyle19propagateForegroundEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickUniversalStyle15resetForegroundEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK20QQuickUniversalStyle10backgroundEv": ["address", "address"],
+    "ritual_ZN20QQuickUniversalStyle13setBackgroundERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickUniversalStyle17inheritBackgroundEjb": [
+      "nothing", "address", "unsigned int", "bool"
+    ],
+    "ritual_ZN20QQuickUniversalStyle19propagateBackgroundEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickUniversalStyle15resetBackgroundEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK20QQuickUniversalStyle5colorENS_5ColorE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK20QQuickUniversalStyle12altHighColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QQuickUniversalStyle11altLowColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QQuickUniversalStyle14altMediumColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QQuickUniversalStyle18altMediumHighColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QQuickUniversalStyle17altMediumLowColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QQuickUniversalStyle13baseHighColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QQuickUniversalStyle12baseLowColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QQuickUniversalStyle15baseMediumColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QQuickUniversalStyle19baseMediumHighColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QQuickUniversalStyle18baseMediumLowColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QQuickUniversalStyle17chromeAltLowColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QQuickUniversalStyle20chromeBlackHighColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QQuickUniversalStyle19chromeBlackLowColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QQuickUniversalStyle25chromeBlackMediumLowColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QQuickUniversalStyle22chromeBlackMediumColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QQuickUniversalStyle23chromeDisabledHighColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QQuickUniversalStyle22chromeDisabledLowColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QQuickUniversalStyle15chromeHighColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QQuickUniversalStyle14chromeLowColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QQuickUniversalStyle17chromeMediumColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QQuickUniversalStyle20chromeMediumLowColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QQuickUniversalStyle16chromeWhiteColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QQuickUniversalStyle12listLowColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QQuickUniversalStyle15listMediumColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QQuickUniversalStyle11systemColorENS_11SystemColorE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN20QQuickUniversalStyle11initGlobalsEv": ["nothing"],
+    "ritual_ZN20QQuickUniversalStyle20attachedParentChangeEP32QQuickAttachedPropertyPropagatorS1_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK20QQuickUniversalStyle13variantToRgbaERK8QVariantPKcPj": [
+      "bool", "address", "address", "chars", "address"
+    ],
+    "ritual_own_ZN20QQuickUniversalStyle20attachedParentChangeEP32QQuickAttachedPropertyPropagatorS1_": [
+      "nothing", "address", "address", "address"
+    ]
+  }
+}

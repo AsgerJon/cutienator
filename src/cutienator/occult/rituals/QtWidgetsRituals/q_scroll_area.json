@@ -42,6 +42,8 @@
       "nothing", "address", "int", "int"
     ],
     "ritual_ZNK11QScrollArea16viewportSizeHintEv": ["address", "address"],
+    "ritual_ZN11QScrollArea6d_funcEv": ["address", "address"],
+    "ritual_ZNK11QScrollArea6d_funcEv": ["address", "address"],
     "ritual_take_QScrollArea": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK11QScrollArea8sizeHintEv": ["address", "address"],
     "ritual_own_ZN11QScrollArea18focusNextPrevChildEb": [

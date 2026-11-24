@@ -1,0 +1,12 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qresultstore.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN9QtPrivate15ResultStoreBaseD1Ev": ["nothing", "address"],
+    "ritual_ZN9QtPrivate15ResultStoreBase17addCanceledResultEi": [
+      "int", "address", "int"
+    ]
+  }
+}

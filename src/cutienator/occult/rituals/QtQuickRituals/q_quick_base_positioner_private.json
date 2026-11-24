@@ -1,0 +1,85 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickpositioners_p_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN27QQuickBasePositionerPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK27QQuickBasePositionerPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QQuickBasePositionerPrivateC1Ev": ["address"],
+    "ritual_ZN27QQuickBasePositionerPrivate4initEN20QQuickBasePositioner14PositionerTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN27QQuickBasePositionerPrivate19setPositioningDirtyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QQuickBasePositionerPrivate12mirrorChangeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK27QQuickBasePositionerPrivate13isLeftToRightEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN27QQuickBasePositionerPrivate23itemSiblingOrderChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN27QQuickBasePositionerPrivate19itemGeometryChangedEP10QQuickItem20QQuickGeometryChangeRK6QRectF": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN27QQuickBasePositionerPrivate21itemVisibilityChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN27QQuickBasePositionerPrivate13itemDestroyedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN27QQuickBasePositionerPrivate18getLayoutDirectionEPK20QQuickBasePositioner": [
+      "int", "address"
+    ],
+    "ritual_ZN27QQuickBasePositionerPrivate27getEffectiveLayoutDirectionEPK20QQuickBasePositioner": [
+      "int", "address"
+    ],
+    "ritual_ZN27QQuickBasePositionerPrivate30effectiveLayoutDirectionChangeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK27QQuickBasePositionerPrivate7paddingEv": [
+      "double", "address"
+    ],
+    "ritual_ZN27QQuickBasePositionerPrivate13setTopPaddingEdb": [
+      "nothing", "address", "double", "bool"
+    ],
+    "ritual_ZN27QQuickBasePositionerPrivate14setLeftPaddingEdb": [
+      "nothing", "address", "double", "bool"
+    ],
+    "ritual_ZN27QQuickBasePositionerPrivate15setRightPaddingEdb": [
+      "nothing", "address", "double", "bool"
+    ],
+    "ritual_ZN27QQuickBasePositionerPrivate16setBottomPaddingEdb": [
+      "nothing", "address", "double", "bool"
+    ],
+    "ritual_take_QQuickBasePositionerPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN27QQuickBasePositionerPrivate12mirrorChangeEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN27QQuickBasePositionerPrivate23itemSiblingOrderChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN27QQuickBasePositionerPrivate19itemGeometryChangedEP10QQuickItem20QQuickGeometryChangeRK6QRectF": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN27QQuickBasePositionerPrivate21itemVisibilityChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN27QQuickBasePositionerPrivate13itemDestroyedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN27QQuickBasePositionerPrivate30effectiveLayoutDirectionChangeEv": [
+      "nothing", "address"
+    ]
+  }
+}

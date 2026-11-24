@@ -1,0 +1,86 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtPositioning/qnmeapositioninfosource.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK23QNmeaPositionInfoSource10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QNmeaPositionInfoSource2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN23QNmeaPositionInfoSourceC1ENS_10UpdateModeEP7QObject": [
+      "address", "int", "address"
+    ],
+    "ritual_ZN23QNmeaPositionInfoSourceD1Ev": ["nothing", "address"],
+    "ritual_ZN23QNmeaPositionInfoSource27setUserEquivalentRangeErrorEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK23QNmeaPositionInfoSource24userEquivalentRangeErrorEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK23QNmeaPositionInfoSource10updateModeEv": ["int", "address"],
+    "ritual_ZN23QNmeaPositionInfoSource9setDeviceEP9QIODevice": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK23QNmeaPositionInfoSource6deviceEv": ["address", "address"],
+    "ritual_ZN23QNmeaPositionInfoSource17setUpdateIntervalEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK23QNmeaPositionInfoSource17lastKnownPositionEb": [
+      "address", "address", "bool"
+    ],
+    "ritual_ZNK23QNmeaPositionInfoSource27supportedPositioningMethodsEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK23QNmeaPositionInfoSource21minimumUpdateIntervalEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK23QNmeaPositionInfoSource5errorEv": ["int", "address"],
+    "ritual_ZN23QNmeaPositionInfoSource12startUpdatesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QNmeaPositionInfoSource11stopUpdatesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QNmeaPositionInfoSource13requestUpdateEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN23QNmeaPositionInfoSource24parsePosInfoFromNmeaDataEPKciP16QGeoPositionInfoPb": [
+      "bool", "address", "chars", "int", "address", "address"
+    ],
+    "ritual_ZN23QNmeaPositionInfoSource24parsePosInfoFromNmeaDataE14QByteArrayViewP16QGeoPositionInfoPb": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZN23QNmeaPositionInfoSource8setErrorEN22QGeoPositionInfoSource5ErrorE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_take_QNmeaPositionInfoSource": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN23QNmeaPositionInfoSource17setUpdateIntervalEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZNK23QNmeaPositionInfoSource17lastKnownPositionEb": [
+      "address", "address", "bool"
+    ],
+    "ritual_own_ZNK23QNmeaPositionInfoSource27supportedPositioningMethodsEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZNK23QNmeaPositionInfoSource21minimumUpdateIntervalEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZNK23QNmeaPositionInfoSource5errorEv": ["int", "address"],
+    "ritual_own_ZN23QNmeaPositionInfoSource12startUpdatesEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN23QNmeaPositionInfoSource11stopUpdatesEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN23QNmeaPositionInfoSource13requestUpdateEi": [
+      "nothing", "address", "int"
+    ]
+  }
+}

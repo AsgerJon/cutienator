@@ -1,0 +1,40 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/abstractwidgetfactory.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZNK31QDesignerWidgetFactoryInterface10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN31QDesignerWidgetFactoryInterface2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN31QDesignerWidgetFactoryInterfaceD1Ev": ["nothing", "address"],
+    "ritual_ZNK31QDesignerWidgetFactoryInterface4coreEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK31QDesignerWidgetFactoryInterface17containerOfWidgetEP7QWidget": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK31QDesignerWidgetFactoryInterface17widgetOfContainerEP7QWidget": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK31QDesignerWidgetFactoryInterface12createWidgetERK7QStringP7QWidget": [
+      "address", "address", "text", "address"
+    ],
+    "ritual_ZNK31QDesignerWidgetFactoryInterface12createLayoutEP7QWidgetP7QLayouti": [
+      "address", "address", "address", "address", "int"
+    ],
+    "ritual_ZN31QDesignerWidgetFactoryInterface19isPassiveInteractorEP7QWidget": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK31QDesignerWidgetFactoryInterface10initializeEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QDesignerWidgetFactoryInterface": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

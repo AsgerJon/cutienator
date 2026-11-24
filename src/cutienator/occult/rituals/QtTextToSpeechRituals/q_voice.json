@@ -1,0 +1,31 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtTextToSpeech/qvoice.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN6QVoiceC1Ev": ["address"],
+    "ritual_ZN6QVoiceD1Ev": ["nothing", "address"],
+    "ritual_ZN6QVoiceC1ERKS_": ["address", "address"],
+    "ritual_ZeqRK6QVoiceS1_": ["bool", "address", "address"],
+    "ritual_ZneRK6QVoiceS1_": ["bool", "address", "address"],
+    "ritual_ZNK6QVoice4nameEv": ["text", "address"],
+    "ritual_ZNK6QVoice6localeEv": ["address", "address"],
+    "ritual_ZNK6QVoice6genderEv": ["int", "address"],
+    "ritual_ZNK6QVoice3ageEv": ["int", "address"],
+    "ritual_ZNK6QVoice8languageEv": ["unsigned short", "address"],
+    "ritual_ZN6QVoice10genderNameENS_6GenderE": ["text", "int"],
+    "ritual_ZN6QVoice7ageNameENS_3AgeE": ["text", "int"],
+    "ritual_ZN6QVoiceC1ERK7QStringRK7QLocaleNS_6GenderENS_3AgeERK8QVariant": [
+      "address", "text", "address", "int", "int", "address"
+    ],
+    "ritual_ZNK6QVoice7isEqualERKS_": ["bool", "address", "address"],
+    "ritual_ZNK6QVoice4dataEv": ["address", "address"],
+    "ritual_Zls6QDebugRK6QVoice": ["address", "address", "address"],
+    "ritual_list_make_QVoice": ["address"],
+    "ritual_list_add_QVoice": ["nothing", "address", "address"],
+    "ritual_list_size_QVoice": ["long long", "address"],
+    "ritual_list_at_QVoice": ["address", "address", "long long"],
+    "ritual_list_drop_QVoice": ["nothing", "address"]
+  }
+}

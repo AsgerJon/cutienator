@@ -1,0 +1,88 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickstateoperations_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18QQuickParentChange10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QQuickParentChange2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18QQuickParentChangeC1EP7QObject": ["address", "address"],
+    "ritual_ZNK18QQuickParentChange6objectEv": ["address", "address"],
+    "ritual_ZN18QQuickParentChange9setObjectEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QQuickParentChange6parentEv": ["address", "address"],
+    "ritual_ZN18QQuickParentChange9setParentEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QQuickParentChange14originalParentEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18QQuickParentChange1xEv": ["address", "address"],
+    "ritual_ZN18QQuickParentChange4setXERK16QQmlScriptString": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QQuickParentChange6xIsSetEv": ["bool", "address"],
+    "ritual_ZNK18QQuickParentChange1yEv": ["address", "address"],
+    "ritual_ZN18QQuickParentChange4setYERK16QQmlScriptString": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QQuickParentChange6yIsSetEv": ["bool", "address"],
+    "ritual_ZNK18QQuickParentChange5widthEv": ["address", "address"],
+    "ritual_ZN18QQuickParentChange8setWidthERK16QQmlScriptString": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QQuickParentChange10widthIsSetEv": ["bool", "address"],
+    "ritual_ZNK18QQuickParentChange6heightEv": ["address", "address"],
+    "ritual_ZN18QQuickParentChange9setHeightERK16QQmlScriptString": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QQuickParentChange11heightIsSetEv": ["bool", "address"],
+    "ritual_ZNK18QQuickParentChange5scaleEv": ["address", "address"],
+    "ritual_ZN18QQuickParentChange8setScaleERK16QQmlScriptString": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QQuickParentChange10scaleIsSetEv": ["bool", "address"],
+    "ritual_ZNK18QQuickParentChange8rotationEv": ["address", "address"],
+    "ritual_ZN18QQuickParentChange11setRotationERK16QQmlScriptString": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QQuickParentChange13rotationIsSetEv": ["bool", "address"],
+    "ritual_ZN18QQuickParentChange7actionsEv": ["address", "address"],
+    "ritual_ZN18QQuickParentChange13saveOriginalsEv": ["nothing", "address"],
+    "ritual_ZN18QQuickParentChange7executeEv": ["nothing", "address"],
+    "ritual_ZN18QQuickParentChange12isReversableEv": ["bool", "address"],
+    "ritual_ZN18QQuickParentChange7reverseEv": ["nothing", "address"],
+    "ritual_ZNK18QQuickParentChange4typeEv": ["int", "address"],
+    "ritual_ZN18QQuickParentChange11mayOverrideEP22QQuickStateActionEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN18QQuickParentChange6rewindEv": ["nothing", "address"],
+    "ritual_ZN18QQuickParentChange17saveCurrentValuesEv": [
+      "nothing", "address"
+    ],
+    "ritual_cast_QQuickParentChange_QQuickStateActionEvent": [
+      "address", "address"
+    ],
+    "ritual_take_QQuickParentChange": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN18QQuickParentChange13saveOriginalsEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN18QQuickParentChange7executeEv": ["nothing", "address"],
+    "ritual_own_ZN18QQuickParentChange12isReversableEv": ["bool", "address"],
+    "ritual_own_ZN18QQuickParentChange7reverseEv": ["nothing", "address"],
+    "ritual_own_ZNK18QQuickParentChange4typeEv": ["int", "address"],
+    "ritual_own_ZN18QQuickParentChange11mayOverrideEP22QQuickStateActionEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN18QQuickParentChange6rewindEv": ["nothing", "address"],
+    "ritual_own_ZN18QQuickParentChange17saveCurrentValuesEv": [
+      "nothing", "address"
+    ]
+  }
+}

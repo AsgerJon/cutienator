@@ -1,0 +1,79 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquickswipedelegate_p.",
+    "h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK19QQuickSwipeDelegate10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QQuickSwipeDelegate2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN19QQuickSwipeDelegate21qt_qmlMarker_attachedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickSwipeDelegateC1EP10QQuickItem": ["address", "address"],
+    "ritual_ZNK19QQuickSwipeDelegate5swipeEv": ["address", "address"],
+    "ritual_ZN19QQuickSwipeDelegate21qmlAttachedPropertiesEP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN19QQuickSwipeDelegate21childMouseEventFilterEP10QQuickItemP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN19QQuickSwipeDelegate15mousePressEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickSwipeDelegate14mouseMoveEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickSwipeDelegate17mouseReleaseEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickSwipeDelegate16mouseUngrabEventEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickSwipeDelegate10touchEventEP11QTouchEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickSwipeDelegate17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickSwipeDelegate14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK19QQuickSwipeDelegate11defaultFontEv": ["address", "address"],
+    "ritual_ZNK19QQuickSwipeDelegate14accessibleRoleEv": ["int", "address"],
+    "ritual_ZN19QQuickSwipeDelegate6d_funcEv": ["address", "address"],
+    "ritual_ZNK19QQuickSwipeDelegate6d_funcEv": ["address", "address"],
+    "ritual_own_ZN19QQuickSwipeDelegate21childMouseEventFilterEP10QQuickItemP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_own_ZN19QQuickSwipeDelegate15mousePressEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN19QQuickSwipeDelegate14mouseMoveEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN19QQuickSwipeDelegate17mouseReleaseEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN19QQuickSwipeDelegate16mouseUngrabEventEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN19QQuickSwipeDelegate10touchEventEP11QTouchEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN19QQuickSwipeDelegate17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN19QQuickSwipeDelegate14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZNK19QQuickSwipeDelegate11defaultFontEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK19QQuickSwipeDelegate14accessibleRoleEv": [
+      "int", "address"
+    ]
+  }
+}

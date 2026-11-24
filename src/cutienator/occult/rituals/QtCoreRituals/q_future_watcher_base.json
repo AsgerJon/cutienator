@@ -8,6 +8,8 @@
     "ritual_ZN18QFutureWatcherBase2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN18QFutureWatcherBase6d_funcEv": ["address", "address"],
+    "ritual_ZNK18QFutureWatcherBase6d_funcEv": ["address", "address"],
     "ritual_ZNK18QFutureWatcherBase13progressValueEv": ["int", "address"],
     "ritual_ZNK18QFutureWatcherBase15progressMinimumEv": ["int", "address"],
     "ritual_ZNK18QFutureWatcherBase15progressMaximumEv": ["int", "address"],

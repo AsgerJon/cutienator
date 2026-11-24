@@ -4,6 +4,7 @@
     "QtCore/qfileinfo.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN9QFileInfoC1EP16QFileInfoPrivate": ["address", "address"],
     "ritual_ZN9QFileInfoC1Ev": ["address"],
     "ritual_ZN9QFileInfoC1ERK7QString": ["address", "text"],
     "ritual_ZN9QFileInfoC1ERK4QDirRK7QString": [
@@ -82,6 +83,8 @@
     "ritual_ZN9QFileInfo4statEv": ["nothing", "address"],
     "ritual_ZeqRK9QFileInfoS1_": ["bool", "address", "address"],
     "ritual_ZneRK9QFileInfoS1_": ["bool", "address", "address"],
+    "ritual_ZN9QFileInfo6d_funcEv": ["address", "address"],
+    "ritual_ZNK9QFileInfo6d_funcEv": ["address", "address"],
     "ritual_list_make_QFileInfo": ["address"],
     "ritual_list_add_QFileInfo": ["nothing", "address", "address"],
     "ritual_list_size_QFileInfo": ["long long", "address"],

@@ -1,0 +1,121 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DParticles/6.12.0/QtQuick3DParticles/private/qquick3dparticle_p.h",
+    ", Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK16QQuick3DParticle10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QQuick3DParticle2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN16QQuick3DParticle24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuick3DParticleC1EP14QQuick3DObject": [
+      "address", "address"
+    ],
+    "ritual_ZN16QQuick3DParticleD1Ev": ["nothing", "address"],
+    "ritual_ZNK16QQuick3DParticle6systemEv": ["address", "address"],
+    "ritual_ZNK16QQuick3DParticle9maxAmountEv": ["int", "address"],
+    "ritual_ZNK16QQuick3DParticle5colorEv": ["address", "address"],
+    "ritual_ZNK16QQuick3DParticle14colorVariationEv": ["address", "address"],
+    "ritual_ZNK16QQuick3DParticle21unifiedColorVariationEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK16QQuick3DParticle12fadeInEffectEv": ["int", "address"],
+    "ritual_ZNK16QQuick3DParticle13fadeOutEffectEv": ["int", "address"],
+    "ritual_ZNK16QQuick3DParticle14fadeInDurationEv": ["int", "address"],
+    "ritual_ZNK16QQuick3DParticle15fadeOutDurationEv": ["int", "address"],
+    "ritual_ZNK16QQuick3DParticle9alignModeEv": ["int", "address"],
+    "ritual_ZNK16QQuick3DParticle19alignTargetPositionEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK16QQuick3DParticle15hasTransparencyEv": ["bool", "address"],
+    "ritual_ZNK16QQuick3DParticle8sortModeEv": ["int", "address"],
+    "ritual_ZNK16QQuick3DParticle7opacityEv": ["float", "address"],
+    "ritual_ZN16QQuick3DParticle10resetColorEv": ["nothing", "address"],
+    "ritual_ZN16QQuick3DParticle9setSystemEP22QQuick3DParticleSystem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuick3DParticle12setMaxAmountEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16QQuick3DParticle8setColorE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuick3DParticle17setColorVariationE9QVector4D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuick3DParticle24setUnifiedColorVariationEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN16QQuick3DParticle15setFadeInEffectENS_8FadeTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16QQuick3DParticle16setFadeOutEffectENS_8FadeTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16QQuick3DParticle17setFadeInDurationEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16QQuick3DParticle18setFadeOutDurationEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16QQuick3DParticle12setAlignModeENS_9AlignModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16QQuick3DParticle22setAlignTargetPositionERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuick3DParticle18setHasTransparencyEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN16QQuick3DParticle11setSortModeENS_8SortModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16QQuick3DParticle17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuick3DParticle5resetEv": ["nothing", "address"],
+    "ritual_ZN16QQuick3DParticle14doSetMaxAmountEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16QQuick3DParticle16updateNodeLayersEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuick3DParticle16updateBurstIndexEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16QQuick3DParticle16nextCurrentIndexEPK23QQuick3DParticleEmitter": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN16QQuick3DParticle17updateSpatialNodeEP21QSSGRenderGraphObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN16QQuick3DParticle12setDepthBiasEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK16QQuick3DParticle9depthBiasEv": ["float", "address"],
+    "ritual_take_QQuick3DParticle": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN16QQuick3DParticle17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN16QQuick3DParticle5resetEv": ["nothing", "address"],
+    "ritual_own_ZN16QQuick3DParticle14doSetMaxAmountEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN16QQuick3DParticle16updateNodeLayersEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN16QQuick3DParticle16nextCurrentIndexEPK23QQuick3DParticleEmitter": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZN16QQuick3DParticle17updateSpatialNodeEP21QSSGRenderGraphObject": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN16QQuick3DParticle12setDepthBiasEf": [
+      "nothing", "address", "float"
+    ]
+  }
+}

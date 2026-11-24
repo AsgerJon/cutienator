@@ -1,0 +1,38 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtScxml/qscxmlinvokableservice.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK22QScxmlInvokableService10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QScxmlInvokableService2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN22QScxmlInvokableService6d_funcEv": ["address", "address"],
+    "ritual_ZNK22QScxmlInvokableService6d_funcEv": ["address", "address"],
+    "ritual_ZNK22QScxmlInvokableService18parentStateMachineEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QScxmlInvokableService5startEv": ["bool", "address"],
+    "ritual_ZNK22QScxmlInvokableService2idEv": ["text", "address"],
+    "ritual_ZNK22QScxmlInvokableService4nameEv": ["text", "address"],
+    "ritual_ZN22QScxmlInvokableService9postEventEP11QScxmlEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QScxmlInvokableService": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_list_make_QScxmlInvokableService_ptr": ["address"],
+    "ritual_list_add_QScxmlInvokableService_ptr": [
+      "nothing", "address", "address"
+    ],
+    "ritual_list_size_QScxmlInvokableService_ptr": ["long long", "address"],
+    "ritual_list_at_QScxmlInvokableService_ptr": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_QScxmlInvokableService_ptr": ["nothing", "address"]
+  }
+}

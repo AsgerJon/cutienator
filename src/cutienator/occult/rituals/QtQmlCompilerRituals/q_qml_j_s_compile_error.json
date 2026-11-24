@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQmlCompiler/6.12.0/QtQmlCompiler/private/qqmljscompiler_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QQmlJSCompileError5printEv": ["nothing", "address"],
+    "ritual_ZNK18QQmlJSCompileError7augmentERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN18QQmlJSCompileError16appendDiagnosticERK7QStringRKN6QQmlJS17DiagnosticMessageE": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZN18QQmlJSCompileErrorD1Ev": ["nothing", "address"]
+  }
+}

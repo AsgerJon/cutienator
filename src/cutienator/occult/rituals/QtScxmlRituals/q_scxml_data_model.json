@@ -1,0 +1,58 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtScxml/qscxmldatamodel.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK15QScxmlDataModel10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QScxmlDataModel2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN15QScxmlDataModel6d_funcEv": ["address", "address"],
+    "ritual_ZNK15QScxmlDataModel6d_funcEv": ["address", "address"],
+    "ritual_ZN15QScxmlDataModel20createScxmlDataModelERK7QString": [
+      "address", "text"
+    ],
+    "ritual_ZN15QScxmlDataModel15setStateMachineEP18QScxmlStateMachine": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QScxmlDataModel12stateMachineEv": ["address", "address"],
+    "ritual_ZN15QScxmlDataModel5setupERK4QMapI7QString8QVariantE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN15QScxmlDataModel16evaluateToStringEiPb": [
+      "text", "address", "int", "address"
+    ],
+    "ritual_ZN15QScxmlDataModel14evaluateToBoolEiPb": [
+      "bool", "address", "int", "address"
+    ],
+    "ritual_ZN15QScxmlDataModel17evaluateToVariantEiPb": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_ZN15QScxmlDataModel14evaluateToVoidEiPb": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN15QScxmlDataModel18evaluateAssignmentEiPb": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN15QScxmlDataModel22evaluateInitializationEiPb": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN15QScxmlDataModel15evaluateForeachEiPbPNS_15ForeachLoopBodyE": [
+      "nothing", "address", "int", "address", "address"
+    ],
+    "ritual_ZN15QScxmlDataModel13setScxmlEventERK11QScxmlEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QScxmlDataModel13scxmlPropertyERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK15QScxmlDataModel16hasScxmlPropertyERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN15QScxmlDataModel16setScxmlPropertyERK7QStringRK8QVariantS2_": [
+      "bool", "address", "text", "address", "text"
+    ],
+    "ritual_take_QScxmlDataModel": ["bool", "address", "chars", "address"]
+  }
+}

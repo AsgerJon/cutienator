@@ -1,0 +1,35 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qhashedstring_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN13QHashedStringC1Ev": ["address"],
+    "ritual_ZN13QHashedStringC1ERK7QString": ["address", "text"],
+    "ritual_ZN13QHashedStringC1ERK7QStringj": [
+      "address", "text", "unsigned int"
+    ],
+    "ritual_ZN13QHashedStringC1ERKS_": ["address", "address"],
+    "ritual_ZNK13QHashedStringeqERKS_": ["bool", "address", "address"],
+    "ritual_ZNK13QHashedStringeqERK16QHashedStringRef": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK13QHashedString4hashEv": ["unsigned int", "address"],
+    "ritual_ZNK13QHashedString12existingHashEv": ["unsigned int", "address"],
+    "ritual_ZN13QHashedString7compareEPK5QCharPKci": [
+      "bool", "address", "chars", "int"
+    ],
+    "ritual_ZN13QHashedString7compareEPKcS1_i": [
+      "bool", "chars", "chars", "int"
+    ],
+    "ritual_ZN13QHashedString10stringHashEPK5QChari": [
+      "unsigned int", "address", "int"
+    ],
+    "ritual_ZN13QHashedString10stringHashEPKci": [
+      "unsigned int", "chars", "int"
+    ],
+    "ritual_ZNK13QHashedString11computeHashEv": ["nothing", "address"],
+    "ritual_ZN13QHashedStringD1Ev": ["nothing", "address"]
+  }
+}

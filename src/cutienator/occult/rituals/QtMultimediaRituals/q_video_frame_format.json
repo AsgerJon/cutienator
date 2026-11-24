@@ -1,0 +1,94 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtMultimedia/qvideoframeformat.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN17QVideoFrameFormatC1Ev": ["address"],
+    "ritual_ZN17QVideoFrameFormatC1ERK5QSizeNS_11PixelFormatE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN17QVideoFrameFormatC1ERKS_": ["address", "address"],
+    "ritual_ZN17QVideoFrameFormatD1Ev": ["nothing", "address"],
+    "ritual_ZN17QVideoFrameFormat6detachEv": ["nothing", "address"],
+    "ritual_ZNK17QVideoFrameFormateqERKS_": ["bool", "address", "address"],
+    "ritual_ZNK17QVideoFrameFormatneERKS_": ["bool", "address", "address"],
+    "ritual_ZNK17QVideoFrameFormat7isValidEv": ["bool", "address"],
+    "ritual_ZNK17QVideoFrameFormat11pixelFormatEv": ["int", "address"],
+    "ritual_ZNK17QVideoFrameFormat9frameSizeEv": ["address", "address"],
+    "ritual_ZN17QVideoFrameFormat12setFrameSizeERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QVideoFrameFormat12setFrameSizeEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK17QVideoFrameFormat10frameWidthEv": ["int", "address"],
+    "ritual_ZNK17QVideoFrameFormat11frameHeightEv": ["int", "address"],
+    "ritual_ZNK17QVideoFrameFormat10planeCountEv": ["int", "address"],
+    "ritual_ZNK17QVideoFrameFormat8viewportEv": ["address", "address"],
+    "ritual_ZN17QVideoFrameFormat11setViewportERK5QRect": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QVideoFrameFormat17scanLineDirectionEv": ["int", "address"],
+    "ritual_ZN17QVideoFrameFormat20setScanLineDirectionENS_9DirectionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK17QVideoFrameFormat9frameRateEv": ["double", "address"],
+    "ritual_ZN17QVideoFrameFormat12setFrameRateEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK17QVideoFrameFormat15streamFrameRateEv": [
+      "double", "address"
+    ],
+    "ritual_ZN17QVideoFrameFormat18setStreamFrameRateEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK17QVideoFrameFormat15yCbCrColorSpaceEv": ["int", "address"],
+    "ritual_ZN17QVideoFrameFormat18setYCbCrColorSpaceENS_15YCbCrColorSpaceE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK17QVideoFrameFormat10colorSpaceEv": ["int", "address"],
+    "ritual_ZN17QVideoFrameFormat13setColorSpaceENS_10ColorSpaceE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK17QVideoFrameFormat13colorTransferEv": ["int", "address"],
+    "ritual_ZN17QVideoFrameFormat16setColorTransferENS_13ColorTransferE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK17QVideoFrameFormat10colorRangeEv": ["int", "address"],
+    "ritual_ZN17QVideoFrameFormat13setColorRangeENS_10ColorRangeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK17QVideoFrameFormat10isMirroredEv": ["bool", "address"],
+    "ritual_ZN17QVideoFrameFormat11setMirroredEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK17QVideoFrameFormat8rotationEv": ["int", "address"],
+    "ritual_ZN17QVideoFrameFormat11setRotationEN7QtVideo8RotationE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK17QVideoFrameFormat20vertexShaderFileNameEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK17QVideoFrameFormat22fragmentShaderFileNameEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK17QVideoFrameFormat17updateUniformDataEP10QByteArrayRK11QVideoFrameRK10QMatrix4x4f": [
+      "nothing", "address", "address", "address", "address", "float"
+    ],
+    "ritual_ZNK17QVideoFrameFormat12maxLuminanceEv": ["float", "address"],
+    "ritual_ZN17QVideoFrameFormat15setMaxLuminanceEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN17QVideoFrameFormat26pixelFormatFromImageFormatEN6QImage6FormatE": [
+      "int", "int"
+    ],
+    "ritual_ZN17QVideoFrameFormat26imageFormatFromPixelFormatENS_11PixelFormatE": [
+      "int", "int"
+    ],
+    "ritual_ZN17QVideoFrameFormat19pixelFormatToStringENS_11PixelFormatE": [
+      "text", "int"
+    ]
+  }
+}

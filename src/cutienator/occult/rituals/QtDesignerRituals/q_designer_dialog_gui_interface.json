@@ -1,0 +1,47 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/abstractdialoggui_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN27QDesignerDialogGuiInterfaceD1Ev": ["nothing", "address"],
+    "ritual_ZN27QDesignerDialogGuiInterface7messageEP7QWidgetNS_7MessageEN11QMessageBox4IconERK7QStringS7_6QFlagsINS3_14StandardButtonEES9_": [
+      "int", "address", "address", "int", "int", "text", "text", "int", "int"
+    ],
+    "ritual_ZN27QDesignerDialogGuiInterface7messageEP7QWidgetNS_7MessageEN11QMessageBox4IconERK7QStringS7_S7_6QFlagsINS3_14StandardButtonEES9_": [
+      "int", "address", "address", "int", "int", "text", "text", "text",
+      "int", "int"
+    ],
+    "ritual_ZN27QDesignerDialogGuiInterface7messageEP7QWidgetNS_7MessageEN11QMessageBox4IconERK7QStringS7_S7_S7_6QFlagsINS3_14StandardButtonEES9_": [
+      "int", "address", "address", "int", "int", "text", "text", "text",
+      "text", "int", "int"
+    ],
+    "ritual_ZN27QDesignerDialogGuiInterface20getExistingDirectoryEP7QWidgetRK7QStringS4_6QFlagsIN11QFileDialog6OptionEE": [
+      "text", "address", "address", "text", "text", "int"
+    ],
+    "ritual_ZN27QDesignerDialogGuiInterface15getOpenFileNameEP7QWidgetRK7QStringS4_S4_PS2_6QFlagsIN11QFileDialog6OptionEE": [
+      "text", "address", "address", "text", "text", "text", "address", "int"
+    ],
+    "ritual_ZN27QDesignerDialogGuiInterface20getOpenImageFileNameEP7QWidgetRK7QStringS4_S4_PS2_6QFlagsIN11QFileDialog6OptionEE": [
+      "text", "address", "address", "text", "text", "text", "address", "int"
+    ],
+    "ritual_ZN27QDesignerDialogGuiInterface16getOpenFileNamesEP7QWidgetRK7QStringS4_S4_PS2_6QFlagsIN11QFileDialog6OptionEE": [
+      "address", "address", "address", "text", "text", "text", "address",
+      "int"
+    ],
+    "ritual_ZN27QDesignerDialogGuiInterface21getOpenImageFileNamesEP7QWidgetRK7QStringS4_S4_PS2_6QFlagsIN11QFileDialog6OptionEE": [
+      "address", "address", "address", "text", "text", "text", "address",
+      "int"
+    ],
+    "ritual_ZN27QDesignerDialogGuiInterface15getSaveFileNameEP7QWidgetRK7QStringS4_S4_PS2_6QFlagsIN11QFileDialog6OptionEE": [
+      "text", "address", "address", "text", "text", "text", "address", "int"
+    ],
+    "ritual_take_QDesignerDialogGuiInterface": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN27QDesignerDialogGuiInterface20getOpenImageFileNameEP7QWidgetRK7QStringS4_S4_PS2_6QFlagsIN11QFileDialog6OptionEE": [
+      "text", "address", "address", "text", "text", "text", "address", "int"
+    ]
+  }
+}

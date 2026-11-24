@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4compileddata_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN3QV412CompiledData13ParameterType3setE6QFlagsINS1_4FlagEEj": [
+      "nothing", "address", "int", "unsigned int"
+    ],
+    "ritual_ZNK3QV412CompiledData13ParameterType17indexIsCommonTypeEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData13ParameterType6isListEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData13ParameterType25typeNameIndexOrCommonTypeEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN3QV412CompiledData13ParameterTypeD1Ev": ["nothing", "address"]
+  }
+}

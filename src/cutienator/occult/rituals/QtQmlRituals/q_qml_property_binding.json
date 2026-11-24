@@ -1,0 +1,38 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmlpropertybinding_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QQmlPropertyBinding12jsExpressionEv": ["address", "address"],
+    "ritual_ZNK19QQmlPropertyBinding12jsExpressionEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QQmlPropertyBinding22createFromScriptStringEPK16QQmlPropertyDataRK16QQmlScriptStringP7QObjectP11QQmlContextS7_17QQmlPropertyIndex": [
+      "address", "address", "address", "address", "address", "address",
+      "address"
+    ],
+    "ritual_ZN19QQmlPropertyBinding11isUndefinedERK23QUntypedPropertyBinding": [
+      "bool", "address"
+    ],
+    "ritual_ZN19QQmlPropertyBinding11isUndefinedEPK23QPropertyBindingPrivate": [
+      "bool", "address"
+    ],
+    "ritual_ZNK19QQmlPropertyBinding15hasDependenciesEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN19QQmlPropertyBinding33createBindingLoopErrorDescriptionEv": [
+      "text", "address"
+    ],
+    "ritual_ZN19QQmlPropertyBindingC1E9QMetaTypeP7QObject17QQmlPropertyIndexN23QQmlPropertyBindingBase16HasBoundFunctionE": [
+      "address", "address", "address", "address", "bool"
+    ],
+    "ritual_ZN19QQmlPropertyBinding11makeUntypedEPS_": [
+      "address", "address"
+    ],
+    "ritual_ZN19QQmlPropertyBinding20bindingErrorCallbackEP23QPropertyBindingPrivate": [
+      "nothing", "address"
+    ]
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtBluetooth/qlowenergyservice.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QLowEnergyService10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QLowEnergyService2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QLowEnergyServiceD1Ev": ["nothing", "address"],
+    "ritual_ZNK17QLowEnergyService16includedServicesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK17QLowEnergyService4typeEv": ["int", "address"],
+    "ritual_ZNK17QLowEnergyService5stateEv": ["int", "address"],
+    "ritual_ZNK17QLowEnergyService14characteristicERK14QBluetoothUuid": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK17QLowEnergyService15characteristicsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK17QLowEnergyService11serviceUuidEv": ["address", "address"],
+    "ritual_ZNK17QLowEnergyService11serviceNameEv": ["text", "address"],
+    "ritual_ZN17QLowEnergyService15discoverDetailsENS_13DiscoveryModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK17QLowEnergyService5errorEv": ["int", "address"],
+    "ritual_ZNK17QLowEnergyService8containsERK24QLowEnergyCharacteristic": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN17QLowEnergyService18readCharacteristicERK24QLowEnergyCharacteristic": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QLowEnergyService19writeCharacteristicERK24QLowEnergyCharacteristicRK10QByteArrayNS_9WriteModeE": [
+      "nothing", "address", "address", "address", "int"
+    ],
+    "ritual_ZNK17QLowEnergyService8containsERK20QLowEnergyDescriptor": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN17QLowEnergyService14readDescriptorERK20QLowEnergyDescriptor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QLowEnergyService15writeDescriptorERK20QLowEnergyDescriptorRK10QByteArray": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN17QLowEnergyService6d_funcEv": ["address", "address"],
+    "ritual_ZNK17QLowEnergyService6d_funcEv": ["address", "address"],
+    "ritual_take_QLowEnergyService": ["bool", "address", "chars", "address"],
+    "ritual_list_make_QLowEnergyService_ptr": ["address"],
+    "ritual_list_add_QLowEnergyService_ptr": [
+      "nothing", "address", "address"
+    ],
+    "ritual_list_size_QLowEnergyService_ptr": ["long long", "address"],
+    "ritual_list_at_QLowEnergyService_ptr": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_QLowEnergyService_ptr": ["nothing", "address"]
+  }
+}

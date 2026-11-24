@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DAssetImport/6.12.0/QtQuick3DAssetImport/private/qssgassetimportm",
+    "anager_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN27QSSGAssetImporterPluginInfoD1Ev": ["nothing", "address"],
+    "ritual_list_make_QSSGAssetImporterPluginInfo": ["address"],
+    "ritual_list_add_QSSGAssetImporterPluginInfo": [
+      "nothing", "address", "address"
+    ],
+    "ritual_list_size_QSSGAssetImporterPluginInfo": ["long long", "address"],
+    "ritual_list_at_QSSGAssetImporterPluginInfo": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_QSSGAssetImporterPluginInfo": ["nothing", "address"]
+  }
+}

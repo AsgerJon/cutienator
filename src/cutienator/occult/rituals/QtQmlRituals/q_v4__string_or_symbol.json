@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4string_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN3QV414StringOrSymbol12staticVTableEv": ["address"],
+    "ritual_ZN3QV414StringOrSymbol10__dataTestEv": ["nothing", "address"],
+    "ritual_ZNK3QV414StringOrSymbol11d_uncheckedEv": ["address", "address"],
+    "ritual_ZNK3QV414StringOrSymbol1dEv": ["address", "address"],
+    "ritual_ZN3QV414StringOrSymbol14virtualDestroyEPNS_4Heap4BaseE": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK3QV414StringOrSymbol17createPropertyKeyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK3QV414StringOrSymbol11propertyKeyEv": ["address", "address"],
+    "ritual_ZNK3QV414StringOrSymbol13toPropertyKeyEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV414StringOrSymbol9toQStringEv": ["text", "address"]
+  }
+}

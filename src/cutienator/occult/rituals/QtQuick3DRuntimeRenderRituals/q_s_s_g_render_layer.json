@@ -1,0 +1,41 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgrenderla",
+    "yer_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK15QSSGRenderLayer7isDirtyENS_9DirtyFlagE": [
+      "bool", "address", "unsigned char"
+    ],
+    "ritual_ZN15QSSGRenderLayer9markDirtyENS_9DirtyFlagE": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZN15QSSGRenderLayer10clearDirtyENS_9DirtyFlagE": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZN15QSSGRenderLayer3refEP14QSSGRenderRoot": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QSSGRenderLayer11ssaoEnabledEv": ["bool", "address"],
+    "ritual_ZN15QSSGRenderLayerC1Ev": ["address"],
+    "ritual_ZN15QSSGRenderLayerD1Ev": ["nothing", "address"],
+    "ritual_ZN15QSSGRenderLayer19setProbeOrientationERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QSSGRenderLayer9hasEffectEP16QSSGRenderEffect": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK15QSSGRenderLayer13isMsaaEnabledEv": ["bool", "address"],
+    "ritual_ZNK15QSSGRenderLayer13isSsaaEnabledEv": ["bool", "address"],
+    "ritual_ZNK15QSSGRenderLayer22isProgressiveAAEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK15QSSGRenderLayer19isTemporalAAEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN15QSSGRenderLayer24ssaaMultiplierForQualityENS_9AAQualityE": [
+      "float", "unsigned char"
+    ]
+  }
+}

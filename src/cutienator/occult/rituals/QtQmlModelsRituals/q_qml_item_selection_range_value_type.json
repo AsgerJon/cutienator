@@ -1,0 +1,63 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQmlMo",
+    "dels/6.12.0/QtQmlModels/private/qqmlmodelindexvaluetype_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN31QQmlItemSelectionRangeValueType22qt_qmlMarker_anonymousEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN31QQmlItemSelectionRangeValueType21qt_qmlMarker_extendedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN31QQmlItemSelectionRangeValueType20qt_qmlMarker_foreignEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK31QQmlItemSelectionRangeValueType8toStringEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK31QQmlItemSelectionRangeValueType8containsERK11QModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK31QQmlItemSelectionRangeValueType8containsEiiRK11QModelIndex": [
+      "bool", "address", "int", "int", "address"
+    ],
+    "ritual_ZNK31QQmlItemSelectionRangeValueType10intersectsERK19QItemSelectionRange": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK31QQmlItemSelectionRangeValueType11intersectedERK19QItemSelectionRange": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK31QQmlItemSelectionRangeValueType3topEv": ["int", "address"],
+    "ritual_ZNK31QQmlItemSelectionRangeValueType4leftEv": ["int", "address"],
+    "ritual_ZNK31QQmlItemSelectionRangeValueType6bottomEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK31QQmlItemSelectionRangeValueType5rightEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK31QQmlItemSelectionRangeValueType5widthEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK31QQmlItemSelectionRangeValueType6heightEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK31QQmlItemSelectionRangeValueType6parentEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK31QQmlItemSelectionRangeValueType5modelEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK31QQmlItemSelectionRangeValueType7isValidEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK31QQmlItemSelectionRangeValueType7isEmptyEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK31QQmlItemSelectionRangeValueTypecv19QItemSelectionRangeEv": [
+      "address", "address"
+    ],
+    "ritual_ZN31QQmlItemSelectionRangeValueTypeD1Ev": ["nothing", "address"]
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmldebugconnector_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18QQmlDebugConnector10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QQmlDebugConnector2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18QQmlDebugConnector12setPluginKeyERK7QString": [
+      "nothing", "text"
+    ],
+    "ritual_ZN18QQmlDebugConnector11setServicesERK5QListI7QStringE": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQmlDebugConnector8instanceEv": ["address"],
+    "ritual_ZN18QQmlDebugConnector17dataStreamVersionEv": ["int"],
+    "ritual_ZNK18QQmlDebugConnector12blockingModeEv": ["bool", "address"],
+    "ritual_ZNK18QQmlDebugConnector7serviceERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN18QQmlDebugConnector9addEngineEP9QJSEngine": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQmlDebugConnector12removeEngineEP9QJSEngine": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QQmlDebugConnector9hasEngineEP9QJSEngine": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN18QQmlDebugConnector10addServiceERK7QStringP16QQmlDebugService": [
+      "bool", "address", "text", "address"
+    ],
+    "ritual_ZN18QQmlDebugConnector13removeServiceERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN18QQmlDebugConnector4openERK5QHashI7QString8QVariantE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN18QQmlDebugConnector20commandLineArgumentsEv": ["text"],
+    "ritual_take_QQmlDebugConnector": ["bool", "address", "chars", "address"]
+  }
+}

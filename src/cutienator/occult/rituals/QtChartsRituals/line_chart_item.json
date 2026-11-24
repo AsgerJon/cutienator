@@ -1,0 +1,75 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/6.12.0/QtCharts/private/linechartitem_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK13LineChartItem10metaObjectEv": ["address", "address"],
+    "ritual_ZN13LineChartItem2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN13LineChartItemC1EP11QLineSeriesP13QGraphicsItem": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN13LineChartItemD1Ev": ["nothing", "address"],
+    "ritual_ZNK13LineChartItem12boundingRectEv": ["address", "address"],
+    "ritual_ZN13LineChartItem5paintEP8QPainterPK24QStyleOptionGraphicsItemP7QWidget": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK13LineChartItem5shapeEv": ["address", "address"],
+    "ritual_ZNK13LineChartItem4pathEv": ["address", "address"],
+    "ritual_ZN13LineChartItem19handleSeriesUpdatedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13LineChartItem14updateGeometryEv": ["nothing", "address"],
+    "ritual_ZN13LineChartItem15mousePressEventEP24QGraphicsSceneMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13LineChartItem15hoverEnterEventEP24QGraphicsSceneHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13LineChartItem14hoverMoveEventEP24QGraphicsSceneHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13LineChartItem15hoverLeaveEventEP24QGraphicsSceneHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13LineChartItem17mouseReleaseEventEP24QGraphicsSceneMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13LineChartItem21mouseDoubleClickEventEP24QGraphicsSceneMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13LineChartItem14suppressPointsEv": ["nothing", "address"],
+    "ritual_ZN13LineChartItem14forceChartTypeEN6QChart9ChartTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_take_LineChartItem": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK13LineChartItem12boundingRectEv": ["address", "address"],
+    "ritual_own_ZN13LineChartItem5paintEP8QPainterPK24QStyleOptionGraphicsItemP7QWidget": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZNK13LineChartItem5shapeEv": ["address", "address"],
+    "ritual_own_ZN13LineChartItem19handleSeriesUpdatedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN13LineChartItem14updateGeometryEv": ["nothing", "address"],
+    "ritual_own_ZN13LineChartItem15mousePressEventEP24QGraphicsSceneMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN13LineChartItem15hoverEnterEventEP24QGraphicsSceneHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN13LineChartItem14hoverMoveEventEP24QGraphicsSceneHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN13LineChartItem15hoverLeaveEventEP24QGraphicsSceneHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN13LineChartItem17mouseReleaseEventEP24QGraphicsSceneMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN13LineChartItem21mouseDoubleClickEventEP24QGraphicsSceneMouseEvent": [
+      "nothing", "address", "address"
+    ]
+  }
+}

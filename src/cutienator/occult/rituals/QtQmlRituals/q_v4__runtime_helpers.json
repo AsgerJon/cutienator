@@ -1,0 +1,25 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4runtime_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN3QV414RuntimeHelpers11toPrimitiveERKNS_5ValueENS_8TypeHintE": [
+      "unsigned long long", "address", "int"
+    ],
+    "ritual_ZN3QV414RuntimeHelpers14stringToNumberERK7QString": [
+      "double", "text"
+    ],
+    "ritual_ZN3QV414RuntimeHelpers8toNumberERKNS_5ValueE": [
+      "double", "address"
+    ],
+    "ritual_ZN3QV414RuntimeHelpers14numberToStringEP7QStringdi": [
+      "nothing", "address", "double", "int"
+    ],
+    "ritual_ZN3QV414RuntimeHelpers11strictEqualERKNS_5ValueES3_": [
+      "unsigned int", "address", "address"
+    ],
+    "ritual_ZN3QV414RuntimeHelpersD1Ev": ["nothing", "address"]
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/qpa/qplatformscreen.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QPlatformScreen6d_funcEv": ["address", "address"],
+    "ritual_ZNK15QPlatformScreen6d_funcEv": ["address", "address"],
+    "ritual_ZN15QPlatformScreenD1Ev": ["nothing", "address"],
+    "ritual_ZNK15QPlatformScreen13isPlaceholderEv": ["bool", "address"],
+    "ritual_ZNK15QPlatformScreen10grabWindowEyiiii": [
+      "address", "address", "unsigned long long", "int", "int", "int", "int"
+    ],
+    "ritual_ZNK15QPlatformScreen8geometryEv": ["address", "address"],
+    "ritual_ZNK15QPlatformScreen17availableGeometryEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK15QPlatformScreen5depthEv": ["int", "address"],
+    "ritual_ZNK15QPlatformScreen6formatEv": ["int", "address"],
+    "ritual_ZNK15QPlatformScreen10colorSpaceEv": ["address", "address"],
+    "ritual_ZNK15QPlatformScreen12physicalSizeEv": ["address", "address"],
+    "ritual_ZNK15QPlatformScreen16devicePixelRatioEv": ["double", "address"],
+    "ritual_ZNK15QPlatformScreen11refreshRateEv": ["double", "address"],
+    "ritual_ZNK15QPlatformScreen17nativeOrientationEv": ["int", "address"],
+    "ritual_ZNK15QPlatformScreen11orientationEv": ["int", "address"],
+    "ritual_ZNK15QPlatformScreen10topLevelAtERK6QPoint": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK15QPlatformScreen7windowsEv": ["address", "address"],
+    "ritual_ZNK15QPlatformScreen15virtualSiblingsEv": ["address", "address"],
+    "ritual_ZNK15QPlatformScreen17screenForPositionERK6QPoint": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK15QPlatformScreen6screenEv": ["address", "address"],
+    "ritual_ZN15QPlatformScreen23platformScreenForWindowEPK7QWindow": [
+      "address", "address"
+    ],
+    "ritual_ZNK15QPlatformScreen4nameEv": ["text", "address"],
+    "ritual_ZNK15QPlatformScreen12manufacturerEv": ["text", "address"],
+    "ritual_ZNK15QPlatformScreen5modelEv": ["text", "address"],
+    "ritual_ZNK15QPlatformScreen12serialNumberEv": ["text", "address"],
+    "ritual_ZNK15QPlatformScreen6cursorEv": ["address", "address"],
+    "ritual_ZNK15QPlatformScreen28subpixelAntialiasingTypeHintEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK15QPlatformScreen10powerStateEv": ["int", "address"],
+    "ritual_ZN15QPlatformScreen13setPowerStateENS_10PowerStateE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QPlatformScreen11currentModeEv": ["int", "address"],
+    "ritual_ZNK15QPlatformScreen13preferredModeEv": ["int", "address"],
+    "ritual_ZN15QPlatformScreen12angleBetweenEN2Qt17ScreenOrientationES1_": [
+      "int", "int", "int"
+    ],
+    "ritual_ZN15QPlatformScreen16transformBetweenEN2Qt17ScreenOrientationES1_RK5QRect": [
+      "address", "int", "int", "address"
+    ],
+    "ritual_ZN15QPlatformScreen10mapBetweenEN2Qt17ScreenOrientationES1_RK5QRect": [
+      "address", "int", "int", "address"
+    ],
+    "ritual_ZN15QPlatformScreen22resizeMaximizedWindowsEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QPlatformScreen": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK15QPlatformScreen13isPlaceholderEv": ["bool", "address"],
+    "ritual_own_ZNK15QPlatformScreen10grabWindowEyiiii": [
+      "address", "address", "unsigned long long", "int", "int", "int", "int"
+    ],
+    "ritual_own_ZNK15QPlatformScreen17availableGeometryEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK15QPlatformScreen10colorSpaceEv": ["address", "address"],
+    "ritual_own_ZNK15QPlatformScreen12physicalSizeEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK15QPlatformScreen16devicePixelRatioEv": [
+      "double", "address"
+    ],
+    "ritual_own_ZNK15QPlatformScreen11refreshRateEv": ["double", "address"],
+    "ritual_own_ZNK15QPlatformScreen17nativeOrientationEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZNK15QPlatformScreen11orientationEv": ["int", "address"],
+    "ritual_own_ZNK15QPlatformScreen10topLevelAtERK6QPoint": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZNK15QPlatformScreen4nameEv": ["text", "address"],
+    "ritual_own_ZNK15QPlatformScreen12manufacturerEv": ["text", "address"],
+    "ritual_own_ZNK15QPlatformScreen5modelEv": ["text", "address"],
+    "ritual_own_ZNK15QPlatformScreen12serialNumberEv": ["text", "address"],
+    "ritual_own_ZNK15QPlatformScreen6cursorEv": ["address", "address"],
+    "ritual_own_ZNK15QPlatformScreen28subpixelAntialiasingTypeHintEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZNK15QPlatformScreen10powerStateEv": ["int", "address"],
+    "ritual_own_ZN15QPlatformScreen13setPowerStateENS_10PowerStateE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZNK15QPlatformScreen11currentModeEv": ["int", "address"],
+    "ritual_own_ZNK15QPlatformScreen13preferredModeEv": ["int", "address"],
+    "ritual_list_make_QPlatformScreen_ptr": ["address"],
+    "ritual_list_add_QPlatformScreen_ptr": ["nothing", "address", "address"],
+    "ritual_list_size_QPlatformScreen_ptr": ["long long", "address"],
+    "ritual_list_at_QPlatformScreen_ptr": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_QPlatformScreen_ptr": ["nothing", "address"]
+  }
+}

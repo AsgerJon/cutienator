@@ -1,0 +1,44 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qpainterpath_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QPainterPathPrivateC1Ev": ["address"],
+    "ritual_ZN19QPainterPathPrivateC1E7QPointF": ["address", "address"],
+    "ritual_ZN19QPainterPathPrivateC1ERKS_": ["address", "address"],
+    "ritual_ZN19QPainterPathPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZNK19QPainterPathPrivate8isClosedEv": ["bool", "address"],
+    "ritual_ZN19QPainterPathPrivate5closeEv": ["nothing", "address"],
+    "ritual_ZN19QPainterPathPrivate11maybeMoveToEv": ["nothing", "address"],
+    "ritual_ZN19QPainterPathPrivate5clearEv": ["nothing", "address"],
+    "ritual_ZNK19QPainterPathPrivate17endPointOfElementEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN19QPainterPathPrivate17computeRunLengthsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QPainterPathPrivate15elementAtLengthEd": [
+      "int", "address", "double"
+    ],
+    "ritual_ZN19QPainterPathPrivate10elementAtTEd": [
+      "int", "address", "double"
+    ],
+    "ritual_ZN19QPainterPathPrivate20appendTrimmedElementEP12QPainterPathiidd": [
+      "nothing", "address", "address", "int", "int", "double", "double"
+    ],
+    "ritual_ZN19QPainterPathPrivate20appendStartOfElementEP12QPainterPathid": [
+      "nothing", "address", "address", "int", "double"
+    ],
+    "ritual_ZN19QPainterPathPrivate18appendEndOfElementEP12QPainterPathid": [
+      "nothing", "address", "address", "int", "double"
+    ],
+    "ritual_ZN19QPainterPathPrivate20appendSliceOfElementEP12QPainterPathidd": [
+      "nothing", "address", "address", "int", "double", "double"
+    ],
+    "ritual_ZN19QPainterPathPrivate18appendElementRangeEP12QPainterPathii": [
+      "nothing", "address", "address", "int", "int"
+    ]
+  }
+}

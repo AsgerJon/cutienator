@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtLabsS",
+    "tyleKit/6.12.0/QtLabsStyleKit/private/qqstylekitcontrolproperties_",
+    "p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK29QQStyleKitIndicatorProperties10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN29QQStyleKitIndicatorProperties24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ]
+  }
+}

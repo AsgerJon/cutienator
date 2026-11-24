@@ -1,0 +1,72 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquicksprite_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK12QQuickSprite10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QQuickSprite2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN12QQuickSpriteC1EP7QObject": ["address", "address"],
+    "ritual_ZN12QQuickSpriteD1Ev": ["nothing", "address"],
+    "ritual_ZNK12QQuickSprite6sourceEv": ["address", "address"],
+    "ritual_ZNK12QQuickSprite11frameHeightEv": ["int", "address"],
+    "ritual_ZNK12QQuickSprite10frameWidthEv": ["int", "address"],
+    "ritual_ZNK12QQuickSprite7reverseEv": ["bool", "address"],
+    "ritual_ZNK12QQuickSprite6framesEv": ["int", "address"],
+    "ritual_ZNK12QQuickSprite10frameCountEv": ["int", "address"],
+    "ritual_ZNK12QQuickSprite6frameXEv": ["int", "address"],
+    "ritual_ZNK12QQuickSprite6frameYEv": ["int", "address"],
+    "ritual_ZN12QQuickSprite14resetFrameRateEv": ["nothing", "address"],
+    "ritual_ZNK12QQuickSprite9frameRateEv": ["double", "address"],
+    "ritual_ZNK12QQuickSprite18frameRateVariationEv": ["double", "address"],
+    "ritual_ZN12QQuickSprite18resetFrameDurationEv": ["nothing", "address"],
+    "ritual_ZNK12QQuickSprite13frameDurationEv": ["int", "address"],
+    "ritual_ZNK12QQuickSprite22frameDurationVariationEv": ["int", "address"],
+    "ritual_ZNK12QQuickSprite14variedDurationEv": ["int", "address"],
+    "ritual_ZNK12QQuickSprite9frameSyncEv": ["bool", "address"],
+    "ritual_ZN12QQuickSprite19setDevicePixelRatioEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK12QQuickSprite16devicePixelRatioEv": ["double", "address"],
+    "ritual_ZN12QQuickSprite9setSourceE4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QQuickSprite14setFrameHeightEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN12QQuickSprite13setFrameWidthEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN12QQuickSprite10setReverseEb": ["nothing", "address", "bool"],
+    "ritual_ZN12QQuickSprite9setFramesEi": ["nothing", "address", "int"],
+    "ritual_ZN12QQuickSprite13setFrameCountEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN12QQuickSprite9setFrameXEi": ["nothing", "address", "int"],
+    "ritual_ZN12QQuickSprite9setFrameYEi": ["nothing", "address", "int"],
+    "ritual_ZN12QQuickSprite12setFrameRateEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN12QQuickSprite21setFrameRateVariationEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN12QQuickSprite16setFrameDurationEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN12QQuickSprite25setFrameDurationVariationEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN12QQuickSprite12setFrameSyncEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN12QQuickSprite17startImageLoadingEv": ["nothing", "address"],
+    "ritual_take_QQuickSprite": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK12QQuickSprite14variedDurationEv": ["int", "address"],
+    "ritual_list_make_QQuickSprite_ptr": ["address"],
+    "ritual_list_add_QQuickSprite_ptr": ["nothing", "address", "address"],
+    "ritual_list_size_QQuickSprite_ptr": ["long long", "address"],
+    "ritual_list_at_QQuickSprite_ptr": ["address", "address", "long long"],
+    "ritual_list_drop_QQuickSprite_ptr": ["nothing", "address"]
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Controls2FusionStyleImpl/6.12.0/QtQuickControls2FusionStyleImpl/pr",
+    "ivate/qquickfusionbusyindicator_p.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZNK25QQuickFusionBusyIndicator10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK25QQuickFusionBusyIndicator5colorEv": ["address", "address"],
+    "ritual_ZN25QQuickFusionBusyIndicator8setColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK25QQuickFusionBusyIndicator9isRunningEv": ["bool", "address"],
+    "ritual_ZN25QQuickFusionBusyIndicator10setRunningEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN25QQuickFusionBusyIndicator5paintEP8QPainter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QQuickFusionBusyIndicator10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZN25QQuickFusionBusyIndicator5paintEP8QPainter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN25QQuickFusionBusyIndicator10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ]
+  }
+}

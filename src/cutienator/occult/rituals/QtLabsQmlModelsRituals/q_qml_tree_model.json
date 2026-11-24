@@ -1,0 +1,96 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLabsQmlModels/6.12.0/QtLabsQmlModels/private/qqmltreemodel_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK13QQmlTreeModel10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QQmlTreeModel2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN13QQmlTreeModelC1EP7QObject": ["address", "address"],
+    "ritual_ZN13QQmlTreeModelD1Ev": ["nothing", "address"],
+    "ritual_ZNK13QQmlTreeModel4rowsEv": ["address", "address"],
+    "ritual_ZN13QQmlTreeModel7setRowsERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QQmlTreeModel9appendRowE11QModelIndexRK8QVariant": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN13QQmlTreeModel9appendRowERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QQmlTreeModel5clearEv": ["nothing", "address"],
+    "ritual_ZNK13QQmlTreeModel6getRowERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN13QQmlTreeModel9insertRowEi11QModelIndexRK8QVariant": [
+      "nothing", "address", "int", "address", "address"
+    ],
+    "ritual_ZN13QQmlTreeModel9insertRowEiRK8QVariant": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN13QQmlTreeModel8moveRowsERK11QModelIndexiiS2_i": [
+      "bool", "address", "address", "int", "int", "address", "int"
+    ],
+    "ritual_ZN13QQmlTreeModel9removeRowE11QModelIndex": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QQmlTreeModel6setRowE11QModelIndexRK8QVariant": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK13QQmlTreeModel5indexEiiRK11QModelIndex": [
+      "address", "address", "int", "int", "address"
+    ],
+    "ritual_ZNK13QQmlTreeModel8rowCountERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK13QQmlTreeModel11columnCountERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK13QQmlTreeModel6parentERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK13QQmlTreeModel8firstRowEv": ["address", "address"],
+    "ritual_ZN13QQmlTreeModel14setInitialRowsEv": ["nothing", "address"],
+    "ritual_ZNK13QQmlTreeModel8treeSizeEv": ["int", "address"],
+    "ritual_ZN13QQmlTreeModel14setRowsPrivateERK5QListI8QVariantE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QQmlTreeModel11dataPrivateERK11QModelIndexRK7QString": [
+      "address", "address", "address", "text"
+    ],
+    "ritual_ZN13QQmlTreeModel14setDataPrivateERK11QModelIndexRK7QString8QVariant": [
+      "nothing", "address", "address", "text", "address"
+    ],
+    "ritual_ZNK13QQmlTreeModel14validateNewRowE13QLatin1StringRK8QVariantN23QQmlAbstractColumnModel19NewRowOperationFlagE": [
+      "bool", "address", "address", "address", "int"
+    ],
+    "ritual_ZN13QQmlTreeModel8doInsertERK11QModelIndexiRK8QVariant": [
+      "nothing", "address", "address", "int", "address"
+    ],
+    "ritual_take_QQmlTreeModel": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN13QQmlTreeModel8moveRowsERK11QModelIndexiiS2_i": [
+      "bool", "address", "address", "int", "int", "address", "int"
+    ],
+    "ritual_own_ZNK13QQmlTreeModel5indexEiiRK11QModelIndex": [
+      "address", "address", "int", "int", "address"
+    ],
+    "ritual_own_ZNK13QQmlTreeModel8rowCountERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZNK13QQmlTreeModel11columnCountERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZNK13QQmlTreeModel6parentERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZNK13QQmlTreeModel8firstRowEv": ["address", "address"],
+    "ritual_own_ZN13QQmlTreeModel14setInitialRowsEv": ["nothing", "address"],
+    "ritual_own_ZNK13QQmlTreeModel11dataPrivateERK11QModelIndexRK7QString": [
+      "address", "address", "address", "text"
+    ],
+    "ritual_own_ZN13QQmlTreeModel14setDataPrivateERK11QModelIndexRK7QString8QVariant": [
+      "nothing", "address", "address", "text", "address"
+    ]
+  }
+}

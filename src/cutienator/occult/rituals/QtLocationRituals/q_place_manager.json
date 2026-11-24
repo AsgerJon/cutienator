@@ -1,0 +1,69 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLocation/qplacemanager.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK13QPlaceManager10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QPlaceManager2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN13QPlaceManagerD1Ev": ["nothing", "address"],
+    "ritual_ZNK13QPlaceManager11managerNameEv": ["text", "address"],
+    "ritual_ZNK13QPlaceManager14managerVersionEv": ["int", "address"],
+    "ritual_ZNK13QPlaceManager15getPlaceDetailsERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK13QPlaceManager15getPlaceContentERK20QPlaceContentRequest": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK13QPlaceManager6searchERK19QPlaceSearchRequest": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK13QPlaceManager17searchSuggestionsERK19QPlaceSearchRequest": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN13QPlaceManager9savePlaceERK6QPlace": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN13QPlaceManager11removePlaceERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN13QPlaceManager12saveCategoryERK14QPlaceCategoryRK7QString": [
+      "address", "address", "address", "text"
+    ],
+    "ritual_ZN13QPlaceManager14removeCategoryERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN13QPlaceManager20initializeCategoriesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK13QPlaceManager16parentCategoryIdERK7QString": [
+      "text", "address", "text"
+    ],
+    "ritual_ZNK13QPlaceManager16childCategoryIdsERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK13QPlaceManager8categoryERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK13QPlaceManager15childCategoriesERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK13QPlaceManager7localesEv": ["address", "address"],
+    "ritual_ZN13QPlaceManager9setLocaleERK7QLocale": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QPlaceManager10setLocalesERK5QListI7QLocaleE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QPlaceManager15compatiblePlaceERK6QPlace": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK13QPlaceManager14matchingPlacesERK18QPlaceMatchRequest": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN13QPlaceManagerC1EP19QPlaceManagerEngineP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_take_QPlaceManager": ["bool", "address", "chars", "address"]
+  }
+}

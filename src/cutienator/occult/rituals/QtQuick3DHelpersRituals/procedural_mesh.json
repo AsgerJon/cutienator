@@ -1,0 +1,62 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DHelpers/6.12.0/QtQuick3DHelpers/private/proceduralmesh_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK14ProceduralMesh10metaObjectEv": ["address", "address"],
+    "ritual_ZN14ProceduralMesh2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN14ProceduralMeshC1Ev": ["address"],
+    "ritual_ZNK14ProceduralMesh9positionsEv": ["address", "address"],
+    "ritual_ZN14ProceduralMesh12setPositionsERK5QListI9QVector3DE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14ProceduralMesh13primitiveModeEv": ["int", "address"],
+    "ritual_ZN14ProceduralMesh16setPrimitiveModeENS_13PrimitiveModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK14ProceduralMesh7normalsEv": ["address", "address"],
+    "ritual_ZN14ProceduralMesh10setNormalsERK5QListI9QVector3DE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14ProceduralMesh8tangentsEv": ["address", "address"],
+    "ritual_ZN14ProceduralMesh11setTangentsERK5QListI9QVector3DE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14ProceduralMesh9binormalsEv": ["address", "address"],
+    "ritual_ZN14ProceduralMesh12setBinormalsERK5QListI9QVector3DE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14ProceduralMesh4uv0sEv": ["address", "address"],
+    "ritual_ZN14ProceduralMesh7setUv0sERK5QListI9QVector2DE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14ProceduralMesh4uv1sEv": ["address", "address"],
+    "ritual_ZN14ProceduralMesh7setUv1sERK5QListI9QVector2DE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14ProceduralMesh6colorsEv": ["address", "address"],
+    "ritual_ZN14ProceduralMesh9setColorsERK5QListI9QVector4DE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14ProceduralMesh6jointsEv": ["address", "address"],
+    "ritual_ZN14ProceduralMesh9setJointsERK5QListI9QVector4DE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14ProceduralMesh7weightsEv": ["address", "address"],
+    "ritual_ZN14ProceduralMesh10setWeightsERK5QListI9QVector4DE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14ProceduralMesh13requestUpdateEv": ["nothing", "address"],
+    "ritual_ZN14ProceduralMesh14updateGeometryEv": ["nothing", "address"],
+    "ritual_ZN14ProceduralMesh15subsetDestroyedEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14ProceduralMesh28supportsTriangleFanPrimitiveEv": [
+      "bool", "address"
+    ]
+  }
+}

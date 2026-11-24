@@ -1,0 +1,108 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtLocat",
+    "ion/6.12.0/QtLocation/private/qdeclarativepolylinemapitem_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK27QDeclarativePolylineMapItem10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QDeclarativePolylineMapItem2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN27QDeclarativePolylineMapItemC1EP10QQuickItem": [
+      "address", "address"
+    ],
+    "ritual_ZN27QDeclarativePolylineMapItemD1Ev": ["nothing", "address"],
+    "ritual_ZN27QDeclarativePolylineMapItem6setMapEP18QDeclarativeGeoMapP7QGeoMap": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN27QDeclarativePolylineMapItem22updateMapItemPaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK27QDeclarativePolylineMapItem10pathLengthEv": [
+      "int", "address"
+    ],
+    "ritual_ZN27QDeclarativePolylineMapItem13addCoordinateERK14QGeoCoordinate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN27QDeclarativePolylineMapItem16insertCoordinateEiRK14QGeoCoordinate": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN27QDeclarativePolylineMapItem17replaceCoordinateEiRK14QGeoCoordinate": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZNK27QDeclarativePolylineMapItem12coordinateAtEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN27QDeclarativePolylineMapItem18containsCoordinateERK14QGeoCoordinate": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN27QDeclarativePolylineMapItem16removeCoordinateERK14QGeoCoordinate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN27QDeclarativePolylineMapItem16removeCoordinateEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK27QDeclarativePolylineMapItem4pathEv": ["address", "address"],
+    "ritual_ZN27QDeclarativePolylineMapItem7setPathERK5QListI14QGeoCoordinateE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN27QDeclarativePolylineMapItem7setPathERK8QGeoPath": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK27QDeclarativePolylineMapItem8containsERK7QPointF": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK27QDeclarativePolylineMapItem8geoShapeEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QDeclarativePolylineMapItem11setGeoShapeERK9QGeoShape": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN27QDeclarativePolylineMapItem4lineEv": ["address", "address"],
+    "ritual_ZN27QDeclarativePolylineMapItem32updateAfterLinePropertiesChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QDeclarativePolylineMapItem20afterViewportChangedERK26QGeoMapViewportChangeEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN27QDeclarativePolylineMapItem14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN27QDeclarativePolylineMapItem18setPathFromGeoListERK5QListI14QGeoCoordinateE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN27QDeclarativePolylineMapItem12updatePolishEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QDeclarativePolylineMapItem": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN27QDeclarativePolylineMapItem6setMapEP18QDeclarativeGeoMapP7QGeoMap": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN27QDeclarativePolylineMapItem22updateMapItemPaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_own_ZNK27QDeclarativePolylineMapItem8containsERK7QPointF": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZNK27QDeclarativePolylineMapItem8geoShapeEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN27QDeclarativePolylineMapItem11setGeoShapeERK9QGeoShape": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN27QDeclarativePolylineMapItem20afterViewportChangedERK26QGeoMapViewportChangeEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN27QDeclarativePolylineMapItem14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN27QDeclarativePolylineMapItem12updatePolishEv": [
+      "nothing", "address"
+    ]
+  }
+}

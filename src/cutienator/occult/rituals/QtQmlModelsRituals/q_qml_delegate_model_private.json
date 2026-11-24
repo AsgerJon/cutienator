@@ -1,0 +1,58 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQmlModels/6.12.0/QtQmlModels/private/qqmldelegatemodel_p_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN24QQmlDelegateModelPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK24QQmlDelegateModelPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN24QQmlDelegateModelPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN24QQmlDelegateModelPrivate3getEP17QQmlDelegateModel": [
+      "address", "address"
+    ],
+    "ritual_ZN24QQmlDelegateModelPrivate4initEv": ["nothing", "address"],
+    "ritual_ZN24QQmlDelegateModelPrivate26connectToAbstractItemModelEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQmlDelegateModelPrivate31disconnectFromAbstractItemModelEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQmlDelegateModelPrivate22requestMoreIfNecessaryEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQmlDelegateModelPrivate15emitCreatedItemEP18QQDMIncubationTaskP7QObject": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN24QQmlDelegateModelPrivate12emitInitItemEP18QQDMIncubationTaskP7QObject": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN24QQmlDelegateModelPrivate18emitDestroyingItemEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QQmlDelegateModelPrivate16destroyCacheItemEP21QQmlDelegateModelItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QQmlDelegateModelPrivate15resolveDelegateEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN24QQmlDelegateModelPrivate16emitModelUpdatedERK13QQmlChangeSetb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZNK24QQmlDelegateModelPrivate17adaptorModelCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZN24QQmlDelegateModelPrivate16releaseIncubatorEP18QQDMIncubationTask": [
+      "nothing", "address", "address"
+    ],
+    "ritual_cast_QQmlDelegateModelPrivate_QQmlDelegateModelGroupEmitter": [
+      "address", "address"
+    ],
+    "ritual_take_QQmlDelegateModelPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN24QQmlDelegateModelPrivate16emitModelUpdatedERK13QQmlChangeSetb": [
+      "nothing", "address", "address", "bool"
+    ]
+  }
+}

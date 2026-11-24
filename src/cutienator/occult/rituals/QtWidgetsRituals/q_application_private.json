@@ -1,0 +1,178 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qapplication_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QApplicationPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK19QApplicationPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN19QApplicationPrivateC1ERiPPc": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN19QApplicationPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN19QApplicationPrivate27notifyLayoutDirectionChangeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QApplicationPrivate24notifyActiveWindowChangeEP7QWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QApplicationPrivate15desktopStyleKeyEv": ["text"],
+    "ritual_ZN19QApplicationPrivate21createEventDispatcherEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QApplicationPrivate18dispatchEnterLeaveEP7QWidgetS1_RK7QPointF": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN19QApplicationPrivate23notifyWindowIconChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QApplicationPrivate13compressEventEP6QEventP7QObjectP14QPostEventList": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK19QApplicationPrivate19createActionPrivateEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QApplicationPrivate21createShortcutPrivateEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QApplicationPrivate15defaultModalityEv": ["int", "address"],
+    "ritual_ZNK19QApplicationPrivate18windowNeverBlockedEP7QWindow": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN19QApplicationPrivate16isBlockedByModalEP7QWidget": [
+      "bool", "address"
+    ],
+    "ritual_ZN19QApplicationPrivate10modalStateEv": ["bool"],
+    "ritual_ZN19QApplicationPrivate13notify_helperEP7QObjectP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN19QApplicationPrivate4initEv": ["nothing", "address"],
+    "ritual_ZN19QApplicationPrivate10initializeEv": ["nothing", "address"],
+    "ritual_ZN19QApplicationPrivate15process_cmdlineEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QApplicationPrivate15setActiveWindowEP7QWidget": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QApplicationPrivate11inPopupModeEv": ["bool"],
+    "ritual_ZN19QApplicationPrivate10closePopupEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QApplicationPrivate9openPopupEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QApplicationPrivate14setFocusWidgetEP7QWidgetN2Qt11FocusReasonE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN19QApplicationPrivate25focusNextPrevChild_helperEP7QWidgetbPb": [
+      "address", "address", "bool", "address"
+    ],
+    "ritual_ZN19QApplicationPrivate18handleThemeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK19QApplicationPrivate11basePaletteEv": ["address", "address"],
+    "ritual_ZN19QApplicationPrivate20handlePaletteChangedEPKc": [
+      "nothing", "address", "chars"
+    ],
+    "ritual_ZN19QApplicationPrivate17notifyDragStartedEPK5QDrag": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QApplicationPrivate33initializeWidgetPalettesFromThemeEv": [
+      "nothing"
+    ],
+    "ritual_ZN19QApplicationPrivate24initializeWidgetFontHashEv": [
+      "nothing"
+    ],
+    "ritual_ZN19QApplicationPrivate13setSystemFontERK5QFont": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QApplicationPrivate8instanceEv": ["address"],
+    "ritual_ZN19QApplicationPrivate17pickMouseReceiverEP7QWidgetRK7QPointFPS2_N6QEvent4TypeE6QFlagsIN2Qt11MouseButtonEES1_S1_": [
+      "address", "address", "address", "address", "int", "int", "address",
+      "address"
+    ],
+    "ritual_ZN19QApplicationPrivate23sendSyntheticEnterLeaveEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QApplicationPrivate15windowForWidgetEPK7QWidget": [
+      "address", "address"
+    ],
+    "ritual_ZN19QApplicationPrivate26updateTouchPointsForWidgetEP7QWidgetP11QTouchEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN19QApplicationPrivate20initializeMultitouchEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QApplicationPrivate24initializeMultitouch_sysEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QApplicationPrivate17cleanupMultitouchEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QApplicationPrivate21cleanupMultitouch_sysEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QApplicationPrivate27findClosestTouchPointTargetEPK15QPointingDeviceRK11QEventPoint": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN19QApplicationPrivate25activateImplicitTouchGrabEP7QWidgetP11QTouchEventNS_21ImplicitTouchGrabModeE": [
+      "nothing", "address", "address", "address", "int"
+    ],
+    "ritual_ZN19QApplicationPrivate22translateRawTouchEventEP7QWidgetPK11QTouchEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN19QApplicationPrivate20translateTouchCancelEPK15QPointingDevicem": [
+      "nothing", "address", "unsigned long"
+    ],
+    "ritual_ZNK19QApplicationPrivate21applyQIconStyleHelperEN5QIcon4ModeERK7QPixmap": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_ZN19QApplicationPrivate31giveFocusAccordingToFocusPolicyEP7QWidgetP6QEvent6QPoint": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN19QApplicationPrivate14shouldSetFocusEP7QWidgetN2Qt11FocusPolicyE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN19QApplicationPrivate7isAlienEP7QWidget": ["bool", "address"],
+    "ritual_take_QApplicationPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN19QApplicationPrivate27notifyLayoutDirectionChangeEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN19QApplicationPrivate24notifyActiveWindowChangeEP7QWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN19QApplicationPrivate21createEventDispatcherEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN19QApplicationPrivate23notifyWindowIconChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZNK19QApplicationPrivate19createActionPrivateEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK19QApplicationPrivate21createShortcutPrivateEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK19QApplicationPrivate15defaultModalityEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZNK19QApplicationPrivate18windowNeverBlockedEP7QWindow": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN19QApplicationPrivate18handleThemeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZNK19QApplicationPrivate11basePaletteEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN19QApplicationPrivate17notifyDragStartedEPK5QDrag": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK19QApplicationPrivate21applyQIconStyleHelperEN5QIcon4ModeERK7QPixmap": [
+      "address", "address", "int", "address"
+    ]
+  }
+}

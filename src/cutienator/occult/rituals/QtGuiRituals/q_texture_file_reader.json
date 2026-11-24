@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qtexturefilereader_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QTextureFileReaderC1EP9QIODeviceRK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN18QTextureFileReaderD1Ev": ["nothing", "address"],
+    "ritual_ZN18QTextureFileReader7canReadEv": ["bool", "address"],
+    "ritual_ZN18QTextureFileReader4readEv": ["address", "address"],
+    "ritual_ZN18QTextureFileReader20supportedFileFormatsEv": ["address"],
+    "ritual_ZN18QTextureFileReader4initEv": ["bool", "address"]
+  }
+}

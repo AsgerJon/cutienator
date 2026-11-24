@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/qcommandlineoption.h, Qt 6.12.0. Changes made here are lost.
+#include <QtCore/qglobal.h>
+#if QT_CONFIG(commandlineparser)
 #include <QtCore/qcommandlineoption.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qlist.h>
@@ -172,3 +174,5 @@ extern "C" Q_DECL_EXPORT
 void ritual_list_drop_QCommandLineOption(QList<QCommandLineOption> *self) {
   delete self;
 }
+
+#endif  // QT_CONFIG(commandlineparser)

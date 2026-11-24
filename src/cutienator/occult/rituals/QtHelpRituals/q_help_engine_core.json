@@ -1,0 +1,105 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtHelp/qhelpenginecore.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK15QHelpEngineCore10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QHelpEngineCore2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN15QHelpEngineCoreC1ERK7QStringP7QObject": [
+      "address", "text", "address"
+    ],
+    "ritual_ZN15QHelpEngineCoreD1Ev": ["nothing", "address"],
+    "ritual_ZNK15QHelpEngineCore10isReadOnlyEv": ["bool", "address"],
+    "ritual_ZN15QHelpEngineCore11setReadOnlyEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK15QHelpEngineCore12filterEngineEv": ["address", "address"],
+    "ritual_ZN15QHelpEngineCore9setupDataEv": ["bool", "address"],
+    "ritual_ZNK15QHelpEngineCore14collectionFileEv": ["text", "address"],
+    "ritual_ZN15QHelpEngineCore17setCollectionFileERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN15QHelpEngineCore18copyCollectionFileERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN15QHelpEngineCore13namespaceNameERK7QString": ["text", "text"],
+    "ritual_ZN15QHelpEngineCore21registerDocumentationERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN15QHelpEngineCore23unregisterDocumentationERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN15QHelpEngineCore21documentationFileNameERK7QString": [
+      "text", "address", "text"
+    ],
+    "ritual_ZNK15QHelpEngineCore24registeredDocumentationsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK15QHelpEngineCore8fileDataERK4QUrl": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK15QHelpEngineCore13customFiltersEv": ["address", "address"],
+    "ritual_ZN15QHelpEngineCore18removeCustomFilterERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN15QHelpEngineCore15addCustomFilterERK7QStringRK5QListIS0_E": [
+      "bool", "address", "text", "address"
+    ],
+    "ritual_ZNK15QHelpEngineCore16filterAttributesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK15QHelpEngineCore16filterAttributesERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK15QHelpEngineCore13currentFilterEv": ["text", "address"],
+    "ritual_ZN15QHelpEngineCore16setCurrentFilterERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN15QHelpEngineCore5filesE7QStringRK5QListIS0_ERKS0_": [
+      "address", "address", "text", "address", "text"
+    ],
+    "ritual_ZN15QHelpEngineCore5filesE7QStringRKS0_S2_": [
+      "address", "address", "text", "text", "text"
+    ],
+    "ritual_ZNK15QHelpEngineCore8findFileERK4QUrl": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK15QHelpEngineCore22documentsForIdentifierERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK15QHelpEngineCore22documentsForIdentifierERK7QStringS2_": [
+      "address", "address", "text", "text"
+    ],
+    "ritual_ZNK15QHelpEngineCore19documentsForKeywordERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK15QHelpEngineCore19documentsForKeywordERK7QStringS2_": [
+      "address", "address", "text", "text"
+    ],
+    "ritual_ZN15QHelpEngineCore17removeCustomValueERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZNK15QHelpEngineCore11customValueERK7QStringRK8QVariant": [
+      "address", "address", "text", "address"
+    ],
+    "ritual_ZN15QHelpEngineCore14setCustomValueERK7QStringRK8QVariant": [
+      "bool", "address", "text", "address"
+    ],
+    "ritual_ZN15QHelpEngineCore8metaDataERK7QStringS2_": [
+      "address", "text", "text"
+    ],
+    "ritual_ZNK15QHelpEngineCore5errorEv": ["text", "address"],
+    "ritual_ZN15QHelpEngineCore17setAutoSaveFilterEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK15QHelpEngineCore14autoSaveFilterEv": ["bool", "address"],
+    "ritual_ZN15QHelpEngineCore19setUsesFilterEngineEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK15QHelpEngineCore16usesFilterEngineEv": ["bool", "address"],
+    "ritual_take_QHelpEngineCore": ["bool", "address", "chars", "address"]
+  }
+}

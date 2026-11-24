@@ -1,0 +1,36 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtOpenGL/6.12.0/QtOpenGL/private/qopenglcustomshaderstage_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN24QOpenGLCustomShaderStageC1Ev": ["address"],
+    "ritual_ZN24QOpenGLCustomShaderStageD1Ev": ["nothing", "address"],
+    "ritual_ZN24QOpenGLCustomShaderStage11setUniformsEP20QOpenGLShaderProgram": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QOpenGLCustomShaderStage16setUniformsDirtyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QOpenGLCustomShaderStage12setOnPainterEP8QPainter": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN24QOpenGLCustomShaderStage17removeFromPainterEP8QPainter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK24QOpenGLCustomShaderStage6sourceEv": ["address", "address"],
+    "ritual_ZN24QOpenGLCustomShaderStage11setInactiveEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QOpenGLCustomShaderStage9setSourceERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QOpenGLCustomShaderStage": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN24QOpenGLCustomShaderStage11setUniformsEP20QOpenGLShaderProgram": [
+      "nothing", "address", "address"
+    ]
+  }
+}

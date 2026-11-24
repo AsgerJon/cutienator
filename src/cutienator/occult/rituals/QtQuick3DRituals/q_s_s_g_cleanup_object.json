@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3D/6.12.0/QtQuick3D/private/qquick3dscenemanager_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QSSGCleanupObject10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QSSGCleanupObjectD1Ev": ["nothing", "address"],
+    "ritual_ZN17QSSGCleanupObject16cleanupResourcesEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QSSGCleanupObject": ["bool", "address", "chars", "address"]
+  }
+}

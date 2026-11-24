@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Dialogs2QuickImpl/6.12.0/QtQuickDialogs2QuickImpl/private/qquickme",
+    "ssagedialogimpl_p_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN38QQuickMessageDialogImplAttachedPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK38QQuickMessageDialogImplAttachedPrivate6q_funcEv": [
+      "address", "address"
+    ]
+  }
+}

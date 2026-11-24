@@ -1,0 +1,30 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/simplewidgets_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN17QAccessibleButton2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZNK17QAccessibleButton5stateEv": ["address", "address"],
+    "ritual_ZNK17QAccessibleButton4rectEv": ["address", "address"],
+    "ritual_ZNK17QAccessibleButton4roleEv": ["int", "address"],
+    "ritual_ZNK17QAccessibleButton11actionNamesEv": ["address", "address"],
+    "ritual_ZN17QAccessibleButton8doActionERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK17QAccessibleButton20keyBindingsForActionERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK17QAccessibleButton6buttonEv": ["address", "address"],
+    "ritual_take_QAccessibleButton": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK17QAccessibleButton5stateEv": ["address", "address"],
+    "ritual_own_ZNK17QAccessibleButton4rectEv": ["address", "address"],
+    "ritual_own_ZNK17QAccessibleButton4roleEv": ["int", "address"],
+    "ritual_own_ZN17QAccessibleButton8doActionERK7QString": [
+      "nothing", "address", "text"
+    ]
+  }
+}

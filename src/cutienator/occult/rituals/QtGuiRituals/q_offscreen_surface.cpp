@@ -13,17 +13,32 @@
 typedef int (*CuteQOffscreenSurfaceCall0)(const void *, int *);
 typedef const QSurfaceFormat * (*CuteQOffscreenSurfaceCall1)(const void *, int *);
 typedef const QSize * (*CuteQOffscreenSurfaceCall2)(const void *, int *);
-typedef bool (*CuteQOffscreenSurfaceCall3)(const void *, QEvent *, int *);
-typedef bool (*CuteQOffscreenSurfaceCall4)(const void *, QObject *, QEvent *, int *);
-typedef void (*CuteQOffscreenSurfaceCall5)(const void *, QTimerEvent *, int *);
-typedef void (*CuteQOffscreenSurfaceCall6)(const void *, QChildEvent *, int *);
-typedef void (*CuteQOffscreenSurfaceCall7)(const void *, QEvent *, int *);
-typedef void (*CuteQOffscreenSurfaceCall8)(const void *, const QMetaMethod *, int *);
+typedef void * (*CuteQOffscreenSurfaceCall3)(const void *, int *);
+#if !defined(QT_NO_QOBJECT)
+typedef bool (*CuteQOffscreenSurfaceCall4)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+typedef bool (*CuteQOffscreenSurfaceCall5)(const void *, QObject *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+typedef void (*CuteQOffscreenSurfaceCall6)(const void *, QTimerEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+typedef void (*CuteQOffscreenSurfaceCall7)(const void *, QChildEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+typedef void (*CuteQOffscreenSurfaceCall8)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQOffscreenSurfaceCall9)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+typedef void (*CuteQOffscreenSurfaceCall10)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 class CuteQOffscreenSurface : public QOffscreenSurface {
 public:
   using QOffscreenSurface::QOffscreenSurface;
-  void *taken[10] = {};
+  void *taken[11] = {};
 
   bool take(const char *key, void *call) {
     if (!std::strcmp(key, "_ZNK8QSurface11surfaceTypeEv")) {
@@ -38,34 +53,52 @@ public:
       taken[2] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
+    if (!std::strcmp(key, "_ZNK8QSurface13surfaceHandleEv")) {
       taken[3] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[4] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[5] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[6] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[7] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[8] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[9] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+      taken[10] = call;
+      return true;
+    }
+#endif  // !defined(QT_NO_QOBJECT)
     return false;
   }
 
@@ -102,82 +135,107 @@ public:
     return QOffscreenSurface::size();
   }
 
-  //  bool QObject::event(QEvent *event)
-  bool event(QEvent *event) override {
+  //  QPlatformSurface *QOffscreenSurface::surfaceHandle() const
+  QPlatformSurface *surfaceHandle() const override {
     if (taken[3]) {
       int handled = 0;
       CuteQOffscreenSurfaceCall3 call = reinterpret_cast<CuteQOffscreenSurfaceCall3>(taken[3]);
+      void * given = call(this, &handled);
+      if (handled) return static_cast<QPlatformSurface *>(given);
+    }
+    return QOffscreenSurface::surfaceHandle();
+  }
+
+#if !defined(QT_NO_QOBJECT)
+  //  bool QObject::event(QEvent *event)
+  bool event(QEvent *event) override {
+    if (taken[4]) {
+      int handled = 0;
+      CuteQOffscreenSurfaceCall4 call = reinterpret_cast<CuteQOffscreenSurfaceCall4>(taken[4]);
       bool given = call(this, event, &handled);
       if (handled) return given;
     }
     return QObject::event(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
-    if (taken[4]) {
+    if (taken[5]) {
       int handled = 0;
-      CuteQOffscreenSurfaceCall4 call = reinterpret_cast<CuteQOffscreenSurfaceCall4>(taken[4]);
+      CuteQOffscreenSurfaceCall5 call = reinterpret_cast<CuteQOffscreenSurfaceCall5>(taken[5]);
       bool given = call(this, watched, event, &handled);
       if (handled) return given;
     }
     return QObject::eventFilter(watched, event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
-    if (taken[5]) {
-      int handled = 0;
-      CuteQOffscreenSurfaceCall5 call = reinterpret_cast<CuteQOffscreenSurfaceCall5>(taken[5]);
-      call(this, event, &handled);
-      if (handled) return;
-    }
-    QObject::timerEvent(event);
-  }
-
-  //  void QObject::childEvent(QChildEvent *event)
-  void childEvent(QChildEvent *event) override {
     if (taken[6]) {
       int handled = 0;
       CuteQOffscreenSurfaceCall6 call = reinterpret_cast<CuteQOffscreenSurfaceCall6>(taken[6]);
       call(this, event, &handled);
       if (handled) return;
     }
-    QObject::childEvent(event);
+    QObject::timerEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
-  //  void QObject::customEvent(QEvent *event)
-  void customEvent(QEvent *event) override {
+#if !defined(QT_NO_QOBJECT)
+  //  void QObject::childEvent(QChildEvent *event)
+  void childEvent(QChildEvent *event) override {
     if (taken[7]) {
       int handled = 0;
       CuteQOffscreenSurfaceCall7 call = reinterpret_cast<CuteQOffscreenSurfaceCall7>(taken[7]);
       call(this, event, &handled);
       if (handled) return;
     }
-    QObject::customEvent(event);
+    QObject::childEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
-  //  void QObject::connectNotify(const QMetaMethod &signal)
-  void connectNotify(const QMetaMethod &signal) override {
+#if !defined(QT_NO_QOBJECT)
+  //  void QObject::customEvent(QEvent *event)
+  void customEvent(QEvent *event) override {
     if (taken[8]) {
       int handled = 0;
       CuteQOffscreenSurfaceCall8 call = reinterpret_cast<CuteQOffscreenSurfaceCall8>(taken[8]);
-      call(this, &signal, &handled);
+      call(this, event, &handled);
       if (handled) return;
     }
-    QObject::connectNotify(signal);
+    QObject::customEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
-  //  void QObject::disconnectNotify(const QMetaMethod &signal)
-  void disconnectNotify(const QMetaMethod &signal) override {
+#if !defined(QT_NO_QOBJECT)
+  //  void QObject::connectNotify(const QMetaMethod &signal)
+  void connectNotify(const QMetaMethod &signal) override {
     if (taken[9]) {
       int handled = 0;
       CuteQOffscreenSurfaceCall9 call = reinterpret_cast<CuteQOffscreenSurfaceCall9>(taken[9]);
       call(this, &signal, &handled);
       if (handled) return;
     }
+    QObject::connectNotify(signal);
+  }
+#endif  // !defined(QT_NO_QOBJECT)
+
+#if !defined(QT_NO_QOBJECT)
+  //  void QObject::disconnectNotify(const QMetaMethod &signal)
+  void disconnectNotify(const QMetaMethod &signal) override {
+    if (taken[10]) {
+      int handled = 0;
+      CuteQOffscreenSurfaceCall10 call = reinterpret_cast<CuteQOffscreenSurfaceCall10>(taken[10]);
+      call(this, &signal, &handled);
+      if (handled) return;
+    }
     QObject::disconnectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 };
 
 //  const QMetaObject *QOffscreenSurface::metaObject() const
@@ -194,6 +252,20 @@ QString *ritual_ZN17QOffscreenSurface2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QOffscreenSurface::tr(s, c, n));
+}
+
+//  QOffscreenSurfacePrivate *QOffscreenSurface::d_func()
+extern "C" Q_DECL_EXPORT
+QOffscreenSurfacePrivate *ritual_ZN17QOffscreenSurface6d_funcEv(
+    QOffscreenSurface *self) {
+  return self->d_func();
+}
+
+//  const QOffscreenSurfacePrivate *QOffscreenSurface::d_func() const
+extern "C" Q_DECL_EXPORT
+const QOffscreenSurfacePrivate *ritual_ZNK17QOffscreenSurface6d_funcEv(
+    const QOffscreenSurface *self) {
+  return self->d_func();
 }
 
 //  QOffscreenSurface::QOffscreenSurface(QScreen *screen, QObject *parent)
@@ -278,12 +350,26 @@ void ritual_ZN17QOffscreenSurface9setScreenEP7QScreen(
   self->setScreen(screen);
 }
 
+//  QPlatformOffscreenSurface *QOffscreenSurface::handle() const
+extern "C" Q_DECL_EXPORT
+QPlatformOffscreenSurface *ritual_ZNK17QOffscreenSurface6handleEv(
+    const QOffscreenSurface *self) {
+  return self->handle();
+}
+
 //  void QOffscreenSurface::screenDestroyed(QObject *screen)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QOffscreenSurface15screenDestroyedEP7QObject(
     QOffscreenSurface *self,
     QObject *screen) {
   self->screenDestroyed(screen);
+}
+
+//  QPlatformSurface *QOffscreenSurface::surfaceHandle() const
+extern "C" Q_DECL_EXPORT
+QPlatformSurface *ritual_ZNK17QOffscreenSurface13surfaceHandleEv(
+    const QOffscreenSurface *self) {
+  return self->surfaceHandle();
 }
 
 //  QOffscreenSurface as the QSurface it is built on
@@ -321,4 +407,11 @@ extern "C" Q_DECL_EXPORT
 QSize *ritual_own_ZNK17QOffscreenSurface4sizeEv(
     const QOffscreenSurface *self) {
   return new QSize(self->QOffscreenSurface::size());
+}
+
+//  QPlatformSurface *QOffscreenSurface::surfaceHandle() const
+extern "C" Q_DECL_EXPORT
+QPlatformSurface *ritual_own_ZNK17QOffscreenSurface13surfaceHandleEv(
+    const QOffscreenSurface *self) {
+  return self->QOffscreenSurface::surfaceHandle();
 }

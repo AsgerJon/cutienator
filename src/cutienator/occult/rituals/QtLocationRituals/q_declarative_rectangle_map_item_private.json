@@ -1,0 +1,42 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtLocat",
+    "ion/6.12.0/QtLocation/private/qdeclarativerectanglemapitem_p_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN35QDeclarativeRectangleMapItemPrivateD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN35QDeclarativeRectangleMapItemPrivate23onLinePropertiesChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN35QDeclarativeRectangleMapItemPrivate24markSourceDirtyAndUpdateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN35QDeclarativeRectangleMapItemPrivate8onMapSetEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN35QDeclarativeRectangleMapItemPrivate20onGeoGeometryChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN35QDeclarativeRectangleMapItemPrivate21onItemGeometryChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN35QDeclarativeRectangleMapItemPrivate12updatePolishEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN35QDeclarativeRectangleMapItemPrivate20afterViewportChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN35QDeclarativeRectangleMapItemPrivate22updateMapItemPaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK35QDeclarativeRectangleMapItemPrivate8containsERK7QPointF": [
+      "bool", "address", "address"
+    ],
+    "ritual_take_QDeclarativeRectangleMapItemPrivate": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

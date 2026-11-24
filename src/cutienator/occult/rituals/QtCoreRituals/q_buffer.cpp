@@ -23,8 +23,12 @@ typedef qint64 (*CuteQBufferCall3)(const void *, int *);
 typedef bool (*CuteQBufferCall4)(const void *, qint64, int *);
 typedef bool (*CuteQBufferCall5)(const void *, int *);
 typedef bool (*CuteQBufferCall6)(const void *, int *);
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQBufferCall7)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQBufferCall8)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQBufferCall9)(const void *, int *);
 typedef bool (*CuteQBufferCall10)(const void *, int *);
 typedef qint64 (*CuteQBufferCall11)(const void *, int *);
@@ -32,11 +36,21 @@ typedef qint64 (*CuteQBufferCall12)(const void *, int *);
 typedef bool (*CuteQBufferCall13)(const void *, int, int *);
 typedef bool (*CuteQBufferCall14)(const void *, int, int *);
 typedef qint64 (*CuteQBufferCall15)(const void *, qint64, int *);
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQBufferCall16)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQBufferCall17)(const void *, QObject *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQBufferCall18)(const void *, QTimerEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQBufferCall19)(const void *, QChildEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQBufferCall20)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 class CuteQBuffer : public QBuffer {
 public:
   using QBuffer::QBuffer;
@@ -71,14 +85,18 @@ public:
       taken[6] = call;
       return true;
     }
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[7] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
       taken[8] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZNK9QIODevice12isSequentialEv")) {
       taken[9] = call;
       return true;
@@ -107,26 +125,36 @@ public:
       taken[15] = call;
       return true;
     }
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[16] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[17] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[18] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[19] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[20] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
     return false;
   }
 
@@ -207,6 +235,7 @@ public:
     return QBuffer::canReadLine();
   }
 
+#if !defined(QT_NO_QOBJECT)
   //  void QBuffer::connectNotify(const QMetaMethod &a0)
   void connectNotify(const QMetaMethod &a0) override {
     if (taken[7]) {
@@ -217,7 +246,9 @@ public:
     }
     QBuffer::connectNotify(a0);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QBuffer::disconnectNotify(const QMetaMethod &a0)
   void disconnectNotify(const QMetaMethod &a0) override {
     if (taken[8]) {
@@ -228,6 +259,7 @@ public:
     }
     QBuffer::disconnectNotify(a0);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
   //  bool QIODevice::isSequential() const
   bool isSequential() const override {
@@ -306,6 +338,7 @@ public:
     return QIODevice::skipData(maxSize);
   }
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QObject::event(QEvent *event)
   bool event(QEvent *event) override {
     if (taken[16]) {
@@ -316,7 +349,9 @@ public:
     }
     return QObject::event(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
     if (taken[17]) {
@@ -327,7 +362,9 @@ public:
     }
     return QObject::eventFilter(watched, event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
     if (taken[18]) {
@@ -338,7 +375,9 @@ public:
     }
     QObject::timerEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
     if (taken[19]) {
@@ -349,7 +388,9 @@ public:
     }
     QObject::childEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
     if (taken[20]) {
@@ -360,26 +401,34 @@ public:
     }
     QObject::customEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 };
 
+#if !defined(QT_NO_QOBJECT)
 //  const QMetaObject *QBuffer::metaObject() const
 extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK7QBuffer10metaObjectEv(const QBuffer *self) {
   return self->metaObject();
 }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
 //  QString QBuffer::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN7QBuffer2trEPKcS1_i(const char *s, const char *c, int n) {
   return new QString(QBuffer::tr(s, c, n));
 }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
 //  QBuffer::QBuffer(QObject *parent)
 extern "C" Q_DECL_EXPORT
 QBuffer *ritual_ZN7QBufferC1EP7QObject(QObject *parent) {
   return new CuteQBuffer(parent);
 }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
 //  QBuffer::QBuffer(QByteArray *buf, QObject *parent)
 extern "C" Q_DECL_EXPORT
 QBuffer *ritual_ZN7QBufferC1EP10QByteArrayP7QObject(
@@ -387,6 +436,7 @@ QBuffer *ritual_ZN7QBufferC1EP10QByteArrayP7QObject(
     QObject *parent) {
   return new CuteQBuffer(buf, parent);
 }
+#endif  // !defined(QT_NO_QOBJECT)
 
 //  QBuffer::~QBuffer()
 extern "C" Q_DECL_EXPORT
@@ -475,6 +525,7 @@ bool ritual_ZNK7QBuffer11canReadLineEv(const QBuffer *self) {
   return self->canReadLine();
 }
 
+#if !defined(QT_NO_QOBJECT)
 //  void QBuffer::connectNotify(const QMetaMethod &a0)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7QBuffer13connectNotifyERK11QMetaMethod(
@@ -482,7 +533,9 @@ void ritual_ZN7QBuffer13connectNotifyERK11QMetaMethod(
     const QMetaMethod *a0) {
   self->connectNotify(*a0);
 }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
 //  void QBuffer::disconnectNotify(const QMetaMethod &a0)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7QBuffer16disconnectNotifyERK11QMetaMethod(
@@ -490,6 +543,7 @@ void ritual_ZN7QBuffer16disconnectNotifyERK11QMetaMethod(
     const QMetaMethod *a0) {
   self->disconnectNotify(*a0);
 }
+#endif  // !defined(QT_NO_QOBJECT)
 
 //  qint64 QBuffer::writeData(const char *data, qint64 len)
 extern "C" Q_DECL_EXPORT
@@ -552,6 +606,7 @@ bool ritual_own_ZNK7QBuffer11canReadLineEv(const QBuffer *self) {
   return self->QBuffer::canReadLine();
 }
 
+#if !defined(QT_NO_QOBJECT)
 //  void QBuffer::connectNotify(const QMetaMethod &a0)
 extern "C" Q_DECL_EXPORT
 void ritual_own_ZN7QBuffer13connectNotifyERK11QMetaMethod(
@@ -559,7 +614,9 @@ void ritual_own_ZN7QBuffer13connectNotifyERK11QMetaMethod(
     const QMetaMethod *a0) {
   static_cast<OwnQBuffer *>(self)->OwnQBuffer::connectNotify(*a0);
 }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
 //  void QBuffer::disconnectNotify(const QMetaMethod &a0)
 extern "C" Q_DECL_EXPORT
 void ritual_own_ZN7QBuffer16disconnectNotifyERK11QMetaMethod(
@@ -567,3 +624,4 @@ void ritual_own_ZN7QBuffer16disconnectNotifyERK11QMetaMethod(
     const QMetaMethod *a0) {
   static_cast<OwnQBuffer *>(self)->OwnQBuffer::disconnectNotify(*a0);
 }
+#endif  // !defined(QT_NO_QOBJECT)

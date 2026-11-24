@@ -1,0 +1,34 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qcolormatrix_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK12QColorMatrix6isNullEv": ["bool", "address"],
+    "ritual_ZNK12QColorMatrix11determinantEv": ["float", "address"],
+    "ritual_ZNK12QColorMatrix7isValidEv": ["bool", "address"],
+    "ritual_ZNK12QColorMatrix10isIdentityEv": ["bool", "address"],
+    "ritual_ZNK12QColorMatrix8invertedEv": ["address", "address"],
+    "ritual_ZmlRK12QColorMatrixS1_": ["address", "address", "address"],
+    "ritual_ZNK12QColorMatrix3mapERK12QColorVector": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK12QColorMatrix10transposedEv": ["address", "address"],
+    "ritual_ZN12QColorMatrix8identityEv": ["address"],
+    "ritual_ZN12QColorMatrix9fromScaleE12QColorVector": [
+      "address", "address"
+    ],
+    "ritual_ZN12QColorMatrix19chromaticAdaptationERK12QColorVector": [
+      "address", "address"
+    ],
+    "ritual_ZN12QColorMatrix13toXyzFromSRgbEv": ["address"],
+    "ritual_ZN12QColorMatrix17toXyzFromAdobeRgbEv": ["address"],
+    "ritual_ZN12QColorMatrix17toXyzFromDciP3D65Ev": ["address"],
+    "ritual_ZN12QColorMatrix20toXyzFromProPhotoRgbEv": ["address"],
+    "ritual_ZN12QColorMatrix15toXyzFromBt2020Ev": ["address"],
+    "ritual_ZeqRK12QColorMatrixS1_": ["bool", "address", "address"],
+    "ritual_ZneRK12QColorMatrixS1_": ["bool", "address", "address"],
+    "ritual_ZN12QColorMatrixD1Ev": ["nothing", "address"]
+  }
+}

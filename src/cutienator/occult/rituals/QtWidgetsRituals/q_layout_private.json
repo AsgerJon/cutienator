@@ -1,0 +1,38 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qlayout_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN14QLayoutPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK14QLayoutPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN14QLayoutPrivateC1Ev": ["address"],
+    "ritual_ZNK14QLayoutPrivate9getMarginEPiiN6QStyle11PixelMetricE": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN14QLayoutPrivate8doResizeEv": ["nothing", "address"],
+    "ritual_ZN14QLayoutPrivate20reparentChildWidgetsEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QLayoutPrivate11checkWidgetEP7QWidget": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK14QLayoutPrivate11checkLayoutEP7QLayout": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN14QLayoutPrivate16createWidgetItemEPK7QLayoutP7QWidget": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN14QLayoutPrivate16createSpacerItemEPK7QLayoutiiN11QSizePolicy6PolicyES4_": [
+      "address", "address", "int", "int", "int", "int"
+    ],
+    "ritual_ZN14QLayoutPrivate9replaceAtEiP11QLayoutItem": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_take_QLayoutPrivate": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN14QLayoutPrivate9replaceAtEiP11QLayoutItem": [
+      "address", "address", "int", "address"
+    ]
+  }
+}

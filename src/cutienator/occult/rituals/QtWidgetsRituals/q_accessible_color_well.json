@@ -1,0 +1,20 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qaccessiblecolorwell_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QAccessibleColorWellD1Ev": ["nothing", "address"],
+    "ritual_ZNK20QAccessibleColorWell12indexOfChildEPK20QAccessibleInterface": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK20QAccessibleColorWell10childCountEv": ["int", "address"],
+    "ritual_take_QAccessibleColorWell": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK20QAccessibleColorWell12indexOfChildEPK20QAccessibleInterface": [
+      "int", "address", "address"
+    ]
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickfontinfo_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK14QQuickFontInfo10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QQuickFontInfo2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN14QQuickFontInfoC1EP7QObject": ["address", "address"],
+    "ritual_ZN14QQuickFontInfoD1Ev": ["nothing", "address"],
+    "ritual_ZNK14QQuickFontInfo4fontEv": ["address", "address"],
+    "ritual_ZN14QQuickFontInfo7setFontE5QFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QQuickFontInfo6familyEv": ["text", "address"],
+    "ritual_ZNK14QQuickFontInfo9styleNameEv": ["text", "address"],
+    "ritual_ZNK14QQuickFontInfo9pixelSizeEv": ["int", "address"],
+    "ritual_ZNK14QQuickFontInfo9pointSizeEv": ["double", "address"],
+    "ritual_ZNK14QQuickFontInfo6italicEv": ["bool", "address"],
+    "ritual_ZNK14QQuickFontInfo6weightEv": ["int", "address"],
+    "ritual_ZNK14QQuickFontInfo4boldEv": ["bool", "address"],
+    "ritual_ZNK14QQuickFontInfo10fixedPitchEv": ["bool", "address"],
+    "ritual_ZNK14QQuickFontInfo5styleEv": ["int", "address"],
+    "ritual_ZNK14QQuickFontInfo12variableAxesEv": ["address", "address"],
+    "ritual_take_QQuickFontInfo": ["bool", "address", "chars", "address"]
+  }
+}

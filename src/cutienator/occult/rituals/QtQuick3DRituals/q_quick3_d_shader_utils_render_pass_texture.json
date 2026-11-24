@@ -1,0 +1,34 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3D/6.12.0/QtQuick3D/private/qquick3dshaderutils_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK36QQuick3DShaderUtilsRenderPassTexture10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN36QQuick3DShaderUtilsRenderPassTexture2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN36QQuick3DShaderUtilsRenderPassTextureC1Ev": ["address"],
+    "ritual_ZN36QQuick3DShaderUtilsRenderPassTextureD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK36QQuick3DShaderUtilsRenderPassTexture6formatEv": [
+      "int", "address"
+    ],
+    "ritual_ZN36QQuick3DShaderUtilsRenderPassTexture9setFormatENS_13TextureFormatE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN36QQuick3DShaderUtilsRenderPassTexture21asRenderTextureFormatENS_13TextureFormatE": [
+      "address", "int"
+    ],
+    "ritual_ZN36QQuick3DShaderUtilsRenderPassTexture23fromRenderTextureFormatE23QSSGRenderTextureFormat": [
+      "int", "address"
+    ],
+    "ritual_take_QQuick3DShaderUtilsRenderPassTexture": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

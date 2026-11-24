@@ -1,0 +1,29 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtPositioning/6.12.0/QtPositioning/private/qclipperutils_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN13QClipperUtilsC1Ev": ["address"],
+    "ritual_ZN13QClipperUtilsC1ERKS_": ["address", "address"],
+    "ritual_ZN13QClipperUtilsD1Ev": ["nothing", "address"],
+    "ritual_ZN13QClipperUtils18clipperScaleFactorEv": ["double"],
+    "ritual_ZN13QClipperUtils14pointInPolygonERK15QDoubleVector2DRK5QListIS0_E": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN13QClipperUtils12clearClipperEv": ["nothing", "address"],
+    "ritual_ZN13QClipperUtils14addSubjectPathERK5QListI15QDoubleVector2DEb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN13QClipperUtils14addClipPolygonERK5QListI15QDoubleVector2DE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QClipperUtils10setPolygonERK5QListI15QDoubleVector2DE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QClipperUtils14pointInPolygonERK15QDoubleVector2D": [
+      "int", "address", "address"
+    ]
+  }
+}

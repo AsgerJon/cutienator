@@ -1,0 +1,65 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/layout_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18qdesigner_internal6Layout10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal6Layout2trEPKcS2_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18qdesigner_internal6Layout4sortEv": ["nothing", "address"],
+    "ritual_ZN18qdesigner_internal6Layout8doLayoutEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal6Layout5setupEv": ["nothing", "address"],
+    "ritual_ZN18qdesigner_internal6Layout10undoLayoutEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal6Layout11breakLayoutEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal6Layout7widgetsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal6Layout12parentWidgetEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal6Layout16layoutBaseWidgetEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal6Layout20reparentLayoutWidgetEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN18qdesigner_internal6Layout23setReparentLayoutWidgetEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN18qdesigner_internal6Layout12finishLayoutEbP7QLayout": [
+      "nothing", "address", "bool", "address"
+    ],
+    "ritual_ZN18qdesigner_internal6Layout13prepareLayoutERbS1_": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal6Layout10setWidgetsERK5QListIP7QWidgetE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_qdesigner_internal_Layout": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN18qdesigner_internal6Layout5setupEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN18qdesigner_internal6Layout10undoLayoutEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN18qdesigner_internal6Layout11breakLayoutEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN18qdesigner_internal6Layout12finishLayoutEbP7QLayout": [
+      "nothing", "address", "bool", "address"
+    ]
+  }
+}

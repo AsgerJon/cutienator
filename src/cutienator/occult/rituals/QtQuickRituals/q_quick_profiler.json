@@ -1,0 +1,41 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickprofiler_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK14QQuickProfiler10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QQuickProfiler2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN14QQuickProfiler14animationFrameExNS_15AnimationThreadE": [
+      "nothing", "long long", "int"
+    ],
+    "ritual_ZN14QQuickProfiler21pixmapLoadingFinishedERK4QUrlRK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QQuickProfiler25registerAnimationCallbackEv": ["nothing"],
+    "ritual_ZN14QQuickProfiler9timestampEv": ["long long", "address"],
+    "ritual_ZN14QQuickProfiler10initializeEP7QObject": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickProfilerD1Ev": ["nothing", "address"],
+    "ritual_ZN14QQuickProfilerC1EP7QObject": ["address", "address"],
+    "ritual_ZN14QQuickProfiler14processMessageERK18QQuickProfilerData": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QQuickProfiler18startProfilingImplEy": [
+      "nothing", "address", "unsigned long long"
+    ],
+    "ritual_ZN14QQuickProfiler17stopProfilingImplEv": ["nothing", "address"],
+    "ritual_ZN14QQuickProfiler14reportDataImplEv": ["nothing", "address"],
+    "ritual_ZN14QQuickProfiler8setTimerERK13QElapsedTimer": [
+      "nothing", "address", "address"
+    ],
+    "ritual_cast_QQuickProfiler_QQmlProfilerDefinitions": [
+      "address", "address"
+    ],
+    "ritual_take_QQuickProfiler": ["bool", "address", "chars", "address"]
+  }
+}

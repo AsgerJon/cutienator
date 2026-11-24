@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qitemeditorfactory.h, Qt 6.12.0. Changes made here are lost.
+#include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(itemviews)
 #include <QtWidgets/qitemeditorfactory.h>
 #include <QtCore/qbytearray.h>
 #include <cstring>
@@ -7,25 +9,34 @@
 //  A QItemEditorCreatorBase that Python can take functions over in. Every QItemEditorCreatorBase
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if QT_CONFIG(itemviews)
 typedef void * (*CuteQItemEditorCreatorBaseCall0)(const void *, QWidget *, int *);
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
 typedef const QByteArray * (*CuteQItemEditorCreatorBaseCall1)(const void *, int *);
+#endif  // QT_CONFIG(itemviews)
 class CuteQItemEditorCreatorBase : public QItemEditorCreatorBase {
 public:
   using QItemEditorCreatorBase::QItemEditorCreatorBase;
   void *taken[2] = {};
 
   bool take(const char *key, void *call) {
+#if QT_CONFIG(itemviews)
     if (!std::strcmp(key, "_ZNK22QItemEditorCreatorBase12createWidgetEP7QWidget")) {
       taken[0] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
     if (!std::strcmp(key, "_ZNK22QItemEditorCreatorBase17valuePropertyNameEv")) {
       taken[1] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemviews)
     return false;
   }
 
+#if QT_CONFIG(itemviews)
   //  QWidget *QItemEditorCreatorBase::createWidget(QWidget *parent) const
   QWidget *createWidget(QWidget *parent) const override {
     if (taken[0]) {
@@ -36,7 +47,9 @@ public:
     }
     return {};
   }
+#endif  // QT_CONFIG(itemviews)
 
+#if QT_CONFIG(itemviews)
   //  QByteArray QItemEditorCreatorBase::valuePropertyName() const
   QByteArray valuePropertyName() const override {
     if (taken[1]) {
@@ -47,6 +60,7 @@ public:
     }
     return {};
   }
+#endif  // QT_CONFIG(itemviews)
 };
 
 //  QItemEditorCreatorBase::~QItemEditorCreatorBase()
@@ -79,3 +93,5 @@ bool ritual_take_QItemEditorCreatorBase(
     void *call) {
   return static_cast<CuteQItemEditorCreatorBase *>(self)->take(key, call);
 }
+
+#endif  // QT_CONFIG(itemviews)

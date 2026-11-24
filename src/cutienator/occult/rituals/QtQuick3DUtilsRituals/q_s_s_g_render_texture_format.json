@@ -1,0 +1,35 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DUtils/6.12.0/QtQuick3DUtils/private/qssgrenderbasetypes_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN23QSSGRenderTextureFormatC1ENS_6FormatE": [
+      "address", "unsigned char"
+    ],
+    "ritual_ZNK23QSSGRenderTextureFormat25isCompressedTextureFormatEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK23QSSGRenderTextureFormat27isUncompressedTextureFormatEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK23QSSGRenderTextureFormat20isDepthTextureFormatEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK23QSSGRenderTextureFormat8toStringEv": ["chars", "address"],
+    "ritual_ZNK23QSSGRenderTextureFormat15getSizeofFormatEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK23QSSGRenderTextureFormat20getNumberOfComponentEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK23QSSGRenderTextureFormateqERKS_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK23QSSGRenderTextureFormatneERKS_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN23QSSGRenderTextureFormatD1Ev": ["nothing", "address"]
+  }
+}

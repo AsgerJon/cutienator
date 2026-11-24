@@ -1,0 +1,131 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickwindow_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QQuickWindowPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK19QQuickWindowPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN19QQuickWindowPrivate3getEP12QQuickWindow": [
+      "address", "address"
+    ],
+    "ritual_ZN19QQuickWindowPrivate3getEPK12QQuickWindow": [
+      "address", "address"
+    ],
+    "ritual_ZN19QQuickWindowPrivateC1Ev": ["address"],
+    "ritual_ZN19QQuickWindowPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN19QQuickWindowPrivate10setPaletteEP13QQuickPalette": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickWindowPrivate19updateWindowPaletteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickWindowPrivate22updateChildrenPalettesERK8QPalette": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickWindowPrivate4initEP12QQuickWindowP19QQuickRenderControl": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK19QQuickWindowPrivate20deliveryAgentPrivateEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QQuickWindowPrivate12updateCursorERK7QPointFP10QQuickItem": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN19QQuickWindowPrivate16clearFocusObjectEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickWindowPrivate16setFocusToTargetEN14QWindowPrivate11FocusTargetEN2Qt11FocusReasonE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN19QQuickWindowPrivate31maybeSynthesizeContextMenuEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickWindowPrivate9dirtyItemEP10QQuickItemb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN19QQuickWindowPrivate7cleanupEP7QSGNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickWindowPrivate24ensureCustomRenderTargetEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickWindowPrivate22setCustomCommandBufferEP17QRhiCommandBuffer": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickWindowPrivate11polishItemsEv": ["nothing", "address"],
+    "ritual_ZN19QQuickWindowPrivate11forcePolishEv": ["nothing", "address"],
+    "ritual_ZN19QQuickWindowPrivate18invalidateFontDataEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickWindowPrivate14syncSceneGraphEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickWindowPrivate16renderSceneGraphEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK19QQuickWindowPrivate12isRenderableEv": ["bool", "address"],
+    "ritual_ZN19QQuickWindowPrivate9emitErrorEN12QQuickWindow15SceneGraphErrorERK7QString": [
+      "bool", "address", "int", "text"
+    ],
+    "ritual_ZNK19QQuickWindowPrivate30createTextureFromNativeTextureEyijRK5QSize6QFlagsIN12QQuickWindow19CreateTextureOptionEES3_INS_28TextureFromNativeTextureFlagEE": [
+      "address", "address", "unsigned long long", "int", "unsigned int",
+      "address", "int", "int"
+    ],
+    "ritual_ZNK19QQuickWindowPrivate30createTextureFromNativeTextureEyiRK5QSize6QFlagsIN12QQuickWindow19CreateTextureOptionEES3_INS_28TextureFromNativeTextureFlagEE": [
+      "address", "address", "unsigned long long", "int", "address", "int",
+      "int"
+    ],
+    "ritual_ZN19QQuickWindowPrivate16updateDirtyNodesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickWindowPrivate12cleanupNodesEv": ["nothing", "address"],
+    "ritual_ZN19QQuickWindowPrivate22cleanupNodesOnShutdownEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickWindowPrivate15updateDirtyNodeEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickWindowPrivate16fireFrameSwappedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickWindowPrivate15fireAboutToStopEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickWindowPrivate30updateChildWindowStackingOrderEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickWindowPrivate14multiViewCountEv": ["int", "address"],
+    "ritual_ZN19QQuickWindowPrivate27activeCustomRhiRenderTargetEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QQuickWindowPrivate25rhiCreationFailureMessageERK7QStringPS0_S3_": [
+      "nothing", "text", "address", "address"
+    ],
+    "ritual_ZN19QQuickWindowPrivate13openglContextEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QQuickWindowPrivate22cleanupNodesOnShutdownEP10QQuickItem": [
+      "nothing", "address"
+    ],
+    "ritual_take_QQuickWindowPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN19QQuickWindowPrivate10setPaletteEP13QQuickPalette": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN19QQuickWindowPrivate22updateChildrenPalettesERK8QPalette": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN19QQuickWindowPrivate16clearFocusObjectEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN19QQuickWindowPrivate16setFocusToTargetEN14QWindowPrivate11FocusTargetEN2Qt11FocusReasonE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZN19QQuickWindowPrivate31maybeSynthesizeContextMenuEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ]
+  }
+}

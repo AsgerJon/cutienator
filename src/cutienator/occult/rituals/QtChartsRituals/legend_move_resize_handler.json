@@ -1,0 +1,42 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/6.12.0/QtCharts/private/legendmoveresizehandler_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN23LegendMoveResizeHandlerC1EP7QLegend": ["address", "address"],
+    "ritual_ZN23LegendMoveResizeHandlerD1Ev": ["nothing", "address"],
+    "ritual_ZNK23LegendMoveResizeHandler18shouldShowMoveHintEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN23LegendMoveResizeHandler5resetEv": ["nothing", "address"],
+    "ritual_ZN23LegendMoveResizeHandler21handleMousePressEventEP24QGraphicsSceneMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23LegendMoveResizeHandler20handleMouseMoveEventEP24QGraphicsSceneMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23LegendMoveResizeHandler23handleMouseReleaseEventEP24QGraphicsSceneMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23LegendMoveResizeHandler21handleHoverEnterEventEP24QGraphicsSceneHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23LegendMoveResizeHandler20handleHoverMoveEventEP24QGraphicsSceneHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23LegendMoveResizeHandler21handleHoverLeaveEventEP24QGraphicsSceneHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23LegendMoveResizeHandler14setMouseCursorEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23LegendMoveResizeHandler14setMouseCursorENS_13MousePositionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN23LegendMoveResizeHandler22determineMousePositionE7QPointF": [
+      "nothing", "address", "address"
+    ]
+  }
+}

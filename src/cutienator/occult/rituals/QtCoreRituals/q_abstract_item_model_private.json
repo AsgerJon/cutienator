@@ -1,0 +1,81 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qabstractitemmodel_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN25QAbstractItemModelPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK25QAbstractItemModelPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN25QAbstractItemModelPrivateC1Ev": ["address"],
+    "ritual_ZN25QAbstractItemModelPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN25QAbstractItemModelPrivate3getEPK18QAbstractItemModel": [
+      "address", "address"
+    ],
+    "ritual_ZN25QAbstractItemModelPrivate25removePersistentIndexDataEP25QPersistentModelIndexData": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QAbstractItemModelPrivate21movePersistentIndexesERK5QListIP25QPersistentModelIndexDataEiRK11QModelIndexN2Qt11OrientationE": [
+      "nothing", "address", "address", "int", "address", "int"
+    ],
+    "ritual_ZN25QAbstractItemModelPrivate21rowsAboutToBeInsertedERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN25QAbstractItemModelPrivate12rowsInsertedERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN25QAbstractItemModelPrivate20rowsAboutToBeRemovedERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN25QAbstractItemModelPrivate11rowsRemovedERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN25QAbstractItemModelPrivate24columnsAboutToBeInsertedERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN25QAbstractItemModelPrivate15columnsInsertedERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN25QAbstractItemModelPrivate23columnsAboutToBeRemovedERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN25QAbstractItemModelPrivate14columnsRemovedERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN25QAbstractItemModelPrivate16staticEmptyModelEv": ["address"],
+    "ritual_ZN25QAbstractItemModelPrivate15variantLessThanERK8QVariantS2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN25QAbstractItemModelPrivate19itemsAboutToBeMovedERK11QModelIndexiiS2_iN2Qt11OrientationE": [
+      "nothing", "address", "address", "int", "int", "address", "int", "int"
+    ],
+    "ritual_ZN25QAbstractItemModelPrivate10itemsMovedERK11QModelIndexiiS2_iN2Qt11OrientationE": [
+      "nothing", "address", "address", "int", "int", "address", "int", "int"
+    ],
+    "ritual_ZN25QAbstractItemModelPrivate9allowMoveERK11QModelIndexiiS2_iN2Qt11OrientationE": [
+      "bool", "address", "address", "int", "int", "address", "int", "int"
+    ],
+    "ritual_ZNK25QAbstractItemModelPrivate24executePendingOperationsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK25QAbstractItemModelPrivate11createIndexEiii": [
+      "address", "address", "int", "int", "int"
+    ],
+    "ritual_ZNK25QAbstractItemModelPrivate10indexValidERK11QModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN25QAbstractItemModelPrivate27invalidatePersistentIndexesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QAbstractItemModelPrivate25invalidatePersistentIndexERK11QModelIndex": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QAbstractItemModelPrivate16defaultRoleNamesEv": ["address"],
+    "ritual_take_QAbstractItemModelPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK25QAbstractItemModelPrivate24executePendingOperationsEv": [
+      "nothing", "address"
+    ]
+  }
+}

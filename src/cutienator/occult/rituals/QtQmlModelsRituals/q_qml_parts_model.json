@@ -1,0 +1,64 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQmlModels/6.12.0/QtQmlModels/private/qqmldelegatemodel_p_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK14QQmlPartsModel10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QQmlPartsModelD1Ev": ["nothing", "address"],
+    "ritual_ZNK14QQmlPartsModel11filterGroupEv": ["text", "address"],
+    "ritual_ZN14QQmlPartsModel17updateFilterGroupEv": ["nothing", "address"],
+    "ritual_ZNK14QQmlPartsModel5countEv": ["int", "address"],
+    "ritual_ZNK14QQmlPartsModel7isValidEv": ["bool", "address"],
+    "ritual_ZN14QQmlPartsModel6objectEiN13QQmlIncubator14IncubationModeE": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZN14QQmlPartsModel7releaseEP7QObjectN17QQmlInstanceModel12ReusableFlagE": [
+      "int", "address", "address", "int"
+    ],
+    "ritual_ZN14QQmlPartsModel12variantValueEiRK7QString": [
+      "address", "address", "int", "text"
+    ],
+    "ritual_ZNK14QQmlPartsModel12watchedRolesEv": ["address", "address"],
+    "ritual_ZN14QQmlPartsModel15setWatchedRolesERK5QListI10QByteArrayE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QQmlPartsModel16incubationStatusEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK14QQmlPartsModel7indexOfEP7QObjectS1_": [
+      "int", "address", "address", "address"
+    ],
+    "ritual_ZN14QQmlPartsModel16emitModelUpdatedERK13QQmlChangeSetb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN14QQmlPartsModel14createdPackageEiP13QQuickPackage": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN14QQmlPartsModel11initPackageEiP13QQuickPackage": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN14QQmlPartsModel17destroyingPackageEP13QQuickPackage": [
+      "nothing", "address", "address"
+    ],
+    "ritual_cast_QQmlPartsModel_QQmlDelegateModelGroupEmitter": [
+      "address", "address"
+    ],
+    "ritual_take_QQmlPartsModel": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK14QQmlPartsModel5countEv": ["int", "address"],
+    "ritual_own_ZNK14QQmlPartsModel7isValidEv": ["bool", "address"],
+    "ritual_own_ZNK14QQmlPartsModel7indexOfEP7QObjectS1_": [
+      "int", "address", "address", "address"
+    ],
+    "ritual_own_ZN14QQmlPartsModel14createdPackageEiP13QQuickPackage": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZN14QQmlPartsModel11initPackageEiP13QQuickPackage": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZN14QQmlPartsModel17destroyingPackageEP13QQuickPackage": [
+      "nothing", "address", "address"
+    ]
+  }
+}

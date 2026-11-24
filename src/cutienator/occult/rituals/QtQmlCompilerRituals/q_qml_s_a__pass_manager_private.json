@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQmlCompiler/6.12.0/QtQmlCompiler/private/qqmlsa_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN6QQmlSA18PassManagerPrivateC1EP19QQmlJSImportVisitorP18QQmlJSTypeResolver": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN6QQmlSA18PassManagerPrivate3getEPNS_11PassManagerE": [
+      "address", "address"
+    ],
+    "ritual_ZN6QQmlSA18PassManagerPrivate3getEPKNS_11PassManagerE": [
+      "address", "address"
+    ],
+    "ritual_ZN6QQmlSA18PassManagerPrivate17createPassManagerEP19QQmlJSImportVisitorP18QQmlJSTypeResolver": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN6QQmlSA18PassManagerPrivate17deletePassManagerEPNS_11PassManagerE": [
+      "nothing", "address"
+    ]
+  }
+}

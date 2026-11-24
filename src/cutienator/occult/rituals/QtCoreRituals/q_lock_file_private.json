@@ -1,0 +1,14 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qlockfile_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN16QLockFilePrivateC1ERK7QString": ["address", "text"],
+    "ritual_ZN16QLockFilePrivate16processNameByPidEx": ["text", "long long"],
+    "ritual_ZN16QLockFilePrivate17getLockFileHandleEP9QLockFile": [
+      "int", "address"
+    ]
+  }
+}

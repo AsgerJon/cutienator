@@ -1,0 +1,85 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Dialogs2QuickImpl/6.12.0/QtQuickDialogs2QuickImpl/private/qquickpl",
+    "atformfolderdialog_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK26QQuickPlatformFolderDialog10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QQuickPlatformFolderDialog2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN26QQuickPlatformFolderDialogC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN26QQuickPlatformFolderDialogD1Ev": ["nothing", "address"],
+    "ritual_ZNK26QQuickPlatformFolderDialog7isValidEv": ["bool", "address"],
+    "ritual_ZNK26QQuickPlatformFolderDialog25defaultNameFilterDisablesEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN26QQuickPlatformFolderDialog12setDirectoryERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK26QQuickPlatformFolderDialog9directoryEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QQuickPlatformFolderDialog10selectFileERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK26QQuickPlatformFolderDialog13selectedFilesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QQuickPlatformFolderDialog9setFilterEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QQuickPlatformFolderDialog16selectNameFilterERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK26QQuickPlatformFolderDialog18selectedNameFilterEv": [
+      "text", "address"
+    ],
+    "ritual_ZN26QQuickPlatformFolderDialog4execEv": ["nothing", "address"],
+    "ritual_ZN26QQuickPlatformFolderDialog4showE6QFlagsIN2Qt10WindowTypeEENS1_14WindowModalityEP7QWindow": [
+      "bool", "address", "int", "int", "address"
+    ],
+    "ritual_ZN26QQuickPlatformFolderDialog4hideEv": ["nothing", "address"],
+    "ritual_ZNK26QQuickPlatformFolderDialog6dialogEv": [
+      "address", "address"
+    ],
+    "ritual_take_QQuickPlatformFolderDialog": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK26QQuickPlatformFolderDialog25defaultNameFilterDisablesEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZN26QQuickPlatformFolderDialog12setDirectoryERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK26QQuickPlatformFolderDialog9directoryEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN26QQuickPlatformFolderDialog10selectFileERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN26QQuickPlatformFolderDialog9setFilterEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN26QQuickPlatformFolderDialog16selectNameFilterERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_own_ZNK26QQuickPlatformFolderDialog18selectedNameFilterEv": [
+      "text", "address"
+    ],
+    "ritual_own_ZN26QQuickPlatformFolderDialog4execEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN26QQuickPlatformFolderDialog4showE6QFlagsIN2Qt10WindowTypeEENS1_14WindowModalityEP7QWindow": [
+      "bool", "address", "int", "int", "address"
+    ],
+    "ritual_own_ZN26QQuickPlatformFolderDialog4hideEv": [
+      "nothing", "address"
+    ]
+  }
+}

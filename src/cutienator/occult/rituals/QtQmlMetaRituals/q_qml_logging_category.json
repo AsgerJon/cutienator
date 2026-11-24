@@ -1,0 +1,42 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQmlMeta/6.12.0/QtQmlMeta/private/qqmlloggingcategory_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK19QQmlLoggingCategory10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QQmlLoggingCategory2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN19QQmlLoggingCategoryC1EP7QObject": ["address", "address"],
+    "ritual_ZN19QQmlLoggingCategoryD1Ev": ["nothing", "address"],
+    "ritual_ZNK19QQmlLoggingCategory15defaultLogLevelEv": ["int", "address"],
+    "ritual_ZN19QQmlLoggingCategory18setDefaultLogLevelENS_15DefaultLogLevelE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK19QQmlLoggingCategory4nameEv": ["text", "address"],
+    "ritual_ZN19QQmlLoggingCategory7setNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN19QQmlLoggingCategory10classBeginEv": ["nothing", "address"],
+    "ritual_ZN19QQmlLoggingCategory17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQmlLoggingCategory15forceCompletionEv": [
+      "nothing", "address"
+    ],
+    "ritual_cast_QQmlLoggingCategory_QQmlParserStatus": [
+      "address", "address"
+    ],
+    "ritual_take_QQmlLoggingCategory": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN19QQmlLoggingCategory10classBeginEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN19QQmlLoggingCategory17componentCompleteEv": [
+      "nothing", "address"
+    ]
+  }
+}

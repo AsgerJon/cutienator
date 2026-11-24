@@ -1,0 +1,66 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickspriteengine_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18QQuickSpriteEngine10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QQuickSpriteEngine2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18QQuickSpriteEngineC1EP7QObject": ["address", "address"],
+    "ritual_ZN18QQuickSpriteEngineC1ERK5QListIP12QQuickSpriteEP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18QQuickSpriteEngineD1Ev": ["nothing", "address"],
+    "ritual_ZNK18QQuickSpriteEngine6spriteEi": ["address", "address", "int"],
+    "ritual_ZNK18QQuickSpriteEngine11spriteStateEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK18QQuickSpriteEngine11spriteStartEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK18QQuickSpriteEngine12spriteFramesEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK18QQuickSpriteEngine14spriteDurationEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK18QQuickSpriteEngine7spriteXEi": ["int", "address", "int"],
+    "ritual_ZNK18QQuickSpriteEngine7spriteYEi": ["int", "address", "int"],
+    "ritual_ZNK18QQuickSpriteEngine11spriteWidthEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK18QQuickSpriteEngine12spriteHeightEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK18QQuickSpriteEngine11spriteCountEv": ["int", "address"],
+    "ritual_ZNK18QQuickSpriteEngine9maxFramesEv": ["int", "address"],
+    "ritual_ZN18QQuickSpriteEngine7restartEi": ["nothing", "address", "int"],
+    "ritual_ZN18QQuickSpriteEngine7advanceEi": ["nothing", "address", "int"],
+    "ritual_ZNK18QQuickSpriteEngine6isNullEv": ["bool", "address"],
+    "ritual_ZNK18QQuickSpriteEngine7isReadyEv": ["bool", "address"],
+    "ritual_ZNK18QQuickSpriteEngine9isLoadingEv": ["bool", "address"],
+    "ritual_ZNK18QQuickSpriteEngine7isErrorEv": ["bool", "address"],
+    "ritual_ZNK18QQuickSpriteEngine6statusEv": ["int", "address"],
+    "ritual_ZN18QQuickSpriteEngine20startAssemblingImageEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickSpriteEngine14assembledImageEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK18QQuickSpriteEngine20pseudospriteProgressEiiPi": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_take_QQuickSpriteEngine": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN18QQuickSpriteEngine7restartEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN18QQuickSpriteEngine7advanceEi": [
+      "nothing", "address", "int"
+    ]
+  }
+}

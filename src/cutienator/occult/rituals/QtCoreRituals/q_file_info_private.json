@@ -1,0 +1,23 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qfileinfo_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN16QFileInfoPrivate3getEP9QFileInfo": ["address", "address"],
+    "ritual_ZN16QFileInfoPrivateC1Ev": ["address"],
+    "ritual_ZNK16QFileInfoPrivate10clearFlagsEv": ["nothing", "address"],
+    "ritual_ZN16QFileInfoPrivate5clearEv": ["nothing", "address"],
+    "ritual_ZNK16QFileInfoPrivate12getFileFlagsE6QFlagsIN19QAbstractFileEngine8FileFlagEE": [
+      "unsigned int", "address", "int"
+    ],
+    "ritual_ZNK16QFileInfoPrivate13getCachedFlagEj": [
+      "bool", "address", "unsigned int"
+    ],
+    "ritual_ZNK16QFileInfoPrivate13setCachedFlagEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN16QFileInfoPrivateD1Ev": ["nothing", "address"]
+  }
+}

@@ -5,6 +5,9 @@
   ],
   "rows": {
     "ritual_ZN13QMetaSequenceC1Ev": ["address"],
+    "ritual_ZN13QMetaSequenceC1EPKN22QtMetaContainerPrivate22QMetaSequenceInterfaceE": [
+      "address", "address"
+    ],
     "ritual_ZNK13QMetaSequence13valueMetaTypeEv": ["address", "address"],
     "ritual_ZNK13QMetaSequence10isSortableEv": ["bool", "address"],
     "ritual_ZNK13QMetaSequence18canAddValueAtBeginEv": ["bool", "address"],
@@ -35,8 +38,10 @@
     "ritual_ZNK13QMetaSequence26canGetValueAtConstIteratorEv": [
       "bool", "address"
     ],
+    "ritual_ZNK13QMetaSequence5ifaceEv": ["address", "address"],
     "ritual_ZeqRK13QMetaSequenceS1_": ["bool", "address", "address"],
     "ritual_ZneRK13QMetaSequenceS1_": ["bool", "address", "address"],
+    "ritual_ZNK13QMetaSequence1dEv": ["address", "address"],
     "ritual_ZN13QMetaSequenceD1Ev": ["nothing", "address"]
   }
 }

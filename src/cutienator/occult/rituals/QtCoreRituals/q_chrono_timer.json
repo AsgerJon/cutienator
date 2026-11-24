@@ -23,6 +23,8 @@
     "ritual_ZN12QChronoTimer10timerEventEP11QTimerEvent": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN12QChronoTimer6d_funcEv": ["address", "address"],
+    "ritual_ZNK12QChronoTimer6d_funcEv": ["address", "address"],
     "ritual_take_QChronoTimer": ["bool", "address", "chars", "address"],
     "ritual_own_ZN12QChronoTimer10timerEventEP11QTimerEvent": [
       "nothing", "address", "address"

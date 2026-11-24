@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3D/qquick3dinstancing.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK18QQuick3DInstancing18InstanceTableEntry11getPositionEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18QQuick3DInstancing18InstanceTableEntry8getScaleEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18QQuick3DInstancing18InstanceTableEntry11getRotationEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18QQuick3DInstancing18InstanceTableEntry8getColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18QQuick3DInstancing18InstanceTableEntryD1Ev": [
+      "nothing", "address"
+    ]
+  }
+}

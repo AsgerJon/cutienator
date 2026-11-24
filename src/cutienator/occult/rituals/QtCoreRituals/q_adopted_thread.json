@@ -5,6 +5,8 @@
     "here are lost."
   ],
   "rows": {
+    "ritual_ZN14QAdoptedThread6d_funcEv": ["address", "address"],
+    "ritual_ZNK14QAdoptedThread6d_funcEv": ["address", "address"],
     "ritual_ZN14QAdoptedThreadD1Ev": ["nothing", "address"],
     "ritual_ZN14QAdoptedThread3runEv": ["nothing", "address"],
     "ritual_take_QAdoptedThread": ["bool", "address", "chars", "address"],

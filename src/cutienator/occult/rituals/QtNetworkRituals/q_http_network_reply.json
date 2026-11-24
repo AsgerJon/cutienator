@@ -1,0 +1,145 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/6.12.0/QtNetwork/private/qhttpnetworkreply_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QHttpNetworkReply10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QHttpNetworkReply2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QHttpNetworkReplyC1ERK4QUrlP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN17QHttpNetworkReplyD1Ev": ["nothing", "address"],
+    "ritual_ZNK17QHttpNetworkReply3urlEv": ["address", "address"],
+    "ritual_ZN17QHttpNetworkReply6setUrlERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QHttpNetworkReply12majorVersionEv": ["int", "address"],
+    "ritual_ZNK17QHttpNetworkReply12minorVersionEv": ["int", "address"],
+    "ritual_ZN17QHttpNetworkReply15setMajorVersionEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QHttpNetworkReply15setMinorVersionEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK17QHttpNetworkReply13contentLengthEv": [
+      "long long", "address"
+    ],
+    "ritual_ZN17QHttpNetworkReply16setContentLengthEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZNK17QHttpNetworkReply6headerEv": ["address", "address"],
+    "ritual_ZNK17QHttpNetworkReply11headerFieldE14QByteArrayViewRK10QByteArray": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN17QHttpNetworkReply14setHeaderFieldERK10QByteArrayS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN17QHttpNetworkReply17appendHeaderFieldERK10QByteArrayS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN17QHttpNetworkReply11parseHeaderE14QByteArrayView": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QHttpNetworkReply7requestEv": ["address", "address"],
+    "ritual_ZN17QHttpNetworkReply10setRequestERK19QHttpNetworkRequest": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QHttpNetworkReply10statusCodeEv": ["int", "address"],
+    "ritual_ZN17QHttpNetworkReply13setStatusCodeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK17QHttpNetworkReply11errorStringEv": ["text", "address"],
+    "ritual_ZN17QHttpNetworkReply14setErrorStringERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK17QHttpNetworkReply9errorCodeEv": ["int", "address"],
+    "ritual_ZNK17QHttpNetworkReply12reasonPhraseEv": ["text", "address"],
+    "ritual_ZN17QHttpNetworkReply15setReasonPhraseERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK17QHttpNetworkReply14bytesAvailableEv": [
+      "long long", "address"
+    ],
+    "ritual_ZNK17QHttpNetworkReply23bytesAvailableNextBlockEv": [
+      "long long", "address"
+    ],
+    "ritual_ZNK17QHttpNetworkReply16readAnyAvailableEv": ["bool", "address"],
+    "ritual_ZN17QHttpNetworkReply7readAnyEv": ["address", "address"],
+    "ritual_ZN17QHttpNetworkReply7readAllEv": ["address", "address"],
+    "ritual_ZN17QHttpNetworkReply4readEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN17QHttpNetworkReply13sizeNextBlockEv": [
+      "long long", "address"
+    ],
+    "ritual_ZN17QHttpNetworkReply20setDownstreamLimitedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN17QHttpNetworkReply17setReadBufferSizeEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN17QHttpNetworkReply34supportsUserProvidedDownloadBufferEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN17QHttpNetworkReply5abortEv": ["nothing", "address"],
+    "ritual_ZNK17QHttpNetworkReply9isAbortedEv": ["bool", "address"],
+    "ritual_ZNK17QHttpNetworkReply10isFinishedEv": ["bool", "address"],
+    "ritual_ZNK17QHttpNetworkReply16isPipeliningUsedEv": ["bool", "address"],
+    "ritual_ZNK17QHttpNetworkReply11isHttp2UsedEv": ["bool", "address"],
+    "ritual_ZN17QHttpNetworkReply15setHttp2WasUsedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK17QHttpNetworkReply20removedContentLengthEv": [
+      "long long", "address"
+    ],
+    "ritual_ZNK17QHttpNetworkReply13isRedirectingEv": ["bool", "address"],
+    "ritual_ZN17QHttpNetworkReply10connectionEv": ["address", "address"],
+    "ritual_ZNK17QHttpNetworkReply11redirectUrlEv": ["address", "address"],
+    "ritual_ZN17QHttpNetworkReply14setRedirectUrlERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QHttpNetworkReply14isHttpRedirectEi": ["bool", "int"],
+    "ritual_ZNK17QHttpNetworkReply12isCompressedEv": ["bool", "address"],
+    "ritual_ZNK17QHttpNetworkReply16sslConfigurationEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QHttpNetworkReply19setSslConfigurationERK17QSslConfiguration": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QHttpNetworkReply15ignoreSslErrorsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QHttpNetworkReply15ignoreSslErrorsERK5QListI9QSslErrorE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QHttpNetworkReply6d_funcEv": ["address", "address"],
+    "ritual_ZNK17QHttpNetworkReply6d_funcEv": ["address", "address"],
+    "ritual_cast_QHttpNetworkReply_QHttpNetworkHeader": [
+      "address", "address"
+    ],
+    "ritual_take_QHttpNetworkReply": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK17QHttpNetworkReply3urlEv": ["address", "address"],
+    "ritual_own_ZN17QHttpNetworkReply6setUrlERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK17QHttpNetworkReply12majorVersionEv": ["int", "address"],
+    "ritual_own_ZNK17QHttpNetworkReply12minorVersionEv": ["int", "address"],
+    "ritual_own_ZNK17QHttpNetworkReply13contentLengthEv": [
+      "long long", "address"
+    ],
+    "ritual_own_ZN17QHttpNetworkReply16setContentLengthEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_own_ZNK17QHttpNetworkReply6headerEv": ["address", "address"],
+    "ritual_own_ZNK17QHttpNetworkReply11headerFieldE14QByteArrayViewRK10QByteArray": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN17QHttpNetworkReply14setHeaderFieldERK10QByteArrayS2_": [
+      "nothing", "address", "address", "address"
+    ]
+  }
+}

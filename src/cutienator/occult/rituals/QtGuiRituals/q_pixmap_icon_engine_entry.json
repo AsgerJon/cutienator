@@ -1,0 +1,20 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qicon_p.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZN22QPixmapIconEngineEntryC1Ev": ["address"],
+    "ritual_ZN22QPixmapIconEngineEntryC1ERK7QPixmapN5QIcon4ModeENS3_5StateE": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZN22QPixmapIconEngineEntryC1ERK7QStringRK5QSizeN5QIcon4ModeENS6_5StateE": [
+      "address", "text", "address", "int", "int"
+    ],
+    "ritual_ZN22QPixmapIconEngineEntryC1ERK7QStringRK6QImageN5QIcon4ModeENS6_5StateE": [
+      "address", "text", "address", "int", "int"
+    ],
+    "ritual_ZN22QPixmapIconEngineEntryD1Ev": ["nothing", "address"]
+  }
+}

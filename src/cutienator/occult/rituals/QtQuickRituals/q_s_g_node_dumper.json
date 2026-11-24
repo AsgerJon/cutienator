@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qsgrenderer_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN13QSGNodeDumper4dumpEP7QSGNode": ["nothing", "address"],
+    "ritual_ZN13QSGNodeDumperC1Ev": ["address"],
+    "ritual_ZN13QSGNodeDumper9visitNodeEP7QSGNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QSGNodeDumper13visitChildrenEP7QSGNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QSGNodeDumperD1Ev": ["nothing", "address"],
+    "ritual_own_ZN13QSGNodeDumper9visitNodeEP7QSGNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN13QSGNodeDumper13visitChildrenEP7QSGNode": [
+      "nothing", "address", "address"
+    ]
+  }
+}

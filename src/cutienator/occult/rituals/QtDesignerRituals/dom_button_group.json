@@ -1,0 +1,32 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/ui4_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN14DomButtonGroupC1Ev": ["address"],
+    "ritual_ZN14DomButtonGroupD1Ev": ["nothing", "address"],
+    "ritual_ZNK14DomButtonGroup16hasAttributeNameEv": ["bool", "address"],
+    "ritual_ZNK14DomButtonGroup13attributeNameEv": ["text", "address"],
+    "ritual_ZN14DomButtonGroup16setAttributeNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN14DomButtonGroup18clearAttributeNameEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK14DomButtonGroup15elementPropertyEv": ["address", "address"],
+    "ritual_ZN14DomButtonGroup18setElementPropertyERK5QListIP11DomPropertyE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14DomButtonGroup16elementAttributeEv": ["address", "address"],
+    "ritual_ZN14DomButtonGroup19setElementAttributeERK5QListIP11DomPropertyE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_list_make_DomButtonGroup_ptr": ["address"],
+    "ritual_list_add_DomButtonGroup_ptr": ["nothing", "address", "address"],
+    "ritual_list_size_DomButtonGroup_ptr": ["long long", "address"],
+    "ritual_list_at_DomButtonGroup_ptr": ["address", "address", "long long"],
+    "ritual_list_drop_DomButtonGroup_ptr": ["nothing", "address"]
+  }
+}

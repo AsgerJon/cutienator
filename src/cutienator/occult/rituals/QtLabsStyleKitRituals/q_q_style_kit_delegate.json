@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtLabsS",
+    "tyleKit/6.12.0/QtLabsStyleKit/private/qqstylekitdelegate_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18QQStyleKitDelegate10metaObjectEv": ["address", "address"],
+    "ritual_ZNK18QQStyleKitDelegate13delegateStyleEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18QQStyleKitDelegate18updateImplicitSizeEv": [
+      "nothing", "address"
+    ]
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/6.12.0/QtCharts/private/chartvalueaxisx_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK15ChartValueAxisX10metaObjectEv": ["address", "address"],
+    "ritual_ZN15ChartValueAxisX2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN15ChartValueAxisXC1EP10QValueAxisP13QGraphicsItem": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN15ChartValueAxisXD1Ev": ["nothing", "address"],
+    "ritual_ZNK15ChartValueAxisX8sizeHintEN2Qt8SizeHintERK6QSizeF": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_ZN15ChartValueAxisX14updateGeometryEv": ["nothing", "address"],
+    "ritual_ZN15ChartValueAxisX22handleTickCountChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN15ChartValueAxisX27handleMinorTickCountChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN15ChartValueAxisX24handleLabelFormatChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN15ChartValueAxisX25handleTickIntervalChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN15ChartValueAxisX23handleTickAnchorChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN15ChartValueAxisX21handleTickTypeChangedEN10QValueAxis8TickTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_take_ChartValueAxisX": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK15ChartValueAxisX8sizeHintEN2Qt8SizeHintERK6QSizeF": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_own_ZN15ChartValueAxisX14updateGeometryEv": [
+      "nothing", "address"
+    ]
+  }
+}

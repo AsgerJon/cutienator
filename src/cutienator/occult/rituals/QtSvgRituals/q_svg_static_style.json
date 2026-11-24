@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSvg/6.12.0/QtSvg/private/qsvgstyle_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QSvgStaticStyleC1Ev": ["address"],
+    "ritual_ZN15QSvgStaticStyleD1Ev": ["nothing", "address"],
+    "ritual_ZNK15QSvgStaticStyle8propertyEN17QSvgStyleProperty4TypeE": [
+      "address", "address", "unsigned char"
+    ],
+    "ritual_ZNK15QSvgStaticStyle17isDefaultPropertyEN17QSvgStyleProperty4TypeE": [
+      "bool", "address", "unsigned char"
+    ]
+  }
+}

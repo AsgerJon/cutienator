@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/6.12.0/QtNetwork/private/qabstractsocketengine_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN28QAbstractSocketEnginePrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QAbstractSocketEnginePrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QAbstractSocketEnginePrivateC1Ev": ["address"]
+  }
+}

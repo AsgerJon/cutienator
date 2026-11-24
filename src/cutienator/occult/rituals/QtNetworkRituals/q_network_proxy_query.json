@@ -1,0 +1,46 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/qnetworkproxy.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QNetworkProxyQueryC1Ev": ["address"],
+    "ritual_ZN18QNetworkProxyQueryC1ERK4QUrlNS_9QueryTypeE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN18QNetworkProxyQueryC1ERK7QStringiS2_NS_9QueryTypeE": [
+      "address", "text", "int", "text", "int"
+    ],
+    "ritual_ZN18QNetworkProxyQueryC1EtRK7QStringNS_9QueryTypeE": [
+      "address", "unsigned short", "text", "int"
+    ],
+    "ritual_ZN18QNetworkProxyQueryC1ERKS_": ["address", "address"],
+    "ritual_ZN18QNetworkProxyQueryD1Ev": ["nothing", "address"],
+    "ritual_ZNK18QNetworkProxyQueryeqERKS_": ["bool", "address", "address"],
+    "ritual_ZNK18QNetworkProxyQueryneERKS_": ["bool", "address", "address"],
+    "ritual_ZNK18QNetworkProxyQuery9queryTypeEv": ["int", "address"],
+    "ritual_ZN18QNetworkProxyQuery12setQueryTypeENS_9QueryTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK18QNetworkProxyQuery8peerPortEv": ["int", "address"],
+    "ritual_ZN18QNetworkProxyQuery11setPeerPortEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK18QNetworkProxyQuery12peerHostNameEv": ["text", "address"],
+    "ritual_ZN18QNetworkProxyQuery15setPeerHostNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK18QNetworkProxyQuery9localPortEv": ["int", "address"],
+    "ritual_ZN18QNetworkProxyQuery12setLocalPortEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK18QNetworkProxyQuery11protocolTagEv": ["text", "address"],
+    "ritual_ZN18QNetworkProxyQuery14setProtocolTagERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK18QNetworkProxyQuery3urlEv": ["address", "address"],
+    "ritual_ZN18QNetworkProxyQuery6setUrlERK4QUrl": [
+      "nothing", "address", "address"
+    ]
+  }
+}

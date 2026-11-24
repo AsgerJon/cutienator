@@ -1,0 +1,87 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/6.12.0/QtCharts/private/polarchartaxisradial_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK20PolarChartAxisRadial10metaObjectEv": ["address", "address"],
+    "ritual_ZN20PolarChartAxisRadial2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN20PolarChartAxisRadialD1Ev": ["nothing", "address"],
+    "ritual_ZNK20PolarChartAxisRadial11orientationEv": ["int", "address"],
+    "ritual_ZNK20PolarChartAxisRadial8sizeHintEN2Qt8SizeHintERK6QSizeF": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_ZN20PolarChartAxisRadial14updateGeometryEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20PolarChartAxisRadial11createItemsEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20PolarChartAxisRadial20updateMinorTickItemsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20PolarChartAxisRadial19preferredAxisRadiusERK6QSizeF": [
+      "double", "address", "address"
+    ],
+    "ritual_ZN20PolarChartAxisRadial21handleArrowPenChangedERK4QPen": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20PolarChartAxisRadial20handleGridPenChangedERK4QPen": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20PolarChartAxisRadial26handleMinorArrowPenChangedERK4QPen": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20PolarChartAxisRadial25handleMinorGridPenChangedERK4QPen": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20PolarChartAxisRadial26handleGridLineColorChangedERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20PolarChartAxisRadial31handleMinorGridLineColorChangedERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20PolarChartAxisRadial23updateMinorTickGeometryEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_PolarChartAxisRadial": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK20PolarChartAxisRadial8sizeHintEN2Qt8SizeHintERK6QSizeF": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_own_ZN20PolarChartAxisRadial14updateGeometryEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN20PolarChartAxisRadial11createItemsEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN20PolarChartAxisRadial20updateMinorTickItemsEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN20PolarChartAxisRadial19preferredAxisRadiusERK6QSizeF": [
+      "double", "address", "address"
+    ],
+    "ritual_own_ZN20PolarChartAxisRadial21handleArrowPenChangedERK4QPen": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20PolarChartAxisRadial20handleGridPenChangedERK4QPen": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20PolarChartAxisRadial26handleMinorArrowPenChangedERK4QPen": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20PolarChartAxisRadial25handleMinorGridPenChangedERK4QPen": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20PolarChartAxisRadial26handleGridLineColorChangedERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20PolarChartAxisRadial31handleMinorGridLineColorChangedERK6QColor": [
+      "nothing", "address", "address"
+    ]
+  }
+}

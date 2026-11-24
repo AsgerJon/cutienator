@@ -1,0 +1,98 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qsgcontext_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK16QSGRenderContext10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QSGRenderContext2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN16QSGRenderContextD1Ev": ["nothing", "address"],
+    "ritual_ZNK16QSGRenderContext17sceneGraphContextEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK16QSGRenderContext7isValidEv": ["bool", "address"],
+    "ritual_ZN16QSGRenderContext10initializeEPKNS_10InitParamsE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QSGRenderContext10invalidateEv": ["nothing", "address"],
+    "ritual_ZN16QSGRenderContext11prepareSyncEdP17QRhiCommandBufferRK27QQuickGraphicsConfiguration": [
+      "nothing", "address", "double", "address", "address"
+    ],
+    "ritual_ZN16QSGRenderContext15renderNextFrameEP11QSGRenderer": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QSGRenderContext12endNextFrameEP11QSGRenderer": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QSGRenderContext7endSyncEv": ["nothing", "address"],
+    "ritual_ZN16QSGRenderContext10preprocessEv": ["nothing", "address"],
+    "ritual_ZN16QSGRenderContext21invalidateGlyphCachesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QSGRenderContext16flushGlyphCachesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QSGRenderContext23distanceFieldGlyphCacheERK8QRawFonti": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN16QSGRenderContext15curveGlyphAtlasERK8QRawFont": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN16QSGRenderContext17textureForFactoryEP20QQuickTextureFactoryP12QQuickWindow": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK16QSGRenderContext13createTextureERK6QImagej": [
+      "address", "address", "address", "unsigned int"
+    ],
+    "ritual_ZN16QSGRenderContext14createRendererEN20QSGRendererInterface10RenderModeE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK16QSGRenderContext27compressedTextureForFactoryEPK27QSGCompressedTextureFactory": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK16QSGRenderContext14maxTextureSizeEv": ["int", "address"],
+    "ritual_ZN16QSGRenderContext30unregisterFontengineForCleanupEP11QFontEngine": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QSGRenderContext28registerFontengineForCleanupEP11QFontEngine": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QSGRenderContext3rhiEv": ["address", "address"],
+    "ritual_ZN16QSGRenderContext23textureFactoryDestroyedEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QSGRenderContext": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK16QSGRenderContext7isValidEv": ["bool", "address"],
+    "ritual_own_ZN16QSGRenderContext10initializeEPKNS_10InitParamsE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16QSGRenderContext10invalidateEv": ["nothing", "address"],
+    "ritual_own_ZN16QSGRenderContext11prepareSyncEdP17QRhiCommandBufferRK27QQuickGraphicsConfiguration": [
+      "nothing", "address", "double", "address", "address"
+    ],
+    "ritual_own_ZN16QSGRenderContext12endNextFrameEP11QSGRenderer": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16QSGRenderContext7endSyncEv": ["nothing", "address"],
+    "ritual_own_ZN16QSGRenderContext10preprocessEv": ["nothing", "address"],
+    "ritual_own_ZN16QSGRenderContext21invalidateGlyphCachesEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN16QSGRenderContext16flushGlyphCachesEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN16QSGRenderContext23distanceFieldGlyphCacheERK8QRawFonti": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_own_ZN16QSGRenderContext15curveGlyphAtlasERK8QRawFont": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZNK16QSGRenderContext27compressedTextureForFactoryEPK27QSGCompressedTextureFactory": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZNK16QSGRenderContext3rhiEv": ["address", "address"]
+  }
+}

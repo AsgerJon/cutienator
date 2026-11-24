@@ -1,0 +1,63 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquicktreeview_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK14QQuickTreeView10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QQuickTreeView2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN14QQuickTreeViewC1EP10QQuickItem": ["address", "address"],
+    "ritual_ZN14QQuickTreeViewD1Ev": ["nothing", "address"],
+    "ritual_ZNK14QQuickTreeView9rootIndexEv": ["address", "address"],
+    "ritual_ZN14QQuickTreeView12setRootIndexERK11QModelIndex": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QQuickTreeView14resetRootIndexEv": ["nothing", "address"],
+    "ritual_ZNK14QQuickTreeView5depthEi": ["int", "address", "int"],
+    "ritual_ZNK14QQuickTreeView10isExpandedEi": ["bool", "address", "int"],
+    "ritual_ZN14QQuickTreeView6expandEi": ["nothing", "address", "int"],
+    "ritual_ZN14QQuickTreeView8collapseEi": ["nothing", "address", "int"],
+    "ritual_ZN14QQuickTreeView14toggleExpandedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN14QQuickTreeView17expandRecursivelyEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN14QQuickTreeView19collapseRecursivelyEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN14QQuickTreeView13expandToIndexERK11QModelIndex": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QQuickTreeView10modelIndexERK6QPoint": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK14QQuickTreeView11cellAtIndexERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK14QQuickTreeView10modelIndexEii": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZN14QQuickTreeView13keyPressEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QQuickTreeView6d_funcEv": ["address", "address"],
+    "ritual_ZNK14QQuickTreeView6d_funcEv": ["address", "address"],
+    "ritual_take_QQuickTreeView": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK14QQuickTreeView10modelIndexERK6QPoint": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZNK14QQuickTreeView11cellAtIndexERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZNK14QQuickTreeView10modelIndexEii": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_own_ZN14QQuickTreeView13keyPressEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ]
+  }
+}

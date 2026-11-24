@@ -1,0 +1,30 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtMultimedia/6.12.0/QtMultimedia/private/qmediaplayer_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QMediaPlayerPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK19QMediaPlayerPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN19QMediaPlayerPrivate3getEP12QMediaPlayer": [
+      "address", "address"
+    ],
+    "ritual_ZN19QMediaPlayerPrivateC1Ev": ["address"],
+    "ritual_ZNK19QMediaPlayerPrivate13trackMetaDataEN20QPlatformMediaPlayer9TrackTypeE": [
+      "address", "address", "unsigned char"
+    ],
+    "ritual_ZN19QMediaPlayerPrivate8setStateEN12QMediaPlayer13PlaybackStateE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN19QMediaPlayerPrivate9setStatusEN12QMediaPlayer11MediaStatusE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN19QMediaPlayerPrivate8setErrorEN12QMediaPlayer5ErrorERK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZN19QMediaPlayerPrivate12setVideoSinkEP10QVideoSink": [
+      "nothing", "address", "address"
+    ]
+  }
+}

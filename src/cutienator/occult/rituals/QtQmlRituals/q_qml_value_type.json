@@ -1,0 +1,29 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmlvaluetype_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN13QQmlValueTypeC1Ev": ["address"],
+    "ritual_ZN13QQmlValueTypeC1E9QMetaTypePK11QMetaObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN13QQmlValueTypeD1Ev": ["nothing", "address"],
+    "ritual_ZNK13QQmlValueType8metaTypeEv": ["address", "address"],
+    "ritual_ZNK13QQmlValueType16staticMetaObjectEv": ["address", "address"],
+    "ritual_ZN13QQmlValueType19toDynamicMetaObjectEP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN13QQmlValueType15objectDestroyedEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QQmlValueType": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN13QQmlValueType19toDynamicMetaObjectEP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN13QQmlValueType15objectDestroyedEP7QObject": [
+      "nothing", "address", "address"
+    ]
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/qdesigner_dockwidget_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK24QDockWidgetPropertySheet10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QDockWidgetPropertySheet2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZNK24QDockWidgetPropertySheet9isEnabledEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_take_QDockWidgetPropertySheet": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK24QDockWidgetPropertySheet9isEnabledEi": [
+      "bool", "address", "int"
+    ]
+  }
+}

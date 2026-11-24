@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtMulti",
+    "media/6.12.0/QtMultimedia/private/qplatformmediaformatinfo_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN24QPlatformMediaFormatInfoC1Ev": ["address"],
+    "ritual_ZN24QPlatformMediaFormatInfoD1Ev": ["nothing", "address"],
+    "ritual_ZNK24QPlatformMediaFormatInfo11isSupportedERK12QMediaFormatNS0_14ConversionModeE": [
+      "bool", "address", "address", "int"
+    ],
+    "ritual_ZN24QPlatformMediaFormatInfo14fixupCodecMapsEv": [
+      "nothing", "address"
+    ]
+  }
+}

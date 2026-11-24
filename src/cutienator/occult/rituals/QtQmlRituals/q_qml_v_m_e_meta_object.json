@@ -1,0 +1,142 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmlvmemetaobject_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN17QQmlVMEMetaObjectD1Ev": ["nothing", "address"],
+    "ritual_ZNK17QQmlVMEMetaObject9vmeMethodEi": [
+      "unsigned long long", "address", "int"
+    ],
+    "ritual_ZN17QQmlVMEMetaObject12setVmeMethodEiRKN3QV45ValueE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZNK17QQmlVMEMetaObject11vmePropertyEi": [
+      "unsigned long long", "address", "int"
+    ],
+    "ritual_ZN17QQmlVMEMetaObject14setVMEPropertyEiRKN3QV45ValueE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN17QQmlVMEMetaObject18connectAliasSignalEib": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZN17QQmlVMEMetaObject3getEP7QObject": ["address", "address"],
+    "ritual_ZN17QQmlVMEMetaObject14getForPropertyEP7QObjecti": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN17QQmlVMEMetaObject12getForMethodEP7QObjecti": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN17QQmlVMEMetaObject12getForSignalEP7QObjecti": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK17QQmlVMEMetaObject10propOffsetEv": ["int", "address"],
+    "ritual_ZNK17QQmlVMEMetaObject9propCountEv": ["int", "address"],
+    "ritual_ZNK17QQmlVMEMetaObject11aliasOffsetEv": ["int", "address"],
+    "ritual_ZNK17QQmlVMEMetaObject10aliasCountEv": ["int", "address"],
+    "ritual_ZNK17QQmlVMEMetaObject12signalOffsetEv": ["int", "address"],
+    "ritual_ZNK17QQmlVMEMetaObject11signalCountEv": ["int", "address"],
+    "ritual_ZNK17QQmlVMEMetaObject12methodOffsetEv": ["int", "address"],
+    "ritual_ZNK17QQmlVMEMetaObject11methodCountEv": ["int", "address"],
+    "ritual_ZNK17QQmlVMEMetaObject36propertyAndMethodStorageAsMemberDataEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK17QQmlVMEMetaObject17readPropertyAsIntEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK17QQmlVMEMetaObject18readPropertyAsBoolEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK17QQmlVMEMetaObject20readPropertyAsDoubleEi": [
+      "double", "address", "int"
+    ],
+    "ritual_ZNK17QQmlVMEMetaObject20readPropertyAsStringEi": [
+      "text", "address", "int"
+    ],
+    "ritual_ZNK17QQmlVMEMetaObject19readPropertyAsSizeFEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK17QQmlVMEMetaObject20readPropertyAsPointFEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK17QQmlVMEMetaObject17readPropertyAsUrlEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK17QQmlVMEMetaObject18readPropertyAsDateEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK17QQmlVMEMetaObject18readPropertyAsTimeEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK17QQmlVMEMetaObject22readPropertyAsDateTimeEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK17QQmlVMEMetaObject31readPropertyAsRegularExpressionEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK17QQmlVMEMetaObject19readPropertyAsRectFEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK17QQmlVMEMetaObject21readPropertyAsQObjectEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK17QQmlVMEMetaObject18initPropertyAsListEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQmlVMEMetaObject13writePropertyEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN17QQmlVMEMetaObject13writePropertyEib": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZN17QQmlVMEMetaObject13writePropertyEid": [
+      "nothing", "address", "int", "double"
+    ],
+    "ritual_ZN17QQmlVMEMetaObject13writePropertyEiRK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZN17QQmlVMEMetaObject13writePropertyEiP7QObject": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN17QQmlVMEMetaObject20ensureQObjectWrapperEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQmlVMEMetaObject4markEPN3QV49MarkStackE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QQmlVMEMetaObject12connectAliasEPKN3QV412CompiledData6ObjectEi": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZNK17QQmlVMEMetaObject6methodEi": [
+      "unsigned long long", "address", "int"
+    ],
+    "ritual_ZNK17QQmlVMEMetaObject15readVarPropertyEi": [
+      "unsigned long long", "address", "int"
+    ],
+    "ritual_ZN17QQmlVMEMetaObject16writeVarPropertyEiRKN3QV45ValueE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZNK17QQmlVMEMetaObject21readPropertyAsVariantEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK17QQmlVMEMetaObject19parentVMEMetaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QQmlVMEMetaObject22setParentVMEMetaObjectEPS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QQmlVMEMetaObject26getQObjectGuardForPropertyEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK17QQmlVMEMetaObject6engineEv": ["address", "address"],
+    "ritual_ZNK17QQmlVMEMetaObject11qmlObjectIdEv": ["int", "address"],
+    "ritual_ZNK17QQmlVMEMetaObject18findCompiledObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QQmlVMEMetaObject21writeKnownVarPropertyEiRK8QVariant": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_take_QQmlVMEMetaObject": ["bool", "address", "chars", "address"]
+  }
+}

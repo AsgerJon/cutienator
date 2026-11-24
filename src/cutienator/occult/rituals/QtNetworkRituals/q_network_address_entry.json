@@ -1,0 +1,66 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/qnetworkinterface.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN20QNetworkAddressEntryC1Ev": ["address"],
+    "ritual_ZN20QNetworkAddressEntryC1ERKS_": ["address", "address"],
+    "ritual_ZN20QNetworkAddressEntryD1Ev": ["nothing", "address"],
+    "ritual_ZNK20QNetworkAddressEntryeqERKS_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK20QNetworkAddressEntryneERKS_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK20QNetworkAddressEntry14dnsEligibilityEv": [
+      "signed char", "address"
+    ],
+    "ritual_ZN20QNetworkAddressEntry17setDnsEligibilityENS_20DnsEligibilityStatusE": [
+      "nothing", "address", "signed char"
+    ],
+    "ritual_ZNK20QNetworkAddressEntry2ipEv": ["address", "address"],
+    "ritual_ZN20QNetworkAddressEntry5setIpERK12QHostAddress": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QNetworkAddressEntry7netmaskEv": ["address", "address"],
+    "ritual_ZN20QNetworkAddressEntry10setNetmaskERK12QHostAddress": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QNetworkAddressEntry12prefixLengthEv": ["int", "address"],
+    "ritual_ZN20QNetworkAddressEntry15setPrefixLengthEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK20QNetworkAddressEntry9broadcastEv": ["address", "address"],
+    "ritual_ZN20QNetworkAddressEntry12setBroadcastERK12QHostAddress": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QNetworkAddressEntry15isLifetimeKnownEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK20QNetworkAddressEntry17preferredLifetimeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QNetworkAddressEntry16validityLifetimeEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QNetworkAddressEntry18setAddressLifetimeE14QDeadlineTimerS0_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN20QNetworkAddressEntry20clearAddressLifetimeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK20QNetworkAddressEntry11isPermanentEv": ["bool", "address"],
+    "ritual_ZNK20QNetworkAddressEntry11isTemporaryEv": ["bool", "address"],
+    "ritual_list_make_QNetworkAddressEntry": ["address"],
+    "ritual_list_add_QNetworkAddressEntry": [
+      "nothing", "address", "address"
+    ],
+    "ritual_list_size_QNetworkAddressEntry": ["long long", "address"],
+    "ritual_list_at_QNetworkAddressEntry": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_QNetworkAddressEntry": ["nothing", "address"]
+  }
+}

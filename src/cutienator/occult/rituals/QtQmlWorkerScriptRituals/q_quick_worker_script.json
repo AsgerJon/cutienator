@@ -1,0 +1,46 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQmlWo",
+    "rkerScript/6.12.0/QtQmlWorkerScript/private/qquickworkerscript_p.h",
+    ", Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18QQuickWorkerScript10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QQuickWorkerScript2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18QQuickWorkerScriptC1EP7QObject": ["address", "address"],
+    "ritual_ZN18QQuickWorkerScriptD1Ev": ["nothing", "address"],
+    "ritual_ZNK18QQuickWorkerScript6sourceEv": ["address", "address"],
+    "ritual_ZN18QQuickWorkerScript9setSourceERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QQuickWorkerScript5readyEv": ["bool", "address"],
+    "ritual_ZN18QQuickWorkerScript11sendMessageEP14QQmlV4Function": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQuickWorkerScript10classBeginEv": ["nothing", "address"],
+    "ritual_ZN18QQuickWorkerScript17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickWorkerScript5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN18QQuickWorkerScript6engineEv": ["address", "address"],
+    "ritual_cast_QQuickWorkerScript_QQmlParserStatus": [
+      "address", "address"
+    ],
+    "ritual_take_QQuickWorkerScript": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN18QQuickWorkerScript10classBeginEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN18QQuickWorkerScript17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN18QQuickWorkerScript5eventEP6QEvent": [
+      "bool", "address", "address"
+    ]
+  }
+}

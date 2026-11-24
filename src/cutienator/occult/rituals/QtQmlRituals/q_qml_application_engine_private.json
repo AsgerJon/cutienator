@@ -1,0 +1,42 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmlapplicationengine_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN28QQmlApplicationEnginePrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QQmlApplicationEnginePrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QQmlApplicationEnginePrivateC1Ev": ["address"],
+    "ritual_ZN28QQmlApplicationEnginePrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN28QQmlApplicationEnginePrivate17ensureInitializedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QQmlApplicationEnginePrivate4initEv": ["nothing", "address"],
+    "ritual_ZN28QQmlApplicationEnginePrivate7cleanUpEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QQmlApplicationEnginePrivate9startLoadERK4QUrlRK10QByteArrayb": [
+      "nothing", "address", "address", "address", "bool"
+    ],
+    "ritual_ZN28QQmlApplicationEnginePrivate9startLoadE14QAnyStringViewS0_": [
+      "nothing", "address", "text", "text"
+    ],
+    "ritual_ZN28QQmlApplicationEnginePrivate19_q_loadTranslationsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QQmlApplicationEnginePrivate10finishLoadEP13QQmlComponent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QQmlApplicationEnginePrivate21ensureLoadingFinishesEP13QQmlComponent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QQmlApplicationEnginePrivate26updateTranslationDirectoryERK4QUrl": [
+      "nothing", "address", "address"
+    ]
+  }
+}

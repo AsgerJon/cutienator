@@ -1,0 +1,57 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/abstractwidgetbox.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK27QDesignerWidgetBoxInterface10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QDesignerWidgetBoxInterface2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN27QDesignerWidgetBoxInterfaceD1Ev": ["nothing", "address"],
+    "ritual_ZNK27QDesignerWidgetBoxInterface13categoryCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK27QDesignerWidgetBoxInterface8categoryEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN27QDesignerWidgetBoxInterface11addCategoryERKNS_8CategoryE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN27QDesignerWidgetBoxInterface14removeCategoryEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK27QDesignerWidgetBoxInterface11widgetCountEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK27QDesignerWidgetBoxInterface6widgetEii": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZN27QDesignerWidgetBoxInterface9addWidgetEiRKNS_6WidgetE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN27QDesignerWidgetBoxInterface12removeWidgetEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN27QDesignerWidgetBoxInterface20findOrInsertCategoryERK7QString": [
+      "int", "address", "text"
+    ],
+    "ritual_ZN27QDesignerWidgetBoxInterface11dropWidgetsERK5QListIP25QDesignerDnDItemInterfaceERK6QPoint": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN27QDesignerWidgetBoxInterface11setFileNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK27QDesignerWidgetBoxInterface8fileNameEv": [
+      "text", "address"
+    ],
+    "ritual_ZN27QDesignerWidgetBoxInterface4loadEv": ["bool", "address"],
+    "ritual_ZN27QDesignerWidgetBoxInterface4saveEv": ["bool", "address"],
+    "ritual_take_QDesignerWidgetBoxInterface": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

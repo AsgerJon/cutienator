@@ -1,0 +1,31 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qscrollbar_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN17QScrollBarPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK17QScrollBarPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN17QScrollBarPrivate15activateControlEji": [
+      "nothing", "address", "unsigned int", "int"
+    ],
+    "ritual_ZN17QScrollBarPrivate16stopRepeatActionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK17QScrollBarPrivate20pixelPosToRangeValueEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZN17QScrollBarPrivate4initEv": ["nothing", "address"],
+    "ritual_ZN17QScrollBarPrivate18updateHoverControlERK6QPoint": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN17QScrollBarPrivate15newHoverControlERK6QPoint": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN17QScrollBarPrivate12setTransientEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_take_QScrollBarPrivate": ["bool", "address", "chars", "address"]
+  }
+}

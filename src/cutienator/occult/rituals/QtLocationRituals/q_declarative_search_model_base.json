@@ -1,0 +1,109 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtLocat",
+    "ion/6.12.0/QtLocation/private/qdeclarativesearchmodelbase_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK27QDeclarativeSearchModelBase10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QDeclarativeSearchModelBase2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN27QDeclarativeSearchModelBaseD1Ev": ["nothing", "address"],
+    "ritual_ZNK27QDeclarativeSearchModelBase6pluginEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QDeclarativeSearchModelBase9setPluginEP30QDeclarativeGeoServiceProvider": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK27QDeclarativeSearchModelBase10searchAreaEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QDeclarativeSearchModelBase13setSearchAreaERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK27QDeclarativeSearchModelBase5limitEv": ["int", "address"],
+    "ritual_ZN27QDeclarativeSearchModelBase8setLimitEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK27QDeclarativeSearchModelBase22previousPagesAvailableEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK27QDeclarativeSearchModelBase18nextPagesAvailableEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK27QDeclarativeSearchModelBase6statusEv": ["int", "address"],
+    "ritual_ZN27QDeclarativeSearchModelBase9setStatusENS_6StatusERK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZN27QDeclarativeSearchModelBase6updateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QDeclarativeSearchModelBase6cancelEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QDeclarativeSearchModelBase5resetEv": ["nothing", "address"],
+    "ritual_ZNK27QDeclarativeSearchModelBase11errorStringEv": [
+      "text", "address"
+    ],
+    "ritual_ZN27QDeclarativeSearchModelBase12previousPageEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QDeclarativeSearchModelBase8nextPageEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QDeclarativeSearchModelBase9clearDataEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN27QDeclarativeSearchModelBase10classBeginEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QDeclarativeSearchModelBase17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QDeclarativeSearchModelBase16initializePluginEP30QDeclarativeGeoServiceProvider": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN27QDeclarativeSearchModelBase13queryFinishedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QDeclarativeSearchModelBase16onContentUpdatedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QDeclarativeSearchModelBase17pluginNameChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QDeclarativeSearchModelBase9sendQueryEP13QPlaceManagerRK19QPlaceSearchRequest": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN27QDeclarativeSearchModelBase22setPreviousPageRequestERK19QPlaceSearchRequest": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN27QDeclarativeSearchModelBase18setNextPageRequestERK19QPlaceSearchRequest": [
+      "nothing", "address", "address"
+    ],
+    "ritual_cast_QDeclarativeSearchModelBase_QQmlParserStatus": [
+      "address", "address"
+    ],
+    "ritual_take_QDeclarativeSearchModelBase": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN27QDeclarativeSearchModelBase9clearDataEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZN27QDeclarativeSearchModelBase10classBeginEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN27QDeclarativeSearchModelBase17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN27QDeclarativeSearchModelBase16initializePluginEP30QDeclarativeGeoServiceProvider": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN27QDeclarativeSearchModelBase16onContentUpdatedEv": [
+      "nothing", "address"
+    ]
+  }
+}

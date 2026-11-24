@@ -1,0 +1,23 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/ui4_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN7DomDateC1Ev": ["address"],
+    "ritual_ZN7DomDateD1Ev": ["nothing", "address"],
+    "ritual_ZNK7DomDate11elementYearEv": ["int", "address"],
+    "ritual_ZN7DomDate14setElementYearEi": ["nothing", "address", "int"],
+    "ritual_ZNK7DomDate14hasElementYearEv": ["bool", "address"],
+    "ritual_ZN7DomDate16clearElementYearEv": ["nothing", "address"],
+    "ritual_ZNK7DomDate12elementMonthEv": ["int", "address"],
+    "ritual_ZN7DomDate15setElementMonthEi": ["nothing", "address", "int"],
+    "ritual_ZNK7DomDate15hasElementMonthEv": ["bool", "address"],
+    "ritual_ZN7DomDate17clearElementMonthEv": ["nothing", "address"],
+    "ritual_ZNK7DomDate10elementDayEv": ["int", "address"],
+    "ritual_ZN7DomDate13setElementDayEi": ["nothing", "address", "int"],
+    "ritual_ZNK7DomDate13hasElementDayEv": ["bool", "address"],
+    "ritual_ZN7DomDate15clearElementDayEv": ["nothing", "address"]
+  }
+}

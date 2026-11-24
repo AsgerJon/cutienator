@@ -1,0 +1,84 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/ui4_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN9DomLayoutC1Ev": ["address"],
+    "ritual_ZN9DomLayoutD1Ev": ["nothing", "address"],
+    "ritual_ZNK9DomLayout17hasAttributeClassEv": ["bool", "address"],
+    "ritual_ZNK9DomLayout14attributeClassEv": ["text", "address"],
+    "ritual_ZN9DomLayout17setAttributeClassERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN9DomLayout19clearAttributeClassEv": ["nothing", "address"],
+    "ritual_ZNK9DomLayout16hasAttributeNameEv": ["bool", "address"],
+    "ritual_ZNK9DomLayout13attributeNameEv": ["text", "address"],
+    "ritual_ZN9DomLayout16setAttributeNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN9DomLayout18clearAttributeNameEv": ["nothing", "address"],
+    "ritual_ZNK9DomLayout19hasAttributeStretchEv": ["bool", "address"],
+    "ritual_ZNK9DomLayout16attributeStretchEv": ["text", "address"],
+    "ritual_ZN9DomLayout19setAttributeStretchERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN9DomLayout21clearAttributeStretchEv": ["nothing", "address"],
+    "ritual_ZNK9DomLayout22hasAttributeRowStretchEv": ["bool", "address"],
+    "ritual_ZNK9DomLayout19attributeRowStretchEv": ["text", "address"],
+    "ritual_ZN9DomLayout22setAttributeRowStretchERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN9DomLayout24clearAttributeRowStretchEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK9DomLayout25hasAttributeColumnStretchEv": ["bool", "address"],
+    "ritual_ZNK9DomLayout22attributeColumnStretchEv": ["text", "address"],
+    "ritual_ZN9DomLayout25setAttributeColumnStretchERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN9DomLayout27clearAttributeColumnStretchEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK9DomLayout28hasAttributeRowMinimumHeightEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK9DomLayout25attributeRowMinimumHeightEv": ["text", "address"],
+    "ritual_ZN9DomLayout28setAttributeRowMinimumHeightERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN9DomLayout30clearAttributeRowMinimumHeightEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK9DomLayout30hasAttributeColumnMinimumWidthEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK9DomLayout27attributeColumnMinimumWidthEv": [
+      "text", "address"
+    ],
+    "ritual_ZN9DomLayout30setAttributeColumnMinimumWidthERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN9DomLayout32clearAttributeColumnMinimumWidthEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK9DomLayout15elementPropertyEv": ["address", "address"],
+    "ritual_ZN9DomLayout18setElementPropertyERK5QListIP11DomPropertyE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9DomLayout16elementAttributeEv": ["address", "address"],
+    "ritual_ZN9DomLayout19setElementAttributeERK5QListIP11DomPropertyE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9DomLayout11elementItemEv": ["address", "address"],
+    "ritual_ZN9DomLayout14setElementItemERK5QListIP13DomLayoutItemE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_list_make_DomLayout_ptr": ["address"],
+    "ritual_list_add_DomLayout_ptr": ["nothing", "address", "address"],
+    "ritual_list_size_DomLayout_ptr": ["long long", "address"],
+    "ritual_list_at_DomLayout_ptr": ["address", "address", "long long"],
+    "ritual_list_drop_DomLayout_ptr": ["nothing", "address"]
+  }
+}

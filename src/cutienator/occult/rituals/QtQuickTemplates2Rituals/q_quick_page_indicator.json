@@ -1,0 +1,50 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquickpageindicator_p.",
+    "h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK19QQuickPageIndicator10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QQuickPageIndicator2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN19QQuickPageIndicatorC1EP10QQuickItem": ["address", "address"],
+    "ritual_ZN19QQuickPageIndicatorD1Ev": ["nothing", "address"],
+    "ritual_ZNK19QQuickPageIndicator5countEv": ["int", "address"],
+    "ritual_ZN19QQuickPageIndicator8setCountEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK19QQuickPageIndicator12currentIndexEv": ["int", "address"],
+    "ritual_ZN19QQuickPageIndicator15setCurrentIndexEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK19QQuickPageIndicator13isInteractiveEv": ["bool", "address"],
+    "ritual_ZN19QQuickPageIndicator14setInteractiveEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK19QQuickPageIndicator8delegateEv": ["address", "address"],
+    "ritual_ZN19QQuickPageIndicator11setDelegateEP13QQmlComponent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickPageIndicator17contentItemChangeEP10QQuickItemS1_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN19QQuickPageIndicator10touchEventEP11QTouchEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QQuickPageIndicator14accessibleRoleEv": ["int", "address"],
+    "ritual_take_QQuickPageIndicator": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN19QQuickPageIndicator17contentItemChangeEP10QQuickItemS1_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN19QQuickPageIndicator10touchEventEP11QTouchEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK19QQuickPageIndicator14accessibleRoleEv": [
+      "int", "address"
+    ]
+  }
+}

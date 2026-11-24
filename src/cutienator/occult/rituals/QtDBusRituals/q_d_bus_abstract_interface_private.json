@@ -1,0 +1,28 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDBus/6.12.0/QtDBus/private/qdbusabstractinterface_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN29QDBusAbstractInterfacePrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK29QDBusAbstractInterfacePrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN29QDBusAbstractInterfacePrivateD1Ev": ["nothing", "address"],
+    "ritual_ZNK29QDBusAbstractInterfacePrivate12canMakeCallsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN29QDBusAbstractInterfacePrivate11setPropertyERK13QMetaPropertyRK8QVariant": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZNK29QDBusAbstractInterfacePrivate17connectionPrivateEv": [
+      "address", "address"
+    ],
+    "ritual_ZN29QDBusAbstractInterfacePrivate22_q_serviceOwnerChangedERK7QStringS2_S2_": [
+      "nothing", "address", "text", "text", "text"
+    ]
+  }
+}

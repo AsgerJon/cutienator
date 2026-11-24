@@ -1,0 +1,25 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qtimerinfo_unix_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN14QTimerInfoListC1Ev": ["address"],
+    "ritual_ZN14QTimerInfoList11timerInsertEP10QTimerInfo": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QTimerInfoList15unregisterTimerEN2Qt7TimerIdE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN14QTimerInfoList16unregisterTimersEP7QObject": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN14QTimerInfoList14activateTimersEv": ["int", "address"],
+    "ritual_ZN14QTimerInfoList16hasPendingTimersEv": ["bool", "address"],
+    "ritual_ZN14QTimerInfoList11clearTimersEv": ["nothing", "address"],
+    "ritual_ZNK14QTimerInfoList7isEmptyEv": ["bool", "address"],
+    "ritual_ZNK14QTimerInfoList4sizeEv": ["long long", "address"],
+    "ritual_ZN14QTimerInfoListD1Ev": ["nothing", "address"]
+  }
+}

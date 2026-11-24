@@ -1,0 +1,31 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/qquickimageprovider.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK20QQuickTextureFactory10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QQuickTextureFactory2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN20QQuickTextureFactoryD1Ev": ["nothing", "address"],
+    "ritual_ZNK20QQuickTextureFactory13createTextureEP12QQuickWindow": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK20QQuickTextureFactory11textureSizeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QQuickTextureFactory16textureByteCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK20QQuickTextureFactory5imageEv": ["address", "address"],
+    "ritual_ZN20QQuickTextureFactory22textureFactoryForImageERK6QImage": [
+      "address", "address"
+    ],
+    "ritual_take_QQuickTextureFactory": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK20QQuickTextureFactory5imageEv": ["address", "address"]
+  }
+}

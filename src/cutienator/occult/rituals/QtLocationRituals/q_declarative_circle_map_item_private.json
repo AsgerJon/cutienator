@@ -1,0 +1,48 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtLocat",
+    "ion/6.12.0/QtLocation/private/qdeclarativecirclemapitem_p_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN32QDeclarativeCircleMapItemPrivateD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN32QDeclarativeCircleMapItemPrivate23onLinePropertiesChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN32QDeclarativeCircleMapItemPrivate24markSourceDirtyAndUpdateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN32QDeclarativeCircleMapItemPrivate8onMapSetEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN32QDeclarativeCircleMapItemPrivate20onGeoGeometryChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN32QDeclarativeCircleMapItemPrivate21onItemGeometryChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN32QDeclarativeCircleMapItemPrivate12updatePolishEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN32QDeclarativeCircleMapItemPrivate20afterViewportChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN32QDeclarativeCircleMapItemPrivate22updateMapItemPaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK32QDeclarativeCircleMapItemPrivate8containsERK7QPointF": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN32QDeclarativeCircleMapItemPrivate16updateCirclePathEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN32QDeclarativeCircleMapItemPrivate14crossEarthPoleERK14QGeoCoordinated": [
+      "int", "address", "double"
+    ],
+    "ritual_take_QDeclarativeCircleMapItemPrivate": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

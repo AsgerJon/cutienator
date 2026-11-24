@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qprocess_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QProcessPrivate7Channel5clearEv": ["nothing", "address"],
+    "ritual_ZN15QProcessPrivate7Channel6pipeToEPS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QProcessPrivate7Channel8pipeFromEPS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QProcessPrivate7ChannelD1Ev": ["nothing", "address"]
+  }
+}

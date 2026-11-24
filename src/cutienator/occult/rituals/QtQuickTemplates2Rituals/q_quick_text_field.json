@@ -1,0 +1,163 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquicktextfield_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK15QQuickTextField10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QQuickTextField2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN15QQuickTextFieldC1EP10QQuickItem": ["address", "address"],
+    "ritual_ZN15QQuickTextFieldD1Ev": ["nothing", "address"],
+    "ritual_ZNK15QQuickTextField4fontEv": ["address", "address"],
+    "ritual_ZN15QQuickTextField7setFontERK5QFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QQuickTextField10backgroundEv": ["address", "address"],
+    "ritual_ZN15QQuickTextField13setBackgroundEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QQuickTextField15placeholderTextEv": ["text", "address"],
+    "ritual_ZN15QQuickTextField18setPlaceholderTextERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK15QQuickTextField11focusReasonEv": ["int", "address"],
+    "ritual_ZN15QQuickTextField14setFocusReasonEN2Qt11FocusReasonE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QQuickTextField9isHoveredEv": ["bool", "address"],
+    "ritual_ZN15QQuickTextField10setHoveredEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK15QQuickTextField14isHoverEnabledEv": ["bool", "address"],
+    "ritual_ZN15QQuickTextField15setHoverEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN15QQuickTextField17resetHoverEnabledEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK15QQuickTextField20placeholderTextColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZN15QQuickTextField23setPlaceholderTextColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QQuickTextField23implicitBackgroundWidthEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK15QQuickTextField24implicitBackgroundHeightEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK15QQuickTextField8topInsetEv": ["double", "address"],
+    "ritual_ZN15QQuickTextField11setTopInsetEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN15QQuickTextField13resetTopInsetEv": ["nothing", "address"],
+    "ritual_ZNK15QQuickTextField9leftInsetEv": ["double", "address"],
+    "ritual_ZN15QQuickTextField12setLeftInsetEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN15QQuickTextField14resetLeftInsetEv": ["nothing", "address"],
+    "ritual_ZNK15QQuickTextField10rightInsetEv": ["double", "address"],
+    "ritual_ZN15QQuickTextField13setRightInsetEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN15QQuickTextField15resetRightInsetEv": ["nothing", "address"],
+    "ritual_ZNK15QQuickTextField11bottomInsetEv": ["double", "address"],
+    "ritual_ZN15QQuickTextField14setBottomInsetEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN15QQuickTextField16resetBottomInsetEv": ["nothing", "address"],
+    "ritual_ZN15QQuickTextField10classBeginEv": ["nothing", "address"],
+    "ritual_ZN15QQuickTextField17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickTextField10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN15QQuickTextField14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN15QQuickTextField11insetChangeERK9QMarginsFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN15QQuickTextField15updatePaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN15QQuickTextField12focusInEventEP11QFocusEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QQuickTextField13focusOutEventEP11QFocusEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QQuickTextField15hoverEnterEventEP11QHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QQuickTextField15hoverLeaveEventEP11QHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QQuickTextField15mousePressEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QQuickTextField14mouseMoveEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QQuickTextField17mouseReleaseEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QQuickTextField21mouseDoubleClickEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QQuickTextField10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QQuickTextField6d_funcEv": ["address", "address"],
+    "ritual_ZNK15QQuickTextField6d_funcEv": ["address", "address"],
+    "ritual_take_QQuickTextField": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN15QQuickTextField10classBeginEv": ["nothing", "address"],
+    "ritual_own_ZN15QQuickTextField17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN15QQuickTextField10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZN15QQuickTextField14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN15QQuickTextField11insetChangeERK9QMarginsFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN15QQuickTextField15updatePaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN15QQuickTextField12focusInEventEP11QFocusEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN15QQuickTextField13focusOutEventEP11QFocusEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN15QQuickTextField15hoverEnterEventEP11QHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN15QQuickTextField15hoverLeaveEventEP11QHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN15QQuickTextField15mousePressEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN15QQuickTextField14mouseMoveEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN15QQuickTextField17mouseReleaseEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN15QQuickTextField21mouseDoubleClickEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN15QQuickTextField10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ]
+  }
+}

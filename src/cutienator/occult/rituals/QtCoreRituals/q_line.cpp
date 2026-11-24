@@ -146,17 +146,21 @@ QLineF *ritual_ZNK5QLine7toLineFEv(const QLine *self) {
   return new QLineF(self->toLineF());
 }
 
+#if !QT_CORE_REMOVED_SINCE(6, 8)
 //  bool operator==(const QLine &lhs, const QLine &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZeqRK5QLineS1_(const QLine *lhs, const QLine *rhs) {
   return operator==(*lhs, *rhs);
 }
+#endif  // !QT_CORE_REMOVED_SINCE(6, 8)
 
+#if !QT_CORE_REMOVED_SINCE(6, 8)
 //  bool operator!=(const QLine &lhs, const QLine &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZneRK5QLineS1_(const QLine *lhs, const QLine *rhs) {
   return operator!=(*lhs, *rhs);
 }
+#endif  // !QT_CORE_REMOVED_SINCE(6, 8)
 
 //  QLine::~QLine()
 extern "C" Q_DECL_EXPORT

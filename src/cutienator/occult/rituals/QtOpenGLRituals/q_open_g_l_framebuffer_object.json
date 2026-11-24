@@ -1,0 +1,77 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtOpenGL/qopenglframebufferobject.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZN24QOpenGLFramebufferObject6d_funcEv": ["address", "address"],
+    "ritual_ZNK24QOpenGLFramebufferObject6d_funcEv": ["address", "address"],
+    "ritual_ZN24QOpenGLFramebufferObjectC1ERK5QSizej": [
+      "address", "address", "unsigned int"
+    ],
+    "ritual_ZN24QOpenGLFramebufferObjectC1Eiij": [
+      "address", "int", "int", "unsigned int"
+    ],
+    "ritual_ZN24QOpenGLFramebufferObjectC1ERK5QSizeNS_10AttachmentEjj": [
+      "address", "address", "int", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZN24QOpenGLFramebufferObjectC1EiiNS_10AttachmentEjj": [
+      "address", "int", "int", "int", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZN24QOpenGLFramebufferObjectC1ERK5QSizeRK30QOpenGLFramebufferObjectFormat": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN24QOpenGLFramebufferObjectC1EiiRK30QOpenGLFramebufferObjectFormat": [
+      "address", "int", "int", "address"
+    ],
+    "ritual_ZN24QOpenGLFramebufferObjectD1Ev": ["nothing", "address"],
+    "ritual_ZN24QOpenGLFramebufferObject18addColorAttachmentERK5QSizej": [
+      "nothing", "address", "address", "unsigned int"
+    ],
+    "ritual_ZN24QOpenGLFramebufferObject18addColorAttachmentEiij": [
+      "nothing", "address", "int", "int", "unsigned int"
+    ],
+    "ritual_ZNK24QOpenGLFramebufferObject6formatEv": ["address", "address"],
+    "ritual_ZNK24QOpenGLFramebufferObject7isValidEv": ["bool", "address"],
+    "ritual_ZNK24QOpenGLFramebufferObject7isBoundEv": ["bool", "address"],
+    "ritual_ZN24QOpenGLFramebufferObject4bindEv": ["bool", "address"],
+    "ritual_ZN24QOpenGLFramebufferObject7releaseEv": ["bool", "address"],
+    "ritual_ZNK24QOpenGLFramebufferObject5widthEv": ["int", "address"],
+    "ritual_ZNK24QOpenGLFramebufferObject6heightEv": ["int", "address"],
+    "ritual_ZNK24QOpenGLFramebufferObject4sizeEv": ["address", "address"],
+    "ritual_ZNK24QOpenGLFramebufferObject5sizesEv": ["address", "address"],
+    "ritual_ZNK24QOpenGLFramebufferObject7toImageEb": [
+      "address", "address", "bool"
+    ],
+    "ritual_ZNK24QOpenGLFramebufferObject7toImageEbi": [
+      "address", "address", "bool", "int"
+    ],
+    "ritual_ZNK24QOpenGLFramebufferObject10attachmentEv": ["int", "address"],
+    "ritual_ZN24QOpenGLFramebufferObject13setAttachmentENS_10AttachmentE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN24QOpenGLFramebufferObject11bindDefaultEv": ["bool"],
+    "ritual_ZN24QOpenGLFramebufferObject27hasOpenGLFramebufferObjectsEv": [
+      "bool"
+    ],
+    "ritual_ZN24QOpenGLFramebufferObject24hasOpenGLFramebufferBlitEv": [
+      "bool"
+    ],
+    "ritual_ZN24QOpenGLFramebufferObject15blitFramebufferEPS_RK5QRectS0_S3_jjiiNS_24FramebufferRestorePolicyE": [
+      "nothing", "address", "address", "address", "address", "unsigned int",
+      "unsigned int", "int", "int", "int"
+    ],
+    "ritual_ZN24QOpenGLFramebufferObject15blitFramebufferEPS_RK5QRectS0_S3_jjii": [
+      "nothing", "address", "address", "address", "address", "unsigned int",
+      "unsigned int", "int", "int"
+    ],
+    "ritual_ZN24QOpenGLFramebufferObject15blitFramebufferEPS_RK5QRectS0_S3_jj": [
+      "nothing", "address", "address", "address", "address", "unsigned int",
+      "unsigned int"
+    ],
+    "ritual_ZN24QOpenGLFramebufferObject15blitFramebufferEPS_S0_jj": [
+      "nothing", "address", "address", "unsigned int", "unsigned int"
+    ]
+  }
+}

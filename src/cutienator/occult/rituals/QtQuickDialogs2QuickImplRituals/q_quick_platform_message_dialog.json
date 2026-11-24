@@ -1,0 +1,40 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Dialogs2QuickImpl/6.12.0/QtQuickDialogs2QuickImpl/private/qquickpl",
+    "atformmessagedialog_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK27QQuickPlatformMessageDialog10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QQuickPlatformMessageDialog2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN27QQuickPlatformMessageDialogC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN27QQuickPlatformMessageDialogD1Ev": ["nothing", "address"],
+    "ritual_ZNK27QQuickPlatformMessageDialog7isValidEv": ["bool", "address"],
+    "ritual_ZN27QQuickPlatformMessageDialog4execEv": ["nothing", "address"],
+    "ritual_ZN27QQuickPlatformMessageDialog4showE6QFlagsIN2Qt10WindowTypeEENS1_14WindowModalityEP7QWindow": [
+      "bool", "address", "int", "int", "address"
+    ],
+    "ritual_ZN27QQuickPlatformMessageDialog4hideEv": ["nothing", "address"],
+    "ritual_ZNK27QQuickPlatformMessageDialog6dialogEv": [
+      "address", "address"
+    ],
+    "ritual_take_QQuickPlatformMessageDialog": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN27QQuickPlatformMessageDialog4execEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN27QQuickPlatformMessageDialog4showE6QFlagsIN2Qt10WindowTypeEENS1_14WindowModalityEP7QWindow": [
+      "bool", "address", "int", "int", "address"
+    ],
+    "ritual_own_ZN27QQuickPlatformMessageDialog4hideEv": [
+      "nothing", "address"
+    ]
+  }
+}

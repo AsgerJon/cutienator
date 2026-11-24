@@ -1,0 +1,34 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/abstractactioneditor.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZNK30QDesignerActionEditorInterface10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN30QDesignerActionEditorInterface2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN30QDesignerActionEditorInterfaceD1Ev": ["nothing", "address"],
+    "ritual_ZNK30QDesignerActionEditorInterface4coreEv": [
+      "address", "address"
+    ],
+    "ritual_ZN30QDesignerActionEditorInterface12manageActionEP7QAction": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN30QDesignerActionEditorInterface14unmanageActionEP7QAction": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN30QDesignerActionEditorInterface13setFormWindowEP28QDesignerFormWindowInterface": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QDesignerActionEditorInterface": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK30QDesignerActionEditorInterface4coreEv": [
+      "address", "address"
+    ]
+  }
+}

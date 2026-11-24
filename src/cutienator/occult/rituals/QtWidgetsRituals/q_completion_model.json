@@ -47,6 +47,8 @@
     "ritual_ZNK16QCompletionModel13mapFromSourceERK11QModelIndex": [
       "address", "address", "address"
     ],
+    "ritual_ZN16QCompletionModel6d_funcEv": ["address", "address"],
+    "ritual_ZNK16QCompletionModel6d_funcEv": ["address", "address"],
     "ritual_ZN16QCompletionModel10invalidateEv": ["nothing", "address"],
     "ritual_ZN16QCompletionModel14modelDestroyedEv": ["nothing", "address"],
     "ritual_take_QCompletionModel": ["bool", "address", "chars", "address"],

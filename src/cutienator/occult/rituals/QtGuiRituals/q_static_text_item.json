@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qstatictext_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QStaticTextItemC1Ev": ["address"],
+    "ritual_ZN15QStaticTextItem11setUserDataEP19QStaticTextUserData": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QStaticTextItem8userDataEv": ["address", "address"],
+    "ritual_ZN15QStaticTextItem13setFontEngineEP11QFontEngine": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QStaticTextItem10fontEngineEv": ["address", "address"],
+    "ritual_ZN15QStaticTextItemD1Ev": ["nothing", "address"]
+  }
+}

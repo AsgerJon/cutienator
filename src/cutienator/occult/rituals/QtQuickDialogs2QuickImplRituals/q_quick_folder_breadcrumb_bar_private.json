@@ -1,0 +1,120 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Dialogs2QuickImpl/6.12.0/QtQuickDialogs2QuickImpl/private/qquickfo",
+    "lderbreadcrumbbar_p_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN32QQuickFolderBreadcrumbBarPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK32QQuickFolderBreadcrumbBarPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN32QQuickFolderBreadcrumbBarPrivate18createDelegateItemEP13QQmlComponentRK4QMapI7QString8QVariantE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN32QQuickFolderBreadcrumbBarPrivate14folderBaseNameERK7QString": [
+      "text", "text"
+    ],
+    "ritual_ZN32QQuickFolderBreadcrumbBarPrivate19crumbPathsForFolderERK4QUrl": [
+      "address", "address"
+    ],
+    "ritual_ZN32QQuickFolderBreadcrumbBarPrivate10repopulateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN32QQuickFolderBreadcrumbBarPrivate12crumbClickedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN32QQuickFolderBreadcrumbBarPrivate13folderChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN32QQuickFolderBreadcrumbBarPrivate14cancelUpButtonEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN32QQuickFolderBreadcrumbBarPrivate15executeUpButtonEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN32QQuickFolderBreadcrumbBarPrivate4goUpEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN32QQuickFolderBreadcrumbBarPrivate15cancelTextFieldEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN32QQuickFolderBreadcrumbBarPrivate16executeTextFieldEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN32QQuickFolderBreadcrumbBarPrivate25toggleTextFieldVisibilityEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN32QQuickFolderBreadcrumbBarPrivate17textFieldAcceptedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN32QQuickFolderBreadcrumbBarPrivate23textFieldVisibleChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN32QQuickFolderBreadcrumbBarPrivate27textFieldActiveFocusChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN32QQuickFolderBreadcrumbBarPrivate20handleTextFieldShownEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN32QQuickFolderBreadcrumbBarPrivate21handleTextFieldHiddenEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN32QQuickFolderBreadcrumbBarPrivate22ungrabEditPathShortcutEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK32QQuickFolderBreadcrumbBarPrivate12asFileDialogEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK32QQuickFolderBreadcrumbBarPrivate14asFolderDialogEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK32QQuickFolderBreadcrumbBarPrivate12isFileDialogEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK32QQuickFolderBreadcrumbBarPrivate12dialogFolderEv": [
+      "address", "address"
+    ],
+    "ritual_ZN32QQuickFolderBreadcrumbBarPrivate15setDialogFolderERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK32QQuickFolderBreadcrumbBarPrivate15getContentWidthEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK32QQuickFolderBreadcrumbBarPrivate16getContentHeightEv": [
+      "double", "address"
+    ],
+    "ritual_ZN32QQuickFolderBreadcrumbBarPrivate13resizeContentEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN32QQuickFolderBreadcrumbBarPrivate19itemGeometryChangedEP10QQuickItem20QQuickGeometryChangeRK6QRectF": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN32QQuickFolderBreadcrumbBarPrivate24itemImplicitWidthChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN32QQuickFolderBreadcrumbBarPrivate25itemImplicitHeightChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK32QQuickFolderBreadcrumbBarPrivate15getContentWidthEv": [
+      "double", "address"
+    ],
+    "ritual_own_ZNK32QQuickFolderBreadcrumbBarPrivate16getContentHeightEv": [
+      "double", "address"
+    ],
+    "ritual_own_ZN32QQuickFolderBreadcrumbBarPrivate13resizeContentEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN32QQuickFolderBreadcrumbBarPrivate19itemGeometryChangedEP10QQuickItem20QQuickGeometryChangeRK6QRectF": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN32QQuickFolderBreadcrumbBarPrivate24itemImplicitWidthChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN32QQuickFolderBreadcrumbBarPrivate25itemImplicitHeightChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ]
+  }
+}

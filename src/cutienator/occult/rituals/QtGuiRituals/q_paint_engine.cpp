@@ -398,6 +398,19 @@ public:
   }
 };
 
+//  QPaintEnginePrivate *QPaintEngine::d_func()
+extern "C" Q_DECL_EXPORT
+QPaintEnginePrivate *ritual_ZN12QPaintEngine6d_funcEv(QPaintEngine *self) {
+  return self->d_func();
+}
+
+//  const QPaintEnginePrivate *QPaintEngine::d_func() const
+extern "C" Q_DECL_EXPORT
+const QPaintEnginePrivate *ritual_ZNK12QPaintEngine6d_funcEv(
+    const QPaintEngine *self) {
+  return self->d_func();
+}
+
 //  QPaintEngine::~QPaintEngine()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN12QPaintEngineD1Ev(QPaintEngine *self) {

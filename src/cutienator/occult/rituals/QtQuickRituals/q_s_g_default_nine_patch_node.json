@@ -1,0 +1,40 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qsgdefaultninepatchnode_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN23QSGDefaultNinePatchNodeC1Ev": ["address"],
+    "ritual_ZN23QSGDefaultNinePatchNodeD1Ev": ["nothing", "address"],
+    "ritual_ZN23QSGDefaultNinePatchNode10setTextureEP10QSGTexture": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QSGDefaultNinePatchNode9setBoundsERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QSGDefaultNinePatchNode19setDevicePixelRatioEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN23QSGDefaultNinePatchNode10setPaddingEdddd": [
+      "nothing", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZN23QSGDefaultNinePatchNode6updateEv": ["nothing", "address"],
+    "ritual_take_QSGDefaultNinePatchNode": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN23QSGDefaultNinePatchNode10setTextureEP10QSGTexture": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN23QSGDefaultNinePatchNode9setBoundsERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN23QSGDefaultNinePatchNode19setDevicePixelRatioEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_own_ZN23QSGDefaultNinePatchNode10setPaddingEdddd": [
+      "nothing", "address", "double", "double", "double", "double"
+    ],
+    "ritual_own_ZN23QSGDefaultNinePatchNode6updateEv": ["nothing", "address"]
+  }
+}

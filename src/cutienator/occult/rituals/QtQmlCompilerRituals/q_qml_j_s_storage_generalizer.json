@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQmlCo",
+    "mpiler/6.12.0/QtQmlCompiler/private/qqmljsstoragegeneralizer_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN24QQmlJSStorageGeneralizer3runEPKN17QQmlJSCompilePass8FunctionE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN24QQmlJSStorageGeneralizer16startInstructionEN3QV44Moth5Instr4TypeE": [
+      "int", "address", "int"
+    ],
+    "ritual_ZN24QQmlJSStorageGeneralizer14endInstructionEN3QV44Moth5Instr4TypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_take_QQmlJSStorageGeneralizer": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN24QQmlJSStorageGeneralizer14endInstructionEN3QV44Moth5Instr4TypeE": [
+      "nothing", "address", "int"
+    ]
+  }
+}

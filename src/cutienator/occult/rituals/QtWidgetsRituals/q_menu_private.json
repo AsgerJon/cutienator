@@ -1,0 +1,73 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qmenu_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN12QMenuPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK12QMenuPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN12QMenuPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN12QMenuPrivate18createPlatformMenuEv": ["address", "address"],
+    "ritual_ZN12QMenuPrivate15setPlatformMenuEP13QPlatformMenu": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QMenuPrivate3getEP5QMenu": ["address", "address"],
+    "ritual_ZNK12QMenuPrivate14scrollerHeightEv": ["int", "address"],
+    "ritual_ZNK12QMenuPrivate13isContextMenuEv": ["bool", "address"],
+    "ritual_ZNK12QMenuPrivate10actionRectEP7QAction": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK12QMenuPrivate17updateActionRectsEv": ["nothing", "address"],
+    "ritual_ZNK12QMenuPrivate17updateActionRectsERK5QRect": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12QMenuPrivate13popupGeometryEP7QScreen": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK12QMenuPrivate21useFullScreenForPopupEv": ["bool", "address"],
+    "ritual_ZNK12QMenuPrivate20getLastVisibleActionEv": ["int", "address"],
+    "ritual_ZNK12QMenuPrivate15topCausedWidgetEv": ["address", "address"],
+    "ritual_ZNK12QMenuPrivate8actionAtE6QPoint": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN12QMenuPrivate13setSyncActionEv": ["nothing", "address"],
+    "ritual_ZN12QMenuPrivate8hideMenuEP5QMenu": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12QMenuPrivate21transientParentWindowEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK12QMenuPrivate8actionAtEi": ["address", "address", "int"],
+    "ritual_ZNK12QMenuPrivate7indexOfEP7QAction": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN12QMenuPrivate21setOverrideMenuActionEP7QAction": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QMenuPrivate30_q_overrideMenuActionDestroyedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN12QMenuPrivate16_q_actionHoveredEv": ["nothing", "address"],
+    "ritual_ZN12QMenuPrivate26_q_platformMenuAboutToShowEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK12QMenuPrivate13hasMouseMovedERK7QPointF": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN12QMenuPrivate21updateLayoutDirectionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN12QMenuPrivate12drawScrollerEP8QPainterNS_19ScrollerTearOffItem4TypeERK5QRect": [
+      "nothing", "address", "address", "int", "address"
+    ],
+    "ritual_ZN12QMenuPrivate11drawTearOffEP8QPainterRK5QRect": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK12QMenuPrivate4rectEv": ["address", "address"],
+    "ritual_ZNK12QMenuPrivate14considerActionEPK7QAction": [
+      "bool", "address", "address"
+    ],
+    "ritual_take_QMenuPrivate": ["bool", "address", "chars", "address"]
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qabstractscrollarea_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN26QAbstractScrollAreaPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK26QAbstractScrollAreaPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QAbstractScrollAreaPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN26QAbstractScrollAreaPrivate16replaceScrollBarEP10QScrollBarN2Qt11OrientationE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN26QAbstractScrollAreaPrivate14layoutChildrenEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QAbstractScrollAreaPrivate21layoutChildren_helperEPbS0_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN26QAbstractScrollAreaPrivate22scrollBarPolicyChangedEN2Qt11OrientationENS0_15ScrollBarPolicyE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK26QAbstractScrollAreaPrivate19canStartScrollingAtERK6QPoint": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN26QAbstractScrollAreaPrivate21setScrollBarTransientEP10QScrollBarb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN26QAbstractScrollAreaPrivate23_q_showOrHideScrollBarsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK26QAbstractScrollAreaPrivate14contentsOffsetEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QAbstractScrollAreaPrivate13viewportEventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK26QAbstractScrollAreaPrivate17defaultSingleStepEv": [
+      "int", "address"
+    ],
+    "ritual_take_QAbstractScrollAreaPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN26QAbstractScrollAreaPrivate22scrollBarPolicyChangedEN2Qt11OrientationENS0_15ScrollBarPolicyE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZNK26QAbstractScrollAreaPrivate19canStartScrollingAtERK6QPoint": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZNK26QAbstractScrollAreaPrivate14contentsOffsetEv": [
+      "address", "address"
+    ]
+  }
+}

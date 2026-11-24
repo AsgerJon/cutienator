@@ -1,0 +1,130 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qgraphicswidget_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN22QGraphicsWidgetPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK22QGraphicsWidgetPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN22QGraphicsWidgetPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN22QGraphicsWidgetPrivate4initEP13QGraphicsItem6QFlagsIN2Qt10WindowTypeEE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZNK22QGraphicsWidgetPrivate14titleBarHeightERK20QStyleOptionTitleBar": [
+      "double", "address", "address"
+    ],
+    "ritual_ZNK22QGraphicsWidgetPrivate13ensureMarginsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QGraphicsWidgetPrivate30fixFocusChainBeforeReparentingEP15QGraphicsWidgetP14QGraphicsSceneS3_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN22QGraphicsWidgetPrivate16setLayout_helperEP15QGraphicsLayout": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QGraphicsWidgetPrivate25setLayoutDirection_helperEN2Qt15LayoutDirectionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN22QGraphicsWidgetPrivate22resolveLayoutDirectionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QGraphicsWidgetPrivate17setPalette_helperERK8QPalette": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QGraphicsWidgetPrivate14resolvePaletteEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN22QGraphicsWidgetPrivate13updatePaletteERK8QPalette": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK22QGraphicsWidgetPrivate20naturalWidgetPaletteEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QGraphicsWidgetPrivate14setFont_helperERK5QFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QGraphicsWidgetPrivate11resolveFontEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN22QGraphicsWidgetPrivate10updateFontERK5QFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK22QGraphicsWidgetPrivate17naturalWidgetFontEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QGraphicsWidgetPrivate23initStyleOptionTitleBarEP20QStyleOptionTitleBar": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QGraphicsWidgetPrivate28windowFrameMouseReleaseEventEP24QGraphicsSceneMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QGraphicsWidgetPrivate26windowFrameMousePressEventEP24QGraphicsSceneMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QGraphicsWidgetPrivate25windowFrameHoverMoveEventEP24QGraphicsSceneHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QGraphicsWidgetPrivate26windowFrameHoverLeaveEventEP24QGraphicsSceneHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK22QGraphicsWidgetPrivate13hasDecorationEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK22QGraphicsWidgetPrivate5widthEv": ["double", "address"],
+    "ritual_ZN22QGraphicsWidgetPrivate8setWidthEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN22QGraphicsWidgetPrivate10resetWidthEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK22QGraphicsWidgetPrivate6heightEv": ["double", "address"],
+    "ritual_ZN22QGraphicsWidgetPrivate9setHeightEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN22QGraphicsWidgetPrivate11resetHeightEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QGraphicsWidgetPrivate21setGeometryFromSetPosEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK22QGraphicsWidgetPrivate19attributeToBitIndexEN2Qt15WidgetAttributeE": [
+      "int", "address", "int"
+    ],
+    "ritual_ZN22QGraphicsWidgetPrivate12setAttributeEN2Qt15WidgetAttributeEb": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZNK22QGraphicsWidgetPrivate13testAttributeEN2Qt15WidgetAttributeE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN22QGraphicsWidgetPrivate16ensureWindowDataEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK22QGraphicsWidgetPrivate24ensureWindowFrameMarginsEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QGraphicsWidgetPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN22QGraphicsWidgetPrivate14resolvePaletteEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_own_ZN22QGraphicsWidgetPrivate11resolveFontEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_own_ZNK22QGraphicsWidgetPrivate5widthEv": ["double", "address"],
+    "ritual_own_ZN22QGraphicsWidgetPrivate8setWidthEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_own_ZN22QGraphicsWidgetPrivate10resetWidthEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZNK22QGraphicsWidgetPrivate6heightEv": ["double", "address"],
+    "ritual_own_ZN22QGraphicsWidgetPrivate9setHeightEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_own_ZN22QGraphicsWidgetPrivate11resetHeightEv": [
+      "nothing", "address"
+    ]
+  }
+}

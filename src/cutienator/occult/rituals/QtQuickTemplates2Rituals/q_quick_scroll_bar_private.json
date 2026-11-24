@@ -1,0 +1,83 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquickscrollbar_p_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN22QQuickScrollBarPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK22QQuickScrollBarPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN22QQuickScrollBarPrivate3getEP15QQuickScrollBar": [
+      "address", "address"
+    ],
+    "ritual_ZNK22QQuickScrollBarPrivate10visualAreaEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK22QQuickScrollBarPrivate15logicalPositionEd": [
+      "double", "address", "double"
+    ],
+    "ritual_ZN22QQuickScrollBarPrivate11setPositionEdb": [
+      "nothing", "address", "double", "bool"
+    ],
+    "ritual_ZNK22QQuickScrollBarPrivate12snapPositionEd": [
+      "double", "address", "double"
+    ],
+    "ritual_ZNK22QQuickScrollBarPrivate10positionAtERK7QPointF": [
+      "double", "address", "address"
+    ],
+    "ritual_ZN22QQuickScrollBarPrivate14setInteractiveEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN22QQuickScrollBarPrivate12updateActiveEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickScrollBarPrivate13resizeContentEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickScrollBarPrivate24itemImplicitWidthChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQuickScrollBarPrivate25itemImplicitHeightChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQuickScrollBarPrivate11handlePressERK7QPointFm": [
+      "bool", "address", "address", "unsigned long"
+    ],
+    "ritual_ZN22QQuickScrollBarPrivate10handleMoveERK7QPointFm": [
+      "bool", "address", "address", "unsigned long"
+    ],
+    "ritual_ZN22QQuickScrollBarPrivate13handleReleaseERK7QPointFm": [
+      "bool", "address", "address", "unsigned long"
+    ],
+    "ritual_ZN22QQuickScrollBarPrivate12handleUngrabEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickScrollBarPrivate16visualAreaChangeERKNS_10VisualAreaES2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_take_QQuickScrollBarPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN22QQuickScrollBarPrivate13resizeContentEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN22QQuickScrollBarPrivate24itemImplicitWidthChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN22QQuickScrollBarPrivate25itemImplicitHeightChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN22QQuickScrollBarPrivate11handlePressERK7QPointFm": [
+      "bool", "address", "address", "unsigned long"
+    ],
+    "ritual_own_ZN22QQuickScrollBarPrivate10handleMoveERK7QPointFm": [
+      "bool", "address", "address", "unsigned long"
+    ],
+    "ritual_own_ZN22QQuickScrollBarPrivate13handleReleaseERK7QPointFm": [
+      "bool", "address", "address", "unsigned long"
+    ],
+    "ritual_own_ZN22QQuickScrollBarPrivate12handleUngrabEv": [
+      "nothing", "address"
+    ]
+  }
+}

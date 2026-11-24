@@ -557,16 +557,26 @@ void ritual_ZN5QFont14setResolveMaskEj(QFont *self, uint mask) {
   self->setResolveMask(mask);
 }
 
+#if QT_DEPRECATED_SINCE(6, 0)
 //  void QFont::setLegacyWeight(int legacyWeight)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN5QFont15setLegacyWeightEi(QFont *self, int legacyWeight) {
   self->setLegacyWeight(legacyWeight);
 }
+#endif  // QT_DEPRECATED_SINCE(6, 0)
 
+#if QT_DEPRECATED_SINCE(6, 0)
 //  int QFont::legacyWeight() const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK5QFont12legacyWeightEv(const QFont *self) {
   return self->legacyWeight();
+}
+#endif  // QT_DEPRECATED_SINCE(6, 0)
+
+//  QFont::QFont(QFontPrivate *a0)
+extern "C" Q_DECL_EXPORT
+QFont *ritual_ZN5QFontC1EP12QFontPrivate(QFontPrivate *a0) {
+  return new QFont(a0);
 }
 
 //  void QFont::detach()
@@ -575,8 +585,10 @@ void ritual_ZN5QFont6detachEv(QFont *self) {
   self->detach();
 }
 
+#if !defined(QT_NO_DEBUG_STREAM)
 //  QDebug operator<<(QDebug a0, const QFont &a1)
 extern "C" Q_DECL_EXPORT
 QDebug *ritual_Zls6QDebugRK5QFont(const QDebug *a0, const QFont *a1) {
   return new QDebug(operator<<(*a0, *a1));
 }
+#endif  // !defined(QT_NO_DEBUG_STREAM)

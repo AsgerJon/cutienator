@@ -1,0 +1,44 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLocation/qplacecontentreply.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK18QPlaceContentReply10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QPlaceContentReply2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18QPlaceContentReplyC1EP7QObject": ["address", "address"],
+    "ritual_ZN18QPlaceContentReplyD1Ev": ["nothing", "address"],
+    "ritual_ZNK18QPlaceContentReply4typeEv": ["int", "address"],
+    "ritual_ZNK18QPlaceContentReply7contentEv": ["address", "address"],
+    "ritual_ZNK18QPlaceContentReply10totalCountEv": ["int", "address"],
+    "ritual_ZNK18QPlaceContentReply7requestEv": ["address", "address"],
+    "ritual_ZNK18QPlaceContentReply19previousPageRequestEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18QPlaceContentReply15nextPageRequestEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18QPlaceContentReply10setContentERK4QMapIi13QPlaceContentE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QPlaceContentReply13setTotalCountEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18QPlaceContentReply10setRequestERK20QPlaceContentRequest": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QPlaceContentReply22setPreviousPageRequestERK20QPlaceContentRequest": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QPlaceContentReply18setNextPageRequestERK20QPlaceContentRequest": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QPlaceContentReply": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK18QPlaceContentReply4typeEv": ["int", "address"]
+  }
+}

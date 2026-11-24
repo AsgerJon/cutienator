@@ -105,6 +105,8 @@
     "ritual_ZNK19QGraphicsLayoutItem8sizeHintEN2Qt8SizeHintERK6QSizeF": [
       "address", "address", "int", "address"
     ],
+    "ritual_ZN19QGraphicsLayoutItem6d_funcEv": ["address", "address"],
+    "ritual_ZNK19QGraphicsLayoutItem6d_funcEv": ["address", "address"],
     "ritual_take_QGraphicsLayoutItem": [
       "bool", "address", "chars", "address"
     ],

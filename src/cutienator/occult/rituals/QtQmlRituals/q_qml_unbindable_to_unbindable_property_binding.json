@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmlpropertytopropertybinding_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN41QQmlUnbindableToUnbindablePropertyBinding15capturePropertyEPK11QMetaObjectRK13QMetaProperty": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN41QQmlUnbindableToUnbindablePropertyBindingD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_cast_QQmlUnbindableToUnbindablePropertyBinding_QQmlPropertyToUnbindablePropertyBinding": [
+      "address", "address"
+    ],
+    "ritual_take_QQmlUnbindableToUnbindablePropertyBinding": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtHttpServer/6.12.0/QtHttpServer/private/qhttpserverresponder_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN27QHttpServerResponderPrivate6cancelEv": ["nothing", "address"]
+  }
+}

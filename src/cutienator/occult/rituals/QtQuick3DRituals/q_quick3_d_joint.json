@@ -1,0 +1,28 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3D/6.12.0/QtQuick3D/private/qquick3djoint_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK13QQuick3DJoint10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QQuick3DJoint2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN13QQuick3DJointC1EP12QQuick3DNode": ["address", "address"],
+    "ritual_ZN13QQuick3DJointD1Ev": ["nothing", "address"],
+    "ritual_ZNK13QQuick3DJoint5indexEv": ["int", "address"],
+    "ritual_ZNK13QQuick3DJoint12skeletonRootEv": ["address", "address"],
+    "ritual_ZN13QQuick3DJoint8setIndexEi": ["nothing", "address", "int"],
+    "ritual_ZN13QQuick3DJoint15setSkeletonRootEP16QQuick3DSkeleton": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QQuick3DJoint17updateSpatialNodeEP21QSSGRenderGraphObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN13QQuick3DJoint12markAllDirtyEv": ["nothing", "address"],
+    "ritual_take_QQuick3DJoint": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN13QQuick3DJoint17updateSpatialNodeEP21QSSGRenderGraphObject": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN13QQuick3DJoint12markAllDirtyEv": ["nothing", "address"]
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtXml/qdom.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QDomImplementationC1Ev": ["address"],
+    "ritual_ZN18QDomImplementationC1ERKS_": ["address", "address"],
+    "ritual_ZN18QDomImplementationD1Ev": ["nothing", "address"],
+    "ritual_ZNK18QDomImplementationeqERKS_": ["bool", "address", "address"],
+    "ritual_ZNK18QDomImplementationneERKS_": ["bool", "address", "address"],
+    "ritual_ZNK18QDomImplementation10hasFeatureERK7QStringS2_": [
+      "bool", "address", "text", "text"
+    ],
+    "ritual_ZN18QDomImplementation18createDocumentTypeERK7QStringS2_S2_": [
+      "address", "address", "text", "text", "text"
+    ],
+    "ritual_ZN18QDomImplementation14createDocumentERK7QStringS2_RK16QDomDocumentType": [
+      "address", "address", "text", "text", "address"
+    ],
+    "ritual_ZN18QDomImplementation17invalidDataPolicyEv": ["int"],
+    "ritual_ZN18QDomImplementation20setInvalidDataPolicyENS_17InvalidDataPolicyE": [
+      "nothing", "int"
+    ],
+    "ritual_ZN18QDomImplementation6isNullEv": ["bool", "address"],
+    "ritual_ZN18QDomImplementationC1EP25QDomImplementationPrivate": [
+      "address", "address"
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qaccessiblecache_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN31QAccessibleObjectDestroyedEventC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN31QAccessibleObjectDestroyedEventC1EP20QAccessibleInterface": [
+      "address", "address"
+    ],
+    "ritual_ZN31QAccessibleObjectDestroyedEventC1Ej": [
+      "address", "unsigned int"
+    ],
+    "ritual_ZN31QAccessibleObjectDestroyedEventD1Ev": ["nothing", "address"],
+    "ritual_take_QAccessibleObjectDestroyedEvent": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

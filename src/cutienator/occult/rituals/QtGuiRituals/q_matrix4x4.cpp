@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGui/qmatrix4x4.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
+#if !defined(QT_NO_MATRIX4X4)
 #include <QtGui/qmatrix4x4.h>
 #include <QtGui/qtransform.h>
 #include <QtGui/qvectornd.h>
@@ -78,6 +80,7 @@ float ritual_ZNK10QMatrix4x4clEii(
   return self->operator()(row, column);
 }
 
+#if !defined(QT_NO_VECTOR4D)
 //  QVector4D QMatrix4x4::column(int index) const
 extern "C" Q_DECL_EXPORT
 QVector4D *ritual_ZNK10QMatrix4x46columnEi(
@@ -85,7 +88,9 @@ QVector4D *ritual_ZNK10QMatrix4x46columnEi(
     int index) {
   return new QVector4D(self->column(index));
 }
+#endif  // !defined(QT_NO_VECTOR4D)
 
+#if !defined(QT_NO_VECTOR4D)
 //  void QMatrix4x4::setColumn(int index, const QVector4D &value)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10QMatrix4x49setColumnEiRK9QVector4D(
@@ -94,13 +99,17 @@ void ritual_ZN10QMatrix4x49setColumnEiRK9QVector4D(
     const QVector4D *value) {
   self->setColumn(index, *value);
 }
+#endif  // !defined(QT_NO_VECTOR4D)
 
+#if !defined(QT_NO_VECTOR4D)
 //  QVector4D QMatrix4x4::row(int index) const
 extern "C" Q_DECL_EXPORT
 QVector4D *ritual_ZNK10QMatrix4x43rowEi(const QMatrix4x4 *self, int index) {
   return new QVector4D(self->row(index));
 }
+#endif  // !defined(QT_NO_VECTOR4D)
 
+#if !defined(QT_NO_VECTOR4D)
 //  void QMatrix4x4::setRow(int index, const QVector4D &value)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10QMatrix4x46setRowEiRK9QVector4D(
@@ -109,6 +118,7 @@ void ritual_ZN10QMatrix4x46setRowEiRK9QVector4D(
     const QVector4D *value) {
   self->setRow(index, *value);
 }
+#endif  // !defined(QT_NO_VECTOR4D)
 
 //  bool QMatrix4x4::isAffine() const
 extern "C" Q_DECL_EXPORT
@@ -230,6 +240,8 @@ QMatrix4x4 *ritual_ZmlRK10QMatrix4x4S1_(
   return new QMatrix4x4(operator*(*m1, *m2));
 }
 
+#if !defined(QT_NO_VECTOR3D)
+#if QT_DEPRECATED_SINCE(6, 1)
 //  QVector3D operator*(const QMatrix4x4 &matrix, const QVector3D &vector)
 extern "C" Q_DECL_EXPORT
 QVector3D *ritual_ZmlRK10QMatrix4x4RK9QVector3D(
@@ -237,7 +249,10 @@ QVector3D *ritual_ZmlRK10QMatrix4x4RK9QVector3D(
     const QVector3D *vector) {
   return new QVector3D(operator*(*matrix, *vector));
 }
+#endif  // QT_DEPRECATED_SINCE(6, 1)
+#endif  // !defined(QT_NO_VECTOR3D)
 
+#if !defined(QT_NO_VECTOR4D)
 //  QVector4D operator*(const QMatrix4x4 &matrix, const QVector4D &vector)
 extern "C" Q_DECL_EXPORT
 QVector4D *ritual_ZmlRK10QMatrix4x4RK9QVector4D(
@@ -245,6 +260,7 @@ QVector4D *ritual_ZmlRK10QMatrix4x4RK9QVector4D(
     const QVector4D *vector) {
   return new QVector4D(operator*(*matrix, *vector));
 }
+#endif  // !defined(QT_NO_VECTOR4D)
 
 //  QPoint operator*(const QPoint &point, const QMatrix4x4 &matrix)
 extern "C" Q_DECL_EXPORT
@@ -268,6 +284,7 @@ QMatrix4x4 *ritual_ZngRK10QMatrix4x4(const QMatrix4x4 *matrix) {
   return new QMatrix4x4(operator-(*matrix));
 }
 
+#if QT_DEPRECATED_SINCE(6, 1)
 //  QPoint operator*(const QMatrix4x4 &matrix, const QPoint &point)
 extern "C" Q_DECL_EXPORT
 QPoint *ritual_ZmlRK10QMatrix4x4RK6QPoint(
@@ -275,7 +292,9 @@ QPoint *ritual_ZmlRK10QMatrix4x4RK6QPoint(
     const QPoint *point) {
   return new QPoint(operator*(*matrix, *point));
 }
+#endif  // QT_DEPRECATED_SINCE(6, 1)
 
+#if QT_DEPRECATED_SINCE(6, 1)
 //  QPointF operator*(const QMatrix4x4 &matrix, const QPointF &point)
 extern "C" Q_DECL_EXPORT
 QPointF *ritual_ZmlRK10QMatrix4x4RK7QPointF(
@@ -283,6 +302,7 @@ QPointF *ritual_ZmlRK10QMatrix4x4RK7QPointF(
     const QPointF *point) {
   return new QPointF(operator*(*matrix, *point));
 }
+#endif  // QT_DEPRECATED_SINCE(6, 1)
 
 //  QMatrix4x4 operator*(float factor, const QMatrix4x4 &matrix)
 extern "C" Q_DECL_EXPORT
@@ -308,6 +328,7 @@ QMatrix4x4 *ritual_ZdvRK10QMatrix4x4f(
   return new QMatrix4x4(operator/(*matrix, divisor));
 }
 
+#if !defined(QT_NO_VECTOR3D)
 //  void QMatrix4x4::scale(const QVector3D &vector)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10QMatrix4x45scaleERK9QVector3D(
@@ -315,7 +336,9 @@ void ritual_ZN10QMatrix4x45scaleERK9QVector3D(
     const QVector3D *vector) {
   self->scale(*vector);
 }
+#endif  // !defined(QT_NO_VECTOR3D)
 
+#if !defined(QT_NO_VECTOR3D)
 //  void QMatrix4x4::translate(const QVector3D &vector)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10QMatrix4x49translateERK9QVector3D(
@@ -323,7 +346,9 @@ void ritual_ZN10QMatrix4x49translateERK9QVector3D(
     const QVector3D *vector) {
   self->translate(*vector);
 }
+#endif  // !defined(QT_NO_VECTOR3D)
 
+#if !defined(QT_NO_VECTOR3D)
 //  void QMatrix4x4::rotate(float angle, const QVector3D &vector)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10QMatrix4x46rotateEfRK9QVector3D(
@@ -332,6 +357,7 @@ void ritual_ZN10QMatrix4x46rotateEfRK9QVector3D(
     const QVector3D *vector) {
   self->rotate(angle, *vector);
 }
+#endif  // !defined(QT_NO_VECTOR3D)
 
 //  void QMatrix4x4::scale(float x, float y)
 extern "C" Q_DECL_EXPORT
@@ -382,6 +408,7 @@ void ritual_ZN10QMatrix4x46rotateEffff(
   self->rotate(angle, x, y, z);
 }
 
+#if !defined(QT_NO_QUATERNION)
 //  void QMatrix4x4::rotate(const QQuaternion &quaternion)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10QMatrix4x46rotateERK11QQuaternion(
@@ -389,6 +416,7 @@ void ritual_ZN10QMatrix4x46rotateERK11QQuaternion(
     const QQuaternion *quaternion) {
   self->rotate(*quaternion);
 }
+#endif  // !defined(QT_NO_QUATERNION)
 
 //  void QMatrix4x4::ortho(const QRect &rect)
 extern "C" Q_DECL_EXPORT
@@ -446,6 +474,7 @@ void ritual_ZN10QMatrix4x411perspectiveEffff(
   self->perspective(verticalAngle, aspectRatio, nearPlane, farPlane);
 }
 
+#if !defined(QT_NO_VECTOR3D)
 //  void QMatrix4x4::lookAt(const QVector3D &eye, const QVector3D &center,
 //      const QVector3D &up)
 extern "C" Q_DECL_EXPORT
@@ -456,6 +485,7 @@ void ritual_ZN10QMatrix4x46lookAtERK9QVector3DS2_S2_(
     const QVector3D *up) {
   self->lookAt(*eye, *center, *up);
 }
+#endif  // !defined(QT_NO_VECTOR3D)
 
 //  void QMatrix4x4::viewport(const QRectF &rect)
 extern "C" Q_DECL_EXPORT
@@ -523,6 +553,7 @@ QPointF *ritual_ZNK10QMatrix4x43mapERK7QPointF(
   return new QPointF(self->map(*point));
 }
 
+#if !defined(QT_NO_VECTOR3D)
 //  QVector3D QMatrix4x4::map(const QVector3D &point) const
 extern "C" Q_DECL_EXPORT
 QVector3D *ritual_ZNK10QMatrix4x43mapERK9QVector3D(
@@ -530,7 +561,9 @@ QVector3D *ritual_ZNK10QMatrix4x43mapERK9QVector3D(
     const QVector3D *point) {
   return new QVector3D(self->map(*point));
 }
+#endif  // !defined(QT_NO_VECTOR3D)
 
+#if !defined(QT_NO_VECTOR3D)
 //  QVector3D QMatrix4x4::mapVector(const QVector3D &vector) const
 extern "C" Q_DECL_EXPORT
 QVector3D *ritual_ZNK10QMatrix4x49mapVectorERK9QVector3D(
@@ -538,7 +571,9 @@ QVector3D *ritual_ZNK10QMatrix4x49mapVectorERK9QVector3D(
     const QVector3D *vector) {
   return new QVector3D(self->mapVector(*vector));
 }
+#endif  // !defined(QT_NO_VECTOR3D)
 
+#if !defined(QT_NO_VECTOR4D)
 //  QVector4D QMatrix4x4::map(const QVector4D &point) const
 extern "C" Q_DECL_EXPORT
 QVector4D *ritual_ZNK10QMatrix4x43mapERK9QVector4D(
@@ -546,6 +581,7 @@ QVector4D *ritual_ZNK10QMatrix4x43mapERK9QVector4D(
     const QVector4D *point) {
   return new QVector4D(self->map(*point));
 }
+#endif  // !defined(QT_NO_VECTOR4D)
 
 //  QRect QMatrix4x4::mapRect(const QRect &rect) const
 extern "C" Q_DECL_EXPORT
@@ -575,6 +611,7 @@ QVariant *ritual_ZNK10QMatrix4x4cv8QVariantEv(const QMatrix4x4 *self) {
   return new QVariant(self->operator QVariant());
 }
 
+#if !defined(QT_NO_DEBUG_STREAM)
 //  QDebug operator<<(QDebug dbg, const QMatrix4x4 &m)
 extern "C" Q_DECL_EXPORT
 QDebug *ritual_Zls6QDebugRK10QMatrix4x4(
@@ -582,7 +619,9 @@ QDebug *ritual_Zls6QDebugRK10QMatrix4x4(
     const QMatrix4x4 *m) {
   return new QDebug(operator<<(*dbg, *m));
 }
+#endif  // !defined(QT_NO_DEBUG_STREAM)
 
+#if QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
 //  void QMatrix4x4::projectedRotate(float angle, float x, float y, float z,
 //      float distanceToPlane)
 extern "C" Q_DECL_EXPORT
@@ -595,7 +634,9 @@ void ritual_ZN10QMatrix4x415projectedRotateEfffff(
     float distanceToPlane) {
   self->projectedRotate(angle, x, y, z, distanceToPlane);
 }
+#endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
 
+#if QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
 //  void QMatrix4x4::projectedRotate(float angle, float x, float y, float z)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10QMatrix4x415projectedRotateEffff(
@@ -606,6 +647,7 @@ void ritual_ZN10QMatrix4x415projectedRotateEffff(
     float z) {
   self->projectedRotate(angle, x, y, z);
 }
+#endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
 
 //  Flags QMatrix4x4::flags() const
 extern "C" Q_DECL_EXPORT
@@ -635,3 +677,5 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN10QMatrix4x4D1Ev(QMatrix4x4 *self) {
   delete self;
 }
+
+#endif  // !defined(QT_NO_MATRIX4X4)

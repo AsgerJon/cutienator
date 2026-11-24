@@ -1,0 +1,84 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssglayerren",
+    "derdata_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK37QSSGLayerRenderPreparationResultFlags17wasLayerDataDirtyEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN37QSSGLayerRenderPreparationResultFlags17setLayerDataDirtyEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK37QSSGLayerRenderPreparationResultFlags8wasDirtyEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN37QSSGLayerRenderPreparationResultFlags11setWasDirtyEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK37QSSGLayerRenderPreparationResultFlags20requiresDepthTextureEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN37QSSGLayerRenderPreparationResultFlags23setRequiresDepthTextureEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK37QSSGLayerRenderPreparationResultFlags22requiresDepthTextureMSEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN37QSSGLayerRenderPreparationResultFlags25setRequiresDepthTextureMSEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK37QSSGLayerRenderPreparationResultFlags16requiresSsaoPassEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN37QSSGLayerRenderPreparationResultFlags19setRequiresSsaoPassEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK37QSSGLayerRenderPreparationResultFlags21requiresShadowMapPassEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN37QSSGLayerRenderPreparationResultFlags24setRequiresShadowMapPassEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK37QSSGLayerRenderPreparationResultFlags21requiresScreenTextureEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN37QSSGLayerRenderPreparationResultFlags24setRequiresScreenTextureEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK37QSSGLayerRenderPreparationResultFlags31requiresMipmapsForScreenTextureEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN37QSSGLayerRenderPreparationResultFlags34setRequiresMipmapsForScreenTextureEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK37QSSGLayerRenderPreparationResultFlags18hasCustomBlendModeEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN37QSSGLayerRenderPreparationResultFlags21setHasCustomBlendModeEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK37QSSGLayerRenderPreparationResultFlags21requiresNormalTextureEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN37QSSGLayerRenderPreparationResultFlags24setRequiresNormalTextureEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK37QSSGLayerRenderPreparationResultFlags24requiresMotionVectorPassEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN37QSSGLayerRenderPreparationResultFlags27setRequiresMotionVectorPassEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK37QSSGLayerRenderPreparationResultFlags23requiresSkyMaterialPassEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN37QSSGLayerRenderPreparationResultFlags26setRequiresSkyMaterialPassEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN37QSSGLayerRenderPreparationResultFlagsD1Ev": [
+      "nothing", "address"
+    ]
+  }
+}

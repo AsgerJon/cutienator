@@ -1,0 +1,13 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3DUtils/6.12.0/QtQuick3DUtils/private/qssgmesh_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK8QSSGMesh12MeshInternal6Subset12toMeshSubsetEv": [
+      "address", "address"
+    ],
+    "ritual_ZN8QSSGMesh12MeshInternal6SubsetD1Ev": ["nothing", "address"]
+  }
+}

@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qproxystyle.h, Qt 6.12.0. Changes made here are lost.
+#include <QtWidgets/qtwidgetsglobal.h>
+#if !defined(QT_NO_STYLE_PROXY)
 #include <QtWidgets/qproxystyle.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qrect.h>
@@ -21,160 +23,281 @@ struct OwnQProxyStyle : QProxyStyle {
 //  A QProxyStyle that Python can take functions over in. Every QProxyStyle
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if !defined(QT_NO_STYLE_PROXY)
 typedef void (*CuteQProxyStyleCall0)(const void *, int, const QStyleOption *, QPainter *, const QWidget *, int *);
+#endif  // !defined(QT_NO_STYLE_PROXY)
+#if !defined(QT_NO_STYLE_PROXY)
 typedef void (*CuteQProxyStyleCall1)(const void *, int, const QStyleOption *, QPainter *, const QWidget *, int *);
+#endif  // !defined(QT_NO_STYLE_PROXY)
+#if !defined(QT_NO_STYLE_PROXY)
 typedef void (*CuteQProxyStyleCall2)(const void *, int, const QStyleOptionComplex *, QPainter *, const QWidget *, int *);
+#endif  // !defined(QT_NO_STYLE_PROXY)
+#if !defined(QT_NO_STYLE_PROXY)
 typedef void (*CuteQProxyStyleCall3)(const void *, QPainter *, const QRect *, int, const QPalette *, bool, const QString *, int, int *);
+#endif  // !defined(QT_NO_STYLE_PROXY)
+#if !defined(QT_NO_STYLE_PROXY)
 typedef void (*CuteQProxyStyleCall4)(const void *, QPainter *, const QRect *, int, const QPixmap *, int *);
+#endif  // !defined(QT_NO_STYLE_PROXY)
+#if !defined(QT_NO_STYLE_PROXY)
 typedef const QSize * (*CuteQProxyStyleCall5)(const void *, int, const QStyleOption *, const QSize *, const QWidget *, int *);
+#endif  // !defined(QT_NO_STYLE_PROXY)
+#if !defined(QT_NO_STYLE_PROXY)
 typedef const QRect * (*CuteQProxyStyleCall6)(const void *, int, const QStyleOption *, const QWidget *, int *);
+#endif  // !defined(QT_NO_STYLE_PROXY)
+#if !defined(QT_NO_STYLE_PROXY)
 typedef const QRect * (*CuteQProxyStyleCall7)(const void *, int, const QStyleOptionComplex *, int, const QWidget *, int *);
+#endif  // !defined(QT_NO_STYLE_PROXY)
+#if !defined(QT_NO_STYLE_PROXY)
 typedef const QRect * (*CuteQProxyStyleCall8)(const void *, const QFontMetrics *, const QRect *, int, bool, const QString *, int *);
+#endif  // !defined(QT_NO_STYLE_PROXY)
+#if !defined(QT_NO_STYLE_PROXY)
 typedef const QRect * (*CuteQProxyStyleCall9)(const void *, const QRect *, int, const QPixmap *, int *);
+#endif  // !defined(QT_NO_STYLE_PROXY)
+#if !defined(QT_NO_STYLE_PROXY)
 typedef int (*CuteQProxyStyleCall10)(const void *, int, const QStyleOptionComplex *, const QPoint *, const QWidget *, int *);
+#endif  // !defined(QT_NO_STYLE_PROXY)
+#if !defined(QT_NO_STYLE_PROXY)
 typedef int (*CuteQProxyStyleCall11)(const void *, int, const QStyleOption *, const QWidget *, QStyleHintReturn *, int *);
+#endif  // !defined(QT_NO_STYLE_PROXY)
+#if !defined(QT_NO_STYLE_PROXY)
 typedef int (*CuteQProxyStyleCall12)(const void *, int, const QStyleOption *, const QWidget *, int *);
+#endif  // !defined(QT_NO_STYLE_PROXY)
+#if !defined(QT_NO_STYLE_PROXY)
 typedef int (*CuteQProxyStyleCall13)(const void *, int, int, int, const QStyleOption *, const QWidget *, int *);
+#endif  // !defined(QT_NO_STYLE_PROXY)
+#if !defined(QT_NO_STYLE_PROXY)
 typedef const QIcon * (*CuteQProxyStyleCall14)(const void *, int, const QStyleOption *, const QWidget *, int *);
+#endif  // !defined(QT_NO_STYLE_PROXY)
+#if !defined(QT_NO_STYLE_PROXY)
 typedef const QPixmap * (*CuteQProxyStyleCall15)(const void *, int, const QStyleOption *, const QWidget *, int *);
+#endif  // !defined(QT_NO_STYLE_PROXY)
+#if !defined(QT_NO_STYLE_PROXY)
 typedef const QPixmap * (*CuteQProxyStyleCall16)(const void *, int, const QPixmap *, const QStyleOption *, int *);
+#endif  // !defined(QT_NO_STYLE_PROXY)
+#if !defined(QT_NO_STYLE_PROXY)
 typedef const QPalette * (*CuteQProxyStyleCall17)(const void *, int *);
+#endif  // !defined(QT_NO_STYLE_PROXY)
+#if !defined(QT_NO_STYLE_PROXY)
 typedef void (*CuteQProxyStyleCall18)(const void *, QWidget *, int *);
+#endif  // !defined(QT_NO_STYLE_PROXY)
+#if !defined(QT_NO_STYLE_PROXY)
 typedef void (*CuteQProxyStyleCall19)(const void *, QApplication *, int *);
+#endif  // !defined(QT_NO_STYLE_PROXY)
+#if !defined(QT_NO_STYLE_PROXY)
 typedef void (*CuteQProxyStyleCall20)(const void *, QWidget *, int *);
+#endif  // !defined(QT_NO_STYLE_PROXY)
+#if !defined(QT_NO_STYLE_PROXY)
 typedef void (*CuteQProxyStyleCall21)(const void *, QApplication *, int *);
+#endif  // !defined(QT_NO_STYLE_PROXY)
+#if !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_STYLE_PROXY)
 typedef bool (*CuteQProxyStyleCall22)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_STYLE_PROXY)
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQProxyStyleCall23)(const void *, QObject *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQProxyStyleCall24)(const void *, QTimerEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQProxyStyleCall25)(const void *, QChildEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQProxyStyleCall26)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQProxyStyleCall27)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQProxyStyleCall28)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 class CuteQProxyStyle : public QProxyStyle {
 public:
   using QProxyStyle::QProxyStyle;
   void *taken[29] = {};
 
   bool take(const char *key, void *call) {
+#if !defined(QT_NO_STYLE_PROXY)
     if (!std::strcmp(key, "_ZNK6QStyle13drawPrimitiveENS_16PrimitiveElementEPK12QStyleOptionP8QPainterPK7QWidget")) {
       taken[0] = call;
       return true;
     }
+#endif  // !defined(QT_NO_STYLE_PROXY)
+#if !defined(QT_NO_STYLE_PROXY)
     if (!std::strcmp(key, "_ZNK6QStyle11drawControlENS_14ControlElementEPK12QStyleOptionP8QPainterPK7QWidget")) {
       taken[1] = call;
       return true;
     }
+#endif  // !defined(QT_NO_STYLE_PROXY)
+#if !defined(QT_NO_STYLE_PROXY)
     if (!std::strcmp(key, "_ZNK6QStyle18drawComplexControlENS_14ComplexControlEPK19QStyleOptionComplexP8QPainterPK7QWidget")) {
       taken[2] = call;
       return true;
     }
+#endif  // !defined(QT_NO_STYLE_PROXY)
+#if !defined(QT_NO_STYLE_PROXY)
     if (!std::strcmp(key, "_ZNK6QStyle12drawItemTextEP8QPainterRK5QRectiRK8QPalettebRK7QStringNS5_9ColorRoleE")) {
       taken[3] = call;
       return true;
     }
+#endif  // !defined(QT_NO_STYLE_PROXY)
+#if !defined(QT_NO_STYLE_PROXY)
     if (!std::strcmp(key, "_ZNK6QStyle14drawItemPixmapEP8QPainterRK5QRectiRK7QPixmap")) {
       taken[4] = call;
       return true;
     }
+#endif  // !defined(QT_NO_STYLE_PROXY)
+#if !defined(QT_NO_STYLE_PROXY)
     if (!std::strcmp(key, "_ZNK6QStyle16sizeFromContentsENS_12ContentsTypeEPK12QStyleOptionRK5QSizePK7QWidget")) {
       taken[5] = call;
       return true;
     }
+#endif  // !defined(QT_NO_STYLE_PROXY)
+#if !defined(QT_NO_STYLE_PROXY)
     if (!std::strcmp(key, "_ZNK6QStyle14subElementRectENS_10SubElementEPK12QStyleOptionPK7QWidget")) {
       taken[6] = call;
       return true;
     }
+#endif  // !defined(QT_NO_STYLE_PROXY)
+#if !defined(QT_NO_STYLE_PROXY)
     if (!std::strcmp(key, "_ZNK6QStyle14subControlRectENS_14ComplexControlEPK19QStyleOptionComplexNS_10SubControlEPK7QWidget")) {
       taken[7] = call;
       return true;
     }
+#endif  // !defined(QT_NO_STYLE_PROXY)
+#if !defined(QT_NO_STYLE_PROXY)
     if (!std::strcmp(key, "_ZNK6QStyle12itemTextRectERK12QFontMetricsRK5QRectibRK7QString")) {
       taken[8] = call;
       return true;
     }
+#endif  // !defined(QT_NO_STYLE_PROXY)
+#if !defined(QT_NO_STYLE_PROXY)
     if (!std::strcmp(key, "_ZNK6QStyle14itemPixmapRectERK5QRectiRK7QPixmap")) {
       taken[9] = call;
       return true;
     }
+#endif  // !defined(QT_NO_STYLE_PROXY)
+#if !defined(QT_NO_STYLE_PROXY)
     if (!std::strcmp(key, "_ZNK6QStyle21hitTestComplexControlENS_14ComplexControlEPK19QStyleOptionComplexRK6QPointPK7QWidget")) {
       taken[10] = call;
       return true;
     }
+#endif  // !defined(QT_NO_STYLE_PROXY)
+#if !defined(QT_NO_STYLE_PROXY)
     if (!std::strcmp(key, "_ZNK6QStyle9styleHintENS_9StyleHintEPK12QStyleOptionPK7QWidgetP16QStyleHintReturn")) {
       taken[11] = call;
       return true;
     }
+#endif  // !defined(QT_NO_STYLE_PROXY)
+#if !defined(QT_NO_STYLE_PROXY)
     if (!std::strcmp(key, "_ZNK6QStyle11pixelMetricENS_11PixelMetricEPK12QStyleOptionPK7QWidget")) {
       taken[12] = call;
       return true;
     }
+#endif  // !defined(QT_NO_STYLE_PROXY)
+#if !defined(QT_NO_STYLE_PROXY)
     if (!std::strcmp(key, "_ZNK6QStyle13layoutSpacingEN11QSizePolicy11ControlTypeES1_N2Qt11OrientationEPK12QStyleOptionPK7QWidget")) {
       taken[13] = call;
       return true;
     }
+#endif  // !defined(QT_NO_STYLE_PROXY)
+#if !defined(QT_NO_STYLE_PROXY)
     if (!std::strcmp(key, "_ZNK6QStyle12standardIconENS_14StandardPixmapEPK12QStyleOptionPK7QWidget")) {
       taken[14] = call;
       return true;
     }
+#endif  // !defined(QT_NO_STYLE_PROXY)
+#if !defined(QT_NO_STYLE_PROXY)
     if (!std::strcmp(key, "_ZNK6QStyle14standardPixmapENS_14StandardPixmapEPK12QStyleOptionPK7QWidget")) {
       taken[15] = call;
       return true;
     }
+#endif  // !defined(QT_NO_STYLE_PROXY)
+#if !defined(QT_NO_STYLE_PROXY)
     if (!std::strcmp(key, "_ZNK6QStyle19generatedIconPixmapEN5QIcon4ModeERK7QPixmapPK12QStyleOption")) {
       taken[16] = call;
       return true;
     }
+#endif  // !defined(QT_NO_STYLE_PROXY)
+#if !defined(QT_NO_STYLE_PROXY)
     if (!std::strcmp(key, "_ZNK6QStyle15standardPaletteEv")) {
       taken[17] = call;
       return true;
     }
+#endif  // !defined(QT_NO_STYLE_PROXY)
+#if !defined(QT_NO_STYLE_PROXY)
     if (!std::strcmp(key, "_ZN6QStyle6polishEP7QWidget")) {
       taken[18] = call;
       return true;
     }
+#endif  // !defined(QT_NO_STYLE_PROXY)
+#if !defined(QT_NO_STYLE_PROXY)
     if (!std::strcmp(key, "_ZN6QStyle6polishEP12QApplication")) {
       taken[19] = call;
       return true;
     }
+#endif  // !defined(QT_NO_STYLE_PROXY)
+#if !defined(QT_NO_STYLE_PROXY)
     if (!std::strcmp(key, "_ZN6QStyle8unpolishEP7QWidget")) {
       taken[20] = call;
       return true;
     }
+#endif  // !defined(QT_NO_STYLE_PROXY)
+#if !defined(QT_NO_STYLE_PROXY)
     if (!std::strcmp(key, "_ZN6QStyle8unpolishEP12QApplication")) {
       taken[21] = call;
       return true;
     }
+#endif  // !defined(QT_NO_STYLE_PROXY)
+#if !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_STYLE_PROXY)
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[22] = call;
       return true;
     }
+#endif  // !defined(QT_NO_STYLE_PROXY)
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[23] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[24] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[25] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[26] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[27] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
       taken[28] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
     return false;
   }
 
+#if !defined(QT_NO_STYLE_PROXY)
   //  void QProxyStyle::drawPrimitive(PrimitiveElement element, const
   //      QStyleOption *option, QPainter *painter, const QWidget *widget)
   //      const
@@ -191,7 +314,9 @@ public:
     }
     QProxyStyle::drawPrimitive(element, option, painter, widget);
   }
+#endif  // !defined(QT_NO_STYLE_PROXY)
 
+#if !defined(QT_NO_STYLE_PROXY)
   //  void QProxyStyle::drawControl(ControlElement element, const
   //      QStyleOption *option, QPainter *painter, const QWidget *widget)
   //      const
@@ -208,7 +333,9 @@ public:
     }
     QProxyStyle::drawControl(element, option, painter, widget);
   }
+#endif  // !defined(QT_NO_STYLE_PROXY)
 
+#if !defined(QT_NO_STYLE_PROXY)
   //  void QProxyStyle::drawComplexControl(ComplexControl control, const
   //      QStyleOptionComplex *option, QPainter *painter, const QWidget
   //      *widget) const
@@ -225,7 +352,9 @@ public:
     }
     QProxyStyle::drawComplexControl(control, option, painter, widget);
   }
+#endif  // !defined(QT_NO_STYLE_PROXY)
 
+#if !defined(QT_NO_STYLE_PROXY)
   //  void QProxyStyle::drawItemText(QPainter *painter, const QRect &rect,
   //      int flags, const QPalette &pal, bool enabled, const QString
   //      &text, QPalette::ColorRole textRole) const
@@ -245,7 +374,9 @@ public:
     }
     QProxyStyle::drawItemText(painter, rect, flags, pal, enabled, text, textRole);
   }
+#endif  // !defined(QT_NO_STYLE_PROXY)
 
+#if !defined(QT_NO_STYLE_PROXY)
   //  void QProxyStyle::drawItemPixmap(QPainter *painter, const QRect
   //      &rect, int alignment, const QPixmap &pixmap) const
   void drawItemPixmap(
@@ -261,7 +392,9 @@ public:
     }
     QProxyStyle::drawItemPixmap(painter, rect, alignment, pixmap);
   }
+#endif  // !defined(QT_NO_STYLE_PROXY)
 
+#if !defined(QT_NO_STYLE_PROXY)
   //  QSize QProxyStyle::sizeFromContents(ContentsType type, const
   //      QStyleOption *option, const QSize &size, const QWidget *widget)
   //      const
@@ -278,7 +411,9 @@ public:
     }
     return QProxyStyle::sizeFromContents(type, option, size, widget);
   }
+#endif  // !defined(QT_NO_STYLE_PROXY)
 
+#if !defined(QT_NO_STYLE_PROXY)
   //  QRect QProxyStyle::subElementRect(SubElement element, const
   //      QStyleOption *option, const QWidget *widget) const
   QRect subElementRect(
@@ -293,7 +428,9 @@ public:
     }
     return QProxyStyle::subElementRect(element, option, widget);
   }
+#endif  // !defined(QT_NO_STYLE_PROXY)
 
+#if !defined(QT_NO_STYLE_PROXY)
   //  QRect QProxyStyle::subControlRect(ComplexControl cc, const
   //      QStyleOptionComplex *opt, SubControl sc, const QWidget *widget)
   //      const
@@ -310,7 +447,9 @@ public:
     }
     return QProxyStyle::subControlRect(cc, opt, sc, widget);
   }
+#endif  // !defined(QT_NO_STYLE_PROXY)
 
+#if !defined(QT_NO_STYLE_PROXY)
   //  QRect QProxyStyle::itemTextRect(const QFontMetrics &fm, const QRect
   //      &r, int flags, bool enabled, const QString &text) const
   QRect itemTextRect(
@@ -327,7 +466,9 @@ public:
     }
     return QProxyStyle::itemTextRect(fm, r, flags, enabled, text);
   }
+#endif  // !defined(QT_NO_STYLE_PROXY)
 
+#if !defined(QT_NO_STYLE_PROXY)
   //  QRect QProxyStyle::itemPixmapRect(const QRect &r, int flags, const
   //      QPixmap &pixmap) const
   QRect itemPixmapRect(
@@ -342,7 +483,9 @@ public:
     }
     return QProxyStyle::itemPixmapRect(r, flags, pixmap);
   }
+#endif  // !defined(QT_NO_STYLE_PROXY)
 
+#if !defined(QT_NO_STYLE_PROXY)
   //  SubControl QProxyStyle::hitTestComplexControl(ComplexControl control,
   //      const QStyleOptionComplex *option, const QPoint &pos, const
   //      QWidget *widget) const
@@ -359,7 +502,9 @@ public:
     }
     return QProxyStyle::hitTestComplexControl(control, option, pos, widget);
   }
+#endif  // !defined(QT_NO_STYLE_PROXY)
 
+#if !defined(QT_NO_STYLE_PROXY)
   //  int QProxyStyle::styleHint(StyleHint hint, const QStyleOption
   //      *option, const QWidget *widget, QStyleHintReturn *returnData)
   //      const
@@ -376,7 +521,9 @@ public:
     }
     return QProxyStyle::styleHint(hint, option, widget, returnData);
   }
+#endif  // !defined(QT_NO_STYLE_PROXY)
 
+#if !defined(QT_NO_STYLE_PROXY)
   //  int QProxyStyle::pixelMetric(PixelMetric metric, const QStyleOption
   //      *option, const QWidget *widget) const
   int pixelMetric(
@@ -391,7 +538,9 @@ public:
     }
     return QProxyStyle::pixelMetric(metric, option, widget);
   }
+#endif  // !defined(QT_NO_STYLE_PROXY)
 
+#if !defined(QT_NO_STYLE_PROXY)
   //  int QProxyStyle::layoutSpacing(QSizePolicy::ControlType control1,
   //      QSizePolicy::ControlType control2, Qt::Orientation orientation,
   //      const QStyleOption *option, const QWidget *widget) const
@@ -409,7 +558,9 @@ public:
     }
     return QProxyStyle::layoutSpacing(control1, control2, orientation, option, widget);
   }
+#endif  // !defined(QT_NO_STYLE_PROXY)
 
+#if !defined(QT_NO_STYLE_PROXY)
   //  QIcon QProxyStyle::standardIcon(StandardPixmap standardIcon, const
   //      QStyleOption *option, const QWidget *widget) const
   QIcon standardIcon(
@@ -424,7 +575,9 @@ public:
     }
     return QProxyStyle::standardIcon(standardIcon, option, widget);
   }
+#endif  // !defined(QT_NO_STYLE_PROXY)
 
+#if !defined(QT_NO_STYLE_PROXY)
   //  QPixmap QProxyStyle::standardPixmap(StandardPixmap standardPixmap,
   //      const QStyleOption *opt, const QWidget *widget) const
   QPixmap standardPixmap(
@@ -439,7 +592,9 @@ public:
     }
     return QProxyStyle::standardPixmap(standardPixmap, opt, widget);
   }
+#endif  // !defined(QT_NO_STYLE_PROXY)
 
+#if !defined(QT_NO_STYLE_PROXY)
   //  QPixmap QProxyStyle::generatedIconPixmap(QIcon::Mode iconMode, const
   //      QPixmap &pixmap, const QStyleOption *opt) const
   QPixmap generatedIconPixmap(
@@ -454,7 +609,9 @@ public:
     }
     return QProxyStyle::generatedIconPixmap(iconMode, pixmap, opt);
   }
+#endif  // !defined(QT_NO_STYLE_PROXY)
 
+#if !defined(QT_NO_STYLE_PROXY)
   //  QPalette QProxyStyle::standardPalette() const
   QPalette standardPalette() const override {
     if (taken[17]) {
@@ -465,7 +622,9 @@ public:
     }
     return QProxyStyle::standardPalette();
   }
+#endif  // !defined(QT_NO_STYLE_PROXY)
 
+#if !defined(QT_NO_STYLE_PROXY)
   //  void QProxyStyle::polish(QWidget *widget)
   void polish(QWidget *widget) override {
     if (taken[18]) {
@@ -476,7 +635,9 @@ public:
     }
     QProxyStyle::polish(widget);
   }
+#endif  // !defined(QT_NO_STYLE_PROXY)
 
+#if !defined(QT_NO_STYLE_PROXY)
   //  void QProxyStyle::polish(QApplication *app)
   void polish(QApplication *app) override {
     if (taken[19]) {
@@ -487,7 +648,9 @@ public:
     }
     QProxyStyle::polish(app);
   }
+#endif  // !defined(QT_NO_STYLE_PROXY)
 
+#if !defined(QT_NO_STYLE_PROXY)
   //  void QProxyStyle::unpolish(QWidget *widget)
   void unpolish(QWidget *widget) override {
     if (taken[20]) {
@@ -498,7 +661,9 @@ public:
     }
     QProxyStyle::unpolish(widget);
   }
+#endif  // !defined(QT_NO_STYLE_PROXY)
 
+#if !defined(QT_NO_STYLE_PROXY)
   //  void QProxyStyle::unpolish(QApplication *app)
   void unpolish(QApplication *app) override {
     if (taken[21]) {
@@ -509,7 +674,10 @@ public:
     }
     QProxyStyle::unpolish(app);
   }
+#endif  // !defined(QT_NO_STYLE_PROXY)
 
+#if !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_STYLE_PROXY)
   //  bool QProxyStyle::event(QEvent *e)
   bool event(QEvent *e) override {
     if (taken[22]) {
@@ -520,7 +688,10 @@ public:
     }
     return QProxyStyle::event(e);
   }
+#endif  // !defined(QT_NO_STYLE_PROXY)
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
     if (taken[23]) {
@@ -531,7 +702,9 @@ public:
     }
     return QObject::eventFilter(watched, event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
     if (taken[24]) {
@@ -542,7 +715,9 @@ public:
     }
     QObject::timerEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
     if (taken[25]) {
@@ -553,7 +728,9 @@ public:
     }
     QObject::childEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
     if (taken[26]) {
@@ -564,7 +741,9 @@ public:
     }
     QObject::customEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
     if (taken[27]) {
@@ -575,7 +754,9 @@ public:
     }
     QObject::connectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
     if (taken[28]) {
@@ -586,6 +767,7 @@ public:
     }
     QObject::disconnectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 };
 
 //  const QMetaObject *QProxyStyle::metaObject() const
@@ -891,6 +1073,19 @@ void ritual_ZN11QProxyStyle8unpolishEP12QApplication(
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN11QProxyStyle5eventEP6QEvent(QProxyStyle *self, QEvent *e) {
   return self->event(e);
+}
+
+//  QProxyStylePrivate *QProxyStyle::d_func()
+extern "C" Q_DECL_EXPORT
+QProxyStylePrivate *ritual_ZN11QProxyStyle6d_funcEv(QProxyStyle *self) {
+  return self->d_func();
+}
+
+//  const QProxyStylePrivate *QProxyStyle::d_func() const
+extern "C" Q_DECL_EXPORT
+const QProxyStylePrivate *ritual_ZNK11QProxyStyle6d_funcEv(
+    const QProxyStyle *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQProxyStyle, for the function named by
@@ -1199,3 +1394,5 @@ bool ritual_own_ZN11QProxyStyle5eventEP6QEvent(
     QEvent *e) {
   return static_cast<OwnQProxyStyle *>(self)->OwnQProxyStyle::event(e);
 }
+
+#endif  // !defined(QT_NO_STYLE_PROXY)

@@ -1,0 +1,12 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qcursor_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11QCursorDataC1EN2Qt11CursorShapeE": ["address", "int"],
+    "ritual_ZN11QCursorDataD1Ev": ["nothing", "address"],
+    "ritual_ZN11QCursorData6updateEv": ["nothing", "address"]
+  }
+}

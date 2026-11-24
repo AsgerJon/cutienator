@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qwhatsthis.h, Qt 6.12.0. Changes made here are lost.
+#include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(whatsthis)
 #include <QtWidgets/qwhatsthis.h>
 #include <QtCore/qpoint.h>
 #include <QtCore/qstring.h>
@@ -38,14 +40,18 @@ void ritual_ZN10QWhatsThis8hideTextEv() {
   QWhatsThis::hideText();
 }
 
+#if QT_CONFIG(action)
 //  QAction *QWhatsThis::createAction(QObject *parent)
 extern "C" Q_DECL_EXPORT
 QAction *ritual_ZN10QWhatsThis12createActionEP7QObject(QObject *parent) {
   return QWhatsThis::createAction(parent);
 }
+#endif  // QT_CONFIG(action)
 
 //  QWhatsThis::~QWhatsThis()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN10QWhatsThisD1Ev(QWhatsThis *self) {
   delete self;
 }
+
+#endif  // QT_CONFIG(whatsthis)

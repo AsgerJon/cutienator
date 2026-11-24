@@ -1,0 +1,30 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/qsctpsocket.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK11QSctpSocket10metaObjectEv": ["address", "address"],
+    "ritual_ZN11QSctpSocket2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN11QSctpSocketC1EP7QObject": ["address", "address"],
+    "ritual_ZN11QSctpSocketD1Ev": ["nothing", "address"],
+    "ritual_ZN11QSctpSocket5closeEv": ["nothing", "address"],
+    "ritual_ZN11QSctpSocket18disconnectFromHostEv": ["nothing", "address"],
+    "ritual_ZN11QSctpSocket22setMaximumChannelCountEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11QSctpSocket19maximumChannelCountEv": ["int", "address"],
+    "ritual_ZNK11QSctpSocket16isInDatagramModeEv": ["bool", "address"],
+    "ritual_ZN11QSctpSocket12readDatagramEv": ["address", "address"],
+    "ritual_ZN11QSctpSocket13writeDatagramERK16QNetworkDatagram": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN11QSctpSocket6d_funcEv": ["address", "address"],
+    "ritual_ZNK11QSctpSocket6d_funcEv": ["address", "address"],
+    "ritual_take_QSctpSocket": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN11QSctpSocket5closeEv": ["nothing", "address"],
+    "ritual_own_ZN11QSctpSocket18disconnectFromHostEv": [
+      "nothing", "address"
+    ]
+  }
+}

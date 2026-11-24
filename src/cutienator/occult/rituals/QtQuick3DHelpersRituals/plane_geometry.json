@@ -1,0 +1,44 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DHelpers/6.12.0/QtQuick3DHelpers/private/planegeometry_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK13PlaneGeometry10metaObjectEv": ["address", "address"],
+    "ritual_ZN13PlaneGeometry2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN13PlaneGeometryC1EP14QQuick3DObject": ["address", "address"],
+    "ritual_ZN13PlaneGeometryD1Ev": ["nothing", "address"],
+    "ritual_ZNK13PlaneGeometry5widthEv": ["float", "address"],
+    "ritual_ZN13PlaneGeometry8setWidthEf": ["nothing", "address", "float"],
+    "ritual_ZNK13PlaneGeometry6heightEv": ["float", "address"],
+    "ritual_ZN13PlaneGeometry9setHeightEf": ["nothing", "address", "float"],
+    "ritual_ZNK13PlaneGeometry14meshResolutionEv": ["address", "address"],
+    "ritual_ZN13PlaneGeometry17setMeshResolutionERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13PlaneGeometry5planeEv": ["int", "address"],
+    "ritual_ZN13PlaneGeometry8setPlaneENS_5PlaneE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK13PlaneGeometry8mirroredEv": ["bool", "address"],
+    "ritual_ZN13PlaneGeometry11setMirroredEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK13PlaneGeometry12asynchronousEv": ["bool", "address"],
+    "ritual_ZN13PlaneGeometry15setAsynchronousEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK13PlaneGeometry6statusEv": ["int", "address"],
+    "ritual_ZNK13PlaneGeometry8reversedEv": ["bool", "address"],
+    "ritual_ZN13PlaneGeometry11setReversedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN13PlaneGeometry16doUpdateGeometryEv": ["nothing", "address"],
+    "ritual_ZN13PlaneGeometry15requestFinishedEv": ["nothing", "address"],
+    "ritual_ZN13PlaneGeometry22scheduleGeometryUpdateEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_PlaneGeometry": ["bool", "address", "chars", "address"]
+  }
+}

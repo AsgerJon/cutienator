@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/qrestreply.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN10QRestReplyC1EP13QNetworkReply": ["address", "address"],
+    "ritual_ZN10QRestReplyD1Ev": ["nothing", "address"],
+    "ritual_ZNK10QRestReply12networkReplyEv": ["address", "address"],
+    "ritual_ZN10QRestReply8readBodyEv": ["address", "address"],
+    "ritual_ZN10QRestReply8readTextEv": ["text", "address"],
+    "ritual_ZNK10QRestReply9isSuccessEv": ["bool", "address"],
+    "ritual_ZNK10QRestReply10httpStatusEv": ["int", "address"],
+    "ritual_ZNK10QRestReply19isHttpStatusSuccessEv": ["bool", "address"],
+    "ritual_ZNK10QRestReply8hasErrorEv": ["bool", "address"],
+    "ritual_ZNK10QRestReply5errorEv": ["int", "address"],
+    "ritual_ZNK10QRestReply11errorStringEv": ["text", "address"]
+  }
+}

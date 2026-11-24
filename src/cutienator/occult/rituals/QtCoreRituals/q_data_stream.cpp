@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/qdatastream.h, Qt 6.12.0. Changes made here are lost.
+#include <QtCore/qglobal.h>
+#if !defined(QT_NO_DATASTREAM)
 #include <QtCore/qdatastream.h>
 #include <QtCore/qbytearray.h>
 
@@ -172,3 +174,5 @@ bool ritual_ZNK11QDataStream26isDeviceTransactionStartedEv(
     const QDataStream *self) {
   return self->isDeviceTransactionStarted();
 }
+
+#endif  // !defined(QT_NO_DATASTREAM)

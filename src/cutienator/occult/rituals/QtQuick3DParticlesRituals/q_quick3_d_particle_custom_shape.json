@@ -1,0 +1,48 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DParticles/6.12.0/QtQuick3DParticles/private/qquick3dparticlecust",
+    "omshape_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK27QQuick3DParticleCustomShape10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QQuick3DParticleCustomShape2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN27QQuick3DParticleCustomShapeC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZNK27QQuick3DParticleCustomShape6sourceEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK27QQuick3DParticleCustomShape13randomizeDataEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN27QQuick3DParticleCustomShape11getPositionEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN27QQuick3DParticleCustomShape16getSurfaceNormalEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN27QQuick3DParticleCustomShape9setSourceERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN27QQuick3DParticleCustomShape16setRandomizeDataEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN27QQuick3DParticleCustomShape14loadFromSourceEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QQuick3DParticleCustomShape15doRandomizeDataEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN27QQuick3DParticleCustomShape11getPositionEi": [
+      "address", "address", "int"
+    ],
+    "ritual_own_ZN27QQuick3DParticleCustomShape16getSurfaceNormalEi": [
+      "address", "address", "int"
+    ]
+  }
+}

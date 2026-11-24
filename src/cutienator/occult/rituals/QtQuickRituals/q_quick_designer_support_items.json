@@ -1,0 +1,35 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickdesignersupportitems_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN26QQuickDesignerSupportItems15createPrimitiveERK7QString13QTypeRevisionP11QQmlContext": [
+      "address", "text", "address", "address"
+    ],
+    "ritual_ZN26QQuickDesignerSupportItems15createComponentERK4QUrlP11QQmlContext": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN26QQuickDesignerSupportItems12tweakObjectsEP7QObject": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QQuickDesignerSupportItems16objectWasDeletedEP7QObject": [
+      "bool", "address"
+    ],
+    "ritual_ZN26QQuickDesignerSupportItems26disableNativeTextRenderingEP10QQuickItem": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QQuickDesignerSupportItems17disableTextCursorEP10QQuickItem": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QQuickDesignerSupportItems17disableTransitionEP7QObject": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QQuickDesignerSupportItems16disableBehaivourEP7QObject": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QQuickDesignerSupportItems16stopUnifiedTimerEv": ["nothing"],
+    "ritual_ZN26QQuickDesignerSupportItemsD1Ev": ["nothing", "address"]
+  }
+}

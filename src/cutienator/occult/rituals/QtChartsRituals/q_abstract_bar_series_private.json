@@ -1,0 +1,140 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/6.12.0/QtCharts/private/qabstractbarseries_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK25QAbstractBarSeriesPrivate10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QAbstractBarSeriesPrivate2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZNK25QAbstractBarSeriesPrivate13categoryCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZN25QAbstractBarSeriesPrivate11setBarWidthEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK25QAbstractBarSeriesPrivate8barWidthEv": [
+      "double", "address"
+    ],
+    "ritual_ZN25QAbstractBarSeriesPrivate10setVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN25QAbstractBarSeriesPrivate16setLabelsVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN25QAbstractBarSeriesPrivate16initializeDomainEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QAbstractBarSeriesPrivate14initializeAxesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QAbstractBarSeriesPrivate15initializeThemeEiP10ChartThemeb": [
+      "nothing", "address", "int", "address", "bool"
+    ],
+    "ritual_ZN25QAbstractBarSeriesPrivate19createLegendMarkersEP7QLegend": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK25QAbstractBarSeriesPrivate15defaultAxisTypeEN2Qt11OrientationE": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK25QAbstractBarSeriesPrivate17createDefaultAxisEN2Qt11OrientationE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN25QAbstractBarSeriesPrivate6appendEP7QBarSet": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN25QAbstractBarSeriesPrivate6removeEP7QBarSet": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN25QAbstractBarSeriesPrivate6appendERK5QListIP7QBarSetE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN25QAbstractBarSeriesPrivate6removeERK5QListIP7QBarSetE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN25QAbstractBarSeriesPrivate6insertEiP7QBarSet": [
+      "bool", "address", "int", "address"
+    ],
+    "ritual_ZN25QAbstractBarSeriesPrivate8barsetAtEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN25QAbstractBarSeriesPrivate3minEv": ["double", "address"],
+    "ritual_ZN25QAbstractBarSeriesPrivate3maxEv": ["double", "address"],
+    "ritual_ZN25QAbstractBarSeriesPrivate7valueAtEii": [
+      "double", "address", "int", "int"
+    ],
+    "ritual_ZN25QAbstractBarSeriesPrivate12percentageAtEii": [
+      "double", "address", "int", "int"
+    ],
+    "ritual_ZN25QAbstractBarSeriesPrivate11categorySumEi": [
+      "double", "address", "int"
+    ],
+    "ritual_ZN25QAbstractBarSeriesPrivate19absoluteCategorySumEi": [
+      "double", "address", "int"
+    ],
+    "ritual_ZN25QAbstractBarSeriesPrivate14maxCategorySumEv": [
+      "double", "address"
+    ],
+    "ritual_ZN25QAbstractBarSeriesPrivate4minXEv": ["double", "address"],
+    "ritual_ZN25QAbstractBarSeriesPrivate4maxXEv": ["double", "address"],
+    "ritual_ZN25QAbstractBarSeriesPrivate11categoryTopEi": [
+      "double", "address", "int"
+    ],
+    "ritual_ZN25QAbstractBarSeriesPrivate14categoryBottomEi": [
+      "double", "address", "int"
+    ],
+    "ritual_ZN25QAbstractBarSeriesPrivate3topEv": ["double", "address"],
+    "ritual_ZN25QAbstractBarSeriesPrivate6bottomEv": ["double", "address"],
+    "ritual_ZN25QAbstractBarSeriesPrivate14blockBarUpdateEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK25QAbstractBarSeriesPrivate11labelsAngleEv": [
+      "double", "address"
+    ],
+    "ritual_ZN25QAbstractBarSeriesPrivate15setVisualsDirtyEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK25QAbstractBarSeriesPrivate12visualsDirtyEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN25QAbstractBarSeriesPrivate14setLabelsDirtyEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK25QAbstractBarSeriesPrivate11labelsDirtyEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN25QAbstractBarSeriesPrivate20handleSetValueChangeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN25QAbstractBarSeriesPrivate17handleSetValueAddEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN25QAbstractBarSeriesPrivate20handleSetValueRemoveEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN25QAbstractBarSeriesPrivate18populateCategoriesEP16QBarCategoryAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QAbstractBarSeriesPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK25QAbstractBarSeriesPrivate6q_funcEv": ["address", "address"],
+    "ritual_own_ZN25QAbstractBarSeriesPrivate16initializeDomainEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN25QAbstractBarSeriesPrivate14initializeAxesEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN25QAbstractBarSeriesPrivate15initializeThemeEiP10ChartThemeb": [
+      "nothing", "address", "int", "address", "bool"
+    ],
+    "ritual_own_ZNK25QAbstractBarSeriesPrivate15defaultAxisTypeEN2Qt11OrientationE": [
+      "int", "address", "int"
+    ],
+    "ritual_own_ZNK25QAbstractBarSeriesPrivate17createDefaultAxisEN2Qt11OrientationE": [
+      "address", "address", "int"
+    ]
+  }
+}

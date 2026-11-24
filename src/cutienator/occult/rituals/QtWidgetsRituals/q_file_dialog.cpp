@@ -1,10 +1,16 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qfiledialog.h, Qt 6.12.0. Changes made here are lost.
+#include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(filedialog)
 #include <QtWidgets/qfiledialog.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qdir.h>
 #include <QtCore/qurl.h>
 #include <QtCore/qbytearray.h>
+#include <QtWidgets/QtWidgets>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtWidgets/6.12.0/QtWidgets/private/qfiledialog_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qsize.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
@@ -22,31 +28,73 @@ struct OwnQFileDialog : QFileDialog {
 //  A QFileDialog that Python can take functions over in. Every QFileDialog
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if QT_CONFIG(filedialog)
 typedef void (*CuteQFileDialogCall0)(const void *, bool, int *);
+#endif  // QT_CONFIG(filedialog)
+#if QT_CONFIG(dialog)
+#if QT_CONFIG(filedialog)
 typedef void (*CuteQFileDialogCall1)(const void *, int, int *);
+#endif  // QT_CONFIG(filedialog)
+#endif  // QT_CONFIG(dialog)
+#if QT_CONFIG(dialog)
+#if QT_CONFIG(filedialog)
 typedef void (*CuteQFileDialogCall2)(const void *, int *);
+#endif  // QT_CONFIG(filedialog)
+#endif  // QT_CONFIG(dialog)
+#if QT_CONFIG(filedialog)
 typedef void (*CuteQFileDialogCall3)(const void *, QEvent *, int *);
+#endif  // QT_CONFIG(filedialog)
+#if QT_CONFIG(dialog)
 typedef const QSize * (*CuteQFileDialogCall4)(const void *, int *);
+#endif  // QT_CONFIG(dialog)
+#if QT_CONFIG(dialog)
 typedef const QSize * (*CuteQFileDialogCall5)(const void *, int *);
+#endif  // QT_CONFIG(dialog)
+#if QT_CONFIG(dialog)
 typedef void (*CuteQFileDialogCall6)(const void *, int *);
+#endif  // QT_CONFIG(dialog)
+#if QT_CONFIG(dialog)
 typedef int (*CuteQFileDialogCall7)(const void *, int *);
+#endif  // QT_CONFIG(dialog)
+#if QT_CONFIG(dialog)
 typedef void (*CuteQFileDialogCall8)(const void *, int *);
+#endif  // QT_CONFIG(dialog)
+#if QT_CONFIG(dialog)
 typedef void (*CuteQFileDialogCall9)(const void *, QKeyEvent *, int *);
+#endif  // QT_CONFIG(dialog)
+#if QT_CONFIG(dialog)
 typedef void (*CuteQFileDialogCall10)(const void *, QCloseEvent *, int *);
+#endif  // QT_CONFIG(dialog)
+#if QT_CONFIG(dialog)
 typedef void (*CuteQFileDialogCall11)(const void *, QShowEvent *, int *);
+#endif  // QT_CONFIG(dialog)
+#if QT_CONFIG(dialog)
 typedef void (*CuteQFileDialogCall12)(const void *, QResizeEvent *, int *);
+#endif  // QT_CONFIG(dialog)
+#if !defined(QT_NO_CONTEXTMENU)
+#if QT_CONFIG(dialog)
 typedef void (*CuteQFileDialogCall13)(const void *, QContextMenuEvent *, int *);
+#endif  // QT_CONFIG(dialog)
+#endif  // !defined(QT_NO_CONTEXTMENU)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(dialog)
 typedef bool (*CuteQFileDialogCall14)(const void *, QObject *, QEvent *, int *);
+#endif  // QT_CONFIG(dialog)
+#endif  // !defined(QT_NO_QOBJECT)
 typedef int (*CuteQFileDialogCall15)(const void *, int *);
 typedef int (*CuteQFileDialogCall16)(const void *, int, int *);
 typedef bool (*CuteQFileDialogCall17)(const void *, int *);
 typedef void * (*CuteQFileDialogCall18)(const void *, int *);
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQFileDialogCall19)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 typedef void (*CuteQFileDialogCall20)(const void *, QMouseEvent *, int *);
 typedef void (*CuteQFileDialogCall21)(const void *, QMouseEvent *, int *);
 typedef void (*CuteQFileDialogCall22)(const void *, QMouseEvent *, int *);
 typedef void (*CuteQFileDialogCall23)(const void *, QMouseEvent *, int *);
+#if QT_CONFIG(wheelevent)
 typedef void (*CuteQFileDialogCall24)(const void *, QWheelEvent *, int *);
+#endif  // QT_CONFIG(wheelevent)
 typedef void (*CuteQFileDialogCall25)(const void *, QKeyEvent *, int *);
 typedef void (*CuteQFileDialogCall26)(const void *, QFocusEvent *, int *);
 typedef void (*CuteQFileDialogCall27)(const void *, QFocusEvent *, int *);
@@ -54,12 +102,24 @@ typedef void (*CuteQFileDialogCall28)(const void *, QEnterEvent *, int *);
 typedef void (*CuteQFileDialogCall29)(const void *, QEvent *, int *);
 typedef void (*CuteQFileDialogCall30)(const void *, QPaintEvent *, int *);
 typedef void (*CuteQFileDialogCall31)(const void *, QMoveEvent *, int *);
+#if QT_CONFIG(tabletevent)
 typedef void (*CuteQFileDialogCall32)(const void *, QTabletEvent *, int *);
+#endif  // QT_CONFIG(tabletevent)
+#if !defined(QT_NO_ACTION)
 typedef void (*CuteQFileDialogCall33)(const void *, QActionEvent *, int *);
+#endif  // !defined(QT_NO_ACTION)
+#if QT_CONFIG(draganddrop)
 typedef void (*CuteQFileDialogCall34)(const void *, QDragEnterEvent *, int *);
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
 typedef void (*CuteQFileDialogCall35)(const void *, QDragMoveEvent *, int *);
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
 typedef void (*CuteQFileDialogCall36)(const void *, QDragLeaveEvent *, int *);
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
 typedef void (*CuteQFileDialogCall37)(const void *, QDropEvent *, int *);
+#endif  // QT_CONFIG(draganddrop)
 typedef void (*CuteQFileDialogCall38)(const void *, QHideEvent *, int *);
 typedef int (*CuteQFileDialogCall39)(const void *, int, int *);
 typedef void (*CuteQFileDialogCall40)(const void *, QPainter *, int *);
@@ -68,77 +128,125 @@ typedef void * (*CuteQFileDialogCall42)(const void *, int *);
 typedef void (*CuteQFileDialogCall43)(const void *, QInputMethodEvent *, int *);
 typedef const QVariant * (*CuteQFileDialogCall44)(const void *, int, int *);
 typedef bool (*CuteQFileDialogCall45)(const void *, bool, int *);
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQFileDialogCall46)(const void *, QTimerEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQFileDialogCall47)(const void *, QChildEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQFileDialogCall48)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQFileDialogCall49)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQFileDialogCall50)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 class CuteQFileDialog : public QFileDialog {
 public:
   using QFileDialog::QFileDialog;
   void *taken[51] = {};
 
   bool take(const char *key, void *call) {
+#if QT_CONFIG(filedialog)
     if (!std::strcmp(key, "_ZN7QWidget10setVisibleEb")) {
       taken[0] = call;
       return true;
     }
+#endif  // QT_CONFIG(filedialog)
+#if QT_CONFIG(dialog)
+#if QT_CONFIG(filedialog)
     if (!std::strcmp(key, "_ZN7QDialog4doneEi")) {
       taken[1] = call;
       return true;
     }
+#endif  // QT_CONFIG(filedialog)
+#endif  // QT_CONFIG(dialog)
+#if QT_CONFIG(dialog)
+#if QT_CONFIG(filedialog)
     if (!std::strcmp(key, "_ZN7QDialog6acceptEv")) {
       taken[2] = call;
       return true;
     }
+#endif  // QT_CONFIG(filedialog)
+#endif  // QT_CONFIG(dialog)
+#if QT_CONFIG(filedialog)
     if (!std::strcmp(key, "_ZN7QWidget11changeEventEP6QEvent")) {
       taken[3] = call;
       return true;
     }
+#endif  // QT_CONFIG(filedialog)
+#if QT_CONFIG(dialog)
     if (!std::strcmp(key, "_ZNK7QWidget8sizeHintEv")) {
       taken[4] = call;
       return true;
     }
+#endif  // QT_CONFIG(dialog)
+#if QT_CONFIG(dialog)
     if (!std::strcmp(key, "_ZNK7QWidget15minimumSizeHintEv")) {
       taken[5] = call;
       return true;
     }
+#endif  // QT_CONFIG(dialog)
+#if QT_CONFIG(dialog)
     if (!std::strcmp(key, "_ZN7QDialog4openEv")) {
       taken[6] = call;
       return true;
     }
+#endif  // QT_CONFIG(dialog)
+#if QT_CONFIG(dialog)
     if (!std::strcmp(key, "_ZN7QDialog4execEv")) {
       taken[7] = call;
       return true;
     }
+#endif  // QT_CONFIG(dialog)
+#if QT_CONFIG(dialog)
     if (!std::strcmp(key, "_ZN7QDialog6rejectEv")) {
       taken[8] = call;
       return true;
     }
+#endif  // QT_CONFIG(dialog)
+#if QT_CONFIG(dialog)
     if (!std::strcmp(key, "_ZN7QWidget13keyPressEventEP9QKeyEvent")) {
       taken[9] = call;
       return true;
     }
+#endif  // QT_CONFIG(dialog)
+#if QT_CONFIG(dialog)
     if (!std::strcmp(key, "_ZN7QWidget10closeEventEP11QCloseEvent")) {
       taken[10] = call;
       return true;
     }
+#endif  // QT_CONFIG(dialog)
+#if QT_CONFIG(dialog)
     if (!std::strcmp(key, "_ZN7QWidget9showEventEP10QShowEvent")) {
       taken[11] = call;
       return true;
     }
+#endif  // QT_CONFIG(dialog)
+#if QT_CONFIG(dialog)
     if (!std::strcmp(key, "_ZN7QWidget11resizeEventEP12QResizeEvent")) {
       taken[12] = call;
       return true;
     }
+#endif  // QT_CONFIG(dialog)
+#if !defined(QT_NO_CONTEXTMENU)
+#if QT_CONFIG(dialog)
     if (!std::strcmp(key, "_ZN7QWidget16contextMenuEventEP17QContextMenuEvent")) {
       taken[13] = call;
       return true;
     }
+#endif  // QT_CONFIG(dialog)
+#endif  // !defined(QT_NO_CONTEXTMENU)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(dialog)
     if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[14] = call;
       return true;
     }
+#endif  // QT_CONFIG(dialog)
+#endif  // !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZNK12QPaintDevice7devTypeEv")) {
       taken[15] = call;
       return true;
@@ -155,10 +263,12 @@ public:
       taken[18] = call;
       return true;
     }
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[19] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QWidget15mousePressEventEP11QMouseEvent")) {
       taken[20] = call;
       return true;
@@ -175,10 +285,12 @@ public:
       taken[23] = call;
       return true;
     }
+#if QT_CONFIG(wheelevent)
     if (!std::strcmp(key, "_ZN7QWidget10wheelEventEP11QWheelEvent")) {
       taken[24] = call;
       return true;
     }
+#endif  // QT_CONFIG(wheelevent)
     if (!std::strcmp(key, "_ZN7QWidget15keyReleaseEventEP9QKeyEvent")) {
       taken[25] = call;
       return true;
@@ -207,30 +319,42 @@ public:
       taken[31] = call;
       return true;
     }
+#if QT_CONFIG(tabletevent)
     if (!std::strcmp(key, "_ZN7QWidget11tabletEventEP12QTabletEvent")) {
       taken[32] = call;
       return true;
     }
+#endif  // QT_CONFIG(tabletevent)
+#if !defined(QT_NO_ACTION)
     if (!std::strcmp(key, "_ZN7QWidget11actionEventEP12QActionEvent")) {
       taken[33] = call;
       return true;
     }
+#endif  // !defined(QT_NO_ACTION)
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget14dragEnterEventEP15QDragEnterEvent")) {
       taken[34] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget13dragMoveEventEP14QDragMoveEvent")) {
       taken[35] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget14dragLeaveEventEP15QDragLeaveEvent")) {
       taken[36] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget9dropEventEP10QDropEvent")) {
       taken[37] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget9hideEventEP10QHideEvent")) {
       taken[38] = call;
       return true;
@@ -263,29 +387,40 @@ public:
       taken[45] = call;
       return true;
     }
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[46] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[47] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[48] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[49] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
       taken[50] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
     return false;
   }
 
+#if QT_CONFIG(filedialog)
   //  void QFileDialog::setVisible(bool visible)
   void setVisible(bool visible) override {
     if (taken[0]) {
@@ -296,7 +431,10 @@ public:
     }
     QFileDialog::setVisible(visible);
   }
+#endif  // QT_CONFIG(filedialog)
 
+#if QT_CONFIG(dialog)
+#if QT_CONFIG(filedialog)
   //  void QFileDialog::done(int result)
   void done(int result) override {
     if (taken[1]) {
@@ -307,7 +445,11 @@ public:
     }
     QFileDialog::done(result);
   }
+#endif  // QT_CONFIG(filedialog)
+#endif  // QT_CONFIG(dialog)
 
+#if QT_CONFIG(dialog)
+#if QT_CONFIG(filedialog)
   //  void QFileDialog::accept()
   void accept() override {
     if (taken[2]) {
@@ -318,7 +460,10 @@ public:
     }
     QFileDialog::accept();
   }
+#endif  // QT_CONFIG(filedialog)
+#endif  // QT_CONFIG(dialog)
 
+#if QT_CONFIG(filedialog)
   //  void QFileDialog::changeEvent(QEvent *e)
   void changeEvent(QEvent *e) override {
     if (taken[3]) {
@@ -329,7 +474,9 @@ public:
     }
     QFileDialog::changeEvent(e);
   }
+#endif  // QT_CONFIG(filedialog)
 
+#if QT_CONFIG(dialog)
   //  QSize QDialog::sizeHint() const
   QSize sizeHint() const override {
     if (taken[4]) {
@@ -340,7 +487,9 @@ public:
     }
     return QDialog::sizeHint();
   }
+#endif  // QT_CONFIG(dialog)
 
+#if QT_CONFIG(dialog)
   //  QSize QDialog::minimumSizeHint() const
   QSize minimumSizeHint() const override {
     if (taken[5]) {
@@ -351,7 +500,9 @@ public:
     }
     return QDialog::minimumSizeHint();
   }
+#endif  // QT_CONFIG(dialog)
 
+#if QT_CONFIG(dialog)
   //  void QDialog::open()
   void open() override {
     if (taken[6]) {
@@ -362,7 +513,9 @@ public:
     }
     QDialog::open();
   }
+#endif  // QT_CONFIG(dialog)
 
+#if QT_CONFIG(dialog)
   //  int QDialog::exec()
   int exec() override {
     if (taken[7]) {
@@ -373,7 +526,9 @@ public:
     }
     return QDialog::exec();
   }
+#endif  // QT_CONFIG(dialog)
 
+#if QT_CONFIG(dialog)
   //  void QDialog::reject()
   void reject() override {
     if (taken[8]) {
@@ -384,7 +539,9 @@ public:
     }
     QDialog::reject();
   }
+#endif  // QT_CONFIG(dialog)
 
+#if QT_CONFIG(dialog)
   //  void QDialog::keyPressEvent(QKeyEvent *a0)
   void keyPressEvent(QKeyEvent *a0) override {
     if (taken[9]) {
@@ -395,7 +552,9 @@ public:
     }
     QDialog::keyPressEvent(a0);
   }
+#endif  // QT_CONFIG(dialog)
 
+#if QT_CONFIG(dialog)
   //  void QDialog::closeEvent(QCloseEvent *a0)
   void closeEvent(QCloseEvent *a0) override {
     if (taken[10]) {
@@ -406,7 +565,9 @@ public:
     }
     QDialog::closeEvent(a0);
   }
+#endif  // QT_CONFIG(dialog)
 
+#if QT_CONFIG(dialog)
   //  void QDialog::showEvent(QShowEvent *a0)
   void showEvent(QShowEvent *a0) override {
     if (taken[11]) {
@@ -417,7 +578,9 @@ public:
     }
     QDialog::showEvent(a0);
   }
+#endif  // QT_CONFIG(dialog)
 
+#if QT_CONFIG(dialog)
   //  void QDialog::resizeEvent(QResizeEvent *a0)
   void resizeEvent(QResizeEvent *a0) override {
     if (taken[12]) {
@@ -428,7 +591,10 @@ public:
     }
     QDialog::resizeEvent(a0);
   }
+#endif  // QT_CONFIG(dialog)
 
+#if !defined(QT_NO_CONTEXTMENU)
+#if QT_CONFIG(dialog)
   //  void QDialog::contextMenuEvent(QContextMenuEvent *a0)
   void contextMenuEvent(QContextMenuEvent *a0) override {
     if (taken[13]) {
@@ -439,7 +605,11 @@ public:
     }
     QDialog::contextMenuEvent(a0);
   }
+#endif  // QT_CONFIG(dialog)
+#endif  // !defined(QT_NO_CONTEXTMENU)
 
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(dialog)
   //  bool QDialog::eventFilter(QObject *a0, QEvent *a1)
   bool eventFilter(QObject *a0, QEvent *a1) override {
     if (taken[14]) {
@@ -450,6 +620,8 @@ public:
     }
     return QDialog::eventFilter(a0, a1);
   }
+#endif  // QT_CONFIG(dialog)
+#endif  // !defined(QT_NO_QOBJECT)
 
   //  int QWidget::devType() const
   int devType() const override {
@@ -495,6 +667,7 @@ public:
     return QWidget::paintEngine();
   }
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QWidget::event(QEvent *event)
   bool event(QEvent *event) override {
     if (taken[19]) {
@@ -505,6 +678,7 @@ public:
     }
     return QWidget::event(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
   //  void QWidget::mousePressEvent(QMouseEvent *event)
   void mousePressEvent(QMouseEvent *event) override {
@@ -550,6 +724,7 @@ public:
     QWidget::mouseMoveEvent(event);
   }
 
+#if QT_CONFIG(wheelevent)
   //  void QWidget::wheelEvent(QWheelEvent *event)
   void wheelEvent(QWheelEvent *event) override {
     if (taken[24]) {
@@ -560,6 +735,7 @@ public:
     }
     QWidget::wheelEvent(event);
   }
+#endif  // QT_CONFIG(wheelevent)
 
   //  void QWidget::keyReleaseEvent(QKeyEvent *event)
   void keyReleaseEvent(QKeyEvent *event) override {
@@ -638,6 +814,7 @@ public:
     QWidget::moveEvent(event);
   }
 
+#if QT_CONFIG(tabletevent)
   //  void QWidget::tabletEvent(QTabletEvent *event)
   void tabletEvent(QTabletEvent *event) override {
     if (taken[32]) {
@@ -648,7 +825,9 @@ public:
     }
     QWidget::tabletEvent(event);
   }
+#endif  // QT_CONFIG(tabletevent)
 
+#if !defined(QT_NO_ACTION)
   //  void QWidget::actionEvent(QActionEvent *event)
   void actionEvent(QActionEvent *event) override {
     if (taken[33]) {
@@ -659,7 +838,9 @@ public:
     }
     QWidget::actionEvent(event);
   }
+#endif  // !defined(QT_NO_ACTION)
 
+#if QT_CONFIG(draganddrop)
   //  void QWidget::dragEnterEvent(QDragEnterEvent *event)
   void dragEnterEvent(QDragEnterEvent *event) override {
     if (taken[34]) {
@@ -670,7 +851,9 @@ public:
     }
     QWidget::dragEnterEvent(event);
   }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
   //  void QWidget::dragMoveEvent(QDragMoveEvent *event)
   void dragMoveEvent(QDragMoveEvent *event) override {
     if (taken[35]) {
@@ -681,7 +864,9 @@ public:
     }
     QWidget::dragMoveEvent(event);
   }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
   //  void QWidget::dragLeaveEvent(QDragLeaveEvent *event)
   void dragLeaveEvent(QDragLeaveEvent *event) override {
     if (taken[36]) {
@@ -692,7 +877,9 @@ public:
     }
     QWidget::dragLeaveEvent(event);
   }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
   //  void QWidget::dropEvent(QDropEvent *event)
   void dropEvent(QDropEvent *event) override {
     if (taken[37]) {
@@ -703,6 +890,7 @@ public:
     }
     QWidget::dropEvent(event);
   }
+#endif  // QT_CONFIG(draganddrop)
 
   //  void QWidget::hideEvent(QHideEvent *event)
   void hideEvent(QHideEvent *event) override {
@@ -792,6 +980,7 @@ public:
     return QWidget::focusNextPrevChild(next);
   }
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
     if (taken[46]) {
@@ -802,7 +991,9 @@ public:
     }
     QObject::timerEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
     if (taken[47]) {
@@ -813,7 +1004,9 @@ public:
     }
     QObject::childEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
     if (taken[48]) {
@@ -824,7 +1017,9 @@ public:
     }
     QObject::customEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
     if (taken[49]) {
@@ -835,7 +1030,9 @@ public:
     }
     QObject::connectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
     if (taken[50]) {
@@ -846,6 +1043,7 @@ public:
     }
     QObject::disconnectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 };
 
 //  const QMetaObject *QFileDialog::metaObject() const
@@ -1000,6 +1198,7 @@ QString *ritual_ZNK11QFileDialog18selectedNameFilterEv(
   return new QString(self->selectedNameFilter());
 }
 
+#if QT_CONFIG(mimetype)
 //  void QFileDialog::setMimeTypeFilters(const QStringList &filters)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QFileDialog18setMimeTypeFiltersERK5QListI7QStringE(
@@ -1007,14 +1206,18 @@ void ritual_ZN11QFileDialog18setMimeTypeFiltersERK5QListI7QStringE(
     const QList<QString> *filters) {
   self->setMimeTypeFilters(*filters);
 }
+#endif  // QT_CONFIG(mimetype)
 
+#if QT_CONFIG(mimetype)
 //  QStringList QFileDialog::mimeTypeFilters() const
 extern "C" Q_DECL_EXPORT
 QList<QString> *ritual_ZNK11QFileDialog15mimeTypeFiltersEv(
     const QFileDialog *self) {
   return new QList<QString>(self->mimeTypeFilters());
 }
+#endif  // QT_CONFIG(mimetype)
 
+#if QT_CONFIG(mimetype)
 //  void QFileDialog::selectMimeTypeFilter(const QString &filter)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QFileDialog20selectMimeTypeFilterERK7QString(
@@ -1022,6 +1225,7 @@ void ritual_ZN11QFileDialog20selectMimeTypeFilterERK7QString(
     const QString *filter) {
   self->selectMimeTypeFilter(*filter);
 }
+#endif  // QT_CONFIG(mimetype)
 
 //  QDir::Filters QFileDialog::filter() const
 extern "C" Q_DECL_EXPORT
@@ -1201,6 +1405,7 @@ QList<QString> *ritual_ZNK11QFileDialog16supportedSchemesEv(
   return new QList<QString>(self->supportedSchemes());
 }
 
+#if QT_CONFIG(proxymodel)
 //  void QFileDialog::setProxyModel(QAbstractProxyModel *model)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QFileDialog13setProxyModelEP19QAbstractProxyModel(
@@ -1208,13 +1413,16 @@ void ritual_ZN11QFileDialog13setProxyModelEP19QAbstractProxyModel(
     QAbstractProxyModel *model) {
   self->setProxyModel(model);
 }
+#endif  // QT_CONFIG(proxymodel)
 
+#if QT_CONFIG(proxymodel)
 //  QAbstractProxyModel *QFileDialog::proxyModel() const
 extern "C" Q_DECL_EXPORT
 QAbstractProxyModel *ritual_ZNK11QFileDialog10proxyModelEv(
     const QFileDialog *self) {
   return self->proxyModel();
 }
+#endif  // QT_CONFIG(proxymodel)
 
 //  void QFileDialog::setOption(Option option, bool on)
 extern "C" Q_DECL_EXPORT
@@ -1440,6 +1648,13 @@ void ritual_ZN11QFileDialog15saveFileContentERK10QByteArrayRK7QStringP7QWidget(
   QFileDialog::saveFileContent(*fileContent, *fileNameHint, parent);
 }
 
+//  QFileDialog::QFileDialog(const QFileDialogArgs &args)
+extern "C" Q_DECL_EXPORT
+QFileDialog *ritual_ZN11QFileDialogC1ERK15QFileDialogArgs(
+    const QFileDialogArgs *args) {
+  return new CuteQFileDialog(*args);
+}
+
 //  void QFileDialog::done(int result)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QFileDialog4doneEi(QFileDialog *self, int result) {
@@ -1458,6 +1673,19 @@ void ritual_ZN11QFileDialog11changeEventEP6QEvent(
     QFileDialog *self,
     QEvent *e) {
   self->changeEvent(e);
+}
+
+//  QFileDialogPrivate *QFileDialog::d_func()
+extern "C" Q_DECL_EXPORT
+QFileDialogPrivate *ritual_ZN11QFileDialog6d_funcEv(QFileDialog *self) {
+  return self->d_func();
+}
+
+//  const QFileDialogPrivate *QFileDialog::d_func() const
+extern "C" Q_DECL_EXPORT
+const QFileDialogPrivate *ritual_ZNK11QFileDialog6d_funcEv(
+    const QFileDialog *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQFileDialog, for the function named by
@@ -1497,3 +1725,5 @@ void ritual_own_ZN11QFileDialog11changeEventEP6QEvent(
     QEvent *e) {
   static_cast<OwnQFileDialog *>(self)->OwnQFileDialog::changeEvent(e);
 }
+
+#endif  // QT_CONFIG(filedialog)

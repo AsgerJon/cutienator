@@ -1,0 +1,57 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3D/qquick3dtexturedata.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK19QQuick3DTextureData10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QQuick3DTextureData2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN19QQuick3DTextureData6d_funcEv": ["address", "address"],
+    "ritual_ZNK19QQuick3DTextureData6d_funcEv": ["address", "address"],
+    "ritual_ZN19QQuick3DTextureData24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuick3DTextureDataC1EP14QQuick3DObject": [
+      "address", "address"
+    ],
+    "ritual_ZN19QQuick3DTextureDataD1Ev": ["nothing", "address"],
+    "ritual_ZNK19QQuick3DTextureData11textureDataEv": ["address", "address"],
+    "ritual_ZN19QQuick3DTextureData14setTextureDataERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QQuick3DTextureData4sizeEv": ["address", "address"],
+    "ritual_ZN19QQuick3DTextureData7setSizeERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QQuick3DTextureData5depthEv": ["int", "address"],
+    "ritual_ZN19QQuick3DTextureData8setDepthEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK19QQuick3DTextureData6formatEv": ["int", "address"],
+    "ritual_ZN19QQuick3DTextureData9setFormatENS_6FormatE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK19QQuick3DTextureData15hasTransparencyEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN19QQuick3DTextureData18setHasTransparencyEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN19QQuick3DTextureData17updateSpatialNodeEP21QSSGRenderGraphObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN19QQuick3DTextureData12markAllDirtyEv": ["nothing", "address"],
+    "ritual_take_QQuick3DTextureData": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN19QQuick3DTextureData17updateSpatialNodeEP21QSSGRenderGraphObject": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN19QQuick3DTextureData12markAllDirtyEv": [
+      "nothing", "address"
+    ]
+  }
+}

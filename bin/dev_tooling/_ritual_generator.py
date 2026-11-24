@@ -18,7 +18,7 @@ from typing import TYPE_CHECKING
 
 from worktoy.waitaminute import MissingVariable, TypeException
 
-from . import DependencyTree, HeaderReader, SourceReader
+from . import DependencyTree, HeaderFolder, HeaderReader, SourceReader
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Any, Dict, FrozenSet, List, Optional, Set, Tuple
@@ -295,24 +295,22 @@ class RitualGenerator:
   #  of list the functions of the tree hand around. The lock keeps two
   #  threads from both going through the tree for those kinds.
   __list_kinds_lock__ = threading.Lock()
-  #  The header file of each part of Qt that has to be read before an
-  #  '#if QT_CONFIG(...)' of that part can be answered.
-  __global_headers__ = dict(
-      QtCore='qglobal.h', QtGui='qtguiglobal.h',
-      QtWidgets='qtwidgetsglobal.h',
-  )
-  #  The same for an '#if QT_CONFIG(...)' asking of a part Qt keeps to
-  #  itself, as 'style_stylesheet', answered by the private list of a
-  #  part; each lies in the folder 'private' of its part.
-  __private_global_headers__ = dict(
-      QtCore='qglobal_p.h', QtGui='qtguiglobal_p.h',
-      QtWidgets='qtwidgetsglobal_p.h',
-  )
   __has_cute_class__ = None  # type: Optional[bool]
   #  The code taken from Qt's source for the class, and the lines that
   #  pull in what that code needs; see '_settleSource'.
   __source_text__ = None  # type: Optional[str]
   __source_includes__ = None  # type: Optional[Tuple[str, ...]]
+  #  The classes '_spellOutside' looks a shortened name up in, nearest
+  #  first, the class of the generator first.
+  __spelling_scopes__ = None  # type: Optional[List[str]]
+  #  Classes whose header file the compiler showed has to come before
+  #  that of the class, found by '_settleSource'.
+  __pulled_first__ = ()  # type: Tuple[str, ...]
+  #  The lines around lines pulling files in that stay with the ritual
+  #  file: 'Build' puts only the lines under no '#if' into its common
+  #  header, and nothing defines this name.
+  __not_common_start__ = '#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER'
+  __not_common_end__ = '#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER'
   __written_rituals__ = None  # type: Optional[Rituals]
   __unwritten_functions__ = None  # type: Optional[Reasons]
   #  The rituals of ours that stand for no function of the header by
@@ -985,7 +983,9 @@ class RitualGenerator:
         function['function'], 75, initial_indent='  //  ',
         subsequent_indent='  //      ')
     whole = '  %s%s override {' % (head, tail)
-    if len(whole) <= 77:
+    if len(whole) <= 77 or not arguments:
+      #  A function that takes nothing has no place to break its line
+      #  at, as 'QPlatformScreen::subpixelAntialiasingTypeHint()'.
       lines.append(whole)
     else:
       lines.append('  %s' % self._joinType(giving['written'], '%s(' % name))
@@ -1488,7 +1488,12 @@ class RitualGenerator:
     className = self.getClassName()
     heading = textwrap.wrap(self._getHeading(), 73)
     blocks = ['\n'.join('//  %s' % line for line in heading)]
-    needed = [className]
+    #  The class Qt keeps the data of another class in, as
+    #  'QWidgetTextControlPrivate', names that class in its 'q_func'
+    #  ('Q_DECLARE_PUBLIC'), and its header file may not pull in the
+    #  one declaring it: Qt's own '.cpp' files pull that one in first.
+    needed = [
+        *self._findPublicClasses(), *self.__pulled_first__, className]
     for ritual in self.getWritten():
       needed.extend(n for n in ritual['needs'] if n not in needed)
     if self.hasCuteClass():
@@ -1537,25 +1542,61 @@ class RitualGenerator:
       includeLines.append('#include <iterator>')
     if self.hasCuteClass():
       includeLines.append('#include <cstring>')
+    #  A header file Qt keeps apart, as 'qabstractspinbox_p.h', stays
+    #  with this file as well, out of the common header 'Build' makes:
+    #  Qt writes those for its own files one at a time, and all of them
+    #  together do not mean what each means alone. That one declares an
+    #  'operator+' of two QVariant for everybody, which makes the '+' of
+    #  two QLatin1StringView in 'qdbusabstractinterface.cpp' ambiguous.
+    #  Qt's header files for everybody are meant to be read together.
+    apart = re.compile(r'^#include <Qt\w+/\d+\.\d+\.\d+/Qt\w+/')
+    grouped = []  # type: List[str]
+    for line in includeLines:
+      if line == privateLine or not apart.match(line):
+        grouped.append(line)
+        continue
+      if grouped and grouped[-1] == self.__not_common_end__:
+        grouped.insert(len(grouped) - 1, line)
+        continue
+      grouped.extend((self.__not_common_start__, line,
+                      self.__not_common_end__))
+    includeLines = grouped
     #  What the code taken from Qt's source needs comes as Qt's files
     #  have it, with the '#if' lines around it, so no line of it is
-    #  left out for standing above already.
-    includeLines.extend(self.getSourceIncludes())
-    conditions = self._findConditions(tree.getClassRecord(className))
+    #  left out for standing above already. It stays with this file,
+    #  out of the common header 'Build' makes of the lines under no
+    #  '#if': a header file of Qt's source may be one to be read once
+    #  only, as 'qmetaobject_moc_p.h', which has no guard.
+    if self.getSourceIncludes():
+      includeLines.extend((
+          self.__not_common_start__, *self.getSourceIncludes(),
+          self.__not_common_end__))
+    conditions = self.getFileConditions()
+    partName = tree.getPartName(className)
+    #  A switch another part has, asked by an '#if' of the file, as
+    #  'QT_CONFIG(http)' of QtNetwork in a file of QtHttpServer, is
+    #  answered by the list of that part, pulled in first.
+    asking = [*conditions]
+    for ritual in self.getWritten():
+      asking.extend(ritual.get('conditions', ()))
+    if self.hasCuteClass():
+      for function in self.getOverridable():
+        asking.extend(function.get('conditions', ()))
+    switchLines = self._findSwitchLines(asking, privateLine)
     if conditions:
       #  Qt declares the class under an '#if', so the whole file stands
       #  under it: where a Qt has no such class, nothing of the file is
       #  compiled. What an '#if' of Qt's asks can only be answered once
       #  the header file of the part has been read, so that comes first.
-      partName = tree.getPartName(className)
       asked = ['#include <%s/%s>' % (
-          partName, self.__global_headers__[partName])]
+          partName, HeaderFolder.getGlobalHeader(partName))]
       if privateLine:
         asked.append(privateLine)
-      opening = [*asked, *('#if %s' % one for one in conditions)]
+      opening = [
+          *switchLines, *asked, *('#if %s' % one for one in conditions)]
       blocks[0] = '\n'.join((blocks[0], *opening, *includeLines))
     else:
-      blocks[0] = '%s\n%s' % (blocks[0], '\n'.join(includeLines))
+      blocks[0] = '\n'.join((blocks[0], *switchLines, *includeLines))
     if self.getSourceText():
       blocks.append(self.getSourceText())
     ownClass = self._writeOwnClass(owned)
@@ -1568,6 +1609,86 @@ class RitualGenerator:
       blocks.append('\n'.join(
           '#endif  // %s' % one for one in reversed(conditions)))
     return '%s\n' % '\n\n'.join(blocks)
+
+  def getFileConditions(self) -> Tuple[str, ...]:
+    """
+    Gives the conditions the whole ritual file stands under, outermost
+    first: the one under which Qt installs the header file of the
+    class, as 'QT_CONFIG(metal)' for 'qrhimetal_p.h', when there is
+    one; then what each '#if' line around the class asks. Where one
+    does not hold, nothing of the file is compiled.
+    """
+    tree = self.getDependencyTree()
+    className = self.getClassName()
+    conditions = self._findConditions(tree.getClassRecord(className))
+    installed = HeaderReader.getHeaderFolder().getInstallCondition(
+        tree.getHeaderPath(className))
+    if installed:
+      return (installed, *conditions)
+    return conditions
+
+  def _findSwitchLines(
+      self,
+      conditions: List[str],
+      privateLine: str,
+  ) -> List[str]:
+    """
+    Gives the lines that pull in the list of switches of each other
+    part whose switch the conditions ask, as 'QT_CONFIG(http)' of
+    QtNetwork: its header file that brings the list in, or, for a
+    switch Qt keeps to itself, the one in its folder 'private'. A part
+    with no such file of its own has the list pulled in itself. The
+    public list of the part of the class comes with the class.
+    """
+    folder = HeaderReader.getHeaderFolder()
+    version = HeaderReader.getQtVersion()
+    partName = self.getDependencyTree().getPartName(self.getClassName())
+    lines = []  # type: List[str]
+    for name in re.findall(r'QT_CONFIG\((\w+)\)', ' '.join(conditions)):
+      owner = folder.getSwitchOwner(name)
+      if owner is None:
+        continue
+      ownerName, private = owner
+      if not private:
+        if ownerName == partName:
+          continue
+        line = '#include <%s/%s>' % (
+            ownerName, HeaderFolder.getGlobalHeader(ownerName))
+      else:
+        header = HeaderFolder.getPrivateGlobalHeader(ownerName)
+        if not header:
+          header = '%s-config_p.h' % ownerName.lower()
+        line = '#include <%s/%s/%s/private/%s>' % (
+            ownerName, version, ownerName, header)
+        if line == privateLine:
+          continue
+      if line not in lines:
+        lines.append(line)
+    return lines
+
+  def _findPublicClasses(self) -> Tuple[str, ...]:
+    """
+    Gives the class whose data the class of the generator keeps, as
+    'QWidgetTextControl' for 'QWidgetTextControlPrivate': the class its
+    function 'q_func' gives, which Qt's 'Q_DECLARE_PUBLIC' writes.
+    Nothing for a class with no such function, or one giving a class
+    the tree does not know.
+    """
+    tree = self.getDependencyTree()
+    className = self.getClassName()
+    found = []  # type: List[str]
+    for member in tree.getClassRecord(className).get('inner', ()):
+      if not isinstance(member, dict) or member.get('name') != 'q_func':
+        continue
+      qualType = member.get('type', dict()).get('qualType', '')
+      match = re.match(r'\s*(?:const\s+)?([\w:]+)\s*\*', qualType)
+      if match is None:
+        continue
+      name = match.group(1)
+      if name != className and name in tree.getClassNames():
+        if name not in found:
+          found.append(name)
+    return (*found,)
 
   def _getPrivateGlobalLine(self) -> str:
     """
@@ -1587,9 +1708,13 @@ class RitualGenerator:
     if not apart and not self.getSourceText():
       return ''
     partName = tree.getPartName(className)
+    if not HeaderFolder.getPrivateGlobalHeader(partName):
+      #  A part with no such file of its own, as QtXml, has no private
+      #  switches: its files ask those of QtCore.
+      partName = 'QtCore'
     return '#include <%s/%s/%s/private/%s>' % (
         partName, HeaderReader.getQtVersion(), partName,
-        self.__private_global_headers__[partName])
+        HeaderFolder.getPrivateGlobalHeader(partName))
 
   def getRows(self) -> Rows:
     """
@@ -2272,11 +2397,15 @@ class RitualGenerator:
       ]
     return found[0] if len(found) == 1 else None
 
-  @staticmethod
-  def _isOfQt(symbol: str) -> bool:
+  def _isOfQt(self, symbol: str) -> bool:
     """Says whether a name the compiler made stands for something of
-    Qt: a name of the C++ library or of the system does not."""
-    return True if re.search(r'\d+[Qq][A-Za-z_]', symbol) else False
+    Qt: a name of the C++ library or of the system does not. It is of
+    Qt when a name in it begins with 'Q' or 'q', or when Qt's header
+    files declare it, as the logging category 'lcImageIo' that Qt's
+    'qimage_p.h' declares; see '_getDeclaredSymbols'."""
+    if re.search(r'\d+[Qq][A-Za-z_]', symbol):
+      return True
+    return self._plainSymbol(symbol) in self._getDeclaredSymbols()
 
   def _getProbeCommand(self) -> Tuple[str, ...]:
     """Gives the start of the 'clang++' command of '_probeText', which
@@ -2429,10 +2558,18 @@ class RitualGenerator:
       #  by the stretch its code lies in. Two names may share one, as
       #  the two the compiler makes for one constructor.
       stretches = dict()  # type: Dict[str, str]
+      #  The stretch each list of places to fill in is for, by where
+      #  the list lies in the file. 'readelf -rW' names the list by a
+      #  name it cuts short when it is long, as those of 'std::visit'
+      #  made for a class are; the place in the file is whole.
+      listedFor = dict()  # type: Dict[int, str]
       for line in ask('readelf', '-SW', objectFile):
         match = re.match(r'\s*\[\s*(\d+)\]\s+(\S+)', line)
         if match is not None:
           stretches[match.group(1)] = match.group(2)
+          words = line.split(']', 1)[1].split()
+          if len(words) > 4 and words[1] == 'RELA':
+            listedFor[int(words[3], 16)] = words[-2]
       lies, wanted = dict(), set()  # type: Dict[str, str], Set[str]
       for line in ask('readelf', '-sW', objectFile):
         parts = line.split()
@@ -2446,7 +2583,14 @@ class RitualGenerator:
       stretch = None  # type: Optional[str]
       for line in ask('readelf', '-rW', objectFile):
         if line.startswith('Relocation section'):
-          stretch = line.split("'")[1][len('.rela'):]
+          at = re.search(r'at offset (0x[0-9a-fA-F]+)', line)
+          stretch = None
+          if at is not None and int(at.group(1), 16) in listedFor:
+            stretch = stretches.get(listedFor[int(at.group(1), 16)])
+          if stretch is None:
+            infoSpec = """'readelf' names a list of places to fill in
+            that its list of stretches does not have: %s"""
+            raise RuntimeError(' '.join((infoSpec % line).split()))
           byStretch.setdefault(stretch, set())
           continue
         parts = line.split()
@@ -2456,6 +2600,11 @@ class RitualGenerator:
           name: byStretch.get(stretch, set())
           for name, stretch in lies.items()
       }
+      #  Code may point at a stretch itself and not at a name in it, as
+      #  at a table of functions C++ made for 'std::visit': the stretch
+      #  leans on what its own code leans on.
+      for stretch, names in byStretch.items():
+        leans.setdefault(stretch, names)
       return dict(), leans, wanted
 
   def _settleSource(
@@ -2469,9 +2618,10 @@ class RitualGenerator:
     leans on something that cannot be had.
 
     It does so for a class that has a function '_findReason' let
-    through though it cannot be called, and for a class of a header Qt
-    calls private. The whole ritual file is compiled to an object
-    file, against the header files made from Qt's source. For each
+    through though it cannot be called, for a class of a header Qt
+    calls private, and for a class Qt marks nowhere. The whole ritual
+    file is compiled to an object file, against the header files made
+    from Qt's source. For each
     ritual it is then looked up what its code leans on, through
     everything the object file holds itself. What Qt's source marks
     for use from outside Qt is fine; see '_isMarkedName'. For anything
@@ -2491,6 +2641,7 @@ class RitualGenerator:
     """
     self.__source_text__, self.__source_includes__ = '', ()
     self.__unwritten_extras__ = []
+    self.__pulled_first__ = ()
     tree = self.getDependencyTree()
     source = tree.getSourceReader()
     if source is None:
@@ -2514,7 +2665,16 @@ class RitualGenerator:
           headerPath.startswith(folder)
           for folder in headerReader.getApartFolders())
     named = self._nameWritten(written)
-    if not private and not any(name in named for name in chosen):
+    #  A class Qt marks nowhere, neither itself nor a class it is
+    #  written inside, as 'QOpenGLFunctions_1_0_CoreBackend': Qt's
+    #  library offers none of its functions, and code of it in a header
+    #  file may call one of them, as its constructor calls 'init()'.
+    parts = className.split('::')
+    unmarked = not any(
+        self._isMarkedForExport('::'.join(parts[:count]))
+        for count in range(len(parts), 0, -1))
+    if not private and not unmarked and not any(
+        name in named for name in chosen):
       #  No ritual calls a function whose code would be taken, so
       #  there is nothing to compile for: every ritual calls what Qt's
       #  source marks or what a header has the code of.
@@ -2593,6 +2753,23 @@ class RitualGenerator:
                 drop(plan, reason)
             del chosen[owner]
             changed = True
+        if not changed:
+          #  A header file of Qt that does not stand alone, as
+          #  'qdbusthreaddebug_p.h', names a class it leaves to the
+          #  file pulling it in to declare. Qt's own '.cpp' files pull
+          #  the header file of that class in first; so does this one.
+          unknown = re.compile(
+              r"(?:unknown type name|incomplete type|undeclared "
+              r"identifier) '([A-Za-z_][\w:]*)'")
+          classNames = {*tree.getClassNames()}
+          for said in refused.values():
+            for name in unknown.findall(said):
+              if name in classNames and name != className and (
+                  name not in self.__pulled_first__):
+                self.__pulled_first__ = (*self.__pulled_first__, name)
+                changed = True
+          if changed:
+            continue
         if not changed:
           #  The compiler refuses the file for something that is none
           #  of the code taken along. Written like this it would not
@@ -2822,7 +2999,7 @@ class RitualGenerator:
     kept = tree.getKept('marked symbols')
     if 'names' in kept:
       return kept['names']
-    found = set()  # type: Set[str]
+    found, declared = set(), set()  # type: Set[str], Set[str]
     recordKinds = ('CXXRecordDecl', 'ClassTemplateSpecializationDecl')
 
     def walk(node: Any, inMarked: bool) -> None:
@@ -2831,8 +3008,10 @@ class RitualGenerator:
         return
       kind = node.get('kind', '')
       marked = self._hasMark(node)
-      if 'mangledName' in node and (marked or inMarked):
-        found.add(self._plainSymbol(node['mangledName']))
+      if 'mangledName' in node:
+        declared.add(self._plainSymbol(node['mangledName']))
+        if marked or inMarked:
+          found.add(self._plainSymbol(node['mangledName']))
       if kind in recordKinds:
         inner = marked
       elif kind in ('FriendDecl', 'NamespaceDecl', 'LinkageSpecDecl'):
@@ -2853,7 +3032,20 @@ class RitualGenerator:
           for line in file:
             walk(json.loads(line), False)
     kept['names'] = frozenset(found)
+    kept['declared'] = frozenset(declared)
     return kept['names']
+
+  def _getDeclaredSymbols(self) -> FrozenSet[str]:
+    """
+    Gives the compiler's own name of everything Qt's header files
+    declare, marked or not, kept as '_sameFunction' compares them.
+    Found by the same reading as '_getMarkedSymbols', and kept on the
+    tree with those.
+    """
+    kept = self.getDependencyTree().getKept('marked symbols')
+    if 'declared' not in kept:
+      self._getMarkedSymbols()
+    return kept['declared']
 
   @staticmethod
   def _plainSymbol(symbol: str) -> str:
@@ -3100,6 +3292,31 @@ class RitualGenerator:
     head = definition['text'].split('(')[0]
     return True if re.search(r'\binline\b', head) else False
 
+  def _getLookupOrder(self) -> List[str]:
+    """Gives the class of the generator and every class it is built
+    on, nearest first, as C++ looks a name up: the class, the classes it
+    is built on, then theirs. Kept for the class."""
+    tree = self.getDependencyTree()
+    className = self.getClassName()
+    scopes = self.__spelling_scopes__
+    if scopes is None or scopes[0] != className:
+      classNames = {*tree.getClassNames()}
+      scopes, waiting = [], [className]  # type: List[str], List[str]
+      while waiting:
+        name = waiting.pop(0)
+        if name in scopes:
+          continue
+        scopes.append(name)
+        for parent in tree.getParents(name):
+          parent = parent.split('<')[0].strip()
+          if parent in classNames and parent not in scopes:
+            waiting.append(parent)
+      for name in reversed(tree.getAncestors(className)):
+        if name not in scopes:
+          scopes.append(name)
+      self.__spelling_scopes__ = scopes
+    return scopes
+
   def _spellOutside(self, cppType: str) -> str:
     """
     Writes a type the way it has to be written outside the class.
@@ -3127,7 +3344,10 @@ class RitualGenerator:
     known = self._getKnownNames()
     className = self.getClassName()
     tree = self.getDependencyTree()
-    scopes = [className, *tree.getAncestors(className)]
+    #  Nearest first, as C++ looks a name up: the class, the classes it
+    #  is built on, then theirs. 'Type' in 'QGles2Buffer' is the one of
+    #  'QRhiBuffer', not the one of 'QRhiResource' further down.
+    scopes = self._getLookupOrder()
 
     def spell(match: Any) -> str:
       name = match.group(0)
@@ -3158,7 +3378,34 @@ class RitualGenerator:
         continue
       if member.get('explicitlyDeleted') or access != 'public':
         barred.add(member['name'])
+    if self._hidesPlainNew():
+      barred.add('operator new')
     return barred
+
+  def _hidesPlainNew(self) -> bool:
+    """
+    Says whether the nearest class declaring an 'operator new', the
+    class itself or one it is built on, declares only ones that take
+    more than the size. Those hide the plain one, and 'new' alone does
+    not compile: the nodes of 'QQmlJS::AST' are built on
+    'QQmlJS::Managed', whose 'operator new' takes a pool of memory.
+    """
+    tree = self.getDependencyTree()
+    for scope in self._getLookupOrder():
+      try:
+        record = tree.getClassRecord(scope)
+      except (ValueError, LookupError):
+        continue
+      sizes = [
+          sum(1 for child in member.get('inner', ())
+              if isinstance(child, dict)
+              and child.get('kind') == 'ParmVarDecl')
+          for member in record.get('inner', ())
+          if isinstance(member, dict)
+          and member.get('name') == 'operator new']
+      if sizes:
+        return 1 not in sizes
+    return False
 
   def _showTemplate(self, member: Record) -> str:
     """Names a template of the class, as 'QObject::findChild'."""

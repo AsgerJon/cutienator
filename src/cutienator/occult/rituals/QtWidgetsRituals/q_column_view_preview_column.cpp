@@ -1,8 +1,14 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/6.12.0/QtWidgets/private/qcolumnview_p.h, Qt 6.12.0. Changes
 //  made here are lost.
+#include <QtWidgets/qtwidgetsglobal.h>
+#include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
+#if QT_CONFIG(columnview)
+#include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/QtWidgets>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/6.12.0/QtWidgets/private/qcolumnview_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qabstractitemmodel.h>
 #include <QtCore/qrect.h>
 #include <QtCore/qpoint.h>
@@ -210,3 +216,5 @@ void ritual_own_ZN24QColumnViewPreviewColumn12setSelectionERK5QRect6QFlagsIN19QI
       *a0,
       QFlags<QItemSelectionModel::SelectionFlag>::fromInt(a1));
 }
+
+#endif  // QT_CONFIG(columnview)

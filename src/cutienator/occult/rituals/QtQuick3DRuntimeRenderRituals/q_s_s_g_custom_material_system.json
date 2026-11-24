@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgrhicusto",
+    "mmaterialsystem_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN24QSSGCustomMaterialSystemC1Ev": ["address"],
+    "ritual_ZN24QSSGCustomMaterialSystemD1Ev": ["nothing", "address"],
+    "ritual_ZN24QSSGCustomMaterialSystem25setRenderContextInterfaceEP26QSSGRenderContextInterface": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QSSGCustomMaterialSystem22releaseCachedResourcesEv": [
+      "nothing", "address"
+    ]
+  }
+}

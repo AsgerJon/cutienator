@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/rangecontrols_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK20QAccessibleScrollBar4textEN11QAccessible4TextE": [
+      "text", "address", "int"
+    ],
+    "ritual_ZNK20QAccessibleScrollBar9scrollBarEv": ["address", "address"],
+    "ritual_take_QAccessibleScrollBar": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK20QAccessibleScrollBar4textEN11QAccessible4TextE": [
+      "text", "address", "int"
+    ]
+  }
+}

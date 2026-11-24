@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qtparsecommon_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK13QtParseCommon10ParsedTextcvbEv": ["bool", "address"],
+    "ritual_ZNK13QtParseCommon10ParsedText7isEmptyEv": ["bool", "address"],
+    "ritual_ZNK13QtParseCommon10ParsedText4sizeEv": ["long long", "address"],
+    "ritual_ZNK13QtParseCommon10ParsedText4usedE11QStringView": [
+      "text", "address", "text"
+    ],
+    "ritual_ZN13QtParseCommon10ParsedTextD1Ev": ["nothing", "address"]
+  }
+}

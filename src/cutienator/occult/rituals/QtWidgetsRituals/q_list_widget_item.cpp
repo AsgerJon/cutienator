@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qlistwidget.h, Qt 6.12.0. Changes made here are lost.
+#include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(listwidget)
 #include <QtWidgets/qlistwidget.h>
 #include <QtCore/qstring.h>
 #include <QtGui/qicon.h>
@@ -13,9 +15,15 @@
 //  A QListWidgetItem that Python can take functions over in. Every QListWidgetItem
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if QT_CONFIG(listwidget)
 typedef void * (*CuteQListWidgetItemCall0)(const void *, int *);
+#endif  // QT_CONFIG(listwidget)
+#if QT_CONFIG(listwidget)
 typedef const QVariant * (*CuteQListWidgetItemCall1)(const void *, int, int *);
+#endif  // QT_CONFIG(listwidget)
+#if QT_CONFIG(listwidget)
 typedef void (*CuteQListWidgetItemCall2)(const void *, int, const QVariant *, int *);
+#endif  // QT_CONFIG(listwidget)
 class CuteQListWidgetItem : public QListWidgetItem {
 public:
   using QListWidgetItem::QListWidgetItem;
@@ -23,21 +31,28 @@ public:
   void *taken[3] = {};
 
   bool take(const char *key, void *call) {
+#if QT_CONFIG(listwidget)
     if (!std::strcmp(key, "_ZNK15QListWidgetItem5cloneEv")) {
       taken[0] = call;
       return true;
     }
+#endif  // QT_CONFIG(listwidget)
+#if QT_CONFIG(listwidget)
     if (!std::strcmp(key, "_ZNK15QListWidgetItem4dataEi")) {
       taken[1] = call;
       return true;
     }
+#endif  // QT_CONFIG(listwidget)
+#if QT_CONFIG(listwidget)
     if (!std::strcmp(key, "_ZN15QListWidgetItem7setDataEiRK8QVariant")) {
       taken[2] = call;
       return true;
     }
+#endif  // QT_CONFIG(listwidget)
     return false;
   }
 
+#if QT_CONFIG(listwidget)
   //  QListWidgetItem *QListWidgetItem::clone() const
   QListWidgetItem *clone() const override {
     if (taken[0]) {
@@ -48,7 +63,9 @@ public:
     }
     return QListWidgetItem::clone();
   }
+#endif  // QT_CONFIG(listwidget)
 
+#if QT_CONFIG(listwidget)
   //  QVariant QListWidgetItem::data(int role) const
   QVariant data(int role) const override {
     if (taken[1]) {
@@ -59,7 +76,9 @@ public:
     }
     return QListWidgetItem::data(role);
   }
+#endif  // QT_CONFIG(listwidget)
 
+#if QT_CONFIG(listwidget)
   //  void QListWidgetItem::setData(int role, const QVariant &value)
   void setData(int role, const QVariant &value) override {
     if (taken[2]) {
@@ -70,6 +89,7 @@ public:
     }
     QListWidgetItem::setData(role, value);
   }
+#endif  // QT_CONFIG(listwidget)
 };
 
 //  QListWidgetItem::QListWidgetItem(QListWidget *listview, int type)
@@ -213,12 +233,15 @@ void ritual_ZN15QListWidgetItem12setStatusTipERK7QString(
   self->setStatusTip(*statusTip);
 }
 
+#if QT_CONFIG(tooltip)
 //  QString QListWidgetItem::toolTip() const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK15QListWidgetItem7toolTipEv(const QListWidgetItem *self) {
   return new QString(self->toolTip());
 }
+#endif  // QT_CONFIG(tooltip)
 
+#if QT_CONFIG(tooltip)
 //  void QListWidgetItem::setToolTip(const QString &toolTip)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QListWidgetItem10setToolTipERK7QString(
@@ -226,14 +249,18 @@ void ritual_ZN15QListWidgetItem10setToolTipERK7QString(
     const QString *toolTip) {
   self->setToolTip(*toolTip);
 }
+#endif  // QT_CONFIG(tooltip)
 
+#if QT_CONFIG(whatsthis)
 //  QString QListWidgetItem::whatsThis() const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK15QListWidgetItem9whatsThisEv(
     const QListWidgetItem *self) {
   return new QString(self->whatsThis());
 }
+#endif  // QT_CONFIG(whatsthis)
 
+#if QT_CONFIG(whatsthis)
 //  void QListWidgetItem::setWhatsThis(const QString &whatsThis)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QListWidgetItem12setWhatsThisERK7QString(
@@ -241,6 +268,7 @@ void ritual_ZN15QListWidgetItem12setWhatsThisERK7QString(
     const QString *whatsThis) {
   self->setWhatsThis(*whatsThis);
 }
+#endif  // QT_CONFIG(whatsthis)
 
 //  QFont QListWidgetItem::font() const
 extern "C" Q_DECL_EXPORT
@@ -256,13 +284,16 @@ void ritual_ZN15QListWidgetItem7setFontERK5QFont(
   self->setFont(*font);
 }
 
+#if QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
 //  int QListWidgetItem::textAlignment() const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK15QListWidgetItem13textAlignmentEv(
     const QListWidgetItem *self) {
   return self->textAlignment();
 }
+#endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
 
+#if QT_DEPRECATED_SINCE(6, 4)
 //  void QListWidgetItem::setTextAlignment(int alignment)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QListWidgetItem16setTextAlignmentEi(
@@ -270,7 +301,9 @@ void ritual_ZN15QListWidgetItem16setTextAlignmentEi(
     int alignment) {
   self->setTextAlignment(alignment);
 }
+#endif  // QT_DEPRECATED_SINCE(6, 4)
 
+#if QT_DEPRECATED_SINCE(6, 4)
 //  void QListWidgetItem::setTextAlignment(Qt::AlignmentFlag alignment)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QListWidgetItem16setTextAlignmentEN2Qt13AlignmentFlagE(
@@ -278,6 +311,7 @@ void ritual_ZN15QListWidgetItem16setTextAlignmentEN2Qt13AlignmentFlagE(
     Qt::AlignmentFlag alignment) {
   self->setTextAlignment(alignment);
 }
+#endif  // QT_DEPRECATED_SINCE(6, 4)
 
 //  void QListWidgetItem::setTextAlignment(Qt::Alignment alignment)
 extern "C" Q_DECL_EXPORT
@@ -452,3 +486,5 @@ extern "C" Q_DECL_EXPORT
 void ritual_list_drop_QListWidgetItem_ptr(QList<QListWidgetItem *> *self) {
   delete self;
 }
+
+#endif  // QT_CONFIG(listwidget)

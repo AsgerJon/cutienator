@@ -1,0 +1,31 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQmlMo",
+    "dels/6.12.0/QtQmlModels/private/qqmldmabstractitemmodeldata_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK27QQmlDMAbstractItemModelData10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK27QQmlDMAbstractItemModelData16hasModelChildrenEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN27QQmlDMAbstractItemModelData3getEv": [
+      "unsigned long long", "address"
+    ],
+    "ritual_ZN27QQmlDMAbstractItemModelData8setValueERK7QStringRK8QVariant": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZNK27QQmlDMAbstractItemModelData4typeEv": ["address", "address"],
+    "ritual_ZNK27QQmlDMAbstractItemModelData5valueEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN27QQmlDMAbstractItemModelData8setValueEiRK8QVariant": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZN27QQmlDMAbstractItemModelData8setValueERK7QStringRK8QVariant": [
+      "nothing", "address", "text", "address"
+    ]
+  }
+}

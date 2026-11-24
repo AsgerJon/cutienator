@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qdbusmenutypes_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN13QDBusMenuItemC1Ev": ["address"],
+    "ritual_ZN13QDBusMenuItem15convertMnemonicERK7QString": ["text", "text"],
+    "ritual_ZN13QDBusMenuItemD1Ev": ["nothing", "address"],
+    "ritual_list_make_QDBusMenuItem": ["address"],
+    "ritual_list_add_QDBusMenuItem": ["nothing", "address", "address"],
+    "ritual_list_size_QDBusMenuItem": ["long long", "address"],
+    "ritual_list_at_QDBusMenuItem": ["address", "address", "long long"],
+    "ritual_list_drop_QDBusMenuItem": ["nothing", "address"]
+  }
+}

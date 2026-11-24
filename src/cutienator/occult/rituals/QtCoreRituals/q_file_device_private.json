@@ -1,0 +1,40 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qfiledevice_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QFileDevicePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK18QFileDevicePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK18QFileDevicePrivate6engineEv": ["address", "address"],
+    "ritual_ZNK18QFileDevicePrivate11permissionsEv": ["int", "address"],
+    "ritual_ZN18QFileDevicePrivate14setPermissionsE6QFlagsIN11QFileDevice10PermissionEE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK18QFileDevicePrivate13ensureFlushedEv": ["bool", "address"],
+    "ritual_ZN18QFileDevicePrivate13putCharHelperEc": [
+      "bool", "address", "char"
+    ],
+    "ritual_ZN18QFileDevicePrivate8setErrorEN11QFileDevice9FileErrorE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18QFileDevicePrivate8setErrorEN11QFileDevice9FileErrorE7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZN18QFileDevicePrivate8setErrorEN11QFileDevice9FileErrorEi": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_take_QFileDevicePrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK18QFileDevicePrivate6engineEv": ["address", "address"],
+    "ritual_own_ZNK18QFileDevicePrivate11permissionsEv": ["int", "address"],
+    "ritual_own_ZN18QFileDevicePrivate14setPermissionsE6QFlagsIN11QFileDevice10PermissionEE": [
+      "bool", "address", "int"
+    ],
+    "ritual_own_ZN18QFileDevicePrivate13putCharHelperEc": [
+      "bool", "address", "char"
+    ]
+  }
+}

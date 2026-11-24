@@ -1,0 +1,37 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtOpenGL/6.12.0/QtOpenGL/private/qopenglgradientcache_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN21QOpenGL2GradientCacheC1EP14QOpenGLContext": [
+      "address", "address"
+    ],
+    "ritual_ZN21QOpenGL2GradientCacheD1Ev": ["nothing", "address"],
+    "ritual_ZNK21QOpenGL2GradientCache11paletteSizeEv": ["int", "address"],
+    "ritual_ZN21QOpenGL2GradientCache18invalidateResourceEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QOpenGL2GradientCache12freeResourceEP14QOpenGLContext": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21QOpenGL2GradientCache12maxCacheSizeEv": ["int", "address"],
+    "ritual_ZNK21QOpenGL2GradientCache26generateGradientColorTableERK9QGradientP7QRgba64id": [
+      "nothing", "address", "address", "address", "int", "double"
+    ],
+    "ritual_ZNK21QOpenGL2GradientCache26generateGradientColorTableERK9QGradientPjid": [
+      "nothing", "address", "address", "address", "int", "double"
+    ],
+    "ritual_ZN21QOpenGL2GradientCache10cleanCacheEv": ["nothing", "address"],
+    "ritual_take_QOpenGL2GradientCache": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN21QOpenGL2GradientCache18invalidateResourceEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN21QOpenGL2GradientCache12freeResourceEP14QOpenGLContext": [
+      "nothing", "address", "address"
+    ]
+  }
+}

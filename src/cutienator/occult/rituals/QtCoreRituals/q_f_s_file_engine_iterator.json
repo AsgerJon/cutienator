@@ -1,0 +1,26 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qfsfileengine_iterator_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN21QFSFileEngineIteratorD1Ev": ["nothing", "address"],
+    "ritual_ZN21QFSFileEngineIterator7advanceEv": ["bool", "address"],
+    "ritual_ZNK21QFSFileEngineIterator15currentFileNameEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK21QFSFileEngineIterator15currentFileInfoEv": [
+      "address", "address"
+    ],
+    "ritual_take_QFSFileEngineIterator": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK21QFSFileEngineIterator15currentFileNameEv": [
+      "text", "address"
+    ],
+    "ritual_own_ZNK21QFSFileEngineIterator15currentFileInfoEv": [
+      "address", "address"
+    ]
+  }
+}

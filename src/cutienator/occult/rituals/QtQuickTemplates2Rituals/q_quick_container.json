@@ -1,0 +1,101 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquickcontainer_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK15QQuickContainer10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QQuickContainer2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN15QQuickContainerC1EP10QQuickItem": ["address", "address"],
+    "ritual_ZN15QQuickContainerD1Ev": ["nothing", "address"],
+    "ritual_ZNK15QQuickContainer5countEv": ["int", "address"],
+    "ritual_ZNK15QQuickContainer6itemAtEi": ["address", "address", "int"],
+    "ritual_ZN15QQuickContainer7addItemEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QQuickContainer10insertItemEiP10QQuickItem": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN15QQuickContainer8moveItemEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN15QQuickContainer10removeItemEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QQuickContainer8takeItemEi": ["address", "address", "int"],
+    "ritual_ZNK15QQuickContainer12contentModelEv": ["address", "address"],
+    "ritual_ZNK15QQuickContainer12currentIndexEv": ["int", "address"],
+    "ritual_ZNK15QQuickContainer11currentItemEv": ["address", "address"],
+    "ritual_ZNK15QQuickContainer12contentWidthEv": ["double", "address"],
+    "ritual_ZN15QQuickContainer15setContentWidthEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN15QQuickContainer17resetContentWidthEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK15QQuickContainer13contentHeightEv": ["double", "address"],
+    "ritual_ZN15QQuickContainer16setContentHeightEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN15QQuickContainer18resetContentHeightEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickContainer15setCurrentIndexEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN15QQuickContainer21incrementCurrentIndexEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickContainer21decrementCurrentIndexEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickContainer17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickContainer10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN15QQuickContainer17contentItemChangeEP10QQuickItemS1_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK15QQuickContainer9isContentEP10QQuickItem": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN15QQuickContainer9itemAddedEiP10QQuickItem": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN15QQuickContainer9itemMovedEiP10QQuickItem": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN15QQuickContainer11itemRemovedEiP10QQuickItem": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN15QQuickContainer6d_funcEv": ["address", "address"],
+    "ritual_ZNK15QQuickContainer6d_funcEv": ["address", "address"],
+    "ritual_take_QQuickContainer": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN15QQuickContainer17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN15QQuickContainer10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZN15QQuickContainer17contentItemChangeEP10QQuickItemS1_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZNK15QQuickContainer9isContentEP10QQuickItem": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN15QQuickContainer9itemAddedEiP10QQuickItem": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZN15QQuickContainer9itemMovedEiP10QQuickItem": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZN15QQuickContainer11itemRemovedEiP10QQuickItem": [
+      "nothing", "address", "int", "address"
+    ]
+  }
+}

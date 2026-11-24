@@ -1,0 +1,67 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtBluetooth/qbluetoothservicediscoveryagent.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK31QBluetoothServiceDiscoveryAgent10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN31QBluetoothServiceDiscoveryAgent2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN31QBluetoothServiceDiscoveryAgent6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK31QBluetoothServiceDiscoveryAgent6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN31QBluetoothServiceDiscoveryAgentC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN31QBluetoothServiceDiscoveryAgentC1ERK17QBluetoothAddressP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN31QBluetoothServiceDiscoveryAgentD1Ev": ["nothing", "address"],
+    "ritual_ZNK31QBluetoothServiceDiscoveryAgent8isActiveEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK31QBluetoothServiceDiscoveryAgent5errorEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK31QBluetoothServiceDiscoveryAgent11errorStringEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK31QBluetoothServiceDiscoveryAgent18discoveredServicesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN31QBluetoothServiceDiscoveryAgent13setUuidFilterERK5QListI14QBluetoothUuidE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN31QBluetoothServiceDiscoveryAgent13setUuidFilterERK14QBluetoothUuid": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK31QBluetoothServiceDiscoveryAgent10uuidFilterEv": [
+      "address", "address"
+    ],
+    "ritual_ZN31QBluetoothServiceDiscoveryAgent16setRemoteAddressERK17QBluetoothAddress": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK31QBluetoothServiceDiscoveryAgent13remoteAddressEv": [
+      "address", "address"
+    ],
+    "ritual_ZN31QBluetoothServiceDiscoveryAgent5startENS_13DiscoveryModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN31QBluetoothServiceDiscoveryAgent4stopEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN31QBluetoothServiceDiscoveryAgent5clearEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QBluetoothServiceDiscoveryAgent": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

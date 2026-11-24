@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4typedarray_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN3QV410TypedArray12staticVTableEv": ["address"],
+    "ritual_ZN3QV410TypedArray10__dataTestEv": ["nothing", "address"],
+    "ritual_ZNK3QV410TypedArray11d_uncheckedEv": ["address", "address"],
+    "ritual_ZNK3QV410TypedArray1dEv": ["address", "address"],
+    "ritual_ZNK3QV410TypedArray10byteOffsetEv": ["unsigned int", "address"],
+    "ritual_ZNK3QV410TypedArray10byteLengthEv": ["unsigned int", "address"],
+    "ritual_ZNK3QV410TypedArray15bytesPerElementEv": ["int", "address"],
+    "ritual_ZNK3QV410TypedArray6lengthEv": ["unsigned int", "address"],
+    "ritual_ZNK3QV410TypedArray14constArrayDataEv": ["chars", "address"],
+    "ritual_ZNK3QV410TypedArray20hasDetachedArrayDataEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK3QV410TypedArray15arrayDataLengthEv": [
+      "unsigned int", "address"
+    ]
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qlocale_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN14QLocalePrivateC1EPK11QLocaleDatax6QFlagsIN7QLocale12NumberOptionEEi": [
+      "address", "address", "long long", "int", "int"
+    ],
+    "ritual_ZNK14QLocalePrivate10languageIdEv": [
+      "unsigned short", "address"
+    ],
+    "ritual_ZNK14QLocalePrivate11territoryIdEv": [
+      "unsigned short", "address"
+    ],
+    "ritual_ZN14QLocalePrivate3getERK7QLocale": ["address", "address"],
+    "ritual_ZNK14QLocalePrivate17measurementSystemEv": ["int", "address"]
+  }
+}

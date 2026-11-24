@@ -1,0 +1,138 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/6.12.0/QtNetwork/private/qnetworkaccessbackend_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK21QNetworkAccessBackend10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QNetworkAccessBackend2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN21QNetworkAccessBackendD1Ev": ["nothing", "address"],
+    "ritual_ZNK21QNetworkAccessBackend16securityFeaturesEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK21QNetworkAccessBackend11targetTypesEv": ["int", "address"],
+    "ritual_ZNK21QNetworkAccessBackend10ioFeaturesEv": ["int", "address"],
+    "ritual_ZNK21QNetworkAccessBackend24needsResetableUploadDataEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QNetworkAccessBackend5startEv": ["bool", "address"],
+    "ritual_ZN21QNetworkAccessBackend4openEv": ["nothing", "address"],
+    "ritual_ZN21QNetworkAccessBackend5closeEv": ["nothing", "address"],
+    "ritual_ZN21QNetworkAccessBackend19setSslConfigurationERK17QSslConfiguration": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21QNetworkAccessBackend16sslConfigurationEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QNetworkAccessBackend15ignoreSslErrorsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QNetworkAccessBackend15ignoreSslErrorsERK5QListI9QSslErrorE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21QNetworkAccessBackend14bytesAvailableEv": [
+      "long long", "address"
+    ],
+    "ritual_ZN21QNetworkAccessBackend11readPointerEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QNetworkAccessBackend18advanceReadPointerEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN21QNetworkAccessBackend10wantToReadEv": ["bool", "address"],
+    "ritual_ZNK21QNetworkAccessBackend9proxyListEv": ["address", "address"],
+    "ritual_ZNK21QNetworkAccessBackend3urlEv": ["address", "address"],
+    "ritual_ZN21QNetworkAccessBackend6setUrlERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21QNetworkAccessBackend6headerEN15QNetworkRequest12KnownHeadersE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN21QNetworkAccessBackend9setHeaderEN15QNetworkRequest12KnownHeadersERK8QVariant": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZNK21QNetworkAccessBackend9rawHeaderERK10QByteArray": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN21QNetworkAccessBackend12setRawHeaderERK10QByteArrayS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK21QNetworkAccessBackend7headersEv": ["address", "address"],
+    "ritual_ZN21QNetworkAccessBackend10setHeadersERK12QHttpHeaders": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21QNetworkAccessBackend9operationEv": ["int", "address"],
+    "ritual_ZNK21QNetworkAccessBackend16isCachingEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QNetworkAccessBackend17setCachingEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN21QNetworkAccessBackend12setAttributeEN15QNetworkRequest9AttributeERK8QVariant": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN21QNetworkAccessBackend22createUploadByteDeviceEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QNetworkAccessBackend16uploadByteDeviceEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK21QNetworkAccessBackend12networkCacheEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QNetworkAccessBackend9readyReadEv": ["nothing", "address"],
+    "ritual_ZN21QNetworkAccessBackend8finishedEv": ["nothing", "address"],
+    "ritual_ZN21QNetworkAccessBackend5errorEN13QNetworkReply12NetworkErrorERK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZN21QNetworkAccessBackend27proxyAuthenticationRequiredERK13QNetworkProxyP14QAuthenticator": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN21QNetworkAccessBackend22authenticationRequiredEP14QAuthenticator": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QNetworkAccessBackend15metaDataChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QNetworkAccessBackend20redirectionRequestedERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QNetworkAccessBackend15setReplyPrivateEP24QNetworkReplyImplPrivate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QNetworkAccessBackend17setManagerPrivateEP28QNetworkAccessManagerPrivate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21QNetworkAccessBackend13isSynchronousEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QNetworkAccessBackend14setSynchronousEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_take_QNetworkAccessBackend": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN21QNetworkAccessBackend5startEv": ["bool", "address"],
+    "ritual_own_ZN21QNetworkAccessBackend19setSslConfigurationERK17QSslConfiguration": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK21QNetworkAccessBackend16sslConfigurationEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN21QNetworkAccessBackend15ignoreSslErrorsEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN21QNetworkAccessBackend11readPointerEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN21QNetworkAccessBackend18advanceReadPointerEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_own_ZN21QNetworkAccessBackend10wantToReadEv": ["bool", "address"]
+  }
+}

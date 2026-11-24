@@ -1,0 +1,45 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qcolortransferfunction_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN22QColorTransferFunctionC1Ev": ["address"],
+    "ritual_ZN22QColorTransferFunctionC1Efffffff": [
+      "address", "float", "float", "float", "float", "float", "float",
+      "float"
+    ],
+    "ritual_ZNK22QColorTransferFunction7isGammaEv": ["bool", "address"],
+    "ritual_ZNK22QColorTransferFunction10isIdentityEv": ["bool", "address"],
+    "ritual_ZNK22QColorTransferFunction6isSRgbEv": ["bool", "address"],
+    "ritual_ZNK22QColorTransferFunction5applyEf": [
+      "float", "address", "float"
+    ],
+    "ritual_ZNK22QColorTransferFunction8invertedEv": ["address", "address"],
+    "ritual_ZN22QColorTransferFunction9fromGammaEf": ["address", "float"],
+    "ritual_ZN22QColorTransferFunction8fromSRgbEv": ["address"],
+    "ritual_ZN22QColorTransferFunction15fromProPhotoRgbEv": ["address"],
+    "ritual_ZN22QColorTransferFunction10fromBt2020Ev": ["address"],
+    "ritual_ZNK22QColorTransferFunction7matchesERKS_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZeqRK22QColorTransferFunctionS1_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZneRK22QColorTransferFunctionS1_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN22QColorTransferFunctionC1Efffffff6QFlagsINS_4HintEE": [
+      "address", "float", "float", "float", "float", "float", "float",
+      "float", "int"
+    ],
+    "ritual_ZN22QColorTransferFunction12paramCompareEff": [
+      "bool", "float", "float"
+    ],
+    "ritual_ZNK22QColorTransferFunction11updateHintsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QColorTransferFunctionD1Ev": ["nothing", "address"]
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qlibraryinfo_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QLibraryInfoPrivate13configurationEv": ["address"],
+    "ritual_ZN19QLibraryInfoPrivate19setQtconfManualPathEPK7QString": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QLibraryInfoPrivate18expandEnvVariablesE7QString": [
+      "text", "text"
+    ],
+    "ritual_ZN19QLibraryInfoPrivate6reloadEv": ["nothing"],
+    "ritual_ZN19QLibraryInfoPrivate12locationInfoEN12QLibraryInfo11LibraryPathE": [
+      "address", "int"
+    ],
+    "ritual_ZN19QLibraryInfoPrivate4pathEN12QLibraryInfo11LibraryPathE": [
+      "text", "int"
+    ],
+    "ritual_ZN19QLibraryInfoPrivate5pathsEN12QLibraryInfo11LibraryPathE": [
+      "address", "int"
+    ],
+    "ritual_ZN19QLibraryInfoPrivate11qtConfPathsEN12QLibraryInfo11LibraryPathE": [
+      "address", "int"
+    ],
+    "ritual_ZN19QLibraryInfoPrivate8appPathsEN12QLibraryInfo11LibraryPathE": [
+      "address", "int"
+    ],
+    "ritual_ZN19QLibraryInfoPrivate7qtPathsEN12QLibraryInfo11LibraryPathE": [
+      "address", "int"
+    ],
+    "ritual_ZN19QLibraryInfoPrivateD1Ev": ["nothing", "address"]
+  }
+}

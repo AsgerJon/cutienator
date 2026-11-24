@@ -1,0 +1,106 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLocation/6.12.0/QtLocation/private/qplace_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QPlacePrivateDefaultC1Ev": ["address"],
+    "ritual_ZN20QPlacePrivateDefaultC1ERKS_": ["address", "address"],
+    "ritual_ZN20QPlacePrivateDefaultD1Ev": ["nothing", "address"],
+    "ritual_ZN20QPlacePrivateDefault5cloneEv": ["address", "address"],
+    "ritual_ZNK20QPlacePrivateDefault10categoriesEv": ["address", "address"],
+    "ritual_ZN20QPlacePrivateDefault13setCategoriesERK5QListI14QPlaceCategoryE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QPlacePrivateDefault8locationEv": ["address", "address"],
+    "ritual_ZN20QPlacePrivateDefault11setLocationERK12QGeoLocation": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QPlacePrivateDefault7ratingsEv": ["address", "address"],
+    "ritual_ZN20QPlacePrivateDefault10setRatingsERK13QPlaceRatings": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QPlacePrivateDefault8supplierEv": ["address", "address"],
+    "ritual_ZN20QPlacePrivateDefault11setSupplierERK14QPlaceSupplier": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QPlacePrivateDefault4nameEv": ["text", "address"],
+    "ritual_ZN20QPlacePrivateDefault7setNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK20QPlacePrivateDefault7placeIdEv": ["text", "address"],
+    "ritual_ZN20QPlacePrivateDefault10setPlaceIdERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK20QPlacePrivateDefault11attributionEv": ["text", "address"],
+    "ritual_ZN20QPlacePrivateDefault14setAttributionERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK20QPlacePrivateDefault10visibilityEv": ["int", "address"],
+    "ritual_ZN20QPlacePrivateDefault13setVisibilityEN9QLocation10VisibilityE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK20QPlacePrivateDefault4iconEv": ["address", "address"],
+    "ritual_ZN20QPlacePrivateDefault7setIconERK10QPlaceIcon": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QPlacePrivateDefault14detailsFetchedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN20QPlacePrivateDefault17setDetailsFetchedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK20QPlacePrivateDefault18extendedAttributesEv": [
+      "address", "address"
+    ],
+    "ritual_take_QPlacePrivateDefault": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN20QPlacePrivateDefault5cloneEv": ["address", "address"],
+    "ritual_own_ZNK20QPlacePrivateDefault8locationEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN20QPlacePrivateDefault11setLocationERK12QGeoLocation": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK20QPlacePrivateDefault7ratingsEv": ["address", "address"],
+    "ritual_own_ZN20QPlacePrivateDefault10setRatingsERK13QPlaceRatings": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK20QPlacePrivateDefault8supplierEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN20QPlacePrivateDefault11setSupplierERK14QPlaceSupplier": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK20QPlacePrivateDefault4nameEv": ["text", "address"],
+    "ritual_own_ZN20QPlacePrivateDefault7setNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_own_ZNK20QPlacePrivateDefault7placeIdEv": ["text", "address"],
+    "ritual_own_ZN20QPlacePrivateDefault10setPlaceIdERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_own_ZNK20QPlacePrivateDefault11attributionEv": [
+      "text", "address"
+    ],
+    "ritual_own_ZN20QPlacePrivateDefault14setAttributionERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_own_ZNK20QPlacePrivateDefault10visibilityEv": ["int", "address"],
+    "ritual_own_ZN20QPlacePrivateDefault13setVisibilityEN9QLocation10VisibilityE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZNK20QPlacePrivateDefault4iconEv": ["address", "address"],
+    "ritual_own_ZN20QPlacePrivateDefault7setIconERK10QPlaceIcon": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK20QPlacePrivateDefault14detailsFetchedEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZN20QPlacePrivateDefault17setDetailsFetchedEb": [
+      "nothing", "address", "bool"
+    ]
+  }
+}

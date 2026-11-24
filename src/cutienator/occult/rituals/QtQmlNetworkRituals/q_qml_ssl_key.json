@@ -1,0 +1,32 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQmlNetwork/6.12.0/QtQmlNetwork/private/qqmlsslkey_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK10QQmlSslKey9getSslKeyEv": ["address", "address"],
+    "ritual_ZNK10QQmlSslKey7keyFileEv": ["text", "address"],
+    "ritual_ZNK10QQmlSslKey12keyAlgorithmEv": ["int", "address"],
+    "ritual_ZNK10QQmlSslKey9keyFormatEv": ["int", "address"],
+    "ritual_ZNK10QQmlSslKey13keyPassPhraseEv": ["address", "address"],
+    "ritual_ZNK10QQmlSslKey7keyTypeEv": ["int", "address"],
+    "ritual_ZN10QQmlSslKey10setKeyFileERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN10QQmlSslKey15setKeyAlgorithmEN4QSsl12KeyAlgorithmE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10QQmlSslKey12setKeyFormatEN4QSsl14EncodingFormatE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10QQmlSslKey16setKeyPassPhraseERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QQmlSslKey10setKeyTypeEN4QSsl7KeyTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZeqRK10QQmlSslKeyS1_": ["bool", "address", "address"],
+    "ritual_ZN10QQmlSslKeyD1Ev": ["nothing", "address"]
+  }
+}

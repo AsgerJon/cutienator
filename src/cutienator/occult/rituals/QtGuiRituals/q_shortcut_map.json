@@ -1,0 +1,43 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qshortcutmap_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN12QShortcutMapC1Ev": ["address"],
+    "ritual_ZN12QShortcutMapD1Ev": ["nothing", "address"],
+    "ritual_ZN12QShortcutMap14removeShortcutEiP7QObjectRK12QKeySequence": [
+      "int", "address", "int", "address", "address"
+    ],
+    "ritual_ZN12QShortcutMap18setShortcutEnabledEbiP7QObjectRK12QKeySequence": [
+      "int", "address", "bool", "int", "address", "address"
+    ],
+    "ritual_ZN12QShortcutMap21setShortcutAutoRepeatEbiP7QObjectRK12QKeySequence": [
+      "int", "address", "bool", "int", "address", "address"
+    ],
+    "ritual_ZN12QShortcutMap5stateEv": ["int", "address"],
+    "ritual_ZN12QShortcutMap11tryShortcutEP9QKeyEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK12QShortcutMap25hasShortcutForKeySequenceERK12QKeySequence": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK12QShortcutMap12keySequencesEb": [
+      "address", "address", "bool"
+    ],
+    "ritual_ZN12QShortcutMap10resetStateEv": ["nothing", "address"],
+    "ritual_ZN12QShortcutMap9nextStateEP9QKeyEvent": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN12QShortcutMap13dispatchEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QShortcutMap4findEP9QKeyEventi": [
+      "int", "address", "address", "int"
+    ],
+    "ritual_ZN12QShortcutMap18translateModifiersE6QFlagsIN2Qt16KeyboardModifierEE": [
+      "int", "address", "int"
+    ]
+  }
+}

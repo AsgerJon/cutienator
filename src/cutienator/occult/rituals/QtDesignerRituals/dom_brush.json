@@ -1,0 +1,34 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/ui4_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN8DomBrushC1Ev": ["address"],
+    "ritual_ZN8DomBrushD1Ev": ["nothing", "address"],
+    "ritual_ZNK8DomBrush22hasAttributeBrushStyleEv": ["bool", "address"],
+    "ritual_ZNK8DomBrush19attributeBrushStyleEv": ["text", "address"],
+    "ritual_ZN8DomBrush22setAttributeBrushStyleERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN8DomBrush24clearAttributeBrushStyleEv": ["nothing", "address"],
+    "ritual_ZNK8DomBrush4kindEv": ["int", "address"],
+    "ritual_ZNK8DomBrush12elementColorEv": ["address", "address"],
+    "ritual_ZN8DomBrush16takeElementColorEv": ["address", "address"],
+    "ritual_ZN8DomBrush15setElementColorEP8DomColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK8DomBrush14elementTextureEv": ["address", "address"],
+    "ritual_ZN8DomBrush18takeElementTextureEv": ["address", "address"],
+    "ritual_ZN8DomBrush17setElementTextureEP11DomProperty": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK8DomBrush15elementGradientEv": ["address", "address"],
+    "ritual_ZN8DomBrush19takeElementGradientEv": ["address", "address"],
+    "ritual_ZN8DomBrush18setElementGradientEP11DomGradient": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8DomBrush5clearEv": ["nothing", "address"]
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4compilercontext_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN3QV48Compiler7Context21PropertyDependencyMap6insertEjj": [
+      "nothing", "address", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZN3QV48Compiler7Context21PropertyDependencyMapD1Ev": [
+      "nothing", "address"
+    ]
+  }
+}

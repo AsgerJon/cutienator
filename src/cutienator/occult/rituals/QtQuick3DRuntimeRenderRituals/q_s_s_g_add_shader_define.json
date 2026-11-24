@@ -1,0 +1,14 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgrenderco",
+    "mmands_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QSSGAddShaderDefineC1Ev": ["address"],
+    "ritual_ZN19QSSGAddShaderDefineC1ERK10QByteArrayi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN19QSSGAddShaderDefineD1Ev": ["nothing", "address"]
+  }
+}

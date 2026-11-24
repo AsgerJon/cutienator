@@ -1,0 +1,20 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qxmlstream.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN9QtPrivate10QXmlStringC1ERK7QString": ["address", "text"],
+    "ritual_ZN9QtPrivate10QXmlStringC1Ev": ["address"],
+    "ritual_ZNK9QtPrivate10QXmlStringcv11QStringViewEv": ["text", "address"],
+    "ritual_ZNK9QtPrivate10QXmlString4sizeEv": ["long long", "address"],
+    "ritual_ZNK9QtPrivate10QXmlString6isNullEv": ["bool", "address"],
+    "ritual_ZN9QtPrivateeqERKNS_10QXmlStringES2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN9QtPrivateneERKNS_10QXmlStringES2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN9QtPrivate10QXmlStringD1Ev": ["nothing", "address"]
+  }
+}

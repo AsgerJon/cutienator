@@ -1,0 +1,32 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/ui4_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN7DomItemC1Ev": ["address"],
+    "ritual_ZN7DomItemD1Ev": ["nothing", "address"],
+    "ritual_ZNK7DomItem15hasAttributeRowEv": ["bool", "address"],
+    "ritual_ZNK7DomItem12attributeRowEv": ["int", "address"],
+    "ritual_ZN7DomItem15setAttributeRowEi": ["nothing", "address", "int"],
+    "ritual_ZN7DomItem17clearAttributeRowEv": ["nothing", "address"],
+    "ritual_ZNK7DomItem18hasAttributeColumnEv": ["bool", "address"],
+    "ritual_ZNK7DomItem15attributeColumnEv": ["int", "address"],
+    "ritual_ZN7DomItem18setAttributeColumnEi": ["nothing", "address", "int"],
+    "ritual_ZN7DomItem20clearAttributeColumnEv": ["nothing", "address"],
+    "ritual_ZNK7DomItem15elementPropertyEv": ["address", "address"],
+    "ritual_ZN7DomItem18setElementPropertyERK5QListIP11DomPropertyE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK7DomItem11elementItemEv": ["address", "address"],
+    "ritual_ZN7DomItem14setElementItemERK5QListIPS_E": [
+      "nothing", "address", "address"
+    ],
+    "ritual_list_make_DomItem_ptr": ["address"],
+    "ritual_list_add_DomItem_ptr": ["nothing", "address", "address"],
+    "ritual_list_size_DomItem_ptr": ["long long", "address"],
+    "ritual_list_at_DomItem_ptr": ["address", "address", "long long"],
+    "ritual_list_drop_DomItem_ptr": ["nothing", "address"]
+  }
+}

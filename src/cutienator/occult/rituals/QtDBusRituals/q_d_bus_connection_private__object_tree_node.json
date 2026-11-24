@@ -1,0 +1,25 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDBus/6.12.0/QtDBus/private/qdbusconnection_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN22QDBusConnectionPrivate14ObjectTreeNodeC1Ev": ["address"],
+    "ritual_ZN22QDBusConnectionPrivate14ObjectTreeNodeC1ERK7QString": [
+      "address", "text"
+    ],
+    "ritual_ZNK22QDBusConnectionPrivate14ObjectTreeNodeltERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZNK22QDBusConnectionPrivate14ObjectTreeNodeltE11QStringView": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZNK22QDBusConnectionPrivate14ObjectTreeNode8isActiveEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN22QDBusConnectionPrivate14ObjectTreeNodeD1Ev": [
+      "nothing", "address"
+    ]
+  }
+}

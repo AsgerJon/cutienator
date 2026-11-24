@@ -1,0 +1,120 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qabstractanimationjob_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN21QAbstractAnimationJobC1Ev": ["address"],
+    "ritual_ZN21QAbstractAnimationJobD1Ev": ["nothing", "address"],
+    "ritual_ZNK21QAbstractAnimationJob5groupEv": ["address", "address"],
+    "ritual_ZNK21QAbstractAnimationJob9loopCountEv": ["int", "address"],
+    "ritual_ZN21QAbstractAnimationJob12setLoopCountEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK21QAbstractAnimationJob13totalDurationEv": ["int", "address"],
+    "ritual_ZNK21QAbstractAnimationJob8durationEv": ["int", "address"],
+    "ritual_ZNK21QAbstractAnimationJob9directionEv": ["int", "address"],
+    "ritual_ZN21QAbstractAnimationJob12setDirectionENS_9DirectionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK21QAbstractAnimationJob11currentTimeEv": ["int", "address"],
+    "ritual_ZNK21QAbstractAnimationJob15currentLoopTimeEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK21QAbstractAnimationJob11currentLoopEv": ["int", "address"],
+    "ritual_ZNK21QAbstractAnimationJob5stateEv": ["int", "address"],
+    "ritual_ZN21QAbstractAnimationJob9isRunningEv": ["bool", "address"],
+    "ritual_ZN21QAbstractAnimationJob9isStoppedEv": ["bool", "address"],
+    "ritual_ZN21QAbstractAnimationJob8isPausedEv": ["bool", "address"],
+    "ritual_ZN21QAbstractAnimationJob21setDisableUserControlEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QAbstractAnimationJob20setEnableUserControlEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK21QAbstractAnimationJob19userControlDisabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QAbstractAnimationJob14setCurrentTimeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN21QAbstractAnimationJob5startEv": ["nothing", "address"],
+    "ritual_ZN21QAbstractAnimationJob5pauseEv": ["nothing", "address"],
+    "ritual_ZN21QAbstractAnimationJob6resumeEv": ["nothing", "address"],
+    "ritual_ZN21QAbstractAnimationJob4stopEv": ["nothing", "address"],
+    "ritual_ZN21QAbstractAnimationJob8completeEv": ["nothing", "address"],
+    "ritual_ZN21QAbstractAnimationJob26addAnimationChangeListenerEP27QAnimationJobChangeListener6QFlagsINS_10ChangeTypeEE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN21QAbstractAnimationJob29removeAnimationChangeListenerEP27QAnimationJobChangeListener6QFlagsINS_10ChangeTypeEE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZNK21QAbstractAnimationJob7isGroupEv": ["bool", "address"],
+    "ritual_ZNK21QAbstractAnimationJob17isRenderThreadJobEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK21QAbstractAnimationJob19isRenderThreadProxyEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QAbstractAnimationJob17updateCurrentTimeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN21QAbstractAnimationJob15updateLoopCountEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN21QAbstractAnimationJob11updateStateENS_5StateES0_": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN21QAbstractAnimationJob15updateDirectionENS_9DirectionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN21QAbstractAnimationJob28topLevelAnimationLoopChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK21QAbstractAnimationJob14debugAnimationE6QDebug": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QAbstractAnimationJob32fireTopLevelAnimationLoopChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QAbstractAnimationJob8setStateENS_5StateE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN21QAbstractAnimationJob8finishedEv": ["nothing", "address"],
+    "ritual_ZN21QAbstractAnimationJob12stateChangedENS_5StateES0_": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN21QAbstractAnimationJob18currentLoopChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QAbstractAnimationJob18currentTimeChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_Zls6QDebugPK21QAbstractAnimationJob": [
+      "address", "address", "address"
+    ],
+    "ritual_take_QAbstractAnimationJob": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK21QAbstractAnimationJob8durationEv": ["int", "address"],
+    "ritual_own_ZN21QAbstractAnimationJob17updateCurrentTimeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN21QAbstractAnimationJob15updateLoopCountEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN21QAbstractAnimationJob11updateStateENS_5StateES0_": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZN21QAbstractAnimationJob15updateDirectionENS_9DirectionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN21QAbstractAnimationJob28topLevelAnimationLoopChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZNK21QAbstractAnimationJob14debugAnimationE6QDebug": [
+      "nothing", "address", "address"
+    ]
+  }
+}

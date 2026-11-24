@@ -1,0 +1,66 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtTextToSpeech/qtexttospeech.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK13QTextToSpeech10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QTextToSpeech2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN13QTextToSpeech6d_funcEv": ["address", "address"],
+    "ritual_ZNK13QTextToSpeech6d_funcEv": ["address", "address"],
+    "ritual_ZN13QTextToSpeechC1EP7QObject": ["address", "address"],
+    "ritual_ZN13QTextToSpeechC1ERK7QStringP7QObject": [
+      "address", "text", "address"
+    ],
+    "ritual_ZN13QTextToSpeechC1ERK7QStringRK4QMapIS0_8QVariantEP7QObject": [
+      "address", "text", "address", "address"
+    ],
+    "ritual_ZN13QTextToSpeechD1Ev": ["nothing", "address"],
+    "ritual_ZN13QTextToSpeech9setEngineERK7QStringRK4QMapIS0_8QVariantE": [
+      "bool", "address", "text", "address"
+    ],
+    "ritual_ZNK13QTextToSpeech6engineEv": ["text", "address"],
+    "ritual_ZNK13QTextToSpeech18engineCapabilitiesEv": ["int", "address"],
+    "ritual_ZNK13QTextToSpeech5stateEv": ["int", "address"],
+    "ritual_ZNK13QTextToSpeech11errorReasonEv": ["int", "address"],
+    "ritual_ZNK13QTextToSpeech11errorStringEv": ["text", "address"],
+    "ritual_ZNK13QTextToSpeech16availableLocalesEv": ["address", "address"],
+    "ritual_ZNK13QTextToSpeech6localeEv": ["address", "address"],
+    "ritual_ZNK13QTextToSpeech5voiceEv": ["address", "address"],
+    "ritual_ZNK13QTextToSpeech15availableVoicesEv": ["address", "address"],
+    "ritual_ZNK13QTextToSpeech4rateEv": ["double", "address"],
+    "ritual_ZNK13QTextToSpeech5pitchEv": ["double", "address"],
+    "ritual_ZNK13QTextToSpeech6volumeEv": ["double", "address"],
+    "ritual_ZN13QTextToSpeech16availableEnginesEv": ["address"],
+    "ritual_ZN13QTextToSpeech3sayERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN13QTextToSpeech7enqueueERK7QString": [
+      "long long", "address", "text"
+    ],
+    "ritual_ZN13QTextToSpeech4stopENS_12BoundaryHintE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN13QTextToSpeech5pauseENS_12BoundaryHintE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN13QTextToSpeech6resumeEv": ["nothing", "address"],
+    "ritual_ZN13QTextToSpeech9setLocaleERK7QLocale": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QTextToSpeech7setRateEd": ["nothing", "address", "double"],
+    "ritual_ZN13QTextToSpeech8setPitchEd": ["nothing", "address", "double"],
+    "ritual_ZN13QTextToSpeech9setVolumeEd": ["nothing", "address", "double"],
+    "ritual_ZN13QTextToSpeech8setVoiceERK6QVoice": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QTextToSpeech9allVoicesEPK7QLocale": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN13QTextToSpeech14synthesizeImplERK7QStringPN9QtPrivate15QSlotObjectBaseEPK7QObjectNS_18SynthesizeOverloadE": [
+      "nothing", "address", "text", "address", "address", "int"
+    ],
+    "ritual_take_QTextToSpeech": ["bool", "address", "chars", "address"]
+  }
+}

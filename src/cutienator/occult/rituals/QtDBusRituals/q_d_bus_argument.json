@@ -1,0 +1,54 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDBus/qdbusargument.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN13QDBusArgumentC1Ev": ["address"],
+    "ritual_ZN13QDBusArgumentC1ERKS_": ["address", "address"],
+    "ritual_ZN13QDBusArgumentD1Ev": ["nothing", "address"],
+    "ritual_ZN13QDBusArgument14beginStructureEv": ["nothing", "address"],
+    "ritual_ZN13QDBusArgument12endStructureEv": ["nothing", "address"],
+    "ritual_ZN13QDBusArgument10beginArrayEi": ["nothing", "address", "int"],
+    "ritual_ZN13QDBusArgument10beginArrayE9QMetaType": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QDBusArgument8endArrayEv": ["nothing", "address"],
+    "ritual_ZN13QDBusArgument8beginMapEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN13QDBusArgument8beginMapE9QMetaTypeS0_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN13QDBusArgument6endMapEv": ["nothing", "address"],
+    "ritual_ZN13QDBusArgument13beginMapEntryEv": ["nothing", "address"],
+    "ritual_ZN13QDBusArgument11endMapEntryEv": ["nothing", "address"],
+    "ritual_ZN13QDBusArgument13appendVariantERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QDBusArgument16currentSignatureEv": ["text", "address"],
+    "ritual_ZNK13QDBusArgument11currentTypeEv": ["int", "address"],
+    "ritual_ZNK13QDBusArgumentrsERh": ["address", "address", "address"],
+    "ritual_ZNK13QDBusArgumentrsERb": ["address", "address", "address"],
+    "ritual_ZNK13QDBusArgumentrsERs": ["address", "address", "address"],
+    "ritual_ZNK13QDBusArgumentrsERt": ["address", "address", "address"],
+    "ritual_ZNK13QDBusArgumentrsERi": ["address", "address", "address"],
+    "ritual_ZNK13QDBusArgumentrsERj": ["address", "address", "address"],
+    "ritual_ZNK13QDBusArgumentrsERx": ["address", "address", "address"],
+    "ritual_ZNK13QDBusArgumentrsERy": ["address", "address", "address"],
+    "ritual_ZNK13QDBusArgumentrsERd": ["address", "address", "address"],
+    "ritual_ZNK13QDBusArgument14beginStructureEv": ["nothing", "address"],
+    "ritual_ZNK13QDBusArgument12endStructureEv": ["nothing", "address"],
+    "ritual_ZNK13QDBusArgument10beginArrayEv": ["nothing", "address"],
+    "ritual_ZNK13QDBusArgument8endArrayEv": ["nothing", "address"],
+    "ritual_ZNK13QDBusArgument8beginMapEv": ["nothing", "address"],
+    "ritual_ZNK13QDBusArgument6endMapEv": ["nothing", "address"],
+    "ritual_ZNK13QDBusArgument13beginMapEntryEv": ["nothing", "address"],
+    "ritual_ZNK13QDBusArgument11endMapEntryEv": ["nothing", "address"],
+    "ritual_ZNK13QDBusArgument5atEndEv": ["bool", "address"],
+    "ritual_ZNK13QDBusArgument9asVariantEv": ["address", "address"],
+    "ritual_ZN13QDBusArgumentC1EP20QDBusArgumentPrivate": [
+      "address", "address"
+    ]
+  }
+}

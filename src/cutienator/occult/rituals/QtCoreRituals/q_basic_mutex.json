@@ -15,6 +15,7 @@
       "bool", "address", "address"
     ],
     "ritual_ZN11QBasicMutex12lockInternalEi": ["bool", "address", "int"],
-    "ritual_ZN11QBasicMutex14unlockInternalEv": ["nothing", "address"]
+    "ritual_ZN11QBasicMutex14unlockInternalEv": ["nothing", "address"],
+    "ritual_ZN11QBasicMutex11dummyLockedEv": ["address"]
   }
 }

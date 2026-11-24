@@ -1,0 +1,34 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/6.12.0/QtNetwork/private/qnetworkreplydataimpl_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK21QNetworkReplyDataImpl10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QNetworkReplyDataImplD1Ev": ["nothing", "address"],
+    "ritual_ZN21QNetworkReplyDataImpl5abortEv": ["nothing", "address"],
+    "ritual_ZN21QNetworkReplyDataImpl5closeEv": ["nothing", "address"],
+    "ritual_ZNK21QNetworkReplyDataImpl14bytesAvailableEv": [
+      "long long", "address"
+    ],
+    "ritual_ZNK21QNetworkReplyDataImpl12isSequentialEv": ["bool", "address"],
+    "ritual_ZNK21QNetworkReplyDataImpl4sizeEv": ["long long", "address"],
+    "ritual_ZN21QNetworkReplyDataImpl6d_funcEv": ["address", "address"],
+    "ritual_ZNK21QNetworkReplyDataImpl6d_funcEv": ["address", "address"],
+    "ritual_take_QNetworkReplyDataImpl": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN21QNetworkReplyDataImpl5abortEv": ["nothing", "address"],
+    "ritual_own_ZN21QNetworkReplyDataImpl5closeEv": ["nothing", "address"],
+    "ritual_own_ZNK21QNetworkReplyDataImpl14bytesAvailableEv": [
+      "long long", "address"
+    ],
+    "ritual_own_ZNK21QNetworkReplyDataImpl12isSequentialEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZNK21QNetworkReplyDataImpl4sizeEv": ["long long", "address"]
+  }
+}

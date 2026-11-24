@@ -1,0 +1,55 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/qtresourcemodel_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK15QtResourceModel10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QtResourceModel2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN15QtResourceModelC1EP7QObject": ["address", "address"],
+    "ritual_ZN15QtResourceModelD1Ev": ["nothing", "address"],
+    "ritual_ZNK15QtResourceModel14loadedQrcFilesEv": ["address", "address"],
+    "ritual_ZNK15QtResourceModel10isModifiedERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN15QtResourceModel11setModifiedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK15QtResourceModel12resourceSetsEv": ["address", "address"],
+    "ritual_ZNK15QtResourceModel18currentResourceSetEv": [
+      "address", "address"
+    ],
+    "ritual_ZN15QtResourceModel21setCurrentResourceSetEP13QtResourceSetPiP7QString": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN15QtResourceModel14addResourceSetERK5QListI7QStringE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN15QtResourceModel17removeResourceSetEP13QtResourceSet": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QtResourceModel6reloadERK7QStringPiPS0_": [
+      "nothing", "address", "text", "address", "address"
+    ],
+    "ritual_ZN15QtResourceModel6reloadEPiP7QString": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK15QtResourceModel7qrcPathERK7QString": [
+      "text", "address", "text"
+    ],
+    "ritual_ZN15QtResourceModel17setWatcherEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK15QtResourceModel16isWatcherEnabledEv": ["bool", "address"],
+    "ritual_ZN15QtResourceModel17setWatcherEnabledERK7QStringb": [
+      "nothing", "address", "text", "bool"
+    ],
+    "ritual_ZN15QtResourceModel16isWatcherEnabledERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_take_QtResourceModel": ["bool", "address", "chars", "address"]
+  }
+}

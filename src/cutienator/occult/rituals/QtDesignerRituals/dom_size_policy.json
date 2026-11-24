@@ -1,0 +1,63 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/ui4_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN13DomSizePolicyC1Ev": ["address"],
+    "ritual_ZN13DomSizePolicyD1Ev": ["nothing", "address"],
+    "ritual_ZNK13DomSizePolicy21hasAttributeHSizeTypeEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK13DomSizePolicy18attributeHSizeTypeEv": ["text", "address"],
+    "ritual_ZN13DomSizePolicy21setAttributeHSizeTypeERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN13DomSizePolicy23clearAttributeHSizeTypeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK13DomSizePolicy21hasAttributeVSizeTypeEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK13DomSizePolicy18attributeVSizeTypeEv": ["text", "address"],
+    "ritual_ZN13DomSizePolicy21setAttributeVSizeTypeERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN13DomSizePolicy23clearAttributeVSizeTypeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK13DomSizePolicy16elementHSizeTypeEv": ["int", "address"],
+    "ritual_ZN13DomSizePolicy19setElementHSizeTypeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK13DomSizePolicy19hasElementHSizeTypeEv": ["bool", "address"],
+    "ritual_ZN13DomSizePolicy21clearElementHSizeTypeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK13DomSizePolicy16elementVSizeTypeEv": ["int", "address"],
+    "ritual_ZN13DomSizePolicy19setElementVSizeTypeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK13DomSizePolicy19hasElementVSizeTypeEv": ["bool", "address"],
+    "ritual_ZN13DomSizePolicy21clearElementVSizeTypeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK13DomSizePolicy17elementHorStretchEv": ["int", "address"],
+    "ritual_ZN13DomSizePolicy20setElementHorStretchEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK13DomSizePolicy20hasElementHorStretchEv": ["bool", "address"],
+    "ritual_ZN13DomSizePolicy22clearElementHorStretchEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK13DomSizePolicy17elementVerStretchEv": ["int", "address"],
+    "ritual_ZN13DomSizePolicy20setElementVerStretchEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK13DomSizePolicy20hasElementVerStretchEv": ["bool", "address"],
+    "ritual_ZN13DomSizePolicy22clearElementVerStretchEv": [
+      "nothing", "address"
+    ]
+  }
+}

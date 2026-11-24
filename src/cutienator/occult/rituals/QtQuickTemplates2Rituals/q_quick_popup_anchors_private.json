@@ -1,0 +1,14 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquickpopupanchors_p_p",
+    ".h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN25QQuickPopupAnchorsPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK25QQuickPopupAnchorsPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN25QQuickPopupAnchorsPrivate3getEP18QQuickPopupAnchors": [
+      "address", "address"
+    ]
+  }
+}

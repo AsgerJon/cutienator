@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qsimplex_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QSimplexConstraintC1Ev": ["address"],
+    "ritual_ZN18QSimplexConstraint6invertEv": ["nothing", "address"],
+    "ritual_ZN18QSimplexConstraint11isSatisfiedEv": ["bool", "address"],
+    "ritual_ZN18QSimplexConstraint8toStringEv": ["text", "address"],
+    "ritual_list_make_QSimplexConstraint_ptr": ["address"],
+    "ritual_list_add_QSimplexConstraint_ptr": [
+      "nothing", "address", "address"
+    ],
+    "ritual_list_size_QSimplexConstraint_ptr": ["long long", "address"],
+    "ritual_list_at_QSimplexConstraint_ptr": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_QSimplexConstraint_ptr": ["nothing", "address"]
+  }
+}

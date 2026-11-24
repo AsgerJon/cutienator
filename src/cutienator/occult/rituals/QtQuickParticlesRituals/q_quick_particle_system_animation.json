@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Particles/6.12.0/QtQuickParticles/private/qquickparticlesystem_p.h",
+    ", Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK29QQuickParticleSystemAnimation10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN29QQuickParticleSystemAnimation17updateCurrentTimeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK29QQuickParticleSystemAnimation8durationEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZN29QQuickParticleSystemAnimation17updateCurrentTimeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZNK29QQuickParticleSystemAnimation8durationEv": [
+      "int", "address"
+    ]
+  }
+}

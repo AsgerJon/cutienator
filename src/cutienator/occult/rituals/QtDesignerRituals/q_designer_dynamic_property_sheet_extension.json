@@ -1,0 +1,30 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/dynamicpropertysheet.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZN38QDesignerDynamicPropertySheetExtensionD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK38QDesignerDynamicPropertySheetExtension24dynamicPropertiesAllowedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN38QDesignerDynamicPropertySheetExtension18addDynamicPropertyERK7QStringRK8QVariant": [
+      "int", "address", "text", "address"
+    ],
+    "ritual_ZN38QDesignerDynamicPropertySheetExtension21removeDynamicPropertyEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK38QDesignerDynamicPropertySheetExtension17isDynamicPropertyEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK38QDesignerDynamicPropertySheetExtension21canAddDynamicPropertyERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_take_QDesignerDynamicPropertySheetExtension": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

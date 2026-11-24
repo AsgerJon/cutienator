@@ -1,0 +1,54 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/layoutdecoration.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN34QDesignerLayoutDecorationExtensionD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK34QDesignerLayoutDecorationExtension7widgetsEP7QLayout": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK34QDesignerLayoutDecorationExtension8itemInfoEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK34QDesignerLayoutDecorationExtension7indexOfEP7QWidget": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK34QDesignerLayoutDecorationExtension7indexOfEP11QLayoutItem": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK34QDesignerLayoutDecorationExtension17currentInsertModeEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK34QDesignerLayoutDecorationExtension12currentIndexEv": [
+      "int", "address"
+    ],
+    "ritual_ZN34QDesignerLayoutDecorationExtension12removeWidgetEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN34QDesignerLayoutDecorationExtension9insertRowEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN34QDesignerLayoutDecorationExtension12insertColumnEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN34QDesignerLayoutDecorationExtension8simplifyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK34QDesignerLayoutDecorationExtension10findItemAtERK6QPoint": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK34QDesignerLayoutDecorationExtension10findItemAtEii": [
+      "int", "address", "int", "int"
+    ],
+    "ritual_ZN34QDesignerLayoutDecorationExtension15adjustIndicatorERK6QPointi": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_take_QDesignerLayoutDecorationExtension": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

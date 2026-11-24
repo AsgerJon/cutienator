@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qrangemodel_impl.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QRangeModelDetails16DroppedEntryCellC1Ev": ["address"],
+    "ritual_ZN18QRangeModelDetails16DroppedEntryCellC1Eii": [
+      "address", "int", "int"
+    ],
+    "ritual_ZN18QRangeModelDetailseqERKNS_16DroppedEntryCellES2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN18QRangeModelDetailsneERKNS_16DroppedEntryCellES2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN18QRangeModelDetails16DroppedEntryCellD1Ev": [
+      "nothing", "address"
+    ]
+  }
+}

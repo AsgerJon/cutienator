@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qaccessiblequickpopupi",
+    "tem_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN25QAccessibleQuickPopupItemC1EP15QQuickPopupItem": [
+      "address", "address"
+    ],
+    "ritual_ZNK25QAccessibleQuickPopupItem5stateEv": ["address", "address"],
+    "ritual_take_QAccessibleQuickPopupItem": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK25QAccessibleQuickPopupItem5stateEv": [
+      "address", "address"
+    ]
+  }
+}

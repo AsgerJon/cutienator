@@ -1,0 +1,23 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qvariantanimation_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN24QVariantAnimationPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK24QVariantAnimationPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN24QVariantAnimationPrivate3getEP17QVariantAnimation": [
+      "address", "address"
+    ],
+    "ritual_ZN24QVariantAnimationPrivate14setEasingCurveERK12QEasingCurve": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QVariantAnimationPrivate11setDurationEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN24QVariantAnimationPrivate26setCurrentValueForProgressEd": [
+      "nothing", "address", "double"
+    ]
+  }
+}

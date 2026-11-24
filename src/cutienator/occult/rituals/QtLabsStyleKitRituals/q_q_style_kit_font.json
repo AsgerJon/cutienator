@@ -1,0 +1,20 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLabsStyleKit/6.12.0/QtLabsStyleKit/private/qqstylekitfont_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK14QQStyleKitFont10metaObjectEv": ["address", "address"],
+    "ritual_ZNK14QQStyleKitFont12fallbackFontEv": ["address", "address"],
+    "ritual_ZNK14QQStyleKitFont12fontForScopeEN11QQuickTheme5ScopeE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK14QQStyleKitFont5isSetEN11QQuickTheme5ScopeE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN14QQStyleKitFont7markSetEN11QQuickTheme5ScopeE": [
+      "nothing", "address", "int"
+    ]
+  }
+}

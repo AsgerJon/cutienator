@@ -1,0 +1,121 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickmultipointtoucharea_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK25QQuickMultiPointTouchArea10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QQuickMultiPointTouchArea2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN25QQuickMultiPointTouchAreaC1EP10QQuickItem": [
+      "address", "address"
+    ],
+    "ritual_ZN25QQuickMultiPointTouchAreaD1Ev": ["nothing", "address"],
+    "ritual_ZNK25QQuickMultiPointTouchArea18minimumTouchPointsEv": [
+      "int", "address"
+    ],
+    "ritual_ZN25QQuickMultiPointTouchArea21setMinimumTouchPointsEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK25QQuickMultiPointTouchArea18maximumTouchPointsEv": [
+      "int", "address"
+    ],
+    "ritual_ZN25QQuickMultiPointTouchArea21setMaximumTouchPointsEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK25QQuickMultiPointTouchArea12mouseEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN25QQuickMultiPointTouchArea15setMouseEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN25QQuickMultiPointTouchArea10touchEventEP11QTouchEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QQuickMultiPointTouchArea21childMouseEventFilterEP10QQuickItemP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN25QQuickMultiPointTouchArea15mousePressEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QQuickMultiPointTouchArea17mouseReleaseEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QQuickMultiPointTouchArea14mouseMoveEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QQuickMultiPointTouchArea16mouseUngrabEventEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QQuickMultiPointTouchArea16touchUngrabEventEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QQuickMultiPointTouchArea17addTouchPrototypeEP16QQuickTouchPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QQuickMultiPointTouchArea13addTouchPointEPK11QEventPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QQuickMultiPointTouchArea13addTouchPointEPK11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QQuickMultiPointTouchArea15clearTouchListsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QQuickMultiPointTouchArea16updateTouchPointEP16QQuickTouchPointPK11QEventPoint": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN25QQuickMultiPointTouchArea16updateTouchPointEP16QQuickTouchPointPK11QMouseEvent": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN25QQuickMultiPointTouchArea15updateTouchDataEP6QEventNS_16RemapEventPointsE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN25QQuickMultiPointTouchArea14sendMouseEventEP11QMouseEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN25QQuickMultiPointTouchArea12shouldFilterEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN25QQuickMultiPointTouchArea11grabGestureEP15QPointingDevice": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QQuickMultiPointTouchArea15updatePaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN25QQuickMultiPointTouchArea6ungrabEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_take_QQuickMultiPointTouchArea": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN25QQuickMultiPointTouchArea10touchEventEP11QTouchEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN25QQuickMultiPointTouchArea21childMouseEventFilterEP10QQuickItemP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_own_ZN25QQuickMultiPointTouchArea15mousePressEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN25QQuickMultiPointTouchArea17mouseReleaseEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN25QQuickMultiPointTouchArea14mouseMoveEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN25QQuickMultiPointTouchArea16mouseUngrabEventEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN25QQuickMultiPointTouchArea16touchUngrabEventEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN25QQuickMultiPointTouchArea15updatePaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
+      "address", "address", "address", "address"
+    ]
+  }
+}

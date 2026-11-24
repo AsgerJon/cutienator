@@ -1,0 +1,30 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickitem_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK29QQuickLayoutMirroringAttached10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN29QQuickLayoutMirroringAttached24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QQuickLayoutMirroringAttached21qt_qmlMarker_attachedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK29QQuickLayoutMirroringAttached7enabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN29QQuickLayoutMirroringAttached10setEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN29QQuickLayoutMirroringAttached12resetEnabledEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK29QQuickLayoutMirroringAttached15childrenInheritEv": [
+      "bool", "address"
+    ]
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQmlCompiler/6.12.0/QtQmlCompiler/private/qqmljslogger_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN24IssueLocationWithContextC1E11QStringViewRKN6QQmlJS14SourceLocationE": [
+      "address", "text", "address"
+    ],
+    "ritual_ZNK24IssueLocationWithContext10beforeTextEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK24IssueLocationWithContext9issueTextEv": ["text", "address"],
+    "ritual_ZNK24IssueLocationWithContext9afterTextEv": ["text", "address"],
+    "ritual_ZN24IssueLocationWithContextD1Ev": ["nothing", "address"]
+  }
+}

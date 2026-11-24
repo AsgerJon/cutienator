@@ -26,11 +26,13 @@ const char *ritual_ZNK13QMetaProperty8typeNameEv(const QMetaProperty *self) {
   return self->typeName();
 }
 
+#if QT_DEPRECATED_SINCE(6, 0)
 //  QVariant::Type QMetaProperty::type() const
 extern "C" Q_DECL_EXPORT
 QVariant::Type ritual_ZNK13QMetaProperty4typeEv(const QMetaProperty *self) {
   return self->type();
 }
+#endif  // QT_DEPRECATED_SINCE(6, 0)
 
 //  int QMetaProperty::userType() const
 extern "C" Q_DECL_EXPORT
@@ -245,12 +247,14 @@ const QMetaObject *ritual_ZNK13QMetaProperty19enclosingMetaObjectEv(
   return self->enclosingMetaObject();
 }
 
+#if QT_DEPRECATED_SINCE(6, 4)
 //  int QMetaProperty::registerPropertyType() const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK13QMetaProperty20registerPropertyTypeEv(
     const QMetaProperty *self) {
   return self->registerPropertyType();
 }
+#endif  // QT_DEPRECATED_SINCE(6, 4)
 
 //  QMetaProperty::QMetaProperty(const QMetaObject *mobj, int index)
 extern "C" Q_DECL_EXPORT

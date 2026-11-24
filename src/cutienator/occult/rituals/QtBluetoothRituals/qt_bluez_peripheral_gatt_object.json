@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtBluetooth/6.12.0/QtBluetooth/private/bluezperipheralobjects_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK27QtBluezPeripheralGattObject10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QtBluezPeripheralGattObjectD1Ev": ["nothing", "address"],
+    "ritual_take_QtBluezPeripheralGattObject": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmlobjectorgadget_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QQmlObjectOrGadgetC1EP7QObject": ["address", "address"],
+    "ritual_ZN18QQmlObjectOrGadgetC1EPK11QMetaObject": [
+      "address", "address"
+    ],
+    "ritual_ZNK18QQmlObjectOrGadget6isNullEv": ["bool", "address"],
+    "ritual_ZNK18QQmlObjectOrGadget7qObjectEv": ["address", "address"],
+    "ritual_ZN18QQmlObjectOrGadgetD1Ev": ["nothing", "address"]
+  }
+}

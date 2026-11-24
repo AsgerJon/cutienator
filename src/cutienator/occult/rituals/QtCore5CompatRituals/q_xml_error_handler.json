@@ -1,0 +1,20 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore5Compat/qxml.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN16QXmlErrorHandlerD1Ev": ["nothing", "address"],
+    "ritual_ZN16QXmlErrorHandler7warningERK18QXmlParseException": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN16QXmlErrorHandler5errorERK18QXmlParseException": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN16QXmlErrorHandler10fatalErrorERK18QXmlParseException": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK16QXmlErrorHandler11errorStringEv": ["text", "address"],
+    "ritual_take_QXmlErrorHandler": ["bool", "address", "chars", "address"]
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/qdesigner_menubar_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK16QDesignerMenuBar10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QDesignerMenuBar2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN16QDesignerMenuBarC1EP7QWidget": ["address", "address"],
+    "ritual_ZN16QDesignerMenuBarD1Ev": ["nothing", "address"],
+    "ritual_ZN16QDesignerMenuBar11handleEventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK16QDesignerMenuBar10formWindowEv": ["address", "address"],
+    "ritual_ZN16QDesignerMenuBar14actionProviderEv": ["address", "address"],
+    "ritual_ZN16QDesignerMenuBar20adjustSpecialActionsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK16QDesignerMenuBar8draggingEv": ["bool", "address"],
+    "ritual_ZN16QDesignerMenuBar8moveLeftEb": ["nothing", "address", "bool"],
+    "ritual_ZN16QDesignerMenuBar9moveRightEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN16QDesignerMenuBar6moveUpEv": ["nothing", "address"],
+    "ritual_ZN16QDesignerMenuBar8moveDownEv": ["nothing", "address"],
+    "ritual_ZN16QDesignerMenuBar18contextMenuActionsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN16QDesignerMenuBar16deleteMenuActionEP7QAction": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QDesignerMenuBar10deleteMenuEv": ["nothing", "address"],
+    "ritual_ZN16QDesignerMenuBar17slotRemoveMenuBarEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QDesignerMenuBar17stopInlineEditingEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QDesignerMenuBar11actionEventEP12QActionEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QDesignerMenuBar14dragEnterEventEP15QDragEnterEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QDesignerMenuBar13dragMoveEventEP14QDragMoveEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QDesignerMenuBar14dragLeaveEventEP15QDragLeaveEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QDesignerMenuBar9dropEventEP10QDropEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QDesignerMenuBar10paintEventEP11QPaintEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QDesignerMenuBar13focusOutEventEP11QFocusEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QDesignerMenuBar13keyPressEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QDesignerMenuBar15keyReleaseEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QDesignerMenuBar27handleMouseDoubleClickEventEP11QMouseEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN16QDesignerMenuBar21handleMousePressEventEP11QMouseEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN16QDesignerMenuBar23handleMouseReleaseEventEP11QMouseEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN16QDesignerMenuBar20handleMouseMoveEventEP11QMouseEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN16QDesignerMenuBar22handleContextMenuEventEP17QContextMenuEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN16QDesignerMenuBar19handleKeyPressEventEP9QKeyEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN16QDesignerMenuBar9startDragERK6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QDesignerMenuBar11checkActionEP7QAction": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN16QDesignerMenuBar15adjustIndicatorERK6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QDesignerMenuBar10findActionERK6QPoint": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK16QDesignerMenuBar13currentActionEv": ["address", "address"],
+    "ritual_ZNK16QDesignerMenuBar15realActionCountEv": ["int", "address"],
+    "ritual_ZN16QDesignerMenuBar13enterEditModeEv": ["nothing", "address"],
+    "ritual_ZN16QDesignerMenuBar13leaveEditModeENS_13LeaveEditModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16QDesignerMenuBar12showLineEditEv": ["nothing", "address"],
+    "ritual_ZN16QDesignerMenuBar8showMenuEi": ["nothing", "address", "int"],
+    "ritual_ZN16QDesignerMenuBar8hideMenuEi": ["nothing", "address", "int"],
+    "ritual_ZNK16QDesignerMenuBar12safeActionAtEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN16QDesignerMenuBar11swapActionsEii": [
+      "bool", "address", "int", "int"
+    ],
+    "ritual_ZN16QDesignerMenuBar19updateCurrentActionEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN16QDesignerMenuBar12movePreviousEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN16QDesignerMenuBar8moveNextEb": ["nothing", "address", "bool"],
+    "ritual_take_QDesignerMenuBar": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN16QDesignerMenuBar11actionEventEP12QActionEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16QDesignerMenuBar14dragEnterEventEP15QDragEnterEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16QDesignerMenuBar13dragMoveEventEP14QDragMoveEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16QDesignerMenuBar14dragLeaveEventEP15QDragLeaveEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16QDesignerMenuBar9dropEventEP10QDropEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16QDesignerMenuBar10paintEventEP11QPaintEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16QDesignerMenuBar13focusOutEventEP11QFocusEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16QDesignerMenuBar13keyPressEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16QDesignerMenuBar15keyReleaseEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ]
+  }
+}

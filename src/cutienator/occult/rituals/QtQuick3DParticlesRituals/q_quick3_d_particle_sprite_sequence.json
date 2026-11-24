@@ -1,0 +1,85 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DParticles/6.12.0/QtQuick3DParticles/private/qquick3dparticlespri",
+    "tesequence_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK30QQuick3DParticleSpriteSequence10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN30QQuick3DParticleSpriteSequence2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN30QQuick3DParticleSpriteSequenceC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN30QQuick3DParticleSpriteSequenceD1Ev": ["nothing", "address"],
+    "ritual_ZNK30QQuick3DParticleSpriteSequence10frameCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK30QQuick3DParticleSpriteSequence10frameIndexEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK30QQuick3DParticleSpriteSequence11interpolateEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK30QQuick3DParticleSpriteSequence8durationEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK30QQuick3DParticleSpriteSequence17durationVariationEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK30QQuick3DParticleSpriteSequence11randomStartEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK30QQuick3DParticleSpriteSequence18animationDirectionEv": [
+      "int", "address"
+    ],
+    "ritual_ZN30QQuick3DParticleSpriteSequence13setFrameCountEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN30QQuick3DParticleSpriteSequence13setFrameIndexEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN30QQuick3DParticleSpriteSequence14setInterpolateEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN30QQuick3DParticleSpriteSequence11setDurationEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN30QQuick3DParticleSpriteSequence20setDurationVariationEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN30QQuick3DParticleSpriteSequence14setRandomStartEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN30QQuick3DParticleSpriteSequence21setAnimationDirectionENS_18AnimationDirectionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN30QQuick3DParticleSpriteSequence17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuick3DParticleSpriteSequence10classBeginEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuick3DParticleSpriteSequence14markNodesDirtyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuick3DParticleSpriteSequence10firstFrameEib": [
+      "float", "address", "int", "bool"
+    ],
+    "ritual_cast_QQuick3DParticleSpriteSequence_QQmlParserStatus": [
+      "address", "address"
+    ],
+    "ritual_take_QQuick3DParticleSpriteSequence": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN30QQuick3DParticleSpriteSequence17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN30QQuick3DParticleSpriteSequence10classBeginEv": [
+      "nothing", "address"
+    ]
+  }
+}

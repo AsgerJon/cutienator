@@ -1,0 +1,37 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQmlModels/6.12.0/QtQmlModels/private/qqmldelegatemodel_p_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN29QQmlDelegateModelItemMetaTypeC1EPN3QV415ExecutionEngineEP17QQmlDelegateModelRK5QListI7QStringE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN29QQmlDelegateModelItemMetaTypeC1EPN3QV415ExecutionEngineEP22QQmlTableInstanceModel": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN29QQmlDelegateModelItemMetaTypeD1Ev": ["nothing", "address"],
+    "ritual_ZN29QQmlDelegateModelItemMetaType28initializeAttachedMetaObjectEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QQmlDelegateModelItemMetaType19initializePrototypeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK29QQmlDelegateModelItemMetaType11parseGroupsERK5QListI7QStringE": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK29QQmlDelegateModelItemMetaType11parseGroupsERKN3QV45ValueE": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK29QQmlDelegateModelItemMetaType13delegateModelEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK29QQmlDelegateModelItemMetaType10groupCountEv": [
+      "long long", "address"
+    ],
+    "ritual_ZNK29QQmlDelegateModelItemMetaType16emitModelChangedEv": [
+      "nothing", "address"
+    ]
+  }
+}

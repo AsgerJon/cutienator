@@ -1,0 +1,148 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qabstractfileengine_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QAbstractFileEngineD1Ev": ["nothing", "address"],
+    "ritual_ZN19QAbstractFileEngine5closeEv": ["bool", "address"],
+    "ritual_ZN19QAbstractFileEngine5flushEv": ["bool", "address"],
+    "ritual_ZN19QAbstractFileEngine10syncToDiskEv": ["bool", "address"],
+    "ritual_ZNK19QAbstractFileEngine4sizeEv": ["long long", "address"],
+    "ritual_ZNK19QAbstractFileEngine3posEv": ["long long", "address"],
+    "ritual_ZN19QAbstractFileEngine4seekEx": [
+      "bool", "address", "long long"
+    ],
+    "ritual_ZNK19QAbstractFileEngine12isSequentialEv": ["bool", "address"],
+    "ritual_ZN19QAbstractFileEngine6removeEv": ["bool", "address"],
+    "ritual_ZN19QAbstractFileEngine4copyERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN19QAbstractFileEngine6renameERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN19QAbstractFileEngine15renameOverwriteERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN19QAbstractFileEngine4linkERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZNK19QAbstractFileEngine5rmdirERK7QStringb": [
+      "bool", "address", "text", "bool"
+    ],
+    "ritual_ZN19QAbstractFileEngine7setSizeEx": [
+      "bool", "address", "long long"
+    ],
+    "ritual_ZNK19QAbstractFileEngine13caseSensitiveEv": ["bool", "address"],
+    "ritual_ZNK19QAbstractFileEngine14isRelativePathEv": ["bool", "address"],
+    "ritual_ZNK19QAbstractFileEngine9fileFlagsE6QFlagsINS_8FileFlagEE": [
+      "int", "address", "int"
+    ],
+    "ritual_ZN19QAbstractFileEngine14setPermissionsEj": [
+      "bool", "address", "unsigned int"
+    ],
+    "ritual_ZNK19QAbstractFileEngine2idEv": ["address", "address"],
+    "ritual_ZNK19QAbstractFileEngine8fileNameENS_8FileNameE": [
+      "text", "address", "int"
+    ],
+    "ritual_ZNK19QAbstractFileEngine7ownerIdENS_9FileOwnerE": [
+      "unsigned int", "address", "int"
+    ],
+    "ritual_ZNK19QAbstractFileEngine5ownerENS_9FileOwnerE": [
+      "text", "address", "int"
+    ],
+    "ritual_ZN19QAbstractFileEngine11setFileNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK19QAbstractFileEngine6handleEv": ["int", "address"],
+    "ritual_ZN19QAbstractFileEngine7cloneToEPS_": [
+      "signed char", "address", "address"
+    ],
+    "ritual_ZNK19QAbstractFileEngine5atEndEv": ["bool", "address"],
+    "ritual_ZN19QAbstractFileEngine5unmapEPh": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN19QAbstractFileEngine5writeEPKcx": [
+      "long long", "address", "chars", "long long"
+    ],
+    "ritual_ZNK19QAbstractFileEngine11errorStringEv": ["text", "address"],
+    "ritual_ZN19QAbstractFileEngine9extensionENS_9ExtensionEPKNS_15ExtensionOptionEPNS_15ExtensionReturnE": [
+      "bool", "address", "int", "address", "address"
+    ],
+    "ritual_ZNK19QAbstractFileEngine17supportsExtensionENS_9ExtensionE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN19QAbstractFileEngineC1Ev": ["address"],
+    "ritual_ZN19QAbstractFileEngine6d_funcEv": ["address", "address"],
+    "ritual_ZNK19QAbstractFileEngine6d_funcEv": ["address", "address"],
+    "ritual_take_QAbstractFileEngine": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN19QAbstractFileEngine5closeEv": ["bool", "address"],
+    "ritual_own_ZN19QAbstractFileEngine5flushEv": ["bool", "address"],
+    "ritual_own_ZN19QAbstractFileEngine10syncToDiskEv": ["bool", "address"],
+    "ritual_own_ZNK19QAbstractFileEngine4sizeEv": ["long long", "address"],
+    "ritual_own_ZNK19QAbstractFileEngine3posEv": ["long long", "address"],
+    "ritual_own_ZN19QAbstractFileEngine4seekEx": [
+      "bool", "address", "long long"
+    ],
+    "ritual_own_ZNK19QAbstractFileEngine12isSequentialEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZN19QAbstractFileEngine6removeEv": ["bool", "address"],
+    "ritual_own_ZN19QAbstractFileEngine4copyERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_own_ZN19QAbstractFileEngine6renameERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_own_ZN19QAbstractFileEngine15renameOverwriteERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_own_ZN19QAbstractFileEngine4linkERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_own_ZNK19QAbstractFileEngine5rmdirERK7QStringb": [
+      "bool", "address", "text", "bool"
+    ],
+    "ritual_own_ZN19QAbstractFileEngine7setSizeEx": [
+      "bool", "address", "long long"
+    ],
+    "ritual_own_ZNK19QAbstractFileEngine13caseSensitiveEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZNK19QAbstractFileEngine14isRelativePathEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZNK19QAbstractFileEngine9fileFlagsE6QFlagsINS_8FileFlagEE": [
+      "int", "address", "int"
+    ],
+    "ritual_own_ZN19QAbstractFileEngine14setPermissionsEj": [
+      "bool", "address", "unsigned int"
+    ],
+    "ritual_own_ZNK19QAbstractFileEngine2idEv": ["address", "address"],
+    "ritual_own_ZNK19QAbstractFileEngine8fileNameENS_8FileNameE": [
+      "text", "address", "int"
+    ],
+    "ritual_own_ZNK19QAbstractFileEngine7ownerIdENS_9FileOwnerE": [
+      "unsigned int", "address", "int"
+    ],
+    "ritual_own_ZNK19QAbstractFileEngine5ownerENS_9FileOwnerE": [
+      "text", "address", "int"
+    ],
+    "ritual_own_ZN19QAbstractFileEngine11setFileNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_own_ZNK19QAbstractFileEngine6handleEv": ["int", "address"],
+    "ritual_own_ZN19QAbstractFileEngine7cloneToEPS_": [
+      "signed char", "address", "address"
+    ],
+    "ritual_own_ZN19QAbstractFileEngine9extensionENS_9ExtensionEPKNS_15ExtensionOptionEPNS_15ExtensionReturnE": [
+      "bool", "address", "int", "address", "address"
+    ],
+    "ritual_own_ZNK19QAbstractFileEngine17supportsExtensionENS_9ExtensionE": [
+      "bool", "address", "int"
+    ]
+  }
+}

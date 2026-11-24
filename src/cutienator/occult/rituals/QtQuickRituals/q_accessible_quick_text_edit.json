@@ -1,0 +1,48 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qaccessiblequicktextedit_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN24QAccessibleQuickTextEditC1EP14QQuickTextEdit": [
+      "address", "address"
+    ],
+    "ritual_ZN24QAccessibleQuickTextEdit15removeSelectionEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN24QAccessibleQuickTextEdit12setSelectionEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZN24QAccessibleQuickTextEdit10deleteTextEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN24QAccessibleQuickTextEdit10insertTextEiRK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZN24QAccessibleQuickTextEdit11replaceTextEiiRK7QString": [
+      "nothing", "address", "int", "int", "text"
+    ],
+    "ritual_ZNK24QAccessibleQuickTextEdit8textEditEv": [
+      "address", "address"
+    ],
+    "ritual_cast_QAccessibleQuickTextEdit_QAccessibleEditableTextInterface": [
+      "address", "address"
+    ],
+    "ritual_own_ZN24QAccessibleQuickTextEdit15removeSelectionEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN24QAccessibleQuickTextEdit12setSelectionEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_own_ZN24QAccessibleQuickTextEdit10deleteTextEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZN24QAccessibleQuickTextEdit10insertTextEiRK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_own_ZN24QAccessibleQuickTextEdit11replaceTextEiiRK7QString": [
+      "nothing", "address", "int", "int", "text"
+    ]
+  }
+}

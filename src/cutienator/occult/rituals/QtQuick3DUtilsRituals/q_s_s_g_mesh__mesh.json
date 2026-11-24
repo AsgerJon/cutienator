@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3DUtils/6.12.0/QtQuick3DUtils/private/qssgmesh_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK8QSSGMesh4Mesh12vertexBufferEv": ["address", "address"],
+    "ritual_ZNK8QSSGMesh4Mesh11indexBufferEv": ["address", "address"],
+    "ritual_ZNK8QSSGMesh4Mesh12targetBufferEv": ["address", "address"],
+    "ritual_ZNK8QSSGMesh4Mesh7isValidEv": ["bool", "address"],
+    "ritual_ZNK8QSSGMesh4Mesh8drawModeEv": ["int", "address"],
+    "ritual_ZNK8QSSGMesh4Mesh7windingEv": ["int", "address"],
+    "ritual_ZN8QSSGMesh4MeshD1Ev": ["nothing", "address"]
+  }
+}

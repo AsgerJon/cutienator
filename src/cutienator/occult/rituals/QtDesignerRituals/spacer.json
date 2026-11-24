@@ -1,0 +1,45 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/spacer_widget_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK6Spacer10metaObjectEv": ["address", "address"],
+    "ritual_ZN6Spacer2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN6SpacerC1EP7QWidget": ["address", "address"],
+    "ritual_ZNK6Spacer8sizeHintEv": ["address", "address"],
+    "ritual_ZNK6Spacer16sizeHintPropertyEv": ["address", "address"],
+    "ritual_ZN6Spacer19setSizeHintPropertyERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK6Spacer8sizeTypeEv": ["int", "address"],
+    "ritual_ZN6Spacer11setSizeTypeEN11QSizePolicy6PolicyE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK6Spacer9alignmentEv": ["int", "address"],
+    "ritual_ZNK6Spacer11orientationEv": ["int", "address"],
+    "ritual_ZN6Spacer14setOrientationEN2Qt11OrientationE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN6Spacer18setInteractiveModeEb": ["nothing", "address", "bool"],
+    "ritual_ZN6Spacer5eventEP6QEvent": ["bool", "address", "address"],
+    "ritual_ZN6Spacer10paintEventEP11QPaintEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6Spacer11resizeEventEP12QResizeEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6Spacer10updateMaskEv": ["nothing", "address"],
+    "ritual_ZNK6Spacer10isInLayoutEv": ["bool", "address"],
+    "ritual_ZN6Spacer13updateToolTipEv": ["nothing", "address"],
+    "ritual_own_ZNK6Spacer8sizeHintEv": ["address", "address"],
+    "ritual_own_ZN6Spacer5eventEP6QEvent": ["bool", "address", "address"],
+    "ritual_own_ZN6Spacer10paintEventEP11QPaintEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6Spacer11resizeEventEP12QResizeEvent": [
+      "nothing", "address", "address"
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/qsslellipticcurve.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN17QSslEllipticCurveC1Ev": ["address"],
+    "ritual_ZN17QSslEllipticCurve13fromShortNameERK7QString": [
+      "address", "text"
+    ],
+    "ritual_ZN17QSslEllipticCurve12fromLongNameERK7QString": [
+      "address", "text"
+    ],
+    "ritual_ZNK17QSslEllipticCurve9shortNameEv": ["text", "address"],
+    "ritual_ZNK17QSslEllipticCurve8longNameEv": ["text", "address"],
+    "ritual_ZNK17QSslEllipticCurve7isValidEv": ["bool", "address"],
+    "ritual_ZNK17QSslEllipticCurve15isTlsNamedCurveEv": ["bool", "address"],
+    "ritual_Zeq17QSslEllipticCurveS_": ["bool", "address", "address"],
+    "ritual_Zne17QSslEllipticCurveS_": ["bool", "address", "address"],
+    "ritual_ZN17QSslEllipticCurveD1Ev": ["nothing", "address"],
+    "ritual_list_make_QSslEllipticCurve": ["address"],
+    "ritual_list_add_QSslEllipticCurve": ["nothing", "address", "address"],
+    "ritual_list_size_QSslEllipticCurve": ["long long", "address"],
+    "ritual_list_at_QSslEllipticCurve": ["address", "address", "long long"],
+    "ritual_list_drop_QSslEllipticCurve": ["nothing", "address"]
+  }
+}

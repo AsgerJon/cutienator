@@ -1,0 +1,32 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickpath_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK11QQuickCurve10metaObjectEv": ["address", "address"],
+    "ritual_ZN11QQuickCurve2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN11QQuickCurve22qt_qmlMarker_anonymousEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN11QQuickCurveC1EP7QObject": ["address", "address"],
+    "ritual_ZNK11QQuickCurve1xEv": ["double", "address"],
+    "ritual_ZN11QQuickCurve4setXEd": ["nothing", "address", "double"],
+    "ritual_ZN11QQuickCurve4hasXEv": ["bool", "address"],
+    "ritual_ZNK11QQuickCurve1yEv": ["double", "address"],
+    "ritual_ZN11QQuickCurve4setYEd": ["nothing", "address", "double"],
+    "ritual_ZN11QQuickCurve4hasYEv": ["bool", "address"],
+    "ritual_ZNK11QQuickCurve9relativeXEv": ["double", "address"],
+    "ritual_ZN11QQuickCurve12setRelativeXEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN11QQuickCurve12hasRelativeXEv": ["bool", "address"],
+    "ritual_ZNK11QQuickCurve9relativeYEv": ["double", "address"],
+    "ritual_ZN11QQuickCurve12setRelativeYEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN11QQuickCurve12hasRelativeYEv": ["bool", "address"],
+    "ritual_Zls6QDebugPK11QQuickCurve": ["address", "address", "address"]
+  }
+}

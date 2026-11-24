@@ -70,6 +70,7 @@
     ],
     "ritual_ZN15QGuiApplication20desktopSettingsAwareEv": ["bool"],
     "ritual_ZN15QGuiApplication11inputMethodEv": ["address"],
+    "ritual_ZN15QGuiApplication23platformNativeInterfaceEv": ["address"],
     "ritual_ZN15QGuiApplication25setQuitOnLastWindowClosedEb": [
       "nothing", "bool"
     ],
@@ -93,12 +94,20 @@
     "ritual_ZN15QGuiApplication5eventEP6QEvent": [
       "bool", "address", "address"
     ],
+    "ritual_ZN15QGuiApplication13compressEventEP6QEventP7QObjectP14QPostEventList": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZN15QGuiApplication6d_funcEv": ["address", "address"],
+    "ritual_ZNK15QGuiApplication6d_funcEv": ["address", "address"],
     "ritual_take_QGuiApplication": ["bool", "address", "chars", "address"],
     "ritual_own_ZN15QGuiApplication6notifyEP7QObjectP6QEvent": [
       "bool", "address", "address", "address"
     ],
     "ritual_own_ZN15QGuiApplication5eventEP6QEvent": [
       "bool", "address", "address"
+    ],
+    "ritual_own_ZN15QGuiApplication13compressEventEP6QEventP7QObjectP14QPostEventList": [
+      "bool", "address", "address", "address", "address"
     ]
   }
 }

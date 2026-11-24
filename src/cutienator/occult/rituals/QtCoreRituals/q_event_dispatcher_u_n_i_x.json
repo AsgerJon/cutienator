@@ -1,0 +1,41 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qeventdispatcher_unix_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK20QEventDispatcherUNIX10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QEventDispatcherUNIX2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN20QEventDispatcherUNIX6d_funcEv": ["address", "address"],
+    "ritual_ZNK20QEventDispatcherUNIX6d_funcEv": ["address", "address"],
+    "ritual_ZN20QEventDispatcherUNIXC1EP7QObject": ["address", "address"],
+    "ritual_ZN20QEventDispatcherUNIXD1Ev": ["nothing", "address"],
+    "ritual_ZN20QEventDispatcherUNIX13processEventsE6QFlagsIN10QEventLoop17ProcessEventsFlagEE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN20QEventDispatcherUNIX22registerSocketNotifierEP15QSocketNotifier": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QEventDispatcherUNIX24unregisterSocketNotifierEP15QSocketNotifier": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QEventDispatcherUNIX15unregisterTimerEN2Qt7TimerIdE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN20QEventDispatcherUNIX16unregisterTimersEP7QObject": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN20QEventDispatcherUNIX6wakeUpEv": ["nothing", "address"],
+    "ritual_ZN20QEventDispatcherUNIX9interruptEv": ["nothing", "address"],
+    "ritual_take_QEventDispatcherUNIX": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN20QEventDispatcherUNIX13processEventsE6QFlagsIN10QEventLoop17ProcessEventsFlagEE": [
+      "bool", "address", "int"
+    ],
+    "ritual_own_ZN20QEventDispatcherUNIX6wakeUpEv": ["nothing", "address"]
+  }
+}

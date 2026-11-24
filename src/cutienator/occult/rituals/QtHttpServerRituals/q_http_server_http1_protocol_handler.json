@@ -1,0 +1,33 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtHttpS",
+    "erver/6.12.0/QtHttpServer/private/qhttpserverhttp1protocolhandler_",
+    "p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK31QHttpServerHttp1ProtocolHandler10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN31QHttpServerHttp1ProtocolHandler20startHandlingRequestEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN31QHttpServerHttp1ProtocolHandler18socketDisconnectedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN31QHttpServerHttp1ProtocolHandler11writeHeaderERK10QByteArrayS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN31QHttpServerHttp1ProtocolHandler5writeERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN31QHttpServerHttp1ProtocolHandler5writeEPKcx": [
+      "nothing", "address", "chars", "long long"
+    ],
+    "ritual_ZN31QHttpServerHttp1ProtocolHandler21checkKeepAliveTimeoutEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN31QHttpServerHttp1ProtocolHandler15closeConnectionEv": [
+      "nothing", "address"
+    ]
+  }
+}

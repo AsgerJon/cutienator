@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickspritesequence_p_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN27QQuickSpriteSequencePrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK27QQuickSpriteSequencePrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QQuickSpriteSequencePrivateC1Ev": ["address"],
+    "ritual_take_QQuickSpriteSequencePrivate": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

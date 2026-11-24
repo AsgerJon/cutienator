@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmltypeloadernetworkreplyproxy_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK31QQmlTypeLoaderNetworkReplyProxy10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN31QQmlTypeLoaderNetworkReplyProxy8finishedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN31QQmlTypeLoaderNetworkReplyProxy16downloadProgressExx": [
+      "nothing", "address", "long long", "long long"
+    ],
+    "ritual_ZN31QQmlTypeLoaderNetworkReplyProxy14manualFinishedEP13QNetworkReply": [
+      "nothing", "address", "address"
+    ]
+  }
+}

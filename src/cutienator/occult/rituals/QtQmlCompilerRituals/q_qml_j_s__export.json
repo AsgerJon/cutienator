@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQmlCompiler/6.12.0/QtQmlCompiler/private/qqmljsscope_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN6QQmlJS6ExportC1Ev": ["address"],
+    "ritual_ZNK6QQmlJS6Export7packageEv": ["text", "address"],
+    "ritual_ZNK6QQmlJS6Export4typeEv": ["text", "address"],
+    "ritual_ZNK6QQmlJS6Export7versionEv": ["address", "address"],
+    "ritual_ZNK6QQmlJS6Export8revisionEv": ["address", "address"],
+    "ritual_ZN6QQmlJS6ExportD1Ev": ["nothing", "address"]
+  }
+}

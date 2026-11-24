@@ -1,0 +1,124 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3D/6.12.0/QtQuick3D/private/qquick3dnode_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK12QQuick3DNode10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QQuick3DNode2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN12QQuick3DNodeC1EPS_": ["address", "address"],
+    "ritual_ZN12QQuick3DNodeD1Ev": ["nothing", "address"],
+    "ritual_ZNK12QQuick3DNode1xEv": ["float", "address"],
+    "ritual_ZNK12QQuick3DNode1yEv": ["float", "address"],
+    "ritual_ZNK12QQuick3DNode1zEv": ["float", "address"],
+    "ritual_ZNK12QQuick3DNode8rotationEv": ["address", "address"],
+    "ritual_ZNK12QQuick3DNode13eulerRotationEv": ["address", "address"],
+    "ritual_ZNK12QQuick3DNode8positionEv": ["address", "address"],
+    "ritual_ZNK12QQuick3DNode5scaleEv": ["address", "address"],
+    "ritual_ZNK12QQuick3DNode5pivotEv": ["address", "address"],
+    "ritual_ZNK12QQuick3DNode12localOpacityEv": ["float", "address"],
+    "ritual_ZNK12QQuick3DNode7visibleEv": ["bool", "address"],
+    "ritual_ZNK12QQuick3DNode11staticFlagsEv": ["int", "address"],
+    "ritual_ZNK12QQuick3DNode10parentNodeEv": ["address", "address"],
+    "ritual_ZNK12QQuick3DNode7forwardEv": ["address", "address"],
+    "ritual_ZNK12QQuick3DNode2upEv": ["address", "address"],
+    "ritual_ZNK12QQuick3DNode5rightEv": ["address", "address"],
+    "ritual_ZNK12QQuick3DNode13scenePositionEv": ["address", "address"],
+    "ritual_ZNK12QQuick3DNode13sceneRotationEv": ["address", "address"],
+    "ritual_ZNK12QQuick3DNode10sceneScaleEv": ["address", "address"],
+    "ritual_ZNK12QQuick3DNode14sceneTransformEv": ["address", "address"],
+    "ritual_ZN12QQuick3DNode6rotateEdRK9QVector3DNS_14TransformSpaceE": [
+      "nothing", "address", "double", "address", "int"
+    ],
+    "ritual_ZNK12QQuick3DNode18mapPositionToSceneERK9QVector3D": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK12QQuick3DNode20mapPositionFromSceneERK9QVector3D": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK12QQuick3DNode17mapPositionToNodeEPKS_RK9QVector3D": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK12QQuick3DNode19mapPositionFromNodeEPKS_RK9QVector3D": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK12QQuick3DNode19mapDirectionToSceneERK9QVector3D": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK12QQuick3DNode21mapDirectionFromSceneERK9QVector3D": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK12QQuick3DNode18mapDirectionToNodeEPKS_RK9QVector3D": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK12QQuick3DNode20mapDirectionFromNodeEPKS_RK9QVector3D": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN12QQuick3DNode12markAllDirtyEv": ["nothing", "address"],
+    "ritual_ZNK12QQuick3DNode6layersEv": ["int", "address"],
+    "ritual_ZN12QQuick3DNode13connectNotifyERK11QMetaMethod": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QQuick3DNode16disconnectNotifyERK11QMetaMethod": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QQuick3DNode17componentCompleteEv": ["nothing", "address"],
+    "ritual_ZN12QQuick3DNode4setXEf": ["nothing", "address", "float"],
+    "ritual_ZN12QQuick3DNode4setYEf": ["nothing", "address", "float"],
+    "ritual_ZN12QQuick3DNode4setZEf": ["nothing", "address", "float"],
+    "ritual_ZN12QQuick3DNode11setRotationERK11QQuaternion": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QQuick3DNode16setEulerRotationERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QQuick3DNode11setPositionERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QQuick3DNode8setScaleERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QQuick3DNode8setPivotERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QQuick3DNode15setLocalOpacityEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN12QQuick3DNode10setVisibleEb": ["nothing", "address", "bool"],
+    "ritual_ZN12QQuick3DNode14setStaticFlagsEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN12QQuick3DNode9setLayersEi": ["nothing", "address", "int"],
+    "ritual_ZN12QQuick3DNode17updateSpatialNodeEP21QSSGRenderGraphObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN12QQuick3DNode10itemChangeEN14QQuick3DObject10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN12QQuick3DNode6d_funcEv": ["address", "address"],
+    "ritual_ZNK12QQuick3DNode6d_funcEv": ["address", "address"],
+    "ritual_take_QQuick3DNode": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN12QQuick3DNode12markAllDirtyEv": ["nothing", "address"],
+    "ritual_own_ZN12QQuick3DNode13connectNotifyERK11QMetaMethod": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN12QQuick3DNode16disconnectNotifyERK11QMetaMethod": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN12QQuick3DNode17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN12QQuick3DNode17updateSpatialNodeEP21QSSGRenderGraphObject": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN12QQuick3DNode10itemChangeEN14QQuick3DObject10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_list_make_QQuick3DNode_ptr": ["address"],
+    "ritual_list_add_QQuick3DNode_ptr": ["nothing", "address", "address"],
+    "ritual_list_size_QQuick3DNode_ptr": ["long long", "address"],
+    "ritual_list_at_QQuick3DNode_ptr": ["address", "address", "long long"],
+    "ritual_list_drop_QQuick3DNode_ptr": ["nothing", "address"]
+  }
+}

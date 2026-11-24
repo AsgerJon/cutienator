@@ -1,0 +1,46 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/qsgsimpletexturenode.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN20QSGSimpleTextureNodeC1Ev": ["address"],
+    "ritual_ZN20QSGSimpleTextureNodeD1Ev": ["nothing", "address"],
+    "ritual_ZN20QSGSimpleTextureNode7setRectERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QSGSimpleTextureNode7setRectEdddd": [
+      "nothing", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZNK20QSGSimpleTextureNode4rectEv": ["address", "address"],
+    "ritual_ZN20QSGSimpleTextureNode13setSourceRectERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QSGSimpleTextureNode13setSourceRectEdddd": [
+      "nothing", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZNK20QSGSimpleTextureNode10sourceRectEv": ["address", "address"],
+    "ritual_ZN20QSGSimpleTextureNode10setTextureEP10QSGTexture": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QSGSimpleTextureNode7textureEv": ["address", "address"],
+    "ritual_ZN20QSGSimpleTextureNode12setFilteringEN10QSGTexture9FilteringE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK20QSGSimpleTextureNode9filteringEv": ["int", "address"],
+    "ritual_ZN20QSGSimpleTextureNode30setTextureCoordinatesTransformE6QFlagsINS_31TextureCoordinatesTransformFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK20QSGSimpleTextureNode27textureCoordinatesTransformEv": [
+      "int", "address"
+    ],
+    "ritual_ZN20QSGSimpleTextureNode14setOwnsTextureEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK20QSGSimpleTextureNode11ownsTextureEv": ["bool", "address"],
+    "ritual_take_QSGSimpleTextureNode": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

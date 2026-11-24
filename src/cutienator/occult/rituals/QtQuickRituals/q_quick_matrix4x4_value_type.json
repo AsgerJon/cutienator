@@ -1,0 +1,150 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickvaluetypes_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN24QQuickMatrix4x4ValueType20qt_qmlMarker_foreignEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuickMatrix4x4ValueType21qt_qmlMarker_extendedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuickMatrix4x4ValueType6createERK8QJSValue": [
+      "address", "address"
+    ],
+    "ritual_ZN24QQuickMatrix4x4ValueTypeC1Ev": ["address"],
+    "ritual_ZNK24QQuickMatrix4x4ValueType3m11Ev": ["double", "address"],
+    "ritual_ZNK24QQuickMatrix4x4ValueType3m12Ev": ["double", "address"],
+    "ritual_ZNK24QQuickMatrix4x4ValueType3m13Ev": ["double", "address"],
+    "ritual_ZNK24QQuickMatrix4x4ValueType3m14Ev": ["double", "address"],
+    "ritual_ZNK24QQuickMatrix4x4ValueType3m21Ev": ["double", "address"],
+    "ritual_ZNK24QQuickMatrix4x4ValueType3m22Ev": ["double", "address"],
+    "ritual_ZNK24QQuickMatrix4x4ValueType3m23Ev": ["double", "address"],
+    "ritual_ZNK24QQuickMatrix4x4ValueType3m24Ev": ["double", "address"],
+    "ritual_ZNK24QQuickMatrix4x4ValueType3m31Ev": ["double", "address"],
+    "ritual_ZNK24QQuickMatrix4x4ValueType3m32Ev": ["double", "address"],
+    "ritual_ZNK24QQuickMatrix4x4ValueType3m33Ev": ["double", "address"],
+    "ritual_ZNK24QQuickMatrix4x4ValueType3m34Ev": ["double", "address"],
+    "ritual_ZNK24QQuickMatrix4x4ValueType3m41Ev": ["double", "address"],
+    "ritual_ZNK24QQuickMatrix4x4ValueType3m42Ev": ["double", "address"],
+    "ritual_ZNK24QQuickMatrix4x4ValueType3m43Ev": ["double", "address"],
+    "ritual_ZNK24QQuickMatrix4x4ValueType3m44Ev": ["double", "address"],
+    "ritual_ZN24QQuickMatrix4x4ValueType6setM11Ed": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN24QQuickMatrix4x4ValueType6setM12Ed": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN24QQuickMatrix4x4ValueType6setM13Ed": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN24QQuickMatrix4x4ValueType6setM14Ed": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN24QQuickMatrix4x4ValueType6setM21Ed": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN24QQuickMatrix4x4ValueType6setM22Ed": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN24QQuickMatrix4x4ValueType6setM23Ed": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN24QQuickMatrix4x4ValueType6setM24Ed": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN24QQuickMatrix4x4ValueType6setM31Ed": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN24QQuickMatrix4x4ValueType6setM32Ed": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN24QQuickMatrix4x4ValueType6setM33Ed": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN24QQuickMatrix4x4ValueType6setM34Ed": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN24QQuickMatrix4x4ValueType6setM41Ed": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN24QQuickMatrix4x4ValueType6setM42Ed": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN24QQuickMatrix4x4ValueType6setM43Ed": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN24QQuickMatrix4x4ValueType6setM44Ed": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN24QQuickMatrix4x4ValueType9translateERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QQuickMatrix4x4ValueType6rotateEfRK9QVector3D": [
+      "nothing", "address", "float", "address"
+    ],
+    "ritual_ZN24QQuickMatrix4x4ValueType6rotateERK11QQuaternion": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QQuickMatrix4x4ValueType5scaleEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN24QQuickMatrix4x4ValueType5scaleEfff": [
+      "nothing", "address", "float", "float", "float"
+    ],
+    "ritual_ZN24QQuickMatrix4x4ValueType5scaleERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QQuickMatrix4x4ValueType6lookAtERK9QVector3DS2_S2_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK24QQuickMatrix4x4ValueType5timesERK10QMatrix4x4": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK24QQuickMatrix4x4ValueType5timesERK9QVector4D": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK24QQuickMatrix4x4ValueType5timesERK9QVector3D": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK24QQuickMatrix4x4ValueType5timesEd": [
+      "address", "address", "double"
+    ],
+    "ritual_ZNK24QQuickMatrix4x4ValueType4plusERK10QMatrix4x4": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK24QQuickMatrix4x4ValueType5minusERK10QMatrix4x4": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK24QQuickMatrix4x4ValueType3rowEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK24QQuickMatrix4x4ValueType6columnEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK24QQuickMatrix4x4ValueType11determinantEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK24QQuickMatrix4x4ValueType8invertedEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK24QQuickMatrix4x4ValueType10transposedEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK24QQuickMatrix4x4ValueType3mapE7QPointF": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK24QQuickMatrix4x4ValueType7mapRectE6QRectF": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK24QQuickMatrix4x4ValueType11fuzzyEqualsERK10QMatrix4x4d": [
+      "bool", "address", "address", "double"
+    ],
+    "ritual_ZNK24QQuickMatrix4x4ValueType11fuzzyEqualsERK10QMatrix4x4": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN24QQuickMatrix4x4ValueTypeD1Ev": ["nothing", "address"]
+  }
+}

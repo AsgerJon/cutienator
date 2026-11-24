@@ -1,11 +1,18 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/6.12.0/QtWidgets/private/qgraphicsscenelinearindex_p.h, Qt
 //  6.12.0. Changes made here are lost.
+#include <QtWidgets/qtwidgetsglobal.h>
+#include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
+#if QT_CONFIG(graphicsview)
+#include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/QtWidgets>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/6.12.0/QtWidgets/private/qgraphicsscenelinearindex_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/qgraphicsitem.h>
 #include <QtCore/qrect.h>
 #include <QtCore/qlist.h>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include "qdebug.h"
 #include "qgraphicsscene.h"
 #include "qgraphicsitem_p.h"
@@ -14,13 +21,14 @@
 #include "qgraphicssceneindex_p.h"
 #include "qgraphicsscenebsptreeindex_p.h"
 #include <QtGui/qpainterpath.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
 //  Qt's source, because Qt's library carries it under no name.
 //  Copyright (C) The Qt Company Ltd. It is licensed
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
-//  'inline' put before it.
+//  'inline' put before it where Qt did not write it.
 
 //  from src/widgets/graphicsview/qgraphicssceneindex.cpp, line 318, as _ZN19QGraphicsSceneIndexC2EP14QGraphicsScene
 inline QGraphicsSceneIndex::QGraphicsSceneIndex(QGraphicsScene *scene)
@@ -111,3 +119,5 @@ void ritual_own_ZN25QGraphicsSceneLinearIndex10removeItemEP13QGraphicsItem(
   static_cast<OwnQGraphicsSceneLinearIndex *>(self)->OwnQGraphicsSceneLinearIndex::removeItem(
       item);
 }
+
+#endif  // QT_CONFIG(graphicsview)

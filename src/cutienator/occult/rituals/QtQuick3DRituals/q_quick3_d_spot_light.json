@@ -1,0 +1,42 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3D/6.12.0/QtQuick3D/private/qquick3dspotlight_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QQuick3DSpotLight10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QQuick3DSpotLight2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QQuick3DSpotLightC1EP12QQuick3DNode": ["address", "address"],
+    "ritual_ZN17QQuick3DSpotLightD1Ev": ["nothing", "address"],
+    "ritual_ZNK17QQuick3DSpotLight12constantFadeEv": ["float", "address"],
+    "ritual_ZNK17QQuick3DSpotLight10linearFadeEv": ["float", "address"],
+    "ritual_ZNK17QQuick3DSpotLight13quadraticFadeEv": ["float", "address"],
+    "ritual_ZNK17QQuick3DSpotLight9coneAngleEv": ["float", "address"],
+    "ritual_ZNK17QQuick3DSpotLight14innerConeAngleEv": ["float", "address"],
+    "ritual_ZN17QQuick3DSpotLight15setConstantFadeEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN17QQuick3DSpotLight13setLinearFadeEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN17QQuick3DSpotLight16setQuadraticFadeEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN17QQuick3DSpotLight12setConeAngleEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN17QQuick3DSpotLight17setInnerConeAngleEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN17QQuick3DSpotLight17updateSpatialNodeEP21QSSGRenderGraphObject": [
+      "address", "address", "address"
+    ],
+    "ritual_take_QQuick3DSpotLight": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN17QQuick3DSpotLight17updateSpatialNodeEP21QSSGRenderGraphObject": [
+      "address", "address", "address"
+    ]
+  }
+}

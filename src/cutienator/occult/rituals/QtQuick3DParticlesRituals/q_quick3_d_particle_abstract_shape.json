@@ -1,0 +1,45 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DParticles/6.12.0/QtQuick3DParticles/private/qquick3dparticleabst",
+    "ractshape_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK29QQuick3DParticleAbstractShape10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN29QQuick3DParticleAbstractShape2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN29QQuick3DParticleAbstractShape22qt_qmlMarker_anonymousEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QQuick3DParticleAbstractShape11getPositionEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN29QQuick3DParticleAbstractShape16getSurfaceNormalEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN29QQuick3DParticleAbstractShape17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QQuick3DParticleAbstractShape10classBeginEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QQuick3DParticleAbstractShape10parentNodeEv": [
+      "address", "address"
+    ],
+    "ritual_cast_QQuick3DParticleAbstractShape_QQmlParserStatus": [
+      "address", "address"
+    ],
+    "ritual_take_QQuick3DParticleAbstractShape": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN29QQuick3DParticleAbstractShape17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN29QQuick3DParticleAbstractShape10classBeginEv": [
+      "nothing", "address"
+    ]
+  }
+}

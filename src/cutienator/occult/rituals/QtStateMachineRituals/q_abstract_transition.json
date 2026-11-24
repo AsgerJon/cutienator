@@ -1,0 +1,61 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtStateMachine/qabstracttransition.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZNK19QAbstractTransition10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QAbstractTransition2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN19QAbstractTransitionD1Ev": ["nothing", "address"],
+    "ritual_ZNK19QAbstractTransition11sourceStateEv": ["address", "address"],
+    "ritual_ZNK19QAbstractTransition11targetStateEv": ["address", "address"],
+    "ritual_ZN19QAbstractTransition14setTargetStateEP14QAbstractState": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QAbstractTransition12targetStatesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QAbstractTransition15setTargetStatesERK5QListIP14QAbstractStateE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QAbstractTransition14transitionTypeEv": ["int", "address"],
+    "ritual_ZN19QAbstractTransition17setTransitionTypeENS_14TransitionTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK19QAbstractTransition7machineEv": ["address", "address"],
+    "ritual_ZN19QAbstractTransition12addAnimationEP18QAbstractAnimation": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QAbstractTransition15removeAnimationEP18QAbstractAnimation": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QAbstractTransition10animationsEv": ["address", "address"],
+    "ritual_ZN19QAbstractTransition9eventTestEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN19QAbstractTransition12onTransitionEP6QEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QAbstractTransition5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_take_QAbstractTransition": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN19QAbstractTransition5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_list_make_QAbstractTransition_ptr": ["address"],
+    "ritual_list_add_QAbstractTransition_ptr": [
+      "nothing", "address", "address"
+    ],
+    "ritual_list_size_QAbstractTransition_ptr": ["long long", "address"],
+    "ritual_list_at_QAbstractTransition_ptr": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_QAbstractTransition_ptr": ["nothing", "address"]
+  }
+}

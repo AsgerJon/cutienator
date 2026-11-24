@@ -1,0 +1,12 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtMulti",
+    "media/6.12.0/QtMultimedia/private/qvideoframetexturefromsource_p.h",
+    ", Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_take_QVideoTextureHelper_QVideoFrameTexturesFromHandlesSet": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

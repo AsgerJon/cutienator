@@ -4,8 +4,68 @@
     "QtCore/qcompare.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_Zeq16QPartialOrderingN9QtPrivate25CompareAgainstLiteralZeroE": [
+      "bool", "address", "address"
+    ],
+    "ritual_Zne16QPartialOrderingN9QtPrivate25CompareAgainstLiteralZeroE": [
+      "bool", "address", "address"
+    ],
+    "ritual_Zlt16QPartialOrderingN9QtPrivate25CompareAgainstLiteralZeroE": [
+      "bool", "address", "address"
+    ],
+    "ritual_Zle16QPartialOrderingN9QtPrivate25CompareAgainstLiteralZeroE": [
+      "bool", "address", "address"
+    ],
+    "ritual_Zgt16QPartialOrderingN9QtPrivate25CompareAgainstLiteralZeroE": [
+      "bool", "address", "address"
+    ],
+    "ritual_Zge16QPartialOrderingN9QtPrivate25CompareAgainstLiteralZeroE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZeqN9QtPrivate25CompareAgainstLiteralZeroE16QPartialOrdering": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZneN9QtPrivate25CompareAgainstLiteralZeroE16QPartialOrdering": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZltN9QtPrivate25CompareAgainstLiteralZeroE16QPartialOrdering": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZleN9QtPrivate25CompareAgainstLiteralZeroE16QPartialOrdering": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZgtN9QtPrivate25CompareAgainstLiteralZeroE16QPartialOrdering": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZgeN9QtPrivate25CompareAgainstLiteralZeroE16QPartialOrdering": [
+      "bool", "address", "address"
+    ],
     "ritual_Zeq16QPartialOrderingS_": ["bool", "address", "address"],
     "ritual_Zne16QPartialOrderingS_": ["bool", "address", "address"],
+    "ritual_ZN16QPartialOrderingC1EN2Qt16partial_orderingE": [
+      "address", "address"
+    ],
+    "ritual_ZN16QPartialOrderingC1EN2Qt13weak_orderingE": [
+      "address", "address"
+    ],
+    "ritual_ZN16QPartialOrderingC1EN2Qt15strong_orderingE": [
+      "address", "address"
+    ],
+    "ritual_ZNK16QPartialOrderingcvN2Qt16partial_orderingEEv": [
+      "address", "address"
+    ],
+    "ritual_Zeq16QPartialOrderingN2Qt16partial_orderingE": [
+      "bool", "address", "address"
+    ],
+    "ritual_Zne16QPartialOrderingN2Qt16partial_orderingE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZeqN2Qt16partial_orderingE16QPartialOrdering": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZneN2Qt16partial_orderingE16QPartialOrdering": [
+      "bool", "address", "address"
+    ],
     "ritual_ZN16QPartialOrderingC1EN9QtPrivate8OrderingE": [
       "address", "signed char"
     ],

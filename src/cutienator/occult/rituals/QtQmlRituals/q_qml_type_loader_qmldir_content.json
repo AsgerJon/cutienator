@@ -1,0 +1,51 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmltypeloaderqmldircontent_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN27QQmlTypeLoaderQmldirContent10setContentERK7QStringS2_": [
+      "nothing", "address", "text", "text"
+    ],
+    "ritual_ZN27QQmlTypeLoaderQmldirContent8setErrorERK9QQmlError": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN27QQmlTypeLoaderQmldirContentC1Ev": ["address"],
+    "ritual_ZN27QQmlTypeLoaderQmldirContentC1ERKS_": ["address", "address"],
+    "ritual_ZNK27QQmlTypeLoaderQmldirContent10hasContentEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK27QQmlTypeLoaderQmldirContent8hasErrorEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK27QQmlTypeLoaderQmldirContent6errorsERK7QStringRK4QUrl": [
+      "address", "address", "text", "address"
+    ],
+    "ritual_ZNK27QQmlTypeLoaderQmldirContent16hasTypeNamespaceEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK27QQmlTypeLoaderQmldirContent13typeNamespaceEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK27QQmlTypeLoaderQmldirContent14qmldirLocationEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK27QQmlTypeLoaderQmldirContent13preferredPathEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK27QQmlTypeLoaderQmldirContent10linkTargetEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK27QQmlTypeLoaderQmldirContent14hasRedirectionEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK27QQmlTypeLoaderQmldirContent17designerSupportedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK27QQmlTypeLoaderQmldirContent11hasTypeInfoEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN27QQmlTypeLoaderQmldirContentD1Ev": ["nothing", "address"]
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qgesture_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QPanGesturePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK18QPanGesturePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN18QPanGesturePrivateC1Ev": ["address"],
+    "ritual_ZNK18QPanGesturePrivate18horizontalVelocityEv": [
+      "double", "address"
+    ],
+    "ritual_ZN18QPanGesturePrivate21setHorizontalVelocityEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK18QPanGesturePrivate16verticalVelocityEv": [
+      "double", "address"
+    ],
+    "ritual_ZN18QPanGesturePrivate19setVerticalVelocityEd": [
+      "nothing", "address", "double"
+    ]
+  }
+}

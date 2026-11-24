@@ -1,0 +1,35 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtWebSo",
+    "ckets/6.12.0/QtWebSockets/private/qwebsocketdataprocessor_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK23QWebSocketDataProcessor10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QWebSocketDataProcessorD1Ev": ["nothing", "address"],
+    "ritual_ZN23QWebSocketDataProcessor22setMaxAllowedFrameSizeEy": [
+      "nothing", "address", "unsigned long long"
+    ],
+    "ritual_ZNK23QWebSocketDataProcessor19maxAllowedFrameSizeEv": [
+      "unsigned long long", "address"
+    ],
+    "ritual_ZN23QWebSocketDataProcessor24setMaxAllowedMessageSizeEy": [
+      "nothing", "address", "unsigned long long"
+    ],
+    "ritual_ZNK23QWebSocketDataProcessor21maxAllowedMessageSizeEv": [
+      "unsigned long long", "address"
+    ],
+    "ritual_ZN23QWebSocketDataProcessor14maxMessageSizeEv": [
+      "unsigned long long"
+    ],
+    "ritual_ZN23QWebSocketDataProcessor12maxFrameSizeEv": [
+      "unsigned long long"
+    ],
+    "ritual_ZN23QWebSocketDataProcessor5clearEv": ["nothing", "address"],
+    "ritual_take_QWebSocketDataProcessor": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

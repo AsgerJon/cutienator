@@ -1,0 +1,164 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/qrestaccessmanager.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK18QRestAccessManager10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QRestAccessManager2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18QRestAccessManagerC1EP21QNetworkAccessManagerP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18QRestAccessManagerD1Ev": ["nothing", "address"],
+    "ritual_ZNK18QRestAccessManager20networkAccessManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18QRestAccessManager14deleteResourceERK15QNetworkRequest": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18QRestAccessManager24deleteResourceNoDataImplERK15QNetworkRequestPK7QObjectPN9QtPrivate15QSlotObjectBaseE": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN18QRestAccessManager4headERK15QNetworkRequest": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18QRestAccessManager14headNoDataImplERK15QNetworkRequestPK7QObjectPN9QtPrivate15QSlotObjectBaseE": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN18QRestAccessManager3getERK15QNetworkRequest": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18QRestAccessManager13getNoDataImplERK15QNetworkRequestPK7QObjectPN9QtPrivate15QSlotObjectBaseE": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN18QRestAccessManager3getERK15QNetworkRequestRK10QByteArray": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN18QRestAccessManager15getWithDataImplERK15QNetworkRequestRK10QByteArrayPK7QObjectPN9QtPrivate15QSlotObjectBaseE": [
+      "address", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN18QRestAccessManager3getERK15QNetworkRequestRK13QJsonDocument": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN18QRestAccessManager15getWithDataImplERK15QNetworkRequestRK13QJsonDocumentPK7QObjectPN9QtPrivate15QSlotObjectBaseE": [
+      "address", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN18QRestAccessManager3getERK15QNetworkRequestP9QIODevice": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN18QRestAccessManager15getWithDataImplERK15QNetworkRequestP9QIODevicePK7QObjectPN9QtPrivate15QSlotObjectBaseE": [
+      "address", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN18QRestAccessManager4postERK15QNetworkRequestRK13QJsonDocument": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN18QRestAccessManager16postWithDataImplERK15QNetworkRequestRK13QJsonDocumentPK7QObjectPN9QtPrivate15QSlotObjectBaseE": [
+      "address", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN18QRestAccessManager4postERK15QNetworkRequestRK4QMapI7QString8QVariantE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN18QRestAccessManager16postWithDataImplERK15QNetworkRequestRK4QMapI7QString8QVariantEPK7QObjectPN9QtPrivate15QSlotObjectBaseE": [
+      "address", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN18QRestAccessManager4postERK15QNetworkRequestRK10QByteArray": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN18QRestAccessManager16postWithDataImplERK15QNetworkRequestRK10QByteArrayPK7QObjectPN9QtPrivate15QSlotObjectBaseE": [
+      "address", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN18QRestAccessManager4postERK15QNetworkRequestP14QHttpMultiPart": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN18QRestAccessManager16postWithDataImplERK15QNetworkRequestP14QHttpMultiPartPK7QObjectPN9QtPrivate15QSlotObjectBaseE": [
+      "address", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN18QRestAccessManager4postERK15QNetworkRequestP9QIODevice": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN18QRestAccessManager16postWithDataImplERK15QNetworkRequestP9QIODevicePK7QObjectPN9QtPrivate15QSlotObjectBaseE": [
+      "address", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN18QRestAccessManager3putERK15QNetworkRequestRK13QJsonDocument": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN18QRestAccessManager15putWithDataImplERK15QNetworkRequestRK13QJsonDocumentPK7QObjectPN9QtPrivate15QSlotObjectBaseE": [
+      "address", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN18QRestAccessManager3putERK15QNetworkRequestRK4QMapI7QString8QVariantE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN18QRestAccessManager15putWithDataImplERK15QNetworkRequestRK4QMapI7QString8QVariantEPK7QObjectPN9QtPrivate15QSlotObjectBaseE": [
+      "address", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN18QRestAccessManager3putERK15QNetworkRequestRK10QByteArray": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN18QRestAccessManager15putWithDataImplERK15QNetworkRequestRK10QByteArrayPK7QObjectPN9QtPrivate15QSlotObjectBaseE": [
+      "address", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN18QRestAccessManager3putERK15QNetworkRequestP14QHttpMultiPart": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN18QRestAccessManager15putWithDataImplERK15QNetworkRequestP14QHttpMultiPartPK7QObjectPN9QtPrivate15QSlotObjectBaseE": [
+      "address", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN18QRestAccessManager3putERK15QNetworkRequestP9QIODevice": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN18QRestAccessManager15putWithDataImplERK15QNetworkRequestP9QIODevicePK7QObjectPN9QtPrivate15QSlotObjectBaseE": [
+      "address", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN18QRestAccessManager5patchERK15QNetworkRequestRK13QJsonDocument": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN18QRestAccessManager17patchWithDataImplERK15QNetworkRequestRK13QJsonDocumentPK7QObjectPN9QtPrivate15QSlotObjectBaseE": [
+      "address", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN18QRestAccessManager5patchERK15QNetworkRequestRK4QMapI7QString8QVariantE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN18QRestAccessManager17patchWithDataImplERK15QNetworkRequestRK4QMapI7QString8QVariantEPK7QObjectPN9QtPrivate15QSlotObjectBaseE": [
+      "address", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN18QRestAccessManager5patchERK15QNetworkRequestRK10QByteArray": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN18QRestAccessManager17patchWithDataImplERK15QNetworkRequestRK10QByteArrayPK7QObjectPN9QtPrivate15QSlotObjectBaseE": [
+      "address", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN18QRestAccessManager5patchERK15QNetworkRequestP9QIODevice": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN18QRestAccessManager17patchWithDataImplERK15QNetworkRequestP9QIODevicePK7QObjectPN9QtPrivate15QSlotObjectBaseE": [
+      "address", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN18QRestAccessManager17sendCustomRequestERK15QNetworkRequestRK10QByteArrayS5_": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN18QRestAccessManager18customWithDataImplERK15QNetworkRequestRK10QByteArrayS5_PK7QObjectPN9QtPrivate15QSlotObjectBaseE": [
+      "address", "address", "address", "address", "address", "address",
+      "address"
+    ],
+    "ritual_ZN18QRestAccessManager17sendCustomRequestERK15QNetworkRequestRK10QByteArrayP9QIODevice": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN18QRestAccessManager18customWithDataImplERK15QNetworkRequestRK10QByteArrayP9QIODevicePK7QObjectPN9QtPrivate15QSlotObjectBaseE": [
+      "address", "address", "address", "address", "address", "address",
+      "address"
+    ],
+    "ritual_ZN18QRestAccessManager17sendCustomRequestERK15QNetworkRequestRK10QByteArrayP14QHttpMultiPart": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN18QRestAccessManager18customWithDataImplERK15QNetworkRequestRK10QByteArrayP14QHttpMultiPartPK7QObjectPN9QtPrivate15QSlotObjectBaseE": [
+      "address", "address", "address", "address", "address", "address",
+      "address"
+    ],
+    "ritual_ZN18QRestAccessManager6d_funcEv": ["address", "address"],
+    "ritual_ZNK18QRestAccessManager6d_funcEv": ["address", "address"],
+    "ritual_take_QRestAccessManager": ["bool", "address", "chars", "address"]
+  }
+}

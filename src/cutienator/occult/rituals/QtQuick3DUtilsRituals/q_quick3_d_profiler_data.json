@@ -1,0 +1,14 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3DUtils/6.12.0/QtQuick3DUtils/private/qquick3dprofiler_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QQuick3DProfilerDataC1Ev": ["address"],
+    "ritual_ZN20QQuick3DProfilerDataC1Exiixx": [
+      "address", "long long", "int", "int", "long long", "long long"
+    ],
+    "ritual_ZN20QQuick3DProfilerDataD1Ev": ["nothing", "address"]
+  }
+}

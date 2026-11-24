@@ -1,0 +1,108 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qsgsoftwarelayer_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK16QSGSoftwareLayer10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QSGSoftwareLayerD1Ev": ["nothing", "address"],
+    "ritual_ZNK16QSGSoftwareLayer6pixmapEv": ["address", "address"],
+    "ritual_ZNK16QSGSoftwareLayer13comparisonKeyEv": [
+      "long long", "address"
+    ],
+    "ritual_ZNK16QSGSoftwareLayer11textureSizeEv": ["address", "address"],
+    "ritual_ZNK16QSGSoftwareLayer15hasAlphaChannelEv": ["bool", "address"],
+    "ritual_ZNK16QSGSoftwareLayer10hasMipmapsEv": ["bool", "address"],
+    "ritual_ZN16QSGSoftwareLayer13updateTextureEv": ["bool", "address"],
+    "ritual_ZN16QSGSoftwareLayer7setItemEP7QSGNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QSGSoftwareLayer7setRectERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QSGSoftwareLayer7setSizeERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QSGSoftwareLayer14scheduleUpdateEv": ["nothing", "address"],
+    "ritual_ZNK16QSGSoftwareLayer7toImageEv": ["address", "address"],
+    "ritual_ZN16QSGSoftwareLayer7setLiveEb": ["nothing", "address", "bool"],
+    "ritual_ZN16QSGSoftwareLayer12setRecursiveEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN16QSGSoftwareLayer9setFormatEN8QSGLayer6FormatE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16QSGSoftwareLayer13setHasMipmapsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN16QSGSoftwareLayer19setDevicePixelRatioEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN16QSGSoftwareLayer19setMirrorHorizontalEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN16QSGSoftwareLayer17setMirrorVerticalEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN16QSGSoftwareLayer10setSamplesEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16QSGSoftwareLayer16markDirtyTextureEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QSGSoftwareLayer11invalidatedEv": ["nothing", "address"],
+    "ritual_take_QSGSoftwareLayer": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK16QSGSoftwareLayer13comparisonKeyEv": [
+      "long long", "address"
+    ],
+    "ritual_own_ZNK16QSGSoftwareLayer11textureSizeEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK16QSGSoftwareLayer15hasAlphaChannelEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZNK16QSGSoftwareLayer10hasMipmapsEv": ["bool", "address"],
+    "ritual_own_ZN16QSGSoftwareLayer7setItemEP7QSGNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16QSGSoftwareLayer7setRectERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16QSGSoftwareLayer7setSizeERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16QSGSoftwareLayer14scheduleUpdateEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZNK16QSGSoftwareLayer7toImageEv": ["address", "address"],
+    "ritual_own_ZN16QSGSoftwareLayer7setLiveEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZN16QSGSoftwareLayer12setRecursiveEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZN16QSGSoftwareLayer9setFormatEN8QSGLayer6FormatE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN16QSGSoftwareLayer13setHasMipmapsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZN16QSGSoftwareLayer19setDevicePixelRatioEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_own_ZN16QSGSoftwareLayer19setMirrorHorizontalEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZN16QSGSoftwareLayer17setMirrorVerticalEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZN16QSGSoftwareLayer10setSamplesEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN16QSGSoftwareLayer16markDirtyTextureEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN16QSGSoftwareLayer11invalidatedEv": ["nothing", "address"]
+  }
+}

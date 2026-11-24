@@ -1,0 +1,72 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLocation/6.12.0/QtLocation/private/qdeclarativecategory_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK20QDeclarativeCategory10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QDeclarativeCategory2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN20QDeclarativeCategoryC1EP7QObject": ["address", "address"],
+    "ritual_ZN20QDeclarativeCategoryC1ERK14QPlaceCategoryP30QDeclarativeGeoServiceProviderP7QObject": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN20QDeclarativeCategoryD1Ev": ["nothing", "address"],
+    "ritual_ZN20QDeclarativeCategory10classBeginEv": ["nothing", "address"],
+    "ritual_ZN20QDeclarativeCategory17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QDeclarativeCategory9setPluginEP30QDeclarativeGeoServiceProvider": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QDeclarativeCategory6pluginEv": ["address", "address"],
+    "ritual_ZN20QDeclarativeCategory8categoryEv": ["address", "address"],
+    "ritual_ZN20QDeclarativeCategory11setCategoryERK14QPlaceCategory": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QDeclarativeCategory10categoryIdEv": ["text", "address"],
+    "ritual_ZN20QDeclarativeCategory13setCategoryIdERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK20QDeclarativeCategory4nameEv": ["text", "address"],
+    "ritual_ZN20QDeclarativeCategory7setNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK20QDeclarativeCategory10visibilityEv": ["int", "address"],
+    "ritual_ZN20QDeclarativeCategory13setVisibilityENS_10VisibilityE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK20QDeclarativeCategory4iconEv": ["address", "address"],
+    "ritual_ZN20QDeclarativeCategory7setIconERK10QPlaceIcon": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QDeclarativeCategory11errorStringEv": ["text", "address"],
+    "ritual_ZNK20QDeclarativeCategory6statusEv": ["int", "address"],
+    "ritual_ZN20QDeclarativeCategory9setStatusENS_6StatusERK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZN20QDeclarativeCategory4saveERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN20QDeclarativeCategory6removeEv": ["nothing", "address"],
+    "ritual_ZN20QDeclarativeCategory13replyFinishedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QDeclarativeCategory11pluginReadyEv": ["nothing", "address"],
+    "ritual_ZN20QDeclarativeCategory7managerEv": ["address", "address"],
+    "ritual_cast_QDeclarativeCategory_QQmlParserStatus": [
+      "address", "address"
+    ],
+    "ritual_take_QDeclarativeCategory": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN20QDeclarativeCategory10classBeginEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN20QDeclarativeCategory17componentCompleteEv": [
+      "nothing", "address"
+    ]
+  }
+}

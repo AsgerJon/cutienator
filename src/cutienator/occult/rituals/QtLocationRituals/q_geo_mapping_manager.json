@@ -1,0 +1,31 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLocation/6.12.0/QtLocation/private/qgeomappingmanager_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18QGeoMappingManager10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QGeoMappingManager2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18QGeoMappingManagerD1Ev": ["nothing", "address"],
+    "ritual_ZNK18QGeoMappingManager11managerNameEv": ["text", "address"],
+    "ritual_ZNK18QGeoMappingManager14managerVersionEv": ["int", "address"],
+    "ritual_ZN18QGeoMappingManager9createMapEP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK18QGeoMappingManager17supportedMapTypesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18QGeoMappingManager13isInitializedEv": ["bool", "address"],
+    "ritual_ZN18QGeoMappingManager9setLocaleERK7QLocale": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QGeoMappingManager6localeEv": ["address", "address"],
+    "ritual_ZN18QGeoMappingManagerC1EP24QGeoMappingManagerEngineP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_take_QGeoMappingManager": ["bool", "address", "chars", "address"]
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmlabstractbinding_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QQmlAbstractBinding8RefCountC1Ev": ["address"],
+    "ritual_ZN19QQmlAbstractBinding8RefCount3refEv": ["nothing", "address"],
+    "ritual_ZN19QQmlAbstractBinding8RefCount5derefEv": ["int", "address"],
+    "ritual_ZNK19QQmlAbstractBinding8RefCountcviEv": ["int", "address"],
+    "ritual_ZN19QQmlAbstractBinding8RefCountD1Ev": ["nothing", "address"]
+  }
+}

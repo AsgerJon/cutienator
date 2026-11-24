@@ -1,0 +1,93 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtMulti",
+    "media/6.12.0/QtMultimedia/private/qplatformmediaintegration_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK25QPlatformMediaIntegration10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QPlatformMediaIntegration2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN25QPlatformMediaIntegration8instanceEv": ["address"],
+    "ritual_ZN25QPlatformMediaIntegrationC1E13QLatin1String": [
+      "address", "address"
+    ],
+    "ritual_ZN25QPlatformMediaIntegrationD1Ev": ["nothing", "address"],
+    "ritual_ZN25QPlatformMediaIntegration10formatInfoEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QPlatformMediaIntegration19createScreenCaptureEP14QScreenCapture": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN25QPlatformMediaIntegration19createWindowCaptureEP14QWindowCapture": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN25QPlatformMediaIntegration21capturableWindowsListEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QPlatformMediaIntegration23isCapturableWindowValidERK24QCapturableWindowPrivate": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN25QPlatformMediaIntegration12videoDevicesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QPlatformMediaIntegration17capturableWindowsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QPlatformMediaIntegration12audioDevicesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QPlatformMediaIntegration17availableBackendsEv": ["address"],
+    "ritual_ZN25QPlatformMediaIntegration14defaultBackendEv": ["text"],
+    "ritual_ZN25QPlatformMediaIntegration10setBackendERK7QString": [
+      "nothing", "text"
+    ],
+    "ritual_ZN25QPlatformMediaIntegration4nameEv": ["address", "address"],
+    "ritual_ZN25QPlatformMediaIntegration16audioBackendNameEv": ["address"],
+    "ritual_ZNK25QPlatformMediaIntegration41isCameraSwitchingDuringRecordingSupportedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN25QPlatformMediaIntegration18gstreamerInterfaceEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QPlatformMediaIntegration13resetInstanceEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QPlatformMediaIntegration16createFormatInfoEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QPlatformMediaIntegration18createVideoDevicesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QPlatformMediaIntegration23createCapturableWindowsEv": [
+      "address", "address"
+    ],
+    "ritual_take_QPlatformMediaIntegration": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN25QPlatformMediaIntegration19createScreenCaptureEP14QScreenCapture": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN25QPlatformMediaIntegration19createWindowCaptureEP14QWindowCapture": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZNK25QPlatformMediaIntegration41isCameraSwitchingDuringRecordingSupportedEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZN25QPlatformMediaIntegration18gstreamerInterfaceEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN25QPlatformMediaIntegration16createFormatInfoEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN25QPlatformMediaIntegration18createVideoDevicesEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN25QPlatformMediaIntegration23createCapturableWindowsEv": [
+      "address", "address"
+    ]
+  }
+}

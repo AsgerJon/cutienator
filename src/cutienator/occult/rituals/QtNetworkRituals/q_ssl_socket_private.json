@@ -1,0 +1,177 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/6.12.0/QtNetwork/private/qsslsocket_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN17QSslSocketPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK17QSslSocketPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN17QSslSocketPrivateC1Ev": ["address"],
+    "ritual_ZN17QSslSocketPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN17QSslSocketPrivate4initEv": ["nothing", "address"],
+    "ritual_ZN17QSslSocketPrivate23verifyProtocolSupportedEPKc": [
+      "bool", "address", "chars"
+    ],
+    "ritual_ZN17QSslSocketPrivate11supportsSslEv": ["bool"],
+    "ritual_ZN17QSslSocketPrivate17ensureInitializedEv": ["nothing"],
+    "ritual_ZN17QSslSocketPrivate14defaultCiphersEv": ["address"],
+    "ritual_ZN17QSslSocketPrivate18defaultDtlsCiphersEv": ["address"],
+    "ritual_ZN17QSslSocketPrivate16supportedCiphersEv": ["address"],
+    "ritual_ZN17QSslSocketPrivate17setDefaultCiphersERK5QListI10QSslCipherE": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QSslSocketPrivate21setDefaultDtlsCiphersERK5QListI10QSslCipherE": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QSslSocketPrivate26setDefaultSupportedCiphersERK5QListI10QSslCipherE": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QSslSocketPrivate23supportedEllipticCurvesEv": ["address"],
+    "ritual_ZN17QSslSocketPrivate33setDefaultSupportedEllipticCurvesERK5QListI17QSslEllipticCurveE": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QSslSocketPrivate26resetDefaultEllipticCurvesEv": [
+      "nothing"
+    ],
+    "ritual_ZN17QSslSocketPrivate21defaultCaCertificatesEv": ["address"],
+    "ritual_ZN17QSslSocketPrivate20systemCaCertificatesEv": ["address"],
+    "ritual_ZN17QSslSocketPrivate24setDefaultCaCertificatesERK5QListI15QSslCertificateE": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QSslSocketPrivate23addDefaultCaCertificateERK15QSslCertificate": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QSslSocketPrivate24addDefaultCaCertificatesERK5QListI15QSslCertificateE": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QSslSocketPrivate18isMatchingHostnameERK15QSslCertificateRK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN17QSslSocketPrivate18isMatchingHostnameERK7QStringS2_": [
+      "bool", "text", "text"
+    ],
+    "ritual_ZN17QSslSocketPrivate17createPlainSocketE6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QSslSocketPrivate20pauseSocketNotifiersEP10QSslSocket": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QSslSocketPrivate21resumeSocketNotifiersEP10QSslSocket": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK17QSslSocketPrivate8isPausedEv": ["bool", "address"],
+    "ritual_ZN17QSslSocketPrivate9setPausedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN17QSslSocketPrivate4bindERK12QHostAddresst6QFlagsIN15QAbstractSocket8BindFlagEEPK17QNetworkInterface": [
+      "bool", "address", "address", "unsigned short", "int", "address"
+    ],
+    "ritual_ZN17QSslSocketPrivate16_q_connectedSlotEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QSslSocketPrivate16_q_hostFoundSlotEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QSslSocketPrivate19_q_disconnectedSlotEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QSslSocketPrivate19_q_stateChangedSlotEN15QAbstractSocket11SocketStateE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QSslSocketPrivate12_q_errorSlotEN15QAbstractSocket11SocketErrorE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QSslSocketPrivate16_q_readyReadSlotEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QSslSocketPrivate23_q_channelReadyReadSlotEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QSslSocketPrivate19_q_bytesWrittenSlotEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN17QSslSocketPrivate26_q_channelBytesWrittenSlotEix": [
+      "nothing", "address", "int", "long long"
+    ],
+    "ritual_ZN17QSslSocketPrivate26_q_readChannelFinishedSlotEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QSslSocketPrivate19_q_flushWriteBufferEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QSslSocketPrivate18_q_flushReadBufferEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QSslSocketPrivate23_q_resumeImplementationEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QSslSocketPrivate23unixRootCertDirectoriesEv": ["address"],
+    "ritual_ZN17QSslSocketPrivate4peekEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN17QSslSocketPrivate5flushEv": ["bool", "address"],
+    "ritual_ZN17QSslSocketPrivate21startClientEncryptionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QSslSocketPrivate21startServerEncryptionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QSslSocketPrivate8transmitEv": ["nothing", "address"],
+    "ritual_ZN17QSslSocketPrivate18disconnectFromHostEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QSslSocketPrivate12disconnectedEv": ["nothing", "address"],
+    "ritual_ZNK17QSslSocketPrivate13sessionCipherEv": ["address", "address"],
+    "ritual_ZNK17QSslSocketPrivate15sessionProtocolEv": ["int", "address"],
+    "ritual_ZN17QSslSocketPrivate17continueHandshakeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QSslSocketPrivate32rootCertOnDemandLoadingSupportedEv": [
+      "bool"
+    ],
+    "ritual_ZN17QSslSocketPrivate35setRootCertOnDemandLoadingSupportedEb": [
+      "nothing", "bool"
+    ],
+    "ritual_ZN17QSslSocketPrivate15tlsBackendInUseEv": ["address"],
+    "ritual_ZNK17QSslSocketPrivate7tlsModeEv": ["int", "address"],
+    "ritual_ZNK17QSslSocketPrivate22isRootsOnDemandAllowedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK17QSslSocketPrivate16verificationNameEv": ["text", "address"],
+    "ritual_ZNK17QSslSocketPrivate11tlsHostNameEv": ["text", "address"],
+    "ritual_ZNK17QSslSocketPrivate14plainTcpSocketEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QSslSocketPrivate27verifyErrorsHaveBeenIgnoredEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK17QSslSocketPrivate23isAutoStartingHandshakeEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK17QSslSocketPrivate14isPendingCloseEv": ["bool", "address"],
+    "ritual_ZN17QSslSocketPrivate15setPendingCloseEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK17QSslSocketPrivate17maxReadBufferSizeEv": [
+      "long long", "address"
+    ],
+    "ritual_ZN17QSslSocketPrivate20setMaxReadBufferSizeEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN17QSslSocketPrivate12setEncryptedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK17QSslSocketPrivate18hasUndecryptedDataEv": [
+      "bool", "address"
+    ],
+    "ritual_take_QSslSocketPrivate": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN17QSslSocketPrivate4bindERK12QHostAddresst6QFlagsIN15QAbstractSocket8BindFlagEEPK17QNetworkInterface": [
+      "bool", "address", "address", "unsigned short", "int", "address"
+    ],
+    "ritual_own_ZN17QSslSocketPrivate4peekEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_own_ZN17QSslSocketPrivate5flushEv": ["bool", "address"]
+  }
+}

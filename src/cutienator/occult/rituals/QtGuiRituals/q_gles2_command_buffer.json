@@ -1,0 +1,25 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qrhigles2_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QGles2CommandBufferC1EP18QRhiImplementation": [
+      "address", "address"
+    ],
+    "ritual_ZN19QGles2CommandBufferD1Ev": ["nothing", "address"],
+    "ritual_ZN19QGles2CommandBuffer7destroyEv": ["nothing", "address"],
+    "ritual_ZN19QGles2CommandBuffer13resetCommandsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QGles2CommandBuffer10resetStateEv": ["nothing", "address"],
+    "ritual_ZN19QGles2CommandBuffer16resetCachedStateEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QGles2CommandBuffer": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN19QGles2CommandBuffer7destroyEv": ["nothing", "address"]
+  }
+}

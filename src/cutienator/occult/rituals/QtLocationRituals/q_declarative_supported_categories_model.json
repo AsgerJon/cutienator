@@ -1,0 +1,123 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtLocat",
+    "ion/6.12.0/QtLocation/private/qdeclarativesupportedcategoriesmodel",
+    "_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK36QDeclarativeSupportedCategoriesModel10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN36QDeclarativeSupportedCategoriesModel2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN36QDeclarativeSupportedCategoriesModelC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN36QDeclarativeSupportedCategoriesModelD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN36QDeclarativeSupportedCategoriesModel10classBeginEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN36QDeclarativeSupportedCategoriesModel17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK36QDeclarativeSupportedCategoriesModel8rowCountERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK36QDeclarativeSupportedCategoriesModel11columnCountERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK36QDeclarativeSupportedCategoriesModel5indexEiiRK11QModelIndex": [
+      "address", "address", "int", "int", "address"
+    ],
+    "ritual_ZNK36QDeclarativeSupportedCategoriesModel6parentERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK36QDeclarativeSupportedCategoriesModel4dataERK11QModelIndexi": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZNK36QDeclarativeSupportedCategoriesModel9roleNamesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN36QDeclarativeSupportedCategoriesModel9setPluginEP30QDeclarativeGeoServiceProvider": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK36QDeclarativeSupportedCategoriesModel6pluginEv": [
+      "address", "address"
+    ],
+    "ritual_ZN36QDeclarativeSupportedCategoriesModel15setHierarchicalEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK36QDeclarativeSupportedCategoriesModel12hierarchicalEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK36QDeclarativeSupportedCategoriesModel11errorStringEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK36QDeclarativeSupportedCategoriesModel6statusEv": [
+      "int", "address"
+    ],
+    "ritual_ZN36QDeclarativeSupportedCategoriesModel9setStatusENS_6StatusERK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZN36QDeclarativeSupportedCategoriesModel6updateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN36QDeclarativeSupportedCategoriesModel13replyFinishedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN36QDeclarativeSupportedCategoriesModel13addedCategoryERK14QPlaceCategoryRK7QString": [
+      "nothing", "address", "address", "text"
+    ],
+    "ritual_ZN36QDeclarativeSupportedCategoriesModel15updatedCategoryERK14QPlaceCategoryRK7QString": [
+      "nothing", "address", "address", "text"
+    ],
+    "ritual_ZN36QDeclarativeSupportedCategoriesModel15removedCategoryERK7QStringS2_": [
+      "nothing", "address", "text", "text"
+    ],
+    "ritual_ZN36QDeclarativeSupportedCategoriesModel26connectNotificationSignalsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN36QDeclarativeSupportedCategoriesModel18populateCategoriesEP13QPlaceManagerRK14QPlaceCategory": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK36QDeclarativeSupportedCategoriesModel5indexERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN36QDeclarativeSupportedCategoriesModel12updateLayoutEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN36QDeclarativeSupportedCategoriesModel15emitDataChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_cast_QDeclarativeSupportedCategoriesModel_QQmlParserStatus": [
+      "address", "address"
+    ],
+    "ritual_take_QDeclarativeSupportedCategoriesModel": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN36QDeclarativeSupportedCategoriesModel10classBeginEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN36QDeclarativeSupportedCategoriesModel17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZNK36QDeclarativeSupportedCategoriesModel8rowCountERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZNK36QDeclarativeSupportedCategoriesModel11columnCountERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZNK36QDeclarativeSupportedCategoriesModel5indexEiiRK11QModelIndex": [
+      "address", "address", "int", "int", "address"
+    ],
+    "ritual_own_ZNK36QDeclarativeSupportedCategoriesModel6parentERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZNK36QDeclarativeSupportedCategoriesModel4dataERK11QModelIndexi": [
+      "address", "address", "address", "int"
+    ]
+  }
+}

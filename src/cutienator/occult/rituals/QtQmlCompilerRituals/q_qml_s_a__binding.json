@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQmlCompiler/qqmlsa.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN6QQmlSA7Binding6d_funcEv": ["address", "address"],
+    "ritual_ZNK6QQmlSA7Binding6d_funcEv": ["address", "address"],
+    "ritual_ZN6QQmlSAeqERKNS_7BindingES2_": ["bool", "address", "address"],
+    "ritual_ZN6QQmlSAneERKNS_7BindingES2_": ["bool", "address", "address"],
+    "ritual_ZN6QQmlSA7Binding16isLiteralBindingENS_11BindingTypeE": [
+      "bool", "unsigned int"
+    ]
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmljsast_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK6QQmlJS3AST14UiPublicMember19firstSourceLocationEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK6QQmlJS3AST14UiPublicMember18lastSourceLocationEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK6QQmlJS3AST14UiPublicMember12defaultTokenEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK6QQmlJS3AST14UiPublicMember15isDefaultMemberEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK6QQmlJS3AST14UiPublicMember13requiredTokenEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK6QQmlJS3AST14UiPublicMember10isRequiredEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK6QQmlJS3AST14UiPublicMember13readonlyTokenEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK6QQmlJS3AST14UiPublicMember10isReadonlyEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK6QQmlJS3AST14UiPublicMember10finalTokenEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK6QQmlJS3AST14UiPublicMember7isFinalEv": ["bool", "address"],
+    "ritual_ZNK6QQmlJS3AST14UiPublicMember13overrideTokenEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK6QQmlJS3AST14UiPublicMember10isOverrideEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK6QQmlJS3AST14UiPublicMember12virtualTokenEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK6QQmlJS3AST14UiPublicMember9isVirtualEv": ["bool", "address"],
+    "ritual_ZN6QQmlJS3AST14UiPublicMember13setAttributesEPNS0_20UiPropertyAttributesE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK6QQmlJS3AST14UiPublicMember13propertyTokenEv": [
+      "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST14UiPublicMember16setPropertyTokenENS_14SourceLocationE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST14UiPublicMember7accept0EPNS0_11BaseVisitorE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK6QQmlJS3AST14UiPublicMember19firstSourceLocationEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK6QQmlJS3AST14UiPublicMember18lastSourceLocationEv": [
+      "address", "address"
+    ]
+  }
+}

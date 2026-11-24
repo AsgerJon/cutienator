@@ -1,0 +1,34 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickanimation_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK23QQuickRotationAnimation10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QQuickRotationAnimation2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN23QQuickRotationAnimation6d_funcEv": ["address", "address"],
+    "ritual_ZNK23QQuickRotationAnimation6d_funcEv": ["address", "address"],
+    "ritual_ZN23QQuickRotationAnimationC1EP7QObject": ["address", "address"],
+    "ritual_ZN23QQuickRotationAnimationD1Ev": ["nothing", "address"],
+    "ritual_ZNK23QQuickRotationAnimation4fromEv": ["double", "address"],
+    "ritual_ZN23QQuickRotationAnimation7setFromEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK23QQuickRotationAnimation2toEv": ["double", "address"],
+    "ritual_ZN23QQuickRotationAnimation5setToEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK23QQuickRotationAnimation9directionEv": ["int", "address"],
+    "ritual_ZN23QQuickRotationAnimation12setDirectionENS_17RotationDirectionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_take_QQuickRotationAnimation": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

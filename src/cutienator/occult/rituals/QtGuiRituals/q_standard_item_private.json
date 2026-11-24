@@ -1,0 +1,46 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qstandarditemmodel_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QStandardItemPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK20QStandardItemPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN20QStandardItemPrivateC1Ev": ["address"],
+    "ritual_ZNK20QStandardItemPrivate10childIndexEii": [
+      "int", "address", "int", "int"
+    ],
+    "ritual_ZNK20QStandardItemPrivate10childIndexEPK13QStandardItem": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN20QStandardItemPrivate8setChildEiiP13QStandardItemb": [
+      "nothing", "address", "int", "int", "address", "bool"
+    ],
+    "ritual_ZNK20QStandardItemPrivate8rowCountEv": ["int", "address"],
+    "ritual_ZNK20QStandardItemPrivate11columnCountEv": ["int", "address"],
+    "ritual_ZN20QStandardItemPrivate12childDeletedEP13QStandardItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QStandardItemPrivate8setModelEP18QStandardItemModel": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QStandardItemPrivate17setParentAndModelEP13QStandardItemP18QStandardItemModel": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN20QStandardItemPrivate11changeFlagsEb6QFlagsIN2Qt8ItemFlagEE": [
+      "nothing", "address", "bool", "int"
+    ],
+    "ritual_ZNK20QStandardItemPrivate8itemDataEv": ["address", "address"],
+    "ritual_ZN20QStandardItemPrivate10insertRowsEiiRK5QListIP13QStandardItemE": [
+      "bool", "address", "int", "int", "address"
+    ],
+    "ritual_ZN20QStandardItemPrivate10insertRowsEiRK5QListIP13QStandardItemE": [
+      "bool", "address", "int", "address"
+    ],
+    "ritual_ZN20QStandardItemPrivate13insertColumnsEiiRK5QListIP13QStandardItemE": [
+      "bool", "address", "int", "int", "address"
+    ],
+    "ritual_ZN20QStandardItemPrivateD1Ev": ["nothing", "address"]
+  }
+}

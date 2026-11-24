@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/previewmanager_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18qdesigner_internaleqERKNS_20PreviewConfigurationES2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internalneERKNS_20PreviewConfigurationES2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internalltERKNS_20PreviewConfigurationES2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internalgtERKNS_20PreviewConfigurationES2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internalleERKNS_20PreviewConfigurationES2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internalgeERKNS_20PreviewConfigurationES2_": [
+      "bool", "address", "address"
+    ]
+  }
+}

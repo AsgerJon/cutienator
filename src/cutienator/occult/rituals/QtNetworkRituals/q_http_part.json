@@ -1,0 +1,26 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/qhttpmultipart.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN9QHttpPartC1Ev": ["address"],
+    "ritual_ZN9QHttpPartC1ERKS_": ["address", "address"],
+    "ritual_ZN9QHttpPartD1Ev": ["nothing", "address"],
+    "ritual_ZNK9QHttpParteqERKS_": ["bool", "address", "address"],
+    "ritual_ZNK9QHttpPartneERKS_": ["bool", "address", "address"],
+    "ritual_ZN9QHttpPart9setHeaderEN15QNetworkRequest12KnownHeadersERK8QVariant": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN9QHttpPart12setRawHeaderERK10QByteArrayS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN9QHttpPart7setBodyERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QHttpPart13setBodyDeviceEP9QIODevice": [
+      "nothing", "address", "address"
+    ],
+    "ritual_Zls6QDebugRK9QHttpPart": ["address", "address", "address"]
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickscreen_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK12QQuickScreen10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QQuickScreen2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN12QQuickScreen21qt_qmlMarker_attachedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN12QQuickScreen24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN12QQuickScreen21qmlAttachedPropertiesEP7QObject": [
+      "address", "address"
+    ],
+    "ritual_take_QQuickScreen": ["bool", "address", "chars", "address"]
+  }
+}

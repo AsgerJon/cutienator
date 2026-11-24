@@ -1,18 +1,21 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/qlatin1stringmatcher.h, Qt 6.12.0. Changes made here are lost.
+#include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtCore/qlatin1stringmatcher.h>
 #include <QtCore/qlatin1stringview.h>
 #include <QtCore/qstringview.h>
 #include <QtCore/qstring.h>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include "qlatin1stringmatcher.h"
 #include <limits.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
 //  Qt's source, because Qt's library carries it under no name.
 //  Copyright (C) The Qt Company Ltd. It is licensed
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
-//  'inline' put before it.
+//  'inline' put before it where Qt did not write it.
 
 //  from src/corelib/text/qlatin1stringmatcher.cpp, line 77, as _ZN20QLatin1StringMatcher11setSearcherEv
 inline void QLatin1StringMatcher::setSearcher() noexcept

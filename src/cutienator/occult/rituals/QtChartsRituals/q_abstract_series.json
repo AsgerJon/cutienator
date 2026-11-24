@@ -1,0 +1,48 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/qabstractseries.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK15QAbstractSeries10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QAbstractSeries2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN15QAbstractSeriesD1Ev": ["nothing", "address"],
+    "ritual_ZNK15QAbstractSeries4typeEv": ["int", "address"],
+    "ritual_ZN15QAbstractSeries7setNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK15QAbstractSeries4nameEv": ["text", "address"],
+    "ritual_ZN15QAbstractSeries10setVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK15QAbstractSeries9isVisibleEv": ["bool", "address"],
+    "ritual_ZNK15QAbstractSeries7opacityEv": ["double", "address"],
+    "ritual_ZN15QAbstractSeries10setOpacityEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN15QAbstractSeries12setUseOpenGLEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK15QAbstractSeries9useOpenGLEv": ["bool", "address"],
+    "ritual_ZNK15QAbstractSeries5chartEv": ["address", "address"],
+    "ritual_ZN15QAbstractSeries10attachAxisEP13QAbstractAxis": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN15QAbstractSeries10detachAxisEP13QAbstractAxis": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN15QAbstractSeries12attachedAxesEv": ["address", "address"],
+    "ritual_ZN15QAbstractSeries4showEv": ["nothing", "address"],
+    "ritual_ZN15QAbstractSeries4hideEv": ["nothing", "address"],
+    "ritual_take_QAbstractSeries": ["bool", "address", "chars", "address"],
+    "ritual_list_make_QAbstractSeries_ptr": ["address"],
+    "ritual_list_add_QAbstractSeries_ptr": ["nothing", "address", "address"],
+    "ritual_list_size_QAbstractSeries_ptr": ["long long", "address"],
+    "ritual_list_at_QAbstractSeries_ptr": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_QAbstractSeries_ptr": ["nothing", "address"]
+  }
+}

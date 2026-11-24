@@ -1,0 +1,39 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/textpropertyeditor_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18qdesigner_internal18TextPropertyEditor10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal18TextPropertyEditor2trEPKcS2_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZNK18qdesigner_internal18TextPropertyEditor26textPropertyValidationModeEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal18TextPropertyEditor10updateModeEv": [
+      "int", "address"
+    ],
+    "ritual_ZN18qdesigner_internal18TextPropertyEditor13setUpdateModeENS0_10UpdateModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18qdesigner_internal18TextPropertyEditor20editorStringToStringERK7QStringNS_26TextPropertyValidationModeE": [
+      "text", "text", "int"
+    ],
+    "ritual_take_qdesigner_internal_TextPropertyEditor": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK18qdesigner_internal18TextPropertyEditor8sizeHintEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK18qdesigner_internal18TextPropertyEditor15minimumSizeHintEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN18qdesigner_internal18TextPropertyEditor11resizeEventEP12QResizeEvent": [
+      "nothing", "address", "address"
+    ]
+  }
+}

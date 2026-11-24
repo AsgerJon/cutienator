@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qpathclipper_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11QWingedEdge15TraversalStatus13flipDirectionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN11QWingedEdge15TraversalStatus13flipTraversalEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN11QWingedEdge15TraversalStatus4flipEv": ["nothing", "address"],
+    "ritual_ZN11QWingedEdge15TraversalStatusD1Ev": ["nothing", "address"]
+  }
+}

@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGui/qdesktopservices.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
+#if !defined(QT_NO_DESKTOPSERVICES)
 #include <QtGui/qdesktopservices.h>
 #include <QtCore/qurl.h>
 #include <QtCore/qstring.h>
@@ -32,3 +34,5 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN16QDesktopServicesD1Ev(QDesktopServices *self) {
   delete self;
 }
+
+#endif  // !defined(QT_NO_DESKTOPSERVICES)

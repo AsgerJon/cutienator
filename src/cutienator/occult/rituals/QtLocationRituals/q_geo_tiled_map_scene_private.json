@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLocation/6.12.0/QtLocation/private/qgeotiledmapscene_p_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN24QGeoTiledMapScenePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK24QGeoTiledMapScenePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN24QGeoTiledMapScenePrivateC1Ev": ["address"],
+    "ritual_ZN24QGeoTiledMapScenePrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN24QGeoTiledMapScenePrivate13buildGeometryERK12QGeoTileSpecP12QSGImageNodeRb": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZN24QGeoTiledMapScenePrivate11setupCameraEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK24QGeoTiledMapScenePrivate17isTiltedOrRotatedEv": [
+      "bool", "address"
+    ]
+  }
+}

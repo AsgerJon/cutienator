@@ -1,0 +1,65 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtMultimedia/qvideoframe.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11QVideoFrameC1Ev": ["address"],
+    "ritual_ZN11QVideoFrameC1ERK17QVideoFrameFormat": ["address", "address"],
+    "ritual_ZN11QVideoFrameC1ERK6QImage": ["address", "address"],
+    "ritual_ZN11QVideoFrameC1ERKS_": ["address", "address"],
+    "ritual_ZN11QVideoFrameD1Ev": ["nothing", "address"],
+    "ritual_ZNK11QVideoFrameeqERKS_": ["bool", "address", "address"],
+    "ritual_ZNK11QVideoFrameneERKS_": ["bool", "address", "address"],
+    "ritual_ZNK11QVideoFrame7isValidEv": ["bool", "address"],
+    "ritual_ZNK11QVideoFrame11pixelFormatEv": ["int", "address"],
+    "ritual_ZNK11QVideoFrame13surfaceFormatEv": ["address", "address"],
+    "ritual_ZNK11QVideoFrame10handleTypeEv": ["int", "address"],
+    "ritual_ZNK11QVideoFrame4sizeEv": ["address", "address"],
+    "ritual_ZNK11QVideoFrame5widthEv": ["int", "address"],
+    "ritual_ZNK11QVideoFrame6heightEv": ["int", "address"],
+    "ritual_ZNK11QVideoFrame8isMappedEv": ["bool", "address"],
+    "ritual_ZNK11QVideoFrame10isReadableEv": ["bool", "address"],
+    "ritual_ZNK11QVideoFrame10isWritableEv": ["bool", "address"],
+    "ritual_ZNK11QVideoFrame7mapModeEv": ["int", "address"],
+    "ritual_ZN11QVideoFrame3mapENS_7MapModeE": ["bool", "address", "int"],
+    "ritual_ZN11QVideoFrame5unmapEv": ["nothing", "address"],
+    "ritual_ZNK11QVideoFrame12bytesPerLineEi": ["int", "address", "int"],
+    "ritual_ZNK11QVideoFrame11mappedBytesEi": ["int", "address", "int"],
+    "ritual_ZNK11QVideoFrame10planeCountEv": ["int", "address"],
+    "ritual_ZNK11QVideoFrame9startTimeEv": ["long long", "address"],
+    "ritual_ZN11QVideoFrame12setStartTimeEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZNK11QVideoFrame7endTimeEv": ["long long", "address"],
+    "ritual_ZN11QVideoFrame10setEndTimeEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN11QVideoFrame16setRotationAngleENS_13RotationAngleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11QVideoFrame13rotationAngleEv": ["int", "address"],
+    "ritual_ZN11QVideoFrame11setRotationEN7QtVideo8RotationE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11QVideoFrame8rotationEv": ["int", "address"],
+    "ritual_ZN11QVideoFrame11setMirroredEb": ["nothing", "address", "bool"],
+    "ritual_ZNK11QVideoFrame8mirroredEv": ["bool", "address"],
+    "ritual_ZN11QVideoFrame18setStreamFrameRateEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK11QVideoFrame15streamFrameRateEv": ["double", "address"],
+    "ritual_ZNK11QVideoFrame7toImageEv": ["address", "address"],
+    "ritual_ZNK11QVideoFrame12subtitleTextEv": ["text", "address"],
+    "ritual_ZN11QVideoFrame15setSubtitleTextERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN11QVideoFrame5paintEP8QPainterRK6QRectFRKNS_12PaintOptionsE": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN11QVideoFrameC1EP20QAbstractVideoBufferRK17QVideoFrameFormat": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK11QVideoFrame11videoBufferEv": ["address", "address"]
+  }
+}

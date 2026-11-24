@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/qdesigner_dnditem_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18qdesigner_internal17QDesignerMimeData10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal17QDesignerMimeData2trEPKcS2_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZNK18qdesigner_internal17QDesignerMimeData5itemsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal17QDesignerMimeData7hotSpotEv": [
+      "address", "address"
+    ],
+    "ritual_take_qdesigner_internal_QDesignerMimeData": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDBus/qdbusvirtualobject.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK18QDBusVirtualObject10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QDBusVirtualObject2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18QDBusVirtualObjectD1Ev": ["nothing", "address"],
+    "ritual_ZNK18QDBusVirtualObject10introspectERK7QString": [
+      "text", "address", "text"
+    ],
+    "ritual_ZN18QDBusVirtualObject13handleMessageERK12QDBusMessageRK15QDBusConnection": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_take_QDBusVirtualObject": ["bool", "address", "chars", "address"]
+  }
+}

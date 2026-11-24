@@ -1,0 +1,53 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickhandlerpoint_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QQuickHandlerPoint22qt_qmlMarker_anonymousEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickHandlerPointC1Ev": ["address"],
+    "ritual_ZNK18QQuickHandlerPoint2idEv": ["int", "address"],
+    "ritual_ZNK18QQuickHandlerPoint14pressedButtonsEv": ["int", "address"],
+    "ritual_ZNK18QQuickHandlerPoint9modifiersEv": ["int", "address"],
+    "ritual_ZNK18QQuickHandlerPoint13pressPositionEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18QQuickHandlerPoint18scenePressPositionEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18QQuickHandlerPoint17sceneGrabPositionEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18QQuickHandlerPoint8positionEv": ["address", "address"],
+    "ritual_ZNK18QQuickHandlerPoint13scenePositionEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18QQuickHandlerPoint8velocityEv": ["address", "address"],
+    "ritual_ZNK18QQuickHandlerPoint8rotationEv": ["double", "address"],
+    "ritual_ZNK18QQuickHandlerPoint8pressureEv": ["double", "address"],
+    "ritual_ZNK18QQuickHandlerPoint16ellipseDiametersEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18QQuickHandlerPoint8uniqueIdEv": ["address", "address"],
+    "ritual_ZNK18QQuickHandlerPoint6deviceEv": ["address", "address"],
+    "ritual_ZN18QQuickHandlerPoint8localizeEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQuickHandlerPoint5resetEv": ["nothing", "address"],
+    "ritual_ZN18QQuickHandlerPoint5resetEPK13QPointerEventRK11QEventPoint": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN18QQuickHandlerPoint5resetERK5QListIS_E": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQuickHandlerPointD1Ev": ["nothing", "address"],
+    "ritual_list_make_QQuickHandlerPoint": ["address"],
+    "ritual_list_add_QQuickHandlerPoint": ["nothing", "address", "address"],
+    "ritual_list_size_QQuickHandlerPoint": ["long long", "address"],
+    "ritual_list_at_QQuickHandlerPoint": ["address", "address", "long long"],
+    "ritual_list_drop_QQuickHandlerPoint": ["nothing", "address"]
+  }
+}

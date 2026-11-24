@@ -1,0 +1,32 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmlvaluetypeproxybinding_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN25QQmlValueTypeProxyBindingC1EP7QObject17QQmlPropertyIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK25QQmlValueTypeProxyBinding11subBindingsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK25QQmlValueTypeProxyBinding7bindingE17QQmlPropertyIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN25QQmlValueTypeProxyBinding14removeBindingsEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN25QQmlValueTypeProxyBinding10setEnabledEb6QFlagsIN16QQmlPropertyData9WriteFlagEE": [
+      "nothing", "address", "bool", "int"
+    ],
+    "ritual_ZNK25QQmlValueTypeProxyBinding4kindEv": ["int", "address"],
+    "ritual_ZN25QQmlValueTypeProxyBindingD1Ev": ["nothing", "address"],
+    "ritual_take_QQmlValueTypeProxyBinding": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN25QQmlValueTypeProxyBinding10setEnabledEb6QFlagsIN16QQmlPropertyData9WriteFlagEE": [
+      "nothing", "address", "bool", "int"
+    ]
+  }
+}

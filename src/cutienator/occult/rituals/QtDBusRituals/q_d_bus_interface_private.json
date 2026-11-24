@@ -1,0 +1,12 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDBus/6.12.0/QtDBus/private/qdbusinterface_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN21QDBusInterfacePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK21QDBusInterfacePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN21QDBusInterfacePrivateD1Ev": ["nothing", "address"]
+  }
+}

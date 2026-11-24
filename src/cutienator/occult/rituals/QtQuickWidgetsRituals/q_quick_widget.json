@@ -1,0 +1,188 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuickWidgets/qquickwidget.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK12QQuickWidget10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QQuickWidget2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN12QQuickWidgetC1EP7QWidget": ["address", "address"],
+    "ritual_ZN12QQuickWidgetC1EP10QQmlEngineP7QWidget": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN12QQuickWidgetC1ERK4QUrlP7QWidget": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN12QQuickWidgetC1E14QAnyStringViewS0_P7QWidget": [
+      "address", "text", "text", "address"
+    ],
+    "ritual_ZN12QQuickWidgetD1Ev": ["nothing", "address"],
+    "ritual_ZNK12QQuickWidget6sourceEv": ["address", "address"],
+    "ritual_ZNK12QQuickWidget6engineEv": ["address", "address"],
+    "ritual_ZNK12QQuickWidget11rootContextEv": ["address", "address"],
+    "ritual_ZNK12QQuickWidget10rootObjectEv": ["address", "address"],
+    "ritual_ZNK12QQuickWidget10resizeModeEv": ["int", "address"],
+    "ritual_ZN12QQuickWidget13setResizeModeENS_10ResizeModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK12QQuickWidget6statusEv": ["int", "address"],
+    "ritual_ZNK12QQuickWidget6errorsEv": ["address", "address"],
+    "ritual_ZNK12QQuickWidget8sizeHintEv": ["address", "address"],
+    "ritual_ZNK12QQuickWidget11initialSizeEv": ["address", "address"],
+    "ritual_ZN12QQuickWidget9setFormatERK14QSurfaceFormat": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12QQuickWidget6formatEv": ["address", "address"],
+    "ritual_ZNK12QQuickWidget15grabFramebufferEv": ["address", "address"],
+    "ritual_ZN12QQuickWidget13setClearColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12QQuickWidget11quickWindowEv": ["address", "address"],
+    "ritual_ZN12QQuickWidget9setSourceERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QQuickWidget10setContentERK4QUrlP13QQmlComponentP7QObject": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN12QQuickWidget20setInitialPropertiesERK4QMapI7QString8QVariantE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QQuickWidget14loadFromModuleE14QAnyStringViewS0_": [
+      "nothing", "address", "text", "text"
+    ],
+    "ritual_ZN12QQuickWidget15continueExecuteEv": ["nothing", "address"],
+    "ritual_ZN12QQuickWidget23createFramebufferObjectEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN12QQuickWidget24destroyFramebufferObjectEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN12QQuickWidget13triggerUpdateEv": ["nothing", "address"],
+    "ritual_ZN12QQuickWidget27propagateFocusObjectChangedEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QQuickWidget11resizeEventEP12QResizeEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QQuickWidget10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QQuickWidget13keyPressEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QQuickWidget15keyReleaseEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QQuickWidget15mousePressEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QQuickWidget17mouseReleaseEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QQuickWidget14mouseMoveEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QQuickWidget21mouseDoubleClickEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QQuickWidget9showEventEP10QShowEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QQuickWidget9hideEventEP10QHideEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QQuickWidget12focusInEventEP11QFocusEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QQuickWidget13focusOutEventEP11QFocusEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QQuickWidget10wheelEventEP11QWheelEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QQuickWidget14dragEnterEventEP15QDragEnterEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QQuickWidget13dragMoveEventEP14QDragMoveEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QQuickWidget14dragLeaveEventEP15QDragLeaveEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QQuickWidget9dropEventEP10QDropEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QQuickWidget5eventEP6QEvent": ["bool", "address", "address"],
+    "ritual_ZN12QQuickWidget10paintEventEP11QPaintEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QQuickWidget18focusNextPrevChildEb": [
+      "bool", "address", "bool"
+    ],
+    "ritual_ZN12QQuickWidget6d_funcEv": ["address", "address"],
+    "ritual_ZNK12QQuickWidget6d_funcEv": ["address", "address"],
+    "ritual_take_QQuickWidget": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK12QQuickWidget8sizeHintEv": ["address", "address"],
+    "ritual_own_ZN12QQuickWidget11resizeEventEP12QResizeEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN12QQuickWidget10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN12QQuickWidget13keyPressEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN12QQuickWidget15keyReleaseEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN12QQuickWidget15mousePressEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN12QQuickWidget17mouseReleaseEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN12QQuickWidget14mouseMoveEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN12QQuickWidget21mouseDoubleClickEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN12QQuickWidget9showEventEP10QShowEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN12QQuickWidget9hideEventEP10QHideEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN12QQuickWidget12focusInEventEP11QFocusEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN12QQuickWidget13focusOutEventEP11QFocusEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN12QQuickWidget10wheelEventEP11QWheelEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN12QQuickWidget14dragEnterEventEP15QDragEnterEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN12QQuickWidget13dragMoveEventEP14QDragMoveEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN12QQuickWidget14dragLeaveEventEP15QDragLeaveEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN12QQuickWidget9dropEventEP10QDropEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN12QQuickWidget5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN12QQuickWidget10paintEventEP11QPaintEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN12QQuickWidget18focusNextPrevChildEb": [
+      "bool", "address", "bool"
+    ]
+  }
+}

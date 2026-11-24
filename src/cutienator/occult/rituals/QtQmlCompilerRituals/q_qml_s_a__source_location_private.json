@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQmlCo",
+    "mpiler/6.12.0/QtQmlCompiler/private/qqmlsasourcelocation_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN6QQmlSA21SourceLocationPrivate14sourceLocationERKNS_14SourceLocationE": [
+      "address", "address"
+    ],
+    "ritual_ZN6QQmlSA21SourceLocationPrivate26createQQmlSASourceLocationERKN6QQmlJS14SourceLocationE": [
+      "address", "address"
+    ],
+    "ritual_ZN6QQmlSA21SourceLocationPrivate20sizeOfSourceLocationEv": [
+      "long long"
+    ],
+    "ritual_ZN6QQmlSA21SourceLocationPrivateD1Ev": ["nothing", "address"]
+  }
+}

@@ -6,6 +6,8 @@
   "rows": {
     "ritual_ZNK5QMenu10metaObjectEv": ["address", "address"],
     "ritual_ZN5QMenu2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN5QMenu6d_funcEv": ["address", "address"],
+    "ritual_ZNK5QMenu6d_funcEv": ["address", "address"],
     "ritual_ZN5QMenuC1EP7QWidget": ["address", "address"],
     "ritual_ZN5QMenuC1ERK7QStringP7QWidget": ["address", "text", "address"],
     "ritual_ZN5QMenuD1Ev": ["nothing", "address"],
@@ -77,6 +79,10 @@
     "ritual_ZNK5QMenu4iconEv": ["address", "address"],
     "ritual_ZN5QMenu7setIconERK5QIcon": ["nothing", "address", "address"],
     "ritual_ZN5QMenu14setNoReplayForEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN5QMenu12platformMenuEv": ["address", "address"],
+    "ritual_ZN5QMenu15setPlatformMenuEP13QPlatformMenu": [
       "nothing", "address", "address"
     ],
     "ritual_ZNK5QMenu21separatorsCollapsibleEv": ["bool", "address"],

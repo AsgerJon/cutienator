@@ -1,0 +1,29 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/qqmldebug.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QQmlDebuggingEnabler15enableDebuggingEb": [
+      "nothing", "bool"
+    ],
+    "ritual_ZN20QQmlDebuggingEnablerC1Eb": ["address", "bool"],
+    "ritual_ZN20QQmlDebuggingEnabler16debuggerServicesEv": ["address"],
+    "ritual_ZN20QQmlDebuggingEnabler17inspectorServicesEv": ["address"],
+    "ritual_ZN20QQmlDebuggingEnabler16profilerServicesEv": ["address"],
+    "ritual_ZN20QQmlDebuggingEnabler22nativeDebuggerServicesEv": ["address"],
+    "ritual_ZN20QQmlDebuggingEnabler11setServicesERK5QListI7QStringE": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQmlDebuggingEnabler19startTcpDebugServerEiNS_9StartModeERK7QString": [
+      "bool", "int", "int", "text"
+    ],
+    "ritual_ZN20QQmlDebuggingEnabler22connectToLocalDebuggerERK7QStringNS_9StartModeE": [
+      "bool", "text", "int"
+    ],
+    "ritual_ZN20QQmlDebuggingEnabler19startDebugConnectorERK7QStringRK5QHashIS0_8QVariantE": [
+      "bool", "text", "address"
+    ],
+    "ritual_ZN20QQmlDebuggingEnablerD1Ev": ["nothing", "address"]
+  }
+}

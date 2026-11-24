@@ -1,0 +1,36 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickanimation_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK20QQuickPropertyAction10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QQuickPropertyAction2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN20QQuickPropertyAction6d_funcEv": ["address", "address"],
+    "ritual_ZNK20QQuickPropertyAction6d_funcEv": ["address", "address"],
+    "ritual_ZN20QQuickPropertyActionC1EP7QObject": ["address", "address"],
+    "ritual_ZN20QQuickPropertyActionD1Ev": ["nothing", "address"],
+    "ritual_ZNK20QQuickPropertyAction6targetEv": ["address", "address"],
+    "ritual_ZN20QQuickPropertyAction15setTargetObjectEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QQuickPropertyAction8propertyEv": ["text", "address"],
+    "ritual_ZN20QQuickPropertyAction11setPropertyERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK20QQuickPropertyAction10propertiesEv": ["text", "address"],
+    "ritual_ZN20QQuickPropertyAction13setPropertiesERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK20QQuickPropertyAction5valueEv": ["address", "address"],
+    "ritual_ZN20QQuickPropertyAction8setValueERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QQuickPropertyAction": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

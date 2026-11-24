@@ -1,0 +1,35 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgrenderca",
+    "mera_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN27QSSGRenderCameraFieldOfViewC1ENS_11OrientationE": [
+      "address", "int"
+    ],
+    "ritual_ZN27QSSGRenderCameraFieldOfViewC1ERKS_": ["address", "address"],
+    "ritual_ZNK27QSSGRenderCameraFieldOfView11orientationEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK27QSSGRenderCameraFieldOfView7degreesEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK27QSSGRenderCameraFieldOfView7radiansEv": [
+      "float", "address"
+    ],
+    "ritual_ZN27QSSGRenderCameraFieldOfView10setDegreesEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK27QSSGRenderCameraFieldOfView13asVerticalFovEf": [
+      "address", "address", "float"
+    ],
+    "ritual_ZN27QSSGRenderCameraFieldOfView10setRadiansEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN27QSSGRenderCameraFieldOfViewC1EfNS_8FovValueENS_11OrientationE": [
+      "address", "float", "int", "int"
+    ],
+    "ritual_ZN27QSSGRenderCameraFieldOfViewD1Ev": ["nothing", "address"]
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/qsgimagenode.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN12QSGImageNodeD1Ev": ["nothing", "address"],
+    "ritual_ZN12QSGImageNode7setRectERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QSGImageNode7setRectEdddd": [
+      "nothing", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZNK12QSGImageNode4rectEv": ["address", "address"],
+    "ritual_ZN12QSGImageNode13setSourceRectERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QSGImageNode13setSourceRectEdddd": [
+      "nothing", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZNK12QSGImageNode10sourceRectEv": ["address", "address"],
+    "ritual_ZN12QSGImageNode10setTextureEP10QSGTexture": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12QSGImageNode7textureEv": ["address", "address"],
+    "ritual_ZN12QSGImageNode12setFilteringEN10QSGTexture9FilteringE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK12QSGImageNode9filteringEv": ["int", "address"],
+    "ritual_ZN12QSGImageNode18setMipmapFilteringEN10QSGTexture9FilteringE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK12QSGImageNode15mipmapFilteringEv": ["int", "address"],
+    "ritual_ZN12QSGImageNode18setAnisotropyLevelEN10QSGTexture15AnisotropyLevelE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK12QSGImageNode15anisotropyLevelEv": ["int", "address"],
+    "ritual_ZN12QSGImageNode30setTextureCoordinatesTransformE6QFlagsINS_31TextureCoordinatesTransformFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK12QSGImageNode27textureCoordinatesTransformEv": [
+      "int", "address"
+    ],
+    "ritual_ZN12QSGImageNode14setOwnsTextureEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK12QSGImageNode11ownsTextureEv": ["bool", "address"],
+    "ritual_ZN12QSGImageNode15rebuildGeometryEP11QSGGeometryP10QSGTextureRK6QRectFS4_6QFlagsINS_31TextureCoordinatesTransformFlagEE": [
+      "nothing", "address", "address", "address", "address", "int"
+    ],
+    "ritual_take_QSGImageNode": ["bool", "address", "chars", "address"]
+  }
+}

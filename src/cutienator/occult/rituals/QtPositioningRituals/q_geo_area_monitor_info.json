@@ -1,0 +1,55 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtPositioning/qgeoareamonitorinfo.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QGeoAreaMonitorInfoC1ERK7QString": ["address", "text"],
+    "ritual_ZN19QGeoAreaMonitorInfoC1ERKS_": ["address", "address"],
+    "ritual_ZN19QGeoAreaMonitorInfoD1Ev": ["nothing", "address"],
+    "ritual_ZeqRK19QGeoAreaMonitorInfoS1_": ["bool", "address", "address"],
+    "ritual_ZneRK19QGeoAreaMonitorInfoS1_": ["bool", "address", "address"],
+    "ritual_ZNK19QGeoAreaMonitorInfo4nameEv": ["text", "address"],
+    "ritual_ZN19QGeoAreaMonitorInfo7setNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK19QGeoAreaMonitorInfo10identifierEv": ["text", "address"],
+    "ritual_ZNK19QGeoAreaMonitorInfo7isValidEv": ["bool", "address"],
+    "ritual_ZNK19QGeoAreaMonitorInfo4areaEv": ["address", "address"],
+    "ritual_ZN19QGeoAreaMonitorInfo7setAreaERK9QGeoShape": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QGeoAreaMonitorInfo10expirationEv": ["address", "address"],
+    "ritual_ZN19QGeoAreaMonitorInfo13setExpirationERK9QDateTime": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QGeoAreaMonitorInfo12isPersistentEv": ["bool", "address"],
+    "ritual_ZN19QGeoAreaMonitorInfo13setPersistentEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK19QGeoAreaMonitorInfo22notificationParametersEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QGeoAreaMonitorInfo25setNotificationParametersERK4QMapI7QString8QVariantE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QGeoAreaMonitorInfo6detachEv": ["nothing", "address"],
+    "ritual_ZN19QGeoAreaMonitorInfo6equalsERKS_S1_": [
+      "bool", "address", "address"
+    ],
+    "ritual_Zls6QDebugRK19QGeoAreaMonitorInfo": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN19QGeoAreaMonitorInfo14debugStreamingE6QDebugRKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_list_make_QGeoAreaMonitorInfo": ["address"],
+    "ritual_list_add_QGeoAreaMonitorInfo": ["nothing", "address", "address"],
+    "ritual_list_size_QGeoAreaMonitorInfo": ["long long", "address"],
+    "ritual_list_at_QGeoAreaMonitorInfo": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_QGeoAreaMonitorInfo": ["nothing", "address"]
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickpixmap_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK27QQuickDefaultTextureFactory10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK27QQuickDefaultTextureFactory13createTextureEP12QQuickWindow": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK27QQuickDefaultTextureFactory11textureSizeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK27QQuickDefaultTextureFactory16textureByteCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK27QQuickDefaultTextureFactory5imageEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK27QQuickDefaultTextureFactory13createTextureEP12QQuickWindow": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZNK27QQuickDefaultTextureFactory11textureSizeEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK27QQuickDefaultTextureFactory16textureByteCountEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZNK27QQuickDefaultTextureFactory5imageEv": [
+      "address", "address"
+    ]
+  }
+}

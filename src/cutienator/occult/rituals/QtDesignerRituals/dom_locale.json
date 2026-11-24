@@ -1,0 +1,23 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/ui4_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN9DomLocaleC1Ev": ["address"],
+    "ritual_ZN9DomLocaleD1Ev": ["nothing", "address"],
+    "ritual_ZNK9DomLocale20hasAttributeLanguageEv": ["bool", "address"],
+    "ritual_ZNK9DomLocale17attributeLanguageEv": ["text", "address"],
+    "ritual_ZN9DomLocale20setAttributeLanguageERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN9DomLocale22clearAttributeLanguageEv": ["nothing", "address"],
+    "ritual_ZNK9DomLocale19hasAttributeCountryEv": ["bool", "address"],
+    "ritual_ZNK9DomLocale16attributeCountryEv": ["text", "address"],
+    "ritual_ZN9DomLocale19setAttributeCountryERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN9DomLocale21clearAttributeCountryEv": ["nothing", "address"]
+  }
+}

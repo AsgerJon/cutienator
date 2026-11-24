@@ -1,0 +1,25 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmlloggingcategorybase_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK23QQmlLoggingCategoryBase10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QQmlLoggingCategoryBase2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN23QQmlLoggingCategoryBase22qt_qmlMarker_anonymousEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQmlLoggingCategoryBase8categoryEv": ["address", "address"],
+    "ritual_ZN23QQmlLoggingCategoryBase11setCategoryEPKc9QtMsgType": [
+      "nothing", "address", "chars", "int"
+    ],
+    "ritual_ZN23QQmlLoggingCategoryBase15forceCompletionEv": [
+      "nothing", "address"
+    ]
+  }
+}

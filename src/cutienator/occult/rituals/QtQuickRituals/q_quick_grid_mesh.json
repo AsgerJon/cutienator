@@ -1,0 +1,29 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickshadereffectmesh_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK14QQuickGridMesh10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QQuickGridMesh2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN14QQuickGridMeshC1EP7QObject": ["address", "address"],
+    "ritual_ZN14QQuickGridMesh18validateAttributesERK5QListI10QByteArrayEPi": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN14QQuickGridMesh14updateGeometryEP11QSGGeometryiiRK6QRectFS4_": [
+      "address", "address", "address", "int", "int", "address", "address"
+    ],
+    "ritual_ZNK14QQuickGridMesh3logEv": ["text", "address"],
+    "ritual_ZN14QQuickGridMesh13setResolutionERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QQuickGridMesh10resolutionEv": ["address", "address"],
+    "ritual_own_ZN14QQuickGridMesh14updateGeometryEP11QSGGeometryiiRK6QRectFS4_": [
+      "address", "address", "address", "int", "int", "address", "address"
+    ],
+    "ritual_own_ZNK14QQuickGridMesh3logEv": ["text", "address"]
+  }
+}

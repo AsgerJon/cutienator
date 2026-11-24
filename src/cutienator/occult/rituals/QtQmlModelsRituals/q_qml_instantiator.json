@@ -1,0 +1,50 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQmlModels/6.12.0/QtQmlModels/private/qqmlinstantiator_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK16QQmlInstantiator10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QQmlInstantiator2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN16QQmlInstantiatorC1EP7QObject": ["address", "address"],
+    "ritual_ZN16QQmlInstantiatorD1Ev": ["nothing", "address"],
+    "ritual_ZNK16QQmlInstantiator8isActiveEv": ["bool", "address"],
+    "ritual_ZN16QQmlInstantiator9setActiveEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK16QQmlInstantiator7isAsyncEv": ["bool", "address"],
+    "ritual_ZN16QQmlInstantiator8setAsyncEb": ["nothing", "address", "bool"],
+    "ritual_ZNK16QQmlInstantiator5countEv": ["int", "address"],
+    "ritual_ZN16QQmlInstantiator8delegateEv": ["address", "address"],
+    "ritual_ZN16QQmlInstantiator11setDelegateEP13QQmlComponent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QQmlInstantiator5modelEv": ["address", "address"],
+    "ritual_ZN16QQmlInstantiator8setModelERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QQmlInstantiator19delegateModelAccessEv": [
+      "unsigned char", "address"
+    ],
+    "ritual_ZN16QQmlInstantiator22setDelegateModelAccessEN17QQmlDelegateModel19DelegateModelAccessE": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZNK16QQmlInstantiator6objectEv": ["address", "address"],
+    "ritual_ZNK16QQmlInstantiator8objectAtEi": ["address", "address", "int"],
+    "ritual_ZN16QQmlInstantiator10classBeginEv": ["nothing", "address"],
+    "ritual_ZN16QQmlInstantiator17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQmlInstantiator6d_funcEv": ["address", "address"],
+    "ritual_ZNK16QQmlInstantiator6d_funcEv": ["address", "address"],
+    "ritual_cast_QQmlInstantiator_QQmlParserStatus": ["address", "address"],
+    "ritual_take_QQmlInstantiator": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN16QQmlInstantiator10classBeginEv": ["nothing", "address"],
+    "ritual_own_ZN16QQmlInstantiator17componentCompleteEv": [
+      "nothing", "address"
+    ]
+  }
+}

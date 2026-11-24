@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qcompleter.h, Qt 6.12.0. Changes made here are lost.
+#include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(completer)
 #include <QtWidgets/qcompleter.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qabstractitemmodel.h>
@@ -18,55 +20,96 @@ struct OwnQCompleter : QCompleter {
 //  A QCompleter that Python can take functions over in. Every QCompleter
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if QT_CONFIG(completer)
 typedef QString * (*CuteQCompleterCall0)(const void *, const QModelIndex *, int *);
+#endif  // QT_CONFIG(completer)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(completer)
 typedef bool (*CuteQCompleterCall1)(const void *, QObject *, QEvent *, int *);
+#endif  // QT_CONFIG(completer)
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(completer)
 typedef bool (*CuteQCompleterCall2)(const void *, QEvent *, int *);
+#endif  // QT_CONFIG(completer)
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQCompleterCall3)(const void *, QTimerEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQCompleterCall4)(const void *, QChildEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQCompleterCall5)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQCompleterCall6)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQCompleterCall7)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 class CuteQCompleter : public QCompleter {
 public:
   using QCompleter::QCompleter;
   void *taken[8] = {};
 
   bool take(const char *key, void *call) {
+#if QT_CONFIG(completer)
     if (!std::strcmp(key, "_ZNK10QCompleter13pathFromIndexERK11QModelIndex")) {
       taken[0] = call;
       return true;
     }
+#endif  // QT_CONFIG(completer)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(completer)
     if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[1] = call;
       return true;
     }
+#endif  // QT_CONFIG(completer)
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(completer)
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[2] = call;
       return true;
     }
+#endif  // QT_CONFIG(completer)
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[3] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[4] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[5] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[6] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
       taken[7] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
     return false;
   }
 
+#if QT_CONFIG(completer)
   //  QString QCompleter::pathFromIndex(const QModelIndex &index) const
   QString pathFromIndex(const QModelIndex &index) const override {
     if (taken[0]) {
@@ -81,7 +124,10 @@ public:
     }
     return QCompleter::pathFromIndex(index);
   }
+#endif  // QT_CONFIG(completer)
 
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(completer)
   //  bool QCompleter::eventFilter(QObject *o, QEvent *e)
   bool eventFilter(QObject *o, QEvent *e) override {
     if (taken[1]) {
@@ -92,7 +138,11 @@ public:
     }
     return QCompleter::eventFilter(o, e);
   }
+#endif  // QT_CONFIG(completer)
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(completer)
   //  bool QCompleter::event(QEvent *a0)
   bool event(QEvent *a0) override {
     if (taken[2]) {
@@ -103,7 +153,10 @@ public:
     }
     return QCompleter::event(a0);
   }
+#endif  // QT_CONFIG(completer)
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
     if (taken[3]) {
@@ -114,7 +167,9 @@ public:
     }
     QObject::timerEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
     if (taken[4]) {
@@ -125,7 +180,9 @@ public:
     }
     QObject::childEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
     if (taken[5]) {
@@ -136,7 +193,9 @@ public:
     }
     QObject::customEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
     if (taken[6]) {
@@ -147,7 +206,9 @@ public:
     }
     QObject::connectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
     if (taken[7]) {
@@ -158,6 +219,7 @@ public:
     }
     QObject::disconnectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 };
 
 //  const QMetaObject *QCompleter::metaObject() const
@@ -190,6 +252,7 @@ QCompleter *ritual_ZN10QCompleterC1EP18QAbstractItemModelP7QObject(
   return new CuteQCompleter(model, parent);
 }
 
+#if QT_CONFIG(stringlistmodel)
 //  QCompleter::QCompleter(const QStringList &completions, QObject *parent)
 extern "C" Q_DECL_EXPORT
 QCompleter *ritual_ZN10QCompleterC1ERK5QListI7QStringEP7QObject(
@@ -197,6 +260,7 @@ QCompleter *ritual_ZN10QCompleterC1ERK5QListI7QStringEP7QObject(
     QObject *parent) {
   return new CuteQCompleter(*completions, parent);
 }
+#endif  // QT_CONFIG(stringlistmodel)
 
 //  QCompleter::~QCompleter()
 extern "C" Q_DECL_EXPORT
@@ -448,6 +512,19 @@ bool ritual_ZN10QCompleter5eventEP6QEvent(QCompleter *self, QEvent *a0) {
   return self->event(a0);
 }
 
+//  QCompleterPrivate *QCompleter::d_func()
+extern "C" Q_DECL_EXPORT
+QCompleterPrivate *ritual_ZN10QCompleter6d_funcEv(QCompleter *self) {
+  return self->d_func();
+}
+
+//  const QCompleterPrivate *QCompleter::d_func() const
+extern "C" Q_DECL_EXPORT
+const QCompleterPrivate *ritual_ZNK10QCompleter6d_funcEv(
+    const QCompleter *self) {
+  return self->d_func();
+}
+
 //  a Python function taken by a CuteQCompleter, for the function named by
 //      the key
 extern "C" Q_DECL_EXPORT
@@ -479,3 +556,5 @@ extern "C" Q_DECL_EXPORT
 bool ritual_own_ZN10QCompleter5eventEP6QEvent(QCompleter *self, QEvent *a0) {
   return static_cast<OwnQCompleter *>(self)->OwnQCompleter::event(a0);
 }
+
+#endif  // QT_CONFIG(completer)

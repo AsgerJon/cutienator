@@ -6,7 +6,10 @@
   "rows": {
     "ritual_ZNK7QScreen10metaObjectEv": ["address", "address"],
     "ritual_ZN7QScreen2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN7QScreen6d_funcEv": ["address", "address"],
+    "ritual_ZNK7QScreen6d_funcEv": ["address", "address"],
     "ritual_ZN7QScreenD1Ev": ["nothing", "address"],
+    "ritual_ZNK7QScreen6handleEv": ["address", "address"],
     "ritual_ZNK7QScreen4nameEv": ["text", "address"],
     "ritual_ZNK7QScreen12manufacturerEv": ["text", "address"],
     "ritual_ZNK7QScreen5modelEv": ["text", "address"],
@@ -54,6 +57,7 @@
       "address", "address", "unsigned long long", "int", "int", "int", "int"
     ],
     "ritual_ZNK7QScreen11refreshRateEv": ["double", "address"],
+    "ritual_ZN7QScreenC1EP15QPlatformScreen": ["address", "address"],
     "ritual_take_QScreen": ["bool", "address", "chars", "address"],
     "ritual_list_make_QScreen_ptr": ["address"],
     "ritual_list_add_QScreen_ptr": ["nothing", "address", "address"],

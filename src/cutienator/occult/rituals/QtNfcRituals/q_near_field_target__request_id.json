@@ -1,0 +1,25 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNfc/qnearfieldtarget.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN16QNearFieldTarget9RequestIdC1Ev": ["address"],
+    "ritual_ZN16QNearFieldTarget9RequestIdC1ERKS0_": ["address", "address"],
+    "ritual_ZN16QNearFieldTarget9RequestIdC1EPNS_16RequestIdPrivateE": [
+      "address", "address"
+    ],
+    "ritual_ZN16QNearFieldTarget9RequestIdD1Ev": ["nothing", "address"],
+    "ritual_ZNK16QNearFieldTarget9RequestId7isValidEv": ["bool", "address"],
+    "ritual_ZNK16QNearFieldTarget9RequestId8refCountEv": ["int", "address"],
+    "ritual_ZNK16QNearFieldTarget9RequestIdltERKS0_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK16QNearFieldTarget9RequestIdeqERKS0_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK16QNearFieldTarget9RequestIdneERKS0_": [
+      "bool", "address", "address"
+    ]
+  }
+}

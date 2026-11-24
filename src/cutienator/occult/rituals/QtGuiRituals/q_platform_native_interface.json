@@ -1,0 +1,39 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/qpa/qplatformnativeinterface.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK24QPlatformNativeInterface10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QPlatformNativeInterface2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZNK24QPlatformNativeInterface16windowPropertiesEP15QPlatformWindow": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK24QPlatformNativeInterface14windowPropertyEP15QPlatformWindowRK7QString": [
+      "address", "address", "address", "text"
+    ],
+    "ritual_ZNK24QPlatformNativeInterface14windowPropertyEP15QPlatformWindowRK7QStringRK8QVariant": [
+      "address", "address", "address", "text", "address"
+    ],
+    "ritual_ZN24QPlatformNativeInterface17setWindowPropertyEP15QPlatformWindowRK7QStringRK8QVariant": [
+      "nothing", "address", "address", "text", "address"
+    ],
+    "ritual_take_QPlatformNativeInterface": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK24QPlatformNativeInterface14windowPropertyEP15QPlatformWindowRK7QString": [
+      "address", "address", "address", "text"
+    ],
+    "ritual_own_ZNK24QPlatformNativeInterface14windowPropertyEP15QPlatformWindowRK7QStringRK8QVariant": [
+      "address", "address", "address", "text", "address"
+    ],
+    "ritual_own_ZN24QPlatformNativeInterface17setWindowPropertyEP15QPlatformWindowRK7QStringRK8QVariant": [
+      "nothing", "address", "address", "text", "address"
+    ]
+  }
+}

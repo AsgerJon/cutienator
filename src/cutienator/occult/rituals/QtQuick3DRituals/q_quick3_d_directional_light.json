@@ -1,0 +1,58 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3D/6.12.0/QtQuick3D/private/qquick3ddirectionallight_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK24QQuick3DDirectionalLight10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QQuick3DDirectionalLight2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN24QQuick3DDirectionalLightC1EP12QQuick3DNode": [
+      "address", "address"
+    ],
+    "ritual_ZN24QQuick3DDirectionalLightD1Ev": ["nothing", "address"],
+    "ritual_ZNK24QQuick3DDirectionalLight9csmSplit1Ev": ["float", "address"],
+    "ritual_ZNK24QQuick3DDirectionalLight9csmSplit2Ev": ["float", "address"],
+    "ritual_ZNK24QQuick3DDirectionalLight9csmSplit3Ev": ["float", "address"],
+    "ritual_ZNK24QQuick3DDirectionalLight12csmNumSplitsEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK24QQuick3DDirectionalLight13csmBlendRatioEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK24QQuick3DDirectionalLight19lockShadowmapTexelsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN24QQuick3DDirectionalLight12setCsmSplit1Ef": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN24QQuick3DDirectionalLight12setCsmSplit2Ef": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN24QQuick3DDirectionalLight12setCsmSplit3Ef": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN24QQuick3DDirectionalLight15setCsmNumSplitsEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN24QQuick3DDirectionalLight16setCsmBlendRatioEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN24QQuick3DDirectionalLight22setLockShadowmapTexelsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN24QQuick3DDirectionalLight17updateSpatialNodeEP21QSSGRenderGraphObject": [
+      "address", "address", "address"
+    ],
+    "ritual_take_QQuick3DDirectionalLight": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN24QQuick3DDirectionalLight17updateSpatialNodeEP21QSSGRenderGraphObject": [
+      "address", "address", "address"
+    ]
+  }
+}

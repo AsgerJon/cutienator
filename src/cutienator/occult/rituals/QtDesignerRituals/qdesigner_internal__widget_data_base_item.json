@@ -1,0 +1,81 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/widgetdatabase_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_own_ZNK18qdesigner_internal18WidgetDataBaseItem4nameEv": [
+      "text", "address"
+    ],
+    "ritual_own_ZN18qdesigner_internal18WidgetDataBaseItem7setNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_own_ZNK18qdesigner_internal18WidgetDataBaseItem5groupEv": [
+      "text", "address"
+    ],
+    "ritual_own_ZN18qdesigner_internal18WidgetDataBaseItem8setGroupERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_own_ZNK18qdesigner_internal18WidgetDataBaseItem7toolTipEv": [
+      "text", "address"
+    ],
+    "ritual_own_ZN18qdesigner_internal18WidgetDataBaseItem10setToolTipERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_own_ZNK18qdesigner_internal18WidgetDataBaseItem9whatsThisEv": [
+      "text", "address"
+    ],
+    "ritual_own_ZN18qdesigner_internal18WidgetDataBaseItem12setWhatsThisERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_own_ZNK18qdesigner_internal18WidgetDataBaseItem11includeFileEv": [
+      "text", "address"
+    ],
+    "ritual_own_ZN18qdesigner_internal18WidgetDataBaseItem14setIncludeFileERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_own_ZNK18qdesigner_internal18WidgetDataBaseItem4iconEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN18qdesigner_internal18WidgetDataBaseItem7setIconERK5QIcon": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK18qdesigner_internal18WidgetDataBaseItem8isCompatEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZN18qdesigner_internal18WidgetDataBaseItem9setCompatEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZNK18qdesigner_internal18WidgetDataBaseItem11isContainerEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZN18qdesigner_internal18WidgetDataBaseItem12setContainerEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZNK18qdesigner_internal18WidgetDataBaseItem8isCustomEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZN18qdesigner_internal18WidgetDataBaseItem9setCustomEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZNK18qdesigner_internal18WidgetDataBaseItem10pluginPathEv": [
+      "text", "address"
+    ],
+    "ritual_own_ZN18qdesigner_internal18WidgetDataBaseItem13setPluginPathERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_own_ZNK18qdesigner_internal18WidgetDataBaseItem10isPromotedEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZN18qdesigner_internal18WidgetDataBaseItem11setPromotedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZNK18qdesigner_internal18WidgetDataBaseItem7extendsEv": [
+      "text", "address"
+    ],
+    "ritual_own_ZN18qdesigner_internal18WidgetDataBaseItem10setExtendsERK7QString": [
+      "nothing", "address", "text"
+    ]
+  }
+}

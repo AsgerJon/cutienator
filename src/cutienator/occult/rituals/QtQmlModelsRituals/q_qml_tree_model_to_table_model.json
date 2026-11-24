@@ -1,0 +1,212 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQmlMo",
+    "dels/6.12.0/QtQmlModels/private/qqmltreemodeltotablemodel_p_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK25QQmlTreeModelToTableModel10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QQmlTreeModelToTableModel2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN25QQmlTreeModelToTableModelC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZNK25QQmlTreeModelToTableModel5modelEv": ["address", "address"],
+    "ritual_ZNK25QQmlTreeModelToTableModel9rootIndexEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QQmlTreeModelToTableModel12setRootIndexERK11QModelIndex": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QQmlTreeModelToTableModel14resetRootIndexEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK25QQmlTreeModelToTableModel5indexEiiRK11QModelIndex": [
+      "address", "address", "int", "int", "address"
+    ],
+    "ritual_ZNK25QQmlTreeModelToTableModel6parentERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK25QQmlTreeModelToTableModel8rowCountERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK25QQmlTreeModelToTableModel11columnCountERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK25QQmlTreeModelToTableModel9roleNamesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK25QQmlTreeModelToTableModel4dataERK11QModelIndexi": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN25QQmlTreeModelToTableModel7setDataERK11QModelIndexRK8QVarianti": [
+      "bool", "address", "address", "address", "int"
+    ],
+    "ritual_ZNK25QQmlTreeModelToTableModel10headerDataEiN2Qt11OrientationEi": [
+      "address", "address", "int", "int", "int"
+    ],
+    "ritual_ZNK25QQmlTreeModelToTableModel5flagsERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN25QQmlTreeModelToTableModel14clearModelDataEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QQmlTreeModelToTableModel9isVisibleERK11QModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN25QQmlTreeModelToTableModel15childrenVisibleERK11QModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK25QQmlTreeModelToTableModel10mapToModelERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK25QQmlTreeModelToTableModel12mapFromModelERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK25QQmlTreeModelToTableModel10mapToModelEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK25QQmlTreeModelToTableModel20selectionForRowRangeERK11QModelIndexS2_": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN25QQmlTreeModelToTableModel22showModelTopLevelItemsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK25QQmlTreeModelToTableModel9itemIndexERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN25QQmlTreeModelToTableModel17expandPendingRowsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK25QQmlTreeModelToTableModel14lastChildIndexERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN25QQmlTreeModelToTableModel17removeVisibleRowsEiib": [
+      "nothing", "address", "int", "int", "bool"
+    ],
+    "ritual_ZNK25QQmlTreeModelToTableModel4dumpEv": ["nothing", "address"],
+    "ritual_ZNK25QQmlTreeModelToTableModel15testConsistencyEb": [
+      "bool", "address", "bool"
+    ],
+    "ritual_ZN25QQmlTreeModelToTableModel6expandERK11QModelIndex": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QQmlTreeModelToTableModel8collapseERK11QModelIndex": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QQmlTreeModelToTableModel8setModelEP18QAbstractItemModel": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK25QQmlTreeModelToTableModel10isExpandedERK11QModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK25QQmlTreeModelToTableModel10isExpandedEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK25QQmlTreeModelToTableModel11hasChildrenEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK25QQmlTreeModelToTableModel11hasSiblingsEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK25QQmlTreeModelToTableModel10depthAtRowEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZN25QQmlTreeModelToTableModel9expandRowEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN25QQmlTreeModelToTableModel17expandRecursivelyEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN25QQmlTreeModelToTableModel11collapseRowEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN25QQmlTreeModelToTableModel19collapseRecursivelyEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN25QQmlTreeModelToTableModel21modelHasBeenDestroyedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QQmlTreeModelToTableModel17modelHasBeenResetEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QQmlTreeModelToTableModel27modelLayoutAboutToBeChangedERK5QListI21QPersistentModelIndexEN18QAbstractItemModel16LayoutChangeHintE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN25QQmlTreeModelToTableModel18modelLayoutChangedERK5QListI21QPersistentModelIndexEN18QAbstractItemModel16LayoutChangeHintE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN25QQmlTreeModelToTableModel26modelRowsAboutToBeInsertedERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN25QQmlTreeModelToTableModel23modelRowsAboutToBeMovedERK11QModelIndexiiS2_i": [
+      "nothing", "address", "address", "int", "int", "address", "int"
+    ],
+    "ritual_ZN25QQmlTreeModelToTableModel25modelRowsAboutToBeRemovedERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN25QQmlTreeModelToTableModel17modelRowsInsertedERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN25QQmlTreeModelToTableModel14modelRowsMovedERK11QModelIndexiiS2_i": [
+      "nothing", "address", "address", "int", "int", "address", "int"
+    ],
+    "ritual_ZN25QQmlTreeModelToTableModel16modelRowsRemovedERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN25QQmlTreeModelToTableModel29modelColumnsAboutToBeInsertedERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN25QQmlTreeModelToTableModel28modelColumnsAboutToBeRemovedERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN25QQmlTreeModelToTableModel20modelColumnsInsertedERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN25QQmlTreeModelToTableModel19modelColumnsRemovedERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN25QQmlTreeModelToTableModel23enableSignalAggregationEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QQmlTreeModelToTableModel24disableSignalAggregationEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK25QQmlTreeModelToTableModel20isAggregatingSignalsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN25QQmlTreeModelToTableModel17emitQueuedSignalsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QQmlTreeModelToTableModel14connectToModelEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZNK25QQmlTreeModelToTableModel5indexEiiRK11QModelIndex": [
+      "address", "address", "int", "int", "address"
+    ],
+    "ritual_own_ZNK25QQmlTreeModelToTableModel6parentERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZNK25QQmlTreeModelToTableModel8rowCountERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZNK25QQmlTreeModelToTableModel11columnCountERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZNK25QQmlTreeModelToTableModel4dataERK11QModelIndexi": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_own_ZN25QQmlTreeModelToTableModel7setDataERK11QModelIndexRK8QVarianti": [
+      "bool", "address", "address", "address", "int"
+    ],
+    "ritual_own_ZNK25QQmlTreeModelToTableModel10headerDataEiN2Qt11OrientationEi": [
+      "address", "address", "int", "int", "int"
+    ],
+    "ritual_own_ZNK25QQmlTreeModelToTableModel5flagsERK11QModelIndex": [
+      "int", "address", "address"
+    ]
+  }
+}

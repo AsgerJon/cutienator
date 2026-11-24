@@ -1,0 +1,116 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSql/qsqlquerymodel.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK14QSqlQueryModel10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QSqlQueryModel2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN14QSqlQueryModel6d_funcEv": ["address", "address"],
+    "ritual_ZNK14QSqlQueryModel6d_funcEv": ["address", "address"],
+    "ritual_ZN14QSqlQueryModelC1EP7QObject": ["address", "address"],
+    "ritual_ZN14QSqlQueryModelD1Ev": ["nothing", "address"],
+    "ritual_ZNK14QSqlQueryModel8rowCountERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK14QSqlQueryModel11columnCountERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK14QSqlQueryModel6recordEi": ["address", "address", "int"],
+    "ritual_ZNK14QSqlQueryModel6recordEv": ["address", "address"],
+    "ritual_ZNK14QSqlQueryModel4dataERK11QModelIndexi": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZNK14QSqlQueryModel10headerDataEiN2Qt11OrientationEi": [
+      "address", "address", "int", "int", "int"
+    ],
+    "ritual_ZN14QSqlQueryModel13setHeaderDataEiN2Qt11OrientationERK8QVarianti": [
+      "bool", "address", "int", "int", "address", "int"
+    ],
+    "ritual_ZN14QSqlQueryModel13insertColumnsEiiRK11QModelIndex": [
+      "bool", "address", "int", "int", "address"
+    ],
+    "ritual_ZN14QSqlQueryModel13removeColumnsEiiRK11QModelIndex": [
+      "bool", "address", "int", "int", "address"
+    ],
+    "ritual_ZN14QSqlQueryModel8setQueryERK9QSqlQuery": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QSqlQueryModel8setQueryERK7QStringRK12QSqlDatabase": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZN14QSqlQueryModel7refreshEv": ["nothing", "address"],
+    "ritual_ZNK14QSqlQueryModel5queryEN2Qt15Disambiguated_tE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN14QSqlQueryModel5clearEv": ["nothing", "address"],
+    "ritual_ZNK14QSqlQueryModel9lastErrorEv": ["address", "address"],
+    "ritual_ZN14QSqlQueryModel9fetchMoreERK11QModelIndex": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QSqlQueryModel12canFetchMoreERK11QModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK14QSqlQueryModel9roleNamesEv": ["address", "address"],
+    "ritual_ZN14QSqlQueryModel15beginInsertRowsERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN14QSqlQueryModel13endInsertRowsEv": ["nothing", "address"],
+    "ritual_ZN14QSqlQueryModel15beginRemoveRowsERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN14QSqlQueryModel13endRemoveRowsEv": ["nothing", "address"],
+    "ritual_ZN14QSqlQueryModel18beginInsertColumnsERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN14QSqlQueryModel16endInsertColumnsEv": ["nothing", "address"],
+    "ritual_ZN14QSqlQueryModel18beginRemoveColumnsERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN14QSqlQueryModel16endRemoveColumnsEv": ["nothing", "address"],
+    "ritual_ZN14QSqlQueryModel15beginResetModelEv": ["nothing", "address"],
+    "ritual_ZN14QSqlQueryModel13endResetModelEv": ["nothing", "address"],
+    "ritual_ZN14QSqlQueryModel11queryChangeEv": ["nothing", "address"],
+    "ritual_ZNK14QSqlQueryModel12indexInQueryERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN14QSqlQueryModel12setLastErrorERK9QSqlError": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QSqlQueryModel": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK14QSqlQueryModel8rowCountERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZNK14QSqlQueryModel11columnCountERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZNK14QSqlQueryModel4dataERK11QModelIndexi": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_own_ZNK14QSqlQueryModel10headerDataEiN2Qt11OrientationEi": [
+      "address", "address", "int", "int", "int"
+    ],
+    "ritual_own_ZN14QSqlQueryModel13setHeaderDataEiN2Qt11OrientationERK8QVarianti": [
+      "bool", "address", "int", "int", "address", "int"
+    ],
+    "ritual_own_ZN14QSqlQueryModel13insertColumnsEiiRK11QModelIndex": [
+      "bool", "address", "int", "int", "address"
+    ],
+    "ritual_own_ZN14QSqlQueryModel13removeColumnsEiiRK11QModelIndex": [
+      "bool", "address", "int", "int", "address"
+    ],
+    "ritual_own_ZN14QSqlQueryModel5clearEv": ["nothing", "address"],
+    "ritual_own_ZN14QSqlQueryModel9fetchMoreERK11QModelIndex": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK14QSqlQueryModel12canFetchMoreERK11QModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN14QSqlQueryModel11queryChangeEv": ["nothing", "address"],
+    "ritual_own_ZNK14QSqlQueryModel12indexInQueryERK11QModelIndex": [
+      "address", "address", "address"
+    ]
+  }
+}

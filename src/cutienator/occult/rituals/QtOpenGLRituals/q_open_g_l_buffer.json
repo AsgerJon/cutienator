@@ -1,0 +1,26 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtOpenGL/qopenglbuffer.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN13QOpenGLBufferC1Ev": ["address"],
+    "ritual_ZN13QOpenGLBufferC1ENS_4TypeE": ["address", "int"],
+    "ritual_ZN13QOpenGLBufferC1ERKS_": ["address", "address"],
+    "ritual_ZN13QOpenGLBufferD1Ev": ["nothing", "address"],
+    "ritual_ZNK13QOpenGLBuffer4typeEv": ["int", "address"],
+    "ritual_ZNK13QOpenGLBuffer12usagePatternEv": ["int", "address"],
+    "ritual_ZN13QOpenGLBuffer15setUsagePatternENS_12UsagePatternE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN13QOpenGLBuffer6createEv": ["bool", "address"],
+    "ritual_ZNK13QOpenGLBuffer9isCreatedEv": ["bool", "address"],
+    "ritual_ZN13QOpenGLBuffer7destroyEv": ["nothing", "address"],
+    "ritual_ZN13QOpenGLBuffer4bindEv": ["bool", "address"],
+    "ritual_ZN13QOpenGLBuffer7releaseEv": ["nothing", "address"],
+    "ritual_ZN13QOpenGLBuffer7releaseENS_4TypeE": ["nothing", "int"],
+    "ritual_ZNK13QOpenGLBuffer4sizeEv": ["int", "address"],
+    "ritual_ZN13QOpenGLBuffer8allocateEi": ["nothing", "address", "int"],
+    "ritual_ZN13QOpenGLBuffer5unmapEv": ["bool", "address"]
+  }
+}

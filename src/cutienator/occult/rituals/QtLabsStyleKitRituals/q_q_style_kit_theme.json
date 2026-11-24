@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLabsStyleKit/6.12.0/QtLabsStyleKit/private/qqstylekittheme_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK15QQStyleKitTheme10metaObjectEv": ["address", "address"],
+    "ritual_ZNK15QQStyleKitTheme5styleEv": ["address", "address"],
+    "ritual_ZN15QQStyleKitTheme17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQStyleKitTheme16updateThemeFontsEv": ["nothing", "address"]
+  }
+}

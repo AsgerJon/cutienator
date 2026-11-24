@@ -1,0 +1,54 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qparallelanimationgroupjob_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN26QParallelAnimationGroupJobC1Ev": ["address"],
+    "ritual_ZN26QParallelAnimationGroupJobD1Ev": ["nothing", "address"],
+    "ritual_ZNK26QParallelAnimationGroupJob8durationEv": ["int", "address"],
+    "ritual_ZN26QParallelAnimationGroupJob17updateCurrentTimeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN26QParallelAnimationGroupJob11updateStateEN21QAbstractAnimationJob5StateES1_": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN26QParallelAnimationGroupJob15updateDirectionEN21QAbstractAnimationJob9DirectionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN26QParallelAnimationGroupJob29uncontrolledAnimationFinishedEP21QAbstractAnimationJob": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK26QParallelAnimationGroupJob14debugAnimationE6QDebug": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK26QParallelAnimationGroupJob20shouldAnimationStartEP21QAbstractAnimationJobb": [
+      "bool", "address", "address", "bool"
+    ],
+    "ritual_ZN26QParallelAnimationGroupJob15applyGroupStateEP21QAbstractAnimationJob": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QParallelAnimationGroupJob": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK26QParallelAnimationGroupJob8durationEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZN26QParallelAnimationGroupJob17updateCurrentTimeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN26QParallelAnimationGroupJob11updateStateEN21QAbstractAnimationJob5StateES1_": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZN26QParallelAnimationGroupJob15updateDirectionEN21QAbstractAnimationJob9DirectionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN26QParallelAnimationGroupJob29uncontrolledAnimationFinishedEP21QAbstractAnimationJob": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK26QParallelAnimationGroupJob14debugAnimationE6QDebug": [
+      "nothing", "address", "address"
+    ]
+  }
+}

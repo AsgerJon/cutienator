@@ -1,0 +1,36 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickflickable_p_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK26QQuickFlickableVisibleArea10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QQuickFlickableVisibleArea2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN26QQuickFlickableVisibleArea22qt_qmlMarker_anonymousEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QQuickFlickableVisibleAreaC1EP15QQuickFlickable": [
+      "address", "address"
+    ],
+    "ritual_ZNK26QQuickFlickableVisibleArea9xPositionEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK26QQuickFlickableVisibleArea10widthRatioEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK26QQuickFlickableVisibleArea9yPositionEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK26QQuickFlickableVisibleArea11heightRatioEv": [
+      "double", "address"
+    ],
+    "ritual_ZN26QQuickFlickableVisibleArea13updateVisibleEv": [
+      "nothing", "address"
+    ]
+  }
+}

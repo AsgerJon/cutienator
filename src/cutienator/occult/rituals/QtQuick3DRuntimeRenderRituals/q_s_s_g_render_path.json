@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgrenderer",
+    "util_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN14QSSGRenderPathC1Ev": ["address"],
+    "ritual_ZN14QSSGRenderPathC1ERK7QStringS2_": ["address", "text", "text"],
+    "ritual_ZNK14QSSGRenderPath6isNullEv": ["bool", "address"],
+    "ritual_ZNK14QSSGRenderPath7isEmptyEv": ["bool", "address"],
+    "ritual_ZNK14QSSGRenderPath4pathEv": ["text", "address"],
+    "ritual_ZeqRK14QSSGRenderPathS1_": ["bool", "address", "address"],
+    "ritual_ZneRK14QSSGRenderPathS1_": ["bool", "address", "address"],
+    "ritual_ZN14QSSGRenderPathD1Ev": ["nothing", "address"]
+  }
+}

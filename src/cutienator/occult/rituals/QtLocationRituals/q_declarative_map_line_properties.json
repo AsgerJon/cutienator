@@ -1,0 +1,33 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtLocat",
+    "ion/6.12.0/QtLocation/private/qdeclarativepolylinemapitem_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK29QDeclarativeMapLineProperties10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN29QDeclarativeMapLineProperties2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN29QDeclarativeMapLineProperties22qt_qmlMarker_anonymousEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QDeclarativeMapLinePropertiesC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZNK29QDeclarativeMapLineProperties5colorEv": [
+      "address", "address"
+    ],
+    "ritual_ZN29QDeclarativeMapLineProperties8setColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK29QDeclarativeMapLineProperties5widthEv": [
+      "double", "address"
+    ],
+    "ritual_ZN29QDeclarativeMapLineProperties8setWidthEd": [
+      "nothing", "address", "double"
+    ]
+  }
+}

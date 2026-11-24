@@ -1,0 +1,20 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtHelp/qhelpfilterdata.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QHelpFilterDataC1Ev": ["address"],
+    "ritual_ZN15QHelpFilterDataC1ERKS_": ["address", "address"],
+    "ritual_ZN15QHelpFilterDataD1Ev": ["nothing", "address"],
+    "ritual_ZNK15QHelpFilterDataeqERKS_": ["bool", "address", "address"],
+    "ritual_ZN15QHelpFilterData13setComponentsERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QHelpFilterData11setVersionsERK5QListI14QVersionNumberE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QHelpFilterData10componentsEv": ["address", "address"],
+    "ritual_ZNK15QHelpFilterData8versionsEv": ["address", "address"]
+  }
+}

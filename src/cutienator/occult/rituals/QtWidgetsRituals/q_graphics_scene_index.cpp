@@ -1,8 +1,14 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/6.12.0/QtWidgets/private/qgraphicssceneindex_p.h, Qt 6.12.0.
 //  Changes made here are lost.
+#include <QtWidgets/qtwidgetsglobal.h>
+#include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
+#if QT_CONFIG(graphicsview)
+#include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/QtWidgets>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/6.12.0/QtWidgets/private/qgraphicssceneindex_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/qgraphicsitem.h>
 #include <QtCore/qpoint.h>
 #include <QtGui/qtransform.h>
@@ -12,6 +18,7 @@
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include "qdebug.h"
 #include "qgraphicsscene.h"
 #include "qgraphicsitem_p.h"
@@ -20,13 +27,14 @@
 #include "qgraphicssceneindex_p.h"
 #include "qgraphicsscenebsptreeindex_p.h"
 #include <QtGui/qpainterpath.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
 //  Qt's source, because Qt's library carries it under no name.
 //  Copyright (C) The Qt Company Ltd. It is licensed
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
-//  'inline' put before it.
+//  'inline' put before it where Qt did not write it.
 
 //  from src/widgets/graphicsview/qgraphicssceneindex.cpp, line 521, as _ZN19QGraphicsSceneIndex15updateSceneRectERK6QRectF
 inline void QGraphicsSceneIndex::updateSceneRect(const QRectF &rect)
@@ -74,80 +82,133 @@ struct OwnQGraphicsSceneIndex : QGraphicsSceneIndex {
 //  A QGraphicsSceneIndex that Python can take functions over in. Every QGraphicsSceneIndex
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if QT_CONFIG(graphicsview)
 typedef void (*CuteQGraphicsSceneIndexCall0)(const void *, const QRectF *, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 typedef void (*CuteQGraphicsSceneIndexCall1)(const void *, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 typedef void (*CuteQGraphicsSceneIndexCall2)(const void *, QGraphicsItem *, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 typedef void (*CuteQGraphicsSceneIndexCall3)(const void *, QGraphicsItem *, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 typedef void (*CuteQGraphicsSceneIndexCall4)(const void *, QGraphicsItem *, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 typedef void (*CuteQGraphicsSceneIndexCall5)(const void *, const QGraphicsItem *, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQGraphicsSceneIndexCall6)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQGraphicsSceneIndexCall7)(const void *, QObject *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQGraphicsSceneIndexCall8)(const void *, QTimerEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQGraphicsSceneIndexCall9)(const void *, QChildEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQGraphicsSceneIndexCall10)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQGraphicsSceneIndexCall11)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQGraphicsSceneIndexCall12)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 class CuteQGraphicsSceneIndex : public QGraphicsSceneIndex {
 public:
   using QGraphicsSceneIndex::QGraphicsSceneIndex;
   void *taken[13] = {};
 
   bool take(const char *key, void *call) {
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZN19QGraphicsSceneIndex15updateSceneRectERK6QRectF")) {
       taken[0] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZN19QGraphicsSceneIndex5clearEv")) {
       taken[1] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZN19QGraphicsSceneIndex7addItemEP13QGraphicsItem")) {
       taken[2] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZN19QGraphicsSceneIndex10removeItemEP13QGraphicsItem")) {
       taken[3] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZN19QGraphicsSceneIndex10deleteItemEP13QGraphicsItem")) {
       taken[4] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZN19QGraphicsSceneIndex25prepareBoundingRectChangeEPK13QGraphicsItem")) {
       taken[5] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[6] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[7] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[8] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[9] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[10] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[11] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
       taken[12] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
     return false;
   }
 
+#if QT_CONFIG(graphicsview)
   //  void QGraphicsSceneIndex::updateSceneRect(const QRectF &rect)
   void updateSceneRect(const QRectF &rect) override {
     if (taken[0]) {
@@ -158,7 +219,9 @@ public:
     }
     QGraphicsSceneIndex::updateSceneRect(rect);
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if QT_CONFIG(graphicsview)
   //  void QGraphicsSceneIndex::clear()
   void clear() override {
     if (taken[1]) {
@@ -169,7 +232,9 @@ public:
     }
     QGraphicsSceneIndex::clear();
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if QT_CONFIG(graphicsview)
   //  void QGraphicsSceneIndex::addItem(QGraphicsItem *item)
   void addItem(QGraphicsItem *item) override {
     if (taken[2]) {
@@ -179,7 +244,9 @@ public:
       if (handled) return;
     }
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if QT_CONFIG(graphicsview)
   //  void QGraphicsSceneIndex::removeItem(QGraphicsItem *item)
   void removeItem(QGraphicsItem *item) override {
     if (taken[3]) {
@@ -189,7 +256,9 @@ public:
       if (handled) return;
     }
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if QT_CONFIG(graphicsview)
   //  void QGraphicsSceneIndex::deleteItem(QGraphicsItem *item)
   void deleteItem(QGraphicsItem *item) override {
     if (taken[4]) {
@@ -200,7 +269,9 @@ public:
     }
     QGraphicsSceneIndex::deleteItem(item);
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if QT_CONFIG(graphicsview)
   //  void QGraphicsSceneIndex::prepareBoundingRectChange(const
   //      QGraphicsItem *item)
   void prepareBoundingRectChange(const QGraphicsItem *item) override {
@@ -212,7 +283,9 @@ public:
     }
     QGraphicsSceneIndex::prepareBoundingRectChange(item);
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QObject::event(QEvent *event)
   bool event(QEvent *event) override {
     if (taken[6]) {
@@ -223,7 +296,9 @@ public:
     }
     return QObject::event(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
     if (taken[7]) {
@@ -234,7 +309,9 @@ public:
     }
     return QObject::eventFilter(watched, event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
     if (taken[8]) {
@@ -245,7 +322,9 @@ public:
     }
     QObject::timerEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
     if (taken[9]) {
@@ -256,7 +335,9 @@ public:
     }
     QObject::childEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
     if (taken[10]) {
@@ -267,7 +348,9 @@ public:
     }
     QObject::customEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
     if (taken[11]) {
@@ -278,7 +361,9 @@ public:
     }
     QObject::connectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
     if (taken[12]) {
@@ -289,6 +374,7 @@ public:
     }
     QObject::disconnectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 };
 
 //  const QMetaObject *QGraphicsSceneIndex::metaObject() const
@@ -469,6 +555,20 @@ void ritual_ZN19QGraphicsSceneIndex25prepareBoundingRectChangeEPK13QGraphicsItem
   self->prepareBoundingRectChange(item);
 }
 
+//  QGraphicsSceneIndexPrivate *QGraphicsSceneIndex::d_func()
+extern "C" Q_DECL_EXPORT
+QGraphicsSceneIndexPrivate *ritual_ZN19QGraphicsSceneIndex6d_funcEv(
+    QGraphicsSceneIndex *self) {
+  return self->d_func();
+}
+
+//  const QGraphicsSceneIndexPrivate *QGraphicsSceneIndex::d_func() const
+extern "C" Q_DECL_EXPORT
+const QGraphicsSceneIndexPrivate *ritual_ZNK19QGraphicsSceneIndex6d_funcEv(
+    const QGraphicsSceneIndex *self) {
+  return self->d_func();
+}
+
 //  a Python function taken by a CuteQGraphicsSceneIndex, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT
@@ -512,3 +612,5 @@ void ritual_own_ZN19QGraphicsSceneIndex25prepareBoundingRectChangeEPK13QGraphics
   static_cast<OwnQGraphicsSceneIndex *>(self)->OwnQGraphicsSceneIndex::prepareBoundingRectChange(
       item);
 }
+
+#endif  // QT_CONFIG(graphicsview)

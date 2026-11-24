@@ -1,0 +1,33 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtHttpServer/qhttpserverrouterrule.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZN21QHttpServerRouterRule6d_funcEv": ["address", "address"],
+    "ritual_ZNK21QHttpServerRouterRule6d_funcEv": ["address", "address"],
+    "ritual_ZN21QHttpServerRouterRuleC1ERK7QString6QFlagsIN18QHttpServerRequest6MethodEEPK7QObjectPN9QtPrivate15QSlotObjectBaseE": [
+      "address", "text", "int", "address", "address"
+    ],
+    "ritual_ZNK21QHttpServerRouterRule13contextObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QHttpServerRouterRuleD1Ev": ["nothing", "address"],
+    "ritual_ZNK21QHttpServerRouterRule15hasValidMethodsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK21QHttpServerRouterRule7matchesERK18QHttpServerRequestP23QRegularExpressionMatch": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN21QHttpServerRouterRuleC1EP28QHttpServerRouterRulePrivate": [
+      "address", "address"
+    ],
+    "ritual_take_QHttpServerRouterRule": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK21QHttpServerRouterRule7matchesERK18QHttpServerRequestP23QRegularExpressionMatch": [
+      "bool", "address", "address", "address"
+    ]
+  }
+}

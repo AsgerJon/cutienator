@@ -12,7 +12,7 @@ from typing import TYPE_CHECKING
 from worktoy.waitaminute import MissingVariable, TypeException
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Any, Dict, List, Optional, Tuple
+  from typing import Any, Dict, List, Optional, Set, Tuple
 
 
 class HeaderFolder:
@@ -46,8 +46,15 @@ class HeaderFolder:
   - Qt's source is what Qt is built from, as Qt's makers give it out.
     It is the same for every system.
   - A part of Qt is one of the pieces Qt comes in: QtCore, QtGui,
-    QtWidgets, QtDBus. QtDBus is here because header files of QtGui
-    pull its header files in.
+    QtWidgets, QtDBus, and the others of the folder 'qtbase': QtNetwork,
+    QtSql, QtXml, QtPrintSupport, QtOpenGL, QtOpenGLWidgets and
+    QtConcurrent; and of the folders beside it QtSvg, QtSvgWidgets,
+    QtWebSockets, QtNetworkAuth, QtCharts, QtCore5Compat, QtWebChannel,
+    QtPositioning, QtTextToSpeech, QtBluetooth, QtNfc, QtHttpServer,
+    QtMultimedia, QtMultimediaWidgets, QtQml, QtQmlIntegration,
+    QtQmlMeta, QtQmlModels, QtQmlWorkerScript, QtQuick and
+    QtQuickWidgets. QtDBus was here first
+    because header files of QtGui pull its header files in.
   - A pointer is an entry of the folder that stands for a file of the
     source: a symbolic link. No header file is copied.
   - A switch names something a build of Qt may leave in or out, as
@@ -87,26 +94,304 @@ class HeaderFolder:
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   #  Class Variables
-  #  Where each part of Qt lies in the folder 'qtbase', and the word it
-  #  has in the names Qt's build makes, as 'Q_CORE_EXPORT'.
-  __part_folders__ = dict(
-      QtCore='src/corelib', QtGui='src/gui', QtWidgets='src/widgets',
-      QtDBus='src/dbus',
+  #  Each part of Qt the folder is made for, in the order made: its
+  #  name; where it lies in Qt's source, from the folder 'qtbase'; the
+  #  header file of the part that brings in its list of switches; the
+  #  one in its folder 'private' that brings in the switches Qt keeps to
+  #  itself, '' for a part with none; and the parts it is built on, as
+  #  its file '...Depends' pulls them in. The word Qt's build makes of
+  #  the name, as 'CORE' in 'Q_CORE_EXPORT', is the name without 'Qt',
+  #  in capitals. A part with no header file of the first kind, as
+  #  QtQmlMeta, has its file of words for export there, which this
+  #  folder writes as Qt's build does.
+  __parts__ = (
+      ('QtCore', 'src/corelib', 'qglobal.h', 'qglobal_p.h', ()),
+      ('QtGui', 'src/gui', 'qtguiglobal.h', 'qtguiglobal_p.h', ('QtCore',)),
+      ('QtWidgets', 'src/widgets',
+       'qtwidgetsglobal.h', 'qtwidgetsglobal_p.h',
+       ('QtCore', 'QtGui')),
+      ('QtDBus', 'src/dbus',
+       'qtdbusglobal.h', 'qtdbusglobal_p.h',
+       ('QtCore',)),
+      ('QtNetwork', 'src/network',
+       'qtnetworkglobal.h', 'qtnetworkglobal_p.h',
+       ('QtCore',)),
+      ('QtSql', 'src/sql', 'qtsqlglobal.h', 'qtsqlglobal_p.h', ('QtCore',)),
+      ('QtXml', 'src/xml', 'qtxmlglobal.h', '', ('QtCore',)),
+      ('QtPrintSupport', 'src/printsupport',
+       'qtprintsupportglobal.h', 'qtprintsupportglobal_p.h',
+       ('QtCore', 'QtGui', 'QtWidgets')),
+      ('QtOpenGL', 'src/opengl',
+       'qtopenglglobal.h', '',
+       ('QtCore', 'QtGui')),
+      ('QtOpenGLWidgets', 'src/openglwidgets',
+       'qtopenglwidgetsglobal.h', '',
+       ('QtOpenGL', 'QtWidgets')),
+      ('QtConcurrent', 'src/concurrent',
+       'qtconcurrent_global.h', '',
+       ('QtCore',)),
+      ('QtSvg', '../qtsvg/src/svg',
+       'qtsvgglobal.h', 'qtsvgglobal_p.h',
+       ('QtCore', 'QtGui')),
+      ('QtSvgWidgets', '../qtsvg/src/svgwidgets',
+       'qtsvgwidgetsglobal.h', '',
+       ('QtCore', 'QtGui', 'QtSvg', 'QtWidgets')),
+      ('QtWebSockets', '../qtwebsockets/src/websockets',
+       'qwebsockets_global.h', '',
+       ('QtCore', 'QtNetwork')),
+      ('QtNetworkAuth', '../qtnetworkauth/src/oauth',
+       'qoauthglobal.h', '',
+       ('QtCore', 'QtNetwork')),
+      ('QtCharts', '../qtcharts/src/charts',
+       'qchartglobal.h', 'qchartglobal_p.h',
+       ('QtCore', 'QtGui', 'QtWidgets')),
+      ('QtCore5Compat', '../qt5compat/src/core5',
+       'qcore5global.h', '',
+       ('QtCore',)),
+      ('QtWebChannel', '../qtwebchannel/src/webchannel',
+       'qwebchannelglobal.h', '',
+       ('QtCore',)),
+      ('QtPositioning', '../qtpositioning/src/positioning',
+       'qpositioningglobal.h', 'qpositioningglobal_p.h',
+       ('QtCore',)),
+      ('QtTextToSpeech', '../qtspeech/src/tts',
+       'qtexttospeech_global.h', '',
+       ('QtCore', 'QtMultimedia')),
+      ('QtBluetooth', '../qtconnectivity/src/bluetooth',
+       'qtbluetoothglobal.h', 'qtbluetoothglobal_p.h',
+       ('QtCore', 'QtNetwork')),
+      ('QtNfc', '../qtconnectivity/src/nfc',
+       'qtnfcglobal.h', 'qtnfcglobal_p.h',
+       ('QtCore',)),
+      ('QtHttpServer', '../qthttpserver/src/httpserver',
+       'qthttpserverglobal.h', '',
+       ('QtCore', 'QtNetwork')),
+      ('QtMultimedia', '../qtmultimedia/src/multimedia',
+       'qtmultimediaglobal.h', 'qtmultimediaglobal_p.h',
+       ('QtCore', 'QtGui')),
+      ('QtMultimediaWidgets', '../qtmultimedia/src/multimediawidgets',
+       'qtmultimediawidgetsglobal.h', '',
+       ('QtCore', 'QtGui', 'QtMultimedia', 'QtWidgets')),
+      ('QtQml', '../qtdeclarative/src/qml',
+       'qtqmlglobal.h', 'qtqmlglobal_p.h',
+       ('QtCore', 'QtQmlIntegration')),
+      ('QtQmlIntegration', '../qtdeclarative/src/qmlintegration',
+       'qqmlintegration.h', '',
+       ()),
+      ('QtQmlMeta', '../qtdeclarative/src/qmlmeta',
+       'qtqmlmetaexports.h', '',
+       ('QtCore', 'QtQml')),
+      ('QtQmlModels', '../qtdeclarative/src/qmlmodels',
+       'qtqmlmodelsglobal.h', 'qtqmlmodelsglobal_p.h',
+       ('QtCore', 'QtQml')),
+      ('QtQmlWorkerScript', '../qtdeclarative/src/qmlworkerscript',
+       'qtqmlworkerscriptglobal.h', 'qtqmlworkerscriptglobal_p.h',
+       ('QtCore', 'QtQml')),
+      ('QtQuick', '../qtdeclarative/src/quick',
+       'qtquickglobal.h', 'qtquickglobal_p.h',
+       ('QtCore', 'QtGui', 'QtQml')),
+      ('QtQuickWidgets', '../qtdeclarative/src/quickwidgets',
+       'qtquickwidgetsglobal.h', '',
+       ('QtCore', 'QtGui', 'QtQml', 'QtQuick', 'QtWidgets')),
+      ('QtQmlCore', '../qtdeclarative/src/core',
+       'qtqmlcoreexports.h', 'qqmlcoreglobal_p.h',
+       ('QtCore', 'QtQml')),
+      ('QtQuickEffects', '../qtdeclarative/src/effects',
+       'qtquickeffectsexports.h', 'qtquickeffectsglobal_p.h',
+       ('QtCore', 'QtGui', 'QtQml', 'QtQuick')),
+      ('QtLabsAnimation', '../qtdeclarative/src/labs/animation',
+       'qtlabsanimationexports.h', 'qqmlanimationglobal_p.h',
+       ()),
+      ('QtLabsQmlModels', '../qtdeclarative/src/labs/models',
+       'qtlabsqmlmodelsexports.h', 'qqmlmodelsglobal_p.h',
+       ()),
+      ('QtLabsPlatform', '../qtdeclarative/src/labs/platform',
+       'qtlabsplatformexports.h', '',
+       ()),
+      ('QtLabsStyleKit', '../qtdeclarative/src/labs/stylekit',
+       'qtlabsstylekitexports.h', 'qqstylekitglobal_p.h',
+       ('QtWidgets',)),
+      ('QtLabsStyleKitImpl', '../qtdeclarative/src/labs/stylekit/impl',
+       'qtlabsstylekitimplexports.h', '',
+       ()),
+      ('QtLabsSynchronizer', '../qtdeclarative/src/labs/synchronizer',
+       'qtlabssynchronizerexports.h', '',
+       ('QtCore',)),
+      ('QtQuickParticles', '../qtdeclarative/src/particles',
+       'qtquickparticlesexports.h', 'qtquickparticlesglobal_p.h',
+       ('QtQuick',)),
+      ('QtQmlCompiler', '../qtdeclarative/src/qmlcompiler',
+       'qtqmlcompilerexports.h', '',
+       ('QtCore', 'QtQml')),
+      ('QtQmlDesignSupport', '../qtdeclarative/src/qmldesignsupport',
+       'qtqmldesignsupportexports.h', '',
+       ('QtCore', 'QtQml')),
+      ('QtQmlNetwork', '../qtdeclarative/src/qmlnetwork',
+       'qtqmlnetworkexports.h', '',
+       ('QtCore', 'QtNetwork', 'QtQml')),
+      ('QtQmlXmlListModel', '../qtdeclarative/src/qmlxmllistmodel',
+       'qtqmlxmllistmodelexports.h', 'qtqmlxmllistmodelglobal_p.h',
+       ('QtCore', 'QtQml')),
+      ('QtQuickControls2', '../qtdeclarative/src/quickcontrols',
+       'qtquickcontrols2global.h', '',
+       ('QtCore', 'QtGui', 'QtQuick')),
+      ('QtQuickControls2Basic', '../qtdeclarative/src/quickcontrols/basic',
+       'qtquickcontrols2basicexports.h', '',
+       ()),
+      ('QtQuickControls2BasicStyleImpl',
+       '../qtdeclarative/src/quickcontrols/basic/impl',
+       'qtquickcontrols2basicstyleimplexports.h', '',
+       ()),
+      ('QtQuickControls2FluentWinUI3',
+       '../qtdeclarative/src/quickcontrols/fluentwinui3',
+       'qtquickcontrols2fluentwinui3exports.h', '',
+       ()),
+      ('QtQuickControls2FluentWinUI3StyleImpl',
+       '../qtdeclarative/src/quickcontrols/fluentwinui3/impl',
+       'qtquickcontrols2fluentwinui3styleimplexports.h',
+       'qquickfluentwinui3styleimplglobal_p.h',
+       ()),
+      ('QtQuickControls2Fusion', '../qtdeclarative/src/quickcontrols/fusion',
+       'qtquickcontrols2fusionexports.h', '',
+       ()),
+      ('QtQuickControls2FusionStyleImpl',
+       '../qtdeclarative/src/quickcontrols/fusion/impl',
+       'qtquickcontrols2fusionstyleimplexports.h', '',
+       ()),
+      ('QtQuickControls2Imagine',
+       '../qtdeclarative/src/quickcontrols/imagine',
+       'qtquickcontrols2imagineexports.h', '',
+       ()),
+      ('QtQuickControls2Material',
+       '../qtdeclarative/src/quickcontrols/material',
+       'qtquickcontrols2materialexports.h', '',
+       ()),
+      ('QtQuickControls2MaterialStyleImpl',
+       '../qtdeclarative/src/quickcontrols/material/impl',
+       'qtquickcontrols2materialstyleimplexports.h', '',
+       ()),
+      ('QtQuickControls2Universal',
+       '../qtdeclarative/src/quickcontrols/universal',
+       'qtquickcontrols2universalexports.h', '',
+       ()),
+      ('QtQuickControls2UniversalStyleImpl',
+       '../qtdeclarative/src/quickcontrols/universal/impl',
+       'qtquickcontrols2universalstyleimplexports.h', '',
+       ()),
+      ('QtQuickControls2Impl', '../qtdeclarative/src/quickcontrolsimpl',
+       'qtquickcontrols2implexports.h', 'qtquickcontrols2implglobal_p.h',
+       ('QtCore', 'QtGui', 'QtQuick')),
+      ('QtQuickDialogs2', '../qtdeclarative/src/quickdialogs/quickdialogs',
+       'qtquickdialogs2exports.h', 'qtquickdialogs2global_p.h',
+       ('QtCore', 'QtGui', 'QtQuick')),
+      ('QtQuickDialogs2QuickImpl',
+       '../qtdeclarative/src/quickdialogs/quickdialogsquickimpl',
+       'qtquickdialogs2quickimplexports.h',
+       'qtquickdialogs2quickimplglobal_p.h',
+       ('QtCore', 'QtGui', 'QtQuick')),
+      ('QtQuickShapes', '../qtdeclarative/src/quickshapes',
+       'qquickshapesglobal.h', 'qquickshapesglobal_p.h',
+       ('QtCore', 'QtQml')),
+      ('QtQuickShapesDesignHelpers',
+       '../qtdeclarative/src/quickshapes/designhelpers',
+       'qquickshapesdesignhelpersglobal.h',
+       'qquickshapesdesignhelpersglobal_p.h',
+       ('QtCore', 'QtQml')),
+      ('QtQuickTemplates2', '../qtdeclarative/src/quicktemplates',
+       'qtquicktemplates2exports.h', 'qtquicktemplates2global_p.h',
+       ('QtCore', 'QtGui', 'QtQuick', 'QtQmlModels')),
+      ('QtQuickVectorImage', '../qtdeclarative/src/quickvectorimage',
+       'qtquickvectorimageexports.h', '',
+       ()),
+      ('QtScxml', '../qtscxml/src/scxml',
+       'qscxmlglobals.h', 'qscxmlglobals_p.h',
+       ('QtCore',)),
+      ('QtScxmlQml', '../qtscxml/src/scxmlqml',
+       'qtscxmlqmlexports.h', 'qscxmlqmlglobals_p.h',
+       ('QtCore', 'QtQml', 'QtScxml')),
+      ('QtStateMachine', '../qtscxml/src/statemachine',
+       'qstatemachineglobal.h', 'qstatemachineglobal_p.h',
+       ('QtCore', 'QtGui')),
+      ('QtStateMachineQml', '../qtscxml/src/statemachineqml',
+       'qtstatemachineqmlexports.h', 'qstatemachineqmlglobals_p.h',
+       ('QtCore', 'QtQml', 'QtStateMachine')),
+      ('QtHelp', '../qttools/src/assistant/help',
+       'qhelp_global.h', '',
+       ('QtCore', 'QtSql', 'QtGui', 'QtWidgets')),
+      ('QtDesigner', '../qttools/src/designer/src/lib',
+       'sdk_global.h', '',
+       ('QtCore', 'QtGui', 'QtUiPlugin', 'QtWidgets', 'QtXml',
+        'QtOpenGLWidgets')),
+      ('QtUiTools', '../qttools/src/uitools',
+       'qtuitoolsglobal.h', '',
+       ('QtCore', 'QtGui', 'QtWidgets', 'QtOpenGLWidgets')),
+      ('QtLocation', '../qtlocation/src/location',
+       'qlocationglobal.h', 'qlocationglobal_p.h',
+       ('QtCore', 'QtPositioning', 'QtPositioningQuick')),
+      ('QtQuick3DAssetImport', '../qtquick3d/src/assetimport',
+       'qtquick3dassetimportexports.h', 'qtquick3dassetimportglobal_p.h',
+       ('QtCore', 'QtGui', 'QtQml', 'QtQuick3DUtils')),
+      ('QtQuick3DAssetUtils', '../qtquick3d/src/assetutils',
+       'qtquick3dassetutilsexports.h', 'qtquick3dassetutilsglobal_p.h',
+       ('QtCore', 'QtGui', 'QtQuick')),
+      ('QtQuick3DHelpers', '../qtquick3d/src/helpers',
+       'qtquick3dhelpersexports.h', 'qtquick3dhelpersglobal_p.h',
+       ('QtQml', 'QtQuick')),
+      ('QtQuick3DIblBaker', '../qtquick3d/src/iblbaker',
+       'qtquick3diblbakerexports.h', '',
+       ('QtCore', 'QtGui', 'QtQuick', 'QtQuick3DRuntimeRender')),
+      ('QtQuick3D', '../qtquick3d/src/quick3d',
+       'qtquick3dglobal.h', 'qtquick3dglobal_p.h',
+       ('QtCore', 'QtGui', 'QtQml', 'QtQuick', 'QtQuick3DRuntimeRender')),
+      ('QtQuick3DParticles', '../qtquick3d/src/quick3dparticles',
+       'qtquick3dparticlesglobal.h', 'qtquick3dparticlesglobal_p.h',
+       ('QtCore', 'QtGui', 'QtQml', 'QtQuick', 'QtQuick3DRuntimeRender',
+        'QtQuick3DAssetImport', 'QtQuick3D')),
+      ('QtQuick3DRuntimeRender', '../qtquick3d/src/runtimerender',
+       'qtquick3druntimerenderglobal.h', 'qtquick3druntimerenderglobal_p.h',
+       ('QtCore', 'QtGui', 'QtQuick', 'QtQuick3DUtils', 'QtShaderTools',
+        'QtConcurrent')),
+      ('QtQuick3DUtils', '../qtquick3d/src/utils',
+       'qtquick3dutilsexports.h', 'qtquick3dutilsglobal_p.h',
+       ('QtCore', 'QtGui')),
+      ('QtQuickLayouts', '../qtdeclarative/src/quicklayouts',
+       'qtquicklayoutsexports.h', 'qquicklayoutglobal_p.h',
+       ('QtCore', 'QtQml')),
+      ('QtQuickDialogs2Utils',
+       '../qtdeclarative/src/quickdialogs/quickdialogsutils',
+       'qtquickdialogs2utilsexports.h', 'qtquickdialogs2utilsglobal_p.h',
+       ('QtCore',)),
+      ('QtLabsFolderListModel', '../qtdeclarative/src/labs/folderlistmodel',
+       'qtlabsfolderlistmodelexports.h', 'qquickfolderlistmodelglobal_p.h',
+       ()),
+      ('QtLabsSettings', '../qtdeclarative/src/labs/settings',
+       'qtlabssettingsexports.h', 'qqmlsettingsglobal_p.h',
+       ('QtCore', 'QtQml')),
+      ('QtLabsWavefrontMesh', '../qtdeclarative/src/labs/wavefrontmesh',
+       'qtlabswavefrontmeshexports.h', 'qqmlwavefrontmeshglobal_p.h',
+       ()),
+      ('QtQmlLocalStorage', '../qtdeclarative/src/qmllocalstorage',
+       'qtqmllocalstorageexports.h', 'qqmllocalstorageglobal_p.h',
+       ('QtSql',)),
+      ('QtScxmlGlobal', '../qtscxml/src/global',
+       'qtscxmlglobal-config.h', '',
+       ()),
+      ('QtUiPlugin', '../qttools/src/uiplugin',
+       'qdesignerexportwidget.h', '',
+       ('QtCore', 'QtGui', 'QtWidgets')),
+      ('QtPositioningQuick', '../qtpositioning/src/positioningquick',
+       'qpositioningquickglobal.h', 'qpositioningquickglobal_p.h',
+       ('QtCore', 'QtPositioning', 'QtQml', 'QtQuick')),
+      ('QtShaderTools', '../qtshadertools/src/shadertools',
+       'qtshadertoolsglobal.h', '',
+       ('QtCore', 'QtGui')),
   )
-  __part_words__ = dict(
-      QtCore='CORE', QtGui='GUI', QtWidgets='WIDGETS', QtDBus='DBUS',
-  )
-  #  The header file of each part that brings in its list of switches.
-  __global_headers__ = dict(
-      QtCore='qglobal.h', QtGui='qtguiglobal.h',
-      QtWidgets='qtwidgetsglobal.h', QtDBus='qtdbusglobal.h',
-  )
-  #  The parts each part is built on: its file '...Depends' pulls
-  #  those in.
-  __part_needs__ = dict(
-      QtCore=(), QtGui=('QtCore',), QtWidgets=('QtCore', 'QtGui'),
-      QtDBus=('QtCore',),
-  )
+  __part_folders__ = {row[0]: row[1] for row in __parts__}
+  __part_words__ = {row[0]: row[0][2:].upper() for row in __parts__}
+  __global_headers__ = {row[0]: row[2] for row in __parts__}
+  __private_global_headers__ = {
+      row[0]: row[3] for row in __parts__ if row[3]}
+  __part_needs__ = {row[0]: row[4] for row in __parts__}
   #  Switches that are out while every other switch is in, because
   #  each contradicts another one when both are in. 'static' names the
   #  shape of a build, against 'shared'. The four of OpenGL ES are the
@@ -162,10 +447,45 @@ class HeaderFolder:
   #  the words that join them.
   __everywhere_word__ = re.compile(r'^(?:QT_FEATURE_\w+|AND|OR|NOT)$')
 
+  #  What a word of a condition in Qt's 'CMakeLists.txt' files means to
+  #  the compiler: a system, or one of two compilers. A condition with
+  #  any other word than these, a switch of Qt, 'TARGET Qt::...' and
+  #  the words that join them cannot be asked of a compiler.
+  __system_words__ = dict(
+      WIN32='defined(Q_OS_WIN)', APPLE='defined(Q_OS_DARWIN)',
+      MACOS='defined(Q_OS_MACOS)', IOS='defined(Q_OS_IOS)',
+      UIKIT='(defined(Q_OS_IOS) || defined(Q_OS_TVOS) || '
+            'defined(Q_OS_VISIONOS))',
+      VISIONOS='defined(Q_OS_VISIONOS)', WATCHOS='defined(Q_OS_WATCHOS)',
+      LINUX='defined(Q_OS_LINUX)', UNIX='defined(Q_OS_UNIX)',
+      ANDROID='defined(Q_OS_ANDROID)', WASM='defined(Q_OS_WASM)',
+      QNX='defined(Q_OS_QNX)', INTEGRITY='defined(Q_OS_INTEGRITY)',
+      VXWORKS='defined(Q_OS_VXWORKS)', HAIKU='defined(Q_OS_HAIKU)',
+      FREEBSD='defined(Q_OS_FREEBSD)', NETBSD='defined(Q_OS_NETBSD)',
+      OPENBSD='defined(Q_OS_OPENBSD)', SOLARIS='defined(Q_OS_SOLARIS)',
+      CYGWIN='defined(Q_OS_CYGWIN)', OHOS='defined(Q_OS_HARMONY)',
+      MSVC='defined(Q_CC_MSVC)', MINGW='defined(Q_CC_MINGW)',
+  )
+  #  The words after which 'qt_internal_extend_target' lists other things
+  #  than its condition.
+  __list_words__ = re.compile(
+      r'\b(?:SOURCES|DEFINES|PUBLIC_DEFINES|LIBRARIES|PUBLIC_LIBRARIES|'
+      r'INCLUDE_DIRECTORIES|PUBLIC_INCLUDE_DIRECTORIES|COMPILE_OPTIONS|'
+      r'PUBLIC_COMPILE_OPTIONS|LINK_OPTIONS|PUBLIC_LINK_OPTIONS|'
+      r'NO_UNITY_BUILD_SOURCES|NO_PCH_SOURCES|ATTRIBUTION_FILE_DIR_PATHS|'
+      r'PRIVATE_MODULE_INTERFACE|NO_UNITY_BUILD|SYSTEM_INCLUDE_DIRECTORIES|'
+      r'PUBLIC_SYSTEM_INCLUDE_DIRECTORIES)\b')
+
   #  Private Variables
   __source_folder__ = None  # type: Optional[str]
   __made_folder__ = None  # type: Optional[str]
   __qt_version__ = None  # type: Optional[str]
+  #  For each part, under the name of each of its header files, the
+  #  condition under which Qt installs it; see 'getInstallCondition'.
+  __install_conditions__ = None  # type: Optional[Dict[str, Any]]
+  #  For each switch of Qt, the part whose list has it, and whether that
+  #  is the list Qt keeps to itself; see 'getSwitchOwner'.
+  __switch_owners__ = None  # type: Optional[Dict[str, Tuple[str, bool]]]
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  GETTERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -207,6 +527,117 @@ class HeaderFolder:
   def getPartNames(self) -> Tuple[str, ...]:
     """Gives the parts of Qt the folder is made for."""
     return (*self.__part_folders__,)
+
+  @classmethod
+  def getPartPlace(cls, partName: str) -> str:
+    """
+    Gives where one part of Qt lies in Qt's source, from the folder
+    'qtbase': 'src/corelib' for 'QtCore', '../qtsvg/src/svg' for
+    'QtSvg'.
+
+    Raises
+    ------
+
+    LookupError
+      The folder is made for no part of that name.
+    """
+    if partName not in cls.__part_folders__:
+      infoSpec = """No folder of Qt's source is known for the part '%s'."""
+      raise LookupError(infoSpec % partName)
+    return cls.__part_folders__[partName]
+
+  @classmethod
+  def getGlobalHeader(cls, partName: str) -> str:
+    """
+    Gives the name of the header file of one part that brings in its
+    list of switches, as 'qglobal.h' for 'QtCore': what has to be read
+    before an '#if QT_CONFIG(...)' of the part can be answered.
+
+    Raises
+    ------
+
+    LookupError
+      The folder is made for no part of that name.
+    """
+    cls.getPartPlace(partName)
+    return cls.__global_headers__[partName]
+
+  @classmethod
+  def getPrivateGlobalHeader(cls, partName: str) -> str:
+    """
+    Gives the name of the header file in the folder 'private' of one
+    part that brings in the switches Qt keeps to itself, as
+    'qglobal_p.h' for 'QtCore'; '' for a part with none, as QtXml.
+
+    Raises
+    ------
+
+    LookupError
+      The folder is made for no part of that name.
+    """
+    cls.getPartPlace(partName)
+    return cls.__private_global_headers__.get(partName, '')
+
+  def getInstallCondition(self, headerPath: str) -> Optional[str]:
+    """
+    Gives the condition under which Qt installs a header file of a
+    part, written for the compiler, as 'defined(Q_OS_WIN)' or
+    'QT_CONFIG(ctf)': where it does not hold, an installed Qt has no
+    such file, and a ritual file pulling it in stands under it.
+
+    Read from the 'CMakeLists.txt' files of the part: the 'if' around
+    the line naming the header file, and the 'CONDITION' of
+    'qt_internal_extend_target'. Named more than once, the conditions
+    are joined by '||'.
+
+    Returns
+    -------
+
+    Optional[str]
+      '' for a header file Qt installs always. None for one whose
+      condition asks what no compiler knows, as 'MSVC AND
+      (TEST_architecture_arch STREQUAL "i386")', and for a file of no
+      part.
+    """
+    real = os.path.realpath(headerPath)
+    owner, length = None, 0  # type: Optional[str], int
+    for partName in self.getPartNames():
+      folder = os.path.realpath(self.getPartFolder(partName))
+      if real.startswith(folder + os.sep) and len(folder) > length:
+        owner, length = partName, len(folder)
+    if owner is None:
+      return None
+    kept = self.__install_conditions__
+    if kept is None:
+      kept = self.__install_conditions__ = dict()
+    if owner not in kept:
+      kept[owner] = self._readInstallConditions(owner)
+    return kept[owner].get(os.path.basename(real), '')
+
+  def getSwitchOwner(self, switchName: str) -> Optional[Tuple[str, bool]]:
+    """
+    Gives the part whose list of switches has a switch, as 'QtNetwork'
+    for 'http', and whether it is the list Qt keeps to itself; None for
+    a switch no 'configure.cmake' of the parts declares. The switches
+    of the file 'configure.cmake' of 'qtbase' itself are those of
+    QtCore.
+    """
+    if self.__switch_owners__ is None:
+      owners = dict()  # type: Dict[str, Tuple[str, bool]]
+      places = [(
+          'QtCore', os.path.join(self.getSourceFolder(), 'configure.cmake'))]
+      places.extend(
+          (partName, os.path.join(
+              self.getPartFolder(partName), 'configure.cmake'))
+          for partName in self.getPartNames())
+      for partName, path in places:
+        public, private = self._findSwitches(path)
+        for name in public:
+          owners.setdefault(name, (partName, False))
+        for name in private:
+          owners.setdefault(name, (partName, True))
+      self.__switch_owners__ = owners
+    return self.__switch_owners__.get(switchName)
 
   def getPartFolder(self, partName: str) -> str:
     """
@@ -296,15 +727,36 @@ class HeaderFolder:
     under a folder 'doc' are examples for Qt's documentation and are
     left out. Of two header files with one name the first in
     alphabetical order of their paths is kept, as Qt's own build
-    keeps one.
+    keeps one. A header file no 'CMakeLists.txt' of the part names is
+    left out as well: Qt installs only the header files its build is
+    told of, and those others, as 'qlocale_data_p.h', are read by
+    Qt's own '.cpp' files alone.
     """
     root = self.getPartFolder(partName)
+    #  A part may lie inside the folder of another, as QtLabsStyleKitImpl
+    #  in 'labs/stylekit/impl' inside that of QtLabsStyleKit: its files
+    #  are its own.
+    others = {
+        os.path.realpath(self.getPartFolder(name))
+        for name in self.getPartNames() if name != partName}
+    walked = []  # type: List[Tuple[str, List[str]]]
+    for here, folders, names in os.walk(root):
+      folders[:] = sorted(
+          name for name in folders
+          if not self._isOtherModule(os.path.join(here, name), others))
+      walked.append((here, sorted(names)))
+    walked.sort()
     byName = dict()  # type: Dict[str, str]
-    for here, _, names in sorted(os.walk(root)):
+    told = set()  # type: Set[str]
+    for here, names in walked:
+      if 'CMakeLists.txt' in names:
+        with open(os.path.join(here, 'CMakeLists.txt')) as file:
+          told.update(re.findall(r'([\w.+-]+\.h)\b', file.read()))
+    for here, names in walked:
       if 'doc' in os.path.relpath(here, root).split(os.sep):
         continue
       for name in sorted(names):
-        if name.endswith('.h') and name not in byName:
+        if name.endswith('.h') and name not in byName and name in told:
           byName[name] = os.path.join(here, name)
     return (*(byName[name] for name in sorted(byName)),)
 
@@ -374,6 +826,144 @@ class HeaderFolder:
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  def _readInstallConditions(self, partName: str) -> Dict[str, Any]:
+    """Gives, under the name of each header file the 'CMakeLists.txt'
+    files of one part name, the condition under which Qt installs it,
+    as 'getInstallCondition' gives it. A folder of another part inside
+    that of this one is passed over."""
+    root = self.getPartFolder(partName)
+    others = {
+        os.path.realpath(self.getPartFolder(name))
+        for name in self.getPartNames() if name != partName}
+    found = dict()  # type: Dict[str, List[str]]
+    for here, folders, names in os.walk(root):
+      folders[:] = sorted(
+          name for name in folders
+          if not self._isOtherModule(os.path.join(here, name), others))
+      if 'CMakeLists.txt' not in names:
+        continue
+      with open(os.path.join(here, 'CMakeLists.txt')) as file:
+        commands = self._readCommands(file.read())
+      #  For each 'if' that is open: the condition of the branch read
+      #  now, and the conditions of the branches before it.
+      opened = []  # type: List[Tuple[str, List[str]]]
+      for word, arguments in commands:
+        word = word.lower()
+        if word == 'if':
+          opened.append((arguments, [arguments]))
+          continue
+        if word in ('elseif', 'else') and opened:
+          before = opened[-1][1]
+          parts = ['NOT (%s)' % one for one in before]
+          if word == 'elseif':
+            parts.append('(%s)' % arguments)
+          opened[-1] = (' AND '.join(parts), [*before, arguments])
+          continue
+        if word == 'endif' and opened:
+          opened.pop()
+          continue
+        conditions = [one for one, _ in opened]
+        if word == 'qt_internal_extend_target':
+          own = re.search(r'\bCONDITION\b(.*)', arguments, re.S)
+          if own is not None:
+            asked = self.__list_words__.split(own.group(1), 1)[0]
+            conditions.append(' '.join(asked.split()))
+        joined = ' AND '.join('(%s)' % one for one in conditions)
+        if len(conditions) == 1:
+          joined = conditions[0]
+        for name in re.findall(r'([\w.+-]+\.h)\b', arguments):
+          found.setdefault(os.path.basename(name), []).append(joined)
+    conditions = dict()  # type: Dict[str, Any]
+    for name, asked in found.items():
+      if '' in asked:
+        conditions[name] = ''
+        continue
+      spoken = [self._translateCondition(one) for one in asked]
+      if None in spoken:
+        conditions[name] = None
+      elif len({*spoken}) == 1:
+        conditions[name] = spoken[0]
+      else:
+        conditions[name] = ' || '.join(
+            '(%s)' % one for one in dict.fromkeys(spoken))
+    return conditions
+
+  @staticmethod
+  def _isOtherModule(folder: str, others: Set[str]) -> bool:
+    """Says whether a folder inside that of a part is the folder of
+    another part, or of a module or plugin of Qt of its own, as
+    QuickNativeStyle in 'quickcontrols/quicknativestyle': its files are
+    its own, and none of the part."""
+    if os.path.realpath(folder) in others:
+      return True
+    path = os.path.join(folder, 'CMakeLists.txt')
+    if not os.path.isfile(path):
+      return False
+    with open(path) as file:
+      text = file.read()
+    return re.search(
+        r'^\s*qt_internal_add_(?:qml_)?(?:module|plugin)\s*\(',
+        text, re.M) is not None
+
+  @staticmethod
+  def _readCommands(text: str) -> List[Tuple[str, str]]:
+    """Gives each command of the text of a 'CMakeLists.txt', in order,
+    with what stands between its brackets; comments are left out."""
+    lines = []  # type: List[str]
+    for line in text.split('\n'):
+      quoted, cut = False, len(line)
+      for index, letter in enumerate(line):
+        if letter == '"':
+          quoted = not quoted
+        elif letter == '#' and not quoted:
+          cut = index
+          break
+      lines.append(line[:cut])
+    text = '\n'.join(lines)
+    found = []  # type: List[Tuple[str, str]]
+    for match in re.finditer(r'(?m)^\s*([A-Za-z_]\w*)\s*\(', text):
+      depth, index, quoted = 1, match.end(), False
+      while index < len(text) and depth:
+        letter = text[index]
+        if letter == '"':
+          quoted = not quoted
+        elif not quoted and letter == '(':
+          depth += 1
+        elif not quoted and letter == ')':
+          depth -= 1
+        index += 1
+      found.append((match.group(1), text[match.end():index - 1]))
+    return found
+
+  def _translateCondition(self, condition: str) -> Optional[str]:
+    """Writes a condition of a 'CMakeLists.txt' for the compiler, as
+    'QT_CONFIG(textcodec) && defined(Q_OS_WIN)' for 'QT_FEATURE_textcodec
+    AND WIN32'; None when a word of it cannot be."""
+    tokens = re.findall(r'\(|\)|"[^"]*"|[^\s()]+', condition)
+    spoken, index = [], 0  # type: List[str], int
+    while index < len(tokens):
+      token = tokens[index]
+      if token in ('(', ')'):
+        spoken.append(token)
+      elif token in ('AND', 'OR', 'NOT'):
+        spoken.append(dict(AND='&&', OR='||', NOT='!')[token])
+      elif token.startswith('QT_FEATURE_'):
+        spoken.append('QT_CONFIG(%s)' % token[len('QT_FEATURE_'):])
+      elif token in self.__system_words__:
+        spoken.append(self.__system_words__[token])
+      elif token == 'TARGET' and index + 1 < len(tokens):
+        index += 1
+        target = re.sub(r'Private$', '', tokens[index])
+        known = target.startswith('Qt::') and (
+            'Qt%s' % target[len('Qt::'):] in self.__part_folders__)
+        spoken.append('1' if known else '0')
+      else:
+        return None
+      index += 1
+    text = ' '.join(spoken)
+    text = text.replace('( ', '(').replace(' )', ')').replace('! ', '!')
+    return text
 
   def _findSwitches(self, path: str) -> Tuple[List[str], List[str]]:
     """Gives the switches one 'configure.cmake' of the source declares:

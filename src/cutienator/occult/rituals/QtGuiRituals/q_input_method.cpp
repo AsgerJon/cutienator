@@ -23,6 +23,19 @@ QString *ritual_ZN12QInputMethod2trEPKcS1_i(
   return new QString(QInputMethod::tr(s, c, n));
 }
 
+//  QInputMethodPrivate *QInputMethod::d_func()
+extern "C" Q_DECL_EXPORT
+QInputMethodPrivate *ritual_ZN12QInputMethod6d_funcEv(QInputMethod *self) {
+  return self->d_func();
+}
+
+//  const QInputMethodPrivate *QInputMethod::d_func() const
+extern "C" Q_DECL_EXPORT
+const QInputMethodPrivate *ritual_ZNK12QInputMethod6d_funcEv(
+    const QInputMethod *self) {
+  return self->d_func();
+}
+
 //  QTransform QInputMethod::inputItemTransform() const
 extern "C" Q_DECL_EXPORT
 QTransform *ritual_ZNK12QInputMethod18inputItemTransformEv(

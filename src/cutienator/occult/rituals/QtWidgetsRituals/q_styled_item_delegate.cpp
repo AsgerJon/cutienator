@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qstyleditemdelegate.h, Qt 6.12.0. Changes made here are lost.
+#include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(itemviews)
 #include <QtWidgets/qstyleditemdelegate.h>
 #include <QtCore/qstring.h>
 #include <QtWidgets/qstyleoption.h>
@@ -21,105 +23,182 @@ struct OwnQStyledItemDelegate : QStyledItemDelegate {
 //  A QStyledItemDelegate that Python can take functions over in. Every QStyledItemDelegate
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if QT_CONFIG(itemviews)
 typedef void (*CuteQStyledItemDelegateCall0)(const void *, QPainter *, const QStyleOptionViewItem *, const QModelIndex *, int *);
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
 typedef const QSize * (*CuteQStyledItemDelegateCall1)(const void *, const QStyleOptionViewItem *, const QModelIndex *, int *);
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
 typedef void * (*CuteQStyledItemDelegateCall2)(const void *, QWidget *, const QStyleOptionViewItem *, const QModelIndex *, int *);
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
 typedef void (*CuteQStyledItemDelegateCall3)(const void *, QWidget *, const QModelIndex *, int *);
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
 typedef void (*CuteQStyledItemDelegateCall4)(const void *, QWidget *, QAbstractItemModel *, const QModelIndex *, int *);
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
 typedef void (*CuteQStyledItemDelegateCall5)(const void *, QWidget *, const QStyleOptionViewItem *, const QModelIndex *, int *);
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
 typedef QString * (*CuteQStyledItemDelegateCall6)(const void *, const QVariant *, const QLocale *, int *);
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
 typedef void (*CuteQStyledItemDelegateCall7)(const void *, QStyleOptionViewItem *, const QModelIndex *, int *);
+#endif  // QT_CONFIG(itemviews)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(itemviews)
 typedef bool (*CuteQStyledItemDelegateCall8)(const void *, QObject *, QEvent *, int *);
+#endif  // QT_CONFIG(itemviews)
+#endif  // !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(itemviews)
 typedef bool (*CuteQStyledItemDelegateCall9)(const void *, QEvent *, QAbstractItemModel *, const QStyleOptionViewItem *, const QModelIndex *, int *);
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
 typedef void (*CuteQStyledItemDelegateCall10)(const void *, QWidget *, const QModelIndex *, int *);
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
 typedef bool (*CuteQStyledItemDelegateCall11)(const void *, QHelpEvent *, QAbstractItemView *, const QStyleOptionViewItem *, const QModelIndex *, int *);
+#endif  // QT_CONFIG(itemviews)
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQStyledItemDelegateCall12)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQStyledItemDelegateCall13)(const void *, QTimerEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQStyledItemDelegateCall14)(const void *, QChildEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQStyledItemDelegateCall15)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQStyledItemDelegateCall16)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQStyledItemDelegateCall17)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 class CuteQStyledItemDelegate : public QStyledItemDelegate {
 public:
   using QStyledItemDelegate::QStyledItemDelegate;
   void *taken[18] = {};
 
   bool take(const char *key, void *call) {
+#if QT_CONFIG(itemviews)
     if (!std::strcmp(key, "_ZNK21QAbstractItemDelegate5paintEP8QPainterRK20QStyleOptionViewItemRK11QModelIndex")) {
       taken[0] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
     if (!std::strcmp(key, "_ZNK21QAbstractItemDelegate8sizeHintERK20QStyleOptionViewItemRK11QModelIndex")) {
       taken[1] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
     if (!std::strcmp(key, "_ZNK21QAbstractItemDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndex")) {
       taken[2] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
     if (!std::strcmp(key, "_ZNK21QAbstractItemDelegate13setEditorDataEP7QWidgetRK11QModelIndex")) {
       taken[3] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
     if (!std::strcmp(key, "_ZNK21QAbstractItemDelegate12setModelDataEP7QWidgetP18QAbstractItemModelRK11QModelIndex")) {
       taken[4] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
     if (!std::strcmp(key, "_ZNK21QAbstractItemDelegate20updateEditorGeometryEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndex")) {
       taken[5] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
     if (!std::strcmp(key, "_ZNK19QStyledItemDelegate11displayTextERK8QVariantRK7QLocale")) {
       taken[6] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
     if (!std::strcmp(key, "_ZNK19QStyledItemDelegate15initStyleOptionEP20QStyleOptionViewItemRK11QModelIndex")) {
       taken[7] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemviews)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(itemviews)
     if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[8] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemviews)
+#endif  // !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(itemviews)
     if (!std::strcmp(key, "_ZN21QAbstractItemDelegate11editorEventEP6QEventP18QAbstractItemModelRK20QStyleOptionViewItemRK11QModelIndex")) {
       taken[9] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
     if (!std::strcmp(key, "_ZNK21QAbstractItemDelegate13destroyEditorEP7QWidgetRK11QModelIndex")) {
       taken[10] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
     if (!std::strcmp(key, "_ZN21QAbstractItemDelegate9helpEventEP10QHelpEventP17QAbstractItemViewRK20QStyleOptionViewItemRK11QModelIndex")) {
       taken[11] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemviews)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[12] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[13] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[14] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[15] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[16] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
       taken[17] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
     return false;
   }
 
+#if QT_CONFIG(itemviews)
   //  void QStyledItemDelegate::paint(QPainter *painter, const
   //      QStyleOptionViewItem &option, const QModelIndex &index) const
   void paint(
@@ -134,7 +213,9 @@ public:
     }
     QStyledItemDelegate::paint(painter, option, index);
   }
+#endif  // QT_CONFIG(itemviews)
 
+#if QT_CONFIG(itemviews)
   //  QSize QStyledItemDelegate::sizeHint(const QStyleOptionViewItem
   //      &option, const QModelIndex &index) const
   QSize sizeHint(
@@ -148,7 +229,9 @@ public:
     }
     return QStyledItemDelegate::sizeHint(option, index);
   }
+#endif  // QT_CONFIG(itemviews)
 
+#if QT_CONFIG(itemviews)
   //  QWidget *QStyledItemDelegate::createEditor(QWidget *parent, const
   //      QStyleOptionViewItem &option, const QModelIndex &index) const
   QWidget *createEditor(
@@ -163,7 +246,9 @@ public:
     }
     return QStyledItemDelegate::createEditor(parent, option, index);
   }
+#endif  // QT_CONFIG(itemviews)
 
+#if QT_CONFIG(itemviews)
   //  void QStyledItemDelegate::setEditorData(QWidget *editor, const
   //      QModelIndex &index) const
   void setEditorData(
@@ -177,7 +262,9 @@ public:
     }
     QStyledItemDelegate::setEditorData(editor, index);
   }
+#endif  // QT_CONFIG(itemviews)
 
+#if QT_CONFIG(itemviews)
   //  void QStyledItemDelegate::setModelData(QWidget *editor,
   //      QAbstractItemModel *model, const QModelIndex &index) const
   void setModelData(
@@ -192,7 +279,9 @@ public:
     }
     QStyledItemDelegate::setModelData(editor, model, index);
   }
+#endif  // QT_CONFIG(itemviews)
 
+#if QT_CONFIG(itemviews)
   //  void QStyledItemDelegate::updateEditorGeometry(QWidget *editor, const
   //      QStyleOptionViewItem &option, const QModelIndex &index) const
   void updateEditorGeometry(
@@ -207,7 +296,9 @@ public:
     }
     QStyledItemDelegate::updateEditorGeometry(editor, option, index);
   }
+#endif  // QT_CONFIG(itemviews)
 
+#if QT_CONFIG(itemviews)
   //  QString QStyledItemDelegate::displayText(const QVariant &value, const
   //      QLocale &locale) const
   QString displayText(
@@ -225,7 +316,9 @@ public:
     }
     return QStyledItemDelegate::displayText(value, locale);
   }
+#endif  // QT_CONFIG(itemviews)
 
+#if QT_CONFIG(itemviews)
   //  void QStyledItemDelegate::initStyleOption(QStyleOptionViewItem
   //      *option, const QModelIndex &index) const
   void initStyleOption(
@@ -239,7 +332,10 @@ public:
     }
     QStyledItemDelegate::initStyleOption(option, index);
   }
+#endif  // QT_CONFIG(itemviews)
 
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(itemviews)
   //  bool QStyledItemDelegate::eventFilter(QObject *object, QEvent *event)
   bool eventFilter(QObject *object, QEvent *event) override {
     if (taken[8]) {
@@ -250,7 +346,10 @@ public:
     }
     return QStyledItemDelegate::eventFilter(object, event);
   }
+#endif  // QT_CONFIG(itemviews)
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if QT_CONFIG(itemviews)
   //  bool QStyledItemDelegate::editorEvent(QEvent *event,
   //      QAbstractItemModel *model, const QStyleOptionViewItem &option,
   //      const QModelIndex &index)
@@ -267,7 +366,9 @@ public:
     }
     return QStyledItemDelegate::editorEvent(event, model, option, index);
   }
+#endif  // QT_CONFIG(itemviews)
 
+#if QT_CONFIG(itemviews)
   //  void QAbstractItemDelegate::destroyEditor(QWidget *editor, const
   //      QModelIndex &index) const
   void destroyEditor(
@@ -281,7 +382,9 @@ public:
     }
     QAbstractItemDelegate::destroyEditor(editor, index);
   }
+#endif  // QT_CONFIG(itemviews)
 
+#if QT_CONFIG(itemviews)
   //  bool QAbstractItemDelegate::helpEvent(QHelpEvent *event,
   //      QAbstractItemView *view, const QStyleOptionViewItem &option,
   //      const QModelIndex &index)
@@ -298,7 +401,9 @@ public:
     }
     return QAbstractItemDelegate::helpEvent(event, view, option, index);
   }
+#endif  // QT_CONFIG(itemviews)
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QObject::event(QEvent *event)
   bool event(QEvent *event) override {
     if (taken[12]) {
@@ -309,7 +414,9 @@ public:
     }
     return QObject::event(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
     if (taken[13]) {
@@ -320,7 +427,9 @@ public:
     }
     QObject::timerEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
     if (taken[14]) {
@@ -331,7 +440,9 @@ public:
     }
     QObject::childEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
     if (taken[15]) {
@@ -342,7 +453,9 @@ public:
     }
     QObject::customEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
     if (taken[16]) {
@@ -353,7 +466,9 @@ public:
     }
     QObject::connectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
     if (taken[17]) {
@@ -364,6 +479,7 @@ public:
     }
     QObject::disconnectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 };
 
 //  const QMetaObject *QStyledItemDelegate::metaObject() const
@@ -641,3 +757,5 @@ bool ritual_own_ZN19QStyledItemDelegate11editorEventEP6QEventP18QAbstractItemMod
       *option,
       *index);
 }
+
+#endif  // QT_CONFIG(itemviews)

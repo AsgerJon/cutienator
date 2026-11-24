@@ -1,0 +1,55 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtScxml/qscxmlcppdatamodel.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK18QScxmlCppDataModel10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QScxmlCppDataModel2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18QScxmlCppDataModel6d_funcEv": ["address", "address"],
+    "ritual_ZNK18QScxmlCppDataModel6d_funcEv": ["address", "address"],
+    "ritual_ZN18QScxmlCppDataModel5setupERK4QMapI7QString8QVariantE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN18QScxmlCppDataModel18evaluateAssignmentEiPb": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN18QScxmlCppDataModel22evaluateInitializationEiPb": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN18QScxmlCppDataModel15evaluateForeachEiPbPN15QScxmlDataModel15ForeachLoopBodyE": [
+      "nothing", "address", "int", "address", "address"
+    ],
+    "ritual_ZN18QScxmlCppDataModel13setScxmlEventERK11QScxmlEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QScxmlCppDataModel10scxmlEventEv": ["address", "address"],
+    "ritual_ZNK18QScxmlCppDataModel13scxmlPropertyERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK18QScxmlCppDataModel16hasScxmlPropertyERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN18QScxmlCppDataModel16setScxmlPropertyERK7QStringRK8QVariantS2_": [
+      "bool", "address", "text", "address", "text"
+    ],
+    "ritual_ZNK18QScxmlCppDataModel7inStateERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_take_QScxmlCppDataModel": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK18QScxmlCppDataModel13scxmlPropertyERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_own_ZNK18QScxmlCppDataModel16hasScxmlPropertyERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_own_ZN18QScxmlCppDataModel16setScxmlPropertyERK7QStringRK8QVariantS2_": [
+      "bool", "address", "text", "address", "text"
+    ]
+  }
+}

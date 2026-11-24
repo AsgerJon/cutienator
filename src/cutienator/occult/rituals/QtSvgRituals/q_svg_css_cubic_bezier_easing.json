@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSvg/6.12.0/QtSvg/private/qsvgcsseasing_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN24QSvgCssCubicBezierEasingC1EN13QSvgCssValues14EasingFunctionE7QPointFS2_": [
+      "address", "unsigned char", "address", "address"
+    ],
+    "ritual_ZN24QSvgCssCubicBezierEasingD1Ev": ["nothing", "address"],
+    "ritual_ZNK24QSvgCssCubicBezierEasing8progressEd": [
+      "double", "address", "double"
+    ],
+    "ritual_ZNK24QSvgCssCubicBezierEasing2c1Ev": ["address", "address"],
+    "ritual_ZNK24QSvgCssCubicBezierEasing2c2Ev": ["address", "address"],
+    "ritual_take_QSvgCssCubicBezierEasing": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK24QSvgCssCubicBezierEasing8progressEd": [
+      "double", "address", "double"
+    ]
+  }
+}

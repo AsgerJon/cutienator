@@ -1,0 +1,80 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQmlXm",
+    "lListModel/6.12.0/QtQmlXmlListModel/private/qqmlxmllistmodel_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK16QQmlXmlListModel10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QQmlXmlListModel2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN16QQmlXmlListModelC1EP7QObject": ["address", "address"],
+    "ritual_ZN16QQmlXmlListModelD1Ev": ["nothing", "address"],
+    "ritual_ZNK16QQmlXmlListModel5indexEiiRK11QModelIndex": [
+      "address", "address", "int", "int", "address"
+    ],
+    "ritual_ZNK16QQmlXmlListModel8rowCountERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK16QQmlXmlListModel4dataERK11QModelIndexi": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZNK16QQmlXmlListModel9roleNamesEv": ["address", "address"],
+    "ritual_ZNK16QQmlXmlListModel5countEv": ["int", "address"],
+    "ritual_ZNK16QQmlXmlListModel6sourceEv": ["address", "address"],
+    "ritual_ZN16QQmlXmlListModel9setSourceERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QQmlXmlListModel5queryEv": ["text", "address"],
+    "ritual_ZN16QQmlXmlListModel8setQueryERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN16QQmlXmlListModel10appendRoleEP20QQmlXmlListModelRole": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQmlXmlListModel9clearRoleEv": ["nothing", "address"],
+    "ritual_ZNK16QQmlXmlListModel6statusEv": ["int", "address"],
+    "ritual_ZNK16QQmlXmlListModel8progressEv": ["double", "address"],
+    "ritual_ZNK16QQmlXmlListModel11errorStringEv": ["text", "address"],
+    "ritual_ZN16QQmlXmlListModel10classBeginEv": ["nothing", "address"],
+    "ritual_ZN16QQmlXmlListModel17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQmlXmlListModel6reloadEv": ["nothing", "address"],
+    "ritual_ZN16QQmlXmlListModel15requestFinishedEv": ["nothing", "address"],
+    "ritual_ZN16QQmlXmlListModel15requestProgressExx": [
+      "nothing", "address", "long long", "long long"
+    ],
+    "ritual_ZN16QQmlXmlListModel11dataClearedEv": ["nothing", "address"],
+    "ritual_ZN16QQmlXmlListModel14queryCompletedERK27QQmlXmlListModelQueryResult": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQmlXmlListModel18notifyQueryStartedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN16QQmlXmlListModel15tryExecuteQueryERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQmlXmlListModel9createJobERK10QByteArray": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN16QQmlXmlListModel11nextQueryIdEv": ["int", "address"],
+    "ritual_ZN16QQmlXmlListModel11deleteReplyEv": ["nothing", "address"],
+    "ritual_cast_QQmlXmlListModel_QQmlParserStatus": ["address", "address"],
+    "ritual_take_QQmlXmlListModel": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK16QQmlXmlListModel5indexEiiRK11QModelIndex": [
+      "address", "address", "int", "int", "address"
+    ],
+    "ritual_own_ZNK16QQmlXmlListModel8rowCountERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZNK16QQmlXmlListModel4dataERK11QModelIndexi": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_own_ZN16QQmlXmlListModel10classBeginEv": ["nothing", "address"],
+    "ritual_own_ZN16QQmlXmlListModel17componentCompleteEv": [
+      "nothing", "address"
+    ]
+  }
+}

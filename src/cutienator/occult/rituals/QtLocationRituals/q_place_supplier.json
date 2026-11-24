@@ -1,0 +1,32 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLocation/qplacesupplier.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN14QPlaceSupplierC1Ev": ["address"],
+    "ritual_ZN14QPlaceSupplierC1ERKS_": ["address", "address"],
+    "ritual_ZN14QPlaceSupplierD1Ev": ["nothing", "address"],
+    "ritual_ZeqRK14QPlaceSupplierS1_": ["bool", "address", "address"],
+    "ritual_ZneRK14QPlaceSupplierS1_": ["bool", "address", "address"],
+    "ritual_ZNK14QPlaceSupplier4nameEv": ["text", "address"],
+    "ritual_ZN14QPlaceSupplier7setNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK14QPlaceSupplier10supplierIdEv": ["text", "address"],
+    "ritual_ZN14QPlaceSupplier13setSupplierIdERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK14QPlaceSupplier3urlEv": ["address", "address"],
+    "ritual_ZN14QPlaceSupplier6setUrlERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QPlaceSupplier4iconEv": ["address", "address"],
+    "ritual_ZN14QPlaceSupplier7setIconERK10QPlaceIcon": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QPlaceSupplier7isEmptyEv": ["bool", "address"],
+    "ritual_ZNK14QPlaceSupplier7isEqualERKS_": ["bool", "address", "address"]
+  }
+}

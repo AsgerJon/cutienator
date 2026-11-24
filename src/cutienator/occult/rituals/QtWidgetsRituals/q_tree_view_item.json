@@ -1,0 +1,11 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qtreeview_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN13QTreeViewItemC1Ev": ["address"],
+    "ritual_ZN13QTreeViewItemD1Ev": ["nothing", "address"]
+  }
+}

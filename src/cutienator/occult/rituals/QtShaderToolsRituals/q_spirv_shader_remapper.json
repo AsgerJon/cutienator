@@ -1,0 +1,14 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtShaderTools/6.12.0/QtShaderTools/private/qspirvshaderremap_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QSpirvShaderRemapper5remapERK10QByteArray6QFlagsIN12QSpirvShader9RemapFlagEE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZNK20QSpirvShaderRemapper12errorMessageEv": ["text", "address"],
+    "ritual_ZN20QSpirvShaderRemapperD1Ev": ["nothing", "address"]
+  }
+}

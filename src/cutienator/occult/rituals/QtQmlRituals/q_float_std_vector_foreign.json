@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4sequenceobject_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN22QFloatStdVectorForeign22qt_qmlMarker_anonymousEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QFloatStdVectorForeign21qt_qmlMarker_sequenceEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QFloatStdVectorForeign20qt_qmlMarker_foreignEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QFloatStdVectorForeignD1Ev": ["nothing", "address"]
+  }
+}

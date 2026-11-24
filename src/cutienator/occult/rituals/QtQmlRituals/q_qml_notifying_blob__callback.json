@@ -1,0 +1,25 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmlnotifyingblob_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN17QQmlNotifyingBlob8CallbackD1Ev": ["nothing", "address"],
+    "ritual_ZN17QQmlNotifyingBlob8Callback5readyEPS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QQmlNotifyingBlob8Callback8progressEPS_d": [
+      "nothing", "address", "address", "double"
+    ],
+    "ritual_take_QQmlNotifyingBlob_Callback": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN17QQmlNotifyingBlob8Callback5readyEPS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN17QQmlNotifyingBlob8Callback8progressEPS_d": [
+      "nothing", "address", "address", "double"
+    ]
+  }
+}

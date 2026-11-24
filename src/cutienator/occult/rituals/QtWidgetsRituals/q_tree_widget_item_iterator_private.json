@@ -1,0 +1,34 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qtreewidgetitemiterator_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN30QTreeWidgetItemIteratorPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK30QTreeWidgetItemIteratorPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN30QTreeWidgetItemIteratorPrivateC1EP23QTreeWidgetItemIteratorP10QTreeModel": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN30QTreeWidgetItemIteratorPrivateC1ERKS_": [
+      "address", "address"
+    ],
+    "ritual_ZN30QTreeWidgetItemIteratorPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZNK30QTreeWidgetItemIteratorPrivate11nextSiblingEPK15QTreeWidgetItem": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN30QTreeWidgetItemIteratorPrivate19ensureValidIteratorEPK15QTreeWidgetItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN30QTreeWidgetItemIteratorPrivate4nextEPK15QTreeWidgetItem": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN30QTreeWidgetItemIteratorPrivate8previousEPK15QTreeWidgetItem": [
+      "address", "address", "address"
+    ]
+  }
+}

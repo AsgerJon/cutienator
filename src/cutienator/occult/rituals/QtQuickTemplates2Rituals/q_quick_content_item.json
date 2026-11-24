@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquickcontentitem_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QQuickContentItem10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QQuickContentItem2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QQuickContentItemC1EP10QQuickItem": ["address", "address"],
+    "ritual_ZN17QQuickContentItemC1EPK7QObjectP10QQuickItem": [
+      "address", "address", "address"
+    ]
+  }
+}

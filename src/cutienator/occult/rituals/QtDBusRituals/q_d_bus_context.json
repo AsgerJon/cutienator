@@ -1,0 +1,23 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDBus/qdbuscontext.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN12QDBusContextC1Ev": ["address"],
+    "ritual_ZN12QDBusContextD1Ev": ["nothing", "address"],
+    "ritual_ZNK12QDBusContext14calledFromDBusEv": ["bool", "address"],
+    "ritual_ZNK12QDBusContext10connectionEv": ["address", "address"],
+    "ritual_ZNK12QDBusContext7messageEv": ["address", "address"],
+    "ritual_ZNK12QDBusContext14isDelayedReplyEv": ["bool", "address"],
+    "ritual_ZNK12QDBusContext15setDelayedReplyEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK12QDBusContext14sendErrorReplyERK7QStringS2_": [
+      "nothing", "address", "text", "text"
+    ],
+    "ritual_ZNK12QDBusContext14sendErrorReplyEN10QDBusError9ErrorTypeERK7QString": [
+      "nothing", "address", "int", "text"
+    ]
+  }
+}

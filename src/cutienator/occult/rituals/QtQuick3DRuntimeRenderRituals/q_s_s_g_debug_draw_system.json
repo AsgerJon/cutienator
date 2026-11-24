@@ -1,0 +1,37 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgdebugdra",
+    "wsystem_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QSSGDebugDrawSystemC1Ev": ["address"],
+    "ritual_ZN19QSSGDebugDrawSystemD1Ev": ["nothing", "address"],
+    "ritual_ZNK19QSSGDebugDrawSystem10hasContentEv": ["bool", "address"],
+    "ritual_ZN19QSSGDebugDrawSystem8drawLineERK9QVector3DS2_RK6QColorb": [
+      "nothing", "address", "address", "address", "address", "bool"
+    ],
+    "ritual_ZN19QSSGDebugDrawSystem10drawBoundsERK11QSSGBounds3RK6QColorb": [
+      "nothing", "address", "address", "address", "bool"
+    ],
+    "ritual_ZN19QSSGDebugDrawSystem9drawPointERK9QVector3DRK6QColorb": [
+      "nothing", "address", "address", "address", "bool"
+    ],
+    "ritual_ZN19QSSGDebugDrawSystem15prepareGeometryEP14QSSGRhiContextP23QRhiResourceUpdateBatch": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN19QSSGDebugDrawSystem24recordRenderDebugObjectsEP14QSSGRhiContextP28QSSGRhiGraphicsPipelineStateP26QRhiShaderResourceBindingsP24QRhiRenderPassDescriptor": [
+      "nothing", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN19QSSGDebugDrawSystem10setEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK19QSSGDebugDrawSystem9isEnabledEv": ["bool", "address"],
+    "ritual_ZNK19QSSGDebugDrawSystem9isEnabledENS_4ModeE": [
+      "bool", "address", "unsigned char"
+    ],
+    "ritual_ZN19QSSGDebugDrawSystem18levelOfDetailColorEj": [
+      "address", "unsigned int"
+    ]
+  }
+}

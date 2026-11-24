@@ -1,0 +1,46 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/6.12.0/QtNetwork/private/qnetworkreplyimpl_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QNetworkReplyImpl10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QNetworkReplyImplD1Ev": ["nothing", "address"],
+    "ritual_ZN17QNetworkReplyImpl5abortEv": ["nothing", "address"],
+    "ritual_ZN17QNetworkReplyImpl5closeEv": ["nothing", "address"],
+    "ritual_ZNK17QNetworkReplyImpl14bytesAvailableEv": [
+      "long long", "address"
+    ],
+    "ritual_ZN17QNetworkReplyImpl17setReadBufferSizeEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN17QNetworkReplyImpl5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN17QNetworkReplyImpl6d_funcEv": ["address", "address"],
+    "ritual_ZNK17QNetworkReplyImpl6d_funcEv": ["address", "address"],
+    "ritual_ZN17QNetworkReplyImpl33setSslConfigurationImplementationERK17QSslConfiguration": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QNetworkReplyImpl15ignoreSslErrorsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QNetworkReplyImpl29ignoreSslErrorsImplementationERK5QListI9QSslErrorE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QNetworkReplyImpl": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK17QNetworkReplyImpl14bytesAvailableEv": [
+      "long long", "address"
+    ],
+    "ritual_own_ZN17QNetworkReplyImpl17setReadBufferSizeEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_own_ZN17QNetworkReplyImpl33setSslConfigurationImplementationERK17QSslConfiguration": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN17QNetworkReplyImpl15ignoreSslErrorsEv": [
+      "nothing", "address"
+    ]
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtLocat",
+    "ion/6.12.0/QtLocation/private/qdeclarativegeoserviceprovider_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK30QDeclarativeGeoServiceProvider10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN30QDeclarativeGeoServiceProvider2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN30QDeclarativeGeoServiceProviderC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN30QDeclarativeGeoServiceProviderD1Ev": ["nothing", "address"],
+    "ritual_ZN30QDeclarativeGeoServiceProvider10classBeginEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QDeclarativeGeoServiceProvider17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QDeclarativeGeoServiceProvider7setNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK30QDeclarativeGeoServiceProvider4nameEv": ["text", "address"],
+    "ritual_ZNK30QDeclarativeGeoServiceProvider12parameterMapEv": [
+      "address", "address"
+    ],
+    "ritual_ZN30QDeclarativeGeoServiceProvider25availableServiceProvidersEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK30QDeclarativeGeoServiceProvider12requirementsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN30QDeclarativeGeoServiceProvider15setRequirementsEP42QDeclarativeGeoServiceProviderRequirements": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK30QDeclarativeGeoServiceProvider9preferredEv": [
+      "address", "address"
+    ],
+    "ritual_ZN30QDeclarativeGeoServiceProvider12setPreferredERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK30QDeclarativeGeoServiceProvider24sharedGeoServiceProviderEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK30QDeclarativeGeoServiceProvider7localesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN30QDeclarativeGeoServiceProvider10setLocalesERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK30QDeclarativeGeoServiceProvider10isAttachedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN30QDeclarativeGeoServiceProvider20setAllowExperimentalEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK30QDeclarativeGeoServiceProvider17allowExperimentalEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN30QDeclarativeGeoServiceProvider15parametersReadyEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN30QDeclarativeGeoServiceProvider9tryAttachEv": [
+      "nothing", "address"
+    ],
+    "ritual_cast_QDeclarativeGeoServiceProvider_QQmlParserStatus": [
+      "address", "address"
+    ],
+    "ritual_take_QDeclarativeGeoServiceProvider": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN30QDeclarativeGeoServiceProvider10classBeginEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN30QDeclarativeGeoServiceProvider17componentCompleteEv": [
+      "nothing", "address"
+    ]
+  }
+}

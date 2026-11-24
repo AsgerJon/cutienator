@@ -1,0 +1,13 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtTextToSpeech/qtexttospeechplugin.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QTextToSpeechPluginD1Ev": ["nothing", "address"],
+    "ritual_ZNK19QTextToSpeechPlugin24createTextToSpeechEngineERK4QMapI7QString8QVariantEP7QObjectPS1_": [
+      "address", "address", "address", "address", "address"
+    ]
+  }
+}

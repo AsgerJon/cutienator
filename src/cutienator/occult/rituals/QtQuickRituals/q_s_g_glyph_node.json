@@ -1,0 +1,51 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qsgadaptationlayer_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN12QSGGlyphNodeD1Ev": ["nothing", "address"],
+    "ritual_ZN12QSGGlyphNode9setGlyphsERK7QPointFRK9QGlyphRun": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN12QSGGlyphNode8setColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QSGGlyphNode8setStyleEN10QQuickText9TextStyleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN12QSGGlyphNode13setStyleColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12QSGGlyphNode8baseLineEv": ["address", "address"],
+    "ritual_ZNK12QSGGlyphNode12boundingRectEv": ["address", "address"],
+    "ritual_ZN12QSGGlyphNode15setBoundingRectERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QSGGlyphNode28setPreferredAntialiasingModeENS_16AntialiasingModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN12QSGGlyphNode20setRenderTypeQualityEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK12QSGGlyphNode10renderTypeEv": ["unsigned char", "address"],
+    "ritual_ZN12QSGGlyphNode7recycleEv": ["nothing", "address"],
+    "ritual_ZN12QSGGlyphNode6updateEv": ["nothing", "address"],
+    "ritual_ZN12QSGGlyphNode6acceptEP16QSGNodeVisitorEx": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QSGGlyphNode": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK12QSGGlyphNode12boundingRectEv": ["address", "address"],
+    "ritual_own_ZN12QSGGlyphNode15setBoundingRectERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN12QSGGlyphNode20setRenderTypeQualityEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN12QSGGlyphNode7recycleEv": ["nothing", "address"],
+    "ritual_own_ZN12QSGGlyphNode6acceptEP16QSGNodeVisitorEx": [
+      "nothing", "address", "address"
+    ]
+  }
+}

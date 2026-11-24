@@ -1,0 +1,45 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtMulti",
+    "media/6.12.0/QtMultimedia/private/qplatformsurfacecapture_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK23QPlatformSurfaceCapture10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QPlatformSurfaceCapture2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN23QPlatformSurfaceCapture9setActiveEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK23QPlatformSurfaceCapture8isActiveEv": ["bool", "address"],
+    "ritual_ZNK23QPlatformSurfaceCapture5errorEv": ["int", "address"],
+    "ritual_ZNK23QPlatformSurfaceCapture11errorStringEv": [
+      "text", "address"
+    ],
+    "ritual_ZN23QPlatformSurfaceCapture15setIgnoreCursorEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK23QPlatformSurfaceCapture12ignoreCursorEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN23QPlatformSurfaceCapture19setIgnoreDropShadowEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK23QPlatformSurfaceCapture16ignoreDropShadowEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN23QPlatformSurfaceCapture17setActiveInternalEb": [
+      "bool", "address", "bool"
+    ],
+    "ritual_ZN23QPlatformSurfaceCapture11updateErrorENS_5ErrorERK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_own_ZN23QPlatformSurfaceCapture9setActiveEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZNK23QPlatformSurfaceCapture8isActiveEv": ["bool", "address"]
+  }
+}

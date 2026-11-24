@@ -1,0 +1,33 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtPositioning/qgeocircle.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN10QGeoCircleC1Ev": ["address"],
+    "ritual_ZN10QGeoCircleC1ERK14QGeoCoordinated": [
+      "address", "address", "double"
+    ],
+    "ritual_ZN10QGeoCircleC1ERKS_": ["address", "address"],
+    "ritual_ZN10QGeoCircleC1ERK9QGeoShape": ["address", "address"],
+    "ritual_ZN10QGeoCircleD1Ev": ["nothing", "address"],
+    "ritual_ZN10QGeoCircle9setCenterERK14QGeoCoordinate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10QGeoCircle6centerEv": ["address", "address"],
+    "ritual_ZN10QGeoCircle9setRadiusEd": ["nothing", "address", "double"],
+    "ritual_ZNK10QGeoCircle6radiusEv": ["double", "address"],
+    "ritual_ZN10QGeoCircle9translateEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZNK10QGeoCircle10translatedEdd": [
+      "address", "address", "double", "double"
+    ],
+    "ritual_ZN10QGeoCircle12extendCircleERK14QGeoCoordinate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10QGeoCircle8toStringEv": ["text", "address"],
+    "ritual_ZN10QGeoCircle6d_funcEv": ["address", "address"],
+    "ritual_ZNK10QGeoCircle6d_funcEv": ["address", "address"]
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/qquickitem.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN10QQuickItem14ItemChangeDataC1EPS_": ["address", "address"],
+    "ritual_ZN10QQuickItem14ItemChangeDataC1EP12QQuickWindow": [
+      "address", "address"
+    ],
+    "ritual_ZN10QQuickItem14ItemChangeDataC1Ed": ["address", "double"],
+    "ritual_ZN10QQuickItem14ItemChangeDataC1Eb": ["address", "bool"],
+    "ritual_ZN10QQuickItem14ItemChangeDataD1Ev": ["nothing", "address"]
+  }
+}

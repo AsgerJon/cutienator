@@ -1,0 +1,177 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/qsslsocket.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK10QSslSocket10metaObjectEv": ["address", "address"],
+    "ritual_ZN10QSslSocket2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN10QSslSocketC1EP7QObject": ["address", "address"],
+    "ritual_ZN10QSslSocketD1Ev": ["nothing", "address"],
+    "ritual_ZN10QSslSocket6resumeEv": ["nothing", "address"],
+    "ritual_ZN10QSslSocket22connectToHostEncryptedERK7QStringt6QFlagsIN13QIODeviceBase12OpenModeFlagEEN15QAbstractSocket20NetworkLayerProtocolE": [
+      "nothing", "address", "text", "unsigned short", "int", "int"
+    ],
+    "ritual_ZN10QSslSocket22connectToHostEncryptedERK7QStringtS2_6QFlagsIN13QIODeviceBase12OpenModeFlagEEN15QAbstractSocket20NetworkLayerProtocolE": [
+      "nothing", "address", "text", "unsigned short", "text", "int", "int"
+    ],
+    "ritual_ZN10QSslSocket19setSocketDescriptorExN15QAbstractSocket11SocketStateE6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [
+      "bool", "address", "long long", "int", "int"
+    ],
+    "ritual_ZN10QSslSocket13connectToHostERK7QStringt6QFlagsIN13QIODeviceBase12OpenModeFlagEEN15QAbstractSocket20NetworkLayerProtocolE": [
+      "nothing", "address", "text", "unsigned short", "int", "int"
+    ],
+    "ritual_ZN10QSslSocket18disconnectFromHostEv": ["nothing", "address"],
+    "ritual_ZN10QSslSocket15setSocketOptionEN15QAbstractSocket12SocketOptionERK8QVariant": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN10QSslSocket12socketOptionEN15QAbstractSocket12SocketOptionE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK10QSslSocket4modeEv": ["int", "address"],
+    "ritual_ZNK10QSslSocket11isEncryptedEv": ["bool", "address"],
+    "ritual_ZNK10QSslSocket8protocolEv": ["int", "address"],
+    "ritual_ZN10QSslSocket11setProtocolEN4QSsl11SslProtocolE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK10QSslSocket14peerVerifyModeEv": ["int", "address"],
+    "ritual_ZN10QSslSocket17setPeerVerifyModeENS_14PeerVerifyModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK10QSslSocket15peerVerifyDepthEv": ["int", "address"],
+    "ritual_ZN10QSslSocket18setPeerVerifyDepthEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK10QSslSocket14peerVerifyNameEv": ["text", "address"],
+    "ritual_ZN10QSslSocket17setPeerVerifyNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK10QSslSocket14bytesAvailableEv": ["long long", "address"],
+    "ritual_ZNK10QSslSocket12bytesToWriteEv": ["long long", "address"],
+    "ritual_ZNK10QSslSocket11canReadLineEv": ["bool", "address"],
+    "ritual_ZN10QSslSocket5closeEv": ["nothing", "address"],
+    "ritual_ZNK10QSslSocket5atEndEv": ["bool", "address"],
+    "ritual_ZN10QSslSocket17setReadBufferSizeEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZNK10QSslSocket23encryptedBytesAvailableEv": [
+      "long long", "address"
+    ],
+    "ritual_ZNK10QSslSocket21encryptedBytesToWriteEv": [
+      "long long", "address"
+    ],
+    "ritual_ZNK10QSslSocket16sslConfigurationEv": ["address", "address"],
+    "ritual_ZN10QSslSocket19setSslConfigurationERK17QSslConfiguration": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QSslSocket24setLocalCertificateChainERK5QListI15QSslCertificateE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10QSslSocket21localCertificateChainEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10QSslSocket19setLocalCertificateERK15QSslCertificate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QSslSocket19setLocalCertificateERK7QStringN4QSsl14EncodingFormatE": [
+      "nothing", "address", "text", "int"
+    ],
+    "ritual_ZNK10QSslSocket16localCertificateEv": ["address", "address"],
+    "ritual_ZNK10QSslSocket15peerCertificateEv": ["address", "address"],
+    "ritual_ZNK10QSslSocket20peerCertificateChainEv": ["address", "address"],
+    "ritual_ZNK10QSslSocket13sessionCipherEv": ["address", "address"],
+    "ritual_ZNK10QSslSocket15sessionProtocolEv": ["int", "address"],
+    "ritual_ZNK10QSslSocket13ocspResponsesEv": ["address", "address"],
+    "ritual_ZN10QSslSocket13setPrivateKeyERK7QSslKey": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QSslSocket13setPrivateKeyERK7QStringN4QSsl12KeyAlgorithmENS3_14EncodingFormatERK10QByteArray": [
+      "nothing", "address", "text", "int", "int", "address"
+    ],
+    "ritual_ZNK10QSslSocket10privateKeyEv": ["address", "address"],
+    "ritual_ZN10QSslSocket16waitForConnectedEi": ["bool", "address", "int"],
+    "ritual_ZN10QSslSocket16waitForEncryptedEi": ["bool", "address", "int"],
+    "ritual_ZN10QSslSocket16waitForReadyReadEi": ["bool", "address", "int"],
+    "ritual_ZN10QSslSocket19waitForBytesWrittenEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN10QSslSocket19waitForDisconnectedEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK10QSslSocket18sslHandshakeErrorsEv": ["address", "address"],
+    "ritual_ZN10QSslSocket11supportsSslEv": ["bool"],
+    "ritual_ZN10QSslSocket23sslLibraryVersionNumberEv": ["long"],
+    "ritual_ZN10QSslSocket23sslLibraryVersionStringEv": ["text"],
+    "ritual_ZN10QSslSocket28sslLibraryBuildVersionNumberEv": ["long"],
+    "ritual_ZN10QSslSocket28sslLibraryBuildVersionStringEv": ["text"],
+    "ritual_ZN10QSslSocket17availableBackendsEv": ["address"],
+    "ritual_ZN10QSslSocket13activeBackendEv": ["text"],
+    "ritual_ZN10QSslSocket16setActiveBackendERK7QString": ["bool", "text"],
+    "ritual_ZN10QSslSocket19isProtocolSupportedEN4QSsl11SslProtocolERK7QString": [
+      "bool", "int", "text"
+    ],
+    "ritual_ZN10QSslSocket18isClassImplementedEN4QSsl16ImplementedClassERK7QString": [
+      "bool", "int", "text"
+    ],
+    "ritual_ZN10QSslSocket18isFeatureSupportedEN4QSsl16SupportedFeatureERK7QString": [
+      "bool", "int", "text"
+    ],
+    "ritual_ZN10QSslSocket15ignoreSslErrorsERK5QListI9QSslErrorE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QSslSocket28continueInterruptedHandshakeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10QSslSocket21startClientEncryptionEv": ["nothing", "address"],
+    "ritual_ZN10QSslSocket21startServerEncryptionEv": ["nothing", "address"],
+    "ritual_ZN10QSslSocket15ignoreSslErrorsEv": ["nothing", "address"],
+    "ritual_ZN10QSslSocket8skipDataEx": [
+      "long long", "address", "long long"
+    ],
+    "ritual_ZN10QSslSocket9writeDataEPKcx": [
+      "long long", "address", "chars", "long long"
+    ],
+    "ritual_ZN10QSslSocket6d_funcEv": ["address", "address"],
+    "ritual_ZNK10QSslSocket6d_funcEv": ["address", "address"],
+    "ritual_take_QSslSocket": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN10QSslSocket6resumeEv": ["nothing", "address"],
+    "ritual_own_ZN10QSslSocket19setSocketDescriptorExN15QAbstractSocket11SocketStateE6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [
+      "bool", "address", "long long", "int", "int"
+    ],
+    "ritual_own_ZN10QSslSocket13connectToHostERK7QStringt6QFlagsIN13QIODeviceBase12OpenModeFlagEEN15QAbstractSocket20NetworkLayerProtocolE": [
+      "nothing", "address", "text", "unsigned short", "int", "int"
+    ],
+    "ritual_own_ZN10QSslSocket18disconnectFromHostEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN10QSslSocket15setSocketOptionEN15QAbstractSocket12SocketOptionERK8QVariant": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZN10QSslSocket12socketOptionEN15QAbstractSocket12SocketOptionE": [
+      "address", "address", "int"
+    ],
+    "ritual_own_ZNK10QSslSocket14bytesAvailableEv": ["long long", "address"],
+    "ritual_own_ZNK10QSslSocket12bytesToWriteEv": ["long long", "address"],
+    "ritual_own_ZNK10QSslSocket11canReadLineEv": ["bool", "address"],
+    "ritual_own_ZN10QSslSocket5closeEv": ["nothing", "address"],
+    "ritual_own_ZNK10QSslSocket5atEndEv": ["bool", "address"],
+    "ritual_own_ZN10QSslSocket17setReadBufferSizeEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_own_ZN10QSslSocket16waitForConnectedEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_own_ZN10QSslSocket16waitForReadyReadEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_own_ZN10QSslSocket19waitForBytesWrittenEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_own_ZN10QSslSocket19waitForDisconnectedEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_own_ZN10QSslSocket8skipDataEx": [
+      "long long", "address", "long long"
+    ]
+  }
+}

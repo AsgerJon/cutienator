@@ -1,0 +1,36 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/qqmlincubator.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN13QQmlIncubatorC1ENS_14IncubationModeE": ["address", "int"],
+    "ritual_ZN13QQmlIncubatorD1Ev": ["nothing", "address"],
+    "ritual_ZN13QQmlIncubator5clearEv": ["nothing", "address"],
+    "ritual_ZN13QQmlIncubator15forceCompletionEv": ["nothing", "address"],
+    "ritual_ZNK13QQmlIncubator6isNullEv": ["bool", "address"],
+    "ritual_ZNK13QQmlIncubator7isReadyEv": ["bool", "address"],
+    "ritual_ZNK13QQmlIncubator7isErrorEv": ["bool", "address"],
+    "ritual_ZNK13QQmlIncubator9isLoadingEv": ["bool", "address"],
+    "ritual_ZNK13QQmlIncubator6errorsEv": ["address", "address"],
+    "ritual_ZNK13QQmlIncubator14incubationModeEv": ["int", "address"],
+    "ritual_ZNK13QQmlIncubator6statusEv": ["int", "address"],
+    "ritual_ZNK13QQmlIncubator6objectEv": ["address", "address"],
+    "ritual_ZN13QQmlIncubator20setInitialPropertiesERK4QMapI7QString8QVariantE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QQmlIncubator13statusChangedENS_6StatusE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN13QQmlIncubator15setInitialStateEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QQmlIncubator": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN13QQmlIncubator13statusChangedENS_6StatusE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN13QQmlIncubator15setInitialStateEP7QObject": [
+      "nothing", "address", "address"
+    ]
+  }
+}

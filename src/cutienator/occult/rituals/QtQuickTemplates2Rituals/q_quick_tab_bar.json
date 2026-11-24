@@ -1,0 +1,68 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquicktabbar_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK12QQuickTabBar10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QQuickTabBar2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN12QQuickTabBar21qt_qmlMarker_attachedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN12QQuickTabBarC1EP10QQuickItem": ["address", "address"],
+    "ritual_ZNK12QQuickTabBar8positionEv": ["int", "address"],
+    "ritual_ZN12QQuickTabBar11setPositionENS_8PositionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN12QQuickTabBar21qmlAttachedPropertiesEP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN12QQuickTabBar12updatePolishEv": ["nothing", "address"],
+    "ritual_ZN12QQuickTabBar17componentCompleteEv": ["nothing", "address"],
+    "ritual_ZN12QQuickTabBar14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK12QQuickTabBar9isContentEP10QQuickItem": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN12QQuickTabBar9itemAddedEiP10QQuickItem": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN12QQuickTabBar9itemMovedEiP10QQuickItem": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN12QQuickTabBar11itemRemovedEiP10QQuickItem": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN12QQuickTabBar10wheelEventEP11QWheelEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12QQuickTabBar11defaultFontEv": ["address", "address"],
+    "ritual_ZNK12QQuickTabBar14accessibleRoleEv": ["int", "address"],
+    "ritual_own_ZN12QQuickTabBar12updatePolishEv": ["nothing", "address"],
+    "ritual_own_ZN12QQuickTabBar17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN12QQuickTabBar14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZNK12QQuickTabBar9isContentEP10QQuickItem": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN12QQuickTabBar9itemAddedEiP10QQuickItem": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZN12QQuickTabBar9itemMovedEiP10QQuickItem": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZN12QQuickTabBar11itemRemovedEiP10QQuickItem": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZN12QQuickTabBar10wheelEventEP11QWheelEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK12QQuickTabBar11defaultFontEv": ["address", "address"],
+    "ritual_own_ZNK12QQuickTabBar14accessibleRoleEv": ["int", "address"]
+  }
+}

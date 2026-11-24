@@ -32,6 +32,8 @@
     "ritual_ZN6QTimer10timerEventEP11QTimerEvent": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN6QTimer6d_funcEv": ["address", "address"],
+    "ritual_ZNK6QTimer6d_funcEv": ["address", "address"],
     "ritual_ZN6QTimer10startTimerEi": ["int", "address", "int"],
     "ritual_ZN6QTimer9killTimerEi": ["nothing", "address", "int"],
     "ritual_ZN6QTimer14defaultTypeForEi": ["int", "int"],

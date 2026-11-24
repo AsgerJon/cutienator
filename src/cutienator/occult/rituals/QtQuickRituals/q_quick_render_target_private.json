@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickrendertarget_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN25QQuickRenderTargetPrivate3getEP18QQuickRenderTarget": [
+      "address", "address"
+    ],
+    "ritual_ZN25QQuickRenderTargetPrivate3getEPK18QQuickRenderTarget": [
+      "address", "address"
+    ],
+    "ritual_ZN25QQuickRenderTargetPrivateC1Ev": ["address"],
+    "ritual_ZN25QQuickRenderTargetPrivateC1ERKS_": ["address", "address"],
+    "ritual_ZN25QQuickRenderTargetPrivate7resolveEP4QRhiP24QQuickWindowRenderTarget": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN25QQuickRenderTargetPrivateD1Ev": ["nothing", "address"]
+  }
+}

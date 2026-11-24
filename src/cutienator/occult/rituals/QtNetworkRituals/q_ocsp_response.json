@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/qocspresponse.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN13QOcspResponseC1Ev": ["address"],
+    "ritual_ZN13QOcspResponseC1ERKS_": ["address", "address"],
+    "ritual_ZN13QOcspResponseD1Ev": ["nothing", "address"],
+    "ritual_ZNK13QOcspResponse17certificateStatusEv": ["int", "address"],
+    "ritual_ZNK13QOcspResponse16revocationReasonEv": ["int", "address"],
+    "ritual_ZNK13QOcspResponse7subjectEv": ["address", "address"],
+    "ritual_ZNK13QOcspResponse7isEqualERKS_": ["bool", "address", "address"],
+    "ritual_ZeqRK13QOcspResponseS1_": ["bool", "address", "address"],
+    "ritual_ZneRK13QOcspResponseS1_": ["bool", "address", "address"],
+    "ritual_list_make_QOcspResponse": ["address"],
+    "ritual_list_add_QOcspResponse": ["nothing", "address", "address"],
+    "ritual_list_size_QOcspResponse": ["long long", "address"],
+    "ritual_list_at_QOcspResponse": ["address", "address", "long long"],
+    "ritual_list_drop_QOcspResponse": ["nothing", "address"]
+  }
+}

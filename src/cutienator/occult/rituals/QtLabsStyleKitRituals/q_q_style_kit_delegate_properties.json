@@ -1,0 +1,184 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtLabsS",
+    "tyleKit/6.12.0/QtLabsStyleKit/private/qqstylekitcontrolproperties_",
+    "p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK28QQStyleKitDelegateProperties10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QQStyleKitDelegateProperties2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN28QQStyleKitDelegateProperties24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QQStyleKitDelegatePropertiesC1EN4QQSK13PropertyGroupEP27QQStyleKitControlProperties": [
+      "address", "int", "address"
+    ],
+    "ritual_ZNK28QQStyleKitDelegateProperties6radiusEv": [
+      "double", "address"
+    ],
+    "ritual_ZN28QQStyleKitDelegateProperties9setRadiusEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK28QQStyleKitDelegateProperties13topLeftRadiusEv": [
+      "double", "address"
+    ],
+    "ritual_ZN28QQStyleKitDelegateProperties16setTopLeftRadiusEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK28QQStyleKitDelegateProperties14topRightRadiusEv": [
+      "double", "address"
+    ],
+    "ritual_ZN28QQStyleKitDelegateProperties17setTopRightRadiusEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK28QQStyleKitDelegateProperties16bottomLeftRadiusEv": [
+      "double", "address"
+    ],
+    "ritual_ZN28QQStyleKitDelegateProperties19setBottomLeftRadiusEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK28QQStyleKitDelegateProperties17bottomRightRadiusEv": [
+      "double", "address"
+    ],
+    "ritual_ZN28QQStyleKitDelegateProperties20setBottomRightRadiusEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK28QQStyleKitDelegateProperties5scaleEv": [
+      "double", "address"
+    ],
+    "ritual_ZN28QQStyleKitDelegateProperties8setScaleEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK28QQStyleKitDelegateProperties8rotationEv": [
+      "double", "address"
+    ],
+    "ritual_ZN28QQStyleKitDelegateProperties11setRotationEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK28QQStyleKitDelegateProperties5widthEv": [
+      "double", "address"
+    ],
+    "ritual_ZN28QQStyleKitDelegateProperties8setWidthEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK28QQStyleKitDelegateProperties6heightEv": [
+      "double", "address"
+    ],
+    "ritual_ZN28QQStyleKitDelegateProperties9setHeightEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK28QQStyleKitDelegateProperties12minimumWidthEv": [
+      "double", "address"
+    ],
+    "ritual_ZN28QQStyleKitDelegateProperties15setMinimumWidthEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK28QQStyleKitDelegateProperties13minimumHeightEv": [
+      "double", "address"
+    ],
+    "ritual_ZN28QQStyleKitDelegateProperties16setMinimumHeightEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK28QQStyleKitDelegateProperties9fillWidthEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN28QQStyleKitDelegateProperties12setFillWidthEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK28QQStyleKitDelegateProperties10fillHeightEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN28QQStyleKitDelegateProperties13setFillHeightEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK28QQStyleKitDelegateProperties7marginsEv": [
+      "double", "address"
+    ],
+    "ritual_ZN28QQStyleKitDelegateProperties10setMarginsEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK28QQStyleKitDelegateProperties10leftMarginEv": [
+      "double", "address"
+    ],
+    "ritual_ZN28QQStyleKitDelegateProperties13setLeftMarginEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK28QQStyleKitDelegateProperties11rightMarginEv": [
+      "double", "address"
+    ],
+    "ritual_ZN28QQStyleKitDelegateProperties14setRightMarginEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK28QQStyleKitDelegateProperties9topMarginEv": [
+      "double", "address"
+    ],
+    "ritual_ZN28QQStyleKitDelegateProperties12setTopMarginEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK28QQStyleKitDelegateProperties12bottomMarginEv": [
+      "double", "address"
+    ],
+    "ritual_ZN28QQStyleKitDelegateProperties15setBottomMarginEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK28QQStyleKitDelegateProperties9alignmentEv": [
+      "int", "address"
+    ],
+    "ritual_ZN28QQStyleKitDelegateProperties12setAlignmentE6QFlagsIN2Qt13AlignmentFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK28QQStyleKitDelegateProperties7opacityEv": [
+      "double", "address"
+    ],
+    "ritual_ZN28QQStyleKitDelegateProperties10setOpacityEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK28QQStyleKitDelegateProperties5colorEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QQStyleKitDelegateProperties8setColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK28QQStyleKitDelegateProperties7visibleEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN28QQStyleKitDelegateProperties10setVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK28QQStyleKitDelegateProperties4clipEv": ["bool", "address"],
+    "ritual_ZN28QQStyleKitDelegateProperties7setClipEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK28QQStyleKitDelegateProperties8gradientEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QQStyleKitDelegateProperties11setGradientEP14QQuickGradient": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK28QQStyleKitDelegateProperties4dataEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QQStyleKitDelegateProperties7setDataEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK28QQStyleKitDelegateProperties8delegateEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QQStyleKitDelegateProperties11setDelegateEP13QQmlComponent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK28QQStyleKitDelegateProperties5imageEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QQStyleKitDelegateProperties6borderEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QQStyleKitDelegateProperties6shadowEv": [
+      "address", "address"
+    ]
+  }
+}

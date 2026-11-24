@@ -1,0 +1,30 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickpathinterpolator_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK22QQuickPathInterpolator10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QQuickPathInterpolator2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN22QQuickPathInterpolatorC1EP7QObject": ["address", "address"],
+    "ritual_ZNK22QQuickPathInterpolator4pathEv": ["address", "address"],
+    "ritual_ZN22QQuickPathInterpolator7setPathEP10QQuickPath": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK22QQuickPathInterpolator8progressEv": ["double", "address"],
+    "ritual_ZN22QQuickPathInterpolator11setProgressEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK22QQuickPathInterpolator1xEv": ["double", "address"],
+    "ritual_ZNK22QQuickPathInterpolator1yEv": ["double", "address"],
+    "ritual_ZNK22QQuickPathInterpolator5angleEv": ["double", "address"],
+    "ritual_ZN22QQuickPathInterpolator14_q_pathUpdatedEv": [
+      "nothing", "address"
+    ]
+  }
+}

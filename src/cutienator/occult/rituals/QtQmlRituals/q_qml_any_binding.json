@@ -1,0 +1,50 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmlanybinding_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN14QQmlAnyBindingC1Ev": ["address"],
+    "ritual_ZN14QQmlAnyBinding10ofPropertyERK12QQmlProperty": [
+      "address", "address"
+    ],
+    "ritual_ZN14QQmlAnyBinding10ofPropertyEP7QObject17QQmlPropertyIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN14QQmlAnyBinding8takeFromERK12QQmlProperty": [
+      "address", "address"
+    ],
+    "ritual_ZN14QQmlAnyBinding22createFromScriptStringERK12QQmlPropertyRK16QQmlScriptStringP7QObjectP11QQmlContext": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN14QQmlAnyBinding17removeBindingFromERK12QQmlProperty": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQmlAnyBinding9installOnERK12QQmlPropertyNS_15InterceptorModeE": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN14QQmlAnyBinding8hasErrorEv": ["bool", "address"],
+    "ritual_ZNK14QQmlAnyBinding8isStickyEv": ["bool", "address"],
+    "ritual_ZN14QQmlAnyBinding9setStickyEb": ["nothing", "address", "bool"],
+    "ritual_ZNK14QQmlAnyBindingcvbEv": ["bool", "address"],
+    "ritual_ZNK14QQmlAnyBinding25isAbstractPropertyBindingEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK14QQmlAnyBinding24isUntypedPropertyBindingEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK14QQmlAnyBinding24asUntypedPropertyBindingEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK14QQmlAnyBinding17asAbstractBindingEv": [
+      "address", "address"
+    ],
+    "ritual_ZN14QQmlAnyBinding7refreshEv": ["nothing", "address"],
+    "ritual_ZN14QQmlAnyBindingC1ERKS_": ["address", "address"],
+    "ritual_ZeqRK14QQmlAnyBindingS1_": ["bool", "address", "address"],
+    "ritual_ZneRK14QQmlAnyBindingS1_": ["bool", "address", "address"],
+    "ritual_ZN14QQmlAnyBindingD1Ev": ["nothing", "address"],
+    "ritual_ZN14QQmlAnyBinding5clearEv": ["nothing", "address"]
+  }
+}

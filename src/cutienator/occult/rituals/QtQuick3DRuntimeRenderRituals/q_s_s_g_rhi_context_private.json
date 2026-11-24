@@ -1,0 +1,71 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgrhiconte",
+    "xt_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN21QSSGRhiContextPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK21QSSGRhiContextPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN21QSSGRhiContextPrivate3getEP14QSSGRhiContext": [
+      "address", "address"
+    ],
+    "ritual_ZN21QSSGRhiContextPrivate3getEPK14QSSGRhiContext": [
+      "address", "address"
+    ],
+    "ritual_ZN21QSSGRhiContextPrivate22shaderDebuggingEnabledEv": ["bool"],
+    "ritual_ZN21QSSGRhiContextPrivate10editorModeEv": ["bool"],
+    "ritual_ZN21QSSGRhiContextPrivate27setMainRenderPassDescriptorEP24QRhiRenderPassDescriptor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QSSGRhiContextPrivate16setCommandBufferEP17QRhiCommandBuffer": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QSSGRhiContextPrivate15setRenderTargetEP16QRhiRenderTarget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QSSGRhiContextPrivate22setMainPassSampleCountEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN21QSSGRhiContextPrivate20setMainPassViewCountEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN21QSSGRhiContextPrivate22releaseCachedResourcesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QSSGRhiContextPrivate15registerTextureEP11QRhiTexture": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QSSGRhiContextPrivate14releaseTextureEP11QRhiTexture": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QSSGRhiContextPrivate12registerMeshEP14QSSGRenderMesh": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QSSGRhiContextPrivate11releaseMeshEP14QSSGRenderMesh": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QSSGRhiContextPrivate3srbERK32QSSGRhiShaderResourceBindingList": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN21QSSGRhiContextPrivate8pipelineERK28QSSGRhiGraphicsPipelineStateP24QRhiRenderPassDescriptorP26QRhiShaderResourceBindings": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN21QSSGRhiContextPrivate8pipelineERK28QSSGGraphicsPipelineStateKeyP24QRhiRenderPassDescriptorP26QRhiShaderResourceBindings": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN21QSSGRhiContextPrivate15computePipelineERK7QShaderP26QRhiShaderResourceBindings": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN21QSSGRhiContextPrivate15computePipelineERK27QSSGComputePipelineStateKeyP26QRhiShaderResourceBindings": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN21QSSGRhiContextPrivate19cleanupDrawCallDataEPK15QSSGRenderModel": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QSSGRhiContextPrivate21releaseInstanceBufferEP23QSSGRenderInstanceTable": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QSSGRhiContextPrivateD1Ev": ["nothing", "address"]
+  }
+}

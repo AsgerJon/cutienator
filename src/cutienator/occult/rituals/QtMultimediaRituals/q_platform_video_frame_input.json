@@ -1,0 +1,34 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtMulti",
+    "media/6.12.0/QtMultimedia/private/qplatformvideoframeinput_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK24QPlatformVideoFrameInput10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QPlatformVideoFrameInput2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN24QPlatformVideoFrameInputC1E17QVideoFrameFormat": [
+      "address", "address"
+    ],
+    "ritual_ZN24QPlatformVideoFrameInput9setActiveEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK24QPlatformVideoFrameInput8isActiveEv": ["bool", "address"],
+    "ritual_ZNK24QPlatformVideoFrameInput11frameFormatEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK24QPlatformVideoFrameInput11errorStringEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK24QPlatformVideoFrameInput16encoderInterfaceEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QPlatformVideoFrameInput19setEncoderInterfaceEP27QMediaInputEncoderInterface": [
+      "nothing", "address", "address"
+    ]
+  }
+}

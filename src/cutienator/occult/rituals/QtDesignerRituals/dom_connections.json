@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/ui4_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN14DomConnectionsC1Ev": ["address"],
+    "ritual_ZN14DomConnectionsD1Ev": ["nothing", "address"],
+    "ritual_ZNK14DomConnections17elementConnectionEv": [
+      "address", "address"
+    ],
+    "ritual_ZN14DomConnections20setElementConnectionERK5QListIP13DomConnectionE": [
+      "nothing", "address", "address"
+    ]
+  }
+}

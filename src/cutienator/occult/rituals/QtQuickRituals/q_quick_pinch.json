@@ -1,0 +1,47 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickpincharea_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK11QQuickPinch10metaObjectEv": ["address", "address"],
+    "ritual_ZN11QQuickPinch2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN11QQuickPinchC1Ev": ["address"],
+    "ritual_ZNK11QQuickPinch6targetEv": ["address", "address"],
+    "ritual_ZN11QQuickPinch9setTargetEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QQuickPinch11resetTargetEv": ["nothing", "address"],
+    "ritual_ZNK11QQuickPinch12minimumScaleEv": ["double", "address"],
+    "ritual_ZN11QQuickPinch15setMinimumScaleEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK11QQuickPinch12maximumScaleEv": ["double", "address"],
+    "ritual_ZN11QQuickPinch15setMaximumScaleEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK11QQuickPinch15minimumRotationEv": ["double", "address"],
+    "ritual_ZN11QQuickPinch18setMinimumRotationEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK11QQuickPinch15maximumRotationEv": ["double", "address"],
+    "ritual_ZN11QQuickPinch18setMaximumRotationEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK11QQuickPinch4axisEv": ["int", "address"],
+    "ritual_ZN11QQuickPinch7setAxisENS_4AxisE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11QQuickPinch4xminEv": ["double", "address"],
+    "ritual_ZN11QQuickPinch7setXminEd": ["nothing", "address", "double"],
+    "ritual_ZNK11QQuickPinch4xmaxEv": ["double", "address"],
+    "ritual_ZN11QQuickPinch7setXmaxEd": ["nothing", "address", "double"],
+    "ritual_ZNK11QQuickPinch4yminEv": ["double", "address"],
+    "ritual_ZN11QQuickPinch7setYminEd": ["nothing", "address", "double"],
+    "ritual_ZNK11QQuickPinch4ymaxEv": ["double", "address"],
+    "ritual_ZN11QQuickPinch7setYmaxEd": ["nothing", "address", "double"],
+    "ritual_ZNK11QQuickPinch6activeEv": ["bool", "address"],
+    "ritual_ZN11QQuickPinch9setActiveEb": ["nothing", "address", "bool"]
+  }
+}

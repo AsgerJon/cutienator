@@ -1,0 +1,49 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmlcustomparser_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN16QQmlCustomParserD1Ev": ["nothing", "address"],
+    "ritual_ZN16QQmlCustomParser11clearErrorsEv": ["nothing", "address"],
+    "ritual_ZNK16QQmlCustomParser5flagsEv": ["int", "address"],
+    "ritual_ZNK16QQmlCustomParser6errorsEv": ["address", "address"],
+    "ritual_ZN16QQmlCustomParser5errorEPKN3QV412CompiledData7BindingERK7QString": [
+      "nothing", "address", "address", "text"
+    ],
+    "ritual_ZN16QQmlCustomParser5errorEPKN3QV412CompiledData6ObjectERK7QString": [
+      "nothing", "address", "address", "text"
+    ],
+    "ritual_ZN16QQmlCustomParser5errorERKN3QV412CompiledData8LocationERK7QString": [
+      "nothing", "address", "address", "text"
+    ],
+    "ritual_ZNK16QQmlCustomParser12evaluateEnumERK7QStringPb": [
+      "int", "address", "text", "address"
+    ],
+    "ritual_ZNK16QQmlCustomParser11resolveTypeERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK16QQmlCustomParser10typeLoaderEv": ["address", "address"],
+    "ritual_map_make_QHash_int_QQmlCustomParser_ptr": ["address"],
+    "ritual_map_put_QHash_int_QQmlCustomParser_ptr": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_map_size_QHash_int_QQmlCustomParser_ptr": [
+      "long long", "address"
+    ],
+    "ritual_map_key_QHash_int_QQmlCustomParser_ptr": [
+      "int", "address", "long long"
+    ],
+    "ritual_map_value_QHash_int_QQmlCustomParser_ptr": [
+      "address", "address", "long long"
+    ],
+    "ritual_map_has_QHash_int_QQmlCustomParser_ptr": [
+      "bool", "address", "int"
+    ],
+    "ritual_map_get_QHash_int_QQmlCustomParser_ptr": [
+      "address", "address", "int"
+    ],
+    "ritual_map_drop_QHash_int_QQmlCustomParser_ptr": ["nothing", "address"]
+  }
+}

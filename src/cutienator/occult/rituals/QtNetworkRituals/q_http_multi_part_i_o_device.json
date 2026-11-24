@@ -1,0 +1,43 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/6.12.0/QtNetwork/private/qhttpmultipart_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK22QHttpMultiPartIODevice5atEndEv": ["bool", "address"],
+    "ritual_ZNK22QHttpMultiPartIODevice14bytesAvailableEv": [
+      "long long", "address"
+    ],
+    "ritual_ZN22QHttpMultiPartIODevice5closeEv": ["nothing", "address"],
+    "ritual_ZNK22QHttpMultiPartIODevice12bytesToWriteEv": [
+      "long long", "address"
+    ],
+    "ritual_ZNK22QHttpMultiPartIODevice4sizeEv": ["long long", "address"],
+    "ritual_ZNK22QHttpMultiPartIODevice12isSequentialEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN22QHttpMultiPartIODevice5resetEv": ["bool", "address"],
+    "ritual_ZN22QHttpMultiPartIODevice9writeDataEPKcx": [
+      "long long", "address", "chars", "long long"
+    ],
+    "ritual_take_QHttpMultiPartIODevice": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK22QHttpMultiPartIODevice5atEndEv": ["bool", "address"],
+    "ritual_own_ZNK22QHttpMultiPartIODevice14bytesAvailableEv": [
+      "long long", "address"
+    ],
+    "ritual_own_ZN22QHttpMultiPartIODevice5closeEv": ["nothing", "address"],
+    "ritual_own_ZNK22QHttpMultiPartIODevice12bytesToWriteEv": [
+      "long long", "address"
+    ],
+    "ritual_own_ZNK22QHttpMultiPartIODevice4sizeEv": [
+      "long long", "address"
+    ],
+    "ritual_own_ZNK22QHttpMultiPartIODevice12isSequentialEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZN22QHttpMultiPartIODevice5resetEv": ["bool", "address"]
+  }
+}

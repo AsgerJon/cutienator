@@ -79,3 +79,16 @@ extern "C" Q_DECL_EXPORT
 QLockFile::LockError ritual_ZNK9QLockFile5errorEv(const QLockFile *self) {
   return self->error();
 }
+
+//  QLockFilePrivate *QLockFile::d_func()
+extern "C" Q_DECL_EXPORT
+QLockFilePrivate *ritual_ZN9QLockFile6d_funcEv(QLockFile *self) {
+  return self->d_func();
+}
+
+//  const QLockFilePrivate *QLockFile::d_func() const
+extern "C" Q_DECL_EXPORT
+const QLockFilePrivate *ritual_ZNK9QLockFile6d_funcEv(
+    const QLockFile *self) {
+  return self->d_func();
+}

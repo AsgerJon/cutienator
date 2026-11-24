@@ -1,0 +1,56 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLocation/qgeocodingmanagerengine.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZNK23QGeoCodingManagerEngine10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QGeoCodingManagerEngine2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN23QGeoCodingManagerEngineC1ERK4QMapI7QString8QVariantEP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN23QGeoCodingManagerEngineD1Ev": ["nothing", "address"],
+    "ritual_ZNK23QGeoCodingManagerEngine11managerNameEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK23QGeoCodingManagerEngine14managerVersionEv": [
+      "int", "address"
+    ],
+    "ritual_ZN23QGeoCodingManagerEngine7geocodeERK11QGeoAddressRK9QGeoShape": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN23QGeoCodingManagerEngine7geocodeERK7QStringiiRK9QGeoShape": [
+      "address", "address", "text", "int", "int", "address"
+    ],
+    "ritual_ZN23QGeoCodingManagerEngine14reverseGeocodeERK14QGeoCoordinateRK9QGeoShape": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN23QGeoCodingManagerEngine9setLocaleERK7QLocale": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK23QGeoCodingManagerEngine6localeEv": ["address", "address"],
+    "ritual_ZN23QGeoCodingManagerEngine14setManagerNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN23QGeoCodingManagerEngine17setManagerVersionEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_take_QGeoCodingManagerEngine": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN23QGeoCodingManagerEngine7geocodeERK11QGeoAddressRK9QGeoShape": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN23QGeoCodingManagerEngine7geocodeERK7QStringiiRK9QGeoShape": [
+      "address", "address", "text", "int", "int", "address"
+    ],
+    "ritual_own_ZN23QGeoCodingManagerEngine14reverseGeocodeERK14QGeoCoordinateRK9QGeoShape": [
+      "address", "address", "address", "address"
+    ]
+  }
+}

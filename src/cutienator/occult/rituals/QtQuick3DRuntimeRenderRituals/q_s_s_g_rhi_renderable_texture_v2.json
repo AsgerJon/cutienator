@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgrhiconte",
+    "xt_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN26QSSGRhiRenderableTextureV2D1Ev": ["nothing", "address"],
+    "ritual_ZN26QSSGRhiRenderableTextureV214setDescriptionEP4QRhi34QRhiTextureRenderTargetDescription6QFlagsIN23QRhiTextureRenderTarget4FlagEE": [
+      "nothing", "address", "address", "address", "int"
+    ],
+    "ritual_ZN26QSSGRhiRenderableTextureV27setNameERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK26QSSGRhiRenderableTextureV27getNameEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK26QSSGRhiRenderableTextureV27isValidEv": ["bool", "address"],
+    "ritual_ZN26QSSGRhiRenderableTextureV217resetRenderTargetEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QSSGRhiRenderableTextureV25resetEv": ["nothing", "address"],
+    "ritual_ZN26QSSGRhiRenderableTextureV210invalidateEv": [
+      "nothing", "address"
+    ]
+  }
+}

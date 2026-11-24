@@ -1,0 +1,82 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/ui4_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN9DomWidgetC1Ev": ["address"],
+    "ritual_ZN9DomWidgetD1Ev": ["nothing", "address"],
+    "ritual_ZNK9DomWidget17hasAttributeClassEv": ["bool", "address"],
+    "ritual_ZNK9DomWidget14attributeClassEv": ["text", "address"],
+    "ritual_ZN9DomWidget17setAttributeClassERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN9DomWidget19clearAttributeClassEv": ["nothing", "address"],
+    "ritual_ZNK9DomWidget16hasAttributeNameEv": ["bool", "address"],
+    "ritual_ZNK9DomWidget13attributeNameEv": ["text", "address"],
+    "ritual_ZN9DomWidget16setAttributeNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN9DomWidget18clearAttributeNameEv": ["nothing", "address"],
+    "ritual_ZNK9DomWidget18hasAttributeNativeEv": ["bool", "address"],
+    "ritual_ZNK9DomWidget15attributeNativeEv": ["bool", "address"],
+    "ritual_ZN9DomWidget18setAttributeNativeEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN9DomWidget20clearAttributeNativeEv": ["nothing", "address"],
+    "ritual_ZNK9DomWidget12elementClassEv": ["address", "address"],
+    "ritual_ZN9DomWidget15setElementClassERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9DomWidget15elementPropertyEv": ["address", "address"],
+    "ritual_ZN9DomWidget18setElementPropertyERK5QListIP11DomPropertyE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9DomWidget16elementAttributeEv": ["address", "address"],
+    "ritual_ZN9DomWidget19setElementAttributeERK5QListIP11DomPropertyE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9DomWidget10elementRowEv": ["address", "address"],
+    "ritual_ZN9DomWidget13setElementRowERK5QListIP6DomRowE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9DomWidget13elementColumnEv": ["address", "address"],
+    "ritual_ZN9DomWidget16setElementColumnERK5QListIP9DomColumnE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9DomWidget11elementItemEv": ["address", "address"],
+    "ritual_ZN9DomWidget14setElementItemERK5QListIP7DomItemE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9DomWidget13elementLayoutEv": ["address", "address"],
+    "ritual_ZN9DomWidget16setElementLayoutERK5QListIP9DomLayoutE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9DomWidget13elementWidgetEv": ["address", "address"],
+    "ritual_ZN9DomWidget16setElementWidgetERK5QListIPS_E": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9DomWidget13elementActionEv": ["address", "address"],
+    "ritual_ZN9DomWidget16setElementActionERK5QListIP9DomActionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9DomWidget18elementActionGroupEv": ["address", "address"],
+    "ritual_ZN9DomWidget21setElementActionGroupERK5QListIP14DomActionGroupE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9DomWidget16elementAddActionEv": ["address", "address"],
+    "ritual_ZN9DomWidget19setElementAddActionERK5QListIP12DomActionRefE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9DomWidget13elementZOrderEv": ["address", "address"],
+    "ritual_ZN9DomWidget16setElementZOrderERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_list_make_DomWidget_ptr": ["address"],
+    "ritual_list_add_DomWidget_ptr": ["nothing", "address", "address"],
+    "ritual_list_size_DomWidget_ptr": ["long long", "address"],
+    "ritual_list_at_DomWidget_ptr": ["address", "address", "long long"],
+    "ritual_list_drop_DomWidget_ptr": ["nothing", "address"]
+  }
+}

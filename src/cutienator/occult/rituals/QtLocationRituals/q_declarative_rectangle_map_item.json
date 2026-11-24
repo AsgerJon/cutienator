@@ -1,0 +1,97 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtLocat",
+    "ion/6.12.0/QtLocation/private/qdeclarativerectanglemapitem_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK28QDeclarativeRectangleMapItem10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QDeclarativeRectangleMapItem2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN28QDeclarativeRectangleMapItemC1EP10QQuickItem": [
+      "address", "address"
+    ],
+    "ritual_ZN28QDeclarativeRectangleMapItemD1Ev": ["nothing", "address"],
+    "ritual_ZN28QDeclarativeRectangleMapItem6setMapEP18QDeclarativeGeoMapP7QGeoMap": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN28QDeclarativeRectangleMapItem22updateMapItemPaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN28QDeclarativeRectangleMapItem7topLeftEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QDeclarativeRectangleMapItem10setTopLeftERK14QGeoCoordinate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QDeclarativeRectangleMapItem11bottomRightEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QDeclarativeRectangleMapItem14setBottomRightERK14QGeoCoordinate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK28QDeclarativeRectangleMapItem5colorEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QDeclarativeRectangleMapItem8setColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QDeclarativeRectangleMapItem6borderEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QDeclarativeRectangleMapItem8containsERK7QPointF": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK28QDeclarativeRectangleMapItem8geoShapeEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QDeclarativeRectangleMapItem11setGeoShapeERK9QGeoShape": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QDeclarativeRectangleMapItem14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN28QDeclarativeRectangleMapItem12updatePolishEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QDeclarativeRectangleMapItem24markSourceDirtyAndUpdateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QDeclarativeRectangleMapItem23onLinePropertiesChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QDeclarativeRectangleMapItem20afterViewportChangedERK26QGeoMapViewportChangeEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QDeclarativeRectangleMapItem": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN28QDeclarativeRectangleMapItem6setMapEP18QDeclarativeGeoMapP7QGeoMap": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN28QDeclarativeRectangleMapItem22updateMapItemPaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_own_ZNK28QDeclarativeRectangleMapItem8containsERK7QPointF": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZNK28QDeclarativeRectangleMapItem8geoShapeEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN28QDeclarativeRectangleMapItem11setGeoShapeERK9QGeoShape": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN28QDeclarativeRectangleMapItem14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN28QDeclarativeRectangleMapItem12updatePolishEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN28QDeclarativeRectangleMapItem20afterViewportChangedERK26QGeoMapViewportChangeEvent": [
+      "nothing", "address", "address"
+    ]
+  }
+}

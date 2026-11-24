@@ -1,0 +1,34 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtXml/6.12.0/QtXml/private/qdomhelpers_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11QDomBuilderC1EP19QDomDocumentPrivateP16QXmlStreamReader6QFlagsIN12QDomDocument11ParseOptionEE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN11QDomBuilder11endDocumentEv": ["bool", "address"],
+    "ritual_ZN11QDomBuilder10endElementEv": ["bool", "address"],
+    "ritual_ZN11QDomBuilder11startEntityERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN11QDomBuilder9endEntityEv": ["bool", "address"],
+    "ritual_ZN11QDomBuilder8startDTDERK7QStringS2_S2_": [
+      "bool", "address", "text", "text", "text"
+    ],
+    "ritual_ZN11QDomBuilder8parseDTDERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN11QDomBuilder10fatalErrorERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK11QDomBuilder6resultEv": ["address", "address"],
+    "ritual_ZNK11QDomBuilder24preserveSpacingOnlyNodesEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN11QDomBuilder17dtdInternalSubsetERK7QString": [
+      "text", "address", "text"
+    ]
+  }
+}

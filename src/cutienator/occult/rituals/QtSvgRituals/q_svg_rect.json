@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSvg/6.12.0/QtSvg/private/qsvggraphics_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN8QSvgRectC1EP8QSvgNodeRK6QRectFdd": [
+      "address", "address", "address", "double", "double"
+    ],
+    "ritual_ZN8QSvgRectD1Ev": ["nothing", "address"],
+    "ritual_ZNK8QSvgRect4typeEv": ["int", "address"],
+    "ritual_ZNK8QSvgRect18separateFillStrokeEPK8QPainterRK15QSvgExtraStates": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZNK8QSvgRect4rectEv": ["address", "address"],
+    "ritual_ZNK8QSvgRect6radiusEv": ["address", "address"],
+    "ritual_take_QSvgRect": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK8QSvgRect4typeEv": ["int", "address"],
+    "ritual_own_ZNK8QSvgRect18separateFillStrokeEPK8QPainterRK15QSvgExtraStates": [
+      "bool", "address", "address", "address"
+    ]
+  }
+}

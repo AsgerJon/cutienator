@@ -1,0 +1,43 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3D/6.12.0/QtQuick3D/private/qquick3dshaderutils_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK32QQuick3DShaderUtilsSubRenderPass10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN32QQuick3DShaderUtilsSubRenderPass2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN32QQuick3DShaderUtilsSubRenderPassC1Ev": ["address"],
+    "ritual_ZN32QQuick3DShaderUtilsSubRenderPassD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK32QQuick3DShaderUtilsSubRenderPass10renderPassEv": [
+      "address", "address"
+    ],
+    "ritual_ZN32QQuick3DShaderUtilsSubRenderPass13setRenderPassEP18QQuick3DRenderPass": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN32QQuick3DShaderUtilsSubRenderPass12cloneCommandEv": [
+      "address", "address"
+    ],
+    "ritual_ZN32QQuick3DShaderUtilsSubRenderPass17updateSpatialNodeEP21QSSGRenderGraphObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN32QQuick3DShaderUtilsSubRenderPass10itemChangeEN14QQuick3DObject10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN32QQuick3DShaderUtilsSubRenderPass18updateSceneManagerEP20QQuick3DSceneManager": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QQuick3DShaderUtilsSubRenderPass": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN32QQuick3DShaderUtilsSubRenderPass12cloneCommandEv": [
+      "address", "address"
+    ]
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4compileddata_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK3QV412CompiledData5Alias10isReadOnlyEv": ["bool", "address"],
+    "ritual_ZN3QV412CompiledData5Alias13setIsReadOnlyEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK3QV412CompiledData5Alias9nameIndexEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN3QV412CompiledData5Alias12setNameIndexEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZNK3QV412CompiledData5Alias7idIndexEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN3QV412CompiledData5Alias10setIdIndexEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZNK3QV412CompiledData5Alias17propertyNameIndexEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN3QV412CompiledData5Alias20setPropertyNameIndexEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZNK3QV412CompiledData5Alias8locationEv": ["address", "address"],
+    "ritual_ZN3QV412CompiledData5Alias11setLocationENS0_8LocationE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData5Alias17referenceLocationEv": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV412CompiledData5Alias20setReferenceLocationENS0_8LocationE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN3QV412CompiledData5AliasD1Ev": ["nothing", "address"]
+  }
+}

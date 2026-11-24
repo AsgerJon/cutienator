@@ -1,0 +1,32 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Controls2MaterialStyleImpl/6.12.0/QtQuickControls2MaterialStyleImp",
+    "l/private/qquickmaterialbusyindicator_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK27QQuickMaterialBusyIndicator10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK27QQuickMaterialBusyIndicator5colorEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QQuickMaterialBusyIndicator8setColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK27QQuickMaterialBusyIndicator9isRunningEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN27QQuickMaterialBusyIndicator10setRunningEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK27QQuickMaterialBusyIndicator7elapsedEv": ["int", "address"],
+    "ritual_ZN27QQuickMaterialBusyIndicator10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZN27QQuickMaterialBusyIndicator10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ]
+  }
+}

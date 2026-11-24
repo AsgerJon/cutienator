@@ -1,0 +1,56 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Controls2Fusion/6.12.0/QtQuickControls2Fusion/private/qquickfusion",
+    "style_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QQuickFusionStyle10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QQuickFusionStyle2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QQuickFusionStyle22qt_qmlMarker_singletonEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuickFusionStyleC1EP7QObject": ["address", "address"],
+    "ritual_ZN17QQuickFusionStyle10lightShadeEv": ["address"],
+    "ritual_ZN17QQuickFusionStyle9darkShadeEv": ["address"],
+    "ritual_ZN17QQuickFusionStyle9topShadowEv": ["address"],
+    "ritual_ZN17QQuickFusionStyle17innerContrastLineEv": ["address"],
+    "ritual_ZN17QQuickFusionStyle14isHighContrastEv": ["bool"],
+    "ritual_ZN17QQuickFusionStyle9highlightEP13QQuickPalette": [
+      "address", "address"
+    ],
+    "ritual_ZN17QQuickFusionStyle15highlightedTextEP13QQuickPalette": [
+      "address", "address"
+    ],
+    "ritual_ZN17QQuickFusionStyle7outlineEP13QQuickPalette": [
+      "address", "address"
+    ],
+    "ritual_ZN17QQuickFusionStyle18highlightedOutlineEP13QQuickPalette": [
+      "address", "address"
+    ],
+    "ritual_ZN17QQuickFusionStyle13tabFrameColorEP13QQuickPalette": [
+      "address", "address"
+    ],
+    "ritual_ZN17QQuickFusionStyle11buttonColorEP13QQuickPalettebbb": [
+      "address", "address", "bool", "bool", "bool"
+    ],
+    "ritual_ZN17QQuickFusionStyle13buttonOutlineEP13QQuickPalettebb": [
+      "address", "address", "bool", "bool"
+    ],
+    "ritual_ZN17QQuickFusionStyle13gradientStartERK6QColor": [
+      "address", "address"
+    ],
+    "ritual_ZN17QQuickFusionStyle12gradientStopERK6QColor": [
+      "address", "address"
+    ],
+    "ritual_ZN17QQuickFusionStyle12mergedColorsERK6QColorS2_i": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN17QQuickFusionStyle11grooveColorEP13QQuickPalette": [
+      "address", "address"
+    ],
+    "ritual_take_QQuickFusionStyle": ["bool", "address", "chars", "address"]
+  }
+}

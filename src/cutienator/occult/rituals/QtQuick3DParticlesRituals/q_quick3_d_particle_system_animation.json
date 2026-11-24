@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DParticles/6.12.0/QtQuick3DParticles/private/qquick3dparticlesyst",
+    "em_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK31QQuick3DParticleSystemAnimation10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN31QQuick3DParticleSystemAnimation17updateCurrentTimeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK31QQuick3DParticleSystemAnimation8durationEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZN31QQuick3DParticleSystemAnimation17updateCurrentTimeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZNK31QQuick3DParticleSystemAnimation8durationEv": [
+      "int", "address"
+    ]
+  }
+}

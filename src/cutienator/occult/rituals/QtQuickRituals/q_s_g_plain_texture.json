@@ -1,0 +1,60 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qsgplaintexture_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK15QSGPlainTexture10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QSGPlainTexture2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN15QSGPlainTexture6d_funcEv": ["address", "address"],
+    "ritual_ZNK15QSGPlainTexture6d_funcEv": ["address", "address"],
+    "ritual_ZN15QSGPlainTextureC1Ev": ["address"],
+    "ritual_ZN15QSGPlainTextureD1Ev": ["nothing", "address"],
+    "ritual_ZN15QSGPlainTexture14setOwnsTextureEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK15QSGPlainTexture11ownsTextureEv": ["bool", "address"],
+    "ritual_ZN15QSGPlainTexture14setTextureSizeERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QSGPlainTexture11textureSizeEv": ["address", "address"],
+    "ritual_ZN15QSGPlainTexture18setHasAlphaChannelEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK15QSGPlainTexture15hasAlphaChannelEv": ["bool", "address"],
+    "ritual_ZNK15QSGPlainTexture10hasMipmapsEv": ["bool", "address"],
+    "ritual_ZN15QSGPlainTexture8setImageERK6QImage": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QSGPlainTexture5imageEv": ["address", "address"],
+    "ritual_ZNK15QSGPlainTexture13comparisonKeyEv": ["long long", "address"],
+    "ritual_ZNK15QSGPlainTexture10rhiTextureEv": ["address", "address"],
+    "ritual_ZN15QSGPlainTexture23commitTextureOperationsEP4QRhiP23QRhiResourceUpdateBatch": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN15QSGPlainTexture10setTextureEP11QRhiTexture": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QSGPlainTexture27setTextureFromNativeTextureEP4QRhiyijRK5QSize6QFlagsIN12QQuickWindow19CreateTextureOptionEES5_IN19QQuickWindowPrivate28TextureFromNativeTextureFlagEE": [
+      "nothing", "address", "address", "unsigned long long", "int",
+      "unsigned int", "address", "int", "int"
+    ],
+    "ritual_ZN15QSGPlainTexture9fromImageERK6QImage": ["address", "address"],
+    "ritual_take_QSGPlainTexture": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK15QSGPlainTexture11textureSizeEv": ["address", "address"],
+    "ritual_own_ZNK15QSGPlainTexture15hasAlphaChannelEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZNK15QSGPlainTexture10hasMipmapsEv": ["bool", "address"],
+    "ritual_own_ZNK15QSGPlainTexture13comparisonKeyEv": [
+      "long long", "address"
+    ],
+    "ritual_own_ZNK15QSGPlainTexture10rhiTextureEv": ["address", "address"],
+    "ritual_own_ZN15QSGPlainTexture23commitTextureOperationsEP4QRhiP23QRhiResourceUpdateBatch": [
+      "nothing", "address", "address", "address"
+    ]
+  }
+}

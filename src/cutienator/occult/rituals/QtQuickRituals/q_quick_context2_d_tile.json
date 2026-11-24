@@ -1,0 +1,35 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickcontext2dtile_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QQuickContext2DTileD1Ev": ["nothing", "address"],
+    "ritual_ZNK19QQuickContext2DTile5dirtyEv": ["bool", "address"],
+    "ritual_ZN19QQuickContext2DTile9markDirtyEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK19QQuickContext2DTile4rectEv": ["address", "address"],
+    "ritual_ZN19QQuickContext2DTile7setRectERK5QRect": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickContext2DTile13createPainterEbb": [
+      "address", "address", "bool", "bool"
+    ],
+    "ritual_ZN19QQuickContext2DTile12drawFinishedEv": ["nothing", "address"],
+    "ritual_ZN19QQuickContext2DTile11aboutToDrawEv": ["nothing", "address"],
+    "ritual_take_QQuickContext2DTile": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN19QQuickContext2DTile13createPainterEbb": [
+      "address", "address", "bool", "bool"
+    ],
+    "ritual_own_ZN19QQuickContext2DTile12drawFinishedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN19QQuickContext2DTile11aboutToDrawEv": [
+      "nothing", "address"
+    ]
+  }
+}

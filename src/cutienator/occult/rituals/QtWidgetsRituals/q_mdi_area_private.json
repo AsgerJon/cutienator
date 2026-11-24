@@ -1,0 +1,45 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qmdiarea_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QMdiAreaPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK15QMdiAreaPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN15QMdiAreaPrivate11_q_closeTabEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN15QMdiAreaPrivate17resetActiveWindowEP13QMdiSubWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QMdiAreaPrivate17scrollBarsEnabledEv": ["bool", "address"],
+    "ritual_ZNK15QMdiAreaPrivate28lastWindowAboutToBeDestroyedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK15QMdiAreaPrivate25setChildActivationEnabledEbb": [
+      "nothing", "address", "bool", "bool"
+    ],
+    "ritual_ZN15QMdiAreaPrivate23resizeToMinimumTileSizeERK5QSizei": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZNK15QMdiAreaPrivate13subWindowListEN8QMdiArea11WindowOrderEb": [
+      "address", "address", "int", "bool"
+    ],
+    "ritual_ZN15QMdiAreaPrivate19disconnectSubWindowEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QMdiAreaPrivate16startResizeTimerEv": ["nothing", "address"],
+    "ritual_ZN15QMdiAreaPrivate23startTabToPreviousTimerEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK15QMdiAreaPrivate16windowStaysOnTopEP13QMdiSubWindow": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK15QMdiAreaPrivate23isExplicitlyDeactivatedEP13QMdiSubWindow": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN15QMdiAreaPrivate14hideRubberBandEv": ["nothing", "address"],
+    "ritual_take_QMdiAreaPrivate": ["bool", "address", "chars", "address"]
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/6.12.0/QtCharts/private/chartthemeblueicy_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN17ChartThemeBlueIcyC1Ev": ["address"],
+    "ritual_ZN17ChartThemeBlueIcyD1Ev": ["nothing", "address"]
+  }
+}

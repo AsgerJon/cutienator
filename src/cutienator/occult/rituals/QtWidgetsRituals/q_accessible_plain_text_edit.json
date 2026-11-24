@@ -1,0 +1,67 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qaccessiblewidgets_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK24QAccessiblePlainTextEdit4textEN11QAccessible4TextE": [
+      "text", "address", "int"
+    ],
+    "ritual_ZN24QAccessiblePlainTextEdit7setTextEN11QAccessible4TextERK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZNK24QAccessiblePlainTextEdit5stateEv": ["address", "address"],
+    "ritual_ZN24QAccessiblePlainTextEdit17scrollToSubstringEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK24QAccessiblePlainTextEdit13plainTextEditEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK24QAccessiblePlainTextEdit17scrollBarPositionEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK24QAccessiblePlainTextEdit10textCursorEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QAccessiblePlainTextEdit13setTextCursorERK11QTextCursor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK24QAccessiblePlainTextEdit12textDocumentEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK24QAccessiblePlainTextEdit8viewportEv": [
+      "address", "address"
+    ],
+    "ritual_take_QAccessiblePlainTextEdit": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK24QAccessiblePlainTextEdit4textEN11QAccessible4TextE": [
+      "text", "address", "int"
+    ],
+    "ritual_own_ZN24QAccessiblePlainTextEdit7setTextEN11QAccessible4TextERK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_own_ZNK24QAccessiblePlainTextEdit5stateEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN24QAccessiblePlainTextEdit17scrollToSubstringEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZNK24QAccessiblePlainTextEdit17scrollBarPositionEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK24QAccessiblePlainTextEdit10textCursorEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN24QAccessiblePlainTextEdit13setTextCursorERK11QTextCursor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK24QAccessiblePlainTextEdit12textDocumentEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK24QAccessiblePlainTextEdit8viewportEv": [
+      "address", "address"
+    ]
+  }
+}

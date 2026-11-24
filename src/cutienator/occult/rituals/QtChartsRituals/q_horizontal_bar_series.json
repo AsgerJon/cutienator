@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/qhorizontalbarseries.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK20QHorizontalBarSeries10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QHorizontalBarSeries2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN20QHorizontalBarSeriesC1EP7QObject": ["address", "address"],
+    "ritual_ZN20QHorizontalBarSeriesD1Ev": ["nothing", "address"],
+    "ritual_ZNK20QHorizontalBarSeries4typeEv": ["int", "address"],
+    "ritual_ZN20QHorizontalBarSeries6d_funcEv": ["address", "address"],
+    "ritual_ZNK20QHorizontalBarSeries6d_funcEv": ["address", "address"],
+    "ritual_take_QHorizontalBarSeries": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK20QHorizontalBarSeries4typeEv": ["int", "address"]
+  }
+}

@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGui/qaccessible.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
+#if QT_CONFIG(accessibility)
 #include <QtGui/qaccessible.h>
 #include <QtCore/qstring.h>
 #include <cstring>
@@ -7,20 +9,25 @@
 //  A QAccessibleTextUpdateEvent that Python can take functions over in. Every QAccessibleTextUpdateEvent
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if QT_CONFIG(accessibility)
 typedef void * (*CuteQAccessibleTextUpdateEventCall0)(const void *, int *);
+#endif  // QT_CONFIG(accessibility)
 class CuteQAccessibleTextUpdateEvent : public QAccessibleTextUpdateEvent {
 public:
   using QAccessibleTextUpdateEvent::QAccessibleTextUpdateEvent;
   void *taken[1] = {};
 
   bool take(const char *key, void *call) {
+#if QT_CONFIG(accessibility)
     if (!std::strcmp(key, "_ZNK16QAccessibleEvent19accessibleInterfaceEv")) {
       taken[0] = call;
       return true;
     }
+#endif  // QT_CONFIG(accessibility)
     return false;
   }
 
+#if QT_CONFIG(accessibility)
   //  QAccessibleInterface *QAccessibleEvent::accessibleInterface() const
   QAccessibleInterface *accessibleInterface() const override {
     if (taken[0]) {
@@ -31,6 +38,7 @@ public:
     }
     return QAccessibleEvent::accessibleInterface();
   }
+#endif  // QT_CONFIG(accessibility)
 };
 
 //  QAccessibleTextUpdateEvent::QAccessibleTextUpdateEvent(QObject *obj, int
@@ -96,3 +104,5 @@ bool ritual_take_QAccessibleTextUpdateEvent(
     void *call) {
   return static_cast<CuteQAccessibleTextUpdateEvent *>(self)->take(key, call);
 }
+
+#endif  // QT_CONFIG(accessibility)

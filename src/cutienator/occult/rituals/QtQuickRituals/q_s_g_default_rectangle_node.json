@@ -1,0 +1,26 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qsgdefaultrectanglenode_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN23QSGDefaultRectangleNodeC1Ev": ["address"],
+    "ritual_ZN23QSGDefaultRectangleNode7setRectERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK23QSGDefaultRectangleNode4rectEv": ["address", "address"],
+    "ritual_ZN23QSGDefaultRectangleNode8setColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK23QSGDefaultRectangleNode5colorEv": ["address", "address"],
+    "ritual_own_ZN23QSGDefaultRectangleNode7setRectERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK23QSGDefaultRectangleNode4rectEv": ["address", "address"],
+    "ritual_own_ZN23QSGDefaultRectangleNode8setColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK23QSGDefaultRectangleNode5colorEv": ["address", "address"]
+  }
+}

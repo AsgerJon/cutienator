@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtOpenGL/6.12.0/QtOpenGL/private/qopengl2pexvertexarray_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN12QOpenGLPointC1Eff": ["address", "float", "float"],
+    "ritual_ZN12QOpenGLPointC1ERK7QPointF": ["address", "address"],
+    "ritual_ZN12QOpenGLPointC1EPK7QPointF": ["address", "address"],
+    "ritual_ZN12QOpenGLPointcv7QPointFEv": ["address", "address"],
+    "ritual_ZNK12QOpenGLPointcv7QPointFEv": ["address", "address"],
+    "ritual_ZN12QOpenGLPointD1Ev": ["nothing", "address"]
+  }
+}

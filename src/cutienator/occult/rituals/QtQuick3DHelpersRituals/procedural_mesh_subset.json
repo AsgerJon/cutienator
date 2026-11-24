@@ -1,0 +1,25 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DHelpers/6.12.0/QtQuick3DHelpers/private/proceduralmesh_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK20ProceduralMeshSubset10metaObjectEv": ["address", "address"],
+    "ritual_ZN20ProceduralMeshSubset2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZNK20ProceduralMeshSubset6offsetEv": ["int", "address"],
+    "ritual_ZN20ProceduralMeshSubset9setOffsetEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK20ProceduralMeshSubset5countEv": ["int", "address"],
+    "ritual_ZN20ProceduralMeshSubset8setCountEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK20ProceduralMeshSubset4nameEv": ["text", "address"],
+    "ritual_ZN20ProceduralMeshSubset7setNameERK7QString": [
+      "nothing", "address", "text"
+    ]
+  }
+}

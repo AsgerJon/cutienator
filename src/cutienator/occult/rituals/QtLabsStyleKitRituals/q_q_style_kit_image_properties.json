@@ -1,0 +1,36 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtLabsS",
+    "tyleKit/6.12.0/QtLabsStyleKit/private/qqstylekitcontrolproperties_",
+    "p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK25QQStyleKitImageProperties10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QQStyleKitImageProperties2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN25QQStyleKitImageProperties24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QQStyleKitImagePropertiesC1EN4QQSK13PropertyGroupEP27QQStyleKitControlProperties": [
+      "address", "int", "address"
+    ],
+    "ritual_ZNK25QQStyleKitImageProperties6sourceEv": ["address", "address"],
+    "ritual_ZN25QQStyleKitImageProperties9setSourceERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK25QQStyleKitImageProperties5colorEv": ["address", "address"],
+    "ritual_ZN25QQStyleKitImageProperties8setColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK25QQStyleKitImageProperties8fillModeEv": ["int", "address"],
+    "ritual_ZN25QQStyleKitImageProperties11setFillModeEN11QQuickImage8FillModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_take_QQStyleKitImageProperties": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

@@ -177,6 +177,8 @@
     "ritual_ZN18QStandardItemModel12dropMimeDataEPK9QMimeDataN2Qt10DropActionEiiRK11QModelIndex": [
       "bool", "address", "address", "int", "int", "int", "address"
     ],
+    "ritual_ZN18QStandardItemModel6d_funcEv": ["address", "address"],
+    "ritual_ZNK18QStandardItemModel6d_funcEv": ["address", "address"],
     "ritual_take_QStandardItemModel": [
       "bool", "address", "chars", "address"
     ],

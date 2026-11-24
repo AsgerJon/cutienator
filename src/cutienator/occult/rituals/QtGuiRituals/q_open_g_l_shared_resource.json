@@ -1,0 +1,30 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qopenglcontext_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN21QOpenGLSharedResourceD1Ev": ["nothing", "address"],
+    "ritual_ZNK21QOpenGLSharedResource5groupEv": ["address", "address"],
+    "ritual_ZN21QOpenGLSharedResource4freeEv": ["nothing", "address"],
+    "ritual_ZN21QOpenGLSharedResource18invalidateResourceEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QOpenGLSharedResource12freeResourceEP14QOpenGLContext": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QOpenGLSharedResource": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_list_make_QOpenGLSharedResource_ptr": ["address"],
+    "ritual_list_add_QOpenGLSharedResource_ptr": [
+      "nothing", "address", "address"
+    ],
+    "ritual_list_size_QOpenGLSharedResource_ptr": ["long long", "address"],
+    "ritual_list_at_QOpenGLSharedResource_ptr": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_QOpenGLSharedResource_ptr": ["nothing", "address"]
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/sheet_delegate_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18qdesigner_internal13SheetDelegate10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal13SheetDelegate2trEPKcS2_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_own_ZNK18qdesigner_internal13SheetDelegate5paintEP8QPainterRK20QStyleOptionViewItemRK11QModelIndex": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZNK18qdesigner_internal13SheetDelegate8sizeHintERK20QStyleOptionViewItemRK11QModelIndex": [
+      "address", "address", "address", "address"
+    ]
+  }
+}

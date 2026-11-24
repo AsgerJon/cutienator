@@ -1,0 +1,37 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/qextensionmanager.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QExtensionManager10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QExtensionManager2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QExtensionManagerC1EP7QObject": ["address", "address"],
+    "ritual_ZN17QExtensionManagerD1Ev": ["nothing", "address"],
+    "ritual_ZN17QExtensionManager18registerExtensionsEP25QAbstractExtensionFactoryRK7QString": [
+      "nothing", "address", "address", "text"
+    ],
+    "ritual_ZN17QExtensionManager20unregisterExtensionsEP25QAbstractExtensionFactoryRK7QString": [
+      "nothing", "address", "address", "text"
+    ],
+    "ritual_ZNK17QExtensionManager9extensionEP7QObjectRK7QString": [
+      "address", "address", "address", "text"
+    ],
+    "ritual_cast_QExtensionManager_QAbstractExtensionManager": [
+      "address", "address"
+    ],
+    "ritual_take_QExtensionManager": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN17QExtensionManager18registerExtensionsEP25QAbstractExtensionFactoryRK7QString": [
+      "nothing", "address", "address", "text"
+    ],
+    "ritual_own_ZN17QExtensionManager20unregisterExtensionsEP25QAbstractExtensionFactoryRK7QString": [
+      "nothing", "address", "address", "text"
+    ],
+    "ritual_own_ZNK17QExtensionManager9extensionEP7QObjectRK7QString": [
+      "address", "address", "address", "text"
+    ]
+  }
+}

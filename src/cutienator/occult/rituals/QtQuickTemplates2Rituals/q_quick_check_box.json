@@ -1,0 +1,35 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquickcheckbox_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK14QQuickCheckBox10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QQuickCheckBox2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN14QQuickCheckBoxC1EP10QQuickItem": ["address", "address"],
+    "ritual_ZNK14QQuickCheckBox10isTristateEv": ["bool", "address"],
+    "ritual_ZN14QQuickCheckBox11setTristateEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK14QQuickCheckBox10checkStateEv": ["int", "address"],
+    "ritual_ZN14QQuickCheckBox13setCheckStateEN2Qt10CheckStateE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK14QQuickCheckBox17getNextCheckStateEv": [
+      "address", "address"
+    ],
+    "ritual_ZN14QQuickCheckBox17setNextCheckStateERK8QJSValue": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QQuickCheckBox11defaultFontEv": ["address", "address"],
+    "ritual_ZN14QQuickCheckBox12buttonChangeEN20QQuickAbstractButton12ButtonChangeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN14QQuickCheckBox14nextCheckStateEv": ["nothing", "address"],
+    "ritual_own_ZNK14QQuickCheckBox11defaultFontEv": ["address", "address"],
+    "ritual_own_ZN14QQuickCheckBox14nextCheckStateEv": ["nothing", "address"]
+  }
+}

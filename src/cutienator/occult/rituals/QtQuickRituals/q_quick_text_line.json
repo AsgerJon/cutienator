@@ -1,0 +1,39 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquicktext_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK14QQuickTextLine10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QQuickTextLine2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN14QQuickTextLine22qt_qmlMarker_anonymousEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickTextLineC1Ev": ["address"],
+    "ritual_ZN14QQuickTextLine7setLineEP9QTextLine": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QQuickTextLine13setLineOffsetEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN14QQuickTextLine23setFullLayoutTextLengthEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK14QQuickTextLine6numberEv": ["int", "address"],
+    "ritual_ZNK14QQuickTextLine13implicitWidthEv": ["double", "address"],
+    "ritual_ZNK14QQuickTextLine6isLastEv": ["bool", "address"],
+    "ritual_ZNK14QQuickTextLine5widthEv": ["double", "address"],
+    "ritual_ZN14QQuickTextLine8setWidthEd": ["nothing", "address", "double"],
+    "ritual_ZNK14QQuickTextLine6heightEv": ["double", "address"],
+    "ritual_ZN14QQuickTextLine9setHeightEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK14QQuickTextLine1xEv": ["double", "address"],
+    "ritual_ZN14QQuickTextLine4setXEd": ["nothing", "address", "double"],
+    "ritual_ZNK14QQuickTextLine1yEv": ["double", "address"],
+    "ritual_ZN14QQuickTextLine4setYEd": ["nothing", "address", "double"]
+  }
+}

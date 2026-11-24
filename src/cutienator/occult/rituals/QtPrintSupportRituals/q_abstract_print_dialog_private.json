@@ -1,0 +1,25 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtPrint",
+    "Support/6.12.0/QtPrintSupport/private/qabstractprintdialog_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN27QAbstractPrintDialogPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK27QAbstractPrintDialogPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QAbstractPrintDialogPrivateC1Ev": ["address"],
+    "ritual_ZN27QAbstractPrintDialogPrivate7setTabsERK5QListIP7QWidgetE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN27QAbstractPrintDialogPrivate10setPrinterEP8QPrinter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QAbstractPrintDialogPrivate": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

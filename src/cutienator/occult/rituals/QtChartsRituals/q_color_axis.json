@@ -1,0 +1,34 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/qcoloraxis.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK10QColorAxis10metaObjectEv": ["address", "address"],
+    "ritual_ZN10QColorAxis2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN10QColorAxisC1EP7QObject": ["address", "address"],
+    "ritual_ZN10QColorAxisD1Ev": ["nothing", "address"],
+    "ritual_ZNK10QColorAxis4typeEv": ["int", "address"],
+    "ritual_ZN10QColorAxis6setMinEd": ["nothing", "address", "double"],
+    "ritual_ZNK10QColorAxis3minEv": ["double", "address"],
+    "ritual_ZN10QColorAxis6setMaxEd": ["nothing", "address", "double"],
+    "ritual_ZNK10QColorAxis3maxEv": ["double", "address"],
+    "ritual_ZN10QColorAxis8setRangeEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN10QColorAxis12setTickCountEi": ["nothing", "address", "int"],
+    "ritual_ZNK10QColorAxis9tickCountEv": ["int", "address"],
+    "ritual_ZN10QColorAxis7setSizeEd": ["nothing", "address", "double"],
+    "ritual_ZNK10QColorAxis4sizeEv": ["double", "address"],
+    "ritual_ZN10QColorAxis11setGradientERK15QLinearGradient": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10QColorAxis8gradientEv": ["address", "address"],
+    "ritual_ZN10QColorAxis12setAutoRangeEb": ["nothing", "address", "bool"],
+    "ritual_ZNK10QColorAxis9autoRangeEv": ["bool", "address"],
+    "ritual_ZN10QColorAxis6d_funcEv": ["address", "address"],
+    "ritual_ZNK10QColorAxis6d_funcEv": ["address", "address"],
+    "ritual_take_QColorAxis": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK10QColorAxis4typeEv": ["int", "address"]
+  }
+}

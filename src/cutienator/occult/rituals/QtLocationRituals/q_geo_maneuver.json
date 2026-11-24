@@ -1,0 +1,45 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLocation/qgeomaneuver.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN12QGeoManeuverC1Ev": ["address"],
+    "ritual_ZN12QGeoManeuverC1ERKS_": ["address", "address"],
+    "ritual_ZN12QGeoManeuverD1Ev": ["nothing", "address"],
+    "ritual_ZeqRK12QGeoManeuverS1_": ["bool", "address", "address"],
+    "ritual_ZneRK12QGeoManeuverS1_": ["bool", "address", "address"],
+    "ritual_ZNK12QGeoManeuver7isValidEv": ["bool", "address"],
+    "ritual_ZN12QGeoManeuver11setPositionERK14QGeoCoordinate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12QGeoManeuver8positionEv": ["address", "address"],
+    "ritual_ZN12QGeoManeuver18setInstructionTextERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK12QGeoManeuver15instructionTextEv": ["text", "address"],
+    "ritual_ZN12QGeoManeuver12setDirectionENS_20InstructionDirectionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK12QGeoManeuver9directionEv": ["int", "address"],
+    "ritual_ZN12QGeoManeuver24setTimeToNextInstructionEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK12QGeoManeuver21timeToNextInstructionEv": ["int", "address"],
+    "ritual_ZN12QGeoManeuver28setDistanceToNextInstructionEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK12QGeoManeuver25distanceToNextInstructionEv": [
+      "double", "address"
+    ],
+    "ritual_ZN12QGeoManeuver11setWaypointERK14QGeoCoordinate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12QGeoManeuver8waypointEv": ["address", "address"],
+    "ritual_ZN12QGeoManeuver21setExtendedAttributesERK4QMapI7QString8QVariantE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12QGeoManeuver18extendedAttributesEv": ["address", "address"],
+    "ritual_ZNK12QGeoManeuver7isEqualERKS_": ["bool", "address", "address"]
+  }
+}

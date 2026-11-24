@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qzipreader_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN10QZipReaderC1ERK7QString6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [
+      "address", "text", "int"
+    ],
+    "ritual_ZN10QZipReaderC1EP9QIODevice": ["address", "address"],
+    "ritual_ZN10QZipReaderD1Ev": ["nothing", "address"],
+    "ritual_ZNK10QZipReader6deviceEv": ["address", "address"],
+    "ritual_ZNK10QZipReader10isReadableEv": ["bool", "address"],
+    "ritual_ZNK10QZipReader6existsEv": ["bool", "address"],
+    "ritual_ZNK10QZipReader5countEv": ["int", "address"],
+    "ritual_ZNK10QZipReader11entryInfoAtEi": ["address", "address", "int"],
+    "ritual_ZNK10QZipReader8fileDataERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK10QZipReader10extractAllERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZNK10QZipReader6statusEv": ["int", "address"],
+    "ritual_ZN10QZipReader5closeEv": ["nothing", "address"]
+  }
+}

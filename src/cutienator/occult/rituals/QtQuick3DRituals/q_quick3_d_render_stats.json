@@ -1,0 +1,104 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3D/6.12.0/QtQuick3D/private/qquick3drenderstats_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK19QQuick3DRenderStats10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QQuick3DRenderStats2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN19QQuick3DRenderStats24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuick3DRenderStatsC1EP7QObject": ["address", "address"],
+    "ritual_ZNK19QQuick3DRenderStats3fpsEv": ["int", "address"],
+    "ritual_ZNK19QQuick3DRenderStats9frameTimeEv": ["float", "address"],
+    "ritual_ZNK19QQuick3DRenderStats10renderTimeEv": ["float", "address"],
+    "ritual_ZNK19QQuick3DRenderStats17renderPrepareTimeEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK19QQuick3DRenderStats8syncTimeEv": ["float", "address"],
+    "ritual_ZNK19QQuick3DRenderStats12maxFrameTimeEv": ["float", "address"],
+    "ritual_ZN19QQuick3DRenderStats9startSyncEv": ["nothing", "address"],
+    "ritual_ZN19QQuick3DRenderStats7endSyncEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN19QQuick3DRenderStats11startRenderEv": ["nothing", "address"],
+    "ritual_ZN19QQuick3DRenderStats18startRenderPrepareEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuick3DRenderStats16endRenderPrepareEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuick3DRenderStats9endRenderEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN19QQuick3DRenderStats13setRhiContextEP14QSSGRhiContextP15QSSGRenderLayer": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK19QQuick3DRenderStats29extendedDataCollectionEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN19QQuick3DRenderStats32setExtendedDataCollectionEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK19QQuick3DRenderStats13drawCallCountEv": [
+      "unsigned long long", "address"
+    ],
+    "ritual_ZNK19QQuick3DRenderStats15drawVertexCountEv": [
+      "unsigned long long", "address"
+    ],
+    "ritual_ZNK19QQuick3DRenderStats13imageDataSizeEv": [
+      "unsigned long long", "address"
+    ],
+    "ritual_ZNK19QQuick3DRenderStats12meshDataSizeEv": [
+      "unsigned long long", "address"
+    ],
+    "ritual_ZNK19QQuick3DRenderStats15renderPassCountEv": ["int", "address"],
+    "ritual_ZNK19QQuick3DRenderStats17renderPassDetailsEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK19QQuick3DRenderStats14textureDetailsEv": ["text", "address"],
+    "ritual_ZNK19QQuick3DRenderStats11meshDetailsEv": ["text", "address"],
+    "ritual_ZNK19QQuick3DRenderStats13pipelineCountEv": ["int", "address"],
+    "ritual_ZNK19QQuick3DRenderStats22materialGenerationTimeEv": [
+      "long long", "address"
+    ],
+    "ritual_ZNK19QQuick3DRenderStats20effectGenerationTimeEv": [
+      "long long", "address"
+    ],
+    "ritual_ZNK19QQuick3DRenderStats20pipelineCreationTimeEv": [
+      "long long", "address"
+    ],
+    "ritual_ZNK19QQuick3DRenderStats14vmemAllocCountEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZNK19QQuick3DRenderStats13vmemUsedBytesEv": [
+      "unsigned long long", "address"
+    ],
+    "ritual_ZNK19QQuick3DRenderStats15graphicsApiNameEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK19QQuick3DRenderStats20lastCompletedGpuTimeEv": [
+      "float", "address"
+    ],
+    "ritual_ZN19QQuick3DRenderStats22releaseCachedResourcesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuick3DRenderStats9setWindowEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuick3DRenderStats14onFrameSwappedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK19QQuick3DRenderStats9timestampEv": ["float", "address"],
+    "ritual_ZN19QQuick3DRenderStats22processRhiContextStatsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuick3DRenderStats21notifyRhiContextStatsEv": [
+      "nothing", "address"
+    ]
+  }
+}

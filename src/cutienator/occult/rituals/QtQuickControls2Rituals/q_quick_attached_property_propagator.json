@@ -1,0 +1,55 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuickControls2/qquickattachedpropertypropagator.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK32QQuickAttachedPropertyPropagator10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN32QQuickAttachedPropertyPropagator2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN32QQuickAttachedPropertyPropagatorC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN32QQuickAttachedPropertyPropagatorD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK32QQuickAttachedPropertyPropagator16attachedChildrenEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK32QQuickAttachedPropertyPropagator14attachedParentEv": [
+      "address", "address"
+    ],
+    "ritual_ZN32QQuickAttachedPropertyPropagator10initializeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN32QQuickAttachedPropertyPropagator20attachedParentChangeEPS_S0_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_Zls6QDebugPK32QQuickAttachedPropertyPropagator": [
+      "address", "address", "address"
+    ],
+    "ritual_take_QQuickAttachedPropertyPropagator": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN32QQuickAttachedPropertyPropagator20attachedParentChangeEPS_S0_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_list_make_QQuickAttachedPropertyPropagator_ptr": ["address"],
+    "ritual_list_add_QQuickAttachedPropertyPropagator_ptr": [
+      "nothing", "address", "address"
+    ],
+    "ritual_list_size_QQuickAttachedPropertyPropagator_ptr": [
+      "long long", "address"
+    ],
+    "ritual_list_at_QQuickAttachedPropertyPropagator_ptr": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_QQuickAttachedPropertyPropagator_ptr": [
+      "nothing", "address"
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSvg/6.12.0/QtSvg/private/qsvgcssproperties_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN21QSvgAnimationPropertyD1Ev": ["nothing", "address"],
+    "ritual_list_make_QSvgAnimationProperty": ["address"],
+    "ritual_list_add_QSvgAnimationProperty": [
+      "nothing", "address", "address"
+    ],
+    "ritual_list_size_QSvgAnimationProperty": ["long long", "address"],
+    "ritual_list_at_QSvgAnimationProperty": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_QSvgAnimationProperty": ["nothing", "address"]
+  }
+}

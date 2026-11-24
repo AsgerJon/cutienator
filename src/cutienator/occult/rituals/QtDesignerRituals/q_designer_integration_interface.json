@@ -1,0 +1,103 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/abstractintegration.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK29QDesignerIntegrationInterface10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN29QDesignerIntegrationInterface2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN29QDesignerIntegrationInterfaceD1Ev": ["nothing", "address"],
+    "ritual_ZNK29QDesignerIntegrationInterface4coreEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK29QDesignerIntegrationInterface15containerWindowEP7QWidget": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN29QDesignerIntegrationInterface21createResourceBrowserEP7QWidget": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK29QDesignerIntegrationInterface12headerSuffixEv": [
+      "text", "address"
+    ],
+    "ritual_ZN29QDesignerIntegrationInterface15setHeaderSuffixERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK29QDesignerIntegrationInterface17isHeaderLowercaseEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN29QDesignerIntegrationInterface18setHeaderLowercaseEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK29QDesignerIntegrationInterface9qtVersionEv": [
+      "address", "address"
+    ],
+    "ritual_ZN29QDesignerIntegrationInterface12setQtVersionERK14QVersionNumber": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK29QDesignerIntegrationInterface8featuresEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK29QDesignerIntegrationInterface10hasFeatureE6QFlagsINS_11FeatureFlagEE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK29QDesignerIntegrationInterface28resourceFileWatcherBehaviourEv": [
+      "int", "address"
+    ],
+    "ritual_ZN29QDesignerIntegrationInterface31setResourceFileWatcherBehaviourENS_28ResourceFileWatcherBehaviourE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK29QDesignerIntegrationInterface13contextHelpIdEv": [
+      "text", "address"
+    ],
+    "ritual_ZN29QDesignerIntegrationInterface21emitObjectNameChangedEP28QDesignerFormWindowInterfaceP7QObjectRK7QStringS6_": [
+      "nothing", "address", "address", "address", "text", "text"
+    ],
+    "ritual_ZN29QDesignerIntegrationInterface18emitNavigateToSlotERK7QStringS2_RK5QListIS0_E": [
+      "nothing", "address", "text", "text", "address"
+    ],
+    "ritual_ZN29QDesignerIntegrationInterface18emitNavigateToSlotERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN29QDesignerIntegrationInterface17emitHelpRequestedERK7QStringS2_": [
+      "nothing", "address", "text", "text"
+    ],
+    "ritual_ZN29QDesignerIntegrationInterface11setFeaturesE6QFlagsINS_11FeatureFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN29QDesignerIntegrationInterface14updatePropertyERK7QStringRK8QVariantb": [
+      "nothing", "address", "text", "address", "bool"
+    ],
+    "ritual_ZN29QDesignerIntegrationInterface14updatePropertyERK7QStringRK8QVariant": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZN29QDesignerIntegrationInterface13resetPropertyERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN29QDesignerIntegrationInterface18addDynamicPropertyERK7QStringRK8QVariant": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZN29QDesignerIntegrationInterface21removeDynamicPropertyERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN29QDesignerIntegrationInterface22updateActiveFormWindowEP28QDesignerFormWindowInterface": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN29QDesignerIntegrationInterface15setupFormWindowEP28QDesignerFormWindowInterface": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN29QDesignerIntegrationInterface15updateSelectionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QDesignerIntegrationInterface25updateCustomWidgetPluginsEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QDesignerIntegrationInterface": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

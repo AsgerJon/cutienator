@@ -1,0 +1,37 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/qqmlerror.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN9QQmlErrorC1Ev": ["address"],
+    "ritual_ZN9QQmlErrorC1ERKS_": ["address", "address"],
+    "ritual_ZN9QQmlErrorD1Ev": ["nothing", "address"],
+    "ritual_ZNK9QQmlError7isValidEv": ["bool", "address"],
+    "ritual_ZNK9QQmlError3urlEv": ["address", "address"],
+    "ritual_ZN9QQmlError6setUrlERK4QUrl": ["nothing", "address", "address"],
+    "ritual_ZNK9QQmlError11descriptionEv": ["text", "address"],
+    "ritual_ZN9QQmlError14setDescriptionERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK9QQmlError4lineEv": ["int", "address"],
+    "ritual_ZN9QQmlError7setLineEi": ["nothing", "address", "int"],
+    "ritual_ZNK9QQmlError6columnEv": ["int", "address"],
+    "ritual_ZN9QQmlError9setColumnEi": ["nothing", "address", "int"],
+    "ritual_ZNK9QQmlError6objectEv": ["address", "address"],
+    "ritual_ZN9QQmlError9setObjectEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9QQmlError11messageTypeEv": ["int", "address"],
+    "ritual_ZN9QQmlError14setMessageTypeE9QtMsgType": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK9QQmlError8toStringEv": ["text", "address"],
+    "ritual_ZeqRK9QQmlErrorS1_": ["bool", "address", "address"],
+    "ritual_list_make_QQmlError": ["address"],
+    "ritual_list_add_QQmlError": ["nothing", "address", "address"],
+    "ritual_list_size_QQmlError": ["long long", "address"],
+    "ritual_list_at_QQmlError": ["address", "address", "long long"],
+    "ritual_list_drop_QQmlError": ["nothing", "address"]
+  }
+}

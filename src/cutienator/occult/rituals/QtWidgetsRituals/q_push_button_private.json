@@ -1,0 +1,32 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qpushbutton_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QPushButtonPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK18QPushButtonPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN18QPushButtonPrivate4initEv": ["nothing", "address"],
+    "ritual_ZN18QPushButtonPrivate3getEP11QPushButton": [
+      "address", "address"
+    ],
+    "ritual_ZN18QPushButtonPrivate20adjustedMenuPositionEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18QPushButtonPrivate22resetLayoutItemMarginsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QPushButtonPrivate12popupPressedEv": ["nothing", "address"],
+    "ritual_ZNK18QPushButtonPrivate16styleButtonStateE6QFlagsIN6QStyle9StateFlagEE": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK18QPushButtonPrivate12dialogParentEv": ["address", "address"],
+    "ritual_take_QPushButtonPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK18QPushButtonPrivate16styleButtonStateE6QFlagsIN6QStyle9StateFlagEE": [
+      "int", "address", "int"
+    ]
+  }
+}

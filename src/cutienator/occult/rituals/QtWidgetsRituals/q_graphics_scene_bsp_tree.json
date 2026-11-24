@@ -1,0 +1,29 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qgraphicsscene_bsp_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN21QGraphicsSceneBspTreeC1Ev": ["address"],
+    "ritual_ZN21QGraphicsSceneBspTreeD1Ev": ["nothing", "address"],
+    "ritual_ZN21QGraphicsSceneBspTree10initializeERK6QRectFi": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN21QGraphicsSceneBspTree5clearEv": ["nothing", "address"],
+    "ritual_ZNK21QGraphicsSceneBspTree9leafCountEv": ["int", "address"],
+    "ritual_ZNK21QGraphicsSceneBspTree15firstChildIndexEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK21QGraphicsSceneBspTree11parentIndexEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK21QGraphicsSceneBspTree5debugEi": ["text", "address", "int"],
+    "ritual_ZN21QGraphicsSceneBspTree10initializeERK6QRectFii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZNK21QGraphicsSceneBspTree12rectForIndexEi": [
+      "address", "address", "int"
+    ]
+  }
+}

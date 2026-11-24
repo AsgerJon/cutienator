@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSvg/6.12.0/QtSvg/private/qsvgfilter_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11QSvgFeFloodC1EP8QSvgNodeRK7QStringS4_RK9QSvgRectFRK6QColor": [
+      "address", "address", "text", "text", "address", "address"
+    ],
+    "ritual_ZN11QSvgFeFloodD1Ev": ["nothing", "address"],
+    "ritual_ZNK11QSvgFeFlood4typeEv": ["int", "address"],
+    "ritual_ZNK11QSvgFeFlood5applyERK4QMapI7QString6QImageEP8QPainterRK6QRectFSA_N5QtSvg9UnitTypesESC_": [
+      "address", "address", "address", "address", "address", "address",
+      "unsigned int", "unsigned int"
+    ],
+    "ritual_ZNK11QSvgFeFlood5colorEv": ["address", "address"],
+    "ritual_take_QSvgFeFlood": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK11QSvgFeFlood4typeEv": ["int", "address"]
+  }
+}

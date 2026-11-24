@@ -1,0 +1,103 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquickdrawer_p_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QQuickDrawerPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK19QQuickDrawerPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN19QQuickDrawerPrivate3getEP12QQuickDrawer": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QQuickDrawerPrivate8offsetAtERK7QPointF": [
+      "double", "address", "address"
+    ],
+    "ritual_ZNK19QQuickDrawerPrivate10positionAtERK7QPointF": [
+      "double", "address", "address"
+    ],
+    "ritual_ZN19QQuickDrawerPrivate13getPositionerEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QQuickDrawerPrivate10showDimmerEv": ["nothing", "address"],
+    "ritual_ZN19QQuickDrawerPrivate10hideDimmerEv": ["nothing", "address"],
+    "ritual_ZN19QQuickDrawerPrivate12resizeDimmerEv": ["nothing", "address"],
+    "ritual_ZN19QQuickDrawerPrivate9startDragEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN19QQuickDrawerPrivate9grabMouseEP10QQuickItemP11QMouseEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN19QQuickDrawerPrivate9grabTouchEP10QQuickItemP11QTouchEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZNK19QQuickDrawerPrivate10blockInputEP10QQuickItemRK7QPointF": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN19QQuickDrawerPrivate11handlePressEP10QQuickItemRK7QPointFm": [
+      "bool", "address", "address", "address", "unsigned long"
+    ],
+    "ritual_ZN19QQuickDrawerPrivate10handleMoveEP10QQuickItemRK7QPointFm": [
+      "bool", "address", "address", "address", "unsigned long"
+    ],
+    "ritual_ZN19QQuickDrawerPrivate13handleReleaseEP10QQuickItemRK7QPointFm": [
+      "bool", "address", "address", "address", "unsigned long"
+    ],
+    "ritual_ZN19QQuickDrawerPrivate12handleUngrabEv": ["nothing", "address"],
+    "ritual_ZN19QQuickDrawerPrivate22prepareEnterTransitionEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN19QQuickDrawerPrivate21prepareExitTransitionEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK19QQuickDrawerPrivate17resolvedPopupTypeEv": [
+      "int", "address"
+    ],
+    "ritual_ZN19QQuickDrawerPrivate7setEdgeEN2Qt4EdgeE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK19QQuickDrawerPrivate13effectiveEdgeEv": ["int", "address"],
+    "ritual_ZNK19QQuickDrawerPrivate18isWithinDragMarginERK7QPointF": [
+      "bool", "address", "address"
+    ],
+    "ritual_take_QQuickDrawerPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN19QQuickDrawerPrivate13getPositionerEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN19QQuickDrawerPrivate10showDimmerEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN19QQuickDrawerPrivate10hideDimmerEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN19QQuickDrawerPrivate12resizeDimmerEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZNK19QQuickDrawerPrivate10blockInputEP10QQuickItemRK7QPointF": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_own_ZN19QQuickDrawerPrivate11handlePressEP10QQuickItemRK7QPointFm": [
+      "bool", "address", "address", "address", "unsigned long"
+    ],
+    "ritual_own_ZN19QQuickDrawerPrivate10handleMoveEP10QQuickItemRK7QPointFm": [
+      "bool", "address", "address", "address", "unsigned long"
+    ],
+    "ritual_own_ZN19QQuickDrawerPrivate13handleReleaseEP10QQuickItemRK7QPointFm": [
+      "bool", "address", "address", "address", "unsigned long"
+    ],
+    "ritual_own_ZN19QQuickDrawerPrivate12handleUngrabEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN19QQuickDrawerPrivate22prepareEnterTransitionEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZN19QQuickDrawerPrivate21prepareExitTransitionEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZNK19QQuickDrawerPrivate17resolvedPopupTypeEv": [
+      "int", "address"
+    ]
+  }
+}

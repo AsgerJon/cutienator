@@ -1,0 +1,182 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qtreeview_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN16QTreeViewPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK16QTreeViewPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN16QTreeViewPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN16QTreeViewPrivate10initializeEv": ["nothing", "address"],
+    "ritual_ZN16QTreeViewPrivate16clearConnectionsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK16QTreeViewPrivate19logicalIndexForTreeEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK16QTreeViewPrivate14isTreePositionEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK16QTreeViewPrivate19draggablePaintPairsERK5QListI11QModelIndexEP5QRect": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK16QTreeViewPrivate25adjustViewOptionsForIndexEP20QStyleOptionViewItemRK11QModelIndex": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN16QTreeViewPrivate22beginAnimatedOperationEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK16QTreeViewPrivate21drawAnimatedOperationEP8QPainter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QTreeViewPrivate30renderTreeToPixmapForAnimationERK5QRect": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN16QTreeViewPrivate20endAnimatedOperationEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QTreeViewPrivate6expandEib": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZN16QTreeViewPrivate8collapseEib": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZN16QTreeViewPrivate23columnsAboutToBeRemovedERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN16QTreeViewPrivate14columnsRemovedERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN16QTreeViewPrivate19modelAboutToBeResetEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QTreeViewPrivate20sortIndicatorChangedEiN2Qt9SortOrderE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN16QTreeViewPrivate14modelDestroyedEv": ["nothing", "address"],
+    "ritual_ZNK16QTreeViewPrivate15intersectedRectE5QRectRK11QModelIndexS3_": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN16QTreeViewPrivate6layoutEiNS_11ExpandItemsENS_18InitializeNewItemsE": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZN16QTreeViewPrivate13doItemsLayoutENS_11ExpandItemsENS_18InitializeNewItemsE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK16QTreeViewPrivate6pageUpEi": ["int", "address", "int"],
+    "ritual_ZNK16QTreeViewPrivate8pageDownEi": ["int", "address", "int"],
+    "ritual_ZNK16QTreeViewPrivate14itemForKeyHomeEv": ["int", "address"],
+    "ritual_ZNK16QTreeViewPrivate13itemForKeyEndEv": ["int", "address"],
+    "ritual_ZNK16QTreeViewPrivate10itemHeightEi": ["int", "address", "int"],
+    "ritual_ZNK16QTreeViewPrivate18indentationForItemEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK16QTreeViewPrivate17coordinateForItemEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK16QTreeViewPrivate16itemAtCoordinateEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK16QTreeViewPrivate9viewIndexERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK16QTreeViewPrivate10modelIndexEii": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZN16QTreeViewPrivate15insertViewItemsEiiRK13QTreeViewItem": [
+      "nothing", "address", "int", "int", "address"
+    ],
+    "ritual_ZN16QTreeViewPrivate15removeViewItemsEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK16QTreeViewPrivate16firstVisibleItemEPi": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK16QTreeViewPrivate15lastVisibleItemEii": [
+      "int", "address", "int", "int"
+    ],
+    "ritual_ZNK16QTreeViewPrivate8columnAtEi": ["int", "address", "int"],
+    "ritual_ZNK16QTreeViewPrivate18hasVisibleChildrenERK11QModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN16QTreeViewPrivate25expandOrCollapseItemAtPosERK6QPoint": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN16QTreeViewPrivate16updateScrollBarsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK16QTreeViewPrivate16itemDecorationAtERK6QPoint": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK16QTreeViewPrivate18itemDecorationRectERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN16QTreeViewPrivate6selectERK11QModelIndexS2_6QFlagsIN19QItemSelectionModel13SelectionFlagEE": [
+      "nothing", "address", "address", "address", "int"
+    ],
+    "ritual_ZNK16QTreeViewPrivate25paintAlternatingRowColorsEP8QPainterP20QStyleOptionViewItemii": [
+      "nothing", "address", "address", "address", "int", "int"
+    ],
+    "ritual_ZNK16QTreeViewPrivate17widthHintForIndexERK11QModelIndexiRK20QStyleOptionViewItemi": [
+      "int", "address", "address", "int", "address", "int"
+    ],
+    "ritual_ZNK16QTreeViewPrivate10visualRectERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK16QTreeViewPrivate10visualRectERK11QModelIndexNS_8RectRuleE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN16QTreeViewPrivate13storeExpandedERK21QPersistentModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK16QTreeViewPrivate15isIndexExpandedERK11QModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK16QTreeViewPrivate11isRowHiddenERK11QModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK16QTreeViewPrivate22isItemHiddenOrDisabledEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK16QTreeViewPrivate5aboveEi": ["int", "address", "int"],
+    "ritual_ZNK16QTreeViewPrivate5belowEi": ["int", "address", "int"],
+    "ritual_ZNK16QTreeViewPrivate21invalidateHeightCacheEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16QTreeViewPrivate21accessibleTable2IndexERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK16QTreeViewPrivate20accessibleChildIndexERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN16QTreeViewPrivate26updateIndentationFromStyleEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QTreeViewPrivate19updateAccessibilityEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QTreeViewPrivate": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK16QTreeViewPrivate25adjustViewOptionsForIndexEP20QStyleOptionViewItemRK11QModelIndex": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN16QTreeViewPrivate23columnsAboutToBeRemovedERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_own_ZN16QTreeViewPrivate14columnsRemovedERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_own_ZN16QTreeViewPrivate14modelDestroyedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZNK16QTreeViewPrivate15intersectedRectE5QRectRK11QModelIndexS3_": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZNK16QTreeViewPrivate10visualRectERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZNK16QTreeViewPrivate20accessibleChildIndexERK11QModelIndex": [
+      "int", "address", "address"
+    ]
+  }
+}

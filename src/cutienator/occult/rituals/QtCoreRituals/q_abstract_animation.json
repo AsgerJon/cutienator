@@ -49,6 +49,8 @@
     "ritual_ZN18QAbstractAnimation15updateDirectionENS_9DirectionE": [
       "nothing", "address", "int"
     ],
+    "ritual_ZN18QAbstractAnimation6d_funcEv": ["address", "address"],
+    "ritual_ZNK18QAbstractAnimation6d_funcEv": ["address", "address"],
     "ritual_take_QAbstractAnimation": [
       "bool", "address", "chars", "address"
     ],

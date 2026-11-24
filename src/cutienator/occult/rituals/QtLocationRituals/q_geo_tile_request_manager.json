@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLocation/6.12.0/QtLocation/private/qgeotilerequestmanager_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN22QGeoTileRequestManagerC1EP12QGeoTiledMapP29QGeoTiledMappingManagerEngine": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN22QGeoTileRequestManagerD1Ev": ["nothing", "address"],
+    "ritual_ZN22QGeoTileRequestManager9tileErrorERK12QGeoTileSpecRK7QString": [
+      "nothing", "address", "address", "text"
+    ],
+    "ritual_ZN22QGeoTileRequestManager11tileFetchedERK12QGeoTileSpec": [
+      "nothing", "address", "address"
+    ]
+  }
+}

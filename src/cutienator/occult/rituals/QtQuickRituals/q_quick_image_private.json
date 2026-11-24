@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickimage_p_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QQuickImagePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK18QQuickImagePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN18QQuickImagePrivateC1Ev": ["address"],
+    "ritual_ZN18QQuickImagePrivate8setImageERK6QImage": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QQuickImagePrivate": ["bool", "address", "chars", "address"]
+  }
+}

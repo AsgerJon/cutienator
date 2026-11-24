@@ -1,0 +1,25 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/qnetworkproxy.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QNetworkProxyFactoryD1Ev": ["nothing", "address"],
+    "ritual_ZN20QNetworkProxyFactory10queryProxyERK18QNetworkProxyQuery": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN20QNetworkProxyFactory23usesSystemConfigurationEv": ["bool"],
+    "ritual_ZN20QNetworkProxyFactory25setUseSystemConfigurationEb": [
+      "nothing", "bool"
+    ],
+    "ritual_ZN20QNetworkProxyFactory26setApplicationProxyFactoryEPS_": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QNetworkProxyFactory13proxyForQueryERK18QNetworkProxyQuery": [
+      "address", "address"
+    ],
+    "ritual_ZN20QNetworkProxyFactory19systemProxyForQueryERK18QNetworkProxyQuery": [
+      "address", "address"
+    ]
+  }
+}

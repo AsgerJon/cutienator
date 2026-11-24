@@ -1,0 +1,100 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/qnetworkreply.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK13QNetworkReply10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QNetworkReply2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN13QNetworkReplyD1Ev": ["nothing", "address"],
+    "ritual_ZN13QNetworkReply5closeEv": ["nothing", "address"],
+    "ritual_ZNK13QNetworkReply12isSequentialEv": ["bool", "address"],
+    "ritual_ZNK13QNetworkReply14readBufferSizeEv": ["long long", "address"],
+    "ritual_ZN13QNetworkReply17setReadBufferSizeEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZNK13QNetworkReply7managerEv": ["address", "address"],
+    "ritual_ZNK13QNetworkReply9operationEv": ["int", "address"],
+    "ritual_ZNK13QNetworkReply7requestEv": ["address", "address"],
+    "ritual_ZNK13QNetworkReply5errorEv": ["int", "address"],
+    "ritual_ZNK13QNetworkReply10isFinishedEv": ["bool", "address"],
+    "ritual_ZNK13QNetworkReply9isRunningEv": ["bool", "address"],
+    "ritual_ZNK13QNetworkReply3urlEv": ["address", "address"],
+    "ritual_ZNK13QNetworkReply6headerEN15QNetworkRequest12KnownHeadersE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK13QNetworkReply12hasRawHeaderE14QAnyStringView": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZNK13QNetworkReply13rawHeaderListEv": ["address", "address"],
+    "ritual_ZNK13QNetworkReply9rawHeaderE14QAnyStringView": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK13QNetworkReply7headersEv": ["address", "address"],
+    "ritual_ZNK13QNetworkReply9attributeEN15QNetworkRequest9AttributeE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK13QNetworkReply16sslConfigurationEv": ["address", "address"],
+    "ritual_ZN13QNetworkReply19setSslConfigurationERK17QSslConfiguration": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QNetworkReply15ignoreSslErrorsERK5QListI9QSslErrorE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QNetworkReply5abortEv": ["nothing", "address"],
+    "ritual_ZN13QNetworkReply15ignoreSslErrorsEv": ["nothing", "address"],
+    "ritual_ZN13QNetworkReply9writeDataEPKcx": [
+      "long long", "address", "chars", "long long"
+    ],
+    "ritual_ZN13QNetworkReply12setOperationEN21QNetworkAccessManager9OperationE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN13QNetworkReply10setRequestERK15QNetworkRequest": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QNetworkReply8setErrorENS_12NetworkErrorERK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZN13QNetworkReply11setFinishedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN13QNetworkReply6setUrlERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QNetworkReply9setHeaderEN15QNetworkRequest12KnownHeadersERK8QVariant": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN13QNetworkReply12setRawHeaderERK10QByteArrayS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN13QNetworkReply10setHeadersERK12QHttpHeaders": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QNetworkReply18setWellKnownHeaderEN12QHttpHeaders15WellKnownHeaderE14QByteArrayView": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN13QNetworkReply12setAttributeEN15QNetworkRequest9AttributeERK8QVariant": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN13QNetworkReply33setSslConfigurationImplementationERK17QSslConfiguration": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QNetworkReply29ignoreSslErrorsImplementationERK5QListI9QSslErrorE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QNetworkReply6d_funcEv": ["address", "address"],
+    "ritual_ZNK13QNetworkReply6d_funcEv": ["address", "address"],
+    "ritual_take_QNetworkReply": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN13QNetworkReply5closeEv": ["nothing", "address"],
+    "ritual_own_ZNK13QNetworkReply12isSequentialEv": ["bool", "address"],
+    "ritual_own_ZN13QNetworkReply17setReadBufferSizeEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_own_ZN13QNetworkReply15ignoreSslErrorsEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN13QNetworkReply33setSslConfigurationImplementationERK17QSslConfiguration": [
+      "nothing", "address", "address"
+    ]
+  }
+}

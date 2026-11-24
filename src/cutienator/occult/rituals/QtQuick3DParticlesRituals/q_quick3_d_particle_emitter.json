@@ -1,0 +1,187 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DParticles/6.12.0/QtQuick3DParticles/private/qquick3dparticleemit",
+    "ter_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK23QQuick3DParticleEmitter10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QQuick3DParticleEmitter2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN23QQuick3DParticleEmitterC1EP12QQuick3DNode": [
+      "address", "address"
+    ],
+    "ritual_ZN23QQuick3DParticleEmitterD1Ev": ["nothing", "address"],
+    "ritual_ZNK23QQuick3DParticleEmitter7enabledEv": ["bool", "address"],
+    "ritual_ZNK23QQuick3DParticleEmitter8velocityEv": ["address", "address"],
+    "ritual_ZNK23QQuick3DParticleEmitter6systemEv": ["address", "address"],
+    "ritual_ZNK23QQuick3DParticleEmitter8emitRateEv": ["float", "address"],
+    "ritual_ZNK23QQuick3DParticleEmitter13particleScaleEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK23QQuick3DParticleEmitter16particleEndScaleEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK23QQuick3DParticleEmitter22particleScaleVariationEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK23QQuick3DParticleEmitter25particleEndScaleVariationEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK23QQuick3DParticleEmitter8lifeSpanEv": ["int", "address"],
+    "ritual_ZNK23QQuick3DParticleEmitter17lifeSpanVariationEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK23QQuick3DParticleEmitter8particleEv": ["address", "address"],
+    "ritual_ZNK23QQuick3DParticleEmitter5shapeEv": ["address", "address"],
+    "ritual_ZNK23QQuick3DParticleEmitter16particleRotationEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK23QQuick3DParticleEmitter25particleRotationVariationEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK23QQuick3DParticleEmitter24particleRotationVelocityEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK23QQuick3DParticleEmitter33particleRotationVelocityVariationEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK23QQuick3DParticleEmitter9depthBiasEv": ["float", "address"],
+    "ritual_ZNK23QQuick3DParticleEmitter8reversedEv": ["bool", "address"],
+    "ritual_ZNK23QQuick3DParticleEmitter8emitModeEv": ["int", "address"],
+    "ritual_ZN23QQuick3DParticleEmitter5burstEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN23QQuick3DParticleEmitter5burstEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN23QQuick3DParticleEmitter5burstEiiRK9QVector3D": [
+      "nothing", "address", "int", "int", "address"
+    ],
+    "ritual_ZN23QQuick3DParticleEmitter10setEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN23QQuick3DParticleEmitter11setVelocityEP25QQuick3DParticleDirection": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QQuick3DParticleEmitter9setSystemEP22QQuick3DParticleSystem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QQuick3DParticleEmitter11setEmitRateEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN23QQuick3DParticleEmitter16setParticleScaleEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN23QQuick3DParticleEmitter19setParticleEndScaleEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN23QQuick3DParticleEmitter25setParticleScaleVariationEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN23QQuick3DParticleEmitter28setParticleEndScaleVariationEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN23QQuick3DParticleEmitter11setLifeSpanEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN23QQuick3DParticleEmitter20setLifeSpanVariationEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN23QQuick3DParticleEmitter11setParticleEP16QQuick3DParticle": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QQuick3DParticleEmitter8setShapeEP29QQuick3DParticleAbstractShape": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QQuick3DParticleEmitter19setParticleRotationERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QQuick3DParticleEmitter28setParticleRotationVariationERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QQuick3DParticleEmitter27setParticleRotationVelocityERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QQuick3DParticleEmitter36setParticleRotationVelocityVariationERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QQuick3DParticleEmitter12setDepthBiasEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN23QQuick3DParticleEmitter11setReversedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN23QQuick3DParticleEmitter11setEmitModeENS_8EmitModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN23QQuick3DParticleEmitter17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuick3DParticleEmitter17registerEmitBurstEP25QQuick3DParticleEmitBurst": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QQuick3DParticleEmitter19unRegisterEmitBurstEP25QQuick3DParticleEmitBurst": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QQuick3DParticleEmitter18generateEmitBurstsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuick3DParticleEmitter12emitParticleEP16QQuick3DParticlefRK10QMatrix4x4RK11QQuaternionRK9QVector3DiSA_SA_": [
+      "nothing", "address", "address", "float", "address", "address",
+      "address", "int", "address", "address"
+    ],
+    "ritual_ZN23QQuick3DParticleEmitter13emitParticlesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuick3DParticleEmitter27emitActivationNodeParticlesEP34QQuick3DParticleModelBlendParticle": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QQuick3DParticleEmitter18emitParticlesBurstERK29QQuick3DParticleEmitBurstData": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QQuick3DParticleEmitter13getEmitAmountEv": [
+      "int", "address"
+    ],
+    "ritual_ZN23QQuick3DParticleEmitter30getEmitAmountFromDynamicBurstsEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZN23QQuick3DParticleEmitter5resetEv": ["nothing", "address"],
+    "ritual_ZN23QQuick3DParticleEmitter15appendEmitBurstEP25QQuick3DParticleEmitBurst": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK23QQuick3DParticleEmitter14emitBurstCountEv": [
+      "long long", "address"
+    ],
+    "ritual_ZNK23QQuick3DParticleEmitter9emitBurstEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN23QQuick3DParticleEmitter15clearEmitBurstsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuick3DParticleEmitter16replaceEmitBurstExP25QQuick3DParticleEmitBurst": [
+      "nothing", "address", "long long", "address"
+    ],
+    "ritual_ZN23QQuick3DParticleEmitter19removeLastEmitBurstEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QQuick3DParticleEmitter": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN23QQuick3DParticleEmitter5burstEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN23QQuick3DParticleEmitter5burstEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZN23QQuick3DParticleEmitter5burstEiiRK9QVector3D": [
+      "nothing", "address", "int", "int", "address"
+    ],
+    "ritual_own_ZN23QQuick3DParticleEmitter17componentCompleteEv": [
+      "nothing", "address"
+    ]
+  }
+}

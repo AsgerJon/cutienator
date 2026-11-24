@@ -14,6 +14,38 @@ int ritual_ZNK5QFlagcviEv(const QFlag *self) {
   return self->operator int();
 }
 
+#if !defined(Q_CC_MSVC)
+//  QFlag::QFlag(uint value)
+extern "C" Q_DECL_EXPORT
+QFlag *ritual_ZN5QFlagC1Ej(uint value) {
+  return new QFlag(value);
+}
+#endif  // !defined(Q_CC_MSVC)
+
+#if !defined(Q_CC_MSVC)
+//  QFlag::QFlag(short value)
+extern "C" Q_DECL_EXPORT
+QFlag *ritual_ZN5QFlagC1Es(short value) {
+  return new QFlag(value);
+}
+#endif  // !defined(Q_CC_MSVC)
+
+#if !defined(Q_CC_MSVC)
+//  QFlag::QFlag(ushort value)
+extern "C" Q_DECL_EXPORT
+QFlag *ritual_ZN5QFlagC1Et(ushort value) {
+  return new QFlag(value);
+}
+#endif  // !defined(Q_CC_MSVC)
+
+#if !defined(Q_CC_MSVC)
+//  uint QFlag::operator unsigned int() const
+extern "C" Q_DECL_EXPORT
+uint ritual_ZNK5QFlagcvjEv(const QFlag *self) {
+  return self->operator uint();
+}
+#endif  // !defined(Q_CC_MSVC)
+
 //  QFlag::~QFlag()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN5QFlagD1Ev(QFlag *self) {

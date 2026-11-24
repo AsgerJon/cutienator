@@ -1,0 +1,37 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Layouts/6.12.0/QtQuickLayouts/private/qquicklinearlayout_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18QQuickLinearLayout10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QQuickLinearLayout2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18QQuickLinearLayout22qt_qmlMarker_anonymousEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickLinearLayoutC1EN2Qt11OrientationEP10QQuickItem": [
+      "address", "int", "address"
+    ],
+    "ritual_ZNK18QQuickLinearLayout7spacingEv": ["double", "address"],
+    "ritual_ZN18QQuickLinearLayout10setSpacingEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK18QQuickLinearLayout16uniformCellSizesEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN18QQuickLinearLayout19setUniformCellSizesEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN18QQuickLinearLayout17insertLayoutItemsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickLinearLayout6d_funcEv": ["address", "address"],
+    "ritual_ZNK18QQuickLinearLayout6d_funcEv": ["address", "address"],
+    "ritual_own_ZN18QQuickLinearLayout17insertLayoutItemsEv": [
+      "nothing", "address"
+    ]
+  }
+}

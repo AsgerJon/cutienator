@@ -1,0 +1,28 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmlprofiler_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN12QQmlProfiler11RefLocationC1Ev": ["address"],
+    "ritual_ZN12QQmlProfiler11RefLocationC1EPN3QV48FunctionE": [
+      "address", "address"
+    ],
+    "ritual_ZN12QQmlProfiler11RefLocationC1EPN3QV425ExecutableCompilationUnitERK4QUrlPKNS1_12CompiledData6ObjectERK7QString": [
+      "address", "address", "address", "address", "text"
+    ],
+    "ritual_ZN12QQmlProfiler11RefLocationC1EP25QQmlBoundSignalExpression": [
+      "address", "address"
+    ],
+    "ritual_ZN12QQmlProfiler11RefLocationC1EP12QQmlDataBlob": [
+      "address", "address"
+    ],
+    "ritual_ZN12QQmlProfiler11RefLocationC1ERKS0_": ["address", "address"],
+    "ritual_ZN12QQmlProfiler11RefLocationD1Ev": ["nothing", "address"],
+    "ritual_ZN12QQmlProfiler11RefLocation6addrefEv": ["nothing", "address"],
+    "ritual_ZN12QQmlProfiler11RefLocation7releaseEv": ["nothing", "address"],
+    "ritual_ZNK12QQmlProfiler11RefLocation7isValidEv": ["bool", "address"],
+    "ritual_ZNK12QQmlProfiler11RefLocation6isNullEv": ["bool", "address"]
+  }
+}

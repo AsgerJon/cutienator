@@ -1,0 +1,32 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4compileddata_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN3QV412CompiledData8LocationC1Ev": ["address"],
+    "ritual_ZN3QV412CompiledData8LocationC1Ejj": [
+      "address", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZNK3QV412CompiledData8LocationltERKS1_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN3QV412CompiledDataeqERKNS0_8LocationES3_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN3QV412CompiledDataneERKNS0_8LocationES3_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN3QV412CompiledData8Location3setEjj": [
+      "nothing", "address", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZNK3QV412CompiledData8Location4lineEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData8Location6columnEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN3QV412CompiledData8LocationD1Ev": ["nothing", "address"]
+  }
+}

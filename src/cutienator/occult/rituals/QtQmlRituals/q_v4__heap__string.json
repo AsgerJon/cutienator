@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4string_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK3QV44Heap6String6vtableEv": ["address", "address"],
+    "ritual_ZNK3QV44Heap6String6lengthEv": ["int", "address"],
+    "ritual_ZNK3QV44Heap6String9toQStringEv": ["text", "address"],
+    "ritual_ZNK3QV44Heap6String9isEqualToEPKS1_": [
+      "bool", "address", "address"
+    ]
+  }
+}

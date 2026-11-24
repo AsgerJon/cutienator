@@ -1,0 +1,91 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtMulti",
+    "media/6.12.0/QtMultimedia/private/qplatformmediacapture_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK28QPlatformMediaCaptureSession10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QPlatformMediaCaptureSession2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN28QPlatformMediaCaptureSessionD1Ev": ["nothing", "address"],
+    "ritual_ZN28QPlatformMediaCaptureSession17setCaptureSessionEP20QMediaCaptureSession": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK28QPlatformMediaCaptureSession14captureSessionEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QPlatformMediaCaptureSession13screenCaptureEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QPlatformMediaCaptureSession16setScreenCaptureEP23QPlatformSurfaceCapture": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QPlatformMediaCaptureSession13windowCaptureEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QPlatformMediaCaptureSession16setWindowCaptureEP23QPlatformSurfaceCapture": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QPlatformMediaCaptureSession15videoFrameInputEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QPlatformMediaCaptureSession18setVideoFrameInputEP24QPlatformVideoFrameInput": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QPlatformMediaCaptureSession13mediaRecorderEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QPlatformMediaCaptureSession16setMediaRecorderEP22QPlatformMediaRecorder": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QPlatformMediaCaptureSession13setAudioInputEP19QPlatformAudioInput": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QPlatformMediaCaptureSession19setAudioBufferInputEP25QPlatformAudioBufferInput": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QPlatformMediaCaptureSession15setVideoPreviewEP10QVideoSink": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QPlatformMediaCaptureSession14setAudioOutputEP20QPlatformAudioOutput": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QPlatformMediaCaptureSession": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN28QPlatformMediaCaptureSession13screenCaptureEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN28QPlatformMediaCaptureSession16setScreenCaptureEP23QPlatformSurfaceCapture": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN28QPlatformMediaCaptureSession13windowCaptureEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN28QPlatformMediaCaptureSession16setWindowCaptureEP23QPlatformSurfaceCapture": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN28QPlatformMediaCaptureSession15videoFrameInputEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN28QPlatformMediaCaptureSession18setVideoFrameInputEP24QPlatformVideoFrameInput": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN28QPlatformMediaCaptureSession16setMediaRecorderEP22QPlatformMediaRecorder": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN28QPlatformMediaCaptureSession19setAudioBufferInputEP25QPlatformAudioBufferInput": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN28QPlatformMediaCaptureSession15setVideoPreviewEP10QVideoSink": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN28QPlatformMediaCaptureSession14setAudioOutputEP20QPlatformAudioOutput": [
+      "nothing", "address", "address"
+    ]
+  }
+}

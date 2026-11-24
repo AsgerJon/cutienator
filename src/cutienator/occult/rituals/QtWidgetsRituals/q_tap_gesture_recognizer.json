@@ -1,0 +1,32 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qstandardgestures_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN21QTapGestureRecognizerC1Ev": ["address"],
+    "ritual_ZN21QTapGestureRecognizer6createEP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN21QTapGestureRecognizer9recognizeEP8QGestureP7QObjectP6QEvent": [
+      "int", "address", "address", "address", "address"
+    ],
+    "ritual_ZN21QTapGestureRecognizer5resetEP8QGesture": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QTapGestureRecognizerD1Ev": ["nothing", "address"],
+    "ritual_take_QTapGestureRecognizer": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN21QTapGestureRecognizer6createEP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN21QTapGestureRecognizer9recognizeEP8QGestureP7QObjectP6QEvent": [
+      "int", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN21QTapGestureRecognizer5resetEP8QGesture": [
+      "nothing", "address", "address"
+    ]
+  }
+}

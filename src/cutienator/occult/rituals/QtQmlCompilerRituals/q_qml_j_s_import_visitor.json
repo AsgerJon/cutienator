@@ -1,0 +1,444 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQmlCo",
+    "mpiler/6.12.0/QtQmlCompiler/private/qqmljsimportvisitor_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QQmlJSImportVisitorC1EP14QQmlJSImporterP12QQmlJSLoggerRK7QStringRK5QListIS4_E": [
+      "address", "address", "address", "text", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitorD1Ev": ["nothing", "address"],
+    "ritual_ZNK19QQmlJSImportVisitor6loggerEv": ["address", "address"],
+    "ritual_ZN19QQmlJSImportVisitor6loggerEv": ["address", "address"],
+    "ritual_ZNK19QQmlJSImportVisitor7importsEv": ["address", "address"],
+    "ritual_ZNK19QQmlJSImportVisitor17addressableScopesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor23implicitImportDirectoryERK7QStringPK24QQmlJSResourceFileMapper": [
+      "text", "text", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor8importerEv": ["address", "address"],
+    "ritual_ZNK19QQmlJSImportVisitor8importerEv": ["address", "address"],
+    "ritual_ZNK19QQmlJSImportVisitor20seenModuleQualifiersEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor5visitEPN6QQmlJS3AST19ExpressionStatementE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor8endVisitEPN6QQmlJS3AST19ExpressionStatementE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor5visitEPN6QQmlJS3AST9UiProgramE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor8endVisitEPN6QQmlJS3AST9UiProgramE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor5visitEPN6QQmlJS3AST18UiObjectDefinitionE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor8endVisitEPN6QQmlJS3AST18UiObjectDefinitionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor5visitEPN6QQmlJS3AST17UiInlineComponentE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor8endVisitEPN6QQmlJS3AST17UiInlineComponentE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor5visitEPN6QQmlJS3AST14UiPublicMemberE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor8endVisitEPN6QQmlJS3AST14UiPublicMemberE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor5visitEPN6QQmlJS3AST10UiRequiredE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor5visitEPN6QQmlJS3AST15UiScriptBindingE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor8endVisitEPN6QQmlJS3AST15UiScriptBindingE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor5visitEPN6QQmlJS3AST14UiArrayBindingE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor8endVisitEPN6QQmlJS3AST14UiArrayBindingE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor5visitEPN6QQmlJS3AST17UiEnumDeclarationE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor5visitEPN6QQmlJS3AST18FunctionExpressionE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor8endVisitEPN6QQmlJS3AST18FunctionExpressionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor5visitEPN6QQmlJS3AST15UiSourceElementE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor5visitEPN6QQmlJS3AST19FunctionDeclarationE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor8endVisitEPN6QQmlJS3AST19FunctionDeclarationE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor5visitEPN6QQmlJS3AST15ClassExpressionE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor8endVisitEPN6QQmlJS3AST15ClassExpressionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor5visitEPN6QQmlJS3AST8UiImportE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor5visitEPN6QQmlJS3AST8UiPragmaE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor5visitEPN6QQmlJS3AST16ClassDeclarationE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor8endVisitEPN6QQmlJS3AST16ClassDeclarationE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor5visitEPN6QQmlJS3AST12ForStatementE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor8endVisitEPN6QQmlJS3AST12ForStatementE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor5visitEPN6QQmlJS3AST16ForEachStatementE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor8endVisitEPN6QQmlJS3AST16ForEachStatementE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor5visitEPN6QQmlJS3AST5BlockE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor8endVisitEPN6QQmlJS3AST5BlockE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor5visitEPN6QQmlJS3AST9CaseBlockE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor8endVisitEPN6QQmlJS3AST9CaseBlockE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor5visitEPN6QQmlJS3AST5CatchE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor8endVisitEPN6QQmlJS3AST5CatchE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor5visitEPN6QQmlJS3AST13WithStatementE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor8endVisitEPN6QQmlJS3AST13WithStatementE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor5visitEPN6QQmlJS3AST19FormalParameterListE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor5visitEPN6QQmlJS3AST15UiObjectBindingE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor8endVisitEPN6QQmlJS3AST15UiObjectBindingE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor5visitEPN6QQmlJS3AST17ExportDeclarationE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor8endVisitEPN6QQmlJS3AST17ExportDeclarationE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor5visitEPN6QQmlJS3AST8ESModuleE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor8endVisitEPN6QQmlJS3AST8ESModuleE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor5visitEPN6QQmlJS3AST7ProgramE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor8endVisitEPN6QQmlJS3AST7ProgramE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor8endVisitEPN6QQmlJS3AST21FieldMemberExpressionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor5visitEPN6QQmlJS3AST20IdentifierExpressionE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor5visitEPN6QQmlJS3AST14PatternElementE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor5visitEPN6QQmlJS3AST11IfStatementE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor24throwRecursionDepthErrorEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor30createAttachedAndGroupedScopesEPN6QQmlJS3AST13UiQualifiedIdE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor28openAttachedAndGroupedScopesEPN6QQmlJS3AST13UiQualifiedIdE": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor24forgetFunctionExpressionERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK19QQmlJSImportVisitor41populateRuntimeFunctionIndicesForDocumentEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor16enterEnvironmentEN6QQmlSA9ScopeTypeERK7QStringRKN6QQmlJS14SourceLocationE": [
+      "nothing", "address", "int", "text", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor25enterEnvironmentNonUniqueEN6QQmlSA9ScopeTypeERK7QStringRKN6QQmlJS14SourceLocationE": [
+      "bool", "address", "int", "text", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor16leaveEnvironmentEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor16parseAnnotationsEPN6QQmlJS3AST16UiAnnotationListE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor14setAllBindingsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor20addDefaultPropertiesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor24processDefaultPropertiesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor23processPropertyBindingsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor23checkRequiredPropertiesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor20processPropertyTypesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor18processMethodTypesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor29processPropertyBindingObjectsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor28flushPendingSignalParametersEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK19QQmlJSImportVisitor16rootScopeIsValidEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor22parseBindingExpressionERK7QStringPKN6QQmlJS3AST9StatementEPKNS4_14UiPublicMemberE": [
+      "int", "address", "text", "address", "address"
+    ],
+    "ritual_ZNK19QQmlJSImportVisitor14isImportPrefixE7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor17importBaseModulesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor14resolveAliasesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor23populatePropertyAliasesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor22resolveGroupPropertiesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor19handleIdDeclarationEPN6QQmlJS3AST15UiScriptBindingE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor20handleLiteralBindingERK25QQmlJSMetaPropertyBindingPKN6QQmlJS3AST14UiPublicMemberE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor29visitFunctionExpressionHelperEPN6QQmlJS3AST18FunctionExpressionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor21addImportWithLocationERK7QStringRKN6QQmlJS14SourceLocationEb": [
+      "nothing", "address", "text", "address", "bool"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor20populateCurrentScopeEN6QQmlSA9ScopeTypeERK7QStringRKN6QQmlJS14SourceLocationE": [
+      "nothing", "address", "int", "text", "address"
+    ],
+    "ritual_ZN19QQmlJSImportVisitor14enterRootScopeEN6QQmlSA9ScopeTypeERK7QStringRKN6QQmlJS14SourceLocationE": [
+      "nothing", "address", "int", "text", "address"
+    ],
+    "ritual_take_QQmlJSImportVisitor": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN19QQmlJSImportVisitor5visitEPN6QQmlJS3AST19ExpressionStatementE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN19QQmlJSImportVisitor8endVisitEPN6QQmlJS3AST19ExpressionStatementE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN19QQmlJSImportVisitor5visitEPN6QQmlJS3AST9UiProgramE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN19QQmlJSImportVisitor8endVisitEPN6QQmlJS3AST9UiProgramE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN19QQmlJSImportVisitor5visitEPN6QQmlJS3AST18UiObjectDefinitionE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN19QQmlJSImportVisitor8endVisitEPN6QQmlJS3AST18UiObjectDefinitionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN19QQmlJSImportVisitor5visitEPN6QQmlJS3AST17UiInlineComponentE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN19QQmlJSImportVisitor8endVisitEPN6QQmlJS3AST17UiInlineComponentE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN19QQmlJSImportVisitor5visitEPN6QQmlJS3AST14UiPublicMemberE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN19QQmlJSImportVisitor8endVisitEPN6QQmlJS3AST14UiPublicMemberE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN19QQmlJSImportVisitor5visitEPN6QQmlJS3AST10UiRequiredE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN19QQmlJSImportVisitor5visitEPN6QQmlJS3AST15UiScriptBindingE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN19QQmlJSImportVisitor8endVisitEPN6QQmlJS3AST15UiScriptBindingE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN19QQmlJSImportVisitor5visitEPN6QQmlJS3AST14UiArrayBindingE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN19QQmlJSImportVisitor8endVisitEPN6QQmlJS3AST14UiArrayBindingE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN19QQmlJSImportVisitor5visitEPN6QQmlJS3AST17UiEnumDeclarationE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN19QQmlJSImportVisitor5visitEPN6QQmlJS3AST18FunctionExpressionE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN19QQmlJSImportVisitor8endVisitEPN6QQmlJS3AST18FunctionExpressionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN19QQmlJSImportVisitor5visitEPN6QQmlJS3AST15UiSourceElementE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN19QQmlJSImportVisitor5visitEPN6QQmlJS3AST19FunctionDeclarationE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN19QQmlJSImportVisitor8endVisitEPN6QQmlJS3AST19FunctionDeclarationE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN19QQmlJSImportVisitor5visitEPN6QQmlJS3AST15ClassExpressionE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN19QQmlJSImportVisitor8endVisitEPN6QQmlJS3AST15ClassExpressionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN19QQmlJSImportVisitor5visitEPN6QQmlJS3AST8UiImportE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN19QQmlJSImportVisitor5visitEPN6QQmlJS3AST8UiPragmaE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN19QQmlJSImportVisitor5visitEPN6QQmlJS3AST16ClassDeclarationE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN19QQmlJSImportVisitor8endVisitEPN6QQmlJS3AST16ClassDeclarationE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN19QQmlJSImportVisitor5visitEPN6QQmlJS3AST12ForStatementE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN19QQmlJSImportVisitor8endVisitEPN6QQmlJS3AST12ForStatementE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN19QQmlJSImportVisitor5visitEPN6QQmlJS3AST16ForEachStatementE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN19QQmlJSImportVisitor8endVisitEPN6QQmlJS3AST16ForEachStatementE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN19QQmlJSImportVisitor5visitEPN6QQmlJS3AST5BlockE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN19QQmlJSImportVisitor8endVisitEPN6QQmlJS3AST5BlockE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN19QQmlJSImportVisitor5visitEPN6QQmlJS3AST9CaseBlockE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN19QQmlJSImportVisitor8endVisitEPN6QQmlJS3AST9CaseBlockE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN19QQmlJSImportVisitor5visitEPN6QQmlJS3AST5CatchE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN19QQmlJSImportVisitor8endVisitEPN6QQmlJS3AST5CatchE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN19QQmlJSImportVisitor5visitEPN6QQmlJS3AST13WithStatementE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN19QQmlJSImportVisitor8endVisitEPN6QQmlJS3AST13WithStatementE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN19QQmlJSImportVisitor5visitEPN6QQmlJS3AST19FormalParameterListE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN19QQmlJSImportVisitor5visitEPN6QQmlJS3AST15UiObjectBindingE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN19QQmlJSImportVisitor8endVisitEPN6QQmlJS3AST15UiObjectBindingE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN19QQmlJSImportVisitor5visitEPN6QQmlJS3AST17ExportDeclarationE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN19QQmlJSImportVisitor8endVisitEPN6QQmlJS3AST17ExportDeclarationE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN19QQmlJSImportVisitor5visitEPN6QQmlJS3AST8ESModuleE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN19QQmlJSImportVisitor8endVisitEPN6QQmlJS3AST8ESModuleE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN19QQmlJSImportVisitor5visitEPN6QQmlJS3AST7ProgramE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN19QQmlJSImportVisitor8endVisitEPN6QQmlJS3AST7ProgramE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN19QQmlJSImportVisitor8endVisitEPN6QQmlJS3AST21FieldMemberExpressionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN19QQmlJSImportVisitor5visitEPN6QQmlJS3AST20IdentifierExpressionE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN19QQmlJSImportVisitor5visitEPN6QQmlJS3AST14PatternElementE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN19QQmlJSImportVisitor5visitEPN6QQmlJS3AST11IfStatementE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN19QQmlJSImportVisitor24throwRecursionDepthErrorEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN19QQmlJSImportVisitor16leaveEnvironmentEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN19QQmlJSImportVisitor20handleLiteralBindingERK25QQmlJSMetaPropertyBindingPKN6QQmlJS3AST14UiPublicMemberE": [
+      "nothing", "address", "address", "address"
+    ]
+  }
+}

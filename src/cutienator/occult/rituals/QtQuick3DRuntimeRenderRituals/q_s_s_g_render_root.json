@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgrenderro",
+    "ot_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN14QSSGRenderRootC1Ev": ["address"],
+    "ritual_ZN14QSSGRenderRootD1Ev": ["nothing", "address"],
+    "ritual_ZNK14QSSGRenderRoot7isDirtyENS_9DirtyFlagE": [
+      "bool", "address", "unsigned char"
+    ],
+    "ritual_ZN14QSSGRenderRoot9markDirtyENS_9DirtyFlagE": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZN14QSSGRenderRoot10clearDirtyENS_9DirtyFlagE": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZN14QSSGRenderRoot15setStartVersionEt": [
+      "nothing", "address", "unsigned short"
+    ],
+    "ritual_ZNK14QSSGRenderRoot12startVersionEv": [
+      "unsigned short", "address"
+    ],
+    "ritual_ZN14QSSGRenderRoot7reindexEv": ["nothing", "address"]
+  }
+}

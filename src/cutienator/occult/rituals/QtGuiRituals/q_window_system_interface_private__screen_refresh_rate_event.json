@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/qpa/qwindowsysteminterface_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN29QWindowSystemInterfacePrivate22ScreenRefreshRateEventC1EP7QScreend": [
+      "address", "address", "double"
+    ],
+    "ritual_ZN29QWindowSystemInterfacePrivate22ScreenRefreshRateEventD1Ev": [
+      "nothing", "address"
+    ]
+  }
+}

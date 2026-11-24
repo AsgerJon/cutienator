@@ -60,13 +60,16 @@ QString *ritual_ZNK21QTextDocumentFragment9toRawTextEv(
   return new QString(self->toRawText());
 }
 
+#if !defined(QT_NO_TEXTHTMLPARSER)
 //  QString QTextDocumentFragment::toHtml() const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK21QTextDocumentFragment6toHtmlEv(
     const QTextDocumentFragment *self) {
   return new QString(self->toHtml());
 }
+#endif  // !defined(QT_NO_TEXTHTMLPARSER)
 
+#if QT_CONFIG(textmarkdownwriter)
 //  QString QTextDocumentFragment::toMarkdown(QTextDocument::MarkdownFeatures
 //      features) const
 extern "C" Q_DECL_EXPORT
@@ -77,6 +80,7 @@ QString *ritual_ZNK21QTextDocumentFragment10toMarkdownE6QFlagsIN13QTextDocument1
       self->toMarkdown(
           QFlags<QTextDocument::MarkdownFeature>::fromInt(features)));
 }
+#endif  // QT_CONFIG(textmarkdownwriter)
 
 //  QTextDocumentFragment QTextDocumentFragment::fromPlainText(const QString
 //      &plainText)
@@ -88,6 +92,7 @@ QTextDocumentFragment *ritual_ZN21QTextDocumentFragment13fromPlainTextERK7QStrin
           *plainText));
 }
 
+#if !defined(QT_NO_TEXTHTMLPARSER)
 //  QTextDocumentFragment QTextDocumentFragment::fromHtml(const QString
 //      &html, const QTextDocument *resourceProvider)
 extern "C" Q_DECL_EXPORT
@@ -99,7 +104,9 @@ QTextDocumentFragment *ritual_ZN21QTextDocumentFragment8fromHtmlERK7QStringPK13Q
           *html,
           resourceProvider));
 }
+#endif  // !defined(QT_NO_TEXTHTMLPARSER)
 
+#if QT_CONFIG(textmarkdownreader)
 //  QTextDocumentFragment QTextDocumentFragment::fromMarkdown(const QString
 //      &markdown, QTextDocument::MarkdownFeatures features)
 extern "C" Q_DECL_EXPORT
@@ -111,3 +118,4 @@ QTextDocumentFragment *ritual_ZN21QTextDocumentFragment12fromMarkdownERK7QString
           *markdown,
           QFlags<QTextDocument::MarkdownFeature>::fromInt(features)));
 }
+#endif  // QT_CONFIG(textmarkdownreader)

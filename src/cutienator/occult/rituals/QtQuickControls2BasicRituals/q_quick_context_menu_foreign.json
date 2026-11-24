@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Controls2Basic/6.12.0/QtQuickControls2Basic/private/qtquickcontrol",
+    "s2basicforeign_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN24QQuickContextMenuForeign20qt_qmlMarker_foreignEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuickContextMenuForeign24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuickContextMenuForeignD1Ev": ["nothing", "address"]
+  }
+}

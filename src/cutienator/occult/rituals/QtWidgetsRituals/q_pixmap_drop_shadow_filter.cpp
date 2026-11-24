@@ -1,8 +1,14 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/6.12.0/QtWidgets/private/qpixmapfilter_p.h, Qt 6.12.0. Changes
 //  made here are lost.
+#include <QtWidgets/qtwidgetsglobal.h>
+#include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
+#if QT_CONFIG(graphicseffect)
+#include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/QtWidgets>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/6.12.0/QtWidgets/private/qpixmapfilter_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #include <QtCore/qrect.h>
 #include <QtCore/qpoint.h>
@@ -14,60 +20,97 @@
 //  A QPixmapDropShadowFilter that Python can take functions over in. Every QPixmapDropShadowFilter
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if QT_CONFIG(graphicseffect)
 typedef const QRectF * (*CuteQPixmapDropShadowFilterCall0)(const void *, const QRectF *, int *);
+#endif  // QT_CONFIG(graphicseffect)
+#if QT_CONFIG(graphicseffect)
 typedef void (*CuteQPixmapDropShadowFilterCall1)(const void *, QPainter *, const QPointF *, const QPixmap *, const QRectF *, int *);
+#endif  // QT_CONFIG(graphicseffect)
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQPixmapDropShadowFilterCall2)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQPixmapDropShadowFilterCall3)(const void *, QObject *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQPixmapDropShadowFilterCall4)(const void *, QTimerEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQPixmapDropShadowFilterCall5)(const void *, QChildEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQPixmapDropShadowFilterCall6)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQPixmapDropShadowFilterCall7)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQPixmapDropShadowFilterCall8)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 class CuteQPixmapDropShadowFilter : public QPixmapDropShadowFilter {
 public:
   using QPixmapDropShadowFilter::QPixmapDropShadowFilter;
   void *taken[9] = {};
 
   bool take(const char *key, void *call) {
+#if QT_CONFIG(graphicseffect)
     if (!std::strcmp(key, "_ZNK13QPixmapFilter15boundingRectForERK6QRectF")) {
       taken[0] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicseffect)
+#if QT_CONFIG(graphicseffect)
     if (!std::strcmp(key, "_ZNK13QPixmapFilter4drawEP8QPainterRK7QPointFRK7QPixmapRK6QRectF")) {
       taken[1] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicseffect)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[2] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[3] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[4] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[5] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[6] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[7] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
       taken[8] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
     return false;
   }
 
+#if QT_CONFIG(graphicseffect)
   //  QRectF QPixmapDropShadowFilter::boundingRectFor(const QRectF &rect)
   //      const
   QRectF boundingRectFor(const QRectF &rect) const override {
@@ -79,7 +122,9 @@ public:
     }
     return QPixmapDropShadowFilter::boundingRectFor(rect);
   }
+#endif  // QT_CONFIG(graphicseffect)
 
+#if QT_CONFIG(graphicseffect)
   //  void QPixmapDropShadowFilter::draw(QPainter *p, const QPointF &pos,
   //      const QPixmap &px, const QRectF &src) const
   void draw(
@@ -95,7 +140,9 @@ public:
     }
     QPixmapDropShadowFilter::draw(p, pos, px, src);
   }
+#endif  // QT_CONFIG(graphicseffect)
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QObject::event(QEvent *event)
   bool event(QEvent *event) override {
     if (taken[2]) {
@@ -106,7 +153,9 @@ public:
     }
     return QObject::event(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
     if (taken[3]) {
@@ -117,7 +166,9 @@ public:
     }
     return QObject::eventFilter(watched, event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
     if (taken[4]) {
@@ -128,7 +179,9 @@ public:
     }
     QObject::timerEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
     if (taken[5]) {
@@ -139,7 +192,9 @@ public:
     }
     QObject::childEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
     if (taken[6]) {
@@ -150,7 +205,9 @@ public:
     }
     QObject::customEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
     if (taken[7]) {
@@ -161,7 +218,9 @@ public:
     }
     QObject::connectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
     if (taken[8]) {
@@ -172,6 +231,7 @@ public:
     }
     QObject::disconnectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 };
 
 //  const QMetaObject *QPixmapDropShadowFilter::metaObject() const
@@ -306,3 +366,5 @@ void ritual_own_ZNK23QPixmapDropShadowFilter4drawEP8QPainterRK7QPointFRK7QPixmap
     const QRectF *src) {
   self->QPixmapDropShadowFilter::draw(p, *pos, *px, *src);
 }
+
+#endif  // QT_CONFIG(graphicseffect)

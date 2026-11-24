@@ -1,0 +1,48 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qtextedit_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN16QTextEditPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK16QTextEditPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN16QTextEditPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN16QTextEditPrivate5paintEP8QPainterP11QPaintEvent": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN16QTextEditPrivate15repaintContentsERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QTextEditPrivate13mapToContentsERK6QPoint": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN16QTextEditPrivate20createAutoBulletListEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QTextEditPrivate10pageUpDownEN11QTextCursor13MoveOperationENS0_8MoveModeE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK16QTextEditPrivate16horizontalOffsetEv": ["int", "address"],
+    "ritual_ZNK16QTextEditPrivate14verticalOffsetEv": ["int", "address"],
+    "ritual_ZN16QTextEditPrivate16sendControlEventEP6QEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QTextEditPrivate21cursorPositionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QTextEditPrivate29hoveredBlockWithMarkerChangedERK10QTextBlock": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QTextEditPrivate23updateDefaultTextOptionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK16QTextEditPrivate10resolveUrlERK4QUrl": [
+      "address", "address", "address"
+    ],
+    "ritual_take_QTextEditPrivate": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK16QTextEditPrivate10resolveUrlERK4QUrl": [
+      "address", "address", "address"
+    ]
+  }
+}

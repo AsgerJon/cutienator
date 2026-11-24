@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/qstandardpaths.h, Qt 6.12.0. Changes made here are lost.
+#include <QtCore/qglobal.h>
+#if !defined(QT_NO_STANDARDPATHS)
 #include <QtCore/qstandardpaths.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qlist.h>
@@ -46,12 +48,14 @@ QList<QString> *ritual_ZN14QStandardPaths9locateAllENS_16StandardLocationERK7QSt
           QFlags<QStandardPaths::LocateOption>::fromInt(options)));
 }
 
+#if !defined(QT_BOOTSTRAPPED)
 //  QString QStandardPaths::displayName(StandardLocation type)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN14QStandardPaths11displayNameENS_16StandardLocationE(
     QStandardPaths::StandardLocation type) {
   return new QString(QStandardPaths::displayName(type));
 }
+#endif  // !defined(QT_BOOTSTRAPPED)
 
 //  QString QStandardPaths::findExecutable(const QString &executableName,
 //      const QStringList &paths)
@@ -76,3 +80,5 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZN14QStandardPaths17isTestModeEnabledEv() {
   return QStandardPaths::isTestModeEnabled();
 }
+
+#endif  // !defined(QT_NO_STANDARDPATHS)

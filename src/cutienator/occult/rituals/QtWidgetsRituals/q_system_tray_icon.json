@@ -44,6 +44,8 @@
     "ritual_ZN15QSystemTrayIcon5eventEP6QEvent": [
       "bool", "address", "address"
     ],
+    "ritual_ZN15QSystemTrayIcon6d_funcEv": ["address", "address"],
+    "ritual_ZNK15QSystemTrayIcon6d_funcEv": ["address", "address"],
     "ritual_take_QSystemTrayIcon": ["bool", "address", "chars", "address"],
     "ritual_own_ZN15QSystemTrayIcon5eventEP6QEvent": [
       "bool", "address", "address"

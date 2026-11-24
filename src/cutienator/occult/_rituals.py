@@ -152,8 +152,8 @@ class Rituals:
       little='utf-16-le', big='utf-16-be',
   )[sys.byteorder]
 
-  #  The parts of Qt the rituals call into. 'System' knows the file of
-  #  each part on the system Python runs on.
+  #  The parts of Qt that have cute classes, each a package of
+  #  cutienator. The rituals call into more parts: see 'getRitualParts'.
   __components__ = ('QtCore', 'QtGui', 'QtWidgets')
 
   #  The ritual of Qt's 'QCoreApplication::exit(int)', which tells the
@@ -200,8 +200,8 @@ class Rituals:
 
     Found for you: it is the folder 'rituals' beside this module. The
     ritual files of each part of Qt lie in a folder of their own in it,
-    named after the part: 'QtCoreRituals', 'QtGuiRituals' and
-    'QtWidgetsRituals'. See 'getPartFolder'.
+    named after the part, as 'QtCoreRituals' and 'QtNetworkRituals'.
+    See 'getPartFolder' and 'getRitualParts'.
     """
     here = os.path.dirname(os.path.abspath(__file__))
     return os.path.join(here, 'rituals')
@@ -258,18 +258,36 @@ class Rituals:
 
   @classmethod
   def getComponents(cls) -> Paths:
-    """Gives the parts of Qt the rituals call into, as 'QtCore'. Each
-    is a package of cutienator as well, holding the cute classes of
-    that part."""
+    """Gives the parts of Qt that have cute classes, as 'QtCore'. Each
+    is a package of cutienator, holding the cute classes of that part.
+    The rituals may call into more parts; see 'getRitualParts'."""
     return cls.__components__
+
+  @classmethod
+  def getRitualParts(cls) -> Paths:
+    """
+    Gives the parts of Qt the rituals call into, as 'QtCore', in
+    alphabetical order.
+
+    Found for you: one for each folder of the ritual folder named
+    after a part, as 'QtNetworkRituals' for 'QtNetwork'. The shared
+    object of each is linked to cutienator's own; see
+    'getQtSharedObjects'.
+    """
+    pattern = os.path.join(cls.getRitualFolder(), 'Qt*Rituals')
+    found = []  # type: List[str]
+    for folder in sorted(glob.glob(pattern)):
+      if os.path.isdir(folder):
+        found.append(os.path.basename(folder)[:-len('Rituals')])
+    return (*found,)
 
   @classmethod
   def getQtSharedObjects(cls) -> Paths:
     """
     Gives the Qt shared objects the rituals call into.
 
-    Found for you: one file for each part of Qt in '__components__', in
-    the folder where Qt keeps its shared objects. 'System' gives the
+    Found for you: one file for each part of Qt in 'getRitualParts',
+    in the folder where Qt keeps its shared objects. 'System' gives the
     name the file has on the system Python runs on, which on Linux is
     'libQt6Core.so.6' for 'QtCore'.
 
@@ -281,7 +299,8 @@ class Rituals:
     """
     folder = Build.getQtSharedObjectFolder()
     system = System.getHere()
-    names = (*(system.getQtFileName(part) for part in cls.__components__),)
+    parts = cls.getRitualParts()
+    names = (*(system.getQtFileName(part) for part in parts),)
     return (*(os.path.join(folder, name) for name in names),)
 
   @classmethod
@@ -861,7 +880,7 @@ class Rituals:
     build.setRitualFiles(*ritualFiles)
     build.setTargetFile(cls.getTargetFile())
     build.setQtSharedObjects(*cls.getQtSharedObjects())
-    build.setComponents(*cls.getComponents())
+    build.setComponents(*cls.getRitualParts())
     return build.run()
 
   @classmethod

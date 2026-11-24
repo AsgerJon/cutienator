@@ -1,0 +1,45 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquickstackelement_p_p",
+    ".h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QQuickStackElement8incubateEPN3QV415ExecutionEngineEP7QObjectP18RequiredProperties": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN18QQuickStackElement10initializeEPN3QV415ExecutionEngineEP18RequiredProperties": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN18QQuickStackElement24transitionNextRepositionEP26QQuickItemViewTransitionerNS0_14TransitionTypeEb": [
+      "nothing", "address", "address", "int", "bool"
+    ],
+    "ritual_ZN18QQuickStackElement17prepareTransitionEP26QQuickItemViewTransitionerRK6QRectF": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN18QQuickStackElement18completeTransitionEP16QQuickTransition": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQuickStackElement13itemDestroyedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_cast_QQuickStackElement_QQuickItemChangeListener": [
+      "address", "address"
+    ],
+    "ritual_take_QQuickStackElement": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN18QQuickStackElement13itemDestroyedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_list_make_QQuickStackElement_ptr": ["address"],
+    "ritual_list_add_QQuickStackElement_ptr": [
+      "nothing", "address", "address"
+    ],
+    "ritual_list_size_QQuickStackElement_ptr": ["long long", "address"],
+    "ritual_list_at_QQuickStackElement_ptr": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_QQuickStackElement_ptr": ["nothing", "address"]
+  }
+}

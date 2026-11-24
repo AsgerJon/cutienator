@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/qsimpleresource_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18qdesigner_internal18QEditorFormBuilder4copyEP9QIODeviceRKNS_20FormBuilderClipboardE": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal18QEditorFormBuilder4copyERKNS_20FormBuilderClipboardE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal18QEditorFormBuilder5pasteEP5DomUIP7QWidgetP7QObject": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal18QEditorFormBuilder5pasteEP9QIODeviceP7QWidgetP7QObject": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_take_qdesigner_internal_QEditorFormBuilder": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

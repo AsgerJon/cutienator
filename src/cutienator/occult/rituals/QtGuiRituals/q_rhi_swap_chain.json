@@ -1,0 +1,69 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/rhi/qrhi.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK13QRhiSwapChain12resourceTypeEv": ["int", "address"],
+    "ritual_ZNK13QRhiSwapChain6windowEv": ["address", "address"],
+    "ritual_ZN13QRhiSwapChain9setWindowEP7QWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QRhiSwapChain9proxyDataEv": ["address", "address"],
+    "ritual_ZN13QRhiSwapChain12setProxyDataERK22QRhiSwapChainProxyData": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QRhiSwapChain5flagsEv": ["int", "address"],
+    "ritual_ZN13QRhiSwapChain8setFlagsE6QFlagsINS_4FlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK13QRhiSwapChain6formatEv": ["int", "address"],
+    "ritual_ZN13QRhiSwapChain9setFormatENS_6FormatE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK13QRhiSwapChain12depthStencilEv": ["address", "address"],
+    "ritual_ZN13QRhiSwapChain15setDepthStencilEP16QRhiRenderBuffer": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QRhiSwapChain11sampleCountEv": ["int", "address"],
+    "ritual_ZN13QRhiSwapChain14setSampleCountEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK13QRhiSwapChain20renderPassDescriptorEv": [
+      "address", "address"
+    ],
+    "ritual_ZN13QRhiSwapChain23setRenderPassDescriptorEP24QRhiRenderPassDescriptor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QRhiSwapChain14shadingRateMapEv": ["address", "address"],
+    "ritual_ZN13QRhiSwapChain17setShadingRateMapEP18QRhiShadingRateMap": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QRhiSwapChain16currentPixelSizeEv": ["address", "address"],
+    "ritual_ZN13QRhiSwapChain25currentFrameCommandBufferEv": [
+      "address", "address"
+    ],
+    "ritual_ZN13QRhiSwapChain24currentFrameRenderTargetEv": [
+      "address", "address"
+    ],
+    "ritual_ZN13QRhiSwapChain24currentFrameRenderTargetENS_18StereoTargetBufferE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN13QRhiSwapChain16surfacePixelSizeEv": ["address", "address"],
+    "ritual_ZN13QRhiSwapChain17isFormatSupportedENS_6FormatE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN13QRhiSwapChain33newCompatibleRenderPassDescriptorEv": [
+      "address", "address"
+    ],
+    "ritual_ZN13QRhiSwapChain14createOrResizeEv": ["bool", "address"],
+    "ritual_ZN13QRhiSwapChain7hdrInfoEv": ["address", "address"],
+    "ritual_take_QRhiSwapChain": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK13QRhiSwapChain12resourceTypeEv": ["int", "address"],
+    "ritual_own_ZN13QRhiSwapChain24currentFrameRenderTargetENS_18StereoTargetBufferE": [
+      "address", "address", "int"
+    ],
+    "ritual_own_ZN13QRhiSwapChain7hdrInfoEv": ["address", "address"]
+  }
+}

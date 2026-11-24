@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qaccessibilityhints_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN26QAccessibilityHintsPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK26QAccessibilityHintsPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QAccessibilityHintsPrivate24updateContrastPreferenceEN2Qt18ContrastPreferenceE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN26QAccessibilityHintsPrivate22updateMotionPreferenceEN2Qt16MotionPreferenceE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN26QAccessibilityHintsPrivate3getEP19QAccessibilityHints": [
+      "address", "address"
+    ]
+  }
+}

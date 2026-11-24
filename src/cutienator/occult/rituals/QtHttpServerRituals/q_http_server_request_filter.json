@@ -1,0 +1,40 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtHttpS",
+    "erver/6.12.0/QtHttpServer/private/qhttpserverrequestfilter_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN24QHttpServerRequestFilter16setConfigurationERK24QHttpServerConfiguration": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK24QHttpServerRequestFilter16isRequestAllowedERK12QHostAddress": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN24QHttpServerRequestFilter19isRequestWithinRateERK12QHostAddress": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN24QHttpServerRequestFilter19isRequestWithinRateERK12QHostAddressx": [
+      "bool", "address", "address", "long long"
+    ],
+    "ritual_ZNK24QHttpServerRequestFilter16isUrlSizeAllowedEx": [
+      "bool", "address", "long long"
+    ],
+    "ritual_ZNK24QHttpServerRequestFilter24isTotalHeaderSizeAllowedEx": [
+      "bool", "address", "long long"
+    ],
+    "ritual_ZNK24QHttpServerRequestFilter24isHeaderFieldSizeAllowedEx": [
+      "bool", "address", "long long"
+    ],
+    "ritual_ZNK24QHttpServerRequestFilter29isNumberOfHeaderFieldsAllowedEx": [
+      "bool", "address", "long long"
+    ],
+    "ritual_ZNK24QHttpServerRequestFilter17isBodySizeAllowedEx": [
+      "bool", "address", "long long"
+    ],
+    "ritual_ZNK24QHttpServerRequestFilter19maxRequestPerPeriodEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN24QHttpServerRequestFilterD1Ev": ["nothing", "address"]
+  }
+}

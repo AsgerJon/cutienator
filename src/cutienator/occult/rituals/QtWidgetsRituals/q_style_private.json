@@ -1,0 +1,14 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qstyle_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN13QStylePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK13QStylePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN13QStylePrivate3getEP6QStyle": ["address", "address"],
+    "ritual_ZN13QStylePrivate3getEPK6QStyle": ["address", "address"],
+    "ritual_ZN13QStylePrivate21useFullScreenForPopupEv": ["bool"]
+  }
+}

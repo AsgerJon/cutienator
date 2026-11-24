@@ -1,0 +1,35 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qstringhash_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QStringHashNodeC1Ev": ["address"],
+    "ritual_ZN15QStringHashNodeC1ERK13QHashedString": ["address", "address"],
+    "ritual_ZN15QStringHashNodeC1ERK17QHashedCStringRef": [
+      "address", "address"
+    ],
+    "ritual_ZN15QStringHashNodeC1ERKS_": ["address", "address"],
+    "ritual_ZN15QStringHashNodeD1Ev": ["nothing", "address"],
+    "ritual_ZNK15QStringHashNode3keyEv": ["address", "address"],
+    "ritual_ZNK15QStringHashNode9isQStringEv": ["bool", "address"],
+    "ritual_ZN15QStringHashNode10setQStringEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK15QStringHashNode4sizeEv": ["long long", "address"],
+    "ritual_ZNK15QStringHashNode8cStrDataEv": ["chars", "address"],
+    "ritual_ZNK15QStringHashNode6equalsERKN3QV45ValueE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK15QStringHashNode6equalsEPKN3QV46StringE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK15QStringHashNode6equalsERK16QHashedStringRef": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK15QStringHashNode6equalsERK17QHashedCStringRef": [
+      "bool", "address", "address"
+    ]
+  }
+}

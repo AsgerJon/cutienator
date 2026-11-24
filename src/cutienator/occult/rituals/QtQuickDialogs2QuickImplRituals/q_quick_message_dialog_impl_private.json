@@ -1,0 +1,30 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Dialogs2QuickImpl/6.12.0/QtQuickDialogs2QuickImpl/private/qquickme",
+    "ssagedialogimpl_p_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN30QQuickMessageDialogImplPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK30QQuickMessageDialogImplPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN30QQuickMessageDialogImplPrivate3getEP23QQuickMessageDialogImpl": [
+      "address", "address"
+    ],
+    "ritual_ZN30QQuickMessageDialogImplPrivate14attachedOrWarnEv": [
+      "address", "address"
+    ],
+    "ritual_ZN30QQuickMessageDialogImplPrivate11handleClickEP20QQuickAbstractButton": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QQuickMessageDialogImplPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN30QQuickMessageDialogImplPrivate11handleClickEP20QQuickAbstractButton": [
+      "nothing", "address", "address"
+    ]
+  }
+}

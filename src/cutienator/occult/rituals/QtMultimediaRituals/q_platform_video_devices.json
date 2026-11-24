@@ -1,0 +1,31 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtMulti",
+    "media/6.12.0/QtMultimedia/private/qplatformvideodevices_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK21QPlatformVideoDevices10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QPlatformVideoDevices2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN21QPlatformVideoDevicesD1Ev": ["nothing", "address"],
+    "ritual_ZNK21QPlatformVideoDevices11videoInputsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK21QPlatformVideoDevices15findVideoInputsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QPlatformVideoDevices20onVideoInputsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QPlatformVideoDevices22updateVideoInputsCacheEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QPlatformVideoDevices": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

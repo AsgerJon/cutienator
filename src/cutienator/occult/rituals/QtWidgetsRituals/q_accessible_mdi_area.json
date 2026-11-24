@@ -1,0 +1,26 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qaccessiblewidgets_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QAccessibleMdiAreaC1EP7QWidget": ["address", "address"],
+    "ritual_ZNK18QAccessibleMdiArea10childCountEv": ["int", "address"],
+    "ritual_ZNK18QAccessibleMdiArea5childEi": ["address", "address", "int"],
+    "ritual_ZNK18QAccessibleMdiArea12indexOfChildEPK20QAccessibleInterface": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK18QAccessibleMdiArea7mdiAreaEv": ["address", "address"],
+    "ritual_take_QAccessibleMdiArea": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK18QAccessibleMdiArea10childCountEv": ["int", "address"],
+    "ritual_own_ZNK18QAccessibleMdiArea5childEi": [
+      "address", "address", "int"
+    ],
+    "ritual_own_ZNK18QAccessibleMdiArea12indexOfChildEPK20QAccessibleInterface": [
+      "int", "address", "address"
+    ]
+  }
+}

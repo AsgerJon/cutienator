@@ -1,0 +1,55 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qcolortrclut_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN12QColorTrcLut12setFromGammaEfNS_9DirectionE": [
+      "nothing", "address", "float", "int"
+    ],
+    "ritual_ZN12QColorTrcLut23setFromTransferFunctionERK22QColorTransferFunctionNS_9DirectionE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN12QColorTrcLut20setFromTransferTableERK19QColorTransferTableNS_9DirectionE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN12QColorTrcLut30setFromTransferGenericFunctionERK29QColorTransferGenericFunctionNS_9DirectionE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN12QColorTrcLut10setFromTrcERK9QColorTrcNS_9DirectionE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZNK12QColorTrcLut10toLinear64Ej": [
+      "address", "address", "unsigned int"
+    ],
+    "ritual_ZNK12QColorTrcLut8toLinearEj": [
+      "unsigned int", "address", "unsigned int"
+    ],
+    "ritual_ZNK12QColorTrcLut8toLinearE7QRgba64": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK12QColorTrcLut13u8ToLinearF32Ei": ["float", "address", "int"],
+    "ritual_ZNK12QColorTrcLut14u16ToLinearF32Ei": [
+      "float", "address", "int"
+    ],
+    "ritual_ZNK12QColorTrcLut8toLinearEf": ["float", "address", "float"],
+    "ritual_ZNK12QColorTrcLut12fromLinear64E7QRgba64": [
+      "unsigned int", "address", "address"
+    ],
+    "ritual_ZNK12QColorTrcLut10fromLinearEj": [
+      "unsigned int", "address", "unsigned int"
+    ],
+    "ritual_ZNK12QColorTrcLut10fromLinearE7QRgba64": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK12QColorTrcLut15u8FromLinearF32Ef": [
+      "int", "address", "float"
+    ],
+    "ritual_ZNK12QColorTrcLut16u16FromLinearF32Ef": [
+      "int", "address", "float"
+    ],
+    "ritual_ZNK12QColorTrcLut10fromLinearEf": ["float", "address", "float"],
+    "ritual_ZN12QColorTrcLutC1Ev": ["address"]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLocation/6.12.0/QtLocation/private/qgeocameratiles_p_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN22QGeoCameraTilesPrivate14updateMetadataEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QGeoCameraTilesPrivate14updateGeometryEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK22QGeoCameraTilesPrivate13createFrustumEd": [
+      "address", "address", "double"
+    ],
+    "ritual_ZNK22QGeoCameraTilesPrivate16frustumFootprintERK7Frustum": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK22QGeoCameraTilesPrivate18clipFootprintToMapERK5QListI15QDoubleVector3DE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN22QGeoCameraTilesPrivate3getEP15QGeoCameraTiles": [
+      "address", "address"
+    ],
+    "ritual_ZN22QGeoCameraTilesPrivateD1Ev": ["nothing", "address"]
+  }
+}

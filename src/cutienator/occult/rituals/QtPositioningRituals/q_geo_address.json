@@ -1,0 +1,58 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtPositioning/qgeoaddress.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN11QGeoAddressC1Ev": ["address"],
+    "ritual_ZN11QGeoAddressC1ERKS_": ["address", "address"],
+    "ritual_ZN11QGeoAddressD1Ev": ["nothing", "address"],
+    "ritual_ZeqRK11QGeoAddressS1_": ["bool", "address", "address"],
+    "ritual_ZneRK11QGeoAddressS1_": ["bool", "address", "address"],
+    "ritual_ZNK11QGeoAddress4textEv": ["text", "address"],
+    "ritual_ZN11QGeoAddress7setTextERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK11QGeoAddress7countryEv": ["text", "address"],
+    "ritual_ZN11QGeoAddress10setCountryERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK11QGeoAddress11countryCodeEv": ["text", "address"],
+    "ritual_ZN11QGeoAddress14setCountryCodeERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK11QGeoAddress5stateEv": ["text", "address"],
+    "ritual_ZN11QGeoAddress8setStateERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK11QGeoAddress6countyEv": ["text", "address"],
+    "ritual_ZN11QGeoAddress9setCountyERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK11QGeoAddress4cityEv": ["text", "address"],
+    "ritual_ZN11QGeoAddress7setCityERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK11QGeoAddress8districtEv": ["text", "address"],
+    "ritual_ZN11QGeoAddress11setDistrictERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK11QGeoAddress10postalCodeEv": ["text", "address"],
+    "ritual_ZN11QGeoAddress13setPostalCodeERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK11QGeoAddress6streetEv": ["text", "address"],
+    "ritual_ZN11QGeoAddress9setStreetERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK11QGeoAddress12streetNumberEv": ["text", "address"],
+    "ritual_ZN11QGeoAddress15setStreetNumberERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK11QGeoAddress7isEmptyEv": ["bool", "address"],
+    "ritual_ZN11QGeoAddress5clearEv": ["nothing", "address"],
+    "ritual_ZNK11QGeoAddress15isTextGeneratedEv": ["bool", "address"],
+    "ritual_ZN11QGeoAddress6equalsERKS_S1_": ["bool", "address", "address"]
+  }
+}

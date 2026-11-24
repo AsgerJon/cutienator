@@ -1,0 +1,44 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtLabsW",
+    "avefrontMesh/6.12.0/QtLabsWavefrontMesh/private/qwavefrontmesh_p.h",
+    ", Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK14QWavefrontMesh10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QWavefrontMesh2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN14QWavefrontMeshC1EP7QObject": ["address", "address"],
+    "ritual_ZN14QWavefrontMeshD1Ev": ["nothing", "address"],
+    "ritual_ZNK14QWavefrontMesh6sourceEv": ["address", "address"],
+    "ritual_ZN14QWavefrontMesh9setSourceERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QWavefrontMesh9lastErrorEv": ["int", "address"],
+    "ritual_ZN14QWavefrontMesh12setLastErrorENS_5ErrorE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN14QWavefrontMesh18validateAttributesERK5QListI10QByteArrayEPi": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN14QWavefrontMesh14updateGeometryEP11QSGGeometryiiRK6QRectFS4_": [
+      "address", "address", "address", "int", "int", "address", "address"
+    ],
+    "ritual_ZNK14QWavefrontMesh3logEv": ["text", "address"],
+    "ritual_ZNK14QWavefrontMesh16projectionPlaneVEv": ["address", "address"],
+    "ritual_ZN14QWavefrontMesh19setProjectionPlaneVERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QWavefrontMesh16projectionPlaneWEv": ["address", "address"],
+    "ritual_ZN14QWavefrontMesh19setProjectionPlaneWERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QWavefrontMesh8readDataEv": ["nothing", "address"],
+    "ritual_take_QWavefrontMesh": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN14QWavefrontMesh14updateGeometryEP11QSGGeometryiiRK6QRectFS4_": [
+      "address", "address", "address", "int", "int", "address", "address"
+    ],
+    "ritual_own_ZNK14QWavefrontMesh3logEv": ["text", "address"]
+  }
+}

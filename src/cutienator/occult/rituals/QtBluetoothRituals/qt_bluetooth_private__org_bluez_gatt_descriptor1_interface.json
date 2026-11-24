@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtBluetooth/6.12.0/QtBluetooth/private/gattdesc1_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18QtBluetoothPrivate32OrgBluezGattDescriptor1Interface10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18QtBluetoothPrivate32OrgBluezGattDescriptor1Interface19staticInterfaceNameEv": [
+      "chars"
+    ],
+    "ritual_ZNK18QtBluetoothPrivate32OrgBluezGattDescriptor1Interface14characteristicEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18QtBluetoothPrivate32OrgBluezGattDescriptor1Interface4uUIDEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK18QtBluetoothPrivate32OrgBluezGattDescriptor1Interface5valueEv": [
+      "address", "address"
+    ],
+    "ritual_take_QtBluetoothPrivate_OrgBluezGattDescriptor1Interface": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

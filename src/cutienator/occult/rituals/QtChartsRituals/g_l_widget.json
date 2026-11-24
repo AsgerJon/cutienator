@@ -1,0 +1,56 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/6.12.0/QtCharts/private/glwidget_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK8GLWidget10metaObjectEv": ["address", "address"],
+    "ritual_ZN8GLWidgetD1Ev": ["nothing", "address"],
+    "ritual_ZNK8GLWidget10needsResetEv": ["bool", "address"],
+    "ritual_ZN8GLWidget7cleanupEv": ["nothing", "address"],
+    "ritual_ZN8GLWidget22cleanXYSeriesResourcesEPK9QXYSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8GLWidget7paintGLEv": ["nothing", "address"],
+    "ritual_ZN8GLWidget8resizeGLEii": ["nothing", "address", "int", "int"],
+    "ritual_ZN8GLWidget21mouseDoubleClickEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8GLWidget14mouseMoveEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8GLWidget15mousePressEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8GLWidget17mouseReleaseEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8GLWidget17findSeriesAtEventEP11QMouseEvent": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN8GLWidget6renderEb": ["nothing", "address", "bool"],
+    "ritual_ZN8GLWidget20recreateSelectionFboEv": ["nothing", "address"],
+    "ritual_ZN8GLWidget11chartSeriesEPK9QXYSeries": [
+      "address", "address", "address"
+    ],
+    "ritual_cast_GLWidget_QOpenGLFunctions": ["address", "address"],
+    "ritual_take_GLWidget": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN8GLWidget7paintGLEv": ["nothing", "address"],
+    "ritual_own_ZN8GLWidget8resizeGLEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZN8GLWidget21mouseDoubleClickEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN8GLWidget14mouseMoveEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN8GLWidget15mousePressEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN8GLWidget17mouseReleaseEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ]
+  }
+}

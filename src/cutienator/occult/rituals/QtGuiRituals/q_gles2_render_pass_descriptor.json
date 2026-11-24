@@ -1,0 +1,34 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qrhigles2_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN26QGles2RenderPassDescriptorC1EP18QRhiImplementation": [
+      "address", "address"
+    ],
+    "ritual_ZN26QGles2RenderPassDescriptorD1Ev": ["nothing", "address"],
+    "ritual_ZN26QGles2RenderPassDescriptor7destroyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK26QGles2RenderPassDescriptor12isCompatibleEPK24QRhiRenderPassDescriptor": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK26QGles2RenderPassDescriptor33newCompatibleRenderPassDescriptorEv": [
+      "address", "address"
+    ],
+    "ritual_take_QGles2RenderPassDescriptor": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN26QGles2RenderPassDescriptor7destroyEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZNK26QGles2RenderPassDescriptor12isCompatibleEPK24QRhiRenderPassDescriptor": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZNK26QGles2RenderPassDescriptor33newCompatibleRenderPassDescriptorEv": [
+      "address", "address"
+    ]
+  }
+}

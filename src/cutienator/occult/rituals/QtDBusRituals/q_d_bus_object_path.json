@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDBus/qdbusextratypes.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QDBusObjectPathC1Ev": ["address"],
+    "ritual_ZN15QDBusObjectPathC1EPKc": ["address", "chars"],
+    "ritual_ZN15QDBusObjectPathC1E13QLatin1String": ["address", "address"],
+    "ritual_ZN15QDBusObjectPathC1ERK7QString": ["address", "text"],
+    "ritual_ZN15QDBusObjectPath7setPathERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK15QDBusObjectPath4pathEv": ["text", "address"],
+    "ritual_ZNK15QDBusObjectPathcv8QVariantEv": ["address", "address"],
+    "ritual_Zls6QDebugRK15QDBusObjectPath": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN15QDBusObjectPath7doCheckEv": ["nothing", "address"],
+    "ritual_ZN15QDBusObjectPathD1Ev": ["nothing", "address"]
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4value_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN3QV45Value15fromStaticValueENS_11StaticValueE": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV45Value9undefinedEv": ["address"],
+    "ritual_ZNK3QV45Value8isStringEv": ["bool", "address"],
+    "ritual_ZNK3QV45Value16isStringOrSymbolEv": ["bool", "address"],
+    "ritual_ZNK3QV45Value8isSymbolEv": ["bool", "address"],
+    "ritual_ZNK3QV45Value8isObjectEv": ["bool", "address"],
+    "ritual_ZNK3QV45Value16isFunctionObjectEv": ["bool", "address"],
+    "ritual_ZNK3QV45Value11stringValueEv": ["address", "address"],
+    "ritual_ZNK3QV45Value19stringOrSymbolValueEv": ["address", "address"],
+    "ritual_ZNK3QV45Value11symbolValueEv": ["address", "address"],
+    "ritual_ZNK3QV45Value11objectValueEv": ["address", "address"],
+    "ritual_ZN3QV45Value14fromHeapObjectEPNS_4Heap4BaseE": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV45Value7toInt32Ev": ["int", "address"],
+    "ritual_ZNK3QV45Value8toUInt32Ev": ["unsigned int", "address"],
+    "ritual_ZNK3QV45Value8toLengthEv": ["long long", "address"],
+    "ritual_ZNK3QV45Value7toIndexEv": ["long long", "address"],
+    "ritual_ZNK3QV45Value9toBooleanEv": ["bool", "address"],
+    "ritual_ZNK3QV45Value9toIntegerEv": ["double", "address"],
+    "ritual_ZNK3QV45Value17convertedToNumberEv": [
+      "unsigned long long", "address"
+    ],
+    "ritual_ZNK3QV45Value8toNumberEv": ["double", "address"],
+    "ritual_ZNK3QV45Value12toNumberImplEv": ["double", "address"],
+    "ritual_ZNK3QV45Value8toStringEPNS_15ExecutionEngineE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK3QV45Value8toObjectEPNS_15ExecutionEngineE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK3QV45Value11isPrimitiveEv": ["bool", "address"],
+    "ritual_ZN3QV45Value17fromReturnedValueEy": [
+      "address", "unsigned long long"
+    ],
+    "ritual_ZN3QV45Value4markEPNS_9MarkStackE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN3QV45Value9toIntegerEd": ["double", "double"],
+    "ritual_ZN3QV45Value7toInt32Ed": ["int", "double"],
+    "ritual_ZN3QV45Value8toUInt32Ed": ["unsigned int", "double"],
+    "ritual_ZN3QV45Value10emptyValueEv": ["address"],
+    "ritual_ZN3QV45Value11fromBooleanEb": ["address", "bool"],
+    "ritual_ZN3QV45Value9fromInt32Ei": ["address", "int"],
+    "ritual_ZN3QV45Value14undefinedValueEv": ["address"],
+    "ritual_ZN3QV45Value9nullValueEv": ["address"],
+    "ritual_ZN3QV45Value10fromDoubleEd": ["address", "double"],
+    "ritual_ZN3QV45Value10fromUInt32Ej": ["address", "unsigned int"],
+    "ritual_ZN3QV45ValueD1Ev": ["nothing", "address"]
+  }
+}

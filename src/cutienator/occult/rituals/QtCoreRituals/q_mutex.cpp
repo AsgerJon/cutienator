@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/qmutex.h, Qt 6.12.0. Changes made here are lost.
+#include <QtCore/qglobal.h>
+#if QT_CONFIG(thread) || defined(Q_QDOC)
 #include <QtCore/qmutex.h>
 #include <QtCore/qdeadlinetimer.h>
 
@@ -34,3 +36,5 @@ bool ritual_ZN6QMutex7tryLockE14QDeadlineTimer(
     const QDeadlineTimer *timeout) {
   return self->tryLock(*timeout);
 }
+
+#endif  // QT_CONFIG(thread) || defined(Q_QDOC)

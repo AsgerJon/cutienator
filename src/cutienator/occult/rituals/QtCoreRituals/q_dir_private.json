@@ -1,0 +1,20 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qdir_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11QDirPrivateC1ERKS_": ["address", "address"],
+    "ritual_ZN11QDirPrivate17toDirListingFlagsE6QFlagsIN4QDir6FilterEE": [
+      "int", "int"
+    ],
+    "ritual_ZN11QDirPrivate16getFilterSepCharERK7QString": [
+      "address", "text"
+    ],
+    "ritual_ZN11QDirPrivate12splitFiltersERK7QString5QChar": [
+      "address", "text", "address"
+    ],
+    "ritual_ZN11QDirPrivateD1Ev": ["nothing", "address"]
+  }
+}

@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/qlatin1stringview.h, Qt 6.12.0. Changes made here are lost.
+#include <QtCore/qglobal.h>
+#if !(defined(Q_L1S_VIEW_IS_PRIMARY))
 #include <QtCore/qlatin1stringview.h>
 #include <QtCore/qbytearray.h>
 #include <QtCore/qbytearrayview.h>
@@ -881,6 +883,8 @@ bool ritual_ZgeRK11QStringViewRK13QLatin1String(
   return operator>=(QStringView(*lhs), *rhs);
 }
 
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
 //  bool operator==(const QLatin1StringView &lhs, const QByteArrayView &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZeqRK13QLatin1StringRK14QByteArrayView(
@@ -888,7 +892,10 @@ bool ritual_ZeqRK13QLatin1StringRK14QByteArrayView(
     const QByteArrayView *rhs) {
   return operator==(*lhs, *rhs);
 }
+#endif
 
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
 //  bool operator!=(const QLatin1StringView &lhs, const QByteArrayView &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZneRK13QLatin1StringRK14QByteArrayView(
@@ -896,7 +903,10 @@ bool ritual_ZneRK13QLatin1StringRK14QByteArrayView(
     const QByteArrayView *rhs) {
   return operator!=(*lhs, *rhs);
 }
+#endif
 
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
 //  bool operator<(const QLatin1StringView &lhs, const QByteArrayView &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZltRK13QLatin1StringRK14QByteArrayView(
@@ -904,7 +914,10 @@ bool ritual_ZltRK13QLatin1StringRK14QByteArrayView(
     const QByteArrayView *rhs) {
   return operator<(*lhs, *rhs);
 }
+#endif
 
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
 //  bool operator>(const QLatin1StringView &lhs, const QByteArrayView &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZgtRK13QLatin1StringRK14QByteArrayView(
@@ -912,7 +925,10 @@ bool ritual_ZgtRK13QLatin1StringRK14QByteArrayView(
     const QByteArrayView *rhs) {
   return operator>(*lhs, *rhs);
 }
+#endif
 
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
 //  bool operator<=(const QLatin1StringView &lhs, const QByteArrayView &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZleRK13QLatin1StringRK14QByteArrayView(
@@ -920,7 +936,10 @@ bool ritual_ZleRK13QLatin1StringRK14QByteArrayView(
     const QByteArrayView *rhs) {
   return operator<=(*lhs, *rhs);
 }
+#endif
 
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
 //  bool operator>=(const QLatin1StringView &lhs, const QByteArrayView &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZgeRK13QLatin1StringRK14QByteArrayView(
@@ -928,7 +947,10 @@ bool ritual_ZgeRK13QLatin1StringRK14QByteArrayView(
     const QByteArrayView *rhs) {
   return operator>=(*lhs, *rhs);
 }
+#endif
 
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
 //  bool operator==(const QByteArrayView &lhs, const QLatin1StringView &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZeqRK14QByteArrayViewRK13QLatin1String(
@@ -936,7 +958,10 @@ bool ritual_ZeqRK14QByteArrayViewRK13QLatin1String(
     const QLatin1String *rhs) {
   return operator==(*lhs, *rhs);
 }
+#endif
 
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
 //  bool operator!=(const QByteArrayView &lhs, const QLatin1StringView &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZneRK14QByteArrayViewRK13QLatin1String(
@@ -944,7 +969,10 @@ bool ritual_ZneRK14QByteArrayViewRK13QLatin1String(
     const QLatin1String *rhs) {
   return operator!=(*lhs, *rhs);
 }
+#endif
 
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
 //  bool operator<(const QByteArrayView &lhs, const QLatin1StringView &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZltRK14QByteArrayViewRK13QLatin1String(
@@ -952,7 +980,10 @@ bool ritual_ZltRK14QByteArrayViewRK13QLatin1String(
     const QLatin1String *rhs) {
   return operator<(*lhs, *rhs);
 }
+#endif
 
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
 //  bool operator>(const QByteArrayView &lhs, const QLatin1StringView &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZgtRK14QByteArrayViewRK13QLatin1String(
@@ -960,7 +991,10 @@ bool ritual_ZgtRK14QByteArrayViewRK13QLatin1String(
     const QLatin1String *rhs) {
   return operator>(*lhs, *rhs);
 }
+#endif
 
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
 //  bool operator<=(const QByteArrayView &lhs, const QLatin1StringView &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZleRK14QByteArrayViewRK13QLatin1String(
@@ -968,7 +1002,10 @@ bool ritual_ZleRK14QByteArrayViewRK13QLatin1String(
     const QLatin1String *rhs) {
   return operator<=(*lhs, *rhs);
 }
+#endif
 
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
 //  bool operator>=(const QByteArrayView &lhs, const QLatin1StringView &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZgeRK14QByteArrayViewRK13QLatin1String(
@@ -976,7 +1013,10 @@ bool ritual_ZgeRK14QByteArrayViewRK13QLatin1String(
     const QLatin1String *rhs) {
   return operator>=(*lhs, *rhs);
 }
+#endif
 
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
 //  bool operator==(const QLatin1StringView &lhs, const QByteArray &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZeqRK13QLatin1StringRK10QByteArray(
@@ -984,7 +1024,10 @@ bool ritual_ZeqRK13QLatin1StringRK10QByteArray(
     const QByteArray *rhs) {
   return operator==(*lhs, *rhs);
 }
+#endif
 
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
 //  bool operator!=(const QLatin1StringView &lhs, const QByteArray &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZneRK13QLatin1StringRK10QByteArray(
@@ -992,7 +1035,10 @@ bool ritual_ZneRK13QLatin1StringRK10QByteArray(
     const QByteArray *rhs) {
   return operator!=(*lhs, *rhs);
 }
+#endif
 
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
 //  bool operator<(const QLatin1StringView &lhs, const QByteArray &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZltRK13QLatin1StringRK10QByteArray(
@@ -1000,7 +1046,10 @@ bool ritual_ZltRK13QLatin1StringRK10QByteArray(
     const QByteArray *rhs) {
   return operator<(*lhs, *rhs);
 }
+#endif
 
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
 //  bool operator>(const QLatin1StringView &lhs, const QByteArray &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZgtRK13QLatin1StringRK10QByteArray(
@@ -1008,7 +1057,10 @@ bool ritual_ZgtRK13QLatin1StringRK10QByteArray(
     const QByteArray *rhs) {
   return operator>(*lhs, *rhs);
 }
+#endif
 
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
 //  bool operator<=(const QLatin1StringView &lhs, const QByteArray &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZleRK13QLatin1StringRK10QByteArray(
@@ -1016,7 +1068,10 @@ bool ritual_ZleRK13QLatin1StringRK10QByteArray(
     const QByteArray *rhs) {
   return operator<=(*lhs, *rhs);
 }
+#endif
 
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
 //  bool operator>=(const QLatin1StringView &lhs, const QByteArray &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZgeRK13QLatin1StringRK10QByteArray(
@@ -1024,7 +1079,10 @@ bool ritual_ZgeRK13QLatin1StringRK10QByteArray(
     const QByteArray *rhs) {
   return operator>=(*lhs, *rhs);
 }
+#endif
 
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
 //  bool operator==(const QByteArray &lhs, const QLatin1StringView &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZeqRK10QByteArrayRK13QLatin1String(
@@ -1032,7 +1090,10 @@ bool ritual_ZeqRK10QByteArrayRK13QLatin1String(
     const QLatin1String *rhs) {
   return operator==(*lhs, *rhs);
 }
+#endif
 
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
 //  bool operator!=(const QByteArray &lhs, const QLatin1StringView &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZneRK10QByteArrayRK13QLatin1String(
@@ -1040,7 +1101,10 @@ bool ritual_ZneRK10QByteArrayRK13QLatin1String(
     const QLatin1String *rhs) {
   return operator!=(*lhs, *rhs);
 }
+#endif
 
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
 //  bool operator<(const QByteArray &lhs, const QLatin1StringView &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZltRK10QByteArrayRK13QLatin1String(
@@ -1048,7 +1112,10 @@ bool ritual_ZltRK10QByteArrayRK13QLatin1String(
     const QLatin1String *rhs) {
   return operator<(*lhs, *rhs);
 }
+#endif
 
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
 //  bool operator>(const QByteArray &lhs, const QLatin1StringView &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZgtRK10QByteArrayRK13QLatin1String(
@@ -1056,7 +1123,10 @@ bool ritual_ZgtRK10QByteArrayRK13QLatin1String(
     const QLatin1String *rhs) {
   return operator>(*lhs, *rhs);
 }
+#endif
 
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
 //  bool operator<=(const QByteArray &lhs, const QLatin1StringView &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZleRK10QByteArrayRK13QLatin1String(
@@ -1064,7 +1134,10 @@ bool ritual_ZleRK10QByteArrayRK13QLatin1String(
     const QLatin1String *rhs) {
   return operator<=(*lhs, *rhs);
 }
+#endif
 
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
 //  bool operator>=(const QByteArray &lhs, const QLatin1StringView &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZgeRK10QByteArrayRK13QLatin1String(
@@ -1072,6 +1145,7 @@ bool ritual_ZgeRK10QByteArrayRK13QLatin1String(
     const QLatin1String *rhs) {
   return operator>=(*lhs, *rhs);
 }
+#endif
 
 //  void QLatin1String::verify(qsizetype pos, qsizetype n) const
 extern "C" Q_DECL_EXPORT
@@ -1127,3 +1201,5 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN13QLatin1StringD1Ev(QLatin1String *self) {
   delete self;
 }
+
+#endif  // !(defined(Q_L1S_VIEW_IS_PRIMARY))

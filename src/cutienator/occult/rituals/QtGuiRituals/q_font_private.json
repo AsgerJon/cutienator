@@ -1,0 +1,41 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qfont_p.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZN12QFontPrivateC1Ev": ["address"],
+    "ritual_ZN12QFontPrivateC1ERKS_": ["address", "address"],
+    "ritual_ZN12QFontPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZNK12QFontPrivate15engineForScriptEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK12QFontPrivate13smallCapsFontEv": ["address", "address"],
+    "ritual_ZNK12QFontPrivate20smallCapsFontPrivateEv": [
+      "address", "address"
+    ],
+    "ritual_ZN12QFontPrivate3getERK5QFont": ["address", "address"],
+    "ritual_ZN12QFontPrivate7resolveEjPKS_": [
+      "nothing", "address", "unsigned int", "address"
+    ],
+    "ritual_ZN12QFontPrivate23detachButKeepEngineDataEP5QFont": [
+      "nothing", "address"
+    ],
+    "ritual_ZN12QFontPrivate10setFeatureEN5QFont3TagEj": [
+      "nothing", "address", "address", "unsigned int"
+    ],
+    "ritual_ZN12QFontPrivate12unsetFeatureEN5QFont3TagE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QFontPrivate15setVariableAxisEN5QFont3TagEf": [
+      "nothing", "address", "address", "float"
+    ],
+    "ritual_ZN12QFontPrivate17unsetVariableAxisEN5QFont3TagE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12QFontPrivate15hasVariableAxisEN5QFont3TagEf": [
+      "bool", "address", "address", "float"
+    ]
+  }
+}

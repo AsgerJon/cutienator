@@ -1,0 +1,44 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DParticles/6.12.0/QtQuick3DParticles/private/qquick3dparticlerepe",
+    "ller_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK24QQuick3DParticleRepeller10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QQuick3DParticleRepeller2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN24QQuick3DParticleRepellerC1EP12QQuick3DNode": [
+      "address", "address"
+    ],
+    "ritual_ZNK24QQuick3DParticleRepeller6radiusEv": ["float", "address"],
+    "ritual_ZNK24QQuick3DParticleRepeller11outerRadiusEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK24QQuick3DParticleRepeller8strengthEv": ["float", "address"],
+    "ritual_ZN24QQuick3DParticleRepeller9setRadiusEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN24QQuick3DParticleRepeller14setOuterRadiusEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN24QQuick3DParticleRepeller11setStrengthEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN24QQuick3DParticleRepeller15prepareToAffectEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuick3DParticleRepeller14affectParticleERK20QQuick3DParticleDataP27QQuick3DParticleDataCurrentf": [
+      "nothing", "address", "address", "address", "float"
+    ],
+    "ritual_own_ZN24QQuick3DParticleRepeller15prepareToAffectEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN24QQuick3DParticleRepeller14affectParticleERK20QQuick3DParticleDataP27QQuick3DParticleDataCurrentf": [
+      "nothing", "address", "address", "address", "float"
+    ]
+  }
+}

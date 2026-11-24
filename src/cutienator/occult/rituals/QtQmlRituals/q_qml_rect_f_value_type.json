@@ -1,0 +1,36 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmlvaluetype_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QQmlRectFValueType20qt_qmlMarker_foreignEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQmlRectFValueType21qt_qmlMarker_extendedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQmlRectFValueTypeC1Ev": ["address"],
+    "ritual_ZN18QQmlRectFValueTypeC1ERK6QRectF": ["address", "address"],
+    "ritual_ZN18QQmlRectFValueTypeC1ERK5QRect": ["address", "address"],
+    "ritual_ZNK18QQmlRectFValueType8toStringEv": ["text", "address"],
+    "ritual_ZNK18QQmlRectFValueType1xEv": ["double", "address"],
+    "ritual_ZNK18QQmlRectFValueType1yEv": ["double", "address"],
+    "ritual_ZN18QQmlRectFValueType4setXEd": ["nothing", "address", "double"],
+    "ritual_ZN18QQmlRectFValueType4setYEd": ["nothing", "address", "double"],
+    "ritual_ZNK18QQmlRectFValueType5widthEv": ["double", "address"],
+    "ritual_ZNK18QQmlRectFValueType6heightEv": ["double", "address"],
+    "ritual_ZN18QQmlRectFValueType8setWidthEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN18QQmlRectFValueType9setHeightEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK18QQmlRectFValueType4leftEv": ["double", "address"],
+    "ritual_ZNK18QQmlRectFValueType5rightEv": ["double", "address"],
+    "ritual_ZNK18QQmlRectFValueType3topEv": ["double", "address"],
+    "ritual_ZNK18QQmlRectFValueType6bottomEv": ["double", "address"],
+    "ritual_ZN18QQmlRectFValueTypeD1Ev": ["nothing", "address"]
+  }
+}

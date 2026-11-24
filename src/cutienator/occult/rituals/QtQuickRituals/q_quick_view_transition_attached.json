@@ -1,0 +1,25 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickitemviewtransition_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK28QQuickViewTransitionAttached10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QQuickViewTransitionAttached24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QQuickViewTransitionAttached21qt_qmlMarker_attachedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK28QQuickViewTransitionAttached5indexEv": ["int", "address"],
+    "ritual_ZNK28QQuickViewTransitionAttached4itemEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QQuickViewTransitionAttached11destinationEv": [
+      "address", "address"
+    ]
+  }
+}

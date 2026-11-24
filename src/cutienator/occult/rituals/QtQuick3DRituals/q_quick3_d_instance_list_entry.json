@@ -1,0 +1,60 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3D/6.12.0/QtQuick3D/private/qquick3dinstancing_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK25QQuick3DInstanceListEntry10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QQuick3DInstanceListEntry2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN25QQuick3DInstanceListEntryC1EP14QQuick3DObject": [
+      "address", "address"
+    ],
+    "ritual_ZN25QQuick3DInstanceListEntryD1Ev": ["nothing", "address"],
+    "ritual_ZNK25QQuick3DInstanceListEntry8positionEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK25QQuick3DInstanceListEntry5scaleEv": ["address", "address"],
+    "ritual_ZNK25QQuick3DInstanceListEntry13eulerRotationEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK25QQuick3DInstanceListEntry8rotationEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK25QQuick3DInstanceListEntry5colorEv": ["address", "address"],
+    "ritual_ZNK25QQuick3DInstanceListEntry10customDataEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QQuick3DInstanceListEntry11setPositionE9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QQuick3DInstanceListEntry8setScaleE9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QQuick3DInstanceListEntry16setEulerRotationE9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QQuick3DInstanceListEntry11setRotationE11QQuaternion": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QQuick3DInstanceListEntry8setColorE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QQuick3DInstanceListEntry13setCustomDataE9QVector4D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QQuick3DInstanceListEntry17updateSpatialNodeEP21QSSGRenderGraphObject": [
+      "address", "address", "address"
+    ],
+    "ritual_take_QQuick3DInstanceListEntry": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN25QQuick3DInstanceListEntry17updateSpatialNodeEP21QSSGRenderGraphObject": [
+      "address", "address", "address"
+    ]
+  }
+}

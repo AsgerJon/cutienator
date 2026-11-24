@@ -1,0 +1,59 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/6.12.0/QtCharts/private/qabstractseries_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK22QAbstractSeriesPrivate10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QAbstractSeriesPrivate2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN22QAbstractSeriesPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN22QAbstractSeriesPrivate16initializeDomainEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QAbstractSeriesPrivate14initializeAxesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QAbstractSeriesPrivate15initializeThemeEiP10ChartThemeb": [
+      "nothing", "address", "int", "address", "bool"
+    ],
+    "ritual_ZN22QAbstractSeriesPrivate18initializeGraphicsEP13QGraphicsItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QAbstractSeriesPrivate19createLegendMarkersEP7QLegend": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK22QAbstractSeriesPrivate15defaultAxisTypeEN2Qt11OrientationE": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK22QAbstractSeriesPrivate17createDefaultAxisEN2Qt11OrientationE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN22QAbstractSeriesPrivate9chartItemEv": ["address", "address"],
+    "ritual_ZN22QAbstractSeriesPrivate9setDomainEP14AbstractDomain": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QAbstractSeriesPrivate6domainEv": ["address", "address"],
+    "ritual_ZN22QAbstractSeriesPrivate12setPresenterEP14ChartPresenter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK22QAbstractSeriesPrivate9presenterEv": ["address", "address"],
+    "ritual_ZN22QAbstractSeriesPrivate5chartEv": ["address", "address"],
+    "ritual_ZN22QAbstractSeriesPrivate14setBlockOpenGLEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_take_QAbstractSeriesPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN22QAbstractSeriesPrivate9setDomainEP14AbstractDomain": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN22QAbstractSeriesPrivate12setPresenterEP14ChartPresenter": [
+      "nothing", "address", "address"
+    ]
+  }
+}

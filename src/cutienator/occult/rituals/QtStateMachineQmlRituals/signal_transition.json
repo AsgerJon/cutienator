@@ -1,0 +1,47 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtState",
+    "MachineQml/6.12.0/QtStateMachineQml/private/signaltransition_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK16SignalTransition10metaObjectEv": ["address", "address"],
+    "ritual_ZN16SignalTransition2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN16SignalTransitionC1EP6QState": ["address", "address"],
+    "ritual_ZNK16SignalTransition5guardEv": ["address", "address"],
+    "ritual_ZN16SignalTransition8setGuardERK16QQmlScriptString": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16SignalTransition9eventTestEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN16SignalTransition12onTransitionEP6QEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16SignalTransition6signalEv": ["address", "address"],
+    "ritual_ZN16SignalTransition9setSignalERK8QJSValue": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16SignalTransition6invokeEv": ["nothing", "address"],
+    "ritual_ZN16SignalTransition10classBeginEv": ["nothing", "address"],
+    "ritual_ZN16SignalTransition17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16SignalTransition16connectTriggeredEv": [
+      "nothing", "address"
+    ],
+    "ritual_cast_SignalTransition_QQmlParserStatus": ["address", "address"],
+    "ritual_own_ZN16SignalTransition9eventTestEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN16SignalTransition12onTransitionEP6QEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16SignalTransition10classBeginEv": ["nothing", "address"],
+    "ritual_own_ZN16SignalTransition17componentCompleteEv": [
+      "nothing", "address"
+    ]
+  }
+}

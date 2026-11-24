@@ -1,0 +1,94 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmldata_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN8QQmlDataC1ENS_9OwnershipE": ["address", "int"],
+    "ritual_ZN8QQmlDataD1Ev": ["nothing", "address"],
+    "ritual_ZN8QQmlData4initEv": ["nothing"],
+    "ritual_ZN8QQmlData9destroyedEP24QAbstractDeclarativeDataP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8QQmlData9receiversEP24QAbstractDeclarativeDataPK7QObjecti": [
+      "int", "address", "address", "int"
+    ],
+    "ritual_ZN8QQmlData17isSignalConnectedEP24QAbstractDeclarativeDataPK7QObjecti": [
+      "bool", "address", "address", "int"
+    ],
+    "ritual_ZN8QQmlData9destroyedEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8QQmlData23setImplicitDestructibleEv": ["nothing", "address"],
+    "ritual_ZNK8QQmlData6notifyEi": ["address", "address", "int"],
+    "ritual_ZN8QQmlData9addNotifyEiP20QQmlNotifierEndpoint": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN8QQmlData13endpointCountEi": ["int", "address", "int"],
+    "ritual_ZNK8QQmlData17signalHasEndpointEi": ["bool", "address", "int"],
+    "ritual_ZN8QQmlData15connectEndpointEP20QQmlNotifierEndpointP7QObjectiP10QQmlEngineb": [
+      "nothing", "address", "address", "int", "address", "bool"
+    ],
+    "ritual_ZN8QQmlData19disconnectNotifiersENS_16DeleteNotifyListE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK8QQmlData13hasBindingBitEi": ["bool", "address", "int"],
+    "ritual_ZN8QQmlData13setBindingBitEP7QObjecti": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN8QQmlData15clearBindingBitEi": ["nothing", "address", "int"],
+    "ritual_ZNK8QQmlData20hasPendingBindingBitEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN8QQmlData20setPendingBindingBitEP7QObjecti": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN8QQmlData22clearPendingBindingBitEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN8QQmlData19releaseDeferredDataEv": ["nothing", "address"],
+    "ritual_ZN8QQmlData3getEP14QObjectPrivateb": [
+      "address", "address", "bool"
+    ],
+    "ritual_ZN8QQmlData3getEPK14QObjectPrivate": ["address", "address"],
+    "ritual_ZN8QQmlData3getEP7QObjectb": ["address", "address", "bool"],
+    "ritual_ZN8QQmlData3getEPK7QObject": ["address", "address"],
+    "ritual_ZN8QQmlData32keepAliveDuringGarbageCollectionEPK7QObject": [
+      "bool", "address"
+    ],
+    "ritual_ZNK8QQmlData15hasExtendedDataEv": ["bool", "address"],
+    "ritual_ZN8QQmlData10wasDeletedEPK7QObject": ["bool", "address"],
+    "ritual_ZN8QQmlData10wasDeletedEPK14QObjectPrivate": ["bool", "address"],
+    "ritual_ZN8QQmlData13markAsDeletedEP7QObject": ["nothing", "address"],
+    "ritual_ZN8QQmlData20setQueuedForDeletionEP7QObject": [
+      "nothing", "address"
+    ],
+    "ritual_ZN8QQmlData19flushPendingBindingEP7QObjecti": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN8QQmlData19flushPendingBindingEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN8QQmlData19ensurePropertyCacheEP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN8QQmlData12offsetForBitEi": ["unsigned int", "int"],
+    "ritual_ZN8QQmlData13bitFlagForBitEi": ["unsigned long long", "int"],
+    "ritual_ZN8QQmlData5clearEv": ["nothing", "address"],
+    "ritual_ZN8QQmlData14createQQmlDataEP14QObjectPrivate": [
+      "address", "address"
+    ],
+    "ritual_ZN8QQmlData19createPropertyCacheEP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN8QQmlData17removeFromContextEv": ["nothing", "address"],
+    "ritual_ZN8QQmlData13clearBindingsEv": ["nothing", "address"],
+    "ritual_ZN8QQmlData19clearSignalHandlersEv": ["bool", "address"],
+    "ritual_ZNK8QQmlData9hasBitSetEi": ["bool", "address", "int"],
+    "ritual_ZN8QQmlData8clearBitEi": ["nothing", "address", "int"],
+    "ritual_ZN8QQmlData6setBitEP7QObjecti": [
+      "nothing", "address", "address", "int"
+    ]
+  }
+}

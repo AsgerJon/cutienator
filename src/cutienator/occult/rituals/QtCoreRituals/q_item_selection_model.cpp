@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/qitemselectionmodel.h, Qt 6.12.0. Changes made here are lost.
+#include <QtCore/qglobal.h>
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qitemselectionmodel.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qabstractitemmodel.h>
@@ -10,80 +12,133 @@
 //  A QItemSelectionModel that Python can take functions over in. Every QItemSelectionModel
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if QT_CONFIG(itemmodel)
 typedef void (*CuteQItemSelectionModelCall0)(const void *, const QModelIndex *, int, int *);
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
 typedef void (*CuteQItemSelectionModelCall1)(const void *, const QModelIndex *, int, int *);
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
 typedef void (*CuteQItemSelectionModelCall2)(const void *, const QItemSelection *, int, int *);
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
 typedef void (*CuteQItemSelectionModelCall3)(const void *, int *);
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
 typedef void (*CuteQItemSelectionModelCall4)(const void *, int *);
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
 typedef void (*CuteQItemSelectionModelCall5)(const void *, int *);
+#endif  // QT_CONFIG(itemmodel)
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQItemSelectionModelCall6)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQItemSelectionModelCall7)(const void *, QObject *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQItemSelectionModelCall8)(const void *, QTimerEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQItemSelectionModelCall9)(const void *, QChildEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQItemSelectionModelCall10)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQItemSelectionModelCall11)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQItemSelectionModelCall12)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 class CuteQItemSelectionModel : public QItemSelectionModel {
 public:
   using QItemSelectionModel::QItemSelectionModel;
   void *taken[13] = {};
 
   bool take(const char *key, void *call) {
+#if QT_CONFIG(itemmodel)
     if (!std::strcmp(key, "_ZN19QItemSelectionModel15setCurrentIndexERK11QModelIndex6QFlagsINS_13SelectionFlagEE")) {
       taken[0] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
     if (!std::strcmp(key, "_ZN19QItemSelectionModel6selectERK11QModelIndex6QFlagsINS_13SelectionFlagEE")) {
       taken[1] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
     if (!std::strcmp(key, "_ZN19QItemSelectionModel6selectERK14QItemSelection6QFlagsINS_13SelectionFlagEE")) {
       taken[2] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
     if (!std::strcmp(key, "_ZN19QItemSelectionModel5clearEv")) {
       taken[3] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
     if (!std::strcmp(key, "_ZN19QItemSelectionModel5resetEv")) {
       taken[4] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
     if (!std::strcmp(key, "_ZN19QItemSelectionModel17clearCurrentIndexEv")) {
       taken[5] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemmodel)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[6] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[7] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[8] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[9] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[10] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[11] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
       taken[12] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
     return false;
   }
 
+#if QT_CONFIG(itemmodel)
   //  void QItemSelectionModel::setCurrentIndex(const QModelIndex &index,
   //      QItemSelectionModel::SelectionFlags command)
   void setCurrentIndex(
@@ -97,7 +152,9 @@ public:
     }
     QItemSelectionModel::setCurrentIndex(index, command);
   }
+#endif  // QT_CONFIG(itemmodel)
 
+#if QT_CONFIG(itemmodel)
   //  void QItemSelectionModel::select(const QModelIndex &index,
   //      QItemSelectionModel::SelectionFlags command)
   void select(
@@ -111,7 +168,9 @@ public:
     }
     QItemSelectionModel::select(index, command);
   }
+#endif  // QT_CONFIG(itemmodel)
 
+#if QT_CONFIG(itemmodel)
   //  void QItemSelectionModel::select(const QItemSelection &selection,
   //      QItemSelectionModel::SelectionFlags command)
   void select(
@@ -125,7 +184,9 @@ public:
     }
     QItemSelectionModel::select(selection, command);
   }
+#endif  // QT_CONFIG(itemmodel)
 
+#if QT_CONFIG(itemmodel)
   //  void QItemSelectionModel::clear()
   void clear() override {
     if (taken[3]) {
@@ -136,7 +197,9 @@ public:
     }
     QItemSelectionModel::clear();
   }
+#endif  // QT_CONFIG(itemmodel)
 
+#if QT_CONFIG(itemmodel)
   //  void QItemSelectionModel::reset()
   void reset() override {
     if (taken[4]) {
@@ -147,7 +210,9 @@ public:
     }
     QItemSelectionModel::reset();
   }
+#endif  // QT_CONFIG(itemmodel)
 
+#if QT_CONFIG(itemmodel)
   //  void QItemSelectionModel::clearCurrentIndex()
   void clearCurrentIndex() override {
     if (taken[5]) {
@@ -158,7 +223,9 @@ public:
     }
     QItemSelectionModel::clearCurrentIndex();
   }
+#endif  // QT_CONFIG(itemmodel)
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QObject::event(QEvent *event)
   bool event(QEvent *event) override {
     if (taken[6]) {
@@ -169,7 +236,9 @@ public:
     }
     return QObject::event(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
     if (taken[7]) {
@@ -180,7 +249,9 @@ public:
     }
     return QObject::eventFilter(watched, event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
     if (taken[8]) {
@@ -191,7 +262,9 @@ public:
     }
     QObject::timerEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
     if (taken[9]) {
@@ -202,7 +275,9 @@ public:
     }
     QObject::childEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
     if (taken[10]) {
@@ -213,7 +288,9 @@ public:
     }
     QObject::customEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
     if (taken[11]) {
@@ -224,7 +301,9 @@ public:
     }
     QObject::connectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
     if (taken[12]) {
@@ -235,6 +314,7 @@ public:
     }
     QObject::disconnectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 };
 
 //  const QMetaObject *QItemSelectionModel::metaObject() const
@@ -251,6 +331,20 @@ QString *ritual_ZN19QItemSelectionModel2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QItemSelectionModel::tr(s, c, n));
+}
+
+//  QItemSelectionModelPrivate *QItemSelectionModel::d_func()
+extern "C" Q_DECL_EXPORT
+QItemSelectionModelPrivate *ritual_ZN19QItemSelectionModel6d_funcEv(
+    QItemSelectionModel *self) {
+  return self->d_func();
+}
+
+//  const QItemSelectionModelPrivate *QItemSelectionModel::d_func() const
+extern "C" Q_DECL_EXPORT
+const QItemSelectionModelPrivate *ritual_ZNK19QItemSelectionModel6d_funcEv(
+    const QItemSelectionModel *self) {
+  return self->d_func();
 }
 
 //  QItemSelectionModel::QItemSelectionModel(QAbstractItemModel *model)
@@ -525,3 +619,5 @@ void ritual_own_ZN19QItemSelectionModel17clearCurrentIndexEv(
     QItemSelectionModel *self) {
   self->QItemSelectionModel::clearCurrentIndex();
 }
+
+#endif  // QT_CONFIG(itemmodel)

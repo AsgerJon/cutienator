@@ -1,0 +1,35 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/qpa/qplatformscreen.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN26QPlatformPlaceholderScreenC1Eb": ["address", "bool"],
+    "ritual_ZNK26QPlatformPlaceholderScreen13isPlaceholderEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK26QPlatformPlaceholderScreen8geometryEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK26QPlatformPlaceholderScreen17availableGeometryEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK26QPlatformPlaceholderScreen5depthEv": ["int", "address"],
+    "ritual_ZNK26QPlatformPlaceholderScreen6formatEv": ["int", "address"],
+    "ritual_ZNK26QPlatformPlaceholderScreen15virtualSiblingsEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK26QPlatformPlaceholderScreen13isPlaceholderEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZNK26QPlatformPlaceholderScreen8geometryEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK26QPlatformPlaceholderScreen17availableGeometryEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK26QPlatformPlaceholderScreen5depthEv": ["int", "address"],
+    "ritual_own_ZNK26QPlatformPlaceholderScreen6formatEv": ["int", "address"]
+  }
+}

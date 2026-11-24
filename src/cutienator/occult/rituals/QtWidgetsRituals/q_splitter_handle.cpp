@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qsplitter.h, Qt 6.12.0. Changes made here are lost.
+#include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(splitter)
 #include <QtWidgets/qsplitter.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qsize.h>
@@ -21,13 +23,29 @@ struct OwnQSplitterHandle : QSplitterHandle {
 //  A QSplitterHandle that Python can take functions over in. Every QSplitterHandle
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if QT_CONFIG(splitter)
 typedef const QSize * (*CuteQSplitterHandleCall0)(const void *, int *);
+#endif  // QT_CONFIG(splitter)
+#if QT_CONFIG(splitter)
 typedef void (*CuteQSplitterHandleCall1)(const void *, QPaintEvent *, int *);
+#endif  // QT_CONFIG(splitter)
+#if QT_CONFIG(splitter)
 typedef void (*CuteQSplitterHandleCall2)(const void *, QMouseEvent *, int *);
+#endif  // QT_CONFIG(splitter)
+#if QT_CONFIG(splitter)
 typedef void (*CuteQSplitterHandleCall3)(const void *, QMouseEvent *, int *);
+#endif  // QT_CONFIG(splitter)
+#if QT_CONFIG(splitter)
 typedef void (*CuteQSplitterHandleCall4)(const void *, QMouseEvent *, int *);
+#endif  // QT_CONFIG(splitter)
+#if QT_CONFIG(splitter)
 typedef void (*CuteQSplitterHandleCall5)(const void *, QResizeEvent *, int *);
+#endif  // QT_CONFIG(splitter)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(splitter)
 typedef bool (*CuteQSplitterHandleCall6)(const void *, QEvent *, int *);
+#endif  // QT_CONFIG(splitter)
+#endif  // !defined(QT_NO_QOBJECT)
 typedef int (*CuteQSplitterHandleCall7)(const void *, int *);
 typedef void (*CuteQSplitterHandleCall8)(const void *, bool, int *);
 typedef const QSize * (*CuteQSplitterHandleCall9)(const void *, int *);
@@ -35,7 +53,9 @@ typedef int (*CuteQSplitterHandleCall10)(const void *, int, int *);
 typedef bool (*CuteQSplitterHandleCall11)(const void *, int *);
 typedef void * (*CuteQSplitterHandleCall12)(const void *, int *);
 typedef void (*CuteQSplitterHandleCall13)(const void *, QMouseEvent *, int *);
+#if QT_CONFIG(wheelevent)
 typedef void (*CuteQSplitterHandleCall14)(const void *, QWheelEvent *, int *);
+#endif  // QT_CONFIG(wheelevent)
 typedef void (*CuteQSplitterHandleCall15)(const void *, QKeyEvent *, int *);
 typedef void (*CuteQSplitterHandleCall16)(const void *, QKeyEvent *, int *);
 typedef void (*CuteQSplitterHandleCall17)(const void *, QFocusEvent *, int *);
@@ -44,13 +64,27 @@ typedef void (*CuteQSplitterHandleCall19)(const void *, QEnterEvent *, int *);
 typedef void (*CuteQSplitterHandleCall20)(const void *, QEvent *, int *);
 typedef void (*CuteQSplitterHandleCall21)(const void *, QMoveEvent *, int *);
 typedef void (*CuteQSplitterHandleCall22)(const void *, QCloseEvent *, int *);
+#if !defined(QT_NO_CONTEXTMENU)
 typedef void (*CuteQSplitterHandleCall23)(const void *, QContextMenuEvent *, int *);
+#endif  // !defined(QT_NO_CONTEXTMENU)
+#if QT_CONFIG(tabletevent)
 typedef void (*CuteQSplitterHandleCall24)(const void *, QTabletEvent *, int *);
+#endif  // QT_CONFIG(tabletevent)
+#if !defined(QT_NO_ACTION)
 typedef void (*CuteQSplitterHandleCall25)(const void *, QActionEvent *, int *);
+#endif  // !defined(QT_NO_ACTION)
+#if QT_CONFIG(draganddrop)
 typedef void (*CuteQSplitterHandleCall26)(const void *, QDragEnterEvent *, int *);
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
 typedef void (*CuteQSplitterHandleCall27)(const void *, QDragMoveEvent *, int *);
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
 typedef void (*CuteQSplitterHandleCall28)(const void *, QDragLeaveEvent *, int *);
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
 typedef void (*CuteQSplitterHandleCall29)(const void *, QDropEvent *, int *);
+#endif  // QT_CONFIG(draganddrop)
 typedef void (*CuteQSplitterHandleCall30)(const void *, QShowEvent *, int *);
 typedef void (*CuteQSplitterHandleCall31)(const void *, QHideEvent *, int *);
 typedef void (*CuteQSplitterHandleCall32)(const void *, QEvent *, int *);
@@ -61,46 +95,74 @@ typedef void * (*CuteQSplitterHandleCall36)(const void *, int *);
 typedef void (*CuteQSplitterHandleCall37)(const void *, QInputMethodEvent *, int *);
 typedef const QVariant * (*CuteQSplitterHandleCall38)(const void *, int, int *);
 typedef bool (*CuteQSplitterHandleCall39)(const void *, bool, int *);
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQSplitterHandleCall40)(const void *, QObject *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQSplitterHandleCall41)(const void *, QTimerEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQSplitterHandleCall42)(const void *, QChildEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQSplitterHandleCall43)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQSplitterHandleCall44)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQSplitterHandleCall45)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 class CuteQSplitterHandle : public QSplitterHandle {
 public:
   using QSplitterHandle::QSplitterHandle;
   void *taken[46] = {};
 
   bool take(const char *key, void *call) {
+#if QT_CONFIG(splitter)
     if (!std::strcmp(key, "_ZNK7QWidget8sizeHintEv")) {
       taken[0] = call;
       return true;
     }
+#endif  // QT_CONFIG(splitter)
+#if QT_CONFIG(splitter)
     if (!std::strcmp(key, "_ZN7QWidget10paintEventEP11QPaintEvent")) {
       taken[1] = call;
       return true;
     }
+#endif  // QT_CONFIG(splitter)
+#if QT_CONFIG(splitter)
     if (!std::strcmp(key, "_ZN7QWidget14mouseMoveEventEP11QMouseEvent")) {
       taken[2] = call;
       return true;
     }
+#endif  // QT_CONFIG(splitter)
+#if QT_CONFIG(splitter)
     if (!std::strcmp(key, "_ZN7QWidget15mousePressEventEP11QMouseEvent")) {
       taken[3] = call;
       return true;
     }
+#endif  // QT_CONFIG(splitter)
+#if QT_CONFIG(splitter)
     if (!std::strcmp(key, "_ZN7QWidget17mouseReleaseEventEP11QMouseEvent")) {
       taken[4] = call;
       return true;
     }
+#endif  // QT_CONFIG(splitter)
+#if QT_CONFIG(splitter)
     if (!std::strcmp(key, "_ZN7QWidget11resizeEventEP12QResizeEvent")) {
       taken[5] = call;
       return true;
     }
+#endif  // QT_CONFIG(splitter)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(splitter)
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[6] = call;
       return true;
     }
+#endif  // QT_CONFIG(splitter)
+#endif  // !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZNK12QPaintDevice7devTypeEv")) {
       taken[7] = call;
       return true;
@@ -129,10 +191,12 @@ public:
       taken[13] = call;
       return true;
     }
+#if QT_CONFIG(wheelevent)
     if (!std::strcmp(key, "_ZN7QWidget10wheelEventEP11QWheelEvent")) {
       taken[14] = call;
       return true;
     }
+#endif  // QT_CONFIG(wheelevent)
     if (!std::strcmp(key, "_ZN7QWidget13keyPressEventEP9QKeyEvent")) {
       taken[15] = call;
       return true;
@@ -165,34 +229,48 @@ public:
       taken[22] = call;
       return true;
     }
+#if !defined(QT_NO_CONTEXTMENU)
     if (!std::strcmp(key, "_ZN7QWidget16contextMenuEventEP17QContextMenuEvent")) {
       taken[23] = call;
       return true;
     }
+#endif  // !defined(QT_NO_CONTEXTMENU)
+#if QT_CONFIG(tabletevent)
     if (!std::strcmp(key, "_ZN7QWidget11tabletEventEP12QTabletEvent")) {
       taken[24] = call;
       return true;
     }
+#endif  // QT_CONFIG(tabletevent)
+#if !defined(QT_NO_ACTION)
     if (!std::strcmp(key, "_ZN7QWidget11actionEventEP12QActionEvent")) {
       taken[25] = call;
       return true;
     }
+#endif  // !defined(QT_NO_ACTION)
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget14dragEnterEventEP15QDragEnterEvent")) {
       taken[26] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget13dragMoveEventEP14QDragMoveEvent")) {
       taken[27] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget14dragLeaveEventEP15QDragLeaveEvent")) {
       taken[28] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget9dropEventEP10QDropEvent")) {
       taken[29] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget9showEventEP10QShowEvent")) {
       taken[30] = call;
       return true;
@@ -233,33 +311,46 @@ public:
       taken[39] = call;
       return true;
     }
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[40] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[41] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[42] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[43] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[44] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
       taken[45] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
     return false;
   }
 
+#if QT_CONFIG(splitter)
   //  QSize QSplitterHandle::sizeHint() const
   QSize sizeHint() const override {
     if (taken[0]) {
@@ -270,7 +361,9 @@ public:
     }
     return QSplitterHandle::sizeHint();
   }
+#endif  // QT_CONFIG(splitter)
 
+#if QT_CONFIG(splitter)
   //  void QSplitterHandle::paintEvent(QPaintEvent *a0)
   void paintEvent(QPaintEvent *a0) override {
     if (taken[1]) {
@@ -281,7 +374,9 @@ public:
     }
     QSplitterHandle::paintEvent(a0);
   }
+#endif  // QT_CONFIG(splitter)
 
+#if QT_CONFIG(splitter)
   //  void QSplitterHandle::mouseMoveEvent(QMouseEvent *a0)
   void mouseMoveEvent(QMouseEvent *a0) override {
     if (taken[2]) {
@@ -292,7 +387,9 @@ public:
     }
     QSplitterHandle::mouseMoveEvent(a0);
   }
+#endif  // QT_CONFIG(splitter)
 
+#if QT_CONFIG(splitter)
   //  void QSplitterHandle::mousePressEvent(QMouseEvent *a0)
   void mousePressEvent(QMouseEvent *a0) override {
     if (taken[3]) {
@@ -303,7 +400,9 @@ public:
     }
     QSplitterHandle::mousePressEvent(a0);
   }
+#endif  // QT_CONFIG(splitter)
 
+#if QT_CONFIG(splitter)
   //  void QSplitterHandle::mouseReleaseEvent(QMouseEvent *a0)
   void mouseReleaseEvent(QMouseEvent *a0) override {
     if (taken[4]) {
@@ -314,7 +413,9 @@ public:
     }
     QSplitterHandle::mouseReleaseEvent(a0);
   }
+#endif  // QT_CONFIG(splitter)
 
+#if QT_CONFIG(splitter)
   //  void QSplitterHandle::resizeEvent(QResizeEvent *a0)
   void resizeEvent(QResizeEvent *a0) override {
     if (taken[5]) {
@@ -325,7 +426,10 @@ public:
     }
     QSplitterHandle::resizeEvent(a0);
   }
+#endif  // QT_CONFIG(splitter)
 
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(splitter)
   //  bool QSplitterHandle::event(QEvent *a0)
   bool event(QEvent *a0) override {
     if (taken[6]) {
@@ -336,6 +440,8 @@ public:
     }
     return QSplitterHandle::event(a0);
   }
+#endif  // QT_CONFIG(splitter)
+#endif  // !defined(QT_NO_QOBJECT)
 
   //  int QWidget::devType() const
   int devType() const override {
@@ -414,6 +520,7 @@ public:
     QWidget::mouseDoubleClickEvent(event);
   }
 
+#if QT_CONFIG(wheelevent)
   //  void QWidget::wheelEvent(QWheelEvent *event)
   void wheelEvent(QWheelEvent *event) override {
     if (taken[14]) {
@@ -424,6 +531,7 @@ public:
     }
     QWidget::wheelEvent(event);
   }
+#endif  // QT_CONFIG(wheelevent)
 
   //  void QWidget::keyPressEvent(QKeyEvent *event)
   void keyPressEvent(QKeyEvent *event) override {
@@ -513,6 +621,7 @@ public:
     QWidget::closeEvent(event);
   }
 
+#if !defined(QT_NO_CONTEXTMENU)
   //  void QWidget::contextMenuEvent(QContextMenuEvent *event)
   void contextMenuEvent(QContextMenuEvent *event) override {
     if (taken[23]) {
@@ -523,7 +632,9 @@ public:
     }
     QWidget::contextMenuEvent(event);
   }
+#endif  // !defined(QT_NO_CONTEXTMENU)
 
+#if QT_CONFIG(tabletevent)
   //  void QWidget::tabletEvent(QTabletEvent *event)
   void tabletEvent(QTabletEvent *event) override {
     if (taken[24]) {
@@ -534,7 +645,9 @@ public:
     }
     QWidget::tabletEvent(event);
   }
+#endif  // QT_CONFIG(tabletevent)
 
+#if !defined(QT_NO_ACTION)
   //  void QWidget::actionEvent(QActionEvent *event)
   void actionEvent(QActionEvent *event) override {
     if (taken[25]) {
@@ -545,7 +658,9 @@ public:
     }
     QWidget::actionEvent(event);
   }
+#endif  // !defined(QT_NO_ACTION)
 
+#if QT_CONFIG(draganddrop)
   //  void QWidget::dragEnterEvent(QDragEnterEvent *event)
   void dragEnterEvent(QDragEnterEvent *event) override {
     if (taken[26]) {
@@ -556,7 +671,9 @@ public:
     }
     QWidget::dragEnterEvent(event);
   }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
   //  void QWidget::dragMoveEvent(QDragMoveEvent *event)
   void dragMoveEvent(QDragMoveEvent *event) override {
     if (taken[27]) {
@@ -567,7 +684,9 @@ public:
     }
     QWidget::dragMoveEvent(event);
   }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
   //  void QWidget::dragLeaveEvent(QDragLeaveEvent *event)
   void dragLeaveEvent(QDragLeaveEvent *event) override {
     if (taken[28]) {
@@ -578,7 +697,9 @@ public:
     }
     QWidget::dragLeaveEvent(event);
   }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
   //  void QWidget::dropEvent(QDropEvent *event)
   void dropEvent(QDropEvent *event) override {
     if (taken[29]) {
@@ -589,6 +710,7 @@ public:
     }
     QWidget::dropEvent(event);
   }
+#endif  // QT_CONFIG(draganddrop)
 
   //  void QWidget::showEvent(QShowEvent *event)
   void showEvent(QShowEvent *event) override {
@@ -700,6 +822,7 @@ public:
     return QWidget::focusNextPrevChild(next);
   }
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
     if (taken[40]) {
@@ -710,7 +833,9 @@ public:
     }
     return QObject::eventFilter(watched, event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
     if (taken[41]) {
@@ -721,7 +846,9 @@ public:
     }
     QObject::timerEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
     if (taken[42]) {
@@ -732,7 +859,9 @@ public:
     }
     QObject::childEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
     if (taken[43]) {
@@ -743,7 +872,9 @@ public:
     }
     QObject::customEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
     if (taken[44]) {
@@ -754,7 +885,9 @@ public:
     }
     QObject::connectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
     if (taken[45]) {
@@ -765,6 +898,7 @@ public:
     }
     QObject::disconnectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 };
 
 //  const QMetaObject *QSplitterHandle::metaObject() const
@@ -896,6 +1030,20 @@ int ritual_ZN15QSplitterHandle20closestLegalPositionEi(
   return self->closestLegalPosition(p);
 }
 
+//  QSplitterHandlePrivate *QSplitterHandle::d_func()
+extern "C" Q_DECL_EXPORT
+QSplitterHandlePrivate *ritual_ZN15QSplitterHandle6d_funcEv(
+    QSplitterHandle *self) {
+  return self->d_func();
+}
+
+//  const QSplitterHandlePrivate *QSplitterHandle::d_func() const
+extern "C" Q_DECL_EXPORT
+const QSplitterHandlePrivate *ritual_ZNK15QSplitterHandle6d_funcEv(
+    const QSplitterHandle *self) {
+  return self->d_func();
+}
+
 //  a Python function taken by a CuteQSplitterHandle, for the function named
 //      by the key
 extern "C" Q_DECL_EXPORT
@@ -966,3 +1114,5 @@ bool ritual_own_ZN15QSplitterHandle5eventEP6QEvent(
   return static_cast<OwnQSplitterHandle *>(self)->OwnQSplitterHandle::event(
       a0);
 }
+
+#endif  // QT_CONFIG(splitter)

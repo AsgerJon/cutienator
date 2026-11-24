@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DHelpers/6.12.0/QtQuick3DHelpers/private/qquick3dsimplequadrender",
+    "pass_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK26QQuick3DSimpleQuadRenderer10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK26QQuick3DSimpleQuadRenderer7textureEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QQuick3DSimpleQuadRenderer10itemChangeEN14QQuick3DObject10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN26QQuick3DSimpleQuadRenderer18updateSceneManagerEP20QQuick3DSceneManager": [
+      "nothing", "address", "address"
+    ]
+  }
+}

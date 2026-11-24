@@ -1,0 +1,113 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtMultimedia/qcamera.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK7QCamera10metaObjectEv": ["address", "address"],
+    "ritual_ZN7QCamera2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN7QCameraC1EP7QObject": ["address", "address"],
+    "ritual_ZN7QCameraC1ERK13QCameraDeviceP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN7QCameraC1EN13QCameraDevice8PositionEP7QObject": [
+      "address", "int", "address"
+    ],
+    "ritual_ZN7QCameraD1Ev": ["nothing", "address"],
+    "ritual_ZNK7QCamera11isAvailableEv": ["bool", "address"],
+    "ritual_ZNK7QCamera8isActiveEv": ["bool", "address"],
+    "ritual_ZNK7QCamera14captureSessionEv": ["address", "address"],
+    "ritual_ZNK7QCamera12cameraDeviceEv": ["address", "address"],
+    "ritual_ZN7QCamera15setCameraDeviceERK13QCameraDevice": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK7QCamera12cameraFormatEv": ["address", "address"],
+    "ritual_ZN7QCamera15setCameraFormatERK13QCameraFormat": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK7QCamera5errorEv": ["int", "address"],
+    "ritual_ZNK7QCamera11errorStringEv": ["text", "address"],
+    "ritual_ZNK7QCamera17supportedFeaturesEv": ["int", "address"],
+    "ritual_ZNK7QCamera9focusModeEv": ["int", "address"],
+    "ritual_ZN7QCamera12setFocusModeENS_9FocusModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK7QCamera20isFocusModeSupportedENS_9FocusModeE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK7QCamera10focusPointEv": ["address", "address"],
+    "ritual_ZNK7QCamera16customFocusPointEv": ["address", "address"],
+    "ritual_ZN7QCamera19setCustomFocusPointERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QCamera16setFocusDistanceEf": ["nothing", "address", "float"],
+    "ritual_ZNK7QCamera13focusDistanceEv": ["float", "address"],
+    "ritual_ZNK7QCamera17minimumZoomFactorEv": ["float", "address"],
+    "ritual_ZNK7QCamera17maximumZoomFactorEv": ["float", "address"],
+    "ritual_ZNK7QCamera10zoomFactorEv": ["float", "address"],
+    "ritual_ZN7QCamera13setZoomFactorEf": ["nothing", "address", "float"],
+    "ritual_ZNK7QCamera9flashModeEv": ["int", "address"],
+    "ritual_ZNK7QCamera20isFlashModeSupportedENS_9FlashModeE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK7QCamera12isFlashReadyEv": ["bool", "address"],
+    "ritual_ZNK7QCamera9torchModeEv": ["int", "address"],
+    "ritual_ZNK7QCamera20isTorchModeSupportedENS_9TorchModeE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK7QCamera12exposureModeEv": ["int", "address"],
+    "ritual_ZNK7QCamera23isExposureModeSupportedENS_12ExposureModeE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK7QCamera20exposureCompensationEv": ["float", "address"],
+    "ritual_ZNK7QCamera14isoSensitivityEv": ["int", "address"],
+    "ritual_ZNK7QCamera20manualIsoSensitivityEv": ["int", "address"],
+    "ritual_ZNK7QCamera12exposureTimeEv": ["float", "address"],
+    "ritual_ZNK7QCamera18manualExposureTimeEv": ["float", "address"],
+    "ritual_ZNK7QCamera21minimumIsoSensitivityEv": ["int", "address"],
+    "ritual_ZNK7QCamera21maximumIsoSensitivityEv": ["int", "address"],
+    "ritual_ZNK7QCamera19minimumExposureTimeEv": ["float", "address"],
+    "ritual_ZNK7QCamera19maximumExposureTimeEv": ["float", "address"],
+    "ritual_ZNK7QCamera16whiteBalanceModeEv": ["int", "address"],
+    "ritual_ZNK7QCamera27isWhiteBalanceModeSupportedENS_16WhiteBalanceModeE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK7QCamera16colorTemperatureEv": ["int", "address"],
+    "ritual_ZN7QCamera9setActiveEb": ["nothing", "address", "bool"],
+    "ritual_ZN7QCamera5startEv": ["nothing", "address"],
+    "ritual_ZN7QCamera4stopEv": ["nothing", "address"],
+    "ritual_ZN7QCamera6zoomToEff": ["nothing", "address", "float", "float"],
+    "ritual_ZN7QCamera12setFlashModeENS_9FlashModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN7QCamera12setTorchModeENS_9TorchModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN7QCamera15setExposureModeENS_12ExposureModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN7QCamera23setExposureCompensationEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN7QCamera23setManualIsoSensitivityEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN7QCamera21setAutoIsoSensitivityEv": ["nothing", "address"],
+    "ritual_ZN7QCamera21setManualExposureTimeEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN7QCamera19setAutoExposureTimeEv": ["nothing", "address"],
+    "ritual_ZN7QCamera19setWhiteBalanceModeENS_16WhiteBalanceModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN7QCamera19setColorTemperatureEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN7QCamera17setCaptureSessionEP20QMediaCaptureSession": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QCamera6d_funcEv": ["address", "address"],
+    "ritual_ZNK7QCamera6d_funcEv": ["address", "address"],
+    "ritual_take_QCamera": ["bool", "address", "chars", "address"]
+  }
+}

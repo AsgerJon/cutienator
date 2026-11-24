@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore5Compat/qtextcodec.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN12QTextDecoderC1EPK10QTextCodec": ["address", "address"],
+    "ritual_ZN12QTextDecoderC1EPK10QTextCodec6QFlagsIN20QStringConverterBase4FlagEE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN12QTextDecoderD1Ev": ["nothing", "address"],
+    "ritual_ZN12QTextDecoder9toUnicodeEPKci": [
+      "text", "address", "chars", "int"
+    ],
+    "ritual_ZN12QTextDecoder9toUnicodeERK10QByteArray": [
+      "text", "address", "address"
+    ],
+    "ritual_ZN12QTextDecoder9toUnicodeEP7QStringPKci": [
+      "nothing", "address", "address", "chars", "int"
+    ],
+    "ritual_ZNK12QTextDecoder10hasFailureEv": ["bool", "address"],
+    "ritual_ZNK12QTextDecoder13needsMoreDataEv": ["bool", "address"]
+  }
+}

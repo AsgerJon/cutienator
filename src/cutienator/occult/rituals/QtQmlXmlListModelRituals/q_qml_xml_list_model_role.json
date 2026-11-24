@@ -1,0 +1,31 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQmlXm",
+    "lListModel/6.12.0/QtQmlXmlListModel/private/qqmlxmllistmodel_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK20QQmlXmlListModelRole10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QQmlXmlListModelRole2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN20QQmlXmlListModelRoleC1Ev": ["address"],
+    "ritual_ZN20QQmlXmlListModelRoleD1Ev": ["nothing", "address"],
+    "ritual_ZNK20QQmlXmlListModelRole4nameEv": ["text", "address"],
+    "ritual_ZN20QQmlXmlListModelRole7setNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK20QQmlXmlListModelRole11elementNameEv": ["text", "address"],
+    "ritual_ZN20QQmlXmlListModelRole14setElementNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK20QQmlXmlListModelRole13attributeNameEv": ["text", "address"],
+    "ritual_ZN20QQmlXmlListModelRole16setAttributeNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK20QQmlXmlListModelRole7isValidEv": ["bool", "address"],
+    "ritual_take_QQmlXmlListModelRole": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

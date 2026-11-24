@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmlenumvalue_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN13QQmlEnumValueC1Ev": ["address"],
+    "ritual_ZN13QQmlEnumValueC1ERK7QStringi": ["address", "text", "int"],
+    "ritual_ZN13QQmlEnumValueD1Ev": ["nothing", "address"],
+    "ritual_list_make_QQmlEnumValue": ["address"],
+    "ritual_list_add_QQmlEnumValue": ["nothing", "address", "address"],
+    "ritual_list_size_QQmlEnumValue": ["long long", "address"],
+    "ritual_list_at_QQmlEnumValue": ["address", "address", "long long"],
+    "ritual_list_drop_QQmlEnumValue": ["nothing", "address"]
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSvg/6.12.0/QtSvg/private/qsvganimatedproperty_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN25QSvgAnimatedPropertyFloatC1ERK7QString": ["address", "text"],
+    "ritual_ZN25QSvgAnimatedPropertyFloatD1Ev": ["nothing", "address"],
+    "ritual_ZN25QSvgAnimatedPropertyFloat11appendValueEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK25QSvgAnimatedPropertyFloat11interpolateEjd": [
+      "nothing", "address", "unsigned int", "double"
+    ],
+    "ritual_take_QSvgAnimatedPropertyFloat": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK25QSvgAnimatedPropertyFloat11interpolateEjd": [
+      "nothing", "address", "unsigned int", "double"
+    ]
+  }
+}

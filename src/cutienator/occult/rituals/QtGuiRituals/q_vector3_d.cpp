@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGui/qvectornd.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
+#if !defined(QT_NO_VECTOR3D)
 #include <QtGui/qvectornd.h>
 #include <QtCore/qpoint.h>
 #include <QtGui/qmatrix4x4.h>
@@ -37,12 +39,15 @@ QVector3D *ritual_ZN9QVector3DC1E7QPointF(const QPointF *point) {
   return new QVector3D(*point);
 }
 
+#if !defined(QT_NO_VECTOR2D)
 //  QVector3D::QVector3D(QVector2D vector)
 extern "C" Q_DECL_EXPORT
 QVector3D *ritual_ZN9QVector3DC1E9QVector2D(const QVector2D *vector) {
   return new QVector3D(*vector);
 }
+#endif  // !defined(QT_NO_VECTOR2D)
 
+#if !defined(QT_NO_VECTOR2D)
 //  QVector3D::QVector3D(QVector2D vector, float zpos)
 extern "C" Q_DECL_EXPORT
 QVector3D *ritual_ZN9QVector3DC1E9QVector2Df(
@@ -50,12 +55,15 @@ QVector3D *ritual_ZN9QVector3DC1E9QVector2Df(
     float zpos) {
   return new QVector3D(*vector, zpos);
 }
+#endif  // !defined(QT_NO_VECTOR2D)
 
+#if !defined(QT_NO_VECTOR4D)
 //  QVector3D::QVector3D(QVector4D vector)
 extern "C" Q_DECL_EXPORT
 QVector3D *ritual_ZN9QVector3DC1E9QVector4D(const QVector4D *vector) {
   return new QVector3D(*vector);
 }
+#endif  // !defined(QT_NO_VECTOR4D)
 
 //  bool QVector3D::isNull() const
 extern "C" Q_DECL_EXPORT
@@ -320,17 +328,21 @@ QVector3D *ritual_Zdv9QVector3DS_(
   return new QVector3D(operator/(*vector, *divisor));
 }
 
+#if !defined(QT_NO_VECTOR2D)
 //  QVector2D QVector3D::toVector2D() const
 extern "C" Q_DECL_EXPORT
 QVector2D *ritual_ZNK9QVector3D10toVector2DEv(const QVector3D *self) {
   return new QVector2D(self->toVector2D());
 }
+#endif  // !defined(QT_NO_VECTOR2D)
 
+#if !defined(QT_NO_VECTOR4D)
 //  QVector4D QVector3D::toVector4D() const
 extern "C" Q_DECL_EXPORT
 QVector4D *ritual_ZNK9QVector3D10toVector4DEv(const QVector3D *self) {
   return new QVector4D(self->toVector4D());
 }
+#endif  // !defined(QT_NO_VECTOR4D)
 
 //  QPoint QVector3D::toPoint() const
 extern "C" Q_DECL_EXPORT
@@ -350,6 +362,7 @@ QVariant *ritual_ZNK9QVector3Dcv8QVariantEv(const QVector3D *self) {
   return new QVariant(self->operator QVariant());
 }
 
+#if !defined(QT_NO_MATRIX4X4)
 //  QVector3D operator*(const QVector3D &vector, const QMatrix4x4 &matrix)
 extern "C" Q_DECL_EXPORT
 QVector3D *ritual_ZmlRK9QVector3DRK10QMatrix4x4(
@@ -357,9 +370,12 @@ QVector3D *ritual_ZmlRK9QVector3DRK10QMatrix4x4(
     const QMatrix4x4 *matrix) {
   return new QVector3D(operator*(*vector, *matrix));
 }
+#endif  // !defined(QT_NO_MATRIX4X4)
 
 //  QVector3D::~QVector3D()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN9QVector3DD1Ev(QVector3D *self) {
   delete self;
 }
+
+#endif  // !defined(QT_NO_VECTOR3D)

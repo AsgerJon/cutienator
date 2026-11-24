@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qpaintengine_pic_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QPicturePaintEngineD1Ev": ["nothing", "address"],
+    "ritual_ZN19QPicturePaintEngine11updateStateERK17QPaintEngineState": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QPicturePaintEngine4typeEv": ["int", "address"],
+    "ritual_take_QPicturePaintEngine": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK19QPicturePaintEngine4typeEv": ["int", "address"]
+  }
+}

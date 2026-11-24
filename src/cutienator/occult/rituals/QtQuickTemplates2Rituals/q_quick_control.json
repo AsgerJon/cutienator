@@ -1,0 +1,284 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquickcontrol_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK13QQuickControl10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QQuickControl2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN13QQuickControlC1EP10QQuickItem": ["address", "address"],
+    "ritual_ZN13QQuickControlD1Ev": ["nothing", "address"],
+    "ritual_ZNK13QQuickControl4fontEv": ["address", "address"],
+    "ritual_ZN13QQuickControl7setFontERK5QFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QQuickControl9resetFontEv": ["nothing", "address"],
+    "ritual_ZNK13QQuickControl14availableWidthEv": ["double", "address"],
+    "ritual_ZNK13QQuickControl15availableHeightEv": ["double", "address"],
+    "ritual_ZNK13QQuickControl7paddingEv": ["double", "address"],
+    "ritual_ZN13QQuickControl10setPaddingEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN13QQuickControl12resetPaddingEv": ["nothing", "address"],
+    "ritual_ZNK13QQuickControl10topPaddingEv": ["double", "address"],
+    "ritual_ZN13QQuickControl13setTopPaddingEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN13QQuickControl15resetTopPaddingEv": ["nothing", "address"],
+    "ritual_ZNK13QQuickControl11leftPaddingEv": ["double", "address"],
+    "ritual_ZN13QQuickControl14setLeftPaddingEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN13QQuickControl16resetLeftPaddingEv": ["nothing", "address"],
+    "ritual_ZNK13QQuickControl12rightPaddingEv": ["double", "address"],
+    "ritual_ZN13QQuickControl15setRightPaddingEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN13QQuickControl17resetRightPaddingEv": ["nothing", "address"],
+    "ritual_ZNK13QQuickControl13bottomPaddingEv": ["double", "address"],
+    "ritual_ZN13QQuickControl16setBottomPaddingEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN13QQuickControl18resetBottomPaddingEv": ["nothing", "address"],
+    "ritual_ZNK13QQuickControl7spacingEv": ["double", "address"],
+    "ritual_ZN13QQuickControl10setSpacingEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN13QQuickControl12resetSpacingEv": ["nothing", "address"],
+    "ritual_ZNK13QQuickControl6localeEv": ["address", "address"],
+    "ritual_ZN13QQuickControl9setLocaleERK7QLocale": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QQuickControl11resetLocaleEv": ["nothing", "address"],
+    "ritual_ZNK13QQuickControl10isMirroredEv": ["bool", "address"],
+    "ritual_ZNK13QQuickControl11focusReasonEv": ["int", "address"],
+    "ritual_ZN13QQuickControl14setFocusReasonEN2Qt11FocusReasonE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK13QQuickControl14hasVisualFocusEv": ["bool", "address"],
+    "ritual_ZNK13QQuickControl9isHoveredEv": ["bool", "address"],
+    "ritual_ZN13QQuickControl10setHoveredEb": ["nothing", "address", "bool"],
+    "ritual_ZNK13QQuickControl14isHoverEnabledEv": ["bool", "address"],
+    "ritual_ZN13QQuickControl15setHoverEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN13QQuickControl17resetHoverEnabledEv": ["nothing", "address"],
+    "ritual_ZNK13QQuickControl14isWheelEnabledEv": ["bool", "address"],
+    "ritual_ZN13QQuickControl15setWheelEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK13QQuickControl10backgroundEv": ["address", "address"],
+    "ritual_ZN13QQuickControl13setBackgroundEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QQuickControl11contentItemEv": ["address", "address"],
+    "ritual_ZN13QQuickControl14setContentItemEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QQuickControl14baselineOffsetEv": ["double", "address"],
+    "ritual_ZN13QQuickControl17setBaselineOffsetEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN13QQuickControl19resetBaselineOffsetEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK13QQuickControl17horizontalPaddingEv": ["double", "address"],
+    "ritual_ZN13QQuickControl20setHorizontalPaddingEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN13QQuickControl22resetHorizontalPaddingEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK13QQuickControl15verticalPaddingEv": ["double", "address"],
+    "ritual_ZN13QQuickControl18setVerticalPaddingEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN13QQuickControl20resetVerticalPaddingEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK13QQuickControl20implicitContentWidthEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK13QQuickControl21implicitContentHeightEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK13QQuickControl23implicitBackgroundWidthEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK13QQuickControl24implicitBackgroundHeightEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK13QQuickControl8topInsetEv": ["double", "address"],
+    "ritual_ZN13QQuickControl11setTopInsetEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN13QQuickControl13resetTopInsetEv": ["nothing", "address"],
+    "ritual_ZNK13QQuickControl9leftInsetEv": ["double", "address"],
+    "ritual_ZN13QQuickControl12setLeftInsetEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN13QQuickControl14resetLeftInsetEv": ["nothing", "address"],
+    "ritual_ZNK13QQuickControl10rightInsetEv": ["double", "address"],
+    "ritual_ZN13QQuickControl13setRightInsetEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN13QQuickControl15resetRightInsetEv": ["nothing", "address"],
+    "ritual_ZNK13QQuickControl11bottomInsetEv": ["double", "address"],
+    "ritual_ZN13QQuickControl14setBottomInsetEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN13QQuickControl16resetBottomInsetEv": ["nothing", "address"],
+    "ritual_ZNK13QQuickControl11defaultFontEv": ["address", "address"],
+    "ritual_ZN13QQuickControl10classBeginEv": ["nothing", "address"],
+    "ritual_ZN13QQuickControl17componentCompleteEv": ["nothing", "address"],
+    "ritual_ZN13QQuickControl10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN13QQuickControl12focusInEventEP11QFocusEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QQuickControl13focusOutEventEP11QFocusEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QQuickControl15hoverEnterEventEP11QHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QQuickControl14hoverMoveEventEP11QHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QQuickControl15hoverLeaveEventEP11QHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QQuickControl15mousePressEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QQuickControl14mouseMoveEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QQuickControl17mouseReleaseEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QQuickControl16mouseUngrabEventEv": ["nothing", "address"],
+    "ritual_ZN13QQuickControl10touchEventEP11QTouchEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QQuickControl16touchUngrabEventEv": ["nothing", "address"],
+    "ritual_ZN13QQuickControl10wheelEventEP11QWheelEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QQuickControl14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN13QQuickControl10fontChangeERK5QFontS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN13QQuickControl11hoverChangeEv": ["nothing", "address"],
+    "ritual_ZN13QQuickControl12mirrorChangeEv": ["nothing", "address"],
+    "ritual_ZN13QQuickControl13spacingChangeEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN13QQuickControl13paddingChangeERK9QMarginsFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN13QQuickControl17contentItemChangeEP10QQuickItemS1_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN13QQuickControl12localeChangeERK7QLocaleS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN13QQuickControl11insetChangeERK9QMarginsFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN13QQuickControl13enabledChangeEv": ["nothing", "address"],
+    "ritual_ZNK13QQuickControl14accessibleRoleEv": ["int", "address"],
+    "ritual_ZN13QQuickControl26accessibilityActiveChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK13QQuickControl14accessibleNameEv": ["text", "address"],
+    "ritual_ZN13QQuickControl22maybeSetAccessibleNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN13QQuickControl18accessiblePropertyEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN13QQuickControl21setAccessiblePropertyEPKcRK8QVariant": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_ZN13QQuickControl6d_funcEv": ["address", "address"],
+    "ritual_ZNK13QQuickControl6d_funcEv": ["address", "address"],
+    "ritual_take_QQuickControl": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK13QQuickControl11defaultFontEv": ["address", "address"],
+    "ritual_own_ZN13QQuickControl10classBeginEv": ["nothing", "address"],
+    "ritual_own_ZN13QQuickControl17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN13QQuickControl10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZN13QQuickControl12focusInEventEP11QFocusEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN13QQuickControl13focusOutEventEP11QFocusEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN13QQuickControl15hoverEnterEventEP11QHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN13QQuickControl14hoverMoveEventEP11QHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN13QQuickControl15hoverLeaveEventEP11QHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN13QQuickControl15mousePressEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN13QQuickControl14mouseMoveEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN13QQuickControl17mouseReleaseEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN13QQuickControl16mouseUngrabEventEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN13QQuickControl10touchEventEP11QTouchEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN13QQuickControl16touchUngrabEventEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN13QQuickControl10wheelEventEP11QWheelEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN13QQuickControl14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN13QQuickControl10fontChangeERK5QFontS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN13QQuickControl11hoverChangeEv": ["nothing", "address"],
+    "ritual_own_ZN13QQuickControl12mirrorChangeEv": ["nothing", "address"],
+    "ritual_own_ZN13QQuickControl13spacingChangeEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_own_ZN13QQuickControl13paddingChangeERK9QMarginsFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN13QQuickControl17contentItemChangeEP10QQuickItemS1_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN13QQuickControl12localeChangeERK7QLocaleS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN13QQuickControl11insetChangeERK9QMarginsFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN13QQuickControl13enabledChangeEv": ["nothing", "address"],
+    "ritual_own_ZNK13QQuickControl14accessibleRoleEv": ["int", "address"],
+    "ritual_own_ZN13QQuickControl26accessibilityActiveChangedEb": [
+      "nothing", "address", "bool"
+    ]
+  }
+}

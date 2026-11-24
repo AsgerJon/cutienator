@@ -1,0 +1,32 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qcolortrc_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN9QColorTrcC1Ev": ["address"],
+    "ritual_ZN9QColorTrcC1ERK22QColorTransferFunction": [
+      "address", "address"
+    ],
+    "ritual_ZN9QColorTrcC1ERK19QColorTransferTable": ["address", "address"],
+    "ritual_ZN9QColorTrcC1ERK29QColorTransferGenericFunction": [
+      "address", "address"
+    ],
+    "ritual_ZNK9QColorTrc10isIdentityEv": ["bool", "address"],
+    "ritual_ZNK9QColorTrc7isValidEv": ["bool", "address"],
+    "ritual_ZNK9QColorTrc5applyEf": ["float", "address", "float"],
+    "ritual_ZNK9QColorTrc13applyExtendedEf": ["float", "address", "float"],
+    "ritual_ZNK9QColorTrc12applyInverseEf": ["float", "address", "float"],
+    "ritual_ZNK9QColorTrc20applyInverseExtendedEf": [
+      "float", "address", "float"
+    ],
+    "ritual_ZNK9QColorTrc5tableEv": ["address", "address"],
+    "ritual_ZNK9QColorTrc3funEv": ["address", "address"],
+    "ritual_ZNK9QColorTrc3hdrEv": ["address", "address"],
+    "ritual_ZNK9QColorTrc4typeEv": ["int", "address"],
+    "ritual_ZeqRK9QColorTrcS1_": ["bool", "address", "address"],
+    "ritual_ZneRK9QColorTrcS1_": ["bool", "address", "address"],
+    "ritual_ZN9QColorTrcD1Ev": ["nothing", "address"]
+  }
+}

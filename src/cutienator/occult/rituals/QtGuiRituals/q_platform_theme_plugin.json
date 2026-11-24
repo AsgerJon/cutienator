@@ -1,0 +1,20 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/qpa/qplatformthemeplugin.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK20QPlatformThemePlugin10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QPlatformThemePlugin2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN20QPlatformThemePluginD1Ev": ["nothing", "address"],
+    "ritual_ZN20QPlatformThemePlugin6createERK7QStringRK5QListIS0_E": [
+      "address", "address", "text", "address"
+    ],
+    "ritual_take_QPlatformThemePlugin": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

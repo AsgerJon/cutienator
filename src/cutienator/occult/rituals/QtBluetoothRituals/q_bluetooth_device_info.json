@@ -1,0 +1,84 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtBluetooth/qbluetoothdeviceinfo.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QBluetoothDeviceInfoC1Ev": ["address"],
+    "ritual_ZN20QBluetoothDeviceInfoC1ERK17QBluetoothAddressRK7QStringj": [
+      "address", "address", "text", "unsigned int"
+    ],
+    "ritual_ZN20QBluetoothDeviceInfoC1ERK14QBluetoothUuidRK7QStringj": [
+      "address", "address", "text", "unsigned int"
+    ],
+    "ritual_ZN20QBluetoothDeviceInfoC1ERKS_": ["address", "address"],
+    "ritual_ZN20QBluetoothDeviceInfoD1Ev": ["nothing", "address"],
+    "ritual_ZNK20QBluetoothDeviceInfo7isValidEv": ["bool", "address"],
+    "ritual_ZNK20QBluetoothDeviceInfo8isCachedEv": ["bool", "address"],
+    "ritual_ZN20QBluetoothDeviceInfo9setCachedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZeqRK20QBluetoothDeviceInfoS1_": ["bool", "address", "address"],
+    "ritual_ZneRK20QBluetoothDeviceInfoS1_": ["bool", "address", "address"],
+    "ritual_ZNK20QBluetoothDeviceInfo7addressEv": ["address", "address"],
+    "ritual_ZNK20QBluetoothDeviceInfo4nameEv": ["text", "address"],
+    "ritual_ZN20QBluetoothDeviceInfo7setNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK20QBluetoothDeviceInfo14serviceClassesEv": ["int", "address"],
+    "ritual_ZNK20QBluetoothDeviceInfo16majorDeviceClassEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK20QBluetoothDeviceInfo16minorDeviceClassEv": [
+      "unsigned char", "address"
+    ],
+    "ritual_ZNK20QBluetoothDeviceInfo4rssiEv": ["short", "address"],
+    "ritual_ZN20QBluetoothDeviceInfo7setRssiEs": [
+      "nothing", "address", "short"
+    ],
+    "ritual_ZNK20QBluetoothDeviceInfo12serviceUuidsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QBluetoothDeviceInfo15setServiceUuidsERK5QListI14QBluetoothUuidE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QBluetoothDeviceInfo16manufacturerDataEt": [
+      "address", "address", "unsigned short"
+    ],
+    "ritual_ZN20QBluetoothDeviceInfo19setManufacturerDataEtRK10QByteArray": [
+      "bool", "address", "unsigned short", "address"
+    ],
+    "ritual_ZNK20QBluetoothDeviceInfo10serviceIdsEv": ["address", "address"],
+    "ritual_ZNK20QBluetoothDeviceInfo11serviceDataERK14QBluetoothUuid": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN20QBluetoothDeviceInfo14setServiceDataERK14QBluetoothUuidRK10QByteArray": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN20QBluetoothDeviceInfo21setCoreConfigurationsE6QFlagsINS_17CoreConfigurationEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK20QBluetoothDeviceInfo18coreConfigurationsEv": [
+      "int", "address"
+    ],
+    "ritual_ZN20QBluetoothDeviceInfo13setDeviceUuidERK14QBluetoothUuid": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QBluetoothDeviceInfo10deviceUuidEv": ["address", "address"],
+    "ritual_ZN20QBluetoothDeviceInfo6equalsERKS_S1_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN20QBluetoothDeviceInfo6d_funcEv": ["address", "address"],
+    "ritual_ZNK20QBluetoothDeviceInfo6d_funcEv": ["address", "address"],
+    "ritual_list_make_QBluetoothDeviceInfo": ["address"],
+    "ritual_list_add_QBluetoothDeviceInfo": [
+      "nothing", "address", "address"
+    ],
+    "ritual_list_size_QBluetoothDeviceInfo": ["long long", "address"],
+    "ritual_list_at_QBluetoothDeviceInfo": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_QBluetoothDeviceInfo": ["nothing", "address"]
+  }
+}

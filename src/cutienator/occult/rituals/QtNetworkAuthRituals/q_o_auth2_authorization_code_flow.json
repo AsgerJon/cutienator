@@ -1,0 +1,67 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetworkAuth/qoauth2authorizationcodeflow.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK28QOAuth2AuthorizationCodeFlow10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QOAuth2AuthorizationCodeFlow2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN28QOAuth2AuthorizationCodeFlowC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN28QOAuth2AuthorizationCodeFlowC1EP21QNetworkAccessManagerP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN28QOAuth2AuthorizationCodeFlowC1ERK7QStringP21QNetworkAccessManagerP7QObject": [
+      "address", "text", "address", "address"
+    ],
+    "ritual_ZN28QOAuth2AuthorizationCodeFlowC1ERK4QUrlS2_P21QNetworkAccessManagerP7QObject": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN28QOAuth2AuthorizationCodeFlowC1ERK7QStringRK4QUrlS5_P21QNetworkAccessManagerP7QObject": [
+      "address", "text", "address", "address", "address", "address"
+    ],
+    "ritual_ZN28QOAuth2AuthorizationCodeFlowD1Ev": ["nothing", "address"],
+    "ritual_ZNK28QOAuth2AuthorizationCodeFlow14accessTokenUrlEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QOAuth2AuthorizationCodeFlow17setAccessTokenUrlERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QOAuth2AuthorizationCodeFlow13setPkceMethodENS_10PkceMethodEx": [
+      "nothing", "address", "unsigned char", "long long"
+    ],
+    "ritual_ZNK28QOAuth2AuthorizationCodeFlow10pkceMethodEv": [
+      "unsigned char", "address"
+    ],
+    "ritual_ZN28QOAuth2AuthorizationCodeFlow5grantEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QOAuth2AuthorizationCodeFlow18refreshAccessTokenEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QOAuth2AuthorizationCodeFlow27refreshTokensImplementationEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QOAuth2AuthorizationCodeFlow18requestAccessTokenERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN28QOAuth2AuthorizationCodeFlow6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QOAuth2AuthorizationCodeFlow6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_take_QOAuth2AuthorizationCodeFlow": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN28QOAuth2AuthorizationCodeFlow5grantEv": [
+      "nothing", "address"
+    ]
+  }
+}

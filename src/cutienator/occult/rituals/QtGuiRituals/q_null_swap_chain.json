@@ -1,0 +1,40 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qrhinull_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN14QNullSwapChainD1Ev": ["nothing", "address"],
+    "ritual_ZN14QNullSwapChain7destroyEv": ["nothing", "address"],
+    "ritual_ZN14QNullSwapChain25currentFrameCommandBufferEv": [
+      "address", "address"
+    ],
+    "ritual_ZN14QNullSwapChain24currentFrameRenderTargetEv": [
+      "address", "address"
+    ],
+    "ritual_ZN14QNullSwapChain16surfacePixelSizeEv": ["address", "address"],
+    "ritual_ZN14QNullSwapChain17isFormatSupportedEN13QRhiSwapChain6FormatE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN14QNullSwapChain33newCompatibleRenderPassDescriptorEv": [
+      "address", "address"
+    ],
+    "ritual_ZN14QNullSwapChain14createOrResizeEv": ["bool", "address"],
+    "ritual_take_QNullSwapChain": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN14QNullSwapChain7destroyEv": ["nothing", "address"],
+    "ritual_own_ZN14QNullSwapChain25currentFrameCommandBufferEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN14QNullSwapChain24currentFrameRenderTargetEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN14QNullSwapChain16surfacePixelSizeEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN14QNullSwapChain17isFormatSupportedEN13QRhiSwapChain6FormatE": [
+      "bool", "address", "int"
+    ],
+    "ritual_own_ZN14QNullSwapChain14createOrResizeEv": ["bool", "address"]
+  }
+}

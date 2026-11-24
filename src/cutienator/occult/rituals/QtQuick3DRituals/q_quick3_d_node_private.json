@@ -1,0 +1,49 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3D/6.12.0/QtQuick3D/private/qquick3dnode_p_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QQuick3DNodePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK19QQuick3DNodePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN19QQuick3DNodePrivateC1EN21QSSGRenderGraphObject4TypeEN20QQuick3DContentLayer9LayerFlagE": [
+      "address", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZN19QQuick3DNodePrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN19QQuick3DNodePrivate4initEv": ["nothing", "address"],
+    "ritual_ZN19QQuick3DNodePrivate24calculateGlobalVariablesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuick3DNodePrivate23markSceneTransformDirtyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK19QQuick3DNodePrivate19localRotationMatrixEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QQuick3DNodePrivate19sceneRotationMatrixEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QQuick3DNodePrivate27emitChangesToSceneTransformEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK19QQuick3DNodePrivate29isSceneTransformRelatedSignalERK11QMetaMethod": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK19QQuick3DNodePrivate24isDirectionRelatedSignalERK11QMetaMethod": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN19QQuick3DNodePrivate19setIsHiddenInEditorEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN19QQuick3DNodePrivate3getEP12QQuick3DNode": [
+      "address", "address"
+    ],
+    "ritual_ZN19QQuick3DNodePrivate17setLocalTransformERK10QMatrix4x4": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QQuick3DNodePrivate": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

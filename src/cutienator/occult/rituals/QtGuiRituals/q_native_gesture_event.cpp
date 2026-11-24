@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGui/qevent.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
+#if QT_CONFIG(gestures)
 #include <QtGui/qevent.h>
 #include <QtCore/qpoint.h>
 #include <cstring>
@@ -7,7 +9,9 @@
 //  A QNativeGestureEvent that Python can take functions over in. Every QNativeGestureEvent
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if QT_CONFIG(gestures)
 typedef void * (*CuteQNativeGestureEventCall0)(const void *, int *);
+#endif  // QT_CONFIG(gestures)
 typedef bool (*CuteQNativeGestureEventCall1)(const void *, int *);
 typedef bool (*CuteQNativeGestureEventCall2)(const void *, int *);
 typedef bool (*CuteQNativeGestureEventCall3)(const void *, int *);
@@ -19,10 +23,12 @@ public:
   void *taken[6] = {};
 
   bool take(const char *key, void *call) {
+#if QT_CONFIG(gestures)
     if (!std::strcmp(key, "_ZNK6QEvent5cloneEv")) {
       taken[0] = call;
       return true;
     }
+#endif  // QT_CONFIG(gestures)
     if (!std::strcmp(key, "_ZNK13QPointerEvent12isBeginEventEv")) {
       taken[1] = call;
       return true;
@@ -46,6 +52,7 @@ public:
     return false;
   }
 
+#if QT_CONFIG(gestures)
   //  QNativeGestureEvent *QNativeGestureEvent::clone() const
   QNativeGestureEvent *clone() const override {
     if (taken[0]) {
@@ -56,6 +63,7 @@ public:
     }
     return QNativeGestureEvent::clone();
   }
+#endif  // QT_CONFIG(gestures)
 
   //  bool QSinglePointEvent::isBeginEvent() const
   bool isBeginEvent() const override {
@@ -126,6 +134,7 @@ void ritual_ZN19QNativeGestureEventD1Ev(QNativeGestureEvent *self) {
   delete self;
 }
 
+#if QT_DEPRECATED_SINCE(6, 2)
 //  QNativeGestureEvent::QNativeGestureEvent(Qt::NativeGestureType type,
 //      const QPointingDevice *dev, const QPointF &localPos, const QPointF
 //      &scenePos, const QPointF &globalPos, qreal value, quint64 sequenceId,
@@ -150,6 +159,7 @@ QNativeGestureEvent *ritual_ZN19QNativeGestureEventC1EN2Qt17NativeGestureTypeEPK
       sequenceId,
       intArgument);
 }
+#endif  // QT_DEPRECATED_SINCE(6, 2)
 
 //  QNativeGestureEvent::QNativeGestureEvent(Qt::NativeGestureType type,
 //      const QPointingDevice *dev, int fingerCount, const QPointF &localPos,
@@ -206,40 +216,54 @@ QPointF *ritual_ZNK19QNativeGestureEvent5deltaEv(
   return new QPointF(self->delta());
 }
 
+#if QT_DEPRECATED_SINCE(6, 0)
+#if !defined(QT_NO_INTEGER_EVENT_COORDINATES)
 //  const QPoint QNativeGestureEvent::pos() const
 extern "C" Q_DECL_EXPORT
 QPoint *ritual_ZNK19QNativeGestureEvent3posEv(
     const QNativeGestureEvent *self) {
   return new QPoint(self->pos());
 }
+#endif  // !defined(QT_NO_INTEGER_EVENT_COORDINATES)
+#endif  // QT_DEPRECATED_SINCE(6, 0)
 
+#if QT_DEPRECATED_SINCE(6, 0)
+#if !defined(QT_NO_INTEGER_EVENT_COORDINATES)
 //  const QPoint QNativeGestureEvent::globalPos() const
 extern "C" Q_DECL_EXPORT
 QPoint *ritual_ZNK19QNativeGestureEvent9globalPosEv(
     const QNativeGestureEvent *self) {
   return new QPoint(self->globalPos());
 }
+#endif  // !defined(QT_NO_INTEGER_EVENT_COORDINATES)
+#endif  // QT_DEPRECATED_SINCE(6, 0)
 
+#if QT_DEPRECATED_SINCE(6, 0)
 //  QPointF QNativeGestureEvent::localPos() const
 extern "C" Q_DECL_EXPORT
 QPointF *ritual_ZNK19QNativeGestureEvent8localPosEv(
     const QNativeGestureEvent *self) {
   return new QPointF(self->localPos());
 }
+#endif  // QT_DEPRECATED_SINCE(6, 0)
 
+#if QT_DEPRECATED_SINCE(6, 0)
 //  QPointF QNativeGestureEvent::windowPos() const
 extern "C" Q_DECL_EXPORT
 QPointF *ritual_ZNK19QNativeGestureEvent9windowPosEv(
     const QNativeGestureEvent *self) {
   return new QPointF(self->windowPos());
 }
+#endif  // QT_DEPRECATED_SINCE(6, 0)
 
+#if QT_DEPRECATED_SINCE(6, 0)
 //  QPointF QNativeGestureEvent::screenPos() const
 extern "C" Q_DECL_EXPORT
 QPointF *ritual_ZNK19QNativeGestureEvent9screenPosEv(
     const QNativeGestureEvent *self) {
   return new QPointF(self->screenPos());
 }
+#endif  // QT_DEPRECATED_SINCE(6, 0)
 
 //  a Python function taken by a CuteQNativeGestureEvent, for the function
 //      named by the key
@@ -257,3 +281,5 @@ QNativeGestureEvent *ritual_own_ZNK19QNativeGestureEvent5cloneEv(
     const QNativeGestureEvent *self) {
   return self->QNativeGestureEvent::clone();
 }
+
+#endif  // QT_CONFIG(gestures)

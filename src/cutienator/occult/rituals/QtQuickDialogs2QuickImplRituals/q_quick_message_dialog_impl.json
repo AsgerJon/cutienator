@@ -1,0 +1,43 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Dialogs2QuickImpl/6.12.0/QtQuickDialogs2QuickImpl/private/qquickme",
+    "ssagedialogimpl_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK23QQuickMessageDialogImpl10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QQuickMessageDialogImpl2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN23QQuickMessageDialogImpl21qt_qmlMarker_attachedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickMessageDialogImplC1EP7QObject": ["address", "address"],
+    "ritual_ZN23QQuickMessageDialogImpl21qmlAttachedPropertiesEP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZNK23QQuickMessageDialogImpl16showDetailedTextEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK23QQuickMessageDialogImpl4textEv": ["text", "address"],
+    "ritual_ZNK23QQuickMessageDialogImpl15informativeTextEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK23QQuickMessageDialogImpl12detailedTextEv": [
+      "text", "address"
+    ],
+    "ritual_ZN23QQuickMessageDialogImpl22toggleShowDetailedTextEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickMessageDialogImpl10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN23QQuickMessageDialogImpl6d_funcEv": ["address", "address"],
+    "ritual_ZNK23QQuickMessageDialogImpl6d_funcEv": ["address", "address"],
+    "ritual_own_ZN23QQuickMessageDialogImpl10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ]
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qidentityproxymodel_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN26QIdentityProxyModelPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK26QIdentityProxyModelPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QIdentityProxyModelPrivateC1Ev": ["address"],
+    "ritual_ZN26QIdentityProxyModelPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN26QIdentityProxyModelPrivate27sourceRowsAboutToBeInsertedERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN26QIdentityProxyModelPrivate18sourceRowsInsertedERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN26QIdentityProxyModelPrivate26sourceRowsAboutToBeRemovedERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN26QIdentityProxyModelPrivate17sourceRowsRemovedERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN26QIdentityProxyModelPrivate24sourceRowsAboutToBeMovedERK11QModelIndexiiS2_i": [
+      "nothing", "address", "address", "int", "int", "address", "int"
+    ],
+    "ritual_ZN26QIdentityProxyModelPrivate15sourceRowsMovedERK11QModelIndexiiS2_i": [
+      "nothing", "address", "address", "int", "int", "address", "int"
+    ],
+    "ritual_ZN26QIdentityProxyModelPrivate30sourceColumnsAboutToBeInsertedERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN26QIdentityProxyModelPrivate21sourceColumnsInsertedERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN26QIdentityProxyModelPrivate29sourceColumnsAboutToBeRemovedERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN26QIdentityProxyModelPrivate20sourceColumnsRemovedERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN26QIdentityProxyModelPrivate27sourceColumnsAboutToBeMovedERK11QModelIndexiiS2_i": [
+      "nothing", "address", "address", "int", "int", "address", "int"
+    ],
+    "ritual_ZN26QIdentityProxyModelPrivate18sourceColumnsMovedERK11QModelIndexiiS2_i": [
+      "nothing", "address", "address", "int", "int", "address", "int"
+    ],
+    "ritual_ZN26QIdentityProxyModelPrivate23sourceHeaderDataChangedEN2Qt11OrientationEii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZN26QIdentityProxyModelPrivate28sourceLayoutAboutToBeChangedERK5QListI21QPersistentModelIndexEN18QAbstractItemModel16LayoutChangeHintE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN26QIdentityProxyModelPrivate19sourceLayoutChangedERK5QListI21QPersistentModelIndexEN18QAbstractItemModel16LayoutChangeHintE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN26QIdentityProxyModelPrivate25sourceModelAboutToBeResetEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QIdentityProxyModelPrivate16sourceModelResetEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QIdentityProxyModelPrivate": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

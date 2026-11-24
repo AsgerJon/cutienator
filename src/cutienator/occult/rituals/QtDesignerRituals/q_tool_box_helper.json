@@ -1,0 +1,38 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/qdesigner_toolbox_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK14QToolBoxHelper10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QToolBoxHelper2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN14QToolBoxHelperC1EP8QToolBox": ["address", "address"],
+    "ritual_ZN14QToolBoxHelper7installEP8QToolBox": ["nothing", "address"],
+    "ritual_ZN14QToolBoxHelper8helperOfEPK8QToolBox": ["address", "address"],
+    "ritual_ZN14QToolBoxHelper28addToolBoxContextMenuActionsEPK8QToolBoxP5QMenu": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK14QToolBoxHelper25currentItemBackgroundRoleEv": [
+      "int", "address"
+    ],
+    "ritual_ZN14QToolBoxHelper28setCurrentItemBackgroundRoleEN8QPalette9ColorRoleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN14QToolBoxHelper11eventFilterEP7QObjectP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZNK14QToolBoxHelper21addContextMenuActionsEP5QMenu": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN14QToolBoxHelper17removeCurrentPageEv": ["nothing", "address"],
+    "ritual_ZN14QToolBoxHelper7addPageEv": ["nothing", "address"],
+    "ritual_ZN14QToolBoxHelper12addPageAfterEv": ["nothing", "address"],
+    "ritual_ZN14QToolBoxHelper11changeOrderEv": ["nothing", "address"],
+    "ritual_own_ZN14QToolBoxHelper11eventFilterEP7QObjectP6QEvent": [
+      "bool", "address", "address", "address"
+    ]
+  }
+}

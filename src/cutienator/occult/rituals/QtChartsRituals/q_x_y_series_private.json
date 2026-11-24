@@ -1,0 +1,58 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/6.12.0/QtCharts/private/qxyseries_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK16QXYSeriesPrivate10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QXYSeriesPrivate2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN16QXYSeriesPrivate16initializeDomainEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QXYSeriesPrivate14initializeAxesEv": ["nothing", "address"],
+    "ritual_ZN16QXYSeriesPrivate19createLegendMarkersEP7QLegend": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK16QXYSeriesPrivate15defaultAxisTypeEN2Qt11OrientationE": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK16QXYSeriesPrivate17createDefaultAxisEN2Qt11OrientationE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN16QXYSeriesPrivate15drawPointLabelsEP8QPainterRK5QListI7QPointFEi": [
+      "nothing", "address", "address", "address", "int"
+    ],
+    "ritual_ZN16QXYSeriesPrivate15drawBestFitLineEP8QPainterRK6QRectF": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN16QXYSeriesPrivate16setPointSelectedEibRb": [
+      "nothing", "address", "int", "bool", "address"
+    ],
+    "ritual_ZN16QXYSeriesPrivate15isPointSelectedEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN16QXYSeriesPrivate19isMarkerSizeDefaultEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN16QXYSeriesPrivate13setMarkerSizeEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN16QXYSeriesPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK16QXYSeriesPrivate6q_funcEv": ["address", "address"],
+    "ritual_own_ZN16QXYSeriesPrivate16initializeDomainEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN16QXYSeriesPrivate14initializeAxesEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZNK16QXYSeriesPrivate15defaultAxisTypeEN2Qt11OrientationE": [
+      "int", "address", "int"
+    ],
+    "ritual_own_ZNK16QXYSeriesPrivate17createDefaultAxisEN2Qt11OrientationE": [
+      "address", "address", "int"
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qloggingregistry_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN12QLoggingRuleC1Ev": ["address"],
+    "ritual_ZNK12QLoggingRule4passE13QLatin1String9QtMsgType": [
+      "int", "address", "address", "int"
+    ],
+    "ritual_ZN12QLoggingRuleD1Ev": ["nothing", "address"],
+    "ritual_list_make_QLoggingRule": ["address"],
+    "ritual_list_add_QLoggingRule": ["nothing", "address", "address"],
+    "ritual_list_size_QLoggingRule": ["long long", "address"],
+    "ritual_list_at_QLoggingRule": ["address", "address", "long long"],
+    "ritual_list_drop_QLoggingRule": ["nothing", "address"]
+  }
+}

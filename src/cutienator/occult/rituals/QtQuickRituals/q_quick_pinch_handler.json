@@ -1,0 +1,90 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickpinchhandler_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18QQuickPinchHandler10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QQuickPinchHandler2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18QQuickPinchHandlerC1EP10QQuickItem": ["address", "address"],
+    "ritual_ZN18QQuickPinchHandler5xAxisEv": ["address", "address"],
+    "ritual_ZN18QQuickPinchHandler5yAxisEv": ["address", "address"],
+    "ritual_ZNK18QQuickPinchHandler11translationEv": ["address", "address"],
+    "ritual_ZNK18QQuickPinchHandler17activeTranslationEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18QQuickPinchHandler21persistentTranslationEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18QQuickPinchHandler24setPersistentTranslationERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQuickPinchHandler9scaleAxisEv": ["address", "address"],
+    "ritual_ZNK18QQuickPinchHandler12minimumScaleEv": ["double", "address"],
+    "ritual_ZN18QQuickPinchHandler15setMinimumScaleEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK18QQuickPinchHandler12maximumScaleEv": ["double", "address"],
+    "ritual_ZN18QQuickPinchHandler15setMaximumScaleEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK18QQuickPinchHandler5scaleEv": ["double", "address"],
+    "ritual_ZNK18QQuickPinchHandler11activeScaleEv": ["double", "address"],
+    "ritual_ZN18QQuickPinchHandler14setActiveScaleEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK18QQuickPinchHandler15persistentScaleEv": [
+      "double", "address"
+    ],
+    "ritual_ZN18QQuickPinchHandler18setPersistentScaleEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN18QQuickPinchHandler12rotationAxisEv": ["address", "address"],
+    "ritual_ZNK18QQuickPinchHandler15minimumRotationEv": [
+      "double", "address"
+    ],
+    "ritual_ZN18QQuickPinchHandler18setMinimumRotationEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK18QQuickPinchHandler15maximumRotationEv": [
+      "double", "address"
+    ],
+    "ritual_ZN18QQuickPinchHandler18setMaximumRotationEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK18QQuickPinchHandler8rotationEv": ["double", "address"],
+    "ritual_ZNK18QQuickPinchHandler14activeRotationEv": [
+      "double", "address"
+    ],
+    "ritual_ZN18QQuickPinchHandler17setActiveRotationEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK18QQuickPinchHandler18persistentRotationEv": [
+      "double", "address"
+    ],
+    "ritual_ZN18QQuickPinchHandler21setPersistentRotationEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN18QQuickPinchHandler17wantsPointerEventEP13QPointerEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN18QQuickPinchHandler15onActiveChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickPinchHandler22handlePointerEventImplEP13QPointerEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN18QQuickPinchHandler17wantsPointerEventEP13QPointerEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN18QQuickPinchHandler15onActiveChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN18QQuickPinchHandler22handlePointerEventImplEP13QPointerEvent": [
+      "nothing", "address", "address"
+    ]
+  }
+}

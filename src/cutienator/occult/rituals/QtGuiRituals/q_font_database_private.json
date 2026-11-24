@@ -1,0 +1,53 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qfontdatabase_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QFontDatabasePrivateC1Ev": ["address"],
+    "ritual_ZN20QFontDatabasePrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN20QFontDatabasePrivate13clearFamiliesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QFontDatabasePrivate6familyERK7QStringNS_18FamilyRequestFlagsE": [
+      "address", "address", "text", "int"
+    ],
+    "ritual_ZN20QFontDatabasePrivate10addAppFontERK10QByteArrayRK7QString": [
+      "int", "address", "address", "text"
+    ],
+    "ritual_ZN20QFontDatabasePrivate17isApplicationFontERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN20QFontDatabasePrivate34setApplicationFallbackFontFamiliesENS_14ExtendedScriptERK5QListI7QStringE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN20QFontDatabasePrivate31applicationFallbackFontFamiliesENS_14ExtendedScriptE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN20QFontDatabasePrivate35removeApplicationFallbackFontFamilyENS_14ExtendedScriptERK7QString": [
+      "bool", "address", "int", "text"
+    ],
+    "ritual_ZN20QFontDatabasePrivate32addApplicationFallbackFontFamilyENS_14ExtendedScriptERK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZN20QFontDatabasePrivate8instanceEv": ["address"],
+    "ritual_ZN20QFontDatabasePrivate22resolveFontFamilyAliasERK7QString": [
+      "text", "text"
+    ],
+    "ritual_ZN20QFontDatabasePrivate8findFontERK8QFontDefib": [
+      "address", "address", "int", "bool"
+    ],
+    "ritual_ZN20QFontDatabasePrivate4loadEPK12QFontPrivatei": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QFontDatabasePrivate18ensureFontDatabaseEv": ["address"],
+    "ritual_ZN20QFontDatabasePrivate10invalidateEv": ["nothing", "address"],
+    "ritual_ZN20QFontDatabasePrivate16loadSingleEngineEiRK8QFontDefP12QtFontFamilyP13QtFontFoundryP11QtFontStyleP10QtFontSize": [
+      "address", "int", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN20QFontDatabasePrivate10loadEngineEiRK8QFontDefP12QtFontFamilyP13QtFontFoundryP11QtFontStyleP10QtFontSize": [
+      "address", "int", "address", "address", "address", "address", "address"
+    ]
+  }
+}

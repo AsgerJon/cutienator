@@ -9,7 +9,7 @@ from typing import TYPE_CHECKING
 
 from worktoy.waitaminute import MissingVariable, TypeException
 
-from . import HeaderReader
+from . import HeaderFolder, HeaderReader
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Any, Dict, FrozenSet, List, Optional, Set, Tuple
@@ -64,11 +64,6 @@ class SourceReader:
   #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
-  #  Class Variables
-  #  Where each part of Qt lies in the folder 'qtbase'.
-  __part_folders__ = dict(
-      QtCore='src/corelib', QtGui='src/gui', QtWidgets='src/widgets',
-  )
   #  A line that opens a definition: it starts at the edge, and a name
   #  with '::' in it stands right before a bracket.
   __opening_line__ = re.compile(
@@ -130,11 +125,8 @@ class SourceReader:
     LookupError
       No folder is known for that part, or the source has none.
     """
-    if partName not in self.__part_folders__:
-      infoSpec = """No folder of Qt's source is known for the part '%s'."""
-      raise LookupError(infoSpec % partName)
     folder = os.path.join(
-        self.getSourceFolder(), self.__part_folders__[partName])
+        self.getSourceFolder(), HeaderFolder.getPartPlace(partName))
     if not os.path.isdir(folder):
       infoSpec = """Qt's source has no folder '%s'."""
       raise LookupError(infoSpec % folder)
@@ -392,7 +384,14 @@ class SourceReader:
     kept = []  # type: List[str]
     #  Qt indents such a line here and there, as ' #if QT_CONFIG(...)'.
     directive = re.compile(r'^\s*#\s*(if|ifdef|ifndef|elif|else|endif)\b')
+    commented = False
     for line in lines:
+      #  A line that begins inside a comment pulls nothing in, whatever
+      #  it looks like: Qt's 'qdbusmessage.cpp' has an '#endif' in one.
+      began = commented
+      commented = HeaderReader._endsInComment(line, commented)
+      if began:
+        continue
       match = self.__include_line__.match(line)
       if match is not None:
         name = match.group(2)

@@ -1,0 +1,13 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtXml/qdom.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11QDomCommentC1Ev": ["address"],
+    "ritual_ZN11QDomCommentC1ERKS_": ["address", "address"],
+    "ritual_ZNK11QDomComment8nodeTypeEv": ["int", "address"],
+    "ritual_ZN11QDomCommentC1EP18QDomCommentPrivate": ["address", "address"],
+    "ritual_ZN11QDomCommentD1Ev": ["nothing", "address"]
+  }
+}

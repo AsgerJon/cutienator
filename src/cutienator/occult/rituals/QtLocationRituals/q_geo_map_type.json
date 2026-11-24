@@ -1,0 +1,33 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLocation/6.12.0/QtLocation/private/qgeomaptype_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11QGeoMapTypeC1Ev": ["address"],
+    "ritual_ZN11QGeoMapTypeC1ERKS_": ["address", "address"],
+    "ritual_ZN11QGeoMapTypeC1ENS_8MapStyleERK7QStringS3_bbiRK10QByteArrayRK22QGeoCameraCapabilitiesRK4QMapIS1_8QVariantE": [
+      "address", "int", "text", "text", "bool", "bool", "int", "address",
+      "address", "address"
+    ],
+    "ritual_ZN11QGeoMapTypeD1Ev": ["nothing", "address"],
+    "ritual_ZeqRK11QGeoMapTypeS1_": ["bool", "address", "address"],
+    "ritual_ZneRK11QGeoMapTypeS1_": ["bool", "address", "address"],
+    "ritual_ZNK11QGeoMapType5styleEv": ["int", "address"],
+    "ritual_ZNK11QGeoMapType4nameEv": ["text", "address"],
+    "ritual_ZNK11QGeoMapType11descriptionEv": ["text", "address"],
+    "ritual_ZNK11QGeoMapType6mobileEv": ["bool", "address"],
+    "ritual_ZNK11QGeoMapType5nightEv": ["bool", "address"],
+    "ritual_ZNK11QGeoMapType5mapIdEv": ["int", "address"],
+    "ritual_ZNK11QGeoMapType10pluginNameEv": ["address", "address"],
+    "ritual_ZNK11QGeoMapType18cameraCapabilitiesEv": ["address", "address"],
+    "ritual_ZNK11QGeoMapType8metadataEv": ["address", "address"],
+    "ritual_ZNK11QGeoMapType7isEqualERKS_": ["bool", "address", "address"],
+    "ritual_list_make_QGeoMapType": ["address"],
+    "ritual_list_add_QGeoMapType": ["nothing", "address", "address"],
+    "ritual_list_size_QGeoMapType": ["long long", "address"],
+    "ritual_list_at_QGeoMapType": ["address", "address", "long long"],
+    "ritual_list_drop_QGeoMapType": ["nothing", "address"]
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qaction_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN14QActionPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK14QActionPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN14QActionPrivateC1Ev": ["address"],
+    "ritual_ZN14QActionPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN14QActionPrivate7destroyEv": ["nothing", "address"],
+    "ritual_ZN14QActionPrivate3getEP7QAction": ["address", "address"],
+    "ritual_ZN14QActionPrivate10setEnabledEbb": [
+      "bool", "address", "bool", "bool"
+    ],
+    "ritual_ZN14QActionPrivate10setVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK14QActionPrivate4menuEv": ["address", "address"],
+    "ritual_ZN14QActionPrivate7setMenuEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QActionPrivate14showStatusTextEP7QObjectRK7QString": [
+      "bool", "address", "address", "text"
+    ],
+    "ritual_ZN14QActionPrivate15sendDataChangedEv": ["nothing", "address"],
+    "ritual_take_QActionPrivate": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN14QActionPrivate7destroyEv": ["nothing", "address"],
+    "ritual_own_ZNK14QActionPrivate4menuEv": ["address", "address"],
+    "ritual_own_ZN14QActionPrivate7setMenuEP7QObject": [
+      "nothing", "address", "address"
+    ]
+  }
+}

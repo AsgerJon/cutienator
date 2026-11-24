@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qrawfont_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QRawFontPrivateC1Ev": ["address"],
+    "ritual_ZN15QRawFontPrivateC1ERKS_": ["address", "address"],
+    "ritual_ZN15QRawFontPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN15QRawFontPrivate7cleanUpEv": ["nothing", "address"],
+    "ritual_ZNK15QRawFontPrivate7isValidEv": ["bool", "address"],
+    "ritual_ZN15QRawFontPrivate13setFontEngineEP11QFontEngine": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QRawFontPrivate12loadFromDataERK10QByteArraydN5QFont17HintingPreferenceE": [
+      "nothing", "address", "address", "double", "int"
+    ],
+    "ritual_ZN15QRawFontPrivate3getERK8QRawFont": ["address", "address"]
+  }
+}

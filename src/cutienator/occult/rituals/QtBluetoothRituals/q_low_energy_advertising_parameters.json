@@ -1,0 +1,39 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtBluetooth/qlowenergyadvertisingparameters.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN31QLowEnergyAdvertisingParametersC1Ev": ["address"],
+    "ritual_ZN31QLowEnergyAdvertisingParametersC1ERKS_": [
+      "address", "address"
+    ],
+    "ritual_ZN31QLowEnergyAdvertisingParametersD1Ev": ["nothing", "address"],
+    "ritual_ZeqRK31QLowEnergyAdvertisingParametersS1_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZneRK31QLowEnergyAdvertisingParametersS1_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN31QLowEnergyAdvertisingParameters7setModeENS_4ModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK31QLowEnergyAdvertisingParameters4modeEv": ["int", "address"],
+    "ritual_ZNK31QLowEnergyAdvertisingParameters12filterPolicyEv": [
+      "int", "address"
+    ],
+    "ritual_ZN31QLowEnergyAdvertisingParameters11setIntervalEtt": [
+      "nothing", "address", "unsigned short", "unsigned short"
+    ],
+    "ritual_ZNK31QLowEnergyAdvertisingParameters15minimumIntervalEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK31QLowEnergyAdvertisingParameters15maximumIntervalEv": [
+      "int", "address"
+    ],
+    "ritual_ZN31QLowEnergyAdvertisingParameters6equalsERKS_S1_": [
+      "bool", "address", "address"
+    ]
+  }
+}

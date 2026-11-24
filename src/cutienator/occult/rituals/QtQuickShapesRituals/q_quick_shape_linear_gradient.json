@@ -1,0 +1,34 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuickShapes/6.12.0/QtQuickShapes/private/qquickshape_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK25QQuickShapeLinearGradient10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QQuickShapeLinearGradient2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN25QQuickShapeLinearGradientC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZNK25QQuickShapeLinearGradient2x1Ev": ["double", "address"],
+    "ritual_ZN25QQuickShapeLinearGradient5setX1Ed": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK25QQuickShapeLinearGradient2y1Ev": ["double", "address"],
+    "ritual_ZN25QQuickShapeLinearGradient5setY1Ed": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK25QQuickShapeLinearGradient2x2Ev": ["double", "address"],
+    "ritual_ZN25QQuickShapeLinearGradient5setX2Ed": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK25QQuickShapeLinearGradient2y2Ev": ["double", "address"],
+    "ritual_ZN25QQuickShapeLinearGradient5setY2Ed": [
+      "nothing", "address", "double"
+    ]
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDBus/qdbusmessage.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN12QDBusMessageC1Ev": ["address"],
+    "ritual_ZN12QDBusMessageC1ERKS_": ["address", "address"],
+    "ritual_ZN12QDBusMessageD1Ev": ["nothing", "address"],
+    "ritual_ZN12QDBusMessage12createSignalERK7QStringS2_S2_": [
+      "address", "text", "text", "text"
+    ],
+    "ritual_ZN12QDBusMessage20createTargetedSignalERK7QStringS2_S2_S2_": [
+      "address", "text", "text", "text", "text"
+    ],
+    "ritual_ZN12QDBusMessage16createMethodCallERK7QStringS2_S2_S2_": [
+      "address", "text", "text", "text", "text"
+    ],
+    "ritual_ZN12QDBusMessage11createErrorERK7QStringS2_": [
+      "address", "text", "text"
+    ],
+    "ritual_ZN12QDBusMessage11createErrorERK10QDBusError": [
+      "address", "address"
+    ],
+    "ritual_ZN12QDBusMessage11createErrorEN10QDBusError9ErrorTypeERK7QString": [
+      "address", "int", "text"
+    ],
+    "ritual_ZNK12QDBusMessage11createReplyERK5QListI8QVariantE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK12QDBusMessage11createReplyERK8QVariant": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK12QDBusMessage16createErrorReplyERK7QStringS2_": [
+      "address", "address", "text", "text"
+    ],
+    "ritual_ZNK12QDBusMessage16createErrorReplyERK10QDBusError": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK12QDBusMessage16createErrorReplyEN10QDBusError9ErrorTypeERK7QString": [
+      "address", "address", "int", "text"
+    ],
+    "ritual_ZNK12QDBusMessage7serviceEv": ["text", "address"],
+    "ritual_ZNK12QDBusMessage4pathEv": ["text", "address"],
+    "ritual_ZNK12QDBusMessage9interfaceEv": ["text", "address"],
+    "ritual_ZNK12QDBusMessage6memberEv": ["text", "address"],
+    "ritual_ZNK12QDBusMessage9errorNameEv": ["text", "address"],
+    "ritual_ZNK12QDBusMessage12errorMessageEv": ["text", "address"],
+    "ritual_ZNK12QDBusMessage4typeEv": ["int", "address"],
+    "ritual_ZNK12QDBusMessage9signatureEv": ["text", "address"],
+    "ritual_ZNK12QDBusMessage15isReplyRequiredEv": ["bool", "address"],
+    "ritual_ZNK12QDBusMessage15setDelayedReplyEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK12QDBusMessage14isDelayedReplyEv": ["bool", "address"],
+    "ritual_ZN12QDBusMessage19setAutoStartServiceEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK12QDBusMessage16autoStartServiceEv": ["bool", "address"],
+    "ritual_ZN12QDBusMessage34setInteractiveAuthorizationAllowedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK12QDBusMessage33isInteractiveAuthorizationAllowedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN12QDBusMessage12setArgumentsERK5QListI8QVariantE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12QDBusMessage9argumentsEv": ["address", "address"]
+  }
+}

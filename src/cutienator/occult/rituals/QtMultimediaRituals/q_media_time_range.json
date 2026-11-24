@@ -1,0 +1,51 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtMultimedia/qmediatimerange.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN15QMediaTimeRangeC1Ev": ["address"],
+    "ritual_ZN15QMediaTimeRangeC1Exx": ["address", "long long", "long long"],
+    "ritual_ZN15QMediaTimeRangeC1ERKNS_8IntervalE": ["address", "address"],
+    "ritual_ZN15QMediaTimeRangeC1ERKS_": ["address", "address"],
+    "ritual_ZN15QMediaTimeRangeD1Ev": ["nothing", "address"],
+    "ritual_ZN15QMediaTimeRange6detachEv": ["nothing", "address"],
+    "ritual_ZNK15QMediaTimeRange12earliestTimeEv": ["long long", "address"],
+    "ritual_ZNK15QMediaTimeRange10latestTimeEv": ["long long", "address"],
+    "ritual_ZNK15QMediaTimeRange7isEmptyEv": ["bool", "address"],
+    "ritual_ZNK15QMediaTimeRange12isContinuousEv": ["bool", "address"],
+    "ritual_ZNK15QMediaTimeRange8containsEx": [
+      "bool", "address", "long long"
+    ],
+    "ritual_ZN15QMediaTimeRange11addIntervalExx": [
+      "nothing", "address", "long long", "long long"
+    ],
+    "ritual_ZN15QMediaTimeRange11addIntervalERKNS_8IntervalE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QMediaTimeRange12addTimeRangeERKS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QMediaTimeRange14removeIntervalExx": [
+      "nothing", "address", "long long", "long long"
+    ],
+    "ritual_ZN15QMediaTimeRange14removeIntervalERKNS_8IntervalE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QMediaTimeRange15removeTimeRangeERKS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QMediaTimeRangepLERKS_": ["nothing", "address", "address"],
+    "ritual_ZN15QMediaTimeRangepLERKNS_8IntervalE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QMediaTimeRangemIERKS_": ["nothing", "address", "address"],
+    "ritual_ZN15QMediaTimeRangemIERKNS_8IntervalE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QMediaTimeRange5clearEv": ["nothing", "address"],
+    "ritual_ZeqRK15QMediaTimeRangeS1_": ["bool", "address", "address"],
+    "ritual_ZneRK15QMediaTimeRangeS1_": ["bool", "address", "address"]
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qtemporaryfile_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QTemporaryFileEngine6d_funcEv": ["address", "address"],
+    "ritual_ZNK20QTemporaryFileEngine6d_funcEv": ["address", "address"],
+    "ritual_ZN20QTemporaryFileEngineD1Ev": ["nothing", "address"],
+    "ritual_ZNK20QTemporaryFileEngine12isReallyOpenEv": ["bool", "address"],
+    "ritual_ZN20QTemporaryFileEngine11setFileNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN20QTemporaryFileEngine6removeEv": ["bool", "address"],
+    "ritual_ZN20QTemporaryFileEngine6renameERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN20QTemporaryFileEngine15renameOverwriteERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN20QTemporaryFileEngine5closeEv": ["bool", "address"],
+    "ritual_ZNK20QTemporaryFileEngine8fileNameEN19QAbstractFileEngine8FileNameE": [
+      "text", "address", "int"
+    ],
+    "ritual_ZNK20QTemporaryFileEngine13isUnnamedFileEv": ["bool", "address"],
+    "ritual_take_QTemporaryFileEngine": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN20QTemporaryFileEngine11setFileNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_own_ZN20QTemporaryFileEngine5closeEv": ["bool", "address"]
+  }
+}

@@ -6,6 +6,10 @@
   "rows": {
     "ritual_ZN5QFlagC1Ei": ["address", "int"],
     "ritual_ZNK5QFlagcviEv": ["int", "address"],
+    "ritual_ZN5QFlagC1Ej": ["address", "unsigned int"],
+    "ritual_ZN5QFlagC1Es": ["address", "short"],
+    "ritual_ZN5QFlagC1Et": ["address", "unsigned short"],
+    "ritual_ZNK5QFlagcvjEv": ["unsigned int", "address"],
     "ritual_ZN5QFlagD1Ev": ["nothing", "address"]
   }
 }

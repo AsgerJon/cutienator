@@ -1,0 +1,23 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtPrintSupport/6.12.0/QtPrintSupport/qpa/qplatformprintplugin.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK29QPlatformPrinterSupportPlugin10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN29QPlatformPrinterSupportPlugin2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN29QPlatformPrinterSupportPluginD1Ev": ["nothing", "address"],
+    "ritual_ZN29QPlatformPrinterSupportPlugin6createERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN29QPlatformPrinterSupportPlugin3getEv": ["address"],
+    "ritual_take_QPlatformPrinterSupportPlugin": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

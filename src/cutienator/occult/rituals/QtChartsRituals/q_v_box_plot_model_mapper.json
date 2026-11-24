@@ -1,0 +1,45 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/qvboxplotmodelmapper.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK20QVBoxPlotModelMapper10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QVBoxPlotModelMapper2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN20QVBoxPlotModelMapperC1EP7QObject": ["address", "address"],
+    "ritual_ZNK20QVBoxPlotModelMapper5modelEv": ["address", "address"],
+    "ritual_ZN20QVBoxPlotModelMapper8setModelEP18QAbstractItemModel": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QVBoxPlotModelMapper6seriesEv": ["address", "address"],
+    "ritual_ZN20QVBoxPlotModelMapper9setSeriesEP14QBoxPlotSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QVBoxPlotModelMapper17firstBoxSetColumnEv": [
+      "int", "address"
+    ],
+    "ritual_ZN20QVBoxPlotModelMapper20setFirstBoxSetColumnEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK20QVBoxPlotModelMapper16lastBoxSetColumnEv": [
+      "int", "address"
+    ],
+    "ritual_ZN20QVBoxPlotModelMapper19setLastBoxSetColumnEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK20QVBoxPlotModelMapper8firstRowEv": ["int", "address"],
+    "ritual_ZN20QVBoxPlotModelMapper11setFirstRowEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK20QVBoxPlotModelMapper8rowCountEv": ["int", "address"],
+    "ritual_ZN20QVBoxPlotModelMapper11setRowCountEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_take_QVBoxPlotModelMapper": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

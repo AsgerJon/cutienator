@@ -1,0 +1,41 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNfc/qnearfieldtarget.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK16QNearFieldTarget10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QNearFieldTarget2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN16QNearFieldTarget6d_funcEv": ["address", "address"],
+    "ritual_ZNK16QNearFieldTarget6d_funcEv": ["address", "address"],
+    "ritual_ZN16QNearFieldTargetC1EP7QObject": ["address", "address"],
+    "ritual_ZN16QNearFieldTargetD1Ev": ["nothing", "address"],
+    "ritual_ZNK16QNearFieldTarget3uidEv": ["address", "address"],
+    "ritual_ZNK16QNearFieldTarget4typeEv": ["int", "address"],
+    "ritual_ZNK16QNearFieldTarget13accessMethodsEv": ["int", "address"],
+    "ritual_ZN16QNearFieldTarget10disconnectEv": ["bool", "address"],
+    "ritual_ZN16QNearFieldTarget14hasNdefMessageEv": ["bool", "address"],
+    "ritual_ZN16QNearFieldTarget16readNdefMessagesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN16QNearFieldTarget17writeNdefMessagesERK5QListI12QNdefMessageE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK16QNearFieldTarget16maxCommandLengthEv": ["int", "address"],
+    "ritual_ZN16QNearFieldTarget11sendCommandERK10QByteArray": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN16QNearFieldTarget23waitForRequestCompletedERKNS_9RequestIdEi": [
+      "bool", "address", "address", "int"
+    ],
+    "ritual_ZNK16QNearFieldTarget15requestResponseERKNS_9RequestIdE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN16QNearFieldTargetC1EP23QNearFieldTargetPrivateP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_take_QNearFieldTarget": ["bool", "address", "chars", "address"]
+  }
+}

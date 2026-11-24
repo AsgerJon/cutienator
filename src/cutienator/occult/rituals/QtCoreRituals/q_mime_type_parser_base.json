@@ -1,0 +1,28 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qmimetypeparser_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QMimeTypeParserBaseD1Ev": ["nothing", "address"],
+    "ritual_ZN19QMimeTypeParserBase7processERK16QMimeTypeXMLDataP7QString": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN19QMimeTypeParserBase7processERK16QMimeGlobPatternP7QString": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN19QMimeTypeParserBase13processParentERK7QStringS2_": [
+      "nothing", "address", "text", "text"
+    ],
+    "ritual_ZN19QMimeTypeParserBase12processAliasERK7QStringS2_": [
+      "nothing", "address", "text", "text"
+    ],
+    "ritual_ZN19QMimeTypeParserBase19processMagicMatcherERK21QMimeMagicRuleMatcher": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QMimeTypeParserBase": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

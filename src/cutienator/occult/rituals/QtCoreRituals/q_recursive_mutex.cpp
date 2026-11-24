@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/qmutex.h, Qt 6.12.0. Changes made here are lost.
+#include <QtCore/qglobal.h>
+#if QT_CONFIG(thread) || defined(Q_QDOC)
 #include <QtCore/qmutex.h>
 #include <QtCore/qdeadlinetimer.h>
 
@@ -48,3 +50,5 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZN15QRecursiveMutex8try_lockEv(QRecursiveMutex *self) {
   return self->try_lock();
 }
+
+#endif  // QT_CONFIG(thread) || defined(Q_QDOC)

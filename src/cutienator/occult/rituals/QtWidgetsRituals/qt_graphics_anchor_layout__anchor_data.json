@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qgraphicsanchorlayout_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN22QtGraphicsAnchorLayout10AnchorDataD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QtGraphicsAnchorLayout10AnchorData19updateChildrenSizesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK22QtGraphicsAnchorLayout10AnchorData8toStringEv": [
+      "text", "address"
+    ],
+    "ritual_take_QtGraphicsAnchorLayout_AnchorData": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN22QtGraphicsAnchorLayout10AnchorData19updateChildrenSizesEv": [
+      "nothing", "address"
+    ]
+  }
+}

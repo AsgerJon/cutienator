@@ -1,0 +1,30 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtHttpS",
+    "erver/6.12.0/QtHttpServer/private/qhttpserverhttp2protocolhandler_",
+    "p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK31QHttpServerHttp2ProtocolHandler10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN31QHttpServerHttp2ProtocolHandler18responderDestroyedEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN31QHttpServerHttp2ProtocolHandler20startHandlingRequestEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN31QHttpServerHttp2ProtocolHandler18socketDisconnectedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN31QHttpServerHttp2ProtocolHandler21checkKeepAliveTimeoutEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN31QHttpServerHttp2ProtocolHandler12sendToStreamEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZNK31QHttpServerHttp2ProtocolHandler9getStreamEj": [
+      "address", "address", "unsigned int"
+    ]
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSql/qsqldatabase.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN12QSqlDatabaseC1Ev": ["address"],
+    "ritual_ZN12QSqlDatabaseC1ERKS_": ["address", "address"],
+    "ritual_ZN12QSqlDatabaseD1Ev": ["nothing", "address"],
+    "ritual_ZN12QSqlDatabase4openEv": ["bool", "address"],
+    "ritual_ZN12QSqlDatabase4openERK7QStringS2_": [
+      "bool", "address", "text", "text"
+    ],
+    "ritual_ZN12QSqlDatabase5closeEv": ["nothing", "address"],
+    "ritual_ZNK12QSqlDatabase6isOpenEv": ["bool", "address"],
+    "ritual_ZNK12QSqlDatabase11isOpenErrorEv": ["bool", "address"],
+    "ritual_ZNK12QSqlDatabase6tablesEN4QSql9TableTypeE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK12QSqlDatabase12primaryIndexERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK12QSqlDatabase6recordERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK12QSqlDatabase4execERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK12QSqlDatabase9lastErrorEv": ["address", "address"],
+    "ritual_ZNK12QSqlDatabase7isValidEv": ["bool", "address"],
+    "ritual_ZN12QSqlDatabase11transactionEv": ["bool", "address"],
+    "ritual_ZN12QSqlDatabase6commitEv": ["bool", "address"],
+    "ritual_ZN12QSqlDatabase8rollbackEv": ["bool", "address"],
+    "ritual_ZN12QSqlDatabase15setDatabaseNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN12QSqlDatabase11setUserNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN12QSqlDatabase11setPasswordERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN12QSqlDatabase11setHostNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN12QSqlDatabase7setPortEi": ["nothing", "address", "int"],
+    "ritual_ZN12QSqlDatabase17setConnectOptionsERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK12QSqlDatabase12databaseNameEv": ["text", "address"],
+    "ritual_ZNK12QSqlDatabase8userNameEv": ["text", "address"],
+    "ritual_ZNK12QSqlDatabase8passwordEv": ["text", "address"],
+    "ritual_ZNK12QSqlDatabase8hostNameEv": ["text", "address"],
+    "ritual_ZNK12QSqlDatabase10driverNameEv": ["text", "address"],
+    "ritual_ZNK12QSqlDatabase4portEv": ["int", "address"],
+    "ritual_ZNK12QSqlDatabase14connectOptionsEv": ["text", "address"],
+    "ritual_ZNK12QSqlDatabase14connectionNameEv": ["text", "address"],
+    "ritual_ZN12QSqlDatabase27setNumericalPrecisionPolicyEN4QSql24NumericalPrecisionPolicyE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK12QSqlDatabase24numericalPrecisionPolicyEv": [
+      "int", "address"
+    ],
+    "ritual_ZN12QSqlDatabase12moveToThreadEP7QThread": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK12QSqlDatabase6threadEv": ["address", "address"],
+    "ritual_ZNK12QSqlDatabase6driverEv": ["address", "address"],
+    "ritual_ZN12QSqlDatabase11addDatabaseERK7QStringS2_": [
+      "address", "text", "text"
+    ],
+    "ritual_ZN12QSqlDatabase11addDatabaseEP10QSqlDriverRK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN12QSqlDatabase13cloneDatabaseERKS_RK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN12QSqlDatabase13cloneDatabaseERK7QStringS2_": [
+      "address", "text", "text"
+    ],
+    "ritual_ZN12QSqlDatabase8databaseERK7QStringb": [
+      "address", "text", "bool"
+    ],
+    "ritual_ZN12QSqlDatabase14removeDatabaseERK7QString": [
+      "nothing", "text"
+    ],
+    "ritual_ZN12QSqlDatabase8containsERK7QString": ["bool", "text"],
+    "ritual_ZN12QSqlDatabase7driversEv": ["address"],
+    "ritual_ZN12QSqlDatabase15connectionNamesEv": ["address"],
+    "ritual_ZN12QSqlDatabase17registerSqlDriverERK7QStringP21QSqlDriverCreatorBase": [
+      "nothing", "text", "address"
+    ],
+    "ritual_ZN12QSqlDatabase17isDriverAvailableERK7QString": [
+      "bool", "text"
+    ],
+    "ritual_ZN12QSqlDatabaseC1ERK7QString": ["address", "text"],
+    "ritual_ZN12QSqlDatabaseC1EP10QSqlDriver": ["address", "address"]
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qtextureglyphcache_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN23QImageTextureGlyphCacheC1EN11QFontEngine11GlyphFormatERK10QTransformRK6QColor": [
+      "address", "int", "address", "address"
+    ],
+    "ritual_ZN23QImageTextureGlyphCacheD1Ev": ["nothing", "address"],
+    "ritual_ZN23QImageTextureGlyphCache17createTextureDataEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN23QImageTextureGlyphCache17resizeTextureDataEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN23QImageTextureGlyphCache11fillTextureERKN18QTextureGlyphCache5CoordEjRK11QFixedPoint": [
+      "nothing", "address", "address", "unsigned int", "address"
+    ],
+    "ritual_ZNK23QImageTextureGlyphCache5imageEv": ["address", "address"],
+    "ritual_take_QImageTextureGlyphCache": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN23QImageTextureGlyphCache17createTextureDataEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZN23QImageTextureGlyphCache17resizeTextureDataEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZN23QImageTextureGlyphCache11fillTextureERKN18QTextureGlyphCache5CoordEjRK11QFixedPoint": [
+      "nothing", "address", "address", "unsigned int", "address"
+    ]
+  }
+}

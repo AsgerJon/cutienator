@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquickradiobutton_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QQuickRadioButton10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QQuickRadioButton2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QQuickRadioButtonC1EP10QQuickItem": ["address", "address"],
+    "ritual_ZNK17QQuickRadioButton11defaultFontEv": ["address", "address"],
+    "ritual_ZNK17QQuickRadioButton14accessibleRoleEv": ["int", "address"],
+    "ritual_take_QQuickRadioButton": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK17QQuickRadioButton11defaultFontEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK17QQuickRadioButton14accessibleRoleEv": ["int", "address"]
+  }
+}

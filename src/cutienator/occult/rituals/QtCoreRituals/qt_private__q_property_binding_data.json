@@ -1,0 +1,30 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qpropertyprivate.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN9QtPrivate20QPropertyBindingDataC1Ev": ["address"],
+    "ritual_ZNK9QtPrivate20QPropertyBindingData10hasBindingEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK9QtPrivate20QPropertyBindingData21isNotificationDelayedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK9QtPrivate20QPropertyBindingData7bindingEv": [
+      "address", "address"
+    ],
+    "ritual_ZN9QtPrivate20QPropertyBindingData13removeBindingEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK9QtPrivate20QPropertyBindingData38registerWithCurrentlyEvaluatingBindingEPNS_22BindingEvaluationStateE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9QtPrivate20QPropertyBindingData1dEv": [
+      "unsigned long long", "address"
+    ],
+    "ritual_ZNK9QtPrivate20QPropertyBindingData9proxyDataEv": [
+      "address", "address"
+    ]
+  }
+}

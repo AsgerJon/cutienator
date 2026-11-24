@@ -1,0 +1,14 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtPositioning/6.12.0/QtPositioning/private/qgeocoordinate_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN29QGeoMercatorCoordinatePrivateC1Ev": ["address"],
+    "ritual_ZN29QGeoMercatorCoordinatePrivateC1ERKS_": [
+      "address", "address"
+    ],
+    "ritual_ZN29QGeoMercatorCoordinatePrivateD1Ev": ["nothing", "address"]
+  }
+}

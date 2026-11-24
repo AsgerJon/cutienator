@@ -1,0 +1,14 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSvg/6.12.0/QtSvg/private/qsvgcsseasing_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN13QSvgCssEasingD1Ev": ["nothing", "address"],
+    "ritual_ZNK13QSvgCssEasing14easingFunctionEv": [
+      "unsigned char", "address"
+    ],
+    "ritual_take_QSvgCssEasing": ["bool", "address", "chars", "address"]
+  }
+}

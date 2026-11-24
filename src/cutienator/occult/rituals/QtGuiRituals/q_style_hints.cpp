@@ -20,6 +20,19 @@ QString *ritual_ZN11QStyleHints2trEPKcS1_i(
   return new QString(QStyleHints::tr(s, c, n));
 }
 
+//  QStyleHintsPrivate *QStyleHints::d_func()
+extern "C" Q_DECL_EXPORT
+QStyleHintsPrivate *ritual_ZN11QStyleHints6d_funcEv(QStyleHints *self) {
+  return self->d_func();
+}
+
+//  const QStyleHintsPrivate *QStyleHints::d_func() const
+extern "C" Q_DECL_EXPORT
+const QStyleHintsPrivate *ritual_ZNK11QStyleHints6d_funcEv(
+    const QStyleHints *self) {
+  return self->d_func();
+}
+
 //  void QStyleHints::setMouseDoubleClickInterval(int
 //      mouseDoubleClickInterval)
 extern "C" Q_DECL_EXPORT
@@ -115,12 +128,14 @@ int ritual_ZNK11QStyleHints21keyboardInputIntervalEv(
   return self->keyboardInputInterval();
 }
 
+#if QT_DEPRECATED_SINCE(6, 5)
 //  int QStyleHints::keyboardAutoRepeatRate() const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK11QStyleHints22keyboardAutoRepeatRateEv(
     const QStyleHints *self) {
   return self->keyboardAutoRepeatRate();
 }
+#endif  // QT_DEPRECATED_SINCE(6, 5)
 
 //  qreal QStyleHints::keyboardAutoRepeatRateF() const
 extern "C" Q_DECL_EXPORT

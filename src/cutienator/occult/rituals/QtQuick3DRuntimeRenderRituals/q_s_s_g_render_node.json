@@ -1,0 +1,46 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgrenderno",
+    "de_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN14QSSGRenderNodeC1Ev": ["address"],
+    "ritual_ZN14QSSGRenderNodeC1EN21QSSGRenderGraphObject4TypeEj": [
+      "address", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZN14QSSGRenderNodeD1Ev": ["nothing", "address"],
+    "ritual_ZN14QSSGRenderNode9markDirtyENS_9DirtyFlagE": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN14QSSGRenderNode10clearDirtyENS_9DirtyFlagE": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZNK14QSSGRenderNode7isDirtyENS_9DirtyFlagE": [
+      "bool", "address", "unsigned int"
+    ],
+    "ritual_ZN14QSSGRenderNode8setStateENS_10LocalStateEb": [
+      "nothing", "address", "unsigned char", "bool"
+    ],
+    "ritual_ZNK14QSSGRenderNode13getLocalStateENS_10LocalStateE": [
+      "bool", "address", "unsigned char"
+    ],
+    "ritual_ZNK14QSSGRenderNode14getGlobalStateENS_11GlobalStateE": [
+      "bool", "address", "unsigned char"
+    ],
+    "ritual_ZN14QSSGRenderNode15removeFromGraphEv": ["nothing", "address"],
+    "ritual_ZN14QSSGRenderNode24calculateTransformMatrixE9QVector3DS0_S0_11QQuaternion": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN14QSSGRenderNode12getGlobalPosERK10QMatrix4x4": [
+      "address", "address"
+    ],
+    "ritual_ZN14QSSGRenderNode12getDirectionERK10QMatrix4x4": [
+      "address", "address"
+    ],
+    "ritual_ZN14QSSGRenderNode26getScalingCorrectDirectionERK10QMatrix4x4": [
+      "address", "address"
+    ],
+    "ritual_ZN14QSSGRenderNode13signedSquaredEf": ["float", "float"]
+  }
+}

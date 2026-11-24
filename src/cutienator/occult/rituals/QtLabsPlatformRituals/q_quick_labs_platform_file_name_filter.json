@@ -1,0 +1,30 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtLabsP",
+    "latform/6.12.0/QtLabsPlatform/private/qquicklabsplatformfiledialog",
+    "_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK32QQuickLabsPlatformFileNameFilter10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN32QQuickLabsPlatformFileNameFilter22qt_qmlMarker_anonymousEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK32QQuickLabsPlatformFileNameFilter5indexEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK32QQuickLabsPlatformFileNameFilter4nameEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK32QQuickLabsPlatformFileNameFilter10extensionsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK32QQuickLabsPlatformFileNameFilter11nameFiltersEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK32QQuickLabsPlatformFileNameFilter10nameFilterEi": [
+      "text", "address", "int"
+    ]
+  }
+}

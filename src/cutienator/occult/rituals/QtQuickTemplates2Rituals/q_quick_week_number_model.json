@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquickweeknumbermodel_",
+    "p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK21QQuickWeekNumberModel10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK21QQuickWeekNumberModel9roleNamesEv": ["address", "address"],
+    "ritual_ZNK21QQuickWeekNumberModel4dataERK11QModelIndexi": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZNK21QQuickWeekNumberModel8rowCountERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZNK21QQuickWeekNumberModel8rowCountERK11QModelIndex": [
+      "int", "address", "address"
+    ]
+  }
+}

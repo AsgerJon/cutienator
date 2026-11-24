@@ -1,0 +1,28 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qtx11extras_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN8QX11Info13isPlatformX11Ev": ["bool"],
+    "ritual_ZN8QX11Info7appDpiXEi": ["int", "int"],
+    "ritual_ZN8QX11Info7appDpiYEi": ["int", "int"],
+    "ritual_ZN8QX11Info13appRootWindowEi": ["unsigned int", "int"],
+    "ritual_ZN8QX11Info9appScreenEv": ["int"],
+    "ritual_ZN8QX11Info7appTimeEv": ["unsigned int"],
+    "ritual_ZN8QX11Info11appUserTimeEv": ["unsigned int"],
+    "ritual_ZN8QX11Info10setAppTimeEj": ["nothing", "unsigned int"],
+    "ritual_ZN8QX11Info14setAppUserTimeEj": ["nothing", "unsigned int"],
+    "ritual_ZN8QX11Info12getTimestampEv": ["unsigned int"],
+    "ritual_ZN8QX11Info13nextStartupIdEv": ["address"],
+    "ritual_ZN8QX11Info16setNextStartupIdERK10QByteArray": [
+      "nothing", "address"
+    ],
+    "ritual_ZN8QX11Info27isCompositingManagerRunningEi": ["bool", "int"],
+    "ritual_ZN8QX11Info16generatePeekerIdEv": ["int"],
+    "ritual_ZN8QX11Info14removePeekerIdEi": ["bool", "int"],
+    "ritual_ZN8QX11InfoC1Ev": ["address"],
+    "ritual_ZN8QX11InfoD1Ev": ["nothing", "address"]
+  }
+}

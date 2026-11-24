@@ -1,5 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qwizard.h, Qt 6.12.0. Changes made here are lost.
+#include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(wizard)
+#include <QtWidgets/QtWidgets>
 #include <QtWidgets/qwizard.h>
 #include <QtCore/qstring.h>
 #include <QtGui/qpixmap.h>
@@ -11,11 +14,21 @@
 //  A QWizardPage that Python can take functions over in. Every QWizardPage
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if QT_CONFIG(wizard)
 typedef void (*CuteQWizardPageCall0)(const void *, int *);
+#endif  // QT_CONFIG(wizard)
+#if QT_CONFIG(wizard)
 typedef void (*CuteQWizardPageCall1)(const void *, int *);
+#endif  // QT_CONFIG(wizard)
+#if QT_CONFIG(wizard)
 typedef bool (*CuteQWizardPageCall2)(const void *, int *);
+#endif  // QT_CONFIG(wizard)
+#if QT_CONFIG(wizard)
 typedef bool (*CuteQWizardPageCall3)(const void *, int *);
+#endif  // QT_CONFIG(wizard)
+#if QT_CONFIG(wizard)
 typedef int (*CuteQWizardPageCall4)(const void *, int *);
+#endif  // QT_CONFIG(wizard)
 typedef int (*CuteQWizardPageCall5)(const void *, int *);
 typedef void (*CuteQWizardPageCall6)(const void *, bool, int *);
 typedef const QSize * (*CuteQWizardPageCall7)(const void *, int *);
@@ -23,12 +36,16 @@ typedef const QSize * (*CuteQWizardPageCall8)(const void *, int *);
 typedef int (*CuteQWizardPageCall9)(const void *, int, int *);
 typedef bool (*CuteQWizardPageCall10)(const void *, int *);
 typedef void * (*CuteQWizardPageCall11)(const void *, int *);
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQWizardPageCall12)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 typedef void (*CuteQWizardPageCall13)(const void *, QMouseEvent *, int *);
 typedef void (*CuteQWizardPageCall14)(const void *, QMouseEvent *, int *);
 typedef void (*CuteQWizardPageCall15)(const void *, QMouseEvent *, int *);
 typedef void (*CuteQWizardPageCall16)(const void *, QMouseEvent *, int *);
+#if QT_CONFIG(wheelevent)
 typedef void (*CuteQWizardPageCall17)(const void *, QWheelEvent *, int *);
+#endif  // QT_CONFIG(wheelevent)
 typedef void (*CuteQWizardPageCall18)(const void *, QKeyEvent *, int *);
 typedef void (*CuteQWizardPageCall19)(const void *, QKeyEvent *, int *);
 typedef void (*CuteQWizardPageCall20)(const void *, QFocusEvent *, int *);
@@ -39,13 +56,27 @@ typedef void (*CuteQWizardPageCall24)(const void *, QPaintEvent *, int *);
 typedef void (*CuteQWizardPageCall25)(const void *, QMoveEvent *, int *);
 typedef void (*CuteQWizardPageCall26)(const void *, QResizeEvent *, int *);
 typedef void (*CuteQWizardPageCall27)(const void *, QCloseEvent *, int *);
+#if !defined(QT_NO_CONTEXTMENU)
 typedef void (*CuteQWizardPageCall28)(const void *, QContextMenuEvent *, int *);
+#endif  // !defined(QT_NO_CONTEXTMENU)
+#if QT_CONFIG(tabletevent)
 typedef void (*CuteQWizardPageCall29)(const void *, QTabletEvent *, int *);
+#endif  // QT_CONFIG(tabletevent)
+#if !defined(QT_NO_ACTION)
 typedef void (*CuteQWizardPageCall30)(const void *, QActionEvent *, int *);
+#endif  // !defined(QT_NO_ACTION)
+#if QT_CONFIG(draganddrop)
 typedef void (*CuteQWizardPageCall31)(const void *, QDragEnterEvent *, int *);
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
 typedef void (*CuteQWizardPageCall32)(const void *, QDragMoveEvent *, int *);
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
 typedef void (*CuteQWizardPageCall33)(const void *, QDragLeaveEvent *, int *);
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
 typedef void (*CuteQWizardPageCall34)(const void *, QDropEvent *, int *);
+#endif  // QT_CONFIG(draganddrop)
 typedef void (*CuteQWizardPageCall35)(const void *, QShowEvent *, int *);
 typedef void (*CuteQWizardPageCall36)(const void *, QHideEvent *, int *);
 typedef void (*CuteQWizardPageCall37)(const void *, QEvent *, int *);
@@ -56,38 +87,60 @@ typedef void * (*CuteQWizardPageCall41)(const void *, int *);
 typedef void (*CuteQWizardPageCall42)(const void *, QInputMethodEvent *, int *);
 typedef const QVariant * (*CuteQWizardPageCall43)(const void *, int, int *);
 typedef bool (*CuteQWizardPageCall44)(const void *, bool, int *);
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQWizardPageCall45)(const void *, QObject *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQWizardPageCall46)(const void *, QTimerEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQWizardPageCall47)(const void *, QChildEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQWizardPageCall48)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQWizardPageCall49)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQWizardPageCall50)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 class CuteQWizardPage : public QWizardPage {
 public:
   using QWizardPage::QWizardPage;
   void *taken[51] = {};
 
   bool take(const char *key, void *call) {
+#if QT_CONFIG(wizard)
     if (!std::strcmp(key, "_ZN11QWizardPage14initializePageEv")) {
       taken[0] = call;
       return true;
     }
+#endif  // QT_CONFIG(wizard)
+#if QT_CONFIG(wizard)
     if (!std::strcmp(key, "_ZN11QWizardPage11cleanupPageEv")) {
       taken[1] = call;
       return true;
     }
+#endif  // QT_CONFIG(wizard)
+#if QT_CONFIG(wizard)
     if (!std::strcmp(key, "_ZN11QWizardPage12validatePageEv")) {
       taken[2] = call;
       return true;
     }
+#endif  // QT_CONFIG(wizard)
+#if QT_CONFIG(wizard)
     if (!std::strcmp(key, "_ZNK11QWizardPage10isCompleteEv")) {
       taken[3] = call;
       return true;
     }
+#endif  // QT_CONFIG(wizard)
+#if QT_CONFIG(wizard)
     if (!std::strcmp(key, "_ZNK11QWizardPage6nextIdEv")) {
       taken[4] = call;
       return true;
     }
+#endif  // QT_CONFIG(wizard)
     if (!std::strcmp(key, "_ZNK12QPaintDevice7devTypeEv")) {
       taken[5] = call;
       return true;
@@ -116,10 +169,12 @@ public:
       taken[11] = call;
       return true;
     }
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[12] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QWidget15mousePressEventEP11QMouseEvent")) {
       taken[13] = call;
       return true;
@@ -136,10 +191,12 @@ public:
       taken[16] = call;
       return true;
     }
+#if QT_CONFIG(wheelevent)
     if (!std::strcmp(key, "_ZN7QWidget10wheelEventEP11QWheelEvent")) {
       taken[17] = call;
       return true;
     }
+#endif  // QT_CONFIG(wheelevent)
     if (!std::strcmp(key, "_ZN7QWidget13keyPressEventEP9QKeyEvent")) {
       taken[18] = call;
       return true;
@@ -180,34 +237,48 @@ public:
       taken[27] = call;
       return true;
     }
+#if !defined(QT_NO_CONTEXTMENU)
     if (!std::strcmp(key, "_ZN7QWidget16contextMenuEventEP17QContextMenuEvent")) {
       taken[28] = call;
       return true;
     }
+#endif  // !defined(QT_NO_CONTEXTMENU)
+#if QT_CONFIG(tabletevent)
     if (!std::strcmp(key, "_ZN7QWidget11tabletEventEP12QTabletEvent")) {
       taken[29] = call;
       return true;
     }
+#endif  // QT_CONFIG(tabletevent)
+#if !defined(QT_NO_ACTION)
     if (!std::strcmp(key, "_ZN7QWidget11actionEventEP12QActionEvent")) {
       taken[30] = call;
       return true;
     }
+#endif  // !defined(QT_NO_ACTION)
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget14dragEnterEventEP15QDragEnterEvent")) {
       taken[31] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget13dragMoveEventEP14QDragMoveEvent")) {
       taken[32] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget14dragLeaveEventEP15QDragLeaveEvent")) {
       taken[33] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget9dropEventEP10QDropEvent")) {
       taken[34] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget9showEventEP10QShowEvent")) {
       taken[35] = call;
       return true;
@@ -248,33 +319,46 @@ public:
       taken[44] = call;
       return true;
     }
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[45] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[46] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[47] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[48] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[49] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
       taken[50] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
     return false;
   }
 
+#if QT_CONFIG(wizard)
   //  void QWizardPage::initializePage()
   void initializePage() override {
     if (taken[0]) {
@@ -285,7 +369,9 @@ public:
     }
     QWizardPage::initializePage();
   }
+#endif  // QT_CONFIG(wizard)
 
+#if QT_CONFIG(wizard)
   //  void QWizardPage::cleanupPage()
   void cleanupPage() override {
     if (taken[1]) {
@@ -296,7 +382,9 @@ public:
     }
     QWizardPage::cleanupPage();
   }
+#endif  // QT_CONFIG(wizard)
 
+#if QT_CONFIG(wizard)
   //  bool QWizardPage::validatePage()
   bool validatePage() override {
     if (taken[2]) {
@@ -307,7 +395,9 @@ public:
     }
     return QWizardPage::validatePage();
   }
+#endif  // QT_CONFIG(wizard)
 
+#if QT_CONFIG(wizard)
   //  bool QWizardPage::isComplete() const
   bool isComplete() const override {
     if (taken[3]) {
@@ -318,7 +408,9 @@ public:
     }
     return QWizardPage::isComplete();
   }
+#endif  // QT_CONFIG(wizard)
 
+#if QT_CONFIG(wizard)
   //  int QWizardPage::nextId() const
   int nextId() const override {
     if (taken[4]) {
@@ -329,6 +421,7 @@ public:
     }
     return QWizardPage::nextId();
   }
+#endif  // QT_CONFIG(wizard)
 
   //  int QWidget::devType() const
   int devType() const override {
@@ -407,6 +500,7 @@ public:
     return QWidget::paintEngine();
   }
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QWidget::event(QEvent *event)
   bool event(QEvent *event) override {
     if (taken[12]) {
@@ -417,6 +511,7 @@ public:
     }
     return QWidget::event(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
   //  void QWidget::mousePressEvent(QMouseEvent *event)
   void mousePressEvent(QMouseEvent *event) override {
@@ -462,6 +557,7 @@ public:
     QWidget::mouseMoveEvent(event);
   }
 
+#if QT_CONFIG(wheelevent)
   //  void QWidget::wheelEvent(QWheelEvent *event)
   void wheelEvent(QWheelEvent *event) override {
     if (taken[17]) {
@@ -472,6 +568,7 @@ public:
     }
     QWidget::wheelEvent(event);
   }
+#endif  // QT_CONFIG(wheelevent)
 
   //  void QWidget::keyPressEvent(QKeyEvent *event)
   void keyPressEvent(QKeyEvent *event) override {
@@ -583,6 +680,7 @@ public:
     QWidget::closeEvent(event);
   }
 
+#if !defined(QT_NO_CONTEXTMENU)
   //  void QWidget::contextMenuEvent(QContextMenuEvent *event)
   void contextMenuEvent(QContextMenuEvent *event) override {
     if (taken[28]) {
@@ -593,7 +691,9 @@ public:
     }
     QWidget::contextMenuEvent(event);
   }
+#endif  // !defined(QT_NO_CONTEXTMENU)
 
+#if QT_CONFIG(tabletevent)
   //  void QWidget::tabletEvent(QTabletEvent *event)
   void tabletEvent(QTabletEvent *event) override {
     if (taken[29]) {
@@ -604,7 +704,9 @@ public:
     }
     QWidget::tabletEvent(event);
   }
+#endif  // QT_CONFIG(tabletevent)
 
+#if !defined(QT_NO_ACTION)
   //  void QWidget::actionEvent(QActionEvent *event)
   void actionEvent(QActionEvent *event) override {
     if (taken[30]) {
@@ -615,7 +717,9 @@ public:
     }
     QWidget::actionEvent(event);
   }
+#endif  // !defined(QT_NO_ACTION)
 
+#if QT_CONFIG(draganddrop)
   //  void QWidget::dragEnterEvent(QDragEnterEvent *event)
   void dragEnterEvent(QDragEnterEvent *event) override {
     if (taken[31]) {
@@ -626,7 +730,9 @@ public:
     }
     QWidget::dragEnterEvent(event);
   }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
   //  void QWidget::dragMoveEvent(QDragMoveEvent *event)
   void dragMoveEvent(QDragMoveEvent *event) override {
     if (taken[32]) {
@@ -637,7 +743,9 @@ public:
     }
     QWidget::dragMoveEvent(event);
   }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
   //  void QWidget::dragLeaveEvent(QDragLeaveEvent *event)
   void dragLeaveEvent(QDragLeaveEvent *event) override {
     if (taken[33]) {
@@ -648,7 +756,9 @@ public:
     }
     QWidget::dragLeaveEvent(event);
   }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
   //  void QWidget::dropEvent(QDropEvent *event)
   void dropEvent(QDropEvent *event) override {
     if (taken[34]) {
@@ -659,6 +769,7 @@ public:
     }
     QWidget::dropEvent(event);
   }
+#endif  // QT_CONFIG(draganddrop)
 
   //  void QWidget::showEvent(QShowEvent *event)
   void showEvent(QShowEvent *event) override {
@@ -770,6 +881,7 @@ public:
     return QWidget::focusNextPrevChild(next);
   }
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
     if (taken[45]) {
@@ -780,7 +892,9 @@ public:
     }
     return QObject::eventFilter(watched, event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
     if (taken[46]) {
@@ -791,7 +905,9 @@ public:
     }
     QObject::timerEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
     if (taken[47]) {
@@ -802,7 +918,9 @@ public:
     }
     QObject::childEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
     if (taken[48]) {
@@ -813,7 +931,9 @@ public:
     }
     QObject::customEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
     if (taken[49]) {
@@ -824,7 +944,9 @@ public:
     }
     QObject::connectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
     if (taken[50]) {
@@ -835,6 +957,7 @@ public:
     }
     QObject::disconnectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 };
 
 //  const QMetaObject *QWizardPage::metaObject() const
@@ -1061,3 +1184,5 @@ extern "C" Q_DECL_EXPORT
 int ritual_own_ZNK11QWizardPage6nextIdEv(const QWizardPage *self) {
   return self->QWizardPage::nextId();
 }
+
+#endif  // QT_CONFIG(wizard)

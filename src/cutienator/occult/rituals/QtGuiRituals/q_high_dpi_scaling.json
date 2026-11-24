@@ -1,0 +1,41 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qhighdpiscaling_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QHighDpiScaling18initHighDpiScalingEv": ["nothing"],
+    "ritual_ZN15QHighDpiScaling20updateHighDpiScalingEv": ["nothing"],
+    "ritual_ZN15QHighDpiScaling15setGlobalFactorEd": ["nothing", "double"],
+    "ritual_ZN15QHighDpiScaling15setScreenFactorEP7QScreend": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN15QHighDpiScaling8isActiveEv": ["bool"],
+    "ritual_ZN15QHighDpiScaling14scaleAndOriginEPK15QPlatformScreenNS_5PointE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN15QHighDpiScaling14scaleAndOriginEPK7QScreenNS_5PointE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN15QHighDpiScaling14scaleAndOriginEPK7QWindowNS_5PointE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN15QHighDpiScaling21mapPositionFromNativeERK6QPointPK15QPlatformScreen": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN15QHighDpiScaling19mapPositionToNativeERK6QPointPK15QPlatformScreen": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN15QHighDpiScaling16roundScaleFactorEd": ["double", "double"],
+    "ritual_ZN15QHighDpiScaling14rawScaleFactorEPK15QPlatformScreen": [
+      "double", "address"
+    ],
+    "ritual_ZN15QHighDpiScaling15screenSubfactorEPK15QPlatformScreen": [
+      "double", "address"
+    ],
+    "ritual_ZN15QHighDpiScaling17screenForPositionENS_5PointEP7QScreen": [
+      "address", "address", "address"
+    ]
+  }
+}

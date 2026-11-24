@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4compilercontrolflow_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN3QV48Compiler17ControlFlowUnwindC1EPNS0_7CodegenENS0_11ControlFlow4TypeE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN3QV48Compiler17ControlFlowUnwind18setupUnwindHandlerEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN3QV48Compiler17ControlFlowUnwindD1Ev": ["nothing", "address"],
+    "ritual_take_QV4_Compiler_ControlFlowUnwind": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

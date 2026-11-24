@@ -1,0 +1,37 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Shapes/6.12.0/QtQuickShapes/private/qquickshapegenericrenderer_p.h",
+    ", Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN30QQuickShapeTextureFillMaterialD1Ev": ["nothing", "address"],
+    "ritual_ZNK30QQuickShapeTextureFillMaterial4typeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK30QQuickShapeTextureFillMaterial7compareEPK11QSGMaterial": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK30QQuickShapeTextureFillMaterial12createShaderEN20QSGRendererInterface10RenderModeE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK30QQuickShapeTextureFillMaterial4nodeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK30QQuickShapeTextureFillMaterial12dummyTextureEv": [
+      "address", "address"
+    ],
+    "ritual_ZN30QQuickShapeTextureFillMaterial15setDummyTextureEP15QSGPlainTexture": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QQuickShapeTextureFillMaterial": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK30QQuickShapeTextureFillMaterial4typeEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK30QQuickShapeTextureFillMaterial7compareEPK11QSGMaterial": [
+      "int", "address", "address"
+    ]
+  }
+}

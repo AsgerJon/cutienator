@@ -1,0 +1,59 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore5Compat/qtextcodec.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN10QTextCodec12codecForNameERK10QByteArray": [
+      "address", "address"
+    ],
+    "ritual_ZN10QTextCodec12codecForNameEPKc": ["address", "chars"],
+    "ritual_ZN10QTextCodec11codecForMibEi": ["address", "int"],
+    "ritual_ZN10QTextCodec15availableCodecsEv": ["address"],
+    "ritual_ZN10QTextCodec14codecForLocaleEv": ["address"],
+    "ritual_ZN10QTextCodec17setCodecForLocaleEPS_": ["nothing", "address"],
+    "ritual_ZN10QTextCodec10codecForTrEv": ["address"],
+    "ritual_ZN10QTextCodec12codecForHtmlERK10QByteArray": [
+      "address", "address"
+    ],
+    "ritual_ZN10QTextCodec12codecForHtmlERK10QByteArrayPS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN10QTextCodec15codecForUtfTextERK10QByteArray": [
+      "address", "address"
+    ],
+    "ritual_ZN10QTextCodec15codecForUtfTextERK10QByteArrayPS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK10QTextCodec9canEncodeE5QChar": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK10QTextCodec9canEncodeERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZNK10QTextCodec9canEncodeE11QStringView": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZNK10QTextCodec9toUnicodeERK10QByteArray": [
+      "text", "address", "address"
+    ],
+    "ritual_ZNK10QTextCodec9toUnicodeEPKc": ["text", "address", "chars"],
+    "ritual_ZNK10QTextCodec11fromUnicodeERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK10QTextCodec11fromUnicodeE11QStringView": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK10QTextCodec11makeDecoderE6QFlagsIN20QStringConverterBase4FlagEE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK10QTextCodec11makeEncoderE6QFlagsIN20QStringConverterBase4FlagEE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK10QTextCodec4nameEv": ["address", "address"],
+    "ritual_ZNK10QTextCodec7aliasesEv": ["address", "address"],
+    "ritual_ZNK10QTextCodec7mibEnumEv": ["int", "address"],
+    "ritual_ZN10QTextCodecD1Ev": ["nothing", "address"],
+    "ritual_take_QTextCodec": ["bool", "address", "chars", "address"]
+  }
+}

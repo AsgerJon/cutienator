@@ -1,0 +1,28 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qgraphicslayout_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN16QLayoutStyleInfoC1Ev": ["address"],
+    "ritual_ZN16QLayoutStyleInfoC1EP6QStyleP7QWidget": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN16QLayoutStyleInfo10invalidateEv": ["nothing", "address"],
+    "ritual_ZNK16QLayoutStyleInfo5styleEv": ["address", "address"],
+    "ritual_ZNK16QLayoutStyleInfo6widgetEv": ["address", "address"],
+    "ritual_ZNK16QLayoutStyleInfoeqERKS_": ["bool", "address", "address"],
+    "ritual_ZNK16QLayoutStyleInfoneERKS_": ["bool", "address", "address"],
+    "ritual_ZN16QLayoutStyleInfo17setDefaultSpacingEN2Qt11OrientationEd": [
+      "nothing", "address", "int", "double"
+    ],
+    "ritual_ZNK16QLayoutStyleInfo14defaultSpacingEN2Qt11OrientationE": [
+      "double", "address", "int"
+    ],
+    "ritual_ZNK16QLayoutStyleInfo14perItemSpacingEN11QSizePolicy11ControlTypeES1_N2Qt11OrientationE": [
+      "double", "address", "int", "int", "int"
+    ],
+    "ritual_ZN16QLayoutStyleInfoD1Ev": ["nothing", "address"]
+  }
+}

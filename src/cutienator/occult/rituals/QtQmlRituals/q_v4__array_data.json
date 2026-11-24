@@ -1,0 +1,44 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4arraydata_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN3QV49ArrayData12staticVTableEv": ["address"],
+    "ritual_ZN3QV49ArrayData10__dataTestEv": ["nothing", "address"],
+    "ritual_ZNK3QV49ArrayData11d_uncheckedEv": ["address", "address"],
+    "ritual_ZNK3QV49ArrayData1dEv": ["address", "address"],
+    "ritual_ZNK3QV49ArrayData5allocEv": ["unsigned int", "address"],
+    "ritual_ZN3QV49ArrayData8setAllocEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN3QV49ArrayData7setTypeENS_4Heap9ArrayData4TypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK3QV49ArrayData5attrsEv": ["address", "address"],
+    "ritual_ZN3QV49ArrayData8setAttrsEPNS_18PropertyAttributesE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK3QV49ArrayData9arrayDataEv": ["address", "address"],
+    "ritual_ZN3QV49ArrayData12setArrayDataEPNS_10EngineBaseEjNS_5ValueE": [
+      "nothing", "address", "address", "unsigned int", "address"
+    ],
+    "ritual_ZNK3QV49ArrayData6vtableEv": ["address", "address"],
+    "ritual_ZNK3QV49ArrayData8isSparseEv": ["bool", "address"],
+    "ritual_ZNK3QV49ArrayData6lengthEv": ["unsigned int", "address"],
+    "ritual_ZNK3QV49ArrayData13hasAttributesEv": ["bool", "address"],
+    "ritual_ZNK3QV49ArrayData10attributesEj": [
+      "address", "address", "unsigned int"
+    ],
+    "ritual_ZNK3QV49ArrayData7isEmptyEj": [
+      "bool", "address", "unsigned int"
+    ],
+    "ritual_ZNK3QV49ArrayData3getEj": [
+      "unsigned long long", "address", "unsigned int"
+    ],
+    "ritual_ZN3QV49ArrayData7reallocEPNS_6ObjectENS_4Heap9ArrayData4TypeEjb": [
+      "nothing", "address", "int", "unsigned int", "bool"
+    ]
+  }
+}

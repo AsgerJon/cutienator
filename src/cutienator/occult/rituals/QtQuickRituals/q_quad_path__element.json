@@ -1,0 +1,60 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquadpath_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN9QQuadPath7ElementC1Ev": ["address"],
+    "ritual_ZN9QQuadPath7ElementC1E9QVector2DS1_S1_": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN9QQuadPath7ElementC1E9QVector2DS1_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK9QQuadPath7Element14isSubpathStartEv": ["bool", "address"],
+    "ritual_ZNK9QQuadPath7Element12isSubpathEndEv": ["bool", "address"],
+    "ritual_ZNK9QQuadPath7Element6isLineEv": ["bool", "address"],
+    "ritual_ZNK9QQuadPath7Element8isConvexEv": ["bool", "address"],
+    "ritual_ZNK9QQuadPath7Element10startPointEv": ["address", "address"],
+    "ritual_ZNK9QQuadPath7Element12controlPointEv": ["address", "address"],
+    "ritual_ZNK9QQuadPath7Element8endPointEv": ["address", "address"],
+    "ritual_ZNK9QQuadPath7Element8midPointEv": ["address", "address"],
+    "ritual_ZNK9QQuadPath7Element14referencePointEv": ["address", "address"],
+    "ritual_ZNK9QQuadPath7Element13segmentFromToEff": [
+      "address", "address", "float", "float"
+    ],
+    "ritual_ZNK9QQuadPath7Element8reversedEv": ["address", "address"],
+    "ritual_ZNK9QQuadPath7Element10childCountEv": ["int", "address"],
+    "ritual_ZNK9QQuadPath7Element12indexOfChildEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK9QQuadPath7Element15pointAtFractionEf": [
+      "address", "address", "float"
+    ],
+    "ritual_ZNK9QQuadPath7Element17tangentAtFractionEf": [
+      "address", "address", "float"
+    ],
+    "ritual_ZNK9QQuadPath7Element16normalAtFractionEf": [
+      "address", "address", "float"
+    ],
+    "ritual_ZNK9QQuadPath7Element6extentEv": ["float", "address"],
+    "ritual_ZN9QQuadPath7Element11setAsConvexEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN9QQuadPath7Element14setFillOnRightEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK9QQuadPath7Element13isFillOnRightEv": ["bool", "address"],
+    "ritual_ZNK9QQuadPath7Element20isControlPointOnLeftEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK9QQuadPath7Element16intersectionsAtYEfPfb": [
+      "int", "address", "float", "address", "bool"
+    ],
+    "ritual_Zls6QDebugRKN9QQuadPath7ElementE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN9QQuadPath7ElementD1Ev": ["nothing", "address"]
+  }
+}

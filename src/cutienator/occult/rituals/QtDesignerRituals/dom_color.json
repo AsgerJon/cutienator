@@ -1,0 +1,32 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/ui4_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN8DomColorC1Ev": ["address"],
+    "ritual_ZN8DomColorD1Ev": ["nothing", "address"],
+    "ritual_ZNK8DomColor17hasAttributeAlphaEv": ["bool", "address"],
+    "ritual_ZNK8DomColor14attributeAlphaEv": ["int", "address"],
+    "ritual_ZN8DomColor17setAttributeAlphaEi": ["nothing", "address", "int"],
+    "ritual_ZN8DomColor19clearAttributeAlphaEv": ["nothing", "address"],
+    "ritual_ZNK8DomColor10elementRedEv": ["int", "address"],
+    "ritual_ZN8DomColor13setElementRedEi": ["nothing", "address", "int"],
+    "ritual_ZNK8DomColor13hasElementRedEv": ["bool", "address"],
+    "ritual_ZN8DomColor15clearElementRedEv": ["nothing", "address"],
+    "ritual_ZNK8DomColor12elementGreenEv": ["int", "address"],
+    "ritual_ZN8DomColor15setElementGreenEi": ["nothing", "address", "int"],
+    "ritual_ZNK8DomColor15hasElementGreenEv": ["bool", "address"],
+    "ritual_ZN8DomColor17clearElementGreenEv": ["nothing", "address"],
+    "ritual_ZNK8DomColor11elementBlueEv": ["int", "address"],
+    "ritual_ZN8DomColor14setElementBlueEi": ["nothing", "address", "int"],
+    "ritual_ZNK8DomColor14hasElementBlueEv": ["bool", "address"],
+    "ritual_ZN8DomColor16clearElementBlueEv": ["nothing", "address"],
+    "ritual_list_make_DomColor_ptr": ["address"],
+    "ritual_list_add_DomColor_ptr": ["nothing", "address", "address"],
+    "ritual_list_size_DomColor_ptr": ["long long", "address"],
+    "ritual_list_at_DomColor_ptr": ["address", "address", "long long"],
+    "ritual_list_drop_DomColor_ptr": ["nothing", "address"]
+  }
+}

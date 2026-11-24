@@ -1,0 +1,78 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmlirbuilder_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN5QmlIR9IRBuilder2trEPKcS2_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN5QmlIR9IRBuilder24throwRecursionDepthErrorEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN5QmlIR9IRBuilder15defineQMLObjectEPiPN6QQmlJS3AST18UiObjectDefinitionEPNS_6ObjectE": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK5QmlIR9IRBuilder9textRefAtERKN6QQmlJS14SourceLocationE": [
+      "text", "address", "address"
+    ],
+    "ritual_ZN5QmlIR9IRBuilder15setBindingValueEPN3QV412CompiledData7BindingEPN6QQmlJS3AST9StatementEPNS6_4NodeE": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN5QmlIR9IRBuilder20registerFunctionExprEPN6QQmlJS3AST18FunctionExpressionENS0_13IsQmlFunctionE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZNK5QmlIR9IRBuilder14registerStringERK7QString": [
+      "unsigned int", "address", "text"
+    ],
+    "ritual_ZNK5QmlIR9IRBuilder8stringAtEi": ["text", "address", "int"],
+    "ritual_ZN5QmlIR9IRBuilderD1Ev": ["nothing", "address"],
+    "ritual_take_QmlIR_IRBuilder": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN5QmlIR9IRBuilder5visitEPN6QQmlJS3AST8UiImportE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN5QmlIR9IRBuilder5visitEPN6QQmlJS3AST8UiPragmaE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN5QmlIR9IRBuilder5visitEPN6QQmlJS3AST9UiProgramE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN5QmlIR9IRBuilder5visitEPN6QQmlJS3AST14UiArrayBindingE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN5QmlIR9IRBuilder5visitEPN6QQmlJS3AST15UiObjectBindingE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN5QmlIR9IRBuilder5visitEPN6QQmlJS3AST18UiObjectDefinitionE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN5QmlIR9IRBuilder5visitEPN6QQmlJS3AST17UiInlineComponentE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN5QmlIR9IRBuilder5visitEPN6QQmlJS3AST17UiEnumDeclarationE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN5QmlIR9IRBuilder5visitEPN6QQmlJS3AST14UiPublicMemberE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN5QmlIR9IRBuilder5visitEPN6QQmlJS3AST15UiScriptBindingE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN5QmlIR9IRBuilder5visitEPN6QQmlJS3AST15UiSourceElementE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN5QmlIR9IRBuilder5visitEPN6QQmlJS3AST10UiRequiredE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN5QmlIR9IRBuilder24throwRecursionDepthErrorEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN5QmlIR9IRBuilder15setBindingValueEPN3QV412CompiledData7BindingEPN6QQmlJS3AST9StatementEPNS6_4NodeE": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN5QmlIR9IRBuilder20registerFunctionExprEPN6QQmlJS3AST18FunctionExpressionENS0_13IsQmlFunctionE": [
+      "nothing", "address", "address", "int"
+    ]
+  }
+}

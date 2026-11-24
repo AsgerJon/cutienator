@@ -1,0 +1,28 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qhashedstring_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN17QHashedCStringRefC1Ev": ["address"],
+    "ritual_ZN17QHashedCStringRefC1EPKci": ["address", "chars", "int"],
+    "ritual_ZN17QHashedCStringRefC1EPKcij": [
+      "address", "chars", "int", "unsigned int"
+    ],
+    "ritual_ZN17QHashedCStringRefC1ERKS_": ["address", "address"],
+    "ritual_ZNK17QHashedCStringRef4hashEv": ["unsigned int", "address"],
+    "ritual_ZNK17QHashedCStringRef9constDataEv": ["chars", "address"],
+    "ritual_ZNK17QHashedCStringRef6lengthEv": ["int", "address"],
+    "ritual_ZNK17QHashedCStringRef7toUtf16Ev": ["text", "address"],
+    "ritual_ZNK17QHashedCStringRef11utf16lengthEv": ["int", "address"],
+    "ritual_ZNK17QHashedCStringRef10writeUtf16EP5QChar": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QHashedCStringRef10writeUtf16EPt": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QHashedCStringRef11computeHashEv": ["nothing", "address"],
+    "ritual_ZN17QHashedCStringRefD1Ev": ["nothing", "address"]
+  }
+}

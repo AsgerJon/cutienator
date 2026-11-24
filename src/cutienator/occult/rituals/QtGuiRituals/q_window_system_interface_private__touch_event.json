@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/qpa/qwindowsysteminterface_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN29QWindowSystemInterfacePrivate10TouchEventC1EP7QWindowmN6QEvent4TypeEPK15QPointingDeviceRK5QListI11QEventPointE6QFlagsIN2Qt16KeyboardModifierEE": [
+      "address", "address", "unsigned long", "int", "address", "address",
+      "int"
+    ],
+    "ritual_ZN29QWindowSystemInterfacePrivate10TouchEventD1Ev": [
+      "nothing", "address"
+    ]
+  }
+}

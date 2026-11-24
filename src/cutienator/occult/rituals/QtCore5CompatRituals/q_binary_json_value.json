@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore5Compat/6.12.0/QtCore5Compat/private/qbinaryjsonvalue_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN16QBinaryJsonValueC1EN10QJsonValue4TypeE": ["address", "int"],
+    "ritual_ZN16QBinaryJsonValueC1Eb": ["address", "bool"],
+    "ritual_ZN16QBinaryJsonValueC1Ed": ["address", "double"],
+    "ritual_ZN16QBinaryJsonValueC1E7QString": ["address", "text"],
+    "ritual_ZN16QBinaryJsonValueD1Ev": ["nothing", "address"],
+    "ritual_ZNK16QBinaryJsonValue4typeEv": ["int", "address"],
+    "ritual_ZNK16QBinaryJsonValue6toBoolEv": ["bool", "address"],
+    "ritual_ZNK16QBinaryJsonValue8toDoubleEv": ["double", "address"],
+    "ritual_ZNK16QBinaryJsonValue8toStringEv": ["text", "address"],
+    "ritual_ZN16QBinaryJsonValueC1EPN18QBinaryJsonPrivate11MutableDataEPNS0_4BaseERKNS0_5ValueE": [
+      "address", "address", "address", "address"
+    ]
+  }
+}

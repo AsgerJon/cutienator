@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtMulti",
+    "media/6.12.0/QtMultimedia/private/qmediainputencoderinterface_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN27QMediaInputEncoderInterfaceD1Ev": ["nothing", "address"],
+    "ritual_ZNK27QMediaInputEncoderInterface12canPushFrameEv": [
+      "bool", "address"
+    ],
+    "ritual_take_QMediaInputEncoderInterface": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

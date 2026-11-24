@@ -48,7 +48,7 @@ class TestBuild(BaseTest):
     """The file 'System' names for each part of Qt the rituals call
     into is where Qt keeps them."""
     paths = []
-    for part in ('QtCore', 'QtGui', 'QtWidgets'):
+    for part in Rituals.getRitualParts():
       name = System.getHere().getQtFileName(part)
       path = os.path.join(Build.getQtSharedObjectFolder(), name)
       self.assertTrue(os.path.isfile(path), path)
@@ -368,7 +368,7 @@ class TestBuild(BaseTest):
     build = Build()
     build.setTargetFile(Rituals.getTargetFile())
     self.assertEqual(build.getPrivateIncludeFolders(), ())
-    build.setComponents(*Rituals.getComponents())
+    build.setComponents(*Rituals.getRitualParts())
     folders = build.getPrivateIncludeFolders()
     self.assertTrue(folders)
     for folder in folders:

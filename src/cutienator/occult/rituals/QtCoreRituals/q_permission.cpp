@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/qpermissions.h, Qt 6.12.0. Changes made here are lost.
+#include <QtCore/qglobal.h>
+#if QT_CONFIG(permissions)
 #include <QtCore/qpermissions.h>
 #include <QtCore/qmetatype.h>
 #include <QtCore/qdebug.h>
@@ -23,6 +25,7 @@ QMetaType *ritual_ZNK11QPermission4typeEv(const QPermission *self) {
   return new QMetaType(self->type());
 }
 
+#if !defined(QT_NO_DEBUG_STREAM)
 //  QDebug operator<<(QDebug debug, const QPermission &a1)
 extern "C" Q_DECL_EXPORT
 QDebug *ritual_Zls6QDebugRK11QPermission(
@@ -30,9 +33,12 @@ QDebug *ritual_Zls6QDebugRK11QPermission(
     const QPermission *a1) {
   return new QDebug(operator<<(*debug, *a1));
 }
+#endif  // !defined(QT_NO_DEBUG_STREAM)
 
 //  QPermission::~QPermission()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QPermissionD1Ev(QPermission *self) {
   delete self;
 }
+
+#endif  // QT_CONFIG(permissions)

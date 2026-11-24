@@ -1,0 +1,36 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQmlDe",
+    "signSupport/6.12.0/QtQmlDesignSupport/private/qmultiobjectregistry",
+    "ref_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN30QMultiObjectRegistryRefPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK30QMultiObjectRegistryRefPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN30QMultiObjectRegistryRefPrivateC1EP10QQmlEngine": [
+      "address", "address"
+    ],
+    "ritual_ZN30QMultiObjectRegistryRefPrivate17handleObjectAddedEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN30QMultiObjectRegistryRefPrivate19handleObjectRemovedEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN30QMultiObjectRegistryRefPrivate20handleInitialObjectsEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN30QMultiObjectRegistryRefPrivate17handleObjectAddedEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN30QMultiObjectRegistryRefPrivate19handleObjectRemovedEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN30QMultiObjectRegistryRefPrivate20handleInitialObjectsEv": [
+      "nothing", "address"
+    ]
+  }
+}

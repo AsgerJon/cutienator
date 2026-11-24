@@ -1,0 +1,69 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qabstractanimationjob_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18QQmlAnimationTimer10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QQmlAnimationTimer2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18QQmlAnimationTimerC1Ev": ["address"],
+    "ritual_ZN18QQmlAnimationTimerD1Ev": ["nothing", "address"],
+    "ritual_ZN18QQmlAnimationTimer8instanceEv": ["address"],
+    "ritual_ZN18QQmlAnimationTimer8instanceEb": ["address", "bool"],
+    "ritual_ZN18QQmlAnimationTimer17registerAnimationEP21QAbstractAnimationJobb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN18QQmlAnimationTimer19unregisterAnimationEP21QAbstractAnimationJob": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQmlAnimationTimer17ensureTimerUpdateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQmlAnimationTimer20updateAnimationTimerEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQmlAnimationTimer21restartAnimationTimerEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQmlAnimationTimer20updateAnimationsTimeEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZNK18QQmlAnimationTimer21runningAnimationCountEv": [
+      "long long", "address"
+    ],
+    "ritual_ZNK18QQmlAnimationTimer24hasStartAnimationPendingEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN18QQmlAnimationTimer15startAnimationsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQmlAnimationTimer9stopTimerEv": ["nothing", "address"],
+    "ritual_ZN18QQmlAnimationTimer24registerRunningAnimationEP21QAbstractAnimationJob": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQmlAnimationTimer26unregisterRunningAnimationEP21QAbstractAnimationJob": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQmlAnimationTimer13unsetJobTimerEP21QAbstractAnimationJob": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQmlAnimationTimer33closestPauseAnimationTimeToFinishEv": [
+      "int", "address"
+    ],
+    "ritual_take_QQmlAnimationTimer": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN18QQmlAnimationTimer21restartAnimationTimerEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN18QQmlAnimationTimer20updateAnimationsTimeEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_own_ZNK18QQmlAnimationTimer21runningAnimationCountEv": [
+      "long long", "address"
+    ]
+  }
+}

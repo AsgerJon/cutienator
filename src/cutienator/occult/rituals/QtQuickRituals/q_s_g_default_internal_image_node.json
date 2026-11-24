@@ -1,0 +1,66 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qsgdefaultinternalimagenode_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN27QSGDefaultInternalImageNodeC1EP23QSGDefaultRenderContext": [
+      "address", "address"
+    ],
+    "ritual_ZN27QSGDefaultInternalImageNode18setMipmapFilteringEN10QSGTexture9FilteringE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN27QSGDefaultInternalImageNode12setFilteringEN10QSGTexture9FilteringE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN27QSGDefaultInternalImageNode21setHorizontalWrapModeEN10QSGTexture8WrapModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN27QSGDefaultInternalImageNode19setVerticalWrapModeEN10QSGTexture8WrapModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN27QSGDefaultInternalImageNode26updateMaterialAntialiasingEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QSGDefaultInternalImageNode18setMaterialTextureEP10QSGTexture": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK27QSGDefaultInternalImageNode15materialTextureEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QSGDefaultInternalImageNode22updateMaterialBlendingEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK27QSGDefaultInternalImageNode12supportsWrapERK5QSize": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN27QSGDefaultInternalImageNode18setMipmapFilteringEN10QSGTexture9FilteringE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN27QSGDefaultInternalImageNode12setFilteringEN10QSGTexture9FilteringE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN27QSGDefaultInternalImageNode21setHorizontalWrapModeEN10QSGTexture8WrapModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN27QSGDefaultInternalImageNode19setVerticalWrapModeEN10QSGTexture8WrapModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN27QSGDefaultInternalImageNode26updateMaterialAntialiasingEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN27QSGDefaultInternalImageNode18setMaterialTextureEP10QSGTexture": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK27QSGDefaultInternalImageNode15materialTextureEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN27QSGDefaultInternalImageNode22updateMaterialBlendingEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZNK27QSGDefaultInternalImageNode12supportsWrapERK5QSize": [
+      "bool", "address", "address"
+    ]
+  }
+}

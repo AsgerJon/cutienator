@@ -1,0 +1,93 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/6.12.0/QtCharts/private/candlestick_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK11Candlestick10metaObjectEv": ["address", "address"],
+    "ritual_ZN11Candlestick2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN11CandlestickC1EP15QCandlestickSetP14AbstractDomainP15QGraphicsObject": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN11CandlestickD1Ev": ["nothing", "address"],
+    "ritual_ZN11Candlestick13setTimePeriodEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN11Candlestick21setMaximumColumnWidthEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN11Candlestick21setMinimumColumnWidthEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN11Candlestick12setBodyWidthEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN11Candlestick21setBodyOutlineVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN11Candlestick12setCapsWidthEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN11Candlestick14setCapsVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN11Candlestick18setIncreasingColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11Candlestick18setDecreasingColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11Candlestick8setBrushERK6QBrush": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11Candlestick6setPenERK4QPen": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11Candlestick9setLayoutERK15CandlestickData": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11Candlestick15mousePressEventEP24QGraphicsSceneMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11Candlestick15hoverEnterEventEP24QGraphicsSceneHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11Candlestick15hoverLeaveEventEP24QGraphicsSceneHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11Candlestick17mouseReleaseEventEP24QGraphicsSceneMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11Candlestick21mouseDoubleClickEventEP24QGraphicsSceneMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11Candlestick12boundingRectEv": ["address", "address"],
+    "ritual_ZN11Candlestick5paintEP8QPainterPK24QStyleOptionGraphicsItemP7QWidget": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN11Candlestick14updateGeometryEP14AbstractDomain": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_Candlestick": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN11Candlestick15mousePressEventEP24QGraphicsSceneMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN11Candlestick15hoverEnterEventEP24QGraphicsSceneHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN11Candlestick15hoverLeaveEventEP24QGraphicsSceneHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN11Candlestick17mouseReleaseEventEP24QGraphicsSceneMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN11Candlestick21mouseDoubleClickEventEP24QGraphicsSceneMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK11Candlestick12boundingRectEv": ["address", "address"],
+    "ritual_own_ZN11Candlestick5paintEP8QPainterPK24QStyleOptionGraphicsItemP7QWidget": [
+      "nothing", "address", "address", "address", "address"
+    ]
+  }
+}

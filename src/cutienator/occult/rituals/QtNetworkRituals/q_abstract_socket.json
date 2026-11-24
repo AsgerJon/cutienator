@@ -1,0 +1,170 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/qabstractsocket.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK15QAbstractSocket10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QAbstractSocket2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN15QAbstractSocketC1ENS_10SocketTypeEP7QObject": [
+      "address", "int", "address"
+    ],
+    "ritual_ZN15QAbstractSocketD1Ev": ["nothing", "address"],
+    "ritual_ZN15QAbstractSocket6resumeEv": ["nothing", "address"],
+    "ritual_ZNK15QAbstractSocket9pauseModeEv": ["int", "address"],
+    "ritual_ZN15QAbstractSocket12setPauseModeE6QFlagsINS_9PauseModeEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN15QAbstractSocket4bindERK12QHostAddresst6QFlagsINS_8BindFlagEE": [
+      "bool", "address", "address", "unsigned short", "int"
+    ],
+    "ritual_ZN15QAbstractSocket4bindEt6QFlagsINS_8BindFlagEE": [
+      "bool", "address", "unsigned short", "int"
+    ],
+    "ritual_ZN15QAbstractSocket13connectToHostERK7QStringt6QFlagsIN13QIODeviceBase12OpenModeFlagEENS_20NetworkLayerProtocolE": [
+      "nothing", "address", "text", "unsigned short", "int", "int"
+    ],
+    "ritual_ZN15QAbstractSocket13connectToHostERK12QHostAddresst6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [
+      "nothing", "address", "address", "unsigned short", "int"
+    ],
+    "ritual_ZN15QAbstractSocket18disconnectFromHostEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK15QAbstractSocket7isValidEv": ["bool", "address"],
+    "ritual_ZNK15QAbstractSocket14bytesAvailableEv": [
+      "long long", "address"
+    ],
+    "ritual_ZNK15QAbstractSocket12bytesToWriteEv": ["long long", "address"],
+    "ritual_ZNK15QAbstractSocket9localPortEv": ["unsigned short", "address"],
+    "ritual_ZNK15QAbstractSocket12localAddressEv": ["address", "address"],
+    "ritual_ZNK15QAbstractSocket8peerPortEv": ["unsigned short", "address"],
+    "ritual_ZNK15QAbstractSocket11peerAddressEv": ["address", "address"],
+    "ritual_ZNK15QAbstractSocket8peerNameEv": ["text", "address"],
+    "ritual_ZNK15QAbstractSocket14readBufferSizeEv": [
+      "long long", "address"
+    ],
+    "ritual_ZN15QAbstractSocket17setReadBufferSizeEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN15QAbstractSocket5abortEv": ["nothing", "address"],
+    "ritual_ZNK15QAbstractSocket16socketDescriptorEv": [
+      "long long", "address"
+    ],
+    "ritual_ZN15QAbstractSocket19setSocketDescriptorExNS_11SocketStateE6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [
+      "bool", "address", "long long", "int", "int"
+    ],
+    "ritual_ZN15QAbstractSocket15setSocketOptionENS_12SocketOptionERK8QVariant": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN15QAbstractSocket12socketOptionENS_12SocketOptionE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK15QAbstractSocket10socketTypeEv": ["int", "address"],
+    "ritual_ZNK15QAbstractSocket5stateEv": ["int", "address"],
+    "ritual_ZNK15QAbstractSocket5errorEv": ["int", "address"],
+    "ritual_ZN15QAbstractSocket5closeEv": ["nothing", "address"],
+    "ritual_ZNK15QAbstractSocket12isSequentialEv": ["bool", "address"],
+    "ritual_ZN15QAbstractSocket5flushEv": ["bool", "address"],
+    "ritual_ZN15QAbstractSocket16waitForConnectedEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN15QAbstractSocket16waitForReadyReadEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN15QAbstractSocket19waitForBytesWrittenEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN15QAbstractSocket19waitForDisconnectedEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN15QAbstractSocket8setProxyERK13QNetworkProxy": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QAbstractSocket5proxyEv": ["address", "address"],
+    "ritual_ZNK15QAbstractSocket11protocolTagEv": ["text", "address"],
+    "ritual_ZN15QAbstractSocket14setProtocolTagERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN15QAbstractSocket8skipDataEx": [
+      "long long", "address", "long long"
+    ],
+    "ritual_ZN15QAbstractSocket9writeDataEPKcx": [
+      "long long", "address", "chars", "long long"
+    ],
+    "ritual_ZN15QAbstractSocket14setSocketStateENS_11SocketStateE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN15QAbstractSocket14setSocketErrorENS_11SocketErrorE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN15QAbstractSocket12setLocalPortEt": [
+      "nothing", "address", "unsigned short"
+    ],
+    "ritual_ZN15QAbstractSocket15setLocalAddressERK12QHostAddress": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QAbstractSocket11setPeerPortEt": [
+      "nothing", "address", "unsigned short"
+    ],
+    "ritual_ZN15QAbstractSocket14setPeerAddressERK12QHostAddress": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QAbstractSocket11setPeerNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN15QAbstractSocket6d_funcEv": ["address", "address"],
+    "ritual_ZNK15QAbstractSocket6d_funcEv": ["address", "address"],
+    "ritual_take_QAbstractSocket": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN15QAbstractSocket6resumeEv": ["nothing", "address"],
+    "ritual_own_ZN15QAbstractSocket4bindERK12QHostAddresst6QFlagsINS_8BindFlagEE": [
+      "bool", "address", "address", "unsigned short", "int"
+    ],
+    "ritual_own_ZN15QAbstractSocket13connectToHostERK7QStringt6QFlagsIN13QIODeviceBase12OpenModeFlagEENS_20NetworkLayerProtocolE": [
+      "nothing", "address", "text", "unsigned short", "int", "int"
+    ],
+    "ritual_own_ZN15QAbstractSocket18disconnectFromHostEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZNK15QAbstractSocket14bytesAvailableEv": [
+      "long long", "address"
+    ],
+    "ritual_own_ZNK15QAbstractSocket12bytesToWriteEv": [
+      "long long", "address"
+    ],
+    "ritual_own_ZN15QAbstractSocket17setReadBufferSizeEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_own_ZNK15QAbstractSocket16socketDescriptorEv": [
+      "long long", "address"
+    ],
+    "ritual_own_ZN15QAbstractSocket19setSocketDescriptorExNS_11SocketStateE6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [
+      "bool", "address", "long long", "int", "int"
+    ],
+    "ritual_own_ZN15QAbstractSocket15setSocketOptionENS_12SocketOptionERK8QVariant": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZN15QAbstractSocket12socketOptionENS_12SocketOptionE": [
+      "address", "address", "int"
+    ],
+    "ritual_own_ZN15QAbstractSocket5closeEv": ["nothing", "address"],
+    "ritual_own_ZNK15QAbstractSocket12isSequentialEv": ["bool", "address"],
+    "ritual_own_ZN15QAbstractSocket16waitForConnectedEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_own_ZN15QAbstractSocket16waitForReadyReadEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_own_ZN15QAbstractSocket19waitForBytesWrittenEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_own_ZN15QAbstractSocket19waitForDisconnectedEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_own_ZN15QAbstractSocket8skipDataEx": [
+      "long long", "address", "long long"
+    ]
+  }
+}

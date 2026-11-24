@@ -1,0 +1,34 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DHelpers/6.12.0/QtQuick3DHelpers/private/torusgeometry_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK13TorusGeometry10metaObjectEv": ["address", "address"],
+    "ritual_ZN13TorusGeometry2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN13TorusGeometryC1EP14QQuick3DObject": ["address", "address"],
+    "ritual_ZN13TorusGeometryD1Ev": ["nothing", "address"],
+    "ritual_ZNK13TorusGeometry5ringsEv": ["int", "address"],
+    "ritual_ZN13TorusGeometry8setRingsEi": ["nothing", "address", "int"],
+    "ritual_ZNK13TorusGeometry8segmentsEv": ["int", "address"],
+    "ritual_ZN13TorusGeometry11setSegmentsEi": ["nothing", "address", "int"],
+    "ritual_ZNK13TorusGeometry6radiusEv": ["float", "address"],
+    "ritual_ZN13TorusGeometry9setRadiusEf": ["nothing", "address", "float"],
+    "ritual_ZNK13TorusGeometry10tubeRadiusEv": ["float", "address"],
+    "ritual_ZN13TorusGeometry13setTubeRadiusEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK13TorusGeometry12asynchronousEv": ["bool", "address"],
+    "ritual_ZN13TorusGeometry15setAsynchronousEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK13TorusGeometry6statusEv": ["int", "address"],
+    "ritual_ZN13TorusGeometry16doUpdateGeometryEv": ["nothing", "address"],
+    "ritual_ZN13TorusGeometry15requestFinishedEv": ["nothing", "address"],
+    "ritual_ZN13TorusGeometry22scheduleGeometryUpdateEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_TorusGeometry": ["bool", "address", "chars", "address"]
+  }
+}

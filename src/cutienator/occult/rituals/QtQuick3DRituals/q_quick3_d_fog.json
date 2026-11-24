@@ -1,0 +1,57 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3D/6.12.0/QtQuick3D/private/qquick3dfog_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK11QQuick3DFog10metaObjectEv": ["address", "address"],
+    "ritual_ZN11QQuick3DFog2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZNK11QQuick3DFog9isEnabledEv": ["bool", "address"],
+    "ritual_ZNK11QQuick3DFog5colorEv": ["address", "address"],
+    "ritual_ZNK11QQuick3DFog7densityEv": ["float", "address"],
+    "ritual_ZNK11QQuick3DFog14isDepthEnabledEv": ["bool", "address"],
+    "ritual_ZNK11QQuick3DFog9depthNearEv": ["float", "address"],
+    "ritual_ZNK11QQuick3DFog8depthFarEv": ["float", "address"],
+    "ritual_ZNK11QQuick3DFog10depthCurveEv": ["float", "address"],
+    "ritual_ZNK11QQuick3DFog15isHeightEnabledEv": ["bool", "address"],
+    "ritual_ZNK11QQuick3DFog13leastIntenseYEv": ["float", "address"],
+    "ritual_ZNK11QQuick3DFog12mostIntenseYEv": ["float", "address"],
+    "ritual_ZNK11QQuick3DFog11heightCurveEv": ["float", "address"],
+    "ritual_ZNK11QQuick3DFog17isTransmitEnabledEv": ["bool", "address"],
+    "ritual_ZNK11QQuick3DFog13transmitCurveEv": ["float", "address"],
+    "ritual_ZN11QQuick3DFog10setEnabledEb": ["nothing", "address", "bool"],
+    "ritual_ZN11QQuick3DFog8setColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QQuick3DFog10setDensityEf": ["nothing", "address", "float"],
+    "ritual_ZN11QQuick3DFog15setDepthEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN11QQuick3DFog12setDepthNearEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN11QQuick3DFog11setDepthFarEf": ["nothing", "address", "float"],
+    "ritual_ZN11QQuick3DFog13setDepthCurveEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN11QQuick3DFog16setHeightEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN11QQuick3DFog16setLeastIntenseYEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN11QQuick3DFog15setMostIntenseYEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN11QQuick3DFog14setHeightCurveEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN11QQuick3DFog18setTransmitEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN11QQuick3DFog16setTransmitCurveEf": [
+      "nothing", "address", "float"
+    ]
+  }
+}

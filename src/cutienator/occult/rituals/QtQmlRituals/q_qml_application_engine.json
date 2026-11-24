@@ -1,0 +1,52 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/qqmlapplicationengine.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK21QQmlApplicationEngine10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QQmlApplicationEngine2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN21QQmlApplicationEngineC1EP7QObject": ["address", "address"],
+    "ritual_ZN21QQmlApplicationEngineC1ERK4QUrlP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN21QQmlApplicationEngineC1E14QAnyStringViewS0_P7QObject": [
+      "address", "text", "text", "address"
+    ],
+    "ritual_ZN21QQmlApplicationEngineC1ERK7QStringP7QObject": [
+      "address", "text", "address"
+    ],
+    "ritual_ZN21QQmlApplicationEngineD1Ev": ["nothing", "address"],
+    "ritual_ZNK21QQmlApplicationEngine11rootObjectsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QQmlApplicationEngine4loadERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QQmlApplicationEngine4loadERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN21QQmlApplicationEngine14loadFromModuleE14QAnyStringViewS0_": [
+      "nothing", "address", "text", "text"
+    ],
+    "ritual_ZN21QQmlApplicationEngine20setInitialPropertiesERK4QMapI7QString8QVariantE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QQmlApplicationEngine21setExtraFileSelectorsERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QQmlApplicationEngine8loadDataERK10QByteArrayRK4QUrl": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN21QQmlApplicationEngine6d_funcEv": ["address", "address"],
+    "ritual_ZNK21QQmlApplicationEngine6d_funcEv": ["address", "address"],
+    "ritual_take_QQmlApplicationEngine": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

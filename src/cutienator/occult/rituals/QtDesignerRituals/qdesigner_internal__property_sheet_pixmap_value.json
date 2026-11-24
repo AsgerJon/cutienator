@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/qdesigner_utils_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18qdesigner_internal24PropertySheetPixmapValue12pixmapSourceEP28QDesignerFormEditorInterface": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internaleqERKNS_24PropertySheetPixmapValueES2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internalneERKNS_24PropertySheetPixmapValueES2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal24PropertySheetPixmapValueD1Ev": [
+      "nothing", "address"
+    ]
+  }
+}

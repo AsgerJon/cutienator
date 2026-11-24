@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmlengine_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN29QQmlJavaScriptExpressionGuardC1EP24QQmlJavaScriptExpression": [
+      "address", "address"
+    ],
+    "ritual_ZN29QQmlJavaScriptExpressionGuard3NewEP24QQmlJavaScriptExpressionP10QQmlEngine": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN29QQmlJavaScriptExpressionGuard6DeleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QQmlJavaScriptExpressionGuardD1Ev": ["nothing", "address"]
+  }
+}

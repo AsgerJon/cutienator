@@ -1,0 +1,86 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLocation/qgeoroutingmanagerengine.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK24QGeoRoutingManagerEngine10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QGeoRoutingManagerEngine2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN24QGeoRoutingManagerEngineD1Ev": ["nothing", "address"],
+    "ritual_ZNK24QGeoRoutingManagerEngine11managerNameEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK24QGeoRoutingManagerEngine14managerVersionEv": [
+      "int", "address"
+    ],
+    "ritual_ZN24QGeoRoutingManagerEngine14calculateRouteERK16QGeoRouteRequest": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN24QGeoRoutingManagerEngine11updateRouteERK9QGeoRouteRK14QGeoCoordinate": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK24QGeoRoutingManagerEngine20supportedTravelModesEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK24QGeoRoutingManagerEngine21supportedFeatureTypesEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK24QGeoRoutingManagerEngine23supportedFeatureWeightsEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK24QGeoRoutingManagerEngine27supportedRouteOptimizationsEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK24QGeoRoutingManagerEngine23supportedSegmentDetailsEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK24QGeoRoutingManagerEngine24supportedManeuverDetailsEv": [
+      "int", "address"
+    ],
+    "ritual_ZN24QGeoRoutingManagerEngine9setLocaleERK7QLocale": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK24QGeoRoutingManagerEngine6localeEv": ["address", "address"],
+    "ritual_ZN24QGeoRoutingManagerEngine20setMeasurementSystemEN7QLocale17MeasurementSystemE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK24QGeoRoutingManagerEngine17measurementSystemEv": [
+      "int", "address"
+    ],
+    "ritual_ZN24QGeoRoutingManagerEngine23setSupportedTravelModesE6QFlagsIN16QGeoRouteRequest10TravelModeEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN24QGeoRoutingManagerEngine24setSupportedFeatureTypesE6QFlagsIN16QGeoRouteRequest11FeatureTypeEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN24QGeoRoutingManagerEngine26setSupportedFeatureWeightsE6QFlagsIN16QGeoRouteRequest13FeatureWeightEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN24QGeoRoutingManagerEngine30setSupportedRouteOptimizationsE6QFlagsIN16QGeoRouteRequest17RouteOptimizationEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN24QGeoRoutingManagerEngine26setSupportedSegmentDetailsE6QFlagsIN16QGeoRouteRequest13SegmentDetailEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN24QGeoRoutingManagerEngine27setSupportedManeuverDetailsE6QFlagsIN16QGeoRouteRequest14ManeuverDetailEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN24QGeoRoutingManagerEngine14setManagerNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN24QGeoRoutingManagerEngine17setManagerVersionEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_take_QGeoRoutingManagerEngine": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN24QGeoRoutingManagerEngine11updateRouteERK9QGeoRouteRK14QGeoCoordinate": [
+      "address", "address", "address", "address"
+    ]
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qabstractproxymodel_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN26QAbstractProxyModelPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK26QAbstractProxyModelPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QAbstractProxyModelPrivateC1Ev": ["address"],
+    "ritual_ZN26QAbstractProxyModelPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN26QAbstractProxyModelPrivate17setModelForwarderEP18QAbstractItemModel": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QAbstractProxyModelPrivate21modelChangedForwarderEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK26QAbstractProxyModelPrivate17getModelForwarderEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QAbstractProxyModelPrivate23_q_sourceModelDestroyedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QAbstractProxyModelPrivate35_q_sourceModelRowsAboutToBeInsertedERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN26QAbstractProxyModelPrivate26_q_sourceModelRowsInsertedERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN26QAbstractProxyModelPrivate25_q_sourceModelRowsRemovedERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN26QAbstractProxyModelPrivate38_q_sourceModelColumnsAboutToBeInsertedERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN26QAbstractProxyModelPrivate29_q_sourceModelColumnsInsertedERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN26QAbstractProxyModelPrivate28_q_sourceModelColumnsRemovedERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZNK26QAbstractProxyModelPrivate26mapDropCoordinatesToSourceEiiRK11QModelIndexPiS3_PS0_": [
+      "nothing", "address", "int", "int", "address", "address", "address",
+      "address"
+    ],
+    "ritual_ZN26QAbstractProxyModelPrivate20scheduleHeaderUpdateEN2Qt11OrientationE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN26QAbstractProxyModelPrivate21emitHeaderDataChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QAbstractProxyModelPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN26QAbstractProxyModelPrivate23_q_sourceModelDestroyedEv": [
+      "nothing", "address"
+    ]
+  }
+}

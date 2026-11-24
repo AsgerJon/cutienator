@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGui/qevent.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
+#if QT_CONFIG(draganddrop)
 #include <QtGui/qevent.h>
 #include <QtCore/qpoint.h>
 #include <QtCore/qrect.h>
@@ -8,7 +10,9 @@
 //  A QDragMoveEvent that Python can take functions over in. Every QDragMoveEvent
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if QT_CONFIG(draganddrop)
 typedef void * (*CuteQDragMoveEventCall0)(const void *, int *);
+#endif  // QT_CONFIG(draganddrop)
 typedef void (*CuteQDragMoveEventCall1)(const void *, bool, int *);
 class CuteQDragMoveEvent : public QDragMoveEvent {
 public:
@@ -16,10 +20,12 @@ public:
   void *taken[2] = {};
 
   bool take(const char *key, void *call) {
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZNK6QEvent5cloneEv")) {
       taken[0] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN6QEvent11setAcceptedEb")) {
       taken[1] = call;
       return true;
@@ -27,6 +33,7 @@ public:
     return false;
   }
 
+#if QT_CONFIG(draganddrop)
   //  QDragMoveEvent *QDragMoveEvent::clone() const
   QDragMoveEvent *clone() const override {
     if (taken[0]) {
@@ -37,6 +44,7 @@ public:
     }
     return QDragMoveEvent::clone();
   }
+#endif  // QT_CONFIG(draganddrop)
 
   //  void QEvent::setAccepted(bool accepted)
   void setAccepted(bool accepted) override {
@@ -63,6 +71,7 @@ void ritual_ZN14QDragMoveEventD1Ev(QDragMoveEvent *self) {
   delete self;
 }
 
+#if QT_DEPRECATED_SINCE(6, 16)
 //  QDragMoveEvent::QDragMoveEvent(const QPoint &pos, Qt::DropActions
 //      actions, const QMimeData *data, Qt::MouseButtons buttons,
 //      Qt::KeyboardModifiers modifiers, Type type)
@@ -82,6 +91,7 @@ QDragMoveEvent *ritual_ZN14QDragMoveEventC1ERK6QPoint6QFlagsIN2Qt10DropActionEEP
       QFlags<Qt::KeyboardModifier>::fromInt(modifiers),
       type);
 }
+#endif  // QT_DEPRECATED_SINCE(6, 16)
 
 //  QDragMoveEvent::QDragMoveEvent(QPointF pos, Qt::DropActions actions,
 //      const QMimeData *data, Qt::MouseButtons buttons,
@@ -153,3 +163,5 @@ QDragMoveEvent *ritual_own_ZNK14QDragMoveEvent5cloneEv(
     const QDragMoveEvent *self) {
   return self->QDragMoveEvent::clone();
 }
+
+#endif  // QT_CONFIG(draganddrop)

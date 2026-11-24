@@ -1,0 +1,82 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/itemviews_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN28QAccessibleTableCornerButtonC1EP17QAbstractItemView": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QAccessibleTableCornerButton6objectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QAccessibleTableCornerButton4roleEv": ["int", "address"],
+    "ritual_ZNK28QAccessibleTableCornerButton5stateEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QAccessibleTableCornerButton4rectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QAccessibleTableCornerButton7isValidEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK28QAccessibleTableCornerButton7childAtEii": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZNK28QAccessibleTableCornerButton10childCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK28QAccessibleTableCornerButton12indexOfChildEPK20QAccessibleInterface": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK28QAccessibleTableCornerButton4textEN11QAccessible4TextE": [
+      "text", "address", "int"
+    ],
+    "ritual_ZN28QAccessibleTableCornerButton7setTextEN11QAccessible4TextERK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZNK28QAccessibleTableCornerButton6parentEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QAccessibleTableCornerButton5childEi": [
+      "address", "address", "int"
+    ],
+    "ritual_own_ZNK28QAccessibleTableCornerButton6objectEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK28QAccessibleTableCornerButton4roleEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZNK28QAccessibleTableCornerButton5stateEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK28QAccessibleTableCornerButton4rectEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK28QAccessibleTableCornerButton7isValidEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZNK28QAccessibleTableCornerButton7childAtEii": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_own_ZNK28QAccessibleTableCornerButton10childCountEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZNK28QAccessibleTableCornerButton12indexOfChildEPK20QAccessibleInterface": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZNK28QAccessibleTableCornerButton4textEN11QAccessible4TextE": [
+      "text", "address", "int"
+    ],
+    "ritual_own_ZN28QAccessibleTableCornerButton7setTextEN11QAccessible4TextERK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_own_ZNK28QAccessibleTableCornerButton6parentEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK28QAccessibleTableCornerButton5childEi": [
+      "address", "address", "int"
+    ]
+  }
+}

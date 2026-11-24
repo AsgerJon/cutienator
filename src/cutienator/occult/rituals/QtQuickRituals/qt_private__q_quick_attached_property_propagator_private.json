@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "/6.12.0/QtQuick/private/qquickattachedpropertypropagator_p_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN9QtPrivate39QQuickAttachedPropertyPropagatorPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK9QtPrivate39QQuickAttachedPropertyPropagatorPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN9QtPrivate39QQuickAttachedPropertyPropagatorPrivate3getEPNS_32QQuickAttachedPropertyPropagatorE": [
+      "address", "address"
+    ],
+    "ritual_take_QtPrivate_QQuickAttachedPropertyPropagatorPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN9QtPrivate39QQuickAttachedPropertyPropagatorPrivate17itemParentChangedEP10QQuickItemS2_": [
+      "nothing", "address", "address", "address"
+    ]
+  }
+}

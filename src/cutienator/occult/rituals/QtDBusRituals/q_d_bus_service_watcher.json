@@ -1,0 +1,41 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDBus/qdbusservicewatcher.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK19QDBusServiceWatcher10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QDBusServiceWatcher2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN19QDBusServiceWatcherC1EP7QObject": ["address", "address"],
+    "ritual_ZN19QDBusServiceWatcherC1ERK7QStringRK15QDBusConnection6QFlagsINS_13WatchModeFlagEEP7QObject": [
+      "address", "text", "address", "int", "address"
+    ],
+    "ritual_ZN19QDBusServiceWatcherD1Ev": ["nothing", "address"],
+    "ritual_ZNK19QDBusServiceWatcher15watchedServicesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QDBusServiceWatcher18setWatchedServicesERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QDBusServiceWatcher17addWatchedServiceERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN19QDBusServiceWatcher20removeWatchedServiceERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZNK19QDBusServiceWatcher9watchModeEv": ["int", "address"],
+    "ritual_ZN19QDBusServiceWatcher12setWatchModeE6QFlagsINS_13WatchModeFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK19QDBusServiceWatcher10connectionEv": ["address", "address"],
+    "ritual_ZN19QDBusServiceWatcher13setConnectionERK15QDBusConnection": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QDBusServiceWatcher": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

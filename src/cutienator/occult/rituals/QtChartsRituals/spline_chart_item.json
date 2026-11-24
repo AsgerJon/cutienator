@@ -1,0 +1,91 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/6.12.0/QtCharts/private/splinechartitem_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK15SplineChartItem10metaObjectEv": ["address", "address"],
+    "ritual_ZN15SplineChartItem2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN15SplineChartItemC1EP13QSplineSeriesP13QGraphicsItem": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK15SplineChartItem12boundingRectEv": ["address", "address"],
+    "ritual_ZN15SplineChartItem5paintEP8QPainterPK24QStyleOptionGraphicsItemP7QWidget": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK15SplineChartItem5shapeEv": ["address", "address"],
+    "ritual_ZN15SplineChartItem24setControlGeometryPointsERK5QListI7QPointFE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15SplineChartItem21controlGeometryPointsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN15SplineChartItem12setAnimationEP15SplineAnimation": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15SplineChartItem9animationEv": ["address", "address"],
+    "ritual_ZN15SplineChartItem19handleSeriesUpdatedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15SplineChartItem14updateGeometryEv": ["nothing", "address"],
+    "ritual_ZN15SplineChartItem22calculateControlPointsERK5QListI7QPointFE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN15SplineChartItem11updateChartERK5QListI7QPointFES4_i": [
+      "nothing", "address", "address", "address", "int"
+    ],
+    "ritual_ZN15SplineChartItem15mousePressEventEP24QGraphicsSceneMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15SplineChartItem15hoverEnterEventEP24QGraphicsSceneHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15SplineChartItem14hoverMoveEventEP24QGraphicsSceneHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15SplineChartItem15hoverLeaveEventEP24QGraphicsSceneHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15SplineChartItem17mouseReleaseEventEP24QGraphicsSceneMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15SplineChartItem21mouseDoubleClickEventEP24QGraphicsSceneMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK15SplineChartItem12boundingRectEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN15SplineChartItem5paintEP8QPainterPK24QStyleOptionGraphicsItemP7QWidget": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZNK15SplineChartItem5shapeEv": ["address", "address"],
+    "ritual_own_ZNK15SplineChartItem9animationEv": ["address", "address"],
+    "ritual_own_ZN15SplineChartItem19handleSeriesUpdatedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN15SplineChartItem14updateGeometryEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN15SplineChartItem15mousePressEventEP24QGraphicsSceneMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN15SplineChartItem15hoverEnterEventEP24QGraphicsSceneHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN15SplineChartItem14hoverMoveEventEP24QGraphicsSceneHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN15SplineChartItem15hoverLeaveEventEP24QGraphicsSceneHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN15SplineChartItem17mouseReleaseEventEP24QGraphicsSceneMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN15SplineChartItem21mouseDoubleClickEventEP24QGraphicsSceneMouseEvent": [
+      "nothing", "address", "address"
+    ]
+  }
+}

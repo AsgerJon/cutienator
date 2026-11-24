@@ -1,0 +1,31 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtOpenGL/6.12.0/QtOpenGL/private/qopenglpaintdevice_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN25QOpenGLPaintDevicePrivateC1ERK5QSize": [
+      "address", "address"
+    ],
+    "ritual_ZN25QOpenGLPaintDevicePrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN25QOpenGLPaintDevicePrivate3getEP18QOpenGLPaintDevice": [
+      "address", "address"
+    ],
+    "ritual_ZN25QOpenGLPaintDevicePrivate10beginPaintEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QOpenGLPaintDevicePrivate8endPaintEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QOpenGLPaintDevicePrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN25QOpenGLPaintDevicePrivate10beginPaintEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN25QOpenGLPaintDevicePrivate8endPaintEv": [
+      "nothing", "address"
+    ]
+  }
+}

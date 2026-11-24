@@ -1,0 +1,95 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtMultimedia/qmediaplayer.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK12QMediaPlayer10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QMediaPlayer2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN12QMediaPlayerC1EP7QObject": ["address", "address"],
+    "ritual_ZN12QMediaPlayerD1Ev": ["nothing", "address"],
+    "ritual_ZNK12QMediaPlayer11audioTracksEv": ["address", "address"],
+    "ritual_ZNK12QMediaPlayer11videoTracksEv": ["address", "address"],
+    "ritual_ZNK12QMediaPlayer14subtitleTracksEv": ["address", "address"],
+    "ritual_ZNK12QMediaPlayer16activeAudioTrackEv": ["int", "address"],
+    "ritual_ZNK12QMediaPlayer16activeVideoTrackEv": ["int", "address"],
+    "ritual_ZNK12QMediaPlayer19activeSubtitleTrackEv": ["int", "address"],
+    "ritual_ZN12QMediaPlayer19setActiveAudioTrackEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN12QMediaPlayer19setActiveVideoTrackEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN12QMediaPlayer22setActiveSubtitleTrackEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN12QMediaPlayer20setAudioBufferOutputEP18QAudioBufferOutput": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12QMediaPlayer17audioBufferOutputEv": ["address", "address"],
+    "ritual_ZN12QMediaPlayer14setAudioOutputEP12QAudioOutput": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12QMediaPlayer11audioOutputEv": ["address", "address"],
+    "ritual_ZN12QMediaPlayer14setVideoOutputEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12QMediaPlayer11videoOutputEv": ["address", "address"],
+    "ritual_ZN12QMediaPlayer12setVideoSinkEP10QVideoSink": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12QMediaPlayer9videoSinkEv": ["address", "address"],
+    "ritual_ZNK12QMediaPlayer6sourceEv": ["address", "address"],
+    "ritual_ZNK12QMediaPlayer12sourceDeviceEv": ["address", "address"],
+    "ritual_ZNK12QMediaPlayer13playbackStateEv": ["int", "address"],
+    "ritual_ZNK12QMediaPlayer11mediaStatusEv": ["int", "address"],
+    "ritual_ZNK12QMediaPlayer8durationEv": ["long long", "address"],
+    "ritual_ZNK12QMediaPlayer8positionEv": ["long long", "address"],
+    "ritual_ZNK12QMediaPlayer8hasAudioEv": ["bool", "address"],
+    "ritual_ZNK12QMediaPlayer8hasVideoEv": ["bool", "address"],
+    "ritual_ZNK12QMediaPlayer14bufferProgressEv": ["float", "address"],
+    "ritual_ZNK12QMediaPlayer17bufferedTimeRangeEv": ["address", "address"],
+    "ritual_ZNK12QMediaPlayer10isSeekableEv": ["bool", "address"],
+    "ritual_ZNK12QMediaPlayer12playbackRateEv": ["double", "address"],
+    "ritual_ZNK12QMediaPlayer9isPlayingEv": ["bool", "address"],
+    "ritual_ZNK12QMediaPlayer5loopsEv": ["int", "address"],
+    "ritual_ZN12QMediaPlayer8setLoopsEi": ["nothing", "address", "int"],
+    "ritual_ZNK12QMediaPlayer5errorEv": ["int", "address"],
+    "ritual_ZNK12QMediaPlayer11errorStringEv": ["text", "address"],
+    "ritual_ZNK12QMediaPlayer11isAvailableEv": ["bool", "address"],
+    "ritual_ZNK12QMediaPlayer8metaDataEv": ["address", "address"],
+    "ritual_ZNK12QMediaPlayer29pitchCompensationAvailabilityEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK12QMediaPlayer17pitchCompensationEv": ["bool", "address"],
+    "ritual_ZNK12QMediaPlayer15playbackOptionsEv": ["address", "address"],
+    "ritual_ZN12QMediaPlayer4playEv": ["nothing", "address"],
+    "ritual_ZN12QMediaPlayer5pauseEv": ["nothing", "address"],
+    "ritual_ZN12QMediaPlayer4stopEv": ["nothing", "address"],
+    "ritual_ZN12QMediaPlayer11setPositionEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN12QMediaPlayer15setPlaybackRateEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN12QMediaPlayer9setSourceERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QMediaPlayer15setSourceDeviceEP9QIODeviceRK4QUrl": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK12QMediaPlayer20setPitchCompensationEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN12QMediaPlayer18setPlaybackOptionsERK16QPlaybackOptions": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QMediaPlayer20resetPlaybackOptionsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN12QMediaPlayer6d_funcEv": ["address", "address"],
+    "ritual_ZNK12QMediaPlayer6d_funcEv": ["address", "address"],
+    "ritual_take_QMediaPlayer": ["bool", "address", "chars", "address"]
+  }
+}

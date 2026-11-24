@@ -1,0 +1,84 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtBluetooth/qlowenergycontroller.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZNK20QLowEnergyController10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QLowEnergyController2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN20QLowEnergyController13createCentralERK20QBluetoothDeviceInfoP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN20QLowEnergyController13createCentralERK20QBluetoothDeviceInfoRK17QBluetoothAddressP7QObject": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN20QLowEnergyController16createPeripheralERK17QBluetoothAddressP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN20QLowEnergyController16createPeripheralEP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN20QLowEnergyControllerD1Ev": ["nothing", "address"],
+    "ritual_ZNK20QLowEnergyController12localAddressEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QLowEnergyController13remoteAddressEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QLowEnergyController16remoteDeviceUuidEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QLowEnergyController10remoteNameEv": ["text", "address"],
+    "ritual_ZNK20QLowEnergyController5stateEv": ["int", "address"],
+    "ritual_ZNK20QLowEnergyController17remoteAddressTypeEv": [
+      "int", "address"
+    ],
+    "ritual_ZN20QLowEnergyController20setRemoteAddressTypeENS_17RemoteAddressTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QLowEnergyController15connectToDeviceEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QLowEnergyController20disconnectFromDeviceEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QLowEnergyController16discoverServicesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK20QLowEnergyController8servicesEv": ["address", "address"],
+    "ritual_ZN20QLowEnergyController19createServiceObjectERK14QBluetoothUuidP7QObject": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN20QLowEnergyController16startAdvertisingERK31QLowEnergyAdvertisingParametersRK25QLowEnergyAdvertisingDataS5_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN20QLowEnergyController15stopAdvertisingEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QLowEnergyController10addServiceERK21QLowEnergyServiceDataP7QObject": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN20QLowEnergyController23requestConnectionUpdateERK30QLowEnergyConnectionParameters": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QLowEnergyController5errorEv": ["int", "address"],
+    "ritual_ZNK20QLowEnergyController11errorStringEv": ["text", "address"],
+    "ritual_ZNK20QLowEnergyController4roleEv": ["int", "address"],
+    "ritual_ZNK20QLowEnergyController3mtuEv": ["int", "address"],
+    "ritual_ZN20QLowEnergyController8readRssiEv": ["nothing", "address"],
+    "ritual_ZN20QLowEnergyControllerC1ERK17QBluetoothAddressP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN20QLowEnergyControllerC1ERK20QBluetoothDeviceInfoRK17QBluetoothAddressP7QObject": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN20QLowEnergyController6d_funcEv": ["address", "address"],
+    "ritual_ZNK20QLowEnergyController6d_funcEv": ["address", "address"],
+    "ritual_take_QLowEnergyController": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

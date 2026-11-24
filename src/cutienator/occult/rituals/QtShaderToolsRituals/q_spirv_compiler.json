@@ -1,0 +1,34 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtShaderTools/6.12.0/QtShaderTools/private/qspirvcompiler_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN14QSpirvCompilerC1Ev": ["address"],
+    "ritual_ZN14QSpirvCompilerD1Ev": ["nothing", "address"],
+    "ritual_ZN14QSpirvCompiler17setSourceFileNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN14QSpirvCompiler17setSourceFileNameERK7QStringN7QShader5StageE": [
+      "nothing", "address", "text", "int"
+    ],
+    "ritual_ZN14QSpirvCompiler15setSourceDeviceEP9QIODeviceN7QShader5StageERK7QString": [
+      "nothing", "address", "address", "int", "text"
+    ],
+    "ritual_ZN14QSpirvCompiler15setSourceStringERK10QByteArrayN7QShader5StageERK7QString": [
+      "nothing", "address", "address", "int", "text"
+    ],
+    "ritual_ZN14QSpirvCompiler8setFlagsE6QFlagsINS_4FlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN14QSpirvCompiler11setPreambleERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QSpirvCompiler32setSGBatchingVertexInputLocationEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN14QSpirvCompiler14compileToSpirvEv": ["address", "address"],
+    "ritual_ZNK14QSpirvCompiler12errorMessageEv": ["text", "address"]
+  }
+}

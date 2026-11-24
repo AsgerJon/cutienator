@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtScxml/6.12.0/QtScxml/private/qscxmldatamodelplugin_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK21QScxmlDataModelPlugin10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QScxmlDataModelPlugin2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZNK21QScxmlDataModelPlugin20createScxmlDataModelEv": [
+      "address", "address"
+    ],
+    "ritual_take_QScxmlDataModelPlugin": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK21QScxmlDataModelPlugin20createScxmlDataModelEv": [
+      "address", "address"
+    ]
+  }
+}

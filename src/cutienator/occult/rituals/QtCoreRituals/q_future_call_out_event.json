@@ -1,0 +1,25 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qfutureinterface_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK19QFutureCallOutEvent5cloneEv": ["address", "address"],
+    "ritual_ZN19QFutureCallOutEventD1Ev": ["nothing", "address"],
+    "ritual_ZN19QFutureCallOutEventC1Ev": ["address"],
+    "ritual_ZN19QFutureCallOutEventC1ENS_11CallOutTypeEi": [
+      "address", "int", "int"
+    ],
+    "ritual_ZN19QFutureCallOutEventC1ENS_11CallOutTypeEii": [
+      "address", "int", "int", "int"
+    ],
+    "ritual_ZN19QFutureCallOutEventC1ENS_11CallOutTypeEiRK7QString": [
+      "address", "int", "int", "text"
+    ],
+    "ritual_take_QFutureCallOutEvent": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK19QFutureCallOutEvent5cloneEv": ["address", "address"]
+  }
+}

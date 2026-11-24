@@ -1,0 +1,36 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtLabsP",
+    "latform/6.12.0/QtLabsPlatform/private/qquicklabsplatformstandardpa",
+    "ths_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK31QQuickLabsPlatformStandardPaths10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN31QQuickLabsPlatformStandardPaths22qt_qmlMarker_singletonEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN31QQuickLabsPlatformStandardPaths20qmlExtendedNamespaceEv": [
+      "address"
+    ],
+    "ritual_ZN31QQuickLabsPlatformStandardPaths30qt_qmlMarker_extendedNamespaceEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN31QQuickLabsPlatformStandardPaths11displayNameEN14QStandardPaths16StandardLocationE": [
+      "text", "int"
+    ],
+    "ritual_ZN31QQuickLabsPlatformStandardPaths14findExecutableERK7QStringRK5QListIS0_E": [
+      "address", "text", "address"
+    ],
+    "ritual_ZN31QQuickLabsPlatformStandardPaths6locateEN14QStandardPaths16StandardLocationERK7QString6QFlagsINS0_12LocateOptionEE": [
+      "address", "int", "text", "int"
+    ],
+    "ritual_ZN31QQuickLabsPlatformStandardPaths18setTestModeEnabledEb": [
+      "nothing", "bool"
+    ],
+    "ritual_ZN31QQuickLabsPlatformStandardPaths16writableLocationEN14QStandardPaths16StandardLocationE": [
+      "address", "int"
+    ]
+  }
+}

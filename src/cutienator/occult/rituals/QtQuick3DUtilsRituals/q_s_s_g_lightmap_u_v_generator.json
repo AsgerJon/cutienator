@@ -1,0 +1,14 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DUtils/6.12.0/QtQuick3DUtils/private/qssglightmapuvgenerator_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN23QSSGLightmapUVGenerator3runERK10QByteArrayS2_S2_S2_23QSSGRenderComponentTypef": [
+      "address", "address", "address", "address", "address", "address",
+      "int", "float"
+    ],
+    "ritual_ZN23QSSGLightmapUVGeneratorD1Ev": ["nothing", "address"]
+  }
+}

@@ -1,0 +1,54 @@
+//  Written by dev_tooling.RitualGenerator from the records of
+//  QtQml/6.12.0/QtQml/private/qqmlengine_p.h, Qt 6.12.0. Changes made here
+//  are lost.
+#include <QtQml/6.12.0/QtQml/private/qtqmlglobal_p.h>
+#include <QtQml/QtQml>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtQml/6.12.0/QtQml/private/qqmlengine_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qmetaobject.h>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include "qqmljavascriptexpression_p.h"
+#include "qqmljavascriptexpression_p.h"
+#include <private/qqmlexpression_p.h>
+#include <private/qv4context_p.h>
+#include <private/qv4value_p.h>
+#include <private/qv4functionobject_p.h>
+#include <private/qv4script_p.h>
+#include <private/qv4errorobject_p.h>
+#include <private/qv4scopedvalue_p.h>
+#include <private/qv4jscall_p.h>
+#include <private/qqmlglobal_p.h>
+#include <private/qv4qobjectwrapper_p.h>
+#include <private/qqmlbuiltinfunctions_p.h>
+#include <private/qqmlsourcecoordinate_p.h>
+#include <private/qqmlabstractbinding_p.h>
+#include <private/qqmlpropertybinding_p.h>
+#include <private/qproperty_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from ../qtdeclarative/src/qml/qml/qqmljavascriptexpression.cpp, line 537, as _ZNK22QPropertyChangeTrigger8propertyEv
+inline QMetaProperty QPropertyChangeTrigger::property() const
+{
+    if (!target)
+        return {};
+    auto const mo = target->metaObject();
+    if (!mo)
+        return {};
+    return mo->property(propertyIndex);
+}
+//  -----------------------------------------------------------------------
+
+//  QMetaProperty QPropertyChangeTrigger::property() const
+extern "C" Q_DECL_EXPORT
+QMetaProperty *ritual_ZNK22QPropertyChangeTrigger8propertyEv(
+    const QPropertyChangeTrigger *self) {
+  return new QMetaProperty(self->property());
+}

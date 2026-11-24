@@ -1,0 +1,48 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickitem_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN14QQuickContentsC1EP10QQuickItem": ["address", "address"],
+    "ritual_ZN14QQuickContentsD1Ev": ["nothing", "address"],
+    "ritual_ZNK14QQuickContents5rectFEv": ["address", "address"],
+    "ritual_ZN14QQuickContents12calcGeometryEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QQuickContents8completeEv": ["nothing", "address"],
+    "ritual_ZN14QQuickContents19itemGeometryChangedEP10QQuickItem20QQuickGeometryChangeRK6QRectF": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN14QQuickContents13itemDestroyedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QQuickContents14itemChildAddedEP10QQuickItemS1_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN14QQuickContents16itemChildRemovedEP10QQuickItemS1_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN14QQuickContents10calcHeightEP10QQuickItem": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN14QQuickContents9calcWidthEP10QQuickItem": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN14QQuickContents10updateRectEv": ["nothing", "address"],
+    "ritual_take_QQuickContents": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN14QQuickContents19itemGeometryChangedEP10QQuickItem20QQuickGeometryChangeRK6QRectF": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN14QQuickContents13itemDestroyedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN14QQuickContents14itemChildAddedEP10QQuickItemS1_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN14QQuickContents16itemChildRemovedEP10QQuickItemS1_": [
+      "nothing", "address", "address", "address"
+    ]
+  }
+}

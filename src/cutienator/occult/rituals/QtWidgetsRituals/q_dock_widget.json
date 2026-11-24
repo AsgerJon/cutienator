@@ -53,6 +53,8 @@
     "ritual_ZNK11QDockWidget15initStyleOptionEP22QStyleOptionDockWidget": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN11QDockWidget6d_funcEv": ["address", "address"],
+    "ritual_ZNK11QDockWidget6d_funcEv": ["address", "address"],
     "ritual_take_QDockWidget": ["bool", "address", "chars", "address"],
     "ritual_own_ZN11QDockWidget11changeEventEP6QEvent": [
       "nothing", "address", "address"

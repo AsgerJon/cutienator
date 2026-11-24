@@ -17,6 +17,8 @@
       "bool", "address", "address", "address", "address"
     ],
     "ritual_ZN9QLockFile19removeStaleLockFileEv": ["bool", "address"],
-    "ritual_ZNK9QLockFile5errorEv": ["int", "address"]
+    "ritual_ZNK9QLockFile5errorEv": ["int", "address"],
+    "ritual_ZN9QLockFile6d_funcEv": ["address", "address"],
+    "ritual_ZNK9QLockFile6d_funcEv": ["address", "address"]
   }
 }

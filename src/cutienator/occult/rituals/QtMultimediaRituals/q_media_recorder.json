@@ -1,0 +1,90 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtMultimedia/qmediarecorder.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK14QMediaRecorder10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QMediaRecorder2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN14QMediaRecorderC1EP7QObject": ["address", "address"],
+    "ritual_ZN14QMediaRecorderD1Ev": ["nothing", "address"],
+    "ritual_ZNK14QMediaRecorder11isAvailableEv": ["bool", "address"],
+    "ritual_ZNK14QMediaRecorder14outputLocationEv": ["address", "address"],
+    "ritual_ZN14QMediaRecorder17setOutputLocationERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QMediaRecorder15setOutputDeviceEP9QIODevice": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QMediaRecorder12outputDeviceEv": ["address", "address"],
+    "ritual_ZNK14QMediaRecorder14actualLocationEv": ["address", "address"],
+    "ritual_ZNK14QMediaRecorder13recorderStateEv": ["int", "address"],
+    "ritual_ZNK14QMediaRecorder5errorEv": ["int", "address"],
+    "ritual_ZNK14QMediaRecorder11errorStringEv": ["text", "address"],
+    "ritual_ZNK14QMediaRecorder8durationEv": ["long long", "address"],
+    "ritual_ZNK14QMediaRecorder11mediaFormatEv": ["address", "address"],
+    "ritual_ZN14QMediaRecorder14setMediaFormatERK12QMediaFormat": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QMediaRecorder12encodingModeEv": ["int", "address"],
+    "ritual_ZN14QMediaRecorder15setEncodingModeENS_12EncodingModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK14QMediaRecorder7qualityEv": ["int", "address"],
+    "ritual_ZN14QMediaRecorder10setQualityENS_7QualityE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK14QMediaRecorder15videoResolutionEv": ["address", "address"],
+    "ritual_ZN14QMediaRecorder18setVideoResolutionERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QMediaRecorder18setVideoResolutionEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK14QMediaRecorder14videoFrameRateEv": ["double", "address"],
+    "ritual_ZN14QMediaRecorder17setVideoFrameRateEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK14QMediaRecorder12videoBitRateEv": ["int", "address"],
+    "ritual_ZN14QMediaRecorder15setVideoBitRateEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK14QMediaRecorder12audioBitRateEv": ["int", "address"],
+    "ritual_ZN14QMediaRecorder15setAudioBitRateEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK14QMediaRecorder17audioChannelCountEv": ["int", "address"],
+    "ritual_ZN14QMediaRecorder20setAudioChannelCountEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK14QMediaRecorder15audioSampleRateEv": ["int", "address"],
+    "ritual_ZN14QMediaRecorder18setAudioSampleRateEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK14QMediaRecorder8metaDataEv": ["address", "address"],
+    "ritual_ZN14QMediaRecorder11setMetaDataERK14QMediaMetaData": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QMediaRecorder11addMetaDataERK14QMediaMetaData": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QMediaRecorder8autoStopEv": ["bool", "address"],
+    "ritual_ZN14QMediaRecorder11setAutoStopEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK14QMediaRecorder14captureSessionEv": ["address", "address"],
+    "ritual_ZNK14QMediaRecorder15platformRecoderEv": ["address", "address"],
+    "ritual_ZN14QMediaRecorder6recordEv": ["nothing", "address"],
+    "ritual_ZN14QMediaRecorder5pauseEv": ["nothing", "address"],
+    "ritual_ZN14QMediaRecorder4stopEv": ["nothing", "address"],
+    "ritual_ZN14QMediaRecorder17setCaptureSessionEP20QMediaCaptureSession": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QMediaRecorder6d_funcEv": ["address", "address"],
+    "ritual_ZNK14QMediaRecorder6d_funcEv": ["address", "address"],
+    "ritual_take_QMediaRecorder": ["bool", "address", "chars", "address"]
+  }
+}

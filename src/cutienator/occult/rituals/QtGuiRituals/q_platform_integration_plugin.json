@@ -1,0 +1,28 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/qpa/qplatformintegrationplugin.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK26QPlatformIntegrationPlugin10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QPlatformIntegrationPlugin2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN26QPlatformIntegrationPluginC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN26QPlatformIntegrationPluginD1Ev": ["nothing", "address"],
+    "ritual_ZN26QPlatformIntegrationPlugin6createERK7QStringRK5QListIS0_E": [
+      "address", "address", "text", "address"
+    ],
+    "ritual_ZN26QPlatformIntegrationPlugin6createERK7QStringRK5QListIS0_ERiPPc": [
+      "address", "address", "text", "address", "address", "address"
+    ],
+    "ritual_take_QPlatformIntegrationPlugin": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

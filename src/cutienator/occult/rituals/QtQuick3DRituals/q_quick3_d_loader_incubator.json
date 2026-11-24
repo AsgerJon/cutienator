@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3D/6.12.0/QtQuick3D/private/qquick3dloader_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN23QQuick3DLoaderIncubatorC1EP14QQuick3DLoaderN13QQmlIncubator14IncubationModeE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN23QQuick3DLoaderIncubator13statusChangedEN13QQmlIncubator6StatusE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN23QQuick3DLoaderIncubator15setInitialStateEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN23QQuick3DLoaderIncubator13statusChangedEN13QQmlIncubator6StatusE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN23QQuick3DLoaderIncubator15setInitialStateEP7QObject": [
+      "nothing", "address", "address"
+    ]
+  }
+}

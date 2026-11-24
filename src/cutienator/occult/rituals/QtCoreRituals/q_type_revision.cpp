@@ -94,11 +94,13 @@ bool ritual_ZgeRK13QTypeRevisionS1_(
   return operator>=(*lhs, *rhs);
 }
 
+#if Q_BYTE_ORDER == Q_LITTLE_ENDIAN
 //  QTypeRevision::QTypeRevision(quint8 major, quint8 minor)
 extern "C" Q_DECL_EXPORT
 QTypeRevision *ritual_ZN13QTypeRevisionC1Ehh(quint8 major, quint8 minor) {
   return new QTypeRevision(major, minor);
 }
+#endif  // Q_BYTE_ORDER == Q_LITTLE_ENDIAN
 
 //  QTypeRevision::~QTypeRevision()
 extern "C" Q_DECL_EXPORT

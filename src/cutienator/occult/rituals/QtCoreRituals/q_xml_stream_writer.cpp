@@ -1,5 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/qxmlstream.h, Qt 6.12.0. Changes made here are lost.
+#include <QtCore/qglobal.h>
+#if QT_CONFIG(xmlstream)
+#if QT_CONFIG(xmlstreamwriter)
 #include <QtCore/qxmlstream.h>
 #include <QtCore/qanystringview.h>
 #include <QtCore/qstring.h>
@@ -343,3 +346,6 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZNK16QXmlStreamWriter8hasErrorEv(const QXmlStreamWriter *self) {
   return self->hasError();
 }
+
+#endif  // QT_CONFIG(xmlstreamwriter)
+#endif  // QT_CONFIG(xmlstream)

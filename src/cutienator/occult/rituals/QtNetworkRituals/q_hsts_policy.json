@@ -1,0 +1,37 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/qhstspolicy.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11QHstsPolicyC1Ev": ["address"],
+    "ritual_ZN11QHstsPolicyC1ERK9QDateTime6QFlagsINS_10PolicyFlagEERK7QStringN4QUrl11ParsingModeE": [
+      "address", "address", "int", "text", "int"
+    ],
+    "ritual_ZN11QHstsPolicyC1ERKS_": ["address", "address"],
+    "ritual_ZN11QHstsPolicyD1Ev": ["nothing", "address"],
+    "ritual_ZN11QHstsPolicy7setHostERK7QStringN4QUrl11ParsingModeE": [
+      "nothing", "address", "text", "int"
+    ],
+    "ritual_ZNK11QHstsPolicy4hostE6QFlagsIN4QUrl25ComponentFormattingOptionEE": [
+      "text", "address", "int"
+    ],
+    "ritual_ZN11QHstsPolicy9setExpiryERK9QDateTime": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QHstsPolicy6expiryEv": ["address", "address"],
+    "ritual_ZN11QHstsPolicy21setIncludesSubDomainsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK11QHstsPolicy18includesSubDomainsEv": ["bool", "address"],
+    "ritual_ZNK11QHstsPolicy9isExpiredEv": ["bool", "address"],
+    "ritual_ZNK11QHstsPolicy7isEqualERKS_": ["bool", "address", "address"],
+    "ritual_ZeqRK11QHstsPolicyS1_": ["bool", "address", "address"],
+    "ritual_ZneRK11QHstsPolicyS1_": ["bool", "address", "address"],
+    "ritual_list_make_QHstsPolicy": ["address"],
+    "ritual_list_add_QHstsPolicy": ["nothing", "address", "address"],
+    "ritual_list_size_QHstsPolicy": ["long long", "address"],
+    "ritual_list_at_QHstsPolicy": ["address", "address", "long long"],
+    "ritual_list_drop_QHstsPolicy": ["nothing", "address"]
+  }
+}

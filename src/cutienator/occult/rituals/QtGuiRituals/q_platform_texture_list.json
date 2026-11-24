@@ -1,0 +1,36 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/qpa/qplatformbackingstore.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK20QPlatformTextureList10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QPlatformTextureList2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN20QPlatformTextureListC1EP7QObject": ["address", "address"],
+    "ritual_ZN20QPlatformTextureListD1Ev": ["nothing", "address"],
+    "ritual_ZNK20QPlatformTextureList5countEv": ["int", "address"],
+    "ritual_ZNK20QPlatformTextureList7isEmptyEv": ["bool", "address"],
+    "ritual_ZNK20QPlatformTextureList7textureEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK20QPlatformTextureList12textureExtraEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK20QPlatformTextureList8geometryEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK20QPlatformTextureList8clipRectEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK20QPlatformTextureList5flagsEi": ["int", "address", "int"],
+    "ritual_ZN20QPlatformTextureList4lockEb": ["nothing", "address", "bool"],
+    "ritual_ZNK20QPlatformTextureList8isLockedEv": ["bool", "address"],
+    "ritual_ZN20QPlatformTextureList5clearEv": ["nothing", "address"],
+    "ritual_take_QPlatformTextureList": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

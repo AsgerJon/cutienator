@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qtextobject_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN22QTextBlockGroupPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK22QTextBlockGroupPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN22QTextBlockGroupPrivateC1EP13QTextDocument": [
+      "address", "address"
+    ],
+    "ritual_ZN22QTextBlockGroupPrivate15markBlocksDirtyEv": [
+      "nothing", "address"
+    ]
+  }
+}

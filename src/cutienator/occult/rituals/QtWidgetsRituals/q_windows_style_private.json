@@ -1,0 +1,28 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qwindowsstyle_p_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QWindowsStylePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK20QWindowsStylePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN20QWindowsStylePrivateC1Ev": ["address"],
+    "ritual_ZN20QWindowsStylePrivate23pixelMetricFromSystemDpEN6QStyle11PixelMetricEPK12QStyleOptionPK7QWidget": [
+      "int", "int", "address", "address"
+    ],
+    "ritual_ZN20QWindowsStylePrivate16fixedPixelMetricEN6QStyle11PixelMetricE": [
+      "int", "int"
+    ],
+    "ritual_ZN20QWindowsStylePrivate23nativeMetricScaleFactorEPK7QWidget": [
+      "double", "address"
+    ],
+    "ritual_ZNK20QWindowsStylePrivate10hasSeenAltEPK7QWidget": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK20QWindowsStylePrivate7altDownEv": ["bool", "address"],
+    "ritual_take_QWindowsStylePrivate": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

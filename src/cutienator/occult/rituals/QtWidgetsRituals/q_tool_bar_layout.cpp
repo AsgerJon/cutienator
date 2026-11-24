@@ -1,12 +1,19 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/6.12.0/QtWidgets/private/qtoolbarlayout_p.h, Qt 6.12.0. Changes
 //  made here are lost.
+#include <QtWidgets/qtwidgetsglobal.h>
+#include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
+#if QT_CONFIG(toolbar)
+#include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/QtWidgets>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/6.12.0/QtWidgets/private/qtoolbarlayout_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qrect.h>
 #include <QtCore/qsize.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <qapplication.h>
 #include <qaction.h>
 #include <qwidgetaction.h>
@@ -27,61 +34,14 @@
 #endif
 #include "qtoolbarlayout_p.h"
 #include "qtoolbarseparator_p.h"
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
 //  Qt's source, because Qt's library carries it under no name.
 //  Copyright (C) The Qt Company Ltd. It is licensed
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
-//  'inline' put before it.
-
-//  from src/widgets/widgets/qtoolbarlayout.cpp, line 671, as _ZN14QToolBarLayout10createItemEP7QAction
-inline QToolBarItem *QToolBarLayout::createItem(QAction *action)
-{
-    bool customWidget = false;
-    bool standardButtonWidget = false;
-    QWidget *widget = nullptr;
-    QToolBar *tb = qobject_cast<QToolBar*>(parentWidget());
-    if (!tb)
-        return (QToolBarItem *)nullptr;
-
-    if (QWidgetAction *widgetAction = qobject_cast<QWidgetAction *>(action)) {
-        widget = widgetAction->requestWidget(tb);
-        if (widget != nullptr) {
-            widget->setAttribute(Qt::WA_LayoutUsesWidgetRect);
-            customWidget = true;
-        }
-    } else if (action->isSeparator()) {
-        QToolBarSeparator *sep = new QToolBarSeparator(tb);
-        connect(tb, SIGNAL(orientationChanged(Qt::Orientation)),
-                sep, SLOT(setOrientation(Qt::Orientation)));
-        widget = sep;
-    }
-
-    if (!widget) {
-        QToolButton *button = new QToolButton(tb);
-        button->setAutoRaise(true);
-        button->setFocusPolicy(Qt::NoFocus);
-        button->setIconSize(tb->iconSize());
-        button->setToolButtonStyle(tb->toolButtonStyle());
-        QObject::connect(tb, SIGNAL(iconSizeChanged(QSize)),
-                         button, SLOT(setIconSize(QSize)));
-        QObject::connect(tb, SIGNAL(toolButtonStyleChanged(Qt::ToolButtonStyle)),
-                         button, SLOT(setToolButtonStyle(Qt::ToolButtonStyle)));
-        button->setDefaultAction(action);
-        QObject::connect(button, SIGNAL(triggered(QAction*)), tb, SIGNAL(actionTriggered(QAction*)));
-        widget = button;
-        standardButtonWidget = true;
-    }
-
-    widget->hide();
-    QToolBarItem *result = new QToolBarItem(widget);
-    if (standardButtonWidget)
-        result->setAlignment(Qt::AlignJustify);
-    result->customWidget = customWidget;
-    result->action = action;
-    return result;
-}
+//  'inline' put before it where Qt did not write it.
 
 //  from src/widgets/widgets/qtoolbarlayout.cpp, line 36, as _ZN12QToolBarItemC1EP7QWidget
 inline QToolBarItem::QToolBarItem(QWidget *widget)
@@ -518,16 +478,36 @@ inline void QToolBarLayout::updateGeomArray() const
 //  A QToolBarLayout that Python can take functions over in. Every QToolBarLayout
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if QT_CONFIG(toolbar)
 typedef void (*CuteQToolBarLayoutCall0)(const void *, QLayoutItem *, int *);
+#endif  // QT_CONFIG(toolbar)
+#if QT_CONFIG(toolbar)
 typedef void * (*CuteQToolBarLayoutCall1)(const void *, int, int *);
+#endif  // QT_CONFIG(toolbar)
+#if QT_CONFIG(toolbar)
 typedef void * (*CuteQToolBarLayoutCall2)(const void *, int, int *);
+#endif  // QT_CONFIG(toolbar)
+#if QT_CONFIG(toolbar)
 typedef int (*CuteQToolBarLayoutCall3)(const void *, int *);
+#endif  // QT_CONFIG(toolbar)
+#if QT_CONFIG(toolbar)
 typedef bool (*CuteQToolBarLayoutCall4)(const void *, int *);
+#endif  // QT_CONFIG(toolbar)
+#if QT_CONFIG(toolbar)
 typedef void (*CuteQToolBarLayoutCall5)(const void *, int *);
+#endif  // QT_CONFIG(toolbar)
+#if QT_CONFIG(toolbar)
 typedef int (*CuteQToolBarLayoutCall6)(const void *, int *);
+#endif  // QT_CONFIG(toolbar)
+#if QT_CONFIG(toolbar)
 typedef void (*CuteQToolBarLayoutCall7)(const void *, const QRect *, int *);
+#endif  // QT_CONFIG(toolbar)
+#if QT_CONFIG(toolbar)
 typedef const QSize * (*CuteQToolBarLayoutCall8)(const void *, int *);
+#endif  // QT_CONFIG(toolbar)
+#if QT_CONFIG(toolbar)
 typedef const QSize * (*CuteQToolBarLayoutCall9)(const void *, int *);
+#endif  // QT_CONFIG(toolbar)
 typedef int (*CuteQToolBarLayoutCall10)(const void *, int *);
 typedef void (*CuteQToolBarLayoutCall11)(const void *, int, int *);
 typedef const QRect * (*CuteQToolBarLayoutCall12)(const void *, int *);
@@ -537,13 +517,27 @@ typedef int (*CuteQToolBarLayoutCall15)(const void *, const QLayoutItem *, int *
 typedef int (*CuteQToolBarLayoutCall16)(const void *, int *);
 typedef void * (*CuteQToolBarLayoutCall17)(const void *, QWidget *, QWidget *, int, int *);
 typedef void * (*CuteQToolBarLayoutCall18)(const void *, int *);
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQToolBarLayoutCall19)(const void *, QChildEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQToolBarLayoutCall20)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQToolBarLayoutCall21)(const void *, QObject *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQToolBarLayoutCall22)(const void *, QTimerEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQToolBarLayoutCall23)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQToolBarLayoutCall24)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQToolBarLayoutCall25)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQToolBarLayoutCall26)(const void *, int *);
 typedef int (*CuteQToolBarLayoutCall27)(const void *, int, int *);
 typedef int (*CuteQToolBarLayoutCall28)(const void *, int, int *);
@@ -555,46 +549,66 @@ public:
   void *taken[31] = {};
 
   bool take(const char *key, void *call) {
+#if QT_CONFIG(toolbar)
     if (!std::strcmp(key, "_ZN7QLayout7addItemEP11QLayoutItem")) {
       taken[0] = call;
       return true;
     }
+#endif  // QT_CONFIG(toolbar)
+#if QT_CONFIG(toolbar)
     if (!std::strcmp(key, "_ZNK7QLayout6itemAtEi")) {
       taken[1] = call;
       return true;
     }
+#endif  // QT_CONFIG(toolbar)
+#if QT_CONFIG(toolbar)
     if (!std::strcmp(key, "_ZN7QLayout6takeAtEi")) {
       taken[2] = call;
       return true;
     }
+#endif  // QT_CONFIG(toolbar)
+#if QT_CONFIG(toolbar)
     if (!std::strcmp(key, "_ZNK7QLayout5countEv")) {
       taken[3] = call;
       return true;
     }
+#endif  // QT_CONFIG(toolbar)
+#if QT_CONFIG(toolbar)
     if (!std::strcmp(key, "_ZNK11QLayoutItem7isEmptyEv")) {
       taken[4] = call;
       return true;
     }
+#endif  // QT_CONFIG(toolbar)
+#if QT_CONFIG(toolbar)
     if (!std::strcmp(key, "_ZN11QLayoutItem10invalidateEv")) {
       taken[5] = call;
       return true;
     }
+#endif  // QT_CONFIG(toolbar)
+#if QT_CONFIG(toolbar)
     if (!std::strcmp(key, "_ZNK11QLayoutItem19expandingDirectionsEv")) {
       taken[6] = call;
       return true;
     }
+#endif  // QT_CONFIG(toolbar)
+#if QT_CONFIG(toolbar)
     if (!std::strcmp(key, "_ZN11QLayoutItem11setGeometryERK5QRect")) {
       taken[7] = call;
       return true;
     }
+#endif  // QT_CONFIG(toolbar)
+#if QT_CONFIG(toolbar)
     if (!std::strcmp(key, "_ZNK11QLayoutItem11minimumSizeEv")) {
       taken[8] = call;
       return true;
     }
+#endif  // QT_CONFIG(toolbar)
+#if QT_CONFIG(toolbar)
     if (!std::strcmp(key, "_ZNK11QLayoutItem8sizeHintEv")) {
       taken[9] = call;
       return true;
     }
+#endif  // QT_CONFIG(toolbar)
     if (!std::strcmp(key, "_ZNK7QLayout7spacingEv")) {
       taken[10] = call;
       return true;
@@ -631,34 +645,48 @@ public:
       taken[18] = call;
       return true;
     }
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[19] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[20] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[21] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[22] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[23] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[24] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
       taken[25] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZNK11QLayoutItem17hasHeightForWidthEv")) {
       taken[26] = call;
       return true;
@@ -682,6 +710,7 @@ public:
     return false;
   }
 
+#if QT_CONFIG(toolbar)
   //  void QToolBarLayout::addItem(QLayoutItem *item)
   void addItem(QLayoutItem *item) override {
     if (taken[0]) {
@@ -692,7 +721,9 @@ public:
     }
     QToolBarLayout::addItem(item);
   }
+#endif  // QT_CONFIG(toolbar)
 
+#if QT_CONFIG(toolbar)
   //  QLayoutItem *QToolBarLayout::itemAt(int index) const
   QLayoutItem *itemAt(int index) const override {
     if (taken[1]) {
@@ -703,7 +734,9 @@ public:
     }
     return QToolBarLayout::itemAt(index);
   }
+#endif  // QT_CONFIG(toolbar)
 
+#if QT_CONFIG(toolbar)
   //  QLayoutItem *QToolBarLayout::takeAt(int index)
   QLayoutItem *takeAt(int index) override {
     if (taken[2]) {
@@ -714,7 +747,9 @@ public:
     }
     return QToolBarLayout::takeAt(index);
   }
+#endif  // QT_CONFIG(toolbar)
 
+#if QT_CONFIG(toolbar)
   //  int QToolBarLayout::count() const
   int count() const override {
     if (taken[3]) {
@@ -725,7 +760,9 @@ public:
     }
     return QToolBarLayout::count();
   }
+#endif  // QT_CONFIG(toolbar)
 
+#if QT_CONFIG(toolbar)
   //  bool QToolBarLayout::isEmpty() const
   bool isEmpty() const override {
     if (taken[4]) {
@@ -736,7 +773,9 @@ public:
     }
     return QToolBarLayout::isEmpty();
   }
+#endif  // QT_CONFIG(toolbar)
 
+#if QT_CONFIG(toolbar)
   //  void QToolBarLayout::invalidate()
   void invalidate() override {
     if (taken[5]) {
@@ -747,7 +786,9 @@ public:
     }
     QToolBarLayout::invalidate();
   }
+#endif  // QT_CONFIG(toolbar)
 
+#if QT_CONFIG(toolbar)
   //  Qt::Orientations QToolBarLayout::expandingDirections() const
   Qt::Orientations expandingDirections() const override {
     if (taken[6]) {
@@ -758,7 +799,9 @@ public:
     }
     return QToolBarLayout::expandingDirections();
   }
+#endif  // QT_CONFIG(toolbar)
 
+#if QT_CONFIG(toolbar)
   //  void QToolBarLayout::setGeometry(const QRect &r)
   void setGeometry(const QRect &r) override {
     if (taken[7]) {
@@ -769,7 +812,9 @@ public:
     }
     QToolBarLayout::setGeometry(r);
   }
+#endif  // QT_CONFIG(toolbar)
 
+#if QT_CONFIG(toolbar)
   //  QSize QToolBarLayout::minimumSize() const
   QSize minimumSize() const override {
     if (taken[8]) {
@@ -780,7 +825,9 @@ public:
     }
     return QToolBarLayout::minimumSize();
   }
+#endif  // QT_CONFIG(toolbar)
 
+#if QT_CONFIG(toolbar)
   //  QSize QToolBarLayout::sizeHint() const
   QSize sizeHint() const override {
     if (taken[9]) {
@@ -791,6 +838,7 @@ public:
     }
     return QToolBarLayout::sizeHint();
   }
+#endif  // QT_CONFIG(toolbar)
 
   //  int QLayout::spacing() const
   int spacing() const override {
@@ -895,6 +943,7 @@ public:
     return QLayout::layout();
   }
 
+#if !defined(QT_NO_QOBJECT)
   //  void QLayout::childEvent(QChildEvent *e)
   void childEvent(QChildEvent *e) override {
     if (taken[19]) {
@@ -905,7 +954,9 @@ public:
     }
     QLayout::childEvent(e);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QObject::event(QEvent *event)
   bool event(QEvent *event) override {
     if (taken[20]) {
@@ -916,7 +967,9 @@ public:
     }
     return QObject::event(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
     if (taken[21]) {
@@ -927,7 +980,9 @@ public:
     }
     return QObject::eventFilter(watched, event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
     if (taken[22]) {
@@ -938,7 +993,9 @@ public:
     }
     QObject::timerEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
     if (taken[23]) {
@@ -949,7 +1006,9 @@ public:
     }
     QObject::customEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
     if (taken[24]) {
@@ -960,7 +1019,9 @@ public:
     }
     QObject::connectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
     if (taken[25]) {
@@ -971,6 +1032,7 @@ public:
     }
     QObject::disconnectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
   //  bool QLayoutItem::hasHeightForWidth() const
   bool hasHeightForWidth() const override {
@@ -1248,3 +1310,5 @@ QSize *ritual_own_ZNK14QToolBarLayout8sizeHintEv(
     const QToolBarLayout *self) {
   return new QSize(self->QToolBarLayout::sizeHint());
 }
+
+#endif  // QT_CONFIG(toolbar)

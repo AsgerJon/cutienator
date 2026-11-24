@@ -1,0 +1,37 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qabstractanimationjob_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN27QAnimationJobChangeListenerD1Ev": ["nothing", "address"],
+    "ritual_ZN27QAnimationJobChangeListener17animationFinishedEP21QAbstractAnimationJob": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN27QAnimationJobChangeListener21animationStateChangedEP21QAbstractAnimationJobNS0_5StateES2_": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN27QAnimationJobChangeListener27animationCurrentLoopChangedEP21QAbstractAnimationJob": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN27QAnimationJobChangeListener27animationCurrentTimeChangedEP21QAbstractAnimationJobi": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_take_QAnimationJobChangeListener": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN27QAnimationJobChangeListener17animationFinishedEP21QAbstractAnimationJob": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN27QAnimationJobChangeListener21animationStateChangedEP21QAbstractAnimationJobNS0_5StateES2_": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_own_ZN27QAnimationJobChangeListener27animationCurrentLoopChangedEP21QAbstractAnimationJob": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN27QAnimationJobChangeListener27animationCurrentTimeChangedEP21QAbstractAnimationJobi": [
+      "nothing", "address", "address", "int"
+    ]
+  }
+}

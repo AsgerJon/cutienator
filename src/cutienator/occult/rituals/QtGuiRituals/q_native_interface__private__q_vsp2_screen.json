@@ -1,0 +1,31 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/qpa/qplatformscreen_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN16QNativeInterface7Private11QVsp2ScreenD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QNativeInterface7Private11QVsp2Screen8addLayerEiRK5QSizeRK6QPointjj": [
+      "int", "address", "int", "address", "address", "unsigned int",
+      "unsigned int"
+    ],
+    "ritual_ZN16QNativeInterface7Private11QVsp2Screen14setLayerBufferEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN16QNativeInterface7Private11QVsp2Screen16setLayerPositionEiRK6QPoint": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN16QNativeInterface7Private11QVsp2Screen13setLayerAlphaEid": [
+      "nothing", "address", "int", "double"
+    ],
+    "ritual_ZN16QNativeInterface7Private11QVsp2Screen11removeLayerEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_take_QNativeInterface_Private_QVsp2Screen": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

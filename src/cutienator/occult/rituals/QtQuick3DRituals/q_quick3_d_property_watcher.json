@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3D/6.12.0/QtQuick3D/private/qquick3dshaderutils_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK23QQuick3DPropertyWatcher10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QQuick3DPropertyWatcher22onValuePropertyChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuick3DPropertyWatcher24onPointerPropertyChangedEv": [
+      "nothing", "address"
+    ]
+  }
+}

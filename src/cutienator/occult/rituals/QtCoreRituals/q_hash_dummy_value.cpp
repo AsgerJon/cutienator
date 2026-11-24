@@ -16,6 +16,7 @@ bool ritual_Zeq15QHashDummyValueS_(
   return operator==(*a0, *a1);
 }
 
+#if !defined(__cpp_impl_three_way_comparison)
 //  bool operator!=(QHashDummyValue a0, QHashDummyValue a1)
 extern "C" Q_DECL_EXPORT
 bool ritual_Zne15QHashDummyValueS_(
@@ -23,6 +24,7 @@ bool ritual_Zne15QHashDummyValueS_(
     const QHashDummyValue *a1) {
   return operator!=(*a0, *a1);
 }
+#endif  // !defined(__cpp_impl_three_way_comparison)
 
 //  QHashDummyValue::~QHashDummyValue()
 extern "C" Q_DECL_EXPORT

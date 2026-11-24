@@ -1,0 +1,54 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3DUtils/6.12.0/QtQuick3DUtils/private/qssgbounds3_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11QSSGBounds3C1Ev": ["address"],
+    "ritual_ZN11QSSGBounds3C1EN2Qt14InitializationE": ["address", "int"],
+    "ritual_ZN11QSSGBounds3C1ERK9QVector3DS2_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN11QSSGBounds314boundsOfPointsERK9QVector3DS2_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN11QSSGBounds313centerExtentsERK9QVector3DS2_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN11QSSGBounds38setEmptyEv": ["nothing", "address"],
+    "ritual_ZN11QSSGBounds311setInfiniteEv": ["nothing", "address"],
+    "ritual_ZN11QSSGBounds37includeERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QSSGBounds37includeERKS_": ["nothing", "address", "address"],
+    "ritual_ZNK11QSSGBounds37isEmptyEv": ["bool", "address"],
+    "ritual_ZNK11QSSGBounds310intersectsERKS_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK11QSSGBounds312intersects1DERKS_j": [
+      "bool", "address", "address", "unsigned int"
+    ],
+    "ritual_ZNK11QSSGBounds38containsERK9QVector3D": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK11QSSGBounds38isInsideERKS_": ["bool", "address", "address"],
+    "ritual_ZNK11QSSGBounds36centerEv": ["address", "address"],
+    "ritual_ZNK11QSSGBounds36centerEj": ["float", "address", "unsigned int"],
+    "ritual_ZNK11QSSGBounds37extentsEj": [
+      "float", "address", "unsigned int"
+    ],
+    "ritual_ZNK11QSSGBounds310dimensionsEv": ["address", "address"],
+    "ritual_ZNK11QSSGBounds37extentsEv": ["address", "address"],
+    "ritual_ZN11QSSGBounds35scaleEf": ["nothing", "address", "float"],
+    "ritual_ZN11QSSGBounds36fattenEd": ["nothing", "address", "double"],
+    "ritual_ZNK11QSSGBounds38isFiniteEv": ["bool", "address"],
+    "ritual_ZN11QSSGBounds39transformERK10QMatrix4x4": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QSSGBounds310getSupportERK9QVector3D": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN11QSSGBounds3D1Ev": ["nothing", "address"]
+  }
+}

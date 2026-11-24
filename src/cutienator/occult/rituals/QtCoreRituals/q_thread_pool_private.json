@@ -1,0 +1,42 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qthreadpool_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QThreadPoolPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK18QThreadPoolPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN18QThreadPoolPrivateC1Ev": ["address"],
+    "ritual_ZN18QThreadPoolPrivate8tryStartEP9QRunnable": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN18QThreadPoolPrivate11enqueueTaskEP9QRunnablei": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZNK18QThreadPoolPrivate17activeThreadCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZN18QThreadPoolPrivate21tryToStartMoreThreadsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK18QThreadPoolPrivate19areAllThreadsActiveEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK18QThreadPoolPrivate20tooManyThreadsActiveEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK18QThreadPoolPrivate14maxThreadCountEv": ["int", "address"],
+    "ritual_ZN18QThreadPoolPrivate11startThreadEP9QRunnable": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QThreadPoolPrivate5resetEv": ["nothing", "address"],
+    "ritual_ZN18QThreadPoolPrivate11waitForDoneERK14QDeadlineTimer": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN18QThreadPoolPrivate5clearEv": ["nothing", "address"],
+    "ritual_ZN18QThreadPoolPrivate19stealAndRunRunnableEP9QRunnable": [
+      "nothing", "address", "address"
+    ]
+  }
+}

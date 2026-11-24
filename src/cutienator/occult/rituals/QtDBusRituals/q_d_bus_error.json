@@ -1,0 +1,20 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDBus/qdbuserror.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN10QDBusErrorC1Ev": ["address"],
+    "ritual_ZN10QDBusErrorC1ERK12QDBusMessage": ["address", "address"],
+    "ritual_ZN10QDBusErrorC1ENS_9ErrorTypeERK7QString": [
+      "address", "int", "text"
+    ],
+    "ritual_ZN10QDBusErrorC1ERKS_": ["address", "address"],
+    "ritual_ZNK10QDBusError4typeEv": ["int", "address"],
+    "ritual_ZNK10QDBusError4nameEv": ["text", "address"],
+    "ritual_ZNK10QDBusError7messageEv": ["text", "address"],
+    "ritual_ZNK10QDBusError7isValidEv": ["bool", "address"],
+    "ritual_ZN10QDBusError11errorStringENS_9ErrorTypeE": ["text", "int"],
+    "ritual_ZN10QDBusErrorD1Ev": ["nothing", "address"]
+  }
+}

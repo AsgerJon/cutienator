@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmlscriptstring_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN23QQmlScriptStringPrivateC1Ev": ["address"],
+    "ritual_ZN23QQmlScriptStringPrivate3getERK16QQmlScriptString": [
+      "address", "address"
+    ],
+    "ritual_ZN23QQmlScriptStringPrivate6createERK7QStringP11QQmlContextP7QObject": [
+      "address", "text", "address", "address"
+    ],
+    "ritual_ZN23QQmlScriptStringPrivateD1Ev": ["nothing", "address"]
+  }
+}

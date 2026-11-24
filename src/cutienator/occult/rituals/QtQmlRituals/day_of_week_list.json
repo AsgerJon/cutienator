@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmllocale_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN13DayOfWeekList22qt_qmlMarker_anonymousEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13DayOfWeekList20qt_qmlMarker_foreignEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13DayOfWeekList21qt_qmlMarker_sequenceEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13DayOfWeekListD1Ev": ["nothing", "address"]
+  }
+}

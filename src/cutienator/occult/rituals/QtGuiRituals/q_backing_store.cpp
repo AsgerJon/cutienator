@@ -99,3 +99,10 @@ bool ritual_ZNK13QBackingStore17hasStaticContentsEv(
     const QBackingStore *self) {
   return self->hasStaticContents();
 }
+
+//  QPlatformBackingStore *QBackingStore::handle() const
+extern "C" Q_DECL_EXPORT
+QPlatformBackingStore *ritual_ZNK13QBackingStore6handleEv(
+    const QBackingStore *self) {
+  return self->handle();
+}

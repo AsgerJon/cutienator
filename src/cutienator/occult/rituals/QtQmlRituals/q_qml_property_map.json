@@ -1,0 +1,51 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/qqmlpropertymap.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK15QQmlPropertyMap10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QQmlPropertyMap2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN15QQmlPropertyMap22qt_qmlMarker_anonymousEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQmlPropertyMapC1EP7QObject": ["address", "address"],
+    "ritual_ZN15QQmlPropertyMap6createEP7QObject": ["address", "address"],
+    "ritual_ZN15QQmlPropertyMapD1Ev": ["nothing", "address"],
+    "ritual_ZNK15QQmlPropertyMap5valueERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN15QQmlPropertyMap6insertERK7QStringRK8QVariant": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZN15QQmlPropertyMap6insertERK5QHashI7QString8QVariantE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QQmlPropertyMap5clearERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN15QQmlPropertyMap6freezeEv": ["nothing", "address"],
+    "ritual_ZNK15QQmlPropertyMap4keysEv": ["address", "address"],
+    "ritual_ZNK15QQmlPropertyMap5countEv": ["int", "address"],
+    "ritual_ZNK15QQmlPropertyMap4sizeEv": ["int", "address"],
+    "ritual_ZNK15QQmlPropertyMap7isEmptyEv": ["bool", "address"],
+    "ritual_ZNK15QQmlPropertyMap8containsERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZNK15QQmlPropertyMapixERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN15QQmlPropertyMap11updateValueERK7QStringRK8QVariant": [
+      "address", "address", "text", "address"
+    ],
+    "ritual_ZN15QQmlPropertyMapC1EPK11QMetaObjectP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_take_QQmlPropertyMap": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN15QQmlPropertyMap11updateValueERK7QStringRK8QVariant": [
+      "address", "address", "text", "address"
+    ]
+  }
+}

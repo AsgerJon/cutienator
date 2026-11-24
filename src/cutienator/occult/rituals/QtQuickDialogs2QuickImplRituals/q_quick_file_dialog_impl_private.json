@@ -1,0 +1,65 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Dialogs2QuickImpl/6.12.0/QtQuickDialogs2QuickImpl/private/qquickfi",
+    "ledialogimpl_p_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN27QQuickFileDialogImplPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK27QQuickFileDialogImplPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QQuickFileDialogImplPrivateC1Ev": ["address"],
+    "ritual_ZN27QQuickFileDialogImplPrivate3getEP20QQuickFileDialogImpl": [
+      "address", "address"
+    ],
+    "ritual_ZN27QQuickFileDialogImplPrivate14attachedOrWarnEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QQuickFileDialogImplPrivate14setNameFiltersERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN27QQuickFileDialogImplPrivate13updateEnabledEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QQuickFileDialogImplPrivate18updateSelectedFileERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN27QQuickFileDialogImplPrivate22updateFileNameTextEditEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QQuickFileDialogImplPrivate17fileListSortFlagsEv": ["int"],
+    "ritual_ZN27QQuickFileDialogImplPrivate8fileListERK4QDir": [
+      "address", "address"
+    ],
+    "ritual_ZN27QQuickFileDialogImplPrivate33setFileDialogListViewCurrentIndexEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN27QQuickFileDialogImplPrivate39tryUpdateFileDialogListViewCurrentIndexEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN27QQuickFileDialogImplPrivate30fileDialogListViewCountChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QQuickFileDialogImplPrivate12handleAcceptEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QQuickFileDialogImplPrivate11handleClickEP20QQuickAbstractButton": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN27QQuickFileDialogImplPrivate10selectFileEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QQuickFileDialogImplPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN27QQuickFileDialogImplPrivate12handleAcceptEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN27QQuickFileDialogImplPrivate11handleClickEP20QQuickAbstractButton": [
+      "nothing", "address", "address"
+    ]
+  }
+}

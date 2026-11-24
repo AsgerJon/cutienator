@@ -1,0 +1,38 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/6.12.0/QtCharts/private/qpielegendmarker_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK23QPieLegendMarkerPrivate10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QPieLegendMarkerPrivate2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN23QPieLegendMarkerPrivateC1EP16QPieLegendMarkerP10QPieSeriesP9QPieSliceP7QLegend": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN23QPieLegendMarkerPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN23QPieLegendMarkerPrivate6seriesEv": ["address", "address"],
+    "ritual_ZN23QPieLegendMarkerPrivate13relatedObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QPieLegendMarkerPrivate7updatedEv": ["nothing", "address"],
+    "ritual_ZN23QPieLegendMarkerPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK23QPieLegendMarkerPrivate6q_funcEv": ["address", "address"],
+    "ritual_take_QPieLegendMarkerPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN23QPieLegendMarkerPrivate6seriesEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN23QPieLegendMarkerPrivate13relatedObjectEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN23QPieLegendMarkerPrivate7updatedEv": [
+      "nothing", "address"
+    ]
+  }
+}

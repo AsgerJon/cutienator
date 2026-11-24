@@ -1,0 +1,23 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3DUtils/6.12.0/QtQuick3DUtils/private/qqsbcollection_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN22QQsbInMemoryCollectionC1Ev": ["address"],
+    "ritual_ZN22QQsbInMemoryCollection8addEntryERK10QByteArrayRKN14QQsbCollection9EntryDescE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN22QQsbInMemoryCollection5clearEv": ["nothing", "address"],
+    "ritual_ZN22QQsbInMemoryCollection4loadERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN22QQsbInMemoryCollection4saveERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_own_ZN22QQsbInMemoryCollection8addEntryERK10QByteArrayRKN14QQsbCollection9EntryDescE": [
+      "address", "address", "address", "address"
+    ]
+  }
+}

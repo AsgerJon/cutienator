@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Shapes/6.12.0/QtQuickShapes/private/qquickshapegenericrenderer_p.h",
+    ", Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK32QQuickShapeGenericStrokeFillNode10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN32QQuickShapeGenericStrokeFillNode10preprocessEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN32QQuickShapeGenericStrokeFillNode20handleTextureChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN32QQuickShapeGenericStrokeFillNode30handleTextureProviderDestroyedEv": [
+      "nothing", "address"
+    ],
+    "ritual_cast_QQuickShapeGenericStrokeFillNode_QSGGeometryNode": [
+      "address", "address"
+    ],
+    "ritual_own_ZN32QQuickShapeGenericStrokeFillNode10preprocessEv": [
+      "nothing", "address"
+    ]
+  }
+}

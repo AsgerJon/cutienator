@@ -111,6 +111,7 @@ bool ritual_ZneRK13QElapsedTimerS1_(
   return operator!=(*lhs, *rhs);
 }
 
+#if !(defined(__cpp_lib_three_way_comparison))
 //  bool operator>(const QElapsedTimer &lhs, const QElapsedTimer &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZgtRK13QElapsedTimerS1_(
@@ -118,7 +119,9 @@ bool ritual_ZgtRK13QElapsedTimerS1_(
     const QElapsedTimer *rhs) {
   return operator>(*lhs, *rhs);
 }
+#endif  // !(defined(__cpp_lib_three_way_comparison))
 
+#if !(defined(__cpp_lib_three_way_comparison))
 //  bool operator<=(const QElapsedTimer &lhs, const QElapsedTimer &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZleRK13QElapsedTimerS1_(
@@ -126,7 +129,9 @@ bool ritual_ZleRK13QElapsedTimerS1_(
     const QElapsedTimer *rhs) {
   return operator<=(*lhs, *rhs);
 }
+#endif  // !(defined(__cpp_lib_three_way_comparison))
 
+#if !(defined(__cpp_lib_three_way_comparison))
 //  bool operator>=(const QElapsedTimer &lhs, const QElapsedTimer &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZgeRK13QElapsedTimerS1_(
@@ -134,6 +139,7 @@ bool ritual_ZgeRK13QElapsedTimerS1_(
     const QElapsedTimer *rhs) {
   return operator>=(*lhs, *rhs);
 }
+#endif  // !(defined(__cpp_lib_three_way_comparison))
 
 //  QElapsedTimer::~QElapsedTimer()
 extern "C" Q_DECL_EXPORT

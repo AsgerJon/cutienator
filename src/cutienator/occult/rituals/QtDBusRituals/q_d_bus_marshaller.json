@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDBus/6.12.0/QtDBus/private/qdbusargument_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QDBusMarshaller5errorERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN15QDBusMarshaller20appendRegisteredTypeERK8QVariant": [
+      "bool", "address", "address"
+    ]
+  }
+}

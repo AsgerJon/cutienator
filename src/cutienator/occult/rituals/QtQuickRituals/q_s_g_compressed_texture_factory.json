@@ -1,0 +1,36 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qsgcompressedtexture_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN27QSGCompressedTextureFactoryC1ERK16QTextureFileData": [
+      "address", "address"
+    ],
+    "ritual_ZNK27QSGCompressedTextureFactory13createTextureEP12QQuickWindow": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK27QSGCompressedTextureFactory16textureByteCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK27QSGCompressedTextureFactory11textureSizeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK27QSGCompressedTextureFactory11textureDataEv": [
+      "address", "address"
+    ],
+    "ritual_take_QSGCompressedTextureFactory": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK27QSGCompressedTextureFactory13createTextureEP12QQuickWindow": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZNK27QSGCompressedTextureFactory16textureByteCountEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZNK27QSGCompressedTextureFactory11textureSizeEv": [
+      "address", "address"
+    ]
+  }
+}

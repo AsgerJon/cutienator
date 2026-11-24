@@ -1,0 +1,83 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtBluetooth/qlowenergycharacteristicdata.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN28QLowEnergyCharacteristicDataC1Ev": ["address"],
+    "ritual_ZN28QLowEnergyCharacteristicDataC1ERKS_": ["address", "address"],
+    "ritual_ZN28QLowEnergyCharacteristicDataD1Ev": ["nothing", "address"],
+    "ritual_ZeqRK28QLowEnergyCharacteristicDataS1_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZneRK28QLowEnergyCharacteristicDataS1_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK28QLowEnergyCharacteristicData4uuidEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QLowEnergyCharacteristicData7setUuidERK14QBluetoothUuid": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK28QLowEnergyCharacteristicData5valueEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QLowEnergyCharacteristicData8setValueERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK28QLowEnergyCharacteristicData10propertiesEv": [
+      "int", "address"
+    ],
+    "ritual_ZN28QLowEnergyCharacteristicData13setPropertiesE6QFlagsIN24QLowEnergyCharacteristic12PropertyTypeEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK28QLowEnergyCharacteristicData11descriptorsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QLowEnergyCharacteristicData14setDescriptorsERK5QListI24QLowEnergyDescriptorDataE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QLowEnergyCharacteristicData13addDescriptorERK24QLowEnergyDescriptorData": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QLowEnergyCharacteristicData18setReadConstraintsE6QFlagsIN10QBluetooth19AttAccessConstraintEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK28QLowEnergyCharacteristicData15readConstraintsEv": [
+      "int", "address"
+    ],
+    "ritual_ZN28QLowEnergyCharacteristicData19setWriteConstraintsE6QFlagsIN10QBluetooth19AttAccessConstraintEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK28QLowEnergyCharacteristicData16writeConstraintsEv": [
+      "int", "address"
+    ],
+    "ritual_ZN28QLowEnergyCharacteristicData14setValueLengthEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK28QLowEnergyCharacteristicData18minimumValueLengthEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK28QLowEnergyCharacteristicData18maximumValueLengthEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK28QLowEnergyCharacteristicData7isValidEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN28QLowEnergyCharacteristicData6equalsERKS_S1_": [
+      "bool", "address", "address"
+    ],
+    "ritual_list_make_QLowEnergyCharacteristicData": ["address"],
+    "ritual_list_add_QLowEnergyCharacteristicData": [
+      "nothing", "address", "address"
+    ],
+    "ritual_list_size_QLowEnergyCharacteristicData": [
+      "long long", "address"
+    ],
+    "ritual_list_at_QLowEnergyCharacteristicData": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_QLowEnergyCharacteristicData": ["nothing", "address"]
+  }
+}

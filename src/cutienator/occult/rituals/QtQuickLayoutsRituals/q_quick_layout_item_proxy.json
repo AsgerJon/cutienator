@@ -1,0 +1,25 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Layouts/6.12.0/QtQuickLayouts/private/qquicklayoutitemproxy_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK21QQuickLayoutItemProxy10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QQuickLayoutItemProxyD1Ev": ["nothing", "address"],
+    "ritual_ZN21QQuickLayoutItemProxy14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN21QQuickLayoutItemProxy10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZNK21QQuickLayoutItemProxy6targetEv": ["address", "address"],
+    "ritual_ZN21QQuickLayoutItemProxy6d_funcEv": ["address", "address"],
+    "ritual_ZNK21QQuickLayoutItemProxy6d_funcEv": ["address", "address"],
+    "ritual_take_QQuickLayoutItemProxy": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

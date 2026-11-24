@@ -1,0 +1,29 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/qsslserver.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK10QSslServer10metaObjectEv": ["address", "address"],
+    "ritual_ZN10QSslServer2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN10QSslServerC1EP7QObject": ["address", "address"],
+    "ritual_ZN10QSslServerD1Ev": ["nothing", "address"],
+    "ritual_ZN10QSslServer19setSslConfigurationERK17QSslConfiguration": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10QSslServer16sslConfigurationEv": ["address", "address"],
+    "ritual_ZN10QSslServer19setHandshakeTimeoutEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK10QSslServer16handshakeTimeoutEv": ["int", "address"],
+    "ritual_ZN10QSslServer18incomingConnectionEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN10QSslServer6d_funcEv": ["address", "address"],
+    "ritual_ZNK10QSslServer6d_funcEv": ["address", "address"],
+    "ritual_take_QSslServer": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN10QSslServer18incomingConnectionEx": [
+      "nothing", "address", "long long"
+    ]
+  }
+}

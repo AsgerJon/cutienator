@@ -1,0 +1,58 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickitemviewfxitem_p_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QQuickItemViewFxItemD1Ev": ["nothing", "address"],
+    "ritual_ZNK20QQuickItemViewFxItem5itemXEv": ["double", "address"],
+    "ritual_ZNK20QQuickItemViewFxItem5itemYEv": ["double", "address"],
+    "ritual_ZNK20QQuickItemViewFxItem9itemWidthEv": ["double", "address"],
+    "ritual_ZNK20QQuickItemViewFxItem10itemHeightEv": ["double", "address"],
+    "ritual_ZN20QQuickItemViewFxItem6moveToERK7QPointFb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN20QQuickItemViewFxItem10setVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20QQuickItemViewFxItem13trackGeometryEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK20QQuickItemViewFxItem8geometryEv": ["address", "address"],
+    "ritual_ZN20QQuickItemViewFxItem11setGeometryERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QQuickItemViewFxItem23scheduledTransitionTypeEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK20QQuickItemViewFxItem28transitionScheduledOrRunningEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK20QQuickItemViewFxItem17transitionRunningEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK20QQuickItemViewFxItem16isPendingRemovalEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN20QQuickItemViewFxItem24transitionNextRepositionEP26QQuickItemViewTransitionerNS0_14TransitionTypeEb": [
+      "nothing", "address", "address", "int", "bool"
+    ],
+    "ritual_ZN20QQuickItemViewFxItem17prepareTransitionEP26QQuickItemViewTransitionerRK6QRectF": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN20QQuickItemViewFxItem15startTransitionEP26QQuickItemViewTransitioner": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QQuickItemViewFxItem8positionEv": ["double", "address"],
+    "ritual_ZNK20QQuickItemViewFxItem11endPositionEv": ["double", "address"],
+    "ritual_ZNK20QQuickItemViewFxItem4sizeEv": ["double", "address"],
+    "ritual_ZNK20QQuickItemViewFxItem11sectionSizeEv": ["double", "address"],
+    "ritual_ZNK20QQuickItemViewFxItem8containsEdd": [
+      "bool", "address", "double", "double"
+    ],
+    "ritual_take_QQuickItemViewFxItem": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

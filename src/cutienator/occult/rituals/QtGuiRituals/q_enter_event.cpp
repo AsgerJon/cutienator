@@ -136,59 +136,89 @@ QEnterEvent *ritual_ZN11QEnterEventC1ERK7QPointFS2_S2_PK15QPointingDevice(
   return new CuteQEnterEvent(*localPos, *scenePos, *globalPos, device);
 }
 
+#if QT_DEPRECATED_SINCE(6, 0)
+#if !defined(QT_NO_INTEGER_EVENT_COORDINATES)
 //  QPoint QEnterEvent::pos() const
 extern "C" Q_DECL_EXPORT
 QPoint *ritual_ZNK11QEnterEvent3posEv(const QEnterEvent *self) {
   return new QPoint(self->pos());
 }
+#endif  // !defined(QT_NO_INTEGER_EVENT_COORDINATES)
+#endif  // QT_DEPRECATED_SINCE(6, 0)
 
+#if QT_DEPRECATED_SINCE(6, 0)
+#if !defined(QT_NO_INTEGER_EVENT_COORDINATES)
 //  QPoint QEnterEvent::globalPos() const
 extern "C" Q_DECL_EXPORT
 QPoint *ritual_ZNK11QEnterEvent9globalPosEv(const QEnterEvent *self) {
   return new QPoint(self->globalPos());
 }
+#endif  // !defined(QT_NO_INTEGER_EVENT_COORDINATES)
+#endif  // QT_DEPRECATED_SINCE(6, 0)
 
+#if QT_DEPRECATED_SINCE(6, 0)
+#if !defined(QT_NO_INTEGER_EVENT_COORDINATES)
 //  int QEnterEvent::x() const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK11QEnterEvent1xEv(const QEnterEvent *self) {
   return self->x();
 }
+#endif  // !defined(QT_NO_INTEGER_EVENT_COORDINATES)
+#endif  // QT_DEPRECATED_SINCE(6, 0)
 
+#if QT_DEPRECATED_SINCE(6, 0)
+#if !defined(QT_NO_INTEGER_EVENT_COORDINATES)
 //  int QEnterEvent::y() const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK11QEnterEvent1yEv(const QEnterEvent *self) {
   return self->y();
 }
+#endif  // !defined(QT_NO_INTEGER_EVENT_COORDINATES)
+#endif  // QT_DEPRECATED_SINCE(6, 0)
 
+#if QT_DEPRECATED_SINCE(6, 0)
+#if !defined(QT_NO_INTEGER_EVENT_COORDINATES)
 //  int QEnterEvent::globalX() const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK11QEnterEvent7globalXEv(const QEnterEvent *self) {
   return self->globalX();
 }
+#endif  // !defined(QT_NO_INTEGER_EVENT_COORDINATES)
+#endif  // QT_DEPRECATED_SINCE(6, 0)
 
+#if QT_DEPRECATED_SINCE(6, 0)
+#if !defined(QT_NO_INTEGER_EVENT_COORDINATES)
 //  int QEnterEvent::globalY() const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK11QEnterEvent7globalYEv(const QEnterEvent *self) {
   return self->globalY();
 }
+#endif  // !defined(QT_NO_INTEGER_EVENT_COORDINATES)
+#endif  // QT_DEPRECATED_SINCE(6, 0)
 
+#if QT_DEPRECATED_SINCE(6, 0)
 //  QPointF QEnterEvent::localPos() const
 extern "C" Q_DECL_EXPORT
 QPointF *ritual_ZNK11QEnterEvent8localPosEv(const QEnterEvent *self) {
   return new QPointF(self->localPos());
 }
+#endif  // QT_DEPRECATED_SINCE(6, 0)
 
+#if QT_DEPRECATED_SINCE(6, 0)
 //  QPointF QEnterEvent::windowPos() const
 extern "C" Q_DECL_EXPORT
 QPointF *ritual_ZNK11QEnterEvent9windowPosEv(const QEnterEvent *self) {
   return new QPointF(self->windowPos());
 }
+#endif  // QT_DEPRECATED_SINCE(6, 0)
 
+#if QT_DEPRECATED_SINCE(6, 0)
 //  QPointF QEnterEvent::screenPos() const
 extern "C" Q_DECL_EXPORT
 QPointF *ritual_ZNK11QEnterEvent9screenPosEv(const QEnterEvent *self) {
   return new QPointF(self->screenPos());
 }
+#endif  // QT_DEPRECATED_SINCE(6, 0)
 
 //  a Python function taken by a CuteQEnterEvent, for the function named by
 //      the key

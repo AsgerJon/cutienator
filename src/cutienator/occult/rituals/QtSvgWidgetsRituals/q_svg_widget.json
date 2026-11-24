@@ -1,0 +1,33 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSvgWidgets/qsvgwidget.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK10QSvgWidget10metaObjectEv": ["address", "address"],
+    "ritual_ZN10QSvgWidget2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN10QSvgWidgetC1EP7QWidget": ["address", "address"],
+    "ritual_ZN10QSvgWidgetC1ERK7QStringP7QWidget": [
+      "address", "text", "address"
+    ],
+    "ritual_ZN10QSvgWidgetD1Ev": ["nothing", "address"],
+    "ritual_ZNK10QSvgWidget8rendererEv": ["address", "address"],
+    "ritual_ZNK10QSvgWidget8sizeHintEv": ["address", "address"],
+    "ritual_ZNK10QSvgWidget7optionsEv": ["int", "address"],
+    "ritual_ZN10QSvgWidget10setOptionsE6QFlagsIN5QtSvg6OptionEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10QSvgWidget4loadERK7QString": ["nothing", "address", "text"],
+    "ritual_ZN10QSvgWidget4loadERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QSvgWidget10paintEventEP11QPaintEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QSvgWidget": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK10QSvgWidget8sizeHintEv": ["address", "address"],
+    "ritual_own_ZN10QSvgWidget10paintEventEP11QPaintEvent": [
+      "nothing", "address", "address"
+    ]
+  }
+}

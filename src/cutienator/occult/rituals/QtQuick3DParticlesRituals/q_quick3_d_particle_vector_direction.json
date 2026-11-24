@@ -1,0 +1,42 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DParticles/6.12.0/QtQuick3DParticles/private/qquick3dparticlevect",
+    "ordirection_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK31QQuick3DParticleVectorDirection10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN31QQuick3DParticleVectorDirection2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN31QQuick3DParticleVectorDirectionC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZNK31QQuick3DParticleVectorDirection9directionEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK31QQuick3DParticleVectorDirection18directionVariationEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK31QQuick3DParticleVectorDirection10normalizedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN31QQuick3DParticleVectorDirection12setDirectionERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN31QQuick3DParticleVectorDirection21setDirectionVariationERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN31QQuick3DParticleVectorDirection13setNormalizedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN31QQuick3DParticleVectorDirection6sampleERK20QQuick3DParticleData": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN31QQuick3DParticleVectorDirection6sampleERK20QQuick3DParticleData": [
+      "address", "address", "address"
+    ]
+  }
+}

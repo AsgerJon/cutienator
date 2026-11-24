@@ -1,0 +1,75 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/6.12.0/QtNetwork/private/qhttpheaderparser_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN17QHttpHeaderParserC1Ev": ["address"],
+    "ritual_ZN17QHttpHeaderParser5clearEv": ["nothing", "address"],
+    "ritual_ZN17QHttpHeaderParser12parseHeadersE14QByteArrayView": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN17QHttpHeaderParser11parseStatusE14QByteArrayView": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNKR17QHttpHeaderParser7headersEv": ["address", "address"],
+    "ritual_ZN17QHttpHeaderParser13setStatusCodeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK17QHttpHeaderParser13getStatusCodeEv": ["int", "address"],
+    "ritual_ZNK17QHttpHeaderParser15getMajorVersionEv": ["int", "address"],
+    "ritual_ZN17QHttpHeaderParser15setMajorVersionEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK17QHttpHeaderParser15getMinorVersionEv": ["int", "address"],
+    "ritual_ZN17QHttpHeaderParser15setMinorVersionEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK17QHttpHeaderParser15getReasonPhraseEv": ["text", "address"],
+    "ritual_ZN17QHttpHeaderParser15setReasonPhraseERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK17QHttpHeaderParser16firstHeaderFieldE14QByteArrayViewRK10QByteArray": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK17QHttpHeaderParser19combinedHeaderValueE14QByteArrayViewRK10QByteArray": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK17QHttpHeaderParser17headerFieldValuesE14QByteArrayView": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN17QHttpHeaderParser14setHeaderFieldERK10QByteArrayS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN17QHttpHeaderParser18prependHeaderFieldERK10QByteArrayS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN17QHttpHeaderParser17appendHeaderFieldERK10QByteArrayS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN17QHttpHeaderParser17removeHeaderFieldE14QByteArrayView": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QHttpHeaderParser12clearHeadersEv": ["nothing", "address"],
+    "ritual_ZN17QHttpHeaderParser21setMaxHeaderFieldSizeEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZNK17QHttpHeaderParser18maxHeaderFieldSizeEv": [
+      "long long", "address"
+    ],
+    "ritual_ZN17QHttpHeaderParser21setMaxTotalHeaderSizeEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZNK17QHttpHeaderParser18maxTotalHeaderSizeEv": [
+      "long long", "address"
+    ],
+    "ritual_ZN17QHttpHeaderParser18setMaxHeaderFieldsEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZNK17QHttpHeaderParser15maxHeaderFieldsEv": [
+      "long long", "address"
+    ],
+    "ritual_ZN17QHttpHeaderParserD1Ev": ["nothing", "address"]
+  }
+}

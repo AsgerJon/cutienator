@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtOpenGL/qopenglvertexarrayobject.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZN24QOpenGLVertexArrayObject6BinderC1EPS_": [
+      "address", "address"
+    ],
+    "ritual_ZN24QOpenGLVertexArrayObject6BinderD1Ev": ["nothing", "address"],
+    "ritual_ZN24QOpenGLVertexArrayObject6Binder7releaseEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QOpenGLVertexArrayObject6Binder6rebindEv": [
+      "nothing", "address"
+    ]
+  }
+}

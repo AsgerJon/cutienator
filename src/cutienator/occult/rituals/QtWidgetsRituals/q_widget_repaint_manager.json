@@ -1,0 +1,81 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qwidgetrepaintmanager_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN21QWidgetRepaintManagerC1EP7QWidget": ["address", "address"],
+    "ritual_ZN21QWidgetRepaintManagerD1Ev": ["nothing", "address"],
+    "ritual_ZNK21QWidgetRepaintManager12backingStoreEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QWidgetRepaintManager15setBackingStoreEP13QBackingStore": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QWidgetRepaintManager17removeDirtyWidgetEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QWidgetRepaintManager4syncEP7QWidgetRK7QRegion": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN21QWidgetRepaintManager4syncEv": ["nothing", "address"],
+    "ritual_ZN21QWidgetRepaintManager14markNeedsFlushEP7QWidgetRK7QRegionRK6QPoint": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN21QWidgetRepaintManager15addStaticWidgetEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QWidgetRepaintManager17moveStaticWidgetsEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QWidgetRepaintManager18removeStaticWidgetEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21QWidgetRepaintManager14staticContentsEP7QWidgetRK5QRect": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK21QWidgetRepaintManager11dirtyRegionEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK21QWidgetRepaintManager15dirtyWidgetListEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK21QWidgetRepaintManager7isDirtyEv": ["bool", "address"],
+    "ritual_ZN21QWidgetRepaintManager7bltRectERK5QRectiiP7QWidget": [
+      "bool", "address", "address", "int", "int", "address"
+    ],
+    "ritual_ZN21QWidgetRepaintManager11updateListsEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QWidgetRepaintManager14addDirtyWidgetEP7QWidgetRK7QRegion": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN21QWidgetRepaintManager11resetWidgetEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QWidgetRepaintManager29addDirtyRenderToTextureWidgetEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QWidgetRepaintManager17sendUpdateRequestEP7QWidgetNS_10UpdateTimeE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN21QWidgetRepaintManager11syncAllowedEv": ["bool", "address"],
+    "ritual_ZN21QWidgetRepaintManager13paintAndFlushEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QWidgetRepaintManager14markNeedsFlushEP7QWidgetRK7QRegion": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN21QWidgetRepaintManager5flushEv": ["nothing", "address"],
+    "ritual_ZN21QWidgetRepaintManager5flushEP7QWidgetRK7QRegionP20QPlatformTextureList": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK21QWidgetRepaintManager17hasStaticContentsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QWidgetRepaintManager24updateStaticContentsSizeEv": [
+      "nothing", "address"
+    ]
+  }
+}

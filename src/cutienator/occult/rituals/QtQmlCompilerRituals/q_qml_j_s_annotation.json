@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQmlCompiler/6.12.0/QtQmlCompiler/private/qqmljsannotation_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK16QQmlJSAnnotation13isDeprecationEv": ["bool", "address"],
+    "ritual_ZNK16QQmlJSAnnotation11deprecationEv": ["address", "address"],
+    "ritual_ZN16QQmlJSAnnotationD1Ev": ["nothing", "address"],
+    "ritual_list_make_QQmlJSAnnotation": ["address"],
+    "ritual_list_add_QQmlJSAnnotation": ["nothing", "address", "address"],
+    "ritual_list_size_QQmlJSAnnotation": ["long long", "address"],
+    "ritual_list_at_QQmlJSAnnotation": ["address", "address", "long long"],
+    "ritual_list_drop_QQmlJSAnnotation": ["nothing", "address"]
+  }
+}

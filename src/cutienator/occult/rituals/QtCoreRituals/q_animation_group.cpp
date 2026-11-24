@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/qanimationgroup.h, Qt 6.12.0. Changes made here are lost.
+#include <QtCore/qglobal.h>
+#if QT_CONFIG(animation)
 #include <QtCore/qanimationgroup.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
@@ -14,70 +16,120 @@ struct OwnQAnimationGroup : QAnimationGroup {
 //  A QAnimationGroup that Python can take functions over in. Every QAnimationGroup
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(animation)
 typedef bool (*CuteQAnimationGroupCall0)(const void *, QEvent *, int *);
+#endif  // QT_CONFIG(animation)
+#endif  // !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(animation)
 typedef int (*CuteQAnimationGroupCall1)(const void *, int *);
+#endif  // QT_CONFIG(animation)
+#if QT_CONFIG(animation)
 typedef void (*CuteQAnimationGroupCall2)(const void *, int, int *);
+#endif  // QT_CONFIG(animation)
+#if QT_CONFIG(animation)
 typedef void (*CuteQAnimationGroupCall3)(const void *, int, int, int *);
+#endif  // QT_CONFIG(animation)
+#if QT_CONFIG(animation)
 typedef void (*CuteQAnimationGroupCall4)(const void *, int, int *);
+#endif  // QT_CONFIG(animation)
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQAnimationGroupCall5)(const void *, QObject *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQAnimationGroupCall6)(const void *, QTimerEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQAnimationGroupCall7)(const void *, QChildEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQAnimationGroupCall8)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQAnimationGroupCall9)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQAnimationGroupCall10)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 class CuteQAnimationGroup : public QAnimationGroup {
 public:
   using QAnimationGroup::QAnimationGroup;
   void *taken[11] = {};
 
   bool take(const char *key, void *call) {
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(animation)
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[0] = call;
       return true;
     }
+#endif  // QT_CONFIG(animation)
+#endif  // !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(animation)
     if (!std::strcmp(key, "_ZNK18QAbstractAnimation8durationEv")) {
       taken[1] = call;
       return true;
     }
+#endif  // QT_CONFIG(animation)
+#if QT_CONFIG(animation)
     if (!std::strcmp(key, "_ZN18QAbstractAnimation17updateCurrentTimeEi")) {
       taken[2] = call;
       return true;
     }
+#endif  // QT_CONFIG(animation)
+#if QT_CONFIG(animation)
     if (!std::strcmp(key, "_ZN18QAbstractAnimation11updateStateENS_5StateES0_")) {
       taken[3] = call;
       return true;
     }
+#endif  // QT_CONFIG(animation)
+#if QT_CONFIG(animation)
     if (!std::strcmp(key, "_ZN18QAbstractAnimation15updateDirectionENS_9DirectionE")) {
       taken[4] = call;
       return true;
     }
+#endif  // QT_CONFIG(animation)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[5] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[6] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[7] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[8] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[9] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
       taken[10] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
     return false;
   }
 
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(animation)
   //  bool QAnimationGroup::event(QEvent *event)
   bool event(QEvent *event) override {
     if (taken[0]) {
@@ -88,7 +140,10 @@ public:
     }
     return QAnimationGroup::event(event);
   }
+#endif  // QT_CONFIG(animation)
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if QT_CONFIG(animation)
   //  int QAbstractAnimation::duration() const
   int duration() const override {
     if (taken[1]) {
@@ -99,7 +154,9 @@ public:
     }
     return {};
   }
+#endif  // QT_CONFIG(animation)
 
+#if QT_CONFIG(animation)
   //  void QAbstractAnimation::updateCurrentTime(int currentTime)
   void updateCurrentTime(int currentTime) override {
     if (taken[2]) {
@@ -109,7 +166,9 @@ public:
       if (handled) return;
     }
   }
+#endif  // QT_CONFIG(animation)
 
+#if QT_CONFIG(animation)
   //  void QAbstractAnimation::updateState(QAbstractAnimation::State
   //      newState, QAbstractAnimation::State oldState)
   void updateState(
@@ -123,7 +182,9 @@ public:
     }
     QAbstractAnimation::updateState(newState, oldState);
   }
+#endif  // QT_CONFIG(animation)
 
+#if QT_CONFIG(animation)
   //  void
   //      QAbstractAnimation::updateDirection(QAbstractAnimation::Direction
   //      direction)
@@ -136,7 +197,9 @@ public:
     }
     QAbstractAnimation::updateDirection(direction);
   }
+#endif  // QT_CONFIG(animation)
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
     if (taken[5]) {
@@ -147,7 +210,9 @@ public:
     }
     return QObject::eventFilter(watched, event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
     if (taken[6]) {
@@ -158,7 +223,9 @@ public:
     }
     QObject::timerEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
     if (taken[7]) {
@@ -169,7 +236,9 @@ public:
     }
     QObject::childEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
     if (taken[8]) {
@@ -180,7 +249,9 @@ public:
     }
     QObject::customEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
     if (taken[9]) {
@@ -191,7 +262,9 @@ public:
     }
     QObject::connectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
     if (taken[10]) {
@@ -202,6 +275,7 @@ public:
     }
     QObject::disconnectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 };
 
 //  const QMetaObject *QAnimationGroup::metaObject() const
@@ -298,6 +372,20 @@ bool ritual_ZN15QAnimationGroup5eventEP6QEvent(
   return self->event(event);
 }
 
+//  QAnimationGroupPrivate *QAnimationGroup::d_func()
+extern "C" Q_DECL_EXPORT
+QAnimationGroupPrivate *ritual_ZN15QAnimationGroup6d_funcEv(
+    QAnimationGroup *self) {
+  return self->d_func();
+}
+
+//  const QAnimationGroupPrivate *QAnimationGroup::d_func() const
+extern "C" Q_DECL_EXPORT
+const QAnimationGroupPrivate *ritual_ZNK15QAnimationGroup6d_funcEv(
+    const QAnimationGroup *self) {
+  return self->d_func();
+}
+
 //  a Python function taken by a CuteQAnimationGroup, for the function named
 //      by the key
 extern "C" Q_DECL_EXPORT
@@ -316,3 +404,5 @@ bool ritual_own_ZN15QAnimationGroup5eventEP6QEvent(
   return static_cast<OwnQAnimationGroup *>(self)->OwnQAnimationGroup::event(
       event);
 }
+
+#endif  // QT_CONFIG(animation)

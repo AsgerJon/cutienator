@@ -1,0 +1,37 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/qdtls.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK19QDtlsClientVerifier10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QDtlsClientVerifier2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN19QDtlsClientVerifierC1EP7QObject": ["address", "address"],
+    "ritual_ZN19QDtlsClientVerifierD1Ev": ["nothing", "address"],
+    "ritual_ZN19QDtlsClientVerifier28setCookieGeneratorParametersERKNS_19GeneratorParametersE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK19QDtlsClientVerifier25cookieGeneratorParametersEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QDtlsClientVerifier12verifyClientEP10QUdpSocketRK10QByteArrayRK12QHostAddresst": [
+      "bool", "address", "address", "address", "address", "unsigned short"
+    ],
+    "ritual_ZNK19QDtlsClientVerifier13verifiedHelloEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QDtlsClientVerifier9dtlsErrorEv": [
+      "unsigned char", "address"
+    ],
+    "ritual_ZNK19QDtlsClientVerifier15dtlsErrorStringEv": [
+      "text", "address"
+    ],
+    "ritual_ZN19QDtlsClientVerifier6d_funcEv": ["address", "address"],
+    "ritual_ZNK19QDtlsClientVerifier6d_funcEv": ["address", "address"],
+    "ritual_take_QDtlsClientVerifier": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

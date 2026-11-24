@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmlvme_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN26QQmlInstantiationInterruptC1Ev": ["address"],
+    "ritual_ZN26QQmlInstantiationInterruptC1E14QDeadlineTimer": [
+      "address", "address"
+    ],
+    "ritual_ZNK26QQmlInstantiationInterrupt15shouldInterruptEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN26QQmlInstantiationInterruptD1Ev": ["nothing", "address"]
+  }
+}

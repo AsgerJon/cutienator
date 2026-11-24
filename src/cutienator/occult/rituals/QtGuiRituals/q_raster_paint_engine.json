@@ -1,0 +1,284 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qpaintengine_raster_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QRasterPaintEngine6d_funcEv": ["address", "address"],
+    "ritual_ZNK18QRasterPaintEngine6d_funcEv": ["address", "address"],
+    "ritual_ZN18QRasterPaintEngineC1EP12QPaintDevice": [
+      "address", "address"
+    ],
+    "ritual_ZN18QRasterPaintEngineD1Ev": ["nothing", "address"],
+    "ritual_ZN18QRasterPaintEngine5beginEP12QPaintDevice": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN18QRasterPaintEngine3endEv": ["bool", "address"],
+    "ritual_ZN18QRasterPaintEngine10penChangedEv": ["nothing", "address"],
+    "ritual_ZN18QRasterPaintEngine12brushChangedEv": ["nothing", "address"],
+    "ritual_ZN18QRasterPaintEngine18brushOriginChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QRasterPaintEngine14opacityChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QRasterPaintEngine22compositionModeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QRasterPaintEngine18renderHintsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QRasterPaintEngine16transformChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QRasterPaintEngine18clipEnabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QRasterPaintEngine8setStateEP13QPainterState": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QRasterPaintEngine11createStateEP13QPainterState": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18QRasterPaintEngine5stateEv": ["address", "address"],
+    "ritual_ZNK18QRasterPaintEngine5stateEv": ["address", "address"],
+    "ritual_ZN18QRasterPaintEngine11updateBrushERK6QBrush": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QRasterPaintEngine9updatePenERK4QPen": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QRasterPaintEngine12updateMatrixERK10QTransform": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QRasterPaintEngine8fillPathERK12QPainterPathP9QSpanData": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN18QRasterPaintEngine11fillPolygonEPK7QPointFiN12QPaintEngine15PolygonDrawModeE": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN18QRasterPaintEngine11drawPolygonEPK7QPointFiN12QPaintEngine15PolygonDrawModeE": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN18QRasterPaintEngine11drawPolygonEPK6QPointiN12QPaintEngine15PolygonDrawModeE": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN18QRasterPaintEngine11drawEllipseERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QRasterPaintEngine8fillRectERK6QRectFRK6QBrush": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN18QRasterPaintEngine8fillRectERK6QRectFRK6QColor": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN18QRasterPaintEngine9drawRectsEPK5QRecti": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN18QRasterPaintEngine9drawRectsEPK6QRectFi": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN18QRasterPaintEngine10drawPixmapERK7QPointFRK7QPixmap": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN18QRasterPaintEngine10drawPixmapERK6QRectFRK7QPixmapS2_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN18QRasterPaintEngine9drawImageERK7QPointFRK6QImage": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN18QRasterPaintEngine9drawImageERK6QRectFRK6QImageS2_6QFlagsIN2Qt19ImageConversionFlagEE": [
+      "nothing", "address", "address", "address", "address", "int"
+    ],
+    "ritual_ZN18QRasterPaintEngine15drawTiledPixmapERK6QRectFRK7QPixmapRK7QPointF": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN18QRasterPaintEngine12drawTextItemERK7QPointFRK9QTextItem": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN18QRasterPaintEngine9drawLinesEPK5QLinei": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN18QRasterPaintEngine9drawLinesEPK6QLineFi": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN18QRasterPaintEngine10drawPointsEPK7QPointFi": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN18QRasterPaintEngine10drawPointsEPK6QPointi": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN18QRasterPaintEngine4clipERK5QRectN2Qt13ClipOperationE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN18QRasterPaintEngine4clipERK7QRegionN2Qt13ClipOperationE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZNK18QRasterPaintEngine8clipDataEv": ["address", "address"],
+    "ritual_ZN18QRasterPaintEngine18drawStaticTextItemEP15QStaticTextItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QRasterPaintEngine8clipTypeEv": ["int", "address"],
+    "ritual_ZNK18QRasterPaintEngine16clipBoundingRectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18QRasterPaintEngine12rasterBufferEv": ["address", "address"],
+    "ritual_ZNK18QRasterPaintEngine4typeEv": ["int", "address"],
+    "ritual_ZNK18QRasterPaintEngine16coordinateOffsetEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18QRasterPaintEngine36requiresPretransformedGlyphPositionsEP11QFontEngineRK10QTransform": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZNK18QRasterPaintEngine22shouldDrawCachedGlyphsEP11QFontEngineRK10QTransform": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN18QRasterPaintEngine4initEv": ["nothing", "address"],
+    "ritual_ZN18QRasterPaintEngine8fillRectERK6QRectFP9QSpanData": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN18QRasterPaintEngine10drawBitmapERK7QPointFRK6QImageP9QSpanData": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN18QRasterPaintEngine25setClipRectInDeviceCoordsERK5QRectN2Qt13ClipOperationE": [
+      "bool", "address", "address", "int"
+    ],
+    "ritual_ZN18QRasterPaintEngine20toNormalizedFillRectERK6QRectF": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18QRasterPaintEngine11ensureBrushERK6QBrush": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QRasterPaintEngine11ensureBrushEv": ["nothing", "address"],
+    "ritual_ZN18QRasterPaintEngine9ensurePenERK4QPen": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QRasterPaintEngine9ensurePenEv": ["nothing", "address"],
+    "ritual_ZN18QRasterPaintEngine19updateOutlineMapperEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QRasterPaintEngine19ensureOutlineMapperEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QRasterPaintEngine17updateRasterStateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QRasterPaintEngine17ensureRasterStateEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QRasterPaintEngine": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN18QRasterPaintEngine5beginEP12QPaintDevice": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN18QRasterPaintEngine3endEv": ["bool", "address"],
+    "ritual_own_ZN18QRasterPaintEngine10penChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN18QRasterPaintEngine12brushChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN18QRasterPaintEngine18brushOriginChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN18QRasterPaintEngine14opacityChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN18QRasterPaintEngine22compositionModeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN18QRasterPaintEngine18renderHintsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN18QRasterPaintEngine16transformChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN18QRasterPaintEngine18clipEnabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN18QRasterPaintEngine8setStateEP13QPainterState": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK18QRasterPaintEngine11createStateEP13QPainterState": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN18QRasterPaintEngine8fillPathERK12QPainterPathP9QSpanData": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN18QRasterPaintEngine11fillPolygonEPK7QPointFiN12QPaintEngine15PolygonDrawModeE": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_own_ZN18QRasterPaintEngine11drawPolygonEPK7QPointFiN12QPaintEngine15PolygonDrawModeE": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_own_ZN18QRasterPaintEngine11drawPolygonEPK6QPointiN12QPaintEngine15PolygonDrawModeE": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_own_ZN18QRasterPaintEngine11drawEllipseERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN18QRasterPaintEngine8fillRectERK6QRectFRK6QBrush": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN18QRasterPaintEngine8fillRectERK6QRectFRK6QColor": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN18QRasterPaintEngine9drawRectsEPK5QRecti": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_own_ZN18QRasterPaintEngine9drawRectsEPK6QRectFi": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_own_ZN18QRasterPaintEngine10drawPixmapERK7QPointFRK7QPixmap": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN18QRasterPaintEngine10drawPixmapERK6QRectFRK7QPixmapS2_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN18QRasterPaintEngine9drawImageERK7QPointFRK6QImage": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN18QRasterPaintEngine9drawImageERK6QRectFRK6QImageS2_6QFlagsIN2Qt19ImageConversionFlagEE": [
+      "nothing", "address", "address", "address", "address", "int"
+    ],
+    "ritual_own_ZN18QRasterPaintEngine15drawTiledPixmapERK6QRectFRK7QPixmapRK7QPointF": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN18QRasterPaintEngine12drawTextItemERK7QPointFRK9QTextItem": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN18QRasterPaintEngine9drawLinesEPK5QLinei": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_own_ZN18QRasterPaintEngine9drawLinesEPK6QLineFi": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_own_ZN18QRasterPaintEngine10drawPointsEPK7QPointFi": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_own_ZN18QRasterPaintEngine10drawPointsEPK6QPointi": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_own_ZN18QRasterPaintEngine4clipERK5QRectN2Qt13ClipOperationE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_own_ZN18QRasterPaintEngine4clipERK7QRegionN2Qt13ClipOperationE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_own_ZN18QRasterPaintEngine18drawStaticTextItemEP15QStaticTextItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK18QRasterPaintEngine4typeEv": ["int", "address"],
+    "ritual_own_ZNK18QRasterPaintEngine16coordinateOffsetEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK18QRasterPaintEngine36requiresPretransformedGlyphPositionsEP11QFontEngineRK10QTransform": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_own_ZNK18QRasterPaintEngine22shouldDrawCachedGlyphsEP11QFontEngineRK10QTransform": [
+      "bool", "address", "address", "address"
+    ]
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtScxml/6.12.0/QtScxml/private/qscxmldatamodel_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN22QScxmlDataModelPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK22QScxmlDataModelPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN22QScxmlDataModelPrivateC1Ev": ["address"],
+    "ritual_ZN22QScxmlDataModelPrivate20instantiateDataModelEN13DocumentModel5Scxml13DataModelTypeE": [
+      "address", "int"
+    ],
+    "ritual_ZN22QScxmlDataModelPrivate15setStateMachineEP18QScxmlStateMachine": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QScxmlDataModelPrivate23emitStateMachineChangedEP18QScxmlStateMachine": [
+      "nothing", "address", "address"
+    ]
+  }
+}

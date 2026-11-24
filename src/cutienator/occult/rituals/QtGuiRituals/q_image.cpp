@@ -527,6 +527,7 @@ QImage *ritual_ZNK6QImage15createAlphaMaskE6QFlagsIN2Qt19ImageConversionFlagEE(
           QFlags<Qt::ImageConversionFlag>::fromInt(flags)));
 }
 
+#if !defined(QT_NO_IMAGE_HEURISTIC_MASK)
 //  QImage QImage::createHeuristicMask(bool clipTight) const
 extern "C" Q_DECL_EXPORT
 QImage *ritual_ZNK6QImage19createHeuristicMaskEb(
@@ -534,6 +535,7 @@ QImage *ritual_ZNK6QImage19createHeuristicMaskEb(
     bool clipTight) {
   return new QImage(self->createHeuristicMask(clipTight));
 }
+#endif  // !defined(QT_NO_IMAGE_HEURISTIC_MASK)
 
 //  QImage QImage::createMaskFromColor(QRgb color, Qt::MaskMode mode) const
 extern "C" Q_DECL_EXPORT
@@ -604,6 +606,7 @@ QTransform *ritual_ZN6QImage10trueMatrixERK10QTransformii(
   return new QTransform(QImage::trueMatrix(*a0, w, h));
 }
 
+#if QT_DEPRECATED_SINCE(6, 13)
 //  QImage QImage::mirrored(bool horizontally, bool vertically) const
 extern "C" Q_DECL_EXPORT
 QImage *ritual_ZNKR6QImage8mirroredEbb(
@@ -612,7 +615,9 @@ QImage *ritual_ZNKR6QImage8mirroredEbb(
     bool vertically) {
   return new QImage(self->mirrored(horizontally, vertically));
 }
+#endif  // QT_DEPRECATED_SINCE(6, 13)
 
+#if QT_DEPRECATED_SINCE(6, 13)
 //  void QImage::mirror(bool horizontally, bool vertically)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN6QImage6mirrorEbb(
@@ -621,6 +626,7 @@ void ritual_ZN6QImage6mirrorEbb(
     bool vertically) {
   self->mirror(horizontally, vertically);
 }
+#endif  // QT_DEPRECATED_SINCE(6, 13)
 
 //  QImage QImage::rgbSwapped() const
 extern "C" Q_DECL_EXPORT
@@ -1030,4 +1036,34 @@ int ritual_own_ZNK6QImage6metricEN12QPaintDevice17PaintDeviceMetricE(
     const QImage *self,
     QPaintDevice::PaintDeviceMetric metric) {
   return static_cast<const OwnQImage *>(self)->OwnQImage::metric(metric);
+}
+
+//  QList<QImage>::QList()
+extern "C" Q_DECL_EXPORT
+QList<QImage> *ritual_list_make_QImage() {
+  return new QList<QImage>();
+}
+
+//  void QList<QImage>::append(const QImage &value)
+extern "C" Q_DECL_EXPORT
+void ritual_list_add_QImage(QList<QImage> *self, const QImage *element) {
+  self->append(*element);
+}
+
+//  qsizetype QList<QImage>::size() const
+extern "C" Q_DECL_EXPORT
+long long ritual_list_size_QImage(const QList<QImage> *self) {
+  return self->size();
+}
+
+//  const QImage &QList<QImage>::at(qsizetype i) const
+extern "C" Q_DECL_EXPORT
+QImage *ritual_list_at_QImage(const QList<QImage> *self, long long index) {
+  return new QImage(self->at(index));
+}
+
+//  QList<QImage>::~QList()
+extern "C" Q_DECL_EXPORT
+void ritual_list_drop_QImage(QList<QImage> *self) {
+  delete self;
 }

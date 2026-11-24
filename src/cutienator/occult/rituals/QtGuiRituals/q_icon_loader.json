@@ -1,0 +1,43 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qiconloader_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11QIconLoaderC1Ev": ["address"],
+    "ritual_ZNK11QIconLoader8loadIconERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK11QIconLoader8themeKeyEv": ["unsigned int", "address"],
+    "ritual_ZNK11QIconLoader9themeNameEv": ["text", "address"],
+    "ritual_ZN11QIconLoader12setThemeNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK11QIconLoader17fallbackThemeNameEv": ["text", "address"],
+    "ritual_ZN11QIconLoader20setFallbackThemeNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN11QIconLoader5themeEv": ["address", "address"],
+    "ritual_ZN11QIconLoader18setThemeSearchPathERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QIconLoader16themeSearchPathsEv": ["address", "address"],
+    "ritual_ZN11QIconLoader22setFallbackSearchPathsERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QIconLoader19fallbackSearchPathsEv": ["address", "address"],
+    "ritual_ZN11QIconLoader8instanceEv": ["address"],
+    "ritual_ZN11QIconLoader17updateSystemThemeEv": ["nothing", "address"],
+    "ritual_ZN11QIconLoader13invalidateKeyEv": ["nothing", "address"],
+    "ritual_ZN11QIconLoader17ensureInitializedEv": ["nothing", "address"],
+    "ritual_ZNK11QIconLoader12hasUserThemeEv": ["bool", "address"],
+    "ritual_ZNK11QIconLoader10iconEngineERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK11QIconLoader18lookupFallbackIconERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN11QIconLoaderD1Ev": ["nothing", "address"]
+  }
+}

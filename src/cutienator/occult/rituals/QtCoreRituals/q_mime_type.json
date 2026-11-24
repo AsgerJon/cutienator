@@ -6,6 +6,7 @@
   "rows": {
     "ritual_ZN9QMimeTypeC1Ev": ["address"],
     "ritual_ZN9QMimeTypeC1ERKS_": ["address", "address"],
+    "ritual_ZN9QMimeTypeC1ERK16QMimeTypePrivate": ["address", "address"],
     "ritual_ZN9QMimeTypeD1Ev": ["nothing", "address"],
     "ritual_ZNK9QMimeType7isValidEv": ["bool", "address"],
     "ritual_ZNK9QMimeType9isDefaultEv": ["bool", "address"],

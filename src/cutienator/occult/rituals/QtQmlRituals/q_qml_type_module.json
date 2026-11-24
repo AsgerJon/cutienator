@@ -1,0 +1,42 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmltypemodule_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN14QQmlTypeModuleC1Ev": ["address"],
+    "ritual_ZN14QQmlTypeModuleC1ERK7QStringh": [
+      "address", "text", "unsigned char"
+    ],
+    "ritual_ZN14QQmlTypeModule3addEP15QQmlTypePrivate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QQmlTypeModule6removeEPK15QQmlTypePrivate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QQmlTypeModule9lockLevelEv": ["int", "address"],
+    "ritual_ZN14QQmlTypeModule12setLockLevelENS_9LockLevelE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK14QQmlTypeModule6moduleEv": ["text", "address"],
+    "ritual_ZNK14QQmlTypeModule12majorVersionEv": [
+      "unsigned char", "address"
+    ],
+    "ritual_ZN14QQmlTypeModule15addMinorVersionEh": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZNK14QQmlTypeModule19minimumMinorVersionEv": [
+      "unsigned char", "address"
+    ],
+    "ritual_ZNK14QQmlTypeModule19maximumMinorVersionEv": [
+      "unsigned char", "address"
+    ],
+    "ritual_ZNK14QQmlTypeModule4typeERK16QHashedStringRef13QTypeRevision": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK14QQmlTypeModule4typeEPKN3QV46StringE13QTypeRevision": [
+      "address", "address", "address", "address"
+    ]
+  }
+}

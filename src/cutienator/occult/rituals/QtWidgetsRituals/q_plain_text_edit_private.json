@@ -1,0 +1,38 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qplaintextedit_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN21QPlainTextEditPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK21QPlainTextEditPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN21QPlainTextEditPrivate27updatePlaceholderVisibilityEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QPlainTextEditPrivate22ensureViewportLayoutedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK21QPlainTextEditPrivate16horizontalOffsetEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK21QPlainTextEditPrivate14verticalOffsetEii": [
+      "double", "address", "int", "int"
+    ],
+    "ritual_ZN21QPlainTextEditPrivate23updateDefaultTextOptionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QPlainTextEditPrivate14updateViewportEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QPlainTextEditPrivate21cursorPositionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK21QPlainTextEditPrivate24placeHolderTextToBeShownEv": [
+      "bool", "address"
+    ],
+    "ritual_take_QPlainTextEditPrivate": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

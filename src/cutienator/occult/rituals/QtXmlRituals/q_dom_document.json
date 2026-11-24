@@ -1,0 +1,97 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtXml/qdom.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN12QDomDocumentC1Ev": ["address"],
+    "ritual_ZN12QDomDocumentC1ERK7QString": ["address", "text"],
+    "ritual_ZN12QDomDocumentC1ERK16QDomDocumentType": ["address", "address"],
+    "ritual_ZN12QDomDocumentC1ERKS_": ["address", "address"],
+    "ritual_ZN12QDomDocumentD1Ev": ["nothing", "address"],
+    "ritual_ZN12QDomDocument13createElementERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN12QDomDocument22createDocumentFragmentEv": [
+      "address", "address"
+    ],
+    "ritual_ZN12QDomDocument14createTextNodeERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN12QDomDocument13createCommentERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN12QDomDocument18createCDATASectionERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN12QDomDocument27createProcessingInstructionERK7QStringS2_": [
+      "address", "address", "text", "text"
+    ],
+    "ritual_ZN12QDomDocument15createAttributeERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN12QDomDocument21createEntityReferenceERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK12QDomDocument17elementsByTagNameERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN12QDomDocument10importNodeERK8QDomNodeb": [
+      "address", "address", "address", "bool"
+    ],
+    "ritual_ZN12QDomDocument15createElementNSERK7QStringS2_": [
+      "address", "address", "text", "text"
+    ],
+    "ritual_ZN12QDomDocument17createAttributeNSERK7QStringS2_": [
+      "address", "address", "text", "text"
+    ],
+    "ritual_ZN12QDomDocument19elementsByTagNameNSERK7QStringS2_": [
+      "address", "address", "text", "text"
+    ],
+    "ritual_ZN12QDomDocument11elementByIdERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK12QDomDocument7doctypeEv": ["address", "address"],
+    "ritual_ZNK12QDomDocument14implementationEv": ["address", "address"],
+    "ritual_ZNK12QDomDocument15documentElementEv": ["address", "address"],
+    "ritual_ZNK12QDomDocument8nodeTypeEv": ["int", "address"],
+    "ritual_ZN12QDomDocument10setContentERK10QByteArraybP7QStringPiS5_": [
+      "bool", "address", "address", "bool", "address", "address", "address"
+    ],
+    "ritual_ZN12QDomDocument10setContentERK7QStringbPS0_PiS4_": [
+      "bool", "address", "text", "bool", "address", "address", "address"
+    ],
+    "ritual_ZN12QDomDocument10setContentEP9QIODevicebP7QStringPiS4_": [
+      "bool", "address", "address", "bool", "address", "address", "address"
+    ],
+    "ritual_ZN12QDomDocument10setContentERK10QByteArrayP7QStringPiS5_": [
+      "bool", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN12QDomDocument10setContentERK7QStringPS0_PiS4_": [
+      "bool", "address", "text", "address", "address", "address"
+    ],
+    "ritual_ZN12QDomDocument10setContentEP9QIODeviceP7QStringPiS4_": [
+      "bool", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN12QDomDocument10setContentEP16QXmlStreamReaderbP7QStringPiS4_": [
+      "bool", "address", "address", "bool", "address", "address", "address"
+    ],
+    "ritual_ZN12QDomDocument10setContentE14QAnyStringView6QFlagsINS_11ParseOptionEE": [
+      "address", "address", "text", "int"
+    ],
+    "ritual_ZN12QDomDocument10setContentEP9QIODevice6QFlagsINS_11ParseOptionEE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN12QDomDocument10setContentEP16QXmlStreamReader6QFlagsINS_11ParseOptionEE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZNK12QDomDocument8toStringEi": ["text", "address", "int"],
+    "ritual_ZNK12QDomDocument11toByteArrayEi": ["address", "address", "int"],
+    "ritual_ZN12QDomDocument14setContentImplERK10QByteArray6QFlagsINS_11ParseOptionEE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN12QDomDocumentC1EP19QDomDocumentPrivate": [
+      "address", "address"
+    ]
+  }
+}

@@ -1,5 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/qxmlstream.h, Qt 6.12.0. Changes made here are lost.
+#include <QtCore/qglobal.h>
+#if QT_CONFIG(xmlstream)
+#if QT_CONFIG(xmlstreamreader)
 #include <QtCore/qxmlstream.h>
 #include <QtCore/qanystringview.h>
 #include <QtCore/qstring.h>
@@ -441,3 +444,20 @@ void ritual_ZN16QXmlStreamReader11addDataImplERK10QByteArray(
     const QByteArray *data) {
   self->addDataImpl(*data);
 }
+
+//  QXmlStreamReaderPrivate *QXmlStreamReader::d_func()
+extern "C" Q_DECL_EXPORT
+QXmlStreamReaderPrivate *ritual_ZN16QXmlStreamReader6d_funcEv(
+    QXmlStreamReader *self) {
+  return self->d_func();
+}
+
+//  const QXmlStreamReaderPrivate *QXmlStreamReader::d_func() const
+extern "C" Q_DECL_EXPORT
+const QXmlStreamReaderPrivate *ritual_ZNK16QXmlStreamReader6d_funcEv(
+    const QXmlStreamReader *self) {
+  return self->d_func();
+}
+
+#endif  // QT_CONFIG(xmlstreamreader)
+#endif  // QT_CONFIG(xmlstream)

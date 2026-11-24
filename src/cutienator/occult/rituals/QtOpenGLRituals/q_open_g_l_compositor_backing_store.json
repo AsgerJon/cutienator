@@ -1,0 +1,63 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtOpenG",
+    "L/6.12.0/QtOpenGL/private/qopenglcompositorbackingstore_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN29QOpenGLCompositorBackingStoreC1EP7QWindow": [
+      "address", "address"
+    ],
+    "ritual_ZN29QOpenGLCompositorBackingStoreD1Ev": ["nothing", "address"],
+    "ritual_ZN29QOpenGLCompositorBackingStore11paintDeviceEv": [
+      "address", "address"
+    ],
+    "ritual_ZN29QOpenGLCompositorBackingStore10beginPaintERK7QRegion": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN29QOpenGLCompositorBackingStore5flushEP7QWindowRK7QRegionRK6QPoint": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN29QOpenGLCompositorBackingStore6resizeERK5QSizeRK7QRegion": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK29QOpenGLCompositorBackingStore7toImageEv": [
+      "address", "address"
+    ],
+    "ritual_ZN29QOpenGLCompositorBackingStore8rhiFlushEP7QWindowdRK7QRegionRK6QPointP20QPlatformTextureListbd": [
+      "int", "address", "address", "double", "address", "address", "address",
+      "bool", "double"
+    ],
+    "ritual_ZNK29QOpenGLCompositorBackingStore8texturesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN29QOpenGLCompositorBackingStore16notifyCompositedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QOpenGLCompositorBackingStore13updateTextureEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QOpenGLCompositorBackingStore": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN29QOpenGLCompositorBackingStore11paintDeviceEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN29QOpenGLCompositorBackingStore10beginPaintERK7QRegion": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN29QOpenGLCompositorBackingStore5flushEP7QWindowRK7QRegionRK6QPoint": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN29QOpenGLCompositorBackingStore6resizeERK5QSizeRK7QRegion": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZNK29QOpenGLCompositorBackingStore7toImageEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN29QOpenGLCompositorBackingStore8rhiFlushEP7QWindowdRK7QRegionRK6QPointP20QPlatformTextureListbd": [
+      "int", "address", "address", "double", "address", "address", "address",
+      "bool", "double"
+    ]
+  }
+}

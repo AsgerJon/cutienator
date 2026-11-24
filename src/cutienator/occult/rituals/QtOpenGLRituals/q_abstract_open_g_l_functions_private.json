@@ -1,0 +1,14 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtOpenGL/qopenglversionfunctions.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZN31QAbstractOpenGLFunctionsPrivateC1Ev": ["address"],
+    "ritual_ZN31QAbstractOpenGLFunctionsPrivate3getEP24QAbstractOpenGLFunctions": [
+      "address", "address"
+    ],
+    "ritual_ZN31QAbstractOpenGLFunctionsPrivateD1Ev": ["nothing", "address"]
+  }
+}

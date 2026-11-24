@@ -179,6 +179,8 @@
     ],
     "ritual_ZN9QLineEdit5eventEP6QEvent": ["bool", "address", "address"],
     "ritual_ZNK9QLineEdit10cursorRectEv": ["address", "address"],
+    "ritual_ZN9QLineEdit6d_funcEv": ["address", "address"],
+    "ritual_ZNK9QLineEdit6d_funcEv": ["address", "address"],
     "ritual_take_QLineEdit": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK9QLineEdit8sizeHintEv": ["address", "address"],
     "ritual_own_ZNK9QLineEdit15minimumSizeHintEv": ["address", "address"],

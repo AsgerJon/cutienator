@@ -1,0 +1,63 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtPrint",
+    "Support/6.12.0/QtPrintSupport/private/qpaintengine_alpha_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN17QAlphaPaintEngine6d_funcEv": ["address", "address"],
+    "ritual_ZNK17QAlphaPaintEngine6d_funcEv": ["address", "address"],
+    "ritual_ZN17QAlphaPaintEngineD1Ev": ["nothing", "address"],
+    "ritual_ZN17QAlphaPaintEngine5beginEP12QPaintDevice": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN17QAlphaPaintEngine3endEv": ["bool", "address"],
+    "ritual_ZN17QAlphaPaintEngine11updateStateERK17QPaintEngineState": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QAlphaPaintEngine8drawPathERK12QPainterPath": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QAlphaPaintEngine11drawPolygonEPK7QPointFiN12QPaintEngine15PolygonDrawModeE": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN17QAlphaPaintEngine10drawPixmapERK6QRectFRK7QPixmapS2_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN17QAlphaPaintEngine12drawTextItemERK7QPointFRK9QTextItem": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN17QAlphaPaintEngine15drawTiledPixmapERK6QRectFRK7QPixmapRK7QPointF": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK17QAlphaPaintEngine13alphaClippingEv": ["address", "address"],
+    "ritual_ZNK17QAlphaPaintEngine12continueCallEv": ["bool", "address"],
+    "ritual_ZN17QAlphaPaintEngine12flushAndInitEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN17QAlphaPaintEngine7cleanUpEv": ["nothing", "address"],
+    "ritual_take_QAlphaPaintEngine": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN17QAlphaPaintEngine5beginEP12QPaintDevice": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN17QAlphaPaintEngine3endEv": ["bool", "address"],
+    "ritual_own_ZN17QAlphaPaintEngine11updateStateERK17QPaintEngineState": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN17QAlphaPaintEngine8drawPathERK12QPainterPath": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN17QAlphaPaintEngine11drawPolygonEPK7QPointFiN12QPaintEngine15PolygonDrawModeE": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_own_ZN17QAlphaPaintEngine10drawPixmapERK6QRectFRK7QPixmapS2_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN17QAlphaPaintEngine12drawTextItemERK7QPointFRK9QTextItem": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN17QAlphaPaintEngine15drawTiledPixmapERK6QRectFRK7QPixmapRK7QPointF": [
+      "nothing", "address", "address", "address", "address"
+    ]
+  }
+}

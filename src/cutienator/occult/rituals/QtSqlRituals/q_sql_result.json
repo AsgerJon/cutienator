@@ -1,0 +1,129 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSql/qsqlresult.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN10QSqlResult6d_funcEv": ["address", "address"],
+    "ritual_ZNK10QSqlResult6d_funcEv": ["address", "address"],
+    "ritual_ZN10QSqlResultD1Ev": ["nothing", "address"],
+    "ritual_ZNK10QSqlResult6handleEv": ["address", "address"],
+    "ritual_ZNK10QSqlResult2atEv": ["int", "address"],
+    "ritual_ZNK10QSqlResult9lastQueryEv": ["text", "address"],
+    "ritual_ZNK10QSqlResult9lastErrorEv": ["address", "address"],
+    "ritual_ZNK10QSqlResult7isValidEv": ["bool", "address"],
+    "ritual_ZNK10QSqlResult8isActiveEv": ["bool", "address"],
+    "ritual_ZNK10QSqlResult8isSelectEv": ["bool", "address"],
+    "ritual_ZNK10QSqlResult13isForwardOnlyEv": ["bool", "address"],
+    "ritual_ZNK10QSqlResult6driverEv": ["address", "address"],
+    "ritual_ZN10QSqlResult5setAtEi": ["nothing", "address", "int"],
+    "ritual_ZN10QSqlResult9setActiveEb": ["nothing", "address", "bool"],
+    "ritual_ZN10QSqlResult12setLastErrorERK9QSqlError": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QSqlResult8setQueryERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN10QSqlResult9setSelectEb": ["nothing", "address", "bool"],
+    "ritual_ZN10QSqlResult14setForwardOnlyEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN10QSqlResult4execEv": ["bool", "address"],
+    "ritual_ZN10QSqlResult7prepareERK7QString": ["bool", "address", "text"],
+    "ritual_ZN10QSqlResult11savePrepareERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN10QSqlResult9bindValueEiRK8QVariant6QFlagsIN4QSql13ParamTypeFlagEE": [
+      "nothing", "address", "int", "address", "int"
+    ],
+    "ritual_ZN10QSqlResult9bindValueERK7QStringRK8QVariant6QFlagsIN4QSql13ParamTypeFlagEE": [
+      "nothing", "address", "text", "address", "int"
+    ],
+    "ritual_ZN10QSqlResult12addBindValueERK8QVariant6QFlagsIN4QSql13ParamTypeFlagEE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZNK10QSqlResult10boundValueERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK10QSqlResult10boundValueEi": ["address", "address", "int"],
+    "ritual_ZNK10QSqlResult13bindValueTypeERK7QString": [
+      "int", "address", "text"
+    ],
+    "ritual_ZNK10QSqlResult13bindValueTypeEi": ["int", "address", "int"],
+    "ritual_ZNK10QSqlResult15boundValueCountEv": ["int", "address"],
+    "ritual_ZNK10QSqlResult11boundValuesEN2Qt15Disambiguated_tE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK10QSqlResult13executedQueryEv": ["text", "address"],
+    "ritual_ZNK10QSqlResult15boundValueNamesEv": ["address", "address"],
+    "ritual_ZNK10QSqlResult14boundValueNameEi": ["text", "address", "int"],
+    "ritual_ZN10QSqlResult5clearEv": ["nothing", "address"],
+    "ritual_ZNK10QSqlResult12hasOutValuesEv": ["bool", "address"],
+    "ritual_ZNK10QSqlResult13bindingSyntaxEv": ["int", "address"],
+    "ritual_ZN10QSqlResult4dataEi": ["address", "address", "int"],
+    "ritual_ZN10QSqlResult6isNullEi": ["bool", "address", "int"],
+    "ritual_ZN10QSqlResult5resetERK7QString": ["bool", "address", "text"],
+    "ritual_ZN10QSqlResult5fetchEi": ["bool", "address", "int"],
+    "ritual_ZN10QSqlResult9fetchNextEv": ["bool", "address"],
+    "ritual_ZN10QSqlResult13fetchPreviousEv": ["bool", "address"],
+    "ritual_ZN10QSqlResult10fetchFirstEv": ["bool", "address"],
+    "ritual_ZN10QSqlResult9fetchLastEv": ["bool", "address"],
+    "ritual_ZN10QSqlResult4sizeEv": ["int", "address"],
+    "ritual_ZN10QSqlResult15numRowsAffectedEv": ["int", "address"],
+    "ritual_ZNK10QSqlResult6recordEv": ["address", "address"],
+    "ritual_ZNK10QSqlResult12lastInsertIdEv": ["address", "address"],
+    "ritual_ZN10QSqlResult9execBatchEb": ["bool", "address", "bool"],
+    "ritual_ZN10QSqlResult19detachFromResultSetEv": ["nothing", "address"],
+    "ritual_ZN10QSqlResult27setNumericalPrecisionPolicyEN4QSql24NumericalPrecisionPolicyE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK10QSqlResult24numericalPrecisionPolicyEv": ["int", "address"],
+    "ritual_ZN10QSqlResult27setPositionalBindingEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK10QSqlResult26isPositionalBindingEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN10QSqlResult10nextResultEv": ["bool", "address"],
+    "ritual_ZN10QSqlResult14resetBindCountEv": ["nothing", "address"],
+    "ritual_take_QSqlResult": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK10QSqlResult6handleEv": ["address", "address"],
+    "ritual_own_ZN10QSqlResult5setAtEi": ["nothing", "address", "int"],
+    "ritual_own_ZN10QSqlResult9setActiveEb": ["nothing", "address", "bool"],
+    "ritual_own_ZN10QSqlResult12setLastErrorERK9QSqlError": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN10QSqlResult8setQueryERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_own_ZN10QSqlResult9setSelectEb": ["nothing", "address", "bool"],
+    "ritual_own_ZN10QSqlResult14setForwardOnlyEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZN10QSqlResult4execEv": ["bool", "address"],
+    "ritual_own_ZN10QSqlResult7prepareERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_own_ZN10QSqlResult11savePrepareERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_own_ZN10QSqlResult9bindValueEiRK8QVariant6QFlagsIN4QSql13ParamTypeFlagEE": [
+      "nothing", "address", "int", "address", "int"
+    ],
+    "ritual_own_ZN10QSqlResult9bindValueERK7QStringRK8QVariant6QFlagsIN4QSql13ParamTypeFlagEE": [
+      "nothing", "address", "text", "address", "int"
+    ],
+    "ritual_own_ZN10QSqlResult9fetchNextEv": ["bool", "address"],
+    "ritual_own_ZN10QSqlResult13fetchPreviousEv": ["bool", "address"],
+    "ritual_own_ZNK10QSqlResult6recordEv": ["address", "address"],
+    "ritual_own_ZNK10QSqlResult12lastInsertIdEv": ["address", "address"],
+    "ritual_own_ZN10QSqlResult9execBatchEb": ["bool", "address", "bool"],
+    "ritual_own_ZN10QSqlResult19detachFromResultSetEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN10QSqlResult27setNumericalPrecisionPolicyEN4QSql24NumericalPrecisionPolicyE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN10QSqlResult10nextResultEv": ["bool", "address"]
+  }
+}

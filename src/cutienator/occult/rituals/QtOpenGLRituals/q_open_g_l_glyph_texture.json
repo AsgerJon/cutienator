@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtOpenGL/6.12.0/QtOpenGL/private/qopengltextureglyphcache_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QOpenGLGlyphTextureC1EP14QOpenGLContext": [
+      "address", "address"
+    ],
+    "ritual_ZN19QOpenGLGlyphTexture12freeResourceEP14QOpenGLContext": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QOpenGLGlyphTexture18invalidateResourceEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QOpenGLGlyphTexture": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN19QOpenGLGlyphTexture12freeResourceEP14QOpenGLContext": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN19QOpenGLGlyphTexture18invalidateResourceEv": [
+      "nothing", "address"
+    ]
+  }
+}

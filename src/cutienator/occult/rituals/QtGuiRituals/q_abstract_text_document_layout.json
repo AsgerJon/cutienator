@@ -11,6 +11,12 @@
     "ritual_ZN27QAbstractTextDocumentLayout2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN27QAbstractTextDocumentLayout6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK27QAbstractTextDocumentLayout6d_funcEv": [
+      "address", "address"
+    ],
     "ritual_ZN27QAbstractTextDocumentLayoutD1Ev": ["nothing", "address"],
     "ritual_ZN27QAbstractTextDocumentLayout4drawEP8QPainterRKNS_12PaintContextE": [
       "nothing", "address", "address", "address"

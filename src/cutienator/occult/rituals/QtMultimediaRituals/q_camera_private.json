@@ -1,0 +1,14 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtMultimedia/6.12.0/QtMultimedia/private/qcamera_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN14QCameraPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK14QCameraPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN14QCameraPrivate4initERK13QCameraDevice": [
+      "nothing", "address", "address"
+    ]
+  }
+}

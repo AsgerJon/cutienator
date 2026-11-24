@@ -1,0 +1,31 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qsgrhiatlastexture_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18QSGRhiAtlasTexture9AtlasBase10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18QSGRhiAtlasTexture9AtlasBase13renderContextEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18QSGRhiAtlasTexture9AtlasBase3rhiEv": ["address", "address"],
+    "ritual_ZNK18QSGRhiAtlasTexture9AtlasBase7textureEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18QSGRhiAtlasTexture9AtlasBase4sizeEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18QSGRhiAtlasTexture9AtlasBase15generateTextureEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN18QSGRhiAtlasTexture9AtlasBase20enqueueTextureUploadEPNS_11TextureBaseEP23QRhiResourceUpdateBatch": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_take_QSGRhiAtlasTexture_AtlasBase": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

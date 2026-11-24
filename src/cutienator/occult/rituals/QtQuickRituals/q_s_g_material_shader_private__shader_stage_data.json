@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qsgmaterialshader_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN24QSGMaterialShaderPrivate15ShaderStageDataC1Ev": ["address"],
+    "ritual_ZN24QSGMaterialShaderPrivate15ShaderStageDataC1ERK7QShader": [
+      "address", "address"
+    ],
+    "ritual_ZN24QSGMaterialShaderPrivate15ShaderStageDataD1Ev": [
+      "nothing", "address"
+    ]
+  }
+}

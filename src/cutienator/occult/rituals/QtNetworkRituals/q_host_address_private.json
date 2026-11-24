@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/6.12.0/QtNetwork/private/qhostaddress_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QHostAddressPrivate10setAddressEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN19QHostAddressPrivate5clearEv": ["nothing", "address"],
+    "ritual_ZNK19QHostAddressPrivate8classifyEv": ["int", "address"],
+    "ritual_ZN19QHostAddressPrivate8classifyERK12QHostAddress": [
+      "int", "address"
+    ],
+    "ritual_ZN19QHostAddressPrivateD1Ev": ["nothing", "address"]
+  }
+}

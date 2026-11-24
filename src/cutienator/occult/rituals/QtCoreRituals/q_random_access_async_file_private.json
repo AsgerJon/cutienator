@@ -1,0 +1,42 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qrandomaccessasyncfile_p_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN29QRandomAccessAsyncFilePrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK29QRandomAccessAsyncFilePrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN29QRandomAccessAsyncFilePrivate3getEP22QRandomAccessAsyncFile": [
+      "address", "address"
+    ],
+    "ritual_ZN29QRandomAccessAsyncFilePrivate13cancelAndWaitEP12QIOOperation": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN29QRandomAccessAsyncFilePrivate5closeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK29QRandomAccessAsyncFilePrivate4sizeEv": [
+      "long long", "address"
+    ],
+    "ritual_ZN29QRandomAccessAsyncFilePrivate4openERK7QString6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [
+      "address", "address", "text", "int"
+    ],
+    "ritual_ZN29QRandomAccessAsyncFilePrivate5flushEv": [
+      "address", "address"
+    ],
+    "ritual_ZN29QRandomAccessAsyncFilePrivate4readExx": [
+      "address", "address", "long long", "long long"
+    ],
+    "ritual_ZN29QRandomAccessAsyncFilePrivate5writeExRK10QByteArray": [
+      "address", "address", "long long", "address"
+    ],
+    "ritual_ZNK29QRandomAccessAsyncFilePrivate10checkValidEv": [
+      "nothing", "address"
+    ]
+  }
+}

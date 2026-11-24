@@ -1,0 +1,34 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Dialogs2QuickImpl/6.12.0/QtQuickDialogs2QuickImpl/private/qquickco",
+    "lordialogimpl_p_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN28QQuickColorDialogImplPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QQuickColorDialogImplPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QQuickColorDialogImplPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN28QQuickColorDialogImplPrivate3getEP21QQuickColorDialogImpl": [
+      "address", "address"
+    ],
+    "ritual_ZN28QQuickColorDialogImplPrivate14attachedOrWarnEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QQuickColorDialogImplPrivate11handleClickEP20QQuickAbstractButton": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QQuickColorDialogImplPrivate16alphaSliderMovedEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QQuickColorDialogImplPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN28QQuickColorDialogImplPrivate11handleClickEP20QQuickAbstractButton": [
+      "nothing", "address", "address"
+    ]
+  }
+}

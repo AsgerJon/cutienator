@@ -1,0 +1,30 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNfc/qndefnfctextrecord.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QNdefNfcTextRecordC1Ev": ["address"],
+    "ritual_ZN18QNdefNfcTextRecordC1ERK11QNdefRecord": [
+      "address", "address"
+    ],
+    "ritual_ZNK18QNdefNfcTextRecord6localeEv": ["text", "address"],
+    "ritual_ZN18QNdefNfcTextRecord9setLocaleERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK18QNdefNfcTextRecord4textEv": ["text", "address"],
+    "ritual_ZN18QNdefNfcTextRecord7setTextE7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK18QNdefNfcTextRecord8encodingEv": ["int", "address"],
+    "ritual_ZN18QNdefNfcTextRecord11setEncodingENS_8EncodingE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18QNdefNfcTextRecordD1Ev": ["nothing", "address"],
+    "ritual_list_make_QNdefNfcTextRecord": ["address"],
+    "ritual_list_add_QNdefNfcTextRecord": ["nothing", "address", "address"],
+    "ritual_list_size_QNdefNfcTextRecord": ["long long", "address"],
+    "ritual_list_at_QNdefNfcTextRecord": ["address", "address", "long long"],
+    "ritual_list_drop_QNdefNfcTextRecord": ["nothing", "address"]
+  }
+}

@@ -277,11 +277,13 @@ QVariant *ritual_ZN8QVariantC1ERK21QPersistentModelIndex(
   return new QVariant(*modelIndex);
 }
 
+#if !defined(QT_NO_CAST_FROM_ASCII)
 //  QVariant::QVariant(const char *str)
 extern "C" Q_DECL_EXPORT
 QVariant *ritual_ZN8QVariantC1EPKc(const char *str) {
   return new QVariant(str);
 }
+#endif  // !defined(QT_NO_CAST_FROM_ASCII)
 
 //  QVariant::QVariant(QLatin1StringView string)
 extern "C" Q_DECL_EXPORT
@@ -337,6 +339,7 @@ bool ritual_ZNK8QVariant7canViewE9QMetaType(
   return self->canView(*targetType);
 }
 
+#if QT_DEPRECATED_SINCE(6, 0)
 //  bool QVariant::canConvert(int targetTypeId) const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK8QVariant10canConvertEi(
@@ -344,12 +347,15 @@ bool ritual_ZNK8QVariant10canConvertEi(
     int targetTypeId) {
   return self->canConvert(targetTypeId);
 }
+#endif  // QT_DEPRECATED_SINCE(6, 0)
 
+#if QT_DEPRECATED_SINCE(6, 0)
 //  bool QVariant::convert(int targetTypeId)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN8QVariant7convertEi(QVariant *self, int targetTypeId) {
   return self->convert(targetTypeId);
 }
+#endif  // QT_DEPRECATED_SINCE(6, 0)
 
 //  bool QVariant::isValid() const
 extern "C" Q_DECL_EXPORT
@@ -554,18 +560,22 @@ QLocale *ritual_ZNK8QVariant8toLocaleEv(const QVariant *self) {
   return new QLocale(self->toLocale());
 }
 
+#if QT_CONFIG(regularexpression)
 //  QRegularExpression QVariant::toRegularExpression() const
 extern "C" Q_DECL_EXPORT
 QRegularExpression *ritual_ZNK8QVariant19toRegularExpressionEv(
     const QVariant *self) {
   return new QRegularExpression(self->toRegularExpression());
 }
+#endif  // QT_CONFIG(regularexpression)
 
+#if QT_CONFIG(easingcurve)
 //  QEasingCurve QVariant::toEasingCurve() const
 extern "C" Q_DECL_EXPORT
 QEasingCurve *ritual_ZNK8QVariant13toEasingCurveEv(const QVariant *self) {
   return new QEasingCurve(self->toEasingCurve());
 }
+#endif  // QT_CONFIG(easingcurve)
 
 //  QUuid QVariant::toUuid() const
 extern "C" Q_DECL_EXPORT
@@ -603,42 +613,54 @@ QJsonDocument *ritual_ZNK8QVariant14toJsonDocumentEv(const QVariant *self) {
   return new QJsonDocument(self->toJsonDocument());
 }
 
+#if QT_CONFIG(itemmodel)
 //  QModelIndex QVariant::toModelIndex() const
 extern "C" Q_DECL_EXPORT
 QModelIndex *ritual_ZNK8QVariant12toModelIndexEv(const QVariant *self) {
   return new QModelIndex(self->toModelIndex());
 }
+#endif  // QT_CONFIG(itemmodel)
 
+#if QT_CONFIG(itemmodel)
 //  QPersistentModelIndex QVariant::toPersistentModelIndex() const
 extern "C" Q_DECL_EXPORT
 QPersistentModelIndex *ritual_ZNK8QVariant22toPersistentModelIndexEv(
     const QVariant *self) {
   return new QPersistentModelIndex(self->toPersistentModelIndex());
 }
+#endif  // QT_CONFIG(itemmodel)
 
+#if QT_DEPRECATED_SINCE(6, 0)
 //  QVariant::QVariant(Type type)
 extern "C" Q_DECL_EXPORT
 QVariant *ritual_ZN8QVariantC1ENS_4TypeE(QVariant::Type type) {
   return new QVariant(type);
 }
+#endif  // QT_DEPRECATED_SINCE(6, 0)
 
+#if QT_DEPRECATED_SINCE(6, 0)
 //  Type QVariant::type() const
 extern "C" Q_DECL_EXPORT
 QVariant::Type ritual_ZNK8QVariant4typeEv(const QVariant *self) {
   return self->type();
 }
+#endif  // QT_DEPRECATED_SINCE(6, 0)
 
+#if QT_DEPRECATED_SINCE(6, 0)
 //  const char *QVariant::typeToName(int typeId)
 extern "C" Q_DECL_EXPORT
 const char *ritual_ZN8QVariant10typeToNameEi(int typeId) {
   return QVariant::typeToName(typeId);
 }
+#endif  // QT_DEPRECATED_SINCE(6, 0)
 
+#if QT_DEPRECATED_SINCE(6, 0)
 //  Type QVariant::nameToType(const char *name)
 extern "C" Q_DECL_EXPORT
 QVariant::Type ritual_ZN8QVariant10nameToTypeEPKc(const char *name) {
   return QVariant::nameToType(name);
 }
+#endif  // QT_DEPRECATED_SINCE(6, 0)
 
 //  void QVariant::setValue(const QVariant &avalue)
 extern "C" Q_DECL_EXPORT
@@ -669,6 +691,7 @@ bool ritual_ZneRK8QVariantS1_(const QVariant *lhs, const QVariant *rhs) {
   return operator!=(*lhs, *rhs);
 }
 
+#if !defined(QT_NO_DEBUG_STREAM)
 //  QDebug QVariant::qdebugHelper(QDebug a0) const
 extern "C" Q_DECL_EXPORT
 QDebug *ritual_ZNK8QVariant12qdebugHelperE6QDebug(
@@ -676,6 +699,7 @@ QDebug *ritual_ZNK8QVariant12qdebugHelperE6QDebug(
     const QDebug *a0) {
   return new QDebug(self->qdebugHelper(*a0));
 }
+#endif  // !defined(QT_NO_DEBUG_STREAM)
 
 //  bool QVariant::equals(const QVariant &other) const
 extern "C" Q_DECL_EXPORT
@@ -716,66 +740,6 @@ QVariant *ritual_list_at_QVariant(
 //  QList<QVariant>::~QList()
 extern "C" Q_DECL_EXPORT
 void ritual_list_drop_QVariant(QList<QVariant> *self) {
-  delete self;
-}
-
-//  QMap<QString, QVariant>: QMap<QString, QVariant>()
-extern "C" Q_DECL_EXPORT
-QMap<QString, QVariant> *ritual_map_make_QMap_QString_QVariant() {
-  return new QMap<QString, QVariant>();
-}
-
-//  QMap<QString, QVariant>: insert(const Key &key, const T &value)
-extern "C" Q_DECL_EXPORT
-void ritual_map_put_QMap_QString_QVariant(
-    QMap<QString, QVariant> *self,
-    const QString *key,
-    const QVariant *value) {
-  self->insert(*key, *value);
-}
-
-//  QMap<QString, QVariant>: size() const
-extern "C" Q_DECL_EXPORT
-long long ritual_map_size_QMap_QString_QVariant(
-    const QMap<QString, QVariant> *self) {
-  return self->size();
-}
-
-//  QMap<QString, QVariant>: the key at a place
-extern "C" Q_DECL_EXPORT
-QString *ritual_map_key_QMap_QString_QVariant(
-    const QMap<QString, QVariant> *self,
-    long long index) {
-  return new QString(*std::next(self->keyBegin(), index));
-}
-
-//  QMap<QString, QVariant>: the value at a place
-extern "C" Q_DECL_EXPORT
-QVariant *ritual_map_value_QMap_QString_QVariant(
-    const QMap<QString, QVariant> *self,
-    long long index) {
-  return new QVariant(*std::next(self->constBegin(), index));
-}
-
-//  QMap<QString, QVariant>: contains(const Key &key) const
-extern "C" Q_DECL_EXPORT
-bool ritual_map_has_QMap_QString_QVariant(
-    const QMap<QString, QVariant> *self,
-    const QString *key) {
-  return self->contains(*key);
-}
-
-//  QMap<QString, QVariant>: value(const Key &key) const
-extern "C" Q_DECL_EXPORT
-QVariant *ritual_map_get_QMap_QString_QVariant(
-    const QMap<QString, QVariant> *self,
-    const QString *key) {
-  return new QVariant(self->value(*key));
-}
-
-//  QMap<QString, QVariant>: ~QMap()
-extern "C" Q_DECL_EXPORT
-void ritual_map_drop_QMap_QString_QVariant(QMap<QString, QVariant> *self) {
   delete self;
 }
 
@@ -836,6 +800,66 @@ QVariant *ritual_map_get_QHash_QString_QVariant(
 //  QHash<QString, QVariant>: ~QHash()
 extern "C" Q_DECL_EXPORT
 void ritual_map_drop_QHash_QString_QVariant(QHash<QString, QVariant> *self) {
+  delete self;
+}
+
+//  QMap<QString, QVariant>: QMap<QString, QVariant>()
+extern "C" Q_DECL_EXPORT
+QMap<QString, QVariant> *ritual_map_make_QMap_QString_QVariant() {
+  return new QMap<QString, QVariant>();
+}
+
+//  QMap<QString, QVariant>: insert(const Key &key, const T &value)
+extern "C" Q_DECL_EXPORT
+void ritual_map_put_QMap_QString_QVariant(
+    QMap<QString, QVariant> *self,
+    const QString *key,
+    const QVariant *value) {
+  self->insert(*key, *value);
+}
+
+//  QMap<QString, QVariant>: size() const
+extern "C" Q_DECL_EXPORT
+long long ritual_map_size_QMap_QString_QVariant(
+    const QMap<QString, QVariant> *self) {
+  return self->size();
+}
+
+//  QMap<QString, QVariant>: the key at a place
+extern "C" Q_DECL_EXPORT
+QString *ritual_map_key_QMap_QString_QVariant(
+    const QMap<QString, QVariant> *self,
+    long long index) {
+  return new QString(*std::next(self->keyBegin(), index));
+}
+
+//  QMap<QString, QVariant>: the value at a place
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_map_value_QMap_QString_QVariant(
+    const QMap<QString, QVariant> *self,
+    long long index) {
+  return new QVariant(*std::next(self->constBegin(), index));
+}
+
+//  QMap<QString, QVariant>: contains(const Key &key) const
+extern "C" Q_DECL_EXPORT
+bool ritual_map_has_QMap_QString_QVariant(
+    const QMap<QString, QVariant> *self,
+    const QString *key) {
+  return self->contains(*key);
+}
+
+//  QMap<QString, QVariant>: value(const Key &key) const
+extern "C" Q_DECL_EXPORT
+QVariant *ritual_map_get_QMap_QString_QVariant(
+    const QMap<QString, QVariant> *self,
+    const QString *key) {
+  return new QVariant(self->value(*key));
+}
+
+//  QMap<QString, QVariant>: ~QMap()
+extern "C" Q_DECL_EXPORT
+void ritual_map_drop_QMap_QString_QVariant(QMap<QString, QVariant> *self) {
   delete self;
 }
 

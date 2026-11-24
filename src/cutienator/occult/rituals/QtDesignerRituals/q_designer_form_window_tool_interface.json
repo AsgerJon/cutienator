@@ -1,0 +1,54 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/abstractformwindowtool.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZNK32QDesignerFormWindowToolInterface10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN32QDesignerFormWindowToolInterface2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN32QDesignerFormWindowToolInterfaceD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK32QDesignerFormWindowToolInterface4coreEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK32QDesignerFormWindowToolInterface10formWindowEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK32QDesignerFormWindowToolInterface6editorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK32QDesignerFormWindowToolInterface6actionEv": [
+      "address", "address"
+    ],
+    "ritual_ZN32QDesignerFormWindowToolInterface9activatedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN32QDesignerFormWindowToolInterface11deactivatedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN32QDesignerFormWindowToolInterface9saveToDomEP5DomUIP7QWidget": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN32QDesignerFormWindowToolInterface11loadFromDomEP5DomUIP7QWidget": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN32QDesignerFormWindowToolInterface11handleEventEP7QWidgetS1_P6QEvent": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_take_QDesignerFormWindowToolInterface": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN32QDesignerFormWindowToolInterface9saveToDomEP5DomUIP7QWidget": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN32QDesignerFormWindowToolInterface11loadFromDomEP5DomUIP7QWidget": [
+      "nothing", "address", "address", "address"
+    ]
+  }
+}

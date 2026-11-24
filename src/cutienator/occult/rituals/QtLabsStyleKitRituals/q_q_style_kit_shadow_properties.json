@@ -1,0 +1,64 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtLabsS",
+    "tyleKit/6.12.0/QtLabsStyleKit/private/qqstylekitcontrolproperties_",
+    "p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK26QQStyleKitShadowProperties10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QQStyleKitShadowProperties2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN26QQStyleKitShadowProperties24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QQStyleKitShadowPropertiesC1EN4QQSK13PropertyGroupEP27QQStyleKitControlProperties": [
+      "address", "int", "address"
+    ],
+    "ritual_ZNK26QQStyleKitShadowProperties5colorEv": ["address", "address"],
+    "ritual_ZN26QQStyleKitShadowProperties8setColorE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK26QQStyleKitShadowProperties7opacityEv": [
+      "double", "address"
+    ],
+    "ritual_ZN26QQStyleKitShadowProperties10setOpacityEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK26QQStyleKitShadowProperties5scaleEv": ["double", "address"],
+    "ritual_ZN26QQStyleKitShadowProperties8setScaleEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK26QQStyleKitShadowProperties14verticalOffsetEv": [
+      "double", "address"
+    ],
+    "ritual_ZN26QQStyleKitShadowProperties17setVerticalOffsetEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK26QQStyleKitShadowProperties16horizontalOffsetEv": [
+      "double", "address"
+    ],
+    "ritual_ZN26QQStyleKitShadowProperties19setHorizontalOffsetEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK26QQStyleKitShadowProperties4blurEv": ["double", "address"],
+    "ritual_ZN26QQStyleKitShadowProperties7setBlurEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK26QQStyleKitShadowProperties7visibleEv": ["bool", "address"],
+    "ritual_ZN26QQStyleKitShadowProperties10setVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK26QQStyleKitShadowProperties8delegateEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QQStyleKitShadowProperties11setDelegateEP13QQmlComponent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QQStyleKitShadowProperties": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

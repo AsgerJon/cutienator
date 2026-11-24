@@ -1,0 +1,42 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmlvaluetype_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QQmlEasingValueType20qt_qmlMarker_foreignEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQmlEasingValueType21qt_qmlMarker_extendedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQmlEasingValueTypeC1Ev": ["address"],
+    "ritual_ZN19QQmlEasingValueTypeC1EN10QQmlEasing4TypeE": [
+      "address", "int"
+    ],
+    "ritual_ZN19QQmlEasingValueTypeC1ERK12QEasingCurve": [
+      "address", "address"
+    ],
+    "ritual_ZN19QQmlEasingValueType16valueForProgressEd": [
+      "double", "address", "double"
+    ],
+    "ritual_ZNK19QQmlEasingValueType4typeEv": ["int", "address"],
+    "ritual_ZNK19QQmlEasingValueType9amplitudeEv": ["double", "address"],
+    "ritual_ZNK19QQmlEasingValueType9overshootEv": ["double", "address"],
+    "ritual_ZNK19QQmlEasingValueType6periodEv": ["double", "address"],
+    "ritual_ZN19QQmlEasingValueType7setTypeEN10QQmlEasing4TypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN19QQmlEasingValueType12setAmplitudeEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN19QQmlEasingValueType12setOvershootEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN19QQmlEasingValueType9setPeriodEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN19QQmlEasingValueTypeD1Ev": ["nothing", "address"]
+  }
+}

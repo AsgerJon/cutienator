@@ -15,19 +15,24 @@ QRandomGenerator64::result_type ritual_ZN18QRandomGenerator64clEv(
   return self->operator()();
 }
 
+#if !defined(Q_QDOC)
 //  QRandomGenerator64::QRandomGenerator64(quint32 seedValue)
 extern "C" Q_DECL_EXPORT
 QRandomGenerator64 *ritual_ZN18QRandomGenerator64C1Ej(quint32 seedValue) {
   return new QRandomGenerator64(seedValue);
 }
+#endif  // !defined(Q_QDOC)
 
+#if !defined(Q_QDOC)
 //  QRandomGenerator64::QRandomGenerator64(const QRandomGenerator &other)
 extern "C" Q_DECL_EXPORT
 QRandomGenerator64 *ritual_ZN18QRandomGenerator64C1ERK16QRandomGenerator(
     const QRandomGenerator *other) {
   return new QRandomGenerator64(*other);
 }
+#endif  // !defined(Q_QDOC)
 
+#if !defined(Q_QDOC)
 //  void QRandomGenerator64::discard(unsigned long long z)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QRandomGenerator647discardEy(
@@ -35,36 +40,47 @@ void ritual_ZN18QRandomGenerator647discardEy(
     unsigned long long z) {
   self->discard(z);
 }
+#endif  // !defined(Q_QDOC)
 
+#if !defined(Q_QDOC)
 //  result_type QRandomGenerator64::min()
 extern "C" Q_DECL_EXPORT
 QRandomGenerator64::result_type ritual_ZN18QRandomGenerator643minEv() {
   return QRandomGenerator64::min();
 }
+#endif  // !defined(Q_QDOC)
 
+#if !defined(Q_QDOC)
 //  result_type QRandomGenerator64::max()
 extern "C" Q_DECL_EXPORT
 QRandomGenerator64::result_type ritual_ZN18QRandomGenerator643maxEv() {
   return QRandomGenerator64::max();
 }
+#endif  // !defined(Q_QDOC)
 
+#if !defined(Q_QDOC)
 //  QRandomGenerator64 *QRandomGenerator64::system()
 extern "C" Q_DECL_EXPORT
 QRandomGenerator64 *ritual_ZN18QRandomGenerator646systemEv() {
   return QRandomGenerator64::system();
 }
+#endif  // !defined(Q_QDOC)
 
+#if !defined(Q_QDOC)
 //  QRandomGenerator64 *QRandomGenerator64::global()
 extern "C" Q_DECL_EXPORT
 QRandomGenerator64 *ritual_ZN18QRandomGenerator646globalEv() {
   return QRandomGenerator64::global();
 }
+#endif  // !defined(Q_QDOC)
 
+#if !defined(Q_QDOC)
 //  QRandomGenerator64 QRandomGenerator64::securelySeeded()
 extern "C" Q_DECL_EXPORT
 QRandomGenerator64 *ritual_ZN18QRandomGenerator6414securelySeededEv() {
   return new QRandomGenerator64(QRandomGenerator64::securelySeeded());
 }
+#endif  // !defined(Q_QDOC)
 
 //  QRandomGenerator64::~QRandomGenerator64()
 extern "C" Q_DECL_EXPORT

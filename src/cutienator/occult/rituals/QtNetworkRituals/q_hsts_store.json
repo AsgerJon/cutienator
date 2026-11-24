@@ -1,0 +1,20 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/6.12.0/QtNetwork/private/qhstsstore_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN10QHstsStore13addToObservedERK11QHstsPolicy": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10QHstsStore10isWritableEv": ["bool", "address"],
+    "ritual_ZN10QHstsStore15serializePolicyERK7QStringRK11QHstsPolicy": [
+      "bool", "address", "text", "address"
+    ],
+    "ritual_ZN10QHstsStore11evictPolicyERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN10QHstsStore13endHstsGroupsEv": ["nothing", "address"]
+  }
+}

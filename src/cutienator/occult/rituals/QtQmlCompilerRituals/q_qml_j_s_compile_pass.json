@@ -1,0 +1,843 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQmlCompiler/6.12.0/QtQmlCompiler/private/qqmljscompilepass_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QQmlJSCompilePass18firstRegisterIndexEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK17QQmlJSCompilePass10isArgumentEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK17QQmlJSCompilePass12argumentTypeEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass16isQmlScopeObjectE21QQmlJSRegisterContent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN17QQmlJSCompilePass12initialStateEPKNS_8FunctionE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK17QQmlJSCompilePass14sourceLocationEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK17QQmlJSCompilePass22nonEmptySourceLocationEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK17QQmlJSCompilePass21currentSourceLocationEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK17QQmlJSCompilePass29currentNonEmptySourceLocationEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK17QQmlJSCompilePass29currentFunctionSourceLocationEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QQmlJSCompilePass8addErrorERK7QStringi": [
+      "nothing", "address", "text", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass7addSkipERK7QStringi": [
+      "nothing", "address", "text", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass8addErrorERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN17QQmlJSCompilePass7addSkipERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN17QQmlJSCompilePass29instructionManipulatesContextEN3QV44Moth5Instr4TypeE": [
+      "bool", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass12generate_AddEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass11generate_AsEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass15generate_BitAndEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass20generate_BitAndConstEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass14generate_BitOrEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass19generate_BitOrConstEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass15generate_BitXorEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass20generate_BitXorConstEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass25generate_CallGlobalLookupEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass17generate_CallNameEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass31generate_CallPossiblyDirectEvalEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass21generate_CallPropertyEiiii": [
+      "nothing", "address", "int", "int", "int", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass27generate_CallPropertyLookupEiiii": [
+      "nothing", "address", "int", "int", "int", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass37generate_CallQmlContextPropertyLookupEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass18generate_CallValueEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass25generate_CallWithReceiverEiiii": [
+      "nothing", "address", "int", "int", "int", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass23generate_CallWithSpreadEiiii": [
+      "nothing", "address", "int", "int", "int", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass23generate_CheckExceptionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQmlJSCompilePass26generate_CloneBlockContextEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQmlJSCompilePass14generate_CmpEqEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass17generate_CmpEqIntEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass18generate_CmpEqNullEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQmlJSCompilePass14generate_CmpGeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass14generate_CmpGtEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass14generate_CmpInEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass22generate_CmpInstanceOfEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass14generate_CmpLeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass14generate_CmpLtEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass14generate_CmpNeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass17generate_CmpNeIntEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass18generate_CmpNeNullEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQmlJSCompilePass23generate_CmpStrictEqualEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass26generate_CmpStrictNotEqualEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass18generate_ConstructEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass28generate_ConstructWithSpreadEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass28generate_ConvertThisToObjectEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQmlJSCompilePass26generate_CreateCallContextEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQmlJSCompilePass20generate_CreateClassEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass36generate_CreateMappedArgumentsObjectEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQmlJSCompilePass28generate_CreateRestParameterEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass38generate_CreateUnmappedArgumentsObjectEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQmlJSCompilePass30generate_DeadTemporalZoneCheckEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass14generate_DebugEv": ["nothing", "address"],
+    "ritual_ZN17QQmlJSCompilePass19generate_DeclareVarEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass18generate_DecrementEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQmlJSCompilePass20generate_DefineArrayEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass28generate_DefineObjectLiteralEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass19generate_DeleteNameEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass23generate_DeletePropertyEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass31generate_DestructureRestElementEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQmlJSCompilePass12generate_DivEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass12generate_ExpEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass21generate_GetExceptionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQmlJSCompilePass20generate_GetIteratorEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass18generate_GetLookupEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass26generate_GetOptionalLookupEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass26generate_GetTemplateObjectEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass18generate_IncrementEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQmlJSCompilePass40generate_InitializeBlockDeadTemporalZoneEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass22generate_IteratorCloseEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQmlJSCompilePass21generate_IteratorNextEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass33generate_IteratorNextForYieldStarEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass13generate_JumpEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass18generate_JumpFalseEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass24generate_JumpNoExceptionEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass25generate_JumpNotUndefinedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass17generate_JumpTrueEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass20generate_LoadClosureEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass18generate_LoadConstEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass20generate_LoadElementEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass18generate_LoadFalseEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQmlJSCompilePass25generate_LoadGlobalLookupEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass19generate_LoadImportEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass16generate_LoadIntEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass18generate_LoadLocalEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass17generate_LoadNameEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass17generate_LoadNullEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQmlJSCompilePass29generate_LoadOptionalPropertyEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass21generate_LoadPropertyEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass37generate_LoadQmlContextPropertyLookupEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass16generate_LoadRegEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass26generate_LoadRuntimeStringEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass24generate_LoadScopedLocalEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass29generate_LoadSuperConstructorEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQmlJSCompilePass26generate_LoadSuperPropertyEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass17generate_LoadTrueEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQmlJSCompilePass22generate_LoadUndefinedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQmlJSCompilePass17generate_LoadZeroEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQmlJSCompilePass12generate_ModEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass18generate_MoveConstEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass16generate_MoveRegEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass19generate_MoveRegExpEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass12generate_MulEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass19generate_PopContextEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQmlJSCompilePass25generate_PopScriptContextEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQmlJSCompilePass25generate_PushBlockContextEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass25generate_PushCatchContextEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass26generate_PushScriptContextEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass24generate_PushWithContextEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQmlJSCompilePass15generate_ResumeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass12generate_RetEv": ["nothing", "address"],
+    "ritual_ZN17QQmlJSCompilePass21generate_SetExceptionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQmlJSCompilePass18generate_SetLookupEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass25generate_SetUnwindHandlerEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass12generate_ShlEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass17generate_ShlConstEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass12generate_ShrEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass17generate_ShrConstEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass21generate_StoreElementEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass19generate_StoreLocalEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass24generate_StoreNameSloppyEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass24generate_StoreNameStrictEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass22generate_StorePropertyEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass17generate_StoreRegEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass25generate_StoreScopedLocalEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass27generate_StoreSuperPropertyEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass12generate_SubEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass17generate_TailCallEiiii": [
+      "nothing", "address", "int", "int", "int", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass23generate_ThrowExceptionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQmlJSCompilePass31generate_ThrowOnNullOrUndefinedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQmlJSCompilePass17generate_ToObjectEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQmlJSCompilePass19generate_TypeofNameEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass20generate_TypeofValueEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQmlJSCompilePass15generate_UComplEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQmlJSCompilePass15generate_UMinusEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQmlJSCompilePass13generate_UNotEv": ["nothing", "address"],
+    "ritual_ZN17QQmlJSCompilePass14generate_UPlusEv": ["nothing", "address"],
+    "ritual_ZN17QQmlJSCompilePass13generate_UShrEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass18generate_UShrConstEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass23generate_UnwindDispatchEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQmlJSCompilePass22generate_UnwindToLabelEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN17QQmlJSCompilePass14generate_YieldEv": ["nothing", "address"],
+    "ritual_ZN17QQmlJSCompilePass18generate_YieldStarEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QQmlJSCompilePass": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN17QQmlJSCompilePass12generate_AddEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass11generate_AsEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass15generate_BitAndEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass20generate_BitAndConstEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass14generate_BitOrEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass19generate_BitOrConstEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass15generate_BitXorEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass20generate_BitXorConstEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass25generate_CallGlobalLookupEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass17generate_CallNameEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass31generate_CallPossiblyDirectEvalEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass21generate_CallPropertyEiiii": [
+      "nothing", "address", "int", "int", "int", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass27generate_CallPropertyLookupEiiii": [
+      "nothing", "address", "int", "int", "int", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass37generate_CallQmlContextPropertyLookupEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass18generate_CallValueEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass25generate_CallWithReceiverEiiii": [
+      "nothing", "address", "int", "int", "int", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass23generate_CallWithSpreadEiiii": [
+      "nothing", "address", "int", "int", "int", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass23generate_CheckExceptionEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass26generate_CloneBlockContextEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass14generate_CmpEqEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass17generate_CmpEqIntEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass18generate_CmpEqNullEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass14generate_CmpGeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass14generate_CmpGtEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass14generate_CmpInEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass22generate_CmpInstanceOfEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass14generate_CmpLeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass14generate_CmpLtEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass14generate_CmpNeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass17generate_CmpNeIntEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass18generate_CmpNeNullEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass23generate_CmpStrictEqualEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass26generate_CmpStrictNotEqualEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass18generate_ConstructEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass28generate_ConstructWithSpreadEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass28generate_ConvertThisToObjectEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass26generate_CreateCallContextEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass20generate_CreateClassEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass36generate_CreateMappedArgumentsObjectEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass28generate_CreateRestParameterEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass38generate_CreateUnmappedArgumentsObjectEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass30generate_DeadTemporalZoneCheckEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass14generate_DebugEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass19generate_DeclareVarEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass18generate_DecrementEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass20generate_DefineArrayEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass28generate_DefineObjectLiteralEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass19generate_DeleteNameEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass23generate_DeletePropertyEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass31generate_DestructureRestElementEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass12generate_DivEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass12generate_ExpEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass21generate_GetExceptionEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass20generate_GetIteratorEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass18generate_GetLookupEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass26generate_GetOptionalLookupEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass26generate_GetTemplateObjectEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass18generate_IncrementEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass40generate_InitializeBlockDeadTemporalZoneEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass22generate_IteratorCloseEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass21generate_IteratorNextEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass33generate_IteratorNextForYieldStarEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass13generate_JumpEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass18generate_JumpFalseEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass24generate_JumpNoExceptionEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass25generate_JumpNotUndefinedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass17generate_JumpTrueEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass20generate_LoadClosureEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass18generate_LoadConstEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass20generate_LoadElementEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass18generate_LoadFalseEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass25generate_LoadGlobalLookupEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass19generate_LoadImportEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass16generate_LoadIntEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass18generate_LoadLocalEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass17generate_LoadNameEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass17generate_LoadNullEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass29generate_LoadOptionalPropertyEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass21generate_LoadPropertyEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass37generate_LoadQmlContextPropertyLookupEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass16generate_LoadRegEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass26generate_LoadRuntimeStringEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass24generate_LoadScopedLocalEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass29generate_LoadSuperConstructorEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass26generate_LoadSuperPropertyEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass17generate_LoadTrueEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass22generate_LoadUndefinedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass17generate_LoadZeroEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass12generate_ModEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass18generate_MoveConstEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass16generate_MoveRegEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass19generate_MoveRegExpEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass12generate_MulEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass19generate_PopContextEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass25generate_PopScriptContextEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass25generate_PushBlockContextEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass25generate_PushCatchContextEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass26generate_PushScriptContextEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass24generate_PushWithContextEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass15generate_ResumeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass12generate_RetEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass21generate_SetExceptionEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass18generate_SetLookupEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass25generate_SetUnwindHandlerEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass12generate_ShlEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass17generate_ShlConstEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass12generate_ShrEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass17generate_ShrConstEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass21generate_StoreElementEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass19generate_StoreLocalEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass24generate_StoreNameSloppyEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass24generate_StoreNameStrictEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass22generate_StorePropertyEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass17generate_StoreRegEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass25generate_StoreScopedLocalEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass27generate_StoreSuperPropertyEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass12generate_SubEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass17generate_TailCallEiiii": [
+      "nothing", "address", "int", "int", "int", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass23generate_ThrowExceptionEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass31generate_ThrowOnNullOrUndefinedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass17generate_ToObjectEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass19generate_TypeofNameEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass20generate_TypeofValueEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass15generate_UComplEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass15generate_UMinusEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass13generate_UNotEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass14generate_UPlusEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass13generate_UShrEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass18generate_UShrConstEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass23generate_UnwindDispatchEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass22generate_UnwindToLabelEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass14generate_YieldEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN17QQmlJSCompilePass18generate_YieldStarEv": [
+      "nothing", "address"
+    ]
+  }
+}

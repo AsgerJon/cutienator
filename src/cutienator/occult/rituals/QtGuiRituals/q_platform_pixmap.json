@@ -1,0 +1,100 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/qpa/qplatformpixmap.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QPlatformPixmapD1Ev": ["nothing", "address"],
+    "ritual_ZNK15QPlatformPixmap30createCompatiblePlatformPixmapEv": [
+      "address", "address"
+    ],
+    "ritual_ZN15QPlatformPixmap6resizeEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN15QPlatformPixmap9fromImageERK6QImage6QFlagsIN2Qt19ImageConversionFlagEE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN15QPlatformPixmap15fromImageReaderEP12QImageReader6QFlagsIN2Qt19ImageConversionFlagEE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN15QPlatformPixmap8fromFileERK7QStringPKc6QFlagsIN2Qt19ImageConversionFlagEE": [
+      "bool", "address", "text", "chars", "int"
+    ],
+    "ritual_ZN15QPlatformPixmap4copyEPKS_RK5QRect": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN15QPlatformPixmap6scrollEiiRK5QRect": [
+      "bool", "address", "int", "int", "address"
+    ],
+    "ritual_ZNK15QPlatformPixmap6metricEN12QPaintDevice17PaintDeviceMetricE": [
+      "int", "address", "int"
+    ],
+    "ritual_ZN15QPlatformPixmap4fillERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QPlatformPixmap4maskEv": ["address", "address"],
+    "ritual_ZN15QPlatformPixmap7setMaskERK7QBitmap": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QPlatformPixmap15hasAlphaChannelEv": ["bool", "address"],
+    "ritual_ZNK15QPlatformPixmap11transformedERK10QTransformN2Qt18TransformationModeE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZNK15QPlatformPixmap7toImageEv": ["address", "address"],
+    "ritual_ZNK15QPlatformPixmap7toImageERK5QRect": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK15QPlatformPixmap11paintEngineEv": ["address", "address"],
+    "ritual_ZNK15QPlatformPixmap12serialNumberEv": ["int", "address"],
+    "ritual_ZNK15QPlatformPixmap9pixelTypeEv": ["int", "address"],
+    "ritual_ZNK15QPlatformPixmap7classIdEv": ["int", "address"],
+    "ritual_ZNK15QPlatformPixmap16devicePixelRatioEv": ["double", "address"],
+    "ritual_ZN15QPlatformPixmap19setDevicePixelRatioEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN15QPlatformPixmap6bufferEv": ["address", "address"],
+    "ritual_ZNK15QPlatformPixmap5widthEv": ["int", "address"],
+    "ritual_ZNK15QPlatformPixmap6heightEv": ["int", "address"],
+    "ritual_ZNK15QPlatformPixmap10colorCountEv": ["int", "address"],
+    "ritual_ZNK15QPlatformPixmap5depthEv": ["int", "address"],
+    "ritual_ZNK15QPlatformPixmap6isNullEv": ["bool", "address"],
+    "ritual_ZNK15QPlatformPixmap8cacheKeyEv": ["long long", "address"],
+    "ritual_ZN15QPlatformPixmap6createEiiNS_9PixelTypeE": [
+      "address", "int", "int", "int"
+    ],
+    "ritual_ZN15QPlatformPixmap15setSerialNumberEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN15QPlatformPixmap15setDetachNumberEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN15QPlatformPixmap20callDestructionHooksEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QPlatformPixmap": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK15QPlatformPixmap30createCompatiblePlatformPixmapEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN15QPlatformPixmap15fromImageReaderEP12QImageReader6QFlagsIN2Qt19ImageConversionFlagEE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_own_ZN15QPlatformPixmap4copyEPKS_RK5QRect": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN15QPlatformPixmap6scrollEiiRK5QRect": [
+      "bool", "address", "int", "int", "address"
+    ],
+    "ritual_own_ZNK15QPlatformPixmap4maskEv": ["address", "address"],
+    "ritual_own_ZN15QPlatformPixmap7setMaskERK7QBitmap": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK15QPlatformPixmap11transformedERK10QTransformN2Qt18TransformationModeE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_own_ZNK15QPlatformPixmap7toImageERK5QRect": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN15QPlatformPixmap6bufferEv": ["address", "address"]
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/qqmlexpression.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK14QQmlExpression10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QQmlExpression2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN14QQmlExpressionC1Ev": ["address"],
+    "ritual_ZN14QQmlExpressionC1EP11QQmlContextP7QObjectRK7QStringS3_": [
+      "address", "address", "address", "text", "address"
+    ],
+    "ritual_ZN14QQmlExpressionC1ERK16QQmlScriptStringP11QQmlContextP7QObjectS6_": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN14QQmlExpressionD1Ev": ["nothing", "address"],
+    "ritual_ZNK14QQmlExpression6engineEv": ["address", "address"],
+    "ritual_ZNK14QQmlExpression7contextEv": ["address", "address"],
+    "ritual_ZNK14QQmlExpression10expressionEv": ["text", "address"],
+    "ritual_ZN14QQmlExpression13setExpressionERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK14QQmlExpression20notifyOnValueChangedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN14QQmlExpression23setNotifyOnValueChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK14QQmlExpression10sourceFileEv": ["text", "address"],
+    "ritual_ZNK14QQmlExpression10lineNumberEv": ["int", "address"],
+    "ritual_ZNK14QQmlExpression12columnNumberEv": ["int", "address"],
+    "ritual_ZN14QQmlExpression17setSourceLocationERK7QStringii": [
+      "nothing", "address", "text", "int", "int"
+    ],
+    "ritual_ZNK14QQmlExpression11scopeObjectEv": ["address", "address"],
+    "ritual_ZNK14QQmlExpression8hasErrorEv": ["bool", "address"],
+    "ritual_ZN14QQmlExpression10clearErrorEv": ["nothing", "address"],
+    "ritual_ZNK14QQmlExpression5errorEv": ["address", "address"],
+    "ritual_ZN14QQmlExpression8evaluateEPb": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN14QQmlExpression6d_funcEv": ["address", "address"],
+    "ritual_ZNK14QQmlExpression6d_funcEv": ["address", "address"],
+    "ritual_take_QQmlExpression": ["bool", "address", "chars", "address"]
+  }
+}

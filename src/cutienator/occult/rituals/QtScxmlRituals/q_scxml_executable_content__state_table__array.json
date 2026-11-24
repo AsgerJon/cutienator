@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtScxml/6.12.0/QtScxml/private/qscxmlexecutablecontent_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK23QScxmlExecutableContent10StateTable5Array4sizeEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK23QScxmlExecutableContent10StateTable5Array7isValidEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK23QScxmlExecutableContent10StateTable5ArrayixEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK23QScxmlExecutableContent10StateTable5Array5beginEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK23QScxmlExecutableContent10StateTable5Array3endEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QScxmlExecutableContent10StateTable5ArrayD1Ev": [
+      "nothing", "address"
+    ]
+  }
+}

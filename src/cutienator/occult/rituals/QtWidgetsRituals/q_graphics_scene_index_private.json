@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qgraphicssceneindex_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN26QGraphicsSceneIndexPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK26QGraphicsSceneIndexPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QGraphicsSceneIndexPrivateC1EP14QGraphicsScene": [
+      "address", "address"
+    ],
+    "ritual_ZN26QGraphicsSceneIndexPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN26QGraphicsSceneIndexPrivate4initEv": ["nothing", "address"],
+    "ritual_ZN26QGraphicsSceneIndexPrivate20itemCollidesWithPathEPK13QGraphicsItemRK12QPainterPathN2Qt17ItemSelectionModeE": [
+      "bool", "address", "address", "int"
+    ]
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtMultimediaWidgets/qgraphicsvideoitem.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18QGraphicsVideoItem10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QGraphicsVideoItem2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18QGraphicsVideoItemC1EP13QGraphicsItem": [
+      "address", "address"
+    ],
+    "ritual_ZN18QGraphicsVideoItemD1Ev": ["nothing", "address"],
+    "ritual_ZNK18QGraphicsVideoItem9videoSinkEv": ["address", "address"],
+    "ritual_ZNK18QGraphicsVideoItem15aspectRatioModeEv": ["int", "address"],
+    "ritual_ZN18QGraphicsVideoItem18setAspectRatioModeEN2Qt15AspectRatioModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK18QGraphicsVideoItem6offsetEv": ["address", "address"],
+    "ritual_ZN18QGraphicsVideoItem9setOffsetERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QGraphicsVideoItem4sizeEv": ["address", "address"],
+    "ritual_ZN18QGraphicsVideoItem7setSizeERK6QSizeF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QGraphicsVideoItem10nativeSizeEv": ["address", "address"],
+    "ritual_ZNK18QGraphicsVideoItem12boundingRectEv": ["address", "address"],
+    "ritual_ZN18QGraphicsVideoItem5paintEP8QPainterPK24QStyleOptionGraphicsItemP7QWidget": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK18QGraphicsVideoItem4typeEv": ["int", "address"],
+    "ritual_ZN18QGraphicsVideoItem10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QGraphicsVideoItem10itemChangeEN13QGraphicsItem18GraphicsItemChangeERK8QVariant": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_take_QGraphicsVideoItem": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK18QGraphicsVideoItem12boundingRectEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN18QGraphicsVideoItem5paintEP8QPainterPK24QStyleOptionGraphicsItemP7QWidget": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZNK18QGraphicsVideoItem4typeEv": ["int", "address"],
+    "ritual_own_ZN18QGraphicsVideoItem10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN18QGraphicsVideoItem10itemChangeEN13QGraphicsItem18GraphicsItemChangeERK8QVariant": [
+      "address", "address", "int", "address"
+    ]
+  }
+}

@@ -4,6 +4,9 @@
     "QtGui/qtextlayout.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN17QTextInlineObjectC1EiP11QTextEngine": [
+      "address", "int", "address"
+    ],
     "ritual_ZN17QTextInlineObjectC1Ev": ["address"],
     "ritual_ZNK17QTextInlineObject7isValidEv": ["bool", "address"],
     "ritual_ZNK17QTextInlineObject4rectEv": ["address", "address"],

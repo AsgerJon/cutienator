@@ -5,6 +5,8 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qbytearray.h>
 #include <QtCore/qbytearrayview.h>
+#include <QtCore/qnamespace.h>
+#include <QtCore/qcompare.h>
 
 //  QUuid::QUuid(Qt::Initialization a0)
 extern "C" Q_DECL_EXPORT
@@ -93,41 +95,70 @@ QUuid *ritual_ZN5QUuid11fromRfc4122E14QByteArrayView(
   return new QUuid(QUuid::fromRfc4122(*a0));
 }
 
+//  bool QUuid::isNull(Qt::Disambiguated_t a0) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK5QUuid6isNullEN2Qt15Disambiguated_tE(
+    const QUuid *self,
+    const Qt::Disambiguated_t *a0) {
+  return self->isNull(*a0);
+}
+
+//  Qt::strong_ordering QUuid::compareThreeWay_helper(const QUuid &lhs, const
+//      QUuid &rhs)
+extern "C" Q_DECL_EXPORT
+Qt::strong_ordering *ritual_ZN5QUuid22compareThreeWay_helperERKS_S1_(
+    const QUuid *lhs,
+    const QUuid *rhs) {
+  return new Qt::strong_ordering(QUuid::compareThreeWay_helper(*lhs, *rhs));
+}
+
+#if !(QT_CORE_REMOVED_SINCE(6, 8))
 //  bool operator==(const QUuid &lhs, const QUuid &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZeqRK5QUuidS1_(const QUuid *lhs, const QUuid *rhs) {
   return operator==(*lhs, *rhs);
 }
+#endif  // !(QT_CORE_REMOVED_SINCE(6, 8))
 
+#if !(QT_CORE_REMOVED_SINCE(6, 8))
 //  bool operator!=(const QUuid &lhs, const QUuid &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZneRK5QUuidS1_(const QUuid *lhs, const QUuid *rhs) {
   return operator!=(*lhs, *rhs);
 }
+#endif  // !(QT_CORE_REMOVED_SINCE(6, 8))
 
+#if !(QT_CORE_REMOVED_SINCE(6, 8))
 //  bool operator<(const QUuid &lhs, const QUuid &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZltRK5QUuidS1_(const QUuid *lhs, const QUuid *rhs) {
   return operator<(*lhs, *rhs);
 }
+#endif  // !(QT_CORE_REMOVED_SINCE(6, 8))
 
+#if !(QT_CORE_REMOVED_SINCE(6, 8))
 //  bool operator>(const QUuid &lhs, const QUuid &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZgtRK5QUuidS1_(const QUuid *lhs, const QUuid *rhs) {
   return operator>(*lhs, *rhs);
 }
+#endif  // !(QT_CORE_REMOVED_SINCE(6, 8))
 
+#if !(QT_CORE_REMOVED_SINCE(6, 8))
 //  bool operator<=(const QUuid &lhs, const QUuid &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZleRK5QUuidS1_(const QUuid *lhs, const QUuid *rhs) {
   return operator<=(*lhs, *rhs);
 }
+#endif  // !(QT_CORE_REMOVED_SINCE(6, 8))
 
+#if !(QT_CORE_REMOVED_SINCE(6, 8))
 //  bool operator>=(const QUuid &lhs, const QUuid &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZgeRK5QUuidS1_(const QUuid *lhs, const QUuid *rhs) {
   return operator>=(*lhs, *rhs);
 }
+#endif  // !(QT_CORE_REMOVED_SINCE(6, 8))
 
 //  QUuid QUuid::createUuid()
 extern "C" Q_DECL_EXPORT
@@ -143,6 +174,7 @@ QUuid *ritual_ZN5QUuid12createUuidV5ES_14QByteArrayView(
   return new QUuid(QUuid::createUuidV5(*ns, *baseData));
 }
 
+#if !defined(QT_BOOTSTRAPPED)
 //  QUuid QUuid::createUuidV3(QUuid ns, QByteArrayView baseData)
 extern "C" Q_DECL_EXPORT
 QUuid *ritual_ZN5QUuid12createUuidV3ES_14QByteArrayView(
@@ -150,6 +182,7 @@ QUuid *ritual_ZN5QUuid12createUuidV3ES_14QByteArrayView(
     const QByteArrayView *baseData) {
   return new QUuid(QUuid::createUuidV3(*ns, *baseData));
 }
+#endif  // !defined(QT_BOOTSTRAPPED)
 
 //  QUuid QUuid::createUuidV7()
 extern "C" Q_DECL_EXPORT
@@ -161,6 +194,22 @@ QUuid *ritual_ZN5QUuid12createUuidV7Ev() {
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN5QUuid14isKnownVersionENS_7VersionE(QUuid::Version v) {
   return QUuid::isKnownVersion(v);
+}
+
+//  Variant QUuid::variant(Qt::Disambiguated_t a0) const
+extern "C" Q_DECL_EXPORT
+QUuid::Variant ritual_ZNK5QUuid7variantEN2Qt15Disambiguated_tE(
+    const QUuid *self,
+    const Qt::Disambiguated_t *a0) {
+  return self->variant(*a0);
+}
+
+//  Version QUuid::version(Qt::Disambiguated_t a0) const
+extern "C" Q_DECL_EXPORT
+QUuid::Version ritual_ZNK5QUuid7versionEN2Qt15Disambiguated_tE(
+    const QUuid *self,
+    const Qt::Disambiguated_t *a0) {
+  return self->version(*a0);
 }
 
 //  QUuid::~QUuid()

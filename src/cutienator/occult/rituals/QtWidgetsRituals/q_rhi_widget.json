@@ -6,6 +6,8 @@
   "rows": {
     "ritual_ZNK10QRhiWidget10metaObjectEv": ["address", "address"],
     "ritual_ZN10QRhiWidget2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN10QRhiWidget6d_funcEv": ["address", "address"],
+    "ritual_ZNK10QRhiWidget6d_funcEv": ["address", "address"],
     "ritual_ZN10QRhiWidgetC1EP7QWidget6QFlagsIN2Qt10WindowTypeEE": [
       "address", "address", "int"
     ],
@@ -42,7 +44,19 @@
     "ritual_ZN10QRhiWidget19setAutoRenderTargetEb": [
       "nothing", "address", "bool"
     ],
+    "ritual_ZN10QRhiWidget10initializeEP17QRhiCommandBuffer": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QRhiWidget6renderEP17QRhiCommandBuffer": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZN10QRhiWidget16releaseResourcesEv": ["nothing", "address"],
+    "ritual_ZNK10QRhiWidget3rhiEv": ["address", "address"],
+    "ritual_ZNK10QRhiWidget12colorTextureEv": ["address", "address"],
+    "ritual_ZNK10QRhiWidget15msaaColorBufferEv": ["address", "address"],
+    "ritual_ZNK10QRhiWidget14resolveTextureEv": ["address", "address"],
+    "ritual_ZNK10QRhiWidget18depthStencilBufferEv": ["address", "address"],
+    "ritual_ZNK10QRhiWidget12renderTargetEv": ["address", "address"],
     "ritual_ZN10QRhiWidget11resizeEventEP12QResizeEvent": [
       "nothing", "address", "address"
     ],
@@ -51,6 +65,12 @@
     ],
     "ritual_ZN10QRhiWidget5eventEP6QEvent": ["bool", "address", "address"],
     "ritual_take_QRhiWidget": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN10QRhiWidget10initializeEP17QRhiCommandBuffer": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN10QRhiWidget6renderEP17QRhiCommandBuffer": [
+      "nothing", "address", "address"
+    ],
     "ritual_own_ZN10QRhiWidget16releaseResourcesEv": ["nothing", "address"],
     "ritual_own_ZN10QRhiWidget11resizeEventEP12QResizeEvent": [
       "nothing", "address", "address"

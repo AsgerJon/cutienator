@@ -1,0 +1,38 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmldebugserverconnection_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK25QQmlDebugServerConnection10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QQmlDebugServerConnection2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN25QQmlDebugServerConnectionD1Ev": ["nothing", "address"],
+    "ritual_ZN25QQmlDebugServerConnection9setServerEP15QQmlDebugServer": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QQmlDebugServerConnection12setPortRangeEiibRK7QString": [
+      "bool", "address", "int", "int", "bool", "text"
+    ],
+    "ritual_ZN25QQmlDebugServerConnection11setFileNameERK7QStringb": [
+      "bool", "address", "text", "bool"
+    ],
+    "ritual_ZNK25QQmlDebugServerConnection11isConnectedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN25QQmlDebugServerConnection10disconnectEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QQmlDebugServerConnection17waitForConnectionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QQmlDebugServerConnection5flushEv": ["nothing", "address"],
+    "ritual_take_QQmlDebugServerConnection": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/qdesigner_widgetitem_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18qdesigner_internal19QDesignerWidgetItem10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal19QDesignerWidgetItem2trEPKcS2_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZNK18qdesigner_internal19QDesignerWidgetItem11constWidgetEv": [
+      "address", "address"
+    ],
+    "ritual_cast_qdesigner_internal_QDesignerWidgetItem_QWidgetItemV2": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK18qdesigner_internal19QDesignerWidgetItem11minimumSizeEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK18qdesigner_internal19QDesignerWidgetItem8sizeHintEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN18qdesigner_internal19QDesignerWidgetItem11eventFilterEP7QObjectP6QEvent": [
+      "bool", "address", "address", "address"
+    ]
+  }
+}

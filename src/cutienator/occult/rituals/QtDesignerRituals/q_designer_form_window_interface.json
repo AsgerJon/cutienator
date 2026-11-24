@@ -1,0 +1,200 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/abstractformwindow.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK28QDesignerFormWindowInterface10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QDesignerFormWindowInterface2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN28QDesignerFormWindowInterfaceD1Ev": ["nothing", "address"],
+    "ritual_ZNK28QDesignerFormWindowInterface8fileNameEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK28QDesignerFormWindowInterface11absoluteDirEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QDesignerFormWindowInterface8contentsEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK28QDesignerFormWindowInterface13checkContentsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QDesignerFormWindowInterface11setContentsEP9QIODeviceP7QString": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZNK28QDesignerFormWindowInterface8featuresEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK28QDesignerFormWindowInterface10hasFeatureE6QFlagsINS_11FeatureFlagEE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK28QDesignerFormWindowInterface6authorEv": ["text", "address"],
+    "ritual_ZN28QDesignerFormWindowInterface9setAuthorERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK28QDesignerFormWindowInterface7commentEv": [
+      "text", "address"
+    ],
+    "ritual_ZN28QDesignerFormWindowInterface10setCommentERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN28QDesignerFormWindowInterface13layoutDefaultEPiS0_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN28QDesignerFormWindowInterface16setLayoutDefaultEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN28QDesignerFormWindowInterface14layoutFunctionEP7QStringS1_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN28QDesignerFormWindowInterface17setLayoutFunctionERK7QStringS2_": [
+      "nothing", "address", "text", "text"
+    ],
+    "ritual_ZNK28QDesignerFormWindowInterface14pixmapFunctionEv": [
+      "text", "address"
+    ],
+    "ritual_ZN28QDesignerFormWindowInterface17setPixmapFunctionERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK28QDesignerFormWindowInterface11exportMacroEv": [
+      "text", "address"
+    ],
+    "ritual_ZN28QDesignerFormWindowInterface14setExportMacroERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK28QDesignerFormWindowInterface12includeHintsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QDesignerFormWindowInterface15setIncludeHintsERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK28QDesignerFormWindowInterface20resourceFileSaveModeEv": [
+      "int", "address"
+    ],
+    "ritual_ZN28QDesignerFormWindowInterface23setResourceFileSaveModeENS_20ResourceFileSaveModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK28QDesignerFormWindowInterface11resourceSetEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QDesignerFormWindowInterface14setResourceSetEP13QtResourceSet": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK28QDesignerFormWindowInterface23activeResourceFilePathsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QDesignerFormWindowInterface4coreEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QDesignerFormWindowInterface6cursorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QDesignerFormWindowInterface9toolCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK28QDesignerFormWindowInterface11currentToolEv": [
+      "int", "address"
+    ],
+    "ritual_ZN28QDesignerFormWindowInterface14setCurrentToolEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK28QDesignerFormWindowInterface4toolEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN28QDesignerFormWindowInterface12registerToolEP32QDesignerFormWindowToolInterface": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK28QDesignerFormWindowInterface4gridEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QDesignerFormWindowInterface13mainContainerEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QDesignerFormWindowInterface16setMainContainerEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK28QDesignerFormWindowInterface13formContainerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QDesignerFormWindowInterface9isManagedEP7QWidget": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK28QDesignerFormWindowInterface7isDirtyEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN28QDesignerFormWindowInterface14findFormWindowEP7QWidget": [
+      "address", "address"
+    ],
+    "ritual_ZN28QDesignerFormWindowInterface14findFormWindowEP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QDesignerFormWindowInterface14commandHistoryEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QDesignerFormWindowInterface12beginCommandERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN28QDesignerFormWindowInterface10endCommandEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QDesignerFormWindowInterface20emitSelectionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK28QDesignerFormWindowInterface13resourceFilesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QDesignerFormWindowInterface15addResourceFileERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN28QDesignerFormWindowInterface18removeResourceFileERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN28QDesignerFormWindowInterface22ensureUniqueObjectNameEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QDesignerFormWindowInterface12manageWidgetEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QDesignerFormWindowInterface14unmanageWidgetEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QDesignerFormWindowInterface11setFeaturesE6QFlagsINS_11FeatureFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN28QDesignerFormWindowInterface8setDirtyEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN28QDesignerFormWindowInterface14clearSelectionEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN28QDesignerFormWindowInterface12selectWidgetEP7QWidgetb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN28QDesignerFormWindowInterface7setGridERK6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QDesignerFormWindowInterface11setFileNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN28QDesignerFormWindowInterface11setContentsERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN28QDesignerFormWindowInterface11editWidgetsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QDesignerFormWindowInterface25activateResourceFilePathsERK5QListI7QStringEPiPS1_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_take_QDesignerFormWindowInterface": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK28QDesignerFormWindowInterface4coreEv": [
+      "address", "address"
+    ]
+  }
+}

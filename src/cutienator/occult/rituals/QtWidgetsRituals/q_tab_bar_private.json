@@ -1,0 +1,76 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qtabbar_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN14QTabBarPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK14QTabBarPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN14QTabBarPrivateC1Ev": ["address"],
+    "ritual_ZN14QTabBarPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN14QTabBarPrivate25calculateFirstLastVisibleEibb": [
+      "nothing", "address", "int", "bool", "bool"
+    ],
+    "ritual_ZN14QTabBarPrivate25selectNewCurrentIndexFromEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK14QTabBarPrivate20calculateNewPositionEiii": [
+      "int", "address", "int", "int", "int"
+    ],
+    "ritual_ZN14QTabBarPrivate5slideEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN14QTabBarPrivate4initEv": ["nothing", "address"],
+    "ritual_ZN14QTabBarPrivate2atEi": ["address", "address", "int"],
+    "ritual_ZNK14QTabBarPrivate2atEi": ["address", "address", "int"],
+    "ritual_ZNK14QTabBarPrivate10indexAtPosERK6QPoint": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK14QTabBarPrivate10isAnimatedEv": ["bool", "address"],
+    "ritual_ZNK14QTabBarPrivate10validIndexEi": ["bool", "address", "int"],
+    "ritual_ZN14QTabBarPrivate26setCurrentNextEnabledIndexEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN14QTabBarPrivate10scrollTabsEv": ["nothing", "address"],
+    "ritual_ZN14QTabBarPrivate8closeTabEv": ["nothing", "address"],
+    "ritual_ZN14QTabBarPrivate7moveTabEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN14QTabBarPrivate15moveTabFinishedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN14QTabBarPrivate7refreshEv": ["nothing", "address"],
+    "ritual_ZN14QTabBarPrivate10layoutTabsEv": ["nothing", "address"],
+    "ritual_ZN14QTabBarPrivate13layoutWidgetsEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN14QTabBarPrivate9layoutTabEi": ["nothing", "address", "int"],
+    "ritual_ZN14QTabBarPrivate22updateMacBorderMetricsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QTabBarPrivate15setupMovableTabEv": ["nothing", "address"],
+    "ritual_ZN14QTabBarPrivate12autoHideTabsEv": ["nothing", "address"],
+    "ritual_ZNK14QTabBarPrivate10scrollRectEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK14QTabBarPrivate20normalizedScrollRectEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK14QTabBarPrivate15hoveredTabIndexEv": ["int", "address"],
+    "ritual_ZNK14QTabBarPrivate20initBasicStyleOptionEP15QStyleOptionTabi": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN14QTabBarPrivate11makeVisibleEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK14QTabBarPrivate14lastVisibleTabEv": ["address", "address"],
+    "ritual_ZN14QTabBarPrivate19initStyleBaseOptionEP22QStyleOptionTabBarBaseP7QTabBar5QSize": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN14QTabBarPrivate18killSwitchTabTimerEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QTabBarPrivate": ["bool", "address", "chars", "address"]
+  }
+}

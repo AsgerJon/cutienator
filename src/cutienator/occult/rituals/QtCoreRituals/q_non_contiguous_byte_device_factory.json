@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qnoncontiguousbytedevice_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN31QNonContiguousByteDeviceFactory6createEP9QIODevice": [
+      "address", "address"
+    ],
+    "ritual_ZN31QNonContiguousByteDeviceFactory6createERK10QByteArray": [
+      "address", "address"
+    ],
+    "ritual_ZN31QNonContiguousByteDeviceFactory4wrapEP24QNonContiguousByteDevice": [
+      "address", "address"
+    ],
+    "ritual_ZN31QNonContiguousByteDeviceFactoryD1Ev": ["nothing", "address"]
+  }
+}

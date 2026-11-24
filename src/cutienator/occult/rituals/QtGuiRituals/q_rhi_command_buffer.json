@@ -1,0 +1,80 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/rhi/qrhi.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QRhiCommandBuffer12resourceTypeEv": ["int", "address"],
+    "ritual_ZN17QRhiCommandBuffer14resourceUpdateEP23QRhiResourceUpdateBatch": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QRhiCommandBuffer9beginPassEP16QRhiRenderTargetRK6QColorRK26QRhiDepthStencilClearValueP23QRhiResourceUpdateBatch6QFlagsINS_13BeginPassFlagEE": [
+      "nothing", "address", "address", "address", "address", "address", "int"
+    ],
+    "ritual_ZN17QRhiCommandBuffer7endPassEP23QRhiResourceUpdateBatch": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QRhiCommandBuffer19setGraphicsPipelineEP20QRhiGraphicsPipeline": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QRhiCommandBuffer11setViewportERK12QRhiViewport": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QRhiCommandBuffer10setScissorERK11QRhiScissor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QRhiCommandBuffer17setBlendConstantsERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QRhiCommandBuffer13setStencilRefEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN17QRhiCommandBuffer14setShadingRateERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QRhiCommandBuffer4drawEjjjj": [
+      "nothing", "address", "unsigned int", "unsigned int", "unsigned int",
+      "unsigned int"
+    ],
+    "ritual_ZN17QRhiCommandBuffer11drawIndexedEjjjij": [
+      "nothing", "address", "unsigned int", "unsigned int", "unsigned int",
+      "int", "unsigned int"
+    ],
+    "ritual_ZN17QRhiCommandBuffer12drawIndirectEP10QRhiBufferjjj": [
+      "nothing", "address", "address", "unsigned int", "unsigned int",
+      "unsigned int"
+    ],
+    "ritual_ZN17QRhiCommandBuffer19drawIndexedIndirectEP10QRhiBufferjjj": [
+      "nothing", "address", "address", "unsigned int", "unsigned int",
+      "unsigned int"
+    ],
+    "ritual_ZN17QRhiCommandBuffer14debugMarkBeginERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QRhiCommandBuffer12debugMarkEndEv": ["nothing", "address"],
+    "ritual_ZN17QRhiCommandBuffer12debugMarkMsgERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QRhiCommandBuffer16beginComputePassEP23QRhiResourceUpdateBatch6QFlagsINS_13BeginPassFlagEE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN17QRhiCommandBuffer14endComputePassEP23QRhiResourceUpdateBatch": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QRhiCommandBuffer18setComputePipelineEP19QRhiComputePipeline": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QRhiCommandBuffer8dispatchEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZN17QRhiCommandBuffer13nativeHandlesEv": ["address", "address"],
+    "ritual_ZN17QRhiCommandBuffer13beginExternalEv": ["nothing", "address"],
+    "ritual_ZN17QRhiCommandBuffer11endExternalEv": ["nothing", "address"],
+    "ritual_ZN17QRhiCommandBuffer20lastCompletedGpuTimeEv": [
+      "double", "address"
+    ],
+    "ritual_take_QRhiCommandBuffer": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK17QRhiCommandBuffer12resourceTypeEv": ["int", "address"]
+  }
+}

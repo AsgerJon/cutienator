@@ -1,0 +1,20 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qeventpoint_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QMutableEventPoint13withTimeStampEmiN11QEventPoint5StateE7QPointFS2_S2_": [
+      "address", "unsigned long", "int", "unsigned char", "address",
+      "address", "address"
+    ],
+    "ritual_ZN18QMutableEventPoint6windowERK11QEventPoint": [
+      "address", "address"
+    ],
+    "ritual_ZN18QMutableEventPoint6targetERK11QEventPoint": [
+      "address", "address"
+    ],
+    "ritual_ZN18QMutableEventPointD1Ev": ["nothing", "address"]
+  }
+}

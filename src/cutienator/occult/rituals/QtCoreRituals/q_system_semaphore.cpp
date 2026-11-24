@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/qsystemsemaphore.h, Qt 6.12.0. Changes made here are lost.
+#include <QtCore/qglobal.h>
+#if QT_CONFIG(systemsemaphore)
 #include <QtCore/qsystemsemaphore.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qtipccommon.h>
@@ -137,3 +139,5 @@ QNativeIpcKey *ritual_ZN16QSystemSemaphore15legacyNativeKeyERK7QStringN13QNative
     QNativeIpcKey::Type type) {
   return new QNativeIpcKey(QSystemSemaphore::legacyNativeKey(*key, type));
 }
+
+#endif  // QT_CONFIG(systemsemaphore)

@@ -1,0 +1,44 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DHelpers/6.12.0/QtQuick3DHelpers/private/cylindergeometry_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK16CylinderGeometry10metaObjectEv": ["address", "address"],
+    "ritual_ZN16CylinderGeometry2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN16CylinderGeometryC1EP14QQuick3DObject": [
+      "address", "address"
+    ],
+    "ritual_ZN16CylinderGeometryD1Ev": ["nothing", "address"],
+    "ritual_ZNK16CylinderGeometry6radiusEv": ["float", "address"],
+    "ritual_ZN16CylinderGeometry9setRadiusEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK16CylinderGeometry6lengthEv": ["float", "address"],
+    "ritual_ZN16CylinderGeometry9setLengthEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK16CylinderGeometry5ringsEv": ["int", "address"],
+    "ritual_ZN16CylinderGeometry8setRingsEi": ["nothing", "address", "int"],
+    "ritual_ZNK16CylinderGeometry8segmentsEv": ["int", "address"],
+    "ritual_ZN16CylinderGeometry11setSegmentsEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16CylinderGeometry12asynchronousEv": ["bool", "address"],
+    "ritual_ZN16CylinderGeometry15setAsynchronousEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK16CylinderGeometry6statusEv": ["int", "address"],
+    "ritual_ZN16CylinderGeometry16doUpdateGeometryEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16CylinderGeometry15requestFinishedEv": ["nothing", "address"],
+    "ritual_ZN16CylinderGeometry22scheduleGeometryUpdateEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_CylinderGeometry": ["bool", "address", "chars", "address"]
+  }
+}

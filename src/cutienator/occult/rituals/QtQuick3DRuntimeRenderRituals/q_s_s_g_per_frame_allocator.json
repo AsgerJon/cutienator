@@ -1,0 +1,12 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgperframe",
+    "allocator_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN21QSSGPerFrameAllocatorC1Ev": ["address"],
+    "ritual_ZN21QSSGPerFrameAllocator5resetEv": ["nothing", "address"],
+    "ritual_ZN21QSSGPerFrameAllocatorD1Ev": ["nothing", "address"]
+  }
+}

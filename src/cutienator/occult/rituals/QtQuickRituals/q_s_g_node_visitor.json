@@ -1,0 +1,70 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/qsgnode.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN14QSGNodeVisitorD1Ev": ["nothing", "address"],
+    "ritual_ZN14QSGNodeVisitor18enterTransformNodeEP16QSGTransformNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QSGNodeVisitor18leaveTransformNodeEP16QSGTransformNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QSGNodeVisitor13enterClipNodeEP11QSGClipNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QSGNodeVisitor13leaveClipNodeEP11QSGClipNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QSGNodeVisitor17enterGeometryNodeEP15QSGGeometryNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QSGNodeVisitor17leaveGeometryNodeEP15QSGGeometryNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QSGNodeVisitor16enterOpacityNodeEP14QSGOpacityNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QSGNodeVisitor16leaveOpacityNodeEP14QSGOpacityNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QSGNodeVisitor9visitNodeEP7QSGNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QSGNodeVisitor13visitChildrenEP7QSGNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QSGNodeVisitor": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN14QSGNodeVisitor18enterTransformNodeEP16QSGTransformNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN14QSGNodeVisitor18leaveTransformNodeEP16QSGTransformNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN14QSGNodeVisitor13enterClipNodeEP11QSGClipNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN14QSGNodeVisitor13leaveClipNodeEP11QSGClipNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN14QSGNodeVisitor17enterGeometryNodeEP15QSGGeometryNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN14QSGNodeVisitor17leaveGeometryNodeEP15QSGGeometryNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN14QSGNodeVisitor16enterOpacityNodeEP14QSGOpacityNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN14QSGNodeVisitor16leaveOpacityNodeEP14QSGOpacityNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN14QSGNodeVisitor9visitNodeEP7QSGNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN14QSGNodeVisitor13visitChildrenEP7QSGNode": [
+      "nothing", "address", "address"
+    ]
+  }
+}

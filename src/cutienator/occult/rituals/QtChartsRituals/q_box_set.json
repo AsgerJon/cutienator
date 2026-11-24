@@ -1,0 +1,36 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/qboxset.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK7QBoxSet10metaObjectEv": ["address", "address"],
+    "ritual_ZN7QBoxSet2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN7QBoxSetC1E7QStringP7QObject": ["address", "text", "address"],
+    "ritual_ZN7QBoxSetC1Eddddd7QStringP7QObject": [
+      "address", "double", "double", "double", "double", "double", "text",
+      "address"
+    ],
+    "ritual_ZN7QBoxSetD1Ev": ["nothing", "address"],
+    "ritual_ZN7QBoxSet6appendEd": ["nothing", "address", "double"],
+    "ritual_ZN7QBoxSet5clearEv": ["nothing", "address"],
+    "ritual_ZN7QBoxSet8setLabelE7QString": ["nothing", "address", "text"],
+    "ritual_ZNK7QBoxSet5labelEv": ["text", "address"],
+    "ritual_ZN7QBoxSet8setValueEid": ["nothing", "address", "int", "double"],
+    "ritual_ZNK7QBoxSet2atEi": ["double", "address", "int"],
+    "ritual_ZNK7QBoxSetixEi": ["double", "address", "int"],
+    "ritual_ZNK7QBoxSet5countEv": ["int", "address"],
+    "ritual_ZN7QBoxSet6setPenERK4QPen": ["nothing", "address", "address"],
+    "ritual_ZNK7QBoxSet3penEv": ["address", "address"],
+    "ritual_ZN7QBoxSet8setBrushERK6QBrush": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK7QBoxSet5brushEv": ["address", "address"],
+    "ritual_take_QBoxSet": ["bool", "address", "chars", "address"],
+    "ritual_list_make_QBoxSet_ptr": ["address"],
+    "ritual_list_add_QBoxSet_ptr": ["nothing", "address", "address"],
+    "ritual_list_size_QBoxSet_ptr": ["long long", "address"],
+    "ritual_list_at_QBoxSet_ptr": ["address", "address", "long long"],
+    "ritual_list_drop_QBoxSet_ptr": ["nothing", "address"]
+  }
+}

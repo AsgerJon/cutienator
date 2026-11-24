@@ -1,0 +1,143 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtLabsF",
+    "olderListModel/6.12.0/QtLabsFolderListModel/private/qquickfolderli",
+    "stmodel_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK21QQuickFolderListModel10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QQuickFolderListModel2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN21QQuickFolderListModelC1EP7QObject": ["address", "address"],
+    "ritual_ZN21QQuickFolderListModelD1Ev": ["nothing", "address"],
+    "ritual_ZNK21QQuickFolderListModel8rowCountERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK21QQuickFolderListModel5indexEiiRK11QModelIndex": [
+      "address", "address", "int", "int", "address"
+    ],
+    "ritual_ZNK21QQuickFolderListModel4dataERK11QModelIndexi": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZNK21QQuickFolderListModel9roleNamesEv": ["address", "address"],
+    "ritual_ZNK21QQuickFolderListModel5countEv": ["int", "address"],
+    "ritual_ZNK21QQuickFolderListModel6folderEv": ["address", "address"],
+    "ritual_ZN21QQuickFolderListModel9setFolderERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21QQuickFolderListModel10rootFolderEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QQuickFolderListModel13setRootFolderERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21QQuickFolderListModel12parentFolderEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK21QQuickFolderListModel11nameFiltersEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QQuickFolderListModel14setNameFiltersERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21QQuickFolderListModel9sortFieldEv": ["int", "address"],
+    "ritual_ZN21QQuickFolderListModel12setSortFieldENS_9SortFieldE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK21QQuickFolderListModel12sortReversedEv": ["bool", "address"],
+    "ritual_ZN21QQuickFolderListModel15setSortReversedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK21QQuickFolderListModel9showFilesEv": ["bool", "address"],
+    "ritual_ZN21QQuickFolderListModel12setShowFilesEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK21QQuickFolderListModel8showDirsEv": ["bool", "address"],
+    "ritual_ZN21QQuickFolderListModel11setShowDirsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK21QQuickFolderListModel13showDirsFirstEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QQuickFolderListModel16setShowDirsFirstEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK21QQuickFolderListModel16showDotAndDotDotEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QQuickFolderListModel19setShowDotAndDotDotEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK21QQuickFolderListModel7showDotEv": ["bool", "address"],
+    "ritual_ZN21QQuickFolderListModel10setShowDotEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK21QQuickFolderListModel10showDotDotEv": ["bool", "address"],
+    "ritual_ZN21QQuickFolderListModel13setShowDotDotEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK21QQuickFolderListModel10showHiddenEv": ["bool", "address"],
+    "ritual_ZN21QQuickFolderListModel13setShowHiddenEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK21QQuickFolderListModel16showOnlyReadableEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QQuickFolderListModel19setShowOnlyReadableEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK21QQuickFolderListModel13caseSensitiveEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QQuickFolderListModel16setCaseSensitiveEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK21QQuickFolderListModel6statusEv": ["int", "address"],
+    "ritual_ZNK21QQuickFolderListModel17sortCaseSensitiveEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QQuickFolderListModel20setSortCaseSensitiveEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK21QQuickFolderListModel8isFolderEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK21QQuickFolderListModel3getEiRK7QString": [
+      "address", "address", "int", "text"
+    ],
+    "ritual_ZNK21QQuickFolderListModel7indexOfERK4QUrl": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN21QQuickFolderListModel10classBeginEv": ["nothing", "address"],
+    "ritual_ZN21QQuickFolderListModel17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK21QQuickFolderListModel14roleFromStringERK7QString": [
+      "int", "address", "text"
+    ],
+    "ritual_cast_QQuickFolderListModel_QQmlParserStatus": [
+      "address", "address"
+    ],
+    "ritual_take_QQuickFolderListModel": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK21QQuickFolderListModel8rowCountERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZNK21QQuickFolderListModel5indexEiiRK11QModelIndex": [
+      "address", "address", "int", "int", "address"
+    ],
+    "ritual_own_ZNK21QQuickFolderListModel4dataERK11QModelIndexi": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_own_ZN21QQuickFolderListModel10classBeginEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN21QQuickFolderListModel17componentCompleteEv": [
+      "nothing", "address"
+    ]
+  }
+}

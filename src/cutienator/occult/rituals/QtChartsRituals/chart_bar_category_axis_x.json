@@ -1,0 +1,37 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/6.12.0/QtCharts/private/chartbarcategoryaxisx_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK21ChartBarCategoryAxisX10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21ChartBarCategoryAxisX2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN21ChartBarCategoryAxisXC1EP16QBarCategoryAxisP13QGraphicsItem": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN21ChartBarCategoryAxisXD1Ev": ["nothing", "address"],
+    "ritual_ZNK21ChartBarCategoryAxisX8sizeHintEN2Qt8SizeHintERK6QSizeF": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_ZN21ChartBarCategoryAxisX14updateGeometryEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21ChartBarCategoryAxisX23handleCategoriesChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_ChartBarCategoryAxisX": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK21ChartBarCategoryAxisX8sizeHintEN2Qt8SizeHintERK6QSizeF": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_own_ZN21ChartBarCategoryAxisX14updateGeometryEv": [
+      "nothing", "address"
+    ]
+  }
+}

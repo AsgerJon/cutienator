@@ -1,0 +1,70 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/6.12.0/QtNetwork/private/qnetworkreplyimpl_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN24QNetworkReplyImplPrivateC1Ev": ["address"],
+    "ritual_ZN24QNetworkReplyImplPrivate21_q_bufferOutgoingDataEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QNetworkReplyImplPrivate29_q_bufferOutgoingDataFinishedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QNetworkReplyImplPrivate25pauseNotificationHandlingEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QNetworkReplyImplPrivate26resumeNotificationHandlingEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QNetworkReplyImplPrivate13backendNotifyENS_21InternalNotificationsE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN24QNetworkReplyImplPrivate11createCacheEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QNetworkReplyImplPrivate17completeCacheSaveEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QNetworkReplyImplPrivate17setCachingEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK24QNetworkReplyImplPrivate16isCachingEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK24QNetworkReplyImplPrivate23nextDownstreamBlockSizeEv": [
+      "long long", "address"
+    ],
+    "ritual_ZN24QNetworkReplyImplPrivate19initCacheSaveDeviceEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QNetworkReplyImplPrivate8finishedEv": ["nothing", "address"],
+    "ritual_ZN24QNetworkReplyImplPrivate5errorEN13QNetworkReply12NetworkErrorERK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZN24QNetworkReplyImplPrivate15metaDataChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QNetworkReplyImplPrivate20redirectionRequestedERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QNetworkReplyImplPrivate9encryptedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QNetworkReplyImplPrivate9sslErrorsERK5QListI9QSslErrorE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QNetworkReplyImplPrivate15readFromBackendEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK24QNetworkReplyImplPrivate12networkCacheEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QNetworkReplyImplPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK24QNetworkReplyImplPrivate6q_funcEv": ["address", "address"],
+    "ritual_take_QNetworkReplyImplPrivate": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

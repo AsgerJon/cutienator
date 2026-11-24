@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qfontdatabase_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN12QtFontFamilyC1ERK7QString": ["address", "text"],
+    "ritual_ZN12QtFontFamilyD1Ev": ["nothing", "address"],
+    "ritual_ZNK12QtFontFamily17matchesFamilyNameERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN12QtFontFamily7foundryERK7QStringb": [
+      "address", "address", "text", "bool"
+    ],
+    "ritual_ZN12QtFontFamily15ensurePopulatedEv": ["bool", "address"]
+  }
+}

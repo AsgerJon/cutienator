@@ -1,0 +1,31 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qmimemagicrule_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK14QMimeMagicRule4typeEv": ["int", "address"],
+    "ritual_ZNK14QMimeMagicRule5valueEv": ["address", "address"],
+    "ritual_ZNK14QMimeMagicRule8startPosEv": ["int", "address"],
+    "ritual_ZNK14QMimeMagicRule6endPosEv": ["int", "address"],
+    "ritual_ZNK14QMimeMagicRule4maskEv": ["address", "address"],
+    "ritual_ZNK14QMimeMagicRule7isValidEv": ["bool", "address"],
+    "ritual_ZNK14QMimeMagicRule7matchesERK10QByteArray": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN14QMimeMagicRule14matchSubstringEPKcxyyyS1_S1_": [
+      "bool", "chars", "long long", "unsigned long long",
+      "unsigned long long", "unsigned long long", "chars", "chars"
+    ],
+    "ritual_ZNK14QMimeMagicRule11matchStringERK10QByteArray": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN14QMimeMagicRuleD1Ev": ["nothing", "address"],
+    "ritual_list_make_QMimeMagicRule": ["address"],
+    "ritual_list_add_QMimeMagicRule": ["nothing", "address", "address"],
+    "ritual_list_size_QMimeMagicRule": ["long long", "address"],
+    "ritual_list_at_QMimeMagicRule": ["address", "address", "long long"],
+    "ritual_list_drop_QMimeMagicRule": ["nothing", "address"]
+  }
+}

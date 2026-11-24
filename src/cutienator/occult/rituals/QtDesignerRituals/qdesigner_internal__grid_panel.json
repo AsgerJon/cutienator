@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/gridpanel_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18qdesigner_internal9GridPanel10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal9GridPanel2trEPKcS2_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_take_qdesigner_internal_GridPanel": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

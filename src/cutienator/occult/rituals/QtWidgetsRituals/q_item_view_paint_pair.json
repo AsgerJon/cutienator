@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qabstractitemview_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QItemViewPaintPairD1Ev": ["nothing", "address"],
+    "ritual_list_make_QItemViewPaintPair": ["address"],
+    "ritual_list_add_QItemViewPaintPair": ["nothing", "address", "address"],
+    "ritual_list_size_QItemViewPaintPair": ["long long", "address"],
+    "ritual_list_at_QItemViewPaintPair": ["address", "address", "long long"],
+    "ritual_list_drop_QItemViewPaintPair": ["nothing", "address"]
+  }
+}

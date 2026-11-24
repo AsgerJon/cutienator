@@ -1,0 +1,11 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtOpenGL/qopenglversionfunctions.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZN32QOpenGLFunctions_4_1_CoreBackend13versionStatusEv": ["int"],
+    "ritual_ZN32QOpenGLFunctions_4_1_CoreBackendD1Ev": ["nothing", "address"]
+  }
+}

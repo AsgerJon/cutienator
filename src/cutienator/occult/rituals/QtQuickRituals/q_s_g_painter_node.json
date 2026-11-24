@@ -1,0 +1,53 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qsgadaptationlayer_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN14QSGPainterNodeD1Ev": ["nothing", "address"],
+    "ritual_ZN14QSGPainterNode24setPreferredRenderTargetEN17QQuickPaintedItem12RenderTargetE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN14QSGPainterNode7setSizeERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QSGPainterNode8setDirtyERK5QRect": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QSGPainterNode17setOpaquePaintingEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN14QSGPainterNode18setLinearFilteringEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN14QSGPainterNode13setMipmappingEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN14QSGPainterNode17setSmoothPaintingEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN14QSGPainterNode12setFillColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QSGPainterNode16setContentsScaleEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN14QSGPainterNode18setFastFBOResizingEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN14QSGPainterNode14setTextureSizeERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QSGPainterNode7toImageEv": ["address", "address"],
+    "ritual_ZN14QSGPainterNode6updateEv": ["nothing", "address"],
+    "ritual_ZNK14QSGPainterNode7textureEv": ["address", "address"],
+    "ritual_ZN14QSGPainterNode6acceptEP16QSGNodeVisitorEx": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QSGPainterNode": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN14QSGPainterNode6acceptEP16QSGNodeVisitorEx": [
+      "nothing", "address", "address"
+    ]
+  }
+}

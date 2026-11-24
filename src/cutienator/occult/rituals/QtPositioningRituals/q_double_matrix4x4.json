@@ -1,0 +1,146 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtPositioning/6.12.0/QtPositioning/private/qdoublematrix4x4_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN16QDoubleMatrix4x4C1Ev": ["address"],
+    "ritual_ZN16QDoubleMatrix4x4C1EN2Qt14InitializationE": [
+      "address", "int"
+    ],
+    "ritual_ZN16QDoubleMatrix4x4C1Edddddddddddddddd": [
+      "address", "double", "double", "double", "double", "double", "double",
+      "double", "double", "double", "double", "double", "double", "double",
+      "double", "double", "double"
+    ],
+    "ritual_ZNK16QDoubleMatrix4x4clEii": ["double", "address", "int", "int"],
+    "ritual_ZNK16QDoubleMatrix4x48isAffineEv": ["bool", "address"],
+    "ritual_ZNK16QDoubleMatrix4x410isIdentityEv": ["bool", "address"],
+    "ritual_ZN16QDoubleMatrix4x413setToIdentityEv": ["nothing", "address"],
+    "ritual_ZN16QDoubleMatrix4x44fillEd": ["nothing", "address", "double"],
+    "ritual_ZNK16QDoubleMatrix4x411determinantEv": ["double", "address"],
+    "ritual_ZNK16QDoubleMatrix4x48invertedEPb": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK16QDoubleMatrix4x410transposedEv": ["address", "address"],
+    "ritual_ZN16QDoubleMatrix4x4pLERKS_": ["nothing", "address", "address"],
+    "ritual_ZN16QDoubleMatrix4x4mIERKS_": ["nothing", "address", "address"],
+    "ritual_ZN16QDoubleMatrix4x4mLERKS_": ["nothing", "address", "address"],
+    "ritual_ZN16QDoubleMatrix4x4mLEd": ["nothing", "address", "double"],
+    "ritual_ZN16QDoubleMatrix4x4dVEd": ["nothing", "address", "double"],
+    "ritual_ZNK16QDoubleMatrix4x4eqERKS_": ["bool", "address", "address"],
+    "ritual_ZNK16QDoubleMatrix4x4neERKS_": ["bool", "address", "address"],
+    "ritual_ZplRK16QDoubleMatrix4x4S1_": ["address", "address", "address"],
+    "ritual_ZmiRK16QDoubleMatrix4x4S1_": ["address", "address", "address"],
+    "ritual_ZmlRK16QDoubleMatrix4x4S1_": ["address", "address", "address"],
+    "ritual_ZmlRK16QDoubleMatrix4x4RK15QDoubleVector3D": [
+      "address", "address", "address"
+    ],
+    "ritual_ZmlRK15QDoubleVector3DRK16QDoubleMatrix4x4": [
+      "address", "address", "address"
+    ],
+    "ritual_ZmlRK6QPointRK16QDoubleMatrix4x4": [
+      "address", "address", "address"
+    ],
+    "ritual_ZmlRK7QPointFRK16QDoubleMatrix4x4": [
+      "address", "address", "address"
+    ],
+    "ritual_ZngRK16QDoubleMatrix4x4": ["address", "address"],
+    "ritual_ZmlRK16QDoubleMatrix4x4RK6QPoint": [
+      "address", "address", "address"
+    ],
+    "ritual_ZmlRK16QDoubleMatrix4x4RK7QPointF": [
+      "address", "address", "address"
+    ],
+    "ritual_ZmldRK16QDoubleMatrix4x4": ["address", "double", "address"],
+    "ritual_ZmlRK16QDoubleMatrix4x4d": ["address", "address", "double"],
+    "ritual_ZdvRK16QDoubleMatrix4x4d": ["address", "address", "double"],
+    "ritual_ZN16QDoubleMatrix4x45scaleERK15QDoubleVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QDoubleMatrix4x49translateERK15QDoubleVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QDoubleMatrix4x46rotateEdRK15QDoubleVector3D": [
+      "nothing", "address", "double", "address"
+    ],
+    "ritual_ZN16QDoubleMatrix4x45scaleEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN16QDoubleMatrix4x45scaleEddd": [
+      "nothing", "address", "double", "double", "double"
+    ],
+    "ritual_ZN16QDoubleMatrix4x45scaleEd": ["nothing", "address", "double"],
+    "ritual_ZN16QDoubleMatrix4x49translateEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN16QDoubleMatrix4x49translateEddd": [
+      "nothing", "address", "double", "double", "double"
+    ],
+    "ritual_ZN16QDoubleMatrix4x46rotateEdddd": [
+      "nothing", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZN16QDoubleMatrix4x45orthoERK5QRect": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QDoubleMatrix4x45orthoERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QDoubleMatrix4x45orthoEdddddd": [
+      "nothing", "address", "double", "double", "double", "double", "double",
+      "double"
+    ],
+    "ritual_ZN16QDoubleMatrix4x47frustumEdddddd": [
+      "nothing", "address", "double", "double", "double", "double", "double",
+      "double"
+    ],
+    "ritual_ZN16QDoubleMatrix4x411perspectiveEdddd": [
+      "nothing", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZN16QDoubleMatrix4x46lookAtERK15QDoubleVector3DS2_S2_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN16QDoubleMatrix4x48viewportERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QDoubleMatrix4x48viewportEdddddd": [
+      "nothing", "address", "double", "double", "double", "double", "double",
+      "double"
+    ],
+    "ritual_ZN16QDoubleMatrix4x415flipCoordinatesEv": ["nothing", "address"],
+    "ritual_ZNK16QDoubleMatrix4x410copyDataToEPd": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QDoubleMatrix4x43mapERK6QPoint": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK16QDoubleMatrix4x43mapERK7QPointF": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK16QDoubleMatrix4x43mapERK15QDoubleVector3D": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK16QDoubleMatrix4x49mapVectorERK15QDoubleVector3D": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK16QDoubleMatrix4x47mapRectERK5QRect": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK16QDoubleMatrix4x47mapRectERK6QRectF": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN16QDoubleMatrix4x48optimizeEv": ["nothing", "address"],
+    "ritual_Zls6QDebugRK16QDoubleMatrix4x4": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN16QDoubleMatrix4x4C1Ei": ["address", "int"],
+    "ritual_ZNK16QDoubleMatrix4x418orthonormalInverseEv": [
+      "address", "address"
+    ],
+    "ritual_ZN16QDoubleMatrix4x415projectedRotateEddddd": [
+      "nothing", "address", "double", "double", "double", "double", "double"
+    ],
+    "ritual_ZN16QDoubleMatrix4x4D1Ev": ["nothing", "address"]
+  }
+}

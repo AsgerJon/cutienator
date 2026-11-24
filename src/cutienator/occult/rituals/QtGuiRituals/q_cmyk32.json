@@ -1,0 +1,23 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qcmyk_p.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZN7QCmyk32C1Ev": ["address"],
+    "ritual_ZN7QCmyk32C1Eiiii": ["address", "int", "int", "int", "int"],
+    "ritual_ZNK7QCmyk324cyanEv": ["int", "address"],
+    "ritual_ZNK7QCmyk327magentaEv": ["int", "address"],
+    "ritual_ZNK7QCmyk326yellowEv": ["int", "address"],
+    "ritual_ZNK7QCmyk325blackEv": ["int", "address"],
+    "ritual_ZNK7QCmyk327toColorEv": ["address", "address"],
+    "ritual_ZNK7QCmyk326toUintEv": ["unsigned int", "address"],
+    "ritual_ZN7QCmyk3210fromCmyk32Ej": ["address", "unsigned int"],
+    "ritual_ZN7QCmyk328fromRgbaEj": ["address", "unsigned int"],
+    "ritual_ZN7QCmyk329fromColorERK6QColor": ["address", "address"],
+    "ritual_ZeqRK7QCmyk32S1_": ["bool", "address", "address"],
+    "ritual_ZneRK7QCmyk32S1_": ["bool", "address", "address"],
+    "ritual_ZN7QCmyk32D1Ev": ["nothing", "address"]
+  }
+}

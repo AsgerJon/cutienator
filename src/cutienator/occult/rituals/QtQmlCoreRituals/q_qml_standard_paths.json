@@ -1,0 +1,40 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQmlCore/6.12.0/QtQmlCore/private/qqmlstandardpaths_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QQmlStandardPaths10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QQmlStandardPaths2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QQmlStandardPaths22qt_qmlMarker_singletonEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQmlStandardPaths20qmlExtendedNamespaceEv": ["address"],
+    "ritual_ZN17QQmlStandardPaths30qt_qmlMarker_extendedNamespaceEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQmlStandardPathsC1EP7QObject": ["address", "address"],
+    "ritual_ZNK17QQmlStandardPaths11displayNameEN14QStandardPaths16StandardLocationE": [
+      "text", "address", "int"
+    ],
+    "ritual_ZNK17QQmlStandardPaths14findExecutableERK7QStringRK5QListIS0_E": [
+      "address", "address", "text", "address"
+    ],
+    "ritual_ZNK17QQmlStandardPaths6locateEN14QStandardPaths16StandardLocationERK7QString6QFlagsINS0_12LocateOptionEE": [
+      "address", "address", "int", "text", "int"
+    ],
+    "ritual_ZNK17QQmlStandardPaths9locateAllEN14QStandardPaths16StandardLocationERK7QString6QFlagsINS0_12LocateOptionEE": [
+      "address", "address", "int", "text", "int"
+    ],
+    "ritual_ZNK17QQmlStandardPaths17standardLocationsEN14QStandardPaths16StandardLocationE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK17QQmlStandardPaths16writableLocationEN14QStandardPaths16StandardLocationE": [
+      "address", "address", "int"
+    ],
+    "ritual_take_QQmlStandardPaths": ["bool", "address", "chars", "address"]
+  }
+}

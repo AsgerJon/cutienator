@@ -1,0 +1,44 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/qnetworkinterface.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN17QNetworkInterfaceC1Ev": ["address"],
+    "ritual_ZN17QNetworkInterfaceC1ERKS_": ["address", "address"],
+    "ritual_ZN17QNetworkInterfaceD1Ev": ["nothing", "address"],
+    "ritual_ZNK17QNetworkInterface7isValidEv": ["bool", "address"],
+    "ritual_ZNK17QNetworkInterface5indexEv": ["int", "address"],
+    "ritual_ZNK17QNetworkInterface23maximumTransmissionUnitEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK17QNetworkInterface4nameEv": ["text", "address"],
+    "ritual_ZNK17QNetworkInterface17humanReadableNameEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK17QNetworkInterface5flagsEv": ["int", "address"],
+    "ritual_ZNK17QNetworkInterface4typeEv": ["int", "address"],
+    "ritual_ZNK17QNetworkInterface15hardwareAddressEv": ["text", "address"],
+    "ritual_ZNK17QNetworkInterface14addressEntriesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QNetworkInterface22interfaceIndexFromNameERK7QString": [
+      "int", "text"
+    ],
+    "ritual_ZN17QNetworkInterface17interfaceFromNameERK7QString": [
+      "address", "text"
+    ],
+    "ritual_ZN17QNetworkInterface18interfaceFromIndexEi": ["address", "int"],
+    "ritual_ZN17QNetworkInterface22interfaceNameFromIndexEi": [
+      "text", "int"
+    ],
+    "ritual_ZN17QNetworkInterface13allInterfacesEv": ["address"],
+    "ritual_ZN17QNetworkInterface12allAddressesEv": ["address"],
+    "ritual_list_make_QNetworkInterface": ["address"],
+    "ritual_list_add_QNetworkInterface": ["nothing", "address", "address"],
+    "ritual_list_size_QNetworkInterface": ["long long", "address"],
+    "ritual_list_at_QNetworkInterface": ["address", "address", "long long"],
+    "ritual_list_drop_QNetworkInterface": ["nothing", "address"]
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickwindow_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN29QQuickWindowQObjectCleanupJobC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN29QQuickWindowQObjectCleanupJob3runEv": ["nothing", "address"],
+    "ritual_ZN29QQuickWindowQObjectCleanupJob8scheduleEP12QQuickWindowP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QQuickWindowQObjectCleanupJob": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN29QQuickWindowQObjectCleanupJob3runEv": [
+      "nothing", "address"
+    ]
+  }
+}

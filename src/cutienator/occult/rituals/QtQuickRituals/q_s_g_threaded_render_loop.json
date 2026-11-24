@@ -1,0 +1,73 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qsgthreadedrenderloop_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK21QSGThreadedRenderLoop10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QSGThreadedRenderLoopD1Ev": ["nothing", "address"],
+    "ritual_ZN21QSGThreadedRenderLoop4showEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QSGThreadedRenderLoop4hideEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QSGThreadedRenderLoop6resizeEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QSGThreadedRenderLoop15exposureChangedEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QSGThreadedRenderLoop11maybeUpdateEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QSGThreadedRenderLoop19handleUpdateRequestEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21QSGThreadedRenderLoop17sceneGraphContextEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK21QSGThreadedRenderLoop19createRenderContextEP10QSGContext": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK21QSGThreadedRenderLoop15animationDriverEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QSGThreadedRenderLoop16releaseResourcesEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QSGThreadedRenderLoop5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK21QSGThreadedRenderLoop20interleaveIncubationEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK21QSGThreadedRenderLoop13anyoneShowingEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QSGThreadedRenderLoop16releaseSwapchainEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QSGThreadedRenderLoop": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN21QSGThreadedRenderLoop4showEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK21QSGThreadedRenderLoop17sceneGraphContextEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK21QSGThreadedRenderLoop19createRenderContextEP10QSGContext": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZNK21QSGThreadedRenderLoop15animationDriverEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK21QSGThreadedRenderLoop20interleaveIncubationEv": [
+      "bool", "address"
+    ]
+  }
+}

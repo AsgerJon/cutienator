@@ -1,0 +1,30 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtBluet",
+    "ooth/6.12.0/QtBluetooth/private/qbluetoothsocket_bluezdbus_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN32QBluetoothSocketPrivateBluezDBus22connectToServiceHelperERK17QBluetoothAddresst6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [
+      "nothing", "address", "address", "unsigned short", "int"
+    ],
+    "ritual_ZN32QBluetoothSocketPrivateBluezDBus18ensureNativeSocketEN21QBluetoothServiceInfo8ProtocolE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN32QBluetoothSocketPrivateBluezDBus9writeDataEPKcx": [
+      "long long", "address", "chars", "long long"
+    ],
+    "ritual_ZN32QBluetoothSocketPrivateBluezDBus19setSocketDescriptorEiN21QBluetoothServiceInfo8ProtocolEN16QBluetoothSocket11SocketStateE6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [
+      "bool", "address", "int", "int", "int", "int"
+    ],
+    "ritual_ZNK32QBluetoothSocketPrivateBluezDBus14bytesAvailableEv": [
+      "long long", "address"
+    ],
+    "ritual_ZNK32QBluetoothSocketPrivateBluezDBus11canReadLineEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK32QBluetoothSocketPrivateBluezDBus12bytesToWriteEv": [
+      "long long", "address"
+    ]
+  }
+}

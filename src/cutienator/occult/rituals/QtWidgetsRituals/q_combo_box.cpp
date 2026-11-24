@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qcombobox.h, Qt 6.12.0. Changes made here are lost.
+#include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(combobox)
 #include <QtWidgets/qcombobox.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qvariant.h>
@@ -33,28 +35,78 @@ struct OwnQComboBox : QComboBox {
 //  A QComboBox that Python can take functions over in. Every QComboBox
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if QT_CONFIG(combobox)
 typedef void (*CuteQComboBoxCall0)(const void *, QAbstractItemModel *, int *);
+#endif  // QT_CONFIG(combobox)
+#if QT_CONFIG(combobox)
 typedef const QSize * (*CuteQComboBoxCall1)(const void *, int *);
+#endif  // QT_CONFIG(combobox)
+#if QT_CONFIG(combobox)
 typedef const QSize * (*CuteQComboBoxCall2)(const void *, int *);
+#endif  // QT_CONFIG(combobox)
+#if QT_CONFIG(combobox)
 typedef void (*CuteQComboBoxCall3)(const void *, int *);
+#endif  // QT_CONFIG(combobox)
+#if QT_CONFIG(combobox)
 typedef void (*CuteQComboBoxCall4)(const void *, int *);
+#endif  // QT_CONFIG(combobox)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(combobox)
 typedef bool (*CuteQComboBoxCall5)(const void *, QEvent *, int *);
+#endif  // QT_CONFIG(combobox)
+#endif  // !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(combobox)
 typedef const QVariant * (*CuteQComboBoxCall6)(const void *, int, int *);
+#endif  // QT_CONFIG(combobox)
+#if QT_CONFIG(combobox)
 typedef void (*CuteQComboBoxCall7)(const void *, QFocusEvent *, int *);
+#endif  // QT_CONFIG(combobox)
+#if QT_CONFIG(combobox)
 typedef void (*CuteQComboBoxCall8)(const void *, QFocusEvent *, int *);
+#endif  // QT_CONFIG(combobox)
+#if QT_CONFIG(combobox)
 typedef void (*CuteQComboBoxCall9)(const void *, QEvent *, int *);
+#endif  // QT_CONFIG(combobox)
+#if QT_CONFIG(combobox)
 typedef void (*CuteQComboBoxCall10)(const void *, QResizeEvent *, int *);
+#endif  // QT_CONFIG(combobox)
+#if QT_CONFIG(combobox)
 typedef void (*CuteQComboBoxCall11)(const void *, QPaintEvent *, int *);
+#endif  // QT_CONFIG(combobox)
+#if QT_CONFIG(combobox)
 typedef void (*CuteQComboBoxCall12)(const void *, QShowEvent *, int *);
+#endif  // QT_CONFIG(combobox)
+#if QT_CONFIG(combobox)
 typedef void (*CuteQComboBoxCall13)(const void *, QHideEvent *, int *);
+#endif  // QT_CONFIG(combobox)
+#if QT_CONFIG(combobox)
 typedef void (*CuteQComboBoxCall14)(const void *, QMouseEvent *, int *);
+#endif  // QT_CONFIG(combobox)
+#if QT_CONFIG(combobox)
 typedef void (*CuteQComboBoxCall15)(const void *, QMouseEvent *, int *);
+#endif  // QT_CONFIG(combobox)
+#if QT_CONFIG(combobox)
 typedef void (*CuteQComboBoxCall16)(const void *, QKeyEvent *, int *);
+#endif  // QT_CONFIG(combobox)
+#if QT_CONFIG(combobox)
 typedef void (*CuteQComboBoxCall17)(const void *, QKeyEvent *, int *);
+#endif  // QT_CONFIG(combobox)
+#if QT_CONFIG(wheelevent)
+#if QT_CONFIG(combobox)
 typedef void (*CuteQComboBoxCall18)(const void *, QWheelEvent *, int *);
+#endif  // QT_CONFIG(combobox)
+#endif  // QT_CONFIG(wheelevent)
+#if !defined(QT_NO_CONTEXTMENU)
+#if QT_CONFIG(combobox)
 typedef void (*CuteQComboBoxCall19)(const void *, QContextMenuEvent *, int *);
+#endif  // QT_CONFIG(combobox)
+#endif  // !defined(QT_NO_CONTEXTMENU)
+#if QT_CONFIG(combobox)
 typedef void (*CuteQComboBoxCall20)(const void *, QInputMethodEvent *, int *);
+#endif  // QT_CONFIG(combobox)
+#if QT_CONFIG(combobox)
 typedef void (*CuteQComboBoxCall21)(const void *, QStyleOptionComboBox *, int *);
+#endif  // QT_CONFIG(combobox)
 typedef int (*CuteQComboBoxCall22)(const void *, int *);
 typedef void (*CuteQComboBoxCall23)(const void *, bool, int *);
 typedef int (*CuteQComboBoxCall24)(const void *, int, int *);
@@ -66,117 +118,191 @@ typedef void (*CuteQComboBoxCall29)(const void *, QEnterEvent *, int *);
 typedef void (*CuteQComboBoxCall30)(const void *, QEvent *, int *);
 typedef void (*CuteQComboBoxCall31)(const void *, QMoveEvent *, int *);
 typedef void (*CuteQComboBoxCall32)(const void *, QCloseEvent *, int *);
+#if QT_CONFIG(tabletevent)
 typedef void (*CuteQComboBoxCall33)(const void *, QTabletEvent *, int *);
+#endif  // QT_CONFIG(tabletevent)
+#if !defined(QT_NO_ACTION)
 typedef void (*CuteQComboBoxCall34)(const void *, QActionEvent *, int *);
+#endif  // !defined(QT_NO_ACTION)
+#if QT_CONFIG(draganddrop)
 typedef void (*CuteQComboBoxCall35)(const void *, QDragEnterEvent *, int *);
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
 typedef void (*CuteQComboBoxCall36)(const void *, QDragMoveEvent *, int *);
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
 typedef void (*CuteQComboBoxCall37)(const void *, QDragLeaveEvent *, int *);
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
 typedef void (*CuteQComboBoxCall38)(const void *, QDropEvent *, int *);
+#endif  // QT_CONFIG(draganddrop)
 typedef int (*CuteQComboBoxCall39)(const void *, int, int *);
 typedef void (*CuteQComboBoxCall40)(const void *, QPainter *, int *);
 typedef void * (*CuteQComboBoxCall41)(const void *, QPoint *, int *);
 typedef void * (*CuteQComboBoxCall42)(const void *, int *);
 typedef bool (*CuteQComboBoxCall43)(const void *, bool, int *);
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQComboBoxCall44)(const void *, QObject *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQComboBoxCall45)(const void *, QTimerEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQComboBoxCall46)(const void *, QChildEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQComboBoxCall47)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQComboBoxCall48)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQComboBoxCall49)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 class CuteQComboBox : public QComboBox {
 public:
   using QComboBox::QComboBox;
   void *taken[50] = {};
 
   bool take(const char *key, void *call) {
+#if QT_CONFIG(combobox)
     if (!std::strcmp(key, "_ZN9QComboBox8setModelEP18QAbstractItemModel")) {
       taken[0] = call;
       return true;
     }
+#endif  // QT_CONFIG(combobox)
+#if QT_CONFIG(combobox)
     if (!std::strcmp(key, "_ZNK7QWidget8sizeHintEv")) {
       taken[1] = call;
       return true;
     }
+#endif  // QT_CONFIG(combobox)
+#if QT_CONFIG(combobox)
     if (!std::strcmp(key, "_ZNK7QWidget15minimumSizeHintEv")) {
       taken[2] = call;
       return true;
     }
+#endif  // QT_CONFIG(combobox)
+#if QT_CONFIG(combobox)
     if (!std::strcmp(key, "_ZN9QComboBox9showPopupEv")) {
       taken[3] = call;
       return true;
     }
+#endif  // QT_CONFIG(combobox)
+#if QT_CONFIG(combobox)
     if (!std::strcmp(key, "_ZN9QComboBox9hidePopupEv")) {
       taken[4] = call;
       return true;
     }
+#endif  // QT_CONFIG(combobox)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(combobox)
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[5] = call;
       return true;
     }
+#endif  // QT_CONFIG(combobox)
+#endif  // !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(combobox)
     if (!std::strcmp(key, "_ZNK7QWidget16inputMethodQueryEN2Qt16InputMethodQueryE")) {
       taken[6] = call;
       return true;
     }
+#endif  // QT_CONFIG(combobox)
+#if QT_CONFIG(combobox)
     if (!std::strcmp(key, "_ZN7QWidget12focusInEventEP11QFocusEvent")) {
       taken[7] = call;
       return true;
     }
+#endif  // QT_CONFIG(combobox)
+#if QT_CONFIG(combobox)
     if (!std::strcmp(key, "_ZN7QWidget13focusOutEventEP11QFocusEvent")) {
       taken[8] = call;
       return true;
     }
+#endif  // QT_CONFIG(combobox)
+#if QT_CONFIG(combobox)
     if (!std::strcmp(key, "_ZN7QWidget11changeEventEP6QEvent")) {
       taken[9] = call;
       return true;
     }
+#endif  // QT_CONFIG(combobox)
+#if QT_CONFIG(combobox)
     if (!std::strcmp(key, "_ZN7QWidget11resizeEventEP12QResizeEvent")) {
       taken[10] = call;
       return true;
     }
+#endif  // QT_CONFIG(combobox)
+#if QT_CONFIG(combobox)
     if (!std::strcmp(key, "_ZN7QWidget10paintEventEP11QPaintEvent")) {
       taken[11] = call;
       return true;
     }
+#endif  // QT_CONFIG(combobox)
+#if QT_CONFIG(combobox)
     if (!std::strcmp(key, "_ZN7QWidget9showEventEP10QShowEvent")) {
       taken[12] = call;
       return true;
     }
+#endif  // QT_CONFIG(combobox)
+#if QT_CONFIG(combobox)
     if (!std::strcmp(key, "_ZN7QWidget9hideEventEP10QHideEvent")) {
       taken[13] = call;
       return true;
     }
+#endif  // QT_CONFIG(combobox)
+#if QT_CONFIG(combobox)
     if (!std::strcmp(key, "_ZN7QWidget15mousePressEventEP11QMouseEvent")) {
       taken[14] = call;
       return true;
     }
+#endif  // QT_CONFIG(combobox)
+#if QT_CONFIG(combobox)
     if (!std::strcmp(key, "_ZN7QWidget17mouseReleaseEventEP11QMouseEvent")) {
       taken[15] = call;
       return true;
     }
+#endif  // QT_CONFIG(combobox)
+#if QT_CONFIG(combobox)
     if (!std::strcmp(key, "_ZN7QWidget13keyPressEventEP9QKeyEvent")) {
       taken[16] = call;
       return true;
     }
+#endif  // QT_CONFIG(combobox)
+#if QT_CONFIG(combobox)
     if (!std::strcmp(key, "_ZN7QWidget15keyReleaseEventEP9QKeyEvent")) {
       taken[17] = call;
       return true;
     }
+#endif  // QT_CONFIG(combobox)
+#if QT_CONFIG(wheelevent)
+#if QT_CONFIG(combobox)
     if (!std::strcmp(key, "_ZN7QWidget10wheelEventEP11QWheelEvent")) {
       taken[18] = call;
       return true;
     }
+#endif  // QT_CONFIG(combobox)
+#endif  // QT_CONFIG(wheelevent)
+#if !defined(QT_NO_CONTEXTMENU)
+#if QT_CONFIG(combobox)
     if (!std::strcmp(key, "_ZN7QWidget16contextMenuEventEP17QContextMenuEvent")) {
       taken[19] = call;
       return true;
     }
+#endif  // QT_CONFIG(combobox)
+#endif  // !defined(QT_NO_CONTEXTMENU)
+#if QT_CONFIG(combobox)
     if (!std::strcmp(key, "_ZN7QWidget16inputMethodEventEP17QInputMethodEvent")) {
       taken[20] = call;
       return true;
     }
+#endif  // QT_CONFIG(combobox)
+#if QT_CONFIG(combobox)
     if (!std::strcmp(key, "_ZNK9QComboBox15initStyleOptionEP20QStyleOptionComboBox")) {
       taken[21] = call;
       return true;
     }
+#endif  // QT_CONFIG(combobox)
     if (!std::strcmp(key, "_ZNK12QPaintDevice7devTypeEv")) {
       taken[22] = call;
       return true;
@@ -221,30 +347,42 @@ public:
       taken[32] = call;
       return true;
     }
+#if QT_CONFIG(tabletevent)
     if (!std::strcmp(key, "_ZN7QWidget11tabletEventEP12QTabletEvent")) {
       taken[33] = call;
       return true;
     }
+#endif  // QT_CONFIG(tabletevent)
+#if !defined(QT_NO_ACTION)
     if (!std::strcmp(key, "_ZN7QWidget11actionEventEP12QActionEvent")) {
       taken[34] = call;
       return true;
     }
+#endif  // !defined(QT_NO_ACTION)
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget14dragEnterEventEP15QDragEnterEvent")) {
       taken[35] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget13dragMoveEventEP14QDragMoveEvent")) {
       taken[36] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget14dragLeaveEventEP15QDragLeaveEvent")) {
       taken[37] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget9dropEventEP10QDropEvent")) {
       taken[38] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZNK12QPaintDevice6metricENS_17PaintDeviceMetricE")) {
       taken[39] = call;
       return true;
@@ -265,33 +403,46 @@ public:
       taken[43] = call;
       return true;
     }
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[44] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[45] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[46] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[47] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[48] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
       taken[49] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
     return false;
   }
 
+#if QT_CONFIG(combobox)
   //  void QComboBox::setModel(QAbstractItemModel *model)
   void setModel(QAbstractItemModel *model) override {
     if (taken[0]) {
@@ -302,7 +453,9 @@ public:
     }
     QComboBox::setModel(model);
   }
+#endif  // QT_CONFIG(combobox)
 
+#if QT_CONFIG(combobox)
   //  QSize QComboBox::sizeHint() const
   QSize sizeHint() const override {
     if (taken[1]) {
@@ -313,7 +466,9 @@ public:
     }
     return QComboBox::sizeHint();
   }
+#endif  // QT_CONFIG(combobox)
 
+#if QT_CONFIG(combobox)
   //  QSize QComboBox::minimumSizeHint() const
   QSize minimumSizeHint() const override {
     if (taken[2]) {
@@ -324,7 +479,9 @@ public:
     }
     return QComboBox::minimumSizeHint();
   }
+#endif  // QT_CONFIG(combobox)
 
+#if QT_CONFIG(combobox)
   //  void QComboBox::showPopup()
   void showPopup() override {
     if (taken[3]) {
@@ -335,7 +492,9 @@ public:
     }
     QComboBox::showPopup();
   }
+#endif  // QT_CONFIG(combobox)
 
+#if QT_CONFIG(combobox)
   //  void QComboBox::hidePopup()
   void hidePopup() override {
     if (taken[4]) {
@@ -346,7 +505,10 @@ public:
     }
     QComboBox::hidePopup();
   }
+#endif  // QT_CONFIG(combobox)
 
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(combobox)
   //  bool QComboBox::event(QEvent *event)
   bool event(QEvent *event) override {
     if (taken[5]) {
@@ -357,7 +519,10 @@ public:
     }
     return QComboBox::event(event);
   }
+#endif  // QT_CONFIG(combobox)
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if QT_CONFIG(combobox)
   //  QVariant QComboBox::inputMethodQuery(Qt::InputMethodQuery a0) const
   QVariant inputMethodQuery(Qt::InputMethodQuery a0) const override {
     if (taken[6]) {
@@ -368,7 +533,9 @@ public:
     }
     return QComboBox::inputMethodQuery(a0);
   }
+#endif  // QT_CONFIG(combobox)
 
+#if QT_CONFIG(combobox)
   //  void QComboBox::focusInEvent(QFocusEvent *e)
   void focusInEvent(QFocusEvent *e) override {
     if (taken[7]) {
@@ -379,7 +546,9 @@ public:
     }
     QComboBox::focusInEvent(e);
   }
+#endif  // QT_CONFIG(combobox)
 
+#if QT_CONFIG(combobox)
   //  void QComboBox::focusOutEvent(QFocusEvent *e)
   void focusOutEvent(QFocusEvent *e) override {
     if (taken[8]) {
@@ -390,7 +559,9 @@ public:
     }
     QComboBox::focusOutEvent(e);
   }
+#endif  // QT_CONFIG(combobox)
 
+#if QT_CONFIG(combobox)
   //  void QComboBox::changeEvent(QEvent *e)
   void changeEvent(QEvent *e) override {
     if (taken[9]) {
@@ -401,7 +572,9 @@ public:
     }
     QComboBox::changeEvent(e);
   }
+#endif  // QT_CONFIG(combobox)
 
+#if QT_CONFIG(combobox)
   //  void QComboBox::resizeEvent(QResizeEvent *e)
   void resizeEvent(QResizeEvent *e) override {
     if (taken[10]) {
@@ -412,7 +585,9 @@ public:
     }
     QComboBox::resizeEvent(e);
   }
+#endif  // QT_CONFIG(combobox)
 
+#if QT_CONFIG(combobox)
   //  void QComboBox::paintEvent(QPaintEvent *e)
   void paintEvent(QPaintEvent *e) override {
     if (taken[11]) {
@@ -423,7 +598,9 @@ public:
     }
     QComboBox::paintEvent(e);
   }
+#endif  // QT_CONFIG(combobox)
 
+#if QT_CONFIG(combobox)
   //  void QComboBox::showEvent(QShowEvent *e)
   void showEvent(QShowEvent *e) override {
     if (taken[12]) {
@@ -434,7 +611,9 @@ public:
     }
     QComboBox::showEvent(e);
   }
+#endif  // QT_CONFIG(combobox)
 
+#if QT_CONFIG(combobox)
   //  void QComboBox::hideEvent(QHideEvent *e)
   void hideEvent(QHideEvent *e) override {
     if (taken[13]) {
@@ -445,7 +624,9 @@ public:
     }
     QComboBox::hideEvent(e);
   }
+#endif  // QT_CONFIG(combobox)
 
+#if QT_CONFIG(combobox)
   //  void QComboBox::mousePressEvent(QMouseEvent *e)
   void mousePressEvent(QMouseEvent *e) override {
     if (taken[14]) {
@@ -456,7 +637,9 @@ public:
     }
     QComboBox::mousePressEvent(e);
   }
+#endif  // QT_CONFIG(combobox)
 
+#if QT_CONFIG(combobox)
   //  void QComboBox::mouseReleaseEvent(QMouseEvent *e)
   void mouseReleaseEvent(QMouseEvent *e) override {
     if (taken[15]) {
@@ -467,7 +650,9 @@ public:
     }
     QComboBox::mouseReleaseEvent(e);
   }
+#endif  // QT_CONFIG(combobox)
 
+#if QT_CONFIG(combobox)
   //  void QComboBox::keyPressEvent(QKeyEvent *e)
   void keyPressEvent(QKeyEvent *e) override {
     if (taken[16]) {
@@ -478,7 +663,9 @@ public:
     }
     QComboBox::keyPressEvent(e);
   }
+#endif  // QT_CONFIG(combobox)
 
+#if QT_CONFIG(combobox)
   //  void QComboBox::keyReleaseEvent(QKeyEvent *e)
   void keyReleaseEvent(QKeyEvent *e) override {
     if (taken[17]) {
@@ -489,7 +676,10 @@ public:
     }
     QComboBox::keyReleaseEvent(e);
   }
+#endif  // QT_CONFIG(combobox)
 
+#if QT_CONFIG(wheelevent)
+#if QT_CONFIG(combobox)
   //  void QComboBox::wheelEvent(QWheelEvent *e)
   void wheelEvent(QWheelEvent *e) override {
     if (taken[18]) {
@@ -500,7 +690,11 @@ public:
     }
     QComboBox::wheelEvent(e);
   }
+#endif  // QT_CONFIG(combobox)
+#endif  // QT_CONFIG(wheelevent)
 
+#if !defined(QT_NO_CONTEXTMENU)
+#if QT_CONFIG(combobox)
   //  void QComboBox::contextMenuEvent(QContextMenuEvent *e)
   void contextMenuEvent(QContextMenuEvent *e) override {
     if (taken[19]) {
@@ -511,7 +705,10 @@ public:
     }
     QComboBox::contextMenuEvent(e);
   }
+#endif  // QT_CONFIG(combobox)
+#endif  // !defined(QT_NO_CONTEXTMENU)
 
+#if QT_CONFIG(combobox)
   //  void QComboBox::inputMethodEvent(QInputMethodEvent *a0)
   void inputMethodEvent(QInputMethodEvent *a0) override {
     if (taken[20]) {
@@ -522,7 +719,9 @@ public:
     }
     QComboBox::inputMethodEvent(a0);
   }
+#endif  // QT_CONFIG(combobox)
 
+#if QT_CONFIG(combobox)
   //  void QComboBox::initStyleOption(QStyleOptionComboBox *option) const
   void initStyleOption(QStyleOptionComboBox *option) const override {
     if (taken[21]) {
@@ -533,6 +732,7 @@ public:
     }
     QComboBox::initStyleOption(option);
   }
+#endif  // QT_CONFIG(combobox)
 
   //  int QWidget::devType() const
   int devType() const override {
@@ -655,6 +855,7 @@ public:
     QWidget::closeEvent(event);
   }
 
+#if QT_CONFIG(tabletevent)
   //  void QWidget::tabletEvent(QTabletEvent *event)
   void tabletEvent(QTabletEvent *event) override {
     if (taken[33]) {
@@ -665,7 +866,9 @@ public:
     }
     QWidget::tabletEvent(event);
   }
+#endif  // QT_CONFIG(tabletevent)
 
+#if !defined(QT_NO_ACTION)
   //  void QWidget::actionEvent(QActionEvent *event)
   void actionEvent(QActionEvent *event) override {
     if (taken[34]) {
@@ -676,7 +879,9 @@ public:
     }
     QWidget::actionEvent(event);
   }
+#endif  // !defined(QT_NO_ACTION)
 
+#if QT_CONFIG(draganddrop)
   //  void QWidget::dragEnterEvent(QDragEnterEvent *event)
   void dragEnterEvent(QDragEnterEvent *event) override {
     if (taken[35]) {
@@ -687,7 +892,9 @@ public:
     }
     QWidget::dragEnterEvent(event);
   }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
   //  void QWidget::dragMoveEvent(QDragMoveEvent *event)
   void dragMoveEvent(QDragMoveEvent *event) override {
     if (taken[36]) {
@@ -698,7 +905,9 @@ public:
     }
     QWidget::dragMoveEvent(event);
   }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
   //  void QWidget::dragLeaveEvent(QDragLeaveEvent *event)
   void dragLeaveEvent(QDragLeaveEvent *event) override {
     if (taken[37]) {
@@ -709,7 +918,9 @@ public:
     }
     QWidget::dragLeaveEvent(event);
   }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
   //  void QWidget::dropEvent(QDropEvent *event)
   void dropEvent(QDropEvent *event) override {
     if (taken[38]) {
@@ -720,6 +931,7 @@ public:
     }
     QWidget::dropEvent(event);
   }
+#endif  // QT_CONFIG(draganddrop)
 
   //  int QWidget::metric(PaintDeviceMetric a0) const
   int metric(QPaintDevice::PaintDeviceMetric a0) const override {
@@ -776,6 +988,7 @@ public:
     return QWidget::focusNextPrevChild(next);
   }
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
     if (taken[44]) {
@@ -786,7 +999,9 @@ public:
     }
     return QObject::eventFilter(watched, event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
     if (taken[45]) {
@@ -797,7 +1012,9 @@ public:
     }
     QObject::timerEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
     if (taken[46]) {
@@ -808,7 +1025,9 @@ public:
     }
     QObject::childEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
     if (taken[47]) {
@@ -819,7 +1038,9 @@ public:
     }
     QObject::customEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
     if (taken[48]) {
@@ -830,7 +1051,9 @@ public:
     }
     QObject::connectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
     if (taken[49]) {
@@ -841,6 +1064,7 @@ public:
     }
     QObject::disconnectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 };
 
 //  const QMetaObject *QComboBox::metaObject() const
@@ -1047,6 +1271,7 @@ QLineEdit *ritual_ZNK9QComboBox8lineEditEv(const QComboBox *self) {
   return self->lineEdit();
 }
 
+#if !defined(QT_NO_VALIDATOR)
 //  void QComboBox::setValidator(const QValidator *v)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN9QComboBox12setValidatorEPK10QValidator(
@@ -1054,13 +1279,17 @@ void ritual_ZN9QComboBox12setValidatorEPK10QValidator(
     const QValidator *v) {
   self->setValidator(v);
 }
+#endif  // !defined(QT_NO_VALIDATOR)
 
+#if !defined(QT_NO_VALIDATOR)
 //  const QValidator *QComboBox::validator() const
 extern "C" Q_DECL_EXPORT
 const QValidator *ritual_ZNK9QComboBox9validatorEv(const QComboBox *self) {
   return self->validator();
 }
+#endif  // !defined(QT_NO_VALIDATOR)
 
+#if QT_CONFIG(completer)
 //  void QComboBox::setCompleter(QCompleter *c)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN9QComboBox12setCompleterEP10QCompleter(
@@ -1068,12 +1297,15 @@ void ritual_ZN9QComboBox12setCompleterEP10QCompleter(
     QCompleter *c) {
   self->setCompleter(c);
 }
+#endif  // QT_CONFIG(completer)
 
+#if QT_CONFIG(completer)
 //  QCompleter *QComboBox::completer() const
 extern "C" Q_DECL_EXPORT
 QCompleter *ritual_ZNK9QComboBox9completerEv(const QComboBox *self) {
   return self->completer();
 }
+#endif  // QT_CONFIG(completer)
 
 //  QAbstractItemDelegate *QComboBox::itemDelegate() const
 extern "C" Q_DECL_EXPORT
@@ -1470,6 +1702,7 @@ void ritual_ZN9QComboBox15keyReleaseEventEP9QKeyEvent(
   self->keyReleaseEvent(e);
 }
 
+#if QT_CONFIG(wheelevent)
 //  void QComboBox::wheelEvent(QWheelEvent *e)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN9QComboBox10wheelEventEP11QWheelEvent(
@@ -1477,7 +1710,9 @@ void ritual_ZN9QComboBox10wheelEventEP11QWheelEvent(
     QWheelEvent *e) {
   self->wheelEvent(e);
 }
+#endif  // QT_CONFIG(wheelevent)
 
+#if !defined(QT_NO_CONTEXTMENU)
 //  void QComboBox::contextMenuEvent(QContextMenuEvent *e)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN9QComboBox16contextMenuEventEP17QContextMenuEvent(
@@ -1485,6 +1720,7 @@ void ritual_ZN9QComboBox16contextMenuEventEP17QContextMenuEvent(
     QContextMenuEvent *e) {
   self->contextMenuEvent(e);
 }
+#endif  // !defined(QT_NO_CONTEXTMENU)
 
 //  void QComboBox::inputMethodEvent(QInputMethodEvent *a0)
 extern "C" Q_DECL_EXPORT
@@ -1500,6 +1736,19 @@ void ritual_ZNK9QComboBox15initStyleOptionEP20QStyleOptionComboBox(
     const QComboBox *self,
     QStyleOptionComboBox *option) {
   self->initStyleOption(option);
+}
+
+//  QComboBoxPrivate *QComboBox::d_func()
+extern "C" Q_DECL_EXPORT
+QComboBoxPrivate *ritual_ZN9QComboBox6d_funcEv(QComboBox *self) {
+  return self->d_func();
+}
+
+//  const QComboBoxPrivate *QComboBox::d_func() const
+extern "C" Q_DECL_EXPORT
+const QComboBoxPrivate *ritual_ZNK9QComboBox6d_funcEv(
+    const QComboBox *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQComboBox, for the function named by the
@@ -1643,6 +1892,7 @@ void ritual_own_ZN9QComboBox15keyReleaseEventEP9QKeyEvent(
   static_cast<OwnQComboBox *>(self)->OwnQComboBox::keyReleaseEvent(e);
 }
 
+#if QT_CONFIG(wheelevent)
 //  void QComboBox::wheelEvent(QWheelEvent *e)
 extern "C" Q_DECL_EXPORT
 void ritual_own_ZN9QComboBox10wheelEventEP11QWheelEvent(
@@ -1650,7 +1900,9 @@ void ritual_own_ZN9QComboBox10wheelEventEP11QWheelEvent(
     QWheelEvent *e) {
   static_cast<OwnQComboBox *>(self)->OwnQComboBox::wheelEvent(e);
 }
+#endif  // QT_CONFIG(wheelevent)
 
+#if !defined(QT_NO_CONTEXTMENU)
 //  void QComboBox::contextMenuEvent(QContextMenuEvent *e)
 extern "C" Q_DECL_EXPORT
 void ritual_own_ZN9QComboBox16contextMenuEventEP17QContextMenuEvent(
@@ -1658,6 +1910,7 @@ void ritual_own_ZN9QComboBox16contextMenuEventEP17QContextMenuEvent(
     QContextMenuEvent *e) {
   static_cast<OwnQComboBox *>(self)->OwnQComboBox::contextMenuEvent(e);
 }
+#endif  // !defined(QT_NO_CONTEXTMENU)
 
 //  void QComboBox::inputMethodEvent(QInputMethodEvent *a0)
 extern "C" Q_DECL_EXPORT
@@ -1675,3 +1928,5 @@ void ritual_own_ZNK9QComboBox15initStyleOptionEP20QStyleOptionComboBox(
   static_cast<const OwnQComboBox *>(self)->OwnQComboBox::initStyleOption(
       option);
 }
+
+#endif  // QT_CONFIG(combobox)

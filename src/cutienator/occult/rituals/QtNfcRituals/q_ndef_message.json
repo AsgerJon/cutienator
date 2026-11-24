@@ -1,0 +1,25 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNfc/qndefmessage.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN12QNdefMessageC1Ev": ["address"],
+    "ritual_ZN12QNdefMessageC1ERK11QNdefRecord": ["address", "address"],
+    "ritual_ZN12QNdefMessageC1ERKS_": ["address", "address"],
+    "ritual_ZN12QNdefMessageC1ERK5QListI11QNdefRecordE": [
+      "address", "address"
+    ],
+    "ritual_ZNK12QNdefMessageeqERKS_": ["bool", "address", "address"],
+    "ritual_ZNK12QNdefMessage11toByteArrayEv": ["address", "address"],
+    "ritual_ZN12QNdefMessage13fromByteArrayERK10QByteArray": [
+      "address", "address"
+    ],
+    "ritual_ZN12QNdefMessageD1Ev": ["nothing", "address"],
+    "ritual_list_make_QNdefMessage": ["address"],
+    "ritual_list_add_QNdefMessage": ["nothing", "address", "address"],
+    "ritual_list_size_QNdefMessage": ["long long", "address"],
+    "ritual_list_at_QNdefMessage": ["address", "address", "long long"],
+    "ritual_list_drop_QNdefMessage": ["nothing", "address"]
+  }
+}

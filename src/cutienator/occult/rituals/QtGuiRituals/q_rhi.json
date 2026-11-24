@@ -1,0 +1,106 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/rhi/qrhi.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN4QRhiD1Ev": ["nothing", "address"],
+    "ritual_ZN4QRhi6createENS_14ImplementationEP14QRhiInitParams6QFlagsINS_4FlagEEP17QRhiNativeHandles": [
+      "address", "int", "address", "int", "address"
+    ],
+    "ritual_ZN4QRhi6createENS_14ImplementationEP14QRhiInitParams6QFlagsINS_4FlagEEP17QRhiNativeHandlesP11QRhiAdapter": [
+      "address", "int", "address", "int", "address", "address"
+    ],
+    "ritual_ZN4QRhi5probeENS_14ImplementationEP14QRhiInitParams": [
+      "bool", "int", "address"
+    ],
+    "ritual_ZN4QRhi17enumerateAdaptersENS_14ImplementationEP14QRhiInitParamsP17QRhiNativeHandles": [
+      "address", "int", "address", "address"
+    ],
+    "ritual_ZNK4QRhi7backendEv": ["int", "address"],
+    "ritual_ZNK4QRhi11backendNameEv": ["chars", "address"],
+    "ritual_ZN4QRhi11backendNameENS_14ImplementationE": ["chars", "int"],
+    "ritual_ZNK4QRhi10driverInfoEv": ["address", "address"],
+    "ritual_ZNK4QRhi6threadEv": ["address", "address"],
+    "ritual_ZN4QRhi19newGraphicsPipelineEv": ["address", "address"],
+    "ritual_ZN4QRhi18newComputePipelineEv": ["address", "address"],
+    "ritual_ZN4QRhi25newShaderResourceBindingsEv": ["address", "address"],
+    "ritual_ZN4QRhi9newBufferEN10QRhiBuffer4TypeE6QFlagsINS0_9UsageFlagEEj": [
+      "address", "address", "int", "int", "unsigned int"
+    ],
+    "ritual_ZN4QRhi15newRenderBufferEN16QRhiRenderBuffer4TypeERK5QSizei6QFlagsINS0_4FlagEEN11QRhiTexture6FormatE": [
+      "address", "address", "int", "address", "int", "int", "int"
+    ],
+    "ritual_ZN4QRhi10newTextureEN11QRhiTexture6FormatERK5QSizei6QFlagsINS0_4FlagEE": [
+      "address", "address", "int", "address", "int", "int"
+    ],
+    "ritual_ZN4QRhi10newTextureEN11QRhiTexture6FormatEiiii6QFlagsINS0_4FlagEE": [
+      "address", "address", "int", "int", "int", "int", "int", "int"
+    ],
+    "ritual_ZN4QRhi15newTextureArrayEN11QRhiTexture6FormatEiRK5QSizei6QFlagsINS0_4FlagEE": [
+      "address", "address", "int", "int", "address", "int", "int"
+    ],
+    "ritual_ZN4QRhi10newSamplerEN11QRhiSampler6FilterES1_S1_NS0_11AddressModeES2_S2_": [
+      "address", "address", "int", "int", "int", "int", "int", "int"
+    ],
+    "ritual_ZN4QRhi17newShadingRateMapEv": ["address", "address"],
+    "ritual_ZN4QRhi22newTextureRenderTargetERK34QRhiTextureRenderTargetDescription6QFlagsIN23QRhiTextureRenderTarget4FlagEE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN4QRhi12newSwapChainEv": ["address", "address"],
+    "ritual_ZN4QRhi10beginFrameEP13QRhiSwapChain6QFlagsINS_14BeginFrameFlagEE": [
+      "int", "address", "address", "int"
+    ],
+    "ritual_ZN4QRhi8endFrameEP13QRhiSwapChain6QFlagsINS_12EndFrameFlagEE": [
+      "int", "address", "address", "int"
+    ],
+    "ritual_ZNK4QRhi16isRecordingFrameEv": ["bool", "address"],
+    "ritual_ZNK4QRhi16currentFrameSlotEv": ["int", "address"],
+    "ritual_ZN4QRhi17endOffscreenFrameE6QFlagsINS_12EndFrameFlagEE": [
+      "int", "address", "int"
+    ],
+    "ritual_ZN4QRhi6finishEv": ["int", "address"],
+    "ritual_ZN4QRhi23nextResourceUpdateBatchEv": ["address", "address"],
+    "ritual_ZNK4QRhi13ubufAlignmentEv": ["int", "address"],
+    "ritual_ZNK4QRhi11ubufAlignedEi": ["int", "address", "int"],
+    "ritual_ZN4QRhi16mipLevelsForSizeERK5QSize": ["int", "address"],
+    "ritual_ZN4QRhi15sizeForMipLevelEiRK5QSize": [
+      "address", "int", "address"
+    ],
+    "ritual_ZNK4QRhi18isYUpInFramebufferEv": ["bool", "address"],
+    "ritual_ZNK4QRhi10isYUpInNDCEv": ["bool", "address"],
+    "ritual_ZNK4QRhi20isClipDepthZeroToOneEv": ["bool", "address"],
+    "ritual_ZNK4QRhi19clipSpaceCorrMatrixEv": ["address", "address"],
+    "ritual_ZNK4QRhi24isTextureFormatSupportedEN11QRhiTexture6FormatE6QFlagsINS0_4FlagEE": [
+      "bool", "address", "int", "int"
+    ],
+    "ritual_ZNK4QRhi18isFeatureSupportedENS_7FeatureE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK4QRhi13resourceLimitENS_13ResourceLimitE": [
+      "int", "address", "int"
+    ],
+    "ritual_ZN4QRhi13nativeHandlesEv": ["address", "address"],
+    "ritual_ZN4QRhi35makeThreadLocalNativeContextCurrentEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN4QRhi20setQueueSubmitParamsEP17QRhiNativeHandles": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN4QRhi22releaseCachedResourcesEv": ["nothing", "address"],
+    "ritual_ZNK4QRhi12isDeviceLostEv": ["bool", "address"],
+    "ritual_ZN4QRhi17pipelineCacheDataEv": ["address", "address"],
+    "ritual_ZN4QRhi20setPipelineCacheDataERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK4QRhi10statisticsEv": ["address", "address"],
+    "ritual_ZN4QRhi24updateSwapChainProxyDataENS_14ImplementationEP7QWindow": [
+      "address", "int", "address"
+    ],
+    "ritual_ZNK4QRhi21supportedShadingRatesEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN4QRhiC1Ev": ["address"]
+  }
+}

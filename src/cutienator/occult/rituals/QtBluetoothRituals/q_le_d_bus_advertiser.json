@@ -1,0 +1,12 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtBluet",
+    "ooth/6.12.0/QtBluetooth/private/qleadvertiser_bluezdbus_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QLeDBusAdvertiser10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QLeDBusAdvertiserD1Ev": ["nothing", "address"],
+    "ritual_take_QLeDBusAdvertiser": ["bool", "address", "chars", "address"]
+  }
+}

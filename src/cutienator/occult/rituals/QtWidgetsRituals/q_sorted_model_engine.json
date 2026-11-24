@@ -1,0 +1,28 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qcompleter_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QSortedModelEngineC1EP17QCompleterPrivate": [
+      "address", "address"
+    ],
+    "ritual_ZN18QSortedModelEngine6filterERK7QStringRK11QModelIndexi": [
+      "address", "address", "text", "address", "int"
+    ],
+    "ritual_ZN18QSortedModelEngine9indexHintE7QStringRK11QModelIndexN2Qt9SortOrderE": [
+      "address", "address", "text", "address", "int"
+    ],
+    "ritual_ZNK18QSortedModelEngine9sortOrderERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN18QSortedModelEngineD1Ev": ["nothing", "address"],
+    "ritual_take_QSortedModelEngine": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN18QSortedModelEngine6filterERK7QStringRK11QModelIndexi": [
+      "address", "address", "text", "address", "int"
+    ]
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQmlModels/6.12.0/QtQmlModels/private/qqmllistmodel_p_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN3QV44Heap11ModelObject4initEP7QObjectP13QQmlListModel": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN3QV44Heap11ModelObject7destroyEv": ["nothing", "address"],
+    "ritual_ZNK3QV44Heap11ModelObject12elementIndexEv": ["int", "address"]
+  }
+}

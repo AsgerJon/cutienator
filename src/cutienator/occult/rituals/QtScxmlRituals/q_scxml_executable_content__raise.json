@@ -1,0 +1,12 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtScxml/6.12.0/QtScxml/private/qscxmlexecutablecontent_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN23QScxmlExecutableContent5Raise4kindEv": ["int"],
+    "ritual_ZNK23QScxmlExecutableContent5Raise4sizeEv": ["int", "address"],
+    "ritual_ZN23QScxmlExecutableContent5RaiseD1Ev": ["nothing", "address"]
+  }
+}

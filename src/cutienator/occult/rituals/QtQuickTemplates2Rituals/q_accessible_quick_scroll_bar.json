@@ -1,0 +1,57 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qaccessiblequickscroll",
+    "bar_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK25QAccessibleQuickScrollBar14attributeValueEN11QAccessible9AttributeE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK25QAccessibleQuickScrollBar12currentValueEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QAccessibleQuickScrollBar15setCurrentValueERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK25QAccessibleQuickScrollBar12maximumValueEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK25QAccessibleQuickScrollBar12minimumValueEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK25QAccessibleQuickScrollBar15minimumStepSizeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK25QAccessibleQuickScrollBar9scrollBarEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK25QAccessibleQuickScrollBar20maximumPositionValueEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK25QAccessibleQuickScrollBar14normalizeValueEd": [
+      "double", "address", "double"
+    ],
+    "ritual_ZNK25QAccessibleQuickScrollBar16denormalizeValueEd": [
+      "double", "address", "double"
+    ],
+    "ritual_own_ZNK25QAccessibleQuickScrollBar14attributeValueEN11QAccessible9AttributeE": [
+      "address", "address", "int"
+    ],
+    "ritual_own_ZNK25QAccessibleQuickScrollBar12currentValueEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN25QAccessibleQuickScrollBar15setCurrentValueERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK25QAccessibleQuickScrollBar12maximumValueEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK25QAccessibleQuickScrollBar12minimumValueEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK25QAccessibleQuickScrollBar15minimumStepSizeEv": [
+      "address", "address"
+    ]
+  }
+}

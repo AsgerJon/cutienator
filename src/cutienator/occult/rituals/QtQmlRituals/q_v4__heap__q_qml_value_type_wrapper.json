@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmlvaluetypewrapper_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN3QV44Heap20QQmlValueTypeWrapper11markObjectsEPNS0_4BaseEPNS_9MarkStackE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK3QV44Heap20QQmlValueTypeWrapper8metaTypeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV44Heap20QQmlValueTypeWrapper10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV44Heap20QQmlValueTypeWrapper13setMetaObjectEPK11QMetaObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN3QV44Heap20QQmlValueTypeWrapper11setMetaTypeE9QMetaType": [
+      "nothing", "address", "address"
+    ],
+    "ritual_cast_QV4_Heap_QQmlValueTypeWrapper_QV4_Heap_QQmlValueTypeWrapperData": [
+      "address", "address"
+    ]
+  }
+}

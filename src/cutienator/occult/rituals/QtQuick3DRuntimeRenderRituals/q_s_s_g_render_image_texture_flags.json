@@ -1,0 +1,32 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgrenderim",
+    "agetexture_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK27QSSGRenderImageTextureFlags15hasTransparencyEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN27QSSGRenderImageTextureFlags18setHasTransparencyEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK27QSSGRenderImageTextureFlags7isRgbe8Ev": ["bool", "address"],
+    "ritual_ZN27QSSGRenderImageTextureFlags8setRgbe8Eb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK27QSSGRenderImageTextureFlags8isLinearEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN27QSSGRenderImageTextureFlags9setLinearEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK27QSSGRenderImageTextureFlags20isPreMultipliedAlphaEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN27QSSGRenderImageTextureFlags21setPreMultipliedAlphaEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN27QSSGRenderImageTextureFlagsD1Ev": ["nothing", "address"]
+  }
+}

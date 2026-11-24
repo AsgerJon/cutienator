@@ -1,0 +1,83 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/6.12.0/QtCharts/private/qpiemodelmapper_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK22QPieModelMapperPrivate10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QPieModelMapperPrivate2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN22QPieModelMapperPrivateC1EP15QPieModelMapper": [
+      "address", "address"
+    ],
+    "ritual_ZN22QPieModelMapperPrivate12modelUpdatedE11QModelIndexS0_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN22QPieModelMapperPrivate14modelRowsAddedE11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN22QPieModelMapperPrivate16modelRowsRemovedE11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN22QPieModelMapperPrivate17modelColumnsAddedE11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN22QPieModelMapperPrivate19modelColumnsRemovedE11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN22QPieModelMapperPrivate20handleModelDestroyedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QPieModelMapperPrivate11slicesAddedERK5QListIP9QPieSliceE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QPieModelMapperPrivate13slicesRemovedERK5QListIP9QPieSliceE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QPieModelMapperPrivate17sliceLabelChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QPieModelMapperPrivate17sliceValueChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QPieModelMapperPrivate21handleSeriesDestroyedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QPieModelMapperPrivate22initializePieFromModelEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK22QPieModelMapperPrivate8pieSliceE11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK22QPieModelMapperPrivate12isLabelIndexE11QModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK22QPieModelMapperPrivate12isValueIndexE11QModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN22QPieModelMapperPrivate15valueModelIndexEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN22QPieModelMapperPrivate15labelModelIndexEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN22QPieModelMapperPrivate10insertDataEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN22QPieModelMapperPrivate10removeDataEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN22QPieModelMapperPrivate17blockModelSignalsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN22QPieModelMapperPrivate18blockSeriesSignalsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN22QPieModelMapperPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK22QPieModelMapperPrivate6q_funcEv": ["address", "address"]
+  }
+}

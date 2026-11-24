@@ -1,0 +1,32 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Layouts/6.12.0/QtQuickLayouts/private/qquicklayoutstyleinfo_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN21QQuickLayoutStyleInfoC1Ev": ["address"],
+    "ritual_ZNK21QQuickLayoutStyleInfo7spacingEN2Qt11OrientationE": [
+      "double", "address", "int"
+    ],
+    "ritual_ZNK21QQuickLayoutStyleInfo12windowMarginEN2Qt11OrientationE": [
+      "double", "address", "int"
+    ],
+    "ritual_ZNK21QQuickLayoutStyleInfo14hasChangedCoreEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QQuickLayoutStyleInfoD1Ev": ["nothing", "address"],
+    "ritual_take_QQuickLayoutStyleInfo": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK21QQuickLayoutStyleInfo7spacingEN2Qt11OrientationE": [
+      "double", "address", "int"
+    ],
+    "ritual_own_ZNK21QQuickLayoutStyleInfo12windowMarginEN2Qt11OrientationE": [
+      "double", "address", "int"
+    ],
+    "ritual_own_ZNK21QQuickLayoutStyleInfo14hasChangedCoreEv": [
+      "bool", "address"
+    ]
+  }
+}

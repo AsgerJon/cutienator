@@ -1,0 +1,178 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLocation/6.12.0/QtLocation/private/qgeoprojection_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN25QGeoProjectionWebMercatorC1Ev": ["address"],
+    "ritual_ZN25QGeoProjectionWebMercatorD1Ev": ["nothing", "address"],
+    "ritual_ZNK25QGeoProjectionWebMercator11minimumZoomEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK25QGeoProjectionWebMercator24projectionTransformationEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK25QGeoProjectionWebMercator33projectionTransformation_centeredEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK25QGeoProjectionWebMercator12qsgTransformEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK25QGeoProjectionWebMercator14centerMercatorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK25QGeoProjectionWebMercator27maximumCenterLatitudeAtZoomERK14QGeoCameraData": [
+      "double", "address", "address"
+    ],
+    "ritual_ZNK25QGeoProjectionWebMercator27minimumCenterLatitudeAtZoomERK14QGeoCameraData": [
+      "double", "address", "address"
+    ],
+    "ritual_ZN25QGeoProjectionWebMercator14setVisibleAreaERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QGeoProjectionWebMercator15setViewportSizeERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QGeoProjectionWebMercator13setCameraDataERK14QGeoCameraDatab": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZNK25QGeoProjectionWebMercator10cameraDataEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK25QGeoProjectionWebMercator24itemPositionToCoordinateERK15QDoubleVector2Db": [
+      "address", "address", "address", "bool"
+    ],
+    "ritual_ZNK25QGeoProjectionWebMercator24coordinateToItemPositionERK14QGeoCoordinateb": [
+      "address", "address", "address", "bool"
+    ],
+    "ritual_ZNK25QGeoProjectionWebMercator15projectionGroupEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK25QGeoProjectionWebMercator5datumEv": ["int", "address"],
+    "ritual_ZNK25QGeoProjectionWebMercator14projectionTypeEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK25QGeoProjectionWebMercator23anchorCoordinateToPointERK14QGeoCoordinateRK7QPointF": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN25QGeoProjectionWebMercator10setBearingEdRK14QGeoCoordinate": [
+      "bool", "address", "double", "address"
+    ],
+    "ritual_ZNK25QGeoProjectionWebMercator13visibleRegionEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK25QGeoProjectionWebMercator8mapWidthEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK25QGeoProjectionWebMercator9mapHeightEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK25QGeoProjectionWebMercator18geoToMapProjectionERK14QGeoCoordinate": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK25QGeoProjectionWebMercator18mapProjectionToGeoERK15QDoubleVector2D": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK25QGeoProjectionWebMercator20projectionWrapFactorERK15QDoubleVector2D": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK25QGeoProjectionWebMercator17wrapMapProjectionERK15QDoubleVector2D": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK25QGeoProjectionWebMercator19unwrapMapProjectionERK15QDoubleVector2D": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK25QGeoProjectionWebMercator34wrappedMapProjectionToItemPositionERK15QDoubleVector2D": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK25QGeoProjectionWebMercator34itemPositionToWrappedMapProjectionERK15QDoubleVector2D": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK25QGeoProjectionWebMercator25geoToWrappedMapProjectionERK14QGeoCoordinate": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK25QGeoProjectionWebMercator25wrappedMapProjectionToGeoERK15QDoubleVector2D": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK25QGeoProjectionWebMercator23quickItemTransformationERK14QGeoCoordinateRK7QPointFd": [
+      "address", "address", "address", "address", "double"
+    ],
+    "ritual_ZNK25QGeoProjectionWebMercator13isProjectableERK15QDoubleVector2D": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK25QGeoProjectionWebMercator15visibleGeometryEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK25QGeoProjectionWebMercator23visibleGeometryExpandedEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK25QGeoProjectionWebMercator19projectableGeometryEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QGeoProjectionWebMercator11setupCameraEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QGeoProjectionWebMercator19updateVisibleRegionEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QGeoProjectionWebMercator": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK25QGeoProjectionWebMercator11minimumZoomEv": [
+      "double", "address"
+    ],
+    "ritual_own_ZNK25QGeoProjectionWebMercator24projectionTransformationEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK25QGeoProjectionWebMercator33projectionTransformation_centeredEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK25QGeoProjectionWebMercator12qsgTransformEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK25QGeoProjectionWebMercator14centerMercatorEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK25QGeoProjectionWebMercator27maximumCenterLatitudeAtZoomERK14QGeoCameraData": [
+      "double", "address", "address"
+    ],
+    "ritual_own_ZNK25QGeoProjectionWebMercator27minimumCenterLatitudeAtZoomERK14QGeoCameraData": [
+      "double", "address", "address"
+    ],
+    "ritual_own_ZN25QGeoProjectionWebMercator14setVisibleAreaERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN25QGeoProjectionWebMercator15setViewportSizeERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN25QGeoProjectionWebMercator13setCameraDataERK14QGeoCameraDatab": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_own_ZNK25QGeoProjectionWebMercator10cameraDataEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK25QGeoProjectionWebMercator24itemPositionToCoordinateERK15QDoubleVector2Db": [
+      "address", "address", "address", "bool"
+    ],
+    "ritual_own_ZNK25QGeoProjectionWebMercator24coordinateToItemPositionERK14QGeoCoordinateb": [
+      "address", "address", "address", "bool"
+    ],
+    "ritual_own_ZNK25QGeoProjectionWebMercator15projectionGroupEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZNK25QGeoProjectionWebMercator5datumEv": ["int", "address"],
+    "ritual_own_ZNK25QGeoProjectionWebMercator14projectionTypeEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZNK25QGeoProjectionWebMercator23anchorCoordinateToPointERK14QGeoCoordinateRK7QPointF": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN25QGeoProjectionWebMercator10setBearingEdRK14QGeoCoordinate": [
+      "bool", "address", "double", "address"
+    ],
+    "ritual_own_ZNK25QGeoProjectionWebMercator13visibleRegionEv": [
+      "address", "address"
+    ]
+  }
+}

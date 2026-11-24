@@ -1,0 +1,127 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickanimatedsprite_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK20QQuickAnimatedSprite10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QQuickAnimatedSprite2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN20QQuickAnimatedSpriteC1EP10QQuickItem": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QQuickAnimatedSprite7runningEv": ["bool", "address"],
+    "ritual_ZNK20QQuickAnimatedSprite11interpolateEv": ["bool", "address"],
+    "ritual_ZNK20QQuickAnimatedSprite6sourceEv": ["address", "address"],
+    "ritual_ZNK20QQuickAnimatedSprite7reverseEv": ["bool", "address"],
+    "ritual_ZNK20QQuickAnimatedSprite9frameSyncEv": ["bool", "address"],
+    "ritual_ZNK20QQuickAnimatedSprite10frameCountEv": ["int", "address"],
+    "ritual_ZNK20QQuickAnimatedSprite11frameHeightEv": ["int", "address"],
+    "ritual_ZNK20QQuickAnimatedSprite10frameWidthEv": ["int", "address"],
+    "ritual_ZNK20QQuickAnimatedSprite6frameXEv": ["int", "address"],
+    "ritual_ZNK20QQuickAnimatedSprite6frameYEv": ["int", "address"],
+    "ritual_ZNK20QQuickAnimatedSprite9frameRateEv": ["double", "address"],
+    "ritual_ZNK20QQuickAnimatedSprite13frameDurationEv": ["int", "address"],
+    "ritual_ZNK20QQuickAnimatedSprite5loopsEv": ["int", "address"],
+    "ritual_ZNK20QQuickAnimatedSprite6pausedEv": ["bool", "address"],
+    "ritual_ZNK20QQuickAnimatedSprite12currentFrameEv": ["int", "address"],
+    "ritual_ZNK20QQuickAnimatedSprite14finishBehaviorEv": ["int", "address"],
+    "ritual_ZN20QQuickAnimatedSprite17setFinishBehaviorENS_14FinishBehaviorE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQuickAnimatedSprite5startEv": ["nothing", "address"],
+    "ritual_ZN20QQuickAnimatedSprite4stopEv": ["nothing", "address"],
+    "ritual_ZN20QQuickAnimatedSprite7restartEv": ["nothing", "address"],
+    "ritual_ZN20QQuickAnimatedSprite7advanceEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQuickAnimatedSprite5pauseEv": ["nothing", "address"],
+    "ritual_ZN20QQuickAnimatedSprite6resumeEv": ["nothing", "address"],
+    "ritual_ZN20QQuickAnimatedSprite10setRunningEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20QQuickAnimatedSprite9setPausedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20QQuickAnimatedSprite14setInterpolateEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20QQuickAnimatedSprite9setSourceERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickAnimatedSprite10setReverseEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20QQuickAnimatedSprite12setFrameSyncEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20QQuickAnimatedSprite13setFrameCountEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQuickAnimatedSprite14setFrameHeightEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQuickAnimatedSprite13setFrameWidthEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQuickAnimatedSprite9setFrameXEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQuickAnimatedSprite9setFrameYEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQuickAnimatedSprite12setFrameRateEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN20QQuickAnimatedSprite16setFrameDurationEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQuickAnimatedSprite14resetFrameRateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickAnimatedSprite18resetFrameDurationEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickAnimatedSprite8setLoopsEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQuickAnimatedSprite15setCurrentFrameEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQuickAnimatedSprite12createEngineEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickAnimatedSprite5resetEv": ["nothing", "address"],
+    "ritual_ZN20QQuickAnimatedSprite17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickAnimatedSprite15updatePaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN20QQuickAnimatedSprite10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN20QQuickAnimatedSprite11maybeUpdateEv": ["nothing", "address"],
+    "ritual_ZN20QQuickAnimatedSprite30isCurrentFrameChangedConnectedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN20QQuickAnimatedSprite16prepareNextFrameEP13QSGSpriteNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickAnimatedSprite11reloadImageEv": ["nothing", "address"],
+    "ritual_ZN20QQuickAnimatedSprite8initNodeEv": ["address", "address"],
+    "ritual_ZN20QQuickAnimatedSprite6d_funcEv": ["address", "address"],
+    "ritual_ZNK20QQuickAnimatedSprite6d_funcEv": ["address", "address"],
+    "ritual_own_ZN20QQuickAnimatedSprite17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN20QQuickAnimatedSprite15updatePaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN20QQuickAnimatedSprite10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ]
+  }
+}

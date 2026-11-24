@@ -1,0 +1,64 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLocation/6.12.0/QtLocation/private/qgeomapitemgeometry_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QGeoMapItemGeometry4pathERK13QGeoRectangle": [
+      "address", "address"
+    ],
+    "ritual_ZN19QGeoMapItemGeometry9perimeterERK13QGeoRectangle": [
+      "address", "address"
+    ],
+    "ritual_ZN19QGeoMapItemGeometry12pathMercatorERK5QListI14QGeoCoordinateE": [
+      "address", "address"
+    ],
+    "ritual_ZN19QGeoMapItemGeometryC1Ev": ["address"],
+    "ritual_ZN19QGeoMapItemGeometryD1Ev": ["nothing", "address"],
+    "ritual_ZNK19QGeoMapItemGeometry13isSourceDirtyEv": ["bool", "address"],
+    "ritual_ZNK19QGeoMapItemGeometry13isScreenDirtyEv": ["bool", "address"],
+    "ritual_ZN19QGeoMapItemGeometry15markSourceDirtyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QGeoMapItemGeometry15markScreenDirtyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QGeoMapItemGeometry19markFullScreenDirtyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QGeoMapItemGeometry9markCleanEv": ["nothing", "address"],
+    "ritual_ZN19QGeoMapItemGeometry11clearScreenEv": ["nothing", "address"],
+    "ritual_ZN19QGeoMapItemGeometry12geoLeftBoundEv": ["address", "address"],
+    "ritual_ZNK19QGeoMapItemGeometry17sourceBoundingBoxEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QGeoMapItemGeometry17screenBoundingBoxEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QGeoMapItemGeometry11clearBoundsEv": ["nothing", "address"],
+    "ritual_ZNK19QGeoMapItemGeometry16firstPointOffsetEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QGeoMapItemGeometry6originEv": ["address", "address"],
+    "ritual_ZNK19QGeoMapItemGeometry13screenOutlineEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QGeoMapItemGeometry8containsERK7QPointF": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK19QGeoMapItemGeometry6vertexEj": [
+      "address", "address", "unsigned int"
+    ],
+    "ritual_ZNK19QGeoMapItemGeometry8verticesEv": ["address", "address"],
+    "ritual_ZNK19QGeoMapItemGeometry9isIndexedEv": ["bool", "address"],
+    "ritual_ZNK19QGeoMapItemGeometry4sizeEv": ["unsigned int", "address"],
+    "ritual_ZN19QGeoMapItemGeometry5clearEv": ["nothing", "address"],
+    "ritual_take_QGeoMapItemGeometry": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK19QGeoMapItemGeometry8containsERK7QPointF": [
+      "bool", "address", "address"
+    ]
+  }
+}

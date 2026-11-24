@@ -1,0 +1,36 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qblittable_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN10QBlittableD1Ev": ["nothing", "address"],
+    "ritual_ZNK10QBlittable12capabilitiesEv": ["int", "address"],
+    "ritual_ZNK10QBlittable4sizeEv": ["address", "address"],
+    "ritual_ZN10QBlittable8fillRectERK6QRectFRK6QColor": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN10QBlittable10drawPixmapERK6QRectFRK7QPixmapS2_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN10QBlittable13alphaFillRectERK6QRectFRK6QColorN8QPainter15CompositionModeE": [
+      "nothing", "address", "address", "address", "int"
+    ],
+    "ritual_ZN10QBlittable17drawPixmapOpacityERK6QRectFRK7QPixmapS2_N8QPainter15CompositionModeEd": [
+      "nothing", "address", "address", "address", "address", "int", "double"
+    ],
+    "ritual_ZN10QBlittable4lockEv": ["address", "address"],
+    "ritual_ZN10QBlittable6unlockEv": ["nothing", "address"],
+    "ritual_ZNK10QBlittable8isLockedEv": ["bool", "address"],
+    "ritual_ZN10QBlittable6doLockEv": ["address", "address"],
+    "ritual_ZN10QBlittable8doUnlockEv": ["nothing", "address"],
+    "ritual_take_QBlittable": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN10QBlittable13alphaFillRectERK6QRectFRK6QColorN8QPainter15CompositionModeE": [
+      "nothing", "address", "address", "address", "int"
+    ],
+    "ritual_own_ZN10QBlittable17drawPixmapOpacityERK6QRectFRK7QPixmapS2_N8QPainter15CompositionModeEd": [
+      "nothing", "address", "address", "address", "address", "int", "double"
+    ]
+  }
+}

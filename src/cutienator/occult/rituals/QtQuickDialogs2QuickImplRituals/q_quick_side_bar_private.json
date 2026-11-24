@@ -1,0 +1,108 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Dialogs2QuickImpl/6.12.0/QtQuickDialogs2QuickImpl/private/qquicksi",
+    "debar_p_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QQuickSideBarPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK20QQuickSideBarPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN20QQuickSideBarPrivate3getEP13QQuickSideBar": [
+      "address", "address"
+    ],
+    "ritual_ZN20QQuickSideBarPrivate18createDelegateItemEP13QQmlComponentRK4QMapI7QString8QVariantE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN20QQuickSideBarPrivate10repopulateEv": ["nothing", "address"],
+    "ritual_ZN20QQuickSideBarPrivate13buttonClickedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK20QQuickSideBarPrivate12dialogFolderEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QQuickSideBarPrivate15setDialogFolderERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickSideBarPrivate25displayNameFromFolderPathERK7QString": [
+      "text", "address", "text"
+    ],
+    "ritual_ZNK20QQuickSideBarPrivate16folderIconSourceEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QQuickSideBarPrivate16folderIconSourceEN14QStandardPaths16StandardLocationE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK20QQuickSideBarPrivate14dialogIconSizeEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QQuickSideBarPrivate13folderChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickSideBarPrivate12readSettingsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK20QQuickSideBarPrivate13writeSettingsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickSideBarPrivate11addFavoriteERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickSideBarPrivate14removeFavoriteERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QQuickSideBarPrivate23showAddFavoriteDelegateEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN20QQuickSideBarPrivate26setShowAddFavoriteDelegateEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK20QQuickSideBarPrivate26addFavoriteDelegateHoveredEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN20QQuickSideBarPrivate29setAddFavoriteDelegateHoveredEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK20QQuickSideBarPrivate18addFavoriteIconUrlEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QQuickSideBarPrivate15initContextMenuEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickSideBarPrivate26handleContextMenuRequestedE7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickSideBarPrivate18handleRemoveActionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK20QQuickSideBarPrivate15getContentWidthEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK20QQuickSideBarPrivate16getContentHeightEv": [
+      "double", "address"
+    ],
+    "ritual_ZN20QQuickSideBarPrivate19itemGeometryChangedEP10QQuickItem20QQuickGeometryChangeRK6QRectF": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN20QQuickSideBarPrivate24itemImplicitWidthChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickSideBarPrivate25itemImplicitHeightChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK20QQuickSideBarPrivate15getContentWidthEv": [
+      "double", "address"
+    ],
+    "ritual_own_ZNK20QQuickSideBarPrivate16getContentHeightEv": [
+      "double", "address"
+    ],
+    "ritual_own_ZN20QQuickSideBarPrivate19itemGeometryChangedEP10QQuickItem20QQuickGeometryChangeRK6QRectF": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN20QQuickSideBarPrivate24itemImplicitWidthChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20QQuickSideBarPrivate25itemImplicitHeightChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ]
+  }
+}

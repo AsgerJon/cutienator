@@ -1,0 +1,105 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3D/6.12.0/QtQuick3D/private/qquick3dcustommaterial_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK22QQuick3DCustomMaterial10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QQuick3DCustomMaterial2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN22QQuick3DCustomMaterialC1EP14QQuick3DObject": [
+      "address", "address"
+    ],
+    "ritual_ZN22QQuick3DCustomMaterialD1Ev": ["nothing", "address"],
+    "ritual_ZNK22QQuick3DCustomMaterial11shadingModeEv": ["int", "address"],
+    "ritual_ZNK22QQuick3DCustomMaterial12vertexShaderEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK22QQuick3DCustomMaterial14fragmentShaderEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK22QQuick3DCustomMaterial16vertexShaderCodeEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK22QQuick3DCustomMaterial18fragmentShaderCodeEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK22QQuick3DCustomMaterial8srcBlendEv": ["int", "address"],
+    "ritual_ZNK22QQuick3DCustomMaterial8dstBlendEv": ["int", "address"],
+    "ritual_ZNK22QQuick3DCustomMaterial13srcAlphaBlendEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK22QQuick3DCustomMaterial13dstAlphaBlendEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK22QQuick3DCustomMaterial11alwaysDirtyEv": ["bool", "address"],
+    "ritual_ZNK22QQuick3DCustomMaterial9lineWidthEv": ["float", "address"],
+    "ritual_ZN22QQuick3DCustomMaterial14setShadingModeENS_11ShadingModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN22QQuick3DCustomMaterial15setVertexShaderERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQuick3DCustomMaterial17setFragmentShaderERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQuick3DCustomMaterial19setVertexShaderCodeERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN22QQuick3DCustomMaterial21setFragmentShaderCodeERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN22QQuick3DCustomMaterial11setSrcBlendENS_9BlendModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN22QQuick3DCustomMaterial11setDstBlendENS_9BlendModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN22QQuick3DCustomMaterial16setSrcAlphaBlendENS_9BlendModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN22QQuick3DCustomMaterial16setDstAlphaBlendENS_9BlendModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN22QQuick3DCustomMaterial14setAlwaysDirtyEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN22QQuick3DCustomMaterial12setLineWidthEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN22QQuick3DCustomMaterial17updateSpatialNodeEP21QSSGRenderGraphObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN22QQuick3DCustomMaterial10itemChangeEN14QQuick3DObject10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN22QQuick3DCustomMaterial12markAllDirtyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuick3DCustomMaterial15onPropertyDirtyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuick3DCustomMaterial14onTextureDirtyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuick3DCustomMaterial20setDynamicTextureMapEP31QQuick3DShaderUtilsTextureInput": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QQuick3DCustomMaterial": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN22QQuick3DCustomMaterial17updateSpatialNodeEP21QSSGRenderGraphObject": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN22QQuick3DCustomMaterial10itemChangeEN14QQuick3DObject10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZN22QQuick3DCustomMaterial12markAllDirtyEv": [
+      "nothing", "address"
+    ]
+  }
+}

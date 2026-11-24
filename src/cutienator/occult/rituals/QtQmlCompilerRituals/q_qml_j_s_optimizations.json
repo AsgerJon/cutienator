@@ -1,0 +1,38 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQmlCo",
+    "mpiler/6.12.0/QtQmlCompiler/private/qqmljsoptimizations_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QQmlJSOptimizationsD1Ev": ["nothing", "address"],
+    "ritual_ZN19QQmlJSOptimizations3runEPKN17QQmlJSCompilePass8FunctionE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN19QQmlJSOptimizations16startInstructionEN3QV44Moth5Instr4TypeE": [
+      "int", "address", "int"
+    ],
+    "ritual_ZN19QQmlJSOptimizations14endInstructionEN3QV44Moth5Instr4TypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN19QQmlJSOptimizations19populateBasicBlocksEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQmlJSOptimizations35populateReaderLocationsTrackedTypesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQmlJSOptimizations44populateReaderLocationsReadersAndConversionsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQmlJSOptimizations11adjustTypesEv": ["nothing", "address"],
+    "ritual_ZN19QQmlJSOptimizations27removeDeadStoresUntilStableEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QQmlJSOptimizations": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN19QQmlJSOptimizations14endInstructionEN3QV44Moth5Instr4TypeE": [
+      "nothing", "address", "int"
+    ]
+  }
+}

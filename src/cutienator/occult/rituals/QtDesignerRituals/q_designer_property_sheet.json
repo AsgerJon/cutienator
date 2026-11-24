@@ -1,0 +1,221 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/qdesigner_propertysheet_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK22QDesignerPropertySheet10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QDesignerPropertySheet2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN22QDesignerPropertySheetC1EP7QObjectS1_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN22QDesignerPropertySheetD1Ev": ["nothing", "address"],
+    "ritual_ZNK22QDesignerPropertySheet7indexOfERK7QString": [
+      "int", "address", "text"
+    ],
+    "ritual_ZNK22QDesignerPropertySheet5countEv": ["int", "address"],
+    "ritual_ZNK22QDesignerPropertySheet12propertyNameEi": [
+      "text", "address", "int"
+    ],
+    "ritual_ZNK22QDesignerPropertySheet13propertyGroupEi": [
+      "text", "address", "int"
+    ],
+    "ritual_ZN22QDesignerPropertySheet16setPropertyGroupEiRK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZNK22QDesignerPropertySheet8hasResetEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN22QDesignerPropertySheet5resetEi": ["bool", "address", "int"],
+    "ritual_ZNK22QDesignerPropertySheet11isAttributeEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN22QDesignerPropertySheet12setAttributeEib": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZNK22QDesignerPropertySheet9isVisibleEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN22QDesignerPropertySheet10setVisibleEib": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZNK22QDesignerPropertySheet8propertyEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN22QDesignerPropertySheet11setPropertyEiRK8QVariant": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZNK22QDesignerPropertySheet9isChangedEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN22QDesignerPropertySheet10setChangedEib": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZNK22QDesignerPropertySheet24dynamicPropertiesAllowedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN22QDesignerPropertySheet18addDynamicPropertyERK7QStringRK8QVariant": [
+      "int", "address", "text", "address"
+    ],
+    "ritual_ZN22QDesignerPropertySheet21removeDynamicPropertyEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK22QDesignerPropertySheet17isDynamicPropertyEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK22QDesignerPropertySheet21canAddDynamicPropertyERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZNK22QDesignerPropertySheet24isDefaultDynamicPropertyEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK22QDesignerPropertySheet18isResourcePropertyEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK22QDesignerPropertySheet23defaultResourcePropertyEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK22QDesignerPropertySheet11pixmapCacheEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QDesignerPropertySheet14setPixmapCacheEPN18qdesigner_internal19DesignerPixmapCacheE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK22QDesignerPropertySheet9iconCacheEv": ["address", "address"],
+    "ritual_ZN22QDesignerPropertySheet12setIconCacheEPN18qdesigner_internal17DesignerIconCacheE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QDesignerPropertySheet18createFakePropertyERK7QStringRK8QVariant": [
+      "int", "address", "text", "address"
+    ],
+    "ritual_ZNK22QDesignerPropertySheet9isEnabledEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK22QDesignerPropertySheet6objectEv": ["address", "address"],
+    "ritual_ZN22QDesignerPropertySheet32internalDynamicPropertiesEnabledEv": [
+      "bool"
+    ],
+    "ritual_ZN22QDesignerPropertySheet35setInternalDynamicPropertiesEnabledEb": [
+      "nothing", "bool"
+    ],
+    "ritual_ZN22QDesignerPropertySheet19formEditorForObjectEP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZNK22QDesignerPropertySheet20isAdditionalPropertyEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK22QDesignerPropertySheet14isFakePropertyEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK22QDesignerPropertySheet20resolvePropertyValueEiRK8QVariant": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_ZNK22QDesignerPropertySheet12metaPropertyEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN22QDesignerPropertySheet15setFakePropertyEiRK8QVariant": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN22QDesignerPropertySheet19clearFakePropertiesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK22QDesignerPropertySheet20isFakeLayoutPropertyEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK22QDesignerPropertySheet9isDynamicEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK22QDesignerPropertySheet14formWindowBaseEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK22QDesignerPropertySheet4coreEv": ["address", "address"],
+    "ritual_ZN22QDesignerPropertySheet20objectTypeFromObjectEPK7QObject": [
+      "int", "address"
+    ],
+    "ritual_ZN22QDesignerPropertySheet21objectFlagsFromObjectEPK7QObject": [
+      "int", "address"
+    ],
+    "ritual_ZN22QDesignerPropertySheet20propertyTypeFromNameERK7QString": [
+      "int", "text"
+    ],
+    "ritual_ZNK22QDesignerPropertySheet12propertyTypeEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK22QDesignerPropertySheet10objectTypeEv": ["int", "address"],
+    "ritual_cast_QDesignerPropertySheet_QDesignerPropertySheetExtension": [
+      "address", "address"
+    ],
+    "ritual_cast_QDesignerPropertySheet_QDesignerDynamicPropertySheetExtension": [
+      "address", "address"
+    ],
+    "ritual_take_QDesignerPropertySheet": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK22QDesignerPropertySheet7indexOfERK7QString": [
+      "int", "address", "text"
+    ],
+    "ritual_own_ZNK22QDesignerPropertySheet5countEv": ["int", "address"],
+    "ritual_own_ZNK22QDesignerPropertySheet12propertyNameEi": [
+      "text", "address", "int"
+    ],
+    "ritual_own_ZNK22QDesignerPropertySheet13propertyGroupEi": [
+      "text", "address", "int"
+    ],
+    "ritual_own_ZN22QDesignerPropertySheet16setPropertyGroupEiRK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_own_ZNK22QDesignerPropertySheet8hasResetEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_own_ZN22QDesignerPropertySheet5resetEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_own_ZNK22QDesignerPropertySheet11isAttributeEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_own_ZN22QDesignerPropertySheet12setAttributeEib": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_own_ZNK22QDesignerPropertySheet9isVisibleEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_own_ZN22QDesignerPropertySheet10setVisibleEib": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_own_ZNK22QDesignerPropertySheet8propertyEi": [
+      "address", "address", "int"
+    ],
+    "ritual_own_ZN22QDesignerPropertySheet11setPropertyEiRK8QVariant": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZNK22QDesignerPropertySheet9isChangedEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_own_ZN22QDesignerPropertySheet10setChangedEib": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_own_ZNK22QDesignerPropertySheet24dynamicPropertiesAllowedEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZN22QDesignerPropertySheet18addDynamicPropertyERK7QStringRK8QVariant": [
+      "int", "address", "text", "address"
+    ],
+    "ritual_own_ZN22QDesignerPropertySheet21removeDynamicPropertyEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_own_ZNK22QDesignerPropertySheet17isDynamicPropertyEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_own_ZNK22QDesignerPropertySheet21canAddDynamicPropertyERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_own_ZNK22QDesignerPropertySheet9isEnabledEi": [
+      "bool", "address", "int"
+    ]
+  }
+}

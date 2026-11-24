@@ -1,0 +1,88 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtLocat",
+    "ion/6.12.0/QtLocation/private/qdeclarativeplacecontentmodel_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK29QDeclarativePlaceContentModel10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN29QDeclarativePlaceContentModel2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN29QDeclarativePlaceContentModelC1EN13QPlaceContent4TypeEP7QObject": [
+      "address", "int", "address"
+    ],
+    "ritual_ZN29QDeclarativePlaceContentModelD1Ev": ["nothing", "address"],
+    "ritual_ZNK29QDeclarativePlaceContentModel5placeEv": [
+      "address", "address"
+    ],
+    "ritual_ZN29QDeclarativePlaceContentModel8setPlaceEP17QDeclarativePlace": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK29QDeclarativePlaceContentModel9batchSizeEv": [
+      "int", "address"
+    ],
+    "ritual_ZN29QDeclarativePlaceContentModel12setBatchSizeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK29QDeclarativePlaceContentModel10totalCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZN29QDeclarativePlaceContentModel9clearDataEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QDeclarativePlaceContentModel20initializeCollectionEiRK4QMapIi13QPlaceContentE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZNK29QDeclarativePlaceContentModel8rowCountERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK29QDeclarativePlaceContentModel4dataERK11QModelIndexi": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZNK29QDeclarativePlaceContentModel9roleNamesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK29QDeclarativePlaceContentModel12canFetchMoreERK11QModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN29QDeclarativePlaceContentModel9fetchMoreERK11QModelIndex": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN29QDeclarativePlaceContentModel10classBeginEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QDeclarativePlaceContentModel17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QDeclarativePlaceContentModel13fetchFinishedEv": [
+      "nothing", "address"
+    ],
+    "ritual_cast_QDeclarativePlaceContentModel_QQmlParserStatus": [
+      "address", "address"
+    ],
+    "ritual_take_QDeclarativePlaceContentModel": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK29QDeclarativePlaceContentModel8rowCountERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZNK29QDeclarativePlaceContentModel4dataERK11QModelIndexi": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_own_ZNK29QDeclarativePlaceContentModel12canFetchMoreERK11QModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN29QDeclarativePlaceContentModel9fetchMoreERK11QModelIndex": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN29QDeclarativePlaceContentModel10classBeginEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN29QDeclarativePlaceContentModel17componentCompleteEv": [
+      "nothing", "address"
+    ]
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/ui4_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11DomGradientC1Ev": ["address"],
+    "ritual_ZN11DomGradientD1Ev": ["nothing", "address"],
+    "ritual_ZNK11DomGradient18hasAttributeStartXEv": ["bool", "address"],
+    "ritual_ZNK11DomGradient15attributeStartXEv": ["double", "address"],
+    "ritual_ZN11DomGradient18setAttributeStartXEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN11DomGradient20clearAttributeStartXEv": ["nothing", "address"],
+    "ritual_ZNK11DomGradient18hasAttributeStartYEv": ["bool", "address"],
+    "ritual_ZNK11DomGradient15attributeStartYEv": ["double", "address"],
+    "ritual_ZN11DomGradient18setAttributeStartYEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN11DomGradient20clearAttributeStartYEv": ["nothing", "address"],
+    "ritual_ZNK11DomGradient16hasAttributeEndXEv": ["bool", "address"],
+    "ritual_ZNK11DomGradient13attributeEndXEv": ["double", "address"],
+    "ritual_ZN11DomGradient16setAttributeEndXEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN11DomGradient18clearAttributeEndXEv": ["nothing", "address"],
+    "ritual_ZNK11DomGradient16hasAttributeEndYEv": ["bool", "address"],
+    "ritual_ZNK11DomGradient13attributeEndYEv": ["double", "address"],
+    "ritual_ZN11DomGradient16setAttributeEndYEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN11DomGradient18clearAttributeEndYEv": ["nothing", "address"],
+    "ritual_ZNK11DomGradient20hasAttributeCentralXEv": ["bool", "address"],
+    "ritual_ZNK11DomGradient17attributeCentralXEv": ["double", "address"],
+    "ritual_ZN11DomGradient20setAttributeCentralXEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN11DomGradient22clearAttributeCentralXEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK11DomGradient20hasAttributeCentralYEv": ["bool", "address"],
+    "ritual_ZNK11DomGradient17attributeCentralYEv": ["double", "address"],
+    "ritual_ZN11DomGradient20setAttributeCentralYEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN11DomGradient22clearAttributeCentralYEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK11DomGradient18hasAttributeFocalXEv": ["bool", "address"],
+    "ritual_ZNK11DomGradient15attributeFocalXEv": ["double", "address"],
+    "ritual_ZN11DomGradient18setAttributeFocalXEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN11DomGradient20clearAttributeFocalXEv": ["nothing", "address"],
+    "ritual_ZNK11DomGradient18hasAttributeFocalYEv": ["bool", "address"],
+    "ritual_ZNK11DomGradient15attributeFocalYEv": ["double", "address"],
+    "ritual_ZN11DomGradient18setAttributeFocalYEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN11DomGradient20clearAttributeFocalYEv": ["nothing", "address"],
+    "ritual_ZNK11DomGradient18hasAttributeRadiusEv": ["bool", "address"],
+    "ritual_ZNK11DomGradient15attributeRadiusEv": ["double", "address"],
+    "ritual_ZN11DomGradient18setAttributeRadiusEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN11DomGradient20clearAttributeRadiusEv": ["nothing", "address"],
+    "ritual_ZNK11DomGradient17hasAttributeAngleEv": ["bool", "address"],
+    "ritual_ZNK11DomGradient14attributeAngleEv": ["double", "address"],
+    "ritual_ZN11DomGradient17setAttributeAngleEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN11DomGradient19clearAttributeAngleEv": ["nothing", "address"],
+    "ritual_ZNK11DomGradient16hasAttributeTypeEv": ["bool", "address"],
+    "ritual_ZNK11DomGradient13attributeTypeEv": ["text", "address"],
+    "ritual_ZN11DomGradient16setAttributeTypeERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN11DomGradient18clearAttributeTypeEv": ["nothing", "address"],
+    "ritual_ZNK11DomGradient18hasAttributeSpreadEv": ["bool", "address"],
+    "ritual_ZNK11DomGradient15attributeSpreadEv": ["text", "address"],
+    "ritual_ZN11DomGradient18setAttributeSpreadERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN11DomGradient20clearAttributeSpreadEv": ["nothing", "address"],
+    "ritual_ZNK11DomGradient26hasAttributeCoordinateModeEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK11DomGradient23attributeCoordinateModeEv": [
+      "text", "address"
+    ],
+    "ritual_ZN11DomGradient26setAttributeCoordinateModeERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN11DomGradient28clearAttributeCoordinateModeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK11DomGradient19elementGradientStopEv": ["address", "address"],
+    "ritual_ZN11DomGradient22setElementGradientStopERK5QListIP15DomGradientStopE": [
+      "nothing", "address", "address"
+    ]
+  }
+}

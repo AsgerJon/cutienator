@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquickactiongroup_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK25QQuickActionGroupAttached10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QQuickActionGroupAttached2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN25QQuickActionGroupAttachedC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZNK25QQuickActionGroupAttached5groupEv": ["address", "address"],
+    "ritual_ZN25QQuickActionGroupAttached8setGroupEP17QQuickActionGroup": [
+      "nothing", "address", "address"
+    ]
+  }
+}

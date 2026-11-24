@@ -1,0 +1,67 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3D/6.12.0/QtQuick3D/private/qquick3dlightmapper_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK19QQuick3DLightmapper10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QQuick3DLightmapper2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZNK19QQuick3DLightmapper16opacityThresholdEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK19QQuick3DLightmapper4biasEv": ["float", "address"],
+    "ritual_ZNK19QQuick3DLightmapper21isAdaptiveBiasEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK19QQuick3DLightmapper22isIndirectLightEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK19QQuick3DLightmapper7samplesEv": ["int", "address"],
+    "ritual_ZNK19QQuick3DLightmapper26indirectLightWorkgroupSizeEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK19QQuick3DLightmapper7bouncesEv": ["int", "address"],
+    "ritual_ZNK19QQuick3DLightmapper19indirectLightFactorEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK19QQuick3DLightmapper6sourceEv": ["address", "address"],
+    "ritual_ZNK19QQuick3DLightmapper12denoiseSigmaEv": ["float", "address"],
+    "ritual_ZNK19QQuick3DLightmapper13texelsPerUnitEv": ["float", "address"],
+    "ritual_ZN19QQuick3DLightmapper19setOpacityThresholdEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN19QQuick3DLightmapper7setBiasEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN19QQuick3DLightmapper22setAdaptiveBiasEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN19QQuick3DLightmapper23setIndirectLightEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN19QQuick3DLightmapper10setSamplesEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN19QQuick3DLightmapper29setIndirectLightWorkgroupSizeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN19QQuick3DLightmapper10setBouncesEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN19QQuick3DLightmapper22setIndirectLightFactorEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN19QQuick3DLightmapper9setSourceERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuick3DLightmapper15setDenoiseSigmaEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN19QQuick3DLightmapper16setTexelsPerUnitEf": [
+      "nothing", "address", "float"
+    ]
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4sequenceobject_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK3QV44Heap8Sequence14isStoredInlineEv": ["bool", "address"],
+    "ritual_ZNK3QV44Heap8Sequence10isReadOnlyEv": ["bool", "address"],
+    "ritual_ZNK3QV44Heap8Sequence8listTypeEv": ["address", "address"],
+    "ritual_ZNK3QV44Heap8Sequence13valueMetaTypeEv": ["address", "address"],
+    "ritual_ZNK3QV44Heap8Sequence12metaSequenceEv": ["address", "address"]
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Controls2MaterialStyleImpl/6.12.0/QtQuickControls2MaterialStyleImp",
+    "l/private/qquickmaterialprogressbar_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK25QQuickMaterialProgressBar10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK25QQuickMaterialProgressBar5colorEv": ["address", "address"],
+    "ritual_ZN25QQuickMaterialProgressBar8setColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK25QQuickMaterialProgressBar8progressEv": [
+      "double", "address"
+    ],
+    "ritual_ZN25QQuickMaterialProgressBar11setProgressEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK25QQuickMaterialProgressBar15isIndeterminateEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN25QQuickMaterialProgressBar16setIndeterminateEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN25QQuickMaterialProgressBar10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZN25QQuickMaterialProgressBar10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ]
+  }
+}

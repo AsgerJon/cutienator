@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qsgtexture_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN17QSGTexturePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK17QSGTexturePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN17QSGTexturePrivateC1EP10QSGTexture": ["address", "address"],
+    "ritual_ZN17QSGTexturePrivate3getEP10QSGTexture": ["address", "address"],
+    "ritual_ZN17QSGTexturePrivate24resetDirtySamplerOptionsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK17QSGTexturePrivate22hasDirtySamplerOptionsEv": [
+      "bool", "address"
+    ]
+  }
+}

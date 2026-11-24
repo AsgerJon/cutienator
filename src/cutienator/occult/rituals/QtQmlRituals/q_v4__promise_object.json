@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4promiseobject_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN3QV413PromiseObject12staticVTableEv": ["address"],
+    "ritual_ZN3QV413PromiseObject10__dataTestEv": ["nothing", "address"],
+    "ritual_ZNK3QV413PromiseObject11d_uncheckedEv": ["address", "address"],
+    "ritual_ZNK3QV413PromiseObject1dEv": ["address", "address"],
+    "ritual_ZN3QV413PromiseObject14virtualDestroyEPNS_4Heap4BaseE": [
+      "nothing", "address"
+    ],
+    "ritual_ZN3QV413PromiseObject16defaultPrototypeEPNS_15ExecutionEngineE": [
+      "address", "address"
+    ]
+  }
+}

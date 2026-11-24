@@ -1,0 +1,92 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Controls2Impl/6.12.0/QtQuickControls2Impl/private/qquickiconlabel_",
+    "p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK15QQuickIconLabel10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QQuickIconLabel2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN15QQuickIconLabelC1EP10QQuickItem": ["address", "address"],
+    "ritual_ZN15QQuickIconLabelD1Ev": ["nothing", "address"],
+    "ritual_ZNK15QQuickIconLabel4iconEv": ["address", "address"],
+    "ritual_ZN15QQuickIconLabel7setIconERK10QQuickIcon": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QQuickIconLabel16defaultIconColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZN15QQuickIconLabel19setDefaultIconColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QQuickIconLabel4textEv": ["text", "address"],
+    "ritual_ZN15QQuickIconLabel7setTextERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK15QQuickIconLabel4fontEv": ["address", "address"],
+    "ritual_ZN15QQuickIconLabel7setFontERK5QFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QQuickIconLabel5colorEv": ["address", "address"],
+    "ritual_ZN15QQuickIconLabel8setColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QQuickIconLabel7displayEv": ["int", "address"],
+    "ritual_ZN15QQuickIconLabel10setDisplayENS_7DisplayE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QQuickIconLabel7spacingEv": ["double", "address"],
+    "ritual_ZN15QQuickIconLabel10setSpacingEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK15QQuickIconLabel10isMirroredEv": ["bool", "address"],
+    "ritual_ZN15QQuickIconLabel11setMirroredEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK15QQuickIconLabel9alignmentEv": ["int", "address"],
+    "ritual_ZN15QQuickIconLabel12setAlignmentE6QFlagsIN2Qt13AlignmentFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QQuickIconLabel10topPaddingEv": ["double", "address"],
+    "ritual_ZN15QQuickIconLabel13setTopPaddingEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN15QQuickIconLabel15resetTopPaddingEv": ["nothing", "address"],
+    "ritual_ZNK15QQuickIconLabel11leftPaddingEv": ["double", "address"],
+    "ritual_ZN15QQuickIconLabel14setLeftPaddingEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN15QQuickIconLabel16resetLeftPaddingEv": ["nothing", "address"],
+    "ritual_ZNK15QQuickIconLabel12rightPaddingEv": ["double", "address"],
+    "ritual_ZN15QQuickIconLabel15setRightPaddingEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN15QQuickIconLabel17resetRightPaddingEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK15QQuickIconLabel13bottomPaddingEv": ["double", "address"],
+    "ritual_ZN15QQuickIconLabel16setBottomPaddingEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN15QQuickIconLabel18resetBottomPaddingEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickIconLabel17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickIconLabel14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN15QQuickIconLabel6d_funcEv": ["address", "address"],
+    "ritual_ZNK15QQuickIconLabel6d_funcEv": ["address", "address"],
+    "ritual_take_QQuickIconLabel": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN15QQuickIconLabel17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN15QQuickIconLabel14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ]
+  }
+}

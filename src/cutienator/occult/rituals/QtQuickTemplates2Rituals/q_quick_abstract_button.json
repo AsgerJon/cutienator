@@ -1,0 +1,185 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquickabstractbutton_p",
+    ".h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK20QQuickAbstractButton10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QQuickAbstractButton2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN20QQuickAbstractButtonC1EP10QQuickItem": [
+      "address", "address"
+    ],
+    "ritual_ZN20QQuickAbstractButtonD1Ev": ["nothing", "address"],
+    "ritual_ZNK20QQuickAbstractButton4textEv": ["text", "address"],
+    "ritual_ZN20QQuickAbstractButton7setTextERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN20QQuickAbstractButton9resetTextEv": ["nothing", "address"],
+    "ritual_ZNK20QQuickAbstractButton6isDownEv": ["bool", "address"],
+    "ritual_ZN20QQuickAbstractButton7setDownEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20QQuickAbstractButton9resetDownEv": ["nothing", "address"],
+    "ritual_ZNK20QQuickAbstractButton9isPressedEv": ["bool", "address"],
+    "ritual_ZN20QQuickAbstractButton10setPressedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK20QQuickAbstractButton9isCheckedEv": ["bool", "address"],
+    "ritual_ZN20QQuickAbstractButton10setCheckedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK20QQuickAbstractButton11isCheckableEv": ["bool", "address"],
+    "ritual_ZN20QQuickAbstractButton12setCheckableEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK20QQuickAbstractButton13autoExclusiveEv": ["bool", "address"],
+    "ritual_ZN20QQuickAbstractButton16setAutoExclusiveEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK20QQuickAbstractButton10autoRepeatEv": ["bool", "address"],
+    "ritual_ZN20QQuickAbstractButton13setAutoRepeatEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK20QQuickAbstractButton9indicatorEv": ["address", "address"],
+    "ritual_ZN20QQuickAbstractButton12setIndicatorEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QQuickAbstractButton4iconEv": ["address", "address"],
+    "ritual_ZN20QQuickAbstractButton7setIconERK10QQuickIcon": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QQuickAbstractButton7displayEv": ["int", "address"],
+    "ritual_ZN20QQuickAbstractButton10setDisplayENS_7DisplayE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK20QQuickAbstractButton6actionEv": ["address", "address"],
+    "ritual_ZN20QQuickAbstractButton9setActionEP12QQuickAction": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QQuickAbstractButton8shortcutEv": ["address", "address"],
+    "ritual_ZN20QQuickAbstractButton11setShortcutERK12QKeySequence": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QQuickAbstractButton15autoRepeatDelayEv": [
+      "int", "address"
+    ],
+    "ritual_ZN20QQuickAbstractButton18setAutoRepeatDelayEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK20QQuickAbstractButton18autoRepeatIntervalEv": [
+      "int", "address"
+    ],
+    "ritual_ZN20QQuickAbstractButton21setAutoRepeatIntervalEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK20QQuickAbstractButton6pressXEv": ["double", "address"],
+    "ritual_ZNK20QQuickAbstractButton6pressYEv": ["double", "address"],
+    "ritual_ZNK20QQuickAbstractButton22implicitIndicatorWidthEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK20QQuickAbstractButton23implicitIndicatorHeightEv": [
+      "double", "address"
+    ],
+    "ritual_ZN20QQuickAbstractButton6toggleEv": ["nothing", "address"],
+    "ritual_ZN20QQuickAbstractButton5clickEv": ["nothing", "address"],
+    "ritual_ZN20QQuickAbstractButton12animateClickEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickAbstractButton17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickAbstractButton5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN20QQuickAbstractButton13focusOutEventEP11QFocusEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickAbstractButton13keyPressEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickAbstractButton15keyReleaseEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickAbstractButton15mousePressEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickAbstractButton21mouseDoubleClickEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickAbstractButton10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickAbstractButton10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN20QQuickAbstractButton12buttonChangeENS_12ButtonChangeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQuickAbstractButton14nextCheckStateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickAbstractButton26accessibilityActiveChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK20QQuickAbstractButton14accessibleRoleEv": ["int", "address"],
+    "ritual_ZN20QQuickAbstractButton21accessiblePressActionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickAbstractButton22accessibleToggleActionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickAbstractButton6d_funcEv": ["address", "address"],
+    "ritual_ZNK20QQuickAbstractButton6d_funcEv": ["address", "address"],
+    "ritual_take_QQuickAbstractButton": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN20QQuickAbstractButton17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN20QQuickAbstractButton5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN20QQuickAbstractButton13focusOutEventEP11QFocusEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20QQuickAbstractButton13keyPressEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20QQuickAbstractButton15keyReleaseEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20QQuickAbstractButton15mousePressEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20QQuickAbstractButton21mouseDoubleClickEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20QQuickAbstractButton10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20QQuickAbstractButton10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZN20QQuickAbstractButton14nextCheckStateEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN20QQuickAbstractButton26accessibilityActiveChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZNK20QQuickAbstractButton14accessibleRoleEv": [
+      "int", "address"
+    ],
+    "ritual_list_make_QQuickAbstractButton_ptr": ["address"],
+    "ritual_list_add_QQuickAbstractButton_ptr": [
+      "nothing", "address", "address"
+    ],
+    "ritual_list_size_QQuickAbstractButton_ptr": ["long long", "address"],
+    "ritual_list_at_QQuickAbstractButton_ptr": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_QQuickAbstractButton_ptr": ["nothing", "address"]
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtMultimedia/qmediametadata.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK14QMediaMetaData5valueENS_3KeyE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN14QMediaMetaData6insertENS_3KeyERK8QVariant": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN14QMediaMetaData6removeENS_3KeyE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN14QMediaMetaData5clearEv": ["nothing", "address"],
+    "ritual_ZNK14QMediaMetaData7isEmptyEv": ["bool", "address"],
+    "ritual_ZNK14QMediaMetaData11stringValueENS_3KeyE": [
+      "text", "address", "int"
+    ],
+    "ritual_ZN14QMediaMetaData19metaDataKeyToStringENS_3KeyE": [
+      "text", "int"
+    ],
+    "ritual_Zls6QDebugRK14QMediaMetaData": ["address", "address", "address"],
+    "ritual_ZeqRK14QMediaMetaDataS1_": ["bool", "address", "address"],
+    "ritual_ZneRK14QMediaMetaDataS1_": ["bool", "address", "address"],
+    "ritual_ZN14QMediaMetaData7keyTypeENS_3KeyE": ["address", "int"],
+    "ritual_ZN14QMediaMetaDataD1Ev": ["nothing", "address"],
+    "ritual_list_make_QMediaMetaData": ["address"],
+    "ritual_list_add_QMediaMetaData": ["nothing", "address", "address"],
+    "ritual_list_size_QMediaMetaData": ["long long", "address"],
+    "ritual_list_at_QMediaMetaData": ["address", "address", "long long"],
+    "ritual_list_drop_QMediaMetaData": ["nothing", "address"]
+  }
+}

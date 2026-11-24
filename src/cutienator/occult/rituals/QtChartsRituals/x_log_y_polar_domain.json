@@ -1,0 +1,69 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/6.12.0/QtCharts/private/xlogypolardomain_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK16XLogYPolarDomain10metaObjectEv": ["address", "address"],
+    "ritual_ZN16XLogYPolarDomain2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN16XLogYPolarDomainC1EP7QObject": ["address", "address"],
+    "ritual_ZN16XLogYPolarDomainD1Ev": ["nothing", "address"],
+    "ritual_ZN16XLogYPolarDomain4typeEv": ["int", "address"],
+    "ritual_ZN16XLogYPolarDomain8setRangeEdddd": [
+      "nothing", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZN16XLogYPolarDomain6zoomInERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16XLogYPolarDomain7zoomOutERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16XLogYPolarDomain4moveEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZNK16XLogYPolarDomain20calculateDomainPointERK7QPointF": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN16XLogYPolarDomain10attachAxisEP13QAbstractAxis": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN16XLogYPolarDomain10detachAxisEP13QAbstractAxis": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN16XLogYPolarDomain29handleVerticalAxisBaseChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK16XLogYPolarDomain19toAngularCoordinateEdRb": [
+      "double", "address", "double", "address"
+    ],
+    "ritual_ZNK16XLogYPolarDomain18toRadialCoordinateEdRb": [
+      "double", "address", "double", "address"
+    ],
+    "ritual_take_XLogYPolarDomain": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN16XLogYPolarDomain4typeEv": ["int", "address"],
+    "ritual_own_ZN16XLogYPolarDomain8setRangeEdddd": [
+      "nothing", "address", "double", "double", "double", "double"
+    ],
+    "ritual_own_ZN16XLogYPolarDomain6zoomInERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16XLogYPolarDomain7zoomOutERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16XLogYPolarDomain4moveEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_own_ZNK16XLogYPolarDomain20calculateDomainPointERK7QPointF": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN16XLogYPolarDomain10attachAxisEP13QAbstractAxis": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN16XLogYPolarDomain10detachAxisEP13QAbstractAxis": [
+      "bool", "address", "address"
+    ]
+  }
+}

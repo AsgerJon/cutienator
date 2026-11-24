@@ -1,0 +1,20 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtPositioning/6.12.0/QtPositioning/private/qwebmercator_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN12QWebMercator15coordToMercatorERK14QGeoCoordinate": [
+      "address", "address"
+    ],
+    "ritual_ZN12QWebMercator15mercatorToCoordERK15QDoubleVector2D": [
+      "address", "address"
+    ],
+    "ritual_ZN12QWebMercator23coordinateInterpolationERK14QGeoCoordinateS2_d": [
+      "address", "address", "address", "double"
+    ],
+    "ritual_ZN12QWebMercator7realmodEdd": ["double", "double", "double"],
+    "ritual_ZN12QWebMercatorD1Ev": ["nothing", "address"]
+  }
+}

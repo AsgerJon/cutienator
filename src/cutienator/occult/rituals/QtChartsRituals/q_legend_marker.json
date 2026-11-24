@@ -1,0 +1,45 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/qlegendmarker.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK13QLegendMarker10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QLegendMarker2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN13QLegendMarkerD1Ev": ["nothing", "address"],
+    "ritual_ZN13QLegendMarker4typeEv": ["int", "address"],
+    "ritual_ZNK13QLegendMarker5labelEv": ["text", "address"],
+    "ritual_ZN13QLegendMarker8setLabelERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK13QLegendMarker10labelBrushEv": ["address", "address"],
+    "ritual_ZN13QLegendMarker13setLabelBrushERK6QBrush": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QLegendMarker4fontEv": ["address", "address"],
+    "ritual_ZN13QLegendMarker7setFontERK5QFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QLegendMarker3penEv": ["address", "address"],
+    "ritual_ZN13QLegendMarker6setPenERK4QPen": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QLegendMarker5brushEv": ["address", "address"],
+    "ritual_ZN13QLegendMarker8setBrushERK6QBrush": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QLegendMarker9isVisibleEv": ["bool", "address"],
+    "ritual_ZN13QLegendMarker10setVisibleEb": ["nothing", "address", "bool"],
+    "ritual_ZNK13QLegendMarker5shapeEv": ["int", "address"],
+    "ritual_ZN13QLegendMarker8setShapeEN7QLegend11MarkerShapeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN13QLegendMarker6seriesEv": ["address", "address"],
+    "ritual_take_QLegendMarker": ["bool", "address", "chars", "address"],
+    "ritual_list_make_QLegendMarker_ptr": ["address"],
+    "ritual_list_add_QLegendMarker_ptr": ["nothing", "address", "address"],
+    "ritual_list_size_QLegendMarker_ptr": ["long long", "address"],
+    "ritual_list_at_QLegendMarker_ptr": ["address", "address", "long long"],
+    "ritual_list_drop_QLegendMarker_ptr": ["nothing", "address"]
+  }
+}

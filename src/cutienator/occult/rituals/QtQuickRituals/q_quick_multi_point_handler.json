@@ -1,0 +1,75 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickmultipointhandler_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK23QQuickMultiPointHandler10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QQuickMultiPointHandler2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN23QQuickMultiPointHandlerC1EP10QQuickItemii": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZNK23QQuickMultiPointHandler17minimumPointCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZN23QQuickMultiPointHandler20setMinimumPointCountEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK23QQuickMultiPointHandler17maximumPointCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZN23QQuickMultiPointHandler20setMaximumPointCountEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK23QQuickMultiPointHandler8centroidEv": ["address", "address"],
+    "ritual_ZN23QQuickMultiPointHandler17wantsPointerEventEP13QPointerEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN23QQuickMultiPointHandler22handlePointerEventImplEP13QPointerEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QQuickMultiPointHandler15onActiveChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickMultiPointHandler16hasCurrentPointsEP13QPointerEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN23QQuickMultiPointHandler14eligiblePointsEP13QPointerEvent": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN23QQuickMultiPointHandler25averageTouchPointDistanceERK7QPointF": [
+      "double", "address", "address"
+    ],
+    "ritual_ZN23QQuickMultiPointHandler23averageStartingDistanceERK7QPointF": [
+      "double", "address", "address"
+    ],
+    "ritual_ZN23QQuickMultiPointHandler12acceptPointsERK5QListI11QEventPointE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QQuickMultiPointHandler10grabPointsEP13QPointerEventRK5QListI11QEventPointE": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN23QQuickMultiPointHandler10moveTargetE7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QQuickMultiPointHandler6d_funcEv": ["address", "address"],
+    "ritual_ZNK23QQuickMultiPointHandler6d_funcEv": ["address", "address"],
+    "ritual_take_QQuickMultiPointHandler": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN23QQuickMultiPointHandler17wantsPointerEventEP13QPointerEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN23QQuickMultiPointHandler22handlePointerEventImplEP13QPointerEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN23QQuickMultiPointHandler15onActiveChangedEv": [
+      "nothing", "address"
+    ]
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquickpopuppositioner_",
+    "p_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN21QQuickPopupPositionerC1EP11QQuickPopup": [
+      "address", "address"
+    ],
+    "ritual_ZN21QQuickPopupPositionerD1Ev": ["nothing", "address"],
+    "ritual_ZNK21QQuickPopupPositioner5popupEv": ["address", "address"],
+    "ritual_ZNK21QQuickPopupPositioner10parentItemEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QQuickPopupPositioner13setParentItemEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QQuickPopupPositioner10repositionEv": ["nothing", "address"],
+    "ritual_ZN21QQuickPopupPositioner19itemGeometryChangedEP10QQuickItem20QQuickGeometryChangeRK6QRectF": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN21QQuickPopupPositioner17itemParentChangedEP10QQuickItemS1_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN21QQuickPopupPositioner16itemChildRemovedEP10QQuickItemS1_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN21QQuickPopupPositioner23removeAncestorListenersEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QQuickPopupPositioner20addAncestorListenersEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QQuickPopupPositioner21repositionPopupWindowEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QQuickPopupPositioner": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN21QQuickPopupPositioner10repositionEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN21QQuickPopupPositioner19itemGeometryChangedEP10QQuickItem20QQuickGeometryChangeRK6QRectF": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN21QQuickPopupPositioner17itemParentChangedEP10QQuickItemS1_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN21QQuickPopupPositioner16itemChildRemovedEP10QQuickItemS1_": [
+      "nothing", "address", "address", "address"
+    ]
+  }
+}

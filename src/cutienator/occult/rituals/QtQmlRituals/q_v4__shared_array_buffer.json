@@ -1,0 +1,36 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4arraybuffer_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN3QV417SharedArrayBuffer12staticVTableEv": ["address"],
+    "ritual_ZN3QV417SharedArrayBuffer10__dataTestEv": ["nothing", "address"],
+    "ritual_ZNK3QV417SharedArrayBuffer11d_uncheckedEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV417SharedArrayBuffer1dEv": ["address", "address"],
+    "ritual_ZN3QV417SharedArrayBuffer14virtualDestroyEPNS_4Heap4BaseE": [
+      "nothing", "address"
+    ],
+    "ritual_ZN3QV417SharedArrayBuffer16defaultPrototypeEPNS_15ExecutionEngineE": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV417SharedArrayBuffer15arrayDataLengthEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZNK3QV417SharedArrayBuffer14constArrayDataEv": [
+      "chars", "address"
+    ],
+    "ritual_ZN3QV417SharedArrayBuffer18hasSharedArrayDataEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK3QV417SharedArrayBuffer20hasDetachedArrayDataEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK3QV417SharedArrayBuffer19isSharedArrayBufferEv": [
+      "bool", "address"
+    ]
+  }
+}

@@ -1,0 +1,125 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/qpa/qplatforminputcontext.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK21QPlatformInputContext10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QPlatformInputContext2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN21QPlatformInputContext6d_funcEv": ["address", "address"],
+    "ritual_ZNK21QPlatformInputContext6d_funcEv": ["address", "address"],
+    "ritual_ZN21QPlatformInputContextC1Ev": ["address"],
+    "ritual_ZN21QPlatformInputContextD1Ev": ["nothing", "address"],
+    "ritual_ZNK21QPlatformInputContext7isValidEv": ["bool", "address"],
+    "ritual_ZNK21QPlatformInputContext13hasCapabilityENS_10CapabilityE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN21QPlatformInputContext5resetEv": ["nothing", "address"],
+    "ritual_ZN21QPlatformInputContext6commitEv": ["nothing", "address"],
+    "ritual_ZN21QPlatformInputContext6updateE6QFlagsIN2Qt16InputMethodQueryEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN21QPlatformInputContext12invokeActionEN12QInputMethod6ActionEi": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN21QPlatformInputContext11filterEventEPK6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK21QPlatformInputContext12keyboardRectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QPlatformInputContext23emitKeyboardRectChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK21QPlatformInputContext11isAnimatingEv": ["bool", "address"],
+    "ritual_ZN21QPlatformInputContext20emitAnimatingChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QPlatformInputContext14showInputPanelEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QPlatformInputContext14hideInputPanelEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK21QPlatformInputContext19isInputPanelVisibleEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QPlatformInputContext28emitInputPanelVisibleChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK21QPlatformInputContext6localeEv": ["address", "address"],
+    "ritual_ZN21QPlatformInputContext17emitLocaleChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK21QPlatformInputContext14inputDirectionEv": [
+      "int", "address"
+    ],
+    "ritual_ZN21QPlatformInputContext25emitInputDirectionChangedEN2Qt15LayoutDirectionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN21QPlatformInputContext14setFocusObjectEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21QPlatformInputContext19inputMethodAcceptedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QPlatformInputContext25setSelectionOnFocusObjectERK7QPointFS2_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QPlatformInputContext16queryFocusObjectEN2Qt16InputMethodQueryE7QPointF": [
+      "address", "int", "address"
+    ],
+    "ritual_ZN21QPlatformInputContext18inputItemRectangleEv": ["address"],
+    "ritual_ZN21QPlatformInputContext22inputItemClipRectangleEv": [
+      "address"
+    ],
+    "ritual_ZN21QPlatformInputContext15cursorRectangleEv": ["address"],
+    "ritual_ZN21QPlatformInputContext15anchorRectangleEv": ["address"],
+    "ritual_ZN21QPlatformInputContext17keyboardRectangleEv": ["address"],
+    "ritual_take_QPlatformInputContext": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK21QPlatformInputContext7isValidEv": ["bool", "address"],
+    "ritual_own_ZNK21QPlatformInputContext13hasCapabilityENS_10CapabilityE": [
+      "bool", "address", "int"
+    ],
+    "ritual_own_ZN21QPlatformInputContext5resetEv": ["nothing", "address"],
+    "ritual_own_ZN21QPlatformInputContext6commitEv": ["nothing", "address"],
+    "ritual_own_ZN21QPlatformInputContext6updateE6QFlagsIN2Qt16InputMethodQueryEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN21QPlatformInputContext12invokeActionEN12QInputMethod6ActionEi": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZN21QPlatformInputContext11filterEventEPK6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZNK21QPlatformInputContext12keyboardRectEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK21QPlatformInputContext11isAnimatingEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZN21QPlatformInputContext14showInputPanelEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN21QPlatformInputContext14hideInputPanelEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZNK21QPlatformInputContext19isInputPanelVisibleEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZNK21QPlatformInputContext6localeEv": ["address", "address"],
+    "ritual_own_ZNK21QPlatformInputContext14inputDirectionEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZN21QPlatformInputContext14setFocusObjectEP7QObject": [
+      "nothing", "address", "address"
+    ]
+  }
+}

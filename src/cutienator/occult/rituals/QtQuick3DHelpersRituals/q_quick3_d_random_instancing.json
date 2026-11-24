@@ -1,0 +1,77 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DHelpers/6.12.0/QtQuick3DHelpers/private/randominstancing_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK24QQuick3DRandomInstancing10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QQuick3DRandomInstancing2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN24QQuick3DRandomInstancingC1EP14QQuick3DObject": [
+      "address", "address"
+    ],
+    "ritual_ZN24QQuick3DRandomInstancingD1Ev": ["nothing", "address"],
+    "ritual_ZN24QQuick3DRandomInstancing17getInstanceBufferEPi": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK24QQuick3DRandomInstancing13instanceCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK24QQuick3DRandomInstancing10randomSeedEv": ["int", "address"],
+    "ritual_ZNK24QQuick3DRandomInstancing8positionEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK24QQuick3DRandomInstancing5scaleEv": ["address", "address"],
+    "ritual_ZNK24QQuick3DRandomInstancing8rotationEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK24QQuick3DRandomInstancing5colorEv": ["address", "address"],
+    "ritual_ZNK24QQuick3DRandomInstancing10customDataEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK24QQuick3DRandomInstancing10colorModelEv": ["int", "address"],
+    "ritual_ZNK24QQuick3DRandomInstancing11gridSpacingEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QQuick3DRandomInstancing14setGridSpacingERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QQuick3DRandomInstancing16setInstanceCountEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN24QQuick3DRandomInstancing13setRandomSeedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN24QQuick3DRandomInstancing11setPositionEP21QQuick3DInstanceRange": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QQuick3DRandomInstancing8setScaleEP21QQuick3DInstanceRange": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QQuick3DRandomInstancing11setRotationEP21QQuick3DInstanceRange": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QQuick3DRandomInstancing8setColorEP21QQuick3DInstanceRange": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QQuick3DRandomInstancing13setCustomDataEP21QQuick3DInstanceRange": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QQuick3DRandomInstancing13setColorModelENS_10ColorModelE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN24QQuick3DRandomInstancing12handleChangeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuick3DRandomInstancing21generateInstanceTableEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QQuick3DRandomInstancing": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGui/qaccessible.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
+#if QT_CONFIG(accessibility)
 #include <QtGui/qaccessible.h>
 #include <QtCore/qstring.h>
 #include <cstring>
@@ -7,40 +9,61 @@
 //  A QAccessibleHyperlinkInterface that Python can take functions over in. Every QAccessibleHyperlinkInterface
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if QT_CONFIG(accessibility)
 typedef QString * (*CuteQAccessibleHyperlinkInterfaceCall0)(const void *, int *);
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
 typedef QString * (*CuteQAccessibleHyperlinkInterfaceCall1)(const void *, int *);
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
 typedef int (*CuteQAccessibleHyperlinkInterfaceCall2)(const void *, int *);
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
 typedef int (*CuteQAccessibleHyperlinkInterfaceCall3)(const void *, int *);
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
 typedef bool (*CuteQAccessibleHyperlinkInterfaceCall4)(const void *, int *);
+#endif  // QT_CONFIG(accessibility)
 class CuteQAccessibleHyperlinkInterface : public QAccessibleHyperlinkInterface {
 public:
   using QAccessibleHyperlinkInterface::QAccessibleHyperlinkInterface;
   void *taken[5] = {};
 
   bool take(const char *key, void *call) {
+#if QT_CONFIG(accessibility)
     if (!std::strcmp(key, "_ZNK29QAccessibleHyperlinkInterface6anchorEv")) {
       taken[0] = call;
       return true;
     }
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
     if (!std::strcmp(key, "_ZNK29QAccessibleHyperlinkInterface12anchorTargetEv")) {
       taken[1] = call;
       return true;
     }
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
     if (!std::strcmp(key, "_ZNK29QAccessibleHyperlinkInterface10startIndexEv")) {
       taken[2] = call;
       return true;
     }
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
     if (!std::strcmp(key, "_ZNK29QAccessibleHyperlinkInterface8endIndexEv")) {
       taken[3] = call;
       return true;
     }
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
     if (!std::strcmp(key, "_ZNK29QAccessibleHyperlinkInterface7isValidEv")) {
       taken[4] = call;
       return true;
     }
+#endif  // QT_CONFIG(accessibility)
     return false;
   }
 
+#if QT_CONFIG(accessibility)
   //  QString QAccessibleHyperlinkInterface::anchor() const
   QString anchor() const override {
     if (taken[0]) {
@@ -55,7 +78,9 @@ public:
     }
     return {};
   }
+#endif  // QT_CONFIG(accessibility)
 
+#if QT_CONFIG(accessibility)
   //  QString QAccessibleHyperlinkInterface::anchorTarget() const
   QString anchorTarget() const override {
     if (taken[1]) {
@@ -70,7 +95,9 @@ public:
     }
     return {};
   }
+#endif  // QT_CONFIG(accessibility)
 
+#if QT_CONFIG(accessibility)
   //  int QAccessibleHyperlinkInterface::startIndex() const
   int startIndex() const override {
     if (taken[2]) {
@@ -81,7 +108,9 @@ public:
     }
     return {};
   }
+#endif  // QT_CONFIG(accessibility)
 
+#if QT_CONFIG(accessibility)
   //  int QAccessibleHyperlinkInterface::endIndex() const
   int endIndex() const override {
     if (taken[3]) {
@@ -92,7 +121,9 @@ public:
     }
     return {};
   }
+#endif  // QT_CONFIG(accessibility)
 
+#if QT_CONFIG(accessibility)
   //  bool QAccessibleHyperlinkInterface::isValid() const
   bool isValid() const override {
     if (taken[4]) {
@@ -103,6 +134,7 @@ public:
     }
     return {};
   }
+#endif  // QT_CONFIG(accessibility)
 };
 
 //  QAccessibleHyperlinkInterface::~QAccessibleHyperlinkInterface()
@@ -156,3 +188,5 @@ bool ritual_take_QAccessibleHyperlinkInterface(
     void *call) {
   return static_cast<CuteQAccessibleHyperlinkInterface *>(self)->take(key, call);
 }
+
+#endif  // QT_CONFIG(accessibility)

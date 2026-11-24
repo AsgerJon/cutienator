@@ -1,0 +1,48 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Dialogs2QuickImpl/6.12.0/QtQuickDialogs2QuickImpl/private/qquickpl",
+    "atformcolordialog_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK25QQuickPlatformColorDialog10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QQuickPlatformColorDialog2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN25QQuickPlatformColorDialogC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN25QQuickPlatformColorDialogD1Ev": ["nothing", "address"],
+    "ritual_ZNK25QQuickPlatformColorDialog7isValidEv": ["bool", "address"],
+    "ritual_ZN25QQuickPlatformColorDialog15setCurrentColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK25QQuickPlatformColorDialog12currentColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QQuickPlatformColorDialog4execEv": ["nothing", "address"],
+    "ritual_ZN25QQuickPlatformColorDialog4showE6QFlagsIN2Qt10WindowTypeEENS1_14WindowModalityEP7QWindow": [
+      "bool", "address", "int", "int", "address"
+    ],
+    "ritual_ZN25QQuickPlatformColorDialog4hideEv": ["nothing", "address"],
+    "ritual_ZNK25QQuickPlatformColorDialog6dialogEv": ["address", "address"],
+    "ritual_take_QQuickPlatformColorDialog": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN25QQuickPlatformColorDialog15setCurrentColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK25QQuickPlatformColorDialog12currentColorEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN25QQuickPlatformColorDialog4execEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN25QQuickPlatformColorDialog4showE6QFlagsIN2Qt10WindowTypeEENS1_14WindowModalityEP7QWindow": [
+      "bool", "address", "int", "int", "address"
+    ],
+    "ritual_own_ZN25QQuickPlatformColorDialog4hideEv": ["nothing", "address"]
+  }
+}

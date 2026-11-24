@@ -1,0 +1,75 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquickdialog_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK12QQuickDialog10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QQuickDialog2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN12QQuickDialog20qmlExtendedNamespaceEv": ["address"],
+    "ritual_ZN12QQuickDialog30qt_qmlMarker_extendedNamespaceEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN12QQuickDialogC1EP7QObject": ["address", "address"],
+    "ritual_ZN12QQuickDialogD1Ev": ["nothing", "address"],
+    "ritual_ZNK12QQuickDialog5titleEv": ["text", "address"],
+    "ritual_ZN12QQuickDialog8setTitleERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK12QQuickDialog6headerEv": ["address", "address"],
+    "ritual_ZN12QQuickDialog9setHeaderEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12QQuickDialog6footerEv": ["address", "address"],
+    "ritual_ZN12QQuickDialog9setFooterEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12QQuickDialog15standardButtonsEv": ["int", "address"],
+    "ritual_ZN12QQuickDialog18setStandardButtonsE6QFlagsIN21QPlatformDialogHelper14StandardButtonEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK12QQuickDialog14standardButtonEN21QPlatformDialogHelper14StandardButtonE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK12QQuickDialog6resultEv": ["int", "address"],
+    "ritual_ZN12QQuickDialog9setResultEi": ["nothing", "address", "int"],
+    "ritual_ZNK12QQuickDialog19implicitHeaderWidthEv": ["double", "address"],
+    "ritual_ZNK12QQuickDialog20implicitHeaderHeightEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK12QQuickDialog19implicitFooterWidthEv": ["double", "address"],
+    "ritual_ZNK12QQuickDialog20implicitFooterHeightEv": [
+      "double", "address"
+    ],
+    "ritual_ZN12QQuickDialog10setOpacityEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN12QQuickDialog6acceptEv": ["nothing", "address"],
+    "ritual_ZN12QQuickDialog6rejectEv": ["nothing", "address"],
+    "ritual_ZN12QQuickDialog4doneEi": ["nothing", "address", "int"],
+    "ritual_ZN12QQuickDialog10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZNK12QQuickDialog14accessibleRoleEv": ["int", "address"],
+    "ritual_ZN12QQuickDialog26accessibilityActiveChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN12QQuickDialog6d_funcEv": ["address", "address"],
+    "ritual_ZNK12QQuickDialog6d_funcEv": ["address", "address"],
+    "ritual_take_QQuickDialog": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN12QQuickDialog10setOpacityEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_own_ZN12QQuickDialog6acceptEv": ["nothing", "address"],
+    "ritual_own_ZN12QQuickDialog6rejectEv": ["nothing", "address"],
+    "ritual_own_ZN12QQuickDialog4doneEi": ["nothing", "address", "int"],
+    "ritual_own_ZN12QQuickDialog10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZNK12QQuickDialog14accessibleRoleEv": ["int", "address"],
+    "ritual_own_ZN12QQuickDialog26accessibilityActiveChangedEb": [
+      "nothing", "address", "bool"
+    ]
+  }
+}

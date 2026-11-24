@@ -1,0 +1,68 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickpathview_p_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN21QQuickPathViewPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK21QQuickPathViewPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN21QQuickPathViewPrivate4initEv": ["nothing", "address"],
+    "ritual_ZN21QQuickPathViewPrivate19itemGeometryChangedEP10QQuickItem20QQuickGeometryChangeRK6QRectF": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN21QQuickPathViewPrivate13itemDestroyedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QQuickPathViewPrivate14scheduleLayoutEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickPathViewPrivate7getItemEidb": [
+      "address", "address", "int", "double", "bool"
+    ],
+    "ritual_ZN21QQuickPathViewPrivate8attachedEP10QQuickItem": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN21QQuickPathViewPrivate17updateMappedRangeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK21QQuickPathViewPrivate15positionOfIndexEd": [
+      "double", "address", "double"
+    ],
+    "ritual_ZNK21QQuickPathViewPrivate9isInBoundEdddb": [
+      "bool", "address", "double", "double", "double", "bool"
+    ],
+    "ritual_ZN21QQuickPathViewPrivate15createHighlightEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK21QQuickPathViewPrivate7isValidEv": ["bool", "address"],
+    "ritual_ZN21QQuickPathViewPrivate21handleMousePressEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QQuickPathViewPrivate16calcCurrentIndexEv": [
+      "int", "address"
+    ],
+    "ritual_ZN21QQuickPathViewPrivate9fixOffsetEv": ["nothing", "address"],
+    "ritual_ZN21QQuickPathViewPrivate11snapToIndexEiNS_14MovementReasonE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK21QQuickPathViewPrivate9pointNearERK7QPointFPd": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK21QQuickPathViewPrivate18computeCurrentTimeEP11QInputEvent": [
+      "long long", "address", "address"
+    ],
+    "ritual_ZN21QQuickPathViewPrivate11setDraggingEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_take_QQuickPathViewPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN21QQuickPathViewPrivate19itemGeometryChangedEP10QQuickItem20QQuickGeometryChangeRK6QRectF": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN21QQuickPathViewPrivate13itemDestroyedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ]
+  }
+}

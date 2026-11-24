@@ -1,0 +1,51 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtMultimedia/qmediaformat.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN12QMediaFormatC1ENS_10FileFormatE": ["address", "int"],
+    "ritual_ZN12QMediaFormatD1Ev": ["nothing", "address"],
+    "ritual_ZN12QMediaFormatC1ERKS_": ["address", "address"],
+    "ritual_ZNK12QMediaFormat10fileFormatEv": ["int", "address"],
+    "ritual_ZN12QMediaFormat13setFileFormatENS_10FileFormatE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN12QMediaFormat13setVideoCodecENS_10VideoCodecE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK12QMediaFormat10videoCodecEv": ["int", "address"],
+    "ritual_ZN12QMediaFormat13setAudioCodecENS_10AudioCodecE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK12QMediaFormat10audioCodecEv": ["int", "address"],
+    "ritual_ZNK12QMediaFormat11isSupportedENS_14ConversionModeE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK12QMediaFormat8mimeTypeEv": ["address", "address"],
+    "ritual_ZN12QMediaFormat14fileFormatNameENS_10FileFormatE": [
+      "text", "int"
+    ],
+    "ritual_ZN12QMediaFormat14audioCodecNameENS_10AudioCodecE": [
+      "text", "int"
+    ],
+    "ritual_ZN12QMediaFormat14videoCodecNameENS_10VideoCodecE": [
+      "text", "int"
+    ],
+    "ritual_ZN12QMediaFormat21fileFormatDescriptionENS_10FileFormatE": [
+      "text", "int"
+    ],
+    "ritual_ZN12QMediaFormat21audioCodecDescriptionENS_10AudioCodecE": [
+      "text", "int"
+    ],
+    "ritual_ZN12QMediaFormat21videoCodecDescriptionENS_10VideoCodecE": [
+      "text", "int"
+    ],
+    "ritual_ZNK12QMediaFormateqERKS_": ["bool", "address", "address"],
+    "ritual_ZNK12QMediaFormatneERKS_": ["bool", "address", "address"],
+    "ritual_ZN12QMediaFormat18resolveForEncodingENS_12ResolveFlagsE": [
+      "nothing", "address", "int"
+    ]
+  }
+}

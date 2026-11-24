@@ -1,0 +1,23 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtMultimedia/6.12.0/QtMultimedia/private/qvideotransformation_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19VideoTransformation6rotateEN7QtVideo8RotationE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN19VideoTransformation18mirrorHorizontallyEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN19VideoTransformation16mirrorVerticallyEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK19VideoTransformation13rotationIndexEv": ["int", "address"],
+    "ritual_ZN19VideoTransformation14appendRotationEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN19VideoTransformationD1Ev": ["nothing", "address"]
+  }
+}

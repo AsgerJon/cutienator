@@ -1,0 +1,20 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtLabsF",
+    "olderListModel/6.12.0/QtLabsFolderListModel/private/fileinfothread",
+    "_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK14FileInfoThread10metaObjectEv": ["address", "address"],
+    "ritual_ZN14FileInfoThreadD1Ev": ["nothing", "address"],
+    "ritual_ZN14FileInfoThread5clearEv": ["nothing", "address"],
+    "ritual_ZN14FileInfoThread10removePathERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN14FileInfoThread3runEv": ["nothing", "address"],
+    "ritual_ZN14FileInfoThread15findChangeRangeERK5QListI12FilePropertyERiS5_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_take_FileInfoThread": ["bool", "address", "chars", "address"]
+  }
+}

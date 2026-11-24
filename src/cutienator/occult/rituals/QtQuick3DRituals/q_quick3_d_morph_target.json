@@ -1,0 +1,41 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3D/6.12.0/QtQuick3D/private/qquick3dmorphtarget_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK19QQuick3DMorphTarget10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QQuick3DMorphTarget2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN19QQuick3DMorphTargetC1EP14QQuick3DObject": [
+      "address", "address"
+    ],
+    "ritual_ZN19QQuick3DMorphTargetD1Ev": ["nothing", "address"],
+    "ritual_ZNK19QQuick3DMorphTarget6weightEv": ["float", "address"],
+    "ritual_ZNK19QQuick3DMorphTarget10attributesEv": ["int", "address"],
+    "ritual_ZN19QQuick3DMorphTarget9setWeightEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN19QQuick3DMorphTarget13setAttributesE6QFlagsINS_20MorphTargetAttributeEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN19QQuick3DMorphTarget17updateSpatialNodeEP21QSSGRenderGraphObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN19QQuick3DMorphTarget12markAllDirtyEv": ["nothing", "address"],
+    "ritual_ZN19QQuick3DMorphTarget9markDirtyENS_24QSSGMorphTargetDirtyTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_take_QQuick3DMorphTarget": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN19QQuick3DMorphTarget17updateSpatialNodeEP21QSSGRenderGraphObject": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN19QQuick3DMorphTarget12markAllDirtyEv": [
+      "nothing", "address"
+    ]
+  }
+}

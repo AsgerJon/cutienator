@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qaccessiblemenu_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK15QAccessibleMenu10childCountEv": ["int", "address"],
+    "ritual_ZNK15QAccessibleMenu4textEN11QAccessible4TextE": [
+      "text", "address", "int"
+    ],
+    "ritual_ZNK15QAccessibleMenu4roleEv": ["int", "address"],
+    "ritual_ZNK15QAccessibleMenu12indexOfChildEPK20QAccessibleInterface": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK15QAccessibleMenu4menuEv": ["address", "address"],
+    "ritual_take_QAccessibleMenu": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK15QAccessibleMenu10childCountEv": ["int", "address"],
+    "ritual_own_ZNK15QAccessibleMenu4textEN11QAccessible4TextE": [
+      "text", "address", "int"
+    ],
+    "ritual_own_ZNK15QAccessibleMenu4roleEv": ["int", "address"],
+    "ritual_own_ZNK15QAccessibleMenu12indexOfChildEPK20QAccessibleInterface": [
+      "int", "address", "address"
+    ]
+  }
+}

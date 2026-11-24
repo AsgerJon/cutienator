@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qsgrhishadereffectnode_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QSGRhiShaderLinker5resetERK7QShaderS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN18QSGRhiShaderLinker19linkTextureSubRectsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QSGRhiShaderLinkerD1Ev": ["nothing", "address"]
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtMulti",
+    "media/6.12.0/QtMultimedia/private/qpipewire_screencapture_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK10QtPipeWire16QPipeWireCapture10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10QtPipeWire16QPipeWireCapture2trEPKcS2_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_take_QtPipeWire_QPipeWireCapture": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK10QtPipeWire16QPipeWireCapture11frameFormatEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN10QtPipeWire16QPipeWireCapture17setActiveInternalEb": [
+      "bool", "address", "bool"
+    ]
+  }
+}

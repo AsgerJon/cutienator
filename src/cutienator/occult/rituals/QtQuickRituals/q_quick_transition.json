@@ -1,0 +1,36 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquicktransition_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK16QQuickTransition10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QQuickTransition2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN16QQuickTransitionC1EP7QObject": ["address", "address"],
+    "ritual_ZN16QQuickTransitionD1Ev": ["nothing", "address"],
+    "ritual_ZNK16QQuickTransition9fromStateEv": ["text", "address"],
+    "ritual_ZN16QQuickTransition12setFromStateERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK16QQuickTransition7toStateEv": ["text", "address"],
+    "ritual_ZN16QQuickTransition10setToStateERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK16QQuickTransition10reversibleEv": ["bool", "address"],
+    "ritual_ZN16QQuickTransition13setReversibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK16QQuickTransition7enabledEv": ["bool", "address"],
+    "ritual_ZN16QQuickTransition10setEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK16QQuickTransition7runningEv": ["bool", "address"],
+    "ritual_ZN16QQuickTransition11setReversedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_take_QQuickTransition": ["bool", "address", "chars", "address"]
+  }
+}

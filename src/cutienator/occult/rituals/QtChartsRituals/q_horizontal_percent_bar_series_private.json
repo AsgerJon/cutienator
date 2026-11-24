@@ -1,0 +1,30 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/6.12.0/QtCharts/private/qhorizontalpercentbarseries_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN34QHorizontalPercentBarSeriesPrivateC1EP27QHorizontalPercentBarSeries": [
+      "address", "address"
+    ],
+    "ritual_ZN34QHorizontalPercentBarSeriesPrivate18initializeGraphicsEP13QGraphicsItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN34QHorizontalPercentBarSeriesPrivate16initializeDomainEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN34QHorizontalPercentBarSeriesPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK34QHorizontalPercentBarSeriesPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN34QHorizontalPercentBarSeriesPrivate18initializeGraphicsEP13QGraphicsItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN34QHorizontalPercentBarSeriesPrivate16initializeDomainEv": [
+      "nothing", "address"
+    ]
+  }
+}

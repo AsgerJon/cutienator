@@ -1,0 +1,215 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickdeliveryagent_p_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN26QQuickDeliveryAgentPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK26QQuickDeliveryAgentPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QQuickDeliveryAgentPrivateC1EP10QQuickItem": [
+      "address", "address"
+    ],
+    "ritual_ZN26QQuickDeliveryAgentPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN26QQuickDeliveryAgentPrivate15deliverKeyEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QQuickDeliveryAgentPrivate15setFocusInScopeEP10QQuickItemS1_N2Qt11FocusReasonE6QFlagsINS_11FocusOptionEE": [
+      "nothing", "address", "address", "address", "int", "int"
+    ],
+    "ritual_ZN26QQuickDeliveryAgentPrivate17clearFocusInScopeEP10QQuickItemS1_N2Qt11FocusReasonE6QFlagsINS_11FocusOptionEE": [
+      "nothing", "address", "address", "address", "int", "int"
+    ],
+    "ritual_ZN26QQuickDeliveryAgentPrivate16clearFocusObjectEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QQuickDeliveryAgentPrivate24updateFocusItemTransformEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK26QQuickDeliveryAgentPrivate15focusTargetItemEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QQuickDeliveryAgentPrivate26currentOrItemDeliveryAgentEPK10QQuickItem": [
+      "address", "address"
+    ],
+    "ritual_ZNK26QQuickDeliveryAgentPrivate24isDeliveringTouchAsMouseEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN26QQuickDeliveryAgentPrivate25cancelTouchMouseSynthesisEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QQuickDeliveryAgentPrivate19checkIfDoubleTappedEmRK6QPoint": [
+      "bool", "address", "unsigned long", "address"
+    ],
+    "ritual_ZN26QQuickDeliveryAgentPrivate25resetIfDoubleTapPreventedERK11QEventPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QQuickDeliveryAgentPrivate14mousePointDataEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK26QQuickDeliveryAgentPrivate15eventInDeliveryEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QQuickDeliveryAgentPrivate19deliverTouchAsMouseEP10QQuickItemP11QTouchEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN26QQuickDeliveryAgentPrivate19translateTouchEventEP11QTouchEvent": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QQuickDeliveryAgentPrivate13removeGrabberEP10QQuickItembbb": [
+      "nothing", "address", "address", "bool", "bool", "bool"
+    ],
+    "ritual_ZN26QQuickDeliveryAgentPrivate13clearGrabbersEP13QPointerEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QQuickDeliveryAgentPrivate13onGrabChangedEP7QObjectN15QPointingDevice14GrabTransitionEPK13QPointerEventRK11QEventPoint": [
+      "nothing", "address", "address", "int", "address", "address"
+    ],
+    "ritual_ZN26QQuickDeliveryAgentPrivate22sendFilteredMouseEventEP6QEventP10QQuickItemS3_": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZN26QQuickDeliveryAgentPrivate24sendFilteredPointerEventEP13QPointerEventP10QQuickItemS3_": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZN26QQuickDeliveryAgentPrivate28sendFilteredPointerEventImplEP13QPointerEventP10QQuickItemS3_": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZN26QQuickDeliveryAgentPrivate36deliverSinglePointEventUntilAcceptedEP13QPointerEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN26QQuickDeliveryAgentPrivate16handleTouchEventEP11QTouchEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QQuickDeliveryAgentPrivate16handleMouseEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QQuickDeliveryAgentPrivate18compressTouchEventEP11QTouchEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN26QQuickDeliveryAgentPrivate27flushFrameSynchronousEventsEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QQuickDeliveryAgentPrivate24deliverDelayedTouchEventEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QQuickDeliveryAgentPrivate22handleWindowDeactivateEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QQuickDeliveryAgentPrivate18handleWindowHiddenEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QQuickDeliveryAgentPrivate24allUpdatedPointsAcceptedEPK13QPointerEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN26QQuickDeliveryAgentPrivate20localizePointerEventEP13QPointerEventPK10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QQuickDeliveryAgentPrivate17exclusiveGrabbersEP13QPointerEvent": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN26QQuickDeliveryAgentPrivate15anyPointGrabbedEPK13QPointerEvent": [
+      "bool", "address"
+    ],
+    "ritual_ZN26QQuickDeliveryAgentPrivate16allPointsGrabbedEPK13QPointerEvent": [
+      "bool", "address"
+    ],
+    "ritual_ZN26QQuickDeliveryAgentPrivate12isMouseEventEPK13QPointerEvent": [
+      "bool", "address"
+    ],
+    "ritual_ZN26QQuickDeliveryAgentPrivate19isMouseOrWheelEventEPK13QPointerEvent": [
+      "bool", "address"
+    ],
+    "ritual_ZN26QQuickDeliveryAgentPrivate12isHoverEventEPK13QPointerEvent": [
+      "bool", "address"
+    ],
+    "ritual_ZN26QQuickDeliveryAgentPrivate12isTouchEventEPK13QPointerEvent": [
+      "bool", "address"
+    ],
+    "ritual_ZN26QQuickDeliveryAgentPrivate13isTabletEventEPK13QPointerEvent": [
+      "bool", "address"
+    ],
+    "ritual_ZN26QQuickDeliveryAgentPrivate26isEventFromMouseOrTouchpadEPK13QPointerEvent": [
+      "bool", "address"
+    ],
+    "ritual_ZN26QQuickDeliveryAgentPrivate12isSynthMouseEPK13QPointerEvent": [
+      "bool", "address"
+    ],
+    "ritual_ZN26QQuickDeliveryAgentPrivate27isWithinDoubleClickIntervalEm": [
+      "bool", "unsigned long"
+    ],
+    "ritual_ZN26QQuickDeliveryAgentPrivate25isWithinDoubleTapDistanceERK6QPoint": [
+      "bool", "address"
+    ],
+    "ritual_ZN26QQuickDeliveryAgentPrivate19isSinglePointDeviceEPK12QInputDevice": [
+      "bool", "address"
+    ],
+    "ritual_ZN26QQuickDeliveryAgentPrivate11deviceExtraEPK12QInputDevice": [
+      "address", "address"
+    ],
+    "ritual_ZN26QQuickDeliveryAgentPrivate17touchToMouseEventEN6QEvent4TypeERK11QEventPointPK11QTouchEventP24QMutableSinglePointEvent": [
+      "nothing", "address", "int", "address", "address", "address"
+    ],
+    "ritual_ZN26QQuickDeliveryAgentPrivate21ensureDeviceConnectedEPK15QPointingDevice": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QQuickDeliveryAgentPrivate19deliverPointerEventEP13QPointerEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QQuickDeliveryAgentPrivate23deliverTouchCancelEventEP11QTouchEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN26QQuickDeliveryAgentPrivate26deliverPressOrReleaseEventEP13QPointerEventb": [
+      "bool", "address", "address", "bool"
+    ],
+    "ritual_ZN26QQuickDeliveryAgentPrivate20deliverUpdatedPointsEP13QPointerEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QQuickDeliveryAgentPrivate27deliverMatchingPointsToItemEP10QQuickItembP13QPointerEventb": [
+      "nothing", "address", "address", "bool", "address", "bool"
+    ],
+    "ritual_ZNK26QQuickDeliveryAgentPrivate14pointerTargetsEP10QQuickItemPK13QPointerEventRK11QEventPointbb": [
+      "address", "address", "address", "address", "address", "bool", "bool"
+    ],
+    "ritual_ZNK26QQuickDeliveryAgentPrivate19mergePointerTargetsERK5QListIP10QQuickItemES5_": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN26QQuickDeliveryAgentPrivate17deliverHoverEventERK7QPointFS2_6QFlagsIN2Qt16KeyboardModifierEEm": [
+      "bool", "address", "address", "address", "int", "unsigned long"
+    ],
+    "ritual_ZN26QQuickDeliveryAgentPrivate26deliverHoverEventRecursiveEP10QQuickItemRK7QPointFS4_S4_S4_6QFlagsIN2Qt16KeyboardModifierEEm": [
+      "bool", "address", "address", "address", "address", "address",
+      "address", "int", "unsigned long"
+    ],
+    "ritual_ZN26QQuickDeliveryAgentPrivate23deliverHoverEventToItemEP10QQuickItemRK7QPointFS4_S4_S4_6QFlagsIN2Qt16KeyboardModifierEEmNS_11HoverChangeE": [
+      "bool", "address", "address", "address", "address", "address",
+      "address", "int", "unsigned long", "unsigned char"
+    ],
+    "ritual_ZN26QQuickDeliveryAgentPrivate14sendHoverEventEN6QEvent4TypeEP10QQuickItemRK7QPointFS6_S6_S6_6QFlagsIN2Qt16KeyboardModifierEEm": [
+      "bool", "address", "int", "address", "address", "address", "address",
+      "address", "int", "unsigned long"
+    ],
+    "ritual_ZN26QQuickDeliveryAgentPrivate10clearHoverEm": [
+      "bool", "address", "unsigned long"
+    ],
+    "ritual_ZN26QQuickDeliveryAgentPrivate16deliverDragEventEP17QQuickDragGrabberP6QEvent": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN26QQuickDeliveryAgentPrivate17dragOverThresholdEdN2Qt4AxisEP11QMouseEventi": [
+      "bool", "double", "int", "address", "int"
+    ],
+    "ritual_ZN26QQuickDeliveryAgentPrivate17dragOverThresholdEdN2Qt4AxisERK11QEventPointi": [
+      "bool", "double", "int", "address", "int"
+    ],
+    "ritual_ZN26QQuickDeliveryAgentPrivate17dragOverThresholdE9QVector2D": [
+      "bool", "address"
+    ],
+    "ritual_ZNK26QQuickDeliveryAgentPrivate18contextMenuTargetsEP10QQuickItemPK17QContextMenuEvent": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN26QQuickDeliveryAgentPrivate23deliverContextMenuEventEP17QContextMenuEvent": [
+      "nothing", "address", "address"
+    ]
+  }
+}

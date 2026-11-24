@@ -1,0 +1,145 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/qnetworkaccessmanager.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZNK21QNetworkAccessManager10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QNetworkAccessManager2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN21QNetworkAccessManagerC1EP7QObject": ["address", "address"],
+    "ritual_ZN21QNetworkAccessManagerD1Ev": ["nothing", "address"],
+    "ritual_ZNK21QNetworkAccessManager16supportedSchemesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QNetworkAccessManager16clearAccessCacheEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QNetworkAccessManager20clearConnectionCacheEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK21QNetworkAccessManager5proxyEv": ["address", "address"],
+    "ritual_ZN21QNetworkAccessManager8setProxyERK13QNetworkProxy": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21QNetworkAccessManager12proxyFactoryEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QNetworkAccessManager15setProxyFactoryEP20QNetworkProxyFactory": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21QNetworkAccessManager5cacheEv": ["address", "address"],
+    "ritual_ZN21QNetworkAccessManager8setCacheEP21QAbstractNetworkCache": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21QNetworkAccessManager9cookieJarEv": ["address", "address"],
+    "ritual_ZN21QNetworkAccessManager12setCookieJarEP17QNetworkCookieJar": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QNetworkAccessManager33setStrictTransportSecurityEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK21QNetworkAccessManager32isStrictTransportSecurityEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QNetworkAccessManager34enableStrictTransportSecurityStoreEbRK7QString": [
+      "nothing", "address", "bool", "text"
+    ],
+    "ritual_ZNK21QNetworkAccessManager37isStrictTransportSecurityStoreEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QNetworkAccessManager31addStrictTransportSecurityHostsERK5QListI11QHstsPolicyE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21QNetworkAccessManager28strictTransportSecurityHostsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QNetworkAccessManager4headERK15QNetworkRequest": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN21QNetworkAccessManager3getERK15QNetworkRequest": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN21QNetworkAccessManager3getERK15QNetworkRequestP9QIODevice": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN21QNetworkAccessManager3getERK15QNetworkRequestRK10QByteArray": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN21QNetworkAccessManager4postERK15QNetworkRequestP9QIODevice": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN21QNetworkAccessManager4postERK15QNetworkRequestRK10QByteArray": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN21QNetworkAccessManager3putERK15QNetworkRequestP9QIODevice": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN21QNetworkAccessManager3putERK15QNetworkRequestRK10QByteArray": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN21QNetworkAccessManager14deleteResourceERK15QNetworkRequest": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN21QNetworkAccessManager17sendCustomRequestERK15QNetworkRequestRK10QByteArrayP9QIODevice": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN21QNetworkAccessManager17sendCustomRequestERK15QNetworkRequestRK10QByteArrayS5_": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN21QNetworkAccessManager4postERK15QNetworkRequestP14QHttpMultiPart": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN21QNetworkAccessManager3putERK15QNetworkRequestP14QHttpMultiPart": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN21QNetworkAccessManager17sendCustomRequestERK15QNetworkRequestRK10QByteArrayP14QHttpMultiPart": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN21QNetworkAccessManager22connectToHostEncryptedERK7QStringtRK17QSslConfiguration": [
+      "nothing", "address", "text", "unsigned short", "address"
+    ],
+    "ritual_ZN21QNetworkAccessManager22connectToHostEncryptedERK7QStringtRK17QSslConfigurationS2_": [
+      "nothing", "address", "text", "unsigned short", "address", "text"
+    ],
+    "ritual_ZN21QNetworkAccessManager13connectToHostERK7QStringt": [
+      "nothing", "address", "text", "unsigned short"
+    ],
+    "ritual_ZN21QNetworkAccessManager17setRedirectPolicyEN15QNetworkRequest14RedirectPolicyE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK21QNetworkAccessManager14redirectPolicyEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK21QNetworkAccessManager17autoDeleteRepliesEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QNetworkAccessManager20setAutoDeleteRepliesEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK21QNetworkAccessManager15transferTimeoutEv": [
+      "int", "address"
+    ],
+    "ritual_ZN21QNetworkAccessManager18setTransferTimeoutEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN21QNetworkAccessManager13createRequestENS_9OperationERK15QNetworkRequestP9QIODevice": [
+      "address", "address", "int", "address", "address"
+    ],
+    "ritual_ZNK21QNetworkAccessManager30supportedSchemesImplementationEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QNetworkAccessManager6d_funcEv": ["address", "address"],
+    "ritual_ZNK21QNetworkAccessManager6d_funcEv": ["address", "address"],
+    "ritual_take_QNetworkAccessManager": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN21QNetworkAccessManager13createRequestENS_9OperationERK15QNetworkRequestP9QIODevice": [
+      "address", "address", "int", "address", "address"
+    ]
+  }
+}

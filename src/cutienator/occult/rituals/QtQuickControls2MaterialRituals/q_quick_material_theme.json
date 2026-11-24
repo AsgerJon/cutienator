@@ -1,0 +1,20 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Controls2Material/6.12.0/QtQuickControls2Material/private/qquickma",
+    "terialtheme_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QQuickMaterialTheme10initializeEP11QQuickTheme": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickMaterialTheme19registerSystemStyleEP19QQuickMaterialStyle": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickMaterialTheme21unregisterSystemStyleEP19QQuickMaterialStyle": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickMaterialTheme11updateThemeEv": ["nothing"],
+    "ritual_ZN19QQuickMaterialThemeD1Ev": ["nothing", "address"]
+  }
+}

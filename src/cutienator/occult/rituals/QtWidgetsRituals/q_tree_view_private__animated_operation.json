@@ -1,0 +1,31 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qtreeview_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN16QTreeViewPrivate17AnimatedOperationC1Ev": ["address"],
+    "ritual_ZNK16QTreeViewPrivate17AnimatedOperation3topEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK16QTreeViewPrivate17AnimatedOperation4rectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN16QTreeViewPrivate17AnimatedOperation18updateCurrentValueERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QTreeViewPrivate17AnimatedOperation11updateStateEN18QAbstractAnimation5StateES2_": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_take_QTreeViewPrivate_AnimatedOperation": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN16QTreeViewPrivate17AnimatedOperation18updateCurrentValueERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16QTreeViewPrivate17AnimatedOperation11updateStateEN18QAbstractAnimation5StateES2_": [
+      "nothing", "address", "int", "int"
+    ]
+  }
+}

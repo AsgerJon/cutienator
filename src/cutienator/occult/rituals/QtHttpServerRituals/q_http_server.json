@@ -1,0 +1,23 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtHttpServer/qhttpserver.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK11QHttpServer10metaObjectEv": ["address", "address"],
+    "ritual_ZN11QHttpServer2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN11QHttpServer6d_funcEv": ["address", "address"],
+    "ritual_ZNK11QHttpServer6d_funcEv": ["address", "address"],
+    "ritual_ZN11QHttpServerC1EP7QObject": ["address", "address"],
+    "ritual_ZN11QHttpServerD1Ev": ["nothing", "address"],
+    "ritual_ZN11QHttpServer6routerEv": ["address", "address"],
+    "ritual_ZNK11QHttpServer6routerEv": ["address", "address"],
+    "ritual_ZN11QHttpServer19clearMissingHandlerEv": ["nothing", "address"],
+    "ritual_ZN11QHttpServer21setMissingHandlerImplEPK7QObjectPN9QtPrivate15QSlotObjectBaseE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN11QHttpServer26addAfterRequestHandlerImplEPK7QObjectPN9QtPrivate15QSlotObjectBaseE": [
+      "nothing", "address", "address", "address"
+    ]
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qstringhash_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QStringHashBase9toQStringERK7QString": ["text", "text"],
+    "ritual_ZN15QStringHashBase9toQStringERK13QHashedString": [
+      "text", "address"
+    ],
+    "ritual_ZN15QStringHashBase9toQStringEPKN3QV46StringE": [
+      "text", "address"
+    ],
+    "ritual_ZN15QStringHashBase9toQStringERK16QHashedStringRef": [
+      "text", "address"
+    ],
+    "ritual_ZN15QStringHashBase9toQStringERK13QLatin1String": [
+      "text", "address"
+    ],
+    "ritual_ZN15QStringHashBase9toQStringERK17QHashedCStringRef": [
+      "text", "address"
+    ],
+    "ritual_ZN15QStringHashBase6hashOfERK16QHashedStringRef": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN15QStringHashBase6hashOfEPN3QV46StringE": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN15QStringHashBase6hashOfEPKN3QV46StringE": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN15QStringHashBaseD1Ev": ["nothing", "address"]
+  }
+}

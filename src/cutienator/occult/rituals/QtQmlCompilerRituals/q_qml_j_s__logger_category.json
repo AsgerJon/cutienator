@@ -1,0 +1,11 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQmlCompiler/6.12.0/QtQmlCompiler/private/qqmljsloggingutils_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN6QQmlJS14LoggerCategory6d_funcEv": ["address", "address"],
+    "ritual_ZNK6QQmlJS14LoggerCategory6d_funcEv": ["address", "address"]
+  }
+}

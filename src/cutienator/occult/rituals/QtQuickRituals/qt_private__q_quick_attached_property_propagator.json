@@ -1,0 +1,36 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "/6.12.0/QtQuick/private/qquickattachedpropertypropagator_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK9QtPrivate32QQuickAttachedPropertyPropagator10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN9QtPrivate32QQuickAttachedPropertyPropagator2trEPKcS2_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN9QtPrivate32QQuickAttachedPropertyPropagator14attachedObjectEPK11QMetaObjectP7QObjectb": [
+      "address", "address", "address", "bool"
+    ],
+    "ritual_ZN9QtPrivate32QQuickAttachedPropertyPropagator20attachedParentChangeEPS0_S1_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN9QtPrivatelsE6QDebugPKNS_32QQuickAttachedPropertyPropagatorE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN9QtPrivate32QQuickAttachedPropertyPropagator6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK9QtPrivate32QQuickAttachedPropertyPropagator6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_take_QtPrivate_QQuickAttachedPropertyPropagator": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN9QtPrivate32QQuickAttachedPropertyPropagator20attachedParentChangeEPS0_S1_": [
+      "nothing", "address", "address", "address"
+    ]
+  }
+}

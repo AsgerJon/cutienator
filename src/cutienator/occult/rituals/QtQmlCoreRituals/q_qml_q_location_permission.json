@@ -1,0 +1,28 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQmlCore/6.12.0/QtQmlCore/private/qqmlpermissions_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK23QQmlQLocationPermission10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK23QQmlQLocationPermission6statusEv": ["int", "address"],
+    "ritual_ZN23QQmlQLocationPermission20qmlExtendedNamespaceEv": [
+      "address"
+    ],
+    "ritual_ZN23QQmlQLocationPermission30qt_qmlMarker_extendedNamespaceEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK23QQmlQLocationPermission12availabilityEv": [
+      "unsigned char", "address"
+    ],
+    "ritual_ZNK23QQmlQLocationPermission8accuracyEv": [
+      "unsigned char", "address"
+    ],
+    "ritual_take_QQmlQLocationPermission": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

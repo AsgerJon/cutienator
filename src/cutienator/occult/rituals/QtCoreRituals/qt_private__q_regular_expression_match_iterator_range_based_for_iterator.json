@@ -1,0 +1,42 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qregularexpression.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN9QtPrivate52QRegularExpressionMatchIteratorRangeBasedForIteratorC1Ev": [
+      "address"
+    ],
+    "ritual_ZN9QtPrivate52QRegularExpressionMatchIteratorRangeBasedForIteratorC1ERK31QRegularExpressionMatchIterator": [
+      "address", "address"
+    ],
+    "ritual_ZNK9QtPrivate52QRegularExpressionMatchIteratorRangeBasedForIteratordeEv": [
+      "address", "address"
+    ],
+    "ritual_ZN9QtPrivate52QRegularExpressionMatchIteratorRangeBasedForIteratorppEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN9QtPrivateeqERKNS_52QRegularExpressionMatchIteratorRangeBasedForIteratorES2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN9QtPrivateneERKNS_52QRegularExpressionMatchIteratorRangeBasedForIteratorES2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN9QtPrivateeqERKNS_52QRegularExpressionMatchIteratorRangeBasedForIteratorERKNS_60QRegularExpressionMatchIteratorRangeBasedForIteratorSentinelE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN9QtPrivateneERKNS_52QRegularExpressionMatchIteratorRangeBasedForIteratorERKNS_60QRegularExpressionMatchIteratorRangeBasedForIteratorSentinelE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN9QtPrivateeqERKNS_60QRegularExpressionMatchIteratorRangeBasedForIteratorSentinelERKNS_52QRegularExpressionMatchIteratorRangeBasedForIteratorE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN9QtPrivateneERKNS_60QRegularExpressionMatchIteratorRangeBasedForIteratorSentinelERKNS_52QRegularExpressionMatchIteratorRangeBasedForIteratorE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN9QtPrivate52QRegularExpressionMatchIteratorRangeBasedForIteratorD1Ev": [
+      "nothing", "address"
+    ]
+  }
+}

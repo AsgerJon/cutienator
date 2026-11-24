@@ -1,0 +1,73 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtBluet",
+    "ooth/6.12.0/QtBluetooth/private/qlowenergycontrollerbase_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK27QLowEnergyControllerPrivate10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QLowEnergyControllerPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN27QLowEnergyControllerPrivate4initEv": ["nothing", "address"],
+    "ritual_ZN27QLowEnergyControllerPrivate15connectToDeviceEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QLowEnergyControllerPrivate20disconnectFromDeviceEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QLowEnergyControllerPrivate16discoverServicesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QLowEnergyControllerPrivate22discoverServiceDetailsERK14QBluetoothUuidN17QLowEnergyService13DiscoveryModeE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN27QLowEnergyControllerPrivate16startAdvertisingERK31QLowEnergyAdvertisingParametersRK25QLowEnergyAdvertisingDataS5_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN27QLowEnergyControllerPrivate15stopAdvertisingEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QLowEnergyControllerPrivate23requestConnectionUpdateERK30QLowEnergyConnectionParameters": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN27QLowEnergyControllerPrivate25addToGenericAttributeListERK21QLowEnergyServiceDatat": [
+      "nothing", "address", "address", "unsigned short"
+    ],
+    "ritual_ZNK27QLowEnergyControllerPrivate3mtuEv": ["int", "address"],
+    "ritual_ZN27QLowEnergyControllerPrivate8readRssiEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QLowEnergyControllerPrivate16addServiceHelperERK21QLowEnergyServiceData": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN27QLowEnergyControllerPrivate19isValidLocalAdapterEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN27QLowEnergyControllerPrivate8setErrorEN20QLowEnergyController5ErrorE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN27QLowEnergyControllerPrivate23characteristicForHandleEt": [
+      "address", "address", "unsigned short"
+    ],
+    "ritual_ZN27QLowEnergyControllerPrivate19descriptorForHandleEt": [
+      "address", "address", "unsigned short"
+    ],
+    "ritual_ZN27QLowEnergyControllerPrivate27updateValueOfCharacteristicEtRK10QByteArrayb": [
+      "unsigned short", "address", "unsigned short", "address", "bool"
+    ],
+    "ritual_ZN27QLowEnergyControllerPrivate23updateValueOfDescriptorEttRK10QByteArrayb": [
+      "unsigned short", "address", "unsigned short", "unsigned short",
+      "address", "bool"
+    ],
+    "ritual_ZN27QLowEnergyControllerPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK27QLowEnergyControllerPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_take_QLowEnergyControllerPrivate": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

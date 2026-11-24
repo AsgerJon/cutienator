@@ -1,0 +1,20 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3D/6.12.0/QtQuick3D/private/qquick3dshaderutils_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK29QQuick3DShaderUtilsRenderPass10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN29QQuick3DShaderUtilsRenderPass2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN29QQuick3DShaderUtilsRenderPassC1Ev": ["address"],
+    "ritual_ZN29QQuick3DShaderUtilsRenderPassD1Ev": ["nothing", "address"],
+    "ritual_take_QQuick3DShaderUtilsRenderPass": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

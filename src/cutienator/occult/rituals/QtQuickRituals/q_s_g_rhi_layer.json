@@ -1,0 +1,107 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qsgrhilayer_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK11QSGRhiLayer10metaObjectEv": ["address", "address"],
+    "ritual_ZN11QSGRhiLayer2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN11QSGRhiLayerC1EP16QSGRenderContext": ["address", "address"],
+    "ritual_ZN11QSGRhiLayerD1Ev": ["nothing", "address"],
+    "ritual_ZN11QSGRhiLayer13updateTextureEv": ["bool", "address"],
+    "ritual_ZNK11QSGRhiLayer15hasAlphaChannelEv": ["bool", "address"],
+    "ritual_ZNK11QSGRhiLayer10hasMipmapsEv": ["bool", "address"],
+    "ritual_ZNK11QSGRhiLayer11textureSizeEv": ["address", "address"],
+    "ritual_ZNK11QSGRhiLayer13comparisonKeyEv": ["long long", "address"],
+    "ritual_ZNK11QSGRhiLayer10rhiTextureEv": ["address", "address"],
+    "ritual_ZN11QSGRhiLayer23commitTextureOperationsEP4QRhiP23QRhiResourceUpdateBatch": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN11QSGRhiLayer7setItemEP7QSGNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QSGRhiLayer7setRectERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QSGRhiLayer7setSizeERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QSGRhiLayer13setHasMipmapsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN11QSGRhiLayer9setFormatEN8QSGLayer6FormatE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN11QSGRhiLayer7setLiveEb": ["nothing", "address", "bool"],
+    "ritual_ZN11QSGRhiLayer12setRecursiveEb": ["nothing", "address", "bool"],
+    "ritual_ZN11QSGRhiLayer19setDevicePixelRatioEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN11QSGRhiLayer19setMirrorHorizontalEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN11QSGRhiLayer17setMirrorVerticalEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK11QSGRhiLayer24normalizedTextureSubRectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN11QSGRhiLayer10setSamplesEi": ["nothing", "address", "int"],
+    "ritual_ZN11QSGRhiLayer14scheduleUpdateEv": ["nothing", "address"],
+    "ritual_ZNK11QSGRhiLayer7toImageEv": ["address", "address"],
+    "ritual_ZN11QSGRhiLayer16markDirtyTextureEv": ["nothing", "address"],
+    "ritual_ZN11QSGRhiLayer11invalidatedEv": ["nothing", "address"],
+    "ritual_ZN11QSGRhiLayer4grabEv": ["nothing", "address"],
+    "ritual_ZN11QSGRhiLayer16releaseResourcesEv": ["nothing", "address"],
+    "ritual_ZN11QSGRhiLayer16clearMainTextureEv": ["nothing", "address"],
+    "ritual_take_QSGRhiLayer": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN11QSGRhiLayer13updateTextureEv": ["bool", "address"],
+    "ritual_own_ZNK11QSGRhiLayer15hasAlphaChannelEv": ["bool", "address"],
+    "ritual_own_ZNK11QSGRhiLayer10hasMipmapsEv": ["bool", "address"],
+    "ritual_own_ZNK11QSGRhiLayer11textureSizeEv": ["address", "address"],
+    "ritual_own_ZNK11QSGRhiLayer13comparisonKeyEv": ["long long", "address"],
+    "ritual_own_ZNK11QSGRhiLayer10rhiTextureEv": ["address", "address"],
+    "ritual_own_ZN11QSGRhiLayer23commitTextureOperationsEP4QRhiP23QRhiResourceUpdateBatch": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN11QSGRhiLayer7setItemEP7QSGNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN11QSGRhiLayer7setRectERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN11QSGRhiLayer7setSizeERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN11QSGRhiLayer13setHasMipmapsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZN11QSGRhiLayer9setFormatEN8QSGLayer6FormatE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN11QSGRhiLayer7setLiveEb": ["nothing", "address", "bool"],
+    "ritual_own_ZN11QSGRhiLayer12setRecursiveEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZN11QSGRhiLayer19setDevicePixelRatioEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_own_ZN11QSGRhiLayer19setMirrorHorizontalEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZN11QSGRhiLayer17setMirrorVerticalEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZNK11QSGRhiLayer24normalizedTextureSubRectEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN11QSGRhiLayer10setSamplesEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN11QSGRhiLayer14scheduleUpdateEv": ["nothing", "address"],
+    "ritual_own_ZNK11QSGRhiLayer7toImageEv": ["address", "address"],
+    "ritual_own_ZN11QSGRhiLayer16markDirtyTextureEv": ["nothing", "address"],
+    "ritual_own_ZN11QSGRhiLayer11invalidatedEv": ["nothing", "address"]
+  }
+}

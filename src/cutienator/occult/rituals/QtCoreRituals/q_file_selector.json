@@ -19,6 +19,8 @@
       "nothing", "address", "address"
     ],
     "ritual_ZNK13QFileSelector12allSelectorsEv": ["address", "address"],
+    "ritual_ZN13QFileSelector6d_funcEv": ["address", "address"],
+    "ritual_ZNK13QFileSelector6d_funcEv": ["address", "address"],
     "ritual_take_QFileSelector": ["bool", "address", "chars", "address"]
   }
 }

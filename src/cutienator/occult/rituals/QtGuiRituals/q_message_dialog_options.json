@@ -1,0 +1,78 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/qpa/qplatformdialoghelper.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN21QMessageDialogOptionsD1Ev": ["nothing", "address"],
+    "ritual_ZNK21QMessageDialogOptions11windowTitleEv": ["text", "address"],
+    "ritual_ZN21QMessageDialogOptions14setWindowTitleERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN21QMessageDialogOptions15setStandardIconENS_12StandardIconE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK21QMessageDialogOptions12standardIconEv": ["int", "address"],
+    "ritual_ZN21QMessageDialogOptions13setIconPixmapERK7QPixmap": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21QMessageDialogOptions10iconPixmapEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QMessageDialogOptions7setTextERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK21QMessageDialogOptions4textEv": ["text", "address"],
+    "ritual_ZN21QMessageDialogOptions18setInformativeTextERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK21QMessageDialogOptions15informativeTextEv": [
+      "text", "address"
+    ],
+    "ritual_ZN21QMessageDialogOptions15setDetailedTextERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK21QMessageDialogOptions12detailedTextEv": ["text", "address"],
+    "ritual_ZN21QMessageDialogOptions9setOptionENS_6OptionEb": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZNK21QMessageDialogOptions10testOptionENS_6OptionE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN21QMessageDialogOptions10setOptionsE6QFlagsINS_6OptionEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK21QMessageDialogOptions7optionsEv": ["int", "address"],
+    "ritual_ZN21QMessageDialogOptions18setStandardButtonsE6QFlagsIN21QPlatformDialogHelper14StandardButtonEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK21QMessageDialogOptions15standardButtonsEv": [
+      "int", "address"
+    ],
+    "ritual_ZN21QMessageDialogOptions12removeButtonEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN21QMessageDialogOptions12customButtonEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN21QMessageDialogOptions18clearCustomButtonsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QMessageDialogOptions11setCheckBoxERK7QStringN2Qt10CheckStateE": [
+      "nothing", "address", "text", "int"
+    ],
+    "ritual_ZNK21QMessageDialogOptions13checkBoxLabelEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK21QMessageDialogOptions13checkBoxStateEv": ["int", "address"],
+    "ritual_ZN21QMessageDialogOptions15setEscapeButtonEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK21QMessageDialogOptions12escapeButtonEv": ["int", "address"],
+    "ritual_ZN21QMessageDialogOptions16setDefaultButtonEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK21QMessageDialogOptions13defaultButtonEv": ["int", "address"]
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquickselectionrectang",
+    "le_p_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN31QQuickSelectionRectanglePrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK31QQuickSelectionRectanglePrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN31QQuickSelectionRectanglePrivateC1Ev": ["address"],
+    "ritual_ZN31QQuickSelectionRectanglePrivate19updateDraggingStateEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN31QQuickSelectionRectanglePrivate17updateActiveStateEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN31QQuickSelectionRectanglePrivate13updateHandlesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN31QQuickSelectionRectanglePrivate19updateSelectionModeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN31QQuickSelectionRectanglePrivate15connectToTargetEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN31QQuickSelectionRectanglePrivate16scrollTowardsPosERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN31QQuickSelectionRectanglePrivate14handleUnderPosERK7QPointF": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN31QQuickSelectionRectanglePrivate12createHandleEP13QQmlComponentN2Qt6CornerE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZNK31QQuickSelectionRectanglePrivate17getAttachedObjectEPK7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_take_QQuickSelectionRectanglePrivate": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

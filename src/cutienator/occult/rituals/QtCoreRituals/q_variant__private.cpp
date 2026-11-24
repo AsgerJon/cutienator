@@ -2,11 +2,38 @@
 //  QtCore/qvariant.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetatype.h>
+#include <QtCore/QtCore>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/6.12.0/QtCore/private/qvariant_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  bool QVariant::Private::canUseInternalSpace(const
+//      QtPrivate::QMetaTypeInterface *type)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN8QVariant7Private19canUseInternalSpaceEPKN9QtPrivate18QMetaTypeInterfaceE(
+    const QtPrivate::QMetaTypeInterface *type) {
+  return QVariant::Private::canUseInternalSpace(type);
+}
 
 //  QVariant::Private::Private()
 extern "C" Q_DECL_EXPORT
 QVariant::Private *ritual_ZN8QVariant7PrivateC1Ev() {
   return new QVariant::Private();
+}
+
+//  QVariant::Private::Private(const QtPrivate::QMetaTypeInterface *iface)
+extern "C" Q_DECL_EXPORT
+QVariant::Private *ritual_ZN8QVariant7PrivateC1EPKN9QtPrivate18QMetaTypeInterfaceE(
+    const QtPrivate::QMetaTypeInterface *iface) {
+  return new QVariant::Private(iface);
+}
+
+//  const QtPrivate::QMetaTypeInterface *QVariant::Private::typeInterface()
+//      const
+extern "C" Q_DECL_EXPORT
+const QtPrivate::QMetaTypeInterface *ritual_ZNK8QVariant7Private13typeInterfaceEv(
+    const QVariant::Private *self) {
+  return self->typeInterface();
 }
 
 //  QMetaType QVariant::Private::type() const

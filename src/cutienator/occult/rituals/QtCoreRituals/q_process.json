@@ -57,6 +57,16 @@
     "ritual_ZN8QProcess24setStandardOutputProcessEPS_": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN8QProcess24failChildProcessModifierEPKci": [
+      "nothing", "address", "chars", "int"
+    ],
+    "ritual_ZNK8QProcess21unixProcessParametersEv": ["address", "address"],
+    "ritual_ZN8QProcess24setUnixProcessParametersERKNS_21UnixProcessParametersE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8QProcess24setUnixProcessParametersE6QFlagsINS_15UnixProcessFlagEE": [
+      "nothing", "address", "int"
+    ],
     "ritual_ZNK8QProcess16workingDirectoryEv": ["text", "address"],
     "ritual_ZN8QProcess19setWorkingDirectoryERK7QString": [
       "nothing", "address", "text"
@@ -100,6 +110,8 @@
     "ritual_ZN8QProcess9writeDataEPKcx": [
       "long long", "address", "chars", "long long"
     ],
+    "ritual_ZN8QProcess6d_funcEv": ["address", "address"],
+    "ritual_ZNK8QProcess6d_funcEv": ["address", "address"],
     "ritual_take_QProcess": ["bool", "address", "chars", "address"],
     "ritual_own_ZN8QProcess4openE6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [
       "bool", "address", "int"

@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qioring_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN7QIORingC1Ejj": ["address", "unsigned int", "unsigned int"],
+    "ritual_ZN7QIORingD1Ev": ["nothing", "address"],
+    "ritual_ZN7QIORing14sharedInstanceEv": ["address"],
+    "ritual_ZN7QIORing17ensureInitializedEv": ["bool", "address"],
+    "ritual_ZN7QIORing17supportsOperationEN9QtPrivate9OperationE": [
+      "bool", "unsigned char"
+    ],
+    "ritual_ZN7QIORing14submitRequestsEv": ["nothing", "address"],
+    "ritual_ZNK7QIORing19submissionQueueSizeEv": ["unsigned int", "address"],
+    "ritual_ZNK7QIORing19completionQueueSizeEv": ["unsigned int", "address"],
+    "ritual_ZN7QIORing16initializeIORingEv": ["bool", "address"],
+    "ritual_ZN7QIORing15isResultFailureEi": ["bool", "int"]
+  }
+}

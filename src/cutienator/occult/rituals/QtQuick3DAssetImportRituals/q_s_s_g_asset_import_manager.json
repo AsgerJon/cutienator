@@ -1,0 +1,35 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DAssetImport/6.12.0/QtQuick3DAssetImport/private/qssgassetimportm",
+    "anager_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK22QSSGAssetImportManager10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QSSGAssetImportManager2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN22QSSGAssetImportManagerC1EP7QObject": ["address", "address"],
+    "ritual_ZN22QSSGAssetImportManagerD1Ev": ["nothing", "address"],
+    "ritual_ZN22QSSGAssetImportManager10importFileERK7QStringRK4QDirPS0_": [
+      "unsigned char", "address", "text", "address", "address"
+    ],
+    "ritual_ZN22QSSGAssetImportManager10importFileERK7QStringRK4QDirRK11QJsonObjectPS0_": [
+      "unsigned char", "address", "text", "address", "address", "address"
+    ],
+    "ritual_ZN22QSSGAssetImportManager17getOptionsForFileERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK22QSSGAssetImportManager13getAllOptionsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK22QSSGAssetImportManager22getImporterPluginInfosEv": [
+      "address", "address"
+    ],
+    "ritual_take_QSSGAssetImportManager": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

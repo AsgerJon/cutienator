@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLocation/6.12.0/QtLocation/private/qplacecontent_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QPlaceContentPrivateC1EN13QPlaceContent4TypeE": [
+      "address", "int"
+    ],
+    "ritual_ZNK20QPlaceContentPrivate7compareEPKS_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK20QPlaceContentPrivate4typeEv": ["int", "address"],
+    "ritual_ZN20QPlaceContentPrivateD1Ev": ["nothing", "address"]
+  }
+}

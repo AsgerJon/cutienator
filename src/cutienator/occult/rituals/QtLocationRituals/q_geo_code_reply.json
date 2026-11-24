@@ -1,0 +1,46 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLocation/qgeocodereply.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK13QGeoCodeReply10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QGeoCodeReply2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN13QGeoCodeReplyC1ENS_5ErrorERK7QStringP7QObject": [
+      "address", "int", "text", "address"
+    ],
+    "ritual_ZN13QGeoCodeReplyD1Ev": ["nothing", "address"],
+    "ritual_ZNK13QGeoCodeReply10isFinishedEv": ["bool", "address"],
+    "ritual_ZNK13QGeoCodeReply5errorEv": ["int", "address"],
+    "ritual_ZNK13QGeoCodeReply11errorStringEv": ["text", "address"],
+    "ritual_ZNK13QGeoCodeReply8viewportEv": ["address", "address"],
+    "ritual_ZNK13QGeoCodeReply9locationsEv": ["address", "address"],
+    "ritual_ZNK13QGeoCodeReply5limitEv": ["long long", "address"],
+    "ritual_ZNK13QGeoCodeReply6offsetEv": ["long long", "address"],
+    "ritual_ZN13QGeoCodeReply5abortEv": ["nothing", "address"],
+    "ritual_ZN13QGeoCodeReplyC1EP7QObject": ["address", "address"],
+    "ritual_ZN13QGeoCodeReply8setErrorENS_5ErrorERK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZN13QGeoCodeReply11setFinishedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN13QGeoCodeReply11setViewportERK9QGeoShape": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QGeoCodeReply11addLocationERK12QGeoLocation": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QGeoCodeReply12setLocationsERK5QListI12QGeoLocationE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QGeoCodeReply8setLimitEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN13QGeoCodeReply9setOffsetEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_take_QGeoCodeReply": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN13QGeoCodeReply5abortEv": ["nothing", "address"]
+  }
+}

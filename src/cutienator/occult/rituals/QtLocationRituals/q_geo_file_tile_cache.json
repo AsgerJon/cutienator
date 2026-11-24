@@ -1,0 +1,146 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLocation/6.12.0/QtLocation/private/qgeofiletilecache_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QGeoFileTileCache10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QGeoFileTileCache2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QGeoFileTileCacheC1ERK7QStringP7QObject": [
+      "address", "text", "address"
+    ],
+    "ritual_ZN17QGeoFileTileCacheD1Ev": ["nothing", "address"],
+    "ritual_ZN17QGeoFileTileCache15setMaxDiskUsageEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK17QGeoFileTileCache12maxDiskUsageEv": ["int", "address"],
+    "ritual_ZNK17QGeoFileTileCache9diskUsageEv": ["int", "address"],
+    "ritual_ZN17QGeoFileTileCache17setMaxMemoryUsageEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK17QGeoFileTileCache14maxMemoryUsageEv": ["int", "address"],
+    "ritual_ZNK17QGeoFileTileCache11memoryUsageEv": ["int", "address"],
+    "ritual_ZN17QGeoFileTileCache18setMinTextureUsageEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QGeoFileTileCache20setExtraTextureUsageEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK17QGeoFileTileCache15maxTextureUsageEv": ["int", "address"],
+    "ritual_ZNK17QGeoFileTileCache15minTextureUsageEv": ["int", "address"],
+    "ritual_ZNK17QGeoFileTileCache12textureUsageEv": ["int", "address"],
+    "ritual_ZN17QGeoFileTileCache8clearAllEv": ["nothing", "address"],
+    "ritual_ZN17QGeoFileTileCache10clearMapIdEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QGeoFileTileCache19setCostStrategyDiskEN21QAbstractGeoTileCache12CostStrategyE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK17QGeoFileTileCache16costStrategyDiskEv": ["int", "address"],
+    "ritual_ZN17QGeoFileTileCache21setCostStrategyMemoryEN21QAbstractGeoTileCache12CostStrategyE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK17QGeoFileTileCache18costStrategyMemoryEv": [
+      "int", "address"
+    ],
+    "ritual_ZN17QGeoFileTileCache22setCostStrategyTextureEN21QAbstractGeoTileCache12CostStrategyE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK17QGeoFileTileCache19costStrategyTextureEv": [
+      "int", "address"
+    ],
+    "ritual_ZN17QGeoFileTileCache18evictFromDiskCacheEP18QGeoCachedTileDisk": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QGeoFileTileCache6insertERK12QGeoTileSpecRK10QByteArrayRK7QString6QFlagsIN21QAbstractGeoTileCache9CacheAreaEE": [
+      "nothing", "address", "address", "address", "text", "int"
+    ],
+    "ritual_ZN17QGeoFileTileCache25tileSpecToFilenameDefaultERK12QGeoTileSpecRK7QStringS5_": [
+      "text", "address", "text", "text"
+    ],
+    "ritual_ZN17QGeoFileTileCache25filenameToTileSpecDefaultERK7QString": [
+      "address", "text"
+    ],
+    "ritual_ZN17QGeoFileTileCache4initEv": ["nothing", "address"],
+    "ritual_ZN17QGeoFileTileCache10printStatsEv": ["nothing", "address"],
+    "ritual_ZN17QGeoFileTileCache9loadTilesEv": ["nothing", "address"],
+    "ritual_ZNK17QGeoFileTileCache9directoryEv": ["text", "address"],
+    "ritual_ZN17QGeoFileTileCache14addToDiskCacheERK12QGeoTileSpecRK7QStringRK10QByteArray": [
+      "bool", "address", "address", "text", "address"
+    ],
+    "ritual_ZN17QGeoFileTileCache16addToMemoryCacheERK12QGeoTileSpecRK10QByteArrayRK7QString": [
+      "nothing", "address", "address", "address", "text"
+    ],
+    "ritual_ZNK17QGeoFileTileCache11isTileBogusERK10QByteArray": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK17QGeoFileTileCache18tileSpecToFilenameERK12QGeoTileSpecRK7QStringS5_": [
+      "text", "address", "address", "text", "text"
+    ],
+    "ritual_ZNK17QGeoFileTileCache18filenameToTileSpecERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_take_QGeoFileTileCache": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN17QGeoFileTileCache15setMaxDiskUsageEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZNK17QGeoFileTileCache12maxDiskUsageEv": ["int", "address"],
+    "ritual_own_ZNK17QGeoFileTileCache9diskUsageEv": ["int", "address"],
+    "ritual_own_ZN17QGeoFileTileCache17setMaxMemoryUsageEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZNK17QGeoFileTileCache14maxMemoryUsageEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZNK17QGeoFileTileCache11memoryUsageEv": ["int", "address"],
+    "ritual_own_ZN17QGeoFileTileCache18setMinTextureUsageEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17QGeoFileTileCache20setExtraTextureUsageEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZNK17QGeoFileTileCache15maxTextureUsageEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZNK17QGeoFileTileCache15minTextureUsageEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZNK17QGeoFileTileCache12textureUsageEv": ["int", "address"],
+    "ritual_own_ZN17QGeoFileTileCache8clearAllEv": ["nothing", "address"],
+    "ritual_own_ZN17QGeoFileTileCache19setCostStrategyDiskEN21QAbstractGeoTileCache12CostStrategyE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZNK17QGeoFileTileCache16costStrategyDiskEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZN17QGeoFileTileCache21setCostStrategyMemoryEN21QAbstractGeoTileCache12CostStrategyE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZNK17QGeoFileTileCache18costStrategyMemoryEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZN17QGeoFileTileCache22setCostStrategyTextureEN21QAbstractGeoTileCache12CostStrategyE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZNK17QGeoFileTileCache19costStrategyTextureEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZN17QGeoFileTileCache6insertERK12QGeoTileSpecRK10QByteArrayRK7QString6QFlagsIN21QAbstractGeoTileCache9CacheAreaEE": [
+      "nothing", "address", "address", "address", "text", "int"
+    ],
+    "ritual_own_ZN17QGeoFileTileCache4initEv": ["nothing", "address"],
+    "ritual_own_ZN17QGeoFileTileCache10printStatsEv": ["nothing", "address"],
+    "ritual_own_ZNK17QGeoFileTileCache11isTileBogusERK10QByteArray": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZNK17QGeoFileTileCache18tileSpecToFilenameERK12QGeoTileSpecRK7QStringS5_": [
+      "text", "address", "address", "text", "text"
+    ],
+    "ritual_own_ZNK17QGeoFileTileCache18filenameToTileSpecERK7QString": [
+      "address", "address", "text"
+    ]
+  }
+}

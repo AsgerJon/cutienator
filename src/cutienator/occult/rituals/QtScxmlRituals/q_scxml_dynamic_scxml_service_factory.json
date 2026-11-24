@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtScxml/qscxmlinvokableservice.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK32QScxmlDynamicScxmlServiceFactory10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN32QScxmlDynamicScxmlServiceFactory2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN32QScxmlDynamicScxmlServiceFactory6invokeEP18QScxmlStateMachine": [
+      "address", "address", "address"
+    ],
+    "ritual_take_QScxmlDynamicScxmlServiceFactory": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN32QScxmlDynamicScxmlServiceFactory6invokeEP18QScxmlStateMachine": [
+      "address", "address", "address"
+    ]
+  }
+}

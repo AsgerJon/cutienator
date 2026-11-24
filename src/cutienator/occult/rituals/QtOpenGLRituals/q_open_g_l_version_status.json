@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtOpenGL/qopenglversionfunctions.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QOpenGLVersionStatusC1Ev": ["address"],
+    "ritual_ZN20QOpenGLVersionStatusC1EiiNS_12OpenGLStatusE": [
+      "address", "int", "int", "int"
+    ],
+    "ritual_ZeqRK20QOpenGLVersionStatusS1_": ["bool", "address", "address"],
+    "ritual_ZneRK20QOpenGLVersionStatusS1_": ["bool", "address", "address"],
+    "ritual_ZN20QOpenGLVersionStatusD1Ev": ["nothing", "address"]
+  }
+}

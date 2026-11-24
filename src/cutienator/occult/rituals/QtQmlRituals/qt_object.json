@@ -1,0 +1,221 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmlbuiltinfunctions_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK8QtObject10metaObjectEv": ["address", "address"],
+    "ritual_ZN8QtObject2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN8QtObject22qt_qmlMarker_singletonEv": ["nothing", "address"],
+    "ritual_ZN8QtObject20qmlExtendedNamespaceEv": ["address"],
+    "ritual_ZN8QtObject30qt_qmlMarker_extendedNamespaceEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN8QtObject6createEP10QQmlEngineP9QJSEngine": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK8QtObject7includeERK7QStringRK8QJSValue": [
+      "address", "address", "text", "address"
+    ],
+    "ritual_ZNK8QtObject10isQtObjectERK8QJSValue": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK8QtObject5colorERK7QString": ["address", "address", "text"],
+    "ritual_ZNK8QtObject4rgbaEdddd": [
+      "address", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZNK8QtObject4hslaEdddd": [
+      "address", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZNK8QtObject4hsvaEdddd": [
+      "address", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZNK8QtObject10colorEqualERK8QVariantS2_": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZNK8QtObject4rectEdddd": [
+      "address", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZNK8QtObject5pointEdd": [
+      "address", "address", "double", "double"
+    ],
+    "ritual_ZNK8QtObject4sizeEdd": [
+      "address", "address", "double", "double"
+    ],
+    "ritual_ZNK8QtObject8vector2dEdd": [
+      "address", "address", "double", "double"
+    ],
+    "ritual_ZNK8QtObject8vector3dEddd": [
+      "address", "address", "double", "double", "double"
+    ],
+    "ritual_ZNK8QtObject8vector4dEdddd": [
+      "address", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZNK8QtObject10quaternionEdddd": [
+      "address", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZNK8QtObject9matrix4x4Ev": ["address", "address"],
+    "ritual_ZNK8QtObject9matrix4x4Edddddddddddddddd": [
+      "address", "address", "double", "double", "double", "double", "double",
+      "double", "double", "double", "double", "double", "double", "double",
+      "double", "double", "double", "double"
+    ],
+    "ritual_ZNK8QtObject9matrix4x4ERK8QJSValue": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK8QtObject7lighterERK8QJSValued": [
+      "address", "address", "address", "double"
+    ],
+    "ritual_ZNK8QtObject6darkerERK8QJSValued": [
+      "address", "address", "address", "double"
+    ],
+    "ritual_ZNK8QtObject5alphaERK8QJSValued": [
+      "address", "address", "address", "double"
+    ],
+    "ritual_ZNK8QtObject4tintERK8QJSValueS2_": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK8QtObject10formatDateE5QDateRK7QString": [
+      "text", "address", "address", "text"
+    ],
+    "ritual_ZNK8QtObject10formatDateERK9QDateTimeRK7QString": [
+      "text", "address", "address", "text"
+    ],
+    "ritual_ZNK8QtObject10formatDateERK7QStringS2_": [
+      "text", "address", "text", "text"
+    ],
+    "ritual_ZNK8QtObject10formatDateE5QDateN2Qt10DateFormatE": [
+      "text", "address", "address", "int"
+    ],
+    "ritual_ZNK8QtObject10formatDateERK9QDateTimeN2Qt10DateFormatE": [
+      "text", "address", "address", "int"
+    ],
+    "ritual_ZNK8QtObject10formatDateERK7QStringN2Qt10DateFormatE": [
+      "text", "address", "text", "int"
+    ],
+    "ritual_ZNK8QtObject10formatTimeE5QTimeRK7QString": [
+      "text", "address", "address", "text"
+    ],
+    "ritual_ZNK8QtObject10formatTimeERK9QDateTimeRK7QString": [
+      "text", "address", "address", "text"
+    ],
+    "ritual_ZNK8QtObject10formatTimeERK7QStringS2_": [
+      "text", "address", "text", "text"
+    ],
+    "ritual_ZNK8QtObject10formatTimeE5QTimeN2Qt10DateFormatE": [
+      "text", "address", "address", "int"
+    ],
+    "ritual_ZNK8QtObject10formatTimeERK9QDateTimeN2Qt10DateFormatE": [
+      "text", "address", "address", "int"
+    ],
+    "ritual_ZNK8QtObject10formatTimeERK7QStringN2Qt10DateFormatE": [
+      "text", "address", "text", "int"
+    ],
+    "ritual_ZNK8QtObject14formatDateTimeERK9QDateTimeRK7QString": [
+      "text", "address", "address", "text"
+    ],
+    "ritual_ZNK8QtObject14formatDateTimeERK7QStringS2_": [
+      "text", "address", "text", "text"
+    ],
+    "ritual_ZNK8QtObject14formatDateTimeERK9QDateTimeN2Qt10DateFormatE": [
+      "text", "address", "address", "int"
+    ],
+    "ritual_ZNK8QtObject14formatDateTimeERK7QStringN2Qt10DateFormatE": [
+      "text", "address", "text", "int"
+    ],
+    "ritual_ZNK8QtObject10formatDateE5QDateRK7QLocaleNS1_10FormatTypeE": [
+      "text", "address", "address", "address", "int"
+    ],
+    "ritual_ZNK8QtObject10formatDateERK9QDateTimeRK7QLocaleNS3_10FormatTypeE": [
+      "text", "address", "address", "address", "int"
+    ],
+    "ritual_ZNK8QtObject10formatDateERK7QStringRK7QLocaleNS3_10FormatTypeE": [
+      "text", "address", "text", "address", "int"
+    ],
+    "ritual_ZNK8QtObject10formatTimeE5QTimeRK7QLocaleNS1_10FormatTypeE": [
+      "text", "address", "address", "address", "int"
+    ],
+    "ritual_ZNK8QtObject10formatTimeERK9QDateTimeRK7QLocaleNS3_10FormatTypeE": [
+      "text", "address", "address", "address", "int"
+    ],
+    "ritual_ZNK8QtObject10formatTimeERK7QStringRK7QLocaleNS3_10FormatTypeE": [
+      "text", "address", "text", "address", "int"
+    ],
+    "ritual_ZNK8QtObject14formatDateTimeERK9QDateTimeRK7QLocaleNS3_10FormatTypeE": [
+      "text", "address", "address", "address", "int"
+    ],
+    "ritual_ZNK8QtObject14formatDateTimeERK7QStringRK7QLocaleNS3_10FormatTypeE": [
+      "text", "address", "text", "address", "int"
+    ],
+    "ritual_ZNK8QtObject6localeEv": ["address", "address"],
+    "ritual_ZNK8QtObject6localeERK7QString": ["address", "address", "text"],
+    "ritual_ZNK8QtObject3urlERK4QUrl": ["address", "address", "address"],
+    "ritual_ZNK8QtObject11resolvedUrlERK4QUrl": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK8QtObject11resolvedUrlERK4QUrlP7QObject": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK8QtObject17openUrlExternallyERK4QUrl": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK8QtObject4fontERK8QJSValue": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK8QtObject12fontFamiliesEv": ["address", "address"],
+    "ritual_ZNK8QtObject3md5ERK7QString": ["text", "address", "text"],
+    "ritual_ZNK8QtObject4btoaERK7QString": ["text", "address", "text"],
+    "ritual_ZNK8QtObject4atobERK7QString": ["text", "address", "text"],
+    "ritual_ZNK8QtObject10escapeHtmlERK7QString": [
+      "text", "address", "text"
+    ],
+    "ritual_ZNK8QtObject4btoaERK10QByteArray": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK8QtObject4atobERK10QByteArray": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK8QtObject4btoaERK5QListI8QVariantE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK8QtObject4atobERK5QListI8QVariantE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK8QtObject4quitEv": ["nothing", "address"],
+    "ritual_ZNK8QtObject4exitEi": ["nothing", "address", "int"],
+    "ritual_ZNK8QtObject15createQmlObjectERK7QStringP7QObjectRK4QUrl": [
+      "address", "address", "text", "address", "address"
+    ],
+    "ritual_ZNK8QtObject15createComponentERK4QUrlP7QObject": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK8QtObject15createComponentERK4QUrlN13QQmlComponent15CompilationModeEP7QObject": [
+      "address", "address", "address", "int", "address"
+    ],
+    "ritual_ZNK8QtObject15createComponentERK7QStringS2_P7QObject": [
+      "address", "address", "text", "text", "address"
+    ],
+    "ritual_ZNK8QtObject15createComponentERK7QStringS2_N13QQmlComponent15CompilationModeEP7QObject": [
+      "address", "address", "text", "text", "int", "address"
+    ],
+    "ritual_ZNK8QtObject7bindingERK8QJSValue": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN8QtObject9callLaterEP14QQmlV4Function": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK8QtObject10uiLanguageEv": ["text", "address"],
+    "ritual_ZN8QtObject13setUiLanguageERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN8QtObject8platformEv": ["address", "address"],
+    "ritual_ZN8QtObject11applicationEv": ["address", "address"],
+    "ritual_ZNK8QtObject11inputMethodEv": ["address", "address"],
+    "ritual_ZNK8QtObject10styleHintsEv": ["address", "address"],
+    "ritual_ZN8QtObjectC1EPN3QV415ExecutionEngineE": ["address", "address"],
+    "ritual_ZNK8QtObject9qmlEngineEv": ["address", "address"],
+    "ritual_ZNK8QtObject8jsEngineEv": ["address", "address"],
+    "ritual_ZNK8QtObject8v4EngineEv": ["address", "address"]
+  }
+}

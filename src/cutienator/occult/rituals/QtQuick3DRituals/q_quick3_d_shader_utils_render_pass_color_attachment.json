@@ -1,0 +1,36 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3D/6.12.0/QtQuick3D/private/qquick3dshaderutils_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK44QQuick3DShaderUtilsRenderPassColorAttachment10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN44QQuick3DShaderUtilsRenderPassColorAttachment2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN44QQuick3DShaderUtilsRenderPassColorAttachmentC1Ev": [
+      "address"
+    ],
+    "ritual_ZN44QQuick3DShaderUtilsRenderPassColorAttachmentD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK44QQuick3DShaderUtilsRenderPassColorAttachment4nameEv": [
+      "address", "address"
+    ],
+    "ritual_ZN44QQuick3DShaderUtilsRenderPassColorAttachment7setNameERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN44QQuick3DShaderUtilsRenderPassColorAttachment12cloneCommandEv": [
+      "address", "address"
+    ],
+    "ritual_take_QQuick3DShaderUtilsRenderPassColorAttachment": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN44QQuick3DShaderUtilsRenderPassColorAttachment12cloneCommandEv": [
+      "address", "address"
+    ]
+  }
+}

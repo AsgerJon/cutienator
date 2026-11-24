@@ -1,0 +1,80 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickmultipointtoucharea_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK16QQuickTouchPoint10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QQuickTouchPoint2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN16QQuickTouchPointC1Eb": ["address", "bool"],
+    "ritual_ZNK16QQuickTouchPoint7pointIdEv": ["int", "address"],
+    "ritual_ZN16QQuickTouchPoint10setPointIdEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16QQuickTouchPoint8uniqueIdEv": ["address", "address"],
+    "ritual_ZN16QQuickTouchPoint11setUniqueIdERK23QPointingDeviceUniqueId": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QQuickTouchPoint1xEv": ["double", "address"],
+    "ritual_ZNK16QQuickTouchPoint1yEv": ["double", "address"],
+    "ritual_ZN16QQuickTouchPoint11setPositionE7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QQuickTouchPoint16ellipseDiametersEv": [
+      "address", "address"
+    ],
+    "ritual_ZN16QQuickTouchPoint19setEllipseDiametersERK6QSizeF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QQuickTouchPoint8pressureEv": ["double", "address"],
+    "ritual_ZN16QQuickTouchPoint11setPressureEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK16QQuickTouchPoint8rotationEv": ["double", "address"],
+    "ritual_ZN16QQuickTouchPoint11setRotationEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK16QQuickTouchPoint8velocityEv": ["address", "address"],
+    "ritual_ZN16QQuickTouchPoint11setVelocityERK9QVector2D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QQuickTouchPoint4areaEv": ["address", "address"],
+    "ritual_ZN16QQuickTouchPoint7setAreaERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QQuickTouchPoint12isQmlDefinedEv": ["bool", "address"],
+    "ritual_ZNK16QQuickTouchPoint5inUseEv": ["bool", "address"],
+    "ritual_ZN16QQuickTouchPoint8setInUseEb": ["nothing", "address", "bool"],
+    "ritual_ZNK16QQuickTouchPoint7pressedEv": ["bool", "address"],
+    "ritual_ZN16QQuickTouchPoint10setPressedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK16QQuickTouchPoint6startXEv": ["double", "address"],
+    "ritual_ZN16QQuickTouchPoint9setStartXEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK16QQuickTouchPoint6startYEv": ["double", "address"],
+    "ritual_ZN16QQuickTouchPoint9setStartYEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK16QQuickTouchPoint9previousXEv": ["double", "address"],
+    "ritual_ZN16QQuickTouchPoint12setPreviousXEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK16QQuickTouchPoint9previousYEv": ["double", "address"],
+    "ritual_ZN16QQuickTouchPoint12setPreviousYEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK16QQuickTouchPoint6sceneXEv": ["double", "address"],
+    "ritual_ZN16QQuickTouchPoint9setSceneXEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK16QQuickTouchPoint6sceneYEv": ["double", "address"],
+    "ritual_ZN16QQuickTouchPoint9setSceneYEd": [
+      "nothing", "address", "double"
+    ]
+  }
+}

@@ -1,26 +1,34 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGui/6.12.0/QtGui/private/qshapedpixmapdndwindow_p.h, Qt 6.12.0. Changes
 //  made here are lost.
+#include <QtGui/qtguiglobal.h>
+#include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
+#if QT_CONFIG(draganddrop)
+#include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
 #include <QtGui/QtGui>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/6.12.0/QtGui/private/qshapedpixmapdndwindow_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qpoint.h>
 #include <QtGui/qsurfaceformat.h>
 #include <QtCore/qsize.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include "qshapedpixmapdndwindow_p.h"
 #include <QtGui/QPainter>
 #include <QtGui/QCursor>
 #include <QtGui/QGuiApplication>
 #include <QtGui/QPalette>
 #include <QtGui/QBitmap>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
 //  Qt's source, because Qt's library carries it under no name.
 //  Copyright (C) The Qt Company Ltd. It is licensed
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
-//  'inline' put before it.
+//  'inline' put before it where Qt did not write it.
 
 //  from src/gui/kernel/qshapedpixmapdndwindow.cpp, line 28, as _ZN19QShapedPixmapWindowD1Ev
 inline QShapedPixmapWindow::~QShapedPixmapWindow()
@@ -67,12 +75,16 @@ struct OwnQShapedPixmapWindow : QShapedPixmapWindow {
 //  A QShapedPixmapWindow that Python can take functions over in. Every QShapedPixmapWindow
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if QT_CONFIG(draganddrop)
 typedef void (*CuteQShapedPixmapWindowCall0)(const void *, QPaintEvent *, int *);
+#endif  // QT_CONFIG(draganddrop)
 typedef int (*CuteQShapedPixmapWindowCall1)(const void *, int, int *);
 typedef void * (*CuteQShapedPixmapWindowCall2)(const void *, QPoint *, int *);
 typedef void (*CuteQShapedPixmapWindowCall3)(const void *, QResizeEvent *, int *);
 typedef void (*CuteQShapedPixmapWindowCall4)(const void *, QExposeEvent *, int *);
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQShapedPixmapWindowCall5)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 typedef void * (*CuteQShapedPixmapWindowCall6)(const void *, int *);
 typedef int (*CuteQShapedPixmapWindowCall7)(const void *, int *);
 typedef const QSurfaceFormat * (*CuteQShapedPixmapWindowCall8)(const void *, int *);
@@ -91,28 +103,47 @@ typedef void (*CuteQShapedPixmapWindowCall20)(const void *, QMouseEvent *, int *
 typedef void (*CuteQShapedPixmapWindowCall21)(const void *, QMouseEvent *, int *);
 typedef void (*CuteQShapedPixmapWindowCall22)(const void *, QMouseEvent *, int *);
 typedef void (*CuteQShapedPixmapWindowCall23)(const void *, QMouseEvent *, int *);
+#if QT_CONFIG(wheelevent)
 typedef void (*CuteQShapedPixmapWindowCall24)(const void *, QWheelEvent *, int *);
+#endif  // QT_CONFIG(wheelevent)
 typedef void (*CuteQShapedPixmapWindowCall25)(const void *, QTouchEvent *, int *);
+#if QT_CONFIG(tabletevent)
 typedef void (*CuteQShapedPixmapWindowCall26)(const void *, QTabletEvent *, int *);
-typedef int (*CuteQShapedPixmapWindowCall27)(const void *, int *);
-typedef void (*CuteQShapedPixmapWindowCall28)(const void *, QPainter *, int *);
-typedef void * (*CuteQShapedPixmapWindowCall29)(const void *, int *);
-typedef bool (*CuteQShapedPixmapWindowCall30)(const void *, QObject *, QEvent *, int *);
-typedef void (*CuteQShapedPixmapWindowCall31)(const void *, QTimerEvent *, int *);
-typedef void (*CuteQShapedPixmapWindowCall32)(const void *, QChildEvent *, int *);
-typedef void (*CuteQShapedPixmapWindowCall33)(const void *, QEvent *, int *);
-typedef void (*CuteQShapedPixmapWindowCall34)(const void *, const QMetaMethod *, int *);
+#endif  // QT_CONFIG(tabletevent)
+typedef void * (*CuteQShapedPixmapWindowCall27)(const void *, int *);
+typedef int (*CuteQShapedPixmapWindowCall28)(const void *, int *);
+typedef void (*CuteQShapedPixmapWindowCall29)(const void *, QPainter *, int *);
+typedef void * (*CuteQShapedPixmapWindowCall30)(const void *, int *);
+#if !defined(QT_NO_QOBJECT)
+typedef bool (*CuteQShapedPixmapWindowCall31)(const void *, QObject *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+typedef void (*CuteQShapedPixmapWindowCall32)(const void *, QTimerEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+typedef void (*CuteQShapedPixmapWindowCall33)(const void *, QChildEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+typedef void (*CuteQShapedPixmapWindowCall34)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQShapedPixmapWindowCall35)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+typedef void (*CuteQShapedPixmapWindowCall36)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 class CuteQShapedPixmapWindow : public QShapedPixmapWindow {
 public:
   using QShapedPixmapWindow::QShapedPixmapWindow;
-  void *taken[36] = {};
+  void *taken[37] = {};
 
   bool take(const char *key, void *call) {
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWindow10paintEventEP11QPaintEvent")) {
       taken[0] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZNK12QPaintDevice6metricENS_17PaintDeviceMetricE")) {
       taken[1] = call;
       return true;
@@ -129,10 +160,12 @@ public:
       taken[4] = call;
       return true;
     }
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[5] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZNK12QPaintDevice11paintEngineEv")) {
       taken[6] = call;
       return true;
@@ -205,57 +238,78 @@ public:
       taken[23] = call;
       return true;
     }
+#if QT_CONFIG(wheelevent)
     if (!std::strcmp(key, "_ZN7QWindow10wheelEventEP11QWheelEvent")) {
       taken[24] = call;
       return true;
     }
+#endif  // QT_CONFIG(wheelevent)
     if (!std::strcmp(key, "_ZN7QWindow10touchEventEP11QTouchEvent")) {
       taken[25] = call;
       return true;
     }
+#if QT_CONFIG(tabletevent)
     if (!std::strcmp(key, "_ZN7QWindow11tabletEventEP12QTabletEvent")) {
       taken[26] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK12QPaintDevice7devTypeEv")) {
+#endif  // QT_CONFIG(tabletevent)
+    if (!std::strcmp(key, "_ZNK8QSurface13surfaceHandleEv")) {
       taken[27] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK12QPaintDevice11initPainterEP8QPainter")) {
+    if (!std::strcmp(key, "_ZNK12QPaintDevice7devTypeEv")) {
       taken[28] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK12QPaintDevice13sharedPainterEv")) {
+    if (!std::strcmp(key, "_ZNK12QPaintDevice11initPainterEP8QPainter")) {
       taken[29] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
+    if (!std::strcmp(key, "_ZNK12QPaintDevice13sharedPainterEv")) {
       taken[30] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[31] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[32] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[33] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[34] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[35] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+      taken[36] = call;
+      return true;
+    }
+#endif  // !defined(QT_NO_QOBJECT)
     return false;
   }
 
+#if QT_CONFIG(draganddrop)
   //  void QShapedPixmapWindow::paintEvent(QPaintEvent *a0)
   void paintEvent(QPaintEvent *a0) override {
     if (taken[0]) {
@@ -266,6 +320,7 @@ public:
     }
     QShapedPixmapWindow::paintEvent(a0);
   }
+#endif  // QT_CONFIG(draganddrop)
 
   //  int QRasterWindow::metric(PaintDeviceMetric metric) const
   int metric(QPaintDevice::PaintDeviceMetric metric) const override {
@@ -311,6 +366,7 @@ public:
     QPaintDeviceWindow::exposeEvent(a0);
   }
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QPaintDeviceWindow::event(QEvent *event)
   bool event(QEvent *event) override {
     if (taken[5]) {
@@ -321,6 +377,7 @@ public:
     }
     return QPaintDeviceWindow::event(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
   //  QPaintEngine *QPaintDeviceWindow::paintEngine() const
   QPaintEngine *paintEngine() const override {
@@ -520,6 +577,7 @@ public:
     QWindow::mouseMoveEvent(a0);
   }
 
+#if QT_CONFIG(wheelevent)
   //  void QWindow::wheelEvent(QWheelEvent *a0)
   void wheelEvent(QWheelEvent *a0) override {
     if (taken[24]) {
@@ -530,6 +588,7 @@ public:
     }
     QWindow::wheelEvent(a0);
   }
+#endif  // QT_CONFIG(wheelevent)
 
   //  void QWindow::touchEvent(QTouchEvent *a0)
   void touchEvent(QTouchEvent *a0) override {
@@ -542,6 +601,7 @@ public:
     QWindow::touchEvent(a0);
   }
 
+#if QT_CONFIG(tabletevent)
   //  void QWindow::tabletEvent(QTabletEvent *a0)
   void tabletEvent(QTabletEvent *a0) override {
     if (taken[26]) {
@@ -552,12 +612,24 @@ public:
     }
     QWindow::tabletEvent(a0);
   }
+#endif  // QT_CONFIG(tabletevent)
 
-  //  int QPaintDevice::devType() const
-  int devType() const override {
+  //  QPlatformSurface *QWindow::surfaceHandle() const
+  QPlatformSurface *surfaceHandle() const override {
     if (taken[27]) {
       int handled = 0;
       CuteQShapedPixmapWindowCall27 call = reinterpret_cast<CuteQShapedPixmapWindowCall27>(taken[27]);
+      void * given = call(this, &handled);
+      if (handled) return static_cast<QPlatformSurface *>(given);
+    }
+    return QWindow::surfaceHandle();
+  }
+
+  //  int QPaintDevice::devType() const
+  int devType() const override {
+    if (taken[28]) {
+      int handled = 0;
+      CuteQShapedPixmapWindowCall28 call = reinterpret_cast<CuteQShapedPixmapWindowCall28>(taken[28]);
       int given = call(this, &handled);
       if (handled) return given;
     }
@@ -566,9 +638,9 @@ public:
 
   //  void QPaintDevice::initPainter(QPainter *painter) const
   void initPainter(QPainter *painter) const override {
-    if (taken[28]) {
+    if (taken[29]) {
       int handled = 0;
-      CuteQShapedPixmapWindowCall28 call = reinterpret_cast<CuteQShapedPixmapWindowCall28>(taken[28]);
+      CuteQShapedPixmapWindowCall29 call = reinterpret_cast<CuteQShapedPixmapWindowCall29>(taken[29]);
       call(this, painter, &handled);
       if (handled) return;
     }
@@ -577,80 +649,92 @@ public:
 
   //  QPainter *QPaintDevice::sharedPainter() const
   QPainter *sharedPainter() const override {
-    if (taken[29]) {
+    if (taken[30]) {
       int handled = 0;
-      CuteQShapedPixmapWindowCall29 call = reinterpret_cast<CuteQShapedPixmapWindowCall29>(taken[29]);
+      CuteQShapedPixmapWindowCall30 call = reinterpret_cast<CuteQShapedPixmapWindowCall30>(taken[30]);
       void * given = call(this, &handled);
       if (handled) return static_cast<QPainter *>(given);
     }
     return QPaintDevice::sharedPainter();
   }
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
-    if (taken[30]) {
+    if (taken[31]) {
       int handled = 0;
-      CuteQShapedPixmapWindowCall30 call = reinterpret_cast<CuteQShapedPixmapWindowCall30>(taken[30]);
+      CuteQShapedPixmapWindowCall31 call = reinterpret_cast<CuteQShapedPixmapWindowCall31>(taken[31]);
       bool given = call(this, watched, event, &handled);
       if (handled) return given;
     }
     return QObject::eventFilter(watched, event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
-    if (taken[31]) {
-      int handled = 0;
-      CuteQShapedPixmapWindowCall31 call = reinterpret_cast<CuteQShapedPixmapWindowCall31>(taken[31]);
-      call(this, event, &handled);
-      if (handled) return;
-    }
-    QObject::timerEvent(event);
-  }
-
-  //  void QObject::childEvent(QChildEvent *event)
-  void childEvent(QChildEvent *event) override {
     if (taken[32]) {
       int handled = 0;
       CuteQShapedPixmapWindowCall32 call = reinterpret_cast<CuteQShapedPixmapWindowCall32>(taken[32]);
       call(this, event, &handled);
       if (handled) return;
     }
-    QObject::childEvent(event);
+    QObject::timerEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
-  //  void QObject::customEvent(QEvent *event)
-  void customEvent(QEvent *event) override {
+#if !defined(QT_NO_QOBJECT)
+  //  void QObject::childEvent(QChildEvent *event)
+  void childEvent(QChildEvent *event) override {
     if (taken[33]) {
       int handled = 0;
       CuteQShapedPixmapWindowCall33 call = reinterpret_cast<CuteQShapedPixmapWindowCall33>(taken[33]);
       call(this, event, &handled);
       if (handled) return;
     }
-    QObject::customEvent(event);
+    QObject::childEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
-  //  void QObject::connectNotify(const QMetaMethod &signal)
-  void connectNotify(const QMetaMethod &signal) override {
+#if !defined(QT_NO_QOBJECT)
+  //  void QObject::customEvent(QEvent *event)
+  void customEvent(QEvent *event) override {
     if (taken[34]) {
       int handled = 0;
       CuteQShapedPixmapWindowCall34 call = reinterpret_cast<CuteQShapedPixmapWindowCall34>(taken[34]);
-      call(this, &signal, &handled);
+      call(this, event, &handled);
       if (handled) return;
     }
-    QObject::connectNotify(signal);
+    QObject::customEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
-  //  void QObject::disconnectNotify(const QMetaMethod &signal)
-  void disconnectNotify(const QMetaMethod &signal) override {
+#if !defined(QT_NO_QOBJECT)
+  //  void QObject::connectNotify(const QMetaMethod &signal)
+  void connectNotify(const QMetaMethod &signal) override {
     if (taken[35]) {
       int handled = 0;
       CuteQShapedPixmapWindowCall35 call = reinterpret_cast<CuteQShapedPixmapWindowCall35>(taken[35]);
       call(this, &signal, &handled);
       if (handled) return;
     }
+    QObject::connectNotify(signal);
+  }
+#endif  // !defined(QT_NO_QOBJECT)
+
+#if !defined(QT_NO_QOBJECT)
+  //  void QObject::disconnectNotify(const QMetaMethod &signal)
+  void disconnectNotify(const QMetaMethod &signal) override {
+    if (taken[36]) {
+      int handled = 0;
+      CuteQShapedPixmapWindowCall36 call = reinterpret_cast<CuteQShapedPixmapWindowCall36>(taken[36]);
+      call(this, &signal, &handled);
+      if (handled) return;
+    }
     QObject::disconnectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 };
 
 //  const QMetaObject *QShapedPixmapWindow::metaObject() const
@@ -716,3 +800,5 @@ void ritual_own_ZN19QShapedPixmapWindow10paintEventEP11QPaintEvent(
   static_cast<OwnQShapedPixmapWindow *>(self)->OwnQShapedPixmapWindow::paintEvent(
       a0);
 }
+
+#endif  // QT_CONFIG(draganddrop)

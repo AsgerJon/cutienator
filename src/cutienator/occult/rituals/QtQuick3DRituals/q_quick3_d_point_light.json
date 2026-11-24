@@ -1,0 +1,38 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3D/6.12.0/QtQuick3D/private/qquick3dpointlight_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18QQuick3DPointLight10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QQuick3DPointLight2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18QQuick3DPointLightC1EP12QQuick3DNode": [
+      "address", "address"
+    ],
+    "ritual_ZN18QQuick3DPointLightD1Ev": ["nothing", "address"],
+    "ritual_ZNK18QQuick3DPointLight12constantFadeEv": ["float", "address"],
+    "ritual_ZNK18QQuick3DPointLight10linearFadeEv": ["float", "address"],
+    "ritual_ZNK18QQuick3DPointLight13quadraticFadeEv": ["float", "address"],
+    "ritual_ZN18QQuick3DPointLight15setConstantFadeEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN18QQuick3DPointLight13setLinearFadeEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN18QQuick3DPointLight16setQuadraticFadeEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN18QQuick3DPointLight17updateSpatialNodeEP21QSSGRenderGraphObject": [
+      "address", "address", "address"
+    ],
+    "ritual_take_QQuick3DPointLight": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN18QQuick3DPointLight17updateSpatialNodeEP21QSSGRenderGraphObject": [
+      "address", "address", "address"
+    ]
+  }
+}

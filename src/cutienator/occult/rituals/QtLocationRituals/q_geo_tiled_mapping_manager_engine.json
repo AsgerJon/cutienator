@@ -1,0 +1,79 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtLocat",
+    "ion/6.12.0/QtLocation/private/qgeotiledmappingmanagerengine_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK29QGeoTiledMappingManagerEngine10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN29QGeoTiledMappingManagerEngine2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN29QGeoTiledMappingManagerEngineC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN29QGeoTiledMappingManagerEngineD1Ev": ["nothing", "address"],
+    "ritual_ZN29QGeoTiledMappingManagerEngine11tileFetcherEv": [
+      "address", "address"
+    ],
+    "ritual_ZN29QGeoTiledMappingManagerEngine9createMapEv": [
+      "address", "address"
+    ],
+    "ritual_ZN29QGeoTiledMappingManagerEngine10releaseMapEP12QGeoTiledMap": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK29QGeoTiledMappingManagerEngine8tileSizeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK29QGeoTiledMappingManagerEngine11tileVersionEv": [
+      "int", "address"
+    ],
+    "ritual_ZN29QGeoTiledMappingManagerEngine9tileCacheEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK29QGeoTiledMappingManagerEngine9cacheHintEv": [
+      "int", "address"
+    ],
+    "ritual_ZN29QGeoTiledMappingManagerEngine18engineTileFinishedERK12QGeoTileSpecRK10QByteArrayRK7QString": [
+      "nothing", "address", "address", "address", "text"
+    ],
+    "ritual_ZN29QGeoTiledMappingManagerEngine15engineTileErrorERK12QGeoTileSpecRK7QString": [
+      "nothing", "address", "address", "text"
+    ],
+    "ritual_ZN29QGeoTiledMappingManagerEngine14setTileFetcherEP15QGeoTileFetcher": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN29QGeoTiledMappingManagerEngine11setTileSizeERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN29QGeoTiledMappingManagerEngine14setTileVersionEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN29QGeoTiledMappingManagerEngine12setCacheHintE6QFlagsIN21QAbstractGeoTileCache9CacheAreaEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN29QGeoTiledMappingManagerEngine12setTileCacheEP21QAbstractGeoTileCache": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN29QGeoTiledMappingManagerEngine6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK29QGeoTiledMappingManagerEngine6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_take_QGeoTiledMappingManagerEngine": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN29QGeoTiledMappingManagerEngine9createMapEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN29QGeoTiledMappingManagerEngine18engineTileFinishedERK12QGeoTileSpecRK10QByteArrayRK7QString": [
+      "nothing", "address", "address", "address", "text"
+    ],
+    "ritual_own_ZN29QGeoTiledMappingManagerEngine15engineTileErrorERK12QGeoTileSpecRK7QString": [
+      "nothing", "address", "address", "text"
+    ]
+  }
+}

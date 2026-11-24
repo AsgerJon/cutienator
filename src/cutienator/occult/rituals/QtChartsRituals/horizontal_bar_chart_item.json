@@ -1,0 +1,33 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/6.12.0/QtCharts/private/horizontalbarchartitem_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK22HorizontalBarChartItem10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22HorizontalBarChartItem2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN22HorizontalBarChartItemC1EP18QAbstractBarSeriesP13QGraphicsItem": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN22HorizontalBarChartItem15calculateLayoutEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22HorizontalBarChartItem16initializeLayoutEiiib": [
+      "nothing", "address", "int", "int", "int", "bool"
+    ],
+    "ritual_ZN22HorizontalBarChartItem12topLeftPointEiiidd": [
+      "address", "address", "int", "int", "int", "double", "double"
+    ],
+    "ritual_ZN22HorizontalBarChartItem16bottomRightPointEiiidd": [
+      "address", "address", "int", "int", "int", "double", "double"
+    ],
+    "ritual_own_ZN22HorizontalBarChartItem16initializeLayoutEiiib": [
+      "nothing", "address", "int", "int", "int", "bool"
+    ]
+  }
+}

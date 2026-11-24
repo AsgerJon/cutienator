@@ -1,0 +1,45 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtStateMachine/qsignaltransition.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QSignalTransition10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QSignalTransition2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QSignalTransitionC1EP6QState": ["address", "address"],
+    "ritual_ZN17QSignalTransitionC1EPK7QObjectPKcP6QState": [
+      "address", "address", "chars", "address"
+    ],
+    "ritual_ZN17QSignalTransitionD1Ev": ["nothing", "address"],
+    "ritual_ZNK17QSignalTransition12senderObjectEv": ["address", "address"],
+    "ritual_ZN17QSignalTransition15setSenderObjectEPK7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QSignalTransition6signalEv": ["address", "address"],
+    "ritual_ZN17QSignalTransition9setSignalERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QSignalTransition9eventTestEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN17QSignalTransition12onTransitionEP6QEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QSignalTransition5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_take_QSignalTransition": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN17QSignalTransition9eventTestEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN17QSignalTransition12onTransitionEP6QEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN17QSignalTransition5eventEP6QEvent": [
+      "bool", "address", "address"
+    ]
+  }
+}

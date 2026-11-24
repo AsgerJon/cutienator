@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickanimation_p_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN22QQuickBulkValueUpdaterD1Ev": ["nothing", "address"],
+    "ritual_ZN22QQuickBulkValueUpdater8setValueEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK22QQuickBulkValueUpdater12debugUpdaterE6QDebugi": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_take_QQuickBulkValueUpdater": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK22QQuickBulkValueUpdater12debugUpdaterE6QDebugi": [
+      "nothing", "address", "address", "int"
+    ]
+  }
+}

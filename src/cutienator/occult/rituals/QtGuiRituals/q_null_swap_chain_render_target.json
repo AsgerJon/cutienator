@@ -1,0 +1,40 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qrhinull_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN26QNullSwapChainRenderTargetC1EP18QRhiImplementationP13QRhiSwapChain": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN26QNullSwapChainRenderTargetD1Ev": ["nothing", "address"],
+    "ritual_ZN26QNullSwapChainRenderTarget7destroyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK26QNullSwapChainRenderTarget9pixelSizeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK26QNullSwapChainRenderTarget16devicePixelRatioEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK26QNullSwapChainRenderTarget11sampleCountEv": [
+      "int", "address"
+    ],
+    "ritual_take_QNullSwapChainRenderTarget": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN26QNullSwapChainRenderTarget7destroyEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZNK26QNullSwapChainRenderTarget9pixelSizeEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK26QNullSwapChainRenderTarget16devicePixelRatioEv": [
+      "float", "address"
+    ],
+    "ritual_own_ZNK26QNullSwapChainRenderTarget11sampleCountEv": [
+      "int", "address"
+    ]
+  }
+}

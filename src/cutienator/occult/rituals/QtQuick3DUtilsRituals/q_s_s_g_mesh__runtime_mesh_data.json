@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3DUtils/6.12.0/QtQuick3DUtils/private/qssgmesh_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN8QSSGMesh15RuntimeMeshData5clearEv": ["nothing", "address"],
+    "ritual_ZN8QSSGMesh15RuntimeMeshData19clearVertexAndIndexEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN8QSSGMesh15RuntimeMeshData11clearTargetEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN8QSSGMesh15RuntimeMeshDataD1Ev": ["nothing", "address"]
+  }
+}

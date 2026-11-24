@@ -488,12 +488,20 @@ QDebug *ritual_Zls6QDebugRK11QJsonObject(
   return new QDebug(operator<<(*a0, *a1));
 }
 
+//  QJsonObject::QJsonObject(QCborContainerPrivate *object)
+extern "C" Q_DECL_EXPORT
+QJsonObject *ritual_ZN11QJsonObjectC1EP21QCborContainerPrivate(
+    QCborContainerPrivate *object) {
+  return new QJsonObject(object);
+}
+
 //  bool QJsonObject::detach(qsizetype reserve)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN11QJsonObject6detachEx(QJsonObject *self, qsizetype reserve) {
   return self->detach(reserve);
 }
 
+#if QT_VERSION < QT_VERSION_CHECK(7, 0, 0) && !defined(QT_BOOTSTRAPPED)
 //  QString QJsonObject::keyAt(qsizetype i) const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK11QJsonObject5keyAtEx(
@@ -501,7 +509,9 @@ QString *ritual_ZNK11QJsonObject5keyAtEx(
     qsizetype i) {
   return new QString(self->keyAt(i));
 }
+#endif
 
+#if QT_VERSION < QT_VERSION_CHECK(7, 0, 0) && !defined(QT_BOOTSTRAPPED)
 //  QJsonValue QJsonObject::valueAt(qsizetype i) const
 extern "C" Q_DECL_EXPORT
 QJsonValue *ritual_ZNK11QJsonObject7valueAtEx(
@@ -509,7 +519,9 @@ QJsonValue *ritual_ZNK11QJsonObject7valueAtEx(
     qsizetype i) {
   return new QJsonValue(self->valueAt(i));
 }
+#endif
 
+#if QT_VERSION < QT_VERSION_CHECK(7, 0, 0) && !defined(QT_BOOTSTRAPPED)
 //  void QJsonObject::setValueAt(qsizetype i, const QJsonValue &val)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QJsonObject10setValueAtExRK10QJsonValue(
@@ -518,6 +530,7 @@ void ritual_ZN11QJsonObject10setValueAtExRK10QJsonValue(
     const QJsonValue *val) {
   self->setValueAt(i, *val);
 }
+#endif
 
 //  void QJsonObject::removeAt(qsizetype i)
 extern "C" Q_DECL_EXPORT

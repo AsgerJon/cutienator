@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qtablewidget.h, Qt 6.12.0. Changes made here are lost.
+#include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(tablewidget)
 #include <QtWidgets/qtablewidget.h>
 #include <QtCore/qlist.h>
 
@@ -124,3 +126,5 @@ void ritual_list_drop_QTableWidgetSelectionRange(
     QList<QTableWidgetSelectionRange> *self) {
   delete self;
 }
+
+#endif  // QT_CONFIG(tablewidget)

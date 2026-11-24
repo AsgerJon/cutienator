@@ -1,0 +1,25 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtMultimedia/6.12.0/QtMultimedia/private/qhwvideobuffer_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QVideoFrameTexturesD1Ev": ["nothing", "address"],
+    "ritual_ZNK19QVideoFrameTextures7textureEj": [
+      "address", "address", "unsigned int"
+    ],
+    "ritual_ZN19QVideoFrameTextures17onFrameEndInvokedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QVideoFrameTextures14setSourceFrameE11QVideoFrame": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QVideoFrameTextures": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN19QVideoFrameTextures17onFrameEndInvokedEv": [
+      "nothing", "address"
+    ]
+  }
+}

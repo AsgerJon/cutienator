@@ -1,0 +1,40 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qrhinull_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN24QNullTextureRenderTargetD1Ev": ["nothing", "address"],
+    "ritual_ZN24QNullTextureRenderTarget7destroyEv": ["nothing", "address"],
+    "ritual_ZNK24QNullTextureRenderTarget9pixelSizeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK24QNullTextureRenderTarget16devicePixelRatioEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK24QNullTextureRenderTarget11sampleCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZN24QNullTextureRenderTarget33newCompatibleRenderPassDescriptorEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QNullTextureRenderTarget6createEv": ["bool", "address"],
+    "ritual_take_QNullTextureRenderTarget": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN24QNullTextureRenderTarget7destroyEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZNK24QNullTextureRenderTarget9pixelSizeEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK24QNullTextureRenderTarget16devicePixelRatioEv": [
+      "float", "address"
+    ],
+    "ritual_own_ZNK24QNullTextureRenderTarget11sampleCountEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZN24QNullTextureRenderTarget6createEv": ["bool", "address"]
+  }
+}

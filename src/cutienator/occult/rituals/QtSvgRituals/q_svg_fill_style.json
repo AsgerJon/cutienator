@@ -1,0 +1,31 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSvg/6.12.0/QtSvg/private/qsvgstyle_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN13QSvgFillStyleC1Ev": ["address"],
+    "ritual_ZN13QSvgFillStyleD1Ev": ["nothing", "address"],
+    "ritual_ZNK13QSvgFillStyle4typeEv": ["unsigned char", "address"],
+    "ritual_ZN13QSvgFillStyle11setFillRuleEN2Qt8FillRuleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN13QSvgFillStyle14setFillOpacityEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN13QSvgFillStyle8setBrushE6QBrush": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QSvgFillStyle6qbrushEv": ["address", "address"],
+    "ritual_ZNK13QSvgFillStyle11fillOpacityEv": ["double", "address"],
+    "ritual_ZNK13QSvgFillStyle8fillRuleEv": ["int", "address"],
+    "ritual_ZNK13QSvgFillStyle11paintServerEv": ["address", "address"],
+    "ritual_ZN13QSvgFillStyle15setPaintStyleIdERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK13QSvgFillStyle12paintStyleIdEv": ["text", "address"],
+    "ritual_take_QSvgFillStyle": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK13QSvgFillStyle4typeEv": ["unsigned char", "address"]
+  }
+}

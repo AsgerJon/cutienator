@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qwidgetaction.h, Qt 6.12.0. Changes made here are lost.
+#include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(action)
 #include <QtWidgets/qwidgetaction.h>
 #include <QtCore/qstring.h>
 #include <QtWidgets/qwidget.h>
@@ -19,60 +21,106 @@ struct OwnQWidgetAction : QWidgetAction {
 //  A QWidgetAction that Python can take functions over in. Every QWidgetAction
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(action)
 typedef bool (*CuteQWidgetActionCall0)(const void *, QEvent *, int *);
+#endif  // QT_CONFIG(action)
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(action)
 typedef bool (*CuteQWidgetActionCall1)(const void *, QObject *, QEvent *, int *);
+#endif  // QT_CONFIG(action)
+#endif  // !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(action)
 typedef void * (*CuteQWidgetActionCall2)(const void *, QWidget *, int *);
+#endif  // QT_CONFIG(action)
+#if QT_CONFIG(action)
 typedef void (*CuteQWidgetActionCall3)(const void *, QWidget *, int *);
+#endif  // QT_CONFIG(action)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQWidgetActionCall4)(const void *, QTimerEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQWidgetActionCall5)(const void *, QChildEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQWidgetActionCall6)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQWidgetActionCall7)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQWidgetActionCall8)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 class CuteQWidgetAction : public QWidgetAction {
 public:
   using QWidgetAction::QWidgetAction;
   void *taken[9] = {};
 
   bool take(const char *key, void *call) {
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(action)
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[0] = call;
       return true;
     }
+#endif  // QT_CONFIG(action)
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(action)
     if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[1] = call;
       return true;
     }
+#endif  // QT_CONFIG(action)
+#endif  // !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(action)
     if (!std::strcmp(key, "_ZN13QWidgetAction12createWidgetEP7QWidget")) {
       taken[2] = call;
       return true;
     }
+#endif  // QT_CONFIG(action)
+#if QT_CONFIG(action)
     if (!std::strcmp(key, "_ZN13QWidgetAction12deleteWidgetEP7QWidget")) {
       taken[3] = call;
       return true;
     }
+#endif  // QT_CONFIG(action)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[4] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[5] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[6] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[7] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
       taken[8] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
     return false;
   }
 
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(action)
   //  bool QWidgetAction::event(QEvent *a0)
   bool event(QEvent *a0) override {
     if (taken[0]) {
@@ -83,7 +131,11 @@ public:
     }
     return QWidgetAction::event(a0);
   }
+#endif  // QT_CONFIG(action)
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(action)
   //  bool QWidgetAction::eventFilter(QObject *a0, QEvent *a1)
   bool eventFilter(QObject *a0, QEvent *a1) override {
     if (taken[1]) {
@@ -94,7 +146,10 @@ public:
     }
     return QWidgetAction::eventFilter(a0, a1);
   }
+#endif  // QT_CONFIG(action)
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if QT_CONFIG(action)
   //  QWidget *QWidgetAction::createWidget(QWidget *parent)
   QWidget *createWidget(QWidget *parent) override {
     if (taken[2]) {
@@ -105,7 +160,9 @@ public:
     }
     return QWidgetAction::createWidget(parent);
   }
+#endif  // QT_CONFIG(action)
 
+#if QT_CONFIG(action)
   //  void QWidgetAction::deleteWidget(QWidget *widget)
   void deleteWidget(QWidget *widget) override {
     if (taken[3]) {
@@ -116,7 +173,9 @@ public:
     }
     QWidgetAction::deleteWidget(widget);
   }
+#endif  // QT_CONFIG(action)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
     if (taken[4]) {
@@ -127,7 +186,9 @@ public:
     }
     QObject::timerEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
     if (taken[5]) {
@@ -138,7 +199,9 @@ public:
     }
     QObject::childEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
     if (taken[6]) {
@@ -149,7 +212,9 @@ public:
     }
     QObject::customEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
     if (taken[7]) {
@@ -160,7 +225,9 @@ public:
     }
     QObject::connectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
     if (taken[8]) {
@@ -171,6 +238,7 @@ public:
     }
     QObject::disconnectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 };
 
 //  const QMetaObject *QWidgetAction::metaObject() const
@@ -187,6 +255,20 @@ QString *ritual_ZN13QWidgetAction2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QWidgetAction::tr(s, c, n));
+}
+
+//  QWidgetActionPrivate *QWidgetAction::d_func()
+extern "C" Q_DECL_EXPORT
+QWidgetActionPrivate *ritual_ZN13QWidgetAction6d_funcEv(
+    QWidgetAction *self) {
+  return self->d_func();
+}
+
+//  const QWidgetActionPrivate *QWidgetAction::d_func() const
+extern "C" Q_DECL_EXPORT
+const QWidgetActionPrivate *ritual_ZNK13QWidgetAction6d_funcEv(
+    const QWidgetAction *self) {
+  return self->d_func();
 }
 
 //  QWidgetAction::QWidgetAction(QObject *parent)
@@ -318,3 +400,5 @@ void ritual_own_ZN13QWidgetAction12deleteWidgetEP7QWidget(
   static_cast<OwnQWidgetAction *>(self)->OwnQWidgetAction::deleteWidget(
       widget);
 }
+
+#endif  // QT_CONFIG(action)

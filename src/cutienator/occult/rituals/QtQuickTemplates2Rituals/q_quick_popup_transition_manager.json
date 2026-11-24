@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquickpopup_p_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN28QQuickPopupTransitionManagerC1EP18QQuickPopupPrivate": [
+      "address", "address"
+    ],
+    "ritual_ZN28QQuickPopupTransitionManager15transitionEnterEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QQuickPopupTransitionManager14transitionExitEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QQuickPopupTransitionManager8finishedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN28QQuickPopupTransitionManager8finishedEv": [
+      "nothing", "address"
+    ]
+  }
+}

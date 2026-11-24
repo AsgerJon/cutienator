@@ -67,11 +67,13 @@ QExposeEvent *ritual_ZN12QExposeEventC1ERK7QRegion(const QRegion *m_region) {
   return new CuteQExposeEvent(*m_region);
 }
 
+#if QT_DEPRECATED_SINCE(6, 0)
 //  const QRegion &QExposeEvent::region() const
 extern "C" Q_DECL_EXPORT
 QRegion *ritual_ZNK12QExposeEvent6regionEv(const QExposeEvent *self) {
   return new QRegion(self->region());
 }
+#endif  // QT_DEPRECATED_SINCE(6, 0)
 
 //  a Python function taken by a CuteQExposeEvent, for the function named by
 //      the key

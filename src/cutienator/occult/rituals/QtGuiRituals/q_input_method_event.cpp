@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGui/qevent.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
+#if !defined(QT_NO_INPUTMETHOD)
 #include <QtGui/qevent.h>
 #include <QtCore/qstring.h>
 #include <cstring>
@@ -7,7 +9,9 @@
 //  A QInputMethodEvent that Python can take functions over in. Every QInputMethodEvent
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if !defined(QT_NO_INPUTMETHOD)
 typedef void * (*CuteQInputMethodEventCall0)(const void *, int *);
+#endif  // !defined(QT_NO_INPUTMETHOD)
 typedef void (*CuteQInputMethodEventCall1)(const void *, bool, int *);
 class CuteQInputMethodEvent : public QInputMethodEvent {
 public:
@@ -15,10 +19,12 @@ public:
   void *taken[2] = {};
 
   bool take(const char *key, void *call) {
+#if !defined(QT_NO_INPUTMETHOD)
     if (!std::strcmp(key, "_ZNK6QEvent5cloneEv")) {
       taken[0] = call;
       return true;
     }
+#endif  // !defined(QT_NO_INPUTMETHOD)
     if (!std::strcmp(key, "_ZN6QEvent11setAcceptedEb")) {
       taken[1] = call;
       return true;
@@ -26,6 +32,7 @@ public:
     return false;
   }
 
+#if !defined(QT_NO_INPUTMETHOD)
   //  QInputMethodEvent *QInputMethodEvent::clone() const
   QInputMethodEvent *clone() const override {
     if (taken[0]) {
@@ -36,6 +43,7 @@ public:
     }
     return QInputMethodEvent::clone();
   }
+#endif  // !defined(QT_NO_INPUTMETHOD)
 
   //  void QEvent::setAccepted(bool accepted)
   void setAccepted(bool accepted) override {
@@ -141,3 +149,5 @@ QInputMethodEvent *ritual_own_ZNK17QInputMethodEvent5cloneEv(
     const QInputMethodEvent *self) {
   return self->QInputMethodEvent::clone();
 }
+
+#endif  // !defined(QT_NO_INPUTMETHOD)

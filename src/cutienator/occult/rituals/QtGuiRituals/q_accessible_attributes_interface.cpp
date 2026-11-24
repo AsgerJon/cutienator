@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGui/qaccessible.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
+#if QT_CONFIG(accessibility)
 #include <QtGui/qaccessible.h>
 #include <QtCore/qvariant.h>
 #include <cstring>
@@ -7,20 +9,25 @@
 //  A QAccessibleAttributesInterface that Python can take functions over in. Every QAccessibleAttributesInterface
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if QT_CONFIG(accessibility)
 typedef const QVariant * (*CuteQAccessibleAttributesInterfaceCall0)(const void *, int, int *);
+#endif  // QT_CONFIG(accessibility)
 class CuteQAccessibleAttributesInterface : public QAccessibleAttributesInterface {
 public:
   using QAccessibleAttributesInterface::QAccessibleAttributesInterface;
   void *taken[1] = {};
 
   bool take(const char *key, void *call) {
+#if QT_CONFIG(accessibility)
     if (!std::strcmp(key, "_ZNK30QAccessibleAttributesInterface14attributeValueEN11QAccessible9AttributeE")) {
       taken[0] = call;
       return true;
     }
+#endif  // QT_CONFIG(accessibility)
     return false;
   }
 
+#if QT_CONFIG(accessibility)
   //  QVariant
   //      QAccessibleAttributesInterface::attributeValue(QAccessible::Attri
   //      bute key) const
@@ -33,6 +40,7 @@ public:
     }
     return {};
   }
+#endif  // QT_CONFIG(accessibility)
 };
 
 //  QAccessibleAttributesInterface::~QAccessibleAttributesInterface()
@@ -61,3 +69,5 @@ bool ritual_take_QAccessibleAttributesInterface(
     void *call) {
   return static_cast<CuteQAccessibleAttributesInterface *>(self)->take(key, call);
 }
+
+#endif  // QT_CONFIG(accessibility)

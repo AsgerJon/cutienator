@@ -23,7 +23,9 @@ typedef void * (*CuteQRasterWindowCall1)(const void *, QPoint *, int *);
 typedef void (*CuteQRasterWindowCall2)(const void *, QResizeEvent *, int *);
 typedef void (*CuteQRasterWindowCall3)(const void *, QExposeEvent *, int *);
 typedef void (*CuteQRasterWindowCall4)(const void *, QPaintEvent *, int *);
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQRasterWindowCall5)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 typedef void * (*CuteQRasterWindowCall6)(const void *, int *);
 typedef int (*CuteQRasterWindowCall7)(const void *, int *);
 typedef const QSurfaceFormat * (*CuteQRasterWindowCall8)(const void *, int *);
@@ -42,22 +44,39 @@ typedef void (*CuteQRasterWindowCall20)(const void *, QMouseEvent *, int *);
 typedef void (*CuteQRasterWindowCall21)(const void *, QMouseEvent *, int *);
 typedef void (*CuteQRasterWindowCall22)(const void *, QMouseEvent *, int *);
 typedef void (*CuteQRasterWindowCall23)(const void *, QMouseEvent *, int *);
+#if QT_CONFIG(wheelevent)
 typedef void (*CuteQRasterWindowCall24)(const void *, QWheelEvent *, int *);
+#endif  // QT_CONFIG(wheelevent)
 typedef void (*CuteQRasterWindowCall25)(const void *, QTouchEvent *, int *);
+#if QT_CONFIG(tabletevent)
 typedef void (*CuteQRasterWindowCall26)(const void *, QTabletEvent *, int *);
-typedef int (*CuteQRasterWindowCall27)(const void *, int *);
-typedef void (*CuteQRasterWindowCall28)(const void *, QPainter *, int *);
-typedef void * (*CuteQRasterWindowCall29)(const void *, int *);
-typedef bool (*CuteQRasterWindowCall30)(const void *, QObject *, QEvent *, int *);
-typedef void (*CuteQRasterWindowCall31)(const void *, QTimerEvent *, int *);
-typedef void (*CuteQRasterWindowCall32)(const void *, QChildEvent *, int *);
-typedef void (*CuteQRasterWindowCall33)(const void *, QEvent *, int *);
-typedef void (*CuteQRasterWindowCall34)(const void *, const QMetaMethod *, int *);
+#endif  // QT_CONFIG(tabletevent)
+typedef void * (*CuteQRasterWindowCall27)(const void *, int *);
+typedef int (*CuteQRasterWindowCall28)(const void *, int *);
+typedef void (*CuteQRasterWindowCall29)(const void *, QPainter *, int *);
+typedef void * (*CuteQRasterWindowCall30)(const void *, int *);
+#if !defined(QT_NO_QOBJECT)
+typedef bool (*CuteQRasterWindowCall31)(const void *, QObject *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+typedef void (*CuteQRasterWindowCall32)(const void *, QTimerEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+typedef void (*CuteQRasterWindowCall33)(const void *, QChildEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+typedef void (*CuteQRasterWindowCall34)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQRasterWindowCall35)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+typedef void (*CuteQRasterWindowCall36)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 class CuteQRasterWindow : public QRasterWindow {
 public:
   using QRasterWindow::QRasterWindow;
-  void *taken[36] = {};
+  void *taken[37] = {};
 
   bool take(const char *key, void *call) {
     if (!std::strcmp(key, "_ZNK12QPaintDevice6metricENS_17PaintDeviceMetricE")) {
@@ -80,10 +99,12 @@ public:
       taken[4] = call;
       return true;
     }
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[5] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZNK12QPaintDevice11paintEngineEv")) {
       taken[6] = call;
       return true;
@@ -156,54 +177,74 @@ public:
       taken[23] = call;
       return true;
     }
+#if QT_CONFIG(wheelevent)
     if (!std::strcmp(key, "_ZN7QWindow10wheelEventEP11QWheelEvent")) {
       taken[24] = call;
       return true;
     }
+#endif  // QT_CONFIG(wheelevent)
     if (!std::strcmp(key, "_ZN7QWindow10touchEventEP11QTouchEvent")) {
       taken[25] = call;
       return true;
     }
+#if QT_CONFIG(tabletevent)
     if (!std::strcmp(key, "_ZN7QWindow11tabletEventEP12QTabletEvent")) {
       taken[26] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK12QPaintDevice7devTypeEv")) {
+#endif  // QT_CONFIG(tabletevent)
+    if (!std::strcmp(key, "_ZNK8QSurface13surfaceHandleEv")) {
       taken[27] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK12QPaintDevice11initPainterEP8QPainter")) {
+    if (!std::strcmp(key, "_ZNK12QPaintDevice7devTypeEv")) {
       taken[28] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK12QPaintDevice13sharedPainterEv")) {
+    if (!std::strcmp(key, "_ZNK12QPaintDevice11initPainterEP8QPainter")) {
       taken[29] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
+    if (!std::strcmp(key, "_ZNK12QPaintDevice13sharedPainterEv")) {
       taken[30] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[31] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[32] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[33] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[34] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[35] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+      taken[36] = call;
+      return true;
+    }
+#endif  // !defined(QT_NO_QOBJECT)
     return false;
   }
 
@@ -262,6 +303,7 @@ public:
     QPaintDeviceWindow::paintEvent(event);
   }
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QPaintDeviceWindow::event(QEvent *event)
   bool event(QEvent *event) override {
     if (taken[5]) {
@@ -272,6 +314,7 @@ public:
     }
     return QPaintDeviceWindow::event(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
   //  QPaintEngine *QPaintDeviceWindow::paintEngine() const
   QPaintEngine *paintEngine() const override {
@@ -471,6 +514,7 @@ public:
     QWindow::mouseMoveEvent(a0);
   }
 
+#if QT_CONFIG(wheelevent)
   //  void QWindow::wheelEvent(QWheelEvent *a0)
   void wheelEvent(QWheelEvent *a0) override {
     if (taken[24]) {
@@ -481,6 +525,7 @@ public:
     }
     QWindow::wheelEvent(a0);
   }
+#endif  // QT_CONFIG(wheelevent)
 
   //  void QWindow::touchEvent(QTouchEvent *a0)
   void touchEvent(QTouchEvent *a0) override {
@@ -493,6 +538,7 @@ public:
     QWindow::touchEvent(a0);
   }
 
+#if QT_CONFIG(tabletevent)
   //  void QWindow::tabletEvent(QTabletEvent *a0)
   void tabletEvent(QTabletEvent *a0) override {
     if (taken[26]) {
@@ -503,12 +549,24 @@ public:
     }
     QWindow::tabletEvent(a0);
   }
+#endif  // QT_CONFIG(tabletevent)
 
-  //  int QPaintDevice::devType() const
-  int devType() const override {
+  //  QPlatformSurface *QWindow::surfaceHandle() const
+  QPlatformSurface *surfaceHandle() const override {
     if (taken[27]) {
       int handled = 0;
       CuteQRasterWindowCall27 call = reinterpret_cast<CuteQRasterWindowCall27>(taken[27]);
+      void * given = call(this, &handled);
+      if (handled) return static_cast<QPlatformSurface *>(given);
+    }
+    return QWindow::surfaceHandle();
+  }
+
+  //  int QPaintDevice::devType() const
+  int devType() const override {
+    if (taken[28]) {
+      int handled = 0;
+      CuteQRasterWindowCall28 call = reinterpret_cast<CuteQRasterWindowCall28>(taken[28]);
       int given = call(this, &handled);
       if (handled) return given;
     }
@@ -517,9 +575,9 @@ public:
 
   //  void QPaintDevice::initPainter(QPainter *painter) const
   void initPainter(QPainter *painter) const override {
-    if (taken[28]) {
+    if (taken[29]) {
       int handled = 0;
-      CuteQRasterWindowCall28 call = reinterpret_cast<CuteQRasterWindowCall28>(taken[28]);
+      CuteQRasterWindowCall29 call = reinterpret_cast<CuteQRasterWindowCall29>(taken[29]);
       call(this, painter, &handled);
       if (handled) return;
     }
@@ -528,80 +586,92 @@ public:
 
   //  QPainter *QPaintDevice::sharedPainter() const
   QPainter *sharedPainter() const override {
-    if (taken[29]) {
+    if (taken[30]) {
       int handled = 0;
-      CuteQRasterWindowCall29 call = reinterpret_cast<CuteQRasterWindowCall29>(taken[29]);
+      CuteQRasterWindowCall30 call = reinterpret_cast<CuteQRasterWindowCall30>(taken[30]);
       void * given = call(this, &handled);
       if (handled) return static_cast<QPainter *>(given);
     }
     return QPaintDevice::sharedPainter();
   }
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
-    if (taken[30]) {
+    if (taken[31]) {
       int handled = 0;
-      CuteQRasterWindowCall30 call = reinterpret_cast<CuteQRasterWindowCall30>(taken[30]);
+      CuteQRasterWindowCall31 call = reinterpret_cast<CuteQRasterWindowCall31>(taken[31]);
       bool given = call(this, watched, event, &handled);
       if (handled) return given;
     }
     return QObject::eventFilter(watched, event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
-    if (taken[31]) {
-      int handled = 0;
-      CuteQRasterWindowCall31 call = reinterpret_cast<CuteQRasterWindowCall31>(taken[31]);
-      call(this, event, &handled);
-      if (handled) return;
-    }
-    QObject::timerEvent(event);
-  }
-
-  //  void QObject::childEvent(QChildEvent *event)
-  void childEvent(QChildEvent *event) override {
     if (taken[32]) {
       int handled = 0;
       CuteQRasterWindowCall32 call = reinterpret_cast<CuteQRasterWindowCall32>(taken[32]);
       call(this, event, &handled);
       if (handled) return;
     }
-    QObject::childEvent(event);
+    QObject::timerEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
-  //  void QObject::customEvent(QEvent *event)
-  void customEvent(QEvent *event) override {
+#if !defined(QT_NO_QOBJECT)
+  //  void QObject::childEvent(QChildEvent *event)
+  void childEvent(QChildEvent *event) override {
     if (taken[33]) {
       int handled = 0;
       CuteQRasterWindowCall33 call = reinterpret_cast<CuteQRasterWindowCall33>(taken[33]);
       call(this, event, &handled);
       if (handled) return;
     }
-    QObject::customEvent(event);
+    QObject::childEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
-  //  void QObject::connectNotify(const QMetaMethod &signal)
-  void connectNotify(const QMetaMethod &signal) override {
+#if !defined(QT_NO_QOBJECT)
+  //  void QObject::customEvent(QEvent *event)
+  void customEvent(QEvent *event) override {
     if (taken[34]) {
       int handled = 0;
       CuteQRasterWindowCall34 call = reinterpret_cast<CuteQRasterWindowCall34>(taken[34]);
-      call(this, &signal, &handled);
+      call(this, event, &handled);
       if (handled) return;
     }
-    QObject::connectNotify(signal);
+    QObject::customEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
-  //  void QObject::disconnectNotify(const QMetaMethod &signal)
-  void disconnectNotify(const QMetaMethod &signal) override {
+#if !defined(QT_NO_QOBJECT)
+  //  void QObject::connectNotify(const QMetaMethod &signal)
+  void connectNotify(const QMetaMethod &signal) override {
     if (taken[35]) {
       int handled = 0;
       CuteQRasterWindowCall35 call = reinterpret_cast<CuteQRasterWindowCall35>(taken[35]);
       call(this, &signal, &handled);
       if (handled) return;
     }
+    QObject::connectNotify(signal);
+  }
+#endif  // !defined(QT_NO_QOBJECT)
+
+#if !defined(QT_NO_QOBJECT)
+  //  void QObject::disconnectNotify(const QMetaMethod &signal)
+  void disconnectNotify(const QMetaMethod &signal) override {
+    if (taken[36]) {
+      int handled = 0;
+      CuteQRasterWindowCall36 call = reinterpret_cast<CuteQRasterWindowCall36>(taken[36]);
+      call(this, &signal, &handled);
+      if (handled) return;
+    }
     QObject::disconnectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 };
 
 //  const QMetaObject *QRasterWindow::metaObject() const

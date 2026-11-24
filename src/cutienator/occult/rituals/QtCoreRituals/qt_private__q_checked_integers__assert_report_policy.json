@@ -1,0 +1,14 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qcheckedint_impl.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN9QtPrivate16QCheckedIntegers18AssertReportPolicy5checkEbPKcS3_": [
+      "nothing", "bool", "chars", "chars"
+    ],
+    "ritual_ZN9QtPrivate16QCheckedIntegers18AssertReportPolicyD1Ev": [
+      "nothing", "address"
+    ]
+  }
+}

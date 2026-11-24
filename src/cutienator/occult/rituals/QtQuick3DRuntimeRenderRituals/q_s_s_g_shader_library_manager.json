@@ -1,0 +1,29 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgrendersh",
+    "aderlibrarymanager_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN24QSSGShaderLibraryManager29getShaderCodeLibraryDirectoryEv": [
+      "text"
+    ],
+    "ritual_ZN24QSSGShaderLibraryManagerC1Ev": ["address"],
+    "ritual_ZN24QSSGShaderLibraryManagerD1Ev": ["nothing", "address"],
+    "ritual_ZN24QSSGShaderLibraryManager15setShaderSourceERK10QByteArrayN15QSSGShaderCache10ShaderTypeES2_RK24QSSGCustomShaderMetaData": [
+      "nothing", "address", "address", "int", "address", "address"
+    ],
+    "ritual_ZN24QSSGShaderLibraryManager26loadPregeneratedShaderInfoEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QSSGShaderLibraryManager18getIncludeContentsERK10QByteArray": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN24QSSGShaderLibraryManager15getShaderSourceERK10QByteArrayN15QSSGShaderCache10ShaderTypeE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN24QSSGShaderLibraryManager17getShaderMetaDataERK10QByteArrayN15QSSGShaderCache10ShaderTypeE": [
+      "address", "address", "address", "int"
+    ]
+  }
+}

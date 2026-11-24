@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDBus/6.12.0/QtDBus/private/qdbusargument_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QDBusArgumentPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN20QDBusArgumentPrivate9checkReadEPS_": ["bool", "address"],
+    "ritual_ZN20QDBusArgumentPrivate10marshallerEv": ["address", "address"],
+    "ritual_ZN20QDBusArgumentPrivate12demarshallerEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QDBusArgumentPrivate6createEPS_": ["address", "address"]
+  }
+}

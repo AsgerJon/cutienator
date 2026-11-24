@@ -1,0 +1,14 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtHelp/qhelplink.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN9QHelpLinkD1Ev": ["nothing", "address"],
+    "ritual_list_make_QHelpLink": ["address"],
+    "ritual_list_add_QHelpLink": ["nothing", "address", "address"],
+    "ritual_list_size_QHelpLink": ["long long", "address"],
+    "ritual_list_at_QHelpLink": ["address", "address", "long long"],
+    "ritual_list_drop_QHelpLink": ["nothing", "address"]
+  }
+}

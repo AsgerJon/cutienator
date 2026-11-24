@@ -1,0 +1,35 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Particles/6.12.0/QtQuickParticles/private/qquickgravity_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK21QQuickGravityAffector10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QQuickGravityAffector2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN21QQuickGravityAffectorC1EP10QQuickItem": [
+      "address", "address"
+    ],
+    "ritual_ZNK21QQuickGravityAffector9magnitudeEv": ["double", "address"],
+    "ritual_ZNK21QQuickGravityAffector5angleEv": ["double", "address"],
+    "ritual_ZN21QQuickGravityAffector14affectParticleEP18QQuickParticleDatad": [
+      "bool", "address", "address", "double"
+    ],
+    "ritual_ZN21QQuickGravityAffector12setMagnitudeEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN21QQuickGravityAffector15setAccelerationEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN21QQuickGravityAffector8setAngleEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_own_ZN21QQuickGravityAffector14affectParticleEP18QQuickParticleDatad": [
+      "bool", "address", "address", "double"
+    ]
+  }
+}

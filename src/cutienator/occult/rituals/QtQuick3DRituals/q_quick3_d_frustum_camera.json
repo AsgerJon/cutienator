@@ -1,0 +1,40 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3D/6.12.0/QtQuick3D/private/qquick3dfrustumcamera_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK21QQuick3DFrustumCamera10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QQuick3DFrustumCamera2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN21QQuick3DFrustumCameraC1EP12QQuick3DNode": [
+      "address", "address"
+    ],
+    "ritual_ZNK21QQuick3DFrustumCamera3topEv": ["float", "address"],
+    "ritual_ZNK21QQuick3DFrustumCamera6bottomEv": ["float", "address"],
+    "ritual_ZNK21QQuick3DFrustumCamera5rightEv": ["float", "address"],
+    "ritual_ZNK21QQuick3DFrustumCamera4leftEv": ["float", "address"],
+    "ritual_ZN21QQuick3DFrustumCamera6setTopEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN21QQuick3DFrustumCamera9setBottomEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN21QQuick3DFrustumCamera8setRightEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN21QQuick3DFrustumCamera7setLeftEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN21QQuick3DFrustumCamera17updateSpatialNodeEP21QSSGRenderGraphObject": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN21QQuick3DFrustumCamera17updateSpatialNodeEP21QSSGRenderGraphObject": [
+      "address", "address", "address"
+    ]
+  }
+}

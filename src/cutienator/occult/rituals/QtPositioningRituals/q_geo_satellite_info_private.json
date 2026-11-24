@@ -1,0 +1,13 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtPositioning/6.12.0/QtPositioning/private/qgeosatelliteinfo_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN24QGeoSatelliteInfoPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN24QGeoSatelliteInfoPrivate3getERK17QGeoSatelliteInfo": [
+      "address", "address"
+    ]
+  }
+}

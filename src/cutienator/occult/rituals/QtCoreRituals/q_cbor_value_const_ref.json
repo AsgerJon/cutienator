@@ -100,6 +100,9 @@
     "ritual_ZN18QCborValueConstRef20comparesEqual_helperES_S_": [
       "bool", "address", "address"
     ],
+    "ritual_ZN18QCborValueConstRef22compareThreeWay_helperES_S_": [
+      "address", "address", "address"
+    ],
     "ritual_ZeqRK18QCborValueConstRefS1_": ["bool", "address", "address"],
     "ritual_ZneRK18QCborValueConstRefS1_": ["bool", "address", "address"],
     "ritual_ZltRK18QCborValueConstRefS1_": ["bool", "address", "address"],
@@ -108,6 +111,9 @@
     "ritual_ZgeRK18QCborValueConstRefS1_": ["bool", "address", "address"],
     "ritual_ZN18QCborValueConstRef20comparesEqual_helperES_RK10QCborValue": [
       "bool", "address", "address"
+    ],
+    "ritual_ZN18QCborValueConstRef22compareThreeWay_helperES_RK10QCborValue": [
+      "address", "address", "address"
     ],
     "ritual_ZeqRK18QCborValueConstRefRK10QCborValue": [
       "bool", "address", "address"
@@ -166,6 +172,9 @@
       "text", "address", "text"
     ],
     "ritual_ZN18QCborValueConstRefC1Ev": ["address"],
+    "ritual_ZN18QCborValueConstRefC1EP21QCborContainerPrivatex": [
+      "address", "address", "long long"
+    ],
     "ritual_ZN18QCborValueConstRefD1Ev": ["nothing", "address"]
   }
 }

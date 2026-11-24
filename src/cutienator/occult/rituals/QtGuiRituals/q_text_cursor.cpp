@@ -20,6 +20,21 @@ QTextCursor *ritual_ZN11QTextCursorC1EP13QTextDocument(
   return new QTextCursor(document);
 }
 
+//  QTextCursor::QTextCursor(QTextDocumentPrivate *p, int pos)
+extern "C" Q_DECL_EXPORT
+QTextCursor *ritual_ZN11QTextCursorC1EP20QTextDocumentPrivatei(
+    QTextDocumentPrivate *p,
+    int pos) {
+  return new QTextCursor(p, pos);
+}
+
+//  QTextCursor::QTextCursor(QTextCursorPrivate *d)
+extern "C" Q_DECL_EXPORT
+QTextCursor *ritual_ZN11QTextCursorC1EP18QTextCursorPrivate(
+    QTextCursorPrivate *d) {
+  return new QTextCursor(d);
+}
+
 //  QTextCursor::QTextCursor(QTextFrame *frame)
 extern "C" Q_DECL_EXPORT
 QTextCursor *ritual_ZN11QTextCursorC1EP10QTextFrame(QTextFrame *frame) {
@@ -442,6 +457,7 @@ void ritual_ZN11QTextCursor14insertFragmentERK21QTextDocumentFragment(
   self->insertFragment(*fragment);
 }
 
+#if !defined(QT_NO_TEXTHTMLPARSER)
 //  void QTextCursor::insertHtml(const QString &html)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QTextCursor10insertHtmlERK7QString(
@@ -449,7 +465,9 @@ void ritual_ZN11QTextCursor10insertHtmlERK7QString(
     const QString *html) {
   self->insertHtml(*html);
 }
+#endif  // !defined(QT_NO_TEXTHTMLPARSER)
 
+#if QT_CONFIG(textmarkdownreader)
 //  void QTextCursor::insertMarkdown(const QString &markdown,
 //      QTextDocument::MarkdownFeatures features)
 extern "C" Q_DECL_EXPORT
@@ -461,6 +479,7 @@ void ritual_ZN11QTextCursor14insertMarkdownERK7QString6QFlagsIN13QTextDocument15
       *markdown,
       QFlags<QTextDocument::MarkdownFeature>::fromInt(features));
 }
+#endif  // QT_CONFIG(textmarkdownreader)
 
 //  void QTextCursor::insertImage(const QTextImageFormat &format,
 //      QTextFrameFormat::Position alignment)

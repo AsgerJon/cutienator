@@ -1,0 +1,92 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/6.12.0/QtCharts/private/polarchartaxisangular_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK21PolarChartAxisAngular10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21PolarChartAxisAngular2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN21PolarChartAxisAngularD1Ev": ["nothing", "address"],
+    "ritual_ZNK21PolarChartAxisAngular11orientationEv": ["int", "address"],
+    "ritual_ZNK21PolarChartAxisAngular8sizeHintEN2Qt8SizeHintERK6QSizeF": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_ZN21PolarChartAxisAngular14updateGeometryEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21PolarChartAxisAngular11createItemsEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN21PolarChartAxisAngular20updateMinorTickItemsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21PolarChartAxisAngular19preferredAxisRadiusERK6QSizeF": [
+      "double", "address", "address"
+    ],
+    "ritual_ZN21PolarChartAxisAngular21handleArrowPenChangedERK4QPen": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21PolarChartAxisAngular20handleGridPenChangedERK4QPen": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21PolarChartAxisAngular26handleMinorArrowPenChangedERK4QPen": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21PolarChartAxisAngular25handleMinorGridPenChangedERK4QPen": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21PolarChartAxisAngular26handleGridLineColorChangedERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21PolarChartAxisAngular31handleMinorGridLineColorChangedERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21PolarChartAxisAngular19moveLabelToPositionEd7QPointF6QRectF": [
+      "address", "address", "double", "address", "address"
+    ],
+    "ritual_ZN21PolarChartAxisAngular23updateMinorTickGeometryEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_PolarChartAxisAngular": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK21PolarChartAxisAngular8sizeHintEN2Qt8SizeHintERK6QSizeF": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_own_ZN21PolarChartAxisAngular14updateGeometryEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN21PolarChartAxisAngular11createItemsEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN21PolarChartAxisAngular20updateMinorTickItemsEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN21PolarChartAxisAngular19preferredAxisRadiusERK6QSizeF": [
+      "double", "address", "address"
+    ],
+    "ritual_own_ZN21PolarChartAxisAngular21handleArrowPenChangedERK4QPen": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN21PolarChartAxisAngular20handleGridPenChangedERK4QPen": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN21PolarChartAxisAngular26handleMinorArrowPenChangedERK4QPen": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN21PolarChartAxisAngular25handleMinorGridPenChangedERK4QPen": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN21PolarChartAxisAngular26handleGridLineColorChangedERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN21PolarChartAxisAngular31handleMinorGridLineColorChangedERK6QColor": [
+      "nothing", "address", "address"
+    ]
+  }
+}

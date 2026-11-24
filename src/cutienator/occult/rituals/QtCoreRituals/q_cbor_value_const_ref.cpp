@@ -13,6 +13,7 @@
 #include <QtCore/qlatin1stringview.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qjsonvalue.h>
+#include <QtCore/qcompare.h>
 
 //  QCborValueConstRef::QCborValueConstRef(const QCborValueConstRef &a0)
 extern "C" Q_DECL_EXPORT
@@ -251,6 +252,7 @@ QString *ritual_ZNK18QCborValueConstRef12toStringViewE14QAnyStringView(
           QAnyStringView(*defaultValue)).toString());
 }
 
+#if QT_CONFIG(datestring)
 //  QDateTime QCborValueConstRef::toDateTime(const QDateTime &defaultValue)
 //      const
 extern "C" Q_DECL_EXPORT
@@ -259,7 +261,9 @@ QDateTime *ritual_ZNK18QCborValueConstRef10toDateTimeERK9QDateTime(
     const QDateTime *defaultValue) {
   return new QDateTime(self->toDateTime(*defaultValue));
 }
+#endif  // QT_CONFIG(datestring)
 
+#if !defined(QT_BOOTSTRAPPED)
 //  QUrl QCborValueConstRef::toUrl(const QUrl &defaultValue) const
 extern "C" Q_DECL_EXPORT
 QUrl *ritual_ZNK18QCborValueConstRef5toUrlERK4QUrl(
@@ -267,7 +271,10 @@ QUrl *ritual_ZNK18QCborValueConstRef5toUrlERK4QUrl(
     const QUrl *defaultValue) {
   return new QUrl(self->toUrl(*defaultValue));
 }
+#endif  // !defined(QT_BOOTSTRAPPED)
 
+#if !defined(QT_BOOTSTRAPPED)
+#if QT_CONFIG(regularexpression)
 //  QRegularExpression QCborValueConstRef::toRegularExpression(const
 //      QRegularExpression &defaultValue) const
 extern "C" Q_DECL_EXPORT
@@ -276,7 +283,10 @@ QRegularExpression *ritual_ZNK18QCborValueConstRef19toRegularExpressionERK18QReg
     const QRegularExpression *defaultValue) {
   return new QRegularExpression(self->toRegularExpression(*defaultValue));
 }
+#endif  // QT_CONFIG(regularexpression)
+#endif  // !defined(QT_BOOTSTRAPPED)
 
+#if !defined(QT_BOOTSTRAPPED)
 //  QUuid QCborValueConstRef::toUuid(const QUuid &defaultValue) const
 extern "C" Q_DECL_EXPORT
 QUuid *ritual_ZNK18QCborValueConstRef6toUuidERK5QUuid(
@@ -284,6 +294,7 @@ QUuid *ritual_ZNK18QCborValueConstRef6toUuidERK5QUuid(
     const QUuid *defaultValue) {
   return new QUuid(self->toUuid(*defaultValue));
 }
+#endif  // !defined(QT_BOOTSTRAPPED)
 
 //  QCborArray QCborValueConstRef::toArray() const
 extern "C" Q_DECL_EXPORT
@@ -362,6 +373,7 @@ QJsonValue *ritual_ZNK18QCborValueConstRef11toJsonValueEv(
   return new QJsonValue(self->toJsonValue());
 }
 
+#if QT_CONFIG(cborstreamwriter)
 //  QByteArray QCborValueConstRef::toCbor(QCborValue::EncodingOptions opt)
 //      const
 extern "C" Q_DECL_EXPORT
@@ -372,6 +384,7 @@ QByteArray *ritual_ZNK18QCborValueConstRef6toCborE6QFlagsIN10QCborValue14Encodin
       self->toCbor(
           QFlags<QCborValue::EncodingOption>::fromInt(opt)));
 }
+#endif  // QT_CONFIG(cborstreamwriter)
 
 //  QString QCborValueConstRef::toDiagnosticNotation(QCborValue::DiagnosticNo
 //      tationOptions opt) const
@@ -398,6 +411,19 @@ bool ritual_ZN18QCborValueConstRef20comparesEqual_helperES_S_(
     const QCborValueConstRef *lhs,
     const QCborValueConstRef *rhs) {
   return QCborValueConstRef::comparesEqual_helper(*lhs, *rhs);
+}
+
+//  Qt::strong_ordering
+//      QCborValueConstRef::compareThreeWay_helper(QCborValueConstRef lhs,
+//      QCborValueConstRef rhs)
+extern "C" Q_DECL_EXPORT
+Qt::strong_ordering *ritual_ZN18QCborValueConstRef22compareThreeWay_helperES_S_(
+    const QCborValueConstRef *lhs,
+    const QCborValueConstRef *rhs) {
+  return new Qt::strong_ordering(
+      QCborValueConstRef::compareThreeWay_helper(
+          *lhs,
+          *rhs));
 }
 
 //  bool operator==(const QCborValueConstRef &lhs, const QCborValueConstRef
@@ -461,6 +487,19 @@ bool ritual_ZN18QCborValueConstRef20comparesEqual_helperES_RK10QCborValue(
     const QCborValueConstRef *lhs,
     const QCborValue *rhs) {
   return QCborValueConstRef::comparesEqual_helper(*lhs, *rhs);
+}
+
+//  Qt::strong_ordering
+//      QCborValueConstRef::compareThreeWay_helper(QCborValueConstRef lhs,
+//      const QCborValue &rhs)
+extern "C" Q_DECL_EXPORT
+Qt::strong_ordering *ritual_ZN18QCborValueConstRef22compareThreeWay_helperES_RK10QCborValue(
+    const QCborValueConstRef *lhs,
+    const QCborValue *rhs) {
+  return new Qt::strong_ordering(
+      QCborValueConstRef::compareThreeWay_helper(
+          *lhs,
+          *rhs));
 }
 
 //  bool operator==(const QCborValueConstRef &lhs, const QCborValue &rhs)
@@ -641,6 +680,15 @@ QString *ritual_ZN18QCborValueConstRef18concreteStringViewES_14QAnyStringView(
 extern "C" Q_DECL_EXPORT
 QCborValueConstRef *ritual_ZN18QCborValueConstRefC1Ev() {
   return new QCborValueConstRef();
+}
+
+//  QCborValueConstRef::QCborValueConstRef(QCborContainerPrivate *dd,
+//      qsizetype ii)
+extern "C" Q_DECL_EXPORT
+QCborValueConstRef *ritual_ZN18QCborValueConstRefC1EP21QCborContainerPrivatex(
+    QCborContainerPrivate *dd,
+    qsizetype ii) {
+  return new QCborValueConstRef(dd, ii);
 }
 
 //  QCborValueConstRef::~QCborValueConstRef()

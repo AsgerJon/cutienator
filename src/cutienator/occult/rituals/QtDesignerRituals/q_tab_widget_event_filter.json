@@ -1,0 +1,51 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/qdesigner_tabwidget_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK21QTabWidgetEventFilter10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QTabWidgetEventFilter2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN21QTabWidgetEventFilterC1EP10QTabWidget": [
+      "address", "address"
+    ],
+    "ritual_ZN21QTabWidgetEventFilterD1Ev": ["nothing", "address"],
+    "ritual_ZN21QTabWidgetEventFilter7installEP10QTabWidget": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QTabWidgetEventFilter13eventFilterOfEPK10QTabWidget": [
+      "address", "address"
+    ],
+    "ritual_ZN21QTabWidgetEventFilter30addTabWidgetContextMenuActionsEPK10QTabWidgetP5QMenu": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN21QTabWidgetEventFilter21addContextMenuActionsEP5QMenu": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN21QTabWidgetEventFilter11eventFilterEP7QObjectP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZNK21QTabWidgetEventFilter10formWindowEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QTabWidgetEventFilter17removeCurrentPageEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QTabWidgetEventFilter7addPageEv": ["nothing", "address"],
+    "ritual_ZN21QTabWidgetEventFilter12addPageAfterEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK21QTabWidgetEventFilter6tabBarEv": ["address", "address"],
+    "ritual_take_QTabWidgetEventFilter": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN21QTabWidgetEventFilter11eventFilterEP7QObjectP6QEvent": [
+      "bool", "address", "address", "address"
+    ]
+  }
+}

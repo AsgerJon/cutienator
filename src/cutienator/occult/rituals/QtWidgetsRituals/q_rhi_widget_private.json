@@ -1,0 +1,45 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qrhiwidget_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN17QRhiWidgetPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK17QRhiWidgetPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK17QRhiWidgetPrivate7textureEv": ["address", "address"],
+    "ritual_ZN17QRhiWidgetPrivate16textureListFlagsEv": ["int", "address"],
+    "ritual_ZNK17QRhiWidgetPrivate9rhiConfigEv": ["address", "address"],
+    "ritual_ZN17QRhiWidgetPrivate10endComposeEv": ["nothing", "address"],
+    "ritual_ZN17QRhiWidgetPrivate15grabFramebufferEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QRhiWidgetPrivate4initEv": ["nothing", "address"],
+    "ritual_ZN17QRhiWidgetPrivate9ensureRhiEv": ["nothing", "address"],
+    "ritual_ZN17QRhiWidgetPrivate13ensureTextureEPb": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QRhiWidgetPrivate16invokeInitializeEP17QRhiCommandBuffer": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN17QRhiWidgetPrivate23resetColorBufferObjectsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QRhiWidgetPrivate24resetRenderTargetObjectsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QRhiWidgetPrivate16releaseResourcesEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QRhiWidgetPrivate": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK17QRhiWidgetPrivate7textureEv": ["address", "address"],
+    "ritual_own_ZN17QRhiWidgetPrivate16textureListFlagsEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZNK17QRhiWidgetPrivate9rhiConfigEv": ["address", "address"],
+    "ritual_own_ZN17QRhiWidgetPrivate10endComposeEv": ["nothing", "address"],
+    "ritual_own_ZN17QRhiWidgetPrivate15grabFramebufferEv": [
+      "address", "address"
+    ]
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/qpa/qplatformbackingstore.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN30QPlatformBackingStoreRhiConfigC1Ev": ["address"],
+    "ritual_ZN30QPlatformBackingStoreRhiConfigC1ENS_3ApiE": [
+      "address", "int"
+    ],
+    "ritual_ZNK30QPlatformBackingStoreRhiConfig9isEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN30QPlatformBackingStoreRhiConfig10setEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK30QPlatformBackingStoreRhiConfig3apiEv": ["int", "address"],
+    "ritual_ZN30QPlatformBackingStoreRhiConfig6setApiENS_3ApiE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK30QPlatformBackingStoreRhiConfig19isDebugLayerEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN30QPlatformBackingStoreRhiConfig13setDebugLayerEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZeqRK30QPlatformBackingStoreRhiConfigS1_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN30QPlatformBackingStoreRhiConfigD1Ev": ["nothing", "address"]
+  }
+}

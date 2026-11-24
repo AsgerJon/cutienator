@@ -48,6 +48,8 @@
     "ritual_ZNK17QVariantAnimation12interpolatedERK8QVariantS2_d": [
       "address", "address", "address", "address", "double"
     ],
+    "ritual_ZN17QVariantAnimation6d_funcEv": ["address", "address"],
+    "ritual_ZNK17QVariantAnimation6d_funcEv": ["address", "address"],
     "ritual_take_QVariantAnimation": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK17QVariantAnimation8durationEv": ["int", "address"],
     "ritual_own_ZN17QVariantAnimation5eventEP6QEvent": [

@@ -1,0 +1,82 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/qdnslookup.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK10QDnsLookup10metaObjectEv": ["address", "address"],
+    "ritual_ZN10QDnsLookup2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN10QDnsLookupC1EP7QObject": ["address", "address"],
+    "ritual_ZN10QDnsLookupC1ENS_4TypeERK7QStringP7QObject": [
+      "address", "int", "text", "address"
+    ],
+    "ritual_ZN10QDnsLookupC1ENS_4TypeERK7QStringRK12QHostAddressP7QObject": [
+      "address", "int", "text", "address", "address"
+    ],
+    "ritual_ZN10QDnsLookupC1ENS_4TypeERK7QStringRK12QHostAddresstP7QObject": [
+      "address", "int", "text", "address", "unsigned short", "address"
+    ],
+    "ritual_ZN10QDnsLookupC1ENS_4TypeERK7QStringNS_8ProtocolERK12QHostAddresstP7QObject": [
+      "address", "int", "text", "unsigned char", "address", "unsigned short",
+      "address"
+    ],
+    "ritual_ZN10QDnsLookupD1Ev": ["nothing", "address"],
+    "ritual_ZNK10QDnsLookup15isAuthenticDataEv": ["bool", "address"],
+    "ritual_ZNK10QDnsLookup5errorEv": ["int", "address"],
+    "ritual_ZNK10QDnsLookup11errorStringEv": ["text", "address"],
+    "ritual_ZNK10QDnsLookup10isFinishedEv": ["bool", "address"],
+    "ritual_ZNK10QDnsLookup4nameEv": ["text", "address"],
+    "ritual_ZN10QDnsLookup7setNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK10QDnsLookup4typeEv": ["int", "address"],
+    "ritual_ZN10QDnsLookup7setTypeENS_4TypeE": ["nothing", "address", "int"],
+    "ritual_ZNK10QDnsLookup10nameserverEv": ["address", "address"],
+    "ritual_ZN10QDnsLookup13setNameserverERK12QHostAddress": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10QDnsLookup14nameserverPortEv": [
+      "unsigned short", "address"
+    ],
+    "ritual_ZN10QDnsLookup17setNameserverPortEt": [
+      "nothing", "address", "unsigned short"
+    ],
+    "ritual_ZNK10QDnsLookup18nameserverProtocolEv": [
+      "unsigned char", "address"
+    ],
+    "ritual_ZN10QDnsLookup21setNameserverProtocolENS_8ProtocolE": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZN10QDnsLookup13setNameserverENS_8ProtocolERK12QHostAddresst": [
+      "nothing", "address", "unsigned char", "address", "unsigned short"
+    ],
+    "ritual_ZN10QDnsLookup13setNameserverERK12QHostAddresst": [
+      "nothing", "address", "address", "unsigned short"
+    ],
+    "ritual_ZNK10QDnsLookup20canonicalNameRecordsEv": ["address", "address"],
+    "ritual_ZNK10QDnsLookup18hostAddressRecordsEv": ["address", "address"],
+    "ritual_ZNK10QDnsLookup19mailExchangeRecordsEv": ["address", "address"],
+    "ritual_ZNK10QDnsLookup17nameServerRecordsEv": ["address", "address"],
+    "ritual_ZNK10QDnsLookup14pointerRecordsEv": ["address", "address"],
+    "ritual_ZNK10QDnsLookup14serviceRecordsEv": ["address", "address"],
+    "ritual_ZNK10QDnsLookup11textRecordsEv": ["address", "address"],
+    "ritual_ZNK10QDnsLookup21tlsAssociationRecordsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10QDnsLookup19setSslConfigurationERK17QSslConfiguration": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10QDnsLookup16sslConfigurationEv": ["address", "address"],
+    "ritual_ZN10QDnsLookup19isProtocolSupportedENS_8ProtocolE": [
+      "bool", "unsigned char"
+    ],
+    "ritual_ZN10QDnsLookup22defaultPortForProtocolENS_8ProtocolE": [
+      "unsigned short", "unsigned char"
+    ],
+    "ritual_ZN10QDnsLookup5abortEv": ["nothing", "address"],
+    "ritual_ZN10QDnsLookup6lookupEv": ["nothing", "address"],
+    "ritual_ZN10QDnsLookup6d_funcEv": ["address", "address"],
+    "ritual_ZNK10QDnsLookup6d_funcEv": ["address", "address"],
+    "ritual_take_QDnsLookup": ["bool", "address", "chars", "address"]
+  }
+}

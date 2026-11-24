@@ -23,6 +23,7 @@
       "nothing", "address", "address"
     ],
     "ritual_ZNK17QPagedPaintDevice10pageRangesEv": ["address", "address"],
+    "ritual_ZN17QPagedPaintDevice2ddEv": ["address", "address"],
     "ritual_take_QPagedPaintDevice": ["bool", "address", "chars", "address"],
     "ritual_own_ZN17QPagedPaintDevice13setPageLayoutERK11QPageLayout": [
       "bool", "address", "address"

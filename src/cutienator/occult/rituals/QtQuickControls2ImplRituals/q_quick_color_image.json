@@ -1,0 +1,28 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Controls2Impl/6.12.0/QtQuickControls2Impl/private/qquickcolorimage",
+    "_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK16QQuickColorImage10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QQuickColorImage2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN16QQuickColorImageC1EP10QQuickItem": ["address", "address"],
+    "ritual_ZNK16QQuickColorImage5colorEv": ["address", "address"],
+    "ritual_ZN16QQuickColorImage8setColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickColorImage10resetColorEv": ["nothing", "address"],
+    "ritual_ZNK16QQuickColorImage12defaultColorEv": ["address", "address"],
+    "ritual_ZN16QQuickColorImage15setDefaultColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickColorImage17resetDefaultColorEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickColorImage12pixmapChangeEv": ["nothing", "address"],
+    "ritual_own_ZN16QQuickColorImage12pixmapChangeEv": ["nothing", "address"]
+  }
+}

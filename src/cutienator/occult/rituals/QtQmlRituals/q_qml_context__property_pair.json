@@ -1,0 +1,9 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/qqmlcontext.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11QQmlContext12PropertyPairD1Ev": ["nothing", "address"]
+  }
+}

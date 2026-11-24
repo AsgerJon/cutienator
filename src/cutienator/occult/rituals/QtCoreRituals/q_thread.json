@@ -49,6 +49,8 @@
     "ritual_ZN7QThread3runEv": ["nothing", "address"],
     "ritual_ZN7QThread4execEv": ["int", "address"],
     "ritual_ZN7QThread21setTerminationEnabledEb": ["nothing", "bool"],
+    "ritual_ZN7QThread6d_funcEv": ["address", "address"],
+    "ritual_ZNK7QThread6d_funcEv": ["address", "address"],
     "ritual_take_QThread": ["bool", "address", "chars", "address"],
     "ritual_own_ZN7QThread5eventEP6QEvent": ["bool", "address", "address"],
     "ritual_own_ZN7QThread3runEv": ["nothing", "address"]

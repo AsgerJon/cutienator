@@ -1,0 +1,23 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtMultimedia/6.12.0/QtMultimedia/private/qvideoframe_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QVideoFramePrivateC1Ev": ["address"],
+    "ritual_ZN18QVideoFramePrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN18QVideoFramePrivate8hwBufferERK11QVideoFrame": [
+      "address", "address"
+    ],
+    "ritual_ZN18QVideoFramePrivate9hasDmaBufERK11QVideoFrame": [
+      "bool", "address"
+    ],
+    "ritual_ZN18QVideoFramePrivate6bufferERK11QVideoFrame": [
+      "address", "address"
+    ],
+    "ritual_ZN18QVideoFramePrivate21adoptThisByVideoFrameEv": [
+      "address", "address"
+    ]
+  }
+}

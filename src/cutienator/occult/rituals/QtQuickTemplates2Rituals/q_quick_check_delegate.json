@@ -1,0 +1,39 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquickcheckdelegate_p.",
+    "h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK19QQuickCheckDelegate10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QQuickCheckDelegate2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN19QQuickCheckDelegateC1EP10QQuickItem": ["address", "address"],
+    "ritual_ZNK19QQuickCheckDelegate10isTristateEv": ["bool", "address"],
+    "ritual_ZN19QQuickCheckDelegate11setTristateEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK19QQuickCheckDelegate10checkStateEv": ["int", "address"],
+    "ritual_ZN19QQuickCheckDelegate13setCheckStateEN2Qt10CheckStateE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK19QQuickCheckDelegate11defaultFontEv": ["address", "address"],
+    "ritual_ZN19QQuickCheckDelegate12buttonChangeEN20QQuickAbstractButton12ButtonChangeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN19QQuickCheckDelegate14nextCheckStateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK19QQuickCheckDelegate14accessibleRoleEv": ["int", "address"],
+    "ritual_own_ZNK19QQuickCheckDelegate11defaultFontEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN19QQuickCheckDelegate14nextCheckStateEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZNK19QQuickCheckDelegate14accessibleRoleEv": [
+      "int", "address"
+    ]
+  }
+}

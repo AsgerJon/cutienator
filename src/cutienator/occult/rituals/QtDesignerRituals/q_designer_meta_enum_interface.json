@@ -1,0 +1,39 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/abstractintrospection_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN26QDesignerMetaEnumInterfaceD1Ev": ["nothing", "address"],
+    "ritual_ZNK26QDesignerMetaEnumInterface6isFlagEv": ["bool", "address"],
+    "ritual_ZNK26QDesignerMetaEnumInterface3keyEi": [
+      "text", "address", "int"
+    ],
+    "ritual_ZNK26QDesignerMetaEnumInterface8keyCountEv": ["int", "address"],
+    "ritual_ZNK26QDesignerMetaEnumInterface10keyToValueERK7QString": [
+      "int", "address", "text"
+    ],
+    "ritual_ZNK26QDesignerMetaEnumInterface11keysToValueERK7QString": [
+      "int", "address", "text"
+    ],
+    "ritual_ZNK26QDesignerMetaEnumInterface4nameEv": ["text", "address"],
+    "ritual_ZNK26QDesignerMetaEnumInterface8enumNameEv": ["text", "address"],
+    "ritual_ZNK26QDesignerMetaEnumInterface5scopeEv": ["text", "address"],
+    "ritual_ZNK26QDesignerMetaEnumInterface9separatorEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK26QDesignerMetaEnumInterface5valueEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK26QDesignerMetaEnumInterface10valueToKeyEi": [
+      "text", "address", "int"
+    ],
+    "ritual_ZNK26QDesignerMetaEnumInterface11valueToKeysEi": [
+      "text", "address", "int"
+    ],
+    "ritual_take_QDesignerMetaEnumInterface": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

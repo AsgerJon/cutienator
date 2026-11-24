@@ -1,0 +1,58 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qsgsoftwarethreadedrenderloop_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK29QSGSoftwareThreadedRenderLoop10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN29QSGSoftwareThreadedRenderLoop11maybeUpdateEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK29QSGSoftwareThreadedRenderLoop15animationDriverEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK29QSGSoftwareThreadedRenderLoop17sceneGraphContextEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK29QSGSoftwareThreadedRenderLoop19createRenderContextEP10QSGContext": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK29QSGSoftwareThreadedRenderLoop17windowSurfaceTypeEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK29QSGSoftwareThreadedRenderLoop20interleaveIncubationEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK29QSGSoftwareThreadedRenderLoop5flagsEv": ["int", "address"],
+    "ritual_ZN29QSGSoftwareThreadedRenderLoop5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_take_QSGSoftwareThreadedRenderLoop": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK29QSGSoftwareThreadedRenderLoop15animationDriverEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK29QSGSoftwareThreadedRenderLoop17sceneGraphContextEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK29QSGSoftwareThreadedRenderLoop19createRenderContextEP10QSGContext": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZNK29QSGSoftwareThreadedRenderLoop17windowSurfaceTypeEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZNK29QSGSoftwareThreadedRenderLoop20interleaveIncubationEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZNK29QSGSoftwareThreadedRenderLoop5flagsEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZN29QSGSoftwareThreadedRenderLoop5eventEP6QEvent": [
+      "bool", "address", "address"
+    ]
+  }
+}

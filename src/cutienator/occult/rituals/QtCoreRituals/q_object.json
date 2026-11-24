@@ -6,6 +6,8 @@
   "rows": {
     "ritual_ZNK7QObject10metaObjectEv": ["address", "address"],
     "ritual_ZN7QObject2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN7QObject6d_funcEv": ["address", "address"],
+    "ritual_ZNK7QObject6d_funcEv": ["address", "address"],
     "ritual_ZN7QObjectC1EPS_": ["address", "address"],
     "ritual_ZN7QObjectD1Ev": ["nothing", "address"],
     "ritual_ZN7QObject5eventEP6QEvent": ["bool", "address", "address"],
@@ -23,6 +25,9 @@
     "ritual_ZNK7QObject14signalsBlockedEv": ["bool", "address"],
     "ritual_ZN7QObject12blockSignalsEb": ["bool", "address", "bool"],
     "ritual_ZNK7QObject6threadEv": ["address", "address"],
+    "ritual_ZN7QObject12moveToThreadEP7QThreadN2Qt15Disambiguated_tE": [
+      "bool", "address", "address", "address"
+    ],
     "ritual_ZN7QObject10startTimerEiN2Qt9TimerTypeE": [
       "int", "address", "int", "int"
     ],

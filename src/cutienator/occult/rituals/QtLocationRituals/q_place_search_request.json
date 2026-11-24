@@ -1,0 +1,59 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLocation/qplacesearchrequest.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN19QPlaceSearchRequestC1Ev": ["address"],
+    "ritual_ZN19QPlaceSearchRequestC1ERKS_": ["address", "address"],
+    "ritual_ZN19QPlaceSearchRequestD1Ev": ["nothing", "address"],
+    "ritual_ZeqRK19QPlaceSearchRequestS1_": ["bool", "address", "address"],
+    "ritual_ZneRK19QPlaceSearchRequestS1_": ["bool", "address", "address"],
+    "ritual_ZNK19QPlaceSearchRequest10searchTermEv": ["text", "address"],
+    "ritual_ZN19QPlaceSearchRequest13setSearchTermERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK19QPlaceSearchRequest10categoriesEv": ["address", "address"],
+    "ritual_ZN19QPlaceSearchRequest11setCategoryERK14QPlaceCategory": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QPlaceSearchRequest13setCategoriesERK5QListI14QPlaceCategoryE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QPlaceSearchRequest10searchAreaEv": ["address", "address"],
+    "ritual_ZN19QPlaceSearchRequest13setSearchAreaERK9QGeoShape": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QPlaceSearchRequest16recommendationIdEv": [
+      "text", "address"
+    ],
+    "ritual_ZN19QPlaceSearchRequest19setRecommendationIdERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK19QPlaceSearchRequest13searchContextEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QPlaceSearchRequest16setSearchContextERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QPlaceSearchRequest15visibilityScopeEv": ["int", "address"],
+    "ritual_ZN19QPlaceSearchRequest18setVisibilityScopeE6QFlagsIN9QLocation10VisibilityEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK19QPlaceSearchRequest13relevanceHintEv": ["int", "address"],
+    "ritual_ZN19QPlaceSearchRequest16setRelevanceHintENS_13RelevanceHintE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK19QPlaceSearchRequest5limitEv": ["int", "address"],
+    "ritual_ZN19QPlaceSearchRequest8setLimitEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN19QPlaceSearchRequest5clearEv": ["nothing", "address"],
+    "ritual_ZNK19QPlaceSearchRequest7isEqualERKS_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN19QPlaceSearchRequest6d_funcEv": ["address", "address"],
+    "ritual_ZNK19QPlaceSearchRequest6d_funcEv": ["address", "address"]
+  }
+}

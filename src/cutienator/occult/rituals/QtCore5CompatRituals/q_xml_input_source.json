@@ -1,0 +1,39 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore5Compat/qxml.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QXmlInputSourceC1Ev": ["address"],
+    "ritual_ZN15QXmlInputSourceC1EP9QIODevice": ["address", "address"],
+    "ritual_ZN15QXmlInputSourceD1Ev": ["nothing", "address"],
+    "ritual_ZN15QXmlInputSource7setDataERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN15QXmlInputSource7setDataERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QXmlInputSource9fetchDataEv": ["nothing", "address"],
+    "ritual_ZNK15QXmlInputSource4dataEv": ["text", "address"],
+    "ritual_ZN15QXmlInputSource4nextEv": ["address", "address"],
+    "ritual_ZN15QXmlInputSource5resetEv": ["nothing", "address"],
+    "ritual_ZN15QXmlInputSource11fromRawDataERK10QByteArrayb": [
+      "text", "address", "address", "bool"
+    ],
+    "ritual_ZN15QXmlInputSource4initEv": ["nothing", "address"],
+    "ritual_take_QXmlInputSource": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN15QXmlInputSource7setDataERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_own_ZN15QXmlInputSource7setDataERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN15QXmlInputSource9fetchDataEv": ["nothing", "address"],
+    "ritual_own_ZNK15QXmlInputSource4dataEv": ["text", "address"],
+    "ritual_own_ZN15QXmlInputSource4nextEv": ["address", "address"],
+    "ritual_own_ZN15QXmlInputSource5resetEv": ["nothing", "address"],
+    "ritual_own_ZN15QXmlInputSource11fromRawDataERK10QByteArrayb": [
+      "text", "address", "address", "bool"
+    ]
+  }
+}

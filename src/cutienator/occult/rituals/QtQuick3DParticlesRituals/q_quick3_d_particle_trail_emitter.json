@@ -1,0 +1,39 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DParticles/6.12.0/QtQuick3DParticles/private/qquick3dparticletrai",
+    "lemitter_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK28QQuick3DParticleTrailEmitter10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QQuick3DParticleTrailEmitter2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN28QQuick3DParticleTrailEmitterC1EP12QQuick3DNode": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QQuick3DParticleTrailEmitter6followEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QQuick3DParticleTrailEmitter5burstEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN28QQuick3DParticleTrailEmitter9setFollowEP16QQuick3DParticle": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QQuick3DParticleTrailEmitter18emitTrailParticlesERK9QVector3DiiS2_S2_": [
+      "nothing", "address", "address", "int", "int", "address", "address"
+    ],
+    "ritual_ZNK28QQuick3DParticleTrailEmitter9hasBurstsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN28QQuick3DParticleTrailEmitter11clearBurstsEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN28QQuick3DParticleTrailEmitter5burstEi": [
+      "nothing", "address", "int"
+    ]
+  }
+}

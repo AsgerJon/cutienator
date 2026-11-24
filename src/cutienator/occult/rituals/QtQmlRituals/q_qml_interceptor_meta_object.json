@@ -1,0 +1,43 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmlvmemetaobject_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN25QQmlInterceptorMetaObjectC1EP7QObjectRKN17QQmlPropertyCache8ConstPtrE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN25QQmlInterceptorMetaObjectD1Ev": ["nothing", "address"],
+    "ritual_ZN25QQmlInterceptorMetaObject19registerInterceptorE17QQmlPropertyIndexP28QQmlPropertyValueInterceptor": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN25QQmlInterceptorMetaObject3getEP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN25QQmlInterceptorMetaObject19toDynamicMetaObjectEP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK25QQmlInterceptorMetaObject13propertyCacheEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QQmlInterceptorMetaObject16setPropertyCacheERKN17QQmlPropertyCache8ConstPtrE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK25QQmlInterceptorMetaObject10interceptsE17QQmlPropertyIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN25QQmlInterceptorMetaObject10invalidateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QQmlInterceptorMetaObject19setInterceptionModeEP7QObjectNS_20InterceptionBehaviorE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_take_QQmlInterceptorMetaObject": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN25QQmlInterceptorMetaObject19toDynamicMetaObjectEP7QObject": [
+      "address", "address", "address"
+    ]
+  }
+}

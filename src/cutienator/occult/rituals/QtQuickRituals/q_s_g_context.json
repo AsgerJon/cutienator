@@ -1,0 +1,109 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qsgcontext_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK10QSGContext10metaObjectEv": ["address", "address"],
+    "ritual_ZN10QSGContext2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN10QSGContextD1Ev": ["nothing", "address"],
+    "ritual_ZN10QSGContext24renderContextInitializedEP16QSGRenderContext": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QSGContext24renderContextInvalidatedEP16QSGRenderContext": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QSGContext19createRenderContextEv": ["address", "address"],
+    "ritual_ZN10QSGContext27createInternalRectangleNodeERK6QRectFRK6QColor": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN10QSGContext27createInternalRectangleNodeEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10QSGContext23createInternalImageNodeEP16QSGRenderContext": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN10QSGContext22createInternalTextNodeEP16QSGRenderContext": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN10QSGContext17createPainterNodeEP17QQuickPaintedItem": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN10QSGContext15createGlyphNodeEP16QSGRenderContextN11QSGTextNode10RenderTypeE": [
+      "address", "address", "address", "unsigned char"
+    ],
+    "ritual_ZN10QSGContext11createLayerEP16QSGRenderContext": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN10QSGContext34createGuiThreadShaderEffectManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZN10QSGContext22createShaderEffectNodeEP16QSGRenderContext": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN10QSGContext16createSpriteNodeEv": ["address", "address"],
+    "ritual_ZN10QSGContext21createAnimationDriverEP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN10QSGContext31vsyncIntervalForAnimationDriverEP16QAnimationDriver": [
+      "float", "address", "address"
+    ],
+    "ritual_ZN10QSGContext16isVSyncDependentEP16QAnimationDriver": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK10QSGContext14minimumFBOSizeEv": ["address", "address"],
+    "ritual_ZNK10QSGContext20defaultSurfaceFormatEv": ["address", "address"],
+    "ritual_ZN10QSGContext17rendererInterfaceEP16QSGRenderContext": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN10QSGContext14createTextNodeEP16QSGRenderContext": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN10QSGContext19createRectangleNodeEv": ["address", "address"],
+    "ritual_ZN10QSGContext15createImageNodeEv": ["address", "address"],
+    "ritual_ZN10QSGContext19createNinePatchNodeEv": ["address", "address"],
+    "ritual_ZN10QSGContext21processTextRenderTypeEN11QSGTextNode10RenderTypeE": [
+      "unsigned char", "address", "unsigned char"
+    ],
+    "ritual_ZN10QSGContext20createDefaultContextEv": ["address"],
+    "ritual_ZN10QSGContext29createTextureFactoryFromImageERK6QImage": [
+      "address", "address"
+    ],
+    "ritual_ZN10QSGContext19createWindowManagerEv": ["address"],
+    "ritual_ZN10QSGContext10setBackendERK7QString": ["nothing", "text"],
+    "ritual_ZN10QSGContext7backendEv": ["text"],
+    "ritual_take_QSGContext": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN10QSGContext24renderContextInitializedEP16QSGRenderContext": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN10QSGContext24renderContextInvalidatedEP16QSGRenderContext": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN10QSGContext22createInternalTextNodeEP16QSGRenderContext": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN10QSGContext34createGuiThreadShaderEffectManagerEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN10QSGContext22createShaderEffectNodeEP16QSGRenderContext": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN10QSGContext21createAnimationDriverEP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN10QSGContext31vsyncIntervalForAnimationDriverEP16QAnimationDriver": [
+      "float", "address", "address"
+    ],
+    "ritual_own_ZN10QSGContext16isVSyncDependentEP16QAnimationDriver": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZNK10QSGContext14minimumFBOSizeEv": ["address", "address"],
+    "ritual_own_ZN10QSGContext17rendererInterfaceEP16QSGRenderContext": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN10QSGContext14createTextNodeEP16QSGRenderContext": [
+      "address", "address", "address"
+    ]
+  }
+}

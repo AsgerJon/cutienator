@@ -1,0 +1,47 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuickParticles/6.12.0/QtQuickParticles/private/qquickwander_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK20QQuickWanderAffector10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QQuickWanderAffector2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN20QQuickWanderAffectorC1EP10QQuickItem": [
+      "address", "address"
+    ],
+    "ritual_ZN20QQuickWanderAffectorD1Ev": ["nothing", "address"],
+    "ritual_ZNK20QQuickWanderAffector9xVarianceEv": ["double", "address"],
+    "ritual_ZNK20QQuickWanderAffector9yVarianceEv": ["double", "address"],
+    "ritual_ZNK20QQuickWanderAffector4paceEv": ["double", "address"],
+    "ritual_ZNK20QQuickWanderAffector17affectedParameterEv": [
+      "int", "address"
+    ],
+    "ritual_ZN20QQuickWanderAffector14affectParticleEP18QQuickParticleDatad": [
+      "bool", "address", "address", "double"
+    ],
+    "ritual_ZN20QQuickWanderAffector12setXVarianceEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN20QQuickWanderAffector12setYVarianceEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN20QQuickWanderAffector7setPaceEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN20QQuickWanderAffector20setAffectedParameterENS_20AffectableParametersE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQuickWanderAffector7getDataEi": [
+      "address", "address", "int"
+    ],
+    "ritual_take_QQuickWanderAffector": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN20QQuickWanderAffector14affectParticleEP18QQuickParticleDatad": [
+      "bool", "address", "address", "double"
+    ]
+  }
+}

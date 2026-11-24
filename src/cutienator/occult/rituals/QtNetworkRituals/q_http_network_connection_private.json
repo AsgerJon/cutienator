@@ -1,0 +1,43 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/6.12.0/QtNetwork/private/qhttpnetworkconnection_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN29QHttpNetworkConnectionPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK29QHttpNetworkConnectionPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN29QHttpNetworkConnectionPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN29QHttpNetworkConnectionPrivate4initEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QHttpNetworkConnectionPrivate15pauseConnectionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QHttpNetworkConnectionPrivate16resumeConnectionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK29QHttpNetworkConnectionPrivate7indexOfEP9QIODevice": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK29QHttpNetworkConnectionPrivate24predictNextRequestsReplyEv": [
+      "address", "address"
+    ],
+    "ritual_ZN29QHttpNetworkConnectionPrivate13readMoreLaterEP17QHttpNetworkReply": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN29QHttpNetworkConnectionPrivate15copyCredentialsEiP14QAuthenticatorb": [
+      "nothing", "address", "int", "address", "bool"
+    ],
+    "ritual_ZN29QHttpNetworkConnectionPrivate20networkLayerDetectedEN15QAbstractSocket20NetworkLayerProtocolE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN29QHttpNetworkConnectionPrivate31emitProxyAuthenticationRequiredEPK29QHttpNetworkConnectionChannelRK13QNetworkProxyP14QAuthenticator": [
+      "nothing", "address", "address", "address", "address"
+    ]
+  }
+}

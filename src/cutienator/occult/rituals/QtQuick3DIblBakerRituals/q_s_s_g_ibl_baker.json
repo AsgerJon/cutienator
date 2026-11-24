@@ -1,0 +1,12 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DIblBaker/6.12.0/QtQuick3DIblBaker/private/qssgiblbaker_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK12QSSGIblBaker15inputExtensionsEv": ["address", "address"],
+    "ritual_ZNK12QSSGIblBaker15outputExtensionEv": ["text", "address"],
+    "ritual_ZN12QSSGIblBakerD1Ev": ["nothing", "address"]
+  }
+}

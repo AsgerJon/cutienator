@@ -1,0 +1,92 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qpdf_p.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZN17QPdfEnginePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK17QPdfEnginePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN17QPdfEnginePrivateC1Ev": ["address"],
+    "ritual_ZN17QPdfEnginePrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN17QPdfEnginePrivate13requestObjectEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN17QPdfEnginePrivate11writeHeaderEv": ["nothing", "address"],
+    "ritual_ZN17QPdfEnginePrivate9writeTailEv": ["nothing", "address"],
+    "ritual_ZN17QPdfEnginePrivate8addImageERK6QImagePbbx": [
+      "int", "address", "address", "address", "bool", "long long"
+    ],
+    "ritual_ZN17QPdfEnginePrivate22addConstantAlphaObjectEii": [
+      "int", "address", "int", "int"
+    ],
+    "ritual_ZN17QPdfEnginePrivate15addBrushPatternERK10QTransformPbPi": [
+      "int", "address", "address", "address", "address"
+    ],
+    "ritual_ZN17QPdfEnginePrivate12drawTextItemERK7QPointFRK12QTextItemInt": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK17QPdfEnginePrivate10pageMatrixEv": ["address", "address"],
+    "ritual_ZN17QPdfEnginePrivate7newPageEv": ["nothing", "address"],
+    "ritual_ZN17QPdfEnginePrivate13gradientBrushERK6QBrushRK10QTransformPi": [
+      "int", "address", "address", "address", "address"
+    ],
+    "ritual_ZN17QPdfEnginePrivate22generateGradientShaderEPK9QGradientRK10QTransformb": [
+      "int", "address", "address", "address", "bool"
+    ],
+    "ritual_ZN17QPdfEnginePrivate28generateLinearGradientShaderEPK15QLinearGradientRK10QTransformb": [
+      "int", "address", "address", "address", "bool"
+    ],
+    "ritual_ZN17QPdfEnginePrivate28generateRadialGradientShaderEPK15QRadialGradientRK10QTransformb": [
+      "int", "address", "address", "address", "bool"
+    ],
+    "ritual_ZNK17QPdfEnginePrivate18colorModelForColorERK6QColor": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN17QPdfEnginePrivate10writeColorENS_11ColorDomainERK6QColor": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN17QPdfEnginePrivate9writeInfoERK9QDateTime": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QPdfEnginePrivate24writeXmpDocumentMetaDataERK9QDateTime": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN17QPdfEnginePrivate17writeOutputIntentEv": ["int", "address"],
+    "ritual_ZN17QPdfEnginePrivate13writePageRootEv": ["nothing", "address"],
+    "ritual_ZN17QPdfEnginePrivate14writeDestsRootEv": ["nothing", "address"],
+    "ritual_ZN17QPdfEnginePrivate19writeAttachmentRootEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QPdfEnginePrivate14writeNamesRootEv": ["nothing", "address"],
+    "ritual_ZN17QPdfEnginePrivate10writeFontsEv": ["nothing", "address"],
+    "ritual_ZN17QPdfEnginePrivate9embedFontEP11QFontSubset": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QPdfEnginePrivate12calcUserUnitEv": ["double", "address"],
+    "ritual_ZN17QPdfEnginePrivate10writeImageERK10QByteArrayiiNS_16WriteImageOptionEiibb": [
+      "int", "address", "address", "int", "int", "int", "int", "int", "bool",
+      "bool"
+    ],
+    "ritual_ZN17QPdfEnginePrivate9writePageEv": ["nothing", "address"],
+    "ritual_ZN17QPdfEnginePrivate12addXrefEntryEib": [
+      "int", "address", "int", "bool"
+    ],
+    "ritual_ZN17QPdfEnginePrivate11printStringE11QStringView": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN17QPdfEnginePrivate5writeE14QByteArrayView": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QPdfEnginePrivate15writeCompressedEPKci": [
+      "int", "address", "chars", "int"
+    ],
+    "ritual_ZN17QPdfEnginePrivate15writeCompressedERK10QByteArray": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN17QPdfEnginePrivate15writeCompressedEP9QIODevice": [
+      "int", "address", "address"
+    ],
+    "ritual_take_QPdfEnginePrivate": ["bool", "address", "chars", "address"]
+  }
+}

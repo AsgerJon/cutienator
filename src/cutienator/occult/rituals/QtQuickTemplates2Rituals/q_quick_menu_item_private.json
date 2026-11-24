@@ -1,0 +1,38 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquickmenuitem_p_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN21QQuickMenuItemPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK21QQuickMenuItemPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN21QQuickMenuItemPrivate3getEP14QQuickMenuItem": [
+      "address", "address"
+    ],
+    "ritual_ZN21QQuickMenuItemPrivate7setMenuEP10QQuickMenu": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QQuickMenuItemPrivate10setSubMenuEP10QQuickMenu": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QQuickMenuItemPrivate13updateEnabledEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK21QQuickMenuItemPrivate14acceptKeyClickEN2Qt3KeyE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK21QQuickMenuItemPrivate14defaultPaletteEv": [
+      "address", "address"
+    ],
+    "ritual_take_QQuickMenuItemPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK21QQuickMenuItemPrivate14acceptKeyClickEN2Qt3KeyE": [
+      "bool", "address", "int"
+    ],
+    "ritual_own_ZNK21QQuickMenuItemPrivate14defaultPaletteEv": [
+      "address", "address"
+    ]
+  }
+}

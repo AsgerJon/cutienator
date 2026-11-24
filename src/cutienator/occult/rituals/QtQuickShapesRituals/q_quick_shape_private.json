@@ -1,0 +1,49 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuickShapes/6.12.0/QtQuickShapes/private/qquickshape_p_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QQuickShapePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK18QQuickShapePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN18QQuickShapePrivateC1Ev": ["address"],
+    "ritual_ZN18QQuickShapePrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN18QQuickShapePrivate4initEv": ["nothing", "address"],
+    "ritual_ZN18QQuickShapePrivate18selectRendererTypeEv": [
+      "int", "address"
+    ],
+    "ritual_ZN18QQuickShapePrivate14createRendererEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickShapePrivate10createNodeEv": ["address", "address"],
+    "ritual_ZN18QQuickShapePrivate4syncEv": ["nothing", "address"],
+    "ritual_ZN18QQuickShapePrivate19_q_shapePathChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickShapePrivate9setStatusEN11QQuickShape6StatusE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18QQuickShapePrivate17handleSceneChangeEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQuickShapePrivate3getEP11QQuickShape": [
+      "address", "address"
+    ],
+    "ritual_ZNK18QQuickShapePrivate16getImplicitWidthEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK18QQuickShapePrivate17getImplicitHeightEv": [
+      "double", "address"
+    ],
+    "ritual_take_QQuickShapePrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK18QQuickShapePrivate16getImplicitWidthEv": [
+      "double", "address"
+    ],
+    "ritual_own_ZNK18QQuickShapePrivate17getImplicitHeightEv": [
+      "double", "address"
+    ]
+  }
+}

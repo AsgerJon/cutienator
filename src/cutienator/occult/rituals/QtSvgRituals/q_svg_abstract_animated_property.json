@@ -1,0 +1,48 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSvg/6.12.0/QtSvg/private/qsvganimatedproperty_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN28QSvgAbstractAnimatedPropertyD1Ev": ["nothing", "address"],
+    "ritual_ZN28QSvgAbstractAnimatedProperty14appendKeyFrameEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK28QSvgAbstractAnimatedProperty8easingAtEj": [
+      "address", "address", "unsigned int"
+    ],
+    "ritual_ZN28QSvgAbstractAnimatedProperty15setPropertyNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK28QSvgAbstractAnimatedProperty12propertyNameEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK28QSvgAbstractAnimatedProperty4typeEv": ["int", "address"],
+    "ritual_ZNK28QSvgAbstractAnimatedProperty17interpolatedValueEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QSvgAbstractAnimatedProperty11interpolateEjd": [
+      "nothing", "address", "unsigned int", "double"
+    ],
+    "ritual_ZN28QSvgAbstractAnimatedProperty22createAnimatedPropertyERK7QString": [
+      "address", "text"
+    ],
+    "ritual_take_QSvgAbstractAnimatedProperty": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_list_make_QSvgAbstractAnimatedProperty_ptr": ["address"],
+    "ritual_list_add_QSvgAbstractAnimatedProperty_ptr": [
+      "nothing", "address", "address"
+    ],
+    "ritual_list_size_QSvgAbstractAnimatedProperty_ptr": [
+      "long long", "address"
+    ],
+    "ritual_list_at_QSvgAbstractAnimatedProperty_ptr": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_QSvgAbstractAnimatedProperty_ptr": [
+      "nothing", "address"
+    ]
+  }
+}

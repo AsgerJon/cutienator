@@ -1,0 +1,57 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qfontconfigdatabase_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QFontconfigDatabaseD1Ev": ["nothing", "address"],
+    "ritual_ZN19QFontconfigDatabase20populateFontDatabaseEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QFontconfigDatabase10invalidateEv": ["nothing", "address"],
+    "ritual_ZNK19QFontconfigDatabase32supportsVariableApplicationFontsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN19QFontconfigDatabase15fontEngineMultiEP11QFontEngineN20QFontDatabasePrivate14ExtendedScriptE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN19QFontconfigDatabase10fontEngineERK10QByteArraydN5QFont17HintingPreferenceE": [
+      "address", "address", "address", "double", "int"
+    ],
+    "ritual_ZNK19QFontconfigDatabase18fallbacksForFamilyERK7QStringN5QFont5StyleENS3_9StyleHintEN20QFontDatabasePrivate14ExtendedScriptE": [
+      "address", "address", "text", "int", "int", "int"
+    ],
+    "ritual_ZN19QFontconfigDatabase18addApplicationFontERK10QByteArrayRK7QStringPN20QFontDatabasePrivate15ApplicationFontE": [
+      "address", "address", "address", "text", "address"
+    ],
+    "ritual_ZNK19QFontconfigDatabase22resolveFontFamilyAliasERK7QString": [
+      "text", "address", "text"
+    ],
+    "ritual_ZNK19QFontconfigDatabase11defaultFontEv": ["address", "address"],
+    "ritual_take_QFontconfigDatabase": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN19QFontconfigDatabase20populateFontDatabaseEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN19QFontconfigDatabase10invalidateEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZNK19QFontconfigDatabase32supportsVariableApplicationFontsEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZN19QFontconfigDatabase15fontEngineMultiEP11QFontEngineN20QFontDatabasePrivate14ExtendedScriptE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_own_ZN19QFontconfigDatabase10fontEngineERK10QByteArraydN5QFont17HintingPreferenceE": [
+      "address", "address", "address", "double", "int"
+    ],
+    "ritual_own_ZNK19QFontconfigDatabase22resolveFontFamilyAliasERK7QString": [
+      "text", "address", "text"
+    ],
+    "ritual_own_ZNK19QFontconfigDatabase11defaultFontEv": [
+      "address", "address"
+    ]
+  }
+}

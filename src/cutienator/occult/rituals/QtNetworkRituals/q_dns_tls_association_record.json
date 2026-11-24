@@ -1,0 +1,34 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/qdnslookup.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN24QDnsTlsAssociationRecordC1Ev": ["address"],
+    "ritual_ZN24QDnsTlsAssociationRecordC1ERKS_": ["address", "address"],
+    "ritual_ZN24QDnsTlsAssociationRecordD1Ev": ["nothing", "address"],
+    "ritual_ZNK24QDnsTlsAssociationRecord4nameEv": ["text", "address"],
+    "ritual_ZNK24QDnsTlsAssociationRecord10timeToLiveEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZNK24QDnsTlsAssociationRecord5usageEv": [
+      "unsigned char", "address"
+    ],
+    "ritual_ZNK24QDnsTlsAssociationRecord8selectorEv": [
+      "unsigned char", "address"
+    ],
+    "ritual_ZNK24QDnsTlsAssociationRecord9matchTypeEv": [
+      "unsigned char", "address"
+    ],
+    "ritual_ZNK24QDnsTlsAssociationRecord5valueEv": ["address", "address"],
+    "ritual_list_make_QDnsTlsAssociationRecord": ["address"],
+    "ritual_list_add_QDnsTlsAssociationRecord": [
+      "nothing", "address", "address"
+    ],
+    "ritual_list_size_QDnsTlsAssociationRecord": ["long long", "address"],
+    "ritual_list_at_QDnsTlsAssociationRecord": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_QDnsTlsAssociationRecord": ["nothing", "address"]
+  }
+}

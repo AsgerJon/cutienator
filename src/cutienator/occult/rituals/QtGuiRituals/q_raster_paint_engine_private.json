@@ -1,0 +1,43 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qpaintengine_raster_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN25QRasterPaintEnginePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK25QRasterPaintEnginePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN25QRasterPaintEnginePrivateC1Ev": ["address"],
+    "ritual_ZN25QRasterPaintEnginePrivate18systemStateChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QRasterPaintEnginePrivate9blitImageERK7QPointFRK6QImageRK5QRectS8_": [
+      "nothing", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK25QRasterPaintEnginePrivate11brushMatrixEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK25QRasterPaintEnginePrivate22isUnclipped_normalizedERK5QRect": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK25QRasterPaintEnginePrivate11isUnclippedERK5QRecti": [
+      "bool", "address", "address", "int"
+    ],
+    "ritual_ZNK25QRasterPaintEnginePrivate11isUnclippedERK6QRectFi": [
+      "bool", "address", "address", "int"
+    ],
+    "ritual_ZNK25QRasterPaintEnginePrivate4clipEv": ["address", "address"],
+    "ritual_ZN25QRasterPaintEnginePrivate21recalculateFastImagesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK25QRasterPaintEnginePrivate23canUseFastImageBlendingEN8QPainter15CompositionModeERK6QImage": [
+      "bool", "address", "int", "address"
+    ],
+    "ritual_take_QRasterPaintEnginePrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN25QRasterPaintEnginePrivate18systemStateChangedEv": [
+      "nothing", "address"
+    ]
+  }
+}

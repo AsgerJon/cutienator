@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/qcborstreamwriter.h, Qt 6.12.0. Changes made here are lost.
+#include <QtCore/qglobal.h>
+#if QT_CONFIG(cborstreamwriter)
 #include <QtCore/qcborstreamwriter.h>
 #include <QtCore/qbytearrayview.h>
 #include <QtCore/qlatin1stringview.h>
@@ -114,6 +116,7 @@ void ritual_ZN17QCborStreamWriter6appendE15QCborSimpleType(
   self->append(st);
 }
 
+#if !defined(QT_BOOTSTRAPPED)
 //  void QCborStreamWriter::append(qfloat16 f)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QCborStreamWriter6appendE8qfloat16(
@@ -121,6 +124,7 @@ void ritual_ZN17QCborStreamWriter6appendE8qfloat16(
     const qfloat16 *f) {
   self->append(*f);
 }
+#endif  // !defined(QT_BOOTSTRAPPED)
 
 //  void QCborStreamWriter::append(float f)
 extern "C" Q_DECL_EXPORT
@@ -175,18 +179,23 @@ void ritual_ZN17QCborStreamWriter15appendUndefinedEv(
   self->appendUndefined();
 }
 
+#if !defined(Q_QDOC)
 //  void QCborStreamWriter::append(int i)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QCborStreamWriter6appendEi(QCborStreamWriter *self, int i) {
   self->append(i);
 }
+#endif  // !defined(Q_QDOC)
 
+#if !defined(Q_QDOC)
 //  void QCborStreamWriter::append(uint u)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QCborStreamWriter6appendEj(QCborStreamWriter *self, uint u) {
   self->append(u);
 }
+#endif  // !defined(Q_QDOC)
 
+#if !defined(QT_NO_CAST_FROM_ASCII)
 //  void QCborStreamWriter::append(const char *str, qsizetype size)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QCborStreamWriter6appendEPKcx(
@@ -195,6 +204,7 @@ void ritual_ZN17QCborStreamWriter6appendEPKcx(
     qsizetype size) {
   self->append(str, size);
 }
+#endif  // !defined(QT_NO_CAST_FROM_ASCII)
 
 //  void QCborStreamWriter::startArray()
 extern "C" Q_DECL_EXPORT
@@ -235,3 +245,5 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZN17QCborStreamWriter6endMapEv(QCborStreamWriter *self) {
   return self->endMap();
 }
+
+#endif  // QT_CONFIG(cborstreamwriter)

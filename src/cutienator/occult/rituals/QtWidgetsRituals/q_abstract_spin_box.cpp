@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qabstractspinbox.h, Qt 6.12.0. Changes made here are lost.
+#include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(spinbox)
 #include <QtWidgets/qabstractspinbox.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qsize.h>
@@ -33,30 +35,88 @@ struct OwnQAbstractSpinBox : QAbstractSpinBox {
 //  A QAbstractSpinBox that Python can take functions over in. Every QAbstractSpinBox
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if QT_CONFIG(spinbox)
 typedef const QSize * (*CuteQAbstractSpinBoxCall0)(const void *, int *);
+#endif  // QT_CONFIG(spinbox)
+#if QT_CONFIG(spinbox)
 typedef const QSize * (*CuteQAbstractSpinBoxCall1)(const void *, int *);
+#endif  // QT_CONFIG(spinbox)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(spinbox)
 typedef bool (*CuteQAbstractSpinBoxCall2)(const void *, QEvent *, int *);
+#endif  // QT_CONFIG(spinbox)
+#endif  // !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(spinbox)
 typedef const QVariant * (*CuteQAbstractSpinBoxCall3)(const void *, int, int *);
+#endif  // QT_CONFIG(spinbox)
+#if QT_CONFIG(spinbox)
 typedef void (*CuteQAbstractSpinBoxCall4)(const void *, int, int *);
+#endif  // QT_CONFIG(spinbox)
+#if QT_CONFIG(spinbox)
 typedef void (*CuteQAbstractSpinBoxCall5)(const void *, int *);
+#endif  // QT_CONFIG(spinbox)
+#if QT_CONFIG(spinbox)
 typedef void (*CuteQAbstractSpinBoxCall6)(const void *, QResizeEvent *, int *);
+#endif  // QT_CONFIG(spinbox)
+#if QT_CONFIG(spinbox)
 typedef void (*CuteQAbstractSpinBoxCall7)(const void *, QKeyEvent *, int *);
+#endif  // QT_CONFIG(spinbox)
+#if QT_CONFIG(spinbox)
 typedef void (*CuteQAbstractSpinBoxCall8)(const void *, QKeyEvent *, int *);
+#endif  // QT_CONFIG(spinbox)
+#if QT_CONFIG(wheelevent)
+#if QT_CONFIG(spinbox)
 typedef void (*CuteQAbstractSpinBoxCall9)(const void *, QWheelEvent *, int *);
+#endif  // QT_CONFIG(spinbox)
+#endif  // QT_CONFIG(wheelevent)
+#if QT_CONFIG(spinbox)
 typedef void (*CuteQAbstractSpinBoxCall10)(const void *, QFocusEvent *, int *);
+#endif  // QT_CONFIG(spinbox)
+#if QT_CONFIG(spinbox)
 typedef void (*CuteQAbstractSpinBoxCall11)(const void *, QFocusEvent *, int *);
+#endif  // QT_CONFIG(spinbox)
+#if !defined(QT_NO_CONTEXTMENU)
+#if QT_CONFIG(spinbox)
+#if QT_CONFIG(contextmenu)
 typedef void (*CuteQAbstractSpinBoxCall12)(const void *, QContextMenuEvent *, int *);
+#endif  // QT_CONFIG(contextmenu)
+#endif  // QT_CONFIG(spinbox)
+#endif  // !defined(QT_NO_CONTEXTMENU)
+#if QT_CONFIG(spinbox)
 typedef void (*CuteQAbstractSpinBoxCall13)(const void *, QEvent *, int *);
+#endif  // QT_CONFIG(spinbox)
+#if QT_CONFIG(spinbox)
 typedef void (*CuteQAbstractSpinBoxCall14)(const void *, QCloseEvent *, int *);
+#endif  // QT_CONFIG(spinbox)
+#if QT_CONFIG(spinbox)
 typedef void (*CuteQAbstractSpinBoxCall15)(const void *, QHideEvent *, int *);
+#endif  // QT_CONFIG(spinbox)
+#if QT_CONFIG(spinbox)
 typedef void (*CuteQAbstractSpinBoxCall16)(const void *, QMouseEvent *, int *);
+#endif  // QT_CONFIG(spinbox)
+#if QT_CONFIG(spinbox)
 typedef void (*CuteQAbstractSpinBoxCall17)(const void *, QMouseEvent *, int *);
+#endif  // QT_CONFIG(spinbox)
+#if QT_CONFIG(spinbox)
 typedef void (*CuteQAbstractSpinBoxCall18)(const void *, QMouseEvent *, int *);
+#endif  // QT_CONFIG(spinbox)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(spinbox)
 typedef void (*CuteQAbstractSpinBoxCall19)(const void *, QTimerEvent *, int *);
+#endif  // QT_CONFIG(spinbox)
+#endif  // !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(spinbox)
 typedef void (*CuteQAbstractSpinBoxCall20)(const void *, QPaintEvent *, int *);
+#endif  // QT_CONFIG(spinbox)
+#if QT_CONFIG(spinbox)
 typedef void (*CuteQAbstractSpinBoxCall21)(const void *, QShowEvent *, int *);
+#endif  // QT_CONFIG(spinbox)
+#if QT_CONFIG(spinbox)
 typedef void (*CuteQAbstractSpinBoxCall22)(const void *, QStyleOptionSpinBox *, int *);
+#endif  // QT_CONFIG(spinbox)
+#if QT_CONFIG(spinbox)
 typedef int (*CuteQAbstractSpinBoxCall23)(const void *, int *);
+#endif  // QT_CONFIG(spinbox)
 typedef int (*CuteQAbstractSpinBoxCall24)(const void *, int *);
 typedef void (*CuteQAbstractSpinBoxCall25)(const void *, bool, int *);
 typedef int (*CuteQAbstractSpinBoxCall26)(const void *, int, int *);
@@ -66,125 +126,205 @@ typedef void (*CuteQAbstractSpinBoxCall29)(const void *, QMouseEvent *, int *);
 typedef void (*CuteQAbstractSpinBoxCall30)(const void *, QEnterEvent *, int *);
 typedef void (*CuteQAbstractSpinBoxCall31)(const void *, QEvent *, int *);
 typedef void (*CuteQAbstractSpinBoxCall32)(const void *, QMoveEvent *, int *);
+#if QT_CONFIG(tabletevent)
 typedef void (*CuteQAbstractSpinBoxCall33)(const void *, QTabletEvent *, int *);
+#endif  // QT_CONFIG(tabletevent)
+#if !defined(QT_NO_ACTION)
 typedef void (*CuteQAbstractSpinBoxCall34)(const void *, QActionEvent *, int *);
+#endif  // !defined(QT_NO_ACTION)
+#if QT_CONFIG(draganddrop)
 typedef void (*CuteQAbstractSpinBoxCall35)(const void *, QDragEnterEvent *, int *);
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
 typedef void (*CuteQAbstractSpinBoxCall36)(const void *, QDragMoveEvent *, int *);
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
 typedef void (*CuteQAbstractSpinBoxCall37)(const void *, QDragLeaveEvent *, int *);
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
 typedef void (*CuteQAbstractSpinBoxCall38)(const void *, QDropEvent *, int *);
+#endif  // QT_CONFIG(draganddrop)
 typedef int (*CuteQAbstractSpinBoxCall39)(const void *, int, int *);
 typedef void (*CuteQAbstractSpinBoxCall40)(const void *, QPainter *, int *);
 typedef void * (*CuteQAbstractSpinBoxCall41)(const void *, QPoint *, int *);
 typedef void * (*CuteQAbstractSpinBoxCall42)(const void *, int *);
 typedef void (*CuteQAbstractSpinBoxCall43)(const void *, QInputMethodEvent *, int *);
 typedef bool (*CuteQAbstractSpinBoxCall44)(const void *, bool, int *);
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQAbstractSpinBoxCall45)(const void *, QObject *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQAbstractSpinBoxCall46)(const void *, QChildEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQAbstractSpinBoxCall47)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQAbstractSpinBoxCall48)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQAbstractSpinBoxCall49)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 class CuteQAbstractSpinBox : public QAbstractSpinBox {
 public:
   using QAbstractSpinBox::QAbstractSpinBox;
   void *taken[50] = {};
 
   bool take(const char *key, void *call) {
+#if QT_CONFIG(spinbox)
     if (!std::strcmp(key, "_ZNK7QWidget8sizeHintEv")) {
       taken[0] = call;
       return true;
     }
+#endif  // QT_CONFIG(spinbox)
+#if QT_CONFIG(spinbox)
     if (!std::strcmp(key, "_ZNK7QWidget15minimumSizeHintEv")) {
       taken[1] = call;
       return true;
     }
+#endif  // QT_CONFIG(spinbox)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(spinbox)
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[2] = call;
       return true;
     }
+#endif  // QT_CONFIG(spinbox)
+#endif  // !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(spinbox)
     if (!std::strcmp(key, "_ZNK7QWidget16inputMethodQueryEN2Qt16InputMethodQueryE")) {
       taken[3] = call;
       return true;
     }
+#endif  // QT_CONFIG(spinbox)
+#if QT_CONFIG(spinbox)
     if (!std::strcmp(key, "_ZN16QAbstractSpinBox6stepByEi")) {
       taken[4] = call;
       return true;
     }
+#endif  // QT_CONFIG(spinbox)
+#if QT_CONFIG(spinbox)
     if (!std::strcmp(key, "_ZN16QAbstractSpinBox5clearEv")) {
       taken[5] = call;
       return true;
     }
+#endif  // QT_CONFIG(spinbox)
+#if QT_CONFIG(spinbox)
     if (!std::strcmp(key, "_ZN7QWidget11resizeEventEP12QResizeEvent")) {
       taken[6] = call;
       return true;
     }
+#endif  // QT_CONFIG(spinbox)
+#if QT_CONFIG(spinbox)
     if (!std::strcmp(key, "_ZN7QWidget13keyPressEventEP9QKeyEvent")) {
       taken[7] = call;
       return true;
     }
+#endif  // QT_CONFIG(spinbox)
+#if QT_CONFIG(spinbox)
     if (!std::strcmp(key, "_ZN7QWidget15keyReleaseEventEP9QKeyEvent")) {
       taken[8] = call;
       return true;
     }
+#endif  // QT_CONFIG(spinbox)
+#if QT_CONFIG(wheelevent)
+#if QT_CONFIG(spinbox)
     if (!std::strcmp(key, "_ZN7QWidget10wheelEventEP11QWheelEvent")) {
       taken[9] = call;
       return true;
     }
+#endif  // QT_CONFIG(spinbox)
+#endif  // QT_CONFIG(wheelevent)
+#if QT_CONFIG(spinbox)
     if (!std::strcmp(key, "_ZN7QWidget12focusInEventEP11QFocusEvent")) {
       taken[10] = call;
       return true;
     }
+#endif  // QT_CONFIG(spinbox)
+#if QT_CONFIG(spinbox)
     if (!std::strcmp(key, "_ZN7QWidget13focusOutEventEP11QFocusEvent")) {
       taken[11] = call;
       return true;
     }
+#endif  // QT_CONFIG(spinbox)
+#if !defined(QT_NO_CONTEXTMENU)
+#if QT_CONFIG(spinbox)
+#if QT_CONFIG(contextmenu)
     if (!std::strcmp(key, "_ZN7QWidget16contextMenuEventEP17QContextMenuEvent")) {
       taken[12] = call;
       return true;
     }
+#endif  // QT_CONFIG(contextmenu)
+#endif  // QT_CONFIG(spinbox)
+#endif  // !defined(QT_NO_CONTEXTMENU)
+#if QT_CONFIG(spinbox)
     if (!std::strcmp(key, "_ZN7QWidget11changeEventEP6QEvent")) {
       taken[13] = call;
       return true;
     }
+#endif  // QT_CONFIG(spinbox)
+#if QT_CONFIG(spinbox)
     if (!std::strcmp(key, "_ZN7QWidget10closeEventEP11QCloseEvent")) {
       taken[14] = call;
       return true;
     }
+#endif  // QT_CONFIG(spinbox)
+#if QT_CONFIG(spinbox)
     if (!std::strcmp(key, "_ZN7QWidget9hideEventEP10QHideEvent")) {
       taken[15] = call;
       return true;
     }
+#endif  // QT_CONFIG(spinbox)
+#if QT_CONFIG(spinbox)
     if (!std::strcmp(key, "_ZN7QWidget15mousePressEventEP11QMouseEvent")) {
       taken[16] = call;
       return true;
     }
+#endif  // QT_CONFIG(spinbox)
+#if QT_CONFIG(spinbox)
     if (!std::strcmp(key, "_ZN7QWidget17mouseReleaseEventEP11QMouseEvent")) {
       taken[17] = call;
       return true;
     }
+#endif  // QT_CONFIG(spinbox)
+#if QT_CONFIG(spinbox)
     if (!std::strcmp(key, "_ZN7QWidget14mouseMoveEventEP11QMouseEvent")) {
       taken[18] = call;
       return true;
     }
+#endif  // QT_CONFIG(spinbox)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(spinbox)
     if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[19] = call;
       return true;
     }
+#endif  // QT_CONFIG(spinbox)
+#endif  // !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(spinbox)
     if (!std::strcmp(key, "_ZN7QWidget10paintEventEP11QPaintEvent")) {
       taken[20] = call;
       return true;
     }
+#endif  // QT_CONFIG(spinbox)
+#if QT_CONFIG(spinbox)
     if (!std::strcmp(key, "_ZN7QWidget9showEventEP10QShowEvent")) {
       taken[21] = call;
       return true;
     }
+#endif  // QT_CONFIG(spinbox)
+#if QT_CONFIG(spinbox)
     if (!std::strcmp(key, "_ZNK16QAbstractSpinBox15initStyleOptionEP19QStyleOptionSpinBox")) {
       taken[22] = call;
       return true;
     }
+#endif  // QT_CONFIG(spinbox)
+#if QT_CONFIG(spinbox)
     if (!std::strcmp(key, "_ZNK16QAbstractSpinBox11stepEnabledEv")) {
       taken[23] = call;
       return true;
     }
+#endif  // QT_CONFIG(spinbox)
     if (!std::strcmp(key, "_ZNK12QPaintDevice7devTypeEv")) {
       taken[24] = call;
       return true;
@@ -221,30 +361,42 @@ public:
       taken[32] = call;
       return true;
     }
+#if QT_CONFIG(tabletevent)
     if (!std::strcmp(key, "_ZN7QWidget11tabletEventEP12QTabletEvent")) {
       taken[33] = call;
       return true;
     }
+#endif  // QT_CONFIG(tabletevent)
+#if !defined(QT_NO_ACTION)
     if (!std::strcmp(key, "_ZN7QWidget11actionEventEP12QActionEvent")) {
       taken[34] = call;
       return true;
     }
+#endif  // !defined(QT_NO_ACTION)
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget14dragEnterEventEP15QDragEnterEvent")) {
       taken[35] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget13dragMoveEventEP14QDragMoveEvent")) {
       taken[36] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget14dragLeaveEventEP15QDragLeaveEvent")) {
       taken[37] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget9dropEventEP10QDropEvent")) {
       taken[38] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZNK12QPaintDevice6metricENS_17PaintDeviceMetricE")) {
       taken[39] = call;
       return true;
@@ -269,29 +421,40 @@ public:
       taken[44] = call;
       return true;
     }
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[45] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[46] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[47] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[48] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
       taken[49] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
     return false;
   }
 
+#if QT_CONFIG(spinbox)
   //  QSize QAbstractSpinBox::sizeHint() const
   QSize sizeHint() const override {
     if (taken[0]) {
@@ -302,7 +465,9 @@ public:
     }
     return QAbstractSpinBox::sizeHint();
   }
+#endif  // QT_CONFIG(spinbox)
 
+#if QT_CONFIG(spinbox)
   //  QSize QAbstractSpinBox::minimumSizeHint() const
   QSize minimumSizeHint() const override {
     if (taken[1]) {
@@ -313,7 +478,10 @@ public:
     }
     return QAbstractSpinBox::minimumSizeHint();
   }
+#endif  // QT_CONFIG(spinbox)
 
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(spinbox)
   //  bool QAbstractSpinBox::event(QEvent *event)
   bool event(QEvent *event) override {
     if (taken[2]) {
@@ -324,7 +492,10 @@ public:
     }
     return QAbstractSpinBox::event(event);
   }
+#endif  // QT_CONFIG(spinbox)
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if QT_CONFIG(spinbox)
   //  QVariant QAbstractSpinBox::inputMethodQuery(Qt::InputMethodQuery a0)
   //      const
   QVariant inputMethodQuery(Qt::InputMethodQuery a0) const override {
@@ -336,7 +507,9 @@ public:
     }
     return QAbstractSpinBox::inputMethodQuery(a0);
   }
+#endif  // QT_CONFIG(spinbox)
 
+#if QT_CONFIG(spinbox)
   //  void QAbstractSpinBox::stepBy(int steps)
   void stepBy(int steps) override {
     if (taken[4]) {
@@ -347,7 +520,9 @@ public:
     }
     QAbstractSpinBox::stepBy(steps);
   }
+#endif  // QT_CONFIG(spinbox)
 
+#if QT_CONFIG(spinbox)
   //  void QAbstractSpinBox::clear()
   void clear() override {
     if (taken[5]) {
@@ -358,7 +533,9 @@ public:
     }
     QAbstractSpinBox::clear();
   }
+#endif  // QT_CONFIG(spinbox)
 
+#if QT_CONFIG(spinbox)
   //  void QAbstractSpinBox::resizeEvent(QResizeEvent *event)
   void resizeEvent(QResizeEvent *event) override {
     if (taken[6]) {
@@ -369,7 +546,9 @@ public:
     }
     QAbstractSpinBox::resizeEvent(event);
   }
+#endif  // QT_CONFIG(spinbox)
 
+#if QT_CONFIG(spinbox)
   //  void QAbstractSpinBox::keyPressEvent(QKeyEvent *event)
   void keyPressEvent(QKeyEvent *event) override {
     if (taken[7]) {
@@ -380,7 +559,9 @@ public:
     }
     QAbstractSpinBox::keyPressEvent(event);
   }
+#endif  // QT_CONFIG(spinbox)
 
+#if QT_CONFIG(spinbox)
   //  void QAbstractSpinBox::keyReleaseEvent(QKeyEvent *event)
   void keyReleaseEvent(QKeyEvent *event) override {
     if (taken[8]) {
@@ -391,7 +572,10 @@ public:
     }
     QAbstractSpinBox::keyReleaseEvent(event);
   }
+#endif  // QT_CONFIG(spinbox)
 
+#if QT_CONFIG(wheelevent)
+#if QT_CONFIG(spinbox)
   //  void QAbstractSpinBox::wheelEvent(QWheelEvent *event)
   void wheelEvent(QWheelEvent *event) override {
     if (taken[9]) {
@@ -402,7 +586,10 @@ public:
     }
     QAbstractSpinBox::wheelEvent(event);
   }
+#endif  // QT_CONFIG(spinbox)
+#endif  // QT_CONFIG(wheelevent)
 
+#if QT_CONFIG(spinbox)
   //  void QAbstractSpinBox::focusInEvent(QFocusEvent *event)
   void focusInEvent(QFocusEvent *event) override {
     if (taken[10]) {
@@ -413,7 +600,9 @@ public:
     }
     QAbstractSpinBox::focusInEvent(event);
   }
+#endif  // QT_CONFIG(spinbox)
 
+#if QT_CONFIG(spinbox)
   //  void QAbstractSpinBox::focusOutEvent(QFocusEvent *event)
   void focusOutEvent(QFocusEvent *event) override {
     if (taken[11]) {
@@ -424,7 +613,11 @@ public:
     }
     QAbstractSpinBox::focusOutEvent(event);
   }
+#endif  // QT_CONFIG(spinbox)
 
+#if !defined(QT_NO_CONTEXTMENU)
+#if QT_CONFIG(spinbox)
+#if QT_CONFIG(contextmenu)
   //  void QAbstractSpinBox::contextMenuEvent(QContextMenuEvent *event)
   void contextMenuEvent(QContextMenuEvent *event) override {
     if (taken[12]) {
@@ -435,7 +628,11 @@ public:
     }
     QAbstractSpinBox::contextMenuEvent(event);
   }
+#endif  // QT_CONFIG(contextmenu)
+#endif  // QT_CONFIG(spinbox)
+#endif  // !defined(QT_NO_CONTEXTMENU)
 
+#if QT_CONFIG(spinbox)
   //  void QAbstractSpinBox::changeEvent(QEvent *event)
   void changeEvent(QEvent *event) override {
     if (taken[13]) {
@@ -446,7 +643,9 @@ public:
     }
     QAbstractSpinBox::changeEvent(event);
   }
+#endif  // QT_CONFIG(spinbox)
 
+#if QT_CONFIG(spinbox)
   //  void QAbstractSpinBox::closeEvent(QCloseEvent *event)
   void closeEvent(QCloseEvent *event) override {
     if (taken[14]) {
@@ -457,7 +656,9 @@ public:
     }
     QAbstractSpinBox::closeEvent(event);
   }
+#endif  // QT_CONFIG(spinbox)
 
+#if QT_CONFIG(spinbox)
   //  void QAbstractSpinBox::hideEvent(QHideEvent *event)
   void hideEvent(QHideEvent *event) override {
     if (taken[15]) {
@@ -468,7 +669,9 @@ public:
     }
     QAbstractSpinBox::hideEvent(event);
   }
+#endif  // QT_CONFIG(spinbox)
 
+#if QT_CONFIG(spinbox)
   //  void QAbstractSpinBox::mousePressEvent(QMouseEvent *event)
   void mousePressEvent(QMouseEvent *event) override {
     if (taken[16]) {
@@ -479,7 +682,9 @@ public:
     }
     QAbstractSpinBox::mousePressEvent(event);
   }
+#endif  // QT_CONFIG(spinbox)
 
+#if QT_CONFIG(spinbox)
   //  void QAbstractSpinBox::mouseReleaseEvent(QMouseEvent *event)
   void mouseReleaseEvent(QMouseEvent *event) override {
     if (taken[17]) {
@@ -490,7 +695,9 @@ public:
     }
     QAbstractSpinBox::mouseReleaseEvent(event);
   }
+#endif  // QT_CONFIG(spinbox)
 
+#if QT_CONFIG(spinbox)
   //  void QAbstractSpinBox::mouseMoveEvent(QMouseEvent *event)
   void mouseMoveEvent(QMouseEvent *event) override {
     if (taken[18]) {
@@ -501,7 +708,10 @@ public:
     }
     QAbstractSpinBox::mouseMoveEvent(event);
   }
+#endif  // QT_CONFIG(spinbox)
 
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(spinbox)
   //  void QAbstractSpinBox::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
     if (taken[19]) {
@@ -512,7 +722,10 @@ public:
     }
     QAbstractSpinBox::timerEvent(event);
   }
+#endif  // QT_CONFIG(spinbox)
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if QT_CONFIG(spinbox)
   //  void QAbstractSpinBox::paintEvent(QPaintEvent *event)
   void paintEvent(QPaintEvent *event) override {
     if (taken[20]) {
@@ -523,7 +736,9 @@ public:
     }
     QAbstractSpinBox::paintEvent(event);
   }
+#endif  // QT_CONFIG(spinbox)
 
+#if QT_CONFIG(spinbox)
   //  void QAbstractSpinBox::showEvent(QShowEvent *event)
   void showEvent(QShowEvent *event) override {
     if (taken[21]) {
@@ -534,7 +749,9 @@ public:
     }
     QAbstractSpinBox::showEvent(event);
   }
+#endif  // QT_CONFIG(spinbox)
 
+#if QT_CONFIG(spinbox)
   //  void QAbstractSpinBox::initStyleOption(QStyleOptionSpinBox *option)
   //      const
   void initStyleOption(QStyleOptionSpinBox *option) const override {
@@ -546,7 +763,9 @@ public:
     }
     QAbstractSpinBox::initStyleOption(option);
   }
+#endif  // QT_CONFIG(spinbox)
 
+#if QT_CONFIG(spinbox)
   //  StepEnabled QAbstractSpinBox::stepEnabled() const
   QAbstractSpinBox::StepEnabled stepEnabled() const override {
     if (taken[23]) {
@@ -557,6 +776,7 @@ public:
     }
     return QAbstractSpinBox::stepEnabled();
   }
+#endif  // QT_CONFIG(spinbox)
 
   //  int QWidget::devType() const
   int devType() const override {
@@ -657,6 +877,7 @@ public:
     QWidget::moveEvent(event);
   }
 
+#if QT_CONFIG(tabletevent)
   //  void QWidget::tabletEvent(QTabletEvent *event)
   void tabletEvent(QTabletEvent *event) override {
     if (taken[33]) {
@@ -667,7 +888,9 @@ public:
     }
     QWidget::tabletEvent(event);
   }
+#endif  // QT_CONFIG(tabletevent)
 
+#if !defined(QT_NO_ACTION)
   //  void QWidget::actionEvent(QActionEvent *event)
   void actionEvent(QActionEvent *event) override {
     if (taken[34]) {
@@ -678,7 +901,9 @@ public:
     }
     QWidget::actionEvent(event);
   }
+#endif  // !defined(QT_NO_ACTION)
 
+#if QT_CONFIG(draganddrop)
   //  void QWidget::dragEnterEvent(QDragEnterEvent *event)
   void dragEnterEvent(QDragEnterEvent *event) override {
     if (taken[35]) {
@@ -689,7 +914,9 @@ public:
     }
     QWidget::dragEnterEvent(event);
   }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
   //  void QWidget::dragMoveEvent(QDragMoveEvent *event)
   void dragMoveEvent(QDragMoveEvent *event) override {
     if (taken[36]) {
@@ -700,7 +927,9 @@ public:
     }
     QWidget::dragMoveEvent(event);
   }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
   //  void QWidget::dragLeaveEvent(QDragLeaveEvent *event)
   void dragLeaveEvent(QDragLeaveEvent *event) override {
     if (taken[37]) {
@@ -711,7 +940,9 @@ public:
     }
     QWidget::dragLeaveEvent(event);
   }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
   //  void QWidget::dropEvent(QDropEvent *event)
   void dropEvent(QDropEvent *event) override {
     if (taken[38]) {
@@ -722,6 +953,7 @@ public:
     }
     QWidget::dropEvent(event);
   }
+#endif  // QT_CONFIG(draganddrop)
 
   //  int QWidget::metric(PaintDeviceMetric a0) const
   int metric(QPaintDevice::PaintDeviceMetric a0) const override {
@@ -789,6 +1021,7 @@ public:
     return QWidget::focusNextPrevChild(next);
   }
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
     if (taken[45]) {
@@ -799,7 +1032,9 @@ public:
     }
     return QObject::eventFilter(watched, event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
     if (taken[46]) {
@@ -810,7 +1045,9 @@ public:
     }
     QObject::childEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
     if (taken[47]) {
@@ -821,7 +1058,9 @@ public:
     }
     QObject::customEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
     if (taken[48]) {
@@ -832,7 +1071,9 @@ public:
     }
     QObject::connectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
     if (taken[49]) {
@@ -843,6 +1084,7 @@ public:
     }
     QObject::disconnectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 };
 
 //  const QMetaObject *QAbstractSpinBox::metaObject() const
@@ -1126,6 +1368,7 @@ void ritual_ZN16QAbstractSpinBox15keyReleaseEventEP9QKeyEvent(
   self->keyReleaseEvent(event);
 }
 
+#if QT_CONFIG(wheelevent)
 //  void QAbstractSpinBox::wheelEvent(QWheelEvent *event)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QAbstractSpinBox10wheelEventEP11QWheelEvent(
@@ -1133,6 +1376,7 @@ void ritual_ZN16QAbstractSpinBox10wheelEventEP11QWheelEvent(
     QWheelEvent *event) {
   self->wheelEvent(event);
 }
+#endif  // QT_CONFIG(wheelevent)
 
 //  void QAbstractSpinBox::focusInEvent(QFocusEvent *event)
 extern "C" Q_DECL_EXPORT
@@ -1150,6 +1394,7 @@ void ritual_ZN16QAbstractSpinBox13focusOutEventEP11QFocusEvent(
   self->focusOutEvent(event);
 }
 
+#if QT_CONFIG(contextmenu)
 //  void QAbstractSpinBox::contextMenuEvent(QContextMenuEvent *event)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QAbstractSpinBox16contextMenuEventEP17QContextMenuEvent(
@@ -1157,6 +1402,7 @@ void ritual_ZN16QAbstractSpinBox16contextMenuEventEP17QContextMenuEvent(
     QContextMenuEvent *event) {
   self->contextMenuEvent(event);
 }
+#endif  // QT_CONFIG(contextmenu)
 
 //  void QAbstractSpinBox::changeEvent(QEvent *event)
 extern "C" Q_DECL_EXPORT
@@ -1260,6 +1506,20 @@ int ritual_ZNK16QAbstractSpinBox11stepEnabledEv(
   return static_cast<int>(self->stepEnabled().toInt());
 }
 
+//  QAbstractSpinBoxPrivate *QAbstractSpinBox::d_func()
+extern "C" Q_DECL_EXPORT
+QAbstractSpinBoxPrivate *ritual_ZN16QAbstractSpinBox6d_funcEv(
+    QAbstractSpinBox *self) {
+  return self->d_func();
+}
+
+//  const QAbstractSpinBoxPrivate *QAbstractSpinBox::d_func() const
+extern "C" Q_DECL_EXPORT
+const QAbstractSpinBoxPrivate *ritual_ZNK16QAbstractSpinBox6d_funcEv(
+    const QAbstractSpinBox *self) {
+  return self->d_func();
+}
+
 //  a Python function taken by a CuteQAbstractSpinBox, for the function named
 //      by the key
 extern "C" Q_DECL_EXPORT
@@ -1342,6 +1602,7 @@ void ritual_own_ZN16QAbstractSpinBox15keyReleaseEventEP9QKeyEvent(
       event);
 }
 
+#if QT_CONFIG(wheelevent)
 //  void QAbstractSpinBox::wheelEvent(QWheelEvent *event)
 extern "C" Q_DECL_EXPORT
 void ritual_own_ZN16QAbstractSpinBox10wheelEventEP11QWheelEvent(
@@ -1350,6 +1611,7 @@ void ritual_own_ZN16QAbstractSpinBox10wheelEventEP11QWheelEvent(
   static_cast<OwnQAbstractSpinBox *>(self)->OwnQAbstractSpinBox::wheelEvent(
       event);
 }
+#endif  // QT_CONFIG(wheelevent)
 
 //  void QAbstractSpinBox::focusInEvent(QFocusEvent *event)
 extern "C" Q_DECL_EXPORT
@@ -1369,6 +1631,7 @@ void ritual_own_ZN16QAbstractSpinBox13focusOutEventEP11QFocusEvent(
       event);
 }
 
+#if QT_CONFIG(contextmenu)
 //  void QAbstractSpinBox::contextMenuEvent(QContextMenuEvent *event)
 extern "C" Q_DECL_EXPORT
 void ritual_own_ZN16QAbstractSpinBox16contextMenuEventEP17QContextMenuEvent(
@@ -1377,6 +1640,7 @@ void ritual_own_ZN16QAbstractSpinBox16contextMenuEventEP17QContextMenuEvent(
   static_cast<OwnQAbstractSpinBox *>(self)->OwnQAbstractSpinBox::contextMenuEvent(
       event);
 }
+#endif  // QT_CONFIG(contextmenu)
 
 //  void QAbstractSpinBox::changeEvent(QEvent *event)
 extern "C" Q_DECL_EXPORT
@@ -1475,3 +1739,5 @@ int ritual_own_ZNK16QAbstractSpinBox11stepEnabledEv(
   return static_cast<int>(
       static_cast<const OwnQAbstractSpinBox *>(self)->OwnQAbstractSpinBox::stepEnabled().toInt());
 }
+
+#endif  // QT_CONFIG(spinbox)

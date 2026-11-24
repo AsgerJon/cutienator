@@ -1,0 +1,52 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/6.12.0/QtCharts/private/editableaxislabel_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17EditableAxisLabel10metaObjectEv": ["address", "address"],
+    "ritual_ZN17EditableAxisLabel2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17EditableAxisLabel12focusInEventEP11QFocusEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17EditableAxisLabel13focusOutEventEP11QFocusEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17EditableAxisLabel10sceneEventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN17EditableAxisLabel11setEditableEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN17EditableAxisLabel23reloadBeforeEditContentEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK17EditableAxisLabel12boundingRectEv": ["address", "address"],
+    "ritual_ZN17EditableAxisLabel19setInitialEditValueEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17EditableAxisLabel13finishEditingEv": ["nothing", "address"],
+    "ritual_ZN17EditableAxisLabel20resetBeforeEditValueEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17EditableAxisLabel20isEditEndingKeyPressEP9QKeyEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_take_EditableAxisLabel": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN17EditableAxisLabel12focusInEventEP11QFocusEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN17EditableAxisLabel13focusOutEventEP11QFocusEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN17EditableAxisLabel10sceneEventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZNK17EditableAxisLabel12boundingRectEv": [
+      "address", "address"
+    ]
+  }
+}

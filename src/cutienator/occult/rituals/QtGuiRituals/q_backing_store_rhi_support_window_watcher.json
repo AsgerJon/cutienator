@@ -5,6 +5,9 @@
     "Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN36QBackingStoreRhiSupportWindowWatcherC1EP23QBackingStoreRhiSupport": [
+      "address", "address"
+    ],
     "ritual_ZN36QBackingStoreRhiSupportWindowWatcher11eventFilterEP7QObjectP6QEvent": [
       "bool", "address", "address", "address"
     ],

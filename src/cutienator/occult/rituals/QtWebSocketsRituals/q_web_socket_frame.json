@@ -1,0 +1,58 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWebSockets/6.12.0/QtWebSockets/private/qwebsocketframe_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QWebSocketFrame2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN15QWebSocketFrameC1Ev": ["address"],
+    "ritual_ZN15QWebSocketFrame22setMaxAllowedFrameSizeEy": [
+      "nothing", "address", "unsigned long long"
+    ],
+    "ritual_ZNK15QWebSocketFrame19maxAllowedFrameSizeEv": [
+      "unsigned long long", "address"
+    ],
+    "ritual_ZN15QWebSocketFrame12maxFrameSizeEv": ["unsigned long long"],
+    "ritual_ZNK15QWebSocketFrame9closeCodeEv": ["int", "address"],
+    "ritual_ZNK15QWebSocketFrame11closeReasonEv": ["text", "address"],
+    "ritual_ZNK15QWebSocketFrame12isFinalFrameEv": ["bool", "address"],
+    "ritual_ZNK15QWebSocketFrame14isControlFrameEv": ["bool", "address"],
+    "ritual_ZNK15QWebSocketFrame11isDataFrameEv": ["bool", "address"],
+    "ritual_ZNK15QWebSocketFrame19isContinuationFrameEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK15QWebSocketFrame7hasMaskEv": ["bool", "address"],
+    "ritual_ZNK15QWebSocketFrame4maskEv": ["unsigned int", "address"],
+    "ritual_ZNK15QWebSocketFrame4rsv1Ev": ["bool", "address"],
+    "ritual_ZNK15QWebSocketFrame4rsv2Ev": ["bool", "address"],
+    "ritual_ZNK15QWebSocketFrame4rsv3Ev": ["bool", "address"],
+    "ritual_ZNK15QWebSocketFrame6opCodeEv": ["int", "address"],
+    "ritual_ZNK15QWebSocketFrame7payloadEv": ["address", "address"],
+    "ritual_ZN15QWebSocketFrame5clearEv": ["nothing", "address"],
+    "ritual_ZNK15QWebSocketFrame7isValidEv": ["bool", "address"],
+    "ritual_ZNK15QWebSocketFrame6isDoneEv": ["bool", "address"],
+    "ritual_ZN15QWebSocketFrame9readFrameEP9QIODevice": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QWebSocketFrame15readFrameHeaderEP9QIODevice": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN15QWebSocketFrame22readFramePayloadLengthEP9QIODevice": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN15QWebSocketFrame13readFrameMaskEP9QIODevice": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN15QWebSocketFrame16readFramePayloadEP9QIODevice": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN15QWebSocketFrame8setErrorEN18QWebSocketProtocol9CloseCodeERK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZN15QWebSocketFrame13checkValidityEv": ["bool", "address"],
+    "ritual_ZN15QWebSocketFrameD1Ev": ["nothing", "address"]
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "ShapesDesignHelpers/6.12.0/QtQuickShapesDesignHelpers/private/qqui",
+    "ckstarshape_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK15QQuickStarShape10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QQuickStarShape2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN15QQuickStarShapeC1EP10QQuickItem": ["address", "address"],
+    "ritual_ZN15QQuickStarShapeD1Ev": ["nothing", "address"],
+    "ritual_ZNK15QQuickStarShape10dashOffsetEv": ["double", "address"],
+    "ritual_ZN15QQuickStarShape13setDashOffsetEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK15QQuickStarShape12cornerRadiusEv": ["double", "address"],
+    "ritual_ZN15QQuickStarShape15setCornerRadiusEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK15QQuickStarShape5ratioEv": ["double", "address"],
+    "ritual_ZN15QQuickStarShape8setRatioEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK15QQuickStarShape10pointCountEv": ["int", "address"],
+    "ritual_ZN15QQuickStarShape13setPointCountEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QQuickStarShape11strokeWidthEv": ["double", "address"],
+    "ritual_ZN15QQuickStarShape14setStrokeWidthEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK15QQuickStarShape9fillColorEv": ["address", "address"],
+    "ritual_ZN15QQuickStarShape12setFillColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QQuickStarShape11strokeColorEv": ["address", "address"],
+    "ritual_ZN15QQuickStarShape14setStrokeColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QQuickStarShape8capStyleEv": ["int", "address"],
+    "ritual_ZN15QQuickStarShape11setCapStyleEN15QQuickShapePath8CapStyleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QQuickStarShape9joinStyleEv": ["int", "address"],
+    "ritual_ZN15QQuickStarShape12setJoinStyleEN15QQuickShapePath9JoinStyleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QQuickStarShape11strokeStyleEv": ["int", "address"],
+    "ritual_ZN15QQuickStarShape14setStrokeStyleEN15QQuickShapePath11StrokeStyleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QQuickStarShape12fillGradientEv": ["address", "address"],
+    "ritual_ZN15QQuickStarShape15setFillGradientEP19QQuickShapeGradient": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QQuickStarShape17resetFillGradientEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK15QQuickStarShape8fillItemEv": ["address", "address"],
+    "ritual_ZN15QQuickStarShape11setFillItemEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QQuickStarShape10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN15QQuickStarShape6d_funcEv": ["address", "address"],
+    "ritual_ZNK15QQuickStarShape6d_funcEv": ["address", "address"],
+    "ritual_take_QQuickStarShape": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN15QQuickStarShape10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ]
+  }
+}

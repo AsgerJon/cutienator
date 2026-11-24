@@ -1,0 +1,94 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLocation/6.12.0/QtLocation/private/qabstractgeotilecache_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK21QAbstractGeoTileCache10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QAbstractGeoTileCache2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN21QAbstractGeoTileCacheD1Ev": ["nothing", "address"],
+    "ritual_ZN21QAbstractGeoTileCache15setMaxDiskUsageEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK21QAbstractGeoTileCache12maxDiskUsageEv": ["int", "address"],
+    "ritual_ZNK21QAbstractGeoTileCache9diskUsageEv": ["int", "address"],
+    "ritual_ZN21QAbstractGeoTileCache17setMaxMemoryUsageEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK21QAbstractGeoTileCache14maxMemoryUsageEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK21QAbstractGeoTileCache11memoryUsageEv": ["int", "address"],
+    "ritual_ZN21QAbstractGeoTileCache18setMinTextureUsageEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN21QAbstractGeoTileCache20setExtraTextureUsageEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK21QAbstractGeoTileCache15maxTextureUsageEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK21QAbstractGeoTileCache15minTextureUsageEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK21QAbstractGeoTileCache12textureUsageEv": ["int", "address"],
+    "ritual_ZN21QAbstractGeoTileCache8clearAllEv": ["nothing", "address"],
+    "ritual_ZN21QAbstractGeoTileCache19setCostStrategyDiskENS_12CostStrategyE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK21QAbstractGeoTileCache16costStrategyDiskEv": [
+      "int", "address"
+    ],
+    "ritual_ZN21QAbstractGeoTileCache21setCostStrategyMemoryENS_12CostStrategyE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK21QAbstractGeoTileCache18costStrategyMemoryEv": [
+      "int", "address"
+    ],
+    "ritual_ZN21QAbstractGeoTileCache22setCostStrategyTextureENS_12CostStrategyE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK21QAbstractGeoTileCache19costStrategyTextureEv": [
+      "int", "address"
+    ],
+    "ritual_ZN21QAbstractGeoTileCache6insertERK12QGeoTileSpecRK10QByteArrayRK7QString6QFlagsINS_9CacheAreaEE": [
+      "nothing", "address", "address", "address", "text", "int"
+    ],
+    "ritual_ZN21QAbstractGeoTileCache11handleErrorERK12QGeoTileSpecRK7QString": [
+      "nothing", "address", "address", "text"
+    ],
+    "ritual_ZN21QAbstractGeoTileCache4initEv": ["nothing", "address"],
+    "ritual_ZN21QAbstractGeoTileCache18baseCacheDirectoryEv": ["text"],
+    "ritual_ZN21QAbstractGeoTileCache26baseLocationCacheDirectoryEv": [
+      "text"
+    ],
+    "ritual_ZN21QAbstractGeoTileCache10printStatsEv": ["nothing", "address"],
+    "ritual_take_QAbstractGeoTileCache": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN21QAbstractGeoTileCache15setMaxDiskUsageEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZNK21QAbstractGeoTileCache12maxDiskUsageEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZNK21QAbstractGeoTileCache9diskUsageEv": ["int", "address"],
+    "ritual_own_ZN21QAbstractGeoTileCache17setMaxMemoryUsageEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZNK21QAbstractGeoTileCache14maxMemoryUsageEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZNK21QAbstractGeoTileCache11memoryUsageEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZN21QAbstractGeoTileCache11handleErrorERK12QGeoTileSpecRK7QString": [
+      "nothing", "address", "address", "text"
+    ]
+  }
+}

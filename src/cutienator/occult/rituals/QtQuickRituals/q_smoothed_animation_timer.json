@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquicksmoothedanimation_p_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK23QSmoothedAnimationTimer10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QSmoothedAnimationTimerD1Ev": ["nothing", "address"],
+    "ritual_ZN23QSmoothedAnimationTimer13stopAnimationEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QSmoothedAnimationTimer": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

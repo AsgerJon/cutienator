@@ -1,0 +1,215 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/qquickwindow.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK12QQuickWindow10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QQuickWindow2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN12QQuickWindow6d_funcEv": ["address", "address"],
+    "ritual_ZNK12QQuickWindow6d_funcEv": ["address", "address"],
+    "ritual_ZN12QQuickWindowC1EP7QWindow": ["address", "address"],
+    "ritual_ZN12QQuickWindowC1EP19QQuickRenderControl": [
+      "address", "address"
+    ],
+    "ritual_ZN12QQuickWindowD1Ev": ["nothing", "address"],
+    "ritual_ZNK12QQuickWindow11contentItemEv": ["address", "address"],
+    "ritual_ZNK12QQuickWindow15activeFocusItemEv": ["address", "address"],
+    "ritual_ZNK12QQuickWindow11focusObjectEv": ["address", "address"],
+    "ritual_ZNK12QQuickWindow16mouseGrabberItemEv": ["address", "address"],
+    "ritual_ZN12QQuickWindow10grabWindowEv": ["address", "address"],
+    "ritual_ZN12QQuickWindow15setRenderTargetERK18QQuickRenderTarget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12QQuickWindow12renderTargetEv": ["address", "address"],
+    "ritual_ZN12QQuickWindow17graphicsStateInfoEv": ["address", "address"],
+    "ritual_ZN12QQuickWindow21beginExternalCommandsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN12QQuickWindow19endExternalCommandsEv": ["nothing", "address"],
+    "ritual_ZNK12QQuickWindow20incubationControllerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK12QQuickWindow14accessibleRootEv": ["address", "address"],
+    "ritual_ZNK12QQuickWindow22createTextureFromImageERK6QImage": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK12QQuickWindow22createTextureFromImageERK6QImage6QFlagsINS_19CreateTextureOptionEE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZNK12QQuickWindow27createTextureFromRhiTextureEP11QRhiTexture6QFlagsINS_19CreateTextureOptionEE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN12QQuickWindow8setColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12QQuickWindow5colorEv": ["address", "address"],
+    "ritual_ZN12QQuickWindow21hasDefaultAlphaBufferEv": ["bool"],
+    "ritual_ZN12QQuickWindow21setDefaultAlphaBufferEb": ["nothing", "bool"],
+    "ritual_ZN12QQuickWindow21setPersistentGraphicsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK12QQuickWindow20isPersistentGraphicsEv": ["bool", "address"],
+    "ritual_ZN12QQuickWindow23setPersistentSceneGraphEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK12QQuickWindow22isPersistentSceneGraphEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK12QQuickWindow23isSceneGraphInitializedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN12QQuickWindow17scheduleRenderJobEP9QRunnableNS_11RenderStageE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZNK12QQuickWindow25effectiveDevicePixelRatioEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK12QQuickWindow17rendererInterfaceEv": ["address", "address"],
+    "ritual_ZN12QQuickWindow14setGraphicsApiEN20QSGRendererInterface11GraphicsApiE": [
+      "nothing", "int"
+    ],
+    "ritual_ZN12QQuickWindow11graphicsApiEv": ["int"],
+    "ritual_ZN12QQuickWindow20setSceneGraphBackendERK7QString": [
+      "nothing", "text"
+    ],
+    "ritual_ZN12QQuickWindow17sceneGraphBackendEv": ["text"],
+    "ritual_ZN12QQuickWindow17setGraphicsDeviceERK20QQuickGraphicsDevice": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12QQuickWindow14graphicsDeviceEv": ["address", "address"],
+    "ritual_ZN12QQuickWindow24setGraphicsConfigurationERK27QQuickGraphicsConfiguration": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12QQuickWindow21graphicsConfigurationEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK12QQuickWindow19createRectangleNodeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK12QQuickWindow15createImageNodeEv": ["address", "address"],
+    "ritual_ZNK12QQuickWindow19createNinePatchNodeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK12QQuickWindow14createTextNodeEv": ["address", "address"],
+    "ritual_ZN12QQuickWindow14textRenderTypeEv": ["int"],
+    "ritual_ZN12QQuickWindow17setTextRenderTypeENS_14TextRenderTypeE": [
+      "nothing", "int"
+    ],
+    "ritual_ZNK12QQuickWindow3rhiEv": ["address", "address"],
+    "ritual_ZNK12QQuickWindow9swapChainEv": ["address", "address"],
+    "ritual_ZN12QQuickWindow6updateEv": ["nothing", "address"],
+    "ritual_ZN12QQuickWindow16releaseResourcesEv": ["nothing", "address"],
+    "ritual_ZN12QQuickWindow11exposeEventEP12QExposeEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QQuickWindow11resizeEventEP12QResizeEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QQuickWindow9showEventEP10QShowEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QQuickWindow9hideEventEP10QHideEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QQuickWindow10closeEventEP11QCloseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QQuickWindow12focusInEventEP11QFocusEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QQuickWindow13focusOutEventEP11QFocusEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QQuickWindow5eventEP6QEvent": ["bool", "address", "address"],
+    "ritual_ZN12QQuickWindow13keyPressEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QQuickWindow15keyReleaseEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QQuickWindow15mousePressEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QQuickWindow17mouseReleaseEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QQuickWindow21mouseDoubleClickEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QQuickWindow14mouseMoveEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QQuickWindow10wheelEventEP11QWheelEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QQuickWindow11tabletEventEP12QTabletEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QQuickWindow11maybeUpdateEv": ["nothing", "address"],
+    "ritual_ZN12QQuickWindow17cleanupSceneGraphEv": ["nothing", "address"],
+    "ritual_ZN12QQuickWindow18physicalDpiChangedEv": ["nothing", "address"],
+    "ritual_ZN12QQuickWindow19handleScreenChangedEP7QScreen": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QQuickWindow16runJobsAfterSwapEv": ["nothing", "address"],
+    "ritual_ZN12QQuickWindow29handleApplicationStateChangedEN2Qt16ApplicationStateE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN12QQuickWindow25handleFontDatabaseChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_Zls8QQmlInfoPK12QQuickWindow": ["address", "address", "address"],
+    "ritual_take_QQuickWindow": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK12QQuickWindow11focusObjectEv": ["address", "address"],
+    "ritual_own_ZNK12QQuickWindow14accessibleRootEv": ["address", "address"],
+    "ritual_own_ZN12QQuickWindow11exposeEventEP12QExposeEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN12QQuickWindow11resizeEventEP12QResizeEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN12QQuickWindow9showEventEP10QShowEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN12QQuickWindow9hideEventEP10QHideEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN12QQuickWindow10closeEventEP11QCloseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN12QQuickWindow12focusInEventEP11QFocusEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN12QQuickWindow13focusOutEventEP11QFocusEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN12QQuickWindow5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN12QQuickWindow13keyPressEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN12QQuickWindow15keyReleaseEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN12QQuickWindow15mousePressEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN12QQuickWindow17mouseReleaseEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN12QQuickWindow21mouseDoubleClickEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN12QQuickWindow14mouseMoveEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN12QQuickWindow10wheelEventEP11QWheelEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN12QQuickWindow11tabletEventEP12QTabletEvent": [
+      "nothing", "address", "address"
+    ]
+  }
+}

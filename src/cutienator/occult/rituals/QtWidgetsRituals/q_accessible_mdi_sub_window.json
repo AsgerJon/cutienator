@@ -1,0 +1,43 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qaccessiblewidgets_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN23QAccessibleMdiSubWindow7setTextEN11QAccessible4TextERK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZNK23QAccessibleMdiSubWindow5stateEv": ["address", "address"],
+    "ritual_ZNK23QAccessibleMdiSubWindow10childCountEv": ["int", "address"],
+    "ritual_ZNK23QAccessibleMdiSubWindow5childEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK23QAccessibleMdiSubWindow12indexOfChildEPK20QAccessibleInterface": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK23QAccessibleMdiSubWindow4rectEv": ["address", "address"],
+    "ritual_ZNK23QAccessibleMdiSubWindow12mdiSubWindowEv": [
+      "address", "address"
+    ],
+    "ritual_take_QAccessibleMdiSubWindow": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN23QAccessibleMdiSubWindow7setTextEN11QAccessible4TextERK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_own_ZNK23QAccessibleMdiSubWindow5stateEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK23QAccessibleMdiSubWindow10childCountEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZNK23QAccessibleMdiSubWindow5childEi": [
+      "address", "address", "int"
+    ],
+    "ritual_own_ZNK23QAccessibleMdiSubWindow12indexOfChildEPK20QAccessibleInterface": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZNK23QAccessibleMdiSubWindow4rectEv": ["address", "address"]
+  }
+}

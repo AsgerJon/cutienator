@@ -1,0 +1,33 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickrhiitem_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QQuickRhiItemNode10metaObjectEv": ["address", "address"],
+    "ritual_ZNK17QQuickRhiItemNode7textureEv": ["address", "address"],
+    "ritual_ZN17QQuickRhiItemNode4syncEv": ["nothing", "address"],
+    "ritual_ZN17QQuickRhiItemNode18queryCommandBufferEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QQuickRhiItemNode23resetColorBufferObjectsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuickRhiItemNode24resetRenderTargetObjectsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK17QQuickRhiItemNode7isValidEv": ["bool", "address"],
+    "ritual_ZN17QQuickRhiItemNode14scheduleUpdateEv": ["nothing", "address"],
+    "ritual_ZNK17QQuickRhiItemNode11hasRendererEv": ["bool", "address"],
+    "ritual_ZN17QQuickRhiItemNode11setRendererEP21QQuickRhiItemRenderer": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QQuickRhiItemNode6renderEv": ["nothing", "address"],
+    "ritual_cast_QQuickRhiItemNode_QSGSimpleTextureNode": [
+      "address", "address"
+    ],
+    "ritual_take_QQuickRhiItemNode": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK17QQuickRhiItemNode7textureEv": ["address", "address"]
+  }
+}

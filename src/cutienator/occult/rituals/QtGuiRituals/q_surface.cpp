@@ -9,24 +9,29 @@
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
 typedef const QSurfaceFormat * (*CuteQSurfaceCall0)(const void *, int *);
-typedef int (*CuteQSurfaceCall1)(const void *, int *);
-typedef const QSize * (*CuteQSurfaceCall2)(const void *, int *);
+typedef void * (*CuteQSurfaceCall1)(const void *, int *);
+typedef int (*CuteQSurfaceCall2)(const void *, int *);
+typedef const QSize * (*CuteQSurfaceCall3)(const void *, int *);
 class CuteQSurface : public QSurface {
 public:
   using QSurface::QSurface;
-  void *taken[3] = {};
+  void *taken[4] = {};
 
   bool take(const char *key, void *call) {
     if (!std::strcmp(key, "_ZNK8QSurface6formatEv")) {
       taken[0] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK8QSurface11surfaceTypeEv")) {
+    if (!std::strcmp(key, "_ZNK8QSurface13surfaceHandleEv")) {
       taken[1] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZNK8QSurface4sizeEv")) {
+    if (!std::strcmp(key, "_ZNK8QSurface11surfaceTypeEv")) {
       taken[2] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK8QSurface4sizeEv")) {
+      taken[3] = call;
       return true;
     }
     return false;
@@ -43,11 +48,22 @@ public:
     return {};
   }
 
-  //  SurfaceType QSurface::surfaceType() const
-  QSurface::SurfaceType surfaceType() const override {
+  //  QPlatformSurface *QSurface::surfaceHandle() const
+  QPlatformSurface *surfaceHandle() const override {
     if (taken[1]) {
       int handled = 0;
       CuteQSurfaceCall1 call = reinterpret_cast<CuteQSurfaceCall1>(taken[1]);
+      void * given = call(this, &handled);
+      if (handled) return static_cast<QPlatformSurface *>(given);
+    }
+    return {};
+  }
+
+  //  SurfaceType QSurface::surfaceType() const
+  QSurface::SurfaceType surfaceType() const override {
+    if (taken[2]) {
+      int handled = 0;
+      CuteQSurfaceCall2 call = reinterpret_cast<CuteQSurfaceCall2>(taken[2]);
       int given = call(this, &handled);
       if (handled) return static_cast<QSurface::SurfaceType>(given);
     }
@@ -56,9 +72,9 @@ public:
 
   //  QSize QSurface::size() const
   QSize size() const override {
-    if (taken[2]) {
+    if (taken[3]) {
       int handled = 0;
-      CuteQSurfaceCall2 call = reinterpret_cast<CuteQSurfaceCall2>(taken[2]);
+      CuteQSurfaceCall3 call = reinterpret_cast<CuteQSurfaceCall3>(taken[3]);
       const QSize * given = call(this, &handled);
       if (handled && given) return *given;
     }
@@ -83,6 +99,13 @@ QSurface::SurfaceClass ritual_ZNK8QSurface12surfaceClassEv(
 extern "C" Q_DECL_EXPORT
 QSurfaceFormat *ritual_ZNK8QSurface6formatEv(const QSurface *self) {
   return new QSurfaceFormat(self->format());
+}
+
+//  QPlatformSurface *QSurface::surfaceHandle() const
+extern "C" Q_DECL_EXPORT
+QPlatformSurface *ritual_ZNK8QSurface13surfaceHandleEv(
+    const QSurface *self) {
+  return self->surfaceHandle();
 }
 
 //  SurfaceType QSurface::surfaceType() const

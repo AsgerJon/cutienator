@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtScxml/6.12.0/QtScxml/private/qscxmlinvokableservice_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN29QScxmlInvokableServicePrivateC1EP18QScxmlStateMachine": [
+      "address", "address"
+    ],
+    "ritual_ZNK29QScxmlInvokableServicePrivate11calculateIdEP18QScxmlStateMachineRKN23QScxmlExecutableContent10InvokeInfoEPb": [
+      "text", "address", "address", "address", "address"
+    ]
+  }
+}

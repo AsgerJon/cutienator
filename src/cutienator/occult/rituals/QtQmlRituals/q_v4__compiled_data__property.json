@@ -1,0 +1,64 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4compileddata_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK3QV412CompiledData8Property9nameIndexEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN3QV412CompiledData8Property12setNameIndexEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK3QV412CompiledData8Property9isVirtualEv": ["bool", "address"],
+    "ritual_ZN3QV412CompiledData8Property12setIsVirtualEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK3QV412CompiledData8Property10isOverrideEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN3QV412CompiledData8Property13setIsOverrideEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK3QV412CompiledData8Property7isFinalEv": ["bool", "address"],
+    "ritual_ZN3QV412CompiledData8Property10setIsFinalEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN3QV412CompiledData8Property13setCommonTypeENS0_10CommonTypeE": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZNK3QV412CompiledData8Property10commonTypeEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN3QV412CompiledData8Property16setTypeNameIndexEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK3QV412CompiledData8Property13typeNameIndexEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData8Property12isCommonTypeEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData8Property25commonTypeOrTypeNameIndexEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData8Property6isListEv": ["bool", "address"],
+    "ritual_ZN3QV412CompiledData8Property9setIsListEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK3QV412CompiledData8Property10isRequiredEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN3QV412CompiledData8Property13setIsRequiredEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK3QV412CompiledData8Property10isReadOnlyEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN3QV412CompiledData8Property13setIsReadOnlyEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN3QV412CompiledData8PropertyD1Ev": ["nothing", "address"]
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickitem_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK27QQuickKeyNavigationAttached10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QQuickKeyNavigationAttached2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN27QQuickKeyNavigationAttached6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK27QQuickKeyNavigationAttached6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QQuickKeyNavigationAttached24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QQuickKeyNavigationAttached21qt_qmlMarker_attachedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QQuickKeyNavigationAttachedC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZNK27QQuickKeyNavigationAttached4leftEv": ["address", "address"],
+    "ritual_ZN27QQuickKeyNavigationAttached7setLeftEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK27QQuickKeyNavigationAttached5rightEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QQuickKeyNavigationAttached8setRightEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK27QQuickKeyNavigationAttached2upEv": ["address", "address"],
+    "ritual_ZN27QQuickKeyNavigationAttached5setUpEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK27QQuickKeyNavigationAttached4downEv": ["address", "address"],
+    "ritual_ZN27QQuickKeyNavigationAttached7setDownEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK27QQuickKeyNavigationAttached3tabEv": ["address", "address"],
+    "ritual_ZN27QQuickKeyNavigationAttached6setTabEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK27QQuickKeyNavigationAttached7backtabEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QQuickKeyNavigationAttached10setBacktabEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK27QQuickKeyNavigationAttached8priorityEv": ["int", "address"],
+    "ritual_ZN27QQuickKeyNavigationAttached11setPriorityENS_8PriorityE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN27QQuickKeyNavigationAttached21qmlAttachedPropertiesEP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN27QQuickKeyNavigationAttached10keyPressedEP9QKeyEventb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN27QQuickKeyNavigationAttached11keyReleasedEP9QKeyEventb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN27QQuickKeyNavigationAttached18setFocusNavigationEP10QQuickItemPKcN2Qt11FocusReasonE": [
+      "nothing", "address", "address", "chars", "int"
+    ],
+    "ritual_cast_QQuickKeyNavigationAttached_QQuickItemKeyFilter": [
+      "address", "address"
+    ],
+    "ritual_own_ZN27QQuickKeyNavigationAttached10keyPressedEP9QKeyEventb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_own_ZN27QQuickKeyNavigationAttached11keyReleasedEP9QKeyEventb": [
+      "nothing", "address", "address", "bool"
+    ]
+  }
+}

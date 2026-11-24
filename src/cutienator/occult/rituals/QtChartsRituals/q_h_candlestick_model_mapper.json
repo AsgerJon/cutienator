@@ -1,0 +1,61 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/qhcandlestickmodelmapper.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZNK24QHCandlestickModelMapper10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QHCandlestickModelMapper2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN24QHCandlestickModelMapperC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZNK24QHCandlestickModelMapper11orientationEv": [
+      "int", "address"
+    ],
+    "ritual_ZN24QHCandlestickModelMapper18setTimestampColumnEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK24QHCandlestickModelMapper15timestampColumnEv": [
+      "int", "address"
+    ],
+    "ritual_ZN24QHCandlestickModelMapper13setOpenColumnEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK24QHCandlestickModelMapper10openColumnEv": ["int", "address"],
+    "ritual_ZN24QHCandlestickModelMapper13setHighColumnEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK24QHCandlestickModelMapper10highColumnEv": ["int", "address"],
+    "ritual_ZN24QHCandlestickModelMapper12setLowColumnEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK24QHCandlestickModelMapper9lowColumnEv": ["int", "address"],
+    "ritual_ZN24QHCandlestickModelMapper14setCloseColumnEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK24QHCandlestickModelMapper11closeColumnEv": [
+      "int", "address"
+    ],
+    "ritual_ZN24QHCandlestickModelMapper14setFirstSetRowEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK24QHCandlestickModelMapper11firstSetRowEv": [
+      "int", "address"
+    ],
+    "ritual_ZN24QHCandlestickModelMapper13setLastSetRowEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK24QHCandlestickModelMapper10lastSetRowEv": ["int", "address"],
+    "ritual_take_QHCandlestickModelMapper": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK24QHCandlestickModelMapper11orientationEv": [
+      "int", "address"
+    ]
+  }
+}

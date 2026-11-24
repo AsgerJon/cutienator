@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/qsgnode.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11QSGClipNodeC1Ev": ["address"],
+    "ritual_ZN11QSGClipNodeD1Ev": ["nothing", "address"],
+    "ritual_ZN11QSGClipNode16setIsRectangularEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK11QSGClipNode13isRectangularEv": ["bool", "address"],
+    "ritual_ZN11QSGClipNode11setClipRectERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QSGClipNode8clipRectEv": ["address", "address"],
+    "ritual_take_QSGClipNode": ["bool", "address", "chars", "address"]
+  }
+}

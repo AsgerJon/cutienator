@@ -1,0 +1,52 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQmlModels/6.12.0/QtQmlModels/private/qqmlfiltercompositor_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK20QQmlFilterCompositor10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QQmlFilterCompositor2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN20QQmlFilterCompositor22qt_qmlMarker_anonymousEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQmlFilterCompositorC1EP7QObject": ["address", "address"],
+    "ritual_ZN20QQmlFilterCompositor7filtersEv": ["address", "address"],
+    "ritual_ZNK20QQmlFilterCompositor24filterAcceptsRowInternalEiRK11QModelIndexPK24QQmlSortFilterProxyModel": [
+      "bool", "address", "int", "address", "address"
+    ],
+    "ritual_ZNK20QQmlFilterCompositor27filterAcceptsColumnInternalEiRK11QModelIndexPK24QQmlSortFilterProxyModel": [
+      "bool", "address", "int", "address", "address"
+    ],
+    "ritual_ZN20QQmlFilterCompositor13updateFiltersEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQmlFilterCompositor6appendEP14QQmlFilterBase": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQmlFilterCompositor5countEv": ["long long", "address"],
+    "ritual_ZN20QQmlFilterCompositor2atEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN20QQmlFilterCompositor5clearEv": ["nothing", "address"],
+    "ritual_ZN20QQmlFilterCompositorC1EP21QQmlFilterBasePrivateP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN20QQmlFilterCompositor12refreshCacheEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQmlFilterCompositor6d_funcEv": ["address", "address"],
+    "ritual_ZNK20QQmlFilterCompositor6d_funcEv": ["address", "address"],
+    "ritual_own_ZNK20QQmlFilterCompositor24filterAcceptsRowInternalEiRK11QModelIndexPK24QQmlSortFilterProxyModel": [
+      "bool", "address", "int", "address", "address"
+    ],
+    "ritual_own_ZNK20QQmlFilterCompositor27filterAcceptsColumnInternalEiRK11QModelIndexPK24QQmlSortFilterProxyModel": [
+      "bool", "address", "int", "address", "address"
+    ],
+    "ritual_own_ZN20QQmlFilterCompositor12refreshCacheEv": [
+      "nothing", "address"
+    ]
+  }
+}

@@ -1,0 +1,143 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquicktextfield_p_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN22QQuickTextFieldPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK22QQuickTextFieldPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN22QQuickTextFieldPrivateC1Ev": ["address"],
+    "ritual_ZN22QQuickTextFieldPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN22QQuickTextFieldPrivate3getEP15QQuickTextField": [
+      "address", "address"
+    ],
+    "ritual_ZNK22QQuickTextFieldPrivate8getInsetEv": ["address", "address"],
+    "ritual_ZNK22QQuickTextFieldPrivate11getTopInsetEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK22QQuickTextFieldPrivate12getLeftInsetEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK22QQuickTextFieldPrivate13getRightInsetEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK22QQuickTextFieldPrivate14getBottomInsetEv": [
+      "double", "address"
+    ],
+    "ritual_ZN22QQuickTextFieldPrivate11setTopInsetEdb": [
+      "nothing", "address", "double", "bool"
+    ],
+    "ritual_ZN22QQuickTextFieldPrivate12setLeftInsetEdb": [
+      "nothing", "address", "double", "bool"
+    ],
+    "ritual_ZN22QQuickTextFieldPrivate13setRightInsetEdb": [
+      "nothing", "address", "double", "bool"
+    ],
+    "ritual_ZN22QQuickTextFieldPrivate14setBottomInsetEdb": [
+      "nothing", "address", "double", "bool"
+    ],
+    "ritual_ZN22QQuickTextFieldPrivate16resizeBackgroundEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickTextFieldPrivate11resolveFontEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickTextFieldPrivate11inheritFontERK5QFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQuickTextFieldPrivate10updateFontERK5QFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQuickTextFieldPrivate14setFont_helperERK5QFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQuickTextFieldPrivate18updateHoverEnabledEbb": [
+      "nothing", "address", "bool", "bool"
+    ],
+    "ritual_ZNK22QQuickTextFieldPrivate16getImplicitWidthEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK22QQuickTextFieldPrivate17getImplicitHeightEv": [
+      "double", "address"
+    ],
+    "ritual_ZN22QQuickTextFieldPrivate20implicitWidthChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickTextFieldPrivate21implicitHeightChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickTextFieldPrivate15readOnlyChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN22QQuickTextFieldPrivate26accessibilityActiveChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN22QQuickTextFieldPrivate16cancelBackgroundEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickTextFieldPrivate17executeBackgroundEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN22QQuickTextFieldPrivate19itemGeometryChangedEP10QQuickItem20QQuickGeometryChangeRK6QRectF": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN22QQuickTextFieldPrivate24itemImplicitWidthChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQuickTextFieldPrivate25itemImplicitHeightChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQuickTextFieldPrivate13itemDestroyedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK22QQuickTextFieldPrivate14defaultPaletteEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QQuickTextFieldPrivate24setLastFocusChangeReasonEN2Qt11FocusReasonE": [
+      "bool", "address", "int"
+    ],
+    "ritual_cast_QQuickTextFieldPrivate_QQuickItemChangeListener": [
+      "address", "address"
+    ],
+    "ritual_take_QQuickTextFieldPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK22QQuickTextFieldPrivate16getImplicitWidthEv": [
+      "double", "address"
+    ],
+    "ritual_own_ZNK22QQuickTextFieldPrivate17getImplicitHeightEv": [
+      "double", "address"
+    ],
+    "ritual_own_ZN22QQuickTextFieldPrivate20implicitWidthChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN22QQuickTextFieldPrivate21implicitHeightChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN22QQuickTextFieldPrivate15readOnlyChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZN22QQuickTextFieldPrivate26accessibilityActiveChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZN22QQuickTextFieldPrivate19itemGeometryChangedEP10QQuickItem20QQuickGeometryChangeRK6QRectF": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN22QQuickTextFieldPrivate24itemImplicitWidthChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN22QQuickTextFieldPrivate25itemImplicitHeightChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN22QQuickTextFieldPrivate13itemDestroyedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK22QQuickTextFieldPrivate14defaultPaletteEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN22QQuickTextFieldPrivate24setLastFocusChangeReasonEN2Qt11FocusReasonE": [
+      "bool", "address", "int"
+    ]
+  }
+}

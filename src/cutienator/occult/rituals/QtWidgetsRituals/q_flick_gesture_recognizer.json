@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qflickgesture_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN23QFlickGestureRecognizer6createEP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN23QFlickGestureRecognizer5resetEP8QGesture": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QFlickGestureRecognizerD1Ev": ["nothing", "address"],
+    "ritual_own_ZN23QFlickGestureRecognizer6createEP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN23QFlickGestureRecognizer5resetEP8QGesture": [
+      "nothing", "address", "address"
+    ]
+  }
+}

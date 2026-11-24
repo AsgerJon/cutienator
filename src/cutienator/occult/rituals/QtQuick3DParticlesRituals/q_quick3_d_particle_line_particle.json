@@ -1,0 +1,135 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DParticles/6.12.0/QtQuick3DParticles/private/qquick3dparticleline",
+    "particle_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK28QQuick3DParticleLineParticle10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QQuick3DParticleLineParticle2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN28QQuick3DParticleLineParticleC1EP12QQuick3DNode": [
+      "address", "address"
+    ],
+    "ritual_ZN28QQuick3DParticleLineParticleD1Ev": ["nothing", "address"],
+    "ritual_ZNK28QQuick3DParticleLineParticle12segmentCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK28QQuick3DParticleLineParticle9alphaFadeEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK28QQuick3DParticleLineParticle15scaleMultiplierEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK28QQuick3DParticleLineParticle18texcoordMultiplierEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK28QQuick3DParticleLineParticle6lengthEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK28QQuick3DParticleLineParticle15lengthVariationEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK28QQuick3DParticleLineParticle14lengthDeltaMinEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK28QQuick3DParticleLineParticle18eolFadeOutDurationEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK28QQuick3DParticleLineParticle12texcoordModeEv": [
+      "int", "address"
+    ],
+    "ritual_ZN28QQuick3DParticleLineParticle15setSegmentCountEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN28QQuick3DParticleLineParticle12setAlphaFadeEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN28QQuick3DParticleLineParticle18setScaleMultiplierEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN28QQuick3DParticleLineParticle21setTexcoordMultiplierEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN28QQuick3DParticleLineParticle9setLengthEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN28QQuick3DParticleLineParticle18setLengthVariationEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN28QQuick3DParticleLineParticle17setLengthDeltaMinEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN28QQuick3DParticleLineParticle21setEolFadeOutDurationEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN28QQuick3DParticleLineParticle15setTexcoordModeENS_12TexcoordModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN28QQuick3DParticleLineParticle14updateLineNodeEP21QSSGRenderGraphObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN28QQuick3DParticleLineParticle25handleSegmentCountChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QQuick3DParticleLineParticle17updateLineSegmentEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN28QQuick3DParticleLineParticle12clearSegmentEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN28QQuick3DParticleLineParticle22handleMaxAmountChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN28QQuick3DParticleLineParticle19handleSystemChangedEP22QQuick3DParticleSystem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QQuick3DParticleLineParticle5resetEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QQuick3DParticleLineParticle15commitParticlesEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN28QQuick3DParticleLineParticle16nextCurrentIndexEPK23QQuick3DParticleEmitter": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN28QQuick3DParticleLineParticle15saveLineSegmentEif": [
+      "nothing", "address", "int", "float"
+    ],
+    "ritual_ZN28QQuick3DParticleLineParticle15setParticleDataEiRK9QVector3DS2_RK9QVector4Dfff": [
+      "nothing", "address", "int", "address", "address", "address", "float",
+      "float", "float"
+    ],
+    "ritual_ZN28QQuick3DParticleLineParticle17resetParticleDataEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_take_QQuick3DParticleLineParticle": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN28QQuick3DParticleLineParticle22handleMaxAmountChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN28QQuick3DParticleLineParticle19handleSystemChangedEP22QQuick3DParticleSystem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN28QQuick3DParticleLineParticle5resetEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN28QQuick3DParticleLineParticle15commitParticlesEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_own_ZN28QQuick3DParticleLineParticle16nextCurrentIndexEPK23QQuick3DParticleEmitter": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZN28QQuick3DParticleLineParticle15setParticleDataEiRK9QVector3DS2_RK9QVector4Dfff": [
+      "nothing", "address", "int", "address", "address", "address", "float",
+      "float", "float"
+    ],
+    "ritual_own_ZN28QQuick3DParticleLineParticle17resetParticleDataEi": [
+      "nothing", "address", "int"
+    ]
+  }
+}

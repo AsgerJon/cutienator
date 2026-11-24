@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Dialogs2QuickImpl/6.12.0/QtQuickDialogs2QuickImpl/private/qquickfi",
+    "ledialogimpl_p_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN35QQuickFileDialogImplAttachedPrivate20fileNameEditedByUserEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN35QQuickFileDialogImplAttachedPrivate29fileNameEditingByUserFinishedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN35QQuickFileDialogImplAttachedPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK35QQuickFileDialogImplAttachedPrivate6q_funcEv": [
+      "address", "address"
+    ]
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4compileddata_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN3QV412CompiledData7Binding10clearFlagsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN3QV412CompiledData7Binding7setFlagENS1_4FlagE": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZNK3QV412CompiledData7Binding7hasFlagENS1_4FlagE": [
+      "bool", "address", "unsigned int"
+    ],
+    "ritual_ZNK3QV412CompiledData7Binding5flagsEv": ["int", "address"],
+    "ritual_ZN3QV412CompiledData7Binding7setTypeENS1_4TypeE": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZNK3QV412CompiledData7Binding4typeEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData7Binding27hasSignalHandlerBindingFlagEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData7Binding14isValueBindingEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData7Binding21isValueBindingNoAliasEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData7Binding21isValueBindingToAliasEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData7Binding15isSignalHandlerEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData7Binding18isAttachedPropertyEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData7Binding15isGroupPropertyEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData7Binding20isFunctionExpressionEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN3QV412CompiledData7Binding13escapedStringERK7QString": [
+      "text", "text"
+    ],
+    "ritual_ZNK3QV412CompiledData7Binding20isTranslationBindingEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData7Binding17evaluatesToStringEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData7Binding15isNumberBindingEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData7Binding14valueAsBooleanEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN3QV412CompiledData7BindingD1Ev": ["nothing", "address"]
+  }
+}

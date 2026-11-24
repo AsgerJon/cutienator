@@ -1,0 +1,14 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtScxml/6.12.0/QtScxml/private/qscxmlevent_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QScxmlEventPrivateC1Ev": ["address"],
+    "ritual_ZN18QScxmlEventPrivate11debugStringEP11QScxmlEvent": [
+      "address", "address"
+    ],
+    "ritual_ZN18QScxmlEventPrivateD1Ev": ["nothing", "address"]
+  }
+}

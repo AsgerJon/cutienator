@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qitemeditorfactory.h, Qt 6.12.0. Changes made here are lost.
+#include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(itemviews)
 #include <QtWidgets/qitemeditorfactory.h>
 #include <QtCore/qbytearray.h>
 #include <cstring>
@@ -7,8 +9,12 @@
 //  A QItemEditorFactory that Python can take functions over in. Every QItemEditorFactory
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if QT_CONFIG(itemviews)
 typedef void * (*CuteQItemEditorFactoryCall0)(const void *, int, QWidget *, int *);
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
 typedef const QByteArray * (*CuteQItemEditorFactoryCall1)(const void *, int, int *);
+#endif  // QT_CONFIG(itemviews)
 class CuteQItemEditorFactory : public QItemEditorFactory {
 public:
   using QItemEditorFactory::QItemEditorFactory;
@@ -16,17 +22,22 @@ public:
   void *taken[2] = {};
 
   bool take(const char *key, void *call) {
+#if QT_CONFIG(itemviews)
     if (!std::strcmp(key, "_ZNK18QItemEditorFactory12createEditorEiP7QWidget")) {
       taken[0] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
     if (!std::strcmp(key, "_ZNK18QItemEditorFactory17valuePropertyNameEi")) {
       taken[1] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemviews)
     return false;
   }
 
+#if QT_CONFIG(itemviews)
   //  QWidget *QItemEditorFactory::createEditor(int userType, QWidget
   //      *parent) const
   QWidget *createEditor(int userType, QWidget *parent) const override {
@@ -38,7 +49,9 @@ public:
     }
     return QItemEditorFactory::createEditor(userType, parent);
   }
+#endif  // QT_CONFIG(itemviews)
 
+#if QT_CONFIG(itemviews)
   //  QByteArray QItemEditorFactory::valuePropertyName(int userType) const
   QByteArray valuePropertyName(int userType) const override {
     if (taken[1]) {
@@ -49,6 +62,7 @@ public:
     }
     return QItemEditorFactory::valuePropertyName(userType);
   }
+#endif  // QT_CONFIG(itemviews)
 };
 
 //  QItemEditorFactory::QItemEditorFactory()
@@ -133,3 +147,5 @@ QByteArray *ritual_own_ZNK18QItemEditorFactory17valuePropertyNameEi(
       self->QItemEditorFactory::valuePropertyName(
           userType));
 }
+
+#endif  // QT_CONFIG(itemviews)

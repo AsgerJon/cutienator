@@ -1,0 +1,43 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickpointerhandler_p_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN27QQuickPointerHandlerPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK27QQuickPointerHandlerPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QQuickPointerHandlerPrivate3getEP20QQuickPointerHandler": [
+      "address", "address"
+    ],
+    "ritual_ZN27QQuickPointerHandlerPrivate3getEPK20QQuickPointerHandler": [
+      "address", "address"
+    ],
+    "ritual_ZN27QQuickPointerHandlerPrivateC1Ev": ["address"],
+    "ritual_ZNK27QQuickPointerHandlerPrivate17dragOverThresholdE9QVector2D": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK27QQuickPointerHandlerPrivate17dragOverThresholdERK11QEventPoint": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN27QQuickPointerHandlerPrivate15onParentChangedEP10QQuickItemS1_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN27QQuickPointerHandlerPrivate16onEnabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QQuickPointerHandlerPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN27QQuickPointerHandlerPrivate15onParentChangedEP10QQuickItemS1_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN27QQuickPointerHandlerPrivate16onEnabledChangedEv": [
+      "nothing", "address"
+    ]
+  }
+}

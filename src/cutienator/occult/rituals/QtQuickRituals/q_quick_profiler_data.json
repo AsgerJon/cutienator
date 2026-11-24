@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickprofiler_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QQuickProfilerDataC1Ev": ["address"],
+    "ritual_ZN18QQuickProfilerDataC1ExiiRK4QUrliiii": [
+      "address", "long long", "int", "int", "address", "int", "int", "int",
+      "int"
+    ],
+    "ritual_ZN18QQuickProfilerDataC1Exiiiii": [
+      "address", "long long", "int", "int", "int", "int", "int"
+    ],
+    "ritual_ZN18QQuickProfilerDataC1Exiixxxxx": [
+      "address", "long long", "int", "int", "long long", "long long",
+      "long long", "long long", "long long"
+    ],
+    "ritual_ZN18QQuickProfilerDataD1Ev": ["nothing", "address"],
+    "ritual_list_make_QQuickProfilerData": ["address"],
+    "ritual_list_add_QQuickProfilerData": ["nothing", "address", "address"],
+    "ritual_list_size_QQuickProfilerData": ["long long", "address"],
+    "ritual_list_at_QQuickProfilerData": ["address", "address", "long long"],
+    "ritual_list_drop_QQuickProfilerData": ["nothing", "address"]
+  }
+}

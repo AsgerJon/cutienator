@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qinputdevicemanager_p_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN26QInputDeviceManagerPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK26QInputDeviceManagerPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QInputDeviceManagerPrivate3getEP19QInputDeviceManager": [
+      "address", "address"
+    ],
+    "ritual_ZNK26QInputDeviceManagerPrivate11deviceCountEN19QInputDeviceManager10DeviceTypeE": [
+      "int", "address", "int"
+    ],
+    "ritual_ZN26QInputDeviceManagerPrivate14setDeviceCountEN19QInputDeviceManager10DeviceTypeEi": [
+      "nothing", "address", "int", "int"
+    ]
+  }
+}

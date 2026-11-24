@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/qstringconverter_base.h, Qt 6.12.0. Changes made here are lost.
+#include <QtCore/qglobal.h>
+#if QT_VERSION < QT_VERSION_CHECK(7, 0, 0) && !defined(Q_QDOC) && !defined(QT_BOOTSTRAPPED)
 #include <QtCore/qstringconverter.h>
 #include <QtCore/qanystringview.h>
 #include <QtCore/qstring.h>
@@ -74,3 +76,5 @@ extern "C" Q_DECL_EXPORT
 QList<QString> *ritual_ZN16QStringConverter15availableCodecsEv() {
   return new QList<QString>(QStringConverter::availableCodecs());
 }
+
+#endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0) && !defined(Q_QDOC) && !defined(QT_BOOTSTRAPPED)

@@ -1,0 +1,26 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4scopedvalue_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN3QV417ScopedPropertyKeyptEv": ["address", "address"],
+    "ritual_ZNK3QV417ScopedPropertyKeycvNS_11PropertyKeyEEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV417ScopedPropertyKeyeqERKNS_11PropertyKeyE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK3QV417ScopedPropertyKeyeqERKS0_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK3QV417ScopedPropertyKeyneERKNS_11PropertyKeyE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK3QV417ScopedPropertyKeyneERKS0_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN3QV417ScopedPropertyKeyD1Ev": ["nothing", "address"]
+  }
+}

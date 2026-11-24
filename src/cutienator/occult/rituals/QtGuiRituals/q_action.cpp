@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGui/qaction.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
+#if QT_CONFIG(action)
 #include <QtGui/qaction.h>
 #include <QtCore/qstring.h>
 #include <QtGui/qicon.h>
@@ -20,50 +22,84 @@ struct OwnQAction : QAction {
 //  A QAction that Python can take functions over in. Every QAction
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(action)
 typedef bool (*CuteQActionCall0)(const void *, QEvent *, int *);
+#endif  // QT_CONFIG(action)
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQActionCall1)(const void *, QObject *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQActionCall2)(const void *, QTimerEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQActionCall3)(const void *, QChildEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQActionCall4)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQActionCall5)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQActionCall6)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 class CuteQAction : public QAction {
 public:
   using QAction::QAction;
   void *taken[7] = {};
 
   bool take(const char *key, void *call) {
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(action)
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[0] = call;
       return true;
     }
+#endif  // QT_CONFIG(action)
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[1] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[2] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[3] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[4] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[5] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
       taken[6] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
     return false;
   }
 
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(action)
   //  bool QAction::event(QEvent *a0)
   bool event(QEvent *a0) override {
     if (taken[0]) {
@@ -74,7 +110,10 @@ public:
     }
     return QAction::event(a0);
   }
+#endif  // QT_CONFIG(action)
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
     if (taken[1]) {
@@ -85,7 +124,9 @@ public:
     }
     return QObject::eventFilter(watched, event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
     if (taken[2]) {
@@ -96,7 +137,9 @@ public:
     }
     QObject::timerEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
     if (taken[3]) {
@@ -107,7 +150,9 @@ public:
     }
     QObject::childEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
     if (taken[4]) {
@@ -118,7 +163,9 @@ public:
     }
     QObject::customEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
     if (taken[5]) {
@@ -129,7 +176,9 @@ public:
     }
     QObject::connectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
     if (taken[6]) {
@@ -140,6 +189,7 @@ public:
     }
     QObject::disconnectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 };
 
 //  const QMetaObject *QAction::metaObject() const
@@ -152,6 +202,18 @@ const QMetaObject *ritual_ZNK7QAction10metaObjectEv(const QAction *self) {
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN7QAction2trEPKcS1_i(const char *s, const char *c, int n) {
   return new QString(QAction::tr(s, c, n));
+}
+
+//  QActionPrivate *QAction::d_func()
+extern "C" Q_DECL_EXPORT
+QActionPrivate *ritual_ZN7QAction6d_funcEv(QAction *self) {
+  return self->d_func();
+}
+
+//  const QActionPrivate *QAction::d_func() const
+extern "C" Q_DECL_EXPORT
+const QActionPrivate *ritual_ZNK7QAction6d_funcEv(const QAction *self) {
+  return self->d_func();
 }
 
 //  QAction::QAction(QObject *parent)
@@ -312,6 +374,7 @@ bool ritual_ZNK7QAction11isSeparatorEv(const QAction *self) {
   return self->isSeparator();
 }
 
+#if QT_CONFIG(shortcut)
 //  void QAction::setShortcut(const QKeySequence &shortcut)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7QAction11setShortcutERK12QKeySequence(
@@ -319,13 +382,17 @@ void ritual_ZN7QAction11setShortcutERK12QKeySequence(
     const QKeySequence *shortcut) {
   self->setShortcut(*shortcut);
 }
+#endif  // QT_CONFIG(shortcut)
 
+#if QT_CONFIG(shortcut)
 //  QKeySequence QAction::shortcut() const
 extern "C" Q_DECL_EXPORT
 QKeySequence *ritual_ZNK7QAction8shortcutEv(const QAction *self) {
   return new QKeySequence(self->shortcut());
 }
+#endif  // QT_CONFIG(shortcut)
 
+#if QT_CONFIG(shortcut)
 //  void QAction::setShortcuts(const QList<QKeySequence> &shortcuts)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7QAction12setShortcutsERK5QListI12QKeySequenceE(
@@ -333,7 +400,9 @@ void ritual_ZN7QAction12setShortcutsERK5QListI12QKeySequenceE(
     const QList<QKeySequence> *shortcuts) {
   self->setShortcuts(*shortcuts);
 }
+#endif  // QT_CONFIG(shortcut)
 
+#if QT_CONFIG(shortcut)
 //  void QAction::setShortcuts(QKeySequence::StandardKey a0)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7QAction12setShortcutsEN12QKeySequence11StandardKeyE(
@@ -341,13 +410,17 @@ void ritual_ZN7QAction12setShortcutsEN12QKeySequence11StandardKeyE(
     QKeySequence::StandardKey a0) {
   self->setShortcuts(a0);
 }
+#endif  // QT_CONFIG(shortcut)
 
+#if QT_CONFIG(shortcut)
 //  QList<QKeySequence> QAction::shortcuts() const
 extern "C" Q_DECL_EXPORT
 QList<QKeySequence> *ritual_ZNK7QAction9shortcutsEv(const QAction *self) {
   return new QList<QKeySequence>(self->shortcuts());
 }
+#endif  // QT_CONFIG(shortcut)
 
+#if QT_CONFIG(shortcut)
 //  void QAction::setShortcutContext(Qt::ShortcutContext context)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7QAction18setShortcutContextEN2Qt15ShortcutContextE(
@@ -355,25 +428,32 @@ void ritual_ZN7QAction18setShortcutContextEN2Qt15ShortcutContextE(
     Qt::ShortcutContext context) {
   self->setShortcutContext(context);
 }
+#endif  // QT_CONFIG(shortcut)
 
+#if QT_CONFIG(shortcut)
 //  Qt::ShortcutContext QAction::shortcutContext() const
 extern "C" Q_DECL_EXPORT
 Qt::ShortcutContext ritual_ZNK7QAction15shortcutContextEv(
     const QAction *self) {
   return self->shortcutContext();
 }
+#endif  // QT_CONFIG(shortcut)
 
+#if QT_CONFIG(shortcut)
 //  void QAction::setAutoRepeat(bool a0)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7QAction13setAutoRepeatEb(QAction *self, bool a0) {
   self->setAutoRepeat(a0);
 }
+#endif  // QT_CONFIG(shortcut)
 
+#if QT_CONFIG(shortcut)
 //  bool QAction::autoRepeat() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK7QAction10autoRepeatEv(const QAction *self) {
   return self->autoRepeat();
 }
+#endif  // QT_CONFIG(shortcut)
 
 //  void QAction::setFont(const QFont &font)
 extern "C" Q_DECL_EXPORT
@@ -600,3 +680,5 @@ extern "C" Q_DECL_EXPORT
 void ritual_list_drop_QAction_ptr(QList<QAction *> *self) {
   delete self;
 }
+
+#endif  // QT_CONFIG(action)

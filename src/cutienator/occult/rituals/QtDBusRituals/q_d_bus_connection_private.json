@@ -1,0 +1,46 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDBus/6.12.0/QtDBus/private/qdbusconnection_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK22QDBusConnectionPrivate10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QDBusConnectionPrivate18shouldWatchServiceERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN22QDBusConnectionPrivate15registerServiceERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN22QDBusConnectionPrivate17unregisterServiceERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN22QDBusConnectionPrivate17postEventToThreadEiP7QObjectP6QEvent": [
+      "nothing", "address", "int", "address", "address"
+    ],
+    "ritual_ZN22QDBusConnectionPrivate27isServiceRegisteredByThreadERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN22QDBusConnectionPrivate10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QDBusConnectionPrivate21registerServiceNoLockERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN22QDBusConnectionPrivate23unregisterServiceNoLockERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK22QDBusConnectionPrivate22connectionCapabilitiesEv": [
+      "int", "address"
+    ],
+    "ritual_ZN22QDBusConnectionPrivate1dERK15QDBusConnection": [
+      "address", "address"
+    ],
+    "ritual_ZN22QDBusConnectionPrivate1qEPS_": ["address", "address"],
+    "ritual_take_QDBusConnectionPrivate": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

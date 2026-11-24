@@ -1,0 +1,20 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/ui4_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN6DomRowC1Ev": ["address"],
+    "ritual_ZN6DomRowD1Ev": ["nothing", "address"],
+    "ritual_ZNK6DomRow15elementPropertyEv": ["address", "address"],
+    "ritual_ZN6DomRow18setElementPropertyERK5QListIP11DomPropertyE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_list_make_DomRow_ptr": ["address"],
+    "ritual_list_add_DomRow_ptr": ["nothing", "address", "address"],
+    "ritual_list_size_DomRow_ptr": ["long long", "address"],
+    "ritual_list_at_DomRow_ptr": ["address", "address", "long long"],
+    "ritual_list_drop_DomRow_ptr": ["nothing", "address"]
+  }
+}

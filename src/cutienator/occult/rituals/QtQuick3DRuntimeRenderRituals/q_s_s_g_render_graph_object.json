@@ -1,0 +1,58 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/ssg/qssgrendergrapho",
+    "bject.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN21QSSGRenderGraphObject10isNodeTypeENS_4TypeE": [
+      "bool", "unsigned int"
+    ],
+    "ritual_ZN21QSSGRenderGraphObject7isLightENS_4TypeE": [
+      "bool", "unsigned int"
+    ],
+    "ritual_ZN21QSSGRenderGraphObject8isCameraENS_4TypeE": [
+      "bool", "unsigned int"
+    ],
+    "ritual_ZN21QSSGRenderGraphObject10isMaterialENS_4TypeE": [
+      "bool", "unsigned int"
+    ],
+    "ritual_ZN21QSSGRenderGraphObject9isTextureENS_4TypeE": [
+      "bool", "unsigned int"
+    ],
+    "ritual_ZN21QSSGRenderGraphObject12isRenderableENS_4TypeE": [
+      "bool", "unsigned int"
+    ],
+    "ritual_ZN21QSSGRenderGraphObject10isResourceENS_4TypeE": [
+      "bool", "unsigned int"
+    ],
+    "ritual_ZN21QSSGRenderGraphObject11isExtensionENS_4TypeE": [
+      "bool", "unsigned int"
+    ],
+    "ritual_ZN21QSSGRenderGraphObject10isUserTypeENS_4TypeE": [
+      "bool", "unsigned int"
+    ],
+    "ritual_ZNK21QSSGRenderGraphObject20hasGraphicsResourcesEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QSSGRenderGraphObjectD1Ev": ["nothing", "address"],
+    "ritual_Zls6QDebugN21QSSGRenderGraphObject4TypeE": [
+      "address", "address", "unsigned int"
+    ],
+    "ritual_ZN21QSSGRenderGraphObjectC1ENS_4TypeE": [
+      "address", "unsigned int"
+    ],
+    "ritual_ZN21QSSGRenderGraphObjectC1ENS_4TypeEj": [
+      "address", "unsigned int", "unsigned int"
+    ],
+    "ritual_list_make_QSSGRenderGraphObject_ptr": ["address"],
+    "ritual_list_add_QSSGRenderGraphObject_ptr": [
+      "nothing", "address", "address"
+    ],
+    "ritual_list_size_QSSGRenderGraphObject_ptr": ["long long", "address"],
+    "ritual_list_at_QSSGRenderGraphObject_ptr": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_QSSGRenderGraphObject_ptr": ["nothing", "address"]
+  }
+}

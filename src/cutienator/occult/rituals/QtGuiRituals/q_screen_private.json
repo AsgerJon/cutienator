@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qscreen_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN14QScreenPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK14QScreenPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN14QScreenPrivate14updateGeometryEv": ["nothing", "address"],
+    "ritual_ZN14QScreenPrivate24updatePrimaryOrientationEv": [
+      "nothing", "address"
+    ],
+    "ritual_cast_QScreenPrivate_QScreenData": ["address", "address"]
+  }
+}

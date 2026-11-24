@@ -1,0 +1,118 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qabstractspinbox_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN23QAbstractSpinBoxPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK23QAbstractSpinBoxPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN23QAbstractSpinBoxPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN23QAbstractSpinBoxPrivate5resetEv": ["nothing", "address"],
+    "ritual_ZNK23QAbstractSpinBoxPrivate8strippedERK7QStringPi": [
+      "text", "address", "text", "address"
+    ],
+    "ritual_ZNK23QAbstractSpinBoxPrivate12specialValueEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK23QAbstractSpinBoxPrivate14getZeroVariantEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QAbstractSpinBoxPrivate8setRangeERK8QVariantS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN23QAbstractSpinBoxPrivate8setValueERK8QVariant10EmitPolicyb": [
+      "nothing", "address", "address", "int", "bool"
+    ],
+    "ritual_ZNK23QAbstractSpinBoxPrivate5boundERK8QVariantS2_i": [
+      "address", "address", "address", "address", "int"
+    ],
+    "ritual_ZNK23QAbstractSpinBoxPrivate10roundValueERK8QVariant": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN23QAbstractSpinBoxPrivate10updateEditEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QAbstractSpinBoxPrivate11emitSignalsE10EmitPolicyRK8QVariant": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN23QAbstractSpinBoxPrivate9interpretE10EmitPolicy": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK23QAbstractSpinBoxPrivate13textFromValueERK8QVariant": [
+      "text", "address", "address"
+    ],
+    "ritual_ZNK23QAbstractSpinBoxPrivate13valueFromTextERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN23QAbstractSpinBoxPrivate17editorTextChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN23QAbstractSpinBoxPrivate27editorCursorPositionChangedEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN23QAbstractSpinBoxPrivate15newHoverControlERK6QPoint": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN23QAbstractSpinBoxPrivate18updateHoverControlERK6QPoint": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK23QAbstractSpinBoxPrivate10clearCacheEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QAbstractSpinBoxPrivate23updateEditFieldGeometryEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QAbstractSpinBoxPrivate14variantCompareERK8QVariantS2_": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN23QAbstractSpinBoxPrivate12variantBoundERK8QVariantS2_S2_": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK23QAbstractSpinBoxPrivate28calculateAdaptiveDecimalStepEi": [
+      "address", "address", "int"
+    ],
+    "ritual_take_QAbstractSpinBoxPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK23QAbstractSpinBoxPrivate14getZeroVariantEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN23QAbstractSpinBoxPrivate8setRangeERK8QVariantS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZNK23QAbstractSpinBoxPrivate5boundERK8QVariantS2_i": [
+      "address", "address", "address", "address", "int"
+    ],
+    "ritual_own_ZNK23QAbstractSpinBoxPrivate10roundValueERK8QVariant": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN23QAbstractSpinBoxPrivate10updateEditEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN23QAbstractSpinBoxPrivate11emitSignalsE10EmitPolicyRK8QVariant": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZNK23QAbstractSpinBoxPrivate13textFromValueERK8QVariant": [
+      "text", "address", "address"
+    ],
+    "ritual_own_ZNK23QAbstractSpinBoxPrivate13valueFromTextERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_own_ZN23QAbstractSpinBoxPrivate27editorCursorPositionChangedEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZN23QAbstractSpinBoxPrivate15newHoverControlERK6QPoint": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZNK23QAbstractSpinBoxPrivate10clearCacheEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN23QAbstractSpinBoxPrivate23updateEditFieldGeometryEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZNK23QAbstractSpinBoxPrivate28calculateAdaptiveDecimalStepEi": [
+      "address", "address", "int"
+    ]
+  }
+}

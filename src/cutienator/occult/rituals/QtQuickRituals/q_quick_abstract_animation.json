@@ -1,0 +1,109 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickanimation_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK23QQuickAbstractAnimation10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QQuickAbstractAnimation2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN23QQuickAbstractAnimation6d_funcEv": ["address", "address"],
+    "ritual_ZNK23QQuickAbstractAnimation6d_funcEv": ["address", "address"],
+    "ritual_ZN23QQuickAbstractAnimation24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickAbstractAnimationC1EP7QObject": ["address", "address"],
+    "ritual_ZN23QQuickAbstractAnimationD1Ev": ["nothing", "address"],
+    "ritual_ZNK23QQuickAbstractAnimation9isRunningEv": ["bool", "address"],
+    "ritual_ZN23QQuickAbstractAnimation10setRunningEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK23QQuickAbstractAnimation8isPausedEv": ["bool", "address"],
+    "ritual_ZN23QQuickAbstractAnimation9setPausedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK23QQuickAbstractAnimation14alwaysRunToEndEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN23QQuickAbstractAnimation17setAlwaysRunToEndEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK23QQuickAbstractAnimation5loopsEv": ["int", "address"],
+    "ritual_ZN23QQuickAbstractAnimation8setLoopsEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK23QQuickAbstractAnimation8durationEv": ["int", "address"],
+    "ritual_ZN23QQuickAbstractAnimation11currentTimeEv": ["int", "address"],
+    "ritual_ZN23QQuickAbstractAnimation14setCurrentTimeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK23QQuickAbstractAnimation5groupEv": ["address", "address"],
+    "ritual_ZN23QQuickAbstractAnimation8setGroupEP20QQuickAnimationGroupi": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN23QQuickAbstractAnimation16setDefaultTargetERK12QQmlProperty": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QQuickAbstractAnimation21setDisableUserControlEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickAbstractAnimation20setEnableUserControlEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK23QQuickAbstractAnimation19userControlDisabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN23QQuickAbstractAnimation10classBeginEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickAbstractAnimation17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK23QQuickAbstractAnimation14threadingModelEv": [
+      "int", "address"
+    ],
+    "ritual_ZN23QQuickAbstractAnimation7restartEv": ["nothing", "address"],
+    "ritual_ZN23QQuickAbstractAnimation5startEv": ["nothing", "address"],
+    "ritual_ZN23QQuickAbstractAnimation5pauseEv": ["nothing", "address"],
+    "ritual_ZN23QQuickAbstractAnimation6resumeEv": ["nothing", "address"],
+    "ritual_ZN23QQuickAbstractAnimation4stopEv": ["nothing", "address"],
+    "ritual_ZN23QQuickAbstractAnimation8completeEv": ["nothing", "address"],
+    "ritual_ZN23QQuickAbstractAnimation12initInstanceEP21QAbstractAnimationJob": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN23QQuickAbstractAnimation11qtAnimationEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QQuickAbstractAnimation9setTargetERK12QQmlProperty": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QQuickAbstractAnimation20notifyRunningChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_cast_QQuickAbstractAnimation_QQmlPropertyValueSource": [
+      "address", "address"
+    ],
+    "ritual_cast_QQuickAbstractAnimation_QQmlParserStatus": [
+      "address", "address"
+    ],
+    "ritual_take_QQuickAbstractAnimation": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN23QQuickAbstractAnimation10classBeginEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN23QQuickAbstractAnimation17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZNK23QQuickAbstractAnimation14threadingModelEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZN23QQuickAbstractAnimation9setTargetERK12QQmlProperty": [
+      "nothing", "address", "address"
+    ]
+  }
+}

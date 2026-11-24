@@ -1,0 +1,58 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickanimatorjob_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN17QQuickAnimatorJob9setTargetEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QQuickAnimatorJob6targetEv": ["address", "address"],
+    "ritual_ZN17QQuickAnimatorJob7setFromEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK17QQuickAnimatorJob4fromEv": ["double", "address"],
+    "ritual_ZN17QQuickAnimatorJob5setToEd": ["nothing", "address", "double"],
+    "ritual_ZNK17QQuickAnimatorJob2toEv": ["double", "address"],
+    "ritual_ZN17QQuickAnimatorJob11setDurationEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK17QQuickAnimatorJob8durationEv": ["int", "address"],
+    "ritual_ZNK17QQuickAnimatorJob11easingCurveEv": ["address", "address"],
+    "ritual_ZN17QQuickAnimatorJob14setEasingCurveERK12QEasingCurve": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QQuickAnimatorJob10initializeEP24QQuickAnimatorController": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QQuickAnimatorJob10invalidateEv": ["nothing", "address"],
+    "ritual_ZN17QQuickAnimatorJob9writeBackEv": ["nothing", "address"],
+    "ritual_ZN17QQuickAnimatorJob7preSyncEv": ["nothing", "address"],
+    "ritual_ZN17QQuickAnimatorJob8postSyncEv": ["nothing", "address"],
+    "ritual_ZN17QQuickAnimatorJob6commitEv": ["nothing", "address"],
+    "ritual_ZNK17QQuickAnimatorJob11isTransformEv": ["bool", "address"],
+    "ritual_ZNK17QQuickAnimatorJob9isUniformEv": ["bool", "address"],
+    "ritual_ZNK17QQuickAnimatorJob5valueEv": ["double", "address"],
+    "ritual_ZNK17QQuickAnimatorJob10controllerEv": ["address", "address"],
+    "ritual_ZNK17QQuickAnimatorJob14debugAnimationE6QDebug": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QQuickAnimatorJob8progressEi": ["double", "address", "int"],
+    "ritual_ZN17QQuickAnimatorJob10boundValueEv": ["nothing", "address"],
+    "ritual_take_QQuickAnimatorJob": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN17QQuickAnimatorJob9setTargetEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK17QQuickAnimatorJob8durationEv": ["int", "address"],
+    "ritual_own_ZN17QQuickAnimatorJob10initializeEP24QQuickAnimatorController": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN17QQuickAnimatorJob7preSyncEv": ["nothing", "address"],
+    "ritual_own_ZN17QQuickAnimatorJob8postSyncEv": ["nothing", "address"],
+    "ritual_own_ZN17QQuickAnimatorJob6commitEv": ["nothing", "address"],
+    "ritual_own_ZNK17QQuickAnimatorJob14debugAnimationE6QDebug": [
+      "nothing", "address", "address"
+    ]
+  }
+}

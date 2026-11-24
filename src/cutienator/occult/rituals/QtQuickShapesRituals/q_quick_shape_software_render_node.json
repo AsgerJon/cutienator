@@ -1,0 +1,44 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Shapes/6.12.0/QtQuickShapes/private/qquickshapesoftwarerenderer_p.",
+    "h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN29QQuickShapeSoftwareRenderNodeC1EP11QQuickShape": [
+      "address", "address"
+    ],
+    "ritual_ZN29QQuickShapeSoftwareRenderNodeD1Ev": ["nothing", "address"],
+    "ritual_ZN29QQuickShapeSoftwareRenderNode6renderEPKN13QSGRenderNode11RenderStateE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN29QQuickShapeSoftwareRenderNode16releaseResourcesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK29QQuickShapeSoftwareRenderNode13changedStatesEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK29QQuickShapeSoftwareRenderNode5flagsEv": ["int", "address"],
+    "ritual_ZNK29QQuickShapeSoftwareRenderNode4rectEv": [
+      "address", "address"
+    ],
+    "ritual_take_QQuickShapeSoftwareRenderNode": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN29QQuickShapeSoftwareRenderNode6renderEPKN13QSGRenderNode11RenderStateE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN29QQuickShapeSoftwareRenderNode16releaseResourcesEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZNK29QQuickShapeSoftwareRenderNode13changedStatesEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZNK29QQuickShapeSoftwareRenderNode5flagsEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZNK29QQuickShapeSoftwareRenderNode4rectEv": [
+      "address", "address"
+    ]
+  }
+}

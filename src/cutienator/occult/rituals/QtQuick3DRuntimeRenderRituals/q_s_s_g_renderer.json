@@ -1,0 +1,37 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgrenderer",
+    "_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN12QSSGRendererC1Ev": ["address"],
+    "ritual_ZN12QSSGRendererD1Ev": ["nothing", "address"],
+    "ritual_ZNK12QSSGRenderer10frameCountEv": ["unsigned int", "address"],
+    "ritual_ZN12QSSGRenderer11setViewportE5QRect": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12QSSGRenderer8viewportEv": ["address", "address"],
+    "ritual_ZN12QSSGRenderer6setDprEf": ["nothing", "address", "float"],
+    "ritual_ZNK12QSSGRenderer3dprEv": ["float", "address"],
+    "ritual_ZN12QSSGRenderer14setScissorRectE5QRect": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12QSSGRenderer11scissorRectEv": ["address", "address"],
+    "ritual_ZNK12QSSGRenderer10frameDepthEv": ["unsigned int", "address"],
+    "ritual_ZNK12QSSGRenderer16contextInterfaceEv": ["address", "address"],
+    "ritual_ZN12QSSGRenderer14endLayerRenderEv": ["nothing", "address"],
+    "ritual_ZN12QSSGRenderer21addMaterialDirtyClearEP21QSSGRenderGraphObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QSSGRenderer26cleanupUnreferencedBuffersEP15QSSGRenderLayer": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QSSGRenderer21resetResourceCountersEP15QSSGRenderLayer": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QSSGRenderer22releaseCachedResourcesEv": [
+      "nothing", "address"
+    ]
+  }
+}

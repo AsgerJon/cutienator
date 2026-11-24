@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickanimation_p_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN27QQuickPropertyActionPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK27QQuickPropertyActionPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QQuickPropertyActionPrivateC1Ev": ["address"],
+    "ritual_take_QQuickPropertyActionPrivate": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

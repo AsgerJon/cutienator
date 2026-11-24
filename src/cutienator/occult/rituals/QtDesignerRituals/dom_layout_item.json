@@ -1,0 +1,73 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/ui4_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN13DomLayoutItemC1Ev": ["address"],
+    "ritual_ZN13DomLayoutItemD1Ev": ["nothing", "address"],
+    "ritual_ZNK13DomLayoutItem15hasAttributeRowEv": ["bool", "address"],
+    "ritual_ZNK13DomLayoutItem12attributeRowEv": ["int", "address"],
+    "ritual_ZN13DomLayoutItem15setAttributeRowEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN13DomLayoutItem17clearAttributeRowEv": ["nothing", "address"],
+    "ritual_ZNK13DomLayoutItem18hasAttributeColumnEv": ["bool", "address"],
+    "ritual_ZNK13DomLayoutItem15attributeColumnEv": ["int", "address"],
+    "ritual_ZN13DomLayoutItem18setAttributeColumnEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN13DomLayoutItem20clearAttributeColumnEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK13DomLayoutItem19hasAttributeRowSpanEv": ["bool", "address"],
+    "ritual_ZNK13DomLayoutItem16attributeRowSpanEv": ["int", "address"],
+    "ritual_ZN13DomLayoutItem19setAttributeRowSpanEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN13DomLayoutItem21clearAttributeRowSpanEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK13DomLayoutItem19hasAttributeColSpanEv": ["bool", "address"],
+    "ritual_ZNK13DomLayoutItem16attributeColSpanEv": ["int", "address"],
+    "ritual_ZN13DomLayoutItem19setAttributeColSpanEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN13DomLayoutItem21clearAttributeColSpanEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK13DomLayoutItem21hasAttributeAlignmentEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK13DomLayoutItem18attributeAlignmentEv": ["text", "address"],
+    "ritual_ZN13DomLayoutItem21setAttributeAlignmentERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN13DomLayoutItem23clearAttributeAlignmentEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK13DomLayoutItem4kindEv": ["int", "address"],
+    "ritual_ZNK13DomLayoutItem13elementWidgetEv": ["address", "address"],
+    "ritual_ZN13DomLayoutItem17takeElementWidgetEv": ["address", "address"],
+    "ritual_ZN13DomLayoutItem16setElementWidgetEP9DomWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13DomLayoutItem13elementLayoutEv": ["address", "address"],
+    "ritual_ZN13DomLayoutItem17takeElementLayoutEv": ["address", "address"],
+    "ritual_ZN13DomLayoutItem16setElementLayoutEP9DomLayout": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13DomLayoutItem13elementSpacerEv": ["address", "address"],
+    "ritual_ZN13DomLayoutItem17takeElementSpacerEv": ["address", "address"],
+    "ritual_ZN13DomLayoutItem16setElementSpacerEP9DomSpacer": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13DomLayoutItem5clearEv": ["nothing", "address"],
+    "ritual_list_make_DomLayoutItem_ptr": ["address"],
+    "ritual_list_add_DomLayoutItem_ptr": ["nothing", "address", "address"],
+    "ritual_list_size_DomLayoutItem_ptr": ["long long", "address"],
+    "ritual_list_at_DomLayoutItem_ptr": ["address", "address", "long long"],
+    "ritual_list_drop_DomLayoutItem_ptr": ["nothing", "address"]
+  }
+}

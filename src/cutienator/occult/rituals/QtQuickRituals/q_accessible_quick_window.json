@@ -1,0 +1,59 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qaccessiblequickview_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN22QAccessibleQuickWindowC1EP12QQuickWindow": [
+      "address", "address"
+    ],
+    "ritual_ZNK22QAccessibleQuickWindow6parentEv": ["address", "address"],
+    "ritual_ZNK22QAccessibleQuickWindow5childEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK22QAccessibleQuickWindow10focusChildEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK22QAccessibleQuickWindow4roleEv": ["int", "address"],
+    "ritual_ZNK22QAccessibleQuickWindow5stateEv": ["address", "address"],
+    "ritual_ZNK22QAccessibleQuickWindow4rectEv": ["address", "address"],
+    "ritual_ZNK22QAccessibleQuickWindow10childCountEv": ["int", "address"],
+    "ritual_ZNK22QAccessibleQuickWindow12indexOfChildEPK20QAccessibleInterface": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK22QAccessibleQuickWindow4textEN11QAccessible4TextE": [
+      "text", "address", "int"
+    ],
+    "ritual_ZNK22QAccessibleQuickWindow7childAtEii": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZNK22QAccessibleQuickWindow6windowEv": ["address", "address"],
+    "ritual_ZNK22QAccessibleQuickWindow9rootItemsEv": ["address", "address"],
+    "ritual_own_ZNK22QAccessibleQuickWindow6parentEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK22QAccessibleQuickWindow5childEi": [
+      "address", "address", "int"
+    ],
+    "ritual_own_ZNK22QAccessibleQuickWindow10focusChildEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK22QAccessibleQuickWindow4roleEv": ["int", "address"],
+    "ritual_own_ZNK22QAccessibleQuickWindow5stateEv": ["address", "address"],
+    "ritual_own_ZNK22QAccessibleQuickWindow4rectEv": ["address", "address"],
+    "ritual_own_ZNK22QAccessibleQuickWindow10childCountEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZNK22QAccessibleQuickWindow12indexOfChildEPK20QAccessibleInterface": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZNK22QAccessibleQuickWindow4textEN11QAccessible4TextE": [
+      "text", "address", "int"
+    ],
+    "ritual_own_ZNK22QAccessibleQuickWindow7childAtEii": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_own_ZNK22QAccessibleQuickWindow6windowEv": ["address", "address"]
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgrhiconte",
+    "xt_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK24QSSGRhiRenderableTexture7isValidEv": ["bool", "address"],
+    "ritual_ZN24QSSGRhiRenderableTexture17resetRenderTargetEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QSSGRhiRenderableTexture5resetEv": ["nothing", "address"],
+    "ritual_ZN24QSSGRhiRenderableTextureD1Ev": ["nothing", "address"]
+  }
+}

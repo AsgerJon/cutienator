@@ -541,7 +541,8 @@ class HeaderReader:
   def _endsInComment(line: str, commented: bool) -> bool:
     """Says whether a comment written between '/*' and '*/' is still
     open at the end of a line, given whether one was open where the
-    line began."""
+    line began. A '/*' inside quotes, as the '"/* XPM"' of Qt's
+    'qxpmhandler.cpp', opens no comment."""
     index = 0
     while index < len(line):
       if commented:
@@ -550,11 +551,23 @@ class HeaderReader:
           return True
         commented, index = False, closes + 2
         continue
-      opens = line.find('/*', index)
-      short = line.find('//', index)
-      if opens < 0 or 0 <= short < opens:
+      char = line[index]
+      if line.startswith('//', index):
         return False
-      commented, index = True, opens + 2
+      if line.startswith('/*', index):
+        commented, index = True, index + 2
+        continue
+      separator = (char == "'" and 0 < index < len(line) - 1
+                   and line[index - 1].isalnum()
+                   and line[index + 1].isalnum())
+      if char in '"\'' and not separator:
+        #  Text in quotes, up to the quote that closes it; a quote with
+        #  a backslash before it does not close it. ('1'000' has its
+        #  "'" between two digits, and opens no quote.)
+        index += 1
+        while index < len(line) and line[index] != char:
+          index += 2 if line[index] == '\\' else 1
+      index += 1
     return commented
 
   @classmethod
@@ -1298,10 +1311,18 @@ class HeaderReader:
       info = infoSpec % (self.getPartName(), headerPath)
       raise LookupError(' '.join(info.split()))
     named = self.getNamedHeaderPaths()
+    partFolder = os.path.join(self.getQtHeaderFolder(), self.getPartName())
     reached, passed = headerPath, []  # type: str, List[str]
     while reached not in named:
       passed.append(reached)
-      reached = self._findPuller(reached)
+      puller = self._findPuller(reached)
+      if puller is not None and not puller.endswith('.h') and (
+          os.path.dirname(puller) == partFolder):
+        #  Pulled in first through a file named after a class, as
+        #  'QtQuick/QQuickItem', which pulls in that one header file
+        #  and nothing else: the header file is named itself.
+        break
+      reached = puller
       if reached is None or reached in passed:
         infoSpec = """No line names the header file '%s' of the part
         '%s', and the records of the reading do not lead from it to a

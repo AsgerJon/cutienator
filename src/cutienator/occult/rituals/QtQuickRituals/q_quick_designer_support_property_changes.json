@@ -1,0 +1,39 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "/6.12.0/QtQuick/private/qquickdesignersupportpropertychanges_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN36QQuickDesignerSupportPropertyChanges15detachFromStateEP7QObject": [
+      "nothing", "address"
+    ],
+    "ritual_ZN36QQuickDesignerSupportPropertyChanges13attachToStateEP7QObject": [
+      "nothing", "address"
+    ],
+    "ritual_ZN36QQuickDesignerSupportPropertyChanges12targetObjectEP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN36QQuickDesignerSupportPropertyChanges14removePropertyEP7QObjectRK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN36QQuickDesignerSupportPropertyChanges11getPropertyEP7QObjectRK10QByteArray": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN36QQuickDesignerSupportPropertyChanges11changeValueEP7QObjectRK10QByteArrayRK8QVariant": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN36QQuickDesignerSupportPropertyChanges16changeExpressionEP7QObjectRK10QByteArrayRK7QString": [
+      "nothing", "address", "address", "text"
+    ],
+    "ritual_ZN36QQuickDesignerSupportPropertyChanges11stateObjectEP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN36QQuickDesignerSupportPropertyChanges16isNormalPropertyERK10QByteArray": [
+      "bool", "address"
+    ],
+    "ritual_ZN36QQuickDesignerSupportPropertyChangesD1Ev": [
+      "nothing", "address"
+    ]
+  }
+}

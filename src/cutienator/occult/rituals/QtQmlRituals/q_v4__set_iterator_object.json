@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4setiterator_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN3QV417SetIteratorObject10__dataTestEv": ["nothing", "address"],
+    "ritual_ZNK3QV417SetIteratorObject11d_uncheckedEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV417SetIteratorObject1dEv": ["address", "address"],
+    "ritual_ZN3QV417SetIteratorObject16defaultPrototypeEPNS_15ExecutionEngineE": [
+      "address", "address"
+    ]
+  }
+}

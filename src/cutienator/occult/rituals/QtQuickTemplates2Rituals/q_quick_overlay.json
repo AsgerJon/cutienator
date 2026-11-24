@@ -1,0 +1,117 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquickoverlay_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK13QQuickOverlay10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QQuickOverlay2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN13QQuickOverlay21qt_qmlMarker_attachedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13QQuickOverlay24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13QQuickOverlayC1EP10QQuickItem": ["address", "address"],
+    "ritual_ZN13QQuickOverlayD1Ev": ["nothing", "address"],
+    "ritual_ZNK13QQuickOverlay5modalEv": ["address", "address"],
+    "ritual_ZN13QQuickOverlay8setModalEP13QQmlComponent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QQuickOverlay8modelessEv": ["address", "address"],
+    "ritual_ZN13QQuickOverlay11setModelessEP13QQmlComponent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QQuickOverlay7overlayEP12QQuickWindowP10QQuickItem": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN13QQuickOverlay21qmlAttachedPropertiesEP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN13QQuickOverlay10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN13QQuickOverlay14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN13QQuickOverlay15mousePressEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QQuickOverlay14mouseMoveEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QQuickOverlay17mouseReleaseEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QQuickOverlay10touchEventEP11QTouchEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QQuickOverlay10wheelEventEP11QWheelEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QQuickOverlay14dragEnterEventEP15QDragEnterEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QQuickOverlay13dragMoveEventEP14QDragMoveEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QQuickOverlay14dragLeaveEventEP15QDragLeaveEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QQuickOverlay9dropEventEP10QDropEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QQuickOverlay23handleWheelAndDnDEventsEP6QEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QQuickOverlay21childMouseEventFilterEP10QQuickItemP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN13QQuickOverlay11eventFilterEP7QObjectP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN13QQuickOverlay6d_funcEv": ["address", "address"],
+    "ritual_ZNK13QQuickOverlay6d_funcEv": ["address", "address"],
+    "ritual_take_QQuickOverlay": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN13QQuickOverlay10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZN13QQuickOverlay14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN13QQuickOverlay15mousePressEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN13QQuickOverlay14mouseMoveEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN13QQuickOverlay17mouseReleaseEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN13QQuickOverlay10touchEventEP11QTouchEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN13QQuickOverlay10wheelEventEP11QWheelEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN13QQuickOverlay14dragEnterEventEP15QDragEnterEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN13QQuickOverlay13dragMoveEventEP14QDragMoveEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN13QQuickOverlay14dragLeaveEventEP15QDragLeaveEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN13QQuickOverlay9dropEventEP10QDropEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN13QQuickOverlay21childMouseEventFilterEP10QQuickItemP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_own_ZN13QQuickOverlay11eventFilterEP7QObjectP6QEvent": [
+      "bool", "address", "address", "address"
+    ]
+  }
+}

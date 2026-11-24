@@ -1,0 +1,52 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/resourcebuilder_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN16QResourceBuilderC1Ev": ["address"],
+    "ritual_ZN16QResourceBuilderD1Ev": ["nothing", "address"],
+    "ritual_ZN16QResourceBuilder14themeIconNamesEv": ["address"],
+    "ritual_ZN16QResourceBuilder14themeIconIndexE11QStringView": [
+      "int", "text"
+    ],
+    "ritual_ZN16QResourceBuilder27fullyQualifiedThemeIconNameEi": [
+      "text", "int"
+    ],
+    "ritual_ZNK16QResourceBuilder12loadResourceERK4QDirPK11DomProperty": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK16QResourceBuilder13toNativeValueERK8QVariant": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK16QResourceBuilder12saveResourceERK4QDirRK8QVariant": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK16QResourceBuilder18isResourcePropertyEPK11DomProperty": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK16QResourceBuilder14isResourceTypeERK8QVariant": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN16QResourceBuilder14iconStateFlagsEPK15DomResourceIcon": [
+      "int", "address"
+    ],
+    "ritual_take_QResourceBuilder": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK16QResourceBuilder12loadResourceERK4QDirPK11DomProperty": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_own_ZNK16QResourceBuilder13toNativeValueERK8QVariant": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZNK16QResourceBuilder12saveResourceERK4QDirRK8QVariant": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_own_ZNK16QResourceBuilder18isResourcePropertyEPK11DomProperty": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZNK16QResourceBuilder14isResourceTypeERK8QVariant": [
+      "bool", "address", "address"
+    ]
+  }
+}

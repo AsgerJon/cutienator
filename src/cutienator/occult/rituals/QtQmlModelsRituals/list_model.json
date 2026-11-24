@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQmlModels/6.12.0/QtQmlModels/private/qqmllistmodel_p_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN9ListModelC1EP10ListLayoutP13QQmlListModel": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN9ListModel18updateTranslationsEv": ["nothing", "address"],
+    "ritual_ZNK9ListModel9roleCountEv": ["int", "address"],
+    "ritual_ZNK9ListModel15getExistingRoleEi": ["address", "address", "int"],
+    "ritual_ZNK9ListModel12elementCountEv": ["int", "address"],
+    "ritual_ZN9ListModel4moveEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZN9ListModel18updateCacheIndicesEii": [
+      "nothing", "address", "int", "int"
+    ]
+  }
+}

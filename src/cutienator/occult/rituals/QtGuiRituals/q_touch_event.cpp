@@ -142,6 +142,7 @@ QTouchEvent *ritual_ZN11QTouchEventC1EN6QEvent4TypeEPK15QPointingDevice6QFlagsIN
       *touchPoints);
 }
 
+#if QT_DEPRECATED_SINCE(6, 0)
 //  QTouchEvent::QTouchEvent(QEvent::Type eventType, const QPointingDevice
 //      *device, Qt::KeyboardModifiers modifiers, QEventPoint::States
 //      touchPointStates, const QList<QEventPoint> &touchPoints)
@@ -159,6 +160,7 @@ QTouchEvent *ritual_ZN11QTouchEventC1EN6QEvent4TypeEPK15QPointingDevice6QFlagsIN
       QFlags<QEventPoint::State>::fromInt(touchPointStates),
       *touchPoints);
 }
+#endif  // QT_DEPRECATED_SINCE(6, 0)
 
 //  QObject *QTouchEvent::target() const
 extern "C" Q_DECL_EXPORT
@@ -172,12 +174,14 @@ int ritual_ZNK11QTouchEvent16touchPointStatesEv(const QTouchEvent *self) {
   return static_cast<int>(self->touchPointStates().toInt());
 }
 
+#if QT_DEPRECATED_SINCE(6, 0)
 //  const QList<QEventPoint> &QTouchEvent::touchPoints() const
 extern "C" Q_DECL_EXPORT
 QList<QEventPoint> *ritual_ZNK11QTouchEvent11touchPointsEv(
     const QTouchEvent *self) {
   return new QList<QEventPoint>(self->touchPoints());
 }
+#endif  // QT_DEPRECATED_SINCE(6, 0)
 
 //  bool QTouchEvent::isBeginEvent() const
 extern "C" Q_DECL_EXPORT

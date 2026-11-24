@@ -2,7 +2,9 @@
 //  QtCore/qvariant.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qvariant.h>
 #include <QtCore/QtCore>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/6.12.0/QtCore/private/qvariant_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  QVariant::PrivateShared::PrivateShared()
 extern "C" Q_DECL_EXPORT

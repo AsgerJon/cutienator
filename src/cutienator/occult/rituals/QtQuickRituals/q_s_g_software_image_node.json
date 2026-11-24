@@ -1,0 +1,94 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qsgsoftwarepublicnodes_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QSGSoftwareImageNodeC1Ev": ["address"],
+    "ritual_ZN20QSGSoftwareImageNodeD1Ev": ["nothing", "address"],
+    "ritual_ZN20QSGSoftwareImageNode7setRectERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QSGSoftwareImageNode4rectEv": ["address", "address"],
+    "ritual_ZN20QSGSoftwareImageNode13setSourceRectERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QSGSoftwareImageNode10sourceRectEv": ["address", "address"],
+    "ritual_ZN20QSGSoftwareImageNode10setTextureEP10QSGTexture": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QSGSoftwareImageNode7textureEv": ["address", "address"],
+    "ritual_ZN20QSGSoftwareImageNode12setFilteringEN10QSGTexture9FilteringE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK20QSGSoftwareImageNode9filteringEv": ["int", "address"],
+    "ritual_ZN20QSGSoftwareImageNode18setMipmapFilteringEN10QSGTexture9FilteringE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK20QSGSoftwareImageNode15mipmapFilteringEv": [
+      "int", "address"
+    ],
+    "ritual_ZN20QSGSoftwareImageNode18setAnisotropyLevelEN10QSGTexture15AnisotropyLevelE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK20QSGSoftwareImageNode15anisotropyLevelEv": [
+      "int", "address"
+    ],
+    "ritual_ZN20QSGSoftwareImageNode30setTextureCoordinatesTransformE6QFlagsIN12QSGImageNode31TextureCoordinatesTransformFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK20QSGSoftwareImageNode27textureCoordinatesTransformEv": [
+      "int", "address"
+    ],
+    "ritual_ZN20QSGSoftwareImageNode14setOwnsTextureEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK20QSGSoftwareImageNode11ownsTextureEv": ["bool", "address"],
+    "ritual_take_QSGSoftwareImageNode": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN20QSGSoftwareImageNode7setRectERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK20QSGSoftwareImageNode4rectEv": ["address", "address"],
+    "ritual_own_ZN20QSGSoftwareImageNode13setSourceRectERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK20QSGSoftwareImageNode10sourceRectEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN20QSGSoftwareImageNode10setTextureEP10QSGTexture": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK20QSGSoftwareImageNode7textureEv": ["address", "address"],
+    "ritual_own_ZN20QSGSoftwareImageNode12setFilteringEN10QSGTexture9FilteringE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZNK20QSGSoftwareImageNode9filteringEv": ["int", "address"],
+    "ritual_own_ZN20QSGSoftwareImageNode18setMipmapFilteringEN10QSGTexture9FilteringE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZNK20QSGSoftwareImageNode15mipmapFilteringEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZN20QSGSoftwareImageNode18setAnisotropyLevelEN10QSGTexture15AnisotropyLevelE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZNK20QSGSoftwareImageNode15anisotropyLevelEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZN20QSGSoftwareImageNode30setTextureCoordinatesTransformE6QFlagsIN12QSGImageNode31TextureCoordinatesTransformFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZNK20QSGSoftwareImageNode27textureCoordinatesTransformEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZN20QSGSoftwareImageNode14setOwnsTextureEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZNK20QSGSoftwareImageNode11ownsTextureEv": [
+      "bool", "address"
+    ]
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qsgcontextplugin_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK26QSGContextFactoryInterface6createERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK26QSGContextFactoryInterface5flagsERK7QString": [
+      "int", "address", "text"
+    ],
+    "ritual_ZN26QSGContextFactoryInterface29createTextureFactoryFromImageERK6QImage": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN26QSGContextFactoryInterface19createWindowManagerEv": [
+      "address", "address"
+    ],
+    "ritual_take_QSGContextFactoryInterface": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

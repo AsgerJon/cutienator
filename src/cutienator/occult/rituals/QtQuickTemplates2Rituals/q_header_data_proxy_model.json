@@ -1,0 +1,85 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquickheaderview_p_p.h",
+    ", Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK21QHeaderDataProxyModel10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QHeaderDataProxyModel2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN21QHeaderDataProxyModelC1EP7QObject": ["address", "address"],
+    "ritual_ZN21QHeaderDataProxyModelD1Ev": ["nothing", "address"],
+    "ritual_ZN21QHeaderDataProxyModel14setSourceModelEP18QAbstractItemModel": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21QHeaderDataProxyModel5indexEiiRK11QModelIndex": [
+      "address", "address", "int", "int", "address"
+    ],
+    "ritual_ZNK21QHeaderDataProxyModel6parentERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK21QHeaderDataProxyModel7siblingEiiRK11QModelIndex": [
+      "address", "address", "int", "int", "address"
+    ],
+    "ritual_ZNK21QHeaderDataProxyModel8rowCountERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK21QHeaderDataProxyModel11columnCountERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK21QHeaderDataProxyModel4dataERK11QModelIndexi": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN21QHeaderDataProxyModel7setDataERK11QModelIndexRK8QVarianti": [
+      "bool", "address", "address", "address", "int"
+    ],
+    "ritual_ZNK21QHeaderDataProxyModel11hasChildrenERK11QModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK21QHeaderDataProxyModel9roleNamesEv": ["address", "address"],
+    "ritual_ZNK21QHeaderDataProxyModel12variantValueEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK21QHeaderDataProxyModel11orientationEv": ["int", "address"],
+    "ritual_ZN21QHeaderDataProxyModel14setOrientationEN2Qt11OrientationE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN21QHeaderDataProxyModel14connectToModelEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QHeaderDataProxyModel19disconnectFromModelEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QHeaderDataProxyModel": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK21QHeaderDataProxyModel5indexEiiRK11QModelIndex": [
+      "address", "address", "int", "int", "address"
+    ],
+    "ritual_own_ZNK21QHeaderDataProxyModel6parentERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZNK21QHeaderDataProxyModel7siblingEiiRK11QModelIndex": [
+      "address", "address", "int", "int", "address"
+    ],
+    "ritual_own_ZNK21QHeaderDataProxyModel8rowCountERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZNK21QHeaderDataProxyModel11columnCountERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZNK21QHeaderDataProxyModel4dataERK11QModelIndexi": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_own_ZN21QHeaderDataProxyModel7setDataERK11QModelIndexRK8QVarianti": [
+      "bool", "address", "address", "address", "int"
+    ],
+    "ritual_own_ZNK21QHeaderDataProxyModel11hasChildrenERK11QModelIndex": [
+      "bool", "address", "address"
+    ]
+  }
+}

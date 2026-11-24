@@ -1,0 +1,36 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qcolortransfergeneric_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN29QColorTransferGenericFunction3hlgEv": ["address"],
+    "ritual_ZN29QColorTransferGenericFunction2pqEv": ["address"],
+    "ritual_ZNK29QColorTransferGenericFunction5applyEf": [
+      "float", "address", "float"
+    ],
+    "ritual_ZNK29QColorTransferGenericFunction12applyInverseEf": [
+      "float", "address", "float"
+    ],
+    "ritual_ZNK29QColorTransferGenericFunctioneqERKS_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK29QColorTransferGenericFunctionneERKS_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN29QColorTransferGenericFunction13hlgFromLinearEf": [
+      "float", "float"
+    ],
+    "ritual_ZN29QColorTransferGenericFunction11hlgToLinearEf": [
+      "float", "float"
+    ],
+    "ritual_ZN29QColorTransferGenericFunction10pqToLinearEf": [
+      "float", "float"
+    ],
+    "ritual_ZN29QColorTransferGenericFunction12pqFromLinearEf": [
+      "float", "float"
+    ],
+    "ritual_ZN29QColorTransferGenericFunctionD1Ev": ["nothing", "address"]
+  }
+}

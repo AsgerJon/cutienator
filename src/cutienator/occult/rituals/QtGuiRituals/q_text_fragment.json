@@ -4,6 +4,9 @@
     "QtGui/qtextobject.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN13QTextFragmentC1EPK20QTextDocumentPrivateii": [
+      "address", "address", "int", "int"
+    ],
     "ritual_ZN13QTextFragmentC1Ev": ["address"],
     "ritual_ZN13QTextFragmentC1ERKS_": ["address", "address"],
     "ritual_ZNK13QTextFragment7isValidEv": ["bool", "address"],

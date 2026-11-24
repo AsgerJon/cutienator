@@ -1,0 +1,28 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtOpenGL/qopengltimerquery.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK18QOpenGLTimeMonitor10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QOpenGLTimeMonitor2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18QOpenGLTimeMonitorC1EP7QObject": ["address", "address"],
+    "ritual_ZN18QOpenGLTimeMonitorD1Ev": ["nothing", "address"],
+    "ritual_ZN18QOpenGLTimeMonitor14setSampleCountEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK18QOpenGLTimeMonitor11sampleCountEv": ["int", "address"],
+    "ritual_ZN18QOpenGLTimeMonitor6createEv": ["bool", "address"],
+    "ritual_ZN18QOpenGLTimeMonitor7destroyEv": ["nothing", "address"],
+    "ritual_ZNK18QOpenGLTimeMonitor9isCreatedEv": ["bool", "address"],
+    "ritual_ZN18QOpenGLTimeMonitor12recordSampleEv": ["int", "address"],
+    "ritual_ZNK18QOpenGLTimeMonitor17isResultAvailableEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN18QOpenGLTimeMonitor5resetEv": ["nothing", "address"],
+    "ritual_take_QOpenGLTimeMonitor": ["bool", "address", "chars", "address"]
+  }
+}

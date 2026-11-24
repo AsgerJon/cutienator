@@ -43,6 +43,8 @@
     "ritual_ZN15QSplitterHandle20closestLegalPositionEi": [
       "int", "address", "int"
     ],
+    "ritual_ZN15QSplitterHandle6d_funcEv": ["address", "address"],
+    "ritual_ZNK15QSplitterHandle6d_funcEv": ["address", "address"],
     "ritual_take_QSplitterHandle": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK15QSplitterHandle8sizeHintEv": ["address", "address"],
     "ritual_own_ZN15QSplitterHandle10paintEventEP11QPaintEvent": [

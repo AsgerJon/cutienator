@@ -1,0 +1,39 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLocation/qplacecategory.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN14QPlaceCategoryC1Ev": ["address"],
+    "ritual_ZN14QPlaceCategoryC1ERKS_": ["address", "address"],
+    "ritual_ZN14QPlaceCategoryD1Ev": ["nothing", "address"],
+    "ritual_ZeqRK14QPlaceCategoryS1_": ["bool", "address", "address"],
+    "ritual_ZneRK14QPlaceCategoryS1_": ["bool", "address", "address"],
+    "ritual_ZNK14QPlaceCategory10categoryIdEv": ["text", "address"],
+    "ritual_ZN14QPlaceCategory13setCategoryIdERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK14QPlaceCategory4nameEv": ["text", "address"],
+    "ritual_ZN14QPlaceCategory7setNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK14QPlaceCategory10visibilityEv": ["int", "address"],
+    "ritual_ZN14QPlaceCategory13setVisibilityEN9QLocation10VisibilityE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK14QPlaceCategory4iconEv": ["address", "address"],
+    "ritual_ZN14QPlaceCategory7setIconERK10QPlaceIcon": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QPlaceCategory7isEmptyEv": ["bool", "address"],
+    "ritual_ZNK14QPlaceCategory7isEqualERKS_": [
+      "bool", "address", "address"
+    ],
+    "ritual_list_make_QPlaceCategory": ["address"],
+    "ritual_list_add_QPlaceCategory": ["nothing", "address", "address"],
+    "ritual_list_size_QPlaceCategory": ["long long", "address"],
+    "ritual_list_at_QPlaceCategory": ["address", "address", "long long"],
+    "ritual_list_drop_QPlaceCategory": ["nothing", "address"]
+  }
+}

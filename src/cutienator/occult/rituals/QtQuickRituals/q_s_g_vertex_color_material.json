@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/qsgvertexcolormaterial.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN22QSGVertexColorMaterialC1Ev": ["address"],
+    "ritual_ZNK22QSGVertexColorMaterial7compareEPK11QSGMaterial": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK22QSGVertexColorMaterial4typeEv": ["address", "address"],
+    "ritual_ZNK22QSGVertexColorMaterial12createShaderEN20QSGRendererInterface10RenderModeE": [
+      "address", "address", "int"
+    ],
+    "ritual_take_QSGVertexColorMaterial": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK22QSGVertexColorMaterial7compareEPK11QSGMaterial": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZNK22QSGVertexColorMaterial4typeEv": ["address", "address"],
+    "ritual_own_ZNK22QSGVertexColorMaterial12createShaderEN20QSGRendererInterface10RenderModeE": [
+      "address", "address", "int"
+    ]
+  }
+}

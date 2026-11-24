@@ -1,0 +1,59 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/6.12.0/QtCharts/private/qcoloraxis_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QColorAxisPrivate10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QColorAxisPrivate2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QColorAxisPrivateC1EP10QColorAxis": ["address", "address"],
+    "ritual_ZN17QColorAxisPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN17QColorAxisPrivate18initializeGraphicsEP13QGraphicsItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QColorAxisPrivate16initializeDomainEP14AbstractDomain": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QColorAxisPrivate3minEv": ["double", "address"],
+    "ritual_ZN17QColorAxisPrivate3maxEv": ["double", "address"],
+    "ritual_ZN17QColorAxisPrivate8setRangeEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN17QColorAxisPrivate12updateSeriesEv": ["nothing", "address"],
+    "ritual_ZN17QColorAxisPrivate6setMinERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QColorAxisPrivate6setMaxERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QColorAxisPrivate8setRangeERK8QVariantS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN17QColorAxisPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK17QColorAxisPrivate6q_funcEv": ["address", "address"],
+    "ritual_take_QColorAxisPrivate": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN17QColorAxisPrivate18initializeGraphicsEP13QGraphicsItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN17QColorAxisPrivate16initializeDomainEP14AbstractDomain": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN17QColorAxisPrivate3minEv": ["double", "address"],
+    "ritual_own_ZN17QColorAxisPrivate3maxEv": ["double", "address"],
+    "ritual_own_ZN17QColorAxisPrivate8setRangeEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_own_ZN17QColorAxisPrivate6setMinERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN17QColorAxisPrivate6setMaxERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN17QColorAxisPrivate8setRangeERK8QVariantS2_": [
+      "nothing", "address", "address", "address"
+    ]
+  }
+}

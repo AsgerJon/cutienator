@@ -1,0 +1,47 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickrendercontrol_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN26QQuickRenderControlPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK26QQuickRenderControlPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QQuickRenderControlPrivateC1EP19QQuickRenderControl": [
+      "address", "address"
+    ],
+    "ritual_ZN26QQuickRenderControlPrivate3getEP19QQuickRenderControl": [
+      "address", "address"
+    ],
+    "ritual_ZN26QQuickRenderControlPrivate17isRenderWindowForEP12QQuickWindowPK7QWindow": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN26QQuickRenderControlPrivate16isFocusWindowForEP12QQuickWindowPK7QWindow": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN26QQuickRenderControlPrivate14isRenderWindowEPK7QWindow": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN26QQuickRenderControlPrivate7cleanupEv": ["nothing"],
+    "ritual_ZN26QQuickRenderControlPrivate15windowDestroyedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QQuickRenderControlPrivate6updateEv": ["nothing", "address"],
+    "ritual_ZN26QQuickRenderControlPrivate11maybeUpdateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QQuickRenderControlPrivate7initRhiEv": ["bool", "address"],
+    "ritual_ZN26QQuickRenderControlPrivate8resetRhiERK27QQuickGraphicsConfiguration": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QQuickRenderControlPrivate4grabEv": ["address", "address"],
+    "ritual_take_QQuickRenderControlPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN26QQuickRenderControlPrivate14isRenderWindowEPK7QWindow": [
+      "bool", "address", "address"
+    ]
+  }
+}

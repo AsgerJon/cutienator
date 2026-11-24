@@ -1,0 +1,100 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSql/qsqlrelationaltablemodel.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK24QSqlRelationalTableModel10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QSqlRelationalTableModel2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN24QSqlRelationalTableModelC1EP7QObjectRK12QSqlDatabase": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN24QSqlRelationalTableModelD1Ev": ["nothing", "address"],
+    "ritual_ZNK24QSqlRelationalTableModel4dataERK11QModelIndexi": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN24QSqlRelationalTableModel7setDataERK11QModelIndexRK8QVarianti": [
+      "bool", "address", "address", "address", "int"
+    ],
+    "ritual_ZN24QSqlRelationalTableModel13removeColumnsEiiRK11QModelIndex": [
+      "bool", "address", "int", "int", "address"
+    ],
+    "ritual_ZN24QSqlRelationalTableModel5clearEv": ["nothing", "address"],
+    "ritual_ZN24QSqlRelationalTableModel6selectEv": ["bool", "address"],
+    "ritual_ZN24QSqlRelationalTableModel8setTableERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN24QSqlRelationalTableModel11setRelationEiRK12QSqlRelation": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZNK24QSqlRelationalTableModel8relationEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK24QSqlRelationalTableModel13relationModelEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN24QSqlRelationalTableModel11setJoinModeENS_8JoinModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN24QSqlRelationalTableModel9revertRowEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK24QSqlRelationalTableModel15selectStatementEv": [
+      "text", "address"
+    ],
+    "ritual_ZN24QSqlRelationalTableModel16updateRowInTableEiRK10QSqlRecord": [
+      "bool", "address", "int", "address"
+    ],
+    "ritual_ZN24QSqlRelationalTableModel18insertRowIntoTableERK10QSqlRecord": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK24QSqlRelationalTableModel13orderByClauseEv": [
+      "text", "address"
+    ],
+    "ritual_take_QSqlRelationalTableModel": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK24QSqlRelationalTableModel4dataERK11QModelIndexi": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_own_ZN24QSqlRelationalTableModel7setDataERK11QModelIndexRK8QVarianti": [
+      "bool", "address", "address", "address", "int"
+    ],
+    "ritual_own_ZN24QSqlRelationalTableModel13removeColumnsEiiRK11QModelIndex": [
+      "bool", "address", "int", "int", "address"
+    ],
+    "ritual_own_ZN24QSqlRelationalTableModel5clearEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN24QSqlRelationalTableModel6selectEv": ["bool", "address"],
+    "ritual_own_ZN24QSqlRelationalTableModel8setTableERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_own_ZN24QSqlRelationalTableModel11setRelationEiRK12QSqlRelation": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZNK24QSqlRelationalTableModel13relationModelEi": [
+      "address", "address", "int"
+    ],
+    "ritual_own_ZN24QSqlRelationalTableModel9revertRowEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZNK24QSqlRelationalTableModel15selectStatementEv": [
+      "text", "address"
+    ],
+    "ritual_own_ZN24QSqlRelationalTableModel16updateRowInTableEiRK10QSqlRecord": [
+      "bool", "address", "int", "address"
+    ],
+    "ritual_own_ZN24QSqlRelationalTableModel18insertRowIntoTableERK10QSqlRecord": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZNK24QSqlRelationalTableModel13orderByClauseEv": [
+      "text", "address"
+    ]
+  }
+}

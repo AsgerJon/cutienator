@@ -1,0 +1,71 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qsgadaptationlayer_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN24QSGInternalRectangleNodeD1Ev": ["nothing", "address"],
+    "ritual_ZN24QSGInternalRectangleNode7setRectERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QSGInternalRectangleNode8setColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QSGInternalRectangleNode11setPenColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QSGInternalRectangleNode11setPenWidthEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN24QSGInternalRectangleNode19setGradientVerticalEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN24QSGInternalRectangleNode9setRadiusEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN24QSGInternalRectangleNode16setTopLeftRadiusEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN24QSGInternalRectangleNode17setTopRightRadiusEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN24QSGInternalRectangleNode19setBottomLeftRadiusEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN24QSGInternalRectangleNode20setBottomRightRadiusEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN24QSGInternalRectangleNode18resetTopLeftRadiusEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QSGInternalRectangleNode19resetTopRightRadiusEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QSGInternalRectangleNode21resetBottomLeftRadiusEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QSGInternalRectangleNode22resetBottomRightRadiusEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QSGInternalRectangleNode15setAntialiasingEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN24QSGInternalRectangleNode10setAlignedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN24QSGInternalRectangleNode6updateEv": ["nothing", "address"],
+    "ritual_ZN24QSGInternalRectangleNode6acceptEP16QSGNodeVisitorEx": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QSGInternalRectangleNode": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN24QSGInternalRectangleNode15setAntialiasingEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZN24QSGInternalRectangleNode6acceptEP16QSGNodeVisitorEx": [
+      "nothing", "address", "address"
+    ]
+  }
+}

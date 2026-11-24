@@ -1,0 +1,28 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qsgsoftwarerenderer_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QSGSoftwareRendererC1EP16QSGRenderContext": [
+      "address", "address"
+    ],
+    "ritual_ZN19QSGSoftwareRendererD1Ev": ["nothing", "address"],
+    "ritual_ZN19QSGSoftwareRenderer21setCurrentPaintDeviceEP12QPaintDevice": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QSGSoftwareRenderer18currentPaintDeviceEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QSGSoftwareRenderer15setBackingStoreEP13QBackingStore": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QSGSoftwareRenderer11flushRegionEv": ["address", "address"],
+    "ritual_ZN19QSGSoftwareRenderer11renderSceneEv": ["nothing", "address"],
+    "ritual_ZN19QSGSoftwareRenderer6renderEv": ["nothing", "address"],
+    "ritual_take_QSGSoftwareRenderer": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4sparsearray_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN3QV411SparseArrayD1Ev": ["nothing", "address"],
+    "ritual_ZNK3QV411SparseArray4rootEv": ["address", "address"],
+    "ritual_ZNK3QV411SparseArray8findNodeEj": [
+      "address", "address", "unsigned int"
+    ],
+    "ritual_ZNK3QV411SparseArray8nEntriesEv": ["unsigned int", "address"],
+    "ritual_ZN3QV411SparseArray9pop_frontEv": ["unsigned int", "address"],
+    "ritual_ZN3QV411SparseArray10push_frontEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN3QV411SparseArray8pop_backEj": [
+      "unsigned int", "address", "unsigned int"
+    ],
+    "ritual_ZN3QV411SparseArray9push_backEjj": [
+      "nothing", "address", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZNK3QV411SparseArray3endEv": ["address", "address"],
+    "ritual_ZN3QV411SparseArray3endEv": ["address", "address"],
+    "ritual_ZNK3QV411SparseArray5beginEv": ["address", "address"],
+    "ritual_ZN3QV411SparseArray5beginEv": ["address", "address"],
+    "ritual_ZN3QV411SparseArray10lowerBoundEj": [
+      "address", "address", "unsigned int"
+    ],
+    "ritual_ZNK3QV411SparseArray10lowerBoundEj": [
+      "address", "address", "unsigned int"
+    ],
+    "ritual_ZN3QV411SparseArray10upperBoundEj": [
+      "address", "address", "unsigned int"
+    ],
+    "ritual_ZNK3QV411SparseArray10upperBoundEj": [
+      "address", "address", "unsigned int"
+    ]
+  }
+}

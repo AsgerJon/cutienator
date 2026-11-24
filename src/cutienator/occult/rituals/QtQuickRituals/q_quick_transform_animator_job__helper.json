@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickanimatorjob_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN26QQuickTransformAnimatorJob6HelperC1Ev": ["address"],
+    "ritual_ZN26QQuickTransformAnimatorJob6Helper4syncEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QQuickTransformAnimatorJob6Helper6commitEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QQuickTransformAnimatorJob6HelperD1Ev": [
+      "nothing", "address"
+    ]
+  }
+}

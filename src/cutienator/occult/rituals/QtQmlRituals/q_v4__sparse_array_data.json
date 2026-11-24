@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4arraydata_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN3QV415SparseArrayData12staticVTableEv": ["address"],
+    "ritual_ZN3QV415SparseArrayData10__dataTestEv": ["nothing", "address"],
+    "ritual_ZN3QV415SparseArrayData20defaultInternalClassEPNS_10EngineBaseE": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV415SparseArrayData14virtualDestroyEPNS_4Heap4BaseE": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK3QV415SparseArrayData6sparseEv": ["address", "address"],
+    "ritual_ZN3QV415SparseArrayData9setSparseEPNS_11SparseArrayE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK3QV415SparseArrayData11mappedIndexEj": [
+      "unsigned int", "address", "unsigned int"
+    ]
+  }
+}

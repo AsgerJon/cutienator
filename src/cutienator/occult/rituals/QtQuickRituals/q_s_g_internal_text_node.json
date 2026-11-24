@@ -1,0 +1,190 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qsginternaltextnode_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QSGInternalTextNodeC1EP16QSGRenderContext": [
+      "address", "address"
+    ],
+    "ritual_ZN19QSGInternalTextNodeD1Ev": ["nothing", "address"],
+    "ritual_ZN19QSGInternalTextNode8setColorE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QSGInternalTextNode5colorEv": ["address", "address"],
+    "ritual_ZN19QSGInternalTextNode12setTextStyleEN11QSGTextNode9TextStyleE": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZN19QSGInternalTextNode9textStyleEv": [
+      "unsigned char", "address"
+    ],
+    "ritual_ZN19QSGInternalTextNode13setStyleColorE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QSGInternalTextNode10styleColorEv": ["address", "address"],
+    "ritual_ZN19QSGInternalTextNode12setLinkColorE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QSGInternalTextNode9linkColorEv": ["address", "address"],
+    "ritual_ZN19QSGInternalTextNode17setSelectionColorE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QSGInternalTextNode14selectionColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QSGInternalTextNode21setSelectionTextColorE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QSGInternalTextNode18selectionTextColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QSGInternalTextNode20setRenderTypeQualityEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK19QSGInternalTextNode17renderTypeQualityEv": [
+      "int", "address"
+    ],
+    "ritual_ZN19QSGInternalTextNode13setRenderTypeEN11QSGTextNode10RenderTypeE": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZNK19QSGInternalTextNode10renderTypeEv": [
+      "unsigned char", "address"
+    ],
+    "ritual_ZNK19QSGInternalTextNode24containsUnscalableGlyphsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN19QSGInternalTextNode12setFilteringEN10QSGTexture9FilteringE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK19QSGInternalTextNode9filteringEv": ["int", "address"],
+    "ritual_ZN19QSGInternalTextNode11setViewportERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QSGInternalTextNode8viewportEv": ["address", "address"],
+    "ritual_ZN19QSGInternalTextNode19setDevicePixelRatioEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN19QSGInternalTextNode9setCursorERK6QRectFRK6QColorPNS_10RecycleBinE": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN19QSGInternalTextNode11clearCursorEv": ["nothing", "address"],
+    "ritual_ZN19QSGInternalTextNode16addRectangleNodeERK6QRectFRK6QColorPNS_10RecycleBinE": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN19QSGInternalTextNode17addDecorationNodeERK6QRectFRK6QColorN15QTextCharFormat14UnderlineStyleEPNS_10RecycleBinE": [
+      "nothing", "address", "address", "address", "int", "address"
+    ],
+    "ritual_ZN19QSGInternalTextNode8addImageERK6QRectFRK6QImagePNS_10RecycleBinE": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN19QSGInternalTextNode5clearEv": ["nothing", "address"],
+    "ritual_ZN19QSGInternalTextNode7recycleEPNS_10RecycleBinE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QSGInternalTextNode9addGlyphsERK7QPointFRK9QGlyphRunRK6QColorPNS_10RecycleBinEN10QQuickText9TextStyleES8_P7QSGNode": [
+      "address", "address", "address", "address", "address", "address",
+      "int", "address", "address"
+    ],
+    "ritual_ZNK19QSGInternalTextNode10cursorNodeEv": ["address", "address"],
+    "ritual_ZN19QSGInternalTextNode18discardUnusedNodesEPNS_10RecycleBinE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QSGInternalTextNode13addTextLayoutE7QPointFP11QTextLayoutPNS_10RecycleBinEiiii": [
+      "nothing", "address", "address", "address", "address", "int", "int",
+      "int", "int"
+    ],
+    "ritual_ZN19QSGInternalTextNode15addTextDocumentE7QPointFP13QTextDocumentPNS_10RecycleBinEii": [
+      "nothing", "address", "address", "address", "address", "int", "int"
+    ],
+    "ritual_ZN19QSGInternalTextNode15doAddTextLayoutE7QPointFP11QTextLayoutiiiiPNS_10RecycleBinE": [
+      "nothing", "address", "address", "address", "int", "int", "int", "int",
+      "address"
+    ],
+    "ritual_ZN19QSGInternalTextNode15doAddTextLayoutE7QPointFP11QTextLayoutiiii": [
+      "nothing", "address", "address", "address", "int", "int", "int", "int"
+    ],
+    "ritual_ZN19QSGInternalTextNode17doAddTextDocumentE7QPointFP13QTextDocumentiiPNS_10RecycleBinE": [
+      "nothing", "address", "address", "address", "int", "int", "address"
+    ],
+    "ritual_ZN19QSGInternalTextNode17doAddTextDocumentE7QPointFP13QTextDocumentii": [
+      "nothing", "address", "address", "address", "int", "int"
+    ],
+    "ritual_ZN19QSGInternalTextNode21findOrCreateImageNodeEPNS_10RecycleBinE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN19QSGInternalTextNode21findOrCreateGlyphNodeEN11QSGTextNode10RenderTypeEPNS_10RecycleBinEP7QSGNode": [
+      "address", "address", "unsigned char", "address", "address"
+    ],
+    "ritual_ZN19QSGInternalTextNode25findOrCreateRectangleNodeEPNS_10RecycleBinE": [
+      "address", "address", "address"
+    ],
+    "ritual_take_QSGInternalTextNode": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN19QSGInternalTextNode8setColorE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK19QSGInternalTextNode5colorEv": ["address", "address"],
+    "ritual_own_ZN19QSGInternalTextNode12setTextStyleEN11QSGTextNode9TextStyleE": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_own_ZN19QSGInternalTextNode9textStyleEv": [
+      "unsigned char", "address"
+    ],
+    "ritual_own_ZN19QSGInternalTextNode13setStyleColorE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK19QSGInternalTextNode10styleColorEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN19QSGInternalTextNode12setLinkColorE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK19QSGInternalTextNode9linkColorEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN19QSGInternalTextNode17setSelectionColorE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK19QSGInternalTextNode14selectionColorEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN19QSGInternalTextNode21setSelectionTextColorE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK19QSGInternalTextNode18selectionTextColorEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN19QSGInternalTextNode20setRenderTypeQualityEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZNK19QSGInternalTextNode17renderTypeQualityEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZN19QSGInternalTextNode13setRenderTypeEN11QSGTextNode10RenderTypeE": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_own_ZNK19QSGInternalTextNode10renderTypeEv": [
+      "unsigned char", "address"
+    ],
+    "ritual_own_ZN19QSGInternalTextNode12setFilteringEN10QSGTexture9FilteringE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZNK19QSGInternalTextNode9filteringEv": ["int", "address"],
+    "ritual_own_ZN19QSGInternalTextNode11setViewportERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK19QSGInternalTextNode8viewportEv": ["address", "address"],
+    "ritual_own_ZN19QSGInternalTextNode17addDecorationNodeERK6QRectFRK6QColorN15QTextCharFormat14UnderlineStyleEPNS_10RecycleBinE": [
+      "nothing", "address", "address", "address", "int", "address"
+    ],
+    "ritual_own_ZN19QSGInternalTextNode5clearEv": ["nothing", "address"],
+    "ritual_own_ZN19QSGInternalTextNode15doAddTextLayoutE7QPointFP11QTextLayoutiiii": [
+      "nothing", "address", "address", "address", "int", "int", "int", "int"
+    ],
+    "ritual_own_ZN19QSGInternalTextNode17doAddTextDocumentE7QPointFP13QTextDocumentii": [
+      "nothing", "address", "address", "address", "int", "int"
+    ]
+  }
+}

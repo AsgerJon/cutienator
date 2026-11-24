@@ -1,0 +1,32 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLocation/qplacesearchresult.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN18QPlaceSearchResultC1Ev": ["address"],
+    "ritual_ZN18QPlaceSearchResultC1ERKS_": ["address", "address"],
+    "ritual_ZN18QPlaceSearchResultD1Ev": ["nothing", "address"],
+    "ritual_ZNK18QPlaceSearchResulteqERKS_": ["bool", "address", "address"],
+    "ritual_ZNK18QPlaceSearchResultneERKS_": ["bool", "address", "address"],
+    "ritual_ZNK18QPlaceSearchResult4typeEv": ["int", "address"],
+    "ritual_ZNK18QPlaceSearchResult5titleEv": ["text", "address"],
+    "ritual_ZN18QPlaceSearchResult8setTitleERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK18QPlaceSearchResult4iconEv": ["address", "address"],
+    "ritual_ZN18QPlaceSearchResult7setIconERK10QPlaceIcon": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QPlaceSearchResultC1EP25QPlaceSearchResultPrivate": [
+      "address", "address"
+    ],
+    "ritual_ZNK18QPlaceSearchResult6d_funcEv": ["address", "address"],
+    "ritual_list_make_QPlaceSearchResult": ["address"],
+    "ritual_list_add_QPlaceSearchResult": ["nothing", "address", "address"],
+    "ritual_list_size_QPlaceSearchResult": ["long long", "address"],
+    "ritual_list_at_QPlaceSearchResult": ["address", "address", "long long"],
+    "ritual_list_drop_QPlaceSearchResult": ["nothing", "address"]
+  }
+}

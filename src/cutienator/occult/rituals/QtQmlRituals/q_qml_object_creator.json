@@ -1,0 +1,100 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmlobjectcreator_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN17QQmlObjectCreator2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QQmlObjectCreatorD1Ev": ["nothing", "address"],
+    "ritual_ZN17QQmlObjectCreator6createEiP7QObjectP26QQmlInstantiationInterrupti": [
+      "address", "address", "int", "address", "address", "int"
+    ],
+    "ritual_ZN17QQmlObjectCreator26populateDeferredPropertiesEP7QObjectPKN8QQmlData12DeferredDataE": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN17QQmlObjectCreator23populateDeferredBindingERK12QQmlPropertyiPKN3QV412CompiledData7BindingE": [
+      "nothing", "address", "address", "int", "address"
+    ],
+    "ritual_ZN17QQmlObjectCreator24populateDeferredInstanceEP7QObjectiiS1_S1_PK16QQmlPropertyDataPKN3QV412CompiledData7BindingE": [
+      "nothing", "address", "address", "int", "int", "address", "address",
+      "address", "address"
+    ],
+    "ritual_ZN17QQmlObjectCreator24finalizePopulateDeferredEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQmlObjectCreator5clearEv": ["nothing", "address"],
+    "ritual_ZN17QQmlObjectCreator18requiredPropertiesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK17QQmlObjectCreator38componentHadTopLevelRequiredPropertiesEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK17QQmlObjectCreator20removePendingBindingEP7QObjecti": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN17QQmlObjectCreator15initializeDDataEPKN3QV412CompiledData6ObjectEP7QObjectP8QQmlData6QFlagsINS_8InitFlagEE": [
+      "nothing", "address", "address", "address", "address", "int"
+    ],
+    "ritual_ZN17QQmlObjectCreator23initializePropertyCacheEiP8QQmlDataPKN3QV421ResolvedTypeReferenceE": [
+      "nothing", "address", "int", "address", "address"
+    ],
+    "ritual_ZN17QQmlObjectCreator16initializeParentEP7QObjectS1_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN17QQmlObjectCreator32populateInstanceAndAliasBindingsEiP7QObject6QFlagsINS_8InitFlagEE": [
+      "address", "address", "int", "address", "int"
+    ],
+    "ritual_ZN17QQmlObjectCreator14createInstanceEiP7QObjectb": [
+      "address", "address", "int", "address", "bool"
+    ],
+    "ritual_ZN17QQmlObjectCreator19initializeComponentEPKN3QV412CompiledData6ObjectEP7QObject6QFlagsINS_8InitFlagEE": [
+      "address", "address", "address", "address", "int"
+    ],
+    "ritual_ZN17QQmlObjectCreator19initializeCompositeEiPKN3QV412CompiledData6ObjectEPKNS0_21ResolvedTypeReferenceEP7QObjectS9_6QFlagsINS_8InitFlagEE": [
+      "address", "address", "int", "address", "address", "address",
+      "address", "int"
+    ],
+    "ritual_ZN17QQmlObjectCreator22initializeNonCompositeEiPKN3QV412CompiledData6ObjectEPKNS0_21ResolvedTypeReferenceEP7QObjectS9_6QFlagsINS_8InitFlagEE": [
+      "address", "address", "int", "address", "address", "address",
+      "address", "int"
+    ],
+    "ritual_ZN17QQmlObjectCreator16populateInstanceEiP7QObjectS1_PK16QQmlPropertyDataPKN3QV412CompiledData7BindingE": [
+      "bool", "address", "int", "address", "address", "address", "address"
+    ],
+    "ritual_ZN17QQmlObjectCreator16populateDeferredEP7QObjecti": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN17QQmlObjectCreator16populateDeferredEP7QObjectiPK19QQmlPropertyPrivatePKN3QV412CompiledData7BindingE": [
+      "nothing", "address", "address", "int", "address", "address"
+    ],
+    "ritual_ZN17QQmlObjectCreator13setupBindingsE6QFlagsINS_11BindingModeEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQmlObjectCreator18setPropertyBindingEPK16QQmlPropertyDataPKN3QV412CompiledData7BindingE": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN17QQmlObjectCreator16setPropertyValueEPK16QQmlPropertyDataPKN3QV412CompiledData7BindingE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN17QQmlObjectCreator14setupFunctionsEv": ["nothing", "address"],
+    "ritual_ZNK17QQmlObjectCreator8stringAtEi": ["text", "address", "int"],
+    "ritual_ZN17QQmlObjectCreator11recordErrorERKN3QV412CompiledData8LocationERK7QString": [
+      "nothing", "address", "address", "text"
+    ],
+    "ritual_ZNK17QQmlObjectCreator29registerObjectWithContextByIdEPKN3QV412CompiledData6ObjectEP7QObject": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN17QQmlObjectCreator17currentQmlContextEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK17QQmlObjectCreator12resolvedTypeEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN17QQmlObjectCreator33registerPostHocRequiredPropertiesEPKN3QV412CompiledData7BindingE": [
+      "nothing", "address", "address"
+    ]
+  }
+}

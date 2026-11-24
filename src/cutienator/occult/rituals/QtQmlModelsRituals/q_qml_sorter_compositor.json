@@ -1,0 +1,41 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQmlModels/6.12.0/QtQmlModels/private/qqmlsortercompositor_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK20QQmlSorterCompositor10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QQmlSorterCompositor22qt_qmlMarker_anonymousEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQmlSorterCompositorD1Ev": ["nothing", "address"],
+    "ritual_ZN20QQmlSorterCompositor7sortersEv": ["address", "address"],
+    "ritual_ZNK20QQmlSorterCompositor7compareERK11QModelIndexS2_PK24QQmlSortFilterProxyModel": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK20QQmlSorterCompositor8lessThanERK11QModelIndexS2_PK24QQmlSortFilterProxyModel": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZN20QQmlSorterCompositor13updateSortersEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQmlSorterCompositor22updateEffectiveSortersEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQmlSorterCompositor5countEv": ["long long", "address"],
+    "ritual_ZN20QQmlSorterCompositor2atEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN20QQmlSorterCompositor5clearEv": ["nothing", "address"],
+    "ritual_ZN20QQmlSorterCompositor11updateCacheEv": ["nothing", "address"],
+    "ritual_ZN20QQmlSorterCompositor6d_funcEv": ["address", "address"],
+    "ritual_ZNK20QQmlSorterCompositor6d_funcEv": ["address", "address"],
+    "ritual_take_QQmlSorterCompositor": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK20QQmlSorterCompositor7compareERK11QModelIndexS2_PK24QQmlSortFilterProxyModel": [
+      "address", "address", "address", "address", "address"
+    ]
+  }
+}

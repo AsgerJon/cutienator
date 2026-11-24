@@ -1,0 +1,69 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3D/6.12.0/QtQuick3D/private/qquick3dquaternionanimation_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK27QQuick3DQuaternionAnimation10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QQuick3DQuaternionAnimation2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN27QQuick3DQuaternionAnimationC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZNK27QQuick3DQuaternionAnimation4fromEv": ["address", "address"],
+    "ritual_ZN27QQuick3DQuaternionAnimation7setFromERK11QQuaternion": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK27QQuick3DQuaternionAnimation2toEv": ["address", "address"],
+    "ritual_ZN27QQuick3DQuaternionAnimation5setToERK11QQuaternion": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK27QQuick3DQuaternionAnimation4typeEv": ["int", "address"],
+    "ritual_ZN27QQuick3DQuaternionAnimation7setTypeENS_4TypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK27QQuick3DQuaternionAnimation13fromXRotationEv": [
+      "float", "address"
+    ],
+    "ritual_ZN27QQuick3DQuaternionAnimation16setFromXRotationEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK27QQuick3DQuaternionAnimation13fromYRotationEv": [
+      "float", "address"
+    ],
+    "ritual_ZN27QQuick3DQuaternionAnimation16setFromYRotationEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK27QQuick3DQuaternionAnimation13fromZRotationEv": [
+      "float", "address"
+    ],
+    "ritual_ZN27QQuick3DQuaternionAnimation16setFromZRotationEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK27QQuick3DQuaternionAnimation11toXRotationEv": [
+      "float", "address"
+    ],
+    "ritual_ZN27QQuick3DQuaternionAnimation14setToXRotationEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK27QQuick3DQuaternionAnimation11toYRotationEv": [
+      "float", "address"
+    ],
+    "ritual_ZN27QQuick3DQuaternionAnimation14setToYRotationEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK27QQuick3DQuaternionAnimation11toZRotationEv": [
+      "float", "address"
+    ],
+    "ritual_ZN27QQuick3DQuaternionAnimation14setToZRotationEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_take_QQuick3DQuaternionAnimation": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

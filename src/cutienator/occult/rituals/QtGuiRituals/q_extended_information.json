@@ -1,0 +1,31 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qfileinfogatherer_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QExtendedInformationC1Ev": ["address"],
+    "ritual_ZN20QExtendedInformationC1ERK9QFileInfo": ["address", "address"],
+    "ritual_ZN20QExtendedInformation5isDirEv": ["bool", "address"],
+    "ritual_ZN20QExtendedInformation6isFileEv": ["bool", "address"],
+    "ritual_ZN20QExtendedInformation8isSystemEv": ["bool", "address"],
+    "ritual_ZNK20QExtendedInformationeqERKS_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK20QExtendedInformation15isCaseSensitiveEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK20QExtendedInformation4typeEv": ["int", "address"],
+    "ritual_ZNK20QExtendedInformation9isSymLinkEb": [
+      "bool", "address", "bool"
+    ],
+    "ritual_ZNK20QExtendedInformation8isHiddenEv": ["bool", "address"],
+    "ritual_ZNK20QExtendedInformation8fileInfoEv": ["address", "address"],
+    "ritual_ZNK20QExtendedInformation12lastModifiedERK9QTimeZone": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK20QExtendedInformation4sizeEv": ["long long", "address"],
+    "ritual_ZN20QExtendedInformationD1Ev": ["nothing", "address"]
+  }
+}

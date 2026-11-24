@@ -1,0 +1,40 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/6.12.0/QtNetwork/private/qhttp2protocolhandler_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK21QHttp2ProtocolHandler10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QHttp2ProtocolHandler23handleConnectionClosureEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK21QHttp2ProtocolHandler11isGoingAwayEv": ["bool", "address"],
+    "ritual_ZN21QHttp2ProtocolHandler12_q_readyReadEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QHttp2ProtocolHandler15_q_receiveReplyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QHttp2ProtocolHandler14tryRemoveReplyEP17QHttpNetworkReply": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN21QHttp2ProtocolHandler8sendDATAEP12QHttp2StreamP17QHttpNetworkReply": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN21QHttp2ProtocolHandler12closeSessionEv": [
+      "nothing", "address"
+    ],
+    "ritual_cast_QHttp2ProtocolHandler_QAbstractProtocolHandler": [
+      "address", "address"
+    ],
+    "ritual_own_ZN21QHttp2ProtocolHandler12_q_readyReadEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN21QHttp2ProtocolHandler15_q_receiveReplyEv": [
+      "nothing", "address"
+    ]
+  }
+}

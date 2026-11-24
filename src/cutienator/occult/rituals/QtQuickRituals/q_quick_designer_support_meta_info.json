@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickdesignersupportmetainfo_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN29QQuickDesignerSupportMetaInfo12isSubclassOfEP7QObjectRK10QByteArray": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN29QQuickDesignerSupportMetaInfo20registerMockupObjectEPKciiS1_": [
+      "nothing", "chars", "int", "int", "chars"
+    ],
+    "ritual_ZN29QQuickDesignerSupportMetaInfoD1Ev": ["nothing", "address"]
+  }
+}

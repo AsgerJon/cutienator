@@ -1,0 +1,37 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4object_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN3QV44Heap6Object4initEv": ["nothing", "address"],
+    "ritual_ZNK3QV44Heap6Object6vtableEv": ["address", "address"],
+    "ritual_ZNK3QV44Heap6Object28inlinePropertyDataWithOffsetEj": [
+      "address", "address", "unsigned int"
+    ],
+    "ritual_ZNK3QV44Heap6Object18inlinePropertyDataEj": [
+      "address", "address", "unsigned int"
+    ],
+    "ritual_ZN3QV44Heap6Object27setInlinePropertyWithOffsetEPNS_15ExecutionEngineEjNS_5ValueE": [
+      "nothing", "address", "address", "unsigned int", "address"
+    ],
+    "ritual_ZN3QV44Heap6Object27setInlinePropertyWithOffsetEPNS_15ExecutionEngineEjPNS0_4BaseE": [
+      "nothing", "address", "address", "unsigned int", "address"
+    ],
+    "ritual_ZN3QV44Heap6Object20writablePropertyDataEj": [
+      "address", "address", "unsigned int"
+    ],
+    "ritual_ZNK3QV44Heap6Object12propertyDataEj": [
+      "address", "address", "unsigned int"
+    ],
+    "ritual_ZN3QV44Heap6Object11setPropertyEPNS_15ExecutionEngineEjNS_5ValueE": [
+      "nothing", "address", "address", "unsigned int", "address"
+    ],
+    "ritual_ZN3QV44Heap6Object11setPropertyEPNS_15ExecutionEngineEjPNS0_4BaseE": [
+      "nothing", "address", "address", "unsigned int", "address"
+    ],
+    "ritual_ZNK3QV44Heap6Object9prototypeEv": ["address", "address"],
+    "ritual_cast_QV4_Heap_Object_QV4_Heap_ObjectData": ["address", "address"]
+  }
+}

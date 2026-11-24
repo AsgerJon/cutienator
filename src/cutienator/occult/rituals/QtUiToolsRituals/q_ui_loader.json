@@ -1,0 +1,60 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtUiTools/quiloader.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK9QUiLoader10metaObjectEv": ["address", "address"],
+    "ritual_ZN9QUiLoader2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN9QUiLoaderC1EP7QObject": ["address", "address"],
+    "ritual_ZN9QUiLoaderD1Ev": ["nothing", "address"],
+    "ritual_ZNK9QUiLoader11pluginPathsEv": ["address", "address"],
+    "ritual_ZN9QUiLoader16clearPluginPathsEv": ["nothing", "address"],
+    "ritual_ZN9QUiLoader13addPluginPathERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN9QUiLoader4loadEP9QIODeviceP7QWidget": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK9QUiLoader16availableWidgetsEv": ["address", "address"],
+    "ritual_ZNK9QUiLoader16availableLayoutsEv": ["address", "address"],
+    "ritual_ZN9QUiLoader12createWidgetERK7QStringP7QWidgetS2_": [
+      "address", "address", "text", "address", "text"
+    ],
+    "ritual_ZN9QUiLoader12createLayoutERK7QStringP7QObjectS2_": [
+      "address", "address", "text", "address", "text"
+    ],
+    "ritual_ZN9QUiLoader17createActionGroupEP7QObjectRK7QString": [
+      "address", "address", "address", "text"
+    ],
+    "ritual_ZN9QUiLoader12createActionEP7QObjectRK7QString": [
+      "address", "address", "address", "text"
+    ],
+    "ritual_ZN9QUiLoader19setWorkingDirectoryERK4QDir": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9QUiLoader16workingDirectoryEv": ["address", "address"],
+    "ritual_ZN9QUiLoader24setLanguageChangeEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK9QUiLoader23isLanguageChangeEnabledEv": ["bool", "address"],
+    "ritual_ZN9QUiLoader21setTranslationEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK9QUiLoader20isTranslationEnabledEv": ["bool", "address"],
+    "ritual_ZNK9QUiLoader11errorStringEv": ["text", "address"],
+    "ritual_take_QUiLoader": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN9QUiLoader12createWidgetERK7QStringP7QWidgetS2_": [
+      "address", "address", "text", "address", "text"
+    ],
+    "ritual_own_ZN9QUiLoader12createLayoutERK7QStringP7QObjectS2_": [
+      "address", "address", "text", "address", "text"
+    ],
+    "ritual_own_ZN9QUiLoader17createActionGroupEP7QObjectRK7QString": [
+      "address", "address", "address", "text"
+    ],
+    "ritual_own_ZN9QUiLoader12createActionEP7QObjectRK7QString": [
+      "address", "address", "address", "text"
+    ]
+  }
+}

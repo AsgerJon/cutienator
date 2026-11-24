@@ -9,6 +9,14 @@ QMetaSequence *ritual_ZN13QMetaSequenceC1Ev() {
   return new QMetaSequence();
 }
 
+//  QMetaSequence::QMetaSequence(const
+//      QtMetaContainerPrivate::QMetaSequenceInterface *d)
+extern "C" Q_DECL_EXPORT
+QMetaSequence *ritual_ZN13QMetaSequenceC1EPKN22QtMetaContainerPrivate22QMetaSequenceInterfaceE(
+    const QtMetaContainerPrivate::QMetaSequenceInterface *d) {
+  return new QMetaSequence(d);
+}
+
 //  QMetaType QMetaSequence::valueMetaType() const
 extern "C" Q_DECL_EXPORT
 QMetaType *ritual_ZNK13QMetaSequence13valueMetaTypeEv(
@@ -118,6 +126,14 @@ bool ritual_ZNK13QMetaSequence26canGetValueAtConstIteratorEv(
   return self->canGetValueAtConstIterator();
 }
 
+//  const QtMetaContainerPrivate::QMetaSequenceInterface
+//      *QMetaSequence::iface() const
+extern "C" Q_DECL_EXPORT
+const QtMetaContainerPrivate::QMetaSequenceInterface *ritual_ZNK13QMetaSequence5ifaceEv(
+    const QMetaSequence *self) {
+  return self->iface();
+}
+
 //  bool operator==(const QMetaSequence &lhs, const QMetaSequence &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZeqRK13QMetaSequenceS1_(
@@ -132,6 +148,14 @@ bool ritual_ZneRK13QMetaSequenceS1_(
     const QMetaSequence *lhs,
     const QMetaSequence *rhs) {
   return operator!=(*lhs, *rhs);
+}
+
+//  const QtMetaContainerPrivate::QMetaSequenceInterface *QMetaSequence::d()
+//      const
+extern "C" Q_DECL_EXPORT
+const QtMetaContainerPrivate::QMetaSequenceInterface *ritual_ZNK13QMetaSequence1dEv(
+    const QMetaSequence *self) {
+  return self->d();
 }
 
 //  QMetaSequence::~QMetaSequence()

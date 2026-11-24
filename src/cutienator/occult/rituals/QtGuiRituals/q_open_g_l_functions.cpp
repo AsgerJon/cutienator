@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGui/qopenglfunctions.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
+#if !defined(QT_NO_OPENGL)
 #include <QtGui/qopenglfunctions.h>
 
 //  QOpenGLFunctions::QOpenGLFunctions()
@@ -764,3 +766,5 @@ bool ritual_ZN16QOpenGLFunctions13isInitializedEPK23QOpenGLFunctionsPrivate(
     const QOpenGLFunctionsPrivate *d) {
   return QOpenGLFunctions::isInitialized(d);
 }
+
+#endif  // !defined(QT_NO_OPENGL)

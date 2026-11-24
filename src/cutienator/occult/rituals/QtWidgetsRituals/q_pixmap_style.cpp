@@ -1,8 +1,11 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/6.12.0/QtWidgets/private/qpixmapstyle_p.h, Qt 6.12.0. Changes
 //  made here are lost.
+#include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/QtWidgets>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/6.12.0/QtWidgets/private/qpixmapstyle_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #include <QtCore/qsize.h>
 #include <QtCore/qrect.h>
@@ -32,7 +35,9 @@ typedef const QRect * (*CuteQPixmapStyleCall9)(const void *, int, const QStyleOp
 typedef int (*CuteQPixmapStyleCall10)(const void *, int, const QStyleOption *, const QWidget *, int *);
 typedef int (*CuteQPixmapStyleCall11)(const void *, int, const QStyleOption *, const QWidget *, QStyleHintReturn *, int *);
 typedef int (*CuteQPixmapStyleCall12)(const void *, int, const QStyleOptionComplex *, const QPoint *, const QWidget *, int *);
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQPixmapStyleCall13)(const void *, QObject *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 typedef const QIcon * (*CuteQPixmapStyleCall14)(const void *, int, const QStyleOption *, const QWidget *, int *);
 typedef const QPixmap * (*CuteQPixmapStyleCall15)(const void *, int, const QStyleOption *, const QWidget *, int *);
 typedef const QPixmap * (*CuteQPixmapStyleCall16)(const void *, int, const QPixmap *, const QStyleOption *, int *);
@@ -42,12 +47,24 @@ typedef const QRect * (*CuteQPixmapStyleCall19)(const void *, const QRect *, int
 typedef void (*CuteQPixmapStyleCall20)(const void *, QPainter *, const QRect *, int, const QPalette *, bool, const QString *, int, int *);
 typedef void (*CuteQPixmapStyleCall21)(const void *, QPainter *, const QRect *, int, const QPixmap *, int *);
 typedef const QPalette * (*CuteQPixmapStyleCall22)(const void *, int *);
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQPixmapStyleCall23)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQPixmapStyleCall24)(const void *, QTimerEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQPixmapStyleCall25)(const void *, QChildEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQPixmapStyleCall26)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQPixmapStyleCall27)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQPixmapStyleCall28)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 class CuteQPixmapStyle : public QPixmapStyle {
 public:
   using QPixmapStyle::QPixmapStyle;
@@ -106,10 +123,12 @@ public:
       taken[12] = call;
       return true;
     }
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[13] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZNK6QStyle12standardIconENS_14StandardPixmapEPK12QStyleOptionPK7QWidget")) {
       taken[14] = call;
       return true;
@@ -146,30 +165,42 @@ public:
       taken[22] = call;
       return true;
     }
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[23] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[24] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[25] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[26] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[27] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
       taken[28] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
     return false;
   }
 
@@ -366,6 +397,7 @@ public:
     return QPixmapStyle::hitTestComplexControl(control, option, pos, widget);
   }
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QPixmapStyle::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
     if (taken[13]) {
@@ -376,6 +408,7 @@ public:
     }
     return QPixmapStyle::eventFilter(watched, event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
   //  QIcon QCommonStyle::standardIcon(StandardPixmap standardIcon, const
   //      QStyleOption *opt, const QWidget *widget) const
@@ -519,6 +552,7 @@ public:
     return QStyle::standardPalette();
   }
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QObject::event(QEvent *event)
   bool event(QEvent *event) override {
     if (taken[23]) {
@@ -529,7 +563,9 @@ public:
     }
     return QObject::event(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
     if (taken[24]) {
@@ -540,7 +576,9 @@ public:
     }
     QObject::timerEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
     if (taken[25]) {
@@ -551,7 +589,9 @@ public:
     }
     QObject::childEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
     if (taken[26]) {
@@ -562,7 +602,9 @@ public:
     }
     QObject::customEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
     if (taken[27]) {
@@ -573,7 +615,9 @@ public:
     }
     QObject::connectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
     if (taken[28]) {
@@ -584,6 +628,7 @@ public:
     }
     QObject::disconnectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 };
 
 //  const QMetaObject *QPixmapStyle::metaObject() const
@@ -1043,6 +1088,19 @@ QSize *ritual_ZNK12QPixmapStyle24itemViewSizeFromContentsEPK12QStyleOptionRK5QSi
           option,
           *contentsSize,
           widget));
+}
+
+//  QPixmapStylePrivate *QPixmapStyle::d_func()
+extern "C" Q_DECL_EXPORT
+QPixmapStylePrivate *ritual_ZN12QPixmapStyle6d_funcEv(QPixmapStyle *self) {
+  return self->d_func();
+}
+
+//  const QPixmapStylePrivate *QPixmapStyle::d_func() const
+extern "C" Q_DECL_EXPORT
+const QPixmapStylePrivate *ritual_ZNK12QPixmapStyle6d_funcEv(
+    const QPixmapStyle *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQPixmapStyle, for the function named by

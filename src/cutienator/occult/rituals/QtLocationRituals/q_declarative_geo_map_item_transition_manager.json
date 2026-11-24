@@ -1,0 +1,39 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtLocat",
+    "ion/6.12.0/QtLocation/private/qdeclarativegeomapitemtransitionmana",
+    "ger_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN39QDeclarativeGeoMapItemTransitionManagerC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN39QDeclarativeGeoMapItemTransitionManager15transitionEnterEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN39QDeclarativeGeoMapItemTransitionManager14transitionExitEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN39QDeclarativeGeoMapItemTransitionManager22prepareEnterTransitionEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN39QDeclarativeGeoMapItemTransitionManager21prepareExitTransitionEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN39QDeclarativeGeoMapItemTransitionManager23finalizeEnterTransitionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN39QDeclarativeGeoMapItemTransitionManager22finalizeExitTransitionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN39QDeclarativeGeoMapItemTransitionManager8finishedEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QDeclarativeGeoMapItemTransitionManager": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN39QDeclarativeGeoMapItemTransitionManager8finishedEv": [
+      "nothing", "address"
+    ]
+  }
+}

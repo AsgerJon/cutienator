@@ -1,0 +1,840 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtOpenGL/qopenglfunctions_2_1.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN20QOpenGLFunctions_2_1C1Ev": ["address"],
+    "ritual_ZN20QOpenGLFunctions_2_1D1Ev": ["nothing", "address"],
+    "ritual_ZN20QOpenGLFunctions_2_125initializeOpenGLFunctionsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_110glViewportEiiii": [
+      "nothing", "address", "int", "int", "int", "int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_112glDepthRangeEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_112glReadBufferEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_113glPixelStoreiEji": [
+      "nothing", "address", "unsigned int", "int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_113glPixelStorefEjf": [
+      "nothing", "address", "unsigned int", "float"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_111glDepthFuncEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_111glStencilOpEjjj": [
+      "nothing", "address", "unsigned int", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_113glStencilFuncEjij": [
+      "nothing", "address", "unsigned int", "int", "unsigned int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_19glLogicOpEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_111glBlendFuncEjj": [
+      "nothing", "address", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_17glFlushEv": ["nothing", "address"],
+    "ritual_ZN20QOpenGLFunctions_2_18glFinishEv": ["nothing", "address"],
+    "ritual_ZN20QOpenGLFunctions_2_18glEnableEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_19glDisableEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_111glDepthMaskEh": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_111glColorMaskEhhhh": [
+      "nothing", "address", "unsigned char", "unsigned char",
+      "unsigned char", "unsigned char"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_113glStencilMaskEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_112glClearDepthEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_114glClearStencilEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_112glClearColorEffff": [
+      "nothing", "address", "float", "float", "float", "float"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_17glClearEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_112glDrawBufferEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_115glTexParameteriEjji": [
+      "nothing", "address", "unsigned int", "unsigned int", "int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_115glTexParameterfEjjf": [
+      "nothing", "address", "unsigned int", "unsigned int", "float"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_19glScissorEiiii": [
+      "nothing", "address", "int", "int", "int", "int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_113glPolygonModeEjj": [
+      "nothing", "address", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_111glPointSizeEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_111glLineWidthEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_16glHintEjj": [
+      "nothing", "address", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_111glFrontFaceEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_110glCullFaceEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_19glIndexubEh": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_113glBindTextureEjj": [
+      "nothing", "address", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_119glCopyTexSubImage2DEjiiiiiii": [
+      "nothing", "address", "unsigned int", "int", "int", "int", "int",
+      "int", "int", "int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_119glCopyTexSubImage1DEjiiiii": [
+      "nothing", "address", "unsigned int", "int", "int", "int", "int", "int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_116glCopyTexImage2DEjijiiiii": [
+      "nothing", "address", "unsigned int", "int", "unsigned int", "int",
+      "int", "int", "int", "int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_116glCopyTexImage1DEjijiiii": [
+      "nothing", "address", "unsigned int", "int", "unsigned int", "int",
+      "int", "int", "int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_115glPolygonOffsetEff": [
+      "nothing", "address", "float", "float"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_112glDrawArraysEjii": [
+      "nothing", "address", "unsigned int", "int", "int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_119glCopyTexSubImage3DEjiiiiiiii": [
+      "nothing", "address", "unsigned int", "int", "int", "int", "int",
+      "int", "int", "int", "int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_115glBlendEquationEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_112glBlendColorEffff": [
+      "nothing", "address", "float", "float", "float", "float"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_116glSampleCoverageEfh": [
+      "nothing", "address", "float", "unsigned char"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_115glActiveTextureEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_117glPointParameteriEji": [
+      "nothing", "address", "unsigned int", "int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_117glPointParameterfEjf": [
+      "nothing", "address", "unsigned int", "float"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_119glBlendFuncSeparateEjjjj": [
+      "nothing", "address", "unsigned int", "unsigned int", "unsigned int",
+      "unsigned int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_112glBindBufferEjj": [
+      "nothing", "address", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_110glEndQueryEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_112glBeginQueryEjj": [
+      "nothing", "address", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_117glValidateProgramEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_111glUniform4iEiiiii": [
+      "nothing", "address", "int", "int", "int", "int", "int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_111glUniform3iEiiii": [
+      "nothing", "address", "int", "int", "int", "int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_111glUniform2iEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_111glUniform1iEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_111glUniform4fEiffff": [
+      "nothing", "address", "int", "float", "float", "float", "float"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_111glUniform3fEifff": [
+      "nothing", "address", "int", "float", "float", "float"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_111glUniform2fEiff": [
+      "nothing", "address", "int", "float", "float"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_111glUniform1fEif": [
+      "nothing", "address", "int", "float"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_112glUseProgramEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_113glLinkProgramEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_125glEnableVertexAttribArrayEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_126glDisableVertexAttribArrayEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_114glDetachShaderEjj": [
+      "nothing", "address", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_114glDeleteShaderEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_115glDeleteProgramEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_115glCompileShaderEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_114glAttachShaderEjj": [
+      "nothing", "address", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_121glStencilMaskSeparateEjj": [
+      "nothing", "address", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_121glStencilFuncSeparateEjjij": [
+      "nothing", "address", "unsigned int", "unsigned int", "int",
+      "unsigned int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_119glStencilOpSeparateEjjjj": [
+      "nothing", "address", "unsigned int", "unsigned int", "unsigned int",
+      "unsigned int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_123glBlendEquationSeparateEjj": [
+      "nothing", "address", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_112glTranslatefEfff": [
+      "nothing", "address", "float", "float", "float"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_112glTranslatedEddd": [
+      "nothing", "address", "double", "double", "double"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_18glScalefEfff": [
+      "nothing", "address", "float", "float", "float"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_18glScaledEddd": [
+      "nothing", "address", "double", "double", "double"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_19glRotatefEffff": [
+      "nothing", "address", "float", "float", "float", "float"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_19glRotatedEdddd": [
+      "nothing", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_112glPushMatrixEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_111glPopMatrixEv": ["nothing", "address"],
+    "ritual_ZN20QOpenGLFunctions_2_17glOrthoEdddddd": [
+      "nothing", "address", "double", "double", "double", "double", "double",
+      "double"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_112glMatrixModeEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_114glLoadIdentityEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_19glFrustumEdddddd": [
+      "nothing", "address", "double", "double", "double", "double", "double",
+      "double"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_112glCopyPixelsEiiiij": [
+      "nothing", "address", "int", "int", "int", "int", "unsigned int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_116glPixelTransferiEji": [
+      "nothing", "address", "unsigned int", "int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_116glPixelTransferfEjf": [
+      "nothing", "address", "unsigned int", "float"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_111glPixelZoomEff": [
+      "nothing", "address", "float", "float"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_111glAlphaFuncEjf": [
+      "nothing", "address", "unsigned int", "float"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_112glEvalPoint2Eii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_111glEvalMesh2Ejiiii": [
+      "nothing", "address", "unsigned int", "int", "int", "int", "int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_112glEvalPoint1Ei": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_111glEvalMesh1Ejii": [
+      "nothing", "address", "unsigned int", "int", "int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_113glEvalCoord2fEff": [
+      "nothing", "address", "float", "float"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_113glEvalCoord2dEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_113glEvalCoord1fEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_113glEvalCoord1dEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_111glMapGrid2fEiffiff": [
+      "nothing", "address", "int", "float", "float", "int", "float", "float"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_111glMapGrid2dEiddidd": [
+      "nothing", "address", "int", "double", "double", "int", "double",
+      "double"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_111glMapGrid1fEiff": [
+      "nothing", "address", "int", "float", "float"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_111glMapGrid1dEidd": [
+      "nothing", "address", "int", "double", "double"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_112glPushAttribEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_111glPopAttribEv": ["nothing", "address"],
+    "ritual_ZN20QOpenGLFunctions_2_17glAccumEjf": [
+      "nothing", "address", "unsigned int", "float"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_111glIndexMaskEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_112glClearIndexEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_112glClearAccumEffff": [
+      "nothing", "address", "float", "float", "float", "float"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_110glPushNameEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_19glPopNameEv": ["nothing", "address"],
+    "ritual_ZN20QOpenGLFunctions_2_113glPassThroughEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_110glLoadNameEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_111glInitNamesEv": ["nothing", "address"],
+    "ritual_ZN20QOpenGLFunctions_2_19glTexGeniEjji": [
+      "nothing", "address", "unsigned int", "unsigned int", "int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_19glTexGenfEjjf": [
+      "nothing", "address", "unsigned int", "unsigned int", "float"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_19glTexGendEjjd": [
+      "nothing", "address", "unsigned int", "unsigned int", "double"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_19glTexEnviEjji": [
+      "nothing", "address", "unsigned int", "unsigned int", "int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_19glTexEnvfEjjf": [
+      "nothing", "address", "unsigned int", "unsigned int", "float"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_112glShadeModelEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_111glMaterialiEjji": [
+      "nothing", "address", "unsigned int", "unsigned int", "int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_111glMaterialfEjjf": [
+      "nothing", "address", "unsigned int", "unsigned int", "float"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_113glLineStippleEit": [
+      "nothing", "address", "int", "unsigned short"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_113glLightModeliEji": [
+      "nothing", "address", "unsigned int", "int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_113glLightModelfEjf": [
+      "nothing", "address", "unsigned int", "float"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_18glLightiEjji": [
+      "nothing", "address", "unsigned int", "unsigned int", "int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_18glLightfEjjf": [
+      "nothing", "address", "unsigned int", "unsigned int", "float"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_16glFogiEji": [
+      "nothing", "address", "unsigned int", "int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_16glFogfEjf": [
+      "nothing", "address", "unsigned int", "float"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_115glColorMaterialEjj": [
+      "nothing", "address", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_110glVertex4sEssss": [
+      "nothing", "address", "short", "short", "short", "short"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_110glVertex4iEiiii": [
+      "nothing", "address", "int", "int", "int", "int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_110glVertex4fEffff": [
+      "nothing", "address", "float", "float", "float", "float"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_110glVertex4dEdddd": [
+      "nothing", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_110glVertex3sEsss": [
+      "nothing", "address", "short", "short", "short"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_110glVertex3iEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_110glVertex3fEfff": [
+      "nothing", "address", "float", "float", "float"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_110glVertex3dEddd": [
+      "nothing", "address", "double", "double", "double"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_110glVertex2sEss": [
+      "nothing", "address", "short", "short"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_110glVertex2iEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_110glVertex2fEff": [
+      "nothing", "address", "float", "float"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_110glVertex2dEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_112glTexCoord4sEssss": [
+      "nothing", "address", "short", "short", "short", "short"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_112glTexCoord4iEiiii": [
+      "nothing", "address", "int", "int", "int", "int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_112glTexCoord4fEffff": [
+      "nothing", "address", "float", "float", "float", "float"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_112glTexCoord4dEdddd": [
+      "nothing", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_112glTexCoord3sEsss": [
+      "nothing", "address", "short", "short", "short"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_112glTexCoord3iEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_112glTexCoord3fEfff": [
+      "nothing", "address", "float", "float", "float"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_112glTexCoord3dEddd": [
+      "nothing", "address", "double", "double", "double"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_112glTexCoord2sEss": [
+      "nothing", "address", "short", "short"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_112glTexCoord2iEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_112glTexCoord2fEff": [
+      "nothing", "address", "float", "float"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_112glTexCoord2dEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_112glTexCoord1sEs": [
+      "nothing", "address", "short"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_112glTexCoord1iEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_112glTexCoord1fEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_112glTexCoord1dEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_17glRectsEssss": [
+      "nothing", "address", "short", "short", "short", "short"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_17glRectiEiiii": [
+      "nothing", "address", "int", "int", "int", "int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_17glRectfEffff": [
+      "nothing", "address", "float", "float", "float", "float"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_17glRectdEdddd": [
+      "nothing", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_113glRasterPos4sEssss": [
+      "nothing", "address", "short", "short", "short", "short"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_113glRasterPos4iEiiii": [
+      "nothing", "address", "int", "int", "int", "int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_113glRasterPos4fEffff": [
+      "nothing", "address", "float", "float", "float", "float"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_113glRasterPos4dEdddd": [
+      "nothing", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_113glRasterPos3sEsss": [
+      "nothing", "address", "short", "short", "short"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_113glRasterPos3iEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_113glRasterPos3fEfff": [
+      "nothing", "address", "float", "float", "float"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_113glRasterPos3dEddd": [
+      "nothing", "address", "double", "double", "double"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_113glRasterPos2sEss": [
+      "nothing", "address", "short", "short"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_113glRasterPos2iEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_113glRasterPos2fEff": [
+      "nothing", "address", "float", "float"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_113glRasterPos2dEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_110glNormal3sEsss": [
+      "nothing", "address", "short", "short", "short"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_110glNormal3iEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_110glNormal3fEfff": [
+      "nothing", "address", "float", "float", "float"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_110glNormal3dEddd": [
+      "nothing", "address", "double", "double", "double"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_110glNormal3bEaaa": [
+      "nothing", "address", "signed char", "signed char", "signed char"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_18glIndexsEs": [
+      "nothing", "address", "short"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_18glIndexiEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_18glIndexfEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_18glIndexdEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_15glEndEv": ["nothing", "address"],
+    "ritual_ZN20QOpenGLFunctions_2_110glEdgeFlagEh": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_110glColor4usEtttt": [
+      "nothing", "address", "unsigned short", "unsigned short",
+      "unsigned short", "unsigned short"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_110glColor4uiEjjjj": [
+      "nothing", "address", "unsigned int", "unsigned int", "unsigned int",
+      "unsigned int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_110glColor4ubEhhhh": [
+      "nothing", "address", "unsigned char", "unsigned char",
+      "unsigned char", "unsigned char"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_19glColor4sEssss": [
+      "nothing", "address", "short", "short", "short", "short"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_19glColor4iEiiii": [
+      "nothing", "address", "int", "int", "int", "int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_19glColor4fEffff": [
+      "nothing", "address", "float", "float", "float", "float"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_19glColor4dEdddd": [
+      "nothing", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_19glColor4bEaaaa": [
+      "nothing", "address", "signed char", "signed char", "signed char",
+      "signed char"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_110glColor3usEttt": [
+      "nothing", "address", "unsigned short", "unsigned short",
+      "unsigned short"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_110glColor3uiEjjj": [
+      "nothing", "address", "unsigned int", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_110glColor3ubEhhh": [
+      "nothing", "address", "unsigned char", "unsigned char", "unsigned char"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_19glColor3sEsss": [
+      "nothing", "address", "short", "short", "short"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_19glColor3iEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_19glColor3fEfff": [
+      "nothing", "address", "float", "float", "float"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_19glColor3dEddd": [
+      "nothing", "address", "double", "double", "double"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_19glColor3bEaaa": [
+      "nothing", "address", "signed char", "signed char", "signed char"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_17glBeginEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_110glListBaseEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_113glDeleteListsEji": [
+      "nothing", "address", "unsigned int", "int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_110glCallListEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_19glEndListEv": ["nothing", "address"],
+    "ritual_ZN20QOpenGLFunctions_2_19glNewListEjj": [
+      "nothing", "address", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_118glPushClientAttribEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_117glPopClientAttribEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_119glEnableClientStateEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_120glDisableClientStateEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_114glArrayElementEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_113glResetMinmaxEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_116glResetHistogramEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_18glMinmaxEjjh": [
+      "nothing", "address", "unsigned int", "unsigned int", "unsigned char"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_111glHistogramEjijh": [
+      "nothing", "address", "unsigned int", "int", "unsigned int",
+      "unsigned char"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_125glCopyConvolutionFilter2DEjjiiii": [
+      "nothing", "address", "unsigned int", "unsigned int", "int", "int",
+      "int", "int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_125glCopyConvolutionFilter1DEjjiii": [
+      "nothing", "address", "unsigned int", "unsigned int", "int", "int",
+      "int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_123glConvolutionParameteriEjji": [
+      "nothing", "address", "unsigned int", "unsigned int", "int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_123glConvolutionParameterfEjjf": [
+      "nothing", "address", "unsigned int", "unsigned int", "float"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_119glCopyColorSubTableEjiiii": [
+      "nothing", "address", "unsigned int", "int", "int", "int", "int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_116glCopyColorTableEjjiii": [
+      "nothing", "address", "unsigned int", "unsigned int", "int", "int",
+      "int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_117glMultiTexCoord4sEjssss": [
+      "nothing", "address", "unsigned int", "short", "short", "short",
+      "short"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_117glMultiTexCoord4iEjiiii": [
+      "nothing", "address", "unsigned int", "int", "int", "int", "int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_117glMultiTexCoord4fEjffff": [
+      "nothing", "address", "unsigned int", "float", "float", "float",
+      "float"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_117glMultiTexCoord4dEjdddd": [
+      "nothing", "address", "unsigned int", "double", "double", "double",
+      "double"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_117glMultiTexCoord3sEjsss": [
+      "nothing", "address", "unsigned int", "short", "short", "short"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_117glMultiTexCoord3iEjiii": [
+      "nothing", "address", "unsigned int", "int", "int", "int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_117glMultiTexCoord3fEjfff": [
+      "nothing", "address", "unsigned int", "float", "float", "float"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_117glMultiTexCoord3dEjddd": [
+      "nothing", "address", "unsigned int", "double", "double", "double"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_117glMultiTexCoord2sEjss": [
+      "nothing", "address", "unsigned int", "short", "short"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_117glMultiTexCoord2iEjii": [
+      "nothing", "address", "unsigned int", "int", "int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_117glMultiTexCoord2fEjff": [
+      "nothing", "address", "unsigned int", "float", "float"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_117glMultiTexCoord2dEjdd": [
+      "nothing", "address", "unsigned int", "double", "double"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_117glMultiTexCoord1sEjs": [
+      "nothing", "address", "unsigned int", "short"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_117glMultiTexCoord1iEji": [
+      "nothing", "address", "unsigned int", "int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_117glMultiTexCoord1fEjf": [
+      "nothing", "address", "unsigned int", "float"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_117glMultiTexCoord1dEjd": [
+      "nothing", "address", "unsigned int", "double"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_121glClientActiveTextureEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_113glWindowPos3sEsss": [
+      "nothing", "address", "short", "short", "short"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_113glWindowPos3iEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_113glWindowPos3fEfff": [
+      "nothing", "address", "float", "float", "float"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_113glWindowPos3dEddd": [
+      "nothing", "address", "double", "double", "double"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_113glWindowPos2sEss": [
+      "nothing", "address", "short", "short"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_113glWindowPos2iEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_113glWindowPos2fEff": [
+      "nothing", "address", "float", "float"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_113glWindowPos2dEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_119glSecondaryColor3usEttt": [
+      "nothing", "address", "unsigned short", "unsigned short",
+      "unsigned short"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_119glSecondaryColor3uiEjjj": [
+      "nothing", "address", "unsigned int", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_119glSecondaryColor3ubEhhh": [
+      "nothing", "address", "unsigned char", "unsigned char", "unsigned char"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_118glSecondaryColor3sEsss": [
+      "nothing", "address", "short", "short", "short"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_118glSecondaryColor3iEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_118glSecondaryColor3fEfff": [
+      "nothing", "address", "float", "float", "float"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_118glSecondaryColor3dEddd": [
+      "nothing", "address", "double", "double", "double"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_118glSecondaryColor3bEaaa": [
+      "nothing", "address", "signed char", "signed char", "signed char"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_111glFogCoorddEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_111glFogCoordfEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_116glVertexAttrib4sEjssss": [
+      "nothing", "address", "unsigned int", "short", "short", "short",
+      "short"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_116glVertexAttrib4fEjffff": [
+      "nothing", "address", "unsigned int", "float", "float", "float",
+      "float"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_116glVertexAttrib4dEjdddd": [
+      "nothing", "address", "unsigned int", "double", "double", "double",
+      "double"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_118glVertexAttrib4NubEjhhhh": [
+      "nothing", "address", "unsigned int", "unsigned char", "unsigned char",
+      "unsigned char", "unsigned char"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_116glVertexAttrib3sEjsss": [
+      "nothing", "address", "unsigned int", "short", "short", "short"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_116glVertexAttrib3fEjfff": [
+      "nothing", "address", "unsigned int", "float", "float", "float"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_116glVertexAttrib3dEjddd": [
+      "nothing", "address", "unsigned int", "double", "double", "double"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_116glVertexAttrib2sEjss": [
+      "nothing", "address", "unsigned int", "short", "short"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_116glVertexAttrib2fEjff": [
+      "nothing", "address", "unsigned int", "float", "float"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_116glVertexAttrib2dEjdd": [
+      "nothing", "address", "unsigned int", "double", "double"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_116glVertexAttrib1sEjs": [
+      "nothing", "address", "unsigned int", "short"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_116glVertexAttrib1fEjf": [
+      "nothing", "address", "unsigned int", "float"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_116glVertexAttrib1dEjd": [
+      "nothing", "address", "unsigned int", "double"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_119isContextCompatibleEP14QOpenGLContext": [
+      "bool", "address"
+    ],
+    "ritual_ZN20QOpenGLFunctions_2_114versionProfileEv": ["address"],
+    "ritual_take_QOpenGLFunctions_2_1": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN20QOpenGLFunctions_2_125initializeOpenGLFunctionsEv": [
+      "bool", "address"
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4dateobject_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN3QV410DateObject10__dataTestEv": ["nothing", "address"],
+    "ritual_ZNK3QV410DateObject11d_uncheckedEv": ["address", "address"],
+    "ritual_ZNK3QV410DateObject1dEv": ["address", "address"],
+    "ritual_ZN3QV410DateObject16defaultPrototypeEPNS_15ExecutionEngineE": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV410DateObject4dateEv": ["double", "address"]
+  }
+}

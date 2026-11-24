@@ -1,0 +1,72 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qwidget_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN26QWidgetEffectSourcePrivate6detachEv": ["nothing", "address"],
+    "ritual_ZNK26QWidgetEffectSourcePrivate12graphicsItemEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK26QWidgetEffectSourcePrivate6widgetEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QWidgetEffectSourcePrivate6updateEv": ["nothing", "address"],
+    "ritual_ZNK26QWidgetEffectSourcePrivate8isPixmapEv": ["bool", "address"],
+    "ritual_ZN26QWidgetEffectSourcePrivate25effectBoundingRectChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK26QWidgetEffectSourcePrivate11styleOptionEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK26QWidgetEffectSourcePrivate10deviceRectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK26QWidgetEffectSourcePrivate12boundingRectEN2Qt16CoordinateSystemE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN26QWidgetEffectSourcePrivate4drawEP8QPainter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK26QWidgetEffectSourcePrivate6pixmapEN2Qt16CoordinateSystemEP6QPointN15QGraphicsEffect13PixmapPadModeE": [
+      "address", "address", "int", "address", "int"
+    ],
+    "ritual_take_QWidgetEffectSourcePrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN26QWidgetEffectSourcePrivate6detachEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZNK26QWidgetEffectSourcePrivate12graphicsItemEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK26QWidgetEffectSourcePrivate6widgetEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN26QWidgetEffectSourcePrivate6updateEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZNK26QWidgetEffectSourcePrivate8isPixmapEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZN26QWidgetEffectSourcePrivate25effectBoundingRectChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZNK26QWidgetEffectSourcePrivate11styleOptionEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK26QWidgetEffectSourcePrivate10deviceRectEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK26QWidgetEffectSourcePrivate12boundingRectEN2Qt16CoordinateSystemE": [
+      "address", "address", "int"
+    ],
+    "ritual_own_ZN26QWidgetEffectSourcePrivate4drawEP8QPainter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK26QWidgetEffectSourcePrivate6pixmapEN2Qt16CoordinateSystemEP6QPointN15QGraphicsEffect13PixmapPadModeE": [
+      "address", "address", "int", "address", "int"
+    ]
+  }
+}

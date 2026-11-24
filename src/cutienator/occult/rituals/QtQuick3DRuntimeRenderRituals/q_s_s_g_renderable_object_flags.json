@@ -1,0 +1,146 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgrenderab",
+    "leobjects_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN25QSSGRenderableObjectFlags18setHasTransparencyEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK25QSSGRenderableObjectFlags15hasTransparencyEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN25QSSGRenderableObjectFlags24setCompletelyTransparentEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK25QSSGRenderableObjectFlags23isCompletelyTransparentEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN25QSSGRenderableObjectFlags8setDirtyEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK25QSSGRenderableObjectFlags7isDirtyEv": ["bool", "address"],
+    "ritual_ZN25QSSGRenderableObjectFlags15setCastsShadowsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK25QSSGRenderableObjectFlags12castsShadowsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN25QSSGRenderableObjectFlags18setReceivesShadowsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK25QSSGRenderableObjectFlags15receivesShadowsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN25QSSGRenderableObjectFlags22setReceivesReflectionsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK25QSSGRenderableObjectFlags19receivesReflectionsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN25QSSGRenderableObjectFlags19setCastsReflectionsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK25QSSGRenderableObjectFlags16castsReflectionsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN25QSSGRenderableObjectFlags22setUsedInBakedLightingEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK25QSSGRenderableObjectFlags19usedInBakedLightingEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN25QSSGRenderableObjectFlags22setRendersWithLightmapEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK25QSSGRenderableObjectFlags19rendersWithLightmapEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN25QSSGRenderableObjectFlags23setHasAttributePositionEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK25QSSGRenderableObjectFlags20hasAttributePositionEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN25QSSGRenderableObjectFlags21setHasAttributeNormalEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK25QSSGRenderableObjectFlags18hasAttributeNormalEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN25QSSGRenderableObjectFlags24setHasAttributeTexCoord0Eb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK25QSSGRenderableObjectFlags21hasAttributeTexCoord0Ev": [
+      "bool", "address"
+    ],
+    "ritual_ZN25QSSGRenderableObjectFlags24setHasAttributeTexCoord1Eb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK25QSSGRenderableObjectFlags21hasAttributeTexCoord1Ev": [
+      "bool", "address"
+    ],
+    "ritual_ZN25QSSGRenderableObjectFlags31setHasAttributeTexCoordLightmapEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK25QSSGRenderableObjectFlags28hasAttributeTexCoordLightmapEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN25QSSGRenderableObjectFlags22setHasAttributeTangentEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK25QSSGRenderableObjectFlags19hasAttributeTangentEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN25QSSGRenderableObjectFlags23setHasAttributeBinormalEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK25QSSGRenderableObjectFlags20hasAttributeBinormalEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN25QSSGRenderableObjectFlags20setHasAttributeColorEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK25QSSGRenderableObjectFlags17hasAttributeColorEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN25QSSGRenderableObjectFlags29setHasAttributeJointAndWeightEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK25QSSGRenderableObjectFlags26hasAttributeJointAndWeightEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN25QSSGRenderableObjectFlags26setHasAttributeMorphTargetEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK25QSSGRenderableObjectFlags23hasAttributeMorphTargetEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN25QSSGRenderableObjectFlags17setPointsTopologyEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK25QSSGRenderableObjectFlags16isPointsTopologyEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN25QSSGRenderableObjectFlags24setRequiresScreenTextureEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK25QSSGRenderableObjectFlags21requiresScreenTextureEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN25QSSGRenderableObjectFlags24setRequiresNormalTextureEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK25QSSGRenderableObjectFlags21requiresNormalTextureEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN25QSSGRenderableObjectFlags26setMotionVectorParticipantEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK25QSSGRenderableObjectFlags25isMotionVectorParticipantEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN25QSSGRenderableObjectFlagsD1Ev": ["nothing", "address"]
+  }
+}

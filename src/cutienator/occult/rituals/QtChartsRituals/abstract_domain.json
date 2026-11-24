@@ -1,0 +1,110 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/6.12.0/QtCharts/private/abstractdomain_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK14AbstractDomain10metaObjectEv": ["address", "address"],
+    "ritual_ZN14AbstractDomain2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN14AbstractDomainD1Ev": ["nothing", "address"],
+    "ritual_ZN14AbstractDomain7setSizeERK6QSizeF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14AbstractDomain4sizeEv": ["address", "address"],
+    "ritual_ZN14AbstractDomain4typeEv": ["int", "address"],
+    "ritual_ZN14AbstractDomain8setRangeEdddd": [
+      "nothing", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZN14AbstractDomain9setRangeXEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN14AbstractDomain9setRangeYEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN14AbstractDomain7setMinXEd": ["nothing", "address", "double"],
+    "ritual_ZN14AbstractDomain7setMaxXEd": ["nothing", "address", "double"],
+    "ritual_ZN14AbstractDomain7setMinYEd": ["nothing", "address", "double"],
+    "ritual_ZN14AbstractDomain7setMaxYEd": ["nothing", "address", "double"],
+    "ritual_ZNK14AbstractDomain4minXEv": ["double", "address"],
+    "ritual_ZNK14AbstractDomain4maxXEv": ["double", "address"],
+    "ritual_ZNK14AbstractDomain4minYEv": ["double", "address"],
+    "ritual_ZNK14AbstractDomain4maxYEv": ["double", "address"],
+    "ritual_ZNK14AbstractDomain5spanXEv": ["double", "address"],
+    "ritual_ZNK14AbstractDomain5spanYEv": ["double", "address"],
+    "ritual_ZNK14AbstractDomain7isEmptyEv": ["bool", "address"],
+    "ritual_ZN14AbstractDomain17blockRangeSignalsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK14AbstractDomain19rangeSignalsBlockedEv": ["bool", "address"],
+    "ritual_ZN14AbstractDomain9zoomResetEv": ["nothing", "address"],
+    "ritual_ZN14AbstractDomain14storeZoomResetEv": ["nothing", "address"],
+    "ritual_ZN14AbstractDomain8isZoomedEv": ["bool", "address"],
+    "ritual_ZN14AbstractDomain6zoomInERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14AbstractDomain7zoomOutERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14AbstractDomain4moveEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZNK14AbstractDomain22calculateGeometryPointERK7QPointFRb": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK14AbstractDomain20calculateDomainPointERK7QPointF": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK14AbstractDomain23calculateGeometryPointsERK5QListI7QPointFE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN14AbstractDomain10attachAxisEP13QAbstractAxis": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN14AbstractDomain10detachAxisEP13QAbstractAxis": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN14AbstractDomain16looseNiceNumbersERdS0_Ri": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN14AbstractDomain10niceNumberEdb": ["double", "double", "bool"],
+    "ritual_ZN14AbstractDomain11setReverseXEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN14AbstractDomain11setReverseYEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK14AbstractDomain10isReverseXEv": ["bool", "address"],
+    "ritual_ZNK14AbstractDomain10isReverseYEv": ["bool", "address"],
+    "ritual_ZN14AbstractDomain30handleVerticalAxisRangeChangedEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN14AbstractDomain32handleHorizontalAxisRangeChangedEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN14AbstractDomain21handleReverseXChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN14AbstractDomain21handleReverseYChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN14AbstractDomain21adjustLogDomainRangesERdS0_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN14AbstractDomain11fixZoomRectERK6QRectF": [
+      "address", "address", "address"
+    ],
+    "ritual_take_AbstractDomain": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN14AbstractDomain7setSizeERK6QSizeF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN14AbstractDomain10attachAxisEP13QAbstractAxis": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN14AbstractDomain10detachAxisEP13QAbstractAxis": [
+      "bool", "address", "address"
+    ]
+  }
+}

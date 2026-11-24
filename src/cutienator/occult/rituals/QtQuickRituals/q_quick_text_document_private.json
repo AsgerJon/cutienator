@@ -1,0 +1,26 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquicktextdocument_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN25QQuickTextDocumentPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK25QQuickTextDocumentPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN25QQuickTextDocumentPrivate3getEP18QQuickTextDocument": [
+      "address", "address"
+    ],
+    "ritual_ZN25QQuickTextDocumentPrivate3getEPK18QQuickTextDocument": [
+      "address", "address"
+    ],
+    "ritual_ZNK25QQuickTextDocumentPrivate8documentEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QQuickTextDocumentPrivate11setDocumentEP13QTextDocument": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QQuickTextDocumentPrivate9setStatusEN18QQuickTextDocument6StatusERK7QString": [
+      "nothing", "address", "unsigned char", "text"
+    ]
+  }
+}

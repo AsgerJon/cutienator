@@ -1,0 +1,39 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Dialogs2QuickImpl/6.12.0/QtQuickDialogs2QuickImpl/private/qquickfi",
+    "ledialogdelegate_p_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN31QQuickFileDialogDelegatePrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK31QQuickFileDialogDelegatePrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN31QQuickFileDialogDelegatePrivate3getEP24QQuickFileDialogDelegate": [
+      "address", "address"
+    ],
+    "ritual_ZN31QQuickFileDialogDelegatePrivate13highlightFileEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN31QQuickFileDialogDelegatePrivate10chooseFileEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN31QQuickFileDialogDelegatePrivate17destroyTapHandlerEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN31QQuickFileDialogDelegatePrivate15handleLongPressEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK31QQuickFileDialogDelegatePrivate14acceptKeyClickEN2Qt3KeyE": [
+      "bool", "address", "int"
+    ],
+    "ritual_take_QQuickFileDialogDelegatePrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK31QQuickFileDialogDelegatePrivate14acceptKeyClickEN2Qt3KeyE": [
+      "bool", "address", "int"
+    ]
+  }
+}

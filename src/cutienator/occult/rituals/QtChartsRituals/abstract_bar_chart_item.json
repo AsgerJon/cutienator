@@ -1,0 +1,133 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/6.12.0/QtCharts/private/abstractbarchartitem_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK20AbstractBarChartItem10metaObjectEv": ["address", "address"],
+    "ritual_ZN20AbstractBarChartItem2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN20AbstractBarChartItemD1Ev": ["nothing", "address"],
+    "ritual_ZN20AbstractBarChartItem5paintEP8QPainterPK24QStyleOptionGraphicsItemP7QWidget": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK20AbstractBarChartItem12boundingRectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20AbstractBarChartItem15calculateLayoutEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20AbstractBarChartItem20initializeFullLayoutEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20AbstractBarChartItem16initializeLayoutEiiib": [
+      "nothing", "address", "int", "int", "int", "bool"
+    ],
+    "ritual_ZN20AbstractBarChartItem11applyLayoutERK5QListI6QRectFE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20AbstractBarChartItem12setAnimationEP12BarAnimation": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20AbstractBarChartItem9animationEv": ["address", "address"],
+    "ritual_ZN20AbstractBarChartItem9setLayoutERK5QListI6QRectFE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20AbstractBarChartItem8geometryEv": ["address", "address"],
+    "ritual_ZN20AbstractBarChartItem14resetAnimationEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20AbstractBarChartItem19handleDomainUpdatedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20AbstractBarChartItem19handleLayoutChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20AbstractBarChartItem26handleLabelsVisibleChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20AbstractBarChartItem26handleDataStructureChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20AbstractBarChartItem20handleVisibleChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20AbstractBarChartItem20handleOpacityChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20AbstractBarChartItem17handleUpdatedBarsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20AbstractBarChartItem27handleLabelsPositionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20AbstractBarChartItem14positionLabelsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20AbstractBarChartItem20handleBarValueChangeEiP7QBarSet": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN20AbstractBarChartItem17handleBarValueAddEiiP7QBarSet": [
+      "nothing", "address", "int", "int", "address"
+    ],
+    "ritual_ZN20AbstractBarChartItem20handleBarValueRemoveEiiP7QBarSet": [
+      "nothing", "address", "int", "int", "address"
+    ],
+    "ritual_ZN20AbstractBarChartItem17handleSeriesAddedEP15QAbstractSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20AbstractBarChartItem19handleSeriesRemovedEP15QAbstractSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20AbstractBarChartItem22positionLabelsVerticalEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20AbstractBarChartItem16createLabelItemsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20AbstractBarChartItem24handleSetStructureChangeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20AbstractBarChartItem17generateLabelTextEiid": [
+      "text", "address", "int", "int", "double"
+    ],
+    "ritual_ZN20AbstractBarChartItem14updateBarItemsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20AbstractBarChartItem15markLabelsDirtyEP7QBarSetii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN20AbstractBarChartItem41calculateSeriesPositionAdjustmentAndWidthEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_AbstractBarChartItem": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN20AbstractBarChartItem5paintEP8QPainterPK24QStyleOptionGraphicsItemP7QWidget": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZNK20AbstractBarChartItem12boundingRectEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN20AbstractBarChartItem12setAnimationEP12BarAnimation": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK20AbstractBarChartItem9animationEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN20AbstractBarChartItem19handleDomainUpdatedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN20AbstractBarChartItem14positionLabelsEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN20AbstractBarChartItem17generateLabelTextEiid": [
+      "text", "address", "int", "int", "double"
+    ],
+    "ritual_own_ZN20AbstractBarChartItem15markLabelsDirtyEP7QBarSetii": [
+      "nothing", "address", "address", "int", "int"
+    ]
+  }
+}

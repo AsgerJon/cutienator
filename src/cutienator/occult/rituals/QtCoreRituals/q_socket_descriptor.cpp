@@ -22,6 +22,7 @@ bool ritual_ZNK17QSocketDescriptor7isValidEv(const QSocketDescriptor *self) {
   return self->isValid();
 }
 
+#if !(defined(Q_OS_WIN) || defined(Q_QDOC))
 //  bool operator==(const QSocketDescriptor &lhs, const QSocketDescriptor
 //      &rhs)
 extern "C" Q_DECL_EXPORT
@@ -30,7 +31,9 @@ bool ritual_ZeqRK17QSocketDescriptorS1_(
     const QSocketDescriptor *rhs) {
   return operator==(*lhs, *rhs);
 }
+#endif  // !(defined(Q_OS_WIN) || defined(Q_QDOC))
 
+#if !(defined(Q_OS_WIN) || defined(Q_QDOC))
 //  bool operator!=(const QSocketDescriptor &lhs, const QSocketDescriptor
 //      &rhs)
 extern "C" Q_DECL_EXPORT
@@ -39,6 +42,7 @@ bool ritual_ZneRK17QSocketDescriptorS1_(
     const QSocketDescriptor *rhs) {
   return operator!=(*lhs, *rhs);
 }
+#endif  // !(defined(Q_OS_WIN) || defined(Q_QDOC))
 
 //  QSocketDescriptor::~QSocketDescriptor()
 extern "C" Q_DECL_EXPORT

@@ -1,0 +1,45 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/abstractwidgetbox.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN27QDesignerWidgetBoxInterface6WidgetC1ERK7QStringS3_S3_NS0_4TypeE": [
+      "address", "text", "text", "text", "int"
+    ],
+    "ritual_ZN27QDesignerWidgetBoxInterface6WidgetD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QDesignerWidgetBoxInterface6WidgetC1ERKS0_": [
+      "address", "address"
+    ],
+    "ritual_ZNK27QDesignerWidgetBoxInterface6Widget4nameEv": [
+      "text", "address"
+    ],
+    "ritual_ZN27QDesignerWidgetBoxInterface6Widget7setNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK27QDesignerWidgetBoxInterface6Widget6domXmlEv": [
+      "text", "address"
+    ],
+    "ritual_ZN27QDesignerWidgetBoxInterface6Widget9setDomXmlERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK27QDesignerWidgetBoxInterface6Widget8iconNameEv": [
+      "text", "address"
+    ],
+    "ritual_ZN27QDesignerWidgetBoxInterface6Widget11setIconNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK27QDesignerWidgetBoxInterface6Widget4typeEv": [
+      "int", "address"
+    ],
+    "ritual_ZN27QDesignerWidgetBoxInterface6Widget7setTypeENS0_4TypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK27QDesignerWidgetBoxInterface6Widget6isNullEv": [
+      "bool", "address"
+    ]
+  }
+}

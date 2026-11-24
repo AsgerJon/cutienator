@@ -1,0 +1,140 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/qxyseries.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK9QXYSeries10metaObjectEv": ["address", "address"],
+    "ritual_ZN9QXYSeries2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN9QXYSeriesD1Ev": ["nothing", "address"],
+    "ritual_ZN9QXYSeries6appendEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN9QXYSeries6appendERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QXYSeries6appendERK5QListI7QPointFE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QXYSeries7replaceEdddd": [
+      "nothing", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZN9QXYSeries7replaceERK7QPointFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN9QXYSeries7replaceEidd": [
+      "nothing", "address", "int", "double", "double"
+    ],
+    "ritual_ZN9QXYSeries7replaceEiRK7QPointF": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN9QXYSeries6removeEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN9QXYSeries6removeERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QXYSeries6removeEi": ["nothing", "address", "int"],
+    "ritual_ZN9QXYSeries12removePointsEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN9QXYSeries6insertEiRK7QPointF": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN9QXYSeries5clearEv": ["nothing", "address"],
+    "ritual_ZNK9QXYSeries5countEv": ["int", "address"],
+    "ritual_ZNK9QXYSeries6pointsEv": ["address", "address"],
+    "ritual_ZNK9QXYSeries12pointsVectorEv": ["address", "address"],
+    "ritual_ZNK9QXYSeries2atEi": ["address", "address", "int"],
+    "ritual_ZN9QXYSeries6setPenERK4QPen": ["nothing", "address", "address"],
+    "ritual_ZNK9QXYSeries3penEv": ["address", "address"],
+    "ritual_ZN9QXYSeries8setBrushERK6QBrush": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9QXYSeries5brushEv": ["address", "address"],
+    "ritual_ZN9QXYSeries8setColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9QXYSeries5colorEv": ["address", "address"],
+    "ritual_ZN9QXYSeries16setSelectedColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9QXYSeries13selectedColorEv": ["address", "address"],
+    "ritual_ZN9QXYSeries16setPointsVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK9QXYSeries13pointsVisibleEv": ["bool", "address"],
+    "ritual_ZN9QXYSeries20setPointLabelsFormatERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK9QXYSeries17pointLabelsFormatEv": ["text", "address"],
+    "ritual_ZN9QXYSeries21setPointLabelsVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK9QXYSeries18pointLabelsVisibleEv": ["bool", "address"],
+    "ritual_ZN9QXYSeries18setPointLabelsFontERK5QFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9QXYSeries15pointLabelsFontEv": ["address", "address"],
+    "ritual_ZN9QXYSeries19setPointLabelsColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9QXYSeries16pointLabelsColorEv": ["address", "address"],
+    "ritual_ZN9QXYSeries22setPointLabelsClippingEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK9QXYSeries19pointLabelsClippingEv": ["bool", "address"],
+    "ritual_ZN9QXYSeries7replaceERK5QListI7QPointFE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QXYSeries15isPointSelectedEi": ["bool", "address", "int"],
+    "ritual_ZN9QXYSeries11selectPointEi": ["nothing", "address", "int"],
+    "ritual_ZN9QXYSeries13deselectPointEi": ["nothing", "address", "int"],
+    "ritual_ZN9QXYSeries16setPointSelectedEib": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZN9QXYSeries15selectAllPointsEv": ["nothing", "address"],
+    "ritual_ZN9QXYSeries17deselectAllPointsEv": ["nothing", "address"],
+    "ritual_ZN9QXYSeries14setLightMarkerERK6QImage": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9QXYSeries11lightMarkerEv": ["address", "address"],
+    "ritual_ZN9QXYSeries22setSelectedLightMarkerERK6QImage": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9QXYSeries19selectedLightMarkerEv": ["address", "address"],
+    "ritual_ZN9QXYSeries13setMarkerSizeEd": ["nothing", "address", "double"],
+    "ritual_ZNK9QXYSeries10markerSizeEv": ["double", "address"],
+    "ritual_ZN9QXYSeries21setBestFitLineVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK9QXYSeries18bestFitLineVisibleEv": ["bool", "address"],
+    "ritual_ZN9QXYSeries17setBestFitLinePenERK4QPen": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9QXYSeries14bestFitLinePenEv": ["address", "address"],
+    "ritual_ZN9QXYSeries19setBestFitLineColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9QXYSeries16bestFitLineColorEv": ["address", "address"],
+    "ritual_ZN9QXYSeries23clearPointConfigurationEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN9QXYSeries24clearPointsConfigurationEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN9QXYSeries6d_funcEv": ["address", "address"],
+    "ritual_ZNK9QXYSeries6d_funcEv": ["address", "address"],
+    "ritual_take_QXYSeries": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN9QXYSeries6setPenERK4QPen": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN9QXYSeries8setBrushERK6QBrush": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN9QXYSeries8setColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK9QXYSeries5colorEv": ["address", "address"]
+  }
+}

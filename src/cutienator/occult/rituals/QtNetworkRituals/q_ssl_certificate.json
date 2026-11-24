@@ -1,0 +1,75 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/qsslcertificate.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN15QSslCertificateC1EP9QIODeviceN4QSsl14EncodingFormatE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN15QSslCertificateC1ERK10QByteArrayN4QSsl14EncodingFormatE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN15QSslCertificateC1ERKS_": ["address", "address"],
+    "ritual_ZN15QSslCertificateD1Ev": ["nothing", "address"],
+    "ritual_ZNK15QSslCertificateeqERKS_": ["bool", "address", "address"],
+    "ritual_ZNK15QSslCertificateneERKS_": ["bool", "address", "address"],
+    "ritual_ZNK15QSslCertificate6isNullEv": ["bool", "address"],
+    "ritual_ZNK15QSslCertificate13isBlacklistedEv": ["bool", "address"],
+    "ritual_ZNK15QSslCertificate12isSelfSignedEv": ["bool", "address"],
+    "ritual_ZN15QSslCertificate5clearEv": ["nothing", "address"],
+    "ritual_ZNK15QSslCertificate7versionEv": ["address", "address"],
+    "ritual_ZNK15QSslCertificate12serialNumberEv": ["address", "address"],
+    "ritual_ZNK15QSslCertificate6digestEN18QCryptographicHash9AlgorithmE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK15QSslCertificate10issuerInfoENS_11SubjectInfoE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK15QSslCertificate10issuerInfoERK10QByteArray": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK15QSslCertificate11subjectInfoENS_11SubjectInfoE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK15QSslCertificate11subjectInfoERK10QByteArray": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK15QSslCertificate17issuerDisplayNameEv": ["text", "address"],
+    "ritual_ZNK15QSslCertificate18subjectDisplayNameEv": ["text", "address"],
+    "ritual_ZNK15QSslCertificate21subjectInfoAttributesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK15QSslCertificate20issuerInfoAttributesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK15QSslCertificate13effectiveDateEv": ["address", "address"],
+    "ritual_ZNK15QSslCertificate10expiryDateEv": ["address", "address"],
+    "ritual_ZNK15QSslCertificate9publicKeyEv": ["address", "address"],
+    "ritual_ZNK15QSslCertificate10extensionsEv": ["address", "address"],
+    "ritual_ZNK15QSslCertificate5toPemEv": ["address", "address"],
+    "ritual_ZNK15QSslCertificate5toDerEv": ["address", "address"],
+    "ritual_ZNK15QSslCertificate6toTextEv": ["text", "address"],
+    "ritual_ZN15QSslCertificate8fromPathERK7QStringN4QSsl14EncodingFormatENS_13PatternSyntaxE": [
+      "address", "text", "int", "int"
+    ],
+    "ritual_ZN15QSslCertificate10fromDeviceEP9QIODeviceN4QSsl14EncodingFormatE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN15QSslCertificate8fromDataERK10QByteArrayN4QSsl14EncodingFormatE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN15QSslCertificate8fromFileERK7QStringN4QSsl14EncodingFormatE": [
+      "address", "text", "int"
+    ],
+    "ritual_ZN15QSslCertificate6verifyERK5QListIS_ERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_list_make_QSslCertificate": ["address"],
+    "ritual_list_add_QSslCertificate": ["nothing", "address", "address"],
+    "ritual_list_size_QSslCertificate": ["long long", "address"],
+    "ritual_list_at_QSslCertificate": ["address", "address", "long long"],
+    "ritual_list_drop_QSslCertificate": ["nothing", "address"]
+  }
+}

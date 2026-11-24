@@ -1,0 +1,64 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/abstractintrospection_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN28QDesignerMetaObjectInterfaceD1Ev": ["nothing", "address"],
+    "ritual_ZNK28QDesignerMetaObjectInterface9classNameEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK28QDesignerMetaObjectInterface10enumeratorEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK28QDesignerMetaObjectInterface15enumeratorCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK28QDesignerMetaObjectInterface16enumeratorOffsetEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK28QDesignerMetaObjectInterface17indexOfEnumeratorERK7QString": [
+      "int", "address", "text"
+    ],
+    "ritual_ZNK28QDesignerMetaObjectInterface13indexOfMethodERK7QString": [
+      "int", "address", "text"
+    ],
+    "ritual_ZNK28QDesignerMetaObjectInterface15indexOfPropertyERK7QString": [
+      "int", "address", "text"
+    ],
+    "ritual_ZNK28QDesignerMetaObjectInterface13indexOfSignalERK7QString": [
+      "int", "address", "text"
+    ],
+    "ritual_ZNK28QDesignerMetaObjectInterface11indexOfSlotERK7QString": [
+      "int", "address", "text"
+    ],
+    "ritual_ZNK28QDesignerMetaObjectInterface6methodEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK28QDesignerMetaObjectInterface11methodCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK28QDesignerMetaObjectInterface12methodOffsetEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK28QDesignerMetaObjectInterface8propertyEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK28QDesignerMetaObjectInterface13propertyCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK28QDesignerMetaObjectInterface14propertyOffsetEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK28QDesignerMetaObjectInterface10superClassEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QDesignerMetaObjectInterface12userPropertyEv": [
+      "address", "address"
+    ],
+    "ritual_take_QDesignerMetaObjectInterface": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

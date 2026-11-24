@@ -1,0 +1,32 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qresource_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QResourceFileEngineD1Ev": ["nothing", "address"],
+    "ritual_ZN19QResourceFileEngine5flushEv": ["bool", "address"],
+    "ritual_ZNK19QResourceFileEngine5atEndEv": ["bool", "address"],
+    "ritual_ZNK19QResourceFileEngine13caseSensitiveEv": ["bool", "address"],
+    "ritual_ZNK19QResourceFileEngine7ownerIdEN19QAbstractFileEngine9FileOwnerE": [
+      "unsigned int", "address", "int"
+    ],
+    "ritual_ZNK19QResourceFileEngine17supportsExtensionEN19QAbstractFileEngine9ExtensionE": [
+      "bool", "address", "int"
+    ],
+    "ritual_take_QResourceFileEngine": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN19QResourceFileEngine5flushEv": ["bool", "address"],
+    "ritual_own_ZNK19QResourceFileEngine13caseSensitiveEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZNK19QResourceFileEngine7ownerIdEN19QAbstractFileEngine9FileOwnerE": [
+      "unsigned int", "address", "int"
+    ],
+    "ritual_own_ZNK19QResourceFileEngine17supportsExtensionEN19QAbstractFileEngine9ExtensionE": [
+      "bool", "address", "int"
+    ]
+  }
+}

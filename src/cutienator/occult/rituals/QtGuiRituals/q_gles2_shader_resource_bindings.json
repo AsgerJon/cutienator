@@ -1,0 +1,32 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qrhigles2_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN28QGles2ShaderResourceBindingsC1EP18QRhiImplementation": [
+      "address", "address"
+    ],
+    "ritual_ZN28QGles2ShaderResourceBindingsD1Ev": ["nothing", "address"],
+    "ritual_ZN28QGles2ShaderResourceBindings7destroyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QGles2ShaderResourceBindings6createEv": ["bool", "address"],
+    "ritual_ZN28QGles2ShaderResourceBindings15updateResourcesE6QFlagsIN26QRhiShaderResourceBindings10UpdateFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_take_QGles2ShaderResourceBindings": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN28QGles2ShaderResourceBindings7destroyEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN28QGles2ShaderResourceBindings6createEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZN28QGles2ShaderResourceBindings15updateResourcesE6QFlagsIN26QRhiShaderResourceBindings10UpdateFlagEE": [
+      "nothing", "address", "int"
+    ]
+  }
+}

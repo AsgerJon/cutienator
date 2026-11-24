@@ -1,0 +1,13 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4compilercontext_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN3QV48Compiler11ExportEntry8lessThanERKS1_S3_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN3QV48Compiler11ExportEntryD1Ev": ["nothing", "address"]
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qpathclipper_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK13QPathSegments12IntersectionltERKS0_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN13QPathSegments12IntersectionD1Ev": ["nothing", "address"]
+  }
+}

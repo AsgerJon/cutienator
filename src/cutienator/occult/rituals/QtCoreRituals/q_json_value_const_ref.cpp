@@ -322,6 +322,7 @@ QString *ritual_ZNK18QJsonValueConstRef13objectKeyViewEv(
   return new QString(self->objectKeyView().toString());
 }
 
+#if QT_VERSION < QT_VERSION_CHECK(7, 0, 0) && !defined(QT_BOOTSTRAPPED)
 //  QJsonValueConstRef::QJsonValueConstRef(QJsonArray *array, qsizetype idx)
 extern "C" Q_DECL_EXPORT
 QJsonValueConstRef *ritual_ZN18QJsonValueConstRefC1EP10QJsonArrayx(
@@ -329,7 +330,9 @@ QJsonValueConstRef *ritual_ZN18QJsonValueConstRefC1EP10QJsonArrayx(
     qsizetype idx) {
   return new QJsonValueConstRef(array, idx);
 }
+#endif
 
+#if QT_VERSION < QT_VERSION_CHECK(7, 0, 0) && !defined(QT_BOOTSTRAPPED)
 //  QJsonValueConstRef::QJsonValueConstRef(QJsonObject *object, qsizetype
 //      idx)
 extern "C" Q_DECL_EXPORT
@@ -338,7 +341,9 @@ QJsonValueConstRef *ritual_ZN18QJsonValueConstRefC1EP11QJsonObjectx(
     qsizetype idx) {
   return new QJsonValueConstRef(object, idx);
 }
+#endif
 
+#if QT_VERSION < QT_VERSION_CHECK(7, 0, 0) && !defined(QT_BOOTSTRAPPED)
 //  void QJsonValueConstRef::rebind(QJsonValueConstRef other)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QJsonValueConstRef6rebindES_(
@@ -346,6 +351,7 @@ void ritual_ZN18QJsonValueConstRef6rebindES_(
     const QJsonValueConstRef *other) {
   self->rebind(*other);
 }
+#endif
 
 //  QJsonValueConstRef::~QJsonValueConstRef()
 extern "C" Q_DECL_EXPORT

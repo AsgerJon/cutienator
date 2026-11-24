@@ -1,0 +1,53 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickdroparea_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK15QQuickDragEvent10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QQuickDragEvent2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN15QQuickDragEvent24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK15QQuickDragEvent1xEv": ["double", "address"],
+    "ritual_ZNK15QQuickDragEvent1yEv": ["double", "address"],
+    "ritual_ZNK15QQuickDragEvent6sourceEv": ["address", "address"],
+    "ritual_ZNK15QQuickDragEvent16supportedActionsEv": ["int", "address"],
+    "ritual_ZNK15QQuickDragEvent14proposedActionEv": ["int", "address"],
+    "ritual_ZNK15QQuickDragEvent6actionEv": ["int", "address"],
+    "ritual_ZN15QQuickDragEvent9setActionEN2Qt10DropActionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN15QQuickDragEvent11resetActionEv": ["nothing", "address"],
+    "ritual_ZNK15QQuickDragEvent4keysEv": ["address", "address"],
+    "ritual_ZNK15QQuickDragEvent8acceptedEv": ["bool", "address"],
+    "ritual_ZN15QQuickDragEvent11setAcceptedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK15QQuickDragEvent8hasColorEv": ["bool", "address"],
+    "ritual_ZNK15QQuickDragEvent7hasHtmlEv": ["bool", "address"],
+    "ritual_ZNK15QQuickDragEvent7hasTextEv": ["bool", "address"],
+    "ritual_ZNK15QQuickDragEvent7hasUrlsEv": ["bool", "address"],
+    "ritual_ZNK15QQuickDragEvent9colorDataEv": ["address", "address"],
+    "ritual_ZNK15QQuickDragEvent4htmlEv": ["text", "address"],
+    "ritual_ZNK15QQuickDragEvent4textEv": ["text", "address"],
+    "ritual_ZNK15QQuickDragEvent4urlsEv": ["address", "address"],
+    "ritual_ZNK15QQuickDragEvent7formatsEv": ["address", "address"],
+    "ritual_ZNK15QQuickDragEvent15getDataAsStringERK7QString": [
+      "text", "address", "text"
+    ],
+    "ritual_ZNK15QQuickDragEvent20getDataAsArrayBufferERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN15QQuickDragEvent20acceptProposedActionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickDragEvent6acceptEv": ["nothing", "address"],
+    "ritual_ZN15QQuickDragEvent6acceptEN2Qt10DropActionE": [
+      "nothing", "address", "int"
+    ]
+  }
+}

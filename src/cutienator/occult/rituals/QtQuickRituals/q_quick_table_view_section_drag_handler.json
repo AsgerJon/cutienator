@@ -1,0 +1,39 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquicktableview_p_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK33QQuickTableViewSectionDragHandler10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN33QQuickTableViewSectionDragHandlerD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN33QQuickTableViewSectionDragHandler11grabSectionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN33QQuickTableViewSectionDragHandler10handleDragEP15QQuickDragEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN33QQuickTableViewSectionDragHandler10handleDropEP15QQuickDragEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN33QQuickTableViewSectionDragHandler20handleDragDropActionEN2Qt10DropActionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN33QQuickTableViewSectionDragHandler21setSectionOrientationEN2Qt11OrientationE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN33QQuickTableViewSectionDragHandler13resetDragDataEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN33QQuickTableViewSectionDragHandler19resetSectionOverlayEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QQuickTableViewSectionDragHandler": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

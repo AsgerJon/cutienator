@@ -1,0 +1,23 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4qobjectwrapper_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN3QV416QmlSignalHandler12staticVTableEv": ["address"],
+    "ritual_ZN3QV416QmlSignalHandler10__dataTestEv": ["nothing", "address"],
+    "ritual_ZNK3QV416QmlSignalHandler11d_uncheckedEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV416QmlSignalHandler1dEv": ["address", "address"],
+    "ritual_ZN3QV416QmlSignalHandler16defaultPrototypeEPNS_15ExecutionEngineE": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV416QmlSignalHandler14virtualDestroyEPNS_4Heap4BaseE": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK3QV416QmlSignalHandler11signalIndexEv": ["int", "address"],
+    "ritual_ZNK3QV416QmlSignalHandler6objectEv": ["address", "address"]
+  }
+}

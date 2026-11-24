@@ -1,0 +1,125 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qgraphicsview_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QGraphicsViewPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK20QGraphicsViewPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN20QGraphicsViewPrivateC1Ev": ["address"],
+    "ritual_ZN20QGraphicsViewPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN20QGraphicsViewPrivate22recalculateContentSizeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QGraphicsViewPrivate10centerViewEN13QGraphicsView14ViewportAnchorE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QGraphicsViewPrivate21updateLastCenterPointEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK20QGraphicsViewPrivate16horizontalScrollEv": [
+      "long long", "address"
+    ],
+    "ritual_ZNK20QGraphicsViewPrivate14verticalScrollEv": [
+      "long long", "address"
+    ],
+    "ritual_ZNK20QGraphicsViewPrivate14mapRectToSceneERK5QRect": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK20QGraphicsViewPrivate16mapRectFromSceneERK6QRectF": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN20QGraphicsViewPrivate12updateScrollEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK20QGraphicsViewPrivate19canStartScrollingAtERK6QPoint": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN20QGraphicsViewPrivate20replayLastMouseEventEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QGraphicsViewPrivate15storeMouseEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QGraphicsViewPrivate21mouseMoveEventHandlerEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QGraphicsViewPrivate16rubberBandRegionEPK7QWidgetRK5QRect": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN20QGraphicsViewPrivate16updateRubberBandEPK11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QGraphicsViewPrivate15clearRubberBandEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QGraphicsViewPrivate22allocStyleOptionsArrayEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN20QGraphicsViewPrivate21freeStyleOptionsArrayEP24QStyleOptionGraphicsItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QGraphicsViewPrivate20_q_setViewportCursorERK7QCursor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QGraphicsViewPrivate22_q_unsetViewportCursorEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QGraphicsViewPrivate18storeDragDropEventEPK27QGraphicsSceneDragDropEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QGraphicsViewPrivate26populateSceneDragDropEventEP27QGraphicsSceneDragDropEventP10QDropEvent": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK20QGraphicsViewPrivate18mapToViewTransformEPK13QGraphicsItem": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK20QGraphicsViewPrivate13mapToViewRectEPK13QGraphicsItemRK6QRectF": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK20QGraphicsViewPrivate15mapToViewRegionEPK13QGraphicsItemRK6QRectF": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN20QGraphicsViewPrivate21processPendingUpdatesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QGraphicsViewPrivate9updateAllEv": ["nothing", "address"],
+    "ritual_ZN20QGraphicsViewPrivate29dispatchPendingUpdateRequestsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QGraphicsViewPrivate13setUpdateClipEP13QGraphicsItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QGraphicsViewPrivate11updateRectFERK6QRectF": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN20QGraphicsViewPrivate10updateRectERK5QRect": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN20QGraphicsViewPrivate12updateRegionERK6QRectFRK10QTransform": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZNK20QGraphicsViewPrivate9findItemsERK7QRegionPbRK10QTransform": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK20QGraphicsViewPrivate10mapToSceneERK7QPointF": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK20QGraphicsViewPrivate10mapToSceneERK6QRectF": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN20QGraphicsViewPrivate19translateTouchEventEPS_P11QTouchEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QGraphicsViewPrivate28updateInputMethodSensitivityEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QGraphicsViewPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK20QGraphicsViewPrivate19canStartScrollingAtERK6QPoint": [
+      "bool", "address", "address"
+    ]
+  }
+}

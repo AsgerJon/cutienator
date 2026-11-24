@@ -1,0 +1,25 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSql/6.12.0/QtSql/private/qsqlquerymodel_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN21QSqlQueryModelPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK21QSqlQueryModelPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN21QSqlQueryModelPrivateC1Ev": ["address"],
+    "ritual_ZN21QSqlQueryModelPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN21QSqlQueryModelPrivate8prefetchEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN21QSqlQueryModelPrivate14initColOffsetsEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK21QSqlQueryModelPrivate13columnInQueryEi": [
+      "int", "address", "int"
+    ],
+    "ritual_take_QSqlQueryModelPrivate": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

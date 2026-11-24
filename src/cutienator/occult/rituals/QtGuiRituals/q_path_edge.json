@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qpathclipper_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN9QPathEdgeC1Eii": ["address", "int", "int"],
+    "ritual_ZNK9QPathEdge4nextENS_9TraversalENS_9DirectionE": [
+      "int", "address", "int", "int"
+    ],
+    "ritual_ZN9QPathEdge7setNextENS_9TraversalENS_9DirectionEi": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZN9QPathEdge7setNextENS_9DirectionEi": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK9QPathEdge11directionToEi": ["int", "address", "int"],
+    "ritual_ZNK9QPathEdge6vertexENS_9DirectionE": ["int", "address", "int"],
+    "ritual_ZN9QPathEdgeD1Ev": ["nothing", "address"]
+  }
+}

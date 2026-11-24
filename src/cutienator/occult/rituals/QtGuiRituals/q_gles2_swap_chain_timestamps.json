@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qrhigles2_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN25QGles2SwapChainTimestamps7prepareEP9QRhiGles2": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QGles2SwapChainTimestamps7destroyEP9QRhiGles2": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QGles2SwapChainTimestamps18tryQueryTimestampsEiP9QRhiGles2Pd": [
+      "bool", "address", "int", "address", "address"
+    ],
+    "ritual_ZN25QGles2SwapChainTimestampsD1Ev": ["nothing", "address"]
+  }
+}

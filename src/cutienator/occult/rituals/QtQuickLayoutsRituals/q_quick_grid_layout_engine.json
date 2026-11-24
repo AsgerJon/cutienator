@@ -1,0 +1,23 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Layouts/6.12.0/QtQuickLayouts/private/qquickgridlayoutengine_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN22QQuickGridLayoutEngineC1Ev": ["address"],
+    "ritual_ZNK22QQuickGridLayoutEngine7indexOfEP10QQuickItem": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK22QQuickGridLayoutEngine14findLayoutItemEP10QQuickItem": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN22QQuickGridLayoutEngine12setAlignmentEP10QQuickItem6QFlagsIN2Qt13AlignmentFlagEE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN22QQuickGridLayoutEngine16setStretchFactorEP10QQuickItemiN2Qt11OrientationE": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN22QQuickGridLayoutEngineD1Ev": ["nothing", "address"]
+  }
+}

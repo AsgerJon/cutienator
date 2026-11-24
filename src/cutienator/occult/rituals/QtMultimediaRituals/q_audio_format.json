@@ -1,0 +1,53 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtMultimedia/qaudioformat.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK12QAudioFormat7isValidEv": ["bool", "address"],
+    "ritual_ZN12QAudioFormat13setSampleRateEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK12QAudioFormat10sampleRateEv": ["int", "address"],
+    "ritual_ZN12QAudioFormat16setChannelConfigENS_13ChannelConfigE": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZNK12QAudioFormat13channelConfigEv": ["unsigned int", "address"],
+    "ritual_ZN12QAudioFormat15setChannelCountEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK12QAudioFormat12channelCountEv": ["int", "address"],
+    "ritual_ZNK12QAudioFormat13channelOffsetENS_20AudioChannelPositionE": [
+      "int", "address", "int"
+    ],
+    "ritual_ZN12QAudioFormat15setSampleFormatENS_12SampleFormatE": [
+      "nothing", "address", "unsigned short"
+    ],
+    "ritual_ZNK12QAudioFormat12sampleFormatEv": [
+      "unsigned short", "address"
+    ],
+    "ritual_ZNK12QAudioFormat16bytesForDurationEx": [
+      "int", "address", "long long"
+    ],
+    "ritual_ZNK12QAudioFormat16durationForBytesEi": [
+      "long long", "address", "int"
+    ],
+    "ritual_ZNK12QAudioFormat14bytesForFramesEi": ["int", "address", "int"],
+    "ritual_ZNK12QAudioFormat14framesForBytesEi": ["int", "address", "int"],
+    "ritual_ZNK12QAudioFormat17framesForDurationEx": [
+      "int", "address", "long long"
+    ],
+    "ritual_ZNK12QAudioFormat17durationForFramesEi": [
+      "long long", "address", "int"
+    ],
+    "ritual_ZNK12QAudioFormat13bytesPerFrameEv": ["int", "address"],
+    "ritual_ZNK12QAudioFormat14bytesPerSampleEv": ["int", "address"],
+    "ritual_ZeqRK12QAudioFormatS1_": ["bool", "address", "address"],
+    "ritual_ZneRK12QAudioFormatS1_": ["bool", "address", "address"],
+    "ritual_ZN12QAudioFormat35defaultChannelConfigForChannelCountEi": [
+      "unsigned int", "int"
+    ],
+    "ritual_ZN12QAudioFormatD1Ev": ["nothing", "address"]
+  }
+}

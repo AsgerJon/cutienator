@@ -160,6 +160,7 @@ const QMetaObject *ritual_ZNK11QMetaMethod19enclosingMetaObjectEv(
   return self->enclosingMetaObject();
 }
 
+#if QT_VERSION <= QT_VERSION_CHECK(7, 0, 0)
 //  bool QMetaMethod::invoke(QObject *object, Qt::ConnectionType
 //      connectionType, QGenericReturnArgument returnValue, QGenericArgument
 //      val0, QGenericArgument val1, QGenericArgument val2, QGenericArgument
@@ -197,7 +198,9 @@ bool ritual_ZNK11QMetaMethod6invokeEP7QObjectN2Qt14ConnectionTypeE22QGenericRetu
       *val8,
       *val9);
 }
+#endif  // QT_VERSION <= QT_VERSION_CHECK(7, 0, 0)
 
+#if QT_VERSION <= QT_VERSION_CHECK(7, 0, 0)
 //  bool QMetaMethod::invoke(QObject *object, QGenericReturnArgument
 //      returnValue, QGenericArgument val0, QGenericArgument val1,
 //      QGenericArgument val2, QGenericArgument val3, QGenericArgument val4,
@@ -232,7 +235,9 @@ bool ritual_ZNK11QMetaMethod6invokeEP7QObject22QGenericReturnArgument16QGenericA
       *val8,
       *val9);
 }
+#endif  // QT_VERSION <= QT_VERSION_CHECK(7, 0, 0)
 
+#if QT_VERSION <= QT_VERSION_CHECK(7, 0, 0)
 //  bool QMetaMethod::invoke(QObject *object, Qt::ConnectionType
 //      connectionType, QGenericArgument val0, QGenericArgument val1,
 //      QGenericArgument val2, QGenericArgument val3, QGenericArgument val4,
@@ -267,7 +272,9 @@ bool ritual_ZNK11QMetaMethod6invokeEP7QObjectN2Qt14ConnectionTypeE16QGenericArgu
       *val8,
       *val9);
 }
+#endif  // QT_VERSION <= QT_VERSION_CHECK(7, 0, 0)
 
+#if QT_VERSION <= QT_VERSION_CHECK(7, 0, 0)
 //  bool QMetaMethod::invoke(QObject *object, QGenericArgument val0,
 //      QGenericArgument val1, QGenericArgument val2, QGenericArgument val3,
 //      QGenericArgument val4, QGenericArgument val5, QGenericArgument val6,
@@ -300,6 +307,7 @@ bool ritual_ZNK11QMetaMethod6invokeEP7QObject16QGenericArgumentS2_S2_S2_S2_S2_S2
       *val8,
       *val9);
 }
+#endif  // QT_VERSION <= QT_VERSION_CHECK(7, 0, 0)
 
 //  bool QMetaMethod::isValid() const
 extern "C" Q_DECL_EXPORT

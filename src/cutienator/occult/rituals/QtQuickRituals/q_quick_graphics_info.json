@@ -1,0 +1,26 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickgraphicsinfo_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18QQuickGraphicsInfo10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QQuickGraphicsInfo24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickGraphicsInfo21qt_qmlMarker_attachedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK18QQuickGraphicsInfo3apiEv": ["int", "address"],
+    "ritual_ZNK18QQuickGraphicsInfo10shaderTypeEv": ["int", "address"],
+    "ritual_ZNK18QQuickGraphicsInfo21shaderCompilationTypeEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK18QQuickGraphicsInfo16shaderSourceTypeEv": ["int", "address"],
+    "ritual_ZNK18QQuickGraphicsInfo12majorVersionEv": ["int", "address"],
+    "ritual_ZNK18QQuickGraphicsInfo12minorVersionEv": ["int", "address"],
+    "ritual_ZNK18QQuickGraphicsInfo7profileEv": ["int", "address"],
+    "ritual_ZNK18QQuickGraphicsInfo14renderableTypeEv": ["int", "address"]
+  }
+}

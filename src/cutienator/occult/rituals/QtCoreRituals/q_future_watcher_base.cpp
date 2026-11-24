@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/qfuturewatcher.h, Qt 6.12.0. Changes made here are lost.
+#include <QtCore/qglobal.h>
+#if QT_CONFIG(future)
 #include <QtCore/qfuturewatcher.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
@@ -26,6 +28,20 @@ QString *ritual_ZN18QFutureWatcherBase2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QFutureWatcherBase::tr(s, c, n));
+}
+
+//  QFutureWatcherBasePrivate *QFutureWatcherBase::d_func()
+extern "C" Q_DECL_EXPORT
+QFutureWatcherBasePrivate *ritual_ZN18QFutureWatcherBase6d_funcEv(
+    QFutureWatcherBase *self) {
+  return self->d_func();
+}
+
+//  const QFutureWatcherBasePrivate *QFutureWatcherBase::d_func() const
+extern "C" Q_DECL_EXPORT
+const QFutureWatcherBasePrivate *ritual_ZNK18QFutureWatcherBase6d_funcEv(
+    const QFutureWatcherBase *self) {
+  return self->d_func();
 }
 
 //  int QFutureWatcherBase::progressValue() const
@@ -84,12 +100,14 @@ bool ritual_ZNK18QFutureWatcherBase10isCanceledEv(
   return self->isCanceled();
 }
 
+#if QT_DEPRECATED_SINCE(6, 0)
 //  bool QFutureWatcherBase::isPaused() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK18QFutureWatcherBase8isPausedEv(
     const QFutureWatcherBase *self) {
   return self->isPaused();
 }
+#endif  // QT_DEPRECATED_SINCE(6, 0)
 
 //  bool QFutureWatcherBase::isSuspending() const
 extern "C" Q_DECL_EXPORT
@@ -161,6 +179,7 @@ void ritual_ZN18QFutureWatcherBase15toggleSuspendedEv(
   self->toggleSuspended();
 }
 
+#if QT_DEPRECATED_SINCE(6, 0)
 //  void QFutureWatcherBase::setPaused(bool paused)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QFutureWatcherBase9setPausedEb(
@@ -168,19 +187,24 @@ void ritual_ZN18QFutureWatcherBase9setPausedEb(
     bool paused) {
   self->setPaused(paused);
 }
+#endif  // QT_DEPRECATED_SINCE(6, 0)
 
+#if QT_DEPRECATED_SINCE(6, 0)
 //  void QFutureWatcherBase::pause()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QFutureWatcherBase5pauseEv(QFutureWatcherBase *self) {
   self->pause();
 }
+#endif  // QT_DEPRECATED_SINCE(6, 0)
 
+#if QT_DEPRECATED_SINCE(6, 0)
 //  void QFutureWatcherBase::togglePaused()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QFutureWatcherBase12togglePausedEv(
     QFutureWatcherBase *self) {
   self->togglePaused();
 }
+#endif  // QT_DEPRECATED_SINCE(6, 0)
 
 //  void QFutureWatcherBase::connectNotify(const QMetaMethod &signal)
 extern "C" Q_DECL_EXPORT
@@ -246,3 +270,5 @@ void ritual_own_ZN18QFutureWatcherBase16disconnectNotifyERK11QMetaMethod(
   static_cast<OwnQFutureWatcherBase *>(self)->OwnQFutureWatcherBase::disconnectNotify(
       *signal);
 }
+
+#endif  // QT_CONFIG(future)

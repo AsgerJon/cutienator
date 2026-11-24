@@ -1,0 +1,26 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/qsslerror.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN9QSslErrorC1Ev": ["address"],
+    "ritual_ZN9QSslErrorC1ENS_8SslErrorE": ["address", "int"],
+    "ritual_ZN9QSslErrorC1ENS_8SslErrorERK15QSslCertificate": [
+      "address", "int", "address"
+    ],
+    "ritual_ZN9QSslErrorC1ERKS_": ["address", "address"],
+    "ritual_ZN9QSslErrorD1Ev": ["nothing", "address"],
+    "ritual_ZNK9QSslErroreqERKS_": ["bool", "address", "address"],
+    "ritual_ZNK9QSslErrorneERKS_": ["bool", "address", "address"],
+    "ritual_ZNK9QSslError5errorEv": ["int", "address"],
+    "ritual_ZNK9QSslError11errorStringEv": ["text", "address"],
+    "ritual_ZNK9QSslError11certificateEv": ["address", "address"],
+    "ritual_Zls6QDebugN9QSslError8SslErrorE": ["address", "address", "int"],
+    "ritual_list_make_QSslError": ["address"],
+    "ritual_list_add_QSslError": ["nothing", "address", "address"],
+    "ritual_list_size_QSslError": ["long long", "address"],
+    "ritual_list_at_QSslError": ["address", "address", "long long"],
+    "ritual_list_drop_QSslError": ["nothing", "address"]
+  }
+}

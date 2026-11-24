@@ -1,0 +1,139 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquickdoublespinbox_p.",
+    "h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK19QQuickDoubleSpinBox10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QQuickDoubleSpinBox2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN19QQuickDoubleSpinBoxC1EP10QQuickItem": ["address", "address"],
+    "ritual_ZN19QQuickDoubleSpinBoxD1Ev": ["nothing", "address"],
+    "ritual_ZN19QQuickDoubleSpinBox7setFromEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN19QQuickDoubleSpinBox5setToEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN19QQuickDoubleSpinBox8setValueEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN19QQuickDoubleSpinBox11setStepSizeEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK19QQuickDoubleSpinBox8decimalsEv": ["int", "address"],
+    "ritual_ZN19QQuickDoubleSpinBox11setDecimalsEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK19QQuickDoubleSpinBox13textFromValueEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QQuickDoubleSpinBox13valueFromTextEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QQuickDoubleSpinBox7setWrapEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN19QQuickDoubleSpinBox8increaseEv": ["nothing", "address"],
+    "ritual_ZN19QQuickDoubleSpinBox8decreaseEv": ["nothing", "address"],
+    "ritual_ZN19QQuickDoubleSpinBox12focusInEventEP11QFocusEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickDoubleSpinBox15hoverEnterEventEP11QHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickDoubleSpinBox14hoverMoveEventEP11QHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickDoubleSpinBox15hoverLeaveEventEP11QHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickDoubleSpinBox13keyPressEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickDoubleSpinBox15keyReleaseEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickDoubleSpinBox10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickDoubleSpinBox10wheelEventEP11QWheelEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickDoubleSpinBox10classBeginEv": ["nothing", "address"],
+    "ritual_ZN19QQuickDoubleSpinBox17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickDoubleSpinBox10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN19QQuickDoubleSpinBox17contentItemChangeEP10QQuickItemS1_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN19QQuickDoubleSpinBox12localeChangeERK7QLocaleS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK19QQuickDoubleSpinBox11defaultFontEv": ["address", "address"],
+    "ritual_ZNK19QQuickDoubleSpinBox14accessibleRoleEv": ["int", "address"],
+    "ritual_ZN19QQuickDoubleSpinBox26accessibilityActiveChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN19QQuickDoubleSpinBox11d_base_funcEv": ["address", "address"],
+    "ritual_ZNK19QQuickDoubleSpinBox11d_base_funcEv": ["address", "address"],
+    "ritual_take_QQuickDoubleSpinBox": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN19QQuickDoubleSpinBox8increaseEv": ["nothing", "address"],
+    "ritual_own_ZN19QQuickDoubleSpinBox8decreaseEv": ["nothing", "address"],
+    "ritual_own_ZN19QQuickDoubleSpinBox12focusInEventEP11QFocusEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN19QQuickDoubleSpinBox15hoverEnterEventEP11QHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN19QQuickDoubleSpinBox14hoverMoveEventEP11QHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN19QQuickDoubleSpinBox15hoverLeaveEventEP11QHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN19QQuickDoubleSpinBox13keyPressEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN19QQuickDoubleSpinBox15keyReleaseEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN19QQuickDoubleSpinBox10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN19QQuickDoubleSpinBox10wheelEventEP11QWheelEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN19QQuickDoubleSpinBox10classBeginEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN19QQuickDoubleSpinBox17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN19QQuickDoubleSpinBox10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZN19QQuickDoubleSpinBox17contentItemChangeEP10QQuickItemS1_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN19QQuickDoubleSpinBox12localeChangeERK7QLocaleS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZNK19QQuickDoubleSpinBox11defaultFontEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK19QQuickDoubleSpinBox14accessibleRoleEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZN19QQuickDoubleSpinBox26accessibilityActiveChangedEb": [
+      "nothing", "address", "bool"
+    ]
+  }
+}

@@ -4,6 +4,8 @@
     "QtGui/qpainter.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN8QPainter6d_funcEv": ["address", "address"],
+    "ritual_ZNK8QPainter6d_funcEv": ["address", "address"],
     "ritual_ZN8QPainterC1Ev": ["address"],
     "ritual_ZN8QPainterC1EP12QPaintDevice": ["address", "address"],
     "ritual_ZN8QPainterD1Ev": ["nothing", "address"],

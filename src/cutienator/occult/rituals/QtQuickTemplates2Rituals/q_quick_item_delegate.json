@@ -1,0 +1,28 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquickitemdelegate_p.h",
+    ", Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18QQuickItemDelegate10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QQuickItemDelegate2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18QQuickItemDelegateC1EP10QQuickItem": ["address", "address"],
+    "ritual_ZNK18QQuickItemDelegate13isHighlightedEv": ["bool", "address"],
+    "ritual_ZN18QQuickItemDelegate14setHighlightedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK18QQuickItemDelegate11defaultFontEv": ["address", "address"],
+    "ritual_ZNK18QQuickItemDelegate14accessibleRoleEv": ["int", "address"],
+    "ritual_ZN18QQuickItemDelegate6d_funcEv": ["address", "address"],
+    "ritual_ZNK18QQuickItemDelegate6d_funcEv": ["address", "address"],
+    "ritual_own_ZNK18QQuickItemDelegate11defaultFontEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK18QQuickItemDelegate14accessibleRoleEv": [
+      "int", "address"
+    ]
+  }
+}

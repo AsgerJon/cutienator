@@ -1,0 +1,36 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmlglobal_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK15QQmlApplication10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QQmlApplication2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN15QQmlApplication22qt_qmlMarker_anonymousEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQmlApplicationC1EP7QObject": ["address", "address"],
+    "ritual_ZN15QQmlApplication4argsEv": ["address", "address"],
+    "ritual_ZNK15QQmlApplication4nameEv": ["text", "address"],
+    "ritual_ZNK15QQmlApplication7versionEv": ["text", "address"],
+    "ritual_ZNK15QQmlApplication12organizationEv": ["text", "address"],
+    "ritual_ZNK15QQmlApplication6domainEv": ["text", "address"],
+    "ritual_ZN15QQmlApplication7setNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN15QQmlApplication10setVersionERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN15QQmlApplication15setOrganizationERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN15QQmlApplication9setDomainERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN15QQmlApplication6d_funcEv": ["address", "address"],
+    "ritual_ZNK15QQmlApplication6d_funcEv": ["address", "address"]
+  }
+}

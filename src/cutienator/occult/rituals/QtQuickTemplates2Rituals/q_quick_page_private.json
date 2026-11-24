@@ -1,0 +1,47 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquickpage_p_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN17QQuickPagePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK17QQuickPagePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN17QQuickPagePrivate8relayoutEv": ["nothing", "address"],
+    "ritual_ZN17QQuickPagePrivate13resizeContentEv": ["nothing", "address"],
+    "ritual_ZN17QQuickPagePrivate21itemVisibilityChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QQuickPagePrivate24itemImplicitWidthChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QQuickPagePrivate25itemImplicitHeightChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QQuickPagePrivate19itemGeometryChangedEP10QQuickItem20QQuickGeometryChangeRK6QRectF": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN17QQuickPagePrivate13itemDestroyedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QQuickPagePrivate": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN17QQuickPagePrivate13resizeContentEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN17QQuickPagePrivate21itemVisibilityChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN17QQuickPagePrivate24itemImplicitWidthChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN17QQuickPagePrivate25itemImplicitHeightChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN17QQuickPagePrivate19itemGeometryChangedEP10QQuickItem20QQuickGeometryChangeRK6QRectF": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN17QQuickPagePrivate13itemDestroyedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ]
+  }
+}

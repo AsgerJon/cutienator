@@ -1,0 +1,13 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qfontengine_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11QFontEngine6HolderC1Ev": ["address"],
+    "ritual_ZN11QFontEngine6HolderD1Ev": ["nothing", "address"],
+    "ritual_ZN11QFontEngine6Holder5resetEv": ["nothing", "address"],
+    "ritual_ZNK11QFontEngine6HolderntEv": ["bool", "address"]
+  }
+}

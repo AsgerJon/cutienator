@@ -1,0 +1,46 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qcssparser_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN4QCss13StyleSelectorD1Ev": ["nothing", "address"],
+    "ritual_ZNK4QCss13StyleSelector14nodeNameEqualsENS0_7NodePtrERK7QString": [
+      "bool", "address", "address", "text"
+    ],
+    "ritual_ZNK4QCss13StyleSelector14attributeValueENS0_7NodePtrERKNS_17AttributeSelectorE": [
+      "text", "address", "address", "address"
+    ],
+    "ritual_ZNK4QCss13StyleSelector13hasAttributesENS0_7NodePtrE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK4QCss13StyleSelector7nodeIdsENS0_7NodePtrE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK4QCss13StyleSelector9nodeNamesENS0_7NodePtrE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK4QCss13StyleSelector10isNullNodeENS0_7NodePtrE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK4QCss13StyleSelector10parentNodeENS0_7NodePtrE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK4QCss13StyleSelector19previousSiblingNodeENS0_7NodePtrE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK4QCss13StyleSelector13duplicateNodeENS0_7NodePtrE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK4QCss13StyleSelector8freeNodeENS0_7NodePtrE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QCss_StyleSelector": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK4QCss13StyleSelector14nodeNameEqualsENS0_7NodePtrERK7QString": [
+      "bool", "address", "address", "text"
+    ]
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtPosit",
+    "ioningQuick/6.12.0/QtPositioningQuick/private/qdeclarativesatellit",
+    "esource_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK27QDeclarativeSatelliteSource10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QDeclarativeSatelliteSource2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN27QDeclarativeSatelliteSourceC1Ev": ["address"],
+    "ritual_ZN27QDeclarativeSatelliteSourceD1Ev": ["nothing", "address"],
+    "ritual_ZNK27QDeclarativeSatelliteSource8isActiveEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK27QDeclarativeSatelliteSource7isValidEv": ["bool", "address"],
+    "ritual_ZNK27QDeclarativeSatelliteSource14updateIntervalEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK27QDeclarativeSatelliteSource11sourceErrorEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK27QDeclarativeSatelliteSource4nameEv": ["text", "address"],
+    "ritual_ZNK27QDeclarativeSatelliteSource15satellitesInUseEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK27QDeclarativeSatelliteSource16satellitesInViewEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QDeclarativeSatelliteSource17setUpdateIntervalEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN27QDeclarativeSatelliteSource9setActiveEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN27QDeclarativeSatelliteSource7setNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN27QDeclarativeSatelliteSource10classBeginEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QDeclarativeSatelliteSource17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QDeclarativeSatelliteSource18setBackendPropertyERK7QStringRK8QVariant": [
+      "bool", "address", "text", "address"
+    ],
+    "ritual_ZNK27QDeclarativeSatelliteSource15backendPropertyERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN27QDeclarativeSatelliteSource6updateEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN27QDeclarativeSatelliteSource5startEv": ["nothing", "address"],
+    "ritual_ZN27QDeclarativeSatelliteSource4stopEv": ["nothing", "address"],
+    "ritual_ZN27QDeclarativeSatelliteSource22onParameterInitializedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QDeclarativeSatelliteSource30satellitesInViewUpdateReceivedERK5QListI17QGeoSatelliteInfoE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN27QDeclarativeSatelliteSource29satellitesInUseUpdateReceivedERK5QListI17QGeoSatelliteInfoE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK27QDeclarativeSatelliteSource12parameterMapEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QDeclarativeSatelliteSource12createSourceERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN27QDeclarativeSatelliteSource26handleSingleUpdateReceivedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QDeclarativeSatelliteSource12executeStartEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QDeclarativeSatelliteSource19executeSingleUpdateEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_cast_QDeclarativeSatelliteSource_QQmlParserStatus": [
+      "address", "address"
+    ],
+    "ritual_take_QDeclarativeSatelliteSource": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN27QDeclarativeSatelliteSource10classBeginEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN27QDeclarativeSatelliteSource17componentCompleteEv": [
+      "nothing", "address"
+    ]
+  }
+}

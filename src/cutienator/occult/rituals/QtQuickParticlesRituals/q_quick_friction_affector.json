@@ -1,0 +1,32 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Particles/6.12.0/QtQuickParticles/private/qquickfriction_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK22QQuickFrictionAffector10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QQuickFrictionAffector2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN22QQuickFrictionAffectorC1EP10QQuickItem": [
+      "address", "address"
+    ],
+    "ritual_ZNK22QQuickFrictionAffector6factorEv": ["double", "address"],
+    "ritual_ZNK22QQuickFrictionAffector9thresholdEv": ["double", "address"],
+    "ritual_ZN22QQuickFrictionAffector14affectParticleEP18QQuickParticleDatad": [
+      "bool", "address", "address", "double"
+    ],
+    "ritual_ZN22QQuickFrictionAffector9setFactorEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN22QQuickFrictionAffector12setThresholdEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_own_ZN22QQuickFrictionAffector14affectParticleEP18QQuickParticleDatad": [
+      "bool", "address", "address", "double"
+    ]
+  }
+}

@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/qabstractitemmodel.h, Qt 6.12.0. Changes made here are lost.
+#include <QtCore/qglobal.h>
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qabstractitemmodel.h>
 #include <QtCore/qvariant.h>
 
@@ -32,3 +34,5 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN14QModelRoleDataD1Ev(QModelRoleData *self) {
   delete self;
 }
+
+#endif  // QT_CONFIG(itemmodel)

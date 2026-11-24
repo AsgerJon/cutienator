@@ -1,0 +1,13 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4instr_moth_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN3QV44Moth9StackSlot14createRegisterEi": ["address", "int"],
+    "ritual_ZNK3QV44Moth9StackSlot9stackSlotEv": ["int", "address"],
+    "ritual_ZNK3QV44Moth9StackSlotcviEv": ["int", "address"],
+    "ritual_ZN3QV44Moth9StackSlotD1Ev": ["nothing", "address"]
+  }
+}

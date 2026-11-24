@@ -1,0 +1,25 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtScxml/qscxmlerror.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11QScxmlErrorC1Ev": ["address"],
+    "ritual_ZN11QScxmlErrorC1ERK7QStringiiS2_": [
+      "address", "text", "int", "int", "text"
+    ],
+    "ritual_ZN11QScxmlErrorC1ERKS_": ["address", "address"],
+    "ritual_ZN11QScxmlErrorD1Ev": ["nothing", "address"],
+    "ritual_ZNK11QScxmlError7isValidEv": ["bool", "address"],
+    "ritual_ZNK11QScxmlError8fileNameEv": ["text", "address"],
+    "ritual_ZNK11QScxmlError4lineEv": ["int", "address"],
+    "ritual_ZNK11QScxmlError6columnEv": ["int", "address"],
+    "ritual_ZNK11QScxmlError11descriptionEv": ["text", "address"],
+    "ritual_ZNK11QScxmlError8toStringEv": ["text", "address"],
+    "ritual_list_make_QScxmlError": ["address"],
+    "ritual_list_add_QScxmlError": ["nothing", "address", "address"],
+    "ritual_list_size_QScxmlError": ["long long", "address"],
+    "ritual_list_at_QScxmlError": ["address", "address", "long long"],
+    "ritual_list_drop_QScxmlError": ["nothing", "address"]
+  }
+}

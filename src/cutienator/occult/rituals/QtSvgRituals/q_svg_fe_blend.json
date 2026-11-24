@@ -1,0 +1,25 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSvg/6.12.0/QtSvg/private/qsvgfilter_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11QSvgFeBlendC1EP8QSvgNodeRK7QStringS4_RK9QSvgRectFS4_NS_4ModeE": [
+      "address", "address", "text", "text", "address", "text",
+      "unsigned char"
+    ],
+    "ritual_ZN11QSvgFeBlendD1Ev": ["nothing", "address"],
+    "ritual_ZNK11QSvgFeBlend4typeEv": ["int", "address"],
+    "ritual_ZNK11QSvgFeBlend5applyERK4QMapI7QString6QImageEP8QPainterRK6QRectFSA_N5QtSvg9UnitTypesESC_": [
+      "address", "address", "address", "address", "address", "address",
+      "unsigned int", "unsigned int"
+    ],
+    "ritual_ZNK11QSvgFeBlend19requiresSourceAlphaEv": ["bool", "address"],
+    "ritual_ZNK11QSvgFeBlend6input2Ev": ["text", "address"],
+    "ritual_ZNK11QSvgFeBlend4modeEv": ["unsigned char", "address"],
+    "ritual_take_QSvgFeBlend": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK11QSvgFeBlend4typeEv": ["int", "address"],
+    "ritual_own_ZNK11QSvgFeBlend19requiresSourceAlphaEv": ["bool", "address"]
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qshortcut_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN16QShortcutPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK16QShortcutPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN16QShortcutPrivateC1Ev": ["address"],
+    "ritual_ZN16QShortcutPrivate15handleWhatsThisEv": ["bool", "address"],
+    "ritual_ZN16QShortcutPrivate20simpleContextMatcherEP7QObjectN2Qt15ShortcutContextE": [
+      "bool", "address", "int"
+    ],
+    "ritual_take_QShortcutPrivate": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN16QShortcutPrivate15handleWhatsThisEv": ["bool", "address"]
+  }
+}

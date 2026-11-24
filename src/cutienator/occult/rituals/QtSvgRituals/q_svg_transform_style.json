@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSvg/6.12.0/QtSvg/private/qsvgstyle_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QSvgTransformStyleC1ERK10QTransform": ["address", "address"],
+    "ritual_ZN18QSvgTransformStyleD1Ev": ["nothing", "address"],
+    "ritual_ZNK18QSvgTransformStyle4typeEv": ["unsigned char", "address"],
+    "ritual_ZNK18QSvgTransformStyle10qtransformEv": ["address", "address"],
+    "ritual_ZNK18QSvgTransformStyle9isDefaultEv": ["bool", "address"],
+    "ritual_take_QSvgTransformStyle": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK18QSvgTransformStyle4typeEv": [
+      "unsigned char", "address"
+    ],
+    "ritual_own_ZNK18QSvgTransformStyle9isDefaultEv": ["bool", "address"]
+  }
+}

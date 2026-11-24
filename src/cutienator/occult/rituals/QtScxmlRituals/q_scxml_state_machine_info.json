@@ -1,0 +1,42 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtScxml/6.12.0/QtScxml/private/qscxmlstatemachineinfo_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK22QScxmlStateMachineInfo10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QScxmlStateMachineInfo2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN22QScxmlStateMachineInfoC1EP18QScxmlStateMachine": [
+      "address", "address"
+    ],
+    "ritual_ZNK22QScxmlStateMachineInfo12stateMachineEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK22QScxmlStateMachineInfo9stateNameEi": [
+      "text", "address", "int"
+    ],
+    "ritual_ZNK22QScxmlStateMachineInfo11stateParentEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK22QScxmlStateMachineInfo9stateTypeEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK22QScxmlStateMachineInfo17initialTransitionEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK22QScxmlStateMachineInfo14transitionTypeEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK22QScxmlStateMachineInfo16transitionSourceEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK22QScxmlStateMachineInfo16transitionEventsEi": [
+      "address", "address", "int"
+    ]
+  }
+}

@@ -134,6 +134,12 @@ QPixmap *ritual_ZN7QPixmapC1Ev() {
   return new CuteQPixmap();
 }
 
+//  QPixmap::QPixmap(QPlatformPixmap *data)
+extern "C" Q_DECL_EXPORT
+QPixmap *ritual_ZN7QPixmapC1EP15QPlatformPixmap(QPlatformPixmap *data) {
+  return new CuteQPixmap(data);
+}
+
 //  QPixmap::QPixmap(int w, int h)
 extern "C" Q_DECL_EXPORT
 QPixmap *ritual_ZN7QPixmapC1Eii(int w, int h) {
@@ -277,6 +283,7 @@ bool ritual_ZNK7QPixmap15hasAlphaChannelEv(const QPixmap *self) {
   return self->hasAlphaChannel();
 }
 
+#if !defined(QT_NO_IMAGE_HEURISTIC_MASK)
 //  QBitmap QPixmap::createHeuristicMask(bool clipTight) const
 extern "C" Q_DECL_EXPORT
 QBitmap *ritual_ZNK7QPixmap19createHeuristicMaskEb(
@@ -284,6 +291,7 @@ QBitmap *ritual_ZNK7QPixmap19createHeuristicMaskEb(
     bool clipTight) {
   return new QBitmap(self->createHeuristicMask(clipTight));
 }
+#endif  // !defined(QT_NO_IMAGE_HEURISTIC_MASK)
 
 //  QBitmap QPixmap::createMaskFromColor(const QColor &maskColor,
 //      Qt::MaskMode mode) const
@@ -555,6 +563,12 @@ QPixmap *ritual_ZN7QPixmapC1ERK5QSizei(const QSize *s, int type) {
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7QPixmap6doInitEiii(QPixmap *self, int a0, int a1, int a2) {
   self->doInit(a0, a1, a2);
+}
+
+//  QPlatformPixmap *QPixmap::handle() const
+extern "C" Q_DECL_EXPORT
+QPlatformPixmap *ritual_ZNK7QPixmap6handleEv(const QPixmap *self) {
+  return self->handle();
 }
 
 //  a Python function taken by a CuteQPixmap, for the function named by the

@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickevents_p_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK16QQuickCloseEvent10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QQuickCloseEvent2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN16QQuickCloseEvent24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickCloseEventC1Ev": ["address"],
+    "ritual_ZN16QQuickCloseEvent10isAcceptedEv": ["bool", "address"],
+    "ritual_ZN16QQuickCloseEvent11setAcceptedEb": [
+      "nothing", "address", "bool"
+    ]
+  }
+}

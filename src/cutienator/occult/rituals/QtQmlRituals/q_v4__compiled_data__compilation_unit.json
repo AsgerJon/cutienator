@@ -1,0 +1,93 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4compileddata_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK3QV412CompiledData15CompilationUnit8unitDataEv": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV412CompiledData15CompilationUnit11setUnitDataEPKNS0_4UnitEPKNS0_7QmlUnitERK7QStringSA_": [
+      "nothing", "address", "address", "address", "text", "text"
+    ],
+    "ritual_ZNK3QV412CompiledData15CompilationUnit8stringAtEj": [
+      "text", "address", "unsigned int"
+    ],
+    "ritual_ZNK3QV412CompiledData15CompilationUnit8fileNameEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData15CompilationUnit14finalUrlStringEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData15CompilationUnit20bindingValueAsStringEPKNS0_7BindingE": [
+      "text", "address", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData15CompilationUnit26bindingValueAsScriptStringEPKNS0_7BindingE": [
+      "text", "address", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData15CompilationUnit20bindingValueAsNumberEPKNS0_7BindingE": [
+      "double", "address", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData15CompilationUnit11importCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData15CompilationUnit8importAtEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK3QV412CompiledData15CompilationUnit3urlEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData15CompilationUnit8finalUrlEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData15CompilationUnit12resolvedTypeEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK3QV412CompiledData15CompilationUnit17rootPropertyCacheEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData15CompilationUnit11objectCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData15CompilationUnit13resolvedIndexEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK3QV412CompiledData15CompilationUnit26implicitComponentForObjectEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK3QV412CompiledData15CompilationUnit17inlineComponentIdERK7QString": [
+      "int", "address", "text"
+    ],
+    "ritual_ZNK3QV412CompiledData15CompilationUnit26listPropertyAssignBehaviorEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData15CompilationUnit24ignoresFunctionSignatureEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData15CompilationUnit30nativeMethodsAcceptThisObjectsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData15CompilationUnit19valueTypesAreCopiedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData15CompilationUnit24valueTypesAreAddressableEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData15CompilationUnit23valueTypesAreAssertableEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData15CompilationUnit18componentsAreBoundEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData15CompilationUnit10isESModuleEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData15CompilationUnit15isSharedLibraryEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData15CompilationUnit8metaTypeEv": [
+      "address", "address"
+    ]
+  }
+}

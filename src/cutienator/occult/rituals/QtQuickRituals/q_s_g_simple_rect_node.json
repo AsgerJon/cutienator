@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/qsgsimplerectnode.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN17QSGSimpleRectNodeC1ERK6QRectFRK6QColor": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN17QSGSimpleRectNodeC1Ev": ["address"],
+    "ritual_ZN17QSGSimpleRectNode7setRectERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QSGSimpleRectNode7setRectEdddd": [
+      "nothing", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZNK17QSGSimpleRectNode4rectEv": ["address", "address"],
+    "ritual_ZN17QSGSimpleRectNode8setColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QSGSimpleRectNode5colorEv": ["address", "address"]
+  }
+}

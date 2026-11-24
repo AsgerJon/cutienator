@@ -1,0 +1,28 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtLabsS",
+    "tyleKitImpl/6.12.0/QtLabsStyleKitImpl/private/qqstylekitdelegateco",
+    "ntainer_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK27QQStyleKitDelegateContainer10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QQStyleKitDelegateContainerD1Ev": ["nothing", "address"],
+    "ritual_ZNK27QQStyleKitDelegateContainer12quickControlEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK27QQStyleKitDelegateContainer16delegateInstanceEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QQStyleKitDelegateContainer14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_take_QQStyleKitDelegateContainer": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN27QQStyleKitDelegateContainer14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ]
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/qhttpmultipart.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK14QHttpMultiPart10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QHttpMultiPart2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN14QHttpMultiPartC1EP7QObject": ["address", "address"],
+    "ritual_ZN14QHttpMultiPartC1ENS_11ContentTypeEP7QObject": [
+      "address", "int", "address"
+    ],
+    "ritual_ZN14QHttpMultiPartD1Ev": ["nothing", "address"],
+    "ritual_ZN14QHttpMultiPart6appendERK9QHttpPart": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QHttpMultiPart14setContentTypeENS_11ContentTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK14QHttpMultiPart8boundaryEv": ["address", "address"],
+    "ritual_ZN14QHttpMultiPart11setBoundaryERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QHttpMultiPart6d_funcEv": ["address", "address"],
+    "ritual_ZNK14QHttpMultiPart6d_funcEv": ["address", "address"],
+    "ritual_take_QHttpMultiPart": ["bool", "address", "chars", "address"]
+  }
+}

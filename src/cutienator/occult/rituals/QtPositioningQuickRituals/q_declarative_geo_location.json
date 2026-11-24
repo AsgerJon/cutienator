@@ -1,0 +1,52 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtPosit",
+    "ioningQuick/6.12.0/QtPositioningQuick/private/qdeclarativegeolocat",
+    "ion_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK23QDeclarativeGeoLocation10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QDeclarativeGeoLocation2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN23QDeclarativeGeoLocationC1EP7QObject": ["address", "address"],
+    "ritual_ZN23QDeclarativeGeoLocationC1ERK12QGeoLocationP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN23QDeclarativeGeoLocationD1Ev": ["nothing", "address"],
+    "ritual_ZNK23QDeclarativeGeoLocation8locationEv": ["address", "address"],
+    "ritual_ZN23QDeclarativeGeoLocation11setLocationERK12QGeoLocation": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK23QDeclarativeGeoLocation7addressEv": ["address", "address"],
+    "ritual_ZN23QDeclarativeGeoLocation10setAddressEP22QDeclarativeGeoAddress": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK23QDeclarativeGeoLocation10coordinateEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QDeclarativeGeoLocation13setCoordinateE14QGeoCoordinate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK23QDeclarativeGeoLocation13boundingShapeEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QDeclarativeGeoLocation16setBoundingShapeERK9QGeoShape": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK23QDeclarativeGeoLocation18extendedAttributesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QDeclarativeGeoLocation21setExtendedAttributesERK4QMapI7QString8QVariantE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QDeclarativeGeoLocation19setLocationInternalERK12QGeoLocation": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QDeclarativeGeoLocation": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtPositioning/qgeolocation.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN12QGeoLocationC1Ev": ["address"],
+    "ritual_ZN12QGeoLocationC1ERKS_": ["address", "address"],
+    "ritual_ZN12QGeoLocationD1Ev": ["nothing", "address"],
+    "ritual_ZeqRK12QGeoLocationS1_": ["bool", "address", "address"],
+    "ritual_ZneRK12QGeoLocationS1_": ["bool", "address", "address"],
+    "ritual_ZNK12QGeoLocation7addressEv": ["address", "address"],
+    "ritual_ZN12QGeoLocation10setAddressERK11QGeoAddress": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12QGeoLocation10coordinateEv": ["address", "address"],
+    "ritual_ZN12QGeoLocation13setCoordinateERK14QGeoCoordinate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12QGeoLocation13boundingShapeEv": ["address", "address"],
+    "ritual_ZN12QGeoLocation16setBoundingShapeERK9QGeoShape": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12QGeoLocation18extendedAttributesEv": ["address", "address"],
+    "ritual_ZN12QGeoLocation21setExtendedAttributesERK4QMapI7QString8QVariantE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12QGeoLocation7isEmptyEv": ["bool", "address"],
+    "ritual_ZN12QGeoLocation6equalsERKS_S1_": ["bool", "address", "address"]
+  }
+}

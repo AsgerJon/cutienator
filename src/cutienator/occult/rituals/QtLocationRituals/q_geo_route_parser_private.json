@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLocation/6.12.0/QtLocation/private/qgeorouteparser_p_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN22QGeoRouteParserPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK22QGeoRouteParserPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN22QGeoRouteParserPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZNK22QGeoRouteParserPrivate10requestUrlERK16QGeoRouteRequestRK7QString": [
+      "address", "address", "address", "text"
+    ],
+    "ritual_take_QGeoRouteParserPrivate": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

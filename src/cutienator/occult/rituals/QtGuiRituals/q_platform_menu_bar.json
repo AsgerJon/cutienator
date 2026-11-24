@@ -1,0 +1,35 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/qpa/qplatformmenu.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK16QPlatformMenuBar10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QPlatformMenuBar2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN16QPlatformMenuBar10insertMenuEP13QPlatformMenuS1_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN16QPlatformMenuBar10removeMenuEP13QPlatformMenu": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QPlatformMenuBar8syncMenuEP13QPlatformMenu": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QPlatformMenuBar14handleReparentEP7QWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QPlatformMenuBar12parentWindowEv": ["address", "address"],
+    "ritual_ZNK16QPlatformMenuBar10menuForTagEy": [
+      "address", "address", "unsigned long long"
+    ],
+    "ritual_ZNK16QPlatformMenuBar10createMenuEv": ["address", "address"],
+    "ritual_take_QPlatformMenuBar": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK16QPlatformMenuBar12parentWindowEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK16QPlatformMenuBar10createMenuEv": ["address", "address"]
+  }
+}

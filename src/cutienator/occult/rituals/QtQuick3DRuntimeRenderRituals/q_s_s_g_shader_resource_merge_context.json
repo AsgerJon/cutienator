@@ -1,0 +1,26 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgshaderre",
+    "sourcemergecontext_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN30QSSGShaderResourceMergeContext13registerInputE24QSSGShaderGeneratorStageRK10QByteArrayS3_b": [
+      "nothing", "address", "int", "address", "address", "bool"
+    ],
+    "ritual_ZN30QSSGShaderResourceMergeContext14registerOutputE24QSSGShaderGeneratorStageRK10QByteArrayS3_b": [
+      "nothing", "address", "int", "address", "address", "bool"
+    ],
+    "ritual_ZN30QSSGShaderResourceMergeContext15registerSamplerERK10QByteArrayS2_N24QSSGRenderShaderMetadata7Uniform9ConditionES2_": [
+      "nothing", "address", "address", "address", "int", "address"
+    ],
+    "ritual_ZN30QSSGShaderResourceMergeContext13registerImageERK10QByteArrayS2_S2_S2_N24QSSGRenderShaderMetadata7Uniform9ConditionES2_": [
+      "nothing", "address", "address", "address", "address", "address",
+      "int", "address"
+    ],
+    "ritual_ZN30QSSGShaderResourceMergeContext21registerUniformMemberERK10QByteArrayS2_N24QSSGRenderShaderMetadata7Uniform9ConditionES2_": [
+      "nothing", "address", "address", "address", "int", "address"
+    ],
+    "ritual_ZN30QSSGShaderResourceMergeContextD1Ev": ["nothing", "address"]
+  }
+}

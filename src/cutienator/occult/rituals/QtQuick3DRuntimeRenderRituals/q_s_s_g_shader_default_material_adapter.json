@@ -1,0 +1,172 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgshaderma",
+    "terialadapter_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN32QSSGShaderDefaultMaterialAdapter12isPrincipledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN32QSSGShaderDefaultMaterialAdapter16isSpecularGlossyEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN32QSSGShaderDefaultMaterialAdapter18isMetalnessEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN32QSSGShaderDefaultMaterialAdapter17isSpecularEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN32QSSGShaderDefaultMaterialAdapter21isVertexColorsEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN32QSSGShaderDefaultMaterialAdapter25isVertexColorsMaskEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN32QSSGShaderDefaultMaterialAdapter23isInvertOpacityMapValueEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN32QSSGShaderDefaultMaterialAdapter31isBaseColorSingleChannelEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN32QSSGShaderDefaultMaterialAdapter36isSpecularAmountSingleChannelEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN32QSSGShaderDefaultMaterialAdapter30isEmissiveSingleChannelEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN32QSSGShaderDefaultMaterialAdapter18isClearcoatEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN32QSSGShaderDefaultMaterialAdapter21isTransmissionEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN32QSSGShaderDefaultMaterialAdapter25isFresnelScaleBiasEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN32QSSGShaderDefaultMaterialAdapter34isClearcoatFresnelScaleBiasEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN32QSSGShaderDefaultMaterialAdapter11hasLightingEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN32QSSGShaderDefaultMaterialAdapter18usesCustomSkinningEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN32QSSGShaderDefaultMaterialAdapter18usesCustomMorphingEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN32QSSGShaderDefaultMaterialAdapter13specularModelEv": [
+      "unsigned char", "address"
+    ],
+    "ritual_ZN32QSSGShaderDefaultMaterialAdapter9alphaModeEv": [
+      "unsigned char", "address"
+    ],
+    "ritual_ZN32QSSGShaderDefaultMaterialAdapter18vertexColorRedMaskEv": [
+      "int", "address"
+    ],
+    "ritual_ZN32QSSGShaderDefaultMaterialAdapter20vertexColorGreenMaskEv": [
+      "int", "address"
+    ],
+    "ritual_ZN32QSSGShaderDefaultMaterialAdapter19vertexColorBlueMaskEv": [
+      "int", "address"
+    ],
+    "ritual_ZN32QSSGShaderDefaultMaterialAdapter20vertexColorAlphaMaskEv": [
+      "int", "address"
+    ],
+    "ritual_ZN32QSSGShaderDefaultMaterialAdapter8iblProbeEv": [
+      "address", "address"
+    ],
+    "ritual_ZN32QSSGShaderDefaultMaterialAdapter13emissiveColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZN32QSSGShaderDefaultMaterialAdapter5colorEv": [
+      "address", "address"
+    ],
+    "ritual_ZN32QSSGShaderDefaultMaterialAdapter12specularTintEv": [
+      "address", "address"
+    ],
+    "ritual_ZN32QSSGShaderDefaultMaterialAdapter3iorEv": [
+      "float", "address"
+    ],
+    "ritual_ZN32QSSGShaderDefaultMaterialAdapter12fresnelScaleEv": [
+      "float", "address"
+    ],
+    "ritual_ZN32QSSGShaderDefaultMaterialAdapter11fresnelBiasEv": [
+      "float", "address"
+    ],
+    "ritual_ZN32QSSGShaderDefaultMaterialAdapter12fresnelPowerEv": [
+      "float", "address"
+    ],
+    "ritual_ZN32QSSGShaderDefaultMaterialAdapter21clearcoatFresnelScaleEv": [
+      "float", "address"
+    ],
+    "ritual_ZN32QSSGShaderDefaultMaterialAdapter20clearcoatFresnelBiasEv": [
+      "float", "address"
+    ],
+    "ritual_ZN32QSSGShaderDefaultMaterialAdapter21clearcoatFresnelPowerEv": [
+      "float", "address"
+    ],
+    "ritual_ZN32QSSGShaderDefaultMaterialAdapter15metalnessAmountEv": [
+      "float", "address"
+    ],
+    "ritual_ZN32QSSGShaderDefaultMaterialAdapter14specularAmountEv": [
+      "float", "address"
+    ],
+    "ritual_ZN32QSSGShaderDefaultMaterialAdapter17specularRoughnessEv": [
+      "float", "address"
+    ],
+    "ritual_ZN32QSSGShaderDefaultMaterialAdapter10bumpAmountEv": [
+      "float", "address"
+    ],
+    "ritual_ZN32QSSGShaderDefaultMaterialAdapter18translucentFallOffEv": [
+      "float", "address"
+    ],
+    "ritual_ZN32QSSGShaderDefaultMaterialAdapter16diffuseLightWrapEv": [
+      "float", "address"
+    ],
+    "ritual_ZN32QSSGShaderDefaultMaterialAdapter15occlusionAmountEv": [
+      "float", "address"
+    ],
+    "ritual_ZN32QSSGShaderDefaultMaterialAdapter11alphaCutOffEv": [
+      "float", "address"
+    ],
+    "ritual_ZN32QSSGShaderDefaultMaterialAdapter9pointSizeEv": [
+      "float", "address"
+    ],
+    "ritual_ZN32QSSGShaderDefaultMaterialAdapter9lineWidthEv": [
+      "float", "address"
+    ],
+    "ritual_ZN32QSSGShaderDefaultMaterialAdapter12heightAmountEv": [
+      "float", "address"
+    ],
+    "ritual_ZN32QSSGShaderDefaultMaterialAdapter16minHeightSamplesEv": [
+      "float", "address"
+    ],
+    "ritual_ZN32QSSGShaderDefaultMaterialAdapter16maxHeightSamplesEv": [
+      "float", "address"
+    ],
+    "ritual_ZN32QSSGShaderDefaultMaterialAdapter15clearcoatAmountEv": [
+      "float", "address"
+    ],
+    "ritual_ZN32QSSGShaderDefaultMaterialAdapter24clearcoatRoughnessAmountEv": [
+      "float", "address"
+    ],
+    "ritual_ZN32QSSGShaderDefaultMaterialAdapter23clearcoatNormalStrengthEv": [
+      "float", "address"
+    ],
+    "ritual_ZN32QSSGShaderDefaultMaterialAdapter18transmissionFactorEv": [
+      "float", "address"
+    ],
+    "ritual_ZN32QSSGShaderDefaultMaterialAdapter15thicknessFactorEv": [
+      "float", "address"
+    ],
+    "ritual_ZN32QSSGShaderDefaultMaterialAdapter19attenuationDistanceEv": [
+      "float", "address"
+    ],
+    "ritual_ZN32QSSGShaderDefaultMaterialAdapter16attenuationColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZN32QSSGShaderDefaultMaterialAdapterD1Ev": ["nothing", "address"]
+  }
+}

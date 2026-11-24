@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquicktabbutton_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK15QQuickTabButton10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QQuickTabButton2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN15QQuickTabButtonC1EP10QQuickItem": ["address", "address"],
+    "ritual_ZNK15QQuickTabButton11defaultFontEv": ["address", "address"],
+    "ritual_ZNK15QQuickTabButton14accessibleRoleEv": ["int", "address"],
+    "ritual_own_ZNK15QQuickTabButton11defaultFontEv": ["address", "address"],
+    "ritual_own_ZNK15QQuickTabButton14accessibleRoleEv": ["int", "address"]
+  }
+}

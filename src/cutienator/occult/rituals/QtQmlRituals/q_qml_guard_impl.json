@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmlguard_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN13QQmlGuardImplC1Ev": ["address"],
+    "ritual_ZN13QQmlGuardImplC1EP7QObject": ["address", "address"],
+    "ritual_ZN13QQmlGuardImplD1Ev": ["nothing", "address"],
+    "ritual_ZN13QQmlGuardImpl8addGuardEv": ["nothing", "address"],
+    "ritual_ZN13QQmlGuardImpl8remGuardEv": ["nothing", "address"],
+    "ritual_ZN13QQmlGuardImpl9setObjectEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QQmlGuardImpl6isNullEv": ["bool", "address"]
+  }
+}

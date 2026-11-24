@@ -1,0 +1,66 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qtoolbararealayout_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QToolBarAreaLayoutC1EPK11QMainWindow": [
+      "address", "address"
+    ],
+    "ritual_ZNK18QToolBarAreaLayout11minimumSizeERK5QSize": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK18QToolBarAreaLayout8rectHintERK5QRect": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK18QToolBarAreaLayout8sizeHintERK5QSize": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK18QToolBarAreaLayout6itemAtEPii": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN18QToolBarAreaLayout6takeAtEPii": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN18QToolBarAreaLayout20deleteAllLayoutItemsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QToolBarAreaLayout13insertToolBarEP8QToolBarS1_": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN18QToolBarAreaLayout13removeToolBarEP8QToolBar": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QToolBarAreaLayout10addToolBarEN9QInternal12DockPositionEP8QToolBar": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_ZN18QToolBarAreaLayout18insertToolBarBreakEP8QToolBar": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QToolBarAreaLayout18removeToolBarBreakEP8QToolBar": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QToolBarAreaLayout15addToolBarBreakEN9QInternal12DockPositionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18QToolBarAreaLayout10insertItemEN9QInternal12DockPositionEP11QLayoutItem": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN18QToolBarAreaLayout10insertItemEP8QToolBarP11QLayoutItem": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK18QToolBarAreaLayout12toolBarBreakEP8QToolBar": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK18QToolBarAreaLayout18getStyleOptionInfoEP19QStyleOptionToolBarP8QToolBar": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN18QToolBarAreaLayout6removeEP11QLayoutItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QToolBarAreaLayout5clearEv": ["nothing", "address"],
+    "ritual_ZNK18QToolBarAreaLayout7isEmptyEv": ["bool", "address"],
+    "ritual_ZN18QToolBarAreaLayoutD1Ev": ["nothing", "address"]
+  }
+}

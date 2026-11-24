@@ -1,0 +1,28 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qsgdistancefieldglyphnode_p_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN35QSGDistanceFieldOutlineTextMaterialC1Ev": ["address"],
+    "ritual_ZN35QSGDistanceFieldOutlineTextMaterialD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK35QSGDistanceFieldOutlineTextMaterial4typeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK35QSGDistanceFieldOutlineTextMaterial12createShaderEN20QSGRendererInterface10RenderModeE": [
+      "address", "address", "int"
+    ],
+    "ritual_take_QSGDistanceFieldOutlineTextMaterial": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK35QSGDistanceFieldOutlineTextMaterial4typeEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK35QSGDistanceFieldOutlineTextMaterial12createShaderEN20QSGRendererInterface10RenderModeE": [
+      "address", "address", "int"
+    ]
+  }
+}

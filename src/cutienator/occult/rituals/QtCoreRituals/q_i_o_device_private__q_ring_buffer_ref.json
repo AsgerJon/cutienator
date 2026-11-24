@@ -1,0 +1,74 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qiodevice_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN16QIODevicePrivate14QRingBufferRefC1Ev": ["address"],
+    "ritual_ZN16QIODevicePrivate14QRingBufferRef12setChunkSizeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16QIODevicePrivate14QRingBufferRef9chunkSizeEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK16QIODevicePrivate14QRingBufferRef17nextDataBlockSizeEv": [
+      "long long", "address"
+    ],
+    "ritual_ZNK16QIODevicePrivate14QRingBufferRef11readPointerEv": [
+      "chars", "address"
+    ],
+    "ritual_ZNK16QIODevicePrivate14QRingBufferRef21readPointerAtPositionExRx": [
+      "chars", "address", "long long", "address"
+    ],
+    "ritual_ZN16QIODevicePrivate14QRingBufferRef4freeEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN16QIODevicePrivate14QRingBufferRef8truncateEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN16QIODevicePrivate14QRingBufferRef4chopEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZNK16QIODevicePrivate14QRingBufferRef7isEmptyEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN16QIODevicePrivate14QRingBufferRef7getCharEv": [
+      "int", "address"
+    ],
+    "ritual_ZN16QIODevicePrivate14QRingBufferRef7putCharEc": [
+      "nothing", "address", "char"
+    ],
+    "ritual_ZN16QIODevicePrivate14QRingBufferRef9ungetCharEc": [
+      "nothing", "address", "char"
+    ],
+    "ritual_ZNK16QIODevicePrivate14QRingBufferRef4sizeEv": [
+      "long long", "address"
+    ],
+    "ritual_ZN16QIODevicePrivate14QRingBufferRef5clearEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK16QIODevicePrivate14QRingBufferRef7indexOfEc": [
+      "long long", "address", "char"
+    ],
+    "ritual_ZNK16QIODevicePrivate14QRingBufferRef7indexOfEcxx": [
+      "long long", "address", "char", "long long", "long long"
+    ],
+    "ritual_ZN16QIODevicePrivate14QRingBufferRef4readEv": [
+      "address", "address"
+    ],
+    "ritual_ZN16QIODevicePrivate14QRingBufferRef6appendEPKcx": [
+      "nothing", "address", "chars", "long long"
+    ],
+    "ritual_ZN16QIODevicePrivate14QRingBufferRef6appendERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QIODevicePrivate14QRingBufferRef4skipEx": [
+      "long long", "address", "long long"
+    ],
+    "ritual_ZNK16QIODevicePrivate14QRingBufferRef11canReadLineEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN16QIODevicePrivate14QRingBufferRefD1Ev": ["nothing", "address"]
+  }
+}

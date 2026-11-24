@@ -1,0 +1,62 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/6.12.0/QtCharts/private/qdatetimeaxis_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK20QDateTimeAxisPrivate10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QDateTimeAxisPrivate2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN20QDateTimeAxisPrivateC1EP13QDateTimeAxis": [
+      "address", "address"
+    ],
+    "ritual_ZN20QDateTimeAxisPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN20QDateTimeAxisPrivate18initializeGraphicsEP13QGraphicsItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QDateTimeAxisPrivate16initializeDomainEP14AbstractDomain": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QDateTimeAxisPrivate6setMinERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QDateTimeAxisPrivate6setMaxERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QDateTimeAxisPrivate8setRangeERK8QVariantS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN20QDateTimeAxisPrivate3minEv": ["double", "address"],
+    "ritual_ZN20QDateTimeAxisPrivate3maxEv": ["double", "address"],
+    "ritual_ZN20QDateTimeAxisPrivate8setRangeEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN20QDateTimeAxisPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK20QDateTimeAxisPrivate6q_funcEv": ["address", "address"],
+    "ritual_take_QDateTimeAxisPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN20QDateTimeAxisPrivate18initializeGraphicsEP13QGraphicsItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20QDateTimeAxisPrivate16initializeDomainEP14AbstractDomain": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20QDateTimeAxisPrivate6setMinERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20QDateTimeAxisPrivate6setMaxERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20QDateTimeAxisPrivate8setRangeERK8QVariantS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN20QDateTimeAxisPrivate3minEv": ["double", "address"],
+    "ritual_own_ZN20QDateTimeAxisPrivate3maxEv": ["double", "address"],
+    "ritual_own_ZN20QDateTimeAxisPrivate8setRangeEdd": [
+      "nothing", "address", "double", "double"
+    ]
+  }
+}

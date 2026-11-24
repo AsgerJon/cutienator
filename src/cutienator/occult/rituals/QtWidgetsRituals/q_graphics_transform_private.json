@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qgraphicstransform_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN25QGraphicsTransformPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK25QGraphicsTransformPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN25QGraphicsTransformPrivateC1Ev": ["address"],
+    "ritual_ZN25QGraphicsTransformPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN25QGraphicsTransformPrivate7setItemEP13QGraphicsItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QGraphicsTransformPrivate10updateItemEP13QGraphicsItem": [
+      "nothing", "address"
+    ]
+  }
+}

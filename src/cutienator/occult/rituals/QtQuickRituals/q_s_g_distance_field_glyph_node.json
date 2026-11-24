@@ -1,0 +1,73 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qsgdistancefieldglyphnode_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN25QSGDistanceFieldGlyphNodeD1Ev": ["nothing", "address"],
+    "ritual_ZNK25QSGDistanceFieldGlyphNode8baseLineEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QSGDistanceFieldGlyphNode9setGlyphsERK7QPointFRK9QGlyphRun": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN25QSGDistanceFieldGlyphNode8setColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QSGDistanceFieldGlyphNode28setPreferredAntialiasingModeEN12QSGGlyphNode16AntialiasingModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN25QSGDistanceFieldGlyphNode20setRenderTypeQualityEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN25QSGDistanceFieldGlyphNode8setStyleEN10QQuickText9TextStyleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN25QSGDistanceFieldGlyphNode13setStyleColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QSGDistanceFieldGlyphNode6updateEv": ["nothing", "address"],
+    "ritual_ZN25QSGDistanceFieldGlyphNode10preprocessEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QSGDistanceFieldGlyphNode7recycleEv": ["nothing", "address"],
+    "ritual_ZN25QSGDistanceFieldGlyphNode7cleanupEv": ["nothing", "address"],
+    "ritual_ZN25QSGDistanceFieldGlyphNode16setGlyphNodeTypeENS_26DistanceFieldGlyphNodeTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN25QSGDistanceFieldGlyphNode14updateMaterialEv": [
+      "nothing", "address"
+    ],
+    "ritual_cast_QSGDistanceFieldGlyphNode_QSGDistanceFieldGlyphConsumer": [
+      "address", "address"
+    ],
+    "ritual_take_QSGDistanceFieldGlyphNode": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK25QSGDistanceFieldGlyphNode8baseLineEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN25QSGDistanceFieldGlyphNode8setColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN25QSGDistanceFieldGlyphNode28setPreferredAntialiasingModeEN12QSGGlyphNode16AntialiasingModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN25QSGDistanceFieldGlyphNode20setRenderTypeQualityEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN25QSGDistanceFieldGlyphNode8setStyleEN10QQuickText9TextStyleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN25QSGDistanceFieldGlyphNode13setStyleColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN25QSGDistanceFieldGlyphNode6updateEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN25QSGDistanceFieldGlyphNode7recycleEv": [
+      "nothing", "address"
+    ]
+  }
+}

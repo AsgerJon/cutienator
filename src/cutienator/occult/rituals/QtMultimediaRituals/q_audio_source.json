@@ -1,0 +1,51 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtMultimedia/qaudiosource.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK12QAudioSource10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QAudioSource2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN12QAudioSourceC1ERK12QAudioFormatP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN12QAudioSourceC1ERK12QAudioDeviceRK12QAudioFormatP7QObject": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN12QAudioSourceD1Ev": ["nothing", "address"],
+    "ritual_ZNK12QAudioSource6isNullEv": ["bool", "address"],
+    "ritual_ZNK12QAudioSource6formatEv": ["address", "address"],
+    "ritual_ZN12QAudioSource5startEP9QIODevice": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QAudioSource5startEv": ["address", "address"],
+    "ritual_ZN12QAudioSource4stopEv": ["nothing", "address"],
+    "ritual_ZN12QAudioSource5resetEv": ["nothing", "address"],
+    "ritual_ZN12QAudioSource7suspendEv": ["nothing", "address"],
+    "ritual_ZN12QAudioSource6resumeEv": ["nothing", "address"],
+    "ritual_ZN12QAudioSource13setBufferSizeEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZNK12QAudioSource10bufferSizeEv": ["long long", "address"],
+    "ritual_ZN12QAudioSource19setBufferFrameCountEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZNK12QAudioSource16bufferFrameCountEv": ["long long", "address"],
+    "ritual_ZN12QAudioSource25setNativePeriodFrameCountEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZNK12QAudioSource22nativePeriodFrameCountEv": [
+      "long long", "address"
+    ],
+    "ritual_ZNK12QAudioSource14bytesAvailableEv": ["long long", "address"],
+    "ritual_ZNK12QAudioSource15framesAvailableEv": ["long long", "address"],
+    "ritual_ZN12QAudioSource9setVolumeEd": ["nothing", "address", "double"],
+    "ritual_ZNK12QAudioSource6volumeEv": ["double", "address"],
+    "ritual_ZNK12QAudioSource14processedUSecsEv": ["long long", "address"],
+    "ritual_ZNK12QAudioSource12elapsedUSecsEv": ["long long", "address"],
+    "ritual_ZNK12QAudioSource5errorEv": ["int", "address"],
+    "ritual_ZNK12QAudioSource5stateEv": ["int", "address"],
+    "ritual_take_QAudioSource": ["bool", "address", "chars", "address"]
+  }
+}

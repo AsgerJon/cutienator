@@ -1,0 +1,60 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/qpa/qplatformdialoghelper.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK25QPlatformFileDialogHelper10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QPlatformFileDialogHelper2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZNK25QPlatformFileDialogHelper25defaultNameFilterDisablesEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN25QPlatformFileDialogHelper12setDirectoryERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK25QPlatformFileDialogHelper9directoryEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QPlatformFileDialogHelper10selectFileERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK25QPlatformFileDialogHelper13selectedFilesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QPlatformFileDialogHelper9setFilterEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QPlatformFileDialogHelper20selectMimeTypeFilterERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN25QPlatformFileDialogHelper16selectNameFilterERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK25QPlatformFileDialogHelper22selectedMimeTypeFilterEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK25QPlatformFileDialogHelper18selectedNameFilterEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK25QPlatformFileDialogHelper14isSupportedUrlERK4QUrl": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN25QPlatformFileDialogHelper15cleanFilterListERK7QString": [
+      "address", "text"
+    ],
+    "ritual_own_ZN25QPlatformFileDialogHelper20selectMimeTypeFilterERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_own_ZNK25QPlatformFileDialogHelper22selectedMimeTypeFilterEv": [
+      "text", "address"
+    ],
+    "ritual_own_ZNK25QPlatformFileDialogHelper14isSupportedUrlERK4QUrl": [
+      "bool", "address", "address"
+    ]
+  }
+}

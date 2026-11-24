@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickloader_p_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN21QQuickLoaderIncubator13statusChangedEN13QQmlIncubator6StatusE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN21QQuickLoaderIncubator15setInitialStateEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN21QQuickLoaderIncubator15setInitialStateEP7QObject": [
+      "nothing", "address", "address"
+    ]
+  }
+}

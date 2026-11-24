@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Controls2FluentWinUI3/6.12.0/QtQuickControls2FluentWinUI3/private/",
+    "qquickfluentwinui3theme_p.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN23QQuickFluentWinUI3Theme10initializeEP11QQuickTheme": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickFluentWinUI3Theme24initializeDefaultPaletteEv": [
+      "address"
+    ],
+    "ritual_ZN23QQuickFluentWinUI3ThemeD1Ev": ["nothing", "address"]
+  }
+}

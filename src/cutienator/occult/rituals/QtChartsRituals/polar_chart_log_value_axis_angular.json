@@ -1,0 +1,28 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtChart",
+    "s/6.12.0/QtCharts/private/polarchartlogvalueaxisangular_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK29PolarChartLogValueAxisAngular10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN29PolarChartLogValueAxisAngular2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN29PolarChartLogValueAxisAngularC1EP13QLogValueAxisP13QGraphicsItem": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN29PolarChartLogValueAxisAngularD1Ev": ["nothing", "address"],
+    "ritual_ZN29PolarChartLogValueAxisAngular17handleBaseChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN29PolarChartLogValueAxisAngular24handleLabelFormatChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_take_PolarChartLogValueAxisAngular": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

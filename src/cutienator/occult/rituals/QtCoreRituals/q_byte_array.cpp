@@ -100,11 +100,13 @@ void ritual_ZN10QByteArray7squeezeEv(QByteArray *self) {
   self->squeeze();
 }
 
+#if !defined(QT_NO_CAST_FROM_BYTEARRAY)
 //  const char *QByteArray::operator const char *() const
 extern "C" Q_DECL_EXPORT
 const char *ritual_ZNK10QByteArraycvPKcEv(const QByteArray *self) {
   return self->operator const char *();
 }
+#endif  // !defined(QT_NO_CAST_FROM_BYTEARRAY)
 
 //  const char *QByteArray::data() const
 extern "C" Q_DECL_EXPORT
@@ -258,6 +260,7 @@ int ritual_ZNK10QByteArray7compareE14QByteArrayViewN2Qt15CaseSensitivityE(
   return self->compare(*a, cs);
 }
 
+#if !(QT_CORE_REMOVED_SINCE(6, 7))
 //  QByteArray QByteArray::left(qsizetype n) const
 extern "C" Q_DECL_EXPORT
 QByteArray *ritual_ZNKR10QByteArray4leftEx(
@@ -265,7 +268,9 @@ QByteArray *ritual_ZNKR10QByteArray4leftEx(
     qsizetype n) {
   return new QByteArray(self->left(n));
 }
+#endif  // !(QT_CORE_REMOVED_SINCE(6, 7))
 
+#if !(QT_CORE_REMOVED_SINCE(6, 7))
 //  QByteArray QByteArray::right(qsizetype n) const
 extern "C" Q_DECL_EXPORT
 QByteArray *ritual_ZNKR10QByteArray5rightEx(
@@ -273,7 +278,9 @@ QByteArray *ritual_ZNKR10QByteArray5rightEx(
     qsizetype n) {
   return new QByteArray(self->right(n));
 }
+#endif  // !(QT_CORE_REMOVED_SINCE(6, 7))
 
+#if !(QT_CORE_REMOVED_SINCE(6, 7))
 //  QByteArray QByteArray::mid(qsizetype index, qsizetype len) const
 extern "C" Q_DECL_EXPORT
 QByteArray *ritual_ZNKR10QByteArray3midExx(
@@ -282,7 +289,9 @@ QByteArray *ritual_ZNKR10QByteArray3midExx(
     qsizetype len) {
   return new QByteArray(self->mid(index, len));
 }
+#endif  // !(QT_CORE_REMOVED_SINCE(6, 7))
 
+#if !(QT_CORE_REMOVED_SINCE(6, 7))
 //  QByteArray QByteArray::first(qsizetype n) const
 extern "C" Q_DECL_EXPORT
 QByteArray *ritual_ZNKR10QByteArray5firstEx(
@@ -290,7 +299,9 @@ QByteArray *ritual_ZNKR10QByteArray5firstEx(
     qsizetype n) {
   return new QByteArray(self->first(n));
 }
+#endif  // !(QT_CORE_REMOVED_SINCE(6, 7))
 
+#if !(QT_CORE_REMOVED_SINCE(6, 7))
 //  QByteArray QByteArray::last(qsizetype n) const
 extern "C" Q_DECL_EXPORT
 QByteArray *ritual_ZNKR10QByteArray4lastEx(
@@ -298,7 +309,9 @@ QByteArray *ritual_ZNKR10QByteArray4lastEx(
     qsizetype n) {
   return new QByteArray(self->last(n));
 }
+#endif  // !(QT_CORE_REMOVED_SINCE(6, 7))
 
+#if !(QT_CORE_REMOVED_SINCE(6, 7))
 //  QByteArray QByteArray::sliced(qsizetype pos) const
 extern "C" Q_DECL_EXPORT
 QByteArray *ritual_ZNKR10QByteArray6slicedEx(
@@ -306,7 +319,9 @@ QByteArray *ritual_ZNKR10QByteArray6slicedEx(
     qsizetype pos) {
   return new QByteArray(self->sliced(pos));
 }
+#endif  // !(QT_CORE_REMOVED_SINCE(6, 7))
 
+#if !(QT_CORE_REMOVED_SINCE(6, 7))
 //  QByteArray QByteArray::sliced(qsizetype pos, qsizetype n) const
 extern "C" Q_DECL_EXPORT
 QByteArray *ritual_ZNKR10QByteArray6slicedExx(
@@ -315,7 +330,9 @@ QByteArray *ritual_ZNKR10QByteArray6slicedExx(
     qsizetype n) {
   return new QByteArray(self->sliced(pos, n));
 }
+#endif  // !(QT_CORE_REMOVED_SINCE(6, 7))
 
+#if !(QT_CORE_REMOVED_SINCE(6, 7))
 //  QByteArray QByteArray::chopped(qsizetype len) const
 extern "C" Q_DECL_EXPORT
 QByteArray *ritual_ZNKR10QByteArray7choppedEx(
@@ -323,6 +340,7 @@ QByteArray *ritual_ZNKR10QByteArray7choppedEx(
     qsizetype len) {
   return new QByteArray(self->chopped(len));
 }
+#endif  // !(QT_CORE_REMOVED_SINCE(6, 7))
 
 //  bool QByteArray::startsWith(QByteArrayView bv) const
 extern "C" Q_DECL_EXPORT
@@ -382,29 +400,37 @@ void ritual_ZN10QByteArray4chopEx(QByteArray *self, qsizetype n) {
   self->chop(n);
 }
 
+#if !defined(Q_QDOC)
 //  QByteArray QByteArray::toLower() const
 extern "C" Q_DECL_EXPORT
 QByteArray *ritual_ZNKR10QByteArray7toLowerEv(const QByteArray *self) {
   return new QByteArray(self->toLower());
 }
+#endif  // !defined(Q_QDOC)
 
+#if !defined(Q_QDOC)
 //  QByteArray QByteArray::toUpper() const
 extern "C" Q_DECL_EXPORT
 QByteArray *ritual_ZNKR10QByteArray7toUpperEv(const QByteArray *self) {
   return new QByteArray(self->toUpper());
 }
+#endif  // !defined(Q_QDOC)
 
+#if !defined(Q_QDOC)
 //  QByteArray QByteArray::trimmed() const
 extern "C" Q_DECL_EXPORT
 QByteArray *ritual_ZNKR10QByteArray7trimmedEv(const QByteArray *self) {
   return new QByteArray(self->trimmed());
 }
+#endif  // !defined(Q_QDOC)
 
+#if !defined(Q_QDOC)
 //  QByteArray QByteArray::simplified() const
 extern "C" Q_DECL_EXPORT
 QByteArray *ritual_ZNKR10QByteArray10simplifiedEv(const QByteArray *self) {
   return new QByteArray(self->simplified());
 }
+#endif  // !defined(Q_QDOC)
 
 //  QByteArray QByteArray::leftJustified(qsizetype width, char fill, bool
 //      truncate) const
@@ -587,6 +613,7 @@ QByteArray *ritual_ZNK10QByteArray17toPercentEncodingERKS_S1_c(
           percent));
 }
 
+#if !(QT_CORE_REMOVED_SINCE(6, 11))
 //  QByteArray QByteArray::percentDecoded(char percent) const
 extern "C" Q_DECL_EXPORT
 QByteArray *ritual_ZNKR10QByteArray14percentDecodedEc(
@@ -594,6 +621,7 @@ QByteArray *ritual_ZNKR10QByteArray14percentDecodedEc(
     char percent) {
   return new QByteArray(self->percentDecoded(percent));
 }
+#endif  // !(QT_CORE_REMOVED_SINCE(6, 11))
 
 //  QByteArray QByteArray::number(int a0, int base)
 extern "C" Q_DECL_EXPORT
@@ -813,11 +841,13 @@ qsizetype ritual_ZNK10QByteArray4sizeEv(const QByteArray *self) {
   return self->size();
 }
 
+#if QT_DEPRECATED_SINCE(6, 4)
 //  qsizetype QByteArray::count() const
 extern "C" Q_DECL_EXPORT
 qsizetype ritual_ZNK10QByteArray5countEv(const QByteArray *self) {
   return self->count();
 }
+#endif  // QT_DEPRECATED_SINCE(6, 4)
 
 //  qsizetype QByteArray::length() const
 extern "C" Q_DECL_EXPORT
@@ -958,6 +988,8 @@ bool ritual_ZgeRKcRK10QByteArray(char lhs, const QByteArray *rhs) {
   return operator>=(lhs, *rhs);
 }
 
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
 //  bool operator==(const QByteArray &lhs, const QChar &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZeqRK10QByteArrayRK5QChar(
@@ -965,7 +997,10 @@ bool ritual_ZeqRK10QByteArrayRK5QChar(
     const QChar *rhs) {
   return operator==(*lhs, *rhs);
 }
+#endif
 
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
 //  bool operator!=(const QByteArray &lhs, const QChar &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZneRK10QByteArrayRK5QChar(
@@ -973,7 +1008,10 @@ bool ritual_ZneRK10QByteArrayRK5QChar(
     const QChar *rhs) {
   return operator!=(*lhs, *rhs);
 }
+#endif
 
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
 //  bool operator<(const QByteArray &lhs, const QChar &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZltRK10QByteArrayRK5QChar(
@@ -981,7 +1019,10 @@ bool ritual_ZltRK10QByteArrayRK5QChar(
     const QChar *rhs) {
   return operator<(*lhs, *rhs);
 }
+#endif
 
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
 //  bool operator>(const QByteArray &lhs, const QChar &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZgtRK10QByteArrayRK5QChar(
@@ -989,7 +1030,10 @@ bool ritual_ZgtRK10QByteArrayRK5QChar(
     const QChar *rhs) {
   return operator>(*lhs, *rhs);
 }
+#endif
 
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
 //  bool operator<=(const QByteArray &lhs, const QChar &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZleRK10QByteArrayRK5QChar(
@@ -997,7 +1041,10 @@ bool ritual_ZleRK10QByteArrayRK5QChar(
     const QChar *rhs) {
   return operator<=(*lhs, *rhs);
 }
+#endif
 
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
 //  bool operator>=(const QByteArray &lhs, const QChar &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZgeRK10QByteArrayRK5QChar(
@@ -1005,7 +1052,10 @@ bool ritual_ZgeRK10QByteArrayRK5QChar(
     const QChar *rhs) {
   return operator>=(*lhs, *rhs);
 }
+#endif
 
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
 //  bool operator==(const QChar &lhs, const QByteArray &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZeqRK5QCharRK10QByteArray(
@@ -1013,7 +1063,10 @@ bool ritual_ZeqRK5QCharRK10QByteArray(
     const QByteArray *rhs) {
   return operator==(*lhs, *rhs);
 }
+#endif
 
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
 //  bool operator!=(const QChar &lhs, const QByteArray &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZneRK5QCharRK10QByteArray(
@@ -1021,7 +1074,10 @@ bool ritual_ZneRK5QCharRK10QByteArray(
     const QByteArray *rhs) {
   return operator!=(*lhs, *rhs);
 }
+#endif
 
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
 //  bool operator<(const QChar &lhs, const QByteArray &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZltRK5QCharRK10QByteArray(
@@ -1029,7 +1085,10 @@ bool ritual_ZltRK5QCharRK10QByteArray(
     const QByteArray *rhs) {
   return operator<(*lhs, *rhs);
 }
+#endif
 
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
 //  bool operator>(const QChar &lhs, const QByteArray &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZgtRK5QCharRK10QByteArray(
@@ -1037,7 +1096,10 @@ bool ritual_ZgtRK5QCharRK10QByteArray(
     const QByteArray *rhs) {
   return operator>(*lhs, *rhs);
 }
+#endif
 
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
 //  bool operator<=(const QChar &lhs, const QByteArray &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZleRK5QCharRK10QByteArray(
@@ -1045,7 +1107,10 @@ bool ritual_ZleRK5QCharRK10QByteArray(
     const QByteArray *rhs) {
   return operator<=(*lhs, *rhs);
 }
+#endif
 
+#if !defined(QT_NO_CAST_FROM_ASCII) && \
+    !defined(QT_RESTRICTED_CAST_FROM_ASCII)
 //  bool operator>=(const QChar &lhs, const QByteArray &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZgeRK5QCharRK10QByteArray(
@@ -1053,6 +1118,7 @@ bool ritual_ZgeRK5QCharRK10QByteArray(
     const QByteArray *rhs) {
   return operator>=(*lhs, *rhs);
 }
+#endif
 
 //  void QByteArray::reallocData(qsizetype alloc,
 //      QArrayData::AllocationOption option)

@@ -1,0 +1,39 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qsgcompressedatlastexture_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK25QSGCompressedAtlasTexture7Texture10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK25QSGCompressedAtlasTexture7Texture11textureSizeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK25QSGCompressedAtlasTexture7Texture10hasMipmapsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK25QSGCompressedAtlasTexture7Texture24normalizedTextureSubRectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK25QSGCompressedAtlasTexture7Texture4dataEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK25QSGCompressedAtlasTexture7Texture11sizeInBytesEv": [
+      "int", "address"
+    ],
+    "ritual_take_QSGCompressedAtlasTexture_Texture": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK25QSGCompressedAtlasTexture7Texture11textureSizeEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK25QSGCompressedAtlasTexture7Texture10hasMipmapsEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZNK25QSGCompressedAtlasTexture7Texture24normalizedTextureSubRectEv": [
+      "address", "address"
+    ]
+  }
+}

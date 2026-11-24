@@ -1,0 +1,73 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Dialogs2QuickImpl/6.12.0/QtQuickDialogs2QuickImpl/private/qquickco",
+    "lordialogimpl_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK21QQuickColorDialogImpl10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QQuickColorDialogImpl2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN21QQuickColorDialogImpl21qt_qmlMarker_attachedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickColorDialogImplC1EP7QObject": ["address", "address"],
+    "ritual_ZN21QQuickColorDialogImpl21qmlAttachedPropertiesEP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZNK21QQuickColorDialogImpl5colorEv": ["address", "address"],
+    "ritual_ZN21QQuickColorDialogImpl8setColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21QQuickColorDialogImpl3redEv": ["int", "address"],
+    "ritual_ZN21QQuickColorDialogImpl6setRedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK21QQuickColorDialogImpl5greenEv": ["int", "address"],
+    "ritual_ZN21QQuickColorDialogImpl8setGreenEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK21QQuickColorDialogImpl4blueEv": ["int", "address"],
+    "ritual_ZN21QQuickColorDialogImpl7setBlueEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK21QQuickColorDialogImpl5alphaEv": ["double", "address"],
+    "ritual_ZN21QQuickColorDialogImpl8setAlphaEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK21QQuickColorDialogImpl3hueEv": ["double", "address"],
+    "ritual_ZN21QQuickColorDialogImpl6setHueEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK21QQuickColorDialogImpl10saturationEv": ["double", "address"],
+    "ritual_ZN21QQuickColorDialogImpl13setSaturationEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK21QQuickColorDialogImpl5valueEv": ["double", "address"],
+    "ritual_ZN21QQuickColorDialogImpl8setValueEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK21QQuickColorDialogImpl9lightnessEv": ["double", "address"],
+    "ritual_ZN21QQuickColorDialogImpl12setLightnessEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK21QQuickColorDialogImpl5isHslEv": ["bool", "address"],
+    "ritual_ZN21QQuickColorDialogImpl6setHslEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN21QQuickColorDialogImpl16invokeEyeDropperEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickColorDialogImpl10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN21QQuickColorDialogImpl6d_funcEv": ["address", "address"],
+    "ritual_ZNK21QQuickColorDialogImpl6d_funcEv": ["address", "address"],
+    "ritual_own_ZN21QQuickColorDialogImpl10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ]
+  }
+}

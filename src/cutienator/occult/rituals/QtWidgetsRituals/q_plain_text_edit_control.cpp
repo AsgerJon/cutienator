@@ -1,8 +1,14 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/6.12.0/QtWidgets/private/qplaintextedit_p.h, Qt 6.12.0. Changes
 //  made here are lost.
+#include <QtWidgets/qtwidgetsglobal.h>
+#include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
+#if QT_CONFIG(textedit)
+#include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/QtWidgets>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/6.12.0/QtWidgets/private/qplaintextedit_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qpoint.h>
 #include <QtCore/qstring.h>
 #include <QtGui/qtextcursor.h>
@@ -13,6 +19,7 @@
 #include <QtGui/qtransform.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include "qplaintextedit_p.h"
 #include <qfont.h>
 #include <qpainter.h>
@@ -40,13 +47,14 @@
 #include <limits.h>
 #include <qtexttable.h>
 #include <qvariant.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
 //  Qt's source, because Qt's library carries it under no name.
 //  Copyright (C) The Qt Company Ltd. It is licensed
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
-//  'inline' put before it.
+//  'inline' put before it where Qt did not write it.
 
 //  from src/widgets/widgets/qplaintextedit.cpp, line 601, as _ZNK21QPlainTextEditControl8anchorAtERK7QPointF
 inline QString QPlainTextEditControl::anchorAt(const QPointF &pos) const
@@ -64,100 +72,210 @@ inline QTextBlock QPlainTextEditControl::firstVisibleBlock() const
 //  A QPlainTextEditControl that Python can take functions over in. Every QPlainTextEditControl
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if QT_CONFIG(widgettextcontrol)
+#if QT_CONFIG(textedit)
 typedef void * (*CuteQPlainTextEditControlCall0)(const void *, int *);
+#endif  // QT_CONFIG(textedit)
+#endif  // QT_CONFIG(widgettextcontrol)
+#if QT_CONFIG(widgettextcontrol)
+#if QT_CONFIG(textedit)
 typedef bool (*CuteQPlainTextEditControlCall1)(const void *, const QMimeData *, int *);
+#endif  // QT_CONFIG(textedit)
+#endif  // QT_CONFIG(widgettextcontrol)
+#if QT_CONFIG(widgettextcontrol)
+#if QT_CONFIG(textedit)
 typedef void (*CuteQPlainTextEditControlCall2)(const void *, const QMimeData *, int *);
+#endif  // QT_CONFIG(textedit)
+#endif  // QT_CONFIG(widgettextcontrol)
+#if QT_CONFIG(widgettextcontrol)
+#if QT_CONFIG(textedit)
 typedef int (*CuteQPlainTextEditControlCall3)(const void *, const QPointF *, int, int *);
+#endif  // QT_CONFIG(textedit)
+#endif  // QT_CONFIG(widgettextcontrol)
+#if QT_CONFIG(widgettextcontrol)
+#if QT_CONFIG(textedit)
 typedef const QRectF * (*CuteQPlainTextEditControlCall4)(const void *, const QTextBlock *, int *);
+#endif  // QT_CONFIG(textedit)
+#endif  // QT_CONFIG(widgettextcontrol)
+#if QT_CONFIG(widgettextcontrol)
+#if QT_CONFIG(textedit)
 typedef QString * (*CuteQPlainTextEditControlCall5)(const void *, const QPointF *, int *);
+#endif  // QT_CONFIG(textedit)
+#endif  // QT_CONFIG(widgettextcontrol)
+#if QT_CONFIG(widgettextcontrol)
+#if QT_CONFIG(textedit)
 typedef void (*CuteQPlainTextEditControlCall6)(const void *, int *);
+#endif  // QT_CONFIG(textedit)
+#endif  // QT_CONFIG(widgettextcontrol)
+#if QT_CONFIG(widgettextcontrol)
+#if QT_CONFIG(textedit)
 typedef const QVariant * (*CuteQPlainTextEditControlCall7)(const void *, int, const QUrl *, int *);
+#endif  // QT_CONFIG(textedit)
+#endif  // QT_CONFIG(widgettextcontrol)
+#if QT_CONFIG(widgettextcontrol)
 typedef void (*CuteQPlainTextEditControlCall8)(const void *, QEvent *, const QTransform *, QWidget *, int *);
+#endif  // QT_CONFIG(widgettextcontrol)
+#if QT_CONFIG(widgettextcontrol)
 typedef const QVariant * (*CuteQPlainTextEditControlCall9)(const void *, int, const QVariant *, int *);
+#endif  // QT_CONFIG(widgettextcontrol)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(widgettextcontrol)
 typedef void (*CuteQPlainTextEditControlCall10)(const void *, QTimerEvent *, int *);
+#endif  // QT_CONFIG(widgettextcontrol)
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(widgettextcontrol)
 typedef bool (*CuteQPlainTextEditControlCall11)(const void *, QEvent *, int *);
+#endif  // QT_CONFIG(widgettextcontrol)
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQPlainTextEditControlCall12)(const void *, QObject *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQPlainTextEditControlCall13)(const void *, QChildEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQPlainTextEditControlCall14)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQPlainTextEditControlCall15)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQPlainTextEditControlCall16)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 class CuteQPlainTextEditControl : public QPlainTextEditControl {
 public:
   using QPlainTextEditControl::QPlainTextEditControl;
   void *taken[17] = {};
 
   bool take(const char *key, void *call) {
+#if QT_CONFIG(widgettextcontrol)
+#if QT_CONFIG(textedit)
     if (!std::strcmp(key, "_ZNK18QWidgetTextControl27createMimeDataFromSelectionEv")) {
       taken[0] = call;
       return true;
     }
+#endif  // QT_CONFIG(textedit)
+#endif  // QT_CONFIG(widgettextcontrol)
+#if QT_CONFIG(widgettextcontrol)
+#if QT_CONFIG(textedit)
     if (!std::strcmp(key, "_ZNK18QWidgetTextControl21canInsertFromMimeDataEPK9QMimeData")) {
       taken[1] = call;
       return true;
     }
+#endif  // QT_CONFIG(textedit)
+#endif  // QT_CONFIG(widgettextcontrol)
+#if QT_CONFIG(widgettextcontrol)
+#if QT_CONFIG(textedit)
     if (!std::strcmp(key, "_ZN18QWidgetTextControl18insertFromMimeDataEPK9QMimeData")) {
       taken[2] = call;
       return true;
     }
+#endif  // QT_CONFIG(textedit)
+#endif  // QT_CONFIG(widgettextcontrol)
+#if QT_CONFIG(widgettextcontrol)
+#if QT_CONFIG(textedit)
     if (!std::strcmp(key, "_ZNK18QWidgetTextControl7hitTestERK7QPointFN2Qt15HitTestAccuracyE")) {
       taken[3] = call;
       return true;
     }
+#endif  // QT_CONFIG(textedit)
+#endif  // QT_CONFIG(widgettextcontrol)
+#if QT_CONFIG(widgettextcontrol)
+#if QT_CONFIG(textedit)
     if (!std::strcmp(key, "_ZNK18QWidgetTextControl17blockBoundingRectERK10QTextBlock")) {
       taken[4] = call;
       return true;
     }
+#endif  // QT_CONFIG(textedit)
+#endif  // QT_CONFIG(widgettextcontrol)
+#if QT_CONFIG(widgettextcontrol)
+#if QT_CONFIG(textedit)
     if (!std::strcmp(key, "_ZNK18QWidgetTextControl8anchorAtERK7QPointF")) {
       taken[5] = call;
       return true;
     }
+#endif  // QT_CONFIG(textedit)
+#endif  // QT_CONFIG(widgettextcontrol)
+#if QT_CONFIG(widgettextcontrol)
+#if QT_CONFIG(textedit)
     if (!std::strcmp(key, "_ZN18QWidgetTextControl19ensureCursorVisibleEv")) {
       taken[6] = call;
       return true;
     }
+#endif  // QT_CONFIG(textedit)
+#endif  // QT_CONFIG(widgettextcontrol)
+#if QT_CONFIG(widgettextcontrol)
+#if QT_CONFIG(textedit)
     if (!std::strcmp(key, "_ZN18QWidgetTextControl12loadResourceEiRK4QUrl")) {
       taken[7] = call;
       return true;
     }
+#endif  // QT_CONFIG(textedit)
+#endif  // QT_CONFIG(widgettextcontrol)
+#if QT_CONFIG(widgettextcontrol)
     if (!std::strcmp(key, "_ZN18QWidgetTextControl12processEventEP6QEventRK10QTransformP7QWidget")) {
       taken[8] = call;
       return true;
     }
+#endif  // QT_CONFIG(widgettextcontrol)
+#if QT_CONFIG(widgettextcontrol)
     if (!std::strcmp(key, "_ZNK18QWidgetTextControl16inputMethodQueryEN2Qt16InputMethodQueryE8QVariant")) {
       taken[9] = call;
       return true;
     }
+#endif  // QT_CONFIG(widgettextcontrol)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(widgettextcontrol)
     if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[10] = call;
       return true;
     }
+#endif  // QT_CONFIG(widgettextcontrol)
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(widgettextcontrol)
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[11] = call;
       return true;
     }
+#endif  // QT_CONFIG(widgettextcontrol)
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[12] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[13] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[14] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[15] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
       taken[16] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
     return false;
   }
 
+#if QT_CONFIG(widgettextcontrol)
+#if QT_CONFIG(textedit)
   //  QMimeData *QPlainTextEditControl::createMimeDataFromSelection() const
   QMimeData *createMimeDataFromSelection() const override {
     if (taken[0]) {
@@ -168,7 +286,11 @@ public:
     }
     return QPlainTextEditControl::createMimeDataFromSelection();
   }
+#endif  // QT_CONFIG(textedit)
+#endif  // QT_CONFIG(widgettextcontrol)
 
+#if QT_CONFIG(widgettextcontrol)
+#if QT_CONFIG(textedit)
   //  bool QPlainTextEditControl::canInsertFromMimeData(const QMimeData
   //      *source) const
   bool canInsertFromMimeData(const QMimeData *source) const override {
@@ -180,7 +302,11 @@ public:
     }
     return QPlainTextEditControl::canInsertFromMimeData(source);
   }
+#endif  // QT_CONFIG(textedit)
+#endif  // QT_CONFIG(widgettextcontrol)
 
+#if QT_CONFIG(widgettextcontrol)
+#if QT_CONFIG(textedit)
   //  void QPlainTextEditControl::insertFromMimeData(const QMimeData
   //      *source)
   void insertFromMimeData(const QMimeData *source) override {
@@ -192,7 +318,11 @@ public:
     }
     QPlainTextEditControl::insertFromMimeData(source);
   }
+#endif  // QT_CONFIG(textedit)
+#endif  // QT_CONFIG(widgettextcontrol)
 
+#if QT_CONFIG(widgettextcontrol)
+#if QT_CONFIG(textedit)
   //  int QPlainTextEditControl::hitTest(const QPointF &point,
   //      Qt::HitTestAccuracy a1) const
   int hitTest(const QPointF &point, Qt::HitTestAccuracy a1) const override {
@@ -204,7 +334,11 @@ public:
     }
     return QPlainTextEditControl::hitTest(point, a1);
   }
+#endif  // QT_CONFIG(textedit)
+#endif  // QT_CONFIG(widgettextcontrol)
 
+#if QT_CONFIG(widgettextcontrol)
+#if QT_CONFIG(textedit)
   //  QRectF QPlainTextEditControl::blockBoundingRect(const QTextBlock
   //      &block) const
   QRectF blockBoundingRect(const QTextBlock &block) const override {
@@ -216,7 +350,11 @@ public:
     }
     return QPlainTextEditControl::blockBoundingRect(block);
   }
+#endif  // QT_CONFIG(textedit)
+#endif  // QT_CONFIG(widgettextcontrol)
 
+#if QT_CONFIG(widgettextcontrol)
+#if QT_CONFIG(textedit)
   //  QString QPlainTextEditControl::anchorAt(const QPointF &pos) const
   QString anchorAt(const QPointF &pos) const override {
     if (taken[5]) {
@@ -231,7 +369,11 @@ public:
     }
     return QPlainTextEditControl::anchorAt(pos);
   }
+#endif  // QT_CONFIG(textedit)
+#endif  // QT_CONFIG(widgettextcontrol)
 
+#if QT_CONFIG(widgettextcontrol)
+#if QT_CONFIG(textedit)
   //  void QPlainTextEditControl::ensureCursorVisible()
   void ensureCursorVisible() override {
     if (taken[6]) {
@@ -242,7 +384,11 @@ public:
     }
     QPlainTextEditControl::ensureCursorVisible();
   }
+#endif  // QT_CONFIG(textedit)
+#endif  // QT_CONFIG(widgettextcontrol)
 
+#if QT_CONFIG(widgettextcontrol)
+#if QT_CONFIG(textedit)
   //  QVariant QPlainTextEditControl::loadResource(int type, const QUrl
   //      &name)
   QVariant loadResource(int type, const QUrl &name) override {
@@ -254,7 +400,10 @@ public:
     }
     return QPlainTextEditControl::loadResource(type, name);
   }
+#endif  // QT_CONFIG(textedit)
+#endif  // QT_CONFIG(widgettextcontrol)
 
+#if QT_CONFIG(widgettextcontrol)
   //  void QWidgetTextControl::processEvent(QEvent *e, const QTransform
   //      &transform, QWidget *contextWidget)
   void processEvent(
@@ -269,7 +418,9 @@ public:
     }
     QWidgetTextControl::processEvent(e, transform, contextWidget);
   }
+#endif  // QT_CONFIG(widgettextcontrol)
 
+#if QT_CONFIG(widgettextcontrol)
   //  QVariant QWidgetTextControl::inputMethodQuery(Qt::InputMethodQuery
   //      property, QVariant argument) const
   QVariant inputMethodQuery(
@@ -283,7 +434,10 @@ public:
     }
     return QWidgetTextControl::inputMethodQuery(property, argument);
   }
+#endif  // QT_CONFIG(widgettextcontrol)
 
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(widgettextcontrol)
   //  void QWidgetTextControl::timerEvent(QTimerEvent *e)
   void timerEvent(QTimerEvent *e) override {
     if (taken[10]) {
@@ -294,7 +448,11 @@ public:
     }
     QWidgetTextControl::timerEvent(e);
   }
+#endif  // QT_CONFIG(widgettextcontrol)
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(widgettextcontrol)
   //  bool QWidgetTextControl::event(QEvent *e)
   bool event(QEvent *e) override {
     if (taken[11]) {
@@ -305,7 +463,10 @@ public:
     }
     return QWidgetTextControl::event(e);
   }
+#endif  // QT_CONFIG(widgettextcontrol)
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
     if (taken[12]) {
@@ -316,7 +477,9 @@ public:
     }
     return QObject::eventFilter(watched, event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
     if (taken[13]) {
@@ -327,7 +490,9 @@ public:
     }
     QObject::childEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
     if (taken[14]) {
@@ -338,7 +503,9 @@ public:
     }
     QObject::customEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
     if (taken[15]) {
@@ -349,7 +516,9 @@ public:
     }
     QObject::connectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
     if (taken[16]) {
@@ -360,6 +529,7 @@ public:
     }
     QObject::disconnectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 };
 
 //  const QMetaObject *QPlainTextEditControl::metaObject() const
@@ -451,3 +621,5 @@ QVariant *ritual_own_ZN21QPlainTextEditControl12loadResourceEiRK4QUrl(
           type,
           *name));
 }
+
+#endif  // QT_CONFIG(textedit)

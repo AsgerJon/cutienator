@@ -1,0 +1,34 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Dialogs2QuickImpl/6.12.0/QtQuickDialogs2QuickImpl/private/qquickfi",
+    "ledialogdelegate_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK24QQuickFileDialogDelegate10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QQuickFileDialogDelegate2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN24QQuickFileDialogDelegateC1EP10QQuickItem": [
+      "address", "address"
+    ],
+    "ritual_ZNK24QQuickFileDialogDelegate6dialogEv": ["address", "address"],
+    "ritual_ZN24QQuickFileDialogDelegate9setDialogEP12QQuickDialog": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK24QQuickFileDialogDelegate4fileEv": ["address", "address"],
+    "ritual_ZN24QQuickFileDialogDelegate7setFileERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QQuickFileDialogDelegate15keyReleaseEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QQuickFileDialogDelegate6d_funcEv": ["address", "address"],
+    "ritual_ZNK24QQuickFileDialogDelegate6d_funcEv": ["address", "address"],
+    "ritual_own_ZN24QQuickFileDialogDelegate15keyReleaseEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ]
+  }
+}

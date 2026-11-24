@@ -1,0 +1,34 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtScxml/6.12.0/QtScxml/private/qscxmlstatemachine_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN25QScxmlStateMachinePrivate10OrderedSetC1Ev": ["address"],
+    "ritual_ZNK25QScxmlStateMachinePrivate10OrderedSet8containsEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN25QScxmlStateMachinePrivate10OrderedSet6removeEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN25QScxmlStateMachinePrivate10OrderedSet10removeHeadEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK25QScxmlStateMachinePrivate10OrderedSet7isEmptyEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN25QScxmlStateMachinePrivate10OrderedSet3addEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK25QScxmlStateMachinePrivate10OrderedSet14intersectsWithERKS0_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN25QScxmlStateMachinePrivate10OrderedSet5clearEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QScxmlStateMachinePrivate10OrderedSetD1Ev": [
+      "nothing", "address"
+    ]
+  }
+}

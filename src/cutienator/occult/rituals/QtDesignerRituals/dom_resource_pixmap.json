@@ -1,0 +1,37 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/ui4_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN17DomResourcePixmapC1Ev": ["address"],
+    "ritual_ZN17DomResourcePixmapD1Ev": ["nothing", "address"],
+    "ritual_ZNK17DomResourcePixmap4textEv": ["text", "address"],
+    "ritual_ZN17DomResourcePixmap7setTextERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK17DomResourcePixmap20hasAttributeResourceEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK17DomResourcePixmap17attributeResourceEv": [
+      "text", "address"
+    ],
+    "ritual_ZN17DomResourcePixmap20setAttributeResourceERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN17DomResourcePixmap22clearAttributeResourceEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK17DomResourcePixmap17hasAttributeAliasEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK17DomResourcePixmap14attributeAliasEv": ["text", "address"],
+    "ritual_ZN17DomResourcePixmap17setAttributeAliasERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN17DomResourcePixmap19clearAttributeAliasEv": [
+      "nothing", "address"
+    ]
+  }
+}

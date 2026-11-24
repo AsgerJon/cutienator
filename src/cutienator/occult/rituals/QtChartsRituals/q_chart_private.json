@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/6.12.0/QtCharts/private/qchart_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN13QChartPrivateC1EP6QChartNS0_9ChartTypeE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN13QChartPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN13QChartPrivate4initEv": ["nothing", "address"],
+    "ritual_ZN13QChartPrivate6zoomInEd": ["nothing", "address", "double"],
+    "ritual_ZN13QChartPrivate7zoomOutEd": ["nothing", "address", "double"],
+    "ritual_ZN13QChartPrivate6zoomInERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QChartPrivate9zoomResetEv": ["nothing", "address"],
+    "ritual_ZN13QChartPrivate8isZoomedEv": ["bool", "address"],
+    "ritual_ZN13QChartPrivate6scrollEdd": [
+      "nothing", "address", "double", "double"
+    ]
+  }
+}

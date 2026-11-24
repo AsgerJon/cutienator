@@ -1,0 +1,62 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qgraphicsproxywidget_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN27QGraphicsProxyWidgetPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK27QGraphicsProxyWidgetPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QGraphicsProxyWidgetPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN27QGraphicsProxyWidgetPrivate4initEv": ["nothing", "address"],
+    "ritual_ZN27QGraphicsProxyWidgetPrivate20sendWidgetMouseEventEP24QGraphicsSceneMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN27QGraphicsProxyWidgetPrivate20sendWidgetMouseEventEP24QGraphicsSceneHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN27QGraphicsProxyWidgetPrivate18sendWidgetKeyEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN27QGraphicsProxyWidgetPrivate16setWidget_helperEP7QWidgetb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN27QGraphicsProxyWidgetPrivate20removeSubFocusHelperEP7QWidgetN2Qt11FocusReasonE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN27QGraphicsProxyWidgetPrivate19_q_removeWidgetSlotEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QGraphicsProxyWidgetPrivate14embedSubWindowEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN27QGraphicsProxyWidgetPrivate16unembedSubWindowEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK27QGraphicsProxyWidgetPrivate13isProxyWidgetEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN27QGraphicsProxyWidgetPrivate29updateWidgetGeometryFromProxyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QGraphicsProxyWidgetPrivate29updateProxyGeometryFromWidgetEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QGraphicsProxyWidgetPrivate42updateProxyInputMethodAcceptanceFromWidgetEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK27QGraphicsProxyWidgetPrivate13mapToReceiverERK7QPointFPK7QWidget": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_take_QGraphicsProxyWidgetPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK27QGraphicsProxyWidgetPrivate13isProxyWidgetEv": [
+      "bool", "address"
+    ]
+  }
+}

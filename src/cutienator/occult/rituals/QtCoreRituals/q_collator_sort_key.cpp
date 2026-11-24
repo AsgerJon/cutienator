@@ -23,6 +23,13 @@ int ritual_ZNK16QCollatorSortKey7compareERKS_(
   return self->compare(*key);
 }
 
+//  QCollatorSortKey::QCollatorSortKey(QCollatorSortKeyPrivate *a0)
+extern "C" Q_DECL_EXPORT
+QCollatorSortKey *ritual_ZN16QCollatorSortKeyC1EP23QCollatorSortKeyPrivate(
+    QCollatorSortKeyPrivate *a0) {
+  return new QCollatorSortKey(a0);
+}
+
 //  bool operator==(const QCollatorSortKey &lhs, const QCollatorSortKey &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZeqRK16QCollatorSortKeyS1_(

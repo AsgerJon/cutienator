@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmlprofiler_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QQmlVmeProfilerC1Ev": ["address"],
+    "ritual_ZN15QQmlVmeProfiler4initEP12QQmlProfiler": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QQmlVmeProfiler3popEv": ["address", "address"],
+    "ritual_ZN15QQmlVmeProfiler4pushEPKN3QV412CompiledData6ObjectE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QQmlVmeProfilerD1Ev": ["nothing", "address"]
+  }
+}

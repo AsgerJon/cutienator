@@ -1,0 +1,102 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Effects/6.12.0/QtQuickEffects/private/qquickrectangularshadow_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK23QQuickRectangularShadow10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QQuickRectangularShadow2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN23QQuickRectangularShadowC1EP10QQuickItem": [
+      "address", "address"
+    ],
+    "ritual_ZNK23QQuickRectangularShadow6offsetEv": ["address", "address"],
+    "ritual_ZN23QQuickRectangularShadow9setOffsetERK9QVector2D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK23QQuickRectangularShadow5colorEv": ["address", "address"],
+    "ritual_ZN23QQuickRectangularShadow8setColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK23QQuickRectangularShadow4blurEv": ["double", "address"],
+    "ritual_ZN23QQuickRectangularShadow7setBlurEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK23QQuickRectangularShadow6radiusEv": ["double", "address"],
+    "ritual_ZN23QQuickRectangularShadow9setRadiusEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK23QQuickRectangularShadow6spreadEv": ["double", "address"],
+    "ritual_ZN23QQuickRectangularShadow9setSpreadEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK23QQuickRectangularShadow8isCachedEv": ["bool", "address"],
+    "ritual_ZN23QQuickRectangularShadow9setCachedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK23QQuickRectangularShadow8materialEv": ["address", "address"],
+    "ritual_ZN23QQuickRectangularShadow11setMaterialEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK23QQuickRectangularShadow13topLeftRadiusEv": [
+      "double", "address"
+    ],
+    "ritual_ZN23QQuickRectangularShadow16setTopLeftRadiusEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN23QQuickRectangularShadow18resetTopLeftRadiusEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK23QQuickRectangularShadow14topRightRadiusEv": [
+      "double", "address"
+    ],
+    "ritual_ZN23QQuickRectangularShadow17setTopRightRadiusEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN23QQuickRectangularShadow19resetTopRightRadiusEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK23QQuickRectangularShadow16bottomLeftRadiusEv": [
+      "double", "address"
+    ],
+    "ritual_ZN23QQuickRectangularShadow19setBottomLeftRadiusEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN23QQuickRectangularShadow21resetBottomLeftRadiusEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK23QQuickRectangularShadow17bottomRightRadiusEv": [
+      "double", "address"
+    ],
+    "ritual_ZN23QQuickRectangularShadow20setBottomRightRadiusEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN23QQuickRectangularShadow22resetBottomRightRadiusEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickRectangularShadow17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickRectangularShadow14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN23QQuickRectangularShadow10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN23QQuickRectangularShadow6d_funcEv": ["address", "address"],
+    "ritual_ZNK23QQuickRectangularShadow6d_funcEv": ["address", "address"],
+    "ritual_own_ZN23QQuickRectangularShadow17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN23QQuickRectangularShadow14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN23QQuickRectangularShadow10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ]
+  }
+}

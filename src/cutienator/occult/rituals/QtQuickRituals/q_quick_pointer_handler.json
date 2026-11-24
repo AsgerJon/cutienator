@@ -1,0 +1,150 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickpointerhandler_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK20QQuickPointerHandler10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QQuickPointerHandler2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN20QQuickPointerHandler24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickPointerHandlerC1EP10QQuickItem": [
+      "address", "address"
+    ],
+    "ritual_ZN20QQuickPointerHandlerD1Ev": ["nothing", "address"],
+    "ritual_ZNK20QQuickPointerHandler7enabledEv": ["bool", "address"],
+    "ritual_ZN20QQuickPointerHandler10setEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK20QQuickPointerHandler6activeEv": ["bool", "address"],
+    "ritual_ZNK20QQuickPointerHandler6targetEv": ["address", "address"],
+    "ritual_ZN20QQuickPointerHandler9setTargetEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QQuickPointerHandler10parentItemEv": ["address", "address"],
+    "ritual_ZN20QQuickPointerHandler13setParentItemEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickPointerHandler18handlePointerEventEP13QPointerEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QQuickPointerHandler15grabPermissionsEv": [
+      "int", "address"
+    ],
+    "ritual_ZN20QQuickPointerHandler18setGrabPermissionsE6QFlagsINS_14GrabPermissionEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK20QQuickPointerHandler6marginEv": ["double", "address"],
+    "ritual_ZN20QQuickPointerHandler9setMarginEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK20QQuickPointerHandler13dragThresholdEv": ["int", "address"],
+    "ritual_ZN20QQuickPointerHandler16setDragThresholdEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQuickPointerHandler18resetDragThresholdEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK20QQuickPointerHandler11cursorShapeEv": ["int", "address"],
+    "ritual_ZN20QQuickPointerHandler14setCursorShapeEN2Qt11CursorShapeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQuickPointerHandler16resetCursorShapeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK20QQuickPointerHandler26isCursorShapeExplicitlySetEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN20QQuickPointerHandler10classBeginEv": ["nothing", "address"],
+    "ritual_ZN20QQuickPointerHandler17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickPointerHandler5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN20QQuickPointerHandler12currentEventEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QQuickPointerHandler17wantsPointerEventEP13QPointerEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN20QQuickPointerHandler15wantsEventPointEPK13QPointerEventRK11QEventPoint": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN20QQuickPointerHandler22handlePointerEventImplEP13QPointerEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickPointerHandler9setActiveEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20QQuickPointerHandler15onTargetChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickPointerHandler15onActiveChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickPointerHandler7canGrabEP13QPointerEventRK11QEventPoint": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN20QQuickPointerHandler21approveGrabTransitionEP13QPointerEventRK11QEventPointP7QObject": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZN20QQuickPointerHandler14setPassiveGrabEP13QPointerEventRK11QEventPointb": [
+      "nothing", "address", "address", "address", "bool"
+    ],
+    "ritual_ZN20QQuickPointerHandler16setExclusiveGrabEP13QPointerEventRK11QEventPointb": [
+      "bool", "address", "address", "address", "bool"
+    ],
+    "ritual_ZNK20QQuickPointerHandler8eventPosERK11QEventPoint": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK20QQuickPointerHandler14parentContainsERK11QEventPoint": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK20QQuickPointerHandler14parentContainsERK7QPointFS2_": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN20QQuickPointerHandler6d_funcEv": ["address", "address"],
+    "ritual_ZNK20QQuickPointerHandler6d_funcEv": ["address", "address"],
+    "ritual_cast_QQuickPointerHandler_QQmlParserStatus": [
+      "address", "address"
+    ],
+    "ritual_take_QQuickPointerHandler": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN20QQuickPointerHandler10classBeginEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN20QQuickPointerHandler17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN20QQuickPointerHandler5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN20QQuickPointerHandler17wantsPointerEventEP13QPointerEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN20QQuickPointerHandler15wantsEventPointEPK13QPointerEventRK11QEventPoint": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_own_ZN20QQuickPointerHandler22handlePointerEventImplEP13QPointerEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20QQuickPointerHandler15onTargetChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20QQuickPointerHandler15onActiveChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN20QQuickPointerHandler7canGrabEP13QPointerEventRK11QEventPoint": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_own_ZN20QQuickPointerHandler21approveGrabTransitionEP13QPointerEventRK11QEventPointP7QObject": [
+      "bool", "address", "address", "address", "address"
+    ]
+  }
+}

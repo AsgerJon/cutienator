@@ -1,0 +1,129 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "/6.12.0/QtQuick/private/qsgsoftwareinternalrectanglenode_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN32QSGSoftwareInternalRectangleNode7setRectERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN32QSGSoftwareInternalRectangleNode8setColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN32QSGSoftwareInternalRectangleNode11setPenColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN32QSGSoftwareInternalRectangleNode11setPenWidthEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN32QSGSoftwareInternalRectangleNode19setGradientVerticalEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN32QSGSoftwareInternalRectangleNode9setRadiusEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN32QSGSoftwareInternalRectangleNode16setTopLeftRadiusEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN32QSGSoftwareInternalRectangleNode17setTopRightRadiusEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN32QSGSoftwareInternalRectangleNode19setBottomLeftRadiusEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN32QSGSoftwareInternalRectangleNode20setBottomRightRadiusEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN32QSGSoftwareInternalRectangleNode18resetTopLeftRadiusEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN32QSGSoftwareInternalRectangleNode19resetTopRightRadiusEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN32QSGSoftwareInternalRectangleNode21resetBottomLeftRadiusEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN32QSGSoftwareInternalRectangleNode22resetBottomRightRadiusEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN32QSGSoftwareInternalRectangleNode15setAntialiasingEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN32QSGSoftwareInternalRectangleNode10setAlignedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN32QSGSoftwareInternalRectangleNode6updateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN32QSGSoftwareInternalRectangleNode5paintEP8QPainter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK32QSGSoftwareInternalRectangleNode8isOpaqueEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK32QSGSoftwareInternalRectangleNode4rectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN32QSGSoftwareInternalRectangleNode14paintRectangleEP8QPainterRK5QRect": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN32QSGSoftwareInternalRectangleNode31paintRectangleIndividualCornersEP8QPainterRK5QRect": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN32QSGSoftwareInternalRectangleNode20generateCornerPixmapEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN32QSGSoftwareInternalRectangleNode7setRectERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN32QSGSoftwareInternalRectangleNode8setColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN32QSGSoftwareInternalRectangleNode11setPenColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN32QSGSoftwareInternalRectangleNode11setPenWidthEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_own_ZN32QSGSoftwareInternalRectangleNode19setGradientVerticalEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZN32QSGSoftwareInternalRectangleNode9setRadiusEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_own_ZN32QSGSoftwareInternalRectangleNode16setTopLeftRadiusEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_own_ZN32QSGSoftwareInternalRectangleNode17setTopRightRadiusEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_own_ZN32QSGSoftwareInternalRectangleNode19setBottomLeftRadiusEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_own_ZN32QSGSoftwareInternalRectangleNode20setBottomRightRadiusEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_own_ZN32QSGSoftwareInternalRectangleNode18resetTopLeftRadiusEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN32QSGSoftwareInternalRectangleNode19resetTopRightRadiusEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN32QSGSoftwareInternalRectangleNode21resetBottomLeftRadiusEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN32QSGSoftwareInternalRectangleNode22resetBottomRightRadiusEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN32QSGSoftwareInternalRectangleNode15setAntialiasingEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZN32QSGSoftwareInternalRectangleNode10setAlignedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZN32QSGSoftwareInternalRectangleNode6updateEv": [
+      "nothing", "address"
+    ]
+  }
+}

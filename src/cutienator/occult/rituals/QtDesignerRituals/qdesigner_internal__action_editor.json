@@ -1,0 +1,36 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/actioneditor_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18qdesigner_internal12ActionEditor10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal12ActionEditor2trEPKcS2_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18qdesigner_internal12ActionEditor16objectNamingModeEv": [
+      "int"
+    ],
+    "ritual_ZN18qdesigner_internal12ActionEditor19setObjectNamingModeENS_16ObjectNamingModeE": [
+      "nothing", "int"
+    ],
+    "ritual_take_qdesigner_internal_ActionEditor": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN18qdesigner_internal12ActionEditor13setFormWindowEP28QDesignerFormWindowInterface": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK18qdesigner_internal12ActionEditor4coreEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN18qdesigner_internal12ActionEditor12manageActionEP7QAction": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN18qdesigner_internal12ActionEditor14unmanageActionEP7QAction": [
+      "nothing", "address", "address"
+    ]
+  }
+}

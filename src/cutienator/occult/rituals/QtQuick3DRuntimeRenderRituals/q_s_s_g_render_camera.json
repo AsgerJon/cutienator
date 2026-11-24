@@ -1,0 +1,34 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgrenderca",
+    "mera_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN16QSSGRenderCameraC1EN21QSSGRenderGraphObject4TypeE": [
+      "address", "unsigned int"
+    ],
+    "ritual_ZN16QSSGRenderCamera6lookAtERK9QVector3DS2_S2_S2_": [
+      "nothing", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN16QSSGRenderCamera19calculateProjectionERK6QRectF29QSSGRenderCameraConfiguration": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZNK16QSSGRenderCamera9unprojectERK10QMatrix4x4RK9QVector2DRK6QRectF": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK16QSSGRenderCamera7isDirtyENS_9DirtyFlagE": [
+      "bool", "address", "unsigned char"
+    ],
+    "ritual_ZN16QSSGRenderCamera9markDirtyENS_9DirtyFlagE": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZN16QSSGRenderCamera10clearDirtyENS_9DirtyFlagE": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZNK16QSSGRenderCamera26getLevelOfDetailMultiplierEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK16QSSGRenderCamera6getDprEv": ["float", "address"]
+  }
+}

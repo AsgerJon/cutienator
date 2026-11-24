@@ -1,0 +1,36 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/abstractoptionspage.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN29QDesignerOptionsPageInterfaceD1Ev": ["nothing", "address"],
+    "ritual_ZNK29QDesignerOptionsPageInterface4nameEv": ["text", "address"],
+    "ritual_ZN29QDesignerOptionsPageInterface10createPageEP7QWidget": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN29QDesignerOptionsPageInterface5applyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QDesignerOptionsPageInterface6finishEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QDesignerOptionsPageInterface": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_list_make_QDesignerOptionsPageInterface_ptr": ["address"],
+    "ritual_list_add_QDesignerOptionsPageInterface_ptr": [
+      "nothing", "address", "address"
+    ],
+    "ritual_list_size_QDesignerOptionsPageInterface_ptr": [
+      "long long", "address"
+    ],
+    "ritual_list_at_QDesignerOptionsPageInterface_ptr": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_QDesignerOptionsPageInterface_ptr": [
+      "nothing", "address"
+    ]
+  }
+}

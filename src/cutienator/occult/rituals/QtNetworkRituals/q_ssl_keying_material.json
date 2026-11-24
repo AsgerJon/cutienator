@@ -1,0 +1,36 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/qsslkeyingmaterial.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN18QSslKeyingMaterialC1Ev": ["address"],
+    "ritual_ZN18QSslKeyingMaterialC1ERK10QByteArrayx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN18QSslKeyingMaterialC1ERK10QByteArrayxS2_": [
+      "address", "address", "long long", "address"
+    ],
+    "ritual_ZN18QSslKeyingMaterialC1ERKS_": ["address", "address"],
+    "ritual_ZN18QSslKeyingMaterialD1Ev": ["nothing", "address"],
+    "ritual_ZNK18QSslKeyingMaterial7isValidEv": ["bool", "address"],
+    "ritual_ZNK18QSslKeyingMaterial5labelEv": ["address", "address"],
+    "ritual_ZNK18QSslKeyingMaterial7contextEv": ["address", "address"],
+    "ritual_ZNK18QSslKeyingMaterial5valueEv": ["address", "address"],
+    "ritual_ZNK18QSslKeyingMaterial13requestedSizeEv": [
+      "long long", "address"
+    ],
+    "ritual_ZNK18QSslKeyingMaterial5cloneEv": ["address", "address"],
+    "ritual_ZeqRK18QSslKeyingMaterialS1_": ["bool", "address", "address"],
+    "ritual_ZneRK18QSslKeyingMaterialS1_": ["bool", "address", "address"],
+    "ritual_Zls6QDebugRK18QSslKeyingMaterial": [
+      "address", "address", "address"
+    ],
+    "ritual_list_make_QSslKeyingMaterial": ["address"],
+    "ritual_list_add_QSslKeyingMaterial": ["nothing", "address", "address"],
+    "ritual_list_size_QSslKeyingMaterial": ["long long", "address"],
+    "ritual_list_at_QSslKeyingMaterial": ["address", "address", "long long"],
+    "ritual_list_drop_QSslKeyingMaterial": ["nothing", "address"]
+  }
+}

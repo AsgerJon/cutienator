@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquicktranslate_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK15QQuickTranslate10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QQuickTranslate2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN15QQuickTranslateC1EP7QObject": ["address", "address"],
+    "ritual_ZNK15QQuickTranslate1xEv": ["double", "address"],
+    "ritual_ZN15QQuickTranslate4setXEd": ["nothing", "address", "double"],
+    "ritual_ZNK15QQuickTranslate1yEv": ["double", "address"],
+    "ritual_ZN15QQuickTranslate4setYEd": ["nothing", "address", "double"],
+    "ritual_ZNK15QQuickTranslate7applyToEP10QMatrix4x4": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK15QQuickTranslate7applyToEP10QMatrix4x4": [
+      "nothing", "address", "address"
+    ]
+  }
+}

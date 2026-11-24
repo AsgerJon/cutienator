@@ -1,0 +1,48 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQmlCompiler/6.12.0/QtQmlCompiler/private/qqmljsimporter_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN14QQmlJSImporterC1ERK5QListI7QStringEP24QQmlJSResourceFileMapper6QFlagsI18QQmlJSImporterFlagE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZNK14QQmlJSImporter18resourceFileMapperEv": [
+      "address", "address"
+    ],
+    "ritual_ZN14QQmlJSImporter21setResourceFileMapperEPK24QQmlJSResourceFileMapper": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QQmlJSImporter14metaDataMapperEv": ["address", "address"],
+    "ritual_ZN14QQmlJSImporter17setMetaDataMapperEP24QQmlJSResourceFileMapper": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QQmlJSImporter23importHardCodedBuiltinsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN14QQmlJSImporter15importDirectoryERK7QStringhS2_": [
+      "address", "address", "text", "unsigned char", "text"
+    ],
+    "ritual_ZN14QQmlJSImporter20builtinInternalNamesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK14QQmlJSImporter11importPathsEv": ["address", "address"],
+    "ritual_ZN14QQmlJSImporter14setImportPathsERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QQmlJSImporter10clearCacheEv": ["nothing", "address"],
+    "ritual_ZNK14QQmlJSImporter12pathOfModuleERK7QString13QTypeRevision": [
+      "text", "address", "text", "address"
+    ],
+    "ritual_ZN14QQmlJSImporter16runImportVisitorEPN6QQmlJS3AST4NodeERKNS_26ImportVisitorPrerequisitesE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK14QQmlJSImporter5flagsEv": ["int", "address"],
+    "ritual_ZNK14QQmlJSImporter18useOptionalImportsEv": ["bool", "address"],
+    "ritual_ZNK14QQmlJSImporter30preferQmlFilesFromSourceFolderEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN14QQmlJSImporterD1Ev": ["nothing", "address"]
+  }
+}

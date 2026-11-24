@@ -1,0 +1,72 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmltypecompiler_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN16QQmlTypeCompiler2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZNK16QQmlTypeCompiler8objectAtEi": ["address", "address", "int"],
+    "ritual_ZN16QQmlTypeCompiler8objectAtEi": ["address", "address", "int"],
+    "ritual_ZNK16QQmlTypeCompiler11objectCountEv": ["int", "address"],
+    "ritual_ZNK16QQmlTypeCompiler13resolvedIndexEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK16QQmlTypeCompiler26implicitComponentForObjectEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK16QQmlTypeCompiler8stringAtEi": ["text", "address", "int"],
+    "ritual_ZNK16QQmlTypeCompiler26listPropertyAssignBehaviorEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK16QQmlTypeCompiler17compilationErrorsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN16QQmlTypeCompiler11recordErrorERKN3QV412CompiledData8LocationERK7QString": [
+      "nothing", "address", "address", "text"
+    ],
+    "ritual_ZN16QQmlTypeCompiler11recordErrorERKN6QQmlJS17DiagnosticMessageE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQmlTypeCompiler11recordErrorERK9QQmlError": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQmlTypeCompiler14registerStringERK7QString": [
+      "int", "address", "text"
+    ],
+    "ritual_ZN16QQmlTypeCompiler16registerConstantEy": [
+      "int", "address", "unsigned long long"
+    ],
+    "ritual_ZNK16QQmlTypeCompiler7qmlUnitEv": ["address", "address"],
+    "ritual_ZNK16QQmlTypeCompiler3urlEv": ["address", "address"],
+    "ritual_ZNK16QQmlTypeCompiler10typeLoaderEv": ["address", "address"],
+    "ritual_ZNK16QQmlTypeCompiler7importsEv": ["address", "address"],
+    "ritual_ZN16QQmlTypeCompiler14propertyCachesEv": ["address", "address"],
+    "ritual_ZNK16QQmlTypeCompiler14propertyCachesEv": ["address", "address"],
+    "ritual_ZN16QQmlTypeCompiler10memoryPoolEv": ["address", "address"],
+    "ritual_ZN16QQmlTypeCompiler12newStringRefERK7QString": [
+      "text", "address", "text"
+    ],
+    "ritual_ZNK16QQmlTypeCompiler10stringPoolEv": ["address", "address"],
+    "ritual_ZNK16QQmlTypeCompiler17customParserCacheEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK16QQmlTypeCompiler15bindingAsStringEPKN5QmlIR6ObjectEi": [
+      "text", "address", "address", "int"
+    ],
+    "ritual_ZN16QQmlTypeCompiler9addImportERK7QStringS2_13QTypeRevision": [
+      "nothing", "address", "text", "text", "address"
+    ],
+    "ritual_ZNK16QQmlTypeCompiler12resolvedTypeEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK16QQmlTypeCompiler12resolvedTypeE9QMetaType": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK16QQmlTypeCompiler19qmlTypeForComponentERK7QString": [
+      "address", "address", "text"
+    ]
+  }
+}

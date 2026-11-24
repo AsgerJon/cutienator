@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qjsvalueiterator_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN23QJSValueIteratorPrivateC1ERK8QJSValue": [
+      "address", "address"
+    ],
+    "ritual_ZN23QJSValueIteratorPrivate4initERK8QJSValue": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK23QJSValueIteratorPrivate7isValidEv": ["bool", "address"],
+    "ritual_ZN23QJSValueIteratorPrivate4nextEv": ["nothing", "address"]
+  }
+}

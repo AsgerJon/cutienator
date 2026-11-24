@@ -22,6 +22,8 @@
     "ritual_ZN15QColumnViewGrip15mousePressEventEP11QMouseEvent": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN15QColumnViewGrip6d_funcEv": ["address", "address"],
+    "ritual_ZNK15QColumnViewGrip6d_funcEv": ["address", "address"],
     "ritual_take_QColumnViewGrip": ["bool", "address", "chars", "address"],
     "ritual_own_ZN15QColumnViewGrip10paintEventEP11QPaintEvent": [
       "nothing", "address", "address"

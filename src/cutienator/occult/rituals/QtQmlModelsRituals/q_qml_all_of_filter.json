@@ -1,0 +1,28 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQmlModels/6.12.0/QtQmlModels/private/qqmlalloffilter_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK15QQmlAllOfFilter10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QQmlAllOfFilter2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN15QQmlAllOfFilterC1EP7QObject": ["address", "address"],
+    "ritual_ZNK15QQmlAllOfFilter24filterAcceptsRowInternalEiRK11QModelIndexPK24QQmlSortFilterProxyModel": [
+      "bool", "address", "int", "address", "address"
+    ],
+    "ritual_ZNK15QQmlAllOfFilter27filterAcceptsColumnInternalEiRK11QModelIndexPK24QQmlSortFilterProxyModel": [
+      "bool", "address", "int", "address", "address"
+    ],
+    "ritual_ZN15QQmlAllOfFilter6d_funcEv": ["address", "address"],
+    "ritual_ZNK15QQmlAllOfFilter6d_funcEv": ["address", "address"],
+    "ritual_own_ZNK15QQmlAllOfFilter24filterAcceptsRowInternalEiRK11QModelIndexPK24QQmlSortFilterProxyModel": [
+      "bool", "address", "int", "address", "address"
+    ],
+    "ritual_own_ZNK15QQmlAllOfFilter27filterAcceptsColumnInternalEiRK11QModelIndexPK24QQmlSortFilterProxyModel": [
+      "bool", "address", "int", "address", "address"
+    ]
+  }
+}

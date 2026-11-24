@@ -108,6 +108,7 @@ QByteArray *ritual_ZNK17QFontVariableAxis9tagStringEv(
   return new QByteArray(self->tagString());
 }
 
+#if !defined(QT_NO_DEBUG_STREAM)
 //  QDebug operator<<(QDebug debug, const QFontVariableAxis &axis)
 extern "C" Q_DECL_EXPORT
 QDebug *ritual_Zls6QDebugRK17QFontVariableAxis(
@@ -115,6 +116,7 @@ QDebug *ritual_Zls6QDebugRK17QFontVariableAxis(
     const QFontVariableAxis *axis) {
   return new QDebug(operator<<(*debug, *axis));
 }
+#endif  // !defined(QT_NO_DEBUG_STREAM)
 
 //  QList<QFontVariableAxis>::QList()
 extern "C" Q_DECL_EXPORT

@@ -1,0 +1,26 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquickdeferredpointer_",
+    "p_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN28QQuickUntypedDeferredPointer18clearDeferredStateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK28QQuickUntypedDeferredPointer11wasExecutedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN28QQuickUntypedDeferredPointer11setExecutedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK28QQuickUntypedDeferredPointer11isExecutingEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN28QQuickUntypedDeferredPointer12setExecutingEb": [
+      "bool", "address", "bool"
+    ],
+    "ritual_ZN28QQuickUntypedDeferredPointerC1Ev": ["address"],
+    "ritual_ZN28QQuickUntypedDeferredPointerD1Ev": ["nothing", "address"]
+  }
+}

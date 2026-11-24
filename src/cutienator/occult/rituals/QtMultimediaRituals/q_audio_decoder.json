@@ -1,0 +1,37 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtMultimedia/qaudiodecoder.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK13QAudioDecoder10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QAudioDecoder2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN13QAudioDecoderC1EP7QObject": ["address", "address"],
+    "ritual_ZN13QAudioDecoderD1Ev": ["nothing", "address"],
+    "ritual_ZNK13QAudioDecoder11isSupportedEv": ["bool", "address"],
+    "ritual_ZNK13QAudioDecoder10isDecodingEv": ["bool", "address"],
+    "ritual_ZNK13QAudioDecoder6sourceEv": ["address", "address"],
+    "ritual_ZN13QAudioDecoder9setSourceERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QAudioDecoder12sourceDeviceEv": ["address", "address"],
+    "ritual_ZN13QAudioDecoder15setSourceDeviceEP9QIODevice": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QAudioDecoder11audioFormatEv": ["address", "address"],
+    "ritual_ZN13QAudioDecoder14setAudioFormatERK12QAudioFormat": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QAudioDecoder11errorStringEv": ["text", "address"],
+    "ritual_ZNK13QAudioDecoder4readEv": ["address", "address"],
+    "ritual_ZNK13QAudioDecoder15bufferAvailableEv": ["bool", "address"],
+    "ritual_ZNK13QAudioDecoder8positionEv": ["long long", "address"],
+    "ritual_ZNK13QAudioDecoder8durationEv": ["long long", "address"],
+    "ritual_ZN13QAudioDecoder5startEv": ["nothing", "address"],
+    "ritual_ZN13QAudioDecoder4stopEv": ["nothing", "address"],
+    "ritual_ZN13QAudioDecoder6d_funcEv": ["address", "address"],
+    "ritual_ZNK13QAudioDecoder6d_funcEv": ["address", "address"],
+    "ritual_take_QAudioDecoder": ["bool", "address", "chars", "address"]
+  }
+}

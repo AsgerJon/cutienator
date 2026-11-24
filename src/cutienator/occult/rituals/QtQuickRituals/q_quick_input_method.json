@@ -1,0 +1,59 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickinputmethod_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QQuickInputMethod10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QQuickInputMethod2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QQuickInputMethod22qt_qmlMarker_singletonEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuickInputMethodC1EP7QObject": ["address", "address"],
+    "ritual_ZNK17QQuickInputMethod15anchorRectangleEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK17QQuickInputMethod15cursorRectangleEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK17QQuickInputMethod14inputDirectionEv": ["int", "address"],
+    "ritual_ZNK17QQuickInputMethod22inputItemClipRectangleEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK17QQuickInputMethod18inputItemRectangleEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QQuickInputMethod21setInputItemRectangleERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QQuickInputMethod18inputItemTransformEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QQuickInputMethod21setInputItemTransformERK10QTransform": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QQuickInputMethod11isAnimatingEv": ["bool", "address"],
+    "ritual_ZNK17QQuickInputMethod9isVisibleEv": ["bool", "address"],
+    "ritual_ZN17QQuickInputMethod10setVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK17QQuickInputMethod17keyboardRectangleEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK17QQuickInputMethod6localeEv": ["address", "address"],
+    "ritual_ZN17QQuickInputMethod6commitEv": ["nothing", "address"],
+    "ritual_ZN17QQuickInputMethod4hideEv": ["nothing", "address"],
+    "ritual_ZN17QQuickInputMethod12invokeActionEN12QInputMethod6ActionEi": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN17QQuickInputMethod5resetEv": ["nothing", "address"],
+    "ritual_ZN17QQuickInputMethod4showEv": ["nothing", "address"],
+    "ritual_ZN17QQuickInputMethod6updateE6QFlagsIN2Qt16InputMethodQueryEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_take_QQuickInputMethod": ["bool", "address", "chars", "address"]
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qmdisubwindow_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QMdiSubWindowPrivate13OperationInfoC1EjN2Qt11CursorShapeEb": [
+      "address", "unsigned int", "int", "bool"
+    ],
+    "ritual_ZN20QMdiSubWindowPrivate13OperationInfoD1Ev": [
+      "nothing", "address"
+    ]
+  }
+}

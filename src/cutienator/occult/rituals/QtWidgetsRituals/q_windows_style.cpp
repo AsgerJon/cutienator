@@ -1,8 +1,14 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/6.12.0/QtWidgets/private/qwindowsstyle_p.h, Qt 6.12.0. Changes
 //  made here are lost.
+#include <QtWidgets/qtwidgetsglobal.h>
+#include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
+#if QT_CONFIG(style_windows)
+#include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/QtWidgets>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/6.12.0/QtWidgets/private/qwindowsstyle_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #include <QtCore/qrect.h>
 #include <QtCore/qsize.h>
@@ -23,20 +29,50 @@ struct OwnQWindowsStyle : QWindowsStyle {
 //  A QWindowsStyle that Python can take functions over in. Every QWindowsStyle
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if QT_CONFIG(style_windows)
 typedef void (*CuteQWindowsStyleCall0)(const void *, QApplication *, int *);
+#endif  // QT_CONFIG(style_windows)
+#if QT_CONFIG(style_windows)
 typedef void (*CuteQWindowsStyleCall1)(const void *, QApplication *, int *);
+#endif  // QT_CONFIG(style_windows)
+#if QT_CONFIG(style_windows)
 typedef void (*CuteQWindowsStyleCall2)(const void *, QWidget *, int *);
+#endif  // QT_CONFIG(style_windows)
+#if QT_CONFIG(style_windows)
 typedef void (*CuteQWindowsStyleCall3)(const void *, QWidget *, int *);
+#endif  // QT_CONFIG(style_windows)
+#if QT_CONFIG(style_windows)
 typedef void (*CuteQWindowsStyleCall4)(const void *, int, const QStyleOption *, QPainter *, const QWidget *, int *);
+#endif  // QT_CONFIG(style_windows)
+#if QT_CONFIG(style_windows)
 typedef void (*CuteQWindowsStyleCall5)(const void *, int, const QStyleOption *, QPainter *, const QWidget *, int *);
+#endif  // QT_CONFIG(style_windows)
+#if QT_CONFIG(style_windows)
 typedef const QRect * (*CuteQWindowsStyleCall6)(const void *, int, const QStyleOption *, const QWidget *, int *);
+#endif  // QT_CONFIG(style_windows)
+#if QT_CONFIG(style_windows)
 typedef void (*CuteQWindowsStyleCall7)(const void *, int, const QStyleOptionComplex *, QPainter *, const QWidget *, int *);
+#endif  // QT_CONFIG(style_windows)
+#if QT_CONFIG(style_windows)
 typedef const QSize * (*CuteQWindowsStyleCall8)(const void *, int, const QStyleOption *, const QSize *, const QWidget *, int *);
+#endif  // QT_CONFIG(style_windows)
+#if QT_CONFIG(style_windows)
 typedef int (*CuteQWindowsStyleCall9)(const void *, int, const QStyleOption *, const QWidget *, int *);
+#endif  // QT_CONFIG(style_windows)
+#if QT_CONFIG(style_windows)
 typedef int (*CuteQWindowsStyleCall10)(const void *, int, const QStyleOption *, const QWidget *, QStyleHintReturn *, int *);
+#endif  // QT_CONFIG(style_windows)
+#if QT_CONFIG(style_windows)
 typedef const QPixmap * (*CuteQWindowsStyleCall11)(const void *, int, const QStyleOption *, const QWidget *, int *);
+#endif  // QT_CONFIG(style_windows)
+#if QT_CONFIG(style_windows)
 typedef const QIcon * (*CuteQWindowsStyleCall12)(const void *, int, const QStyleOption *, const QWidget *, int *);
+#endif  // QT_CONFIG(style_windows)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(style_windows)
 typedef bool (*CuteQWindowsStyleCall13)(const void *, QObject *, QEvent *, int *);
+#endif  // QT_CONFIG(style_windows)
+#endif  // !defined(QT_NO_QOBJECT)
 typedef int (*CuteQWindowsStyleCall14)(const void *, int, const QStyleOptionComplex *, const QPoint *, const QWidget *, int *);
 typedef const QRect * (*CuteQWindowsStyleCall15)(const void *, int, const QStyleOptionComplex *, int, const QWidget *, int *);
 typedef const QPixmap * (*CuteQWindowsStyleCall16)(const void *, int, const QPixmap *, const QStyleOption *, int *);
@@ -46,74 +82,116 @@ typedef const QRect * (*CuteQWindowsStyleCall19)(const void *, const QRect *, in
 typedef void (*CuteQWindowsStyleCall20)(const void *, QPainter *, const QRect *, int, const QPalette *, bool, const QString *, int, int *);
 typedef void (*CuteQWindowsStyleCall21)(const void *, QPainter *, const QRect *, int, const QPixmap *, int *);
 typedef const QPalette * (*CuteQWindowsStyleCall22)(const void *, int *);
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQWindowsStyleCall23)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQWindowsStyleCall24)(const void *, QTimerEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQWindowsStyleCall25)(const void *, QChildEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQWindowsStyleCall26)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQWindowsStyleCall27)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQWindowsStyleCall28)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 class CuteQWindowsStyle : public QWindowsStyle {
 public:
   using QWindowsStyle::QWindowsStyle;
   void *taken[29] = {};
 
   bool take(const char *key, void *call) {
+#if QT_CONFIG(style_windows)
     if (!std::strcmp(key, "_ZN6QStyle6polishEP12QApplication")) {
       taken[0] = call;
       return true;
     }
+#endif  // QT_CONFIG(style_windows)
+#if QT_CONFIG(style_windows)
     if (!std::strcmp(key, "_ZN6QStyle8unpolishEP12QApplication")) {
       taken[1] = call;
       return true;
     }
+#endif  // QT_CONFIG(style_windows)
+#if QT_CONFIG(style_windows)
     if (!std::strcmp(key, "_ZN6QStyle6polishEP7QWidget")) {
       taken[2] = call;
       return true;
     }
+#endif  // QT_CONFIG(style_windows)
+#if QT_CONFIG(style_windows)
     if (!std::strcmp(key, "_ZN6QStyle8unpolishEP7QWidget")) {
       taken[3] = call;
       return true;
     }
+#endif  // QT_CONFIG(style_windows)
+#if QT_CONFIG(style_windows)
     if (!std::strcmp(key, "_ZNK6QStyle13drawPrimitiveENS_16PrimitiveElementEPK12QStyleOptionP8QPainterPK7QWidget")) {
       taken[4] = call;
       return true;
     }
+#endif  // QT_CONFIG(style_windows)
+#if QT_CONFIG(style_windows)
     if (!std::strcmp(key, "_ZNK6QStyle11drawControlENS_14ControlElementEPK12QStyleOptionP8QPainterPK7QWidget")) {
       taken[5] = call;
       return true;
     }
+#endif  // QT_CONFIG(style_windows)
+#if QT_CONFIG(style_windows)
     if (!std::strcmp(key, "_ZNK6QStyle14subElementRectENS_10SubElementEPK12QStyleOptionPK7QWidget")) {
       taken[6] = call;
       return true;
     }
+#endif  // QT_CONFIG(style_windows)
+#if QT_CONFIG(style_windows)
     if (!std::strcmp(key, "_ZNK6QStyle18drawComplexControlENS_14ComplexControlEPK19QStyleOptionComplexP8QPainterPK7QWidget")) {
       taken[7] = call;
       return true;
     }
+#endif  // QT_CONFIG(style_windows)
+#if QT_CONFIG(style_windows)
     if (!std::strcmp(key, "_ZNK6QStyle16sizeFromContentsENS_12ContentsTypeEPK12QStyleOptionRK5QSizePK7QWidget")) {
       taken[8] = call;
       return true;
     }
+#endif  // QT_CONFIG(style_windows)
+#if QT_CONFIG(style_windows)
     if (!std::strcmp(key, "_ZNK6QStyle11pixelMetricENS_11PixelMetricEPK12QStyleOptionPK7QWidget")) {
       taken[9] = call;
       return true;
     }
+#endif  // QT_CONFIG(style_windows)
+#if QT_CONFIG(style_windows)
     if (!std::strcmp(key, "_ZNK6QStyle9styleHintENS_9StyleHintEPK12QStyleOptionPK7QWidgetP16QStyleHintReturn")) {
       taken[10] = call;
       return true;
     }
+#endif  // QT_CONFIG(style_windows)
+#if QT_CONFIG(style_windows)
     if (!std::strcmp(key, "_ZNK6QStyle14standardPixmapENS_14StandardPixmapEPK12QStyleOptionPK7QWidget")) {
       taken[11] = call;
       return true;
     }
+#endif  // QT_CONFIG(style_windows)
+#if QT_CONFIG(style_windows)
     if (!std::strcmp(key, "_ZNK6QStyle12standardIconENS_14StandardPixmapEPK12QStyleOptionPK7QWidget")) {
       taken[12] = call;
       return true;
     }
+#endif  // QT_CONFIG(style_windows)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(style_windows)
     if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[13] = call;
       return true;
     }
+#endif  // QT_CONFIG(style_windows)
+#endif  // !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZNK6QStyle21hitTestComplexControlENS_14ComplexControlEPK19QStyleOptionComplexRK6QPointPK7QWidget")) {
       taken[14] = call;
       return true;
@@ -150,33 +228,46 @@ public:
       taken[22] = call;
       return true;
     }
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[23] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[24] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[25] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[26] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[27] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
       taken[28] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
     return false;
   }
 
+#if QT_CONFIG(style_windows)
   //  void QWindowsStyle::polish(QApplication *a0)
   void polish(QApplication *a0) override {
     if (taken[0]) {
@@ -187,7 +278,9 @@ public:
     }
     QWindowsStyle::polish(a0);
   }
+#endif  // QT_CONFIG(style_windows)
 
+#if QT_CONFIG(style_windows)
   //  void QWindowsStyle::unpolish(QApplication *a0)
   void unpolish(QApplication *a0) override {
     if (taken[1]) {
@@ -198,7 +291,9 @@ public:
     }
     QWindowsStyle::unpolish(a0);
   }
+#endif  // QT_CONFIG(style_windows)
 
+#if QT_CONFIG(style_windows)
   //  void QWindowsStyle::polish(QWidget *a0)
   void polish(QWidget *a0) override {
     if (taken[2]) {
@@ -209,7 +304,9 @@ public:
     }
     QWindowsStyle::polish(a0);
   }
+#endif  // QT_CONFIG(style_windows)
 
+#if QT_CONFIG(style_windows)
   //  void QWindowsStyle::unpolish(QWidget *a0)
   void unpolish(QWidget *a0) override {
     if (taken[3]) {
@@ -220,7 +317,9 @@ public:
     }
     QWindowsStyle::unpolish(a0);
   }
+#endif  // QT_CONFIG(style_windows)
 
+#if QT_CONFIG(style_windows)
   //  void QWindowsStyle::drawPrimitive(PrimitiveElement pe, const
   //      QStyleOption *opt, QPainter *p, const QWidget *w) const
   void drawPrimitive(
@@ -236,7 +335,9 @@ public:
     }
     QWindowsStyle::drawPrimitive(pe, opt, p, w);
   }
+#endif  // QT_CONFIG(style_windows)
 
+#if QT_CONFIG(style_windows)
   //  void QWindowsStyle::drawControl(ControlElement element, const
   //      QStyleOption *opt, QPainter *p, const QWidget *w) const
   void drawControl(
@@ -252,7 +353,9 @@ public:
     }
     QWindowsStyle::drawControl(element, opt, p, w);
   }
+#endif  // QT_CONFIG(style_windows)
 
+#if QT_CONFIG(style_windows)
   //  QRect QWindowsStyle::subElementRect(SubElement r, const QStyleOption
   //      *opt, const QWidget *widget) const
   QRect subElementRect(
@@ -267,7 +370,9 @@ public:
     }
     return QWindowsStyle::subElementRect(r, opt, widget);
   }
+#endif  // QT_CONFIG(style_windows)
 
+#if QT_CONFIG(style_windows)
   //  void QWindowsStyle::drawComplexControl(ComplexControl cc, const
   //      QStyleOptionComplex *opt, QPainter *p, const QWidget *w) const
   void drawComplexControl(
@@ -283,7 +388,9 @@ public:
     }
     QWindowsStyle::drawComplexControl(cc, opt, p, w);
   }
+#endif  // QT_CONFIG(style_windows)
 
+#if QT_CONFIG(style_windows)
   //  QSize QWindowsStyle::sizeFromContents(ContentsType ct, const
   //      QStyleOption *opt, const QSize &contentsSize, const QWidget
   //      *widget) const
@@ -300,7 +407,9 @@ public:
     }
     return QWindowsStyle::sizeFromContents(ct, opt, contentsSize, widget);
   }
+#endif  // QT_CONFIG(style_windows)
 
+#if QT_CONFIG(style_windows)
   //  int QWindowsStyle::pixelMetric(PixelMetric pm, const QStyleOption
   //      *option, const QWidget *widget) const
   int pixelMetric(
@@ -315,7 +424,9 @@ public:
     }
     return QWindowsStyle::pixelMetric(pm, option, widget);
   }
+#endif  // QT_CONFIG(style_windows)
 
+#if QT_CONFIG(style_windows)
   //  int QWindowsStyle::styleHint(StyleHint hint, const QStyleOption *opt,
   //      const QWidget *widget, QStyleHintReturn *returnData) const
   int styleHint(
@@ -331,7 +442,9 @@ public:
     }
     return QWindowsStyle::styleHint(hint, opt, widget, returnData);
   }
+#endif  // QT_CONFIG(style_windows)
 
+#if QT_CONFIG(style_windows)
   //  QPixmap QWindowsStyle::standardPixmap(StandardPixmap standardPixmap,
   //      const QStyleOption *opt, const QWidget *widget) const
   QPixmap standardPixmap(
@@ -346,7 +459,9 @@ public:
     }
     return QWindowsStyle::standardPixmap(standardPixmap, opt, widget);
   }
+#endif  // QT_CONFIG(style_windows)
 
+#if QT_CONFIG(style_windows)
   //  QIcon QWindowsStyle::standardIcon(StandardPixmap standardIcon, const
   //      QStyleOption *option, const QWidget *widget) const
   QIcon standardIcon(
@@ -361,7 +476,10 @@ public:
     }
     return QWindowsStyle::standardIcon(standardIcon, option, widget);
   }
+#endif  // QT_CONFIG(style_windows)
 
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(style_windows)
   //  bool QWindowsStyle::eventFilter(QObject *o, QEvent *e)
   bool eventFilter(QObject *o, QEvent *e) override {
     if (taken[13]) {
@@ -372,6 +490,8 @@ public:
     }
     return QWindowsStyle::eventFilter(o, e);
   }
+#endif  // QT_CONFIG(style_windows)
+#endif  // !defined(QT_NO_QOBJECT)
 
   //  SubControl QCommonStyle::hitTestComplexControl(ComplexControl cc,
   //      const QStyleOptionComplex *opt, const QPoint &pt, const QWidget
@@ -518,6 +638,7 @@ public:
     return QStyle::standardPalette();
   }
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QObject::event(QEvent *event)
   bool event(QEvent *event) override {
     if (taken[23]) {
@@ -528,7 +649,9 @@ public:
     }
     return QObject::event(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
     if (taken[24]) {
@@ -539,7 +662,9 @@ public:
     }
     QObject::timerEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
     if (taken[25]) {
@@ -550,7 +675,9 @@ public:
     }
     QObject::childEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
     if (taken[26]) {
@@ -561,7 +688,9 @@ public:
     }
     QObject::customEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
     if (taken[27]) {
@@ -572,7 +701,9 @@ public:
     }
     QObject::connectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
     if (taken[28]) {
@@ -583,6 +714,7 @@ public:
     }
     QObject::disconnectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 };
 
 //  const QMetaObject *QWindowsStyle::metaObject() const
@@ -758,6 +890,20 @@ bool ritual_ZN13QWindowsStyle11eventFilterEP7QObjectP6QEvent(
   return self->eventFilter(o, e);
 }
 
+//  QWindowsStylePrivate *QWindowsStyle::d_func()
+extern "C" Q_DECL_EXPORT
+QWindowsStylePrivate *ritual_ZN13QWindowsStyle6d_funcEv(
+    QWindowsStyle *self) {
+  return self->d_func();
+}
+
+//  const QWindowsStylePrivate *QWindowsStyle::d_func() const
+extern "C" Q_DECL_EXPORT
+const QWindowsStylePrivate *ritual_ZNK13QWindowsStyle6d_funcEv(
+    const QWindowsStyle *self) {
+  return self->d_func();
+}
+
 //  a Python function taken by a CuteQWindowsStyle, for the function named by
 //      the key
 extern "C" Q_DECL_EXPORT
@@ -927,3 +1073,5 @@ bool ritual_own_ZN13QWindowsStyle11eventFilterEP7QObjectP6QEvent(
       o,
       e);
 }
+
+#endif  // QT_CONFIG(style_windows)

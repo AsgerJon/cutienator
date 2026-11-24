@@ -1,0 +1,31 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/6.12.0/QtNetwork/private/qsctpsocket_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QSctpSocketPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK18QSctpSocketPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN18QSctpSocketPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN18QSctpSocketPrivate19canReadNotificationEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN18QSctpSocketPrivate13writeToSocketEv": ["bool", "address"],
+    "ritual_ZN18QSctpSocketPrivate22configureCreatedSocketEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QSctpSocketPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN18QSctpSocketPrivate19canReadNotificationEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZN18QSctpSocketPrivate13writeToSocketEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZN18QSctpSocketPrivate22configureCreatedSocketEv": [
+      "nothing", "address"
+    ]
+  }
+}

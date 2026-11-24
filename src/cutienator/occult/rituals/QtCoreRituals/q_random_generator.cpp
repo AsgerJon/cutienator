@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/qrandom.h, Qt 6.12.0. Changes made here are lost.
+#include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtCore/qrandom.h>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include "qrandom.h"
 #include "qrandom_p.h"
 #include <qendian.h>
@@ -27,13 +29,14 @@
 #  include <qt_windows.h>
 #endif
 #include <assert.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
 //  Qt's source, because Qt's library carries it under no name.
 //  Copyright (C) The Qt Company Ltd. It is licensed
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
-//  'inline' put before it.
+//  'inline' put before it where Qt did not write it.
 
 //  from src/corelib/global/qrandom.cpp, line 1161, as _ZN16QRandomGenerator7StorageC1Ev
 inline constexpr QRandomGenerator::Storage::Storage()
@@ -43,7 +46,7 @@ inline constexpr QRandomGenerator::Storage::Storage()
 }
 
 //  from src/corelib/global/qrandom.cpp, line 1207, as _ZN16QRandomGeneratorC1ENS_6SystemE
-inline inline QRandomGenerator::QRandomGenerator(System)
+inline QRandomGenerator::QRandomGenerator(System)
     : type(SystemRNG)
 {
     // don't touch storage

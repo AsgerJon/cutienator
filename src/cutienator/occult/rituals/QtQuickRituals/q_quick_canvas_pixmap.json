@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickcanvasitem_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QQuickCanvasPixmapC1ERK6QImage": ["address", "address"],
+    "ritual_ZN18QQuickCanvasPixmapC1EP12QQuickPixmap": [
+      "address", "address"
+    ],
+    "ritual_ZN18QQuickCanvasPixmapD1Ev": ["nothing", "address"],
+    "ritual_ZN18QQuickCanvasPixmap5imageEv": ["address", "address"],
+    "ritual_ZNK18QQuickCanvasPixmap5widthEv": ["double", "address"],
+    "ritual_ZNK18QQuickCanvasPixmap6heightEv": ["double", "address"],
+    "ritual_ZNK18QQuickCanvasPixmap7isValidEv": ["bool", "address"],
+    "ritual_ZNK18QQuickCanvasPixmap6pixmapEv": ["address", "address"]
+  }
+}

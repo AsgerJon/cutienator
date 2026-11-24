@@ -1,0 +1,53 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/qboxplotseries.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK14QBoxPlotSeries10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QBoxPlotSeries2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN14QBoxPlotSeriesC1EP7QObject": ["address", "address"],
+    "ritual_ZN14QBoxPlotSeriesD1Ev": ["nothing", "address"],
+    "ritual_ZN14QBoxPlotSeries6appendEP7QBoxSet": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN14QBoxPlotSeries6removeEP7QBoxSet": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN14QBoxPlotSeries4takeEP7QBoxSet": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN14QBoxPlotSeries6appendERK5QListIP7QBoxSetE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN14QBoxPlotSeries6insertEiP7QBoxSet": [
+      "bool", "address", "int", "address"
+    ],
+    "ritual_ZNK14QBoxPlotSeries5countEv": ["int", "address"],
+    "ritual_ZNK14QBoxPlotSeries7boxSetsEv": ["address", "address"],
+    "ritual_ZN14QBoxPlotSeries5clearEv": ["nothing", "address"],
+    "ritual_ZNK14QBoxPlotSeries4typeEv": ["int", "address"],
+    "ritual_ZN14QBoxPlotSeries20setBoxOutlineVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN14QBoxPlotSeries17boxOutlineVisibleEv": ["bool", "address"],
+    "ritual_ZN14QBoxPlotSeries11setBoxWidthEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN14QBoxPlotSeries8boxWidthEv": ["double", "address"],
+    "ritual_ZN14QBoxPlotSeries8setBrushERK6QBrush": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QBoxPlotSeries5brushEv": ["address", "address"],
+    "ritual_ZN14QBoxPlotSeries6setPenERK4QPen": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QBoxPlotSeries3penEv": ["address", "address"],
+    "ritual_ZN14QBoxPlotSeries6d_funcEv": ["address", "address"],
+    "ritual_ZNK14QBoxPlotSeries6d_funcEv": ["address", "address"],
+    "ritual_take_QBoxPlotSeries": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK14QBoxPlotSeries4typeEv": ["int", "address"]
+  }
+}

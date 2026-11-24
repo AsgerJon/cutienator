@@ -1,0 +1,61 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/qvcandlestickmodelmapper.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZNK24QVCandlestickModelMapper10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QVCandlestickModelMapper2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN24QVCandlestickModelMapperC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZNK24QVCandlestickModelMapper11orientationEv": [
+      "int", "address"
+    ],
+    "ritual_ZN24QVCandlestickModelMapper15setTimestampRowEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK24QVCandlestickModelMapper12timestampRowEv": [
+      "int", "address"
+    ],
+    "ritual_ZN24QVCandlestickModelMapper10setOpenRowEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK24QVCandlestickModelMapper7openRowEv": ["int", "address"],
+    "ritual_ZN24QVCandlestickModelMapper10setHighRowEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK24QVCandlestickModelMapper7highRowEv": ["int", "address"],
+    "ritual_ZN24QVCandlestickModelMapper9setLowRowEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK24QVCandlestickModelMapper6lowRowEv": ["int", "address"],
+    "ritual_ZN24QVCandlestickModelMapper11setCloseRowEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK24QVCandlestickModelMapper8closeRowEv": ["int", "address"],
+    "ritual_ZN24QVCandlestickModelMapper17setFirstSetColumnEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK24QVCandlestickModelMapper14firstSetColumnEv": [
+      "int", "address"
+    ],
+    "ritual_ZN24QVCandlestickModelMapper16setLastSetColumnEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK24QVCandlestickModelMapper13lastSetColumnEv": [
+      "int", "address"
+    ],
+    "ritual_take_QVCandlestickModelMapper": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK24QVCandlestickModelMapper11orientationEv": [
+      "int", "address"
+    ]
+  }
+}

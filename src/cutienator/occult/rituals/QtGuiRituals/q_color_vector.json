@@ -1,0 +1,36 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qcolormatrix_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN12QColorVectorC1Ev": ["address"],
+    "ritual_ZN12QColorVectorC1Effff": [
+      "address", "float", "float", "float", "float"
+    ],
+    "ritual_ZN12QColorVector18fromXYChromaticityE7QPointF": [
+      "address", "address"
+    ],
+    "ritual_ZNK12QColorVector6isNullEv": ["bool", "address"],
+    "ritual_ZNK12QColorVector7isValidEv": ["bool", "address"],
+    "ritual_ZN12QColorVector19isValidChromaticityERK7QPointF": [
+      "bool", "address"
+    ],
+    "ritual_ZNK12QColorVectormlEf": ["address", "address", "float"],
+    "ritual_ZNK12QColorVectorplERKS_": ["address", "address", "address"],
+    "ritual_ZNK12QColorVectormiERKS_": ["address", "address", "address"],
+    "ritual_ZN12QColorVectorpLERKS_": ["nothing", "address", "address"],
+    "ritual_ZNK12QColorVector14toChromaticityEv": ["address", "address"],
+    "ritual_ZN12QColorVector15D50ChromaticityEv": ["address"],
+    "ritual_ZN12QColorVector15D65ChromaticityEv": ["address"],
+    "ritual_ZN12QColorVector3D50Ev": ["address"],
+    "ritual_ZN12QColorVector3D65Ev": ["address"],
+    "ritual_ZNK12QColorVector8xyzToLabEv": ["address", "address"],
+    "ritual_ZNK12QColorVector8labToXyzEv": ["address", "address"],
+    "ritual_ZeqRK12QColorVectorS1_": ["bool", "address", "address"],
+    "ritual_ZneRK12QColorVectorS1_": ["bool", "address", "address"],
+    "ritual_ZN12QColorVector8fastCbrtEf": ["float", "float"],
+    "ritual_ZN12QColorVectorD1Ev": ["nothing", "address"]
+  }
+}

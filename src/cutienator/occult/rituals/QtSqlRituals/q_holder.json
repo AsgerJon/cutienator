@@ -1,0 +1,13 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSql/6.12.0/QtSql/private/qsqlresult_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN7QHolderC1ERK7QStringx": ["address", "text", "long long"],
+    "ritual_ZNK7QHoldereqERKS_": ["bool", "address", "address"],
+    "ritual_ZNK7QHolderneERKS_": ["bool", "address", "address"],
+    "ritual_ZN7QHolderD1Ev": ["nothing", "address"]
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtPrintSupport/qprinter.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN8QPrinter6d_funcEv": ["address", "address"],
+    "ritual_ZNK8QPrinter6d_funcEv": ["address", "address"],
+    "ritual_ZN8QPrinterC1ENS_11PrinterModeE": ["address", "int"],
+    "ritual_ZN8QPrinterC1ERK12QPrinterInfoNS_11PrinterModeE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN8QPrinterD1Ev": ["nothing", "address"],
+    "ritual_ZNK8QPrinter7devTypeEv": ["int", "address"],
+    "ritual_ZN8QPrinter15setOutputFormatENS_12OutputFormatE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK8QPrinter12outputFormatEv": ["int", "address"],
+    "ritual_ZN8QPrinter13setPdfVersionEN17QPagedPaintDevice10PdfVersionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK8QPrinter10pdfVersionEv": ["int", "address"],
+    "ritual_ZN8QPrinter14setPrinterNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK8QPrinter11printerNameEv": ["text", "address"],
+    "ritual_ZNK8QPrinter7isValidEv": ["bool", "address"],
+    "ritual_ZN8QPrinter17setOutputFileNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK8QPrinter14outputFileNameEv": ["text", "address"],
+    "ritual_ZN8QPrinter15setPrintProgramERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK8QPrinter12printProgramEv": ["text", "address"],
+    "ritual_ZN8QPrinter10setDocNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK8QPrinter7docNameEv": ["text", "address"],
+    "ritual_ZN8QPrinter10setCreatorERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK8QPrinter7creatorEv": ["text", "address"],
+    "ritual_ZN8QPrinter12setPageOrderENS_9PageOrderE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK8QPrinter9pageOrderEv": ["int", "address"],
+    "ritual_ZN8QPrinter13setResolutionEi": ["nothing", "address", "int"],
+    "ritual_ZNK8QPrinter10resolutionEv": ["int", "address"],
+    "ritual_ZN8QPrinter12setColorModeENS_9ColorModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK8QPrinter9colorModeEv": ["int", "address"],
+    "ritual_ZN8QPrinter16setCollateCopiesEb": ["nothing", "address", "bool"],
+    "ritual_ZNK8QPrinter13collateCopiesEv": ["bool", "address"],
+    "ritual_ZN8QPrinter11setFullPageEb": ["nothing", "address", "bool"],
+    "ritual_ZNK8QPrinter8fullPageEv": ["bool", "address"],
+    "ritual_ZN8QPrinter12setCopyCountEi": ["nothing", "address", "int"],
+    "ritual_ZNK8QPrinter9copyCountEv": ["int", "address"],
+    "ritual_ZNK8QPrinter22supportsMultipleCopiesEv": ["bool", "address"],
+    "ritual_ZN8QPrinter14setPaperSourceENS_11PaperSourceE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK8QPrinter11paperSourceEv": ["int", "address"],
+    "ritual_ZN8QPrinter9setDuplexENS_10DuplexModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK8QPrinter6duplexEv": ["int", "address"],
+    "ritual_ZN8QPrinter23setFontEmbeddingEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK8QPrinter20fontEmbeddingEnabledEv": ["bool", "address"],
+    "ritual_ZNK8QPrinter9paperRectENS_4UnitE": ["address", "address", "int"],
+    "ritual_ZNK8QPrinter8pageRectENS_4UnitE": ["address", "address", "int"],
+    "ritual_ZNK8QPrinter22printerSelectionOptionEv": ["text", "address"],
+    "ritual_ZN8QPrinter25setPrinterSelectionOptionERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN8QPrinter7newPageEv": ["bool", "address"],
+    "ritual_ZN8QPrinter5abortEv": ["bool", "address"],
+    "ritual_ZNK8QPrinter12printerStateEv": ["int", "address"],
+    "ritual_ZNK8QPrinter11paintEngineEv": ["address", "address"],
+    "ritual_ZNK8QPrinter11printEngineEv": ["address", "address"],
+    "ritual_ZN8QPrinter9setFromToEii": ["nothing", "address", "int", "int"],
+    "ritual_ZNK8QPrinter8fromPageEv": ["int", "address"],
+    "ritual_ZNK8QPrinter6toPageEv": ["int", "address"],
+    "ritual_ZN8QPrinter13setPrintRangeENS_10PrintRangeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK8QPrinter10printRangeEv": ["int", "address"],
+    "ritual_ZNK8QPrinter6metricEN12QPaintDevice17PaintDeviceMetricE": [
+      "int", "address", "int"
+    ],
+    "ritual_ZN8QPrinter10setEnginesEP12QPrintEngineP12QPaintEngine": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_take_QPrinter": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK8QPrinter7devTypeEv": ["int", "address"],
+    "ritual_own_ZN8QPrinter7newPageEv": ["bool", "address"],
+    "ritual_own_ZNK8QPrinter11paintEngineEv": ["address", "address"],
+    "ritual_own_ZNK8QPrinter6metricEN12QPaintDevice17PaintDeviceMetricE": [
+      "int", "address", "int"
+    ]
+  }
+}

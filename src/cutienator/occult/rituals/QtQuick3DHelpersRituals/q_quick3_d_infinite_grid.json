@@ -1,0 +1,46 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3DHelpers/6.12.0/QtQuick3DHelpers/private/infinitegrid_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK20QQuick3DInfiniteGrid10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QQuick3DInfiniteGrid2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN20QQuick3DInfiniteGridC1Ev": ["address"],
+    "ritual_ZN20QQuick3DInfiniteGridD1Ev": ["nothing", "address"],
+    "ritual_ZNK20QQuick3DInfiniteGrid7visibleEv": ["bool", "address"],
+    "ritual_ZN20QQuick3DInfiniteGrid10setVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK20QQuick3DInfiniteGrid12gridIntervalEv": ["float", "address"],
+    "ritual_ZN20QQuick3DInfiniteGrid15setGridIntervalEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN20QQuick3DInfiniteGrid17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuick3DInfiniteGrid10classBeginEv": ["nothing", "address"],
+    "ritual_ZNK20QQuick3DInfiniteGrid8gridAxesEv": ["bool", "address"],
+    "ritual_ZN20QQuick3DInfiniteGrid11setGridAxesEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20QQuick3DInfiniteGrid15updateGridFlagsEv": [
+      "nothing", "address"
+    ],
+    "ritual_cast_QQuick3DInfiniteGrid_QQmlParserStatus": [
+      "address", "address"
+    ],
+    "ritual_take_QQuick3DInfiniteGrid": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN20QQuick3DInfiniteGrid17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN20QQuick3DInfiniteGrid10classBeginEv": [
+      "nothing", "address"
+    ]
+  }
+}

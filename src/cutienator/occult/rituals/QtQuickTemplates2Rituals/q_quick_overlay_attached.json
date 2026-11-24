@@ -1,0 +1,25 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquickoverlay_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK21QQuickOverlayAttached10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QQuickOverlayAttached2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN21QQuickOverlayAttachedC1EP7QObject": ["address", "address"],
+    "ritual_ZNK21QQuickOverlayAttached7overlayEv": ["address", "address"],
+    "ritual_ZNK21QQuickOverlayAttached5modalEv": ["address", "address"],
+    "ritual_ZN21QQuickOverlayAttached8setModalEP13QQmlComponent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21QQuickOverlayAttached8modelessEv": ["address", "address"],
+    "ritual_ZN21QQuickOverlayAttached11setModelessEP13QQmlComponent": [
+      "nothing", "address", "address"
+    ]
+  }
+}

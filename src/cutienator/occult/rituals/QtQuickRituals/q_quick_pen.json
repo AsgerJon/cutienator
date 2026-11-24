@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickrectangle_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK9QQuickPen10metaObjectEv": ["address", "address"],
+    "ritual_ZN9QQuickPen2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN9QQuickPen22qt_qmlMarker_anonymousEv": ["nothing", "address"],
+    "ritual_ZN9QQuickPenC1EP7QObject": ["address", "address"],
+    "ritual_ZNK9QQuickPen5widthEv": ["double", "address"],
+    "ritual_ZN9QQuickPen8setWidthEd": ["nothing", "address", "double"],
+    "ritual_ZNK9QQuickPen5colorEv": ["address", "address"],
+    "ritual_ZN9QQuickPen8setColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9QQuickPen12pixelAlignedEv": ["bool", "address"],
+    "ritual_ZN9QQuickPen15setPixelAlignedEb": ["nothing", "address", "bool"],
+    "ritual_ZNK9QQuickPen7isValidEv": ["bool", "address"]
+  }
+}

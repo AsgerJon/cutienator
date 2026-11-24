@@ -1,0 +1,83 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQmlCompiler/6.12.0/QtQmlCompiler/private/qqmljscompilepass_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QQmlJSCompilePass5State13accumulatorInEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK17QQmlJSCompilePass5State14accumulatorOutEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QQmlJSCompilePass5State11setRegisterEi21QQmlJSRegisterContent": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN17QQmlJSCompilePass5State20clearChangedRegisterEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK17QQmlJSCompilePass5State20changedRegisterIndexEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK17QQmlJSCompilePass5State15changedRegisterEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QQmlJSCompilePass5State15addReadRegisterEi21QQmlJSRegisterContent": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN17QQmlJSCompilePass5State18addReadAccumulatorE21QQmlJSRegisterContent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QQmlJSCompilePass5State12readRegisterEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK17QQmlJSCompilePass5State19canMoveReadRegisterEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK17QQmlJSCompilePass5State31isRegisterAffectedBySideEffectsEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK17QQmlJSCompilePass5State15readAccumulatorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK17QQmlJSCompilePass5State13readsRegisterEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK17QQmlJSCompilePass5State22hasInternalSideEffectsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK17QQmlJSCompilePass5State22hasExternalSideEffectsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN17QQmlJSCompilePass5State16resetSideEffectsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQmlJSCompilePass5State24applyExternalSideEffectsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN17QQmlJSCompilePass5State25setHasInternalSideEffectsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQmlJSCompilePass5State25setHasExternalSideEffectsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK17QQmlJSCompilePass5State8isRenameEv": ["bool", "address"],
+    "ritual_ZN17QQmlJSCompilePass5State11setIsRenameEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK17QQmlJSCompilePass5State12isShadowableEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN17QQmlJSCompilePass5State15setIsShadowableEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK17QQmlJSCompilePass5State25renameSourceRegisterIndexEv": [
+      "int", "address"
+    ],
+    "ritual_ZN17QQmlJSCompilePass5State15applyAnnotationERKNS_21InstructionAnnotationE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QQmlJSCompilePass5StateD1Ev": ["nothing", "address"]
+  }
+}

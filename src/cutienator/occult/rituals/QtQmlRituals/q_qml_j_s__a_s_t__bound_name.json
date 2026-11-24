@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmljsast_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN6QQmlJS3AST9BoundNameC1ERK7QStringRKNS_14SourceLocationEPNS0_14TypeAnnotationENS1_4TypeE": [
+      "address", "text", "address", "address", "int"
+    ],
+    "ritual_ZN6QQmlJS3AST9BoundNameC1Ev": ["address"],
+    "ritual_ZNK6QQmlJS3AST9BoundName10isInjectedEv": ["bool", "address"],
+    "ritual_ZN6QQmlJS3AST9BoundNameD1Ev": ["nothing", "address"]
+  }
+}

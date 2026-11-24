@@ -1,0 +1,53 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickspriteengine_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK21QQuickStochasticState10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QQuickStochasticState2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN21QQuickStochasticStateC1EP7QObject": ["address", "address"],
+    "ritual_ZNK21QQuickStochasticState8durationEv": ["int", "address"],
+    "ritual_ZNK21QQuickStochasticState4nameEv": ["text", "address"],
+    "ritual_ZNK21QQuickStochasticState2toEv": ["address", "address"],
+    "ritual_ZNK21QQuickStochasticState17durationVariationEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK21QQuickStochasticState14variedDurationEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK21QQuickStochasticState11randomStartEv": ["bool", "address"],
+    "ritual_ZN21QQuickStochasticState11setDurationEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN21QQuickStochasticState7setNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN21QQuickStochasticState5setToERK4QMapI7QString8QVariantE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QQuickStochasticState20setDurationVariationEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN21QQuickStochasticState14setRandomStartEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZNK21QQuickStochasticState14variedDurationEv": [
+      "int", "address"
+    ],
+    "ritual_list_make_QQuickStochasticState_ptr": ["address"],
+    "ritual_list_add_QQuickStochasticState_ptr": [
+      "nothing", "address", "address"
+    ],
+    "ritual_list_size_QQuickStochasticState_ptr": ["long long", "address"],
+    "ritual_list_at_QQuickStochasticState_ptr": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_QQuickStochasticState_ptr": ["nothing", "address"]
+  }
+}

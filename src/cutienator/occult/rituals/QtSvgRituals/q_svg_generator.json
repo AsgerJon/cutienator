@@ -1,0 +1,59 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSvg/qsvggenerator.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN13QSvgGeneratorC1Ev": ["address"],
+    "ritual_ZN13QSvgGeneratorC1ENS_10SvgVersionE": ["address", "int"],
+    "ritual_ZN13QSvgGeneratorD1Ev": ["nothing", "address"],
+    "ritual_ZNK13QSvgGenerator5titleEv": ["text", "address"],
+    "ritual_ZN13QSvgGenerator8setTitleERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK13QSvgGenerator11descriptionEv": ["text", "address"],
+    "ritual_ZN13QSvgGenerator14setDescriptionERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK13QSvgGenerator4sizeEv": ["address", "address"],
+    "ritual_ZN13QSvgGenerator7setSizeERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QSvgGenerator7viewBoxEv": ["address", "address"],
+    "ritual_ZNK13QSvgGenerator8viewBoxFEv": ["address", "address"],
+    "ritual_ZN13QSvgGenerator10setViewBoxERK5QRect": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QSvgGenerator10setViewBoxERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QSvgGenerator8fileNameEv": ["text", "address"],
+    "ritual_ZN13QSvgGenerator11setFileNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK13QSvgGenerator12outputDeviceEv": ["address", "address"],
+    "ritual_ZN13QSvgGenerator15setOutputDeviceEP9QIODevice": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QSvgGenerator13setResolutionEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK13QSvgGenerator10resolutionEv": ["int", "address"],
+    "ritual_ZNK13QSvgGenerator10svgVersionEv": ["int", "address"],
+    "ritual_ZNK13QSvgGenerator11paintEngineEv": ["address", "address"],
+    "ritual_ZNK13QSvgGenerator6metricEN12QPaintDevice17PaintDeviceMetricE": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK13QSvgGenerator11initPainterEP8QPainter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QSvgGenerator": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK13QSvgGenerator11paintEngineEv": ["address", "address"],
+    "ritual_own_ZNK13QSvgGenerator6metricEN12QPaintDevice17PaintDeviceMetricE": [
+      "int", "address", "int"
+    ],
+    "ritual_own_ZNK13QSvgGenerator11initPainterEP8QPainter": [
+      "nothing", "address", "address"
+    ]
+  }
+}

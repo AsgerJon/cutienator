@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquicktableviewdelegat",
+    "e_p_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN30QQuickTableViewDelegatePrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK30QQuickTableViewDelegatePrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK30QQuickTableViewDelegatePrivate14defaultPaletteEv": [
+      "address", "address"
+    ],
+    "ritual_take_QQuickTableViewDelegatePrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK30QQuickTableViewDelegatePrivate14defaultPaletteEv": [
+      "address", "address"
+    ]
+  }
+}

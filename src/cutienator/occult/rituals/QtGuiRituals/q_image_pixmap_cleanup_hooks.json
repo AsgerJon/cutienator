@@ -1,0 +1,35 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qimagepixmapcleanuphooks_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN24QImagePixmapCleanupHooks8instanceEv": ["address"],
+    "ritual_ZN24QImagePixmapCleanupHooks18enableCleanupHooksERK6QImage": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QImagePixmapCleanupHooks18enableCleanupHooksERK7QPixmap": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QImagePixmapCleanupHooks18enableCleanupHooksEP15QPlatformPixmap": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QImagePixmapCleanupHooks13isImageCachedERK6QImage": [
+      "bool", "address"
+    ],
+    "ritual_ZN24QImagePixmapCleanupHooks14isPixmapCachedERK7QPixmap": [
+      "bool", "address"
+    ],
+    "ritual_ZN24QImagePixmapCleanupHooks38executePlatformPixmapModificationHooksEP15QPlatformPixmap": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QImagePixmapCleanupHooks37executePlatformPixmapDestructionHooksEP15QPlatformPixmap": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QImagePixmapCleanupHooks17executeImageHooksEx": [
+      "nothing", "long long"
+    ],
+    "ritual_ZN24QImagePixmapCleanupHooksD1Ev": ["nothing", "address"]
+  }
+}

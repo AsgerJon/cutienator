@@ -1,0 +1,13 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquickicon_p_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN17QQuickIconPrivate10isResolvedERK10QQuickIconi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN17QQuickIconPrivateD1Ev": ["nothing", "address"]
+  }
+}

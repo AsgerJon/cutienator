@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/qdesigner_utils_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18qdesigner_internaleqERKNS_22PropertySheetIconValueES2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internalneERKNS_22PropertySheetIconValueES2_": [
+      "bool", "address", "address"
+    ]
+  }
+}

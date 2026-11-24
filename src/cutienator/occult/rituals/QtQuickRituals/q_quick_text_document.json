@@ -1,0 +1,37 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/qquicktextdocument.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK18QQuickTextDocument10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QQuickTextDocument2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18QQuickTextDocument24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickTextDocumentC1EP10QQuickItem": ["address", "address"],
+    "ritual_ZNK18QQuickTextDocument6sourceEv": ["address", "address"],
+    "ritual_ZN18QQuickTextDocument9setSourceERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QQuickTextDocument10isModifiedEv": ["bool", "address"],
+    "ritual_ZN18QQuickTextDocument11setModifiedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK18QQuickTextDocument12textDocumentEv": ["address", "address"],
+    "ritual_ZN18QQuickTextDocument15setTextDocumentEP13QTextDocument": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQuickTextDocument4saveEv": ["nothing", "address"],
+    "ritual_ZN18QQuickTextDocument6saveAsERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QQuickTextDocument6statusEv": ["unsigned char", "address"],
+    "ritual_ZNK18QQuickTextDocument11errorStringEv": ["text", "address"],
+    "ritual_ZN18QQuickTextDocument6d_funcEv": ["address", "address"],
+    "ritual_ZNK18QQuickTextDocument6d_funcEv": ["address", "address"]
+  }
+}

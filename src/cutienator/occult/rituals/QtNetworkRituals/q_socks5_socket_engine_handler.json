@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/6.12.0/QtNetwork/private/qsocks5socketengine_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN26QSocks5SocketEngineHandler18createSocketEngineEN15QAbstractSocket10SocketTypeERK13QNetworkProxyP7QObject": [
+      "address", "address", "int", "address", "address"
+    ],
+    "ritual_ZN26QSocks5SocketEngineHandler18createSocketEngineExP7QObject": [
+      "address", "address", "long long", "address"
+    ],
+    "ritual_ZN26QSocks5SocketEngineHandlerD1Ev": ["nothing", "address"],
+    "ritual_take_QSocks5SocketEngineHandler": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/qqmlfileselector.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK16QQmlFileSelector10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QQmlFileSelector2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN16QQmlFileSelector6d_funcEv": ["address", "address"],
+    "ritual_ZNK16QQmlFileSelector6d_funcEv": ["address", "address"],
+    "ritual_ZN16QQmlFileSelectorC1EP10QQmlEngineP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN16QQmlFileSelectorD1Ev": ["nothing", "address"],
+    "ritual_ZNK16QQmlFileSelector8selectorEv": ["address", "address"],
+    "ritual_ZN16QQmlFileSelector11setSelectorEP13QFileSelector": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQmlFileSelector17setExtraSelectorsERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQmlFileSelector3getEP10QQmlEngine": ["address", "address"],
+    "ritual_take_QQmlFileSelector": ["bool", "address", "chars", "address"]
+  }
+}

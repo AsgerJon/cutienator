@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4functionobject_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN3QV413BoundFunction10__dataTestEv": ["nothing", "address"],
+    "ritual_ZNK3QV413BoundFunction11d_uncheckedEv": ["address", "address"],
+    "ritual_ZNK3QV413BoundFunction1dEv": ["address", "address"],
+    "ritual_ZNK3QV413BoundFunction6targetEv": ["address", "address"],
+    "ritual_ZNK3QV413BoundFunction9boundThisEv": ["address", "address"],
+    "ritual_ZNK3QV413BoundFunction9boundArgsEv": ["address", "address"]
+  }
+}

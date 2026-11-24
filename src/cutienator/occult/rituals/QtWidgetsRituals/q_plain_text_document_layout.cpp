@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qplaintextedit.h, Qt 6.12.0. Changes made here are lost.
+#include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(textedit)
 #include <QtWidgets/qplaintextedit.h>
 #include <QtCore/qstring.h>
 #include <QtGui/qabstracttextdocumentlayout.h>
@@ -21,57 +23,99 @@ struct OwnQPlainTextDocumentLayout : QPlainTextDocumentLayout {
 //  A QPlainTextDocumentLayout that Python can take functions over in. Every QPlainTextDocumentLayout
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if QT_CONFIG(textedit)
 typedef void (*CuteQPlainTextDocumentLayoutCall0)(const void *, QPainter *, const QAbstractTextDocumentLayout::PaintContext *, int *);
+#endif  // QT_CONFIG(textedit)
+#if QT_CONFIG(textedit)
 typedef int (*CuteQPlainTextDocumentLayoutCall1)(const void *, const QPointF *, int, int *);
+#endif  // QT_CONFIG(textedit)
+#if QT_CONFIG(textedit)
 typedef int (*CuteQPlainTextDocumentLayoutCall2)(const void *, int *);
+#endif  // QT_CONFIG(textedit)
+#if QT_CONFIG(textedit)
 typedef const QSizeF * (*CuteQPlainTextDocumentLayoutCall3)(const void *, int *);
+#endif  // QT_CONFIG(textedit)
+#if QT_CONFIG(textedit)
 typedef const QRectF * (*CuteQPlainTextDocumentLayoutCall4)(const void *, QTextFrame *, int *);
+#endif  // QT_CONFIG(textedit)
+#if QT_CONFIG(textedit)
 typedef const QRectF * (*CuteQPlainTextDocumentLayoutCall5)(const void *, const QTextBlock *, int *);
+#endif  // QT_CONFIG(textedit)
+#if QT_CONFIG(textedit)
 typedef void (*CuteQPlainTextDocumentLayoutCall6)(const void *, int, int, int, int *);
+#endif  // QT_CONFIG(textedit)
 typedef void (*CuteQPlainTextDocumentLayoutCall7)(const void *, const QTextInlineObject *, int, const QTextFormat *, int *);
 typedef void (*CuteQPlainTextDocumentLayoutCall8)(const void *, const QTextInlineObject *, int, const QTextFormat *, int *);
 typedef void (*CuteQPlainTextDocumentLayoutCall9)(const void *, QPainter *, const QRectF *, const QTextInlineObject *, int, const QTextFormat *, int *);
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQPlainTextDocumentLayoutCall10)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQPlainTextDocumentLayoutCall11)(const void *, QObject *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQPlainTextDocumentLayoutCall12)(const void *, QTimerEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQPlainTextDocumentLayoutCall13)(const void *, QChildEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQPlainTextDocumentLayoutCall14)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQPlainTextDocumentLayoutCall15)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQPlainTextDocumentLayoutCall16)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 class CuteQPlainTextDocumentLayout : public QPlainTextDocumentLayout {
 public:
   using QPlainTextDocumentLayout::QPlainTextDocumentLayout;
   void *taken[17] = {};
 
   bool take(const char *key, void *call) {
+#if QT_CONFIG(textedit)
     if (!std::strcmp(key, "_ZN27QAbstractTextDocumentLayout4drawEP8QPainterRKNS_12PaintContextE")) {
       taken[0] = call;
       return true;
     }
+#endif  // QT_CONFIG(textedit)
+#if QT_CONFIG(textedit)
     if (!std::strcmp(key, "_ZNK27QAbstractTextDocumentLayout7hitTestERK7QPointFN2Qt15HitTestAccuracyE")) {
       taken[1] = call;
       return true;
     }
+#endif  // QT_CONFIG(textedit)
+#if QT_CONFIG(textedit)
     if (!std::strcmp(key, "_ZNK27QAbstractTextDocumentLayout9pageCountEv")) {
       taken[2] = call;
       return true;
     }
+#endif  // QT_CONFIG(textedit)
+#if QT_CONFIG(textedit)
     if (!std::strcmp(key, "_ZNK27QAbstractTextDocumentLayout12documentSizeEv")) {
       taken[3] = call;
       return true;
     }
+#endif  // QT_CONFIG(textedit)
+#if QT_CONFIG(textedit)
     if (!std::strcmp(key, "_ZNK27QAbstractTextDocumentLayout17frameBoundingRectEP10QTextFrame")) {
       taken[4] = call;
       return true;
     }
+#endif  // QT_CONFIG(textedit)
+#if QT_CONFIG(textedit)
     if (!std::strcmp(key, "_ZNK27QAbstractTextDocumentLayout17blockBoundingRectERK10QTextBlock")) {
       taken[5] = call;
       return true;
     }
+#endif  // QT_CONFIG(textedit)
+#if QT_CONFIG(textedit)
     if (!std::strcmp(key, "_ZN27QAbstractTextDocumentLayout15documentChangedEiii")) {
       taken[6] = call;
       return true;
     }
+#endif  // QT_CONFIG(textedit)
     if (!std::strcmp(key, "_ZN27QAbstractTextDocumentLayout18resizeInlineObjectE17QTextInlineObjectiRK11QTextFormat")) {
       taken[7] = call;
       return true;
@@ -84,37 +128,52 @@ public:
       taken[9] = call;
       return true;
     }
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[10] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[11] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[12] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[13] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[14] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[15] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
       taken[16] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
     return false;
   }
 
+#if QT_CONFIG(textedit)
   //  void QPlainTextDocumentLayout::draw(QPainter *a0, const PaintContext
   //      &a1)
   void draw(
@@ -128,7 +187,9 @@ public:
     }
     QPlainTextDocumentLayout::draw(a0, a1);
   }
+#endif  // QT_CONFIG(textedit)
 
+#if QT_CONFIG(textedit)
   //  int QPlainTextDocumentLayout::hitTest(const QPointF &a0,
   //      Qt::HitTestAccuracy a1) const
   int hitTest(const QPointF &a0, Qt::HitTestAccuracy a1) const override {
@@ -140,7 +201,9 @@ public:
     }
     return QPlainTextDocumentLayout::hitTest(a0, a1);
   }
+#endif  // QT_CONFIG(textedit)
 
+#if QT_CONFIG(textedit)
   //  int QPlainTextDocumentLayout::pageCount() const
   int pageCount() const override {
     if (taken[2]) {
@@ -151,7 +214,9 @@ public:
     }
     return QPlainTextDocumentLayout::pageCount();
   }
+#endif  // QT_CONFIG(textedit)
 
+#if QT_CONFIG(textedit)
   //  QSizeF QPlainTextDocumentLayout::documentSize() const
   QSizeF documentSize() const override {
     if (taken[3]) {
@@ -162,7 +227,9 @@ public:
     }
     return QPlainTextDocumentLayout::documentSize();
   }
+#endif  // QT_CONFIG(textedit)
 
+#if QT_CONFIG(textedit)
   //  QRectF QPlainTextDocumentLayout::frameBoundingRect(QTextFrame *a0)
   //      const
   QRectF frameBoundingRect(QTextFrame *a0) const override {
@@ -174,7 +241,9 @@ public:
     }
     return QPlainTextDocumentLayout::frameBoundingRect(a0);
   }
+#endif  // QT_CONFIG(textedit)
 
+#if QT_CONFIG(textedit)
   //  QRectF QPlainTextDocumentLayout::blockBoundingRect(const QTextBlock
   //      &block) const
   QRectF blockBoundingRect(const QTextBlock &block) const override {
@@ -186,7 +255,9 @@ public:
     }
     return QPlainTextDocumentLayout::blockBoundingRect(block);
   }
+#endif  // QT_CONFIG(textedit)
 
+#if QT_CONFIG(textedit)
   //  void QPlainTextDocumentLayout::documentChanged(int from, int a1, int
   //      charsAdded)
   void documentChanged(int from, int a1, int charsAdded) override {
@@ -198,6 +269,7 @@ public:
     }
     QPlainTextDocumentLayout::documentChanged(from, a1, charsAdded);
   }
+#endif  // QT_CONFIG(textedit)
 
   //  void
   //      QAbstractTextDocumentLayout::resizeInlineObject(QTextInlineObject
@@ -249,6 +321,7 @@ public:
     QAbstractTextDocumentLayout::drawInlineObject(painter, rect, object, posInDocument, format);
   }
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QObject::event(QEvent *event)
   bool event(QEvent *event) override {
     if (taken[10]) {
@@ -259,7 +332,9 @@ public:
     }
     return QObject::event(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
     if (taken[11]) {
@@ -270,7 +345,9 @@ public:
     }
     return QObject::eventFilter(watched, event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
     if (taken[12]) {
@@ -281,7 +358,9 @@ public:
     }
     QObject::timerEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
     if (taken[13]) {
@@ -292,7 +371,9 @@ public:
     }
     QObject::childEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
     if (taken[14]) {
@@ -303,7 +384,9 @@ public:
     }
     QObject::customEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
     if (taken[15]) {
@@ -314,7 +397,9 @@ public:
     }
     QObject::connectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
     if (taken[16]) {
@@ -325,6 +410,7 @@ public:
     }
     QObject::disconnectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 };
 
 //  const QMetaObject *QPlainTextDocumentLayout::metaObject() const
@@ -556,3 +642,5 @@ void ritual_own_ZN24QPlainTextDocumentLayout15documentChangedEiii(
       a1,
       charsAdded);
 }
+
+#endif  // QT_CONFIG(textedit)

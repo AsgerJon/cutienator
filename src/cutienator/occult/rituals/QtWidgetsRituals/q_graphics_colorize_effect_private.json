@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qgraphicseffect_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN30QGraphicsColorizeEffectPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK30QGraphicsColorizeEffectPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN30QGraphicsColorizeEffectPrivateC1Ev": ["address"],
+    "ritual_ZN30QGraphicsColorizeEffectPrivateD1Ev": ["nothing", "address"]
+  }
+}

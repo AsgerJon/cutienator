@@ -155,6 +155,21 @@ int ritual_ZNK25QAbstractFileIconProvider7optionsEv(
   return static_cast<int>(self->options().toInt());
 }
 
+//  QAbstractFileIconProviderPrivate *QAbstractFileIconProvider::d_func()
+extern "C" Q_DECL_EXPORT
+QAbstractFileIconProviderPrivate *ritual_ZN25QAbstractFileIconProvider6d_funcEv(
+    QAbstractFileIconProvider *self) {
+  return self->d_func();
+}
+
+//  const QAbstractFileIconProviderPrivate
+//      *QAbstractFileIconProvider::d_func() const
+extern "C" Q_DECL_EXPORT
+const QAbstractFileIconProviderPrivate *ritual_ZNK25QAbstractFileIconProvider6d_funcEv(
+    const QAbstractFileIconProvider *self) {
+  return self->d_func();
+}
+
 //  a Python function taken by a CuteQAbstractFileIconProvider, for the
 //      function named by the key
 extern "C" Q_DECL_EXPORT

@@ -1,0 +1,29 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickshadereffectmesh_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK21QQuickBorderImageMesh10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QQuickBorderImageMesh18validateAttributesERK5QListI10QByteArrayEPi": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN21QQuickBorderImageMesh14updateGeometryEP11QSGGeometryiiRK6QRectFS4_": [
+      "address", "address", "address", "int", "int", "address", "address"
+    ],
+    "ritual_ZNK21QQuickBorderImageMesh6borderEv": ["address", "address"],
+    "ritual_ZNK21QQuickBorderImageMesh4sizeEv": ["address", "address"],
+    "ritual_ZNK21QQuickBorderImageMesh18horizontalTileModeEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK21QQuickBorderImageMesh16verticalTileModeEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZN21QQuickBorderImageMesh14updateGeometryEP11QSGGeometryiiRK6QRectFS4_": [
+      "address", "address", "address", "int", "int", "address", "address"
+    ]
+  }
+}

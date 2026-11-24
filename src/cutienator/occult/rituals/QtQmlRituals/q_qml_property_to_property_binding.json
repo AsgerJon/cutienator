@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmlpropertytopropertybinding_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN29QQmlPropertyToPropertyBinding6createEP10QQmlEngineRK12QQmlPropertyS4_": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN29QQmlPropertyToPropertyBindingC1EP10QQmlEngineRK12QQmlProperty": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN29QQmlPropertyToPropertyBinding15doConnectNotifyEP20QQmlNotifierEndpointRK13QMetaProperty": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN29QQmlPropertyToPropertyBindingD1Ev": ["nothing", "address"]
+  }
+}

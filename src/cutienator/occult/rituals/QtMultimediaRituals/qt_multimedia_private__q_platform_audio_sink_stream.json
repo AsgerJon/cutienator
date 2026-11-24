@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtMulti",
+    "media/6.12.0/QtMultimedia/private/qaudiosystem_platform_stream_sup",
+    "port_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QtMultimediaPrivate24QPlatformAudioSinkStream16updateStreamIdleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_take_QtMultimediaPrivate_QPlatformAudioSinkStream": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

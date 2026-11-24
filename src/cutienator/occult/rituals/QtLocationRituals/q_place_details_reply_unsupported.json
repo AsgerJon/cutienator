@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLocation/6.12.0/QtLocation/private/unsupportedreplies_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK29QPlaceDetailsReplyUnsupported10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN29QPlaceDetailsReplyUnsupported2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN29QPlaceDetailsReplyUnsupportedC1EP19QPlaceManagerEngine": [
+      "address", "address"
+    ],
+    "ritual_take_QPlaceDetailsReplyUnsupported": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4lookup_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN3QV46Lookup11markObjectsEPNS_9MarkStackE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN3QV46Lookup13contextGetterEPNS_15ExecutionEngineEPNS_5ValueE": [
+      "unsigned long long", "address", "address", "address"
+    ],
+    "ritual_ZN3QV46Lookup12doCallGlobalENS0_4CallEPS0_PNS_15ExecutionEngineE": [
+      "unsigned long long", "unsigned short", "address", "address"
+    ],
+    "ritual_ZN3QV46Lookup12globalGetterEPNS_15ExecutionEngineE": [
+      "unsigned long long", "address", "address"
+    ],
+    "ritual_ZN3QV46Lookup6getterEPNS_15ExecutionEngineERKNS_5ValueE": [
+      "unsigned long long", "address", "address", "address"
+    ],
+    "ritual_ZN3QV46Lookup20releasePropertyCacheEv": ["nothing", "address"],
+    "ritual_ZN3QV46LookupD1Ev": ["nothing", "address"]
+  }
+}

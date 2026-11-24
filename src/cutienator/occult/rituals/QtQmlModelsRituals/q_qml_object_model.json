@@ -1,0 +1,73 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQmlModels/6.12.0/QtQmlModels/private/qqmlobjectmodel_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK15QQmlObjectModel10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QQmlObjectModel2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN15QQmlObjectModel21qt_qmlMarker_attachedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQmlObjectModelC1EP7QObject": ["address", "address"],
+    "ritual_ZN15QQmlObjectModelD1Ev": ["nothing", "address"],
+    "ritual_ZNK15QQmlObjectModel5countEv": ["int", "address"],
+    "ritual_ZNK15QQmlObjectModel7isValidEv": ["bool", "address"],
+    "ritual_ZN15QQmlObjectModel6objectEiN13QQmlIncubator14IncubationModeE": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZN15QQmlObjectModel7releaseEP7QObjectN17QQmlInstanceModel12ReusableFlagE": [
+      "int", "address", "address", "int"
+    ],
+    "ritual_ZN15QQmlObjectModel12variantValueEiRK7QString": [
+      "address", "address", "int", "text"
+    ],
+    "ritual_ZN15QQmlObjectModel15setWatchedRolesERK5QListI10QByteArrayE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QQmlObjectModel16incubationStatusEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK15QQmlObjectModel7indexOfEP7QObjectS1_": [
+      "int", "address", "address", "address"
+    ],
+    "ritual_ZN15QQmlObjectModel21qmlAttachedPropertiesEP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZNK15QQmlObjectModel3getEi": ["address", "address", "int"],
+    "ritual_ZN15QQmlObjectModel6appendEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QQmlObjectModel6insertEiP7QObject": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN15QQmlObjectModel4moveEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZN15QQmlObjectModel6removeEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN15QQmlObjectModel5clearEv": ["nothing", "address"],
+    "ritual_take_QQmlObjectModel": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK15QQmlObjectModel5countEv": ["int", "address"],
+    "ritual_own_ZNK15QQmlObjectModel7isValidEv": ["bool", "address"],
+    "ritual_own_ZN15QQmlObjectModel6objectEiN13QQmlIncubator14IncubationModeE": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_own_ZN15QQmlObjectModel7releaseEP7QObjectN17QQmlInstanceModel12ReusableFlagE": [
+      "int", "address", "address", "int"
+    ],
+    "ritual_own_ZN15QQmlObjectModel12variantValueEiRK7QString": [
+      "address", "address", "int", "text"
+    ],
+    "ritual_own_ZN15QQmlObjectModel16incubationStatusEi": [
+      "int", "address", "int"
+    ],
+    "ritual_own_ZNK15QQmlObjectModel7indexOfEP7QObjectS1_": [
+      "int", "address", "address", "address"
+    ]
+  }
+}

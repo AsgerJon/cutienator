@@ -1,0 +1,42 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4internalclass_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK3QV44Heap13InternalClass12isExtensibleEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK3QV44Heap13InternalClass8isSealedEv": ["bool", "address"],
+    "ritual_ZNK3QV44Heap13InternalClass8isFrozenEv": ["bool", "address"],
+    "ritual_ZNK3QV44Heap13InternalClass13isUsedAsProtoEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK3QV44Heap13InternalClass8isLockedEv": ["bool", "address"],
+    "ritual_ZN3QV44Heap13InternalClass9findEntryENS_11PropertyKeyE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN3QV44Heap13InternalClass4findENS_11PropertyKeyE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN3QV44Heap13InternalClass17findValueOrGetterENS_11PropertyKeyE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN3QV44Heap13InternalClass17findValueOrSetterENS_11PropertyKeyE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN3QV44Heap13InternalClass20indexOfValueOrGetterENS_11PropertyKeyE": [
+      "unsigned int", "address", "address"
+    ],
+    "ritual_ZN3QV44Heap13InternalClass11verifyIndexENS_11PropertyKeyEj": [
+      "bool", "address", "address", "unsigned int"
+    ],
+    "ritual_ZN3QV44Heap13InternalClass12changeVTableEPKNS_6VTableE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN3QV44Heap13InternalClass15changePrototypeEPNS0_6ObjectE": [
+      "address", "address", "address"
+    ]
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/qtcpsocket.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK10QTcpSocket10metaObjectEv": ["address", "address"],
+    "ritual_ZN10QTcpSocket2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN10QTcpSocketC1EP7QObject": ["address", "address"],
+    "ritual_ZN10QTcpSocketD1Ev": ["nothing", "address"],
+    "ritual_ZN10QTcpSocket4bindEN12QHostAddress14SpecialAddressEt6QFlagsIN15QAbstractSocket8BindFlagEE": [
+      "bool", "address", "int", "unsigned short", "int"
+    ],
+    "ritual_ZN10QTcpSocket6d_funcEv": ["address", "address"],
+    "ritual_ZNK10QTcpSocket6d_funcEv": ["address", "address"],
+    "ritual_take_QTcpSocket": ["bool", "address", "chars", "address"]
+  }
+}

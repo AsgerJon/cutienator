@@ -1,0 +1,66 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuickWidgets/6.12.0/QtQuickWidgets/private/qquickwidget_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QQuickWidgetPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK19QQuickWidgetPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN19QQuickWidgetPrivate3getEP12QQuickWidget": [
+      "address", "address"
+    ],
+    "ritual_ZN19QQuickWidgetPrivate3getEPK12QQuickWidget": [
+      "address", "address"
+    ],
+    "ritual_ZN19QQuickWidgetPrivate13executeHelperEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickWidgetPrivate7destroyEv": ["nothing", "address"],
+    "ritual_ZN19QQuickWidgetPrivate7executeEv": ["nothing", "address"],
+    "ritual_ZN19QQuickWidgetPrivate7executeE14QAnyStringViewS0_": [
+      "nothing", "address", "text", "text"
+    ],
+    "ritual_ZN19QQuickWidgetPrivate19itemGeometryChangedEP10QQuickItem20QQuickGeometryChangeRK6QRectF": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN19QQuickWidgetPrivate10initResizeEv": ["nothing", "address"],
+    "ritual_ZN19QQuickWidgetPrivate10updateSizeEv": ["nothing", "address"],
+    "ritual_ZN19QQuickWidgetPrivate14updatePositionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickWidgetPrivate13setRootObjectEP7QObject": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN19QQuickWidgetPrivate28handleContextCreationFailureERK14QSurfaceFormat": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QQuickWidgetPrivate7textureEv": ["address", "address"],
+    "ritual_ZN19QQuickWidgetPrivate16textureListFlagsEv": ["int", "address"],
+    "ritual_ZN19QQuickWidgetPrivate15grabFramebufferEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QQuickWidgetPrivate12ensureEngineEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickWidgetPrivate25handleWindowAboutToChangeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickWidgetPrivate23invalidateRenderControlEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK19QQuickWidgetPrivate14rootObjectSizeEv": [
+      "address", "address"
+    ],
+    "ritual_take_QQuickWidgetPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN19QQuickWidgetPrivate19itemGeometryChangedEP10QQuickItem20QQuickGeometryChangeRK6QRectF": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZNK19QQuickWidgetPrivate7textureEv": ["address", "address"],
+    "ritual_own_ZN19QQuickWidgetPrivate16textureListFlagsEv": [
+      "int", "address"
+    ]
+  }
+}

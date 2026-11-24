@@ -1,0 +1,54 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquicktooltip_p_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN28QQuickToolTipAttachedPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QQuickToolTipAttachedPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QQuickToolTipAttachedPrivate8instanceEb": [
+      "address", "address", "bool"
+    ],
+    "ritual_ZN28QQuickToolTipAttachedPrivate3getEP21QQuickToolTipAttached": [
+      "address", "address"
+    ],
+    "ritual_ZN28QQuickToolTipAttachedPrivate25maybeSetVisibleImplicitlyEPK7QObjectb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN28QQuickToolTipAttachedPrivate10setVisibleEbN4QQml13PropertyUtils5StateE": [
+      "nothing", "address", "bool", "int"
+    ],
+    "ritual_ZNK28QQuickToolTipAttachedPrivate22isVisibleExplicitlySetEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN28QQuickToolTipAttachedPrivate8setDelayEiN4QQml13PropertyUtils5StateE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK28QQuickToolTipAttachedPrivate20isDelayExplicitlySetEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN28QQuickToolTipAttachedPrivate10setTimeoutEiN4QQml13PropertyUtils5StateE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK28QQuickToolTipAttachedPrivate22isTimeoutExplicitlySetEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN28QQuickToolTipAttachedPrivate13inheritPolicyEN13QQuickToolTip6PolicyE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN28QQuickToolTipAttachedPrivate15propagatePolicyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QQuickToolTipAttachedPrivate25warnIfAttacheeIsNotAnItemERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_take_QQuickToolTipAttachedPrivate": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

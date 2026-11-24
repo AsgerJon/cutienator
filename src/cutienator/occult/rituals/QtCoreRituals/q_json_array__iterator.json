@@ -38,6 +38,12 @@
     "ritual_ZN10QJsonArray8iterator20comparesEqual_helperERKS0_RKNS_14const_iteratorE": [
       "bool", "address", "address"
     ],
+    "ritual_ZN10QJsonArray8iterator22compareThreeWay_helperERKS0_S2_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN10QJsonArray8iterator22compareThreeWay_helperERKS0_RKNS_14const_iteratorE": [
+      "address", "address", "address"
+    ],
     "ritual_ZeqRKN10QJsonArray8iteratorES2_": ["bool", "address", "address"],
     "ritual_ZneRKN10QJsonArray8iteratorES2_": ["bool", "address", "address"],
     "ritual_ZltRKN10QJsonArray8iteratorES2_": ["bool", "address", "address"],

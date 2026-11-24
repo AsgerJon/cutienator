@@ -1,0 +1,46 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/6.12.0/QtCharts/private/qcandlesticklegendmarker_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK31QCandlestickLegendMarkerPrivate10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN31QCandlestickLegendMarkerPrivate2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN31QCandlestickLegendMarkerPrivateC1EP24QCandlestickLegendMarkerP18QCandlestickSeriesP7QLegend": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN31QCandlestickLegendMarkerPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN31QCandlestickLegendMarkerPrivate6seriesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN31QCandlestickLegendMarkerPrivate13relatedObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN31QCandlestickLegendMarkerPrivate7updatedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN31QCandlestickLegendMarkerPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK31QCandlestickLegendMarkerPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_take_QCandlestickLegendMarkerPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN31QCandlestickLegendMarkerPrivate6seriesEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN31QCandlestickLegendMarkerPrivate13relatedObjectEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN31QCandlestickLegendMarkerPrivate7updatedEv": [
+      "nothing", "address"
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4compilercontrolflow_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK3QV48Compiler15ControlFlowLoop5labelEv": ["text", "address"],
+    "ritual_ZN3QV48Compiler15ControlFlowLoopD1Ev": ["nothing", "address"],
+    "ritual_take_QV4_Compiler_ControlFlowLoop": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK3QV48Compiler15ControlFlowLoop5labelEv": [
+      "text", "address"
+    ]
+  }
+}

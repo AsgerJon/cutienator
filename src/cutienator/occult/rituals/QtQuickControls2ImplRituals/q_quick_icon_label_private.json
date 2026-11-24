@@ -1,0 +1,62 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Controls2Impl/6.12.0/QtQuickControls2Impl/private/qquickiconlabel_",
+    "p_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN22QQuickIconLabelPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK22QQuickIconLabelPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK22QQuickIconLabelPrivate7hasIconEv": ["bool", "address"],
+    "ritual_ZNK22QQuickIconLabelPrivate7hasTextEv": ["bool", "address"],
+    "ritual_ZN22QQuickIconLabelPrivate9syncImageEv": ["nothing", "address"],
+    "ritual_ZN22QQuickIconLabelPrivate9syncLabelEv": ["nothing", "address"],
+    "ritual_ZN22QQuickIconLabelPrivate18updateImplicitSizeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickIconLabelPrivate6layoutEv": ["nothing", "address"],
+    "ritual_ZN22QQuickIconLabelPrivate24itemImplicitWidthChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQuickIconLabelPrivate25itemImplicitHeightChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQuickIconLabelPrivate13itemDestroyedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQuickIconLabelPrivate10textChangeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickIconLabelPrivate13displayChangeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickIconLabelPrivate10beginClassEP10QQuickItem": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickIconLabelPrivate17completeComponentEP10QQuickItem": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickIconLabelPrivate11alignedRectEb6QFlagsIN2Qt13AlignmentFlagEERK6QSizeFRK6QRectF": [
+      "address", "bool", "int", "address", "address"
+    ],
+    "ritual_take_QQuickIconLabelPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN22QQuickIconLabelPrivate18updateImplicitSizeEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN22QQuickIconLabelPrivate6layoutEv": ["nothing", "address"],
+    "ritual_own_ZN22QQuickIconLabelPrivate24itemImplicitWidthChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN22QQuickIconLabelPrivate25itemImplicitHeightChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN22QQuickIconLabelPrivate10textChangeEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN22QQuickIconLabelPrivate13displayChangeEv": [
+      "nothing", "address"
+    ]
+  }
+}

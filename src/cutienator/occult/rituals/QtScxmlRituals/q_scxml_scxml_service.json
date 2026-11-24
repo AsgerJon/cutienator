@@ -1,0 +1,35 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtScxml/6.12.0/QtScxml/private/qscxmlinvokableservice_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18QScxmlScxmlService10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QScxmlScxmlService2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18QScxmlScxmlService6d_funcEv": ["address", "address"],
+    "ritual_ZNK18QScxmlScxmlService6d_funcEv": ["address", "address"],
+    "ritual_ZN18QScxmlScxmlServiceC1EP18QScxmlStateMachineS1_P29QScxmlInvokableServiceFactory": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN18QScxmlScxmlServiceD1Ev": ["nothing", "address"],
+    "ritual_ZN18QScxmlScxmlService5startEv": ["bool", "address"],
+    "ritual_ZNK18QScxmlScxmlService2idEv": ["text", "address"],
+    "ritual_ZNK18QScxmlScxmlService4nameEv": ["text", "address"],
+    "ritual_ZN18QScxmlScxmlService9postEventEP11QScxmlEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QScxmlScxmlService12stateMachineEv": ["address", "address"],
+    "ritual_take_QScxmlScxmlService": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN18QScxmlScxmlService5startEv": ["bool", "address"],
+    "ritual_own_ZNK18QScxmlScxmlService2idEv": ["text", "address"],
+    "ritual_own_ZNK18QScxmlScxmlService4nameEv": ["text", "address"],
+    "ritual_own_ZN18QScxmlScxmlService9postEventEP11QScxmlEvent": [
+      "nothing", "address", "address"
+    ]
+  }
+}

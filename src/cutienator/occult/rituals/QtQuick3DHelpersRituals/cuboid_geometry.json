@@ -1,0 +1,50 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DHelpers/6.12.0/QtQuick3DHelpers/private/cuboidgeometry_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK14CuboidGeometry10metaObjectEv": ["address", "address"],
+    "ritual_ZN14CuboidGeometry2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN14CuboidGeometryC1EP14QQuick3DObject": ["address", "address"],
+    "ritual_ZN14CuboidGeometryD1Ev": ["nothing", "address"],
+    "ritual_ZNK14CuboidGeometry7xExtentEv": ["float", "address"],
+    "ritual_ZN14CuboidGeometry10setXExtentEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK14CuboidGeometry7yExtentEv": ["float", "address"],
+    "ritual_ZN14CuboidGeometry10setYExtentEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK14CuboidGeometry7zExtentEv": ["float", "address"],
+    "ritual_ZN14CuboidGeometry10setZExtentEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK14CuboidGeometry16yzMeshResolutionEv": ["address", "address"],
+    "ritual_ZN14CuboidGeometry19setYzMeshResolutionERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14CuboidGeometry16xzMeshResolutionEv": ["address", "address"],
+    "ritual_ZN14CuboidGeometry19setXzMeshResolutionERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14CuboidGeometry16xyMeshResolutionEv": ["address", "address"],
+    "ritual_ZN14CuboidGeometry19setXyMeshResolutionERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14CuboidGeometry12asynchronousEv": ["bool", "address"],
+    "ritual_ZN14CuboidGeometry15setAsynchronousEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK14CuboidGeometry6statusEv": ["int", "address"],
+    "ritual_ZN14CuboidGeometry16doUpdateGeometryEv": ["nothing", "address"],
+    "ritual_ZN14CuboidGeometry15requestFinishedEv": ["nothing", "address"],
+    "ritual_ZN14CuboidGeometry22scheduleGeometryUpdateEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_CuboidGeometry": ["bool", "address", "chars", "address"]
+  }
+}

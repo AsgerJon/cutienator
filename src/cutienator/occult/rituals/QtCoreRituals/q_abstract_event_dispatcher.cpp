@@ -11,21 +11,43 @@
 typedef bool (*CuteQAbstractEventDispatcherCall0)(const void *, int, int *);
 typedef void (*CuteQAbstractEventDispatcherCall1)(const void *, QSocketNotifier *, int *);
 typedef void (*CuteQAbstractEventDispatcherCall2)(const void *, QSocketNotifier *, int *);
+#if QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
 typedef void (*CuteQAbstractEventDispatcherCall3)(const void *, int, qint64, int, QObject *, int *);
+#endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+#if QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
 typedef bool (*CuteQAbstractEventDispatcherCall4)(const void *, int, int *);
+#endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+#if QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
 typedef bool (*CuteQAbstractEventDispatcherCall5)(const void *, QObject *, int *);
+#endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+#if QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
 typedef int (*CuteQAbstractEventDispatcherCall6)(const void *, int, int *);
+#endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
 typedef void (*CuteQAbstractEventDispatcherCall7)(const void *, int *);
 typedef void (*CuteQAbstractEventDispatcherCall8)(const void *, int *);
 typedef void (*CuteQAbstractEventDispatcherCall9)(const void *, int *);
 typedef void (*CuteQAbstractEventDispatcherCall10)(const void *, int *);
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQAbstractEventDispatcherCall11)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQAbstractEventDispatcherCall12)(const void *, QObject *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQAbstractEventDispatcherCall13)(const void *, QTimerEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQAbstractEventDispatcherCall14)(const void *, QChildEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQAbstractEventDispatcherCall15)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQAbstractEventDispatcherCall16)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQAbstractEventDispatcherCall17)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 class CuteQAbstractEventDispatcher : public QAbstractEventDispatcher {
 public:
   using QAbstractEventDispatcher::QAbstractEventDispatcher;
@@ -44,22 +66,30 @@ public:
       taken[2] = call;
       return true;
     }
+#if QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
     if (!std::strcmp(key, "_ZN24QAbstractEventDispatcher13registerTimerEixN2Qt9TimerTypeEP7QObject")) {
       taken[3] = call;
       return true;
     }
+#endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+#if QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
     if (!std::strcmp(key, "_ZN24QAbstractEventDispatcher15unregisterTimerEi")) {
       taken[4] = call;
       return true;
     }
+#endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+#if QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
     if (!std::strcmp(key, "_ZN24QAbstractEventDispatcher16unregisterTimersEP7QObject")) {
       taken[5] = call;
       return true;
     }
+#endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+#if QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
     if (!std::strcmp(key, "_ZN24QAbstractEventDispatcher13remainingTimeEi")) {
       taken[6] = call;
       return true;
     }
+#endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
     if (!std::strcmp(key, "_ZN24QAbstractEventDispatcher6wakeUpEv")) {
       taken[7] = call;
       return true;
@@ -76,34 +106,48 @@ public:
       taken[10] = call;
       return true;
     }
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[11] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[12] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[13] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[14] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[15] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[16] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
       taken[17] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
     return false;
   }
 
@@ -142,6 +186,7 @@ public:
     }
   }
 
+#if QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
   //  void QAbstractEventDispatcher::registerTimer(int timerId, qint64
   //      interval, Qt::TimerType timerType, QObject *object)
   void registerTimer(
@@ -156,7 +201,9 @@ public:
       if (handled) return;
     }
   }
+#endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
 
+#if QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
   //  bool QAbstractEventDispatcher::unregisterTimer(int timerId)
   bool unregisterTimer(int timerId) override {
     if (taken[4]) {
@@ -167,7 +214,9 @@ public:
     }
     return {};
   }
+#endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
 
+#if QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
   //  bool QAbstractEventDispatcher::unregisterTimers(QObject *object)
   bool unregisterTimers(QObject *object) override {
     if (taken[5]) {
@@ -178,7 +227,9 @@ public:
     }
     return {};
   }
+#endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
 
+#if QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
   //  int QAbstractEventDispatcher::remainingTime(int timerId)
   int remainingTime(int timerId) override {
     if (taken[6]) {
@@ -189,6 +240,7 @@ public:
     }
     return {};
   }
+#endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
 
   //  void QAbstractEventDispatcher::wakeUp()
   void wakeUp() override {
@@ -232,6 +284,7 @@ public:
     QAbstractEventDispatcher::closingDown();
   }
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QObject::event(QEvent *event)
   bool event(QEvent *event) override {
     if (taken[11]) {
@@ -242,7 +295,9 @@ public:
     }
     return QObject::event(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
     if (taken[12]) {
@@ -253,7 +308,9 @@ public:
     }
     return QObject::eventFilter(watched, event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
     if (taken[13]) {
@@ -264,7 +321,9 @@ public:
     }
     QObject::timerEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
     if (taken[14]) {
@@ -275,7 +334,9 @@ public:
     }
     QObject::childEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
     if (taken[15]) {
@@ -286,7 +347,9 @@ public:
     }
     QObject::customEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
     if (taken[16]) {
@@ -297,7 +360,9 @@ public:
     }
     QObject::connectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
     if (taken[17]) {
@@ -308,6 +373,7 @@ public:
     }
     QObject::disconnectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 };
 
 //  const QMetaObject *QAbstractEventDispatcher::metaObject() const
@@ -324,6 +390,21 @@ QString *ritual_ZN24QAbstractEventDispatcher2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QAbstractEventDispatcher::tr(s, c, n));
+}
+
+//  QAbstractEventDispatcherPrivate *QAbstractEventDispatcher::d_func()
+extern "C" Q_DECL_EXPORT
+QAbstractEventDispatcherPrivate *ritual_ZN24QAbstractEventDispatcher6d_funcEv(
+    QAbstractEventDispatcher *self) {
+  return self->d_func();
+}
+
+//  const QAbstractEventDispatcherPrivate *QAbstractEventDispatcher::d_func()
+//      const
+extern "C" Q_DECL_EXPORT
+const QAbstractEventDispatcherPrivate *ritual_ZNK24QAbstractEventDispatcher6d_funcEv(
+    const QAbstractEventDispatcher *self) {
+  return self->d_func();
 }
 
 //  QAbstractEventDispatcher::~QAbstractEventDispatcher()
@@ -370,6 +451,7 @@ void ritual_ZN24QAbstractEventDispatcher24unregisterSocketNotifierEP15QSocketNot
   self->unregisterSocketNotifier(notifier);
 }
 
+#if QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
 //  int QAbstractEventDispatcher::registerTimer(qint64 interval,
 //      Qt::TimerType timerType, QObject *object)
 extern "C" Q_DECL_EXPORT
@@ -380,7 +462,9 @@ int ritual_ZN24QAbstractEventDispatcher13registerTimerExN2Qt9TimerTypeEP7QObject
     QObject *object) {
   return self->registerTimer(interval, timerType, object);
 }
+#endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
 
+#if QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
 //  void QAbstractEventDispatcher::registerTimer(int timerId, qint64
 //      interval, Qt::TimerType timerType, QObject *object)
 extern "C" Q_DECL_EXPORT
@@ -392,7 +476,9 @@ void ritual_ZN24QAbstractEventDispatcher13registerTimerEixN2Qt9TimerTypeEP7QObje
     QObject *object) {
   self->registerTimer(timerId, interval, timerType, object);
 }
+#endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
 
+#if QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
 //  bool QAbstractEventDispatcher::unregisterTimer(int timerId)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN24QAbstractEventDispatcher15unregisterTimerEi(
@@ -400,7 +486,9 @@ bool ritual_ZN24QAbstractEventDispatcher15unregisterTimerEi(
     int timerId) {
   return self->unregisterTimer(timerId);
 }
+#endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
 
+#if QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
 //  bool QAbstractEventDispatcher::unregisterTimers(QObject *object)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN24QAbstractEventDispatcher16unregisterTimersEP7QObject(
@@ -408,7 +496,9 @@ bool ritual_ZN24QAbstractEventDispatcher16unregisterTimersEP7QObject(
     QObject *object) {
   return self->unregisterTimers(object);
 }
+#endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
 
+#if QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
 //  int QAbstractEventDispatcher::remainingTime(int timerId)
 extern "C" Q_DECL_EXPORT
 int ritual_ZN24QAbstractEventDispatcher13remainingTimeEi(
@@ -416,7 +506,9 @@ int ritual_ZN24QAbstractEventDispatcher13remainingTimeEi(
     int timerId) {
   return self->remainingTime(timerId);
 }
+#endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
 
+#if QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
 //  bool QAbstractEventDispatcher::unregisterTimer(Qt::TimerId timerId)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN24QAbstractEventDispatcher15unregisterTimerEN2Qt7TimerIdE(
@@ -424,6 +516,7 @@ bool ritual_ZN24QAbstractEventDispatcher15unregisterTimerEN2Qt7TimerIdE(
     Qt::TimerId timerId) {
   return self->unregisterTimer(timerId);
 }
+#endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
 
 //  void QAbstractEventDispatcher::wakeUp()
 extern "C" Q_DECL_EXPORT

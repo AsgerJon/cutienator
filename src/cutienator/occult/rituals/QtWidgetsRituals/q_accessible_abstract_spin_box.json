@@ -1,0 +1,122 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/rangecontrols_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN26QAccessibleAbstractSpinBoxD1Ev": ["nothing", "address"],
+    "ritual_ZNK26QAccessibleAbstractSpinBox5stateEv": ["address", "address"],
+    "ritual_ZNK26QAccessibleAbstractSpinBox4textEN11QAccessible4TextE": [
+      "text", "address", "int"
+    ],
+    "ritual_ZNK26QAccessibleAbstractSpinBox12currentValueEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QAccessibleAbstractSpinBox15setCurrentValueERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK26QAccessibleAbstractSpinBox12maximumValueEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK26QAccessibleAbstractSpinBox12minimumValueEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK26QAccessibleAbstractSpinBox15minimumStepSizeEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QAccessibleAbstractSpinBox12addSelectionEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK26QAccessibleAbstractSpinBox10attributesEiPiS0_": [
+      "text", "address", "int", "address", "address"
+    ],
+    "ritual_ZNK26QAccessibleAbstractSpinBox14cursorPositionEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK26QAccessibleAbstractSpinBox13characterRectEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK26QAccessibleAbstractSpinBox14selectionCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK26QAccessibleAbstractSpinBox13offsetAtPointERK6QPoint": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK26QAccessibleAbstractSpinBox9selectionEiPiS0_": [
+      "nothing", "address", "int", "address", "address"
+    ],
+    "ritual_ZNK26QAccessibleAbstractSpinBox4textEii": [
+      "text", "address", "int", "int"
+    ],
+    "ritual_ZNK26QAccessibleAbstractSpinBox16textBeforeOffsetEiN11QAccessible16TextBoundaryTypeEPiS2_": [
+      "text", "address", "int", "int", "address", "address"
+    ],
+    "ritual_ZNK26QAccessibleAbstractSpinBox15textAfterOffsetEiN11QAccessible16TextBoundaryTypeEPiS2_": [
+      "text", "address", "int", "int", "address", "address"
+    ],
+    "ritual_ZNK26QAccessibleAbstractSpinBox12textAtOffsetEiN11QAccessible16TextBoundaryTypeEPiS2_": [
+      "text", "address", "int", "int", "address", "address"
+    ],
+    "ritual_ZN26QAccessibleAbstractSpinBox15removeSelectionEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN26QAccessibleAbstractSpinBox17setCursorPositionEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN26QAccessibleAbstractSpinBox12setSelectionEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZNK26QAccessibleAbstractSpinBox14characterCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZN26QAccessibleAbstractSpinBox17scrollToSubstringEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN26QAccessibleAbstractSpinBox10deleteTextEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN26QAccessibleAbstractSpinBox10insertTextEiRK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZN26QAccessibleAbstractSpinBox11replaceTextEiiRK7QString": [
+      "nothing", "address", "int", "int", "text"
+    ],
+    "ritual_ZNK26QAccessibleAbstractSpinBox15abstractSpinBoxEv": [
+      "address", "address"
+    ],
+    "ritual_cast_QAccessibleAbstractSpinBox_QAccessibleValueInterface": [
+      "address", "address"
+    ],
+    "ritual_cast_QAccessibleAbstractSpinBox_QAccessibleTextInterface": [
+      "address", "address"
+    ],
+    "ritual_cast_QAccessibleAbstractSpinBox_QAccessibleEditableTextInterface": [
+      "address", "address"
+    ],
+    "ritual_take_QAccessibleAbstractSpinBox": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK26QAccessibleAbstractSpinBox5stateEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK26QAccessibleAbstractSpinBox4textEN11QAccessible4TextE": [
+      "text", "address", "int"
+    ],
+    "ritual_own_ZNK26QAccessibleAbstractSpinBox12currentValueEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN26QAccessibleAbstractSpinBox15setCurrentValueERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK26QAccessibleAbstractSpinBox12maximumValueEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK26QAccessibleAbstractSpinBox12minimumValueEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK26QAccessibleAbstractSpinBox15minimumStepSizeEv": [
+      "address", "address"
+    ]
+  }
+}

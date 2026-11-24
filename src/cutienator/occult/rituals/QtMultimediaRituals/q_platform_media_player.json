@@ -1,0 +1,191 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtMultimedia/6.12.0/QtMultimedia/private/qplatformmediaplayer_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QPlatformMediaPlayerD1Ev": ["nothing", "address"],
+    "ritual_ZNK20QPlatformMediaPlayer5stateEv": ["int", "address"],
+    "ritual_ZNK20QPlatformMediaPlayer11mediaStatusEv": ["int", "address"],
+    "ritual_ZNK20QPlatformMediaPlayer8durationEv": ["long long", "address"],
+    "ritual_ZNK20QPlatformMediaPlayer8positionEv": ["long long", "address"],
+    "ritual_ZN20QPlatformMediaPlayer11setPositionEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZNK20QPlatformMediaPlayer14bufferProgressEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK20QPlatformMediaPlayer16isAudioAvailableEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK20QPlatformMediaPlayer16isVideoAvailableEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK20QPlatformMediaPlayer10isSeekableEv": ["bool", "address"],
+    "ritual_ZNK20QPlatformMediaPlayer23availablePlaybackRangesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QPlatformMediaPlayer12playbackRateEv": [
+      "double", "address"
+    ],
+    "ritual_ZN20QPlatformMediaPlayer15setPlaybackRateEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK20QPlatformMediaPlayer5mediaEv": ["address", "address"],
+    "ritual_ZNK20QPlatformMediaPlayer11mediaStreamEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QPlatformMediaPlayer8setMediaERK4QUrlP9QIODevice": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN20QPlatformMediaPlayer4playEv": ["nothing", "address"],
+    "ritual_ZN20QPlatformMediaPlayer5pauseEv": ["nothing", "address"],
+    "ritual_ZN20QPlatformMediaPlayer4stopEv": ["nothing", "address"],
+    "ritual_ZNK20QPlatformMediaPlayer23streamPlaybackSupportedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN20QPlatformMediaPlayer14setAudioOutputEP20QPlatformAudioOutput": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QPlatformMediaPlayer20setAudioBufferOutputEP18QAudioBufferOutput": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QPlatformMediaPlayer8metaDataEv": ["address", "address"],
+    "ritual_ZN20QPlatformMediaPlayer12setVideoSinkEP10QVideoSink": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QPlatformMediaPlayer10canPlayQrcEv": ["bool", "address"],
+    "ritual_ZN20QPlatformMediaPlayer10trackCountENS_9TrackTypeE": [
+      "int", "address", "unsigned char"
+    ],
+    "ritual_ZN20QPlatformMediaPlayer13trackMetaDataENS_9TrackTypeEi": [
+      "address", "address", "unsigned char", "int"
+    ],
+    "ritual_ZN20QPlatformMediaPlayer11activeTrackENS_9TrackTypeE": [
+      "int", "address", "unsigned char"
+    ],
+    "ritual_ZN20QPlatformMediaPlayer14setActiveTrackENS_9TrackTypeEi": [
+      "nothing", "address", "unsigned char", "int"
+    ],
+    "ritual_ZN20QPlatformMediaPlayer15durationChangedEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN20QPlatformMediaPlayer15positionChangedEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN20QPlatformMediaPlayer21audioAvailableChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20QPlatformMediaPlayer21videoAvailableChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20QPlatformMediaPlayer15seekableChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20QPlatformMediaPlayer19playbackRateChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN20QPlatformMediaPlayer21bufferProgressChangedEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN20QPlatformMediaPlayer15metaDataChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QPlatformMediaPlayer13tracksChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QPlatformMediaPlayer19activeTracksChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QPlatformMediaPlayer12stateChangedEN12QMediaPlayer13PlaybackStateE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QPlatformMediaPlayer18mediaStatusChangedEN12QMediaPlayer11MediaStatusE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QPlatformMediaPlayer5errorEN12QMediaPlayer5ErrorERK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZN20QPlatformMediaPlayer24setInvalidMediaWithErrorEN12QMediaPlayer5ErrorERK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZN20QPlatformMediaPlayer16resetCurrentLoopEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QPlatformMediaPlayer6doLoopEv": ["bool", "address"],
+    "ritual_ZNK20QPlatformMediaPlayer5loopsEv": ["int", "address"],
+    "ritual_ZN20QPlatformMediaPlayer8setLoopsEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK20QPlatformMediaPlayer29pitchCompensationAvailabilityEv": [
+      "int", "address"
+    ],
+    "ritual_ZN20QPlatformMediaPlayer20setPitchCompensationEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK20QPlatformMediaPlayer17pitchCompensationEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK20QPlatformMediaPlayer24pitchCompensationChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK20QPlatformMediaPlayer15playbackOptionsEv": [
+      "address", "address"
+    ],
+    "ritual_take_QPlatformMediaPlayer": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK20QPlatformMediaPlayer8positionEv": [
+      "long long", "address"
+    ],
+    "ritual_own_ZNK20QPlatformMediaPlayer16isAudioAvailableEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZNK20QPlatformMediaPlayer16isVideoAvailableEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZNK20QPlatformMediaPlayer10isSeekableEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZNK20QPlatformMediaPlayer23streamPlaybackSupportedEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZN20QPlatformMediaPlayer14setAudioOutputEP20QPlatformAudioOutput": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20QPlatformMediaPlayer20setAudioBufferOutputEP18QAudioBufferOutput": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK20QPlatformMediaPlayer8metaDataEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK20QPlatformMediaPlayer10canPlayQrcEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZN20QPlatformMediaPlayer10trackCountENS_9TrackTypeE": [
+      "int", "address", "unsigned char"
+    ],
+    "ritual_own_ZN20QPlatformMediaPlayer13trackMetaDataENS_9TrackTypeEi": [
+      "address", "address", "unsigned char", "int"
+    ],
+    "ritual_own_ZN20QPlatformMediaPlayer11activeTrackENS_9TrackTypeE": [
+      "int", "address", "unsigned char"
+    ],
+    "ritual_own_ZN20QPlatformMediaPlayer14setActiveTrackENS_9TrackTypeEi": [
+      "nothing", "address", "unsigned char", "int"
+    ],
+    "ritual_own_ZN20QPlatformMediaPlayer8setLoopsEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZNK20QPlatformMediaPlayer29pitchCompensationAvailabilityEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZN20QPlatformMediaPlayer20setPitchCompensationEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZNK20QPlatformMediaPlayer17pitchCompensationEv": [
+      "bool", "address"
+    ]
+  }
+}

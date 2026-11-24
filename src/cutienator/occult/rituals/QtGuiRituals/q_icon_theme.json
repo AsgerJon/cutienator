@@ -1,0 +1,14 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qiconloader_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN10QIconThemeC1Ev": ["address"],
+    "ritual_ZNK10QIconTheme7keyListEv": ["address", "address"],
+    "ritual_ZNK10QIconTheme11contentDirsEv": ["address", "address"],
+    "ritual_ZNK10QIconTheme7isValidEv": ["bool", "address"],
+    "ritual_ZN10QIconThemeD1Ev": ["nothing", "address"]
+  }
+}

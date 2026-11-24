@@ -28,6 +28,12 @@
     ],
     "ritual_ZN19QBasicReadWriteLock23tryLockForWriteInternalE14QDeadlineTimerj": [
       "bool", "address", "address", "unsigned int"
+    ],
+    "ritual_ZN19QBasicReadWriteLock19describeLockForTSanEP21QReadWriteLockPrivatej": [
+      "unsigned int", "address", "unsigned int"
+    ],
+    "ritual_ZN19QBasicReadWriteLockC1EP21QReadWriteLockPrivate": [
+      "address", "address"
     ]
   }
 }

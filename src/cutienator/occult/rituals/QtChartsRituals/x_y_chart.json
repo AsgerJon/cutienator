@@ -1,0 +1,55 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/6.12.0/QtCharts/private/xychart_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK7XYChart10metaObjectEv": ["address", "address"],
+    "ritual_ZN7XYChart2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN7XYChartD1Ev": ["nothing", "address"],
+    "ritual_ZN7XYChart17setGeometryPointsERK5QListI7QPointFE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK7XYChart14geometryPointsEv": ["address", "address"],
+    "ritual_ZN7XYChart12setAnimationEP11XYAnimation": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK7XYChart9animationEv": ["address", "address"],
+    "ritual_ZN7XYChart14updateGeometryEv": ["nothing", "address"],
+    "ritual_ZNK7XYChart7isDirtyEv": ["bool", "address"],
+    "ritual_ZN7XYChart8setDirtyEb": ["nothing", "address", "bool"],
+    "ritual_ZN7XYChart16handlePointAddedEi": ["nothing", "address", "int"],
+    "ritual_ZN7XYChart18handlePointRemovedEi": ["nothing", "address", "int"],
+    "ritual_ZN7XYChart19handlePointsRemovedEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN7XYChart19handlePointReplacedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN7XYChart20handlePointsReplacedEv": ["nothing", "address"],
+    "ritual_ZN7XYChart19handleDomainUpdatedEv": ["nothing", "address"],
+    "ritual_ZN7XYChart19handleSeriesUpdatedEv": ["nothing", "address"],
+    "ritual_ZN7XYChart11updateChartERK5QListI7QPointFES4_i": [
+      "nothing", "address", "address", "address", "int"
+    ],
+    "ritual_ZN7XYChart13updateGlChartEv": ["nothing", "address"],
+    "ritual_ZN7XYChart14refreshGlChartEv": ["nothing", "address"],
+    "ritual_ZNK7XYChart19matchForLightMarkerERK7QPointF": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN7XYChart7isEmptyEv": ["bool", "address"],
+    "ritual_ZNK7XYChart10hoverPointERK7QPointF": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN7XYChart18fuzzyComparePointFERK7QPointFS2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_take_XYChart": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK7XYChart9animationEv": ["address", "address"],
+    "ritual_own_ZN7XYChart19handleDomainUpdatedEv": ["nothing", "address"],
+    "ritual_own_ZN7XYChart19handleSeriesUpdatedEv": ["nothing", "address"],
+    "ritual_own_ZN7XYChart13updateGlChartEv": ["nothing", "address"],
+    "ritual_own_ZN7XYChart14refreshGlChartEv": ["nothing", "address"]
+  }
+}

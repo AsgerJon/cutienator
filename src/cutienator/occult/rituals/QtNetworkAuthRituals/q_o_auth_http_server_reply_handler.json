@@ -1,0 +1,73 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetworkAuth/qoauthhttpserverreplyhandler.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK28QOAuthHttpServerReplyHandler10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QOAuthHttpServerReplyHandler2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN28QOAuthHttpServerReplyHandlerC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN28QOAuthHttpServerReplyHandlerC1EtP7QObject": [
+      "address", "unsigned short", "address"
+    ],
+    "ritual_ZN28QOAuthHttpServerReplyHandlerC1ERK12QHostAddresstP7QObject": [
+      "address", "address", "unsigned short", "address"
+    ],
+    "ritual_ZN28QOAuthHttpServerReplyHandlerD1Ev": ["nothing", "address"],
+    "ritual_ZNK28QOAuthHttpServerReplyHandler8callbackEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK28QOAuthHttpServerReplyHandler12callbackPathEv": [
+      "text", "address"
+    ],
+    "ritual_ZN28QOAuthHttpServerReplyHandler15setCallbackPathERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK28QOAuthHttpServerReplyHandler12callbackHostEv": [
+      "text", "address"
+    ],
+    "ritual_ZN28QOAuthHttpServerReplyHandler15setCallbackHostERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK28QOAuthHttpServerReplyHandler12callbackTextEv": [
+      "text", "address"
+    ],
+    "ritual_ZN28QOAuthHttpServerReplyHandler15setCallbackTextERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK28QOAuthHttpServerReplyHandler4portEv": [
+      "unsigned short", "address"
+    ],
+    "ritual_ZN28QOAuthHttpServerReplyHandler6listenERK12QHostAddresst": [
+      "bool", "address", "address", "unsigned short"
+    ],
+    "ritual_ZN28QOAuthHttpServerReplyHandler6listenERK17QSslConfigurationRK12QHostAddresst": [
+      "bool", "address", "address", "address", "unsigned short"
+    ],
+    "ritual_ZN28QOAuthHttpServerReplyHandler5closeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK28QOAuthHttpServerReplyHandler11isListeningEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN28QOAuthHttpServerReplyHandler6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QOAuthHttpServerReplyHandler6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_take_QOAuthHttpServerReplyHandler": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK28QOAuthHttpServerReplyHandler8callbackEv": [
+      "text", "address"
+    ]
+  }
+}

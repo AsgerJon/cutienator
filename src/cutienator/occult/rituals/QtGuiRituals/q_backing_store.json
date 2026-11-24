@@ -26,6 +26,7 @@
       "nothing", "address", "address"
     ],
     "ritual_ZNK13QBackingStore14staticContentsEv": ["address", "address"],
-    "ritual_ZNK13QBackingStore17hasStaticContentsEv": ["bool", "address"]
+    "ritual_ZNK13QBackingStore17hasStaticContentsEv": ["bool", "address"],
+    "ritual_ZNK13QBackingStore6handleEv": ["address", "address"]
   }
 }

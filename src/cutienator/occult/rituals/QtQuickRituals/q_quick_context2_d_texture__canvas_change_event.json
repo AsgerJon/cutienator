@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickcontext2dtexture_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN22QQuickContext2DTexture17CanvasChangeEventC1ERK5QSizeS3_RK5QRectS6_bb": [
+      "address", "address", "address", "address", "address", "bool", "bool"
+    ],
+    "ritual_ZN22QQuickContext2DTexture17CanvasChangeEventD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_take_QQuickContext2DTexture_CanvasChangeEvent": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

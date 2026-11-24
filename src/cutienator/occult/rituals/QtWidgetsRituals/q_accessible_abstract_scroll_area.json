@@ -1,0 +1,33 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/complexwidgets_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK29QAccessibleAbstractScrollArea5childEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK29QAccessibleAbstractScrollArea10childCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK29QAccessibleAbstractScrollArea12indexOfChildEPK20QAccessibleInterface": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK29QAccessibleAbstractScrollArea7isValidEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK29QAccessibleAbstractScrollArea7childAtEii": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZNK29QAccessibleAbstractScrollArea18abstractScrollAreaEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK29QAccessibleAbstractScrollArea13isLeftToRightEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZNK29QAccessibleAbstractScrollArea7isValidEv": [
+      "bool", "address"
+    ]
+  }
+}

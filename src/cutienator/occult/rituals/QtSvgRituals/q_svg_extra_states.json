@@ -1,0 +1,13 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSvg/6.12.0/QtSvg/private/qsvgstyle_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QSvgExtraStatesC1Ev": ["address"],
+    "ritual_ZN15QSvgExtraStatesC1EPK12QSvgDocument": ["address", "address"],
+    "ritual_ZNK15QSvgExtraStates3docEv": ["address", "address"],
+    "ritual_ZN15QSvgExtraStatesD1Ev": ["nothing", "address"]
+  }
+}

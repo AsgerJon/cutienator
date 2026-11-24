@@ -1,0 +1,100 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3D/6.12.0/QtQuick3D/private/qquick3dreflectionprobe_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK23QQuick3DReflectionProbe10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QQuick3DReflectionProbe2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN23QQuick3DReflectionProbeC1EP12QQuick3DNode": [
+      "address", "address"
+    ],
+    "ritual_ZN23QQuick3DReflectionProbeD1Ev": ["nothing", "address"],
+    "ritual_ZNK23QQuick3DReflectionProbe7qualityEv": ["int", "address"],
+    "ritual_ZNK23QQuick3DReflectionProbe10clearColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK23QQuick3DReflectionProbe11refreshModeEv": ["int", "address"],
+    "ritual_ZNK23QQuick3DReflectionProbe11timeSlicingEv": ["int", "address"],
+    "ritual_ZNK23QQuick3DReflectionProbe18parallaxCorrectionEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK23QQuick3DReflectionProbe7boxSizeEv": ["address", "address"],
+    "ritual_ZNK23QQuick3DReflectionProbe9debugViewEv": ["bool", "address"],
+    "ritual_ZNK23QQuick3DReflectionProbe9boxOffsetEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QQuick3DReflectionProbe14scheduleUpdateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK23QQuick3DReflectionProbe7textureEv": ["address", "address"],
+    "ritual_ZN23QQuick3DReflectionProbe10setQualityENS_17ReflectionQualityE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN23QQuick3DReflectionProbe13setClearColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QQuick3DReflectionProbe14setRefreshModeENS_21ReflectionRefreshModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN23QQuick3DReflectionProbe14setTimeSlicingENS_21ReflectionTimeSlicingE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN23QQuick3DReflectionProbe21setParallaxCorrectionEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN23QQuick3DReflectionProbe10setBoxSizeERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QQuick3DReflectionProbe12setDebugViewEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN23QQuick3DReflectionProbe12setBoxOffsetERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QQuick3DReflectionProbe10setTextureEP22QQuick3DCubeMapTexture": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QQuick3DReflectionProbe17updateSpatialNodeEP21QSSGRenderGraphObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN23QQuick3DReflectionProbe12markAllDirtyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuick3DReflectionProbe10itemChangeEN14QQuick3DObject10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN23QQuick3DReflectionProbe25mapToReflectionResolutionENS_17ReflectionQualityE": [
+      "unsigned int", "address", "int"
+    ],
+    "ritual_ZN23QQuick3DReflectionProbe13findSceneViewEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuick3DReflectionProbe15createDebugViewEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuick3DReflectionProbe15updateDebugViewEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuick3DReflectionProbe18updateSceneManagerEP20QQuick3DSceneManager": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QQuick3DReflectionProbe": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN23QQuick3DReflectionProbe17updateSpatialNodeEP21QSSGRenderGraphObject": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN23QQuick3DReflectionProbe12markAllDirtyEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN23QQuick3DReflectionProbe10itemChangeEN14QQuick3DObject10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ]
+  }
+}

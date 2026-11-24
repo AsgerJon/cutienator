@@ -1,0 +1,57 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qcommonstyle_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QCommonStylePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK19QCommonStylePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN19QCommonStylePrivateC1Ev": ["address"],
+    "ritual_ZN19QCommonStylePrivateD1Ev": ["nothing", "address"],
+    "ritual_ZNK19QCommonStylePrivate19calculateElidedTextERK7QStringRK11QTextOptionRK5QFontRK5QRect6QFlagsIN2Qt13AlignmentFlagEENSD_13TextElideModeEibP7QPointF": [
+      "text", "address", "text", "address", "address", "address", "int",
+      "int", "int", "bool", "address"
+    ],
+    "ritual_ZNK19QCommonStylePrivate16viewItemDrawTextEP8QPainterPK20QStyleOptionViewItemRK5QRect": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK19QCommonStylePrivate14viewItemLayoutEPK20QStyleOptionViewItemP5QRectS4_S4_b": [
+      "nothing", "address", "address", "address", "address", "address",
+      "bool"
+    ],
+    "ritual_ZNK19QCommonStylePrivate12viewItemSizeEPK20QStyleOptionViewItemi": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZNK19QCommonStylePrivate16isViewItemCachedERK20QStyleOptionViewItem": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK19QCommonStylePrivate19toolButtonElideTextEPK22QStyleOptionToolButtonRK5QRecti": [
+      "text", "address", "address", "address", "int"
+    ],
+    "ritual_ZNK19QCommonStylePrivate9tabLayoutEPK15QStyleOptionTabPK7QWidgetP5QRectS7_": [
+      "nothing", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK19QCommonStylePrivate9animationEPK7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK19QCommonStylePrivate14startAnimationEP15QStyleAnimation": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QCommonStylePrivate13stopAnimationEPK7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QCommonStylePrivate15removeAnimationEPK7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QCommonStylePrivate3rtlEPK12QStyleOption": [
+      "bool", "address"
+    ],
+    "ritual_take_QCommonStylePrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK19QCommonStylePrivate9tabLayoutEPK15QStyleOptionTabPK7QWidgetP5QRectS7_": [
+      "nothing", "address", "address", "address", "address", "address"
+    ]
+  }
+}

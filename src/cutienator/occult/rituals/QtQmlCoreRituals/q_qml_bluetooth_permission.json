@@ -1,0 +1,25 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQmlCore/6.12.0/QtQmlCore/private/qqmlpermissions_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK23QQmlBluetoothPermission10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK23QQmlBluetoothPermission6statusEv": ["int", "address"],
+    "ritual_ZN23QQmlBluetoothPermission20qmlExtendedNamespaceEv": [
+      "address"
+    ],
+    "ritual_ZN23QQmlBluetoothPermission30qt_qmlMarker_extendedNamespaceEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK23QQmlBluetoothPermission18communicationModesEv": [
+      "int", "address"
+    ],
+    "ritual_take_QQmlBluetoothPermission": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

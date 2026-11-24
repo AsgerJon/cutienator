@@ -1,0 +1,80 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/6.12.0/QtCharts/private/legendscroller_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK14LegendScroller10metaObjectEv": ["address", "address"],
+    "ritual_ZN14LegendScroller2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN14LegendScrollerC1EP6QChart": ["address", "address"],
+    "ritual_ZN14LegendScroller5paintEP8QPainterPK24QStyleOptionGraphicsItemP7QWidget": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN14LegendScroller9setOffsetERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14LegendScroller6offsetEv": ["address", "address"],
+    "ritual_ZN14LegendScroller15mousePressEventEP24QGraphicsSceneMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14LegendScroller14mouseMoveEventEP24QGraphicsSceneMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14LegendScroller17mouseReleaseEventEP24QGraphicsSceneMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14LegendScroller21mouseDoubleClickEventEP24QGraphicsSceneMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14LegendScroller15hoverEnterEventEP24QGraphicsSceneHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14LegendScroller14hoverMoveEventEP24QGraphicsSceneHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14LegendScroller15hoverLeaveEventEP24QGraphicsSceneHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14LegendScroller24handleInteractiveChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN14LegendScroller22updateForResizerChangeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14LegendScroller14handleDetachedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_cast_LegendScroller_Scroller": ["address", "address"],
+    "ritual_own_ZN14LegendScroller5paintEP8QPainterPK24QStyleOptionGraphicsItemP7QWidget": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN14LegendScroller9setOffsetERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK14LegendScroller6offsetEv": ["address", "address"],
+    "ritual_own_ZN14LegendScroller15mousePressEventEP24QGraphicsSceneMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN14LegendScroller14mouseMoveEventEP24QGraphicsSceneMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN14LegendScroller17mouseReleaseEventEP24QGraphicsSceneMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN14LegendScroller21mouseDoubleClickEventEP24QGraphicsSceneMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN14LegendScroller15hoverEnterEventEP24QGraphicsSceneHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN14LegendScroller14hoverMoveEventEP24QGraphicsSceneHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN14LegendScroller15hoverLeaveEventEP24QGraphicsSceneHoverEvent": [
+      "nothing", "address", "address"
+    ]
+  }
+}

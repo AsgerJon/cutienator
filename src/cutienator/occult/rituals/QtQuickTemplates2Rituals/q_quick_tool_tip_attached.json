@@ -1,0 +1,68 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquicktooltip_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK21QQuickToolTipAttached10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QQuickToolTipAttached2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN21QQuickToolTipAttached22qt_qmlMarker_anonymousEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickToolTipAttachedC1EP7QObject": ["address", "address"],
+    "ritual_ZNK21QQuickToolTipAttached4textEv": ["text", "address"],
+    "ritual_ZN21QQuickToolTipAttached7setTextERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK21QQuickToolTipAttached5delayEv": ["int", "address"],
+    "ritual_ZN21QQuickToolTipAttached8setDelayEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK21QQuickToolTipAttached7timeoutEv": ["int", "address"],
+    "ritual_ZN21QQuickToolTipAttached10setTimeoutEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK21QQuickToolTipAttached9isVisibleEv": ["bool", "address"],
+    "ritual_ZN21QQuickToolTipAttached10setVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK21QQuickToolTipAttached7toolTipEv": ["address", "address"],
+    "ritual_ZNK21QQuickToolTipAttached6policyEv": ["int", "address"],
+    "ritual_ZN21QQuickToolTipAttached16setVisiblePolicyEN13QQuickToolTip6PolicyE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN21QQuickToolTipAttached18resetVisiblePolicyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickToolTipAttached4showERK7QStringi": [
+      "nothing", "address", "text", "int"
+    ],
+    "ritual_ZN21QQuickToolTipAttached4hideEv": ["nothing", "address"],
+    "ritual_ZN21QQuickToolTipAttached20attachedParentChangeEPN9QtPrivate32QQuickAttachedPropertyPropagatorES2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN21QQuickToolTipAttached10classBeginEv": ["nothing", "address"],
+    "ritual_ZN21QQuickToolTipAttached17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickToolTipAttached6d_funcEv": ["address", "address"],
+    "ritual_ZNK21QQuickToolTipAttached6d_funcEv": ["address", "address"],
+    "ritual_cast_QQuickToolTipAttached_QQmlParserStatus": [
+      "address", "address"
+    ],
+    "ritual_own_ZN21QQuickToolTipAttached20attachedParentChangeEPN9QtPrivate32QQuickAttachedPropertyPropagatorES2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN21QQuickToolTipAttached10classBeginEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN21QQuickToolTipAttached17componentCompleteEv": [
+      "nothing", "address"
+    ]
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3D/6.12.0/QtQuick3D/private/qquick3dobjectchangelistener_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN28QQuick3DObjectChangeListenerD1Ev": ["nothing", "address"],
+    "ritual_ZN28QQuick3DObjectChangeListener23itemSiblingOrderChangedEP14QQuick3DObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QQuick3DObjectChangeListener21itemVisibilityChangedEP14QQuick3DObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QQuick3DObjectChangeListener18itemEnabledChangedEP14QQuick3DObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QQuick3DObjectChangeListener18itemOpacityChangedEP14QQuick3DObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QQuick3DObjectChangeListener13itemDestroyedEP14QQuick3DObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QQuick3DObjectChangeListener14itemChildAddedEP14QQuick3DObjectS1_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN28QQuick3DObjectChangeListener16itemChildRemovedEP14QQuick3DObjectS1_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN28QQuick3DObjectChangeListener17itemParentChangedEP14QQuick3DObjectS1_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_take_QQuick3DObjectChangeListener": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN28QQuick3DObjectChangeListener23itemSiblingOrderChangedEP14QQuick3DObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN28QQuick3DObjectChangeListener21itemVisibilityChangedEP14QQuick3DObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN28QQuick3DObjectChangeListener18itemEnabledChangedEP14QQuick3DObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN28QQuick3DObjectChangeListener18itemOpacityChangedEP14QQuick3DObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN28QQuick3DObjectChangeListener13itemDestroyedEP14QQuick3DObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN28QQuick3DObjectChangeListener14itemChildAddedEP14QQuick3DObjectS1_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN28QQuick3DObjectChangeListener16itemChildRemovedEP14QQuick3DObjectS1_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN28QQuick3DObjectChangeListener17itemParentChangedEP14QQuick3DObjectS1_": [
+      "nothing", "address", "address", "address"
+    ]
+  }
+}

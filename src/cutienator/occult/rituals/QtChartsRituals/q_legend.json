@@ -1,0 +1,77 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/qlegend.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK7QLegend10metaObjectEv": ["address", "address"],
+    "ritual_ZN7QLegend2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN7QLegendC1EP6QChart": ["address", "address"],
+    "ritual_ZN7QLegendD1Ev": ["nothing", "address"],
+    "ritual_ZN7QLegend5paintEP8QPainterPK24QStyleOptionGraphicsItemP7QWidget": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN7QLegend8setBrushERK6QBrush": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK7QLegend5brushEv": ["address", "address"],
+    "ritual_ZN7QLegend8setColorE6QColor": ["nothing", "address", "address"],
+    "ritual_ZN7QLegend5colorEv": ["address", "address"],
+    "ritual_ZN7QLegend6setPenERK4QPen": ["nothing", "address", "address"],
+    "ritual_ZNK7QLegend3penEv": ["address", "address"],
+    "ritual_ZN7QLegend14setBorderColorE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QLegend11borderColorEv": ["address", "address"],
+    "ritual_ZN7QLegend7setFontERK5QFont": ["nothing", "address", "address"],
+    "ritual_ZNK7QLegend4fontEv": ["address", "address"],
+    "ritual_ZN7QLegend13setLabelBrushERK6QBrush": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK7QLegend10labelBrushEv": ["address", "address"],
+    "ritual_ZN7QLegend13setLabelColorE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK7QLegend10labelColorEv": ["address", "address"],
+    "ritual_ZN7QLegend12setAlignmentE6QFlagsIN2Qt13AlignmentFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK7QLegend9alignmentEv": ["int", "address"],
+    "ritual_ZN7QLegend15detachFromChartEv": ["nothing", "address"],
+    "ritual_ZN7QLegend13attachToChartEv": ["nothing", "address"],
+    "ritual_ZN7QLegend17isAttachedToChartEv": ["bool", "address"],
+    "ritual_ZN7QLegend20setBackgroundVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK7QLegend19isBackgroundVisibleEv": ["bool", "address"],
+    "ritual_ZNK7QLegend7markersEP15QAbstractSeries": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN7QLegend14reverseMarkersEv": ["bool", "address"],
+    "ritual_ZN7QLegend17setReverseMarkersEb": ["nothing", "address", "bool"],
+    "ritual_ZNK7QLegend12showToolTipsEv": ["bool", "address"],
+    "ritual_ZN7QLegend15setShowToolTipsEb": ["nothing", "address", "bool"],
+    "ritual_ZNK7QLegend13isInteractiveEv": ["bool", "address"],
+    "ritual_ZN7QLegend14setInteractiveEb": ["nothing", "address", "bool"],
+    "ritual_ZNK7QLegend11markerShapeEv": ["int", "address"],
+    "ritual_ZN7QLegend14setMarkerShapeENS_11MarkerShapeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN7QLegend9hideEventEP10QHideEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QLegend9showEventEP10QShowEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QLegend": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN7QLegend5paintEP8QPainterPK24QStyleOptionGraphicsItemP7QWidget": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN7QLegend9hideEventEP10QHideEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN7QLegend9showEventEP10QShowEvent": [
+      "nothing", "address", "address"
+    ]
+  }
+}

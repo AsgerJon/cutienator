@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qsequentialanimationgroup_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN32QSequentialAnimationGroupPrivate14AnimationIndexC1Ev": [
+      "address"
+    ],
+    "ritual_ZN32QSequentialAnimationGroupPrivate14AnimationIndexD1Ev": [
+      "nothing", "address"
+    ]
+  }
+}

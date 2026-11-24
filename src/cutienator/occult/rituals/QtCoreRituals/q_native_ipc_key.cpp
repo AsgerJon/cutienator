@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/qtipccommon.h, Qt 6.12.0. Changes made here are lost.
+#include <QtCore/qglobal.h>
+#if QT_CONFIG(sharedmemory) || QT_CONFIG(systemsemaphore)
 #include <QtCore/qtipccommon.h>
 #include <QtCore/qstring.h>
 
@@ -156,3 +158,5 @@ bool ritual_ZneRK13QNativeIpcKeyS1_(
     const QNativeIpcKey *rhs) {
   return operator!=(*lhs, *rhs);
 }
+
+#endif  // QT_CONFIG(sharedmemory) || QT_CONFIG(systemsemaphore)

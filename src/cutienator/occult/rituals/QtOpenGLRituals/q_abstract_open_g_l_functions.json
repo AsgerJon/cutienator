@@ -1,0 +1,31 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtOpenGL/qopenglversionfunctions.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZN24QAbstractOpenGLFunctionsD1Ev": ["nothing", "address"],
+    "ritual_ZN24QAbstractOpenGLFunctions25initializeOpenGLFunctionsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN24QAbstractOpenGLFunctions6d_funcEv": ["address", "address"],
+    "ritual_ZNK24QAbstractOpenGLFunctions6d_funcEv": ["address", "address"],
+    "ritual_ZN24QAbstractOpenGLFunctionsC1Ev": ["address"],
+    "ritual_ZNK24QAbstractOpenGLFunctions13isInitializedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN24QAbstractOpenGLFunctions16setOwningContextEPK14QOpenGLContext": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK24QAbstractOpenGLFunctions13owningContextEv": [
+      "address", "address"
+    ],
+    "ritual_take_QAbstractOpenGLFunctions": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN24QAbstractOpenGLFunctions25initializeOpenGLFunctionsEv": [
+      "bool", "address"
+    ]
+  }
+}

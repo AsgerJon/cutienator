@@ -1,0 +1,132 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/connectionedit_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18qdesigner_internal14ConnectionEdit10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal14ConnectionEdit2trEPKcS2_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZNK18qdesigner_internal14ConnectionEdit15connectionCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal14ConnectionEdit10connectionEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK18qdesigner_internal14ConnectionEdit17indexOfConnectionEPNS_10ConnectionE": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal14ConnectionEdit9setSourceEPNS_10ConnectionERK7QString": [
+      "nothing", "address", "address", "text"
+    ],
+    "ritual_ZN18qdesigner_internal14ConnectionEdit9setTargetEPNS_10ConnectionERK7QString": [
+      "nothing", "address", "address", "text"
+    ],
+    "ritual_ZNK18qdesigner_internal14ConnectionEdit9undoStackEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal14ConnectionEdit9showEventEP10QShowEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal14ConnectionEdit14deleteSelectedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal14ConnectionEdit13setBackgroundEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal14ConnectionEdit16updateBackgroundEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18qdesigner_internal14ConnectionEdit13widgetRemovedEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal14ConnectionEdit13objectRemovedEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal14ConnectionEdit16createConnectionEP7QWidgetS2_": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal14ConnectionEdit16modifyConnectionEPNS_10ConnectionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal14ConnectionEdit8widgetAtERK6QPoint": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal14ConnectionEdit13endConnectionEP7QWidgetRK6QPoint": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal14ConnectionEdit20newlyAddedConnectionEv": [
+      "address", "address"
+    ],
+    "ritual_cast_qdesigner_internal_ConnectionEdit_qdesigner_internal_CETypes": [
+      "address", "address"
+    ],
+    "ritual_take_qdesigner_internal_ConnectionEdit": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN18qdesigner_internal14ConnectionEdit9setSourceEPNS_10ConnectionERK7QString": [
+      "nothing", "address", "address", "text"
+    ],
+    "ritual_own_ZN18qdesigner_internal14ConnectionEdit9setTargetEPNS_10ConnectionERK7QString": [
+      "nothing", "address", "address", "text"
+    ],
+    "ritual_own_ZN18qdesigner_internal14ConnectionEdit9showEventEP10QShowEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN18qdesigner_internal14ConnectionEdit14deleteSelectedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN18qdesigner_internal14ConnectionEdit13setBackgroundEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN18qdesigner_internal14ConnectionEdit16updateBackgroundEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN18qdesigner_internal14ConnectionEdit13widgetRemovedEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN18qdesigner_internal14ConnectionEdit13objectRemovedEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN18qdesigner_internal14ConnectionEdit10paintEventEP11QPaintEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN18qdesigner_internal14ConnectionEdit14mouseMoveEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN18qdesigner_internal14ConnectionEdit15mousePressEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN18qdesigner_internal14ConnectionEdit17mouseReleaseEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN18qdesigner_internal14ConnectionEdit13keyPressEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN18qdesigner_internal14ConnectionEdit21mouseDoubleClickEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN18qdesigner_internal14ConnectionEdit11resizeEventEP12QResizeEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN18qdesigner_internal14ConnectionEdit16contextMenuEventEP17QContextMenuEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN18qdesigner_internal14ConnectionEdit16createConnectionEP7QWidgetS2_": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN18qdesigner_internal14ConnectionEdit16modifyConnectionEPNS_10ConnectionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK18qdesigner_internal14ConnectionEdit8widgetAtERK6QPoint": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN18qdesigner_internal14ConnectionEdit13endConnectionEP7QWidgetRK6QPoint": [
+      "nothing", "address", "address", "address"
+    ]
+  }
+}

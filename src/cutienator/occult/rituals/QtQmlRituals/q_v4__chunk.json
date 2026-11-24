@@ -1,0 +1,23 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4mmdefs_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN3QV45Chunk8realBaseEv": ["address", "address"],
+    "ritual_ZN3QV45Chunk5firstEv": ["address", "address"],
+    "ritual_ZN3QV45Chunk11bitForIndexEm": ["unsigned long long", "size_t"],
+    "ritual_ZN3QV45Chunk6setBitEPym": ["nothing", "address", "size_t"],
+    "ritual_ZN3QV45Chunk8clearBitEPym": ["nothing", "address", "size_t"],
+    "ritual_ZN3QV45Chunk7testBitEPym": ["bool", "address", "size_t"],
+    "ritual_ZN3QV45Chunk7setBitsEPymm": [
+      "nothing", "address", "size_t", "size_t"
+    ],
+    "ritual_ZN3QV45Chunk13hasNonZeroBitEPy": ["bool", "address"],
+    "ritual_ZN3QV45Chunk16lowestNonZeroBitEPy": ["unsigned int", "address"],
+    "ritual_ZNK3QV45Chunk10nFreeSlotsEv": ["unsigned int", "address"],
+    "ritual_ZNK3QV45Chunk10nUsedSlotsEv": ["unsigned int", "address"],
+    "ritual_ZN3QV45ChunkD1Ev": ["nothing", "address"]
+  }
+}

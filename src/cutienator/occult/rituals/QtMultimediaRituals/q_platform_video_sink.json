@@ -1,0 +1,93 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtMultimedia/6.12.0/QtMultimedia/private/qplatformvideosink_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18QPlatformVideoSink10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QPlatformVideoSink2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18QPlatformVideoSinkD1Ev": ["nothing", "address"],
+    "ritual_ZN18QPlatformVideoSink6setRhiEP4QRhi": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QPlatformVideoSink8setWinIdEy": [
+      "nothing", "address", "unsigned long long"
+    ],
+    "ritual_ZN18QPlatformVideoSink14setDisplayRectERK5QRect": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QPlatformVideoSink13setFullScreenEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN18QPlatformVideoSink18setAspectRatioModeEN2Qt15AspectRatioModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK18QPlatformVideoSink10nativeSizeEv": ["address", "address"],
+    "ritual_ZN18QPlatformVideoSink13setBrightnessEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN18QPlatformVideoSink11setContrastEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN18QPlatformVideoSink6setHueEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN18QPlatformVideoSink13setSaturationEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN18QPlatformVideoSink9videoSinkEv": ["address", "address"],
+    "ritual_ZN18QPlatformVideoSink13setNativeSizeE5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QPlatformVideoSink13setVideoFrameERK11QVideoFrame": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QPlatformVideoSink17currentVideoFrameEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18QPlatformVideoSink15setSubtitleTextERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK18QPlatformVideoSink12subtitleTextEv": ["text", "address"],
+    "ritual_ZN18QPlatformVideoSinkC1EP10QVideoSink": ["address", "address"],
+    "ritual_ZN18QPlatformVideoSink19onVideoFrameChangedERK11QVideoFrame": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QPlatformVideoSink": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN18QPlatformVideoSink6setRhiEP4QRhi": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN18QPlatformVideoSink8setWinIdEy": [
+      "nothing", "address", "unsigned long long"
+    ],
+    "ritual_own_ZN18QPlatformVideoSink14setDisplayRectERK5QRect": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN18QPlatformVideoSink13setFullScreenEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZN18QPlatformVideoSink18setAspectRatioModeEN2Qt15AspectRatioModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN18QPlatformVideoSink13setBrightnessEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_own_ZN18QPlatformVideoSink11setContrastEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_own_ZN18QPlatformVideoSink6setHueEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_own_ZN18QPlatformVideoSink13setSaturationEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_own_ZN18QPlatformVideoSink19onVideoFrameChangedERK11QVideoFrame": [
+      "nothing", "address", "address"
+    ]
+  }
+}

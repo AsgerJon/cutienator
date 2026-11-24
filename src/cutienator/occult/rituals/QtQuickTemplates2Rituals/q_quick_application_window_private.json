@@ -1,0 +1,90 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquickapplicationwindo",
+    "w_p_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN30QQuickApplicationWindowPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK30QQuickApplicationWindowPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN30QQuickApplicationWindowPrivate3getEP23QQuickApplicationWindow": [
+      "address", "address"
+    ],
+    "ritual_ZN30QQuickApplicationWindowPrivate24updateHasBackgroundFlagsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuickApplicationWindowPrivate8relayoutEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuickApplicationWindowPrivate19itemGeometryChangedEP10QQuickItem20QQuickGeometryChangeRK6QRectF": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN30QQuickApplicationWindowPrivate21itemVisibilityChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN30QQuickApplicationWindowPrivate24itemImplicitWidthChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN30QQuickApplicationWindowPrivate25itemImplicitHeightChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK30QQuickApplicationWindowPrivate13windowPaletteEv": [
+      "address", "address"
+    ],
+    "ritual_ZN30QQuickApplicationWindowPrivate10updateFontERK5QFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN30QQuickApplicationWindowPrivate14setFont_helperERK5QFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN30QQuickApplicationWindowPrivate11resolveFontEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuickApplicationWindowPrivate20_q_updateActiveFocusEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuickApplicationWindowPrivate21setActiveFocusControlEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN30QQuickApplicationWindowPrivate16cancelBackgroundEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuickApplicationWindowPrivate17executeBackgroundEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK30QQuickApplicationWindowPrivate14defaultPaletteEv": [
+      "address", "address"
+    ],
+    "ritual_ZN30QQuickApplicationWindowPrivate22updateChildrenPalettesERK8QPalette": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QQuickApplicationWindowPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN30QQuickApplicationWindowPrivate19itemGeometryChangedEP10QQuickItem20QQuickGeometryChangeRK6QRectF": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN30QQuickApplicationWindowPrivate21itemVisibilityChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN30QQuickApplicationWindowPrivate24itemImplicitWidthChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN30QQuickApplicationWindowPrivate25itemImplicitHeightChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK30QQuickApplicationWindowPrivate13windowPaletteEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK30QQuickApplicationWindowPrivate14defaultPaletteEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN30QQuickApplicationWindowPrivate22updateChildrenPalettesERK8QPalette": [
+      "nothing", "address", "address"
+    ]
+  }
+}

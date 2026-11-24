@@ -1,0 +1,78 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLocation/qgeoserviceprovider.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK19QGeoServiceProvider10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QGeoServiceProvider2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN19QGeoServiceProvider25availableServiceProvidersEv": [
+      "address"
+    ],
+    "ritual_ZN19QGeoServiceProviderC1ERK7QStringRK4QMapIS0_8QVariantEb": [
+      "address", "text", "address", "bool"
+    ],
+    "ritual_ZN19QGeoServiceProviderD1Ev": ["nothing", "address"],
+    "ritual_ZNK19QGeoServiceProvider15routingFeaturesEv": ["int", "address"],
+    "ritual_ZNK19QGeoServiceProvider17geocodingFeaturesEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK19QGeoServiceProvider15mappingFeaturesEv": ["int", "address"],
+    "ritual_ZNK19QGeoServiceProvider14placesFeaturesEv": ["int", "address"],
+    "ritual_ZNK19QGeoServiceProvider18navigationFeaturesEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK19QGeoServiceProvider16geocodingManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QGeoServiceProvider14mappingManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QGeoServiceProvider14routingManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QGeoServiceProvider12placeManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QGeoServiceProvider5errorEv": ["int", "address"],
+    "ritual_ZNK19QGeoServiceProvider11errorStringEv": ["text", "address"],
+    "ritual_ZNK19QGeoServiceProvider12mappingErrorEv": ["int", "address"],
+    "ritual_ZNK19QGeoServiceProvider18mappingErrorStringEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK19QGeoServiceProvider14geocodingErrorEv": ["int", "address"],
+    "ritual_ZNK19QGeoServiceProvider20geocodingErrorStringEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK19QGeoServiceProvider12routingErrorEv": ["int", "address"],
+    "ritual_ZNK19QGeoServiceProvider18routingErrorStringEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK19QGeoServiceProvider11placesErrorEv": ["int", "address"],
+    "ritual_ZNK19QGeoServiceProvider17placesErrorStringEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK19QGeoServiceProvider15navigationErrorEv": ["int", "address"],
+    "ritual_ZNK19QGeoServiceProvider21navigationErrorStringEv": [
+      "text", "address"
+    ],
+    "ritual_ZN19QGeoServiceProvider13setParametersERK4QMapI7QString8QVariantE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QGeoServiceProvider9setLocaleERK7QLocale": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QGeoServiceProvider20setAllowExperimentalEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN19QGeoServiceProvider12setQmlEngineEP10QQmlEngine": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QGeoServiceProvider": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

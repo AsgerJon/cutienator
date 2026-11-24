@@ -1,0 +1,38 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qmetatype.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN9QtPrivate15QTypeNormalizer13is_ident_charEc": [
+      "bool", "char"
+    ],
+    "ritual_ZN9QtPrivate15QTypeNormalizer8is_spaceEc": ["bool", "char"],
+    "ritual_ZN9QtPrivate15QTypeNormalizer9is_numberEc": ["bool", "char"],
+    "ritual_ZN9QtPrivate15QTypeNormalizer17starts_with_tokenEPKcS2_S2_b": [
+      "bool", "chars", "chars", "chars", "bool"
+    ],
+    "ritual_ZN9QtPrivate15QTypeNormalizer10skipStringEPKcS2_": [
+      "chars", "chars", "chars"
+    ],
+    "ritual_ZN9QtPrivate15QTypeNormalizer12skipTemplateEPKcS2_b": [
+      "chars", "chars", "chars", "bool"
+    ],
+    "ritual_ZN9QtPrivate15QTypeNormalizer6appendEc": [
+      "nothing", "address", "char"
+    ],
+    "ritual_ZN9QtPrivate15QTypeNormalizer11replaceLastEc": [
+      "nothing", "address", "char"
+    ],
+    "ritual_ZN9QtPrivate15QTypeNormalizer9appendStrEPKc": [
+      "nothing", "address", "chars"
+    ],
+    "ritual_ZN9QtPrivate15QTypeNormalizer26normalizeTypeFromSignatureEPKcS2_": [
+      "int", "address", "chars", "chars"
+    ],
+    "ritual_ZN9QtPrivate15QTypeNormalizer13normalizeTypeEPKcS2_b": [
+      "int", "address", "chars", "chars", "bool"
+    ],
+    "ritual_ZN9QtPrivate15QTypeNormalizerD1Ev": ["nothing", "address"]
+  }
+}

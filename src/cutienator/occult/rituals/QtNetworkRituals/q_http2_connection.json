@@ -1,0 +1,140 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/6.12.0/QtNetwork/private/qhttp2connection_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK16QHttp2Connection10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QHttp2Connection2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN16QHttp2Connection24createUpgradedConnectionEP9QIODeviceRK19QHttp2Configuration": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN16QHttp2Connection22createDirectConnectionEP9QIODeviceRK19QHttp2Configuration": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN16QHttp2Connection28createDirectServerConnectionEP9QIODeviceRK19QHttp2Configuration": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN16QHttp2ConnectionD1Ev": ["nothing", "address"],
+    "ritual_ZNK16QHttp2Connection9getStreamEj": [
+      "address", "address", "unsigned int"
+    ],
+    "ritual_ZNK16QHttp2Connection14promisedStreamERK4QUrl": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN16QHttp2Connection5closeEN5Http210Http2ErrorE": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZNK16QHttp2Connection11isGoingAwayEv": ["bool", "address"],
+    "ritual_ZNK16QHttp2Connection20maxConcurrentStreamsEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZNK16QHttp2Connection24peerMaxConcurrentStreamsEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZNK16QHttp2Connection17maxHeaderListSizeEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZNK16QHttp2Connection20isUpgradedConnectionEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN16QHttp2Connection8sendPingEv": ["bool", "address"],
+    "ritual_ZN16QHttp2Connection8sendPingE14QByteArrayView": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN16QHttp2Connection15handleReadyReadEv": ["nothing", "address"],
+    "ritual_ZN16QHttp2Connection23handleConnectionClosureEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK16QHttp2Connection9getSocketEv": ["address", "address"],
+    "ritual_ZN16QHttp2Connection25createStreamInternal_implEjN12QHttp2Stream13ConfigurationE": [
+      "address", "address", "unsigned int", "address"
+    ],
+    "ritual_ZN16QHttp2Connection15isInvalidStreamEj": [
+      "bool", "address", "unsigned int"
+    ],
+    "ritual_ZN16QHttp2Connection21streamWasResetLocallyEj": [
+      "bool", "address", "unsigned int"
+    ],
+    "ritual_ZNK16QHttp2Connection15streamIsIgnoredEj": [
+      "bool", "address", "unsigned int"
+    ],
+    "ritual_ZN16QHttp2Connection15connectionErrorEN5Http210Http2ErrorERK7QStringb": [
+      "nothing", "address", "unsigned int", "text", "bool"
+    ],
+    "ritual_ZN16QHttp2Connection18setH2ConfigurationE19QHttp2Configuration": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QHttp2Connection12closeSessionEv": ["nothing", "address"],
+    "ritual_ZN16QHttp2Connection28registerStreamAsResetLocallyEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZNK16QHttp2Connection20numActiveStreamsImplEj": [
+      "long long", "address", "unsigned int"
+    ],
+    "ritual_ZNK16QHttp2Connection22numActiveRemoteStreamsEv": [
+      "long long", "address"
+    ],
+    "ritual_ZNK16QHttp2Connection21numActiveLocalStreamsEv": [
+      "long long", "address"
+    ],
+    "ritual_ZN16QHttp2Connection17sendClientPrefaceEv": ["bool", "address"],
+    "ritual_ZN16QHttp2Connection12sendSETTINGSEv": ["bool", "address"],
+    "ritual_ZN16QHttp2Connection17sendServerPrefaceEv": ["bool", "address"],
+    "ritual_ZN16QHttp2Connection24serverCheckClientPrefaceEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN16QHttp2Connection17sendWINDOW_UPDATEEjj": [
+      "bool", "address", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZN16QHttp2Connection32sendClientGracefulShutdownGoawayEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QHttp2Connection39sendInitialServerGracefulShutdownGoawayEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QHttp2Connection37sendFinalServerGracefulShutdownGoawayEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QHttp2Connection15sendGOAWAYFrameEN5Http210Http2ErrorEj": [
+      "bool", "address", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZN16QHttp2Connection21maybeCloseOnGoingAwayEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QHttp2Connection16sendSETTINGS_ACKEv": ["bool", "address"],
+    "ritual_ZN16QHttp2Connection10handleDATAEv": ["nothing", "address"],
+    "ritual_ZN16QHttp2Connection13handleHEADERSEv": ["nothing", "address"],
+    "ritual_ZN16QHttp2Connection14handlePRIORITYEv": ["nothing", "address"],
+    "ritual_ZN16QHttp2Connection16handleRST_STREAMEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QHttp2Connection14handleSETTINGSEv": ["nothing", "address"],
+    "ritual_ZN16QHttp2Connection18handlePUSH_PROMISEEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QHttp2Connection10handlePINGEv": ["nothing", "address"],
+    "ritual_ZN16QHttp2Connection12handleGOAWAYEv": ["nothing", "address"],
+    "ritual_ZN16QHttp2Connection19handleWINDOW_UPDATEEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QHttp2Connection18handleCONTINUATIONEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QHttp2Connection22handleContinuedHEADERSEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QHttp2Connection22validateHeaderListSizeERKN5Http25FrameE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN16QHttp2Connection13acceptSettingEN5Http28SettingsEj": [
+      "bool", "address", "unsigned short", "unsigned int"
+    ],
+    "ritual_ZN16QHttp2Connection17readClientPrefaceEv": ["bool", "address"],
+    "ritual_ZN16QHttp2ConnectionC1EP9QIODevice": ["address", "address"],
+    "ritual_take_QHttp2Connection": ["bool", "address", "chars", "address"]
+  }
+}

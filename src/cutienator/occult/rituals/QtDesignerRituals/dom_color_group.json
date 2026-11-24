@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/ui4_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN13DomColorGroupC1Ev": ["address"],
+    "ritual_ZN13DomColorGroupD1Ev": ["nothing", "address"],
+    "ritual_ZNK13DomColorGroup16elementColorRoleEv": ["address", "address"],
+    "ritual_ZN13DomColorGroup19setElementColorRoleERK5QListIP12DomColorRoleE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13DomColorGroup12elementColorEv": ["address", "address"],
+    "ritual_ZN13DomColorGroup15setElementColorERK5QListIP8DomColorE": [
+      "nothing", "address", "address"
+    ]
+  }
+}

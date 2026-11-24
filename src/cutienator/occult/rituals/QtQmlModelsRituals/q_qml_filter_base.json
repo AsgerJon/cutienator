@@ -1,0 +1,69 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQmlModels/6.12.0/QtQmlModels/private/qqmlfilterbase_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK14QQmlFilterBase10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QQmlFilterBase2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN14QQmlFilterBase24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK14QQmlFilterBase7enabledEv": ["bool", "address"],
+    "ritual_ZN14QQmlFilterBase10setEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK14QQmlFilterBase10isInvertedEv": ["bool", "address"],
+    "ritual_ZN14QQmlFilterBase11setInvertedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK14QQmlFilterBase6columnEv": ["int", "address"],
+    "ritual_ZN14QQmlFilterBase9setColumnEi": ["nothing", "address", "int"],
+    "ritual_ZNK14QQmlFilterBase24filterAcceptsRowInternalEiRK11QModelIndexPK24QQmlSortFilterProxyModel": [
+      "bool", "address", "int", "address", "address"
+    ],
+    "ritual_ZNK14QQmlFilterBase27filterAcceptsColumnInternalEiRK11QModelIndexPK24QQmlSortFilterProxyModel": [
+      "bool", "address", "int", "address", "address"
+    ],
+    "ritual_ZN14QQmlFilterBase6updateEPK24QQmlSortFilterProxyModel": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QQmlFilterBase22supportColumnFilteringEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK14QQmlFilterBase8isActiveEv": ["bool", "address"],
+    "ritual_ZN14QQmlFilterBaseC1EP21QQmlFilterBasePrivateP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN14QQmlFilterBase10invalidateEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN14QQmlFilterBase6d_funcEv": ["address", "address"],
+    "ritual_ZNK14QQmlFilterBase6d_funcEv": ["address", "address"],
+    "ritual_own_ZNK14QQmlFilterBase6columnEv": ["int", "address"],
+    "ritual_own_ZN14QQmlFilterBase9setColumnEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZNK14QQmlFilterBase24filterAcceptsRowInternalEiRK11QModelIndexPK24QQmlSortFilterProxyModel": [
+      "bool", "address", "int", "address", "address"
+    ],
+    "ritual_own_ZNK14QQmlFilterBase27filterAcceptsColumnInternalEiRK11QModelIndexPK24QQmlSortFilterProxyModel": [
+      "bool", "address", "int", "address", "address"
+    ],
+    "ritual_own_ZN14QQmlFilterBase6updateEPK24QQmlSortFilterProxyModel": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK14QQmlFilterBase22supportColumnFilteringEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZNK14QQmlFilterBase8isActiveEv": ["bool", "address"],
+    "ritual_list_make_QQmlFilterBase_ptr": ["address"],
+    "ritual_list_add_QQmlFilterBase_ptr": ["nothing", "address", "address"],
+    "ritual_list_size_QQmlFilterBase_ptr": ["long long", "address"],
+    "ritual_list_at_QQmlFilterBase_ptr": ["address", "address", "long long"],
+    "ritual_list_drop_QQmlFilterBase_ptr": ["nothing", "address"]
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/qsslcipher.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN10QSslCipherC1Ev": ["address"],
+    "ritual_ZN10QSslCipherC1ERK7QString": ["address", "text"],
+    "ritual_ZN10QSslCipherC1ERK7QStringN4QSsl11SslProtocolE": [
+      "address", "text", "int"
+    ],
+    "ritual_ZN10QSslCipherC1ERKS_": ["address", "address"],
+    "ritual_ZN10QSslCipherD1Ev": ["nothing", "address"],
+    "ritual_ZNK10QSslCiphereqERKS_": ["bool", "address", "address"],
+    "ritual_ZNK10QSslCipherneERKS_": ["bool", "address", "address"],
+    "ritual_ZNK10QSslCipher6isNullEv": ["bool", "address"],
+    "ritual_ZNK10QSslCipher4nameEv": ["text", "address"],
+    "ritual_ZNK10QSslCipher13supportedBitsEv": ["int", "address"],
+    "ritual_ZNK10QSslCipher8usedBitsEv": ["int", "address"],
+    "ritual_ZNK10QSslCipher17keyExchangeMethodEv": ["text", "address"],
+    "ritual_ZNK10QSslCipher20authenticationMethodEv": ["text", "address"],
+    "ritual_ZNK10QSslCipher16encryptionMethodEv": ["text", "address"],
+    "ritual_ZNK10QSslCipher14protocolStringEv": ["text", "address"],
+    "ritual_ZNK10QSslCipher8protocolEv": ["int", "address"],
+    "ritual_list_make_QSslCipher": ["address"],
+    "ritual_list_add_QSslCipher": ["nothing", "address", "address"],
+    "ritual_list_size_QSslCipher": ["long long", "address"],
+    "ritual_list_at_QSslCipher": ["address", "address", "long long"],
+    "ritual_list_drop_QSslCipher": ["nothing", "address"]
+  }
+}

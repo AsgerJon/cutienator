@@ -1,0 +1,57 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickdraghandler_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QQuickDragHandler10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QQuickDragHandler2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QQuickDragHandlerC1EP10QQuickItem": ["address", "address"],
+    "ritual_ZN17QQuickDragHandler22handlePointerEventImplEP13QPointerEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QQuickDragHandler5xAxisEv": ["address", "address"],
+    "ritual_ZN17QQuickDragHandler5yAxisEv": ["address", "address"],
+    "ritual_ZNK17QQuickDragHandler11translationEv": ["address", "address"],
+    "ritual_ZNK17QQuickDragHandler17activeTranslationEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QQuickDragHandler20setActiveTranslationERK9QVector2D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QQuickDragHandler21persistentTranslationEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QQuickDragHandler24setPersistentTranslationERK9QVector2D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QQuickDragHandler8snapModeEv": ["int", "address"],
+    "ritual_ZN17QQuickDragHandler11setSnapModeENS_8SnapModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQuickDragHandler17wantsPointerEventEP13QPointerEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN17QQuickDragHandler15onActiveChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuickDragHandler22enforceAxisConstraintsEP7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QQuickDragHandler22targetCentroidPositionEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN17QQuickDragHandler22handlePointerEventImplEP13QPointerEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN17QQuickDragHandler17wantsPointerEventEP13QPointerEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN17QQuickDragHandler15onActiveChangedEv": [
+      "nothing", "address"
+    ]
+  }
+}

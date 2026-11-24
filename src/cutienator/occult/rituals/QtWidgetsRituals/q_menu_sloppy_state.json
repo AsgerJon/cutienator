@@ -1,0 +1,43 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qmenu_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN16QMenuSloppyStateC1Ev": ["address"],
+    "ritual_ZN16QMenuSloppyStateD1Ev": ["nothing", "address"],
+    "ritual_ZN16QMenuSloppyState10initializeEP5QMenu": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QMenuSloppyState5resetEv": ["nothing", "address"],
+    "ritual_ZNK16QMenuSloppyState7enabledEv": ["bool", "address"],
+    "ritual_ZN16QMenuSloppyState10startTimerEv": ["nothing", "address"],
+    "ritual_ZN16QMenuSloppyState22startTimerIfNotRunningEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QMenuSloppyState9stopTimerEv": ["nothing", "address"],
+    "ritual_ZN16QMenuSloppyState5enterEv": ["nothing", "address"],
+    "ritual_ZN16QMenuSloppyState10childEnterEv": ["nothing", "address"],
+    "ritual_ZN16QMenuSloppyState5leaveEv": ["nothing", "address"],
+    "ritual_ZN16QMenuSloppyState10childLeaveEv": ["nothing", "address"],
+    "ritual_ZN16QMenuSloppyState5slopeERK7QPointFS2_": [
+      "double", "address", "address"
+    ],
+    "ritual_ZN16QMenuSloppyState10checkSlopeEddb": [
+      "bool", "address", "double", "double", "bool"
+    ],
+    "ritual_ZN16QMenuSloppyState17processMouseEventERK7QPointFP7QActionS4_": [
+      "int", "address", "address", "address", "address"
+    ],
+    "ritual_ZN16QMenuSloppyState15setSubMenuPopupERK5QRectP7QActionP5QMenu": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK16QMenuSloppyState25hasParentActiveDelayTimerEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK16QMenuSloppyState14timeForTimeoutEv": ["int", "address"],
+    "ritual_ZNK16QMenuSloppyState9isTimerIdEi": ["bool", "address", "int"],
+    "ritual_ZNK16QMenuSloppyState7subMenuEv": ["address", "address"]
+  }
+}

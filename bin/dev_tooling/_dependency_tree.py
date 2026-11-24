@@ -7,6 +7,7 @@ import os
 import re
 import subprocess
 import tempfile
+from concurrent.futures import ThreadPoolExecutor
 from typing import TYPE_CHECKING
 
 from worktoy.waitaminute import MissingVariable, TypeException
@@ -206,6 +207,13 @@ class DependencyTree:
   __enum_records__ = None  # type: Optional[Dict[str, Record]]
   __alias_types__ = None  # type: Optional[Dict[str, str]]
   __copyable_names__ = None  # type: Optional[FrozenSet[str]]
+  #  The classes whose header file did not compile among the others
+  #  when the compiler was asked what it can copy; see
+  #  '_createCopyableNames'.
+  __not_asked_copyable__ = None  # type: Optional[FrozenSet[str]]
+  #  Each class the tree leaves out for an edge case of Qt's source it
+  #  has no rule for, with why; see 'getMissedClasses'.
+  __missed_classes__ = None  # type: Optional[Dict[str, str]]
   __defined_names__ = None  # type: Optional[FrozenSet[str]]
   __defined_paths__ = None  # type: Optional[Dict[str, str]]
   __make_order__ = None  # type: Optional[Names]
@@ -340,6 +348,8 @@ class DependencyTree:
     aliasTypes = dict()  # type: Dict[str, str]
     definedNames = dict()  # type: Dict[str, str]
     leftOut = []  # type: List[str]
+    twice = set()  # type: Set[str]
+    self.__missed_classes__ = dict()
     for headerReader in self.getHeaderReaders():
       partName = headerReader.getPartName()
       #  Every declaration of a class in this part, and every namespace,
@@ -362,6 +372,16 @@ class DependencyTree:
       names = dict()  # type: Dict[str, str]
       for entryId in entries:
         self._nameEntry(entryId, entries, namespaces, names)
+      #  A class that could not be named is left out, and so is every
+      #  class inside it; see 'getMissedClasses'.
+      for entryId in [e for e in entries if e not in names]:
+        del entries[entryId]
+      found['enums'] = [
+          one for one in found['enums']
+          if one[1] is None or one[1] in names]
+      found['aliases'] = [
+          one for one in found['aliases']
+          if one[1] is None or one[1] in names]
       for prefix, insideId, ownName, fixedType, detail in found['enums']:
         outer = prefix if insideId is None else '%s::' % names[insideId]
         enumNames.add('%s%s' % (outer, ownName))
@@ -387,23 +407,42 @@ class DependencyTree:
           continue
         name = names[entryId]
         if entry['belongsToId'] in entries and name not in declared:
-          infoSpec = """The class '%s' is defined away from the class it
-          belongs to, and that class does not declare it."""
-          raise RuntimeError(' '.join((infoSpec % name).split()))
+          infoSpec = """It is defined away from the class it belongs
+          to, in '%s', and that class does not declare it."""
+          self._missClass(name, infoSpec % entry['headerPath'])
+          leftOut.append(name)
+          continue
         words = name.split('::')
         outer = ('::'.join(words[:end]) for end in range(1, len(words) + 1))
         if any(declared.get(o, 'public') != 'public' for o in outer):
           leftOut.append(name)
           continue
+        if name in parents and places[name][0] != partName:
+          #  Two parts each define a class of their own by one name, as
+          #  'Color4ub' in QtQuickParticles and in QtQuick3DParticles,
+          #  which no file of Qt reads together. Neither is the class
+          #  of that name: both are left out.
+          infoSpec = """Two parts define a class of their own by this
+          name: in '%s' and in '%s'."""
+          self._missClass(
+              name, infoSpec % (places[name][1], entry['headerPath']))
+          twice.add(name)
+          continue
         if name in parents:
-          infoSpec = """The class '%s' is defined in full twice: in '%s'
-          and in '%s'."""
-          info = infoSpec % (name, places[name][1], entry['headerPath'])
-          raise RuntimeError(' '.join(info.split()))
+          infoSpec = """It is defined in full twice: in '%s' and in
+          '%s'."""
+          self._missClass(
+              name, infoSpec % (places[name][1], entry['headerPath']))
+          twice.add(name)
+          continue
         parents[name] = entry['bases']
         taken[name], given[name] = entry['taken'], entry['given']
         places[name] = (partName, entry['headerPath'])
         numbers[name] = entryId
+    for name in twice:
+      for kept in (parents, taken, given, places, numbers):
+        kept.pop(name, None)
+      leftOut.append(name)
     self.__left_out_names__ = (*sorted(leftOut),)
     self.__class_numbers__ = numbers
     self.__enum_names__ = (*sorted(enumNames),)
@@ -412,6 +451,22 @@ class DependencyTree:
     self.__alias_types__ = aliasTypes
     self.__defined_names__ = frozenset(definedNames)
     self.__defined_paths__ = definedNames
+    #  A class written in a namespace or inside another class may name
+    #  the class it is built on short, as 'class ArgumentList: public
+    #  Node' in 'QQmlJS::AST': C++ looks the name up in the scopes
+    #  around the class first, the nearest first.
+    for name in parents:
+      found = []  # type: List[str]
+      for base in parents[name]:
+        words = name.split('::')[:-1]
+        while words and base not in parents:
+          spelled = '%s::%s' % ('::'.join(words), base)
+          if spelled in parents:
+            base = spelled
+            break
+          words.pop()
+        found.append(base)
+      parents[name] = (*found,)
     takes, gives = dict(), dict()
     for name in parents:
       takes[name] = self._findClasses(taken[name], parents, name)
@@ -906,71 +961,123 @@ class DependencyTree:
       letter for each class. What was said is in the message.
     """
     classNames = self.getClassNames()
+    private = []  # type: List[str]
+    for headerReader in self.getHeaderReaders():
+      if headerReader.hasPrivate():
+        for privateFolder in headerReader.getPrivateIncludeFolders():
+          if '-I%s' % privateFolder not in private:
+            private.append('-I%s' % privateFolder)
+    #  One file for the classes of each part, all compiled at once: the
+    #  compiler is asked by one core each time.
+    byPart = dict()  # type: Dict[str, List[str]]
+    for className in classNames:
+      byPart.setdefault(self.getPartName(className), []).append(className)
+    copyable, refused = set(), set()  # type: Set[str], Set[str]
+    with ThreadPoolExecutor(os.cpu_count() or 1) as pool:
+      for found, left in pool.map(
+          lambda names: self._findCopyable(names, private),
+          byPart.values()):
+        copyable.update(found)
+        refused.update(left)
+    self.__copyable_names__ = frozenset(copyable)
+    self.__not_asked_copyable__ = frozenset(refused)
+
+  def _findCopyable(
+      self,
+      classNames: List[str],
+      private: List[str],
+  ) -> Tuple[Set[str], Set[str]]:
+    """
+    Asks the compiler which of some classes it can copy, as
+    '_createCopyableNames' tells, in one file of their header files.
+    Gives those it can copy, and those whose header files the compiler
+    refused among the others.
+
+    Raises
+    ------
+
+    RuntimeError
+      The object file does not hold one letter for each class. Where
+      'clang++' refuses the file for what no line can be taken out
+      for, none of the classes counts as copyable.
+    """
+    #  The lines that pull in the header file of each class. A class
+    #  whose header file no line can pull in counts as not copyable.
+    linesOf = dict()  # type: Dict[str, List[str]]
     includeLines = []  # type: List[str]
+    unplaced = set()  # type: Set[str]
     for className in classNames:
       headerReader = self.getHeaderReader(className)
-      lines = headerReader.getIncludeLines(self.getHeaderPath(className))
-      for line in lines.split('\n'):
-        if line.strip() and line not in includeLines:
+      try:
+        lines = headerReader.getIncludeLines(self.getHeaderPath(className))
+      except LookupError:
+        unplaced.add(className)
+        lines = ''
+      linesOf[className] = [l for l in lines.split('\n') if l.strip()]
+      for line in linesOf[className]:
+        if line not in includeLines:
           includeLines.append(line)
-    lines = [
-        *includeLines,
-        '#include <type_traits>',
-        '#include <utility>',
-        '',
-        'template <typename T, typename = void>',
-        'struct CanCopy : std::false_type {};',
-        '',
-        'template <typename T>',
-        'struct CanCopy<T, std::void_t<',
-        '    decltype(new T(std::declval<const T &>())),',
-        '    decltype(delete std::declval<T *>())>> : std::true_type {};',
-        '',
-        "//  One letter for each class, in order: '1' when it can be",
-        "//  copied, '0' when not.",
-        'extern const char cutienatorCopyable[];',
-        'const char cutienatorCopyable[] = {',
-    ]
-    lineSpec = "    char('0' + int(CanCopy<%s>::value)),"
-    lines.extend(lineSpec % name for name in classNames)
-    lines.extend(('    0,', '};', ''))
-    headerReaders = self.getHeaderReaders()
-    with tempfile.TemporaryDirectory() as folder:
-      sourceFile = os.path.join(folder, 'copyable.cpp')
-      objectFile = os.path.join(folder, 'copyable.o')
-      answerFile = os.path.join(folder, 'copyable.txt')
-      with open(sourceFile, 'w') as file:
-        file.write('\n'.join(lines))
-      private = []  # type: List[str]
-      for headerReader in headerReaders:
-        if headerReader.hasPrivate():
-          for privateFolder in headerReader.getPrivateIncludeFolders():
-            if '-I%s' % privateFolder not in private:
-              private.append('-I%s' % privateFolder)
-      #  '-fdata-sections' gives the letters a stretch of the object
-      #  file to themselves, under their own name.
-      command = (
-          'clang++', '-std=c++17', '-fPIC', '-fdata-sections', '-c',
-          '-I%s' % HeaderReader.getQtHeaderFolder(), *private, sourceFile,
-          '-o', objectFile,
-      )
-      handOver = (
-          'objcopy', '-O', 'binary',
-          '--only-section=.rodata.cutienatorCopyable', objectFile,
-          answerFile,
-      )
-      for step in (command, handOver):
-        done = subprocess.run(
-            step, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
-            universal_newlines=True,
-        )
-        if done.returncode:
-          infoSpec = """Asking the compiler which classes it can copy
-          failed at '%s', which said: %s"""
-          info = infoSpec % (os.path.basename(step[0]), done.stderr)
-          raise RuntimeError(' '.join(info.split()))
-      with open(answerFile, 'rb') as file:
-        said = file.read()
+    #  A header file Qt keeps apart may not compile among all the
+    #  others, as QtBluetooth's 'qprivatelinearbuffer_p.h', which needs
+    #  a size the file pulling it in defines. The lines the compiler
+    #  names are taken out, the classes of their header files count as
+    #  not copyable, and the file is compiled again.
+    blocked, refused = set(), {*unplaced}  # type: Set[str], Set[str]
+    for _ in range(40):
+      kept = [l for l in includeLines if l not in blocked]
+      lines = [
+          *kept,
+          '#include <type_traits>',
+          '#include <utility>',
+          '',
+          'template <typename T, typename = void>',
+          'struct CanCopy : std::false_type {};',
+          '',
+          'template <typename T>',
+          'struct CanCopy<T, std::void_t<',
+          '    decltype(new T(std::declval<const T &>())),',
+          '    decltype(delete std::declval<T *>())>> : std::true_type {};',
+          '',
+          "//  One letter for each class, in order: '1' when it can be",
+          "//  copied, '0' when not.",
+          'extern const char cutienatorCopyable[];',
+          'const char cutienatorCopyable[] = {',
+      ]
+      firstClassLine = len(lines) + 1
+      lineSpec = "    char('0' + int(CanCopy<%s>::value)),"
+      lines.extend(
+          "    '0'," if name in refused else lineSpec % name
+          for name in classNames)
+      lines.extend(('    0,', '};', ''))
+      said, stderr = self._askCopyable(lines, private)
+      if said is not None:
+        break
+      named = {
+          int(number) for number in re.findall(
+              r'copyable\.cpp:(\d+):', stderr)}
+      grown = False
+      for number in sorted(named):
+        if number <= len(kept):
+          line = kept[number - 1]
+          if line not in blocked:
+            blocked.add(line)
+            grown = True
+        elif firstClassLine <= number < firstClassLine + len(classNames):
+          name = classNames[number - firstClassLine]
+          if name not in refused:
+            refused.add(name)
+            grown = True
+      for name in classNames:
+        if name not in refused and any(
+            line in blocked for line in linesOf[name]):
+          refused.add(name)
+          grown = True
+      if not grown:
+        #  The compiler refuses the file for what no line can be taken
+        #  out for: none of these classes counts as copyable.
+        return set(), {*classNames}
+    else:
+      return set(), {*classNames}
     if len(said) != len(classNames) + 1 or said.strip(b'01') != b'\x00':
       infoSpec = """Asking the compiler which classes it can copy gave
       %d letters for %d classes, or other letters than '0' and '1'."""
@@ -980,7 +1087,58 @@ class DependencyTree:
     for name, letter in zip(classNames, said.decode('ascii')):
       if letter == '1':
         copyable.add(name)
-    self.__copyable_names__ = frozenset(copyable)
+    return copyable, refused
+
+  def _askCopyable(
+      self,
+      lines: List[str],
+      private: List[str],
+  ) -> Tuple[Optional[bytes], str]:
+    """
+    Compiles the file of '_createCopyableNames' and gives the letters
+    its object file holds, with '' for what the compiler said; or None
+    and what the compiler said when it refused the file.
+
+    Raises
+    ------
+
+    RuntimeError
+      'objcopy' failed on the object file.
+    """
+    with tempfile.TemporaryDirectory() as folder:
+      sourceFile = os.path.join(folder, 'copyable.cpp')
+      objectFile = os.path.join(folder, 'copyable.o')
+      answerFile = os.path.join(folder, 'copyable.txt')
+      with open(sourceFile, 'w') as file:
+        file.write('\n'.join(lines))
+      #  '-fdata-sections' gives the letters a stretch of the object
+      #  file to themselves, under their own name.
+      command = (
+          'clang++', '-std=c++17', '-fPIC', '-fdata-sections', '-c',
+          '-ferror-limit=0', '-I%s' % HeaderReader.getQtHeaderFolder(),
+          *private, sourceFile, '-o', objectFile,
+      )
+      done = subprocess.run(
+          command, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+          universal_newlines=True,
+      )
+      if done.returncode:
+        return None, done.stderr
+      handOver = (
+          'objcopy', '-O', 'binary',
+          '--only-section=.rodata.cutienatorCopyable', objectFile,
+          answerFile,
+      )
+      done = subprocess.run(
+          handOver, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+          universal_newlines=True,
+      )
+      if done.returncode:
+        infoSpec = """Asking the compiler which classes it can copy
+        failed at 'objcopy', which said: %s"""
+        raise RuntimeError(' '.join((infoSpec % done.stderr).split()))
+      with open(answerFile, 'rb') as file:
+        return file.read(), ''
 
   def getCopyableNames(self, **kwargs) -> FrozenSet[str]:
     """
@@ -1346,7 +1504,7 @@ class DependencyTree:
       entries: Dict[str, Record],
       namespaces: Dict[str, str],
       names: Dict[str, str],
-  ) -> str:
+  ) -> Optional[str]:
     """
     Gives the full name of a declared class, as C++ names it, and keeps
     it in 'names'.
@@ -1355,11 +1513,8 @@ class DependencyTree:
     away from the class it belongs to, as 'QMetaObject::Connection' is,
     carries the number of that class instead, and is named after it.
 
-    Raises
-    ------
-
-    RuntimeError
-      The class belongs to something that was not read.
+    Gives None, and writes the class down in 'getMissedClasses', when
+    it belongs to something that was not read.
     """
     if entryId in names:
       return names[entryId]
@@ -1369,16 +1524,42 @@ class DependencyTree:
       name = '%s%s' % (entry['prefix'], entry['ownName'])
     elif owner in entries:
       outer = self._nameEntry(owner, entries, namespaces, names)
+      if outer is None:
+        return None
       name = '%s::%s' % (outer, entry['ownName'])
     elif owner in namespaces:
       name = '%s::%s' % (namespaces[owner], entry['ownName'])
+    elif entry['belongsToId'] is not None and entry['insideId'] in entries:
+      #  Named first inside a class, in what one of its functions takes,
+      #  as 'void setStore(class QHstsStore *store);' in Qt's
+      #  'qhsts_p.h': C++ declares such a class in the namespace around
+      #  the class, here the file's own.
+      name = '%s%s' % (entry['prefix'], entry['ownName'])
     else:
-      infoSpec = """The class '%s' in '%s' belongs to something that was
-      not read with its part of Qt."""
-      info = infoSpec % (entry['ownName'], entry['headerPath'])
-      raise RuntimeError(' '.join(info.split()))
+      infoSpec = """It belongs to something that was not read with its
+      part of Qt; it is written in '%s'."""
+      self._missClass(entry['ownName'], infoSpec % entry['headerPath'])
+      return None
     names[entryId] = name
     return name
+
+  def _missClass(self, name: str, reason: str) -> None:
+    """Writes down a class the tree leaves out, and why, for
+    'getMissedClasses'."""
+    if self.__missed_classes__ is None:
+      self.__missed_classes__ = dict()
+    self.__missed_classes__.setdefault(name, ' '.join(reason.split()))
+
+  def getMissedClasses(self) -> Dict[str, str]:
+    """
+    Gives each class the tree leaves out for an edge case of Qt's
+    source it has no rule for, under its name, with why, as a class
+    that two parts each define on their own. They are for a pass by
+    hand, class by class: a rule in the tree only where many classes
+    share the case.
+    """
+    self.getClassNames()
+    return dict(self.__missed_classes__ or ())
 
   def _collectTypes(self, classRecord: Record) -> Tuple[Set[str], Set[str]]:
     """

@@ -1,0 +1,108 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/qpa/qplatformdialoghelper.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QFileDialogOptionsD1Ev": ["nothing", "address"],
+    "ritual_ZNK18QFileDialogOptions11windowTitleEv": ["text", "address"],
+    "ritual_ZN18QFileDialogOptions14setWindowTitleERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN18QFileDialogOptions9setOptionENS_16FileDialogOptionEb": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZNK18QFileDialogOptions10testOptionENS_16FileDialogOptionE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN18QFileDialogOptions10setOptionsE6QFlagsINS_16FileDialogOptionEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK18QFileDialogOptions7optionsEv": ["int", "address"],
+    "ritual_ZNK18QFileDialogOptions6filterEv": ["int", "address"],
+    "ritual_ZN18QFileDialogOptions9setFilterE6QFlagsIN4QDir6FilterEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18QFileDialogOptions11setViewModeENS_8ViewModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK18QFileDialogOptions8viewModeEv": ["int", "address"],
+    "ritual_ZN18QFileDialogOptions11setFileModeENS_8FileModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK18QFileDialogOptions8fileModeEv": ["int", "address"],
+    "ritual_ZN18QFileDialogOptions13setAcceptModeENS_10AcceptModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK18QFileDialogOptions10acceptModeEv": ["int", "address"],
+    "ritual_ZN18QFileDialogOptions14setSidebarUrlsERK5QListI4QUrlE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QFileDialogOptions11sidebarUrlsEv": ["address", "address"],
+    "ritual_ZNK18QFileDialogOptions21useDefaultNameFiltersEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN18QFileDialogOptions24setUseDefaultNameFiltersEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN18QFileDialogOptions14setNameFiltersERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QFileDialogOptions11nameFiltersEv": ["address", "address"],
+    "ritual_ZN18QFileDialogOptions18setMimeTypeFiltersERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QFileDialogOptions15mimeTypeFiltersEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18QFileDialogOptions16setDefaultSuffixERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK18QFileDialogOptions13defaultSuffixEv": ["text", "address"],
+    "ritual_ZN18QFileDialogOptions10setHistoryERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QFileDialogOptions7historyEv": ["address", "address"],
+    "ritual_ZN18QFileDialogOptions12setLabelTextENS_11DialogLabelERK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZNK18QFileDialogOptions9labelTextENS_11DialogLabelE": [
+      "text", "address", "int"
+    ],
+    "ritual_ZN18QFileDialogOptions20isLabelExplicitlySetENS_11DialogLabelE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK18QFileDialogOptions16initialDirectoryEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18QFileDialogOptions19setInitialDirectoryERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QFileDialogOptions31initiallySelectedMimeTypeFilterEv": [
+      "text", "address"
+    ],
+    "ritual_ZN18QFileDialogOptions34setInitiallySelectedMimeTypeFilterERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK18QFileDialogOptions27initiallySelectedNameFilterEv": [
+      "text", "address"
+    ],
+    "ritual_ZN18QFileDialogOptions30setInitiallySelectedNameFilterERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK18QFileDialogOptions22initiallySelectedFilesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18QFileDialogOptions25setInitiallySelectedFilesERK5QListI4QUrlE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QFileDialogOptions19setSupportedSchemesERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QFileDialogOptions16supportedSchemesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18QFileDialogOptions23defaultNameFilterStringEv": ["text"]
+  }
+}

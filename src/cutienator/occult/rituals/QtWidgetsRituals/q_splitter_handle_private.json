@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qsplitter_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN22QSplitterHandlePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK22QSplitterHandlePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN22QSplitterHandlePrivateC1Ev": ["address"],
+    "ritual_ZNK22QSplitterHandlePrivate4pickERK6QPoint": [
+      "int", "address", "address"
+    ],
+    "ritual_take_QSplitterHandlePrivate": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

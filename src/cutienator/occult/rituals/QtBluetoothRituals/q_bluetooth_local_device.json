@@ -1,0 +1,41 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtBluetooth/qbluetoothlocaldevice.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZNK21QBluetoothLocalDevice10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QBluetoothLocalDevice2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN21QBluetoothLocalDeviceC1EP7QObject": ["address", "address"],
+    "ritual_ZN21QBluetoothLocalDeviceC1ERK17QBluetoothAddressP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN21QBluetoothLocalDeviceD1Ev": ["nothing", "address"],
+    "ritual_ZNK21QBluetoothLocalDevice7isValidEv": ["bool", "address"],
+    "ritual_ZN21QBluetoothLocalDevice14requestPairingERK17QBluetoothAddressNS_7PairingE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZNK21QBluetoothLocalDevice13pairingStatusERK17QBluetoothAddress": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN21QBluetoothLocalDevice11setHostModeENS_8HostModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK21QBluetoothLocalDevice8hostModeEv": ["int", "address"],
+    "ritual_ZNK21QBluetoothLocalDevice16connectedDevicesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QBluetoothLocalDevice7powerOnEv": ["nothing", "address"],
+    "ritual_ZNK21QBluetoothLocalDevice4nameEv": ["text", "address"],
+    "ritual_ZNK21QBluetoothLocalDevice7addressEv": ["address", "address"],
+    "ritual_ZN21QBluetoothLocalDevice10allDevicesEv": ["address"],
+    "ritual_take_QBluetoothLocalDevice": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

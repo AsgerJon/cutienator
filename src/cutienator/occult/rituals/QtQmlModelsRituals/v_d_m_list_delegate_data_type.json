@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQmlModels/6.12.0/QtQmlModels/private/qqmldmlistaccessordata_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN23VDMListDelegateDataType18metaObjectFromTypeE9QMetaType": [
+      "address", "address"
+    ],
+    "ritual_ZN23VDMListDelegateDataType23createMissingPropertiesEPK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23VDMListDelegateDataType14createPropertyEPKcS1_": [
+      "int", "address", "chars", "chars"
+    ],
+    "ritual_cast_VDMListDelegateDataType_QQmlAdaptorModel_Accessors": [
+      "address", "address"
+    ],
+    "ritual_cast_VDMListDelegateDataType_QAbstractDynamicMetaObject": [
+      "address", "address"
+    ]
+  }
+}

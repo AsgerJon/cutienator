@@ -1,0 +1,34 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgrendersh",
+    "adowmap_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QSSGRenderShadowMapD1Ev": ["nothing", "address"],
+    "ritual_ZN19QSSGRenderShadowMap22releaseCachedResourcesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QSSGRenderShadowMap14shadowMapEntryEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN19QSSGRenderShadowMap17layerRenderTargetEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN19QSSGRenderShadowMap25layerRenderPassDescriptorEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK19QSSGRenderShadowMap21shadowMapAtlasTextureEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QSSGRenderShadowMap25shadowMapBlueNoiseTextureEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QSSGRenderShadowMap19shadowMapEntryCountEv": [
+      "long long", "address"
+    ],
+    "ritual_ZNK19QSSGRenderShadowMap14shadowClearSrbEv": [
+      "address", "address"
+    ]
+  }
+}

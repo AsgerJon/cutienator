@@ -1,0 +1,34 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickselectable_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN16QQuickSelectableD1Ev": ["nothing", "address"],
+    "ritual_ZNK16QQuickSelectable29selectionPointerHandlerTargetEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK16QQuickSelectable12hasSelectionEv": ["bool", "address"],
+    "ritual_ZN16QQuickSelectable14startSelectionERK7QPointF6QFlagsIN2Qt16KeyboardModifierEE": [
+      "bool", "address", "address", "int"
+    ],
+    "ritual_ZN16QQuickSelectable20setSelectionStartPosERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickSelectable18setSelectionEndPosERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickSelectable14clearSelectionEv": ["nothing", "address"],
+    "ritual_ZN16QQuickSelectable18normalizeSelectionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK16QQuickSelectable18selectionRectangleEv": [
+      "address", "address"
+    ],
+    "ritual_ZN16QQuickSelectable18scrollTowardsPointERK7QPointFRK6QSizeF": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_take_QQuickSelectable": ["bool", "address", "chars", "address"]
+  }
+}

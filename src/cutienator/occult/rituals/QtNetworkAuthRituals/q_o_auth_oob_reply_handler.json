@@ -1,0 +1,31 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetworkAuth/qoauthoobreplyhandler.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK21QOAuthOobReplyHandler10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QOAuthOobReplyHandler2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN21QOAuthOobReplyHandlerC1EP7QObject": ["address", "address"],
+    "ritual_ZN21QOAuthOobReplyHandlerD1Ev": ["nothing", "address"],
+    "ritual_ZNK21QOAuthOobReplyHandler8callbackEv": ["text", "address"],
+    "ritual_ZN21QOAuthOobReplyHandler20networkReplyFinishedEP13QNetworkReply": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QOAuthOobReplyHandler13parseResponseERK10QByteArray": [
+      "address", "address", "address"
+    ],
+    "ritual_take_QOAuthOobReplyHandler": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK21QOAuthOobReplyHandler8callbackEv": ["text", "address"],
+    "ritual_own_ZN21QOAuthOobReplyHandler20networkReplyFinishedEP13QNetworkReply": [
+      "nothing", "address", "address"
+    ]
+  }
+}

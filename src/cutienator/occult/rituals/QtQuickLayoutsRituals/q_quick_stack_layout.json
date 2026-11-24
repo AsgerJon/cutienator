@@ -1,0 +1,99 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Layouts/6.12.0/QtQuickLayouts/private/qquickstacklayout_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QQuickStackLayout10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QQuickStackLayout2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QQuickStackLayout21qt_qmlMarker_attachedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuickStackLayoutC1EP10QQuickItem": ["address", "address"],
+    "ritual_ZNK17QQuickStackLayout5countEv": ["int", "address"],
+    "ritual_ZNK17QQuickStackLayout12currentIndexEv": ["int", "address"],
+    "ritual_ZN17QQuickStackLayout15setCurrentIndexEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQuickStackLayout17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuickStackLayout10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZNK17QQuickStackLayout8sizeHintEN2Qt8SizeHintE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN17QQuickStackLayout12setAlignmentEP10QQuickItem6QFlagsIN2Qt13AlignmentFlagEE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN17QQuickStackLayout10invalidateEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QQuickStackLayout17updateLayoutItemsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuickStackLayout9rearrangeERK6QSizeF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QQuickStackLayout16setStretchFactorEP10QQuickItemiN2Qt11OrientationE": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZNK17QQuickStackLayout6itemAtEi": ["address", "address", "int"],
+    "ritual_ZNK17QQuickStackLayout9itemCountEv": ["int", "address"],
+    "ritual_ZNK17QQuickStackLayout7indexOfEP10QQuickItem": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN17QQuickStackLayout23itemSiblingOrderChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QQuickStackLayout21qmlAttachedPropertiesEP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN17QQuickStackLayout20collectItemSizeHintsEP10QQuickItemP6QSizeF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QQuickStackLayout16shouldIgnoreItemEP10QQuickItem": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN17QQuickStackLayout17childItemsChangedENS_24AdjustCurrentIndexPolicyE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQuickStackLayout6d_funcEv": ["address", "address"],
+    "ritual_ZNK17QQuickStackLayout6d_funcEv": ["address", "address"],
+    "ritual_own_ZN17QQuickStackLayout17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN17QQuickStackLayout10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZNK17QQuickStackLayout8sizeHintEN2Qt8SizeHintE": [
+      "address", "address", "int"
+    ],
+    "ritual_own_ZN17QQuickStackLayout12setAlignmentEP10QQuickItem6QFlagsIN2Qt13AlignmentFlagEE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_own_ZN17QQuickStackLayout10invalidateEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN17QQuickStackLayout17updateLayoutItemsEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN17QQuickStackLayout9rearrangeERK6QSizeF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN17QQuickStackLayout16setStretchFactorEP10QQuickItemiN2Qt11OrientationE": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_own_ZNK17QQuickStackLayout6itemAtEi": [
+      "address", "address", "int"
+    ],
+    "ritual_own_ZNK17QQuickStackLayout9itemCountEv": ["int", "address"],
+    "ritual_own_ZN17QQuickStackLayout23itemSiblingOrderChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ]
+  }
+}

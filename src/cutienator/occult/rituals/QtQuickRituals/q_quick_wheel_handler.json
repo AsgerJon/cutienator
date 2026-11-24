@@ -1,0 +1,83 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickwheelhandler_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18QQuickWheelHandler10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QQuickWheelHandler2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18QQuickWheelHandlerC1EP10QQuickItem": ["address", "address"],
+    "ritual_ZNK18QQuickWheelHandler11orientationEv": ["int", "address"],
+    "ritual_ZN18QQuickWheelHandler14setOrientationEN2Qt11OrientationE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK18QQuickWheelHandler12isInvertibleEv": ["bool", "address"],
+    "ritual_ZN18QQuickWheelHandler13setInvertibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK18QQuickWheelHandler13activeTimeoutEv": ["double", "address"],
+    "ritual_ZN18QQuickWheelHandler16setActiveTimeoutEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK18QQuickWheelHandler8rotationEv": ["double", "address"],
+    "ritual_ZN18QQuickWheelHandler11setRotationEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK18QQuickWheelHandler13rotationScaleEv": ["double", "address"],
+    "ritual_ZN18QQuickWheelHandler16setRotationScaleEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK18QQuickWheelHandler8propertyEv": ["text", "address"],
+    "ritual_ZN18QQuickWheelHandler11setPropertyERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK18QQuickWheelHandler21targetScaleMultiplierEv": [
+      "double", "address"
+    ],
+    "ritual_ZN18QQuickWheelHandler24setTargetScaleMultiplierEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK18QQuickWheelHandler29isTargetTransformAroundCursorEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN18QQuickWheelHandler30setTargetTransformAroundCursorEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK18QQuickWheelHandler10isBlockingEv": ["bool", "address"],
+    "ritual_ZN18QQuickWheelHandler11setBlockingEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN18QQuickWheelHandler17wantsPointerEventEP13QPointerEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN18QQuickWheelHandler15onTargetChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQuickWheelHandler15onActiveChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickWheelHandler10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQuickWheelHandler6d_funcEv": ["address", "address"],
+    "ritual_ZNK18QQuickWheelHandler6d_funcEv": ["address", "address"],
+    "ritual_take_QQuickWheelHandler": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN18QQuickWheelHandler17wantsPointerEventEP13QPointerEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN18QQuickWheelHandler15onTargetChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN18QQuickWheelHandler15onActiveChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN18QQuickWheelHandler10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ]
+  }
+}

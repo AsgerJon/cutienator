@@ -1,0 +1,78 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Dialogs2QuickImpl/6.12.0/QtQuickDialogs2QuickImpl/private/qquickab",
+    "stractcolorpicker_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK25QQuickAbstractColorPicker10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QQuickAbstractColorPicker2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN25QQuickAbstractColorPicker24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QQuickAbstractColorPickerD1Ev": ["nothing", "address"],
+    "ritual_ZNK25QQuickAbstractColorPicker5colorEv": ["address", "address"],
+    "ritual_ZN25QQuickAbstractColorPicker8setColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK25QQuickAbstractColorPicker3hueEv": ["double", "address"],
+    "ritual_ZN25QQuickAbstractColorPicker6setHueEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK25QQuickAbstractColorPicker10saturationEv": [
+      "double", "address"
+    ],
+    "ritual_ZN25QQuickAbstractColorPicker13setSaturationEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK25QQuickAbstractColorPicker5valueEv": ["double", "address"],
+    "ritual_ZN25QQuickAbstractColorPicker8setValueEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK25QQuickAbstractColorPicker9lightnessEv": [
+      "double", "address"
+    ],
+    "ritual_ZN25QQuickAbstractColorPicker12setLightnessEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK25QQuickAbstractColorPicker5alphaEv": ["double", "address"],
+    "ritual_ZN25QQuickAbstractColorPicker8setAlphaEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK25QQuickAbstractColorPicker9isPressedEv": ["bool", "address"],
+    "ritual_ZN25QQuickAbstractColorPicker10setPressedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK25QQuickAbstractColorPicker6handleEv": ["address", "address"],
+    "ritual_ZN25QQuickAbstractColorPicker9setHandleEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK25QQuickAbstractColorPicker19implicitHandleWidthEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK25QQuickAbstractColorPicker20implicitHandleHeightEv": [
+      "double", "address"
+    ],
+    "ritual_ZN25QQuickAbstractColorPicker7colorAtERK7QPointF": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN25QQuickAbstractColorPicker17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QQuickAbstractColorPicker11updateColorERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QQuickAbstractColorPicker6d_funcEv": ["address", "address"],
+    "ritual_ZNK25QQuickAbstractColorPicker6d_funcEv": ["address", "address"],
+    "ritual_take_QQuickAbstractColorPicker": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN25QQuickAbstractColorPicker17componentCompleteEv": [
+      "nothing", "address"
+    ]
+  }
+}

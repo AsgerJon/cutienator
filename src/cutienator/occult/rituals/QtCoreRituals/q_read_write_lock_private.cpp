@@ -1,0 +1,112 @@
+//  Written by dev_tooling.RitualGenerator from the records of
+//  QtCore/6.12.0/QtCore/private/qreadwritelock_p.h, Qt 6.12.0. Changes made
+//  here are lost.
+#include <QtCore/qglobal.h>
+#include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
+#if QT_CONFIG(thread)
+#include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
+#include <QtCore/QtCore>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/6.12.0/QtCore/private/qreadwritelock_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qdeadlinetimer.h>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include "qplatformdefs.h"
+#include "qreadwritelock.h"
+#include "qthread.h"
+#include "qreadwritelock_p.h"
+#include "private/qfreelist_p.h"
+#include "private/qlocking_p.h"
+#include <algorithm>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from src/corelib/thread/qreadwritelock.cpp, line 457, as _ZN21QReadWriteLockPrivate12lockForWriteERSt11unique_lockISt5mutexE14QDeadlineTimer
+inline bool QReadWriteLockPrivate::lockForWrite(std::unique_lock<std::mutex> &lock, QDeadlineTimer timeout)
+{
+    using std::chrono::steady_clock;
+    Q_ASSERT(!mutex.try_lock()); // mutex must be locked when entering this function
+
+    while (readerCount || writerCount) {
+        if (timeout.hasExpired()) {
+            if (waitingReaders && !waitingWriters && !writerCount) {
+                // We timed out and now there is no more writers or waiting writers, but some
+                // readers were queued (probably because of us). Wake the waiting readers.
+                readerCond.notify_all();
+            }
+            return false;
+        }
+        if (!timeout.isForever()) {
+            waitingWriters++;
+            writerCond.wait_until(lock, timeout.deadline<steady_clock>());
+        } else {
+            waitingWriters++;
+            writerCond.wait(lock);
+        }
+        waitingWriters--;
+    }
+
+    Q_ASSERT(writerCount == 0);
+    Q_ASSERT(readerCount == 0);
+    writerCount = 1;
+    return true;
+}
+
+//  from src/corelib/thread/qreadwritelock.cpp, line 487, as _ZN21QReadWriteLockPrivate6unlockEv
+inline void QReadWriteLockPrivate::unlock()
+{
+    Q_ASSERT(!mutex.try_lock()); // mutex must be locked when entering this function
+    if (waitingWriters)
+        writerCond.notify_one();
+    else if (waitingReaders)
+        readerCond.notify_all();
+}
+
+//  from src/corelib/thread/qreadwritelock.cpp, line 523, as _ZN21QReadWriteLockPrivate21recursiveLockForWriteE14QDeadlineTimer
+inline bool QReadWriteLockPrivate::recursiveLockForWrite(QDeadlineTimer timeout)
+{
+    Q_ASSERT(recursive);
+    auto lock = qt_unique_lock(mutex);
+
+    Qt::HANDLE self = QThread::currentThreadId();
+    if (currentWriter == self) {
+        writerCount++;
+        return true;
+    }
+
+    if (!lockForWrite(lock, timeout))
+        return false;
+
+    currentWriter = self;
+    return true;
+}
+//  -----------------------------------------------------------------------
+
+//  QReadWriteLockPrivate::QReadWriteLockPrivate(bool isRecursive)
+extern "C" Q_DECL_EXPORT
+QReadWriteLockPrivate *ritual_ZN21QReadWriteLockPrivateC1Eb(
+    bool isRecursive) {
+  return new QReadWriteLockPrivate(isRecursive);
+}
+
+//  void QReadWriteLockPrivate::unlock()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN21QReadWriteLockPrivate6unlockEv(QReadWriteLockPrivate *self) {
+  self->unlock();
+}
+
+//  bool QReadWriteLockPrivate::recursiveLockForWrite(QDeadlineTimer timeout)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN21QReadWriteLockPrivate21recursiveLockForWriteE14QDeadlineTimer(
+    QReadWriteLockPrivate *self,
+    const QDeadlineTimer *timeout) {
+  return self->recursiveLockForWrite(*timeout);
+}
+
+#endif  // QT_CONFIG(thread)

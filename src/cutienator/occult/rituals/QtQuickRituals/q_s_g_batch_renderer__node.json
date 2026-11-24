@@ -1,0 +1,34 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qsgbatchrenderer_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK16QSGBatchRenderer4Node6parentEv": ["address", "address"],
+    "ritual_ZN16QSGBatchRenderer4Node6appendEPS0_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QSGBatchRenderer4Node6removeEPS0_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QSGBatchRenderer4Node10firstChildEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK16QSGBatchRenderer4Node7siblingEv": ["address", "address"],
+    "ritual_ZN16QSGBatchRenderer4Node9setParentEPS0_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QSGBatchRenderer4Node8hasChildEPS0_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK16QSGBatchRenderer4Node4typeEv": ["int", "address"],
+    "ritual_ZNK16QSGBatchRenderer4Node7elementEv": ["address", "address"],
+    "ritual_ZNK16QSGBatchRenderer4Node17renderNodeElementEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK16QSGBatchRenderer4Node8clipInfoEv": ["address", "address"],
+    "ritual_ZNK16QSGBatchRenderer4Node8rootInfoEv": ["address", "address"],
+    "ritual_ZN16QSGBatchRenderer4NodeD1Ev": ["nothing", "address"]
+  }
+}

@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/qtemporarydir.h, Qt 6.12.0. Changes made here are lost.
+#include <QtCore/qglobal.h>
+#if QT_CONFIG(temporaryfile)
 #include <QtCore/qtemporarydir.h>
 #include <QtCore/qstring.h>
 
@@ -66,3 +68,5 @@ QString *ritual_ZNK13QTemporaryDir8filePathERK7QString(
     const QString *fileName) {
   return new QString(self->filePath(*fileName));
 }
+
+#endif  // QT_CONFIG(temporaryfile)

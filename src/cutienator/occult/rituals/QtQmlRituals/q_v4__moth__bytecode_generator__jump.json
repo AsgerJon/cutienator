@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4bytecodegenerator_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN3QV44Moth17BytecodeGenerator4JumpC1EPS1_i": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN3QV44Moth17BytecodeGenerator4JumpD1Ev": ["nothing", "address"],
+    "ritual_ZN3QV44Moth17BytecodeGenerator4Jump4linkEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN3QV44Moth17BytecodeGenerator4Jump4linkENS1_5LabelE": [
+      "nothing", "address", "address"
+    ]
+  }
+}

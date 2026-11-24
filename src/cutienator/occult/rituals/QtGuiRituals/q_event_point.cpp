@@ -139,79 +139,103 @@ QPointF *ritual_ZNK11QEventPoint18normalizedPositionEv(
   return new QPointF(self->normalizedPosition());
 }
 
+#if QT_DEPRECATED_SINCE(6, 0)
 //  QPointF QEventPoint::pos() const
 extern "C" Q_DECL_EXPORT
 QPointF *ritual_ZNK11QEventPoint3posEv(const QEventPoint *self) {
   return new QPointF(self->pos());
 }
+#endif  // QT_DEPRECATED_SINCE(6, 0)
 
+#if QT_DEPRECATED_SINCE(6, 0)
 //  QPointF QEventPoint::startPos() const
 extern "C" Q_DECL_EXPORT
 QPointF *ritual_ZNK11QEventPoint8startPosEv(const QEventPoint *self) {
   return new QPointF(self->startPos());
 }
+#endif  // QT_DEPRECATED_SINCE(6, 0)
 
+#if QT_DEPRECATED_SINCE(6, 0)
 //  QPointF QEventPoint::scenePos() const
 extern "C" Q_DECL_EXPORT
 QPointF *ritual_ZNK11QEventPoint8scenePosEv(const QEventPoint *self) {
   return new QPointF(self->scenePos());
 }
+#endif  // QT_DEPRECATED_SINCE(6, 0)
 
+#if QT_DEPRECATED_SINCE(6, 0)
 //  QPointF QEventPoint::startScenePos() const
 extern "C" Q_DECL_EXPORT
 QPointF *ritual_ZNK11QEventPoint13startScenePosEv(const QEventPoint *self) {
   return new QPointF(self->startScenePos());
 }
+#endif  // QT_DEPRECATED_SINCE(6, 0)
 
+#if QT_DEPRECATED_SINCE(6, 0)
 //  QPointF QEventPoint::screenPos() const
 extern "C" Q_DECL_EXPORT
 QPointF *ritual_ZNK11QEventPoint9screenPosEv(const QEventPoint *self) {
   return new QPointF(self->screenPos());
 }
+#endif  // QT_DEPRECATED_SINCE(6, 0)
 
+#if QT_DEPRECATED_SINCE(6, 0)
 //  QPointF QEventPoint::startScreenPos() const
 extern "C" Q_DECL_EXPORT
 QPointF *ritual_ZNK11QEventPoint14startScreenPosEv(const QEventPoint *self) {
   return new QPointF(self->startScreenPos());
 }
+#endif  // QT_DEPRECATED_SINCE(6, 0)
 
+#if QT_DEPRECATED_SINCE(6, 0)
 //  QPointF QEventPoint::startNormalizedPos() const
 extern "C" Q_DECL_EXPORT
 QPointF *ritual_ZNK11QEventPoint18startNormalizedPosEv(
     const QEventPoint *self) {
   return new QPointF(self->startNormalizedPos());
 }
+#endif  // QT_DEPRECATED_SINCE(6, 0)
 
+#if QT_DEPRECATED_SINCE(6, 0)
 //  QPointF QEventPoint::normalizedPos() const
 extern "C" Q_DECL_EXPORT
 QPointF *ritual_ZNK11QEventPoint13normalizedPosEv(const QEventPoint *self) {
   return new QPointF(self->normalizedPos());
 }
+#endif  // QT_DEPRECATED_SINCE(6, 0)
 
+#if QT_DEPRECATED_SINCE(6, 0)
 //  QPointF QEventPoint::lastPos() const
 extern "C" Q_DECL_EXPORT
 QPointF *ritual_ZNK11QEventPoint7lastPosEv(const QEventPoint *self) {
   return new QPointF(self->lastPos());
 }
+#endif  // QT_DEPRECATED_SINCE(6, 0)
 
+#if QT_DEPRECATED_SINCE(6, 0)
 //  QPointF QEventPoint::lastScenePos() const
 extern "C" Q_DECL_EXPORT
 QPointF *ritual_ZNK11QEventPoint12lastScenePosEv(const QEventPoint *self) {
   return new QPointF(self->lastScenePos());
 }
+#endif  // QT_DEPRECATED_SINCE(6, 0)
 
+#if QT_DEPRECATED_SINCE(6, 0)
 //  QPointF QEventPoint::lastScreenPos() const
 extern "C" Q_DECL_EXPORT
 QPointF *ritual_ZNK11QEventPoint13lastScreenPosEv(const QEventPoint *self) {
   return new QPointF(self->lastScreenPos());
 }
+#endif  // QT_DEPRECATED_SINCE(6, 0)
 
+#if QT_DEPRECATED_SINCE(6, 0)
 //  QPointF QEventPoint::lastNormalizedPos() const
 extern "C" Q_DECL_EXPORT
 QPointF *ritual_ZNK11QEventPoint17lastNormalizedPosEv(
     const QEventPoint *self) {
   return new QPointF(self->lastNormalizedPos());
 }
+#endif  // QT_DEPRECATED_SINCE(6, 0)
 
 //  QVector2D QEventPoint::velocity() const
 extern "C" Q_DECL_EXPORT

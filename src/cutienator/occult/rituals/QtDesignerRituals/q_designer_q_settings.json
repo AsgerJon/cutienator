@@ -1,0 +1,43 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/qdesigner_qsettings_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QDesignerQSettingsC1Ev": ["address"],
+    "ritual_ZN18QDesignerQSettings10beginGroupERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN18QDesignerQSettings8endGroupEv": ["nothing", "address"],
+    "ritual_ZNK18QDesignerQSettings8containsERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN18QDesignerQSettings8setValueERK7QStringRK8QVariant": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZNK18QDesignerQSettings5valueERK7QStringRK8QVariant": [
+      "address", "address", "text", "address"
+    ],
+    "ritual_ZN18QDesignerQSettings6removeERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN18QDesignerQSettings23settingsApplicationNameEv": ["text"],
+    "ritual_own_ZN18QDesignerQSettings10beginGroupERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_own_ZN18QDesignerQSettings8endGroupEv": ["nothing", "address"],
+    "ritual_own_ZNK18QDesignerQSettings8containsERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_own_ZN18QDesignerQSettings8setValueERK7QStringRK8QVariant": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_own_ZNK18QDesignerQSettings5valueERK7QStringRK8QVariant": [
+      "address", "address", "text", "address"
+    ],
+    "ritual_own_ZN18QDesignerQSettings6removeERK7QString": [
+      "nothing", "address", "text"
+    ]
+  }
+}

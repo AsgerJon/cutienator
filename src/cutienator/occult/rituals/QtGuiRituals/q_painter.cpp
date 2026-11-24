@@ -24,6 +24,18 @@
 #include <QtGui/qpaintengine.h>
 #include <QtCore/qlist.h>
 
+//  QPainterPrivate *QPainter::d_func()
+extern "C" Q_DECL_EXPORT
+QPainterPrivate *ritual_ZN8QPainter6d_funcEv(QPainter *self) {
+  return self->d_func();
+}
+
+//  const QPainterPrivate *QPainter::d_func() const
+extern "C" Q_DECL_EXPORT
+const QPainterPrivate *ritual_ZNK8QPainter6d_funcEv(const QPainter *self) {
+  return self->d_func();
+}
+
 //  QPainter::QPainter()
 extern "C" Q_DECL_EXPORT
 QPainter *ritual_ZN8QPainterC1Ev() {
@@ -1093,6 +1105,7 @@ void ritual_ZN8QPainter15drawTiledPixmapERK5QRectRK7QPixmapRK6QPoint(
   self->drawTiledPixmap(*a0, *a1, *a2);
 }
 
+#if !defined(QT_NO_PICTURE)
 //  void QPainter::drawPicture(const QPointF &p, const QPicture &picture)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN8QPainter11drawPictureERK7QPointFRK8QPicture(
@@ -1101,7 +1114,9 @@ void ritual_ZN8QPainter11drawPictureERK7QPointFRK8QPicture(
     const QPicture *picture) {
   self->drawPicture(*p, *picture);
 }
+#endif  // !defined(QT_NO_PICTURE)
 
+#if !defined(QT_NO_PICTURE)
 //  void QPainter::drawPicture(int x, int y, const QPicture &picture)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN8QPainter11drawPictureEiiRK8QPicture(
@@ -1111,7 +1126,9 @@ void ritual_ZN8QPainter11drawPictureEiiRK8QPicture(
     const QPicture *picture) {
   self->drawPicture(x, y, *picture);
 }
+#endif  // !defined(QT_NO_PICTURE)
 
+#if !defined(QT_NO_PICTURE)
 //  void QPainter::drawPicture(const QPoint &p, const QPicture &picture)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN8QPainter11drawPictureERK6QPointRK8QPicture(
@@ -1120,6 +1137,7 @@ void ritual_ZN8QPainter11drawPictureERK6QPointRK8QPicture(
     const QPicture *picture) {
   self->drawPicture(*p, *picture);
 }
+#endif  // !defined(QT_NO_PICTURE)
 
 //  void QPainter::drawPixmap(const QRectF &targetRect, const QPixmap
 //      &pixmap, const QRectF &sourceRect)
@@ -1401,6 +1419,7 @@ Qt::LayoutDirection ritual_ZNK8QPainter15layoutDirectionEv(
   return self->layoutDirection();
 }
 
+#if !defined(QT_NO_RAWFONT)
 //  void QPainter::drawGlyphRun(const QPointF &position, const QGlyphRun
 //      &glyphRun)
 extern "C" Q_DECL_EXPORT
@@ -1410,6 +1429,7 @@ void ritual_ZN8QPainter12drawGlyphRunERK7QPointFRK9QGlyphRun(
     const QGlyphRun *glyphRun) {
   self->drawGlyphRun(*position, *glyphRun);
 }
+#endif  // !defined(QT_NO_RAWFONT)
 
 //  void QPainter::drawStaticText(const QPointF &topLeftPosition, const
 //      QStaticText &staticText)

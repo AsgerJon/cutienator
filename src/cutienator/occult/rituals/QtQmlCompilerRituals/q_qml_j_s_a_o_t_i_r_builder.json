@@ -1,0 +1,43 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQmlCompiler/6.12.0/QtQmlCompiler/private/qqmljsaotirbuilder_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QQmlJSAOTIRBuilder5visitEPN6QQmlJS3AST18FunctionExpressionE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN18QQmlJSAOTIRBuilder5visitEPN6QQmlJS3AST19FunctionDeclarationE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN18QQmlJSAOTIRBuilder5visitEPN6QQmlJS3AST15UiSourceElementE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN18QQmlJSAOTIRBuilder20registerFunctionExprEPN6QQmlJS3AST18FunctionExpressionEN5QmlIR9IRBuilder13IsQmlFunctionE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN18QQmlJSAOTIRBuilder15setBindingValueEPN3QV412CompiledData7BindingEPN6QQmlJS3AST9StatementEPNS5_4NodeE": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN18QQmlJSAOTIRBuilderD1Ev": ["nothing", "address"],
+    "ritual_take_QQmlJSAOTIRBuilder": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN18QQmlJSAOTIRBuilder5visitEPN6QQmlJS3AST18FunctionExpressionE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN18QQmlJSAOTIRBuilder5visitEPN6QQmlJS3AST19FunctionDeclarationE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN18QQmlJSAOTIRBuilder5visitEPN6QQmlJS3AST15UiSourceElementE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN18QQmlJSAOTIRBuilder20registerFunctionExprEPN6QQmlJS3AST18FunctionExpressionEN5QmlIR9IRBuilder13IsQmlFunctionE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_own_ZN18QQmlJSAOTIRBuilder15setBindingValueEPN3QV412CompiledData7BindingEPN6QQmlJS3AST9StatementEPNS5_4NodeE": [
+      "nothing", "address", "address", "address", "address"
+    ]
+  }
+}

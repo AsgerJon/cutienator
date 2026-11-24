@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4errorobject_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN3QV411ErrorObject10__dataTestEv": ["nothing", "address"],
+    "ritual_ZNK3QV411ErrorObject11d_uncheckedEv": ["address", "address"],
+    "ritual_ZNK3QV411ErrorObject1dEv": ["address", "address"],
+    "ritual_ZN3QV411ErrorObject20defaultInternalClassEPNS_10EngineBaseE": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV411ErrorObject16defaultPrototypeEPNS_15ExecutionEngineE": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV411ErrorObject14virtualDestroyEPNS_4Heap4BaseE": [
+      "nothing", "address"
+    ],
+    "ritual_ZN3QV411ErrorObject13asSyntaxErrorEv": ["address", "address"]
+  }
+}

@@ -115,11 +115,13 @@ QList<QFontVariableAxis> *ritual_ZNK9QFontInfo12variableAxesEv(
   return new QList<QFontVariableAxis>(self->variableAxes());
 }
 
+#if QT_DEPRECATED_SINCE(6, 0)
 //  int QFontInfo::legacyWeight() const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK9QFontInfo12legacyWeightEv(const QFontInfo *self) {
   return self->legacyWeight();
 }
+#endif  // QT_DEPRECATED_SINCE(6, 0)
 
 //  bool QFontInfo::exactMatch() const
 extern "C" Q_DECL_EXPORT

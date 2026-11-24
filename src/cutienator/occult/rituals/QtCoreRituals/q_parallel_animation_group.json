@@ -26,6 +26,8 @@
     "ritual_ZN23QParallelAnimationGroup15updateDirectionEN18QAbstractAnimation9DirectionE": [
       "nothing", "address", "int"
     ],
+    "ritual_ZN23QParallelAnimationGroup6d_funcEv": ["address", "address"],
+    "ritual_ZNK23QParallelAnimationGroup6d_funcEv": ["address", "address"],
     "ritual_take_QParallelAnimationGroup": [
       "bool", "address", "chars", "address"
     ],

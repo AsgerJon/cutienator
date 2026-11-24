@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DHelpers/6.12.0/QtQuick3DHelpers/private/heightfieldgeometry_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK19HeightFieldGeometry10metaObjectEv": ["address", "address"],
+    "ritual_ZN19HeightFieldGeometry2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN19HeightFieldGeometryC1Ev": ["address"],
+    "ritual_ZNK19HeightFieldGeometry6sourceEv": ["address", "address"],
+    "ritual_ZN19HeightFieldGeometry9setSourceERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19HeightFieldGeometry13smoothShadingEv": ["bool", "address"],
+    "ritual_ZN19HeightFieldGeometry16setSmoothShadingEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK19HeightFieldGeometry7extentsEv": ["address", "address"],
+    "ritual_ZN19HeightFieldGeometry10setExtentsERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19HeightFieldGeometry10updateDataEv": ["nothing", "address"]
+  }
+}

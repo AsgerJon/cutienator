@@ -1,0 +1,40 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSvg/6.12.0/QtSvg/private/qsvganimator_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QSvgAbstractAnimatorD1Ev": ["nothing", "address"],
+    "ritual_ZN20QSvgAbstractAnimator15appendAnimationEPK8QSvgNodeP21QSvgAbstractAnimation": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK20QSvgAbstractAnimator17animationsForNodeEPK8QSvgNode": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN20QSvgAbstractAnimator17advanceAnimationsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QSvgAbstractAnimator16restartAnimationEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QSvgAbstractAnimator14currentElapsedEv": [
+      "long long", "address"
+    ],
+    "ritual_ZN20QSvgAbstractAnimator15setAnimatorTimeEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN20QSvgAbstractAnimator20setAnimationDurationEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZNK20QSvgAbstractAnimator17animationDurationEv": [
+      "long long", "address"
+    ],
+    "ritual_ZNK20QSvgAbstractAnimator25combinedAnimationsForNodeEPK8QSvgNode": [
+      "address", "address", "address"
+    ],
+    "ritual_take_QSvgAbstractAnimator": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Layouts/6.12.0/QtQuickLayouts/private/qquicklinearlayout_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK16QQuickGridLayout10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QQuickGridLayout2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN16QQuickGridLayoutC1EP10QQuickItem": ["address", "address"],
+    "ritual_ZNK16QQuickGridLayout13columnSpacingEv": ["double", "address"],
+    "ritual_ZN16QQuickGridLayout16setColumnSpacingEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK16QQuickGridLayout10rowSpacingEv": ["double", "address"],
+    "ritual_ZN16QQuickGridLayout13setRowSpacingEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK16QQuickGridLayout7columnsEv": ["int", "address"],
+    "ritual_ZN16QQuickGridLayout10setColumnsEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16QQuickGridLayout4rowsEv": ["int", "address"],
+    "ritual_ZN16QQuickGridLayout7setRowsEi": ["nothing", "address", "int"],
+    "ritual_ZNK16QQuickGridLayout4flowEv": ["int", "address"],
+    "ritual_ZN16QQuickGridLayout7setFlowENS_4FlowE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16QQuickGridLayout17uniformCellWidthsEv": ["bool", "address"],
+    "ritual_ZN16QQuickGridLayout20setUniformCellWidthsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK16QQuickGridLayout18uniformCellHeightsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN16QQuickGridLayout21setUniformCellHeightsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN16QQuickGridLayout17insertLayoutItemsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickGridLayout6d_funcEv": ["address", "address"],
+    "ritual_ZNK16QQuickGridLayout6d_funcEv": ["address", "address"],
+    "ritual_own_ZN16QQuickGridLayout17insertLayoutItemsEv": [
+      "nothing", "address"
+    ]
+  }
+}

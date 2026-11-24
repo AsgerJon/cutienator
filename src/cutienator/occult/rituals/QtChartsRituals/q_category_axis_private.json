@@ -1,0 +1,29 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/6.12.0/QtCharts/private/qcategoryaxis_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK20QCategoryAxisPrivate10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QCategoryAxisPrivate2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN20QCategoryAxisPrivateC1EP13QCategoryAxis": [
+      "address", "address"
+    ],
+    "ritual_ZN20QCategoryAxisPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN20QCategoryAxisPrivate18initializeGraphicsEP13QGraphicsItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QCategoryAxisPrivate10ticksCountEv": ["int", "address"],
+    "ritual_ZN20QCategoryAxisPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK20QCategoryAxisPrivate6q_funcEv": ["address", "address"],
+    "ritual_take_QCategoryAxisPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN20QCategoryAxisPrivate18initializeGraphicsEP13QGraphicsItem": [
+      "nothing", "address", "address"
+    ]
+  }
+}

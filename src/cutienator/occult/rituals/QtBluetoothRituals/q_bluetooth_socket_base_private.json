@@ -1,0 +1,72 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtBluetooth/6.12.0/QtBluetooth/private/qbluetoothsocketbase_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK27QBluetoothSocketBasePrivate10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QBluetoothSocketBasePrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN27QBluetoothSocketBasePrivate18ensureNativeSocketEN21QBluetoothServiceInfo8ProtocolE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK27QBluetoothSocketBasePrivate9localNameEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK27QBluetoothSocketBasePrivate12localAddressEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK27QBluetoothSocketBasePrivate9localPortEv": [
+      "unsigned short", "address"
+    ],
+    "ritual_ZNK27QBluetoothSocketBasePrivate8peerNameEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK27QBluetoothSocketBasePrivate11peerAddressEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK27QBluetoothSocketBasePrivate8peerPortEv": [
+      "unsigned short", "address"
+    ],
+    "ritual_ZN27QBluetoothSocketBasePrivate5abortEv": ["nothing", "address"],
+    "ritual_ZN27QBluetoothSocketBasePrivate5closeEv": ["nothing", "address"],
+    "ritual_ZN27QBluetoothSocketBasePrivate9writeDataEPKcx": [
+      "long long", "address", "chars", "long long"
+    ],
+    "ritual_ZNK27QBluetoothSocketBasePrivate14bytesAvailableEv": [
+      "long long", "address"
+    ],
+    "ritual_ZNK27QBluetoothSocketBasePrivate11canReadLineEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK27QBluetoothSocketBasePrivate12bytesToWriteEv": [
+      "long long", "address"
+    ],
+    "ritual_ZN27QBluetoothSocketBasePrivate19setSocketDescriptorEiN21QBluetoothServiceInfo8ProtocolEN16QBluetoothSocket11SocketStateE6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [
+      "bool", "address", "int", "int", "int", "int"
+    ],
+    "ritual_ZN27QBluetoothSocketBasePrivate22connectToServiceHelperERK17QBluetoothAddresst6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [
+      "nothing", "address", "address", "unsigned short", "int"
+    ],
+    "ritual_ZN27QBluetoothSocketBasePrivate16connectToServiceERK21QBluetoothServiceInfo6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN27QBluetoothSocketBasePrivate16connectToServiceERK17QBluetoothAddressRK14QBluetoothUuid6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [
+      "nothing", "address", "address", "address", "int"
+    ],
+    "ritual_ZN27QBluetoothSocketBasePrivate16connectToServiceERK17QBluetoothAddresst6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [
+      "nothing", "address", "address", "unsigned short", "int"
+    ],
+    "ritual_ZN27QBluetoothSocketBasePrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK27QBluetoothSocketBasePrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_take_QBluetoothSocketBasePrivate": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

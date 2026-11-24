@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtMulti",
+    "media/6.12.0/QtMultimedia/private/qvideoframetexturepool_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK22QVideoFrameTexturePool13texturesDirtyEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK22QVideoFrameTexturePool12currentFrameEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QVideoFrameTexturePool15setCurrentFrameE11QVideoFrame": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QVideoFrameTexturePool17onFrameEndInvokedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QVideoFrameTexturePool13clearTexturesEv": [
+      "nothing", "address"
+    ]
+  }
+}

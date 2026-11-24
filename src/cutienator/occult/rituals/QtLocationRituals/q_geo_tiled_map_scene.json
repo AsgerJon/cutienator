@@ -1,0 +1,39 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLocation/6.12.0/QtLocation/private/qgeotiledmapscene_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QGeoTiledMapScene10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QGeoTiledMapScene2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QGeoTiledMapScene6d_funcEv": ["address", "address"],
+    "ritual_ZNK17QGeoTiledMapScene6d_funcEv": ["address", "address"],
+    "ritual_ZN17QGeoTiledMapSceneC1EP7QObject": ["address", "address"],
+    "ritual_ZN17QGeoTiledMapSceneD1Ev": ["nothing", "address"],
+    "ritual_ZN17QGeoTiledMapScene13setScreenSizeERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QGeoTiledMapScene11setTileSizeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QGeoTiledMapScene13setCameraDataERK14QGeoCameraData": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QGeoTiledMapScene14setVisibleAreaERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QGeoTiledMapScene16updateSceneGraphEP7QSGNodeP12QQuickWindow": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN17QGeoTiledMapScene18clearTexturedTilesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QGeoTiledMapScene21updateSceneParametersEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QGeoTiledMapScene": ["bool", "address", "chars", "address"]
+  }
+}

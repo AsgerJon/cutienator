@@ -1,0 +1,46 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLocation/qgeoroutesegment.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN16QGeoRouteSegmentC1Ev": ["address"],
+    "ritual_ZN16QGeoRouteSegmentC1ERKS_": ["address", "address"],
+    "ritual_ZN16QGeoRouteSegmentD1Ev": ["nothing", "address"],
+    "ritual_ZeqRK16QGeoRouteSegmentS1_": ["bool", "address", "address"],
+    "ritual_ZneRK16QGeoRouteSegmentS1_": ["bool", "address", "address"],
+    "ritual_ZNK16QGeoRouteSegment7isValidEv": ["bool", "address"],
+    "ritual_ZNK16QGeoRouteSegment16isLegLastSegmentEv": ["bool", "address"],
+    "ritual_ZN16QGeoRouteSegment19setNextRouteSegmentERKS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QGeoRouteSegment16nextRouteSegmentEv": [
+      "address", "address"
+    ],
+    "ritual_ZN16QGeoRouteSegment13setTravelTimeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16QGeoRouteSegment10travelTimeEv": ["int", "address"],
+    "ritual_ZN16QGeoRouteSegment11setDistanceEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK16QGeoRouteSegment8distanceEv": ["double", "address"],
+    "ritual_ZN16QGeoRouteSegment7setPathERK5QListI14QGeoCoordinateE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QGeoRouteSegment4pathEv": ["address", "address"],
+    "ritual_ZN16QGeoRouteSegment11setManeuverERK12QGeoManeuver": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QGeoRouteSegment8maneuverEv": ["address", "address"],
+    "ritual_ZNK16QGeoRouteSegment7isEqualERKS_": [
+      "bool", "address", "address"
+    ],
+    "ritual_list_make_QGeoRouteSegment": ["address"],
+    "ritual_list_add_QGeoRouteSegment": ["nothing", "address", "address"],
+    "ritual_list_size_QGeoRouteSegment": ["long long", "address"],
+    "ritual_list_at_QGeoRouteSegment": ["address", "address", "long long"],
+    "ritual_list_drop_QGeoRouteSegment": ["nothing", "address"]
+  }
+}

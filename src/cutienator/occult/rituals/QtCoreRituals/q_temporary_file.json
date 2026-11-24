@@ -8,6 +8,8 @@
     "ritual_ZN14QTemporaryFile2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN14QTemporaryFile6d_funcEv": ["address", "address"],
+    "ritual_ZNK14QTemporaryFile6d_funcEv": ["address", "address"],
     "ritual_ZN14QTemporaryFileC1Ev": ["address"],
     "ritual_ZN14QTemporaryFileC1ERK7QString": ["address", "text"],
     "ritual_ZN14QTemporaryFileC1EP7QObject": ["address", "address"],

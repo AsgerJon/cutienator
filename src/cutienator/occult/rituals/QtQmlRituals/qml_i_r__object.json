@@ -1,0 +1,47 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmlirbuilder_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN5QmlIR6Object2trEPKcS2_i": ["text", "chars", "chars", "int"],
+    "ritual_ZNK5QmlIR6Object13firstPropertyEv": ["address", "address"],
+    "ritual_ZNK5QmlIR6Object13propertyCountEv": ["int", "address"],
+    "ritual_ZNK5QmlIR6Object10firstAliasEv": ["address", "address"],
+    "ritual_ZNK5QmlIR6Object10aliasCountEv": ["int", "address"],
+    "ritual_ZNK5QmlIR6Object9firstEnumEv": ["address", "address"],
+    "ritual_ZNK5QmlIR6Object9enumCountEv": ["int", "address"],
+    "ritual_ZNK5QmlIR6Object11firstSignalEv": ["address", "address"],
+    "ritual_ZNK5QmlIR6Object11signalCountEv": ["int", "address"],
+    "ritual_ZNK5QmlIR6Object12firstBindingEv": ["address", "address"],
+    "ritual_ZNK5QmlIR6Object12bindingCountEv": ["int", "address"],
+    "ritual_ZNK5QmlIR6Object13firstFunctionEv": ["address", "address"],
+    "ritual_ZNK5QmlIR6Object13functionCountEv": ["int", "address"],
+    "ritual_ZNK5QmlIR6Object15inlineComponentEv": ["address", "address"],
+    "ritual_ZNK5QmlIR6Object20inlineComponentCountEv": ["int", "address"],
+    "ritual_ZNK5QmlIR6Object25requiredPropertyExtraDataEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK5QmlIR6Object30requiredPropertyExtraDataCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZN5QmlIR6Object13setFirstAliasEPNS_5AliasE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN5QmlIR6Object13unlinkBindingEPNS_7BindingES2_": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK5QmlIR6Object28namedObjectsInComponentCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK5QmlIR6Object7hasFlagEN3QV412CompiledData6Object4FlagE": [
+      "bool", "address", "unsigned int"
+    ],
+    "ritual_ZNK5QmlIR6Object8objectIdEv": ["int", "address"],
+    "ritual_ZNK5QmlIR6Object25hasAliasAsDefaultPropertyEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN5QmlIR6ObjectD1Ev": ["nothing", "address"]
+  }
+}

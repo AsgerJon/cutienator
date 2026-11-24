@@ -1,0 +1,64 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/qpieseries.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK10QPieSeries10metaObjectEv": ["address", "address"],
+    "ritual_ZN10QPieSeries2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN10QPieSeriesC1EP7QObject": ["address", "address"],
+    "ritual_ZN10QPieSeriesD1Ev": ["nothing", "address"],
+    "ritual_ZNK10QPieSeries4typeEv": ["int", "address"],
+    "ritual_ZN10QPieSeries6appendEP9QPieSlice": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN10QPieSeries6appendERK5QListIP9QPieSliceE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN10QPieSeries6appendERK7QStringd": [
+      "address", "address", "text", "double"
+    ],
+    "ritual_ZN10QPieSeries6insertEiP9QPieSlice": [
+      "bool", "address", "int", "address"
+    ],
+    "ritual_ZN10QPieSeries6removeEP9QPieSlice": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN10QPieSeries4takeEP9QPieSlice": ["bool", "address", "address"],
+    "ritual_ZN10QPieSeries5clearEv": ["nothing", "address"],
+    "ritual_ZNK10QPieSeries6slicesEv": ["address", "address"],
+    "ritual_ZNK10QPieSeries5countEv": ["int", "address"],
+    "ritual_ZNK10QPieSeries7isEmptyEv": ["bool", "address"],
+    "ritual_ZNK10QPieSeries3sumEv": ["double", "address"],
+    "ritual_ZN10QPieSeries11setHoleSizeEd": ["nothing", "address", "double"],
+    "ritual_ZNK10QPieSeries8holeSizeEv": ["double", "address"],
+    "ritual_ZN10QPieSeries21setHorizontalPositionEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK10QPieSeries18horizontalPositionEv": ["double", "address"],
+    "ritual_ZN10QPieSeries19setVerticalPositionEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK10QPieSeries16verticalPositionEv": ["double", "address"],
+    "ritual_ZN10QPieSeries10setPieSizeEd": ["nothing", "address", "double"],
+    "ritual_ZNK10QPieSeries7pieSizeEv": ["double", "address"],
+    "ritual_ZN10QPieSeries16setPieStartAngleEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK10QPieSeries13pieStartAngleEv": ["double", "address"],
+    "ritual_ZN10QPieSeries14setPieEndAngleEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK10QPieSeries11pieEndAngleEv": ["double", "address"],
+    "ritual_ZN10QPieSeries16setLabelsVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN10QPieSeries17setLabelsPositionEN9QPieSlice13LabelPositionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10QPieSeries6d_funcEv": ["address", "address"],
+    "ritual_ZNK10QPieSeries6d_funcEv": ["address", "address"],
+    "ritual_take_QPieSeries": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK10QPieSeries4typeEv": ["int", "address"]
+  }
+}

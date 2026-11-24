@@ -1,0 +1,48 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/qqmllist.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN17QQmlListReferenceC1Ev": ["address"],
+    "ritual_ZN17QQmlListReferenceC1ERK8QVariantP10QQmlEngine": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN17QQmlListReferenceC1EP7QObjectPKcP10QQmlEngine": [
+      "address", "address", "chars", "address"
+    ],
+    "ritual_ZN17QQmlListReferenceC1ERK8QVariant": ["address", "address"],
+    "ritual_ZN17QQmlListReferenceC1EP7QObjectPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN17QQmlListReferenceC1ERKS_": ["address", "address"],
+    "ritual_ZN17QQmlListReferenceD1Ev": ["nothing", "address"],
+    "ritual_ZNK17QQmlListReference7isValidEv": ["bool", "address"],
+    "ritual_ZNK17QQmlListReference6objectEv": ["address", "address"],
+    "ritual_ZNK17QQmlListReference15listElementTypeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK17QQmlListReference9canAppendEv": ["bool", "address"],
+    "ritual_ZNK17QQmlListReference5canAtEv": ["bool", "address"],
+    "ritual_ZNK17QQmlListReference8canClearEv": ["bool", "address"],
+    "ritual_ZNK17QQmlListReference8canCountEv": ["bool", "address"],
+    "ritual_ZNK17QQmlListReference10canReplaceEv": ["bool", "address"],
+    "ritual_ZNK17QQmlListReference13canRemoveLastEv": ["bool", "address"],
+    "ritual_ZNK17QQmlListReference13isManipulableEv": ["bool", "address"],
+    "ritual_ZNK17QQmlListReference10isReadableEv": ["bool", "address"],
+    "ritual_ZNK17QQmlListReference6appendEP7QObject": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK17QQmlListReference2atEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZNK17QQmlListReference5clearEv": ["bool", "address"],
+    "ritual_ZNK17QQmlListReference5countEv": ["long long", "address"],
+    "ritual_ZNK17QQmlListReference4sizeEv": ["long long", "address"],
+    "ritual_ZNK17QQmlListReference7replaceExP7QObject": [
+      "bool", "address", "long long", "address"
+    ],
+    "ritual_ZNK17QQmlListReference10removeLastEv": ["bool", "address"],
+    "ritual_ZNK17QQmlListReferenceeqERKS_": ["bool", "address", "address"]
+  }
+}

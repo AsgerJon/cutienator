@@ -1,0 +1,126 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/simplewidgets_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK19QAccessibleLineEdit4textEN11QAccessible4TextE": [
+      "text", "address", "int"
+    ],
+    "ritual_ZN19QAccessibleLineEdit7setTextEN11QAccessible4TextERK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZNK19QAccessibleLineEdit5stateEv": ["address", "address"],
+    "ritual_ZN19QAccessibleLineEdit12addSelectionEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK19QAccessibleLineEdit10attributesEiPiS0_": [
+      "text", "address", "int", "address", "address"
+    ],
+    "ritual_ZNK19QAccessibleLineEdit14cursorPositionEv": ["int", "address"],
+    "ritual_ZNK19QAccessibleLineEdit13characterRectEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK19QAccessibleLineEdit14selectionCountEv": ["int", "address"],
+    "ritual_ZNK19QAccessibleLineEdit13offsetAtPointERK6QPoint": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK19QAccessibleLineEdit9selectionEiPiS0_": [
+      "nothing", "address", "int", "address", "address"
+    ],
+    "ritual_ZNK19QAccessibleLineEdit4textEii": [
+      "text", "address", "int", "int"
+    ],
+    "ritual_ZNK19QAccessibleLineEdit16textBeforeOffsetEiN11QAccessible16TextBoundaryTypeEPiS2_": [
+      "text", "address", "int", "int", "address", "address"
+    ],
+    "ritual_ZNK19QAccessibleLineEdit15textAfterOffsetEiN11QAccessible16TextBoundaryTypeEPiS2_": [
+      "text", "address", "int", "int", "address", "address"
+    ],
+    "ritual_ZNK19QAccessibleLineEdit12textAtOffsetEiN11QAccessible16TextBoundaryTypeEPiS2_": [
+      "text", "address", "int", "int", "address", "address"
+    ],
+    "ritual_ZN19QAccessibleLineEdit15removeSelectionEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN19QAccessibleLineEdit17setCursorPositionEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN19QAccessibleLineEdit12setSelectionEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZNK19QAccessibleLineEdit14characterCountEv": ["int", "address"],
+    "ritual_ZN19QAccessibleLineEdit17scrollToSubstringEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN19QAccessibleLineEdit10deleteTextEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN19QAccessibleLineEdit10insertTextEiRK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZN19QAccessibleLineEdit11replaceTextEiiRK7QString": [
+      "nothing", "address", "int", "int", "text"
+    ],
+    "ritual_ZNK19QAccessibleLineEdit8lineEditEv": ["address", "address"],
+    "ritual_cast_QAccessibleLineEdit_QAccessibleTextInterface": [
+      "address", "address"
+    ],
+    "ritual_cast_QAccessibleLineEdit_QAccessibleEditableTextInterface": [
+      "address", "address"
+    ],
+    "ritual_take_QAccessibleLineEdit": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK19QAccessibleLineEdit4textEN11QAccessible4TextE": [
+      "text", "address", "int"
+    ],
+    "ritual_own_ZN19QAccessibleLineEdit7setTextEN11QAccessible4TextERK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_own_ZNK19QAccessibleLineEdit5stateEv": ["address", "address"],
+    "ritual_own_ZN19QAccessibleLineEdit12addSelectionEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZNK19QAccessibleLineEdit14cursorPositionEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZNK19QAccessibleLineEdit13characterRectEi": [
+      "address", "address", "int"
+    ],
+    "ritual_own_ZNK19QAccessibleLineEdit14selectionCountEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZNK19QAccessibleLineEdit13offsetAtPointERK6QPoint": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZNK19QAccessibleLineEdit4textEii": [
+      "text", "address", "int", "int"
+    ],
+    "ritual_own_ZN19QAccessibleLineEdit15removeSelectionEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN19QAccessibleLineEdit17setCursorPositionEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN19QAccessibleLineEdit12setSelectionEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_own_ZNK19QAccessibleLineEdit14characterCountEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZN19QAccessibleLineEdit17scrollToSubstringEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZN19QAccessibleLineEdit10deleteTextEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZN19QAccessibleLineEdit10insertTextEiRK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_own_ZN19QAccessibleLineEdit11replaceTextEiiRK7QString": [
+      "nothing", "address", "int", "int", "text"
+    ]
+  }
+}

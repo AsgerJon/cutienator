@@ -1,0 +1,41 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQmlCompiler/6.12.0/QtQmlCompiler/private/qqmljsscopesbyid_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK16QQmlJSScopesById18componentsAreBoundEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN16QQmlJSScopesById21setComponentsAreBoundEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN16QQmlJSScopesById24setSignaturesAreEnforcedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK16QQmlJSScopesById21signaturesAreEnforcedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN16QQmlJSScopesById27setValueTypesAreAddressableEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK16QQmlJSScopesById24valueTypesAreAddressableEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN16QQmlJSScopesById26setValueTypesAreAssertableEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK16QQmlJSScopesById23valueTypesAreAssertableEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN16QQmlJSScopesById5clearEv": ["nothing", "address"],
+    "ritual_ZNK16QQmlJSScopesById24existsAnywhereInDocumentERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN16QQmlJSScopesById10confidenceEN11QQmlJSScope15IsComponentRootES1_": [
+      "unsigned char", "unsigned char", "unsigned char"
+    ],
+    "ritual_ZN16QQmlJSScopesByIdD1Ev": ["nothing", "address"]
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgrendersh",
+    "adercodegenerator_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN22QSSGStageGeneratorBaseC1E24QSSGShaderGeneratorStage": [
+      "address", "int"
+    ],
+    "ritual_ZN22QSSGStageGeneratorBaseD1Ev": ["nothing", "address"],
+    "ritual_ZN22QSSGStageGeneratorBase5beginE6QFlagsI24QSSGShaderGeneratorStageE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN22QSSGStageGeneratorBase11addIncomingERK10QByteArrayS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN22QSSGStageGeneratorBase11addOutgoingERK10QByteArrayS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN22QSSGStageGeneratorBase15addFlatIncomingERK10QByteArrayS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN22QSSGStageGeneratorBase15addFlatOutgoingERK10QByteArrayS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN22QSSGStageGeneratorBase10addUniformERK10QByteArrayS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN22QSSGStageGeneratorBase15addUniformArrayERK10QByteArrayS2_j": [
+      "nothing", "address", "address", "address", "unsigned int"
+    ],
+    "ritual_ZN22QSSGStageGeneratorBase17addConstantBufferERK10QByteArrayS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN22QSSGStageGeneratorBase22addConstantBufferParamERK10QByteArrayS2_S2_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN22QSSGStageGeneratorBase6appendERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK22QSSGStageGeneratorBase5stageEv": ["int", "address"],
+    "ritual_ZN22QSSGStageGeneratorBase20addShaderPass2MarkerENS_14ShaderItemTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN22QSSGStageGeneratorBase20addShaderIncomingMapEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QSSGStageGeneratorBase19addShaderUniformMapEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QSSGStageGeneratorBase20addShaderOutgoingMapEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QSSGStageGeneratorBase16appendShaderCodeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QSSGStageGeneratorBase10addIncludeERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QSSGStageGeneratorBase22buildShaderSourcePass1EP30QSSGShaderResourceMergeContext": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QSSGStageGeneratorBase22buildShaderSourcePass2EP30QSSGShaderResourceMergeContext": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN22QSSGStageGeneratorBase11addFunctionERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QSSGStageGeneratorBase13addDefinitionERK10QByteArrayS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN22QSSGStageGeneratorBase18addTypeDeclarationERK10QByteArrayS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN22QSSGStageGeneratorBase9addPrefixERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QSSGStageGeneratorBase": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN22QSSGStageGeneratorBase5beginE6QFlagsI24QSSGShaderGeneratorStageE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN22QSSGStageGeneratorBase11addIncomingERK10QByteArrayS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN22QSSGStageGeneratorBase11addOutgoingERK10QByteArrayS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN22QSSGStageGeneratorBase15addFlatIncomingERK10QByteArrayS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN22QSSGStageGeneratorBase15addFlatOutgoingERK10QByteArrayS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN22QSSGStageGeneratorBase10addUniformERK10QByteArrayS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN22QSSGStageGeneratorBase15addUniformArrayERK10QByteArrayS2_j": [
+      "nothing", "address", "address", "address", "unsigned int"
+    ],
+    "ritual_own_ZN22QSSGStageGeneratorBase17addConstantBufferERK10QByteArrayS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN22QSSGStageGeneratorBase22addConstantBufferParamERK10QByteArrayS2_S2_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN22QSSGStageGeneratorBase6appendERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN22QSSGStageGeneratorBase20addShaderIncomingMapEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN22QSSGStageGeneratorBase19addShaderUniformMapEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN22QSSGStageGeneratorBase20addShaderOutgoingMapEv": [
+      "nothing", "address"
+    ]
+  }
+}

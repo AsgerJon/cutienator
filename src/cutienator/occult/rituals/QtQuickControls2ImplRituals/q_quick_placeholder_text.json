@@ -1,0 +1,30 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Controls2Impl/6.12.0/QtQuickControls2Impl/private/qquickplaceholde",
+    "rtext_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK21QQuickPlaceholderText10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QQuickPlaceholderText2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN21QQuickPlaceholderTextC1EP10QQuickItem": [
+      "address", "address"
+    ],
+    "ritual_ZN21QQuickPlaceholderText17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK21QQuickPlaceholderText11textControlEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QQuickPlaceholderText15updateAlignmentEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN21QQuickPlaceholderText17componentCompleteEv": [
+      "nothing", "address"
+    ]
+  }
+}

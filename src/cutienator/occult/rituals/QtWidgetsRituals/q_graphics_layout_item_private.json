@@ -1,0 +1,39 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qgraphicslayoutitem_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN26QGraphicsLayoutItemPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK26QGraphicsLayoutItemPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QGraphicsLayoutItemPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN26QGraphicsLayoutItemPrivate3getEP19QGraphicsLayoutItem": [
+      "address", "address"
+    ],
+    "ritual_ZN26QGraphicsLayoutItemPrivate3getEPK19QGraphicsLayoutItem": [
+      "address", "address"
+    ],
+    "ritual_ZN26QGraphicsLayoutItemPrivate4initEv": ["nothing", "address"],
+    "ritual_ZNK26QGraphicsLayoutItemPrivate10parentItemEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QGraphicsLayoutItemPrivate19ensureUserSizeHintsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QGraphicsLayoutItemPrivate7setSizeEN2Qt8SizeHintERK6QSizeF": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN26QGraphicsLayoutItemPrivate16setSizeComponentEN2Qt8SizeHintENS_13SizeComponentEd": [
+      "nothing", "address", "int", "int", "double"
+    ],
+    "ritual_ZNK26QGraphicsLayoutItemPrivate17hasHeightForWidthEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK26QGraphicsLayoutItemPrivate17hasWidthForHeightEv": [
+      "bool", "address"
+    ]
+  }
+}

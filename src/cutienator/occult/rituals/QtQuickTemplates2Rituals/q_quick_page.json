@@ -1,0 +1,49 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuickTemplates2/6.12.0/QtQuickTemplates2/private/qquickpage_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK10QQuickPage10metaObjectEv": ["address", "address"],
+    "ritual_ZN10QQuickPage2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN10QQuickPageC1EP10QQuickItem": ["address", "address"],
+    "ritual_ZN10QQuickPageD1Ev": ["nothing", "address"],
+    "ritual_ZNK10QQuickPage5titleEv": ["text", "address"],
+    "ritual_ZN10QQuickPage8setTitleERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN10QQuickPage10resetTitleEv": ["nothing", "address"],
+    "ritual_ZNK10QQuickPage6headerEv": ["address", "address"],
+    "ritual_ZN10QQuickPage9setHeaderEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10QQuickPage6footerEv": ["address", "address"],
+    "ritual_ZN10QQuickPage9setFooterEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10QQuickPage19implicitHeaderWidthEv": ["double", "address"],
+    "ritual_ZNK10QQuickPage20implicitHeaderHeightEv": ["double", "address"],
+    "ritual_ZNK10QQuickPage19implicitFooterWidthEv": ["double", "address"],
+    "ritual_ZNK10QQuickPage20implicitFooterHeightEv": ["double", "address"],
+    "ritual_ZN10QQuickPage17componentCompleteEv": ["nothing", "address"],
+    "ritual_ZN10QQuickPage13spacingChangeEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZNK10QQuickPage14accessibleRoleEv": ["int", "address"],
+    "ritual_ZN10QQuickPage26accessibilityActiveChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN10QQuickPage6d_funcEv": ["address", "address"],
+    "ritual_ZNK10QQuickPage6d_funcEv": ["address", "address"],
+    "ritual_take_QQuickPage": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN10QQuickPage17componentCompleteEv": ["nothing", "address"],
+    "ritual_own_ZN10QQuickPage13spacingChangeEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_own_ZNK10QQuickPage14accessibleRoleEv": ["int", "address"],
+    "ritual_own_ZN10QQuickPage26accessibilityActiveChangedEb": [
+      "nothing", "address", "bool"
+    ]
+  }
+}

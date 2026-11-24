@@ -1,0 +1,92 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/6.12.0/QtCharts/private/qboxplotseries_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK21QBoxPlotSeriesPrivate10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QBoxPlotSeriesPrivate2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN21QBoxPlotSeriesPrivateC1EP14QBoxPlotSeries": [
+      "address", "address"
+    ],
+    "ritual_ZN21QBoxPlotSeriesPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN21QBoxPlotSeriesPrivate18initializeGraphicsEP13QGraphicsItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QBoxPlotSeriesPrivate16initializeDomainEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QBoxPlotSeriesPrivate14initializeAxesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QBoxPlotSeriesPrivate15initializeThemeEiP10ChartThemeb": [
+      "nothing", "address", "int", "address", "bool"
+    ],
+    "ritual_ZN21QBoxPlotSeriesPrivate19createLegendMarkersEP7QLegend": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK21QBoxPlotSeriesPrivate15defaultAxisTypeEN2Qt11OrientationE": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK21QBoxPlotSeriesPrivate17createDefaultAxisEN2Qt11OrientationE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN21QBoxPlotSeriesPrivate6appendEP7QBoxSet": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN21QBoxPlotSeriesPrivate6removeEP7QBoxSet": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN21QBoxPlotSeriesPrivate6appendERK5QListIP7QBoxSetE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN21QBoxPlotSeriesPrivate6removeERK5QListIP7QBoxSetE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN21QBoxPlotSeriesPrivate6insertEiP7QBoxSet": [
+      "bool", "address", "int", "address"
+    ],
+    "ritual_ZN21QBoxPlotSeriesPrivate8boxSetAtEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN21QBoxPlotSeriesPrivate3maxEv": ["double", "address"],
+    "ritual_ZN21QBoxPlotSeriesPrivate3minEv": ["double", "address"],
+    "ritual_ZN21QBoxPlotSeriesPrivate18populateCategoriesEP16QBarCategoryAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QBoxPlotSeriesPrivate18handleSeriesChangeEP15QAbstractSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QBoxPlotSeriesPrivate18handleSeriesRemoveEP15QAbstractSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QBoxPlotSeriesPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK21QBoxPlotSeriesPrivate6q_funcEv": ["address", "address"],
+    "ritual_take_QBoxPlotSeriesPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN21QBoxPlotSeriesPrivate18initializeGraphicsEP13QGraphicsItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN21QBoxPlotSeriesPrivate16initializeDomainEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN21QBoxPlotSeriesPrivate14initializeAxesEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN21QBoxPlotSeriesPrivate15initializeThemeEiP10ChartThemeb": [
+      "nothing", "address", "int", "address", "bool"
+    ],
+    "ritual_own_ZNK21QBoxPlotSeriesPrivate15defaultAxisTypeEN2Qt11OrientationE": [
+      "int", "address", "int"
+    ],
+    "ritual_own_ZNK21QBoxPlotSeriesPrivate17createDefaultAxisEN2Qt11OrientationE": [
+      "address", "address", "int"
+    ]
+  }
+}

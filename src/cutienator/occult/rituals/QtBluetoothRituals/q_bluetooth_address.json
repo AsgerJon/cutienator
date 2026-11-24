@@ -1,0 +1,34 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtBluetooth/qbluetoothaddress.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN17QBluetoothAddressC1Ev": ["address"],
+    "ritual_ZN17QBluetoothAddressC1Ey": ["address", "unsigned long long"],
+    "ritual_ZN17QBluetoothAddressC1ERK7QString": ["address", "text"],
+    "ritual_ZN17QBluetoothAddressC1ERKS_": ["address", "address"],
+    "ritual_ZN17QBluetoothAddressD1Ev": ["nothing", "address"],
+    "ritual_ZNK17QBluetoothAddress6isNullEv": ["bool", "address"],
+    "ritual_ZN17QBluetoothAddress5clearEv": ["nothing", "address"],
+    "ritual_ZltRK17QBluetoothAddressS1_": ["bool", "address", "address"],
+    "ritual_ZeqRK17QBluetoothAddressS1_": ["bool", "address", "address"],
+    "ritual_ZneRK17QBluetoothAddressS1_": ["bool", "address", "address"],
+    "ritual_ZNK17QBluetoothAddress8toUInt64Ev": [
+      "unsigned long long", "address"
+    ],
+    "ritual_ZNK17QBluetoothAddress8toStringEv": ["text", "address"],
+    "ritual_Zls6QDebugRK17QBluetoothAddress": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN17QBluetoothAddress17streamingOperatorE6QDebugRKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_list_make_QBluetoothAddress": ["address"],
+    "ritual_list_add_QBluetoothAddress": ["nothing", "address", "address"],
+    "ritual_list_size_QBluetoothAddress": ["long long", "address"],
+    "ritual_list_at_QBluetoothAddress": ["address", "address", "long long"],
+    "ritual_list_drop_QBluetoothAddress": ["nothing", "address"]
+  }
+}

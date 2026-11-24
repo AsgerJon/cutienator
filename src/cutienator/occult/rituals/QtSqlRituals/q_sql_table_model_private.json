@@ -1,0 +1,46 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSql/6.12.0/QtSql/private/qsqltablemodel_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN21QSqlTableModelPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK21QSqlTableModelPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN21QSqlTableModelPrivate5clearEv": ["nothing", "address"],
+    "ritual_ZN21QSqlTableModelPrivate10clearCacheEv": ["nothing", "address"],
+    "ritual_ZNK21QSqlTableModelPrivate6recordERK5QListI8QVariantE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN21QSqlTableModelPrivate4execERK7QStringbRK10QSqlRecordS5_": [
+      "bool", "address", "text", "bool", "address", "address"
+    ],
+    "ritual_ZN21QSqlTableModelPrivate15revertCachedRowEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK21QSqlTableModelPrivate11nameToIndexERK7QString": [
+      "int", "address", "text"
+    ],
+    "ritual_ZNK21QSqlTableModelPrivate17strippedFieldNameERK7QString": [
+      "text", "address", "text"
+    ],
+    "ritual_ZNK21QSqlTableModelPrivate11insertCountEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZN21QSqlTableModelPrivate25initRecordAndPrimaryIndexEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QSqlTableModelPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN21QSqlTableModelPrivate10clearCacheEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN21QSqlTableModelPrivate15revertCachedRowEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZNK21QSqlTableModelPrivate11nameToIndexERK7QString": [
+      "int", "address", "text"
+    ]
+  }
+}

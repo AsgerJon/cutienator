@@ -1,0 +1,49 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtConcurrent/qtconcurrentthreadengine.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN12QtConcurrent16ThreadEngineBaseD1Ev": ["nothing", "address"],
+    "ritual_ZN12QtConcurrent16ThreadEngineBase5startEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN12QtConcurrent16ThreadEngineBase6finishEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN12QtConcurrent16ThreadEngineBase14threadFunctionEv": [
+      "int", "address"
+    ],
+    "ritual_ZN12QtConcurrent16ThreadEngineBase17shouldStartThreadEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN12QtConcurrent16ThreadEngineBase20shouldThrottleThreadEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN12QtConcurrent16ThreadEngineBase18asynchronousFinishEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QtConcurrent_ThreadEngineBase": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN12QtConcurrent16ThreadEngineBase5startEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN12QtConcurrent16ThreadEngineBase6finishEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN12QtConcurrent16ThreadEngineBase14threadFunctionEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZN12QtConcurrent16ThreadEngineBase17shouldStartThreadEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZN12QtConcurrent16ThreadEngineBase20shouldThrottleThreadEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZN12QtConcurrent16ThreadEngineBase3runEv": [
+      "nothing", "address"
+    ]
+  }
+}

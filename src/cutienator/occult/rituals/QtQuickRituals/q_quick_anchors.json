@@ -1,0 +1,119 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickanchors_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK13QQuickAnchors10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QQuickAnchors2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN13QQuickAnchors22qt_qmlMarker_anonymousEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13QQuickAnchorsC1EP10QQuickItemP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN13QQuickAnchorsD1Ev": ["nothing", "address"],
+    "ritual_ZNK13QQuickAnchors4leftEv": ["address", "address"],
+    "ritual_ZN13QQuickAnchors7setLeftERK16QQuickAnchorLine": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QQuickAnchors9resetLeftEv": ["nothing", "address"],
+    "ritual_ZNK13QQuickAnchors5rightEv": ["address", "address"],
+    "ritual_ZN13QQuickAnchors8setRightERK16QQuickAnchorLine": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QQuickAnchors10resetRightEv": ["nothing", "address"],
+    "ritual_ZNK13QQuickAnchors16horizontalCenterEv": ["address", "address"],
+    "ritual_ZN13QQuickAnchors19setHorizontalCenterERK16QQuickAnchorLine": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QQuickAnchors21resetHorizontalCenterEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK13QQuickAnchors3topEv": ["address", "address"],
+    "ritual_ZN13QQuickAnchors6setTopERK16QQuickAnchorLine": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QQuickAnchors8resetTopEv": ["nothing", "address"],
+    "ritual_ZNK13QQuickAnchors6bottomEv": ["address", "address"],
+    "ritual_ZN13QQuickAnchors9setBottomERK16QQuickAnchorLine": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QQuickAnchors11resetBottomEv": ["nothing", "address"],
+    "ritual_ZNK13QQuickAnchors14verticalCenterEv": ["address", "address"],
+    "ritual_ZN13QQuickAnchors17setVerticalCenterERK16QQuickAnchorLine": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QQuickAnchors19resetVerticalCenterEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK13QQuickAnchors8baselineEv": ["address", "address"],
+    "ritual_ZN13QQuickAnchors11setBaselineERK16QQuickAnchorLine": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QQuickAnchors13resetBaselineEv": ["nothing", "address"],
+    "ritual_ZNK13QQuickAnchors10leftMarginEv": ["double", "address"],
+    "ritual_ZN13QQuickAnchors13setLeftMarginEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN13QQuickAnchors15resetLeftMarginEv": ["nothing", "address"],
+    "ritual_ZNK13QQuickAnchors11rightMarginEv": ["double", "address"],
+    "ritual_ZN13QQuickAnchors14setRightMarginEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN13QQuickAnchors16resetRightMarginEv": ["nothing", "address"],
+    "ritual_ZNK13QQuickAnchors22horizontalCenterOffsetEv": [
+      "double", "address"
+    ],
+    "ritual_ZN13QQuickAnchors25setHorizontalCenterOffsetEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK13QQuickAnchors9topMarginEv": ["double", "address"],
+    "ritual_ZN13QQuickAnchors12setTopMarginEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN13QQuickAnchors14resetTopMarginEv": ["nothing", "address"],
+    "ritual_ZNK13QQuickAnchors12bottomMarginEv": ["double", "address"],
+    "ritual_ZN13QQuickAnchors15setBottomMarginEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN13QQuickAnchors17resetBottomMarginEv": ["nothing", "address"],
+    "ritual_ZNK13QQuickAnchors7marginsEv": ["double", "address"],
+    "ritual_ZN13QQuickAnchors10setMarginsEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK13QQuickAnchors20verticalCenterOffsetEv": [
+      "double", "address"
+    ],
+    "ritual_ZN13QQuickAnchors23setVerticalCenterOffsetEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK13QQuickAnchors14baselineOffsetEv": ["double", "address"],
+    "ritual_ZN13QQuickAnchors17setBaselineOffsetEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK13QQuickAnchors4fillEv": ["address", "address"],
+    "ritual_ZN13QQuickAnchors7setFillEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QQuickAnchors9resetFillEv": ["nothing", "address"],
+    "ritual_ZNK13QQuickAnchors8centerInEv": ["address", "address"],
+    "ritual_ZN13QQuickAnchors11setCenterInEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QQuickAnchors13resetCenterInEv": ["nothing", "address"],
+    "ritual_ZNK13QQuickAnchors11usedAnchorsEv": ["int", "address"],
+    "ritual_ZNK13QQuickAnchors16activeDirectionsEv": ["int", "address"],
+    "ritual_ZN13QQuickAnchors8mirroredEv": ["bool", "address"],
+    "ritual_ZNK13QQuickAnchors17alignWhenCenteredEv": ["bool", "address"],
+    "ritual_ZN13QQuickAnchors20setAlignWhenCenteredEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN13QQuickAnchors10classBeginEv": ["nothing", "address"],
+    "ritual_ZN13QQuickAnchors17componentCompleteEv": ["nothing", "address"],
+    "ritual_ZN13QQuickAnchors6d_funcEv": ["address", "address"],
+    "ritual_ZNK13QQuickAnchors6d_funcEv": ["address", "address"],
+    "ritual_take_QQuickAnchors": ["bool", "address", "chars", "address"]
+  }
+}

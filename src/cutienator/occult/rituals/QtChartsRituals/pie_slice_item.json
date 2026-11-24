@@ -1,0 +1,69 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/6.12.0/QtCharts/private/piesliceitem_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK12PieSliceItem10metaObjectEv": ["address", "address"],
+    "ritual_ZN12PieSliceItem2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN12PieSliceItemC1EP13QGraphicsItem": ["address", "address"],
+    "ritual_ZN12PieSliceItemD1Ev": ["nothing", "address"],
+    "ritual_ZNK12PieSliceItem12boundingRectEv": ["address", "address"],
+    "ritual_ZNK12PieSliceItem5shapeEv": ["address", "address"],
+    "ritual_ZN12PieSliceItem5paintEP8QPainterPK24QStyleOptionGraphicsItemP7QWidget": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN12PieSliceItem15hoverEnterEventEP24QGraphicsSceneHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12PieSliceItem15hoverLeaveEventEP24QGraphicsSceneHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12PieSliceItem15mousePressEventEP24QGraphicsSceneMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12PieSliceItem17mouseReleaseEventEP24QGraphicsSceneMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12PieSliceItem21mouseDoubleClickEventEP24QGraphicsSceneMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12PieSliceItem9setLayoutERK12PieSliceData": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12PieSliceItem11sliceCenterE7QPointFdP9QPieSlice": [
+      "address", "address", "double", "address"
+    ],
+    "ritual_ZN12PieSliceItem14updateGeometryEv": ["nothing", "address"],
+    "ritual_ZN12PieSliceItem9slicePathE7QPointFdddPdPS0_": [
+      "address", "address", "address", "double", "double", "double",
+      "address", "address"
+    ],
+    "ritual_ZN12PieSliceItem12labelArmPathE7QPointFdddPS0_": [
+      "address", "address", "address", "double", "double", "double",
+      "address"
+    ],
+    "ritual_take_PieSliceItem": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK12PieSliceItem12boundingRectEv": ["address", "address"],
+    "ritual_own_ZNK12PieSliceItem5shapeEv": ["address", "address"],
+    "ritual_own_ZN12PieSliceItem5paintEP8QPainterPK24QStyleOptionGraphicsItemP7QWidget": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN12PieSliceItem15hoverEnterEventEP24QGraphicsSceneHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN12PieSliceItem15hoverLeaveEventEP24QGraphicsSceneHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN12PieSliceItem15mousePressEventEP24QGraphicsSceneMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN12PieSliceItem17mouseReleaseEventEP24QGraphicsSceneMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN12PieSliceItem21mouseDoubleClickEventEP24QGraphicsSceneMouseEvent": [
+      "nothing", "address", "address"
+    ]
+  }
+}

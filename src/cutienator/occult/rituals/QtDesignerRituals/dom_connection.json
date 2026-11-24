@@ -1,0 +1,49 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/ui4_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN13DomConnectionC1Ev": ["address"],
+    "ritual_ZN13DomConnectionD1Ev": ["nothing", "address"],
+    "ritual_ZNK13DomConnection13elementSenderEv": ["text", "address"],
+    "ritual_ZN13DomConnection16setElementSenderERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK13DomConnection16hasElementSenderEv": ["bool", "address"],
+    "ritual_ZN13DomConnection18clearElementSenderEv": ["nothing", "address"],
+    "ritual_ZNK13DomConnection13elementSignalEv": ["text", "address"],
+    "ritual_ZN13DomConnection16setElementSignalERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK13DomConnection16hasElementSignalEv": ["bool", "address"],
+    "ritual_ZN13DomConnection18clearElementSignalEv": ["nothing", "address"],
+    "ritual_ZNK13DomConnection15elementReceiverEv": ["text", "address"],
+    "ritual_ZN13DomConnection18setElementReceiverERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK13DomConnection18hasElementReceiverEv": ["bool", "address"],
+    "ritual_ZN13DomConnection20clearElementReceiverEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK13DomConnection11elementSlotEv": ["text", "address"],
+    "ritual_ZN13DomConnection14setElementSlotERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK13DomConnection14hasElementSlotEv": ["bool", "address"],
+    "ritual_ZN13DomConnection16clearElementSlotEv": ["nothing", "address"],
+    "ritual_ZNK13DomConnection12elementHintsEv": ["address", "address"],
+    "ritual_ZN13DomConnection16takeElementHintsEv": ["address", "address"],
+    "ritual_ZN13DomConnection15setElementHintsEP18DomConnectionHints": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13DomConnection15hasElementHintsEv": ["bool", "address"],
+    "ritual_ZN13DomConnection17clearElementHintsEv": ["nothing", "address"],
+    "ritual_list_make_DomConnection_ptr": ["address"],
+    "ritual_list_add_DomConnection_ptr": ["nothing", "address", "address"],
+    "ritual_list_size_DomConnection_ptr": ["long long", "address"],
+    "ritual_list_at_DomConnection_ptr": ["address", "address", "long long"],
+    "ritual_list_drop_DomConnection_ptr": ["nothing", "address"]
+  }
+}

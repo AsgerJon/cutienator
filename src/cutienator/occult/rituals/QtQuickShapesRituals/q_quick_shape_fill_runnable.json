@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Shapes/6.12.0/QtQuickShapes/private/qquickshapegenericrenderer_p.h",
+    ", Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK23QQuickShapeFillRunnable10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QQuickShapeFillRunnable3runEv": ["nothing", "address"],
+    "ritual_cast_QQuickShapeFillRunnable_QRunnable": ["address", "address"],
+    "ritual_take_QQuickShapeFillRunnable": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

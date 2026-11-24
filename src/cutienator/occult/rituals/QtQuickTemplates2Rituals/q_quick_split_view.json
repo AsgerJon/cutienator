@@ -1,0 +1,91 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquicksplitview_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK15QQuickSplitView10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QQuickSplitView2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN15QQuickSplitView21qt_qmlMarker_attachedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickSplitViewC1EP10QQuickItem": ["address", "address"],
+    "ritual_ZN15QQuickSplitViewD1Ev": ["nothing", "address"],
+    "ritual_ZNK15QQuickSplitView11orientationEv": ["int", "address"],
+    "ritual_ZN15QQuickSplitView14setOrientationEN2Qt11OrientationE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QQuickSplitView10isResizingEv": ["bool", "address"],
+    "ritual_ZN15QQuickSplitView6handleEv": ["address", "address"],
+    "ritual_ZN15QQuickSplitView9setHandleEP13QQmlComponent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QQuickSplitView9isContentEP10QQuickItem": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN15QQuickSplitView21qmlAttachedPropertiesEP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN15QQuickSplitView9saveStateEv": ["address", "address"],
+    "ritual_ZN15QQuickSplitView12restoreStateERK8QVariant": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN15QQuickSplitView17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickSplitView14hoverMoveEventEP11QHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QQuickSplitView15hoverLeaveEventEP11QHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QQuickSplitView21childMouseEventFilterEP10QQuickItemP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN15QQuickSplitView14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN15QQuickSplitView9itemAddedEiP10QQuickItem": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN15QQuickSplitView9itemMovedEiP10QQuickItem": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN15QQuickSplitView11itemRemovedEiP10QQuickItem": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZNK15QQuickSplitView14accessibleRoleEv": ["int", "address"],
+    "ritual_take_QQuickSplitView": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK15QQuickSplitView9isContentEP10QQuickItem": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN15QQuickSplitView17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN15QQuickSplitView14hoverMoveEventEP11QHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN15QQuickSplitView15hoverLeaveEventEP11QHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN15QQuickSplitView21childMouseEventFilterEP10QQuickItemP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_own_ZN15QQuickSplitView14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN15QQuickSplitView9itemAddedEiP10QQuickItem": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZN15QQuickSplitView9itemMovedEiP10QQuickItem": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZN15QQuickSplitView11itemRemovedEiP10QQuickItem": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZNK15QQuickSplitView14accessibleRoleEv": ["int", "address"]
+  }
+}

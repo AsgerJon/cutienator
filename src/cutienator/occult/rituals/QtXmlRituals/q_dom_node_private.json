@@ -1,0 +1,85 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtXml/6.12.0/QtXml/private/qdom_p.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QDomNodePrivateD1Ev": ["nothing", "address"],
+    "ritual_ZNK15QDomNodePrivate8nodeNameEv": ["text", "address"],
+    "ritual_ZNK15QDomNodePrivate9nodeValueEv": ["text", "address"],
+    "ritual_ZN15QDomNodePrivate12setNodeValueERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN15QDomNodePrivate13ownerDocumentEv": ["address", "address"],
+    "ritual_ZN15QDomNodePrivate16setOwnerDocumentEP19QDomDocumentPrivate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QDomNodePrivate12insertBeforeEPS_S0_": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN15QDomNodePrivate11insertAfterEPS_S0_": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN15QDomNodePrivate12replaceChildEPS_S0_": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN15QDomNodePrivate11removeChildEPS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN15QDomNodePrivate11appendChildEPS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN15QDomNodePrivate9namedItemERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN15QDomNodePrivate9cloneNodeEb": ["address", "address", "bool"],
+    "ritual_ZN15QDomNodePrivate9normalizeEv": ["nothing", "address"],
+    "ritual_ZN15QDomNodePrivate5clearEv": ["nothing", "address"],
+    "ritual_ZNK15QDomNodePrivate6parentEv": ["address", "address"],
+    "ritual_ZN15QDomNodePrivate9setParentEPS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QDomNodePrivate11setNoParentEv": ["nothing", "address"],
+    "ritual_ZNK15QDomNodePrivate6isAttrEv": ["bool", "address"],
+    "ritual_ZNK15QDomNodePrivate14isCDATASectionEv": ["bool", "address"],
+    "ritual_ZNK15QDomNodePrivate18isDocumentFragmentEv": ["bool", "address"],
+    "ritual_ZNK15QDomNodePrivate10isDocumentEv": ["bool", "address"],
+    "ritual_ZNK15QDomNodePrivate14isDocumentTypeEv": ["bool", "address"],
+    "ritual_ZNK15QDomNodePrivate9isElementEv": ["bool", "address"],
+    "ritual_ZNK15QDomNodePrivate17isEntityReferenceEv": ["bool", "address"],
+    "ritual_ZNK15QDomNodePrivate6isTextEv": ["bool", "address"],
+    "ritual_ZNK15QDomNodePrivate8isEntityEv": ["bool", "address"],
+    "ritual_ZNK15QDomNodePrivate10isNotationEv": ["bool", "address"],
+    "ritual_ZNK15QDomNodePrivate23isProcessingInstructionEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK15QDomNodePrivate15isCharacterDataEv": ["bool", "address"],
+    "ritual_ZNK15QDomNodePrivate9isCommentEv": ["bool", "address"],
+    "ritual_ZNK15QDomNodePrivate8nodeTypeEv": ["int", "address"],
+    "ritual_ZN15QDomNodePrivate11setLocationEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_take_QDomNodePrivate": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN15QDomNodePrivate12setNodeValueERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_own_ZN15QDomNodePrivate12insertBeforeEPS_S0_": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN15QDomNodePrivate11insertAfterEPS_S0_": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN15QDomNodePrivate12replaceChildEPS_S0_": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN15QDomNodePrivate11removeChildEPS_": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN15QDomNodePrivate11appendChildEPS_": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN15QDomNodePrivate5clearEv": ["nothing", "address"],
+    "ritual_own_ZNK15QDomNodePrivate8nodeTypeEv": ["int", "address"]
+  }
+}

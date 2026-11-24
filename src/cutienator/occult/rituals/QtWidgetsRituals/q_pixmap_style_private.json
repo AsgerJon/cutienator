@@ -1,0 +1,23 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qpixmapstyle_p_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QPixmapStylePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK19QPixmapStylePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN19QPixmapStylePrivate5scaleEiiRK7QPixmapRK22QPixmapStyleDescriptor": [
+      "address", "int", "int", "address", "address"
+    ],
+    "ritual_ZNK19QPixmapStylePrivate15getCachedPixmapEN12QPixmapStyle17ControlDescriptorERK22QPixmapStyleDescriptorRK5QSize": [
+      "address", "address", "int", "address", "address"
+    ],
+    "ritual_ZNK19QPixmapStylePrivate11computeSizeERK22QPixmapStyleDescriptorii": [
+      "address", "address", "address", "int", "int"
+    ],
+    "ritual_take_QPixmapStylePrivate": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

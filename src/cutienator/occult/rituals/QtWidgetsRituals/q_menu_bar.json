@@ -44,6 +44,7 @@
     ],
     "ritual_ZNK8QMenuBar15isNativeMenuBarEv": ["bool", "address"],
     "ritual_ZN8QMenuBar16setNativeMenuBarEb": ["nothing", "address", "bool"],
+    "ritual_ZN8QMenuBar15platformMenuBarEv": ["address", "address"],
     "ritual_ZN8QMenuBar10setVisibleEb": ["nothing", "address", "bool"],
     "ritual_ZN8QMenuBar11changeEventEP6QEvent": [
       "nothing", "address", "address"
@@ -88,6 +89,8 @@
     "ritual_ZNK8QMenuBar15initStyleOptionEP20QStyleOptionMenuItemPK7QAction": [
       "nothing", "address", "address", "address"
     ],
+    "ritual_ZN8QMenuBar6d_funcEv": ["address", "address"],
+    "ritual_ZNK8QMenuBar6d_funcEv": ["address", "address"],
     "ritual_take_QMenuBar": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK8QMenuBar8sizeHintEv": ["address", "address"],
     "ritual_own_ZNK8QMenuBar15minimumSizeHintEv": ["address", "address"],

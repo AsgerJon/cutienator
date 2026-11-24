@@ -1,0 +1,159 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/6.12.0/QtCharts/private/chartpresenter_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK14ChartPresenter10metaObjectEv": ["address", "address"],
+    "ritual_ZN14ChartPresenter2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN14ChartPresenterC1EP6QChartNS0_9ChartTypeE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN14ChartPresenterD1Ev": ["nothing", "address"],
+    "ritual_ZNK14ChartPresenter15isFixedGeometryEv": ["bool", "address"],
+    "ritual_ZN14ChartPresenter16setFixedGeometryERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14ChartPresenter11setGeometryE6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14ChartPresenter8geometryEv": ["address", "address"],
+    "ritual_ZN14ChartPresenter14updateGeometryERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14ChartPresenter8rootItemEv": ["address", "address"],
+    "ritual_ZN14ChartPresenter17backgroundElementEv": ["address", "address"],
+    "ritual_ZN14ChartPresenter15plotAreaElementEv": ["address", "address"],
+    "ritual_ZN14ChartPresenter12titleElementEv": ["address", "address"],
+    "ritual_ZNK14ChartPresenter9axisItemsEv": ["address", "address"],
+    "ritual_ZNK14ChartPresenter10chartItemsEv": ["address", "address"],
+    "ritual_ZN14ChartPresenter6legendEv": ["address", "address"],
+    "ritual_ZN14ChartPresenter18setBackgroundBrushERK6QBrush": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14ChartPresenter15backgroundBrushEv": ["address", "address"],
+    "ritual_ZN14ChartPresenter16setBackgroundPenERK4QPen": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14ChartPresenter13backgroundPenEv": ["address", "address"],
+    "ritual_ZN14ChartPresenter22setBackgroundRoundnessEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK14ChartPresenter19backgroundRoundnessEv": [
+      "double", "address"
+    ],
+    "ritual_ZN14ChartPresenter26setPlotAreaBackgroundBrushERK6QBrush": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14ChartPresenter23plotAreaBackgroundBrushEv": [
+      "address", "address"
+    ],
+    "ritual_ZN14ChartPresenter24setPlotAreaBackgroundPenERK4QPen": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14ChartPresenter21plotAreaBackgroundPenEv": [
+      "address", "address"
+    ],
+    "ritual_ZN14ChartPresenter8setTitleERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK14ChartPresenter5titleEv": ["text", "address"],
+    "ritual_ZN14ChartPresenter12setTitleFontERK5QFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14ChartPresenter9titleFontEv": ["address", "address"],
+    "ritual_ZN14ChartPresenter13setTitleBrushERK6QBrush": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14ChartPresenter10titleBrushEv": ["address", "address"],
+    "ritual_ZN14ChartPresenter20setBackgroundVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK14ChartPresenter19isBackgroundVisibleEv": ["bool", "address"],
+    "ritual_ZN14ChartPresenter28setPlotAreaBackgroundVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK14ChartPresenter27isPlotAreaBackgroundVisibleEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN14ChartPresenter30setBackgroundDropShadowEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK14ChartPresenter29isBackgroundDropShadowEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN14ChartPresenter18setLocalizeNumbersEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK14ChartPresenter15localizeNumbersEv": ["bool", "address"],
+    "ritual_ZN14ChartPresenter9setLocaleERK7QLocale": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14ChartPresenter6localeEv": ["address", "address"],
+    "ritual_ZN14ChartPresenter10setVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN14ChartPresenter19setAnimationOptionsE6QFlagsIN6QChart15AnimationOptionEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK14ChartPresenter16animationOptionsEv": ["int", "address"],
+    "ritual_ZN14ChartPresenter20setAnimationDurationEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK14ChartPresenter17animationDurationEv": ["int", "address"],
+    "ritual_ZN14ChartPresenter23setAnimationEasingCurveERK12QEasingCurve": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14ChartPresenter20animationEasingCurveEv": [
+      "address", "address"
+    ],
+    "ritual_ZN14ChartPresenter14startAnimationEP14ChartAnimation": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14ChartPresenter8setStateENS_5StateE7QPointF": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZNK14ChartPresenter5stateEv": ["int", "address"],
+    "ritual_ZNK14ChartPresenter10statePointEv": ["address", "address"],
+    "ritual_ZN14ChartPresenter6layoutEv": ["address", "address"],
+    "ritual_ZNK14ChartPresenter9chartTypeEv": ["int", "address"],
+    "ritual_ZN14ChartPresenter5chartEv": ["address", "address"],
+    "ritual_ZN14ChartPresenter16textBoundingRectERK5QFontRK7QStringd": [
+      "address", "address", "text", "double"
+    ],
+    "ritual_ZN14ChartPresenter10textMarginEv": ["double"],
+    "ritual_ZN14ChartPresenter14numberToStringEdci": [
+      "text", "address", "double", "char", "int"
+    ],
+    "ritual_ZN14ChartPresenter14numberToStringEi": [
+      "text", "address", "int"
+    ],
+    "ritual_ZN14ChartPresenter14updateGLWidgetEv": ["nothing", "address"],
+    "ritual_ZN14ChartPresenter14glSetUseWidgetEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN14ChartPresenter20createBackgroundItemEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14ChartPresenter28createPlotAreaBackgroundItemEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14ChartPresenter15createTitleItemEv": ["nothing", "address"],
+    "ritual_ZN14ChartPresenter17handleSeriesAddedEP15QAbstractSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14ChartPresenter19handleSeriesRemovedEP15QAbstractSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14ChartPresenter15handleAxisAddedEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14ChartPresenter17handleAxisRemovedEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_ChartPresenter": ["bool", "address", "chars", "address"]
+  }
+}

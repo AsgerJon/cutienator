@@ -150,6 +150,7 @@ int ritual_ZNK5QDate10daysInYearE9QCalendar(
   return self->daysInYear(*cal);
 }
 
+#if QT_DEPRECATED_SINCE(6, 9)
 //  QDateTime QDate::startOfDay(Qt::TimeSpec spec, int offsetSeconds) const
 extern "C" Q_DECL_EXPORT
 QDateTime *ritual_ZNK5QDate10startOfDayEN2Qt8TimeSpecEi(
@@ -158,7 +159,9 @@ QDateTime *ritual_ZNK5QDate10startOfDayEN2Qt8TimeSpecEi(
     int offsetSeconds) {
   return new QDateTime(self->startOfDay(spec, offsetSeconds));
 }
+#endif  // QT_DEPRECATED_SINCE(6, 9)
 
+#if QT_DEPRECATED_SINCE(6, 9)
 //  QDateTime QDate::endOfDay(Qt::TimeSpec spec, int offsetSeconds) const
 extern "C" Q_DECL_EXPORT
 QDateTime *ritual_ZNK5QDate8endOfDayEN2Qt8TimeSpecEi(
@@ -167,6 +170,7 @@ QDateTime *ritual_ZNK5QDate8endOfDayEN2Qt8TimeSpecEi(
     int offsetSeconds) {
   return new QDateTime(self->endOfDay(spec, offsetSeconds));
 }
+#endif  // QT_DEPRECATED_SINCE(6, 9)
 
 //  QDateTime QDate::startOfDay(const QTimeZone &zone) const
 extern "C" Q_DECL_EXPORT
@@ -196,6 +200,7 @@ QDateTime *ritual_ZNK5QDate8endOfDayEv(const QDate *self) {
   return new QDateTime(self->endOfDay());
 }
 
+#if QT_CONFIG(datestring)
 //  QString QDate::toString(Qt::DateFormat format) const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK5QDate8toStringEN2Qt10DateFormatE(
@@ -203,7 +208,9 @@ QString *ritual_ZNK5QDate8toStringEN2Qt10DateFormatE(
     Qt::DateFormat format) {
   return new QString(self->toString(format));
 }
+#endif  // QT_CONFIG(datestring)
 
+#if QT_CONFIG(datestring)
 //  QString QDate::toString(const QString &format) const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK5QDate8toStringERK7QString(
@@ -211,7 +218,9 @@ QString *ritual_ZNK5QDate8toStringERK7QString(
     const QString *format) {
   return new QString(self->toString(*format));
 }
+#endif  // QT_CONFIG(datestring)
 
+#if QT_CONFIG(datestring)
 //  QString QDate::toString(const QString &format, QCalendar cal) const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK5QDate8toStringERK7QString9QCalendar(
@@ -220,7 +229,9 @@ QString *ritual_ZNK5QDate8toStringERK7QString9QCalendar(
     const QCalendar *cal) {
   return new QString(self->toString(*format, *cal));
 }
+#endif  // QT_CONFIG(datestring)
 
+#if QT_CONFIG(datestring)
 //  QString QDate::toString(QStringView format) const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK5QDate8toStringE11QStringView(
@@ -228,7 +239,9 @@ QString *ritual_ZNK5QDate8toStringE11QStringView(
     const QString *format) {
   return new QString(self->toString(QStringView(*format)));
 }
+#endif  // QT_CONFIG(datestring)
 
+#if QT_CONFIG(datestring)
 //  QString QDate::toString(QStringView format, QCalendar cal) const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK5QDate8toStringE11QStringView9QCalendar(
@@ -237,6 +250,7 @@ QString *ritual_ZNK5QDate8toStringE11QStringView9QCalendar(
     const QCalendar *cal) {
   return new QString(self->toString(QStringView(*format), *cal));
 }
+#endif  // QT_CONFIG(datestring)
 
 //  bool QDate::setDate(int year, int month, int day)
 extern "C" Q_DECL_EXPORT
@@ -313,6 +327,7 @@ QDate *ritual_ZN5QDate11currentDateEv() {
   return new QDate(QDate::currentDate());
 }
 
+#if QT_CONFIG(datestring)
 //  QDate QDate::fromString(QStringView string, Qt::DateFormat format)
 extern "C" Q_DECL_EXPORT
 QDate *ritual_ZN5QDate10fromStringE11QStringViewN2Qt10DateFormatE(
@@ -320,7 +335,9 @@ QDate *ritual_ZN5QDate10fromStringE11QStringViewN2Qt10DateFormatE(
     Qt::DateFormat format) {
   return new QDate(QDate::fromString(QStringView(*string), format));
 }
+#endif  // QT_CONFIG(datestring)
 
+#if QT_CONFIG(datestring)
 //  QDate QDate::fromString(const QString &string, Qt::DateFormat format)
 extern "C" Q_DECL_EXPORT
 QDate *ritual_ZN5QDate10fromStringERK7QStringN2Qt10DateFormatE(
@@ -328,7 +345,9 @@ QDate *ritual_ZN5QDate10fromStringERK7QStringN2Qt10DateFormatE(
     Qt::DateFormat format) {
   return new QDate(QDate::fromString(*string, format));
 }
+#endif  // QT_CONFIG(datestring)
 
+#if QT_CONFIG(datestring)
 //  QDate QDate::fromString(QStringView string, QStringView format, QCalendar
 //      cal)
 extern "C" Q_DECL_EXPORT
@@ -342,7 +361,9 @@ QDate *ritual_ZN5QDate10fromStringE11QStringViewS0_9QCalendar(
           QStringView(*format),
           *cal));
 }
+#endif  // QT_CONFIG(datestring)
 
+#if QT_CONFIG(datestring)
 //  QDate QDate::fromString(const QString &string, QStringView format,
 //      QCalendar cal)
 extern "C" Q_DECL_EXPORT
@@ -352,7 +373,9 @@ QDate *ritual_ZN5QDate10fromStringERK7QString11QStringView9QCalendar(
     const QCalendar *cal) {
   return new QDate(QDate::fromString(*string, QStringView(*format), *cal));
 }
+#endif  // QT_CONFIG(datestring)
 
+#if QT_CONFIG(datestring)
 //  QDate QDate::fromString(const QString &string, const QString &format,
 //      QCalendar cal)
 extern "C" Q_DECL_EXPORT
@@ -362,7 +385,9 @@ QDate *ritual_ZN5QDate10fromStringERK7QStringS2_9QCalendar(
     const QCalendar *cal) {
   return new QDate(QDate::fromString(*string, *format, *cal));
 }
+#endif  // QT_CONFIG(datestring)
 
+#if QT_CONFIG(datestring)
 //  QDate QDate::fromString(QStringView string, QStringView format, int
 //      baseYear)
 extern "C" Q_DECL_EXPORT
@@ -376,7 +401,9 @@ QDate *ritual_ZN5QDate10fromStringE11QStringViewS0_i(
           QStringView(*format),
           baseYear));
 }
+#endif  // QT_CONFIG(datestring)
 
+#if QT_CONFIG(datestring)
 //  QDate QDate::fromString(QStringView string, QStringView format, int
 //      baseYear, QCalendar cal)
 extern "C" Q_DECL_EXPORT
@@ -392,7 +419,9 @@ QDate *ritual_ZN5QDate10fromStringE11QStringViewS0_i9QCalendar(
           baseYear,
           *cal));
 }
+#endif  // QT_CONFIG(datestring)
 
+#if QT_CONFIG(datestring)
 //  QDate QDate::fromString(const QString &string, QStringView format, int
 //      baseYear)
 extern "C" Q_DECL_EXPORT
@@ -406,7 +435,9 @@ QDate *ritual_ZN5QDate10fromStringERK7QString11QStringViewi(
           QStringView(*format),
           baseYear));
 }
+#endif  // QT_CONFIG(datestring)
 
+#if QT_CONFIG(datestring)
 //  QDate QDate::fromString(const QString &string, QStringView format, int
 //      baseYear, QCalendar cal)
 extern "C" Q_DECL_EXPORT
@@ -422,7 +453,9 @@ QDate *ritual_ZN5QDate10fromStringERK7QString11QStringViewi9QCalendar(
           baseYear,
           *cal));
 }
+#endif  // QT_CONFIG(datestring)
 
+#if QT_CONFIG(datestring)
 //  QDate QDate::fromString(const QString &string, const QString &format, int
 //      baseYear)
 extern "C" Q_DECL_EXPORT
@@ -432,7 +465,9 @@ QDate *ritual_ZN5QDate10fromStringERK7QStringS2_i(
     int baseYear) {
   return new QDate(QDate::fromString(*string, *format, baseYear));
 }
+#endif  // QT_CONFIG(datestring)
 
+#if QT_CONFIG(datestring)
 //  QDate QDate::fromString(const QString &string, const QString &format, int
 //      baseYear, QCalendar cal)
 extern "C" Q_DECL_EXPORT
@@ -443,6 +478,7 @@ QDate *ritual_ZN5QDate10fromStringERK7QStringS2_i9QCalendar(
     const QCalendar *cal) {
   return new QDate(QDate::fromString(*string, *format, baseYear, *cal));
 }
+#endif  // QT_CONFIG(datestring)
 
 //  bool QDate::isValid(int y, int m, int d)
 extern "C" Q_DECL_EXPORT

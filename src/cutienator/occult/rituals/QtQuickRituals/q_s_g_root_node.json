@@ -1,0 +1,14 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/qsgnode.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11QSGRootNodeC1Ev": ["address"],
+    "ritual_ZN11QSGRootNodeD1Ev": ["nothing", "address"],
+    "ritual_ZN11QSGRootNode16notifyNodeChangeEP7QSGNode6QFlagsINS0_13DirtyStateBitEE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_take_QSGRootNode": ["bool", "address", "chars", "address"]
+  }
+}

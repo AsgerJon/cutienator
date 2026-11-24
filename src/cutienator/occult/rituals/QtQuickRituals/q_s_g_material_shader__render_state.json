@@ -1,0 +1,61 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/qsgmaterialshader.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QSGMaterialShader11RenderState11dirtyStatesEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK17QSGMaterialShader11RenderState13isMatrixDirtyEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK17QSGMaterialShader11RenderState14isOpacityDirtyEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK17QSGMaterialShader11RenderState7opacityEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK17QSGMaterialShader11RenderState14combinedMatrixEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK17QSGMaterialShader11RenderState14combinedMatrixEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZNK17QSGMaterialShader11RenderState15modelViewMatrixEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK17QSGMaterialShader11RenderState16projectionMatrixEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK17QSGMaterialShader11RenderState16projectionMatrixEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZNK17QSGMaterialShader11RenderState21projectionMatrixCountEv": [
+      "long long", "address"
+    ],
+    "ritual_ZNK17QSGMaterialShader11RenderState12viewportRectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK17QSGMaterialShader11RenderState10deviceRectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK17QSGMaterialShader11RenderState11determinantEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK17QSGMaterialShader11RenderState16devicePixelRatioEv": [
+      "float", "address"
+    ],
+    "ritual_ZN17QSGMaterialShader11RenderState11uniformDataEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QSGMaterialShader11RenderState19resourceUpdateBatchEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QSGMaterialShader11RenderState3rhiEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QSGMaterialShader11RenderStateD1Ev": ["nothing", "address"]
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtXml/6.12.0/QtXml/private/qdom_p.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZNK24QDomCharacterDataPrivate10dataLengthEv": ["int", "address"],
+    "ritual_ZNK24QDomCharacterDataPrivate13substringDataEmm": [
+      "text", "address", "unsigned long", "unsigned long"
+    ],
+    "ritual_ZN24QDomCharacterDataPrivate10appendDataERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN24QDomCharacterDataPrivate10insertDataEmRK7QString": [
+      "nothing", "address", "unsigned long", "text"
+    ],
+    "ritual_ZN24QDomCharacterDataPrivate10deleteDataEmm": [
+      "nothing", "address", "unsigned long", "unsigned long"
+    ],
+    "ritual_ZN24QDomCharacterDataPrivate11replaceDataEmmRK7QString": [
+      "nothing", "address", "unsigned long", "unsigned long", "text"
+    ],
+    "ritual_ZNK24QDomCharacterDataPrivate8nodeTypeEv": ["int", "address"],
+    "ritual_ZN24QDomCharacterDataPrivate9cloneNodeEb": [
+      "address", "address", "bool"
+    ],
+    "ritual_ZN24QDomCharacterDataPrivateD1Ev": ["nothing", "address"],
+    "ritual_take_QDomCharacterDataPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK24QDomCharacterDataPrivate8nodeTypeEv": ["int", "address"]
+  }
+}

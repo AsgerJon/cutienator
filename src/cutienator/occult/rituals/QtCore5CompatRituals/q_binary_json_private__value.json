@@ -1,0 +1,54 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore5Compat/6.12.0/QtCore5Compat/private/qbinaryjson_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18QBinaryJsonPrivate5Value8intValueEv": ["int", "address"],
+    "ritual_ZNK18QBinaryJsonPrivate5Value4dataEPKNS_4BaseE": [
+      "chars", "address", "address"
+    ],
+    "ritual_ZNK18QBinaryJsonPrivate5Value9toBooleanEv": ["bool", "address"],
+    "ritual_ZNK18QBinaryJsonPrivate5Value8toDoubleEPKNS_4BaseE": [
+      "double", "address", "address"
+    ],
+    "ritual_ZNK18QBinaryJsonPrivate5Value8toStringEPKNS_4BaseE": [
+      "text", "address", "address"
+    ],
+    "ritual_ZNK18QBinaryJsonPrivate5Value8asStringEPKNS_4BaseE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK18QBinaryJsonPrivate5Value14asLatin1StringEPKNS_4BaseE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK18QBinaryJsonPrivate5Value4baseEPKNS_4BaseE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18QBinaryJsonPrivate5Value13setIsLatinKeyEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK18QBinaryJsonPrivate5Value10isLatinKeyEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN18QBinaryJsonPrivate5Value20setIsLatinOrIntValueEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK18QBinaryJsonPrivate5Value17isLatinOrIntValueEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN18QBinaryJsonPrivate5Value7setTypeEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZNK18QBinaryJsonPrivate5Value4typeEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN18QBinaryJsonPrivate5Value8setValueEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZNK18QBinaryJsonPrivate5Value5valueEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN18QBinaryJsonPrivate5ValueD1Ev": ["nothing", "address"]
+  }
+}

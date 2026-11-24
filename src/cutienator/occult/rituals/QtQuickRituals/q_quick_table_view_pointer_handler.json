@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquicktableview_p_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK29QQuickTableViewPointerHandler10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN29QQuickTableViewPointerHandler5stateEv": ["int", "address"],
+    "ritual_ZN29QQuickTableViewPointerHandler15wantsEventPointEPK13QPointerEventRK11QEventPoint": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_take_QQuickTableViewPointerHandler": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN29QQuickTableViewPointerHandler15wantsEventPointEPK13QPointerEventRK11QEventPoint": [
+      "bool", "address", "address", "address"
+    ]
+  }
+}

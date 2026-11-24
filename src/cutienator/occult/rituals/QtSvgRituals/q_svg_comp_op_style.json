@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSvg/6.12.0/QtSvg/private/qsvgstyle_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QSvgCompOpStyleC1EN8QPainter15CompositionModeE": [
+      "address", "int"
+    ],
+    "ritual_ZN15QSvgCompOpStyleD1Ev": ["nothing", "address"],
+    "ritual_ZNK15QSvgCompOpStyle4typeEv": ["unsigned char", "address"],
+    "ritual_take_QSvgCompOpStyle": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK15QSvgCompOpStyle4typeEv": ["unsigned char", "address"]
+  }
+}

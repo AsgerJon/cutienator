@@ -1,0 +1,31 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickpositioners_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK10QQuickFlow10metaObjectEv": ["address", "address"],
+    "ritual_ZN10QQuickFlow2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN10QQuickFlowC1EP10QQuickItem": ["address", "address"],
+    "ritual_ZNK10QQuickFlow4flowEv": ["int", "address"],
+    "ritual_ZN10QQuickFlow7setFlowENS_4FlowE": ["nothing", "address", "int"],
+    "ritual_ZNK10QQuickFlow15layoutDirectionEv": ["int", "address"],
+    "ritual_ZN10QQuickFlow18setLayoutDirectionEN2Qt15LayoutDirectionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK10QQuickFlow24effectiveLayoutDirectionEv": ["int", "address"],
+    "ritual_ZN10QQuickFlow13doPositioningEP6QSizeF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QQuickFlow24reportConflictingAnchorsEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN10QQuickFlow13doPositioningEP6QSizeF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN10QQuickFlow24reportConflictingAnchorsEv": [
+      "nothing", "address"
+    ]
+  }
+}

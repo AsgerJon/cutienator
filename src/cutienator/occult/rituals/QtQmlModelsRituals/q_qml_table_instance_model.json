@@ -1,0 +1,156 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQmlModels/6.12.0/QtQmlModels/private/qqmltableinstancemodel_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK22QQmlTableInstanceModel10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QQmlTableInstanceModel2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN22QQmlTableInstanceModelC1EP11QQmlContextP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN22QQmlTableInstanceModelD1Ev": ["nothing", "address"],
+    "ritual_ZN22QQmlTableInstanceModel16useImportVersionE13QTypeRevision": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK22QQmlTableInstanceModel5countEv": ["int", "address"],
+    "ritual_ZNK22QQmlTableInstanceModel4rowsEv": ["int", "address"],
+    "ritual_ZNK22QQmlTableInstanceModel7columnsEv": ["int", "address"],
+    "ritual_ZNK22QQmlTableInstanceModel7isValidEv": ["bool", "address"],
+    "ritual_ZNK22QQmlTableInstanceModel12canFetchMoreEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN22QQmlTableInstanceModel9fetchMoreEv": ["nothing", "address"],
+    "ritual_ZNK22QQmlTableInstanceModel5modelEv": ["address", "address"],
+    "ritual_ZN22QQmlTableInstanceModel8setModelERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK22QQmlTableInstanceModel8delegateEv": ["address", "address"],
+    "ritual_ZN22QQmlTableInstanceModel11setDelegateEP13QQmlComponent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK22QQmlTableInstanceModel19delegateModelAccessEv": [
+      "unsigned char", "address"
+    ],
+    "ritual_ZN22QQmlTableInstanceModel22setDelegateModelAccessEN17QQmlDelegateModel19DelegateModelAccessE": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZNK22QQmlTableInstanceModel17abstractItemModelEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QQmlTableInstanceModel6objectEiN13QQmlIncubator14IncubationModeE": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZN22QQmlTableInstanceModel25incubateModelItemIfNeededEP21QQmlDelegateModelItemN13QQmlIncubator14IncubationModeE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN22QQmlTableInstanceModel29restoreFromReleasedItemsCacheEP21QQmlDelegateModelItemi": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN22QQmlTableInstanceModel19commitReleasedItemsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQmlTableInstanceModel7releaseEP7QObjectN17QQmlInstanceModel12ReusableFlagE": [
+      "int", "address", "address", "int"
+    ],
+    "ritual_ZN22QQmlTableInstanceModel7disposeEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQmlTableInstanceModel6cancelEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN22QQmlTableInstanceModel22drainReusableItemsPoolEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN22QQmlTableInstanceModel8poolSizeEv": ["int", "address"],
+    "ritual_ZN22QQmlTableInstanceModel9reuseItemEP21QQmlDelegateModelItemi": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN22QQmlTableInstanceModel16incubationStatusEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZN22QQmlTableInstanceModel19setRequiredPropertyEiRK7QStringRK8QVariant": [
+      "bool", "address", "int", "text", "address"
+    ],
+    "ritual_ZN22QQmlTableInstanceModel12variantValueEiRK7QString": [
+      "address", "address", "int", "text"
+    ],
+    "ritual_ZN22QQmlTableInstanceModel15setWatchedRolesERK5QListI10QByteArrayE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK22QQmlTableInstanceModel7indexOfEP7QObjectS1_": [
+      "int", "address", "address", "address"
+    ],
+    "ritual_ZN22QQmlTableInstanceModel12getModelItemEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN22QQmlTableInstanceModel15resolveDelegateEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN22QQmlTableInstanceModel17incubateModelItemEP21QQmlDelegateModelItemN13QQmlIncubator14IncubationModeE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN22QQmlTableInstanceModel22incubatorStatusChangedEP36QQmlTableInstanceModelIncubationTaskN13QQmlIncubator6StatusE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN22QQmlTableInstanceModel25deleteIncubationTaskLaterEP13QQmlIncubator": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQmlTableInstanceModel32deleteAllFinishedIncubationTasksEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQmlTableInstanceModel16resolveModelItemEiRK11QModelIndex": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_ZN22QQmlTableInstanceModel16destroyModelItemEP21QQmlDelegateModelItemNS_15DestructionModeE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN22QQmlTableInstanceModel27modelAboutToBeResetCallbackEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQmlTableInstanceModel13forceSetModelERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQmlTableInstanceModel16isDoneIncubatingEP21QQmlDelegateModelItem": [
+      "bool", "address"
+    ],
+    "ritual_ZN22QQmlTableInstanceModel20deleteModelItemLaterEP21QQmlDelegateModelItem": [
+      "nothing", "address"
+    ],
+    "ritual_take_QQmlTableInstanceModel": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK22QQmlTableInstanceModel5countEv": ["int", "address"],
+    "ritual_own_ZNK22QQmlTableInstanceModel7isValidEv": ["bool", "address"],
+    "ritual_own_ZNK22QQmlTableInstanceModel17abstractItemModelEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN22QQmlTableInstanceModel6objectEiN13QQmlIncubator14IncubationModeE": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_own_ZN22QQmlTableInstanceModel7releaseEP7QObjectN17QQmlInstanceModel12ReusableFlagE": [
+      "int", "address", "address", "int"
+    ],
+    "ritual_own_ZN22QQmlTableInstanceModel6cancelEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN22QQmlTableInstanceModel22drainReusableItemsPoolEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN22QQmlTableInstanceModel8poolSizeEv": ["int", "address"],
+    "ritual_own_ZN22QQmlTableInstanceModel16incubationStatusEi": [
+      "int", "address", "int"
+    ],
+    "ritual_own_ZN22QQmlTableInstanceModel12variantValueEiRK7QString": [
+      "address", "address", "int", "text"
+    ],
+    "ritual_own_ZNK22QQmlTableInstanceModel7indexOfEP7QObjectS1_": [
+      "int", "address", "address", "address"
+    ]
+  }
+}

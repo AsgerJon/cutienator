@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qfilesystemwatcher_inotify_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK31QInotifyFileSystemWatcherEngine10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN31QInotifyFileSystemWatcherEngineD1Ev": ["nothing", "address"],
+    "ritual_take_QInotifyFileSystemWatcherEngine": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

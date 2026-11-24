@@ -1,0 +1,45 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/widgetfactory_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18qdesigner_internal13WidgetFactory10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal13WidgetFactory2trEPKcS2_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18qdesigner_internal13WidgetFactory11classNameOfEP28QDesignerFormEditorInterfacePK7QObject": [
+      "text", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal13WidgetFactory18isFormEditorObjectEPK7QObject": [
+      "bool", "address"
+    ],
+    "ritual_take_qdesigner_internal_WidgetFactory": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK18qdesigner_internal13WidgetFactory17containerOfWidgetEP7QWidget": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZNK18qdesigner_internal13WidgetFactory17widgetOfContainerEP7QWidget": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZNK18qdesigner_internal13WidgetFactory12createWidgetERK7QStringP7QWidget": [
+      "address", "address", "text", "address"
+    ],
+    "ritual_own_ZNK18qdesigner_internal13WidgetFactory12createLayoutEP7QWidgetP7QLayouti": [
+      "address", "address", "address", "address", "int"
+    ],
+    "ritual_own_ZN18qdesigner_internal13WidgetFactory19isPassiveInteractorEP7QWidget": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZNK18qdesigner_internal13WidgetFactory10initializeEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK18qdesigner_internal13WidgetFactory4coreEv": [
+      "address", "address"
+    ]
+  }
+}

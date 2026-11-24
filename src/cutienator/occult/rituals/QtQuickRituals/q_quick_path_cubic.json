@@ -1,0 +1,64 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickpath_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK15QQuickPathCubic10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QQuickPathCubic2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN15QQuickPathCubicC1EP7QObject": ["address", "address"],
+    "ritual_ZNK15QQuickPathCubic9control1XEv": ["double", "address"],
+    "ritual_ZN15QQuickPathCubic12setControl1XEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK15QQuickPathCubic9control1YEv": ["double", "address"],
+    "ritual_ZN15QQuickPathCubic12setControl1YEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK15QQuickPathCubic9control2XEv": ["double", "address"],
+    "ritual_ZN15QQuickPathCubic12setControl2XEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK15QQuickPathCubic9control2YEv": ["double", "address"],
+    "ritual_ZN15QQuickPathCubic12setControl2YEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK15QQuickPathCubic17relativeControl1XEv": [
+      "double", "address"
+    ],
+    "ritual_ZN15QQuickPathCubic20setRelativeControl1XEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN15QQuickPathCubic20hasRelativeControl1XEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK15QQuickPathCubic17relativeControl1YEv": [
+      "double", "address"
+    ],
+    "ritual_ZN15QQuickPathCubic20setRelativeControl1YEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN15QQuickPathCubic20hasRelativeControl1YEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK15QQuickPathCubic17relativeControl2XEv": [
+      "double", "address"
+    ],
+    "ritual_ZN15QQuickPathCubic20setRelativeControl2XEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN15QQuickPathCubic20hasRelativeControl2XEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK15QQuickPathCubic17relativeControl2YEv": [
+      "double", "address"
+    ],
+    "ritual_ZN15QQuickPathCubic20setRelativeControl2YEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN15QQuickPathCubic20hasRelativeControl2YEv": ["bool", "address"]
+  }
+}

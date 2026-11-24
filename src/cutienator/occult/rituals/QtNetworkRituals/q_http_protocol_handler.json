@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/6.12.0/QtNetwork/private/qhttpprotocolhandler_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QHttpProtocolHandler15_q_receiveReplyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QHttpProtocolHandler12_q_readyReadEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QHttpProtocolHandler11sendRequestEv": ["bool", "address"],
+    "ritual_ZN20QHttpProtocolHandlerD1Ev": ["nothing", "address"]
+  }
+}

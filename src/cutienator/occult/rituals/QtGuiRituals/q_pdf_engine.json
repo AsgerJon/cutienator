@@ -1,0 +1,127 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qpdf_p.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZN10QPdfEngine6d_funcEv": ["address", "address"],
+    "ritual_ZNK10QPdfEngine6d_funcEv": ["address", "address"],
+    "ritual_ZN10QPdfEngineC1Ev": ["address"],
+    "ritual_ZN10QPdfEngineD1Ev": ["nothing", "address"],
+    "ritual_ZN10QPdfEngine17setOutputFilenameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN10QPdfEngine13setResolutionEi": ["nothing", "address", "int"],
+    "ritual_ZNK10QPdfEngine10resolutionEv": ["int", "address"],
+    "ritual_ZN10QPdfEngine13setPdfVersionENS_10PdfVersionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10QPdfEngine22setDocumentXmpMetadataERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10QPdfEngine19documentXmpMetadataEv": ["address", "address"],
+    "ritual_ZN10QPdfEngine17addFileAttachmentERK7QStringRK10QByteArrayS2_": [
+      "nothing", "address", "text", "address", "text"
+    ],
+    "ritual_ZN10QPdfEngine5beginEP12QPaintDevice": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN10QPdfEngine3endEv": ["bool", "address"],
+    "ritual_ZN10QPdfEngine10drawPointsEPK7QPointFi": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN10QPdfEngine9drawLinesEPK6QLineFi": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN10QPdfEngine9drawRectsEPK6QRectFi": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN10QPdfEngine11drawPolygonEPK7QPointFiN12QPaintEngine15PolygonDrawModeE": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN10QPdfEngine8drawPathERK12QPainterPath": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QPdfEngine12drawTextItemERK7QPointFRK9QTextItem": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN10QPdfEngine10drawPixmapERK6QRectFRK7QPixmapS2_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN10QPdfEngine9drawImageERK6QRectFRK6QImageS2_6QFlagsIN2Qt19ImageConversionFlagEE": [
+      "nothing", "address", "address", "address", "address", "int"
+    ],
+    "ritual_ZN10QPdfEngine15drawTiledPixmapERK6QRectFRK7QPixmapRK7QPointF": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN10QPdfEngine13drawHyperlinkERK6QRectFRK4QUrl": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN10QPdfEngine11updateStateERK17QPaintEngineState": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10QPdfEngine6metricEN12QPaintDevice17PaintDeviceMetricE": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK10QPdfEngine4typeEv": ["int", "address"],
+    "ritual_ZN10QPdfEngine7newPageEv": ["bool", "address"],
+    "ritual_ZN10QPdfEngine13setPageLayoutERK11QPageLayout": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QPdfEngine11setPageSizeERK9QPageSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QPdfEngine18setPageOrientationEN11QPageLayout11OrientationE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10QPdfEngine14setPageMarginsERK9QMarginsFN11QPageLayout4UnitE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZNK10QPdfEngine10pageLayoutEv": ["address", "address"],
+    "ritual_ZN10QPdfEngine6setPenEv": ["nothing", "address"],
+    "ritual_ZN10QPdfEngine8setBrushEv": ["nothing", "address"],
+    "ritual_ZN10QPdfEngine18setupGraphicsStateE6QFlagsIN12QPaintEngine9DirtyFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN10QPdfEngine14updateClipPathERK12QPainterPathN2Qt13ClipOperationE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_take_QPdfEngine": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN10QPdfEngine5beginEP12QPaintDevice": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN10QPdfEngine3endEv": ["bool", "address"],
+    "ritual_own_ZN10QPdfEngine10drawPointsEPK7QPointFi": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_own_ZN10QPdfEngine9drawLinesEPK6QLineFi": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_own_ZN10QPdfEngine9drawRectsEPK6QRectFi": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_own_ZN10QPdfEngine11drawPolygonEPK7QPointFiN12QPaintEngine15PolygonDrawModeE": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_own_ZN10QPdfEngine8drawPathERK12QPainterPath": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN10QPdfEngine12drawTextItemERK7QPointFRK9QTextItem": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN10QPdfEngine10drawPixmapERK6QRectFRK7QPixmapS2_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN10QPdfEngine9drawImageERK6QRectFRK6QImageS2_6QFlagsIN2Qt19ImageConversionFlagEE": [
+      "nothing", "address", "address", "address", "address", "int"
+    ],
+    "ritual_own_ZN10QPdfEngine15drawTiledPixmapERK6QRectFRK7QPixmapRK7QPointF": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN10QPdfEngine11updateStateERK17QPaintEngineState": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK10QPdfEngine4typeEv": ["int", "address"]
+  }
+}

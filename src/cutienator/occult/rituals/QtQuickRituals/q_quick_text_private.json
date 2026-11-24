@@ -1,0 +1,103 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquicktext_p_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN17QQuickTextPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK17QQuickTextPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN17QQuickTextPrivateC1Ev": ["address"],
+    "ritual_ZN17QQuickTextPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN17QQuickTextPrivate4initEv": ["nothing", "address"],
+    "ritual_ZN17QQuickTextPrivate14updateBaselineEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN17QQuickTextPrivate10updateSizeEv": ["nothing", "address"],
+    "ritual_ZN17QQuickTextPrivate16signalSizeChangeERK6QSizeF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QQuickTextPrivate12updateLayoutEv": ["nothing", "address"],
+    "ritual_ZN17QQuickTextPrivate28determineHorizontalAlignmentEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN17QQuickTextPrivate9setHAlignEN10QQuickText10HAlignmentEb": [
+      "bool", "address", "int", "bool"
+    ],
+    "ritual_ZN17QQuickTextPrivate12mirrorChangeEv": ["nothing", "address"],
+    "ritual_ZN17QQuickTextPrivate22isLineLaidOutConnectedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK17QQuickTextPrivate16lineHeightOffsetEv": ["int", "address"],
+    "ritual_ZNK17QQuickTextPrivate10elidedTextEdRK9QTextLine": [
+      "text", "address", "double", "address"
+    ],
+    "ritual_ZN17QQuickTextPrivate12clearFormatsEv": ["nothing", "address"],
+    "ritual_ZN17QQuickTextPrivate17processHoverEventEP11QHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QQuickTextPrivate16transformChangedEP10QQuickItem": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK17QQuickTextPrivate16getImplicitWidthEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK17QQuickTextPrivate17getImplicitHeightEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK17QQuickTextPrivate14availableWidthEv": ["double", "address"],
+    "ritual_ZNK17QQuickTextPrivate15availableHeightEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK17QQuickTextPrivate7paddingEv": ["double", "address"],
+    "ritual_ZN17QQuickTextPrivate13setTopPaddingEdb": [
+      "nothing", "address", "double", "bool"
+    ],
+    "ritual_ZN17QQuickTextPrivate14setLeftPaddingEdb": [
+      "nothing", "address", "double", "bool"
+    ],
+    "ritual_ZN17QQuickTextPrivate15setRightPaddingEdb": [
+      "nothing", "address", "double", "bool"
+    ],
+    "ritual_ZN17QQuickTextPrivate16setBottomPaddingEdb": [
+      "nothing", "address", "double", "bool"
+    ],
+    "ritual_ZN17QQuickTextPrivate9ensureDocEv": ["nothing", "address"],
+    "ritual_ZN17QQuickTextPrivate18updateDocumentTextEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuickTextPrivate24isLinkActivatedConnectedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN17QQuickTextPrivate22isLinkHoveredConnectedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN17QQuickTextPrivate8anchorAtEPK11QTextLayoutRK7QPointF": [
+      "text", "address", "address"
+    ],
+    "ritual_ZNK17QQuickTextPrivate8anchorAtERK7QPointF": [
+      "text", "address", "address"
+    ],
+    "ritual_ZNK17QQuickTextPrivate10lineHeightEv": ["double", "address"],
+    "ritual_ZNK17QQuickTextPrivate16maximumLineCountEv": ["int", "address"],
+    "ritual_ZNK17QQuickTextPrivate17renderTypeQualityEv": ["int", "address"],
+    "ritual_ZNK17QQuickTextPrivate14lineHeightModeEv": ["int", "address"],
+    "ritual_ZNK17QQuickTextPrivate12fontSizeModeEv": ["int", "address"],
+    "ritual_ZNK17QQuickTextPrivate16minimumPixelSizeEv": ["int", "address"],
+    "ritual_ZNK17QQuickTextPrivate16minimumPointSizeEv": ["int", "address"],
+    "ritual_ZN17QQuickTextPrivate3getEP10QQuickText": ["address", "address"],
+    "ritual_take_QQuickTextPrivate": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN17QQuickTextPrivate12mirrorChangeEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN17QQuickTextPrivate16transformChangedEP10QQuickItem": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZNK17QQuickTextPrivate16getImplicitWidthEv": [
+      "double", "address"
+    ],
+    "ritual_own_ZNK17QQuickTextPrivate17getImplicitHeightEv": [
+      "double", "address"
+    ]
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtLocat",
+    "ion/6.12.0/QtLocation/private/qdeclarativepolygonmapitem_p_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN36QDeclarativePolygonMapItemPrivateCPUD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN36QDeclarativePolygonMapItemPrivateCPU23onLinePropertiesChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN36QDeclarativePolygonMapItemPrivateCPU24markSourceDirtyAndUpdateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN36QDeclarativePolygonMapItemPrivateCPU20afterViewportChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN36QDeclarativePolygonMapItemPrivateCPU8onMapSetEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN36QDeclarativePolygonMapItemPrivateCPU20onGeoGeometryChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN36QDeclarativePolygonMapItemPrivateCPU20onGeoGeometryUpdatedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN36QDeclarativePolygonMapItemPrivateCPU21onItemGeometryChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN36QDeclarativePolygonMapItemPrivateCPU12updatePolishEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN36QDeclarativePolygonMapItemPrivateCPU22updateMapItemPaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK36QDeclarativePolygonMapItemPrivateCPU8containsERK7QPointF": [
+      "bool", "address", "address"
+    ],
+    "ritual_take_QDeclarativePolygonMapItemPrivateCPU": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN36QDeclarativePolygonMapItemPrivateCPU23onLinePropertiesChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN36QDeclarativePolygonMapItemPrivateCPU24markSourceDirtyAndUpdateEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN36QDeclarativePolygonMapItemPrivateCPU20afterViewportChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN36QDeclarativePolygonMapItemPrivateCPU21onItemGeometryChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN36QDeclarativePolygonMapItemPrivateCPU12updatePolishEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN36QDeclarativePolygonMapItemPrivateCPU22updateMapItemPaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_own_ZNK36QDeclarativePolygonMapItemPrivateCPU8containsERK7QPointF": [
+      "bool", "address", "address"
+    ]
+  }
+}

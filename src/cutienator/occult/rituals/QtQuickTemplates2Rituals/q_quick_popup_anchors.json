@@ -1,0 +1,37 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquickpopupanchors_p.h",
+    ", Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18QQuickPopupAnchors10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QQuickPopupAnchors2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18QQuickPopupAnchors22qt_qmlMarker_anonymousEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickPopupAnchorsC1EP11QQuickPopup": ["address", "address"],
+    "ritual_ZN18QQuickPopupAnchorsD1Ev": ["nothing", "address"],
+    "ritual_ZNK18QQuickPopupAnchors8centerInEv": ["address", "address"],
+    "ritual_ZN18QQuickPopupAnchors11setCenterInEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQuickPopupAnchors13resetCenterInEv": ["nothing", "address"],
+    "ritual_ZN18QQuickPopupAnchors13itemDestroyedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQuickPopupAnchors6d_funcEv": ["address", "address"],
+    "ritual_ZNK18QQuickPopupAnchors6d_funcEv": ["address", "address"],
+    "ritual_cast_QQuickPopupAnchors_QQuickItemChangeListener": [
+      "address", "address"
+    ],
+    "ritual_take_QQuickPopupAnchors": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN18QQuickPopupAnchors13itemDestroyedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ]
+  }
+}

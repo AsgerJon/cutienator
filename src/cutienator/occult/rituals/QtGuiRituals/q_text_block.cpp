@@ -5,6 +5,14 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qlist.h>
 
+//  QTextBlock::QTextBlock(QTextDocumentPrivate *priv, int b)
+extern "C" Q_DECL_EXPORT
+QTextBlock *ritual_ZN10QTextBlockC1EP20QTextDocumentPrivatei(
+    QTextDocumentPrivate *priv,
+    int b) {
+  return new QTextBlock(priv, b);
+}
+
 //  QTextBlock::QTextBlock()
 extern "C" Q_DECL_EXPORT
 QTextBlock *ritual_ZN10QTextBlockC1Ev() {

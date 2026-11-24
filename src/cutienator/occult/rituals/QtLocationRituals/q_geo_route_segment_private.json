@@ -1,0 +1,37 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLocation/6.12.0/QtLocation/private/qgeoroutesegment_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN23QGeoRouteSegmentPrivateC1Ev": ["address"],
+    "ritual_ZNK23QGeoRouteSegmentPrivate5validEv": ["bool", "address"],
+    "ritual_ZN23QGeoRouteSegmentPrivate8setValidEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK23QGeoRouteSegmentPrivate16isLegLastSegmentEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN23QGeoRouteSegmentPrivate17setLegLastSegmentEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK23QGeoRouteSegmentPrivate10travelTimeEv": ["int", "address"],
+    "ritual_ZN23QGeoRouteSegmentPrivate13setTravelTimeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK23QGeoRouteSegmentPrivate8distanceEv": ["double", "address"],
+    "ritual_ZN23QGeoRouteSegmentPrivate11setDistanceEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK23QGeoRouteSegmentPrivate4pathEv": ["address", "address"],
+    "ritual_ZN23QGeoRouteSegmentPrivate7setPathERK5QListI14QGeoCoordinateE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK23QGeoRouteSegmentPrivate8maneuverEv": ["address", "address"],
+    "ritual_ZN23QGeoRouteSegmentPrivate11setManeuverERK12QGeoManeuver": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QGeoRouteSegmentPrivateD1Ev": ["nothing", "address"]
+  }
+}

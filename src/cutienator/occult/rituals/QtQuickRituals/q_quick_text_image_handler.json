@@ -1,0 +1,31 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquicktextdocument_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK22QQuickTextImageHandler10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QQuickTextImageHandlerD1Ev": ["nothing", "address"],
+    "ritual_ZN22QQuickTextImageHandler13intrinsicSizeEP13QTextDocumentiRK11QTextFormat": [
+      "address", "address", "address", "int", "address"
+    ],
+    "ritual_ZN22QQuickTextImageHandler10drawObjectEP8QPainterRK6QRectFP13QTextDocumentiRK11QTextFormat": [
+      "nothing", "address", "address", "address", "address", "int", "address"
+    ],
+    "ritual_cast_QQuickTextImageHandler_QTextObjectInterface": [
+      "address", "address"
+    ],
+    "ritual_take_QQuickTextImageHandler": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN22QQuickTextImageHandler13intrinsicSizeEP13QTextDocumentiRK11QTextFormat": [
+      "address", "address", "address", "int", "address"
+    ],
+    "ritual_own_ZN22QQuickTextImageHandler10drawObjectEP8QPainterRK6QRectFP13QTextDocumentiRK11QTextFormat": [
+      "nothing", "address", "address", "address", "address", "int", "address"
+    ]
+  }
+}

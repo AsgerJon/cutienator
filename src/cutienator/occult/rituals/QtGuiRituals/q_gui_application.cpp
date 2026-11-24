@@ -17,60 +17,107 @@
 //  This one is, and makes them free for the rituals to call.
 struct OwnQGuiApplication : QGuiApplication {
   using QGuiApplication::event;
+  using QGuiApplication::compressEvent;
 };
 
 //  A QGuiApplication that Python can take functions over in. Every QGuiApplication
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQGuiApplicationCall0)(const void *, QObject *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQGuiApplicationCall1)(const void *, QEvent *, int *);
-typedef bool (*CuteQGuiApplicationCall2)(const void *, QObject *, QEvent *, int *);
-typedef void (*CuteQGuiApplicationCall3)(const void *, QTimerEvent *, int *);
-typedef void (*CuteQGuiApplicationCall4)(const void *, QChildEvent *, int *);
-typedef void (*CuteQGuiApplicationCall5)(const void *, QEvent *, int *);
-typedef void (*CuteQGuiApplicationCall6)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+#if QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+typedef bool (*CuteQGuiApplicationCall2)(const void *, QEvent *, QObject *, QPostEventList *, int *);
+#endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+typedef bool (*CuteQGuiApplicationCall3)(const void *, QObject *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+typedef void (*CuteQGuiApplicationCall4)(const void *, QTimerEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+typedef void (*CuteQGuiApplicationCall5)(const void *, QChildEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+typedef void (*CuteQGuiApplicationCall6)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQGuiApplicationCall7)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+typedef void (*CuteQGuiApplicationCall8)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 class CuteQGuiApplication : public QGuiApplication {
 public:
   using QGuiApplication::QGuiApplication;
-  void *taken[8] = {};
+  void *taken[9] = {};
 
   bool take(const char *key, void *call) {
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN16QCoreApplication6notifyEP7QObjectP6QEvent")) {
       taken[0] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[1] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+#if QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+    if (!std::strcmp(key, "_ZN16QCoreApplication13compressEventEP6QEventP7QObjectP14QPostEventList")) {
       taken[2] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
+#endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[3] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[4] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[5] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[6] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[7] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+      taken[8] = call;
+      return true;
+    }
+#endif  // !defined(QT_NO_QOBJECT)
     return false;
   }
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QGuiApplication::notify(QObject *a0, QEvent *a1)
   bool notify(QObject *a0, QEvent *a1) override {
     if (taken[0]) {
@@ -81,7 +128,9 @@ public:
     }
     return QGuiApplication::notify(a0, a1);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QGuiApplication::event(QEvent *a0)
   bool event(QEvent *a0) override {
     if (taken[1]) {
@@ -92,72 +141,104 @@ public:
     }
     return QGuiApplication::event(a0);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
-  //  bool QObject::eventFilter(QObject *watched, QEvent *event)
-  bool eventFilter(QObject *watched, QEvent *event) override {
+#if !defined(QT_NO_QOBJECT)
+#if QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+  //  bool QGuiApplication::compressEvent(QEvent *a0, QObject *receiver,
+  //      QPostEventList *a2)
+  bool compressEvent(
+      QEvent *a0,
+      QObject *receiver,
+      QPostEventList *a2) override {
     if (taken[2]) {
       int handled = 0;
       CuteQGuiApplicationCall2 call = reinterpret_cast<CuteQGuiApplicationCall2>(taken[2]);
+      bool given = call(this, a0, receiver, a2, &handled);
+      if (handled) return given;
+    }
+    return QGuiApplication::compressEvent(a0, receiver, a2);
+  }
+#endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+#endif  // !defined(QT_NO_QOBJECT)
+
+#if !defined(QT_NO_QOBJECT)
+  //  bool QObject::eventFilter(QObject *watched, QEvent *event)
+  bool eventFilter(QObject *watched, QEvent *event) override {
+    if (taken[3]) {
+      int handled = 0;
+      CuteQGuiApplicationCall3 call = reinterpret_cast<CuteQGuiApplicationCall3>(taken[3]);
       bool given = call(this, watched, event, &handled);
       if (handled) return given;
     }
     return QObject::eventFilter(watched, event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
-    if (taken[3]) {
-      int handled = 0;
-      CuteQGuiApplicationCall3 call = reinterpret_cast<CuteQGuiApplicationCall3>(taken[3]);
-      call(this, event, &handled);
-      if (handled) return;
-    }
-    QObject::timerEvent(event);
-  }
-
-  //  void QObject::childEvent(QChildEvent *event)
-  void childEvent(QChildEvent *event) override {
     if (taken[4]) {
       int handled = 0;
       CuteQGuiApplicationCall4 call = reinterpret_cast<CuteQGuiApplicationCall4>(taken[4]);
       call(this, event, &handled);
       if (handled) return;
     }
-    QObject::childEvent(event);
+    QObject::timerEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
-  //  void QObject::customEvent(QEvent *event)
-  void customEvent(QEvent *event) override {
+#if !defined(QT_NO_QOBJECT)
+  //  void QObject::childEvent(QChildEvent *event)
+  void childEvent(QChildEvent *event) override {
     if (taken[5]) {
       int handled = 0;
       CuteQGuiApplicationCall5 call = reinterpret_cast<CuteQGuiApplicationCall5>(taken[5]);
       call(this, event, &handled);
       if (handled) return;
     }
-    QObject::customEvent(event);
+    QObject::childEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
-  //  void QObject::connectNotify(const QMetaMethod &signal)
-  void connectNotify(const QMetaMethod &signal) override {
+#if !defined(QT_NO_QOBJECT)
+  //  void QObject::customEvent(QEvent *event)
+  void customEvent(QEvent *event) override {
     if (taken[6]) {
       int handled = 0;
       CuteQGuiApplicationCall6 call = reinterpret_cast<CuteQGuiApplicationCall6>(taken[6]);
-      call(this, &signal, &handled);
+      call(this, event, &handled);
       if (handled) return;
     }
-    QObject::connectNotify(signal);
+    QObject::customEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
-  //  void QObject::disconnectNotify(const QMetaMethod &signal)
-  void disconnectNotify(const QMetaMethod &signal) override {
+#if !defined(QT_NO_QOBJECT)
+  //  void QObject::connectNotify(const QMetaMethod &signal)
+  void connectNotify(const QMetaMethod &signal) override {
     if (taken[7]) {
       int handled = 0;
       CuteQGuiApplicationCall7 call = reinterpret_cast<CuteQGuiApplicationCall7>(taken[7]);
       call(this, &signal, &handled);
       if (handled) return;
     }
+    QObject::connectNotify(signal);
+  }
+#endif  // !defined(QT_NO_QOBJECT)
+
+#if !defined(QT_NO_QOBJECT)
+  //  void QObject::disconnectNotify(const QMetaMethod &signal)
+  void disconnectNotify(const QMetaMethod &signal) override {
+    if (taken[8]) {
+      int handled = 0;
+      CuteQGuiApplicationCall8 call = reinterpret_cast<CuteQGuiApplicationCall8>(taken[8]);
+      call(this, &signal, &handled);
+      if (handled) return;
+    }
     QObject::disconnectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 };
 
 //  const QMetaObject *QGuiApplication::metaObject() const
@@ -176,6 +257,7 @@ QString *ritual_ZN15QGuiApplication2trEPKcS1_i(
   return new QString(QGuiApplication::tr(s, c, n));
 }
 
+#if !(defined(Q_QDOC))
 //  QGuiApplication::QGuiApplication(int &argc, char **argv, int a2)
 extern "C" Q_DECL_EXPORT
 QGuiApplication *ritual_ZN15QGuiApplicationC1ERiPPci(
@@ -184,6 +266,7 @@ QGuiApplication *ritual_ZN15QGuiApplicationC1ERiPPci(
     int a2) {
   return new CuteQGuiApplication(*argc, argv, a2);
 }
+#endif  // !(defined(Q_QDOC))
 
 //  QGuiApplication::~QGuiApplication()
 extern "C" Q_DECL_EXPORT
@@ -305,31 +388,39 @@ qreal ritual_ZNK15QGuiApplication16devicePixelRatioEv(
   return self->devicePixelRatio();
 }
 
+#if !defined(QT_NO_CURSOR)
 //  QCursor *QGuiApplication::overrideCursor()
 extern "C" Q_DECL_EXPORT
 QCursor *ritual_ZN15QGuiApplication14overrideCursorEv() {
   return QGuiApplication::overrideCursor();
 }
+#endif  // !defined(QT_NO_CURSOR)
 
+#if !defined(QT_NO_CURSOR)
 //  void QGuiApplication::setOverrideCursor(const QCursor &a0)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QGuiApplication17setOverrideCursorERK7QCursor(
     const QCursor *a0) {
   QGuiApplication::setOverrideCursor(*a0);
 }
+#endif  // !defined(QT_NO_CURSOR)
 
+#if !defined(QT_NO_CURSOR)
 //  void QGuiApplication::changeOverrideCursor(const QCursor &a0)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QGuiApplication20changeOverrideCursorERK7QCursor(
     const QCursor *a0) {
   QGuiApplication::changeOverrideCursor(*a0);
 }
+#endif  // !defined(QT_NO_CURSOR)
 
+#if !defined(QT_NO_CURSOR)
 //  void QGuiApplication::restoreOverrideCursor()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QGuiApplication21restoreOverrideCursorEv() {
   QGuiApplication::restoreOverrideCursor();
 }
+#endif  // !defined(QT_NO_CURSOR)
 
 //  QFont QGuiApplication::font()
 extern "C" Q_DECL_EXPORT
@@ -343,11 +434,13 @@ void ritual_ZN15QGuiApplication7setFontERK5QFont(const QFont *a0) {
   QGuiApplication::setFont(*a0);
 }
 
+#if !defined(QT_NO_CLIPBOARD)
 //  QClipboard *QGuiApplication::clipboard()
 extern "C" Q_DECL_EXPORT
 QClipboard *ritual_ZN15QGuiApplication9clipboardEv() {
   return QGuiApplication::clipboard();
 }
+#endif  // !defined(QT_NO_CLIPBOARD)
 
 //  QPalette QGuiApplication::palette()
 extern "C" Q_DECL_EXPORT
@@ -429,6 +522,12 @@ QInputMethod *ritual_ZN15QGuiApplication11inputMethodEv() {
   return QGuiApplication::inputMethod();
 }
 
+//  QPlatformNativeInterface *QGuiApplication::platformNativeInterface()
+extern "C" Q_DECL_EXPORT
+QPlatformNativeInterface *ritual_ZN15QGuiApplication23platformNativeInterfaceEv() {
+  return QGuiApplication::platformNativeInterface();
+}
+
 //  void QGuiApplication::setQuitOnLastWindowClosed(bool quit)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QGuiApplication25setQuitOnLastWindowClosedEb(bool quit) {
@@ -477,33 +576,41 @@ bool ritual_ZN15QGuiApplication6notifyEP7QObjectP6QEvent(
   return self->notify(a0, a1);
 }
 
+#if !defined(QT_NO_SESSIONMANAGER)
 //  bool QGuiApplication::isSessionRestored() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK15QGuiApplication17isSessionRestoredEv(
     const QGuiApplication *self) {
   return self->isSessionRestored();
 }
+#endif  // !defined(QT_NO_SESSIONMANAGER)
 
+#if !defined(QT_NO_SESSIONMANAGER)
 //  QString QGuiApplication::sessionId() const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK15QGuiApplication9sessionIdEv(
     const QGuiApplication *self) {
   return new QString(self->sessionId());
 }
+#endif  // !defined(QT_NO_SESSIONMANAGER)
 
+#if !defined(QT_NO_SESSIONMANAGER)
 //  QString QGuiApplication::sessionKey() const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK15QGuiApplication10sessionKeyEv(
     const QGuiApplication *self) {
   return new QString(self->sessionKey());
 }
+#endif  // !defined(QT_NO_SESSIONMANAGER)
 
+#if !defined(QT_NO_SESSIONMANAGER)
 //  bool QGuiApplication::isSavingSession() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK15QGuiApplication15isSavingSessionEv(
     const QGuiApplication *self) {
   return self->isSavingSession();
 }
+#endif  // !defined(QT_NO_SESSIONMANAGER)
 
 //  void QGuiApplication::sync()
 extern "C" Q_DECL_EXPORT
@@ -517,6 +624,33 @@ bool ritual_ZN15QGuiApplication5eventEP6QEvent(
     QGuiApplication *self,
     QEvent *a0) {
   return self->event(a0);
+}
+
+#if QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+//  bool QGuiApplication::compressEvent(QEvent *a0, QObject *receiver,
+//      QPostEventList *a2)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN15QGuiApplication13compressEventEP6QEventP7QObjectP14QPostEventList(
+    QGuiApplication *self,
+    QEvent *a0,
+    QObject *receiver,
+    QPostEventList *a2) {
+  return self->compressEvent(a0, receiver, a2);
+}
+#endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+
+//  QGuiApplicationPrivate *QGuiApplication::d_func()
+extern "C" Q_DECL_EXPORT
+QGuiApplicationPrivate *ritual_ZN15QGuiApplication6d_funcEv(
+    QGuiApplication *self) {
+  return self->d_func();
+}
+
+//  const QGuiApplicationPrivate *QGuiApplication::d_func() const
+extern "C" Q_DECL_EXPORT
+const QGuiApplicationPrivate *ritual_ZNK15QGuiApplication6d_funcEv(
+    const QGuiApplication *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQGuiApplication, for the function named
@@ -546,3 +680,19 @@ bool ritual_own_ZN15QGuiApplication5eventEP6QEvent(
   return static_cast<OwnQGuiApplication *>(self)->OwnQGuiApplication::event(
       a0);
 }
+
+#if QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+//  bool QGuiApplication::compressEvent(QEvent *a0, QObject *receiver,
+//      QPostEventList *a2)
+extern "C" Q_DECL_EXPORT
+bool ritual_own_ZN15QGuiApplication13compressEventEP6QEventP7QObjectP14QPostEventList(
+    QGuiApplication *self,
+    QEvent *a0,
+    QObject *receiver,
+    QPostEventList *a2) {
+  return static_cast<OwnQGuiApplication *>(self)->OwnQGuiApplication::compressEvent(
+      a0,
+      receiver,
+      a2);
+}
+#endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)

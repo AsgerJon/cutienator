@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qstylehints_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QStyleHintsPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK18QStyleHintsPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK18QStyleHintsPrivate11colorSchemeEv": ["int", "address"],
+    "ritual_ZN18QStyleHintsPrivate17updateColorSchemeEN2Qt11ColorSchemeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18QStyleHintsPrivate6updateEPK14QPlatformTheme": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QStyleHintsPrivate18accessibilityHintsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18QStyleHintsPrivate3getEP11QStyleHints": [
+      "address", "address"
+    ]
+  }
+}

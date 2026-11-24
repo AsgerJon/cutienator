@@ -1,0 +1,142 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qmetaobjectbuilder_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QMetaObjectBuilderC1Ev": ["address"],
+    "ritual_ZN18QMetaObjectBuilderC1EPK11QMetaObject6QFlagsINS_9AddMemberEE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN18QMetaObjectBuilderD1Ev": ["nothing", "address"],
+    "ritual_ZNK18QMetaObjectBuilder9classNameEv": ["address", "address"],
+    "ritual_ZN18QMetaObjectBuilder12setClassNameERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QMetaObjectBuilder10superClassEv": ["address", "address"],
+    "ritual_ZN18QMetaObjectBuilder13setSuperClassEPK11QMetaObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QMetaObjectBuilder5flagsEv": ["int", "address"],
+    "ritual_ZN18QMetaObjectBuilder8setFlagsE6QFlagsIN14QtMocConstants14MetaObjectFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK18QMetaObjectBuilder11methodCountEv": ["int", "address"],
+    "ritual_ZNK18QMetaObjectBuilder16constructorCountEv": ["int", "address"],
+    "ritual_ZNK18QMetaObjectBuilder13propertyCountEv": ["int", "address"],
+    "ritual_ZNK18QMetaObjectBuilder15enumeratorCountEv": ["int", "address"],
+    "ritual_ZNK18QMetaObjectBuilder14classInfoCountEv": ["int", "address"],
+    "ritual_ZNK18QMetaObjectBuilder22relatedMetaObjectCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZN18QMetaObjectBuilder9addMethodERK10QByteArray": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18QMetaObjectBuilder9addMethodERK10QByteArrayS2_": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN18QMetaObjectBuilder9addMethodERK11QMetaMethod": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18QMetaObjectBuilder7addSlotERK10QByteArray": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18QMetaObjectBuilder9addSignalERK10QByteArray": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18QMetaObjectBuilder14addConstructorERK10QByteArray": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18QMetaObjectBuilder14addConstructorERK11QMetaMethod": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18QMetaObjectBuilder11addPropertyERK10QByteArrayS2_i": [
+      "address", "address", "address", "address", "int"
+    ],
+    "ritual_ZN18QMetaObjectBuilder11addPropertyERK10QByteArrayS2_9QMetaTypei": [
+      "address", "address", "address", "address", "address", "int"
+    ],
+    "ritual_ZN18QMetaObjectBuilder11addPropertyERK13QMetaProperty": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18QMetaObjectBuilder13addEnumeratorERK10QByteArray": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18QMetaObjectBuilder13addEnumeratorERK9QMetaEnum": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18QMetaObjectBuilder12addClassInfoERK10QByteArrayS2_": [
+      "int", "address", "address", "address"
+    ],
+    "ritual_ZN18QMetaObjectBuilder20addRelatedMetaObjectEPK11QMetaObject": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN18QMetaObjectBuilder13addMetaObjectEPK11QMetaObject6QFlagsINS_9AddMemberEE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZNK18QMetaObjectBuilder6methodEi": ["address", "address", "int"],
+    "ritual_ZNK18QMetaObjectBuilder6signalEi": ["address", "address", "int"],
+    "ritual_ZNK18QMetaObjectBuilder11constructorEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK18QMetaObjectBuilder8propertyEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK18QMetaObjectBuilder10enumeratorEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK18QMetaObjectBuilder17relatedMetaObjectEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK18QMetaObjectBuilder13classInfoNameEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK18QMetaObjectBuilder14classInfoValueEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN18QMetaObjectBuilder12removeMethodEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18QMetaObjectBuilder12removeSignalEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18QMetaObjectBuilder17removeConstructorEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18QMetaObjectBuilder14removePropertyEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18QMetaObjectBuilder16removeEnumeratorEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18QMetaObjectBuilder15removeClassInfoEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18QMetaObjectBuilder23removeRelatedMetaObjectEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18QMetaObjectBuilder13indexOfMethodERK10QByteArray": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN18QMetaObjectBuilder13indexOfSignalERK10QByteArray": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN18QMetaObjectBuilder11indexOfSlotERK10QByteArray": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN18QMetaObjectBuilder18indexOfConstructorERK10QByteArray": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN18QMetaObjectBuilder15indexOfPropertyERK10QByteArray": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN18QMetaObjectBuilder17indexOfEnumeratorERK10QByteArray": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN18QMetaObjectBuilder16indexOfClassInfoERK10QByteArray": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK18QMetaObjectBuilder12toMetaObjectEv": ["address", "address"]
+  }
+}

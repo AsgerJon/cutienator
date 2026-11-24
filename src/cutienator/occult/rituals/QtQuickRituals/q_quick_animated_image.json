@@ -1,0 +1,81 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickanimatedimage_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK19QQuickAnimatedImage10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QQuickAnimatedImage2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN19QQuickAnimatedImageC1EP10QQuickItem": ["address", "address"],
+    "ritual_ZN19QQuickAnimatedImageD1Ev": ["nothing", "address"],
+    "ritual_ZNK19QQuickAnimatedImage9isPlayingEv": ["bool", "address"],
+    "ritual_ZN19QQuickAnimatedImage10setPlayingEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK19QQuickAnimatedImage8isPausedEv": ["bool", "address"],
+    "ritual_ZN19QQuickAnimatedImage9setPausedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK19QQuickAnimatedImage12currentFrameEv": ["int", "address"],
+    "ritual_ZN19QQuickAnimatedImage15setCurrentFrameEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK19QQuickAnimatedImage10frameCountEv": ["int", "address"],
+    "ritual_ZNK19QQuickAnimatedImage5speedEv": ["double", "address"],
+    "ritual_ZN19QQuickAnimatedImage8setSpeedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN19QQuickAnimatedImage9setSourceERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QQuickAnimatedImage5loopsEv": ["int", "address"],
+    "ritual_ZN19QQuickAnimatedImage8setLoopsEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK19QQuickAnimatedImage14finishBehaviorEv": [
+      "unsigned char", "address"
+    ],
+    "ritual_ZN19QQuickAnimatedImage17setFinishBehaviorENS_14FinishBehaviorE": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZN19QQuickAnimatedImage11movieUpdateEv": ["nothing", "address"],
+    "ritual_ZN19QQuickAnimatedImage20movieRequestFinishedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickAnimatedImage20playingStatusChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickAnimatedImage14onCacheChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickAnimatedImage15onMovieFinishedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickAnimatedImage4loadEv": ["nothing", "address"],
+    "ritual_ZN19QQuickAnimatedImage17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickAnimatedImage6d_funcEv": ["address", "address"],
+    "ritual_ZNK19QQuickAnimatedImage6d_funcEv": ["address", "address"],
+    "ritual_take_QQuickAnimatedImage": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK19QQuickAnimatedImage12currentFrameEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZN19QQuickAnimatedImage15setCurrentFrameEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZNK19QQuickAnimatedImage10frameCountEv": ["int", "address"],
+    "ritual_own_ZN19QQuickAnimatedImage9setSourceERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN19QQuickAnimatedImage4loadEv": ["nothing", "address"],
+    "ritual_own_ZN19QQuickAnimatedImage17componentCompleteEv": [
+      "nothing", "address"
+    ]
+  }
+}

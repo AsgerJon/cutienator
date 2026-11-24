@@ -1,0 +1,51 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/qcandlestickset.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK15QCandlestickSet10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QCandlestickSet2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN15QCandlestickSetC1EdP7QObject": [
+      "address", "double", "address"
+    ],
+    "ritual_ZN15QCandlestickSetC1EdddddP7QObject": [
+      "address", "double", "double", "double", "double", "double", "address"
+    ],
+    "ritual_ZN15QCandlestickSetD1Ev": ["nothing", "address"],
+    "ritual_ZN15QCandlestickSet12setTimestampEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK15QCandlestickSet9timestampEv": ["double", "address"],
+    "ritual_ZN15QCandlestickSet7setOpenEd": ["nothing", "address", "double"],
+    "ritual_ZNK15QCandlestickSet4openEv": ["double", "address"],
+    "ritual_ZN15QCandlestickSet7setHighEd": ["nothing", "address", "double"],
+    "ritual_ZNK15QCandlestickSet4highEv": ["double", "address"],
+    "ritual_ZN15QCandlestickSet6setLowEd": ["nothing", "address", "double"],
+    "ritual_ZNK15QCandlestickSet3lowEv": ["double", "address"],
+    "ritual_ZN15QCandlestickSet8setCloseEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK15QCandlestickSet5closeEv": ["double", "address"],
+    "ritual_ZN15QCandlestickSet8setBrushERK6QBrush": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QCandlestickSet5brushEv": ["address", "address"],
+    "ritual_ZN15QCandlestickSet6setPenERK4QPen": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QCandlestickSet3penEv": ["address", "address"],
+    "ritual_ZN15QCandlestickSet6d_funcEv": ["address", "address"],
+    "ritual_ZNK15QCandlestickSet6d_funcEv": ["address", "address"],
+    "ritual_take_QCandlestickSet": ["bool", "address", "chars", "address"],
+    "ritual_list_make_QCandlestickSet_ptr": ["address"],
+    "ritual_list_add_QCandlestickSet_ptr": ["nothing", "address", "address"],
+    "ritual_list_size_QCandlestickSet_ptr": ["long long", "address"],
+    "ritual_list_at_QCandlestickSet_ptr": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_QCandlestickSet_ptr": ["nothing", "address"]
+  }
+}

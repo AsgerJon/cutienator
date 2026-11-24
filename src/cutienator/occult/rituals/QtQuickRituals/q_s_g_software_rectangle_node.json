@@ -1,0 +1,33 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qsgsoftwarepublicnodes_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN24QSGSoftwareRectangleNodeC1Ev": ["address"],
+    "ritual_ZN24QSGSoftwareRectangleNode7setRectERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK24QSGSoftwareRectangleNode4rectEv": ["address", "address"],
+    "ritual_ZN24QSGSoftwareRectangleNode8setColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK24QSGSoftwareRectangleNode5colorEv": ["address", "address"],
+    "ritual_ZN24QSGSoftwareRectangleNode5paintEP8QPainter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN24QSGSoftwareRectangleNode7setRectERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK24QSGSoftwareRectangleNode4rectEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN24QSGSoftwareRectangleNode8setColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK24QSGSoftwareRectangleNode5colorEv": [
+      "address", "address"
+    ]
+  }
+}

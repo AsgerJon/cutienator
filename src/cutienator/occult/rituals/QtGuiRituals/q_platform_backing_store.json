@@ -1,0 +1,73 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/qpa/qplatformbackingstore.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN21QPlatformBackingStoreD1Ev": ["nothing", "address"],
+    "ritual_ZNK21QPlatformBackingStore6windowEv": ["address", "address"],
+    "ritual_ZNK21QPlatformBackingStore12backingStoreEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QPlatformBackingStore11paintDeviceEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QPlatformBackingStore5flushEP7QWindowRK7QRegionRK6QPoint": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN21QPlatformBackingStore8rhiFlushEP7QWindowdRK7QRegionRK6QPointP20QPlatformTextureListbd": [
+      "int", "address", "address", "double", "address", "address", "address",
+      "bool", "double"
+    ],
+    "ritual_ZNK21QPlatformBackingStore7toImageEv": ["address", "address"],
+    "ritual_ZNK21QPlatformBackingStore14graphicsBufferEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QPlatformBackingStore6resizeERK5QSizeRK7QRegion": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN21QPlatformBackingStore6scrollERK7QRegionii": [
+      "bool", "address", "address", "int", "int"
+    ],
+    "ritual_ZN21QPlatformBackingStore10beginPaintERK7QRegion": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QPlatformBackingStore8endPaintEv": ["nothing", "address"],
+    "ritual_ZN21QPlatformBackingStore9createRhiEP7QWindow30QPlatformBackingStoreRhiConfig": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK21QPlatformBackingStore3rhiEP7QWindow": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN21QPlatformBackingStore26graphicsDeviceReportedLostEP7QWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QPlatformBackingStore15setBackingStoreEP13QBackingStore": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QPlatformBackingStore": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN21QPlatformBackingStore5flushEP7QWindowRK7QRegionRK6QPoint": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN21QPlatformBackingStore8rhiFlushEP7QWindowdRK7QRegionRK6QPointP20QPlatformTextureListbd": [
+      "int", "address", "address", "double", "address", "address", "address",
+      "bool", "double"
+    ],
+    "ritual_own_ZNK21QPlatformBackingStore7toImageEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK21QPlatformBackingStore14graphicsBufferEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN21QPlatformBackingStore6scrollERK7QRegionii": [
+      "bool", "address", "address", "int", "int"
+    ],
+    "ritual_own_ZN21QPlatformBackingStore10beginPaintERK7QRegion": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN21QPlatformBackingStore8endPaintEv": ["nothing", "address"]
+  }
+}

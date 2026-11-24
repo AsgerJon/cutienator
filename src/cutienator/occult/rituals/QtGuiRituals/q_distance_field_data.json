@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qdistancefield_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QDistanceFieldDataC1Ev": ["address"],
+    "ritual_ZN18QDistanceFieldDataC1ERKS_": ["address", "address"],
+    "ritual_ZN18QDistanceFieldDataD1Ev": ["nothing", "address"],
+    "ritual_ZN18QDistanceFieldData6createERK5QSize": ["address", "address"],
+    "ritual_ZN18QDistanceFieldData6createERK12QPainterPathb": [
+      "address", "address", "bool"
+    ],
+    "ritual_ZN18QDistanceFieldData6createE5QSizeRK12QPainterPathb": [
+      "address", "address", "address", "bool"
+    ]
+  }
+}

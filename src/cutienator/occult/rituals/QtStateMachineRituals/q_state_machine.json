@@ -1,0 +1,102 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtStateMachine/qstatemachine.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK13QStateMachine10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QStateMachine2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN13QStateMachineC1EP7QObject": ["address", "address"],
+    "ritual_ZN13QStateMachineC1EN6QState9ChildModeEP7QObject": [
+      "address", "int", "address"
+    ],
+    "ritual_ZN13QStateMachineD1Ev": ["nothing", "address"],
+    "ritual_ZN13QStateMachine8addStateEP14QAbstractState": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QStateMachine11removeStateEP14QAbstractState": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QStateMachine5errorEv": ["int", "address"],
+    "ritual_ZNK13QStateMachine11errorStringEv": ["text", "address"],
+    "ritual_ZN13QStateMachine10clearErrorEv": ["nothing", "address"],
+    "ritual_ZNK13QStateMachine9isRunningEv": ["bool", "address"],
+    "ritual_ZNK13QStateMachine10isAnimatedEv": ["bool", "address"],
+    "ritual_ZN13QStateMachine11setAnimatedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN13QStateMachine19addDefaultAnimationEP18QAbstractAnimation": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QStateMachine17defaultAnimationsEv": ["address", "address"],
+    "ritual_ZN13QStateMachine22removeDefaultAnimationEP18QAbstractAnimation": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QStateMachine19globalRestorePolicyEv": ["int", "address"],
+    "ritual_ZN13QStateMachine22setGlobalRestorePolicyEN6QState13RestorePolicyE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN13QStateMachine9postEventEP6QEventNS_13EventPriorityE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN13QStateMachine16postDelayedEventEP6QEventi": [
+      "int", "address", "address", "int"
+    ],
+    "ritual_ZN13QStateMachine18cancelDelayedEventEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN13QStateMachine11eventFilterEP7QObjectP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN13QStateMachine5startEv": ["nothing", "address"],
+    "ritual_ZN13QStateMachine4stopEv": ["nothing", "address"],
+    "ritual_ZN13QStateMachine10setRunningEb": ["nothing", "address", "bool"],
+    "ritual_ZN13QStateMachine7onEntryEP6QEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QStateMachine6onExitEP6QEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QStateMachine22beginSelectTransitionsEP6QEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QStateMachine20endSelectTransitionsEP6QEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QStateMachine14beginMicrostepEP6QEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QStateMachine12endMicrostepEP6QEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QStateMachine5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_take_QStateMachine": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN13QStateMachine11eventFilterEP7QObjectP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_own_ZN13QStateMachine7onEntryEP6QEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN13QStateMachine6onExitEP6QEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN13QStateMachine22beginSelectTransitionsEP6QEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN13QStateMachine20endSelectTransitionsEP6QEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN13QStateMachine14beginMicrostepEP6QEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN13QStateMachine12endMicrostepEP6QEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN13QStateMachine5eventEP6QEvent": [
+      "bool", "address", "address"
+    ]
+  }
+}

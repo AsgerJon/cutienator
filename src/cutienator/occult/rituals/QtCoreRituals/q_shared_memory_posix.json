@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qsharedmemory_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QSharedMemoryPosix8supportsEN13QNativeIpcKey4TypeE": [
+      "bool", "unsigned short"
+    ],
+    "ritual_ZN18QSharedMemoryPosix19runtimeSupportCheckEv": ["bool"],
+    "ritual_ZN18QSharedMemoryPosix11cleanHandleEP20QSharedMemoryPrivate": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN18QSharedMemoryPosixD1Ev": ["nothing", "address"]
+  }
+}

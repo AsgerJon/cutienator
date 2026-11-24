@@ -1,0 +1,38 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3DHelpers/6.12.0/QtQuick3DHelpers/private/conegeometry_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK12ConeGeometry10metaObjectEv": ["address", "address"],
+    "ritual_ZN12ConeGeometry2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN12ConeGeometryC1EP14QQuick3DObject": ["address", "address"],
+    "ritual_ZN12ConeGeometryD1Ev": ["nothing", "address"],
+    "ritual_ZNK12ConeGeometry9topRadiusEv": ["float", "address"],
+    "ritual_ZN12ConeGeometry12setTopRadiusEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK12ConeGeometry12bottomRadiusEv": ["float", "address"],
+    "ritual_ZN12ConeGeometry15setBottomRadiusEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK12ConeGeometry6lengthEv": ["float", "address"],
+    "ritual_ZN12ConeGeometry9setLengthEf": ["nothing", "address", "float"],
+    "ritual_ZNK12ConeGeometry5ringsEv": ["int", "address"],
+    "ritual_ZN12ConeGeometry8setRingsEi": ["nothing", "address", "int"],
+    "ritual_ZNK12ConeGeometry8segmentsEv": ["int", "address"],
+    "ritual_ZN12ConeGeometry11setSegmentsEi": ["nothing", "address", "int"],
+    "ritual_ZNK12ConeGeometry12asynchronousEv": ["bool", "address"],
+    "ritual_ZN12ConeGeometry15setAsynchronousEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK12ConeGeometry6statusEv": ["int", "address"],
+    "ritual_ZN12ConeGeometry16doUpdateGeometryEv": ["nothing", "address"],
+    "ritual_ZN12ConeGeometry15requestFinishedEv": ["nothing", "address"],
+    "ritual_ZN12ConeGeometry22scheduleGeometryUpdateEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_ConeGeometry": ["bool", "address", "chars", "address"]
+  }
+}

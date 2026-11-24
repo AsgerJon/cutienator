@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qcolormap.h, Qt 6.12.0. Changes made here are lost.
+#include <QtWidgets/qtwidgetsglobal.h>
+#if QT_REMOVAL_QT7_DEPRECATED_SINCE(6, 11)
 #include <QtWidgets/qcolormap.h>
 #include <QtGui/qcolor.h>
 #include <QtCore/qlist.h>
@@ -77,3 +79,5 @@ extern "C" Q_DECL_EXPORT
 QColormap *ritual_ZN9QColormapC1Ev() {
   return new QColormap();
 }
+
+#endif  // QT_REMOVAL_QT7_DEPRECATED_SINCE(6, 11)

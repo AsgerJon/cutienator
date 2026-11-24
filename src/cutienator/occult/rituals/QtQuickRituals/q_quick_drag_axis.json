@@ -1,0 +1,39 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickdragaxis_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK14QQuickDragAxis10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QQuickDragAxis2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN14QQuickDragAxis24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickDragAxisC1EP20QQuickPointerHandlerRK7QStringd": [
+      "address", "address", "text", "double"
+    ],
+    "ritual_ZNK14QQuickDragAxis7minimumEv": ["double", "address"],
+    "ritual_ZN14QQuickDragAxis10setMinimumEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK14QQuickDragAxis7maximumEv": ["double", "address"],
+    "ritual_ZN14QQuickDragAxis10setMaximumEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK14QQuickDragAxis7enabledEv": ["bool", "address"],
+    "ritual_ZN14QQuickDragAxis10setEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK14QQuickDragAxis11activeValueEv": ["double", "address"],
+    "ritual_ZNK14QQuickDragAxis15persistentValueEv": ["double", "address"],
+    "ritual_ZN14QQuickDragAxis15onActiveChangedEbd": [
+      "nothing", "address", "bool", "double"
+    ],
+    "ritual_ZN14QQuickDragAxis11updateValueEddd": [
+      "nothing", "address", "double", "double", "double"
+    ]
+  }
+}

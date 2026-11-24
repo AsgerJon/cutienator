@@ -1,0 +1,65 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquicksafearea_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK14QQuickSafeArea10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QQuickSafeArea2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN14QQuickSafeArea21qt_qmlMarker_attachedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickSafeArea24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickSafeAreaC1EP10QQuickItem": ["address", "address"],
+    "ritual_ZN14QQuickSafeAreaD1Ev": ["nothing", "address"],
+    "ritual_ZN14QQuickSafeArea21qmlAttachedPropertiesEP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZNK14QQuickSafeArea7marginsEv": ["address", "address"],
+    "ritual_ZNK14QQuickSafeArea17additionalMarginsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN14QQuickSafeArea20setAdditionalMarginsERK9QMarginsF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QQuickSafeArea26updateSafeAreasRecursivelyEP10QQuickItem": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuickSafeArea13windowChangedEv": ["nothing", "address"],
+    "ritual_ZN14QQuickSafeArea14updateSafeAreaEv": ["nothing", "address"],
+    "ritual_ZN14QQuickSafeArea20itemTransformChangedEP10QQuickItemS1_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN14QQuickSafeArea19itemGeometryChangedEP10QQuickItem20QQuickGeometryChangeRK6QRectF": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_Zls6QDebugPK14QQuickSafeArea": ["address", "address", "address"],
+    "ritual_ZN14QQuickSafeArea13addSourceItemEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QQuickSafeArea16removeSourceItemEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_cast_QQuickSafeArea_QQuickItemChangeListener": [
+      "address", "address"
+    ],
+    "ritual_take_QQuickSafeArea": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN14QQuickSafeArea20itemTransformChangedEP10QQuickItemS1_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN14QQuickSafeArea19itemGeometryChangedEP10QQuickItem20QQuickGeometryChangeRK6QRectF": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN14QQuickSafeArea13addSourceItemEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN14QQuickSafeArea16removeSourceItemEP10QQuickItem": [
+      "nothing", "address", "address"
+    ]
+  }
+}

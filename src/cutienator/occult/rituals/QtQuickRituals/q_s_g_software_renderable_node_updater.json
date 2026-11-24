@@ -1,0 +1,150 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "/6.12.0/QtQuick/private/qsgsoftwarerenderablenodeupdater_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN32QSGSoftwareRenderableNodeUpdaterD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN32QSGSoftwareRenderableNodeUpdater5visitEP16QSGTransformNode": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN32QSGSoftwareRenderableNodeUpdater8endVisitEP16QSGTransformNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN32QSGSoftwareRenderableNodeUpdater5visitEP11QSGClipNode": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN32QSGSoftwareRenderableNodeUpdater8endVisitEP11QSGClipNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN32QSGSoftwareRenderableNodeUpdater5visitEP15QSGGeometryNode": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN32QSGSoftwareRenderableNodeUpdater8endVisitEP15QSGGeometryNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN32QSGSoftwareRenderableNodeUpdater5visitEP14QSGOpacityNode": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN32QSGSoftwareRenderableNodeUpdater8endVisitEP14QSGOpacityNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN32QSGSoftwareRenderableNodeUpdater5visitEP20QSGInternalImageNode": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN32QSGSoftwareRenderableNodeUpdater8endVisitEP20QSGInternalImageNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN32QSGSoftwareRenderableNodeUpdater5visitEP14QSGPainterNode": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN32QSGSoftwareRenderableNodeUpdater8endVisitEP14QSGPainterNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN32QSGSoftwareRenderableNodeUpdater5visitEP24QSGInternalRectangleNode": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN32QSGSoftwareRenderableNodeUpdater8endVisitEP24QSGInternalRectangleNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN32QSGSoftwareRenderableNodeUpdater5visitEP12QSGGlyphNode": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN32QSGSoftwareRenderableNodeUpdater8endVisitEP12QSGGlyphNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN32QSGSoftwareRenderableNodeUpdater5visitEP11QSGRootNode": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN32QSGSoftwareRenderableNodeUpdater8endVisitEP11QSGRootNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN32QSGSoftwareRenderableNodeUpdater5visitEP13QSGSpriteNode": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN32QSGSoftwareRenderableNodeUpdater8endVisitEP13QSGSpriteNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN32QSGSoftwareRenderableNodeUpdater5visitEP13QSGRenderNode": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN32QSGSoftwareRenderableNodeUpdater8endVisitEP13QSGRenderNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN32QSGSoftwareRenderableNodeUpdater11updateNodesEP7QSGNodeb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_take_QSGSoftwareRenderableNodeUpdater": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN32QSGSoftwareRenderableNodeUpdater5visitEP16QSGTransformNode": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN32QSGSoftwareRenderableNodeUpdater8endVisitEP16QSGTransformNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN32QSGSoftwareRenderableNodeUpdater5visitEP11QSGClipNode": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN32QSGSoftwareRenderableNodeUpdater8endVisitEP11QSGClipNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN32QSGSoftwareRenderableNodeUpdater5visitEP15QSGGeometryNode": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN32QSGSoftwareRenderableNodeUpdater8endVisitEP15QSGGeometryNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN32QSGSoftwareRenderableNodeUpdater5visitEP14QSGOpacityNode": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN32QSGSoftwareRenderableNodeUpdater8endVisitEP14QSGOpacityNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN32QSGSoftwareRenderableNodeUpdater5visitEP20QSGInternalImageNode": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN32QSGSoftwareRenderableNodeUpdater8endVisitEP20QSGInternalImageNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN32QSGSoftwareRenderableNodeUpdater5visitEP14QSGPainterNode": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN32QSGSoftwareRenderableNodeUpdater8endVisitEP14QSGPainterNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN32QSGSoftwareRenderableNodeUpdater5visitEP24QSGInternalRectangleNode": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN32QSGSoftwareRenderableNodeUpdater8endVisitEP24QSGInternalRectangleNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN32QSGSoftwareRenderableNodeUpdater5visitEP12QSGGlyphNode": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN32QSGSoftwareRenderableNodeUpdater8endVisitEP12QSGGlyphNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN32QSGSoftwareRenderableNodeUpdater5visitEP11QSGRootNode": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN32QSGSoftwareRenderableNodeUpdater8endVisitEP11QSGRootNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN32QSGSoftwareRenderableNodeUpdater5visitEP13QSGSpriteNode": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN32QSGSoftwareRenderableNodeUpdater8endVisitEP13QSGSpriteNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN32QSGSoftwareRenderableNodeUpdater5visitEP13QSGRenderNode": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN32QSGSoftwareRenderableNodeUpdater8endVisitEP13QSGRenderNode": [
+      "nothing", "address", "address"
+    ]
+  }
+}

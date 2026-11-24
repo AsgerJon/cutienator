@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickitem_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN17QQuickItemPrivate14ChangeListenerC1EP24QQuickItemChangeListener6QFlagsINS_10ChangeTypeEE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN17QQuickItemPrivate14ChangeListenerC1EP24QQuickItemChangeListener20QQuickGeometryChange": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK17QQuickItemPrivate14ChangeListenereqERKS0_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN17QQuickItemPrivate14ChangeListenerD1Ev": [
+      "nothing", "address"
+    ]
+  }
+}

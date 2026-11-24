@@ -1,0 +1,12 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qcolorspace_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QColorSpacePrivate3LUTC1Ev": ["address"],
+    "ritual_ZN18QColorSpacePrivate3LUTD1Ev": ["nothing", "address"],
+    "ritual_ZN18QColorSpacePrivate3LUTC1ERKS0_": ["address", "address"]
+  }
+}

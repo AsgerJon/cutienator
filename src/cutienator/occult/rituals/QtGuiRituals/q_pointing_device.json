@@ -8,6 +8,8 @@
     "ritual_ZN15QPointingDevice2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN15QPointingDevice6d_funcEv": ["address", "address"],
+    "ritual_ZNK15QPointingDevice6d_funcEv": ["address", "address"],
     "ritual_ZN15QPointingDeviceC1EP7QObject": ["address", "address"],
     "ritual_ZN15QPointingDeviceD1Ev": ["nothing", "address"],
     "ritual_ZN15QPointingDeviceC1ERK7QStringxN12QInputDevice10DeviceTypeENS_11PointerTypeE6QFlagsINS3_10CapabilityEEiiS2_23QPointingDeviceUniqueIdP7QObject": [

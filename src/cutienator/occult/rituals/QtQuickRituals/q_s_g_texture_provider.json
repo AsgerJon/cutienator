@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/qsgtextureprovider.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK18QSGTextureProvider10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QSGTextureProvider2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZNK18QSGTextureProvider7textureEv": ["address", "address"],
+    "ritual_take_QSGTextureProvider": ["bool", "address", "chars", "address"]
+  }
+}

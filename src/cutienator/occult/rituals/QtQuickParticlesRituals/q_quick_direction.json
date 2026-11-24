@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Particles/6.12.0/QtQuickParticles/private/qquickdirection_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK15QQuickDirection10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QQuickDirection2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN15QQuickDirection24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickDirectionC1EP7QObject": ["address", "address"],
+    "ritual_ZN15QQuickDirection6sampleERK7QPointF": [
+      "address", "address", "address"
+    ],
+    "ritual_take_QQuickDirection": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN15QQuickDirection6sampleERK7QPointF": [
+      "address", "address", "address"
+    ]
+  }
+}

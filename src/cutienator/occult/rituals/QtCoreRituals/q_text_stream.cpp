@@ -6,6 +6,19 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qchar.h>
 
+//  QTextStreamPrivate *QTextStream::d_func()
+extern "C" Q_DECL_EXPORT
+QTextStreamPrivate *ritual_ZN11QTextStream6d_funcEv(QTextStream *self) {
+  return self->d_func();
+}
+
+//  const QTextStreamPrivate *QTextStream::d_func() const
+extern "C" Q_DECL_EXPORT
+const QTextStreamPrivate *ritual_ZNK11QTextStream6d_funcEv(
+    const QTextStream *self) {
+  return self->d_func();
+}
+
 //  QTextStream::QTextStream()
 extern "C" Q_DECL_EXPORT
 QTextStream *ritual_ZN11QTextStreamC1Ev() {

@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQmlCompiler/6.12.0/QtQmlCompiler/private/qqmljscompilepass_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZeqRKN17QQmlJSCompilePass15VirtualRegisterES2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN17QQmlJSCompilePass15VirtualRegisterD1Ev": [
+      "nothing", "address"
+    ]
+  }
+}

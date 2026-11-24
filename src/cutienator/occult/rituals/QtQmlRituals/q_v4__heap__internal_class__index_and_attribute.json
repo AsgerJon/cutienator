@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4internalclass_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK3QV44Heap13InternalClass17IndexAndAttribute7isValidEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN3QV44Heap13InternalClass17IndexAndAttributeD1Ev": [
+      "nothing", "address"
+    ]
+  }
+}

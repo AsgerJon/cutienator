@@ -1,0 +1,13 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQmlCompiler/qqmlsa.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN6QQmlSA10LintPluginD1Ev": ["nothing", "address"],
+    "ritual_ZN6QQmlSA10LintPlugin14registerPassesEPNS_11PassManagerERKNS_7ElementE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_take_QQmlSA_LintPlugin": ["bool", "address", "chars", "address"]
+  }
+}

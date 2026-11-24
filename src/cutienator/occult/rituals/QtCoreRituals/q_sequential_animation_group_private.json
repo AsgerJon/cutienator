@@ -1,0 +1,48 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qsequentialanimationgroup_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN32QSequentialAnimationGroupPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK32QSequentialAnimationGroupPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK32QSequentialAnimationGroupPrivate28animationActualTotalDurationEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZN32QSequentialAnimationGroupPrivate19setCurrentAnimationEib": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZN32QSequentialAnimationGroupPrivate24activateCurrentAnimationEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN32QSequentialAnimationGroupPrivate19animationInsertedAtEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZNK32QSequentialAnimationGroupPrivate5atEndEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN32QSequentialAnimationGroupPrivate7restartEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN32QSequentialAnimationGroupPrivate14rewindForwardsERKNS_14AnimationIndexE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN32QSequentialAnimationGroupPrivate15advanceForwardsERKNS_14AnimationIndexE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN32QSequentialAnimationGroupPrivate32_q_uncontrolledAnimationFinishedEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QSequentialAnimationGroupPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN32QSequentialAnimationGroupPrivate19animationInsertedAtEx": [
+      "nothing", "address", "long long"
+    ]
+  }
+}

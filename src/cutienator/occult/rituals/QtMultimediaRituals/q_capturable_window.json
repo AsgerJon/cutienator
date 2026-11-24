@@ -1,0 +1,28 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtMultimedia/qcapturablewindow.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN17QCapturableWindowC1Ev": ["address"],
+    "ritual_ZN17QCapturableWindowC1EP7QWindow": ["address", "address"],
+    "ritual_ZN17QCapturableWindowD1Ev": ["nothing", "address"],
+    "ritual_ZN17QCapturableWindowC1ERKS_": ["address", "address"],
+    "ritual_ZeqRK17QCapturableWindowS1_": ["bool", "address", "address"],
+    "ritual_ZneRK17QCapturableWindowS1_": ["bool", "address", "address"],
+    "ritual_ZNK17QCapturableWindow7isValidEv": ["bool", "address"],
+    "ritual_ZNK17QCapturableWindow11descriptionEv": ["text", "address"],
+    "ritual_Zls6QDebugRK17QCapturableWindow": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN17QCapturableWindowC1EP24QCapturableWindowPrivate": [
+      "address", "address"
+    ],
+    "ritual_list_make_QCapturableWindow": ["address"],
+    "ritual_list_add_QCapturableWindow": ["nothing", "address", "address"],
+    "ritual_list_size_QCapturableWindow": ["long long", "address"],
+    "ritual_list_at_QCapturableWindow": ["address", "address", "long long"],
+    "ritual_list_drop_QCapturableWindow": ["nothing", "address"]
+  }
+}

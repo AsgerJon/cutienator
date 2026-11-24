@@ -1,0 +1,68 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgvertexpi",
+    "pelineimpl_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN26QSSGMaterialVertexPipelineD1Ev": ["nothing", "address"],
+    "ritual_ZN26QSSGMaterialVertexPipeline7setCodeENS_14GenerationFlagE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN26QSSGMaterialVertexPipeline7hasCodeENS_14GenerationFlagE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK26QSSGMaterialVertexPipeline16programGeneratorEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QSSGMaterialVertexPipeline20generateObjectNormalEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QSSGMaterialVertexPipeline13generateDepthEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QSSGMaterialVertexPipeline11addIncomingERK10QByteArrayS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN26QSSGMaterialVertexPipeline11addOutgoingERK10QByteArrayS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN26QSSGMaterialVertexPipeline10addUniformERK10QByteArrayS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN26QSSGMaterialVertexPipeline15addUniformArrayERK10QByteArrayS2_j": [
+      "nothing", "address", "address", "address", "unsigned int"
+    ],
+    "ritual_ZN26QSSGMaterialVertexPipeline10addIncludeERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QSSGMaterialVertexPipeline11addFunctionERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QSSGMaterialVertexPipeline17addConstantBufferERK10QByteArrayS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN26QSSGMaterialVertexPipeline22addConstantBufferParamERK10QByteArrayS2_S2_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN26QSSGMaterialVertexPipeline13addDefinitionERK10QByteArrayS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN26QSSGMaterialVertexPipeline6appendERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK26QSSGMaterialVertexPipeline5stageEv": ["int", "address"],
+    "ritual_ZN26QSSGMaterialVertexPipeline12assignOutputERK10QByteArrayS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN26QSSGMaterialVertexPipeline21endFragmentGenerationEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QSSGMaterialVertexPipeline25addInterpolationParameterERK10QByteArrayS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN26QSSGMaterialVertexPipeline16addFlatParameterERK10QByteArrayS2_": [
+      "nothing", "address", "address", "address"
+    ]
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/rhi/qshader.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN14QShaderVersionC1Ev": ["address"],
+    "ritual_ZN14QShaderVersionC1Ei6QFlagsINS_4FlagEE": [
+      "address", "int", "int"
+    ],
+    "ritual_ZNK14QShaderVersion7versionEv": ["int", "address"],
+    "ritual_ZN14QShaderVersion10setVersionEi": ["nothing", "address", "int"],
+    "ritual_ZNK14QShaderVersion5flagsEv": ["int", "address"],
+    "ritual_ZN14QShaderVersion8setFlagsE6QFlagsINS_4FlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN14QShaderVersionD1Ev": ["nothing", "address"],
+    "ritual_list_make_QShaderVersion": ["address"],
+    "ritual_list_add_QShaderVersion": ["nothing", "address", "address"],
+    "ritual_list_size_QShaderVersion": ["long long", "address"],
+    "ritual_list_at_QShaderVersion": ["address", "address", "long long"],
+    "ritual_list_drop_QShaderVersion": ["nothing", "address"]
+  }
+}

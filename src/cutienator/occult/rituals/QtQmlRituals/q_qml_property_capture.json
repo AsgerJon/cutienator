@@ -1,0 +1,31 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmljavascriptexpression_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QQmlPropertyCaptureC1EP10QQmlEngineP24QQmlJavaScriptExpressionPNS2_13DeleteWatcherE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN19QQmlPropertyCaptureD1Ev": ["nothing", "address"],
+    "ritual_ZN19QQmlPropertyCapture15capturePropertyEP12QQmlNotifier": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQmlPropertyCapture15capturePropertyEP7QObjectiib": [
+      "nothing", "address", "address", "int", "int", "bool"
+    ],
+    "ritual_ZN19QQmlPropertyCapture15capturePropertyEP7QObjectPK17QQmlPropertyCachePK16QQmlPropertyDatab": [
+      "nothing", "address", "address", "address", "address", "bool"
+    ],
+    "ritual_ZN19QQmlPropertyCapture18captureTranslationEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQmlPropertyCapture23captureBindablePropertyEP7QObjectPK11QMetaObjecti": [
+      "nothing", "address", "address", "address", "int"
+    ],
+    "ritual_ZN19QQmlPropertyCapture26captureNonBindablePropertyEP7QObjectiib": [
+      "nothing", "address", "address", "int", "int", "bool"
+    ]
+  }
+}

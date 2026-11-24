@@ -1,0 +1,88 @@
+//  Written by dev_tooling.RitualGenerator from the records of
+//  QtQuick/6.12.0/QtQuick/private/qquickattachedpropertypropagator_p_p.h, Qt
+//  6.12.0. Changes made here are lost.
+#include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
+#include <QtQuick/QtQuick>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtQuick/6.12.0/QtQuick/private/qquickattachedpropertypropagator_p_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <cstring>
+
+//  A QtPrivate::QQuickAttachedPropertyPropagatorPrivate that Python can take functions over in. Every QtPrivate::QQuickAttachedPropertyPropagatorPrivate
+//  Python makes is one. Each function below asks the Python
+//  function handed over for it, and runs Qt's own without one.
+typedef void (*CuteQtPrivate_QQuickAttachedPropertyPropagatorPrivateCall0)(const void *, QQuickItem *, QQuickItem *, int *);
+class CuteQtPrivate_QQuickAttachedPropertyPropagatorPrivate : public QtPrivate::QQuickAttachedPropertyPropagatorPrivate {
+public:
+  using QtPrivate::QQuickAttachedPropertyPropagatorPrivate::QQuickAttachedPropertyPropagatorPrivate;
+  void *taken[1] = {};
+
+  bool take(const char *key, void *call) {
+    if (!std::strcmp(key, "_ZN9QtPrivate39QQuickAttachedPropertyPropagatorPrivate17itemParentChangedEP10QQuickItemS2_")) {
+      taken[0] = call;
+      return true;
+    }
+    return false;
+  }
+
+  //  void QtPrivate::QQuickAttachedPropertyPropagatorPrivate::itemParentCh
+  //      anged(QQuickItem *item, QQuickItem *parent)
+  void itemParentChanged(QQuickItem *item, QQuickItem *parent) override {
+    if (taken[0]) {
+      int handled = 0;
+      CuteQtPrivate_QQuickAttachedPropertyPropagatorPrivateCall0 call = reinterpret_cast<CuteQtPrivate_QQuickAttachedPropertyPropagatorPrivateCall0>(taken[0]);
+      call(this, item, parent, &handled);
+      if (handled) return;
+    }
+    QtPrivate::QQuickAttachedPropertyPropagatorPrivate::itemParentChanged(item, parent);
+  }
+};
+
+//  QQuickAttachedPropertyPropagator
+//      *QtPrivate::QQuickAttachedPropertyPropagatorPrivate::q_func()
+extern "C" Q_DECL_EXPORT
+QtPrivate::QQuickAttachedPropertyPropagator *ritual_ZN9QtPrivate39QQuickAttachedPropertyPropagatorPrivate6q_funcEv(
+    QtPrivate::QQuickAttachedPropertyPropagatorPrivate *self) {
+  return self->q_func();
+}
+
+//  const QQuickAttachedPropertyPropagator
+//      *QtPrivate::QQuickAttachedPropertyPropagatorPrivate::q_func() const
+extern "C" Q_DECL_EXPORT
+const QtPrivate::QQuickAttachedPropertyPropagator *ritual_ZNK9QtPrivate39QQuickAttachedPropertyPropagatorPrivate6q_funcEv(
+    const QtPrivate::QQuickAttachedPropertyPropagatorPrivate *self) {
+  return self->q_func();
+}
+
+//  QQuickAttachedPropertyPropagatorPrivate *QtPrivate::QQuickAttachedPropert
+//      yPropagatorPrivate::get(QQuickAttachedPropertyPropagator
+//      *attachedObject)
+extern "C" Q_DECL_EXPORT
+QtPrivate::QQuickAttachedPropertyPropagatorPrivate *ritual_ZN9QtPrivate39QQuickAttachedPropertyPropagatorPrivate3getEPNS_32QQuickAttachedPropertyPropagatorE(
+    QtPrivate::QQuickAttachedPropertyPropagator *attachedObject) {
+  return QtPrivate::QQuickAttachedPropertyPropagatorPrivate::get(
+      attachedObject);
+}
+
+//  a Python function taken by a
+//      CuteQtPrivate_QQuickAttachedPropertyPropagatorPrivate, for the
+//      function named by the key
+extern "C" Q_DECL_EXPORT
+bool ritual_take_QtPrivate_QQuickAttachedPropertyPropagatorPrivate(
+    QtPrivate::QQuickAttachedPropertyPropagatorPrivate *self,
+    const char *key,
+    void *call) {
+  return static_cast<CuteQtPrivate_QQuickAttachedPropertyPropagatorPrivate *>(self)->take(key, call);
+}
+
+//  void QtPrivate::QQuickAttachedPropertyPropagatorPrivate::itemParentChange
+//      d(QQuickItem *item, QQuickItem *parent)
+extern "C" Q_DECL_EXPORT
+void ritual_own_ZN9QtPrivate39QQuickAttachedPropertyPropagatorPrivate17itemParentChangedEP10QQuickItemS2_(
+    QtPrivate::QQuickAttachedPropertyPropagatorPrivate *self,
+    QQuickItem *item,
+    QQuickItem *parent) {
+  self->QtPrivate::QQuickAttachedPropertyPropagatorPrivate::itemParentChanged(
+      item,
+      parent);
+}

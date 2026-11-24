@@ -1,0 +1,34 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickstate_p_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QQuickSimpleActionC1ERK17QQuickStateActionNS_5StateE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN18QQuickSimpleActionD1Ev": ["nothing", "address"],
+    "ritual_ZN18QQuickSimpleActionC1ERKS_": ["address", "address"],
+    "ritual_ZN18QQuickSimpleAction11setPropertyERK12QQmlProperty": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QQuickSimpleAction8propertyEv": ["address", "address"],
+    "ritual_ZN18QQuickSimpleAction8setValueERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QQuickSimpleAction5valueEv": ["address", "address"],
+    "ritual_ZN18QQuickSimpleAction10setBindingE14QQmlAnyBinding": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QQuickSimpleAction7bindingEv": ["address", "address"],
+    "ritual_ZNK18QQuickSimpleAction15specifiedObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18QQuickSimpleAction17specifiedPropertyEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK18QQuickSimpleAction5eventEv": ["address", "address"],
+    "ritual_ZNK18QQuickSimpleAction12reverseEventEv": ["bool", "address"]
+  }
+}

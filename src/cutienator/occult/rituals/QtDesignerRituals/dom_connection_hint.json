@@ -1,0 +1,40 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/ui4_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN17DomConnectionHintC1Ev": ["address"],
+    "ritual_ZN17DomConnectionHintD1Ev": ["nothing", "address"],
+    "ritual_ZNK17DomConnectionHint16hasAttributeTypeEv": ["bool", "address"],
+    "ritual_ZNK17DomConnectionHint13attributeTypeEv": ["text", "address"],
+    "ritual_ZN17DomConnectionHint16setAttributeTypeERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN17DomConnectionHint18clearAttributeTypeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK17DomConnectionHint8elementXEv": ["int", "address"],
+    "ritual_ZN17DomConnectionHint11setElementXEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK17DomConnectionHint11hasElementXEv": ["bool", "address"],
+    "ritual_ZN17DomConnectionHint13clearElementXEv": ["nothing", "address"],
+    "ritual_ZNK17DomConnectionHint8elementYEv": ["int", "address"],
+    "ritual_ZN17DomConnectionHint11setElementYEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK17DomConnectionHint11hasElementYEv": ["bool", "address"],
+    "ritual_ZN17DomConnectionHint13clearElementYEv": ["nothing", "address"],
+    "ritual_list_make_DomConnectionHint_ptr": ["address"],
+    "ritual_list_add_DomConnectionHint_ptr": [
+      "nothing", "address", "address"
+    ],
+    "ritual_list_size_DomConnectionHint_ptr": ["long long", "address"],
+    "ritual_list_at_DomConnectionHint_ptr": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_DomConnectionHint_ptr": ["nothing", "address"]
+  }
+}

@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qtooltip.h, Qt 6.12.0. Changes made here are lost.
+#include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(tooltip)
 #include <QtWidgets/qtooltip.h>
 #include <QtCore/qpoint.h>
 #include <QtCore/qstring.h>
@@ -66,3 +68,5 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN8QToolTipD1Ev(QToolTip *self) {
   delete self;
 }
+
+#endif  // QT_CONFIG(tooltip)

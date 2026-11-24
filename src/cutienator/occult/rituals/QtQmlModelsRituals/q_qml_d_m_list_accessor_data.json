@@ -1,0 +1,26 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQmlModels/6.12.0/QtQmlModels/private/qqmldmlistaccessordata_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK22QQmlDMListAccessorData10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QQmlDMListAccessorDataD1Ev": ["nothing", "address"],
+    "ritual_ZNK22QQmlDMListAccessorData9modelDataEv": ["address", "address"],
+    "ritual_ZN22QQmlDMListAccessorData3getEv": [
+      "unsigned long long", "address"
+    ],
+    "ritual_ZN22QQmlDMListAccessorData8setValueERK7QStringRK8QVariant": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_take_QQmlDMListAccessorData": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN22QQmlDMListAccessorData8setValueERK7QStringRK8QVariant": [
+      "nothing", "address", "text", "address"
+    ]
+  }
+}

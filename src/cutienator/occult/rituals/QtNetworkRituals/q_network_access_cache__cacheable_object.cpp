@@ -1,0 +1,69 @@
+//  Written by dev_tooling.RitualGenerator from the records of
+//  QtNetwork/6.12.0/QtNetwork/private/qnetworkaccesscache_p.h, Qt 6.12.0.
+//  Changes made here are lost.
+#include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
+#include <QtNetwork/QtNetwork>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtNetwork/6.12.0/QtNetwork/private/qnetworkaccesscache_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qbytearray.h>
+#include <cstring>
+
+//  A QNetworkAccessCache::CacheableObject that Python can take functions over in. Every QNetworkAccessCache::CacheableObject
+//  Python makes is one. Each function below asks the Python
+//  function handed over for it, and runs Qt's own without one.
+typedef void (*CuteQNetworkAccessCache_CacheableObjectCall0)(const void *, int *);
+class CuteQNetworkAccessCache_CacheableObject : public QNetworkAccessCache::CacheableObject {
+public:
+  using QNetworkAccessCache::CacheableObject::CacheableObject;
+  void *taken[1] = {};
+
+  bool take(const char *key, void *call) {
+    if (!std::strcmp(key, "_ZN19QNetworkAccessCache15CacheableObject7disposeEv")) {
+      taken[0] = call;
+      return true;
+    }
+    return false;
+  }
+
+  //  void QNetworkAccessCache::CacheableObject::dispose()
+  void dispose() override {
+    if (taken[0]) {
+      int handled = 0;
+      CuteQNetworkAccessCache_CacheableObjectCall0 call = reinterpret_cast<CuteQNetworkAccessCache_CacheableObjectCall0>(taken[0]);
+      call(this, &handled);
+      if (handled) return;
+    }
+  }
+};
+
+//  QNetworkAccessCache::CacheableObject::~CacheableObject()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QNetworkAccessCache15CacheableObjectD1Ev(
+    QNetworkAccessCache::CacheableObject *self) {
+  delete self;
+}
+
+//  void QNetworkAccessCache::CacheableObject::dispose()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QNetworkAccessCache15CacheableObject7disposeEv(
+    QNetworkAccessCache::CacheableObject *self) {
+  self->dispose();
+}
+
+//  QByteArray QNetworkAccessCache::CacheableObject::cacheKey() const
+extern "C" Q_DECL_EXPORT
+QByteArray *ritual_ZNK19QNetworkAccessCache15CacheableObject8cacheKeyEv(
+    const QNetworkAccessCache::CacheableObject *self) {
+  return new QByteArray(self->cacheKey());
+}
+
+//  a Python function taken by a CuteQNetworkAccessCache_CacheableObject, for
+//      the function named by the key
+extern "C" Q_DECL_EXPORT
+bool ritual_take_QNetworkAccessCache_CacheableObject(
+    QNetworkAccessCache::CacheableObject *self,
+    const char *key,
+    void *call) {
+  return static_cast<CuteQNetworkAccessCache_CacheableObject *>(self)->take(key, call);
+}

@@ -1,0 +1,62 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/qtcpserver.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK10QTcpServer10metaObjectEv": ["address", "address"],
+    "ritual_ZN10QTcpServer2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN10QTcpServerC1EP7QObject": ["address", "address"],
+    "ritual_ZN10QTcpServerD1Ev": ["nothing", "address"],
+    "ritual_ZN10QTcpServer6listenERK12QHostAddresst": [
+      "bool", "address", "address", "unsigned short"
+    ],
+    "ritual_ZN10QTcpServer5closeEv": ["nothing", "address"],
+    "ritual_ZNK10QTcpServer11isListeningEv": ["bool", "address"],
+    "ritual_ZN10QTcpServer24setMaxPendingConnectionsEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK10QTcpServer21maxPendingConnectionsEv": ["int", "address"],
+    "ritual_ZN10QTcpServer20setListenBacklogSizeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK10QTcpServer17listenBacklogSizeEv": ["int", "address"],
+    "ritual_ZNK10QTcpServer10serverPortEv": ["unsigned short", "address"],
+    "ritual_ZNK10QTcpServer13serverAddressEv": ["address", "address"],
+    "ritual_ZNK10QTcpServer16socketDescriptorEv": ["long long", "address"],
+    "ritual_ZN10QTcpServer19setSocketDescriptorEx": [
+      "bool", "address", "long long"
+    ],
+    "ritual_ZN10QTcpServer20waitForNewConnectionEiPb": [
+      "bool", "address", "int", "address"
+    ],
+    "ritual_ZNK10QTcpServer21hasPendingConnectionsEv": ["bool", "address"],
+    "ritual_ZN10QTcpServer21nextPendingConnectionEv": ["address", "address"],
+    "ritual_ZNK10QTcpServer11serverErrorEv": ["int", "address"],
+    "ritual_ZNK10QTcpServer11errorStringEv": ["text", "address"],
+    "ritual_ZN10QTcpServer14pauseAcceptingEv": ["nothing", "address"],
+    "ritual_ZN10QTcpServer15resumeAcceptingEv": ["nothing", "address"],
+    "ritual_ZN10QTcpServer8setProxyERK13QNetworkProxy": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10QTcpServer5proxyEv": ["address", "address"],
+    "ritual_ZN10QTcpServer18incomingConnectionEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN10QTcpServer20addPendingConnectionEP10QTcpSocket": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QTcpServer6d_funcEv": ["address", "address"],
+    "ritual_ZNK10QTcpServer6d_funcEv": ["address", "address"],
+    "ritual_take_QTcpServer": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK10QTcpServer21hasPendingConnectionsEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZN10QTcpServer21nextPendingConnectionEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN10QTcpServer18incomingConnectionEx": [
+      "nothing", "address", "long long"
+    ]
+  }
+}

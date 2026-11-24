@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDBus/6.12.0/QtDBus/private/qdbusmessage_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QDBusMessagePrivateC1Ev": ["address"],
+    "ritual_ZN19QDBusMessagePrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN19QDBusMessagePrivate18createResponseLinkEPKS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QDBusMessagePrivate7isLocalERK12QDBusMessage": [
+      "bool", "address"
+    ]
+  }
+}

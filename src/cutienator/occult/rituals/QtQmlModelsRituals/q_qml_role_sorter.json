@@ -1,0 +1,37 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQmlModels/6.12.0/QtQmlModels/private/qqmlrolesorter_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK14QQmlRoleSorter10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QQmlRoleSorter2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN14QQmlRoleSorterC1EP7QObject": ["address", "address"],
+    "ritual_ZN14QQmlRoleSorterC1EP21QQmlSorterBasePrivateP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN14QQmlRoleSorterD1Ev": ["nothing", "address"],
+    "ritual_ZNK14QQmlRoleSorter8roleNameEv": ["text", "address"],
+    "ritual_ZN14QQmlRoleSorter11setRoleNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK14QQmlRoleSorter7compareERK11QModelIndexS2_PK24QQmlSortFilterProxyModel": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN14QQmlRoleSorter6updateEPK24QQmlSortFilterProxyModel": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QQmlRoleSorter6d_funcEv": ["address", "address"],
+    "ritual_ZNK14QQmlRoleSorter6d_funcEv": ["address", "address"],
+    "ritual_take_QQmlRoleSorter": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK14QQmlRoleSorter7compareERK11QModelIndexS2_PK24QQmlSortFilterProxyModel": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN14QQmlRoleSorter6updateEPK24QQmlSortFilterProxyModel": [
+      "nothing", "address", "address"
+    ]
+  }
+}

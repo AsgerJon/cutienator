@@ -1,0 +1,38 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickanimation_p_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN16QActionAnimationC1Ev": ["address"],
+    "ritual_ZN16QActionAnimationC1EP24QAbstractAnimationAction": [
+      "address", "address"
+    ],
+    "ritual_ZN16QActionAnimationD1Ev": ["nothing", "address"],
+    "ritual_ZNK16QActionAnimation8durationEv": ["int", "address"],
+    "ritual_ZN16QActionAnimation13setAnimActionEP24QAbstractAnimationAction": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QActionAnimation17updateCurrentTimeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16QActionAnimation11updateStateEN21QAbstractAnimationJob5StateES1_": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK16QActionAnimation14debugAnimationE6QDebug": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QActionAnimation": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK16QActionAnimation8durationEv": ["int", "address"],
+    "ritual_own_ZN16QActionAnimation17updateCurrentTimeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN16QActionAnimation11updateStateEN21QAbstractAnimationJob5StateES1_": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZNK16QActionAnimation14debugAnimationE6QDebug": [
+      "nothing", "address", "address"
+    ]
+  }
+}

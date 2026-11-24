@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmlpropertycache_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN21QQmlMetaObjectPointerC1Ev": ["address"],
+    "ritual_ZN21QQmlMetaObjectPointerC1EPK11QMetaObject": [
+      "address", "address"
+    ],
+    "ritual_ZN21QQmlMetaObjectPointerD1Ev": ["nothing", "address"],
+    "ritual_ZNK21QQmlMetaObjectPointer13setSharedOnceEP11QMetaObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21QQmlMetaObjectPointer10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK21QQmlMetaObjectPointer8isSharedEv": ["bool", "address"],
+    "ritual_ZNK21QQmlMetaObjectPointer6isNullEv": ["bool", "address"]
+  }
+}

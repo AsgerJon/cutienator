@@ -1,0 +1,60 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtPositioning/qgeopath.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN8QGeoPathC1Ev": ["address"],
+    "ritual_ZN8QGeoPathC1ERK5QListI14QGeoCoordinateERKd": [
+      "address", "address", "double"
+    ],
+    "ritual_ZN8QGeoPathC1ERKS_": ["address", "address"],
+    "ritual_ZN8QGeoPathC1ERK9QGeoShape": ["address", "address"],
+    "ritual_ZN8QGeoPathD1Ev": ["nothing", "address"],
+    "ritual_ZN8QGeoPath7setPathERK5QListI14QGeoCoordinateE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK8QGeoPath4pathEv": ["address", "address"],
+    "ritual_ZN8QGeoPath9clearPathEv": ["nothing", "address"],
+    "ritual_ZN8QGeoPath14setVariantPathERK5QListI8QVariantE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK8QGeoPath11variantPathEv": ["address", "address"],
+    "ritual_ZN8QGeoPath8setWidthERKd": ["nothing", "address", "double"],
+    "ritual_ZNK8QGeoPath5widthEv": ["double", "address"],
+    "ritual_ZN8QGeoPath9translateEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZNK8QGeoPath10translatedEdd": [
+      "address", "address", "double", "double"
+    ],
+    "ritual_ZNK8QGeoPath6lengthExx": [
+      "double", "address", "long long", "long long"
+    ],
+    "ritual_ZNK8QGeoPath4sizeEv": ["long long", "address"],
+    "ritual_ZN8QGeoPath13addCoordinateERK14QGeoCoordinate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8QGeoPath16insertCoordinateExRK14QGeoCoordinate": [
+      "nothing", "address", "long long", "address"
+    ],
+    "ritual_ZN8QGeoPath17replaceCoordinateExRK14QGeoCoordinate": [
+      "nothing", "address", "long long", "address"
+    ],
+    "ritual_ZNK8QGeoPath12coordinateAtEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZNK8QGeoPath18containsCoordinateERK14QGeoCoordinate": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN8QGeoPath16removeCoordinateERK14QGeoCoordinate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8QGeoPath16removeCoordinateEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZNK8QGeoPath8toStringEv": ["text", "address"],
+    "ritual_ZN8QGeoPath6d_funcEv": ["address", "address"],
+    "ritual_ZNK8QGeoPath6d_funcEv": ["address", "address"]
+  }
+}

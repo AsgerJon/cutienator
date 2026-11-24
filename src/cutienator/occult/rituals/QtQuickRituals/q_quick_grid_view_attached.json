@@ -1,0 +1,20 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickgridview_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK22QQuickGridViewAttached10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QQuickGridViewAttachedD1Ev": ["nothing", "address"],
+    "ritual_ZNK22QQuickGridViewAttached4viewEv": ["address", "address"],
+    "ritual_ZN22QQuickGridViewAttached7setViewEP14QQuickGridView": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QQuickGridViewAttached": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

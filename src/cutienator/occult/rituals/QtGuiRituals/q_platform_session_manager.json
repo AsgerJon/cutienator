@@ -1,0 +1,91 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/qpa/qplatformsessionmanager.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN23QPlatformSessionManagerC1ERK7QStringS2_": [
+      "address", "text", "text"
+    ],
+    "ritual_ZN23QPlatformSessionManagerD1Ev": ["nothing", "address"],
+    "ritual_ZNK23QPlatformSessionManager9sessionIdEv": ["text", "address"],
+    "ritual_ZNK23QPlatformSessionManager10sessionKeyEv": ["text", "address"],
+    "ritual_ZN23QPlatformSessionManager17allowsInteractionEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN23QPlatformSessionManager22allowsErrorInteractionEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN23QPlatformSessionManager7releaseEv": ["nothing", "address"],
+    "ritual_ZN23QPlatformSessionManager6cancelEv": ["nothing", "address"],
+    "ritual_ZN23QPlatformSessionManager14setRestartHintEN15QSessionManager11RestartHintE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK23QPlatformSessionManager11restartHintEv": ["int", "address"],
+    "ritual_ZN23QPlatformSessionManager17setRestartCommandERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK23QPlatformSessionManager14restartCommandEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QPlatformSessionManager17setDiscardCommandERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK23QPlatformSessionManager14discardCommandEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QPlatformSessionManager18setManagerPropertyERK7QStringS2_": [
+      "nothing", "address", "text", "text"
+    ],
+    "ritual_ZN23QPlatformSessionManager18setManagerPropertyERK7QStringRK5QListIS0_E": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZNK23QPlatformSessionManager8isPhase2Ev": ["bool", "address"],
+    "ritual_ZN23QPlatformSessionManager13requestPhase2Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QPlatformSessionManager13appCommitDataEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QPlatformSessionManager12appSaveStateEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QPlatformSessionManager": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK23QPlatformSessionManager9sessionIdEv": [
+      "text", "address"
+    ],
+    "ritual_own_ZNK23QPlatformSessionManager10sessionKeyEv": [
+      "text", "address"
+    ],
+    "ritual_own_ZN23QPlatformSessionManager17allowsInteractionEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZN23QPlatformSessionManager22allowsErrorInteractionEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZN23QPlatformSessionManager7releaseEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN23QPlatformSessionManager6cancelEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN23QPlatformSessionManager14setRestartHintEN15QSessionManager11RestartHintE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZNK23QPlatformSessionManager11restartHintEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZN23QPlatformSessionManager18setManagerPropertyERK7QStringS2_": [
+      "nothing", "address", "text", "text"
+    ],
+    "ritual_own_ZNK23QPlatformSessionManager8isPhase2Ev": [
+      "bool", "address"
+    ],
+    "ritual_own_ZN23QPlatformSessionManager13requestPhase2Ev": [
+      "nothing", "address"
+    ]
+  }
+}

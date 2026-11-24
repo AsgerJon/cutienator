@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmlfileselector_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN27QQmlFileSelectorInterceptorC1EP23QQmlFileSelectorPrivate": [
+      "address", "address"
+    ],
+    "ritual_ZN27QQmlFileSelectorInterceptor9interceptERK4QUrlN26QQmlAbstractUrlInterceptor8DataTypeE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN27QQmlFileSelectorInterceptorD1Ev": ["nothing", "address"],
+    "ritual_take_QQmlFileSelectorInterceptor": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN27QQmlFileSelectorInterceptor9interceptERK4QUrlN26QQmlAbstractUrlInterceptor8DataTypeE": [
+      "address", "address", "address", "int"
+    ]
+  }
+}

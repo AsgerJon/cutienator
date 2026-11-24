@@ -1,0 +1,33 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qstringiterator_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QStringIterator4lessEPK5QCharS2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN15QStringIteratorC1E11QStringViewx": [
+      "address", "text", "long long"
+    ],
+    "ritual_ZN15QStringIteratorC1EPK5QCharS2_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN15QStringIteratorC1EPK5QCharxS2_": [
+      "address", "address", "long long", "address"
+    ],
+    "ritual_ZNK15QStringIterator8positionEv": ["address", "address"],
+    "ritual_ZNK15QStringIterator5indexEv": ["long long", "address"],
+    "ritual_ZN15QStringIterator11setPositionEPK5QChar": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QStringIterator7hasNextEv": ["bool", "address"],
+    "ritual_ZN15QStringIterator7advanceEv": ["nothing", "address"],
+    "ritual_ZN15QStringIterator16advanceUncheckedEv": ["nothing", "address"],
+    "ritual_ZNK15QStringIterator11hasPreviousEv": ["bool", "address"],
+    "ritual_ZN15QStringIterator6recedeEv": ["nothing", "address"],
+    "ritual_ZN15QStringIterator15recedeUncheckedEv": ["nothing", "address"],
+    "ritual_ZN15QStringIteratorD1Ev": ["nothing", "address"]
+  }
+}

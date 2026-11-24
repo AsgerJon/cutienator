@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qsgcurveabstractnode_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QSGCurveAbstractNode8setColorE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QSGCurveAbstractNode12cookGeometryEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QSGCurveAbstractNode25setUseStandardDerivativesEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_take_QSGCurveAbstractNode": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

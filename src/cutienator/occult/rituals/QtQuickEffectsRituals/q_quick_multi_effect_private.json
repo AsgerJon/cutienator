@@ -1,0 +1,184 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Effects/6.12.0/QtQuickEffects/private/qquickmultieffect_p_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN24QQuickMultiEffectPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK24QQuickMultiEffectPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN24QQuickMultiEffectPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZNK24QQuickMultiEffectPrivate6sourceEv": ["address", "address"],
+    "ritual_ZNK24QQuickMultiEffectPrivate18autoPaddingEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK24QQuickMultiEffectPrivate11paddingRectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK24QQuickMultiEffectPrivate10brightnessEv": [
+      "double", "address"
+    ],
+    "ritual_ZN24QQuickMultiEffectPrivate13setBrightnessEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK24QQuickMultiEffectPrivate8contrastEv": ["double", "address"],
+    "ritual_ZN24QQuickMultiEffectPrivate11setContrastEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK24QQuickMultiEffectPrivate10saturationEv": [
+      "double", "address"
+    ],
+    "ritual_ZN24QQuickMultiEffectPrivate13setSaturationEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK24QQuickMultiEffectPrivate12colorizationEv": [
+      "double", "address"
+    ],
+    "ritual_ZN24QQuickMultiEffectPrivate15setColorizationEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK24QQuickMultiEffectPrivate17colorizationColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QQuickMultiEffectPrivate20setColorizationColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK24QQuickMultiEffectPrivate11blurEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK24QQuickMultiEffectPrivate4blurEv": ["double", "address"],
+    "ritual_ZN24QQuickMultiEffectPrivate7setBlurEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK24QQuickMultiEffectPrivate7blurMaxEv": ["int", "address"],
+    "ritual_ZNK24QQuickMultiEffectPrivate14blurMultiplierEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK24QQuickMultiEffectPrivate13shadowEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK24QQuickMultiEffectPrivate13shadowOpacityEv": [
+      "double", "address"
+    ],
+    "ritual_ZN24QQuickMultiEffectPrivate16setShadowOpacityEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK24QQuickMultiEffectPrivate10shadowBlurEv": [
+      "double", "address"
+    ],
+    "ritual_ZN24QQuickMultiEffectPrivate13setShadowBlurEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK24QQuickMultiEffectPrivate22shadowHorizontalOffsetEv": [
+      "double", "address"
+    ],
+    "ritual_ZN24QQuickMultiEffectPrivate25setShadowHorizontalOffsetEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK24QQuickMultiEffectPrivate20shadowVerticalOffsetEv": [
+      "double", "address"
+    ],
+    "ritual_ZN24QQuickMultiEffectPrivate23setShadowVerticalOffsetEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK24QQuickMultiEffectPrivate11shadowColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QQuickMultiEffectPrivate14setShadowColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK24QQuickMultiEffectPrivate11shadowScaleEv": [
+      "double", "address"
+    ],
+    "ritual_ZN24QQuickMultiEffectPrivate14setShadowScaleEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK24QQuickMultiEffectPrivate11maskEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK24QQuickMultiEffectPrivate10maskSourceEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QQuickMultiEffectPrivate13setMaskSourceEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK24QQuickMultiEffectPrivate16maskThresholdMinEv": [
+      "double", "address"
+    ],
+    "ritual_ZN24QQuickMultiEffectPrivate19setMaskThresholdMinEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK24QQuickMultiEffectPrivate15maskSpreadAtMinEv": [
+      "double", "address"
+    ],
+    "ritual_ZN24QQuickMultiEffectPrivate18setMaskSpreadAtMinEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK24QQuickMultiEffectPrivate16maskThresholdMaxEv": [
+      "double", "address"
+    ],
+    "ritual_ZN24QQuickMultiEffectPrivate19setMaskThresholdMaxEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK24QQuickMultiEffectPrivate15maskSpreadAtMaxEv": [
+      "double", "address"
+    ],
+    "ritual_ZN24QQuickMultiEffectPrivate18setMaskSpreadAtMaxEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK24QQuickMultiEffectPrivate12maskInvertedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN24QQuickMultiEffectPrivate15setMaskInvertedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK24QQuickMultiEffectPrivate8itemRectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK24QQuickMultiEffectPrivate14fragmentShaderEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK24QQuickMultiEffectPrivate12vertexShaderEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK24QQuickMultiEffectPrivate14hasProxySourceEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN24QQuickMultiEffectPrivate25updateMaskThresholdSpreadEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuickMultiEffectPrivate18updateCenterOffsetEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuickMultiEffectPrivate18updateShadowOffsetEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuickMultiEffectPrivate23updateColorizationColorEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuickMultiEffectPrivate17updateShadowColorEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuickMultiEffectPrivate12calculateLodEf": [
+      "float", "address", "float"
+    ],
+    "ritual_ZN24QQuickMultiEffectPrivate10blurWeightEf": [
+      "float", "address", "float"
+    ],
+    "ritual_ZN24QQuickMultiEffectPrivate17updateBlurWeightsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuickMultiEffectPrivate23updateShadowBlurWeightsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuickMultiEffectPrivate21updateBlurItemsAmountEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN24QQuickMultiEffectPrivate22updateProxyActiveCheckEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QQuickMultiEffectPrivate": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

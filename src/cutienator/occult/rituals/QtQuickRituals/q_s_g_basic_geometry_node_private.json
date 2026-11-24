@@ -1,0 +1,11 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qsgnode_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN27QSGBasicGeometryNodePrivateC1Ev": ["address"],
+    "ritual_ZN27QSGBasicGeometryNodePrivateD1Ev": ["nothing", "address"]
+  }
+}

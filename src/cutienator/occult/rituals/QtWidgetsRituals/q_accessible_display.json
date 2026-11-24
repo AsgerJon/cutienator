@@ -1,0 +1,42 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/simplewidgets_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QAccessibleDisplayC1EP7QWidgetN11QAccessible4RoleE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK18QAccessibleDisplay4textEN11QAccessible4TextE": [
+      "text", "address", "int"
+    ],
+    "ritual_ZNK18QAccessibleDisplay4roleEv": ["int", "address"],
+    "ritual_ZNK18QAccessibleDisplay5stateEv": ["address", "address"],
+    "ritual_ZNK18QAccessibleDisplay16imageDescriptionEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK18QAccessibleDisplay9imageSizeEv": ["address", "address"],
+    "ritual_ZNK18QAccessibleDisplay13imagePositionEv": [
+      "address", "address"
+    ],
+    "ritual_cast_QAccessibleDisplay_QAccessibleImageInterface": [
+      "address", "address"
+    ],
+    "ritual_take_QAccessibleDisplay": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK18QAccessibleDisplay4textEN11QAccessible4TextE": [
+      "text", "address", "int"
+    ],
+    "ritual_own_ZNK18QAccessibleDisplay4roleEv": ["int", "address"],
+    "ritual_own_ZNK18QAccessibleDisplay5stateEv": ["address", "address"],
+    "ritual_own_ZNK18QAccessibleDisplay16imageDescriptionEv": [
+      "text", "address"
+    ],
+    "ritual_own_ZNK18QAccessibleDisplay9imageSizeEv": ["address", "address"],
+    "ritual_own_ZNK18QAccessibleDisplay13imagePositionEv": [
+      "address", "address"
+    ]
+  }
+}

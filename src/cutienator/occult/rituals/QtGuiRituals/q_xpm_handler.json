@@ -1,0 +1,26 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qxpmhandler_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK11QXpmHandler7canReadEv": ["bool", "address"],
+    "ritual_ZN11QXpmHandler4readEP6QImage": ["bool", "address", "address"],
+    "ritual_ZNK11QXpmHandler6optionEN15QImageIOHandler11ImageOptionE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN11QXpmHandler9setOptionEN15QImageIOHandler11ImageOptionERK8QVariant": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZNK11QXpmHandler14supportsOptionEN15QImageIOHandler11ImageOptionE": [
+      "bool", "address", "int"
+    ],
+    "ritual_own_ZN11QXpmHandler9setOptionEN15QImageIOHandler11ImageOptionERK8QVariant": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZNK11QXpmHandler14supportsOptionEN15QImageIOHandler11ImageOptionE": [
+      "bool", "address", "int"
+    ]
+  }
+}

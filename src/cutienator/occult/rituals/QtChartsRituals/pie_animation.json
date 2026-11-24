@@ -1,0 +1,28 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/6.12.0/QtCharts/private/pieanimation_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK12PieAnimation10metaObjectEv": ["address", "address"],
+    "ritual_ZN12PieAnimation2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN12PieAnimationD1Ev": ["nothing", "address"],
+    "ritual_ZN12PieAnimation11updateValueEP12PieSliceItemRK12PieSliceData": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN12PieAnimation8addSliceEP12PieSliceItemRK12PieSliceDatab": [
+      "address", "address", "address", "address", "bool"
+    ],
+    "ritual_ZN12PieAnimation11removeSliceEP12PieSliceItem": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN12PieAnimation18updateCurrentValueERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_PieAnimation": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN12PieAnimation18updateCurrentValueERK8QVariant": [
+      "nothing", "address", "address"
+    ]
+  }
+}

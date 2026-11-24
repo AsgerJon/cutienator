@@ -1,0 +1,45 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Dialogs2QuickImpl/6.12.0/QtQuickDialogs2QuickImpl/private/qquickco",
+    "lorinputs_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QQuickColorInputs10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QQuickColorInputs2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QQuickColorInputsC1EP10QQuickItem": ["address", "address"],
+    "ritual_ZNK17QQuickColorInputs11currentModeEv": ["int", "address"],
+    "ritual_ZN17QQuickColorInputs14setCurrentModeENS_4ModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK17QQuickColorInputs8delegateEv": ["address", "address"],
+    "ritual_ZN17QQuickColorInputs11setDelegateEP13QQmlComponent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QQuickColorInputs5colorEv": ["address", "address"],
+    "ritual_ZN17QQuickColorInputs8setColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QQuickColorInputs3redEv": ["int", "address"],
+    "ritual_ZNK17QQuickColorInputs5greenEv": ["int", "address"],
+    "ritual_ZNK17QQuickColorInputs4blueEv": ["int", "address"],
+    "ritual_ZNK17QQuickColorInputs5alphaEv": ["double", "address"],
+    "ritual_ZNK17QQuickColorInputs3hueEv": ["double", "address"],
+    "ritual_ZNK17QQuickColorInputs13hslSaturationEv": ["double", "address"],
+    "ritual_ZNK17QQuickColorInputs13hsvSaturationEv": ["double", "address"],
+    "ritual_ZNK17QQuickColorInputs5valueEv": ["double", "address"],
+    "ritual_ZNK17QQuickColorInputs9lightnessEv": ["double", "address"],
+    "ritual_ZNK17QQuickColorInputs9showAlphaEv": ["bool", "address"],
+    "ritual_ZN17QQuickColorInputs12setShowAlphaEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN17QQuickColorInputs17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN17QQuickColorInputs17componentCompleteEv": [
+      "nothing", "address"
+    ]
+  }
+}

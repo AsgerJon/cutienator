@@ -1,0 +1,70 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtLabsP",
+    "latform/6.12.0/QtLabsPlatform/private/qquicklabsplatformfiledialog",
+    "_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK28QQuickLabsPlatformFileDialog10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QQuickLabsPlatformFileDialog20qmlExtendedNamespaceEv": [
+      "address"
+    ],
+    "ritual_ZN28QQuickLabsPlatformFileDialog30qt_qmlMarker_extendedNamespaceEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK28QQuickLabsPlatformFileDialog8fileModeEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK28QQuickLabsPlatformFileDialog11currentFileEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QQuickLabsPlatformFileDialog14setCurrentFileERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK28QQuickLabsPlatformFileDialog12currentFilesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QQuickLabsPlatformFileDialog15setCurrentFilesERK5QListI4QUrlE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK28QQuickLabsPlatformFileDialog6folderEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QQuickLabsPlatformFileDialog9setFolderERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK28QQuickLabsPlatformFileDialog7optionsEv": ["int", "address"],
+    "ritual_ZNK28QQuickLabsPlatformFileDialog11nameFiltersEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QQuickLabsPlatformFileDialog13defaultSuffixEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK28QQuickLabsPlatformFileDialog11acceptLabelEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK28QQuickLabsPlatformFileDialog11rejectLabelEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK28QQuickLabsPlatformFileDialog15useNativeDialogEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN28QQuickLabsPlatformFileDialog8onCreateEP21QPlatformDialogHelper": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QQuickLabsPlatformFileDialog6onShowEP21QPlatformDialogHelper": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QQuickLabsPlatformFileDialog6onHideEP21QPlatformDialogHelper": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QQuickLabsPlatformFileDialog6acceptEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZNK28QQuickLabsPlatformFileDialog15useNativeDialogEv": [
+      "bool", "address"
+    ]
+  }
+}

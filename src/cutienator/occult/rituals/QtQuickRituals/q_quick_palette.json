@@ -1,0 +1,48 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickpalette_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK13QQuickPalette10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QQuickPalette2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN13QQuickPaletteC1EP7QObject": ["address", "address"],
+    "ritual_ZNK13QQuickPalette6activeEv": ["address", "address"],
+    "ritual_ZNK13QQuickPalette8inactiveEv": ["address", "address"],
+    "ritual_ZNK13QQuickPalette8disabledEv": ["address", "address"],
+    "ritual_ZN13QQuickPalette11resetActiveEv": ["nothing", "address"],
+    "ritual_ZN13QQuickPalette13resetInactiveEv": ["nothing", "address"],
+    "ritual_ZN13QQuickPalette13resetDisabledEv": ["nothing", "address"],
+    "ritual_ZNK13QQuickPalette17currentColorGroupEv": ["int", "address"],
+    "ritual_ZN13QQuickPalette15setCurrentGroupEN8QPalette10ColorGroupE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN13QQuickPalette12fromQPaletteE8QPalette": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QQuickPalette10toQPaletteEv": ["address", "address"],
+    "ritual_ZNK13QQuickPalette15paletteProviderEv": ["address", "address"],
+    "ritual_ZN13QQuickPalette18setPaletteProviderEPK29QQuickAbstractPaletteProvider": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QQuickPalette5resetEv": ["nothing", "address"],
+    "ritual_ZN13QQuickPalette14inheritPaletteERK8QPalette": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QQuickPalette9setActiveEP16QQuickColorGroup": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QQuickPalette11setInactiveEP16QQuickColorGroup": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QQuickPalette11setDisabledEP16QQuickColorGroup": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QQuickPalette18registerColorGroupEP16QQuickColorGroupN8QPalette10ColorGroupE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN13QQuickPalette19defaultCurrentGroupEv": ["int"],
+    "ritual_own_ZNK13QQuickPalette17currentColorGroupEv": ["int", "address"]
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtBluetooth/qlowenergydescriptor.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QLowEnergyDescriptorC1Ev": ["address"],
+    "ritual_ZN20QLowEnergyDescriptorC1ERKS_": ["address", "address"],
+    "ritual_ZN20QLowEnergyDescriptorD1Ev": ["nothing", "address"],
+    "ritual_ZeqRK20QLowEnergyDescriptorS1_": ["bool", "address", "address"],
+    "ritual_ZneRK20QLowEnergyDescriptorS1_": ["bool", "address", "address"],
+    "ritual_ZNK20QLowEnergyDescriptor7isValidEv": ["bool", "address"],
+    "ritual_ZNK20QLowEnergyDescriptor5valueEv": ["address", "address"],
+    "ritual_ZNK20QLowEnergyDescriptor4uuidEv": ["address", "address"],
+    "ritual_ZNK20QLowEnergyDescriptor4nameEv": ["text", "address"],
+    "ritual_ZNK20QLowEnergyDescriptor4typeEv": ["int", "address"],
+    "ritual_ZNK20QLowEnergyDescriptor6handleEv": [
+      "unsigned short", "address"
+    ],
+    "ritual_ZNK20QLowEnergyDescriptor20characteristicHandleEv": [
+      "unsigned short", "address"
+    ],
+    "ritual_ZN20QLowEnergyDescriptor6equalsERKS_S1_": [
+      "bool", "address", "address"
+    ],
+    "ritual_list_make_QLowEnergyDescriptor": ["address"],
+    "ritual_list_add_QLowEnergyDescriptor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_list_size_QLowEnergyDescriptor": ["long long", "address"],
+    "ritual_list_at_QLowEnergyDescriptor": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_QLowEnergyDescriptor": ["nothing", "address"]
+  }
+}

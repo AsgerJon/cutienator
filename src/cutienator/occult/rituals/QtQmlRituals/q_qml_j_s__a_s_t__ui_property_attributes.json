@@ -1,0 +1,60 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmljsast_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK6QQmlJS3AST20UiPropertyAttributes12defaultTokenEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK6QQmlJS3AST20UiPropertyAttributes15isDefaultMemberEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK6QQmlJS3AST20UiPropertyAttributes13requiredTokenEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK6QQmlJS3AST20UiPropertyAttributes10isRequiredEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK6QQmlJS3AST20UiPropertyAttributes13readonlyTokenEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK6QQmlJS3AST20UiPropertyAttributes10isReadonlyEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK6QQmlJS3AST20UiPropertyAttributes10finalTokenEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK6QQmlJS3AST20UiPropertyAttributes7isFinalEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK6QQmlJS3AST20UiPropertyAttributes12virtualTokenEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK6QQmlJS3AST20UiPropertyAttributes9isVirtualEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK6QQmlJS3AST20UiPropertyAttributes13overrideTokenEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK6QQmlJS3AST20UiPropertyAttributes10isOverrideEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK6QQmlJS3AST20UiPropertyAttributes13propertyTokenEv": [
+      "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST20UiPropertyAttributes7accept0EPNS0_11BaseVisitorE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST20UiPropertyAttributes7accept0EPNS0_11BaseVisitorE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK6QQmlJS3AST20UiPropertyAttributes19firstSourceLocationEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK6QQmlJS3AST20UiPropertyAttributes18lastSourceLocationEv": [
+      "address", "address"
+    ]
+  }
+}

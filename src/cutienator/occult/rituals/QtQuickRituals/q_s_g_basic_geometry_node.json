@@ -1,0 +1,28 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/qsgnode.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QSGBasicGeometryNodeD1Ev": ["nothing", "address"],
+    "ritual_ZN20QSGBasicGeometryNode11setGeometryEP11QSGGeometry": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QSGBasicGeometryNode8geometryEv": ["address", "address"],
+    "ritual_ZN20QSGBasicGeometryNode8geometryEv": ["address", "address"],
+    "ritual_ZNK20QSGBasicGeometryNode6matrixEv": ["address", "address"],
+    "ritual_ZNK20QSGBasicGeometryNode8clipListEv": ["address", "address"],
+    "ritual_ZN20QSGBasicGeometryNode17setRendererMatrixEPK10QMatrix4x4": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QSGBasicGeometryNode19setRendererClipListEPK11QSGClipNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QSGBasicGeometryNodeC1EN7QSGNode8NodeTypeE": [
+      "address", "int"
+    ],
+    "ritual_take_QSGBasicGeometryNode": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

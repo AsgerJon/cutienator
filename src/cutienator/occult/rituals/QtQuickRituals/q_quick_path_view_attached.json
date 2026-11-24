@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickpathview_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK22QQuickPathViewAttached10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QQuickPathViewAttachedD1Ev": ["nothing", "address"],
+    "ritual_ZNK22QQuickPathViewAttached4viewEv": ["address", "address"],
+    "ritual_ZNK22QQuickPathViewAttached13isCurrentItemEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK22QQuickPathViewAttached5valueERK10QByteArray": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN22QQuickPathViewAttached8setValueERK10QByteArrayRK8QVariant": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK22QQuickPathViewAttached8isOnPathEv": ["bool", "address"],
+    "ritual_take_QQuickPathViewAttached": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

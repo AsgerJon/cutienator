@@ -1,0 +1,48 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Controls2Impl/6.12.0/QtQuickControls2Impl/private/qquickmenuitemic",
+    "onlabel_p_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN30QQuickMenuItemIconLabelPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK30QQuickMenuItemIconLabelPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK30QQuickMenuItemIconLabelPrivate11hasShortcutEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK30QQuickMenuItemIconLabelPrivate8shortcutEv": [
+      "address", "address"
+    ],
+    "ritual_ZN30QQuickMenuItemIconLabelPrivate17syncShortcutLabelEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuickMenuItemIconLabelPrivate18updateImplicitSizeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuickMenuItemIconLabelPrivate6layoutEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuickMenuItemIconLabelPrivate13itemDestroyedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN30QQuickMenuItemIconLabelPrivate10textChangeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuickMenuItemIconLabelPrivate13displayChangeEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QQuickMenuItemIconLabelPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN30QQuickMenuItemIconLabelPrivate18updateImplicitSizeEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN30QQuickMenuItemIconLabelPrivate6layoutEv": [
+      "nothing", "address"
+    ]
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3D/qquick3dobject.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK14QQuick3DObject10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QQuick3DObject2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN14QQuick3DObject6d_funcEv": ["address", "address"],
+    "ritual_ZNK14QQuick3DObject6d_funcEv": ["address", "address"],
+    "ritual_ZN14QQuick3DObject24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQuick3DObjectC1EPS_": ["address", "address"],
+    "ritual_ZN14QQuick3DObjectD1Ev": ["nothing", "address"],
+    "ritual_ZNK14QQuick3DObject5stateEv": ["text", "address"],
+    "ritual_ZN14QQuick3DObject8setStateERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK14QQuick3DObject10childItemsEv": ["address", "address"],
+    "ritual_ZNK14QQuick3DObject10parentItemEv": ["address", "address"],
+    "ritual_ZN14QQuick3DObject6updateEv": ["nothing", "address"],
+    "ritual_ZN14QQuick3DObject13setParentItemEPS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QQuick3DObject17updateSpatialNodeEP21QSSGRenderGraphObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN14QQuick3DObject12markAllDirtyEv": ["nothing", "address"],
+    "ritual_ZN14QQuick3DObject10itemChangeENS_10ItemChangeERKNS_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN14QQuick3DObject10classBeginEv": ["nothing", "address"],
+    "ritual_ZN14QQuick3DObject17componentCompleteEv": ["nothing", "address"],
+    "ritual_ZNK14QQuick3DObject19isComponentCompleteEv": ["bool", "address"],
+    "ritual_ZN14QQuick3DObject7preSyncEv": ["nothing", "address"],
+    "ritual_cast_QQuick3DObject_QQmlParserStatus": ["address", "address"],
+    "ritual_take_QQuick3DObject": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN14QQuick3DObject17updateSpatialNodeEP21QSSGRenderGraphObject": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN14QQuick3DObject12markAllDirtyEv": ["nothing", "address"],
+    "ritual_own_ZN14QQuick3DObject10itemChangeENS_10ItemChangeERKNS_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZN14QQuick3DObject10classBeginEv": ["nothing", "address"],
+    "ritual_own_ZN14QQuick3DObject17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN14QQuick3DObject7preSyncEv": ["nothing", "address"],
+    "ritual_list_make_QQuick3DObject_ptr": ["address"],
+    "ritual_list_add_QQuick3DObject_ptr": ["nothing", "address", "address"],
+    "ritual_list_size_QQuick3DObject_ptr": ["long long", "address"],
+    "ritual_list_at_QQuick3DObject_ptr": ["address", "address", "long long"],
+    "ritual_list_drop_QQuick3DObject_ptr": ["nothing", "address"]
+  }
+}

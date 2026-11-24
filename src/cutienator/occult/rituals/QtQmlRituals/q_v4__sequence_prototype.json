@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4sequenceobject_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN3QV417SequencePrototype16defaultPrototypeEPNS_15ExecutionEngineE": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV417SequencePrototype9toVariantEPKNS_8SequenceE": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV417SequencePrototype9toVariantERKNS_5ValueE9QMetaType": [
+      "address", "address", "address"
+    ]
+  }
+}

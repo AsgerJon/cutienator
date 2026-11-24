@@ -1,0 +1,107 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Layouts/6.12.0/QtQuickLayouts/private/qquicklinearlayout_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK20QQuickGridLayoutBase10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QQuickGridLayoutBase2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN20QQuickGridLayoutBase22qt_qmlMarker_anonymousEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickGridLayoutBaseC1Ev": ["address"],
+    "ritual_ZN20QQuickGridLayoutBaseD1Ev": ["nothing", "address"],
+    "ritual_ZN20QQuickGridLayoutBase17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickGridLayoutBase10invalidateEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QQuickGridLayoutBase11orientationEv": ["int", "address"],
+    "ritual_ZN20QQuickGridLayoutBase14setOrientationEN2Qt11OrientationE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK20QQuickGridLayoutBase8sizeHintEN2Qt8SizeHintE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK20QQuickGridLayoutBase15layoutDirectionEv": [
+      "int", "address"
+    ],
+    "ritual_ZN20QQuickGridLayoutBase18setLayoutDirectionEN2Qt15LayoutDirectionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK20QQuickGridLayoutBase24effectiveLayoutDirectionEv": [
+      "int", "address"
+    ],
+    "ritual_ZN20QQuickGridLayoutBase12setAlignmentEP10QQuickItem6QFlagsIN2Qt13AlignmentFlagEE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN20QQuickGridLayoutBase16setStretchFactorEP10QQuickItemiN2Qt11OrientationE": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN20QQuickGridLayoutBase13itemDestroyedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickGridLayoutBase21itemVisibilityChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickGridLayoutBase17updateLayoutItemsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK20QQuickGridLayoutBase6itemAtEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK20QQuickGridLayoutBase9itemCountEv": ["int", "address"],
+    "ritual_ZN20QQuickGridLayoutBase9rearrangeERK6QSizeF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickGridLayoutBase17insertLayoutItemsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickGridLayoutBase14removeGridItemEP15QGridLayoutItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickGridLayoutBase6d_funcEv": ["address", "address"],
+    "ritual_ZNK20QQuickGridLayoutBase6d_funcEv": ["address", "address"],
+    "ritual_take_QQuickGridLayoutBase": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN20QQuickGridLayoutBase17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN20QQuickGridLayoutBase10invalidateEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK20QQuickGridLayoutBase8sizeHintEN2Qt8SizeHintE": [
+      "address", "address", "int"
+    ],
+    "ritual_own_ZN20QQuickGridLayoutBase12setAlignmentEP10QQuickItem6QFlagsIN2Qt13AlignmentFlagEE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_own_ZN20QQuickGridLayoutBase16setStretchFactorEP10QQuickItemiN2Qt11OrientationE": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_own_ZN20QQuickGridLayoutBase13itemDestroyedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20QQuickGridLayoutBase21itemVisibilityChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20QQuickGridLayoutBase17updateLayoutItemsEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZNK20QQuickGridLayoutBase6itemAtEi": [
+      "address", "address", "int"
+    ],
+    "ritual_own_ZNK20QQuickGridLayoutBase9itemCountEv": ["int", "address"],
+    "ritual_own_ZN20QQuickGridLayoutBase9rearrangeERK6QSizeF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20QQuickGridLayoutBase17insertLayoutItemsEv": [
+      "nothing", "address"
+    ]
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtPositioning/qgeopolygon.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN11QGeoPolygonC1Ev": ["address"],
+    "ritual_ZN11QGeoPolygonC1ERK5QListI14QGeoCoordinateE": [
+      "address", "address"
+    ],
+    "ritual_ZN11QGeoPolygonC1ERKS_": ["address", "address"],
+    "ritual_ZN11QGeoPolygonC1ERK9QGeoShape": ["address", "address"],
+    "ritual_ZN11QGeoPolygonD1Ev": ["nothing", "address"],
+    "ritual_ZN11QGeoPolygon12setPerimeterERK5QListI14QGeoCoordinateE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QGeoPolygon9perimeterEv": ["address", "address"],
+    "ritual_ZN11QGeoPolygon7addHoleERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QGeoPolygon7addHoleERK5QListI14QGeoCoordinateE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QGeoPolygon4holeEx": ["address", "address", "long long"],
+    "ritual_ZNK11QGeoPolygon8holePathEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN11QGeoPolygon10removeHoleEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZNK11QGeoPolygon10holesCountEv": ["long long", "address"],
+    "ritual_ZN11QGeoPolygon9translateEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZNK11QGeoPolygon10translatedEdd": [
+      "address", "address", "double", "double"
+    ],
+    "ritual_ZNK11QGeoPolygon6lengthExx": [
+      "double", "address", "long long", "long long"
+    ],
+    "ritual_ZNK11QGeoPolygon4sizeEv": ["long long", "address"],
+    "ritual_ZN11QGeoPolygon13addCoordinateERK14QGeoCoordinate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QGeoPolygon16insertCoordinateExRK14QGeoCoordinate": [
+      "nothing", "address", "long long", "address"
+    ],
+    "ritual_ZN11QGeoPolygon17replaceCoordinateExRK14QGeoCoordinate": [
+      "nothing", "address", "long long", "address"
+    ],
+    "ritual_ZNK11QGeoPolygon12coordinateAtEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZNK11QGeoPolygon18containsCoordinateERK14QGeoCoordinate": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN11QGeoPolygon16removeCoordinateERK14QGeoCoordinate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QGeoPolygon16removeCoordinateEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZNK11QGeoPolygon8toStringEv": ["text", "address"],
+    "ritual_ZN11QGeoPolygon6d_funcEv": ["address", "address"],
+    "ritual_ZNK11QGeoPolygon6d_funcEv": ["address", "address"]
+  }
+}

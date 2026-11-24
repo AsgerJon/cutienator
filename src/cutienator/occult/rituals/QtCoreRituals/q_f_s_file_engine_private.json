@@ -1,0 +1,28 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qfsfileengine_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QFSFileEnginePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK20QFSFileEnginePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN20QFSFileEnginePrivate6openFdE6QFlagsIN13QIODeviceBase12OpenModeFlagEEi": [
+      "bool", "address", "int", "int"
+    ],
+    "ritual_ZN20QFSFileEnginePrivate9closeFdFhEv": ["bool", "address"],
+    "ritual_ZN20QFSFileEnginePrivate7flushFhEv": ["bool", "address"],
+    "ritual_ZNK20QFSFileEnginePrivate7posFdFhEv": ["long long", "address"],
+    "ritual_ZN20QFSFileEnginePrivate8seekFdFhEx": [
+      "bool", "address", "long long"
+    ],
+    "ritual_ZN20QFSFileEnginePrivate17openModeCanCreateE6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [
+      "bool", "int"
+    ],
+    "ritual_ZN20QFSFileEnginePrivate19openModeToOpenFlagsE6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [
+      "int", "int"
+    ],
+    "ritual_ZN20QFSFileEnginePrivate4initEv": ["nothing", "address"],
+    "ritual_ZN20QFSFileEnginePrivateD1Ev": ["nothing", "address"]
+  }
+}

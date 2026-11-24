@@ -1,0 +1,26 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQmlCo",
+    "mpiler/6.12.0/QtQmlCompiler/private/qqmljsregistercontent_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN25QQmlJSRegisterContentPoolC1Ev": ["address"],
+    "ritual_ZN25QQmlJSRegisterContentPoolD1Ev": ["nothing", "address"],
+    "ritual_ZN25QQmlJSRegisterContentPool14createPropertyERK18QQmlJSMetaPropertyiiN21QQmlJSRegisterContent14ContentVariantES3_": [
+      "address", "address", "address", "int", "int", "int", "address"
+    ],
+    "ritual_ZN25QQmlJSRegisterContentPool17createEnumerationERK14QQmlJSMetaEnumRK7QStringN21QQmlJSRegisterContent14ContentVariantES6_": [
+      "address", "address", "address", "text", "int", "address"
+    ],
+    "ritual_ZN25QQmlJSRegisterContentPool5cloneE21QQmlJSRegisterContent": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN25QQmlJSRegisterContentPool17setAllocationModeENS_14AllocationModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN25QQmlJSRegisterContentPool16clearTemporariesEv": [
+      "nothing", "address"
+    ]
+  }
+}

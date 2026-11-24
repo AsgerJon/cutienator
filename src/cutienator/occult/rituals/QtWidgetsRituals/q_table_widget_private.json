@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qtablewidget_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QTableWidgetPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK19QTableWidgetPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN19QTableWidgetPrivate16clearConnectionsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QTableWidgetPrivate4sortEv": ["nothing", "address"],
+    "ritual_take_QTableWidgetPrivate": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

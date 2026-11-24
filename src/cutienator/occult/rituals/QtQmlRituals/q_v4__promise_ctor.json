@@ -1,0 +1,12 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4promiseobject_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN3QV411PromiseCtor10__dataTestEv": ["nothing", "address"],
+    "ritual_ZNK3QV411PromiseCtor11d_uncheckedEv": ["address", "address"],
+    "ritual_ZNK3QV411PromiseCtor1dEv": ["address", "address"]
+  }
+}

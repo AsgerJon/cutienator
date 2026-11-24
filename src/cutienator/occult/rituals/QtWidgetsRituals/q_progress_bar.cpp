@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qprogressbar.h, Qt 6.12.0. Changes made here are lost.
+#include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(progressbar)
 #include <QtWidgets/qprogressbar.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qsize.h>
@@ -18,12 +20,26 @@ struct OwnQProgressBar : QProgressBar {
 //  A QProgressBar that Python can take functions over in. Every QProgressBar
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if QT_CONFIG(progressbar)
 typedef QString * (*CuteQProgressBarCall0)(const void *, int *);
+#endif  // QT_CONFIG(progressbar)
+#if QT_CONFIG(progressbar)
 typedef const QSize * (*CuteQProgressBarCall1)(const void *, int *);
+#endif  // QT_CONFIG(progressbar)
+#if QT_CONFIG(progressbar)
 typedef const QSize * (*CuteQProgressBarCall2)(const void *, int *);
+#endif  // QT_CONFIG(progressbar)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(progressbar)
 typedef bool (*CuteQProgressBarCall3)(const void *, QEvent *, int *);
+#endif  // QT_CONFIG(progressbar)
+#endif  // !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(progressbar)
 typedef void (*CuteQProgressBarCall4)(const void *, QPaintEvent *, int *);
+#endif  // QT_CONFIG(progressbar)
+#if QT_CONFIG(progressbar)
 typedef void (*CuteQProgressBarCall5)(const void *, QStyleOptionProgressBar *, int *);
+#endif  // QT_CONFIG(progressbar)
 typedef int (*CuteQProgressBarCall6)(const void *, int *);
 typedef void (*CuteQProgressBarCall7)(const void *, bool, int *);
 typedef int (*CuteQProgressBarCall8)(const void *, int, int *);
@@ -33,7 +49,9 @@ typedef void (*CuteQProgressBarCall11)(const void *, QMouseEvent *, int *);
 typedef void (*CuteQProgressBarCall12)(const void *, QMouseEvent *, int *);
 typedef void (*CuteQProgressBarCall13)(const void *, QMouseEvent *, int *);
 typedef void (*CuteQProgressBarCall14)(const void *, QMouseEvent *, int *);
+#if QT_CONFIG(wheelevent)
 typedef void (*CuteQProgressBarCall15)(const void *, QWheelEvent *, int *);
+#endif  // QT_CONFIG(wheelevent)
 typedef void (*CuteQProgressBarCall16)(const void *, QKeyEvent *, int *);
 typedef void (*CuteQProgressBarCall17)(const void *, QKeyEvent *, int *);
 typedef void (*CuteQProgressBarCall18)(const void *, QFocusEvent *, int *);
@@ -43,13 +61,27 @@ typedef void (*CuteQProgressBarCall21)(const void *, QEvent *, int *);
 typedef void (*CuteQProgressBarCall22)(const void *, QMoveEvent *, int *);
 typedef void (*CuteQProgressBarCall23)(const void *, QResizeEvent *, int *);
 typedef void (*CuteQProgressBarCall24)(const void *, QCloseEvent *, int *);
+#if !defined(QT_NO_CONTEXTMENU)
 typedef void (*CuteQProgressBarCall25)(const void *, QContextMenuEvent *, int *);
+#endif  // !defined(QT_NO_CONTEXTMENU)
+#if QT_CONFIG(tabletevent)
 typedef void (*CuteQProgressBarCall26)(const void *, QTabletEvent *, int *);
+#endif  // QT_CONFIG(tabletevent)
+#if !defined(QT_NO_ACTION)
 typedef void (*CuteQProgressBarCall27)(const void *, QActionEvent *, int *);
+#endif  // !defined(QT_NO_ACTION)
+#if QT_CONFIG(draganddrop)
 typedef void (*CuteQProgressBarCall28)(const void *, QDragEnterEvent *, int *);
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
 typedef void (*CuteQProgressBarCall29)(const void *, QDragMoveEvent *, int *);
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
 typedef void (*CuteQProgressBarCall30)(const void *, QDragLeaveEvent *, int *);
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
 typedef void (*CuteQProgressBarCall31)(const void *, QDropEvent *, int *);
+#endif  // QT_CONFIG(draganddrop)
 typedef void (*CuteQProgressBarCall32)(const void *, QShowEvent *, int *);
 typedef void (*CuteQProgressBarCall33)(const void *, QHideEvent *, int *);
 typedef void (*CuteQProgressBarCall34)(const void *, QEvent *, int *);
@@ -60,42 +92,68 @@ typedef void * (*CuteQProgressBarCall38)(const void *, int *);
 typedef void (*CuteQProgressBarCall39)(const void *, QInputMethodEvent *, int *);
 typedef const QVariant * (*CuteQProgressBarCall40)(const void *, int, int *);
 typedef bool (*CuteQProgressBarCall41)(const void *, bool, int *);
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQProgressBarCall42)(const void *, QObject *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQProgressBarCall43)(const void *, QTimerEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQProgressBarCall44)(const void *, QChildEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQProgressBarCall45)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQProgressBarCall46)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQProgressBarCall47)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 class CuteQProgressBar : public QProgressBar {
 public:
   using QProgressBar::QProgressBar;
   void *taken[48] = {};
 
   bool take(const char *key, void *call) {
+#if QT_CONFIG(progressbar)
     if (!std::strcmp(key, "_ZNK12QProgressBar4textEv")) {
       taken[0] = call;
       return true;
     }
+#endif  // QT_CONFIG(progressbar)
+#if QT_CONFIG(progressbar)
     if (!std::strcmp(key, "_ZNK7QWidget8sizeHintEv")) {
       taken[1] = call;
       return true;
     }
+#endif  // QT_CONFIG(progressbar)
+#if QT_CONFIG(progressbar)
     if (!std::strcmp(key, "_ZNK7QWidget15minimumSizeHintEv")) {
       taken[2] = call;
       return true;
     }
+#endif  // QT_CONFIG(progressbar)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(progressbar)
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[3] = call;
       return true;
     }
+#endif  // QT_CONFIG(progressbar)
+#endif  // !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(progressbar)
     if (!std::strcmp(key, "_ZN7QWidget10paintEventEP11QPaintEvent")) {
       taken[4] = call;
       return true;
     }
+#endif  // QT_CONFIG(progressbar)
+#if QT_CONFIG(progressbar)
     if (!std::strcmp(key, "_ZNK12QProgressBar15initStyleOptionEP23QStyleOptionProgressBar")) {
       taken[5] = call;
       return true;
     }
+#endif  // QT_CONFIG(progressbar)
     if (!std::strcmp(key, "_ZNK12QPaintDevice7devTypeEv")) {
       taken[6] = call;
       return true;
@@ -132,10 +190,12 @@ public:
       taken[14] = call;
       return true;
     }
+#if QT_CONFIG(wheelevent)
     if (!std::strcmp(key, "_ZN7QWidget10wheelEventEP11QWheelEvent")) {
       taken[15] = call;
       return true;
     }
+#endif  // QT_CONFIG(wheelevent)
     if (!std::strcmp(key, "_ZN7QWidget13keyPressEventEP9QKeyEvent")) {
       taken[16] = call;
       return true;
@@ -172,34 +232,48 @@ public:
       taken[24] = call;
       return true;
     }
+#if !defined(QT_NO_CONTEXTMENU)
     if (!std::strcmp(key, "_ZN7QWidget16contextMenuEventEP17QContextMenuEvent")) {
       taken[25] = call;
       return true;
     }
+#endif  // !defined(QT_NO_CONTEXTMENU)
+#if QT_CONFIG(tabletevent)
     if (!std::strcmp(key, "_ZN7QWidget11tabletEventEP12QTabletEvent")) {
       taken[26] = call;
       return true;
     }
+#endif  // QT_CONFIG(tabletevent)
+#if !defined(QT_NO_ACTION)
     if (!std::strcmp(key, "_ZN7QWidget11actionEventEP12QActionEvent")) {
       taken[27] = call;
       return true;
     }
+#endif  // !defined(QT_NO_ACTION)
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget14dragEnterEventEP15QDragEnterEvent")) {
       taken[28] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget13dragMoveEventEP14QDragMoveEvent")) {
       taken[29] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget14dragLeaveEventEP15QDragLeaveEvent")) {
       taken[30] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget9dropEventEP10QDropEvent")) {
       taken[31] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget9showEventEP10QShowEvent")) {
       taken[32] = call;
       return true;
@@ -240,33 +314,46 @@ public:
       taken[41] = call;
       return true;
     }
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[42] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[43] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[44] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[45] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[46] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
       taken[47] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
     return false;
   }
 
+#if QT_CONFIG(progressbar)
   //  QString QProgressBar::text() const
   QString text() const override {
     if (taken[0]) {
@@ -281,7 +368,9 @@ public:
     }
     return QProgressBar::text();
   }
+#endif  // QT_CONFIG(progressbar)
 
+#if QT_CONFIG(progressbar)
   //  QSize QProgressBar::sizeHint() const
   QSize sizeHint() const override {
     if (taken[1]) {
@@ -292,7 +381,9 @@ public:
     }
     return QProgressBar::sizeHint();
   }
+#endif  // QT_CONFIG(progressbar)
 
+#if QT_CONFIG(progressbar)
   //  QSize QProgressBar::minimumSizeHint() const
   QSize minimumSizeHint() const override {
     if (taken[2]) {
@@ -303,7 +394,10 @@ public:
     }
     return QProgressBar::minimumSizeHint();
   }
+#endif  // QT_CONFIG(progressbar)
 
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(progressbar)
   //  bool QProgressBar::event(QEvent *e)
   bool event(QEvent *e) override {
     if (taken[3]) {
@@ -314,7 +408,10 @@ public:
     }
     return QProgressBar::event(e);
   }
+#endif  // QT_CONFIG(progressbar)
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if QT_CONFIG(progressbar)
   //  void QProgressBar::paintEvent(QPaintEvent *a0)
   void paintEvent(QPaintEvent *a0) override {
     if (taken[4]) {
@@ -325,7 +422,9 @@ public:
     }
     QProgressBar::paintEvent(a0);
   }
+#endif  // QT_CONFIG(progressbar)
 
+#if QT_CONFIG(progressbar)
   //  void QProgressBar::initStyleOption(QStyleOptionProgressBar *option)
   //      const
   void initStyleOption(QStyleOptionProgressBar *option) const override {
@@ -337,6 +436,7 @@ public:
     }
     QProgressBar::initStyleOption(option);
   }
+#endif  // QT_CONFIG(progressbar)
 
   //  int QWidget::devType() const
   int devType() const override {
@@ -437,6 +537,7 @@ public:
     QWidget::mouseMoveEvent(event);
   }
 
+#if QT_CONFIG(wheelevent)
   //  void QWidget::wheelEvent(QWheelEvent *event)
   void wheelEvent(QWheelEvent *event) override {
     if (taken[15]) {
@@ -447,6 +548,7 @@ public:
     }
     QWidget::wheelEvent(event);
   }
+#endif  // QT_CONFIG(wheelevent)
 
   //  void QWidget::keyPressEvent(QKeyEvent *event)
   void keyPressEvent(QKeyEvent *event) override {
@@ -547,6 +649,7 @@ public:
     QWidget::closeEvent(event);
   }
 
+#if !defined(QT_NO_CONTEXTMENU)
   //  void QWidget::contextMenuEvent(QContextMenuEvent *event)
   void contextMenuEvent(QContextMenuEvent *event) override {
     if (taken[25]) {
@@ -557,7 +660,9 @@ public:
     }
     QWidget::contextMenuEvent(event);
   }
+#endif  // !defined(QT_NO_CONTEXTMENU)
 
+#if QT_CONFIG(tabletevent)
   //  void QWidget::tabletEvent(QTabletEvent *event)
   void tabletEvent(QTabletEvent *event) override {
     if (taken[26]) {
@@ -568,7 +673,9 @@ public:
     }
     QWidget::tabletEvent(event);
   }
+#endif  // QT_CONFIG(tabletevent)
 
+#if !defined(QT_NO_ACTION)
   //  void QWidget::actionEvent(QActionEvent *event)
   void actionEvent(QActionEvent *event) override {
     if (taken[27]) {
@@ -579,7 +686,9 @@ public:
     }
     QWidget::actionEvent(event);
   }
+#endif  // !defined(QT_NO_ACTION)
 
+#if QT_CONFIG(draganddrop)
   //  void QWidget::dragEnterEvent(QDragEnterEvent *event)
   void dragEnterEvent(QDragEnterEvent *event) override {
     if (taken[28]) {
@@ -590,7 +699,9 @@ public:
     }
     QWidget::dragEnterEvent(event);
   }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
   //  void QWidget::dragMoveEvent(QDragMoveEvent *event)
   void dragMoveEvent(QDragMoveEvent *event) override {
     if (taken[29]) {
@@ -601,7 +712,9 @@ public:
     }
     QWidget::dragMoveEvent(event);
   }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
   //  void QWidget::dragLeaveEvent(QDragLeaveEvent *event)
   void dragLeaveEvent(QDragLeaveEvent *event) override {
     if (taken[30]) {
@@ -612,7 +725,9 @@ public:
     }
     QWidget::dragLeaveEvent(event);
   }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
   //  void QWidget::dropEvent(QDropEvent *event)
   void dropEvent(QDropEvent *event) override {
     if (taken[31]) {
@@ -623,6 +738,7 @@ public:
     }
     QWidget::dropEvent(event);
   }
+#endif  // QT_CONFIG(draganddrop)
 
   //  void QWidget::showEvent(QShowEvent *event)
   void showEvent(QShowEvent *event) override {
@@ -734,6 +850,7 @@ public:
     return QWidget::focusNextPrevChild(next);
   }
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
     if (taken[42]) {
@@ -744,7 +861,9 @@ public:
     }
     return QObject::eventFilter(watched, event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
     if (taken[43]) {
@@ -755,7 +874,9 @@ public:
     }
     QObject::timerEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
     if (taken[44]) {
@@ -766,7 +887,9 @@ public:
     }
     QObject::childEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
     if (taken[45]) {
@@ -777,7 +900,9 @@ public:
     }
     QObject::customEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
     if (taken[46]) {
@@ -788,7 +913,9 @@ public:
     }
     QObject::connectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
     if (taken[47]) {
@@ -799,6 +926,7 @@ public:
     }
     QObject::disconnectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 };
 
 //  const QMetaObject *QProgressBar::metaObject() const
@@ -1068,3 +1196,5 @@ void ritual_own_ZNK12QProgressBar15initStyleOptionEP23QStyleOptionProgressBar(
   static_cast<const OwnQProgressBar *>(self)->OwnQProgressBar::initStyleOption(
       option);
 }
+
+#endif  // QT_CONFIG(progressbar)

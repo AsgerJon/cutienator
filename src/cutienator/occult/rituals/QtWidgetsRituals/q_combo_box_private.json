@@ -1,0 +1,87 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qcombobox_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN16QComboBoxPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK16QComboBoxPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN16QComboBoxPrivateC1Ev": ["address"],
+    "ritual_ZN16QComboBoxPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN16QComboBoxPrivate4initEv": ["nothing", "address"],
+    "ritual_ZN16QComboBoxPrivate22updateLineEditGeometryEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK16QComboBoxPrivate10matchFlagsEv": ["int", "address"],
+    "ritual_ZN16QComboBoxPrivate15editingFinishedEv": ["nothing", "address"],
+    "ritual_ZN16QComboBoxPrivate13returnPressedEv": ["nothing", "address"],
+    "ritual_ZN16QComboBoxPrivate12itemSelectedERK11QModelIndex": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QComboBoxPrivate13emitActivatedERK11QModelIndex": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QComboBoxPrivate15emitHighlightedERK11QModelIndex": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QComboBoxPrivate23emitCurrentIndexChangedERK11QModelIndex": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QComboBoxPrivate14modelDestroyedEv": ["nothing", "address"],
+    "ritual_ZN16QComboBoxPrivate16updateMicroFocusEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QComboBoxPrivate18completerActivatedERK11QModelIndex": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QComboBoxPrivate11resetButtonEv": ["nothing", "address"],
+    "ritual_ZN16QComboBoxPrivate23updateIndexBeforeChangeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QComboBoxPrivate11updateArrowEN6QStyle9StateFlagE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16QComboBoxPrivate18updateHoverControlERK6QPoint": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN16QComboBoxPrivate16trySetValidIndexEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK16QComboBoxPrivate13popupGeometryERK6QPoint": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN16QComboBoxPrivate15newHoverControlERK6QPoint": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK16QComboBoxPrivate16computeWidthHintEv": ["int", "address"],
+    "ritual_ZNK16QComboBoxPrivate8itemTextERK11QModelIndex": [
+      "text", "address", "address"
+    ],
+    "ritual_ZNK16QComboBoxPrivate8itemIconERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK16QComboBoxPrivate8itemRoleEv": ["int", "address"],
+    "ritual_ZN16QComboBoxPrivate21updateLayoutDirectionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QComboBoxPrivate15setCurrentIndexERK11QModelIndex": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QComboBoxPrivate18initViewItemOptionEP20QStyleOptionViewItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QComboBoxPrivate36updateViewContainerPaletteAndOpacityEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QComboBoxPrivate17updateFocusPolicyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QComboBoxPrivate11doHidePopupEv": ["nothing", "address"],
+    "ritual_ZN16QComboBoxPrivate17updateCurrentTextERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN16QComboBoxPrivate15disconnectModelEv": ["nothing", "address"],
+    "ritual_take_QComboBoxPrivate": ["bool", "address", "chars", "address"]
+  }
+}

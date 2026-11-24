@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4compileddata_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN3QV412CompiledData14TemplateObject13calculateSizeEi": [
+      "int", "int"
+    ],
+    "ritual_ZNK3QV412CompiledData14TemplateObject13stringIndexAtEj": [
+      "unsigned int", "address", "unsigned int"
+    ],
+    "ritual_ZNK3QV412CompiledData14TemplateObject16rawStringIndexAtEj": [
+      "unsigned int", "address", "unsigned int"
+    ],
+    "ritual_ZN3QV412CompiledData14TemplateObjectD1Ev": ["nothing", "address"]
+  }
+}

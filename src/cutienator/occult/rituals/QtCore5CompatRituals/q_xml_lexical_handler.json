@@ -1,0 +1,26 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore5Compat/qxml.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QXmlLexicalHandlerD1Ev": ["nothing", "address"],
+    "ritual_ZN18QXmlLexicalHandler8startDTDERK7QStringS2_S2_": [
+      "bool", "address", "text", "text", "text"
+    ],
+    "ritual_ZN18QXmlLexicalHandler6endDTDEv": ["bool", "address"],
+    "ritual_ZN18QXmlLexicalHandler11startEntityERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN18QXmlLexicalHandler9endEntityERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN18QXmlLexicalHandler10startCDATAEv": ["bool", "address"],
+    "ritual_ZN18QXmlLexicalHandler8endCDATAEv": ["bool", "address"],
+    "ritual_ZN18QXmlLexicalHandler7commentERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZNK18QXmlLexicalHandler11errorStringEv": ["text", "address"],
+    "ritual_take_QXmlLexicalHandler": ["bool", "address", "chars", "address"]
+  }
+}

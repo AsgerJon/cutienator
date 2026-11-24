@@ -1,0 +1,177 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qpaintengine_blitter_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QBlitterPaintEngineC1EP24QBlittablePlatformPixmap": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QBlitterPaintEngine4typeEv": ["int", "address"],
+    "ritual_ZN19QBlitterPaintEngine5beginEP12QPaintDevice": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN19QBlitterPaintEngine3endEv": ["bool", "address"],
+    "ritual_ZN19QBlitterPaintEngine8fillRectERK6QRectFRK6QBrush": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN19QBlitterPaintEngine8fillRectERK6QRectFRK6QColor": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN19QBlitterPaintEngine9drawRectsEPK5QRecti": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN19QBlitterPaintEngine9drawRectsEPK6QRectFi": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN19QBlitterPaintEngine10drawPixmapERK7QPointFRK7QPixmap": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN19QBlitterPaintEngine10drawPixmapERK6QRectFRK7QPixmapS2_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN19QBlitterPaintEngine8setStateEP13QPainterState": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QBlitterPaintEngine18clipEnabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QBlitterPaintEngine10penChangedEv": ["nothing", "address"],
+    "ritual_ZN19QBlitterPaintEngine12brushChangedEv": ["nothing", "address"],
+    "ritual_ZN19QBlitterPaintEngine14opacityChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QBlitterPaintEngine22compositionModeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QBlitterPaintEngine18renderHintsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QBlitterPaintEngine16transformChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QBlitterPaintEngine11drawPolygonEPK7QPointFiN12QPaintEngine15PolygonDrawModeE": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN19QBlitterPaintEngine11drawPolygonEPK6QPointiN12QPaintEngine15PolygonDrawModeE": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN19QBlitterPaintEngine8fillPathERK12QPainterPathP9QSpanData": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN19QBlitterPaintEngine11fillPolygonEPK7QPointFiN12QPaintEngine15PolygonDrawModeE": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN19QBlitterPaintEngine11drawEllipseERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QBlitterPaintEngine9drawImageERK7QPointFRK6QImage": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN19QBlitterPaintEngine9drawImageERK6QRectFRK6QImageS2_6QFlagsIN2Qt19ImageConversionFlagEE": [
+      "nothing", "address", "address", "address", "address", "int"
+    ],
+    "ritual_ZN19QBlitterPaintEngine15drawTiledPixmapERK6QRectFRK7QPixmapRK7QPointF": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN19QBlitterPaintEngine12drawTextItemERK7QPointFRK9QTextItem": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN19QBlitterPaintEngine10drawPointsEPK7QPointFi": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN19QBlitterPaintEngine10drawPointsEPK6QPointi": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN19QBlitterPaintEngine18drawStaticTextItemEP15QStaticTextItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QBlitterPaintEngine": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK19QBlitterPaintEngine4typeEv": ["int", "address"],
+    "ritual_own_ZN19QBlitterPaintEngine5beginEP12QPaintDevice": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN19QBlitterPaintEngine3endEv": ["bool", "address"],
+    "ritual_own_ZN19QBlitterPaintEngine8fillRectERK6QRectFRK6QBrush": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN19QBlitterPaintEngine8fillRectERK6QRectFRK6QColor": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN19QBlitterPaintEngine9drawRectsEPK5QRecti": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_own_ZN19QBlitterPaintEngine9drawRectsEPK6QRectFi": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_own_ZN19QBlitterPaintEngine10drawPixmapERK7QPointFRK7QPixmap": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN19QBlitterPaintEngine10drawPixmapERK6QRectFRK7QPixmapS2_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN19QBlitterPaintEngine8setStateEP13QPainterState": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN19QBlitterPaintEngine18clipEnabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN19QBlitterPaintEngine10penChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN19QBlitterPaintEngine12brushChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN19QBlitterPaintEngine14opacityChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN19QBlitterPaintEngine22compositionModeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN19QBlitterPaintEngine18renderHintsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN19QBlitterPaintEngine16transformChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN19QBlitterPaintEngine11drawPolygonEPK7QPointFiN12QPaintEngine15PolygonDrawModeE": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_own_ZN19QBlitterPaintEngine11drawPolygonEPK6QPointiN12QPaintEngine15PolygonDrawModeE": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_own_ZN19QBlitterPaintEngine8fillPathERK12QPainterPathP9QSpanData": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN19QBlitterPaintEngine11fillPolygonEPK7QPointFiN12QPaintEngine15PolygonDrawModeE": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_own_ZN19QBlitterPaintEngine11drawEllipseERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN19QBlitterPaintEngine9drawImageERK7QPointFRK6QImage": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN19QBlitterPaintEngine9drawImageERK6QRectFRK6QImageS2_6QFlagsIN2Qt19ImageConversionFlagEE": [
+      "nothing", "address", "address", "address", "address", "int"
+    ],
+    "ritual_own_ZN19QBlitterPaintEngine15drawTiledPixmapERK6QRectFRK7QPixmapRK7QPointF": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN19QBlitterPaintEngine12drawTextItemERK7QPointFRK9QTextItem": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN19QBlitterPaintEngine10drawPointsEPK7QPointFi": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_own_ZN19QBlitterPaintEngine10drawPointsEPK6QPointi": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_own_ZN19QBlitterPaintEngine18drawStaticTextItemEP15QStaticTextItem": [
+      "nothing", "address", "address"
+    ]
+  }
+}

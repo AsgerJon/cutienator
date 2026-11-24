@@ -1,0 +1,48 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquicktableview_p_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN22QQuickTableViewPrivate20TableEdgeLoadRequest10markAsDoneEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK22QQuickTableViewPrivate20TableEdgeLoadRequest8isActiveEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK22QQuickTableViewPrivate20TableEdgeLoadRequest11currentCellEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK22QQuickTableViewPrivate20TableEdgeLoadRequest14hasCurrentCellEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate20TableEdgeLoadRequest14moveToNextCellEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK22QQuickTableViewPrivate20TableEdgeLoadRequest4edgeEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK22QQuickTableViewPrivate20TableEdgeLoadRequest3rowEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK22QQuickTableViewPrivate20TableEdgeLoadRequest6columnEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK22QQuickTableViewPrivate20TableEdgeLoadRequest14incubationModeEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK22QQuickTableViewPrivate20TableEdgeLoadRequest13startPositionEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK22QQuickTableViewPrivate20TableEdgeLoadRequest8toStringEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK22QQuickTableViewPrivate20TableEdgeLoadRequest6cellAtEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate20TableEdgeLoadRequestD1Ev": [
+      "nothing", "address"
+    ]
+  }
+}

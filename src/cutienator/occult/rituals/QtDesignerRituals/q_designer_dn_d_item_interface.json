@@ -1,0 +1,34 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/abstractdnditem.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN25QDesignerDnDItemInterfaceD1Ev": ["nothing", "address"],
+    "ritual_ZNK25QDesignerDnDItemInterface5domUiEv": ["address", "address"],
+    "ritual_ZNK25QDesignerDnDItemInterface6widgetEv": ["address", "address"],
+    "ritual_ZNK25QDesignerDnDItemInterface10decorationEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK25QDesignerDnDItemInterface7hotSpotEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK25QDesignerDnDItemInterface4typeEv": ["int", "address"],
+    "ritual_ZNK25QDesignerDnDItemInterface6sourceEv": ["address", "address"],
+    "ritual_take_QDesignerDnDItemInterface": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_list_make_QDesignerDnDItemInterface_ptr": ["address"],
+    "ritual_list_add_QDesignerDnDItemInterface_ptr": [
+      "nothing", "address", "address"
+    ],
+    "ritual_list_size_QDesignerDnDItemInterface_ptr": [
+      "long long", "address"
+    ],
+    "ritual_list_at_QDesignerDnDItemInterface_ptr": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_QDesignerDnDItemInterface_ptr": ["nothing", "address"]
+  }
+}

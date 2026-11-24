@@ -1,0 +1,62 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qsplitter_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN16QSplitterPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK16QSplitterPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN16QSplitterPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZNK16QSplitterPrivate4pickERK6QPoint": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK16QSplitterPrivate4pickERK5QSize": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK16QSplitterPrivate5transERK6QPoint": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK16QSplitterPrivate5transERK5QSize": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN16QSplitterPrivate4initEv": ["nothing", "address"],
+    "ritual_ZN16QSplitterPrivate6recalcEb": ["nothing", "address", "bool"],
+    "ritual_ZN16QSplitterPrivate8doResizeEv": ["nothing", "address"],
+    "ritual_ZN16QSplitterPrivate10storeSizesEv": ["nothing", "address"],
+    "ritual_ZNK16QSplitterPrivate8getRangeEiPiS0_S0_S0_": [
+      "nothing", "address", "int", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK16QSplitterPrivate15addContributionEiPiS0_b": [
+      "nothing", "address", "int", "address", "address", "bool"
+    ],
+    "ritual_ZNK16QSplitterPrivate9adjustPosEiiPiS0_S0_S0_": [
+      "int", "address", "int", "int", "address", "address", "address",
+      "address"
+    ],
+    "ritual_ZNK16QSplitterPrivate11collapsibleEP21QSplitterLayoutStruct": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK16QSplitterPrivate11collapsibleEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK16QSplitterPrivate10findWidgetEP7QWidget": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN16QSplitterPrivate6doMoveEbiiibPiS0_": [
+      "nothing", "address", "bool", "int", "int", "int", "bool", "address",
+      "address"
+    ],
+    "ritual_ZN16QSplitterPrivate6setGeoEP21QSplitterLayoutStructiib": [
+      "nothing", "address", "address", "int", "int", "bool"
+    ],
+    "ritual_ZNK16QSplitterPrivate31findWidgetJustBeforeOrJustAfterEiiRi": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN16QSplitterPrivate13updateHandlesEv": ["nothing", "address"],
+    "ritual_ZNK16QSplitterPrivate16shouldShowWidgetEPK7QWidget": [
+      "bool", "address", "address"
+    ],
+    "ritual_take_QSplitterPrivate": ["bool", "address", "chars", "address"]
+  }
+}

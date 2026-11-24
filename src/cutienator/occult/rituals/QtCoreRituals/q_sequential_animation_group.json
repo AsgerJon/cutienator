@@ -37,6 +37,8 @@
     "ritual_ZN25QSequentialAnimationGroup15updateDirectionEN18QAbstractAnimation9DirectionE": [
       "nothing", "address", "int"
     ],
+    "ritual_ZN25QSequentialAnimationGroup6d_funcEv": ["address", "address"],
+    "ritual_ZNK25QSequentialAnimationGroup6d_funcEv": ["address", "address"],
     "ritual_take_QSequentialAnimationGroup": [
       "bool", "address", "chars", "address"
     ],

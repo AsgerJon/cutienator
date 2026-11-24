@@ -1,0 +1,94 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Controls2MaterialStyleImpl/6.12.0/QtQuickControls2MaterialStyleImp",
+    "l/private/qquickmaterialtextcontainer_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK27QQuickMaterialTextContainer10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK27QQuickMaterialTextContainer8isFilledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN27QQuickMaterialTextContainer9setFilledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK27QQuickMaterialTextContainer9fillColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QQuickMaterialTextContainer12setFillColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK27QQuickMaterialTextContainer12outlineColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QQuickMaterialTextContainer15setOutlineColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK27QQuickMaterialTextContainer19focusedOutlineColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QQuickMaterialTextContainer22setFocusedOutlineColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK27QQuickMaterialTextContainer22focusAnimationProgressEv": [
+      "double", "address"
+    ],
+    "ritual_ZN27QQuickMaterialTextContainer25setFocusAnimationProgressEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK27QQuickMaterialTextContainer20placeholderTextWidthEv": [
+      "double", "address"
+    ],
+    "ritual_ZN27QQuickMaterialTextContainer23setPlaceholderTextWidthEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK27QQuickMaterialTextContainer21controlHasActiveFocusEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK27QQuickMaterialTextContainer14controlHasTextEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK27QQuickMaterialTextContainer18placeholderHasTextEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK27QQuickMaterialTextContainer17horizontalPaddingEv": [
+      "int", "address"
+    ],
+    "ritual_ZN27QQuickMaterialTextContainer5paintEP8QPainter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK27QQuickMaterialTextContainer21placeholderTextHAlignEv": [
+      "int", "address"
+    ],
+    "ritual_ZN27QQuickMaterialTextContainer24setPlaceholderTextHAlignENS_21PlaceHolderHAlignmentE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK27QQuickMaterialTextContainer20shouldAnimateOutlineEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK27QQuickMaterialTextContainer11textControlEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QQuickMaterialTextContainer21controlGotActiveFocusEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QQuickMaterialTextContainer22controlLostActiveFocusEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QQuickMaterialTextContainer20updateFocusAnimationEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN27QQuickMaterialTextContainer17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN27QQuickMaterialTextContainer5paintEP8QPainter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN27QQuickMaterialTextContainer17componentCompleteEv": [
+      "nothing", "address"
+    ]
+  }
+}

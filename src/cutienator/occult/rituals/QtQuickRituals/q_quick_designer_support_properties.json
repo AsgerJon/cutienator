@@ -1,0 +1,55 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "/6.12.0/QtQuick/private/qquickdesignersupportproperties_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN31QQuickDesignerSupportProperties24createNewDynamicPropertyEP7QObjectP10QQmlEngineRK7QString": [
+      "nothing", "address", "address", "text"
+    ],
+    "ritual_ZN31QQuickDesignerSupportProperties30registerNodeInstanceMetaObjectEP7QObjectP10QQmlEngine": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN31QQuickDesignerSupportProperties18registerCustomDataEP7QObject": [
+      "nothing", "address"
+    ],
+    "ritual_ZN31QQuickDesignerSupportProperties13getResetValueEP7QObjectRK10QByteArray": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN31QQuickDesignerSupportProperties15doResetPropertyEP7QObjectP11QQmlContextRK10QByteArray": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN31QQuickDesignerSupportProperties20hasValidResetBindingEP7QObjectRK10QByteArray": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN31QQuickDesignerSupportProperties21hasBindingForPropertyEP7QObjectP11QQmlContextRK10QByteArrayPb": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZN31QQuickDesignerSupportProperties18setPropertyBindingEP7QObjectP11QQmlContextRK10QByteArrayRK7QString": [
+      "nothing", "address", "address", "address", "text"
+    ],
+    "ritual_ZN31QQuickDesignerSupportProperties29keepBindingFromGettingDeletedEP7QObjectP11QQmlContextRK10QByteArray": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN31QQuickDesignerSupportProperties17isPropertyQObjectERK13QMetaProperty": [
+      "bool", "address"
+    ],
+    "ritual_ZN31QQuickDesignerSupportProperties19readQObjectPropertyERK13QMetaPropertyP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN31QQuickDesignerSupportProperties16getPropertyCacheEP7QObject": [
+      "nothing", "address"
+    ],
+    "ritual_ZN31QQuickDesignerSupportProperties21isPropertyBlackListedERK10QByteArray": [
+      "bool", "address"
+    ],
+    "ritual_ZN31QQuickDesignerSupportProperties37propertyNameListForWritablePropertiesEP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN31QQuickDesignerSupportProperties31hasFullImplementedListInterfaceERK17QQmlListReference": [
+      "bool", "address"
+    ],
+    "ritual_ZN31QQuickDesignerSupportPropertiesD1Ev": ["nothing", "address"]
+  }
+}

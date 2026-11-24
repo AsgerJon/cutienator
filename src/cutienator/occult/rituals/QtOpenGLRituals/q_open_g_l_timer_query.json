@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtOpenGL/qopengltimerquery.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QOpenGLTimerQuery10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QOpenGLTimerQuery2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QOpenGLTimerQueryC1EP7QObject": ["address", "address"],
+    "ritual_ZN17QOpenGLTimerQueryD1Ev": ["nothing", "address"],
+    "ritual_ZN17QOpenGLTimerQuery6createEv": ["bool", "address"],
+    "ritual_ZN17QOpenGLTimerQuery7destroyEv": ["nothing", "address"],
+    "ritual_ZNK17QOpenGLTimerQuery9isCreatedEv": ["bool", "address"],
+    "ritual_ZN17QOpenGLTimerQuery5beginEv": ["nothing", "address"],
+    "ritual_ZN17QOpenGLTimerQuery3endEv": ["nothing", "address"],
+    "ritual_ZN17QOpenGLTimerQuery15recordTimestampEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK17QOpenGLTimerQuery17isResultAvailableEv": [
+      "bool", "address"
+    ],
+    "ritual_take_QOpenGLTimerQuery": ["bool", "address", "chars", "address"]
+  }
+}

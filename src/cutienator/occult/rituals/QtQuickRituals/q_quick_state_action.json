@@ -1,0 +1,25 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickstate_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN17QQuickStateActionC1Ev": ["address"],
+    "ritual_ZN17QQuickStateActionC1EP7QObjectRK7QStringRK8QVariant": [
+      "address", "address", "text", "address"
+    ],
+    "ritual_ZN17QQuickStateActionC1EP7QObjectRK12QQmlPropertyRK7QStringRK8QVariant": [
+      "address", "address", "address", "text", "address"
+    ],
+    "ritual_ZN17QQuickStateAction17deleteFromBindingEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuickStateActionD1Ev": ["nothing", "address"],
+    "ritual_list_make_QQuickStateAction": ["address"],
+    "ritual_list_add_QQuickStateAction": ["nothing", "address", "address"],
+    "ritual_list_size_QQuickStateAction": ["long long", "address"],
+    "ritual_list_at_QQuickStateAction": ["address", "address", "long long"],
+    "ritual_list_drop_QQuickStateAction": ["nothing", "address"]
+  }
+}

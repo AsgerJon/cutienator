@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/qdesigner_formbuilder_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_take_qdesigner_internal_NewFormWidgetFormBuilder": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN18qdesigner_internal24NewFormWidgetFormBuilder19createCustomWidgetsEP16DomCustomWidgets": [
+      "nothing", "address", "address"
+    ]
+  }
+}

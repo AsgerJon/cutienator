@@ -1,0 +1,37 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQmlModels/6.12.0/QtQmlModels/private/qqmlrolefilter_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK14QQmlRoleFilter10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QQmlRoleFilter2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN14QQmlRoleFilter24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QQmlRoleFilterC1EP7QObject": ["address", "address"],
+    "ritual_ZN14QQmlRoleFilterC1EP21QQmlFilterBasePrivateP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN14QQmlRoleFilterD1Ev": ["nothing", "address"],
+    "ritual_ZNK14QQmlRoleFilter8roleNameEv": ["text", "address"],
+    "ritual_ZN14QQmlRoleFilter11setRoleNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN14QQmlRoleFilter6updateEPK24QQmlSortFilterProxyModel": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QQmlRoleFilter8itemRoleEPK24QQmlSortFilterProxyModel": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN14QQmlRoleFilter6d_funcEv": ["address", "address"],
+    "ritual_ZNK14QQmlRoleFilter6d_funcEv": ["address", "address"],
+    "ritual_take_QQmlRoleFilter": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN14QQmlRoleFilter6updateEPK24QQmlSortFilterProxyModel": [
+      "nothing", "address", "address"
+    ]
+  }
+}

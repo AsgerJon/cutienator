@@ -1,0 +1,68 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4global_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN3QV418PropertyAttributesC1Ev": ["address"],
+    "ritual_ZN3QV418PropertyAttributesC1ENS_12PropertyFlagE": [
+      "address", "int"
+    ],
+    "ritual_ZN3QV418PropertyAttributesC1E6QFlagsINS_12PropertyFlagEE": [
+      "address", "int"
+    ],
+    "ritual_ZN3QV418PropertyAttributes7setTypeENS0_4TypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK3QV418PropertyAttributes4typeEv": ["int", "address"],
+    "ritual_ZNK3QV418PropertyAttributes6isDataEv": ["bool", "address"],
+    "ritual_ZNK3QV418PropertyAttributes10isAccessorEv": ["bool", "address"],
+    "ritual_ZNK3QV418PropertyAttributes9isGenericEv": ["bool", "address"],
+    "ritual_ZNK3QV418PropertyAttributes7hasTypeEv": ["bool", "address"],
+    "ritual_ZNK3QV418PropertyAttributes11hasWritableEv": ["bool", "address"],
+    "ritual_ZNK3QV418PropertyAttributes15hasConfigurableEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK3QV418PropertyAttributes13hasEnumerableEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN3QV418PropertyAttributes11setWritableEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN3QV418PropertyAttributes15setConfigurableEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN3QV418PropertyAttributes13setEnumerableEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN3QV418PropertyAttributes7resolveEv": ["nothing", "address"],
+    "ritual_ZNK3QV418PropertyAttributes10isWritableEv": ["bool", "address"],
+    "ritual_ZNK3QV418PropertyAttributes12isEnumerableEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK3QV418PropertyAttributes14isConfigurableEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN3QV418PropertyAttributes9clearTypeEv": ["nothing", "address"],
+    "ritual_ZN3QV418PropertyAttributes13clearWritableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN3QV418PropertyAttributes15clearEnumerableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN3QV418PropertyAttributes17clearConfigurableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN3QV418PropertyAttributes5clearEv": ["nothing", "address"],
+    "ritual_ZNK3QV418PropertyAttributes7isEmptyEv": ["bool", "address"],
+    "ritual_ZNK3QV418PropertyAttributes3allEv": ["unsigned int", "address"],
+    "ritual_ZN3QV418PropertyAttributeseqES0_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN3QV418PropertyAttributesneES0_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN3QV418PropertyAttributesD1Ev": ["nothing", "address"]
+  }
+}

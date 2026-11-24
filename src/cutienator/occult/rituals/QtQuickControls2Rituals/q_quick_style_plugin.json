@@ -1,0 +1,35 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Controls2/6.12.0/QtQuickControls2/private/qquickstyleplugin_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QQuickStylePlugin10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QQuickStylePlugin2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QQuickStylePluginD1Ev": ["nothing", "address"],
+    "ritual_ZNK17QQuickStylePlugin4nameEv": ["text", "address"],
+    "ritual_ZN17QQuickStylePlugin15initializeThemeEP11QQuickTheme": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QQuickStylePlugin11updateThemeEv": ["nothing", "address"],
+    "ritual_ZN17QQuickStylePlugin13registerTypesEPKc": [
+      "nothing", "address", "chars"
+    ],
+    "ritual_ZN17QQuickStylePlugin15unregisterTypesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuickStylePlugin11createThemeERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_take_QQuickStylePlugin": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN17QQuickStylePlugin11updateThemeEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN17QQuickStylePlugin15unregisterTypesEv": [
+      "nothing", "address"
+    ]
+  }
+}

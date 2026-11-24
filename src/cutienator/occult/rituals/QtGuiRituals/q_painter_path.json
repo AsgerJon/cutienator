@@ -186,6 +186,7 @@
     ],
     "ritual_ZNK12QPainterPath23computeControlPointRectEv": [
       "nothing", "address"
-    ]
+    ],
+    "ritual_ZNK12QPainterPath6d_funcEv": ["address", "address"]
   }
 }

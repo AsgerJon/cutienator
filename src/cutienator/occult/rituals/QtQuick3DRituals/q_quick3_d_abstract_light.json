@@ -1,0 +1,107 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3D/6.12.0/QtQuick3D/private/qquick3dabstractlight_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK21QQuick3DAbstractLight10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QQuick3DAbstractLight2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN21QQuick3DAbstractLight24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuick3DAbstractLightD1Ev": ["nothing", "address"],
+    "ritual_ZNK21QQuick3DAbstractLight5colorEv": ["address", "address"],
+    "ritual_ZNK21QQuick3DAbstractLight12ambientColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK21QQuick3DAbstractLight10brightnessEv": ["float", "address"],
+    "ritual_ZNK21QQuick3DAbstractLight5scopeEv": ["address", "address"],
+    "ritual_ZNK21QQuick3DAbstractLight11castsShadowEv": ["bool", "address"],
+    "ritual_ZNK21QQuick3DAbstractLight10shadowBiasEv": ["float", "address"],
+    "ritual_ZNK21QQuick3DAbstractLight12shadowFactorEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK21QQuick3DAbstractLight16shadowMapQualityEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK21QQuick3DAbstractLight12shadowMapFarEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK21QQuick3DAbstractLight12shadowFilterEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK21QQuick3DAbstractLight8bakeModeEv": ["int", "address"],
+    "ritual_ZNK21QQuick3DAbstractLight17softShadowQualityEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK21QQuick3DAbstractLight9pcfFactorEv": ["float", "address"],
+    "ritual_ZNK21QQuick3DAbstractLight17use32BitShadowmapEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QQuick3DAbstractLight8setColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QQuick3DAbstractLight15setAmbientColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QQuick3DAbstractLight13setBrightnessEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN21QQuick3DAbstractLight8setScopeEP12QQuick3DNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QQuick3DAbstractLight14setCastsShadowEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN21QQuick3DAbstractLight13setShadowBiasEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN21QQuick3DAbstractLight15setShadowFactorEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN21QQuick3DAbstractLight19setShadowMapQualityENS_20QSSGShadowMapQualityE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN21QQuick3DAbstractLight15setShadowMapFarEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN21QQuick3DAbstractLight15setShadowFilterEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN21QQuick3DAbstractLight11setBakeModeENS_12QSSGBakeModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN21QQuick3DAbstractLight20setSoftShadowQualityENS_21QSSGSoftShadowQualityE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN21QQuick3DAbstractLight12setPcfFactorEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN21QQuick3DAbstractLight20setUse32BitShadowmapEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN21QQuick3DAbstractLight17updateSpatialNodeEP21QSSGRenderGraphObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN21QQuick3DAbstractLight12markAllDirtyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuick3DAbstractLight21mapToShadowResolutionENS_20QSSGShadowMapQualityE": [
+      "unsigned int", "address", "int"
+    ],
+    "ritual_take_QQuick3DAbstractLight": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN21QQuick3DAbstractLight17updateSpatialNodeEP21QSSGRenderGraphObject": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN21QQuick3DAbstractLight12markAllDirtyEv": [
+      "nothing", "address"
+    ]
+  }
+}

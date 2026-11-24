@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/qreadwritelock.h, Qt 6.12.0. Changes made here are lost.
+#include <QtCore/qglobal.h>
+#if QT_CONFIG(thread)
 #include <QtCore/qreadwritelock.h>
 
 //  QReadWriteLock::QReadWriteLock(RecursionMode recursionMode)
@@ -30,3 +32,18 @@ bool ritual_ZN14QReadWriteLock15tryLockForWriteEi(
     int timeout) {
   return self->tryLockForWrite(timeout);
 }
+
+//  QReadWriteLockPrivate *QReadWriteLock::initRecursiveInline()
+extern "C" Q_DECL_EXPORT
+QReadWriteLockPrivate *ritual_ZN14QReadWriteLock19initRecursiveInlineEv() {
+  return QReadWriteLock::initRecursiveInline();
+}
+
+//  void QReadWriteLock::destroyRecursiveInline(QReadWriteLockPrivate *d)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN14QReadWriteLock22destroyRecursiveInlineEP21QReadWriteLockPrivate(
+    QReadWriteLockPrivate *d) {
+  QReadWriteLock::destroyRecursiveInline(d);
+}
+
+#endif  // QT_CONFIG(thread)

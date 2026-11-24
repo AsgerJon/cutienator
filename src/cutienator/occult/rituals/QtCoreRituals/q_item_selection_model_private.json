@@ -1,0 +1,43 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qitemselectionmodel_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN26QItemSelectionModelPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK26QItemSelectionModelPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK26QItemSelectionModelPrivate15expandSelectionERK14QItemSelection6QFlagsIN19QItemSelectionModel13SelectionFlagEE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN26QItemSelectionModelPrivate20rowsAboutToBeRemovedERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN26QItemSelectionModelPrivate23columnsAboutToBeRemovedERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN26QItemSelectionModelPrivate21rowsAboutToBeInsertedERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN26QItemSelectionModelPrivate24columnsAboutToBeInsertedERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN26QItemSelectionModelPrivate14modelDestroyedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QItemSelectionModelPrivate8finalizeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QItemSelectionModelPrivate8setModelEP18QAbstractItemModel": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QItemSelectionModelPrivate15disconnectModelEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QItemSelectionModelPrivate12modelChangedEP18QAbstractItemModel": [
+      "nothing", "address", "address"
+    ]
+  }
+}

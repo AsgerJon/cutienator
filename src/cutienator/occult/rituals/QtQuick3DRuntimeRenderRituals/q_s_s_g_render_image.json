@@ -1,0 +1,20 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgrenderim",
+    "age_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QSSGRenderImageC1EN21QSSGRenderGraphObject4TypeE": [
+      "address", "unsigned int"
+    ],
+    "ritual_ZN15QSSGRenderImageD1Ev": ["nothing", "address"],
+    "ritual_ZN15QSSGRenderImage10clearDirtyEv": ["bool", "address"],
+    "ritual_ZN15QSSGRenderImage25calculateTextureTransformEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK15QSSGRenderImage24isImageTransformIdentityEv": [
+      "bool", "address"
+    ]
+  }
+}

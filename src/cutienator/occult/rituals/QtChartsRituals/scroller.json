@@ -1,0 +1,31 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/6.12.0/QtCharts/private/scroller_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN8ScrollerD1Ev": ["nothing", "address"],
+    "ritual_ZN8Scroller9setOffsetERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK8Scroller6offsetEv": ["address", "address"],
+    "ritual_ZN8Scroller4moveERK7QPointF": ["nothing", "address", "address"],
+    "ritual_ZN8Scroller8scrollToERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Scroller21handleMousePressEventEP24QGraphicsSceneMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Scroller20handleMouseMoveEventEP24QGraphicsSceneMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Scroller23handleMouseReleaseEventEP24QGraphicsSceneMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8Scroller10scrollTickEv": ["nothing", "address"],
+    "ritual_ZN8Scroller11startTickerEi": ["nothing", "address", "int"],
+    "ritual_ZN8Scroller10stopTickerEv": ["nothing", "address"],
+    "ritual_take_Scroller": ["bool", "address", "chars", "address"]
+  }
+}

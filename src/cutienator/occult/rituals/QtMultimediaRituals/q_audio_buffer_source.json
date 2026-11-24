@@ -1,0 +1,14 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtMulti",
+    "media/6.12.0/QtMultimedia/private/qplatformaudiobufferinput_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18QAudioBufferSource10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QAudioBufferSource2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_take_QAudioBufferSource": ["bool", "address", "chars", "address"]
+  }
+}

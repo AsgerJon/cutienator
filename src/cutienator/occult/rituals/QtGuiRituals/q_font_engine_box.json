@@ -1,0 +1,77 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qfontengine_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN14QFontEngineBoxD1Ev": ["nothing", "address"],
+    "ritual_ZNK14QFontEngineBox10glyphIndexEj": [
+      "unsigned int", "address", "unsigned int"
+    ],
+    "ritual_ZNK14QFontEngineBox12stringToCMapEPK5QChariP12QGlyphLayoutPi6QFlagsIN11QFontEngine10ShaperFlagEE": [
+      "int", "address", "address", "int", "address", "address", "int"
+    ],
+    "ritual_ZNK14QFontEngineBox14recalcAdvancesEP12QGlyphLayout6QFlagsIN11QFontEngine10ShaperFlagEE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN14QFontEngineBox4drawEP12QPaintEngineddRK12QTextItemInt": [
+      "nothing", "address", "address", "double", "double", "address"
+    ],
+    "ritual_ZN14QFontEngineBox16addOutlineToPathEddRK12QGlyphLayoutP12QPainterPath6QFlagsIN9QTextItem10RenderFlagEE": [
+      "nothing", "address", "double", "double", "address", "address", "int"
+    ],
+    "ritual_ZN14QFontEngineBox11boundingBoxERK12QGlyphLayout": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN14QFontEngineBox11boundingBoxEj": [
+      "address", "address", "unsigned int"
+    ],
+    "ritual_ZNK14QFontEngineBox13cloneWithSizeEd": [
+      "address", "address", "double"
+    ],
+    "ritual_ZNK14QFontEngineBox12emSquareSizeEv": ["address", "address"],
+    "ritual_ZNK14QFontEngineBox6ascentEv": ["address", "address"],
+    "ritual_ZNK14QFontEngineBox9capHeightEv": ["address", "address"],
+    "ritual_ZNK14QFontEngineBox7descentEv": ["address", "address"],
+    "ritual_ZNK14QFontEngineBox7leadingEv": ["address", "address"],
+    "ritual_ZNK14QFontEngineBox12maxCharWidthEv": ["double", "address"],
+    "ritual_ZNK14QFontEngineBox14minLeftBearingEv": ["double", "address"],
+    "ritual_ZNK14QFontEngineBox15minRightBearingEv": ["double", "address"],
+    "ritual_ZN14QFontEngineBox16alphaMapForGlyphEj": [
+      "address", "address", "unsigned int"
+    ],
+    "ritual_ZNK14QFontEngineBox9canRenderEPK5QChari": [
+      "bool", "address", "address", "int"
+    ],
+    "ritual_ZNK14QFontEngineBox4sizeEv": ["int", "address"],
+    "ritual_take_QFontEngineBox": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK14QFontEngineBox10glyphIndexEj": [
+      "unsigned int", "address", "unsigned int"
+    ],
+    "ritual_own_ZNK14QFontEngineBox14recalcAdvancesEP12QGlyphLayout6QFlagsIN11QFontEngine10ShaperFlagEE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_own_ZN14QFontEngineBox16addOutlineToPathEddRK12QGlyphLayoutP12QPainterPath6QFlagsIN9QTextItem10RenderFlagEE": [
+      "nothing", "address", "double", "double", "address", "address", "int"
+    ],
+    "ritual_own_ZNK14QFontEngineBox12emSquareSizeEv": ["address", "address"],
+    "ritual_own_ZNK14QFontEngineBox6ascentEv": ["address", "address"],
+    "ritual_own_ZNK14QFontEngineBox9capHeightEv": ["address", "address"],
+    "ritual_own_ZNK14QFontEngineBox7descentEv": ["address", "address"],
+    "ritual_own_ZNK14QFontEngineBox7leadingEv": ["address", "address"],
+    "ritual_own_ZNK14QFontEngineBox12maxCharWidthEv": ["double", "address"],
+    "ritual_own_ZNK14QFontEngineBox14minLeftBearingEv": [
+      "double", "address"
+    ],
+    "ritual_own_ZNK14QFontEngineBox15minRightBearingEv": [
+      "double", "address"
+    ],
+    "ritual_own_ZN14QFontEngineBox16alphaMapForGlyphEj": [
+      "address", "address", "unsigned int"
+    ],
+    "ritual_own_ZNK14QFontEngineBox9canRenderEPK5QChari": [
+      "bool", "address", "address", "int"
+    ]
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtPositioning/qgeosatelliteinfosource.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK23QGeoSatelliteInfoSource10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QGeoSatelliteInfoSource2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN23QGeoSatelliteInfoSourceD1Ev": ["nothing", "address"],
+    "ritual_ZN23QGeoSatelliteInfoSource19createDefaultSourceEP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN23QGeoSatelliteInfoSource12createSourceERK7QStringP7QObject": [
+      "address", "text", "address"
+    ],
+    "ritual_ZN23QGeoSatelliteInfoSource19createDefaultSourceERK4QMapI7QString8QVariantEP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN23QGeoSatelliteInfoSource12createSourceERK7QStringRK4QMapIS0_8QVariantEP7QObject": [
+      "address", "text", "address", "address"
+    ],
+    "ritual_ZN23QGeoSatelliteInfoSource16availableSourcesEv": ["address"],
+    "ritual_ZNK23QGeoSatelliteInfoSource10sourceNameEv": ["text", "address"],
+    "ritual_ZN23QGeoSatelliteInfoSource17setUpdateIntervalEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK23QGeoSatelliteInfoSource14updateIntervalEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK23QGeoSatelliteInfoSource21minimumUpdateIntervalEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK23QGeoSatelliteInfoSource5errorEv": ["int", "address"],
+    "ritual_ZN23QGeoSatelliteInfoSource18setBackendPropertyERK7QStringRK8QVariant": [
+      "bool", "address", "text", "address"
+    ],
+    "ritual_ZNK23QGeoSatelliteInfoSource15backendPropertyERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN23QGeoSatelliteInfoSource12startUpdatesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QGeoSatelliteInfoSource11stopUpdatesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QGeoSatelliteInfoSource13requestUpdateEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN23QGeoSatelliteInfoSource6d_funcEv": ["address", "address"],
+    "ritual_ZNK23QGeoSatelliteInfoSource6d_funcEv": ["address", "address"],
+    "ritual_take_QGeoSatelliteInfoSource": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN23QGeoSatelliteInfoSource17setUpdateIntervalEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN23QGeoSatelliteInfoSource18setBackendPropertyERK7QStringRK8QVariant": [
+      "bool", "address", "text", "address"
+    ],
+    "ritual_own_ZNK23QGeoSatelliteInfoSource15backendPropertyERK7QString": [
+      "address", "address", "text"
+    ]
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtHttpServer/6.12.0/QtHttpServer/private/qhttpserverstream_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QHttpServerStream10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QHttpServerStream18responderDestroyedEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN17QHttpServerStream20startHandlingRequestEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QHttpServerStream18socketDisconnectedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QHttpServerStream5writeERK10QByteArrayRK12QHttpHeadersN20QHttpServerResponder10StatusCodeEj": [
+      "nothing", "address", "address", "address", "int", "unsigned int"
+    ],
+    "ritual_ZN17QHttpServerStream5writeEN20QHttpServerResponder10StatusCodeEj": [
+      "nothing", "address", "int", "unsigned int"
+    ],
+    "ritual_ZN17QHttpServerStream5writeEP9QIODeviceRK12QHttpHeadersN20QHttpServerResponder10StatusCodeEj": [
+      "nothing", "address", "address", "address", "int", "unsigned int"
+    ],
+    "ritual_ZN17QHttpServerStream17writeBeginChunkedERK12QHttpHeadersN20QHttpServerResponder10StatusCodeEj": [
+      "nothing", "address", "address", "int", "unsigned int"
+    ],
+    "ritual_ZN17QHttpServerStream10writeChunkERK10QByteArrayj": [
+      "nothing", "address", "address", "unsigned int"
+    ],
+    "ritual_ZN17QHttpServerStream15writeEndChunkedERK10QByteArrayRK12QHttpHeadersj": [
+      "nothing", "address", "address", "address", "unsigned int"
+    ],
+    "ritual_ZN17QHttpServerStream16connectResponderEP27QHttpServerResponderPrivate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QHttpServerStream19disconnectResponderEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_take_QHttpServerStream": ["bool", "address", "chars", "address"]
+  }
+}

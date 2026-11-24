@@ -1,0 +1,30 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickanimation_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK23QQuickVector3dAnimation10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QQuickVector3dAnimation2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN23QQuickVector3dAnimation6d_funcEv": ["address", "address"],
+    "ritual_ZNK23QQuickVector3dAnimation6d_funcEv": ["address", "address"],
+    "ritual_ZN23QQuickVector3dAnimationC1EP7QObject": ["address", "address"],
+    "ritual_ZN23QQuickVector3dAnimationD1Ev": ["nothing", "address"],
+    "ritual_ZNK23QQuickVector3dAnimation4fromEv": ["address", "address"],
+    "ritual_ZN23QQuickVector3dAnimation7setFromE9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK23QQuickVector3dAnimation2toEv": ["address", "address"],
+    "ritual_ZN23QQuickVector3dAnimation5setToE9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QQuickVector3dAnimation": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

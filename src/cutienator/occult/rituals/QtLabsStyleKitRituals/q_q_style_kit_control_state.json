@@ -1,0 +1,13 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtLabsS",
+    "tyleKit/6.12.0/QtLabsStyleKit/private/qqstylekitcontrolstate_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK22QQStyleKitControlState10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK22QQStyleKitControlState11nestedStateEv": ["int", "address"]
+  }
+}

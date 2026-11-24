@@ -1,0 +1,74 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/6.12.0/QtCharts/private/candlestickchartitem_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK20CandlestickChartItem10metaObjectEv": ["address", "address"],
+    "ritual_ZN20CandlestickChartItem2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN20CandlestickChartItemC1EP18QCandlestickSeriesP13QGraphicsItem": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN20CandlestickChartItemD1Ev": ["nothing", "address"],
+    "ritual_ZN20CandlestickChartItem12setAnimationEP20CandlestickAnimation": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20CandlestickChartItem12boundingRectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20CandlestickChartItem5paintEP8QPainterPK24QStyleOptionGraphicsItemP7QWidget": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN20CandlestickChartItem19handleDomainUpdatedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20CandlestickChartItem19handleLayoutUpdatedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20CandlestickChartItem25handleCandlesticksUpdatedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20CandlestickChartItem29handleCandlestickSeriesChangeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20CandlestickChartItem24handleCandlestickSetsAddERK5QListIP15QCandlestickSetE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20CandlestickChartItem27handleCandlestickSetsRemoveERK5QListIP15QCandlestickSetE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20CandlestickChartItem26handleDataStructureChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20CandlestickChartItem25updateCandlestickGeometryEP11Candlesticki": [
+      "bool", "address", "address", "int"
+    ],
+    "ritual_ZN20CandlestickChartItem27updateCandlestickAppearanceEP11CandlestickP15QCandlestickSet": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN20CandlestickChartItem12addTimestampEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN20CandlestickChartItem15removeTimestampEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN20CandlestickChartItem16updateTimePeriodEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_CandlestickChartItem": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK20CandlestickChartItem12boundingRectEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN20CandlestickChartItem5paintEP8QPainterPK24QStyleOptionGraphicsItemP7QWidget": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN20CandlestickChartItem19handleDomainUpdatedEv": [
+      "nothing", "address"
+    ]
+  }
+}

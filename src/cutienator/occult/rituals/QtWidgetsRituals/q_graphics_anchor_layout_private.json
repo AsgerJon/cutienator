@@ -1,0 +1,49 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qgraphicsanchorlayout_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN28QGraphicsAnchorLayoutPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QGraphicsAnchorLayoutPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QGraphicsAnchorLayoutPrivate3getEP21QGraphicsAnchorLayout": [
+      "address", "address"
+    ],
+    "ritual_ZN28QGraphicsAnchorLayoutPrivate12oppositeEdgeEN2Qt11AnchorPointE": [
+      "int", "int"
+    ],
+    "ritual_ZN28QGraphicsAnchorLayoutPrivate15edgeOrientationEN2Qt11AnchorPointE": [
+      "int", "int"
+    ],
+    "ritual_ZN28QGraphicsAnchorLayoutPrivate8pickEdgeEN2Qt11AnchorPointENS0_11OrientationE": [
+      "int", "int", "int"
+    ],
+    "ritual_ZN28QGraphicsAnchorLayoutPrivate23removeCenterConstraintsEP19QGraphicsLayoutItemN2Qt11OrientationE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN28QGraphicsAnchorLayoutPrivate9getAnchorEP19QGraphicsLayoutItemN2Qt11AnchorPointES1_S3_": [
+      "address", "address", "address", "int", "address", "int"
+    ],
+    "ritual_ZN28QGraphicsAnchorLayoutPrivate9findPathsEN2Qt11OrientationE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN28QGraphicsAnchorLayoutPrivate17updateAnchorSizesEN2Qt11OrientationE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN28QGraphicsAnchorLayoutPrivate13getGraphPartsEN2Qt11OrientationE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN28QGraphicsAnchorLayoutPrivate18setItemsGeometriesERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QGraphicsAnchorLayoutPrivate9dumpGraphERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN28QGraphicsAnchorLayoutPrivateD1Ev": ["nothing", "address"]
+  }
+}

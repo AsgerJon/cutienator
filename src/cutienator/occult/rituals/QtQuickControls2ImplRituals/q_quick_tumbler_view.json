@@ -1,0 +1,51 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Controls2Impl/6.12.0/QtQuickControls2Impl/private/qquicktumblervie",
+    "w_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QQuickTumblerView10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QQuickTumblerView2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QQuickTumblerViewC1EP10QQuickItem": ["address", "address"],
+    "ritual_ZNK17QQuickTumblerView5modelEv": ["address", "address"],
+    "ritual_ZN17QQuickTumblerView8setModelERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QQuickTumblerView8delegateEv": ["address", "address"],
+    "ritual_ZN17QQuickTumblerView11setDelegateEP13QQmlComponent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QQuickTumblerView4pathEv": ["address", "address"],
+    "ritual_ZN17QQuickTumblerView7setPathEP10QQuickPath": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QQuickTumblerView14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN17QQuickTumblerView17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuickTumblerView10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN17QQuickTumblerView4viewEv": ["address", "address"],
+    "ritual_ZN17QQuickTumblerView10createViewEv": ["nothing", "address"],
+    "ritual_ZN17QQuickTumblerView23updateFlickDecelerationEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuickTumblerView10updateViewEv": ["nothing", "address"],
+    "ritual_ZN17QQuickTumblerView11updateModelEv": ["nothing", "address"],
+    "ritual_own_ZN17QQuickTumblerView14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN17QQuickTumblerView17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN17QQuickTumblerView10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ]
+  }
+}

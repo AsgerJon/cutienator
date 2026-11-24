@@ -1,0 +1,48 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/6.12.0/QtCharts/private/xydomain_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK8XYDomain10metaObjectEv": ["address", "address"],
+    "ritual_ZN8XYDomain2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN8XYDomainC1EP7QObject": ["address", "address"],
+    "ritual_ZN8XYDomainD1Ev": ["nothing", "address"],
+    "ritual_ZN8XYDomain4typeEv": ["int", "address"],
+    "ritual_ZN8XYDomain8setRangeEdddd": [
+      "nothing", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZN8XYDomain6zoomInERK6QRectF": ["nothing", "address", "address"],
+    "ritual_ZN8XYDomain7zoomOutERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8XYDomain4moveEdd": ["nothing", "address", "double", "double"],
+    "ritual_ZNK8XYDomain22calculateGeometryPointERK7QPointFRb": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK8XYDomain20calculateDomainPointERK7QPointF": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK8XYDomain23calculateGeometryPointsERK5QListI7QPointFE": [
+      "address", "address", "address"
+    ],
+    "ritual_take_XYDomain": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN8XYDomain4typeEv": ["int", "address"],
+    "ritual_own_ZN8XYDomain8setRangeEdddd": [
+      "nothing", "address", "double", "double", "double", "double"
+    ],
+    "ritual_own_ZN8XYDomain6zoomInERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN8XYDomain7zoomOutERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN8XYDomain4moveEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_own_ZNK8XYDomain20calculateDomainPointERK7QPointF": [
+      "address", "address", "address"
+    ]
+  }
+}

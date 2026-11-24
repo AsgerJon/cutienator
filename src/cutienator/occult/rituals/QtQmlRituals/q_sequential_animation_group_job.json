@@ -1,0 +1,84 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qsequentialanimationgroupjob_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN28QSequentialAnimationGroupJobC1Ev": ["address"],
+    "ritual_ZN28QSequentialAnimationGroupJobD1Ev": ["nothing", "address"],
+    "ritual_ZNK28QSequentialAnimationGroupJob8durationEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK28QSequentialAnimationGroupJob16currentAnimationEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QSequentialAnimationGroupJob5clearEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QSequentialAnimationGroupJob17updateCurrentTimeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN28QSequentialAnimationGroupJob11updateStateEN21QAbstractAnimationJob5StateES1_": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN28QSequentialAnimationGroupJob15updateDirectionEN21QAbstractAnimationJob9DirectionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN28QSequentialAnimationGroupJob29uncontrolledAnimationFinishedEP21QAbstractAnimationJob": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK28QSequentialAnimationGroupJob14debugAnimationE6QDebug": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK28QSequentialAnimationGroupJob28animationActualTotalDurationEPK21QAbstractAnimationJob": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN28QSequentialAnimationGroupJob19setCurrentAnimationEPK21QAbstractAnimationJobb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN28QSequentialAnimationGroupJob24activateCurrentAnimationEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN28QSequentialAnimationGroupJob17animationInsertedEP21QAbstractAnimationJob": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QSequentialAnimationGroupJob16animationRemovedEP21QAbstractAnimationJobS1_S1_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK28QSequentialAnimationGroupJob5atEndEv": ["bool", "address"],
+    "ritual_ZN28QSequentialAnimationGroupJob7restartEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QSequentialAnimationGroupJob": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK28QSequentialAnimationGroupJob8durationEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZN28QSequentialAnimationGroupJob5clearEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN28QSequentialAnimationGroupJob17updateCurrentTimeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN28QSequentialAnimationGroupJob11updateStateEN21QAbstractAnimationJob5StateES1_": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZN28QSequentialAnimationGroupJob15updateDirectionEN21QAbstractAnimationJob9DirectionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN28QSequentialAnimationGroupJob29uncontrolledAnimationFinishedEP21QAbstractAnimationJob": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK28QSequentialAnimationGroupJob14debugAnimationE6QDebug": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN28QSequentialAnimationGroupJob17animationInsertedEP21QAbstractAnimationJob": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN28QSequentialAnimationGroupJob16animationRemovedEP21QAbstractAnimationJobS1_S1_": [
+      "nothing", "address", "address", "address", "address"
+    ]
+  }
+}

@@ -1,0 +1,137 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquickdialogbuttonbox_",
+    "p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK21QQuickDialogButtonBox10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QQuickDialogButtonBox2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN21QQuickDialogButtonBox21qt_qmlMarker_attachedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickDialogButtonBox20qmlExtendedNamespaceEv": ["address"],
+    "ritual_ZN21QQuickDialogButtonBox30qt_qmlMarker_extendedNamespaceEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickDialogButtonBoxC1EP10QQuickItem": [
+      "address", "address"
+    ],
+    "ritual_ZN21QQuickDialogButtonBoxD1Ev": ["nothing", "address"],
+    "ritual_ZNK21QQuickDialogButtonBox8positionEv": ["int", "address"],
+    "ritual_ZN21QQuickDialogButtonBox11setPositionENS_8PositionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK21QQuickDialogButtonBox9alignmentEv": ["int", "address"],
+    "ritual_ZN21QQuickDialogButtonBox12setAlignmentE6QFlagsIN2Qt13AlignmentFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN21QQuickDialogButtonBox14resetAlignmentEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK21QQuickDialogButtonBox15standardButtonsEv": [
+      "int", "address"
+    ],
+    "ritual_ZN21QQuickDialogButtonBox18setStandardButtonsE6QFlagsIN21QPlatformDialogHelper14StandardButtonEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK21QQuickDialogButtonBox14standardButtonEN21QPlatformDialogHelper14StandardButtonE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK21QQuickDialogButtonBox21defaultStandardButtonEv": [
+      "int", "address"
+    ],
+    "ritual_ZN21QQuickDialogButtonBox24setDefaultStandardButtonEN21QPlatformDialogHelper14StandardButtonE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK21QQuickDialogButtonBox13defaultButtonEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QQuickDialogButtonBox16setDefaultButtonEP20QQuickAbstractButton": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21QQuickDialogButtonBox8delegateEv": ["address", "address"],
+    "ritual_ZN21QQuickDialogButtonBox11setDelegateEP13QQmlComponent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QQuickDialogButtonBox21qmlAttachedPropertiesEP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZNK21QQuickDialogButtonBox12buttonLayoutEv": ["int", "address"],
+    "ritual_ZN21QQuickDialogButtonBox15setButtonLayoutEN21QPlatformDialogHelper12ButtonLayoutE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN21QQuickDialogButtonBox17resetButtonLayoutEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickDialogButtonBox12updatePolishEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickDialogButtonBox17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickDialogButtonBox14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN21QQuickDialogButtonBox17contentItemChangeEP10QQuickItemS1_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK21QQuickDialogButtonBox9isContentEP10QQuickItem": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN21QQuickDialogButtonBox9itemAddedEiP10QQuickItem": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN21QQuickDialogButtonBox11itemRemovedEiP10QQuickItem": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZNK21QQuickDialogButtonBox14accessibleRoleEv": [
+      "int", "address"
+    ],
+    "ritual_ZN21QQuickDialogButtonBox5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN21QQuickDialogButtonBox10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN21QQuickDialogButtonBox6d_funcEv": ["address", "address"],
+    "ritual_ZNK21QQuickDialogButtonBox6d_funcEv": ["address", "address"],
+    "ritual_take_QQuickDialogButtonBox": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN21QQuickDialogButtonBox12updatePolishEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN21QQuickDialogButtonBox17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN21QQuickDialogButtonBox14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN21QQuickDialogButtonBox17contentItemChangeEP10QQuickItemS1_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZNK21QQuickDialogButtonBox9isContentEP10QQuickItem": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN21QQuickDialogButtonBox9itemAddedEiP10QQuickItem": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZN21QQuickDialogButtonBox11itemRemovedEiP10QQuickItem": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZNK21QQuickDialogButtonBox14accessibleRoleEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZN21QQuickDialogButtonBox5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN21QQuickDialogButtonBox10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ]
+  }
+}

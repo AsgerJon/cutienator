@@ -1,0 +1,72 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/qsggeometry.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11QSGGeometry25defaultAttributes_Point2DEv": ["address"],
+    "ritual_ZN11QSGGeometry33defaultAttributes_TexturedPoint2DEv": [
+      "address"
+    ],
+    "ritual_ZN11QSGGeometry32defaultAttributes_ColoredPoint2DEv": [
+      "address"
+    ],
+    "ritual_ZN11QSGGeometryC1ERKNS_12AttributeSetEiii": [
+      "address", "address", "int", "int", "int"
+    ],
+    "ritual_ZN11QSGGeometryD1Ev": ["nothing", "address"],
+    "ritual_ZN11QSGGeometry14setDrawingModeEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZNK11QSGGeometry11drawingModeEv": ["unsigned int", "address"],
+    "ritual_ZN11QSGGeometry8allocateEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK11QSGGeometry11vertexCountEv": ["int", "address"],
+    "ritual_ZN11QSGGeometry14setVertexCountEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN11QSGGeometry19vertexDataAsPoint2DEv": ["address", "address"],
+    "ritual_ZN11QSGGeometry27vertexDataAsTexturedPoint2DEv": [
+      "address", "address"
+    ],
+    "ritual_ZN11QSGGeometry26vertexDataAsColoredPoint2DEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK11QSGGeometry19vertexDataAsPoint2DEv": ["address", "address"],
+    "ritual_ZNK11QSGGeometry27vertexDataAsTexturedPoint2DEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK11QSGGeometry26vertexDataAsColoredPoint2DEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK11QSGGeometry9indexTypeEv": ["int", "address"],
+    "ritual_ZNK11QSGGeometry10indexCountEv": ["int", "address"],
+    "ritual_ZN11QSGGeometry13setIndexCountEi": ["nothing", "address", "int"],
+    "ritual_ZNK11QSGGeometry11sizeOfIndexEv": ["int", "address"],
+    "ritual_ZNK11QSGGeometry14attributeCountEv": ["int", "address"],
+    "ritual_ZNK11QSGGeometry10attributesEv": ["address", "address"],
+    "ritual_ZNK11QSGGeometry12sizeOfVertexEv": ["int", "address"],
+    "ritual_ZN11QSGGeometry18updateRectGeometryEPS_RK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QSGGeometry26updateTexturedRectGeometryEPS_RK6QRectFS3_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN11QSGGeometry25updateColoredRectGeometryEPS_RK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QSGGeometry19setIndexDataPatternENS_11DataPatternE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11QSGGeometry16indexDataPatternEv": ["int", "address"],
+    "ritual_ZN11QSGGeometry20setVertexDataPatternENS_11DataPatternE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11QSGGeometry17vertexDataPatternEv": ["int", "address"],
+    "ritual_ZN11QSGGeometry18markIndexDataDirtyEv": ["nothing", "address"],
+    "ritual_ZN11QSGGeometry19markVertexDataDirtyEv": ["nothing", "address"],
+    "ritual_ZNK11QSGGeometry9lineWidthEv": ["float", "address"],
+    "ritual_ZN11QSGGeometry12setLineWidthEf": ["nothing", "address", "float"]
+  }
+}

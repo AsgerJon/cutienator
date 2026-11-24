@@ -1,0 +1,109 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qwindow_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN14QWindowPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK14QWindowPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN14QWindowPrivateC1E16QtPrivate_6_12_0": ["address", "int"],
+    "ritual_ZN14QWindowPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN14QWindowPrivate4initEP7QWindowP7QScreen": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN14QWindowPrivate9setCursorEPK7QCursor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QWindowPrivate11applyCursorEv": ["bool", "address"],
+    "ritual_ZNK14QWindowPrivate14globalPositionEv": ["address", "address"],
+    "ritual_ZNK14QWindowPrivate14topLevelWindowEN7QWindow12AncestorModeE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN14QWindowPrivate13eventReceiverEv": ["address", "address"],
+    "ritual_ZNK14QWindowPrivate13windowPaletteEv": ["address", "address"],
+    "ritual_ZN14QWindowPrivate10setVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN14QWindowPrivate16updateVisibilityEv": ["nothing", "address"],
+    "ritual_ZN14QWindowPrivate13_q_clearAlertEv": ["nothing", "address"],
+    "ritual_ZN14QWindowPrivate21updateSiblingPositionENS_15SiblingPositionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK14QWindowPrivate24windowRecreationRequiredEP7QScreen": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN14QWindowPrivate6createEb": ["nothing", "address", "bool"],
+    "ritual_ZN14QWindowPrivate7destroyEv": ["nothing", "address"],
+    "ritual_ZN14QWindowPrivate17setTopLevelScreenEP7QScreenb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN14QWindowPrivate15connectToScreenEP7QScreen": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QWindowPrivate20disconnectFromScreenEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14QWindowPrivate26emitScreenChangedRecursionEP7QScreen": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QWindowPrivate17screenForGeometryERK5QRect": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN14QWindowPrivate18setTransientParentEP7QWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QWindowPrivate16clearFocusObjectEv": ["nothing", "address"],
+    "ritual_ZN14QWindowPrivate16setFocusToTargetENS_11FocusTargetEN2Qt11FocusReasonE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK14QWindowPrivate25closestAcceptableGeometryERK6QRectF": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK14QWindowPrivate30participatesInLastWindowClosedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK14QWindowPrivate14treatAsVisibleEv": ["bool", "address"],
+    "ritual_ZN14QWindowPrivate31maybeSynthesizeContextMenuEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QWindowPrivate14forwardToPopupEP6QEventPK7QWindow": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK14QWindowPrivate7isPopupEv": ["bool", "address"],
+    "ritual_ZN14QWindowPrivate36setAutomaticPositionAndResizeEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN14QWindowPrivate22updateDevicePixelRatioEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN14QWindowPrivate3getEP7QWindow": ["address", "address"],
+    "ritual_ZN14QWindowPrivate14effectiveStateE6QFlagsIN2Qt11WindowStateEE": [
+      "int", "int"
+    ],
+    "ritual_take_QWindowPrivate": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN14QWindowPrivate13eventReceiverEv": ["address", "address"],
+    "ritual_own_ZNK14QWindowPrivate13windowPaletteEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN14QWindowPrivate10setVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZN14QWindowPrivate16clearFocusObjectEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN14QWindowPrivate16setFocusToTargetENS_11FocusTargetEN2Qt11FocusReasonE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZNK14QWindowPrivate25closestAcceptableGeometryERK6QRectF": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZNK14QWindowPrivate30participatesInLastWindowClosedEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZNK14QWindowPrivate14treatAsVisibleEv": ["bool", "address"],
+    "ritual_own_ZN14QWindowPrivate31maybeSynthesizeContextMenuEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ]
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/rhi/qrhi.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK16QRhiRenderBuffer12resourceTypeEv": ["int", "address"],
+    "ritual_ZNK16QRhiRenderBuffer4typeEv": ["int", "address"],
+    "ritual_ZN16QRhiRenderBuffer7setTypeENS_4TypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16QRhiRenderBuffer9pixelSizeEv": ["address", "address"],
+    "ritual_ZN16QRhiRenderBuffer12setPixelSizeERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QRhiRenderBuffer11sampleCountEv": ["int", "address"],
+    "ritual_ZN16QRhiRenderBuffer14setSampleCountEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16QRhiRenderBuffer5flagsEv": ["int", "address"],
+    "ritual_ZN16QRhiRenderBuffer8setFlagsE6QFlagsINS_4FlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16QRhiRenderBuffer6createEv": ["bool", "address"],
+    "ritual_ZN16QRhiRenderBuffer10createFromENS_18NativeRenderBufferE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK16QRhiRenderBuffer13backingFormatEv": ["int", "address"],
+    "ritual_take_QRhiRenderBuffer": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK16QRhiRenderBuffer12resourceTypeEv": ["int", "address"],
+    "ritual_own_ZN16QRhiRenderBuffer10createFromENS_18NativeRenderBufferE": [
+      "bool", "address", "address"
+    ]
+  }
+}

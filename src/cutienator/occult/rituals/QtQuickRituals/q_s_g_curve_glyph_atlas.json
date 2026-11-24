@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qsgcurveglyphatlas_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QSGCurveGlyphAtlasC1ERK8QRawFont": ["address", "address"],
+    "ritual_ZN18QSGCurveGlyphAtlasD1Ev": ["nothing", "address"],
+    "ritual_ZNK18QSGCurveGlyphAtlas8addGlyphEP16QSGCurveFillNodejRK7QPointFd": [
+      "nothing", "address", "address", "unsigned int", "address", "double"
+    ],
+    "ritual_ZNK18QSGCurveGlyphAtlas8fontSizeEv": ["double", "address"]
+  }
+}

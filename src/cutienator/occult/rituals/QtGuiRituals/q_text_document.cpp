@@ -30,13 +30,27 @@ struct OwnQTextDocument : QTextDocument {
 typedef void (*CuteQTextDocumentCall0)(const void *, int *);
 typedef void * (*CuteQTextDocumentCall1)(const void *, const QTextFormat *, int *);
 typedef const QVariant * (*CuteQTextDocumentCall2)(const void *, int, const QUrl *, int *);
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQTextDocumentCall3)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQTextDocumentCall4)(const void *, QObject *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQTextDocumentCall5)(const void *, QTimerEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQTextDocumentCall6)(const void *, QChildEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQTextDocumentCall7)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQTextDocumentCall8)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQTextDocumentCall9)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 class CuteQTextDocument : public QTextDocument {
 public:
   using QTextDocument::QTextDocument;
@@ -55,34 +69,48 @@ public:
       taken[2] = call;
       return true;
     }
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[3] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[4] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[5] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[6] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[7] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[8] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
       taken[9] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
     return false;
   }
 
@@ -119,6 +147,7 @@ public:
     return QTextDocument::loadResource(type, name);
   }
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QObject::event(QEvent *event)
   bool event(QEvent *event) override {
     if (taken[3]) {
@@ -129,7 +158,9 @@ public:
     }
     return QObject::event(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
     if (taken[4]) {
@@ -140,7 +171,9 @@ public:
     }
     return QObject::eventFilter(watched, event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
     if (taken[5]) {
@@ -151,7 +184,9 @@ public:
     }
     QObject::timerEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
     if (taken[6]) {
@@ -162,7 +197,9 @@ public:
     }
     QObject::childEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
     if (taken[7]) {
@@ -173,7 +210,9 @@ public:
     }
     QObject::customEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
     if (taken[8]) {
@@ -184,7 +223,9 @@ public:
     }
     QObject::connectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
     if (taken[9]) {
@@ -195,6 +236,7 @@ public:
     }
     QObject::disconnectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 };
 
 //  const QMetaObject *QTextDocument::metaObject() const
@@ -336,12 +378,15 @@ QString *ritual_ZNK13QTextDocument15metaInformationENS_15MetaInformationE(
   return new QString(self->metaInformation(info));
 }
 
+#if !defined(QT_NO_TEXTHTMLPARSER)
 //  QString QTextDocument::toHtml() const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK13QTextDocument6toHtmlEv(const QTextDocument *self) {
   return new QString(self->toHtml());
 }
+#endif  // !defined(QT_NO_TEXTHTMLPARSER)
 
+#if !defined(QT_NO_TEXTHTMLPARSER)
 //  void QTextDocument::setHtml(const QString &html)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QTextDocument7setHtmlERK7QString(
@@ -349,7 +394,9 @@ void ritual_ZN13QTextDocument7setHtmlERK7QString(
     const QString *html) {
   self->setHtml(*html);
 }
+#endif  // !defined(QT_NO_TEXTHTMLPARSER)
 
+#if QT_CONFIG(textmarkdownwriter)
 //  QString QTextDocument::toMarkdown(MarkdownFeatures features) const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK13QTextDocument10toMarkdownE6QFlagsINS_15MarkdownFeatureEE(
@@ -359,7 +406,9 @@ QString *ritual_ZNK13QTextDocument10toMarkdownE6QFlagsINS_15MarkdownFeatureEE(
       self->toMarkdown(
           QFlags<QTextDocument::MarkdownFeature>::fromInt(features)));
 }
+#endif  // QT_CONFIG(textmarkdownwriter)
 
+#if QT_CONFIG(textmarkdownreader)
 //  void QTextDocument::setMarkdown(const QString &markdown, MarkdownFeatures
 //      features)
 extern "C" Q_DECL_EXPORT
@@ -371,6 +420,7 @@ void ritual_ZN13QTextDocument11setMarkdownERK7QString6QFlagsINS_15MarkdownFeatur
       *markdown,
       QFlags<QTextDocument::MarkdownFeature>::fromInt(features));
 }
+#endif  // QT_CONFIG(textmarkdownreader)
 
 //  QString QTextDocument::toRawText() const
 extern "C" Q_DECL_EXPORT
@@ -431,6 +481,7 @@ QTextCursor *ritual_ZNK13QTextDocument4findERK7QStringRK11QTextCursor6QFlagsINS_
           QFlags<QTextDocument::FindFlag>::fromInt(options)));
 }
 
+#if QT_CONFIG(regularexpression)
 //  QTextCursor QTextDocument::find(const QRegularExpression &expr, int from,
 //      FindFlags options) const
 extern "C" Q_DECL_EXPORT
@@ -445,7 +496,9 @@ QTextCursor *ritual_ZNK13QTextDocument4findERK18QRegularExpressioni6QFlagsINS_8F
           from,
           QFlags<QTextDocument::FindFlag>::fromInt(options)));
 }
+#endif  // QT_CONFIG(regularexpression)
 
+#if QT_CONFIG(regularexpression)
 //  QTextCursor QTextDocument::find(const QRegularExpression &expr, const
 //      QTextCursor &cursor, FindFlags options) const
 extern "C" Q_DECL_EXPORT
@@ -460,6 +513,7 @@ QTextCursor *ritual_ZNK13QTextDocument4findERK18QRegularExpressionRK11QTextCurso
           *cursor,
           QFlags<QTextDocument::FindFlag>::fromInt(options)));
 }
+#endif  // QT_CONFIG(regularexpression)
 
 //  QTextFrame *QTextDocument::frameAt(int pos) const
 extern "C" Q_DECL_EXPORT
@@ -627,6 +681,7 @@ bool ritual_ZNK13QTextDocument10isModifiedEv(const QTextDocument *self) {
   return self->isModified();
 }
 
+#if !defined(QT_NO_PRINTER)
 //  void QTextDocument::print(QPagedPaintDevice *printer) const
 extern "C" Q_DECL_EXPORT
 void ritual_ZNK13QTextDocument5printEP17QPagedPaintDevice(
@@ -634,6 +689,7 @@ void ritual_ZNK13QTextDocument5printEP17QPagedPaintDevice(
     QPagedPaintDevice *printer) {
   self->print(printer);
 }
+#endif  // !defined(QT_NO_PRINTER)
 
 //  QVariant QTextDocument::resource(int type, const QUrl &name) const
 extern "C" Q_DECL_EXPORT
@@ -789,6 +845,7 @@ int ritual_ZNK13QTextDocument14characterCountEv(const QTextDocument *self) {
   return self->characterCount();
 }
 
+#if !defined(QT_NO_CSSPARSER)
 //  void QTextDocument::setDefaultStyleSheet(const QString &sheet)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QTextDocument20setDefaultStyleSheetERK7QString(
@@ -796,13 +853,16 @@ void ritual_ZN13QTextDocument20setDefaultStyleSheetERK7QString(
     const QString *sheet) {
   self->setDefaultStyleSheet(*sheet);
 }
+#endif  // !defined(QT_NO_CSSPARSER)
 
+#if !defined(QT_NO_CSSPARSER)
 //  QString QTextDocument::defaultStyleSheet() const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK13QTextDocument17defaultStyleSheetEv(
     const QTextDocument *self) {
   return new QString(self->defaultStyleSheet());
 }
+#endif  // !defined(QT_NO_CSSPARSER)
 
 //  void QTextDocument::undo(QTextCursor *cursor)
 extern "C" Q_DECL_EXPORT
@@ -928,6 +988,20 @@ QVariant *ritual_ZN13QTextDocument12loadResourceEiRK4QUrl(
     int type,
     const QUrl *name) {
   return new QVariant(self->loadResource(type, *name));
+}
+
+//  QTextDocumentPrivate *QTextDocument::d_func()
+extern "C" Q_DECL_EXPORT
+QTextDocumentPrivate *ritual_ZN13QTextDocument6d_funcEv(
+    QTextDocument *self) {
+  return self->d_func();
+}
+
+//  const QTextDocumentPrivate *QTextDocument::d_func() const
+extern "C" Q_DECL_EXPORT
+const QTextDocumentPrivate *ritual_ZNK13QTextDocument6d_funcEv(
+    const QTextDocument *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQTextDocument, for the function named by

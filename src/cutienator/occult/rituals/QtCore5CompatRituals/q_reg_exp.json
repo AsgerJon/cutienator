@@ -1,0 +1,74 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore5Compat/qregexp.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN7QRegExpC1Ev": ["address"],
+    "ritual_ZN7QRegExpC1ERK7QStringN2Qt15CaseSensitivityENS_13PatternSyntaxE": [
+      "address", "text", "int", "int"
+    ],
+    "ritual_ZN7QRegExpC1ERKS_": ["address", "address"],
+    "ritual_ZN7QRegExpD1Ev": ["nothing", "address"],
+    "ritual_ZNK7QRegExpeqERKS_": ["bool", "address", "address"],
+    "ritual_ZNK7QRegExpneERKS_": ["bool", "address", "address"],
+    "ritual_ZNK7QRegExp7isEmptyEv": ["bool", "address"],
+    "ritual_ZNK7QRegExp7isValidEv": ["bool", "address"],
+    "ritual_ZNK7QRegExp7patternEv": ["text", "address"],
+    "ritual_ZN7QRegExp10setPatternERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK7QRegExp15caseSensitivityEv": ["int", "address"],
+    "ritual_ZN7QRegExp18setCaseSensitivityEN2Qt15CaseSensitivityE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK7QRegExp13patternSyntaxEv": ["int", "address"],
+    "ritual_ZN7QRegExp16setPatternSyntaxENS_13PatternSyntaxE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK7QRegExp9isMinimalEv": ["bool", "address"],
+    "ritual_ZN7QRegExp10setMinimalEb": ["nothing", "address", "bool"],
+    "ritual_ZNK7QRegExp10exactMatchERK7QString": ["bool", "address", "text"],
+    "ritual_ZNK7QRegExpcv8QVariantEv": ["address", "address"],
+    "ritual_ZNK7QRegExp7indexInERK7QStringiNS_9CaretModeE": [
+      "int", "address", "text", "int", "int"
+    ],
+    "ritual_ZNK7QRegExp11lastIndexInERK7QStringiNS_9CaretModeE": [
+      "int", "address", "text", "int", "int"
+    ],
+    "ritual_ZNK7QRegExp13matchedLengthEv": ["int", "address"],
+    "ritual_ZNK7QRegExp12captureCountEv": ["int", "address"],
+    "ritual_ZNK7QRegExp13capturedTextsEv": ["address", "address"],
+    "ritual_ZN7QRegExp13capturedTextsEv": ["address", "address"],
+    "ritual_ZNK7QRegExp3capEi": ["text", "address", "int"],
+    "ritual_ZN7QRegExp3capEi": ["text", "address", "int"],
+    "ritual_ZNK7QRegExp3posEi": ["int", "address", "int"],
+    "ritual_ZN7QRegExp3posEi": ["int", "address", "int"],
+    "ritual_ZNK7QRegExp11errorStringEv": ["text", "address"],
+    "ritual_ZN7QRegExp11errorStringEv": ["text", "address"],
+    "ritual_ZNK7QRegExp9replaceInERK7QStringS2_": [
+      "text", "address", "text", "text"
+    ],
+    "ritual_ZNK7QRegExp8removeInERK7QString": ["text", "address", "text"],
+    "ritual_ZNK7QRegExp11containedInERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZNK7QRegExp7countInERK7QString": ["int", "address", "text"],
+    "ritual_ZNK7QRegExp11splitStringERK7QString6QFlagsIN2Qt18SplitBehaviorFlagsEE": [
+      "address", "address", "text", "int"
+    ],
+    "ritual_ZNK7QRegExp7indexInERK5QListI7QStringEi": [
+      "int", "address", "address", "int"
+    ],
+    "ritual_ZNK7QRegExp11lastIndexInERK5QListI7QStringEi": [
+      "int", "address", "address", "int"
+    ],
+    "ritual_ZNK7QRegExp9replaceInERK5QListI7QStringERKS1_": [
+      "address", "address", "address", "text"
+    ],
+    "ritual_ZNK7QRegExp10filterListERK5QListI7QStringE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN7QRegExp6escapeERK7QString": ["text", "text"]
+  }
+}

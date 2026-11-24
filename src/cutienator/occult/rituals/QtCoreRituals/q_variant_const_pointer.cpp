@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/qvariant.h, Qt 6.12.0. Changes made here are lost.
+#include <QtCore/qglobal.h>
+#if QT_DEPRECATED_SINCE(6, 15)
 #include <QtCore/qvariant.h>
 
 //  QVariantConstPointer::QVariantConstPointer(QVariant variant)
@@ -28,3 +30,5 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN20QVariantConstPointerD1Ev(QVariantConstPointer *self) {
   delete self;
 }
+
+#endif  // QT_DEPRECATED_SINCE(6, 15)

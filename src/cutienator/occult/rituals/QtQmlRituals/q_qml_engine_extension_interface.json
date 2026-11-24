@@ -1,0 +1,13 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/qqmlextensioninterface.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN28QQmlEngineExtensionInterfaceD1Ev": ["nothing", "address"],
+    "ritual_ZN28QQmlEngineExtensionInterface16initializeEngineEP10QQmlEnginePKc": [
+      "nothing", "address", "address", "chars"
+    ]
+  }
+}

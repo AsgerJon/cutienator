@@ -224,6 +224,11 @@
     "ritual_own_ZNK6QImage11paintEngineEv": ["address", "address"],
     "ritual_own_ZNK6QImage6metricEN12QPaintDevice17PaintDeviceMetricE": [
       "int", "address", "int"
-    ]
+    ],
+    "ritual_list_make_QImage": ["address"],
+    "ritual_list_add_QImage": ["nothing", "address", "address"],
+    "ritual_list_size_QImage": ["long long", "address"],
+    "ritual_list_at_QImage": ["address", "address", "long long"],
+    "ritual_list_drop_QImage": ["nothing", "address"]
   }
 }

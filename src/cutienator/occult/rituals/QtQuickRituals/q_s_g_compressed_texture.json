@@ -1,0 +1,61 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qsgcompressedtexture_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK20QSGCompressedTexture10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QSGCompressedTexture2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN20QSGCompressedTextureC1ERK16QTextureFileData": [
+      "address", "address"
+    ],
+    "ritual_ZN20QSGCompressedTextureD1Ev": ["nothing", "address"],
+    "ritual_ZNK20QSGCompressedTexture11textureSizeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QSGCompressedTexture15hasAlphaChannelEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK20QSGCompressedTexture10hasMipmapsEv": ["bool", "address"],
+    "ritual_ZNK20QSGCompressedTexture13comparisonKeyEv": [
+      "long long", "address"
+    ],
+    "ritual_ZNK20QSGCompressedTexture10rhiTextureEv": ["address", "address"],
+    "ritual_ZN20QSGCompressedTexture23commitTextureOperationsEP4QRhiP23QRhiResourceUpdateBatch": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK20QSGCompressedTexture11textureDataEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QSGCompressedTexture10formatInfoEj": [
+      "address", "unsigned int"
+    ],
+    "ritual_ZN20QSGCompressedTexture14formatIsOpaqueEj": [
+      "bool", "unsigned int"
+    ],
+    "ritual_take_QSGCompressedTexture": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK20QSGCompressedTexture11textureSizeEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK20QSGCompressedTexture15hasAlphaChannelEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZNK20QSGCompressedTexture10hasMipmapsEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZNK20QSGCompressedTexture13comparisonKeyEv": [
+      "long long", "address"
+    ],
+    "ritual_own_ZNK20QSGCompressedTexture10rhiTextureEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN20QSGCompressedTexture23commitTextureOperationsEP4QRhiP23QRhiResourceUpdateBatch": [
+      "nothing", "address", "address", "address"
+    ]
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/6.12.0/QtCharts/private/qxymodelmapper_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK21QXYModelMapperPrivate10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QXYModelMapperPrivate2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN21QXYModelMapperPrivateC1EP14QXYModelMapper": [
+      "address", "address"
+    ],
+    "ritual_ZN21QXYModelMapperPrivate12modelUpdatedE11QModelIndexS0_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN21QXYModelMapperPrivate14modelRowsAddedE11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN21QXYModelMapperPrivate16modelRowsRemovedE11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN21QXYModelMapperPrivate17modelColumnsAddedE11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN21QXYModelMapperPrivate19modelColumnsRemovedE11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN21QXYModelMapperPrivate20handleModelDestroyedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QXYModelMapperPrivate16handlePointAddedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN21QXYModelMapperPrivate18handlePointRemovedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN21QXYModelMapperPrivate19handlePointsRemovedEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN21QXYModelMapperPrivate19handlePointReplacedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN21QXYModelMapperPrivate21handleSeriesDestroyedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QXYModelMapperPrivate21initializeXYFromModelEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QXYModelMapperPrivate11xModelIndexEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN21QXYModelMapperPrivate11yModelIndexEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN21QXYModelMapperPrivate10insertDataEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN21QXYModelMapperPrivate10removeDataEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN21QXYModelMapperPrivate17blockModelSignalsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN21QXYModelMapperPrivate18blockSeriesSignalsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN21QXYModelMapperPrivate14valueFromModelE11QModelIndex": [
+      "double", "address", "address"
+    ],
+    "ritual_ZN21QXYModelMapperPrivate15setValueToModelE11QModelIndexd": [
+      "nothing", "address", "address", "double"
+    ],
+    "ritual_ZN21QXYModelMapperPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK21QXYModelMapperPrivate6q_funcEv": ["address", "address"]
+  }
+}

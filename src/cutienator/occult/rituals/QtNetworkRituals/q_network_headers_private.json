@@ -1,0 +1,26 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/6.12.0/QtNetwork/private/qnetworkrequest_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK22QNetworkHeadersPrivate14rawHeadersKeysEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK22QNetworkHeadersPrivate9rawHeaderE14QAnyStringView": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK22QNetworkHeadersPrivate7headersEv": ["address", "address"],
+    "ritual_ZN22QNetworkHeadersPrivate12clearHeadersEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QNetworkHeadersPrivate10toHttpDateERK9QDateTime": [
+      "address", "address"
+    ],
+    "ritual_ZN22QNetworkHeadersPrivate21invalidateHeaderCacheEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QNetworkHeadersPrivateD1Ev": ["nothing", "address"]
+  }
+}

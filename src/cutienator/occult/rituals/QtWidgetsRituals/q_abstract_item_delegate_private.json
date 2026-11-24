@@ -1,0 +1,25 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qabstractitemdelegate_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN28QAbstractItemDelegatePrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QAbstractItemDelegatePrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QAbstractItemDelegatePrivateC1Ev": ["address"],
+    "ritual_ZN28QAbstractItemDelegatePrivate8tryFixupEP7QWidget": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK28QAbstractItemDelegatePrivate11textForRoleEN2Qt12ItemDataRoleERK8QVariantRK7QLocalei": [
+      "text", "address", "int", "address", "address", "int"
+    ],
+    "ritual_ZN28QAbstractItemDelegatePrivate27_q_commitDataAndCloseEditorEP7QWidget": [
+      "nothing", "address", "address"
+    ]
+  }
+}

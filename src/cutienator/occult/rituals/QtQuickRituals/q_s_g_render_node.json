@@ -1,0 +1,34 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/qsgrendernode.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN13QSGRenderNodeD1Ev": ["nothing", "address"],
+    "ritual_ZNK13QSGRenderNode13changedStatesEv": ["int", "address"],
+    "ritual_ZN13QSGRenderNode7prepareEv": ["nothing", "address"],
+    "ritual_ZN13QSGRenderNode6renderEPKNS_11RenderStateE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QSGRenderNode16releaseResourcesEv": ["nothing", "address"],
+    "ritual_ZNK13QSGRenderNode5flagsEv": ["int", "address"],
+    "ritual_ZNK13QSGRenderNode4rectEv": ["address", "address"],
+    "ritual_ZNK13QSGRenderNode16projectionMatrixEv": ["address", "address"],
+    "ritual_ZNK13QSGRenderNode16projectionMatrixEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZNK13QSGRenderNode6matrixEv": ["address", "address"],
+    "ritual_ZNK13QSGRenderNode8clipListEv": ["address", "address"],
+    "ritual_ZNK13QSGRenderNode16inheritedOpacityEv": ["double", "address"],
+    "ritual_ZNK13QSGRenderNode12renderTargetEv": ["address", "address"],
+    "ritual_ZNK13QSGRenderNode13commandBufferEv": ["address", "address"],
+    "ritual_take_QSGRenderNode": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK13QSGRenderNode13changedStatesEv": ["int", "address"],
+    "ritual_own_ZN13QSGRenderNode7prepareEv": ["nothing", "address"],
+    "ritual_own_ZN13QSGRenderNode16releaseResourcesEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZNK13QSGRenderNode5flagsEv": ["int", "address"],
+    "ritual_own_ZNK13QSGRenderNode4rectEv": ["address", "address"]
+  }
+}

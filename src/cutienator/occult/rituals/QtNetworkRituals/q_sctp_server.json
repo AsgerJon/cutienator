@@ -1,0 +1,28 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/qsctpserver.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK11QSctpServer10metaObjectEv": ["address", "address"],
+    "ritual_ZN11QSctpServer2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN11QSctpServerC1EP7QObject": ["address", "address"],
+    "ritual_ZN11QSctpServerD1Ev": ["nothing", "address"],
+    "ritual_ZN11QSctpServer22setMaximumChannelCountEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11QSctpServer19maximumChannelCountEv": ["int", "address"],
+    "ritual_ZN11QSctpServer29nextPendingDatagramConnectionEv": [
+      "address", "address"
+    ],
+    "ritual_ZN11QSctpServer18incomingConnectionEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN11QSctpServer6d_funcEv": ["address", "address"],
+    "ritual_ZNK11QSctpServer6d_funcEv": ["address", "address"],
+    "ritual_take_QSctpServer": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN11QSctpServer18incomingConnectionEx": [
+      "nothing", "address", "long long"
+    ]
+  }
+}

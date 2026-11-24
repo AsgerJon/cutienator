@@ -1,0 +1,60 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickshadereffect_p_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN25QQuickShaderEffectPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK25QQuickShaderEffectPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN25QQuickShaderEffectPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN25QQuickShaderEffectPrivate12updatePolishEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK25QQuickShaderEffectPrivate14fragmentShaderEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK25QQuickShaderEffectPrivate12vertexShaderEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK25QQuickShaderEffectPrivate8blendingEv": ["bool", "address"],
+    "ritual_ZN25QQuickShaderEffectPrivate11setBlendingEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK25QQuickShaderEffectPrivate4meshEv": ["address", "address"],
+    "ritual_ZN25QQuickShaderEffectPrivate7setMeshERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK25QQuickShaderEffectPrivate8cullModeEv": ["int", "address"],
+    "ritual_ZN25QQuickShaderEffectPrivate11setCullModeEN18QQuickShaderEffect8CullModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK25QQuickShaderEffectPrivate21supportsAtlasTexturesEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN25QQuickShaderEffectPrivate24setSupportsAtlasTexturesEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN25QQuickShaderEffectPrivate21handleGeometryChangedERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN25QQuickShaderEffectPrivate16handleItemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN25QQuickShaderEffectPrivate15sourceDestroyedEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QQuickShaderEffectPrivate26markGeometryDirtyAndUpdateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QQuickShaderEffectPrivate41markGeometryDirtyAndUpdateIfSupportsAtlasEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK25QQuickShaderEffectPrivate14sourceIsUniqueEP10QQuickItemNS_6ShaderEi": [
+      "bool", "address", "address", "int", "int"
+    ],
+    "ritual_take_QQuickShaderEffectPrivate": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

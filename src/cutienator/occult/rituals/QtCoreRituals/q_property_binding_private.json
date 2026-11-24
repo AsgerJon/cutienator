@@ -1,0 +1,78 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qproperty_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK23QPropertyBindingPrivate21bindingFunctionVTableEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QPropertyBindingPrivate10isUpdatingEv": ["bool", "address"],
+    "ritual_ZN23QPropertyBindingPrivate9setStickyEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN23QPropertyBindingPrivate8isStickyEv": ["bool", "address"],
+    "ritual_ZN23QPropertyBindingPrivate14scheduleNotifyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QPropertyBindingPrivateC1E9QMetaTypePKN9QtPrivate21BindingFunctionVTableERK30QPropertyBindingSourceLocationb": [
+      "address", "address", "address", "address", "bool"
+    ],
+    "ritual_ZN23QPropertyBindingPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN23QPropertyBindingPrivate11setPropertyEP20QUntypedPropertyData": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QPropertyBindingPrivate15prependObserverE24QPropertyObserverPointer": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QPropertyBindingPrivate13takeObserversEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QPropertyBindingPrivate24clearDependencyObserversEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QPropertyBindingPrivate26allocateDependencyObserverEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QPropertyBindingPrivate31allocateDependencyObserver_slowEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK23QPropertyBindingPrivate14sourceLocationEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK23QPropertyBindingPrivate12bindingErrorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK23QPropertyBindingPrivate13valueMetaTypeEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QPropertyBindingPrivate14unlinkAndDerefEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QPropertyBindingPrivate18notifyNonRecursiveEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN23QPropertyBindingPrivate3getERK23QUntypedPropertyBinding": [
+      "address", "address"
+    ],
+    "ritual_ZN23QPropertyBindingPrivate11makeUntypedEPS_": [
+      "address", "address"
+    ],
+    "ritual_ZN23QPropertyBindingPrivate18detachFromPropertyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QPropertyBindingPrivate26currentlyEvaluatingBindingEv": [
+      "address"
+    ],
+    "ritual_ZNK23QPropertyBindingPrivate15hasCustomVTableEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK23QPropertyBindingPrivate12isQmlBindingEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN23QPropertyBindingPrivate20destroyAndFreeMemoryEPS_": [
+      "nothing", "address"
+    ]
+  }
+}

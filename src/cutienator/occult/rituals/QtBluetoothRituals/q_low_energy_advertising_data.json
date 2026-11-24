@@ -1,0 +1,61 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtBluetooth/qlowenergyadvertisingdata.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN25QLowEnergyAdvertisingDataC1Ev": ["address"],
+    "ritual_ZN25QLowEnergyAdvertisingDataC1ERKS_": ["address", "address"],
+    "ritual_ZN25QLowEnergyAdvertisingDataD1Ev": ["nothing", "address"],
+    "ritual_ZeqRK25QLowEnergyAdvertisingDataS1_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZneRK25QLowEnergyAdvertisingDataS1_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN25QLowEnergyAdvertisingData12setLocalNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK25QLowEnergyAdvertisingData9localNameEv": ["text", "address"],
+    "ritual_ZN25QLowEnergyAdvertisingData21invalidManufacturerIdEv": [
+      "unsigned short"
+    ],
+    "ritual_ZN25QLowEnergyAdvertisingData19setManufacturerDataEtRK10QByteArray": [
+      "nothing", "address", "unsigned short", "address"
+    ],
+    "ritual_ZNK25QLowEnergyAdvertisingData14manufacturerIdEv": [
+      "unsigned short", "address"
+    ],
+    "ritual_ZNK25QLowEnergyAdvertisingData16manufacturerDataEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QLowEnergyAdvertisingData20setIncludePowerLevelEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK25QLowEnergyAdvertisingData17includePowerLevelEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN25QLowEnergyAdvertisingData18setDiscoverabilityENS_15DiscoverabilityE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK25QLowEnergyAdvertisingData15discoverabilityEv": [
+      "int", "address"
+    ],
+    "ritual_ZN25QLowEnergyAdvertisingData11setServicesERK5QListI14QBluetoothUuidE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK25QLowEnergyAdvertisingData8servicesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QLowEnergyAdvertisingData10setRawDataERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK25QLowEnergyAdvertisingData7rawDataEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QLowEnergyAdvertisingData6equalsERKS_S1_": [
+      "bool", "address", "address"
+    ]
+  }
+}

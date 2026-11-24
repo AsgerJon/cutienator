@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmljavascriptexpression_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN24QQmlJavaScriptExpression13DeleteWatcherC1EPS_": [
+      "address", "address"
+    ],
+    "ritual_ZN24QQmlJavaScriptExpression13DeleteWatcherD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK24QQmlJavaScriptExpression13DeleteWatcher10wasDeletedEv": [
+      "bool", "address"
+    ]
+  }
+}

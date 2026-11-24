@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/6.12.0/QtCharts/private/charttitle_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN10ChartTitleC1EP13QGraphicsItem": ["address", "address"],
+    "ritual_ZN10ChartTitleD1Ev": ["nothing", "address"],
+    "ritual_ZNK10ChartTitle8sizeHintEN2Qt8SizeHintERK6QSizeF": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_ZN10ChartTitle7setTextERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK10ChartTitle4textEv": ["text", "address"],
+    "ritual_ZN10ChartTitle11setGeometryERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_ChartTitle": ["bool", "address", "chars", "address"]
+  }
+}

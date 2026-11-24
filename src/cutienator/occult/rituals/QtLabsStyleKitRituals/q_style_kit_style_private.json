@@ -1,0 +1,61 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLabsStyleKit/6.12.0/QtLabsStyleKit/private/qstylekitstyle_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN21QStyleKitStylePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK21QStyleKitStylePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN21QStyleKitStylePrivateC1Ev": ["address"],
+    "ritual_ZNK21QStyleKitStylePrivate14effectiveStyleEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QStyleKitStylePrivate14unsetStyleFontEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QStyleKitStylePrivate12setStyleFontEP7QWidgetRK5QFont": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN21QStyleKitStylePrivate17unsetStylePaletteEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21QStyleKitStylePrivate15setStylePaletteEP7QWidgetRK8QPalette": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK21QStyleKitStylePrivate19cleanupWidgetReaderEPK7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21QStyleKitStylePrivate17onWidgetDestroyedEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21QStyleKitStylePrivate18ensureSharedReaderEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK21QStyleKitStylePrivate22ensureSubElementReaderEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK21QStyleKitStylePrivate18cleanupSubElementsEPK7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21QStyleKitStylePrivate19clearAllSubElementsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK21QStyleKitStylePrivate16resolvedStateForEN16QQStyleKitReader11ControlTypeE6QFlagsIN6QStyle9StateFlagEEPK7QWidget": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN21QStyleKitStylePrivate17clearMetricsCacheEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK21QStyleKitStylePrivate22drawStyledItemContentsEPK28QQStyleKitDelegatePropertiesRK6QRectFP8QPainter": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK21QStyleKitStylePrivate19drawStyledItemImageEPK25QQStyleKitImagePropertiesRK6QRectFdP8QPainter": [
+      "nothing", "address", "address", "address", "double", "address"
+    ],
+    "ritual_ZNK21QStyleKitStylePrivate25getAlignedRectInContainerERK5QRectRK5QSizejRK8QMarginsS8_": [
+      "address", "address", "address", "address", "unsigned int", "address",
+      "address"
+    ]
+  }
+}

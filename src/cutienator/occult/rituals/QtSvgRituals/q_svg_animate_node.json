@@ -1,0 +1,36 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSvg/6.12.0/QtSvg/private/qsvganimate_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QSvgAnimateNodeD1Ev": ["nothing", "address"],
+    "ritual_ZN15QSvgAnimateNode9setLinkIdERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK15QSvgAnimateNode6linkIdEv": ["text", "address"],
+    "ritual_ZNK15QSvgAnimateNode13animationTypeEv": ["int", "address"],
+    "ritual_ZNK15QSvgAnimateNode8isActiveEv": ["bool", "address"],
+    "ritual_ZN15QSvgAnimateNode14setRunningTimeEiiii": [
+      "nothing", "address", "int", "int", "int", "int"
+    ],
+    "ritual_ZN15QSvgAnimateNode14setRepeatCountEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN15QSvgAnimateNode7setFillENS_4FillE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QSvgAnimateNode4fillEv": ["int", "address"],
+    "ritual_ZN15QSvgAnimateNode15setAdditiveTypeENS_8AdditiveE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QSvgAnimateNode12additiveTypeEv": ["int", "address"],
+    "ritual_cast_QSvgAnimateNode_QSvgAbstractAnimation": [
+      "address", "address"
+    ],
+    "ritual_take_QSvgAnimateNode": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK15QSvgAnimateNode13animationTypeEv": ["int", "address"],
+    "ritual_own_ZNK15QSvgAnimateNode8isActiveEv": ["bool", "address"]
+  }
+}

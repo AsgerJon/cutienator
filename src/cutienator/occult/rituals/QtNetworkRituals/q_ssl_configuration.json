@@ -1,0 +1,166 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/qsslconfiguration.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN17QSslConfigurationC1Ev": ["address"],
+    "ritual_ZN17QSslConfigurationC1ERKS_": ["address", "address"],
+    "ritual_ZN17QSslConfigurationD1Ev": ["nothing", "address"],
+    "ritual_ZNK17QSslConfigurationeqERKS_": ["bool", "address", "address"],
+    "ritual_ZNK17QSslConfigurationneERKS_": ["bool", "address", "address"],
+    "ritual_ZNK17QSslConfiguration6isNullEv": ["bool", "address"],
+    "ritual_ZNK17QSslConfiguration8protocolEv": ["int", "address"],
+    "ritual_ZN17QSslConfiguration11setProtocolEN4QSsl11SslProtocolE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK17QSslConfiguration14peerVerifyModeEv": ["int", "address"],
+    "ritual_ZN17QSslConfiguration17setPeerVerifyModeEN10QSslSocket14PeerVerifyModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK17QSslConfiguration15peerVerifyDepthEv": ["int", "address"],
+    "ritual_ZN17QSslConfiguration18setPeerVerifyDepthEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK17QSslConfiguration21localCertificateChainEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QSslConfiguration24setLocalCertificateChainERK5QListI15QSslCertificateE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QSslConfiguration16localCertificateEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QSslConfiguration19setLocalCertificateERK15QSslCertificate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QSslConfiguration15peerCertificateEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK17QSslConfiguration20peerCertificateChainEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK17QSslConfiguration13sessionCipherEv": ["address", "address"],
+    "ritual_ZNK17QSslConfiguration15sessionProtocolEv": ["int", "address"],
+    "ritual_ZNK17QSslConfiguration10privateKeyEv": ["address", "address"],
+    "ritual_ZN17QSslConfiguration13setPrivateKeyERK7QSslKey": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QSslConfiguration7ciphersEv": ["address", "address"],
+    "ritual_ZN17QSslConfiguration10setCiphersERK5QListI10QSslCipherE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QSslConfiguration10setCiphersERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN17QSslConfiguration16supportedCiphersEv": ["address"],
+    "ritual_ZNK17QSslConfiguration14caCertificatesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QSslConfiguration17setCaCertificatesERK5QListI15QSslCertificateE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QSslConfiguration17addCaCertificatesERK7QStringN4QSsl14EncodingFormatEN15QSslCertificate13PatternSyntaxE": [
+      "bool", "address", "text", "int", "int"
+    ],
+    "ritual_ZN17QSslConfiguration16addCaCertificateERK15QSslCertificate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QSslConfiguration17addCaCertificatesERK5QListI15QSslCertificateE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QSslConfiguration20systemCaCertificatesEv": ["address"],
+    "ritual_ZN17QSslConfiguration12setSslOptionEN4QSsl9SslOptionEb": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZNK17QSslConfiguration13testSslOptionEN4QSsl9SslOptionE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK17QSslConfiguration13sessionTicketEv": ["address", "address"],
+    "ritual_ZN17QSslConfiguration16setSessionTicketERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QSslConfiguration25sessionTicketLifeTimeHintEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK17QSslConfiguration18ephemeralServerKeyEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK17QSslConfiguration14ellipticCurvesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QSslConfiguration17setEllipticCurvesERK5QListI17QSslEllipticCurveE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QSslConfiguration23supportedEllipticCurvesEv": ["address"],
+    "ritual_ZNK17QSslConfiguration24preSharedKeyIdentityHintEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QSslConfiguration27setPreSharedKeyIdentityHintERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QSslConfiguration23diffieHellmanParametersEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QSslConfiguration26setDiffieHellmanParametersERK27QSslDiffieHellmanParameters": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QSslConfiguration29setBackendConfigurationOptionERK10QByteArrayRK8QVariant": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN17QSslConfiguration20defaultConfigurationEv": ["address"],
+    "ritual_ZN17QSslConfiguration23setDefaultConfigurationERKS_": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK17QSslConfiguration29dtlsCookieVerificationEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN17QSslConfiguration32setDtlsCookieVerificationEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN17QSslConfiguration24defaultDtlsConfigurationEv": ["address"],
+    "ritual_ZN17QSslConfiguration27setDefaultDtlsConfigurationERKS_": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK17QSslConfiguration29handshakeMustInterruptOnErrorEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN17QSslConfiguration32setHandshakeMustInterruptOnErrorEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK17QSslConfiguration25missingCertificateIsFatalEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN17QSslConfiguration28setMissingCertificateIsFatalEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN17QSslConfiguration22setOcspStaplingEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK17QSslConfiguration19ocspStaplingEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN17QSslConfiguration23setAllowedNextProtocolsERK5QListI10QByteArrayE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QSslConfiguration20allowedNextProtocolsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK17QSslConfiguration22nextNegotiatedProtocolEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK17QSslConfiguration29nextProtocolNegotiationStatusEv": [
+      "int", "address"
+    ],
+    "ritual_ZN17QSslConfiguration18takeKeyingMaterialEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QSslConfiguration17setKeyingMaterialERK5QListI18QSslKeyingMaterialE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QSslConfigurationC1EP24QSslConfigurationPrivate": [
+      "address", "address"
+    ]
+  }
+}

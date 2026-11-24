@@ -1,0 +1,29 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtPosit",
+    "ioning/6.12.0/QtPositioning/private/qnmeasatelliteinfosource_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK24QNmeaSatelliteInfoUpdate18allSatellitesInUseEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK24QNmeaSatelliteInfoUpdate19allSatellitesInViewEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QNmeaSatelliteInfoUpdate19setSatellitesInViewEN17QGeoSatelliteInfo15SatelliteSystemERK5QListIS0_E": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN24QNmeaSatelliteInfoUpdate7consumeEv": ["nothing", "address"],
+    "ritual_ZNK24QNmeaSatelliteInfoUpdate7isFreshEv": ["bool", "address"],
+    "ritual_ZN24QNmeaSatelliteInfoUpdate5clearEv": ["nothing", "address"],
+    "ritual_ZNK24QNmeaSatelliteInfoUpdate7isValidEv": ["bool", "address"],
+    "ritual_ZNK24QNmeaSatelliteInfoUpdate19calculateValidInUseEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK24QNmeaSatelliteInfoUpdate20calculateValidInViewEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN24QNmeaSatelliteInfoUpdateD1Ev": ["nothing", "address"]
+  }
+}

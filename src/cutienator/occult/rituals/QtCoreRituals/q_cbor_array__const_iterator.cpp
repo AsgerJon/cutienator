@@ -2,6 +2,16 @@
 //  QtCore/qcborarray.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qcborarray.h>
 #include <QtCore/qcborvalue.h>
+#include <QtCore/qcompare.h>
+
+//  QCborArray::ConstIterator::ConstIterator(QCborContainerPrivate *dd,
+//      qsizetype ii)
+extern "C" Q_DECL_EXPORT
+QCborArray::ConstIterator *ritual_ZN10QCborArray13ConstIteratorC1EP21QCborContainerPrivatex(
+    QCborContainerPrivate *dd,
+    qsizetype ii) {
+  return new QCborArray::ConstIterator(dd, ii);
+}
 
 //  QCborArray::ConstIterator::ConstIterator()
 extern "C" Q_DECL_EXPORT
@@ -102,6 +112,19 @@ bool ritual_ZN10QCborArray13ConstIterator20comparesEqual_helperERKS0_S2_(
     const QCborArray::ConstIterator *lhs,
     const QCborArray::ConstIterator *rhs) {
   return QCborArray::ConstIterator::comparesEqual_helper(*lhs, *rhs);
+}
+
+//  Qt::strong_ordering
+//      QCborArray::ConstIterator::compareThreeWay_helper(const ConstIterator
+//      &lhs, const ConstIterator &rhs)
+extern "C" Q_DECL_EXPORT
+Qt::strong_ordering *ritual_ZN10QCborArray13ConstIterator22compareThreeWay_helperERKS0_S2_(
+    const QCborArray::ConstIterator *lhs,
+    const QCborArray::ConstIterator *rhs) {
+  return new Qt::strong_ordering(
+      QCborArray::ConstIterator::compareThreeWay_helper(
+          *lhs,
+          *rhs));
 }
 
 //  bool operator==(const ConstIterator &lhs, const ConstIterator &rhs)

@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/ui4_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN7DomSizeC1Ev": ["address"],
+    "ritual_ZN7DomSizeD1Ev": ["nothing", "address"],
+    "ritual_ZNK7DomSize12elementWidthEv": ["int", "address"],
+    "ritual_ZN7DomSize15setElementWidthEi": ["nothing", "address", "int"],
+    "ritual_ZNK7DomSize15hasElementWidthEv": ["bool", "address"],
+    "ritual_ZN7DomSize17clearElementWidthEv": ["nothing", "address"],
+    "ritual_ZNK7DomSize13elementHeightEv": ["int", "address"],
+    "ritual_ZN7DomSize16setElementHeightEi": ["nothing", "address", "int"],
+    "ritual_ZNK7DomSize16hasElementHeightEv": ["bool", "address"],
+    "ritual_ZN7DomSize18clearElementHeightEv": ["nothing", "address"]
+  }
+}

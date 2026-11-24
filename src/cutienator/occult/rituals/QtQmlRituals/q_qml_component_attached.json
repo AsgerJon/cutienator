@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmlcomponentattached_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK21QQmlComponentAttached10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QQmlComponentAttached2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN21QQmlComponentAttachedC1EP7QObject": ["address", "address"],
+    "ritual_ZN21QQmlComponentAttachedD1Ev": ["nothing", "address"],
+    "ritual_ZN21QQmlComponentAttached14removeFromListEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK21QQmlComponentAttached4nextEv": ["address", "address"],
+    "ritual_take_QQmlComponentAttached": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

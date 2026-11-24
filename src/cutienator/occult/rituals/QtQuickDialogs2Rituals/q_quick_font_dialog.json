@@ -1,0 +1,47 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Dialogs2/6.12.0/QtQuickDialogs2/private/qquickfontdialog_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK16QQuickFontDialog10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QQuickFontDialog2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN16QQuickFontDialog20qmlExtendedNamespaceEv": ["address"],
+    "ritual_ZN16QQuickFontDialog30qt_qmlMarker_extendedNamespaceEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickFontDialogC1EP7QObject": ["address", "address"],
+    "ritual_ZN16QQuickFontDialog14setCurrentFontERK5QFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QQuickFontDialog11currentFontEv": ["address", "address"],
+    "ritual_ZN16QQuickFontDialog15setSelectedFontERK5QFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QQuickFontDialog12selectedFontEv": ["address", "address"],
+    "ritual_ZNK16QQuickFontDialog7optionsEv": ["int", "address"],
+    "ritual_ZN16QQuickFontDialog10setOptionsE6QFlagsIN18QFontDialogOptions16FontDialogOptionEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16QQuickFontDialog12resetOptionsEv": ["nothing", "address"],
+    "ritual_ZNK16QQuickFontDialog15useNativeDialogEv": ["bool", "address"],
+    "ritual_ZN16QQuickFontDialog8onCreateEP21QPlatformDialogHelper": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickFontDialog6onShowEP21QPlatformDialogHelper": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK16QQuickFontDialog15useNativeDialogEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZN16QQuickFontDialog8onCreateEP21QPlatformDialogHelper": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16QQuickFontDialog6onShowEP21QPlatformDialogHelper": [
+      "nothing", "address", "address"
+    ]
+  }
+}

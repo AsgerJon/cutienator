@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/connectionedit_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_own_ZN18qdesigner_internal24DeleteConnectionsCommand4redoEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN18qdesigner_internal24DeleteConnectionsCommand4undoEv": [
+      "nothing", "address"
+    ]
+  }
+}

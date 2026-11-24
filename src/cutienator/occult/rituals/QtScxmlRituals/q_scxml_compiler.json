@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtScxml/qscxmlcompiler.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN14QScxmlCompilerC1EP16QXmlStreamReader": [
+      "address", "address"
+    ],
+    "ritual_ZN14QScxmlCompilerD1Ev": ["nothing", "address"],
+    "ritual_ZNK14QScxmlCompiler8fileNameEv": ["text", "address"],
+    "ritual_ZN14QScxmlCompiler11setFileNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK14QScxmlCompiler6loaderEv": ["address", "address"],
+    "ritual_ZN14QScxmlCompiler9setLoaderEPNS_6LoaderE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QScxmlCompiler7compileEv": ["address", "address"],
+    "ritual_ZNK14QScxmlCompiler6errorsEv": ["address", "address"]
+  }
+}

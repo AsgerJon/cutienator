@@ -1,0 +1,52 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtStateMachine/qstate.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK6QState10metaObjectEv": ["address", "address"],
+    "ritual_ZN6QState2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN6QStateC1EPS_": ["address", "address"],
+    "ritual_ZN6QStateC1ENS_9ChildModeEPS_": ["address", "int", "address"],
+    "ritual_ZN6QStateD1Ev": ["nothing", "address"],
+    "ritual_ZNK6QState10errorStateEv": ["address", "address"],
+    "ritual_ZN6QState13setErrorStateEP14QAbstractState": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QState13addTransitionEP19QAbstractTransition": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QState13addTransitionEPK7QObjectPKcP14QAbstractState": [
+      "address", "address", "address", "chars", "address"
+    ],
+    "ritual_ZN6QState13addTransitionEP14QAbstractState": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN6QState16removeTransitionEP19QAbstractTransition": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK6QState11transitionsEv": ["address", "address"],
+    "ritual_ZNK6QState12initialStateEv": ["address", "address"],
+    "ritual_ZN6QState15setInitialStateEP14QAbstractState": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK6QState9childModeEv": ["int", "address"],
+    "ritual_ZN6QState12setChildModeENS_9ChildModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN6QState14assignPropertyEP7QObjectPKcRK8QVariant": [
+      "nothing", "address", "address", "chars", "address"
+    ],
+    "ritual_ZN6QState7onEntryEP6QEvent": ["nothing", "address", "address"],
+    "ritual_ZN6QState6onExitEP6QEvent": ["nothing", "address", "address"],
+    "ritual_ZN6QState5eventEP6QEvent": ["bool", "address", "address"],
+    "ritual_take_QState": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN6QState7onEntryEP6QEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QState6onExitEP6QEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QState5eventEP6QEvent": ["bool", "address", "address"]
+  }
+}

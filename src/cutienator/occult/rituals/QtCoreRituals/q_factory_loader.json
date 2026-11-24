@@ -1,0 +1,33 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qfactoryloader_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN14QFactoryLoader2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN14QFactoryLoaderC1EPKcRK7QStringN2Qt15CaseSensitivityE": [
+      "address", "chars", "text", "int"
+    ],
+    "ritual_ZN14QFactoryLoaderD1Ev": ["nothing", "address"],
+    "ritual_ZN14QFactoryLoader12setLoadHintsE6QFlagsIN8QLibrary8LoadHintEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN14QFactoryLoader6updateEv": ["nothing", "address"],
+    "ritual_ZN14QFactoryLoader10refreshAllEv": ["nothing"],
+    "ritual_ZNK14QFactoryLoader7libraryERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN14QFactoryLoader18setExtraSearchPathERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK14QFactoryLoader7indexOfERK7QString": [
+      "int", "address", "text"
+    ],
+    "ritual_ZNK14QFactoryLoader8metaDataEv": ["address", "address"],
+    "ritual_ZNK14QFactoryLoader12metaDataKeysEv": ["address", "address"],
+    "ritual_ZNK14QFactoryLoader8instanceEi": ["address", "address", "int"]
+  }
+}

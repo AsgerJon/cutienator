@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtBluetooth/6.12.0/QtBluetooth/private/gattdescriptor1adaptor_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18QtBluetoothPrivate30OrgBluezGattDescriptor1Adaptor10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_take_QtBluetoothPrivate_OrgBluezGattDescriptor1Adaptor": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

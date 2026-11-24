@@ -1,8 +1,14 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/6.12.0/QtWidgets/private/qwidgettextcontrol_p.h, Qt 6.12.0.
 //  Changes made here are lost.
+#include <QtWidgets/qtwidgetsglobal.h>
+#include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
+#if QT_CONFIG(widgettextcontrol)
+#include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/QtWidgets>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/6.12.0/QtWidgets/private/qwidgettextcontrol_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #include <QtGui/qtextcursor.h>
 #include <QtGui/qtextformat.h>
@@ -29,100 +35,177 @@ struct OwnQWidgetTextControl : QWidgetTextControl {
 //  A QWidgetTextControl that Python can take functions over in. Every QWidgetTextControl
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if QT_CONFIG(widgettextcontrol)
 typedef void (*CuteQWidgetTextControlCall0)(const void *, int *);
+#endif  // QT_CONFIG(widgettextcontrol)
+#if QT_CONFIG(widgettextcontrol)
 typedef const QVariant * (*CuteQWidgetTextControlCall1)(const void *, int, const QUrl *, int *);
+#endif  // QT_CONFIG(widgettextcontrol)
+#if QT_CONFIG(widgettextcontrol)
 typedef QString * (*CuteQWidgetTextControlCall2)(const void *, const QPointF *, int *);
+#endif  // QT_CONFIG(widgettextcontrol)
+#if QT_CONFIG(widgettextcontrol)
 typedef int (*CuteQWidgetTextControlCall3)(const void *, const QPointF *, int, int *);
+#endif  // QT_CONFIG(widgettextcontrol)
+#if QT_CONFIG(widgettextcontrol)
 typedef const QRectF * (*CuteQWidgetTextControlCall4)(const void *, const QTextBlock *, int *);
+#endif  // QT_CONFIG(widgettextcontrol)
+#if QT_CONFIG(widgettextcontrol)
 typedef void (*CuteQWidgetTextControlCall5)(const void *, QEvent *, const QTransform *, QWidget *, int *);
+#endif  // QT_CONFIG(widgettextcontrol)
+#if QT_CONFIG(widgettextcontrol)
 typedef const QVariant * (*CuteQWidgetTextControlCall6)(const void *, int, const QVariant *, int *);
+#endif  // QT_CONFIG(widgettextcontrol)
+#if QT_CONFIG(widgettextcontrol)
 typedef void * (*CuteQWidgetTextControlCall7)(const void *, int *);
+#endif  // QT_CONFIG(widgettextcontrol)
+#if QT_CONFIG(widgettextcontrol)
 typedef bool (*CuteQWidgetTextControlCall8)(const void *, const QMimeData *, int *);
+#endif  // QT_CONFIG(widgettextcontrol)
+#if QT_CONFIG(widgettextcontrol)
 typedef void (*CuteQWidgetTextControlCall9)(const void *, const QMimeData *, int *);
+#endif  // QT_CONFIG(widgettextcontrol)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(widgettextcontrol)
 typedef void (*CuteQWidgetTextControlCall10)(const void *, QTimerEvent *, int *);
+#endif  // QT_CONFIG(widgettextcontrol)
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(widgettextcontrol)
 typedef bool (*CuteQWidgetTextControlCall11)(const void *, QEvent *, int *);
+#endif  // QT_CONFIG(widgettextcontrol)
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQWidgetTextControlCall12)(const void *, QObject *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQWidgetTextControlCall13)(const void *, QChildEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQWidgetTextControlCall14)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQWidgetTextControlCall15)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQWidgetTextControlCall16)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 class CuteQWidgetTextControl : public QWidgetTextControl {
 public:
   using QWidgetTextControl::QWidgetTextControl;
   void *taken[17] = {};
 
   bool take(const char *key, void *call) {
+#if QT_CONFIG(widgettextcontrol)
     if (!std::strcmp(key, "_ZN18QWidgetTextControl19ensureCursorVisibleEv")) {
       taken[0] = call;
       return true;
     }
+#endif  // QT_CONFIG(widgettextcontrol)
+#if QT_CONFIG(widgettextcontrol)
     if (!std::strcmp(key, "_ZN18QWidgetTextControl12loadResourceEiRK4QUrl")) {
       taken[1] = call;
       return true;
     }
+#endif  // QT_CONFIG(widgettextcontrol)
+#if QT_CONFIG(widgettextcontrol)
     if (!std::strcmp(key, "_ZNK18QWidgetTextControl8anchorAtERK7QPointF")) {
       taken[2] = call;
       return true;
     }
+#endif  // QT_CONFIG(widgettextcontrol)
+#if QT_CONFIG(widgettextcontrol)
     if (!std::strcmp(key, "_ZNK18QWidgetTextControl7hitTestERK7QPointFN2Qt15HitTestAccuracyE")) {
       taken[3] = call;
       return true;
     }
+#endif  // QT_CONFIG(widgettextcontrol)
+#if QT_CONFIG(widgettextcontrol)
     if (!std::strcmp(key, "_ZNK18QWidgetTextControl17blockBoundingRectERK10QTextBlock")) {
       taken[4] = call;
       return true;
     }
+#endif  // QT_CONFIG(widgettextcontrol)
+#if QT_CONFIG(widgettextcontrol)
     if (!std::strcmp(key, "_ZN18QWidgetTextControl12processEventEP6QEventRK10QTransformP7QWidget")) {
       taken[5] = call;
       return true;
     }
+#endif  // QT_CONFIG(widgettextcontrol)
+#if QT_CONFIG(widgettextcontrol)
     if (!std::strcmp(key, "_ZNK18QWidgetTextControl16inputMethodQueryEN2Qt16InputMethodQueryE8QVariant")) {
       taken[6] = call;
       return true;
     }
+#endif  // QT_CONFIG(widgettextcontrol)
+#if QT_CONFIG(widgettextcontrol)
     if (!std::strcmp(key, "_ZNK18QWidgetTextControl27createMimeDataFromSelectionEv")) {
       taken[7] = call;
       return true;
     }
+#endif  // QT_CONFIG(widgettextcontrol)
+#if QT_CONFIG(widgettextcontrol)
     if (!std::strcmp(key, "_ZNK18QWidgetTextControl21canInsertFromMimeDataEPK9QMimeData")) {
       taken[8] = call;
       return true;
     }
+#endif  // QT_CONFIG(widgettextcontrol)
+#if QT_CONFIG(widgettextcontrol)
     if (!std::strcmp(key, "_ZN18QWidgetTextControl18insertFromMimeDataEPK9QMimeData")) {
       taken[9] = call;
       return true;
     }
+#endif  // QT_CONFIG(widgettextcontrol)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(widgettextcontrol)
     if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[10] = call;
       return true;
     }
+#endif  // QT_CONFIG(widgettextcontrol)
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(widgettextcontrol)
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[11] = call;
       return true;
     }
+#endif  // QT_CONFIG(widgettextcontrol)
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[12] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[13] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[14] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[15] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
       taken[16] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
     return false;
   }
 
+#if QT_CONFIG(widgettextcontrol)
   //  void QWidgetTextControl::ensureCursorVisible()
   void ensureCursorVisible() override {
     if (taken[0]) {
@@ -133,7 +216,9 @@ public:
     }
     QWidgetTextControl::ensureCursorVisible();
   }
+#endif  // QT_CONFIG(widgettextcontrol)
 
+#if QT_CONFIG(widgettextcontrol)
   //  QVariant QWidgetTextControl::loadResource(int type, const QUrl &name)
   QVariant loadResource(int type, const QUrl &name) override {
     if (taken[1]) {
@@ -144,7 +229,9 @@ public:
     }
     return QWidgetTextControl::loadResource(type, name);
   }
+#endif  // QT_CONFIG(widgettextcontrol)
 
+#if QT_CONFIG(widgettextcontrol)
   //  QString QWidgetTextControl::anchorAt(const QPointF &pos) const
   QString anchorAt(const QPointF &pos) const override {
     if (taken[2]) {
@@ -159,7 +246,9 @@ public:
     }
     return QWidgetTextControl::anchorAt(pos);
   }
+#endif  // QT_CONFIG(widgettextcontrol)
 
+#if QT_CONFIG(widgettextcontrol)
   //  int QWidgetTextControl::hitTest(const QPointF &point,
   //      Qt::HitTestAccuracy accuracy) const
   int hitTest(
@@ -173,7 +262,9 @@ public:
     }
     return QWidgetTextControl::hitTest(point, accuracy);
   }
+#endif  // QT_CONFIG(widgettextcontrol)
 
+#if QT_CONFIG(widgettextcontrol)
   //  QRectF QWidgetTextControl::blockBoundingRect(const QTextBlock &block)
   //      const
   QRectF blockBoundingRect(const QTextBlock &block) const override {
@@ -185,7 +276,9 @@ public:
     }
     return QWidgetTextControl::blockBoundingRect(block);
   }
+#endif  // QT_CONFIG(widgettextcontrol)
 
+#if QT_CONFIG(widgettextcontrol)
   //  void QWidgetTextControl::processEvent(QEvent *e, const QTransform
   //      &transform, QWidget *contextWidget)
   void processEvent(
@@ -200,7 +293,9 @@ public:
     }
     QWidgetTextControl::processEvent(e, transform, contextWidget);
   }
+#endif  // QT_CONFIG(widgettextcontrol)
 
+#if QT_CONFIG(widgettextcontrol)
   //  QVariant QWidgetTextControl::inputMethodQuery(Qt::InputMethodQuery
   //      property, QVariant argument) const
   QVariant inputMethodQuery(
@@ -214,7 +309,9 @@ public:
     }
     return QWidgetTextControl::inputMethodQuery(property, argument);
   }
+#endif  // QT_CONFIG(widgettextcontrol)
 
+#if QT_CONFIG(widgettextcontrol)
   //  QMimeData *QWidgetTextControl::createMimeDataFromSelection() const
   QMimeData *createMimeDataFromSelection() const override {
     if (taken[7]) {
@@ -225,7 +322,9 @@ public:
     }
     return QWidgetTextControl::createMimeDataFromSelection();
   }
+#endif  // QT_CONFIG(widgettextcontrol)
 
+#if QT_CONFIG(widgettextcontrol)
   //  bool QWidgetTextControl::canInsertFromMimeData(const QMimeData
   //      *source) const
   bool canInsertFromMimeData(const QMimeData *source) const override {
@@ -237,7 +336,9 @@ public:
     }
     return QWidgetTextControl::canInsertFromMimeData(source);
   }
+#endif  // QT_CONFIG(widgettextcontrol)
 
+#if QT_CONFIG(widgettextcontrol)
   //  void QWidgetTextControl::insertFromMimeData(const QMimeData *source)
   void insertFromMimeData(const QMimeData *source) override {
     if (taken[9]) {
@@ -248,7 +349,10 @@ public:
     }
     QWidgetTextControl::insertFromMimeData(source);
   }
+#endif  // QT_CONFIG(widgettextcontrol)
 
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(widgettextcontrol)
   //  void QWidgetTextControl::timerEvent(QTimerEvent *e)
   void timerEvent(QTimerEvent *e) override {
     if (taken[10]) {
@@ -259,7 +363,11 @@ public:
     }
     QWidgetTextControl::timerEvent(e);
   }
+#endif  // QT_CONFIG(widgettextcontrol)
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(widgettextcontrol)
   //  bool QWidgetTextControl::event(QEvent *e)
   bool event(QEvent *e) override {
     if (taken[11]) {
@@ -270,7 +378,10 @@ public:
     }
     return QWidgetTextControl::event(e);
   }
+#endif  // QT_CONFIG(widgettextcontrol)
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
     if (taken[12]) {
@@ -281,7 +392,9 @@ public:
     }
     return QObject::eventFilter(watched, event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
     if (taken[13]) {
@@ -292,7 +405,9 @@ public:
     }
     QObject::childEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
     if (taken[14]) {
@@ -303,7 +418,9 @@ public:
     }
     QObject::customEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
     if (taken[15]) {
@@ -314,7 +431,9 @@ public:
     }
     QObject::connectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
     if (taken[16]) {
@@ -325,6 +444,7 @@ public:
     }
     QObject::disconnectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 };
 
 //  const QMetaObject *QWidgetTextControl::metaObject() const
@@ -341,6 +461,20 @@ QString *ritual_ZN18QWidgetTextControl2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QWidgetTextControl::tr(s, c, n));
+}
+
+//  QWidgetTextControlPrivate *QWidgetTextControl::d_func()
+extern "C" Q_DECL_EXPORT
+QWidgetTextControlPrivate *ritual_ZN18QWidgetTextControl6d_funcEv(
+    QWidgetTextControl *self) {
+  return self->d_func();
+}
+
+//  const QWidgetTextControlPrivate *QWidgetTextControl::d_func() const
+extern "C" Q_DECL_EXPORT
+const QWidgetTextControlPrivate *ritual_ZNK18QWidgetTextControl6d_funcEv(
+    const QWidgetTextControl *self) {
+  return self->d_func();
 }
 
 //  QWidgetTextControl::QWidgetTextControl(QObject *parent)
@@ -458,6 +592,7 @@ bool ritual_ZN18QWidgetTextControl4findERK7QString6QFlagsIN13QTextDocument8FindF
   return self->find(*exp, QFlags<QTextDocument::FindFlag>::fromInt(options));
 }
 
+#if QT_CONFIG(regularexpression)
 //  bool QWidgetTextControl::find(const QRegularExpression &exp,
 //      QTextDocument::FindFlags options)
 extern "C" Q_DECL_EXPORT
@@ -467,6 +602,7 @@ bool ritual_ZN18QWidgetTextControl4findERK18QRegularExpression6QFlagsIN13QTextDo
     int options) {
   return self->find(*exp, QFlags<QTextDocument::FindFlag>::fromInt(options));
 }
+#endif  // QT_CONFIG(regularexpression)
 
 //  QString QWidgetTextControl::toPlainText() const
 extern "C" Q_DECL_EXPORT
@@ -475,13 +611,16 @@ QString *ritual_ZNK18QWidgetTextControl11toPlainTextEv(
   return new QString(self->toPlainText());
 }
 
+#if !defined(QT_NO_TEXTHTMLPARSER)
 //  QString QWidgetTextControl::toHtml() const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK18QWidgetTextControl6toHtmlEv(
     const QWidgetTextControl *self) {
   return new QString(self->toHtml());
 }
+#endif  // !defined(QT_NO_TEXTHTMLPARSER)
 
+#if QT_CONFIG(textmarkdownwriter)
 //  QString QWidgetTextControl::toMarkdown(QTextDocument::MarkdownFeatures
 //      features) const
 extern "C" Q_DECL_EXPORT
@@ -492,6 +631,7 @@ QString *ritual_ZNK18QWidgetTextControl10toMarkdownE6QFlagsIN13QTextDocument15Ma
       self->toMarkdown(
           QFlags<QTextDocument::MarkdownFeature>::fromInt(features)));
 }
+#endif  // QT_CONFIG(textmarkdownwriter)
 
 //  void QWidgetTextControl::ensureCursorVisible()
 extern "C" Q_DECL_EXPORT
@@ -509,6 +649,7 @@ QVariant *ritual_ZN18QWidgetTextControl12loadResourceEiRK4QUrl(
   return new QVariant(self->loadResource(type, *name));
 }
 
+#if !defined(QT_NO_CONTEXTMENU)
 //  QMenu *QWidgetTextControl::createStandardContextMenu(const QPointF &pos,
 //      QWidget *parent)
 extern "C" Q_DECL_EXPORT
@@ -518,6 +659,7 @@ QMenu *ritual_ZN18QWidgetTextControl25createStandardContextMenuERK7QPointFP7QWid
     QWidget *parent) {
   return self->createStandardContextMenu(*pos, parent);
 }
+#endif  // !defined(QT_NO_CONTEXTMENU)
 
 //  QTextCursor QWidgetTextControl::cursorForPosition(const QPointF &pos)
 //      const
@@ -802,6 +944,7 @@ void ritual_ZN18QWidgetTextControl12setPlainTextERK7QString(
   self->setPlainText(*text);
 }
 
+#if QT_CONFIG(textmarkdownreader)
 //  void QWidgetTextControl::setMarkdown(const QString &text)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QWidgetTextControl11setMarkdownERK7QString(
@@ -809,6 +952,7 @@ void ritual_ZN18QWidgetTextControl11setMarkdownERK7QString(
     const QString *text) {
   self->setMarkdown(*text);
 }
+#endif  // QT_CONFIG(textmarkdownreader)
 
 //  void QWidgetTextControl::setHtml(const QString &text)
 extern "C" Q_DECL_EXPORT
@@ -818,18 +962,23 @@ void ritual_ZN18QWidgetTextControl7setHtmlERK7QString(
   self->setHtml(*text);
 }
 
+#if !defined(QT_NO_CLIPBOARD)
 //  void QWidgetTextControl::cut()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QWidgetTextControl3cutEv(QWidgetTextControl *self) {
   self->cut();
 }
+#endif  // !defined(QT_NO_CLIPBOARD)
 
+#if !defined(QT_NO_CLIPBOARD)
 //  void QWidgetTextControl::copy()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QWidgetTextControl4copyEv(QWidgetTextControl *self) {
   self->copy();
 }
+#endif  // !defined(QT_NO_CLIPBOARD)
 
+#if !defined(QT_NO_CLIPBOARD)
 //  void QWidgetTextControl::paste(QClipboard::Mode mode)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QWidgetTextControl5pasteEN10QClipboard4ModeE(
@@ -837,6 +986,7 @@ void ritual_ZN18QWidgetTextControl5pasteEN10QClipboard4ModeE(
     QClipboard::Mode mode) {
   self->paste(mode);
 }
+#endif  // !defined(QT_NO_CLIPBOARD)
 
 //  void QWidgetTextControl::undo()
 extern "C" Q_DECL_EXPORT
@@ -870,6 +1020,7 @@ void ritual_ZN18QWidgetTextControl15insertPlainTextERK7QString(
   self->insertPlainText(*text);
 }
 
+#if !defined(QT_NO_TEXTHTMLPARSER)
 //  void QWidgetTextControl::insertHtml(const QString &text)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QWidgetTextControl10insertHtmlERK7QString(
@@ -877,6 +1028,7 @@ void ritual_ZN18QWidgetTextControl10insertHtmlERK7QString(
     const QString *text) {
   self->insertHtml(*text);
 }
+#endif  // !defined(QT_NO_TEXTHTMLPARSER)
 
 //  void QWidgetTextControl::append(const QString &text)
 extern "C" Q_DECL_EXPORT
@@ -1149,3 +1301,5 @@ bool ritual_own_ZN18QWidgetTextControl5eventEP6QEvent(
   return static_cast<OwnQWidgetTextControl *>(self)->OwnQWidgetTextControl::event(
       e);
 }
+
+#endif  // QT_CONFIG(widgettextcontrol)

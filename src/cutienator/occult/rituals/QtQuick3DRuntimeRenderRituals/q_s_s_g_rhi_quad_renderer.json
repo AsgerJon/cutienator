@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgrhiquadr",
+    "enderer_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QSSGRhiQuadRenderer11prepareQuadEP14QSSGRhiContextP23QRhiResourceUpdateBatch": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN19QSSGRhiQuadRenderer16recordRenderQuadEP14QSSGRhiContextP28QSSGRhiGraphicsPipelineStateP26QRhiShaderResourceBindingsP24QRhiRenderPassDescriptor6QFlagsINS_4FlagEE": [
+      "nothing", "address", "address", "address", "address", "address", "int"
+    ],
+    "ritual_ZN19QSSGRhiQuadRenderer20recordRenderQuadPassEP14QSSGRhiContextP28QSSGRhiGraphicsPipelineStateP26QRhiShaderResourceBindingsP23QRhiTextureRenderTarget6QFlagsINS_4FlagEE": [
+      "nothing", "address", "address", "address", "address", "address", "int"
+    ],
+    "ritual_ZN19QSSGRhiQuadRenderer13ensureBuffersEP14QSSGRhiContextP23QRhiResourceUpdateBatch": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN19QSSGRhiQuadRendererD1Ev": ["nothing", "address"]
+  }
+}

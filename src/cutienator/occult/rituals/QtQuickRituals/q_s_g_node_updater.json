@@ -1,0 +1,66 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qsgnodeupdater_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN14QSGNodeUpdaterC1Ev": ["address"],
+    "ritual_ZN14QSGNodeUpdaterD1Ev": ["nothing", "address"],
+    "ritual_ZN14QSGNodeUpdater12updateStatesEP7QSGNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QSGNodeUpdater13isNodeBlockedEP7QSGNodeS1_": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN14QSGNodeUpdater18enterTransformNodeEP16QSGTransformNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QSGNodeUpdater18leaveTransformNodeEP16QSGTransformNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QSGNodeUpdater13enterClipNodeEP11QSGClipNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QSGNodeUpdater13leaveClipNodeEP11QSGClipNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QSGNodeUpdater16enterOpacityNodeEP14QSGOpacityNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QSGNodeUpdater16leaveOpacityNodeEP14QSGOpacityNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QSGNodeUpdater17enterGeometryNodeEP15QSGGeometryNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QSGNodeUpdater17leaveGeometryNodeEP15QSGGeometryNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QSGNodeUpdater15enterRenderNodeEP13QSGRenderNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QSGNodeUpdater15leaveRenderNodeEP13QSGRenderNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QSGNodeUpdater9visitNodeEP7QSGNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QSGNodeUpdater13visitChildrenEP7QSGNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QSGNodeUpdater": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN14QSGNodeUpdater12updateStatesEP7QSGNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK14QSGNodeUpdater13isNodeBlockedEP7QSGNodeS1_": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_own_ZN14QSGNodeUpdater18enterTransformNodeEP16QSGTransformNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN14QSGNodeUpdater18leaveTransformNodeEP16QSGTransformNode": [
+      "nothing", "address", "address"
+    ]
+  }
+}

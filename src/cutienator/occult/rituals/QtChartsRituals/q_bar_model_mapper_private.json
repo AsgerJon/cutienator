@@ -1,0 +1,83 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/6.12.0/QtCharts/private/qbarmodelmapper_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK22QBarModelMapperPrivate10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QBarModelMapperPrivate2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN22QBarModelMapperPrivateC1EP15QBarModelMapper": [
+      "address", "address"
+    ],
+    "ritual_ZN22QBarModelMapperPrivate12modelUpdatedE11QModelIndexS0_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN22QBarModelMapperPrivate22modelHeaderDataUpdatedEN2Qt11OrientationEii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZN22QBarModelMapperPrivate14modelRowsAddedE11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN22QBarModelMapperPrivate16modelRowsRemovedE11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN22QBarModelMapperPrivate17modelColumnsAddedE11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN22QBarModelMapperPrivate19modelColumnsRemovedE11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN22QBarModelMapperPrivate20handleModelDestroyedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QBarModelMapperPrivate12barSetsAddedERK5QListIP7QBarSetE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QBarModelMapperPrivate14barSetsRemovedERK5QListIP7QBarSetE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QBarModelMapperPrivate11valuesAddedEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN22QBarModelMapperPrivate13valuesRemovedEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN22QBarModelMapperPrivate15barLabelChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QBarModelMapperPrivate15barValueChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN22QBarModelMapperPrivate21handleSeriesDestroyedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QBarModelMapperPrivate22initializeBarFromModelEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QBarModelMapperPrivate6barSetE11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN22QBarModelMapperPrivate13barModelIndexEii": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZN22QBarModelMapperPrivate10insertDataEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN22QBarModelMapperPrivate10removeDataEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN22QBarModelMapperPrivate17blockModelSignalsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN22QBarModelMapperPrivate18blockSeriesSignalsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN22QBarModelMapperPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK22QBarModelMapperPrivate6q_funcEv": ["address", "address"]
+  }
+}

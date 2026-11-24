@@ -1,0 +1,37 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qlocale_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11QLocaleData13DigitSequenceC1ERKS0_": ["address", "address"],
+    "ritual_ZN11QLocaleData13DigitSequenceD1Ev": ["nothing", "address"],
+    "ritual_ZNK11QLocaleData13DigitSequence8endIndexEv": [
+      "long long", "address"
+    ],
+    "ritual_ZNK11QLocaleData13DigitSequence4sizeEv": [
+      "long long", "address"
+    ],
+    "ritual_ZNK11QLocaleData13DigitSequence7isEmptyEv": ["bool", "address"],
+    "ritual_ZNK11QLocaleData13DigitSequence7hasSignEv": ["bool", "address"],
+    "ritual_ZNK11QLocaleData13DigitSequence5firstEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZNK11QLocaleData13DigitSequence4lastEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZNK11QLocaleData13DigitSequence6slicedEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZNK11QLocaleData13DigitSequence6slicedExx": [
+      "address", "address", "long long", "long long"
+    ],
+    "ritual_ZNK11QLocaleData13DigitSequence4usedE11QStringViewx": [
+      "text", "address", "text", "long long"
+    ],
+    "ritual_ZNK11QLocaleData13DigitSequence4usedE11QStringView": [
+      "text", "address", "text"
+    ]
+  }
+}

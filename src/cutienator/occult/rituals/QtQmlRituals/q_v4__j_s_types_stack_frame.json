@@ -1,0 +1,75 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4stackframe_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN3QV417JSTypesStackFrame4initEPNS_8FunctionEPKNS_5ValueEib": [
+      "nothing", "address", "address", "address", "int", "bool"
+    ],
+    "ritual_ZNK3QV417JSTypesStackFrame4argvEv": ["address", "address"],
+    "ritual_ZN3QV417JSTypesStackFrame24requiredJSStackFrameSizeEj": [
+      "unsigned int", "unsigned int"
+    ],
+    "ritual_ZN3QV417JSTypesStackFrame24requiredJSStackFrameSizeEPNS_8FunctionE": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZNK3QV417JSTypesStackFrame24requiredJSStackFrameSizeEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN3QV417JSTypesStackFrame12setupJSFrameEPNS_5ValueERKS1_PKNS_4Heap16ExecutionContextES4_S4_": [
+      "nothing", "address", "address", "address", "address", "address",
+      "address"
+    ],
+    "ritual_ZN3QV417JSTypesStackFrame12setupJSFrameEPNS_5ValueERKS1_PKNS_4Heap16ExecutionContextES4_S4_jj": [
+      "nothing", "address", "address", "address", "address", "address",
+      "address", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZNK3QV417JSTypesStackFrame7contextEv": ["address", "address"],
+    "ritual_ZN3QV417JSTypesStackFrame10setContextEPNS_16ExecutionContextE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK3QV417JSTypesStackFrame11callContextEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV417JSTypesStackFrame13isTailCallingEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN3QV417JSTypesStackFrame14setTailCallingEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK3QV417JSTypesStackFrame15pendingTailCallEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN3QV417JSTypesStackFrame18setPendingTailCallEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK3QV417JSTypesStackFrame5yieldEv": ["chars", "address"],
+    "ritual_ZN3QV417JSTypesStackFrame8setYieldEPKc": [
+      "nothing", "address", "chars"
+    ],
+    "ritual_ZNK3QV417JSTypesStackFrame15yieldIsIteratorEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN3QV417JSTypesStackFrame18setYieldIsIteratorEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK3QV417JSTypesStackFrame23callerCanHandleTailCallEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK3QV417JSTypesStackFrame10thisObjectEv": [
+      "unsigned long long", "address"
+    ],
+    "ritual_ZNK3QV417JSTypesStackFrame12framePointerEv": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV417JSTypesStackFrame4pushEPNS_10EngineBaseE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN3QV417JSTypesStackFrame3popEPNS_10EngineBaseE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN3QV417JSTypesStackFrameD1Ev": ["nothing", "address"]
+  }
+}

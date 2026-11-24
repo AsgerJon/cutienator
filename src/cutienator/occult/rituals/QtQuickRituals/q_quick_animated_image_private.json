@@ -1,0 +1,29 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickanimatedimage_p_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN26QQuickAnimatedImagePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK26QQuickAnimatedImagePrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QQuickAnimatedImagePrivateC1Ev": ["address"],
+    "ritual_ZN26QQuickAnimatedImagePrivate19infoForCurrentFrameEP10QQmlEngine": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN26QQuickAnimatedImagePrivate8setMovieEP6QMovie": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QQuickAnimatedImagePrivate10clearCacheEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QQuickAnimatedImagePrivate20handleLoopCompletionEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QQuickAnimatedImagePrivate": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

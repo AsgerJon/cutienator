@@ -1,0 +1,72 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "ShapesDesignHelpers/6.12.0/QtQuickShapesDesignHelpers/private/qqui",
+    "ckellipseshape_p_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN25QQuickEllipseShapePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK25QQuickEllipseShapePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN25QQuickEllipseShapePrivateC1Ev": ["address"],
+    "ritual_ZN25QQuickEllipseShapePrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN25QQuickEllipseShapePrivate7addLineE9QVector2D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QQuickEllipseShapePrivate6addArcE9QVector2DS0_N13QQuickPathArc12ArcDirectionEb": [
+      "nothing", "address", "address", "address", "int", "bool"
+    ],
+    "ritual_ZNK25QQuickEllipseShapePrivate15getBorderOffsetEv": [
+      "double", "address"
+    ],
+    "ritual_ZN25QQuickEllipseShapePrivate11roundCenterE9QVector2DS0_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN25QQuickEllipseShapePrivate13roundBeginEndE9QVector2DS0_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN25QQuickEllipseShapePrivate10roundOuterE9QVector2DS0_dddNS_18RoundedCornerIndexE": [
+      "bool", "address", "address", "address", "double", "double", "double",
+      "int"
+    ],
+    "ritual_ZN25QQuickEllipseShapePrivate10roundInnerE9QVector2DS0_dddNS_18RoundedCornerIndexE": [
+      "bool", "address", "address", "address", "double", "double", "double",
+      "int"
+    ],
+    "ritual_ZN25QQuickEllipseShapePrivate16drawCenterCornerEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QQuickEllipseShapePrivate18drawInnerEndCornerEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QQuickEllipseShapePrivate20drawInnerBeginCornerEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QQuickEllipseShapePrivate20drawOuterBeginCornerEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QQuickEllipseShapePrivate19drawOuterArcRoundedE9QVector2DS0_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN25QQuickEllipseShapePrivate19drawInnerArcRoundedE9QVector2DS0_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN25QQuickEllipseShapePrivate12drawOuterArcE9QVector2DS0_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN25QQuickEllipseShapePrivate16drawFullInnerArcE9QVector2DS0_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN25QQuickEllipseShapePrivate19drawWithInnerRadiusE9QVector2DS0_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN25QQuickEllipseShapePrivate22drawWithoutInnerRadiusE9QVector2DS0_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN25QQuickEllipseShapePrivate10updatePathEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QQuickEllipseShapePrivate": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

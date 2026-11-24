@@ -1,0 +1,26 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickvalidator_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK21QQuickDoubleValidator10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QQuickDoubleValidator2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN21QQuickDoubleValidatorC1EP7QObject": ["address", "address"],
+    "ritual_ZNK21QQuickDoubleValidator10localeNameEv": ["text", "address"],
+    "ritual_ZN21QQuickDoubleValidator13setLocaleNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN21QQuickDoubleValidator15resetLocaleNameEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QQuickDoubleValidator": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

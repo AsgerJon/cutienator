@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtHttpServer/6.12.0/QtHttpServer/private/qhttpserverrequest_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN25QHttpServerRequestPrivateC1ERK12QHostAddresstS2_t": [
+      "address", "address", "unsigned short", "address", "unsigned short"
+    ],
+    "ritual_ZN25QHttpServerRequestPrivateC1ERK12QHostAddresstS2_tRK17QSslConfiguration": [
+      "address", "address", "unsigned short", "address", "unsigned short",
+      "address"
+    ],
+    "ritual_ZN25QHttpServerRequestPrivateC1Ev": ["address"],
+    "ritual_ZN25QHttpServerRequestPrivateC1ERKS_": ["address", "address"],
+    "ritual_ZN25QHttpServerRequestPrivateD1Ev": ["nothing", "address"]
+  }
+}

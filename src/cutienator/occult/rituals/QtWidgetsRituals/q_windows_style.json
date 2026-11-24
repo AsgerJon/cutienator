@@ -51,6 +51,8 @@
     "ritual_ZN13QWindowsStyle11eventFilterEP7QObjectP6QEvent": [
       "bool", "address", "address", "address"
     ],
+    "ritual_ZN13QWindowsStyle6d_funcEv": ["address", "address"],
+    "ritual_ZNK13QWindowsStyle6d_funcEv": ["address", "address"],
     "ritual_take_QWindowsStyle": ["bool", "address", "chars", "address"],
     "ritual_own_ZN13QWindowsStyle6polishEP12QApplication": [
       "nothing", "address", "address"

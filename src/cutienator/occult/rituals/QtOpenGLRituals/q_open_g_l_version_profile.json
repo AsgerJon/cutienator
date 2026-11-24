@@ -1,0 +1,29 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtOpenGL/qopenglversionprofile.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN21QOpenGLVersionProfileC1Ev": ["address"],
+    "ritual_ZN21QOpenGLVersionProfileC1ERK14QSurfaceFormat": [
+      "address", "address"
+    ],
+    "ritual_ZN21QOpenGLVersionProfileC1ERKS_": ["address", "address"],
+    "ritual_ZN21QOpenGLVersionProfileD1Ev": ["nothing", "address"],
+    "ritual_ZN21QOpenGLVersionProfile10setVersionEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK21QOpenGLVersionProfile7profileEv": ["int", "address"],
+    "ritual_ZN21QOpenGLVersionProfile10setProfileEN14QSurfaceFormat20OpenGLContextProfileE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK21QOpenGLVersionProfile11hasProfilesEv": ["bool", "address"],
+    "ritual_ZNK21QOpenGLVersionProfile15isLegacyVersionEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK21QOpenGLVersionProfile7isValidEv": ["bool", "address"],
+    "ritual_ZeqRK21QOpenGLVersionProfileS1_": ["bool", "address", "address"],
+    "ritual_ZneRK21QOpenGLVersionProfileS1_": ["bool", "address", "address"]
+  }
+}

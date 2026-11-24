@@ -1,0 +1,126 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLocation/6.12.0/QtLocation/private/qdeclarativeplace_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QDeclarativePlace10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QDeclarativePlace2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QDeclarativePlaceC1EP7QObject": ["address", "address"],
+    "ritual_ZN17QDeclarativePlaceC1ERK6QPlaceP30QDeclarativeGeoServiceProviderP7QObject": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN17QDeclarativePlaceD1Ev": ["nothing", "address"],
+    "ritual_ZN17QDeclarativePlace10classBeginEv": ["nothing", "address"],
+    "ritual_ZN17QDeclarativePlace17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QDeclarativePlace9setPluginEP30QDeclarativeGeoServiceProvider": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QDeclarativePlace6pluginEv": ["address", "address"],
+    "ritual_ZN17QDeclarativePlace11reviewModelEv": ["address", "address"],
+    "ritual_ZN17QDeclarativePlace10imageModelEv": ["address", "address"],
+    "ritual_ZN17QDeclarativePlace14editorialModelEv": ["address", "address"],
+    "ritual_ZNK17QDeclarativePlace5placeEv": ["address", "address"],
+    "ritual_ZN17QDeclarativePlace8setPlaceERK6QPlace": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QDeclarativePlace8locationEv": ["address", "address"],
+    "ritual_ZN17QDeclarativePlace11setLocationEP23QDeclarativeGeoLocation": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QDeclarativePlace7ratingsEv": ["address", "address"],
+    "ritual_ZN17QDeclarativePlace10setRatingsERK13QPlaceRatings": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QDeclarativePlace8supplierEv": ["address", "address"],
+    "ritual_ZN17QDeclarativePlace11setSupplierERK14QPlaceSupplier": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QDeclarativePlace4iconEv": ["address", "address"],
+    "ritual_ZN17QDeclarativePlace7setIconERK10QPlaceIcon": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QDeclarativePlace4nameEv": ["text", "address"],
+    "ritual_ZN17QDeclarativePlace7setNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK17QDeclarativePlace7placeIdEv": ["text", "address"],
+    "ritual_ZN17QDeclarativePlace10setPlaceIdERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK17QDeclarativePlace11attributionEv": ["text", "address"],
+    "ritual_ZN17QDeclarativePlace14setAttributionERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK17QDeclarativePlace14detailsFetchedEv": ["bool", "address"],
+    "ritual_ZNK17QDeclarativePlace6statusEv": ["int", "address"],
+    "ritual_ZN17QDeclarativePlace9setStatusENS_6StatusERK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZN17QDeclarativePlace10getDetailsEv": ["nothing", "address"],
+    "ritual_ZN17QDeclarativePlace4saveEv": ["nothing", "address"],
+    "ritual_ZN17QDeclarativePlace6removeEv": ["nothing", "address"],
+    "ritual_ZNK17QDeclarativePlace11errorStringEv": ["text", "address"],
+    "ritual_ZNK17QDeclarativePlace12primaryPhoneEv": ["text", "address"],
+    "ritual_ZNK17QDeclarativePlace10primaryFaxEv": ["text", "address"],
+    "ritual_ZNK17QDeclarativePlace12primaryEmailEv": ["text", "address"],
+    "ritual_ZNK17QDeclarativePlace14primaryWebsiteEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK17QDeclarativePlace18extendedAttributesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK17QDeclarativePlace14contactDetailsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK17QDeclarativePlace10visibilityEv": ["int", "address"],
+    "ritual_ZN17QDeclarativePlace13setVisibilityENS_10VisibilityE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK17QDeclarativePlace8favoriteEv": ["address", "address"],
+    "ritual_ZN17QDeclarativePlace11setFavoriteEPS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QDeclarativePlace8copyFromEPS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QDeclarativePlace18initializeFavoriteEP30QDeclarativeGeoServiceProvider": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QDeclarativePlace8finishedEv": ["nothing", "address"],
+    "ritual_ZN17QDeclarativePlace16contactsModifiedERK7QStringRK8QVariant": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZN17QDeclarativePlace11pluginReadyEv": ["nothing", "address"],
+    "ritual_ZN17QDeclarativePlace24cleanupDeletedCategoriesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QDeclarativePlace21synchronizeCategoriesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QDeclarativePlace22pullExtendedAttributesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QDeclarativePlace19synchronizeContactsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QDeclarativePlace22primarySignalsEmissionERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK17QDeclarativePlace12primaryValueERK7QString": [
+      "text", "address", "text"
+    ],
+    "ritual_ZN17QDeclarativePlace7managerEv": ["address", "address"],
+    "ritual_cast_QDeclarativePlace_QQmlParserStatus": ["address", "address"],
+    "ritual_take_QDeclarativePlace": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN17QDeclarativePlace10classBeginEv": ["nothing", "address"],
+    "ritual_own_ZN17QDeclarativePlace17componentCompleteEv": [
+      "nothing", "address"
+    ]
+  }
+}

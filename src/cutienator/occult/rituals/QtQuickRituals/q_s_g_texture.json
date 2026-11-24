@@ -1,0 +1,63 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/qsgtexture.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK10QSGTexture10metaObjectEv": ["address", "address"],
+    "ritual_ZN10QSGTexture2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN10QSGTexture6d_funcEv": ["address", "address"],
+    "ritual_ZNK10QSGTexture6d_funcEv": ["address", "address"],
+    "ritual_ZN10QSGTextureD1Ev": ["nothing", "address"],
+    "ritual_ZNK10QSGTexture13comparisonKeyEv": ["long long", "address"],
+    "ritual_ZNK10QSGTexture10rhiTextureEv": ["address", "address"],
+    "ritual_ZNK10QSGTexture11textureSizeEv": ["address", "address"],
+    "ritual_ZNK10QSGTexture15hasAlphaChannelEv": ["bool", "address"],
+    "ritual_ZNK10QSGTexture10hasMipmapsEv": ["bool", "address"],
+    "ritual_ZNK10QSGTexture24normalizedTextureSubRectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10QSGTexture14isAtlasTextureEv": ["bool", "address"],
+    "ritual_ZNK10QSGTexture16removedFromAtlasEP23QRhiResourceUpdateBatch": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN10QSGTexture23commitTextureOperationsEP4QRhiP23QRhiResourceUpdateBatch": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN10QSGTexture18setMipmapFilteringENS_9FilteringE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK10QSGTexture15mipmapFilteringEv": ["int", "address"],
+    "ritual_ZN10QSGTexture12setFilteringENS_9FilteringE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK10QSGTexture9filteringEv": ["int", "address"],
+    "ritual_ZN10QSGTexture18setAnisotropyLevelENS_15AnisotropyLevelE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK10QSGTexture15anisotropyLevelEv": ["int", "address"],
+    "ritual_ZN10QSGTexture21setHorizontalWrapModeENS_8WrapModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK10QSGTexture18horizontalWrapModeEv": ["int", "address"],
+    "ritual_ZN10QSGTexture19setVerticalWrapModeENS_8WrapModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK10QSGTexture16verticalWrapModeEv": ["int", "address"],
+    "ritual_ZNK10QSGTexture29convertToNormalizedSourceRectERK6QRectF": [
+      "address", "address", "address"
+    ],
+    "ritual_take_QSGTexture": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK10QSGTexture10rhiTextureEv": ["address", "address"],
+    "ritual_own_ZNK10QSGTexture24normalizedTextureSubRectEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK10QSGTexture14isAtlasTextureEv": ["bool", "address"],
+    "ritual_own_ZNK10QSGTexture16removedFromAtlasEP23QRhiResourceUpdateBatch": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN10QSGTexture23commitTextureOperationsEP4QRhiP23QRhiResourceUpdateBatch": [
+      "nothing", "address", "address", "address"
+    ]
+  }
+}

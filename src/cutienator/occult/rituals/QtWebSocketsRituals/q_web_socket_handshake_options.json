@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWebSockets/qwebsockethandshakeoptions.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN26QWebSocketHandshakeOptionsC1Ev": ["address"],
+    "ritual_ZN26QWebSocketHandshakeOptionsC1ERKS_": ["address", "address"],
+    "ritual_ZN26QWebSocketHandshakeOptionsD1Ev": ["nothing", "address"],
+    "ritual_ZNK26QWebSocketHandshakeOptions12subprotocolsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QWebSocketHandshakeOptions15setSubprotocolsERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK26QWebSocketHandshakeOptions6equalsERKS_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZeqRK26QWebSocketHandshakeOptionsS1_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZneRK26QWebSocketHandshakeOptionsS1_": [
+      "bool", "address", "address"
+    ]
+  }
+}

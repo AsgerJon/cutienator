@@ -1,0 +1,32 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qrhinull_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN27QNullShaderResourceBindingsC1EP18QRhiImplementation": [
+      "address", "address"
+    ],
+    "ritual_ZN27QNullShaderResourceBindingsD1Ev": ["nothing", "address"],
+    "ritual_ZN27QNullShaderResourceBindings7destroyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QNullShaderResourceBindings6createEv": ["bool", "address"],
+    "ritual_ZN27QNullShaderResourceBindings15updateResourcesE6QFlagsIN26QRhiShaderResourceBindings10UpdateFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_take_QNullShaderResourceBindings": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN27QNullShaderResourceBindings7destroyEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN27QNullShaderResourceBindings6createEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZN27QNullShaderResourceBindings15updateResourcesE6QFlagsIN26QRhiShaderResourceBindings10UpdateFlagEE": [
+      "nothing", "address", "int"
+    ]
+  }
+}

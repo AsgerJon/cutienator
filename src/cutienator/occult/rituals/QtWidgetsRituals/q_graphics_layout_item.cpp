@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qgraphicslayoutitem.h, Qt 6.12.0. Changes made here are lost.
+#include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(graphicsview)
 #include <QtWidgets/qgraphicslayoutitem.h>
 #include <QtWidgets/qsizepolicy.h>
 #include <QtCore/qsize.h>
@@ -9,35 +11,52 @@
 //  A QGraphicsLayoutItem that Python can take functions over in. Every QGraphicsLayoutItem
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if QT_CONFIG(graphicsview)
 typedef void (*CuteQGraphicsLayoutItemCall0)(const void *, const QRectF *, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 typedef void (*CuteQGraphicsLayoutItemCall1)(const void *, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 typedef bool (*CuteQGraphicsLayoutItemCall2)(const void *, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 typedef const QSizeF * (*CuteQGraphicsLayoutItemCall3)(const void *, int, const QSizeF *, int *);
+#endif  // QT_CONFIG(graphicsview)
 class CuteQGraphicsLayoutItem : public QGraphicsLayoutItem {
 public:
   using QGraphicsLayoutItem::QGraphicsLayoutItem;
   void *taken[4] = {};
 
   bool take(const char *key, void *call) {
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZN19QGraphicsLayoutItem11setGeometryERK6QRectF")) {
       taken[0] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZN19QGraphicsLayoutItem14updateGeometryEv")) {
       taken[1] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZNK19QGraphicsLayoutItem7isEmptyEv")) {
       taken[2] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZNK19QGraphicsLayoutItem8sizeHintEN2Qt8SizeHintERK6QSizeF")) {
       taken[3] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
     return false;
   }
 
+#if QT_CONFIG(graphicsview)
   //  void QGraphicsLayoutItem::setGeometry(const QRectF &rect)
   void setGeometry(const QRectF &rect) override {
     if (taken[0]) {
@@ -48,7 +67,9 @@ public:
     }
     QGraphicsLayoutItem::setGeometry(rect);
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if QT_CONFIG(graphicsview)
   //  void QGraphicsLayoutItem::updateGeometry()
   void updateGeometry() override {
     if (taken[1]) {
@@ -59,7 +80,9 @@ public:
     }
     QGraphicsLayoutItem::updateGeometry();
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if QT_CONFIG(graphicsview)
   //  bool QGraphicsLayoutItem::isEmpty() const
   bool isEmpty() const override {
     if (taken[2]) {
@@ -70,7 +93,9 @@ public:
     }
     return QGraphicsLayoutItem::isEmpty();
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if QT_CONFIG(graphicsview)
   //  QSizeF QGraphicsLayoutItem::sizeHint(Qt::SizeHint which, const QSizeF
   //      &constraint) const
   QSizeF sizeHint(
@@ -84,6 +109,7 @@ public:
     }
     return {};
   }
+#endif  // QT_CONFIG(graphicsview)
 };
 
 //  QGraphicsLayoutItem::~QGraphicsLayoutItem()
@@ -401,6 +427,20 @@ QSizeF *ritual_ZNK19QGraphicsLayoutItem8sizeHintEN2Qt8SizeHintERK6QSizeF(
   return new QSizeF(self->sizeHint(which, *constraint));
 }
 
+//  QGraphicsLayoutItemPrivate *QGraphicsLayoutItem::d_func()
+extern "C" Q_DECL_EXPORT
+QGraphicsLayoutItemPrivate *ritual_ZN19QGraphicsLayoutItem6d_funcEv(
+    QGraphicsLayoutItem *self) {
+  return self->d_func();
+}
+
+//  const QGraphicsLayoutItemPrivate *QGraphicsLayoutItem::d_func() const
+extern "C" Q_DECL_EXPORT
+const QGraphicsLayoutItemPrivate *ritual_ZNK19QGraphicsLayoutItem6d_funcEv(
+    const QGraphicsLayoutItem *self) {
+  return self->d_func();
+}
+
 //  a Python function taken by a CuteQGraphicsLayoutItem, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT
@@ -432,3 +472,5 @@ bool ritual_own_ZNK19QGraphicsLayoutItem7isEmptyEv(
     const QGraphicsLayoutItem *self) {
   return self->QGraphicsLayoutItem::isEmpty();
 }
+
+#endif  // QT_CONFIG(graphicsview)

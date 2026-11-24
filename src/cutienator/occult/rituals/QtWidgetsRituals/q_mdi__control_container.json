@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qmdisubwindow_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK4QMdi16ControlContainer7menuBarEv": ["address", "address"],
+    "ritual_ZNK4QMdi16ControlContainer16controllerWidgetEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK4QMdi16ControlContainer15systemMenuLabelEv": [
+      "address", "address"
+    ],
+    "ritual_take_QMdi_ControlContainer": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

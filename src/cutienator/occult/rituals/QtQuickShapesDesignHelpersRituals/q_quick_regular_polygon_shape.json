@@ -1,0 +1,93 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "ShapesDesignHelpers/6.12.0/QtQuickShapesDesignHelpers/private/qqui",
+    "ckregularpolygonshape_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK25QQuickRegularPolygonShape10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QQuickRegularPolygonShape2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN25QQuickRegularPolygonShapeC1EP10QQuickItem": [
+      "address", "address"
+    ],
+    "ritual_ZN25QQuickRegularPolygonShapeD1Ev": ["nothing", "address"],
+    "ritual_ZNK25QQuickRegularPolygonShape10dashOffsetEv": [
+      "double", "address"
+    ],
+    "ritual_ZN25QQuickRegularPolygonShape13setDashOffsetEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK25QQuickRegularPolygonShape12cornerRadiusEv": [
+      "double", "address"
+    ],
+    "ritual_ZN25QQuickRegularPolygonShape15setCornerRadiusEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK25QQuickRegularPolygonShape9sideCountEv": ["int", "address"],
+    "ritual_ZN25QQuickRegularPolygonShape12setSideCountEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK25QQuickRegularPolygonShape11strokeWidthEv": [
+      "double", "address"
+    ],
+    "ritual_ZN25QQuickRegularPolygonShape14setStrokeWidthEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK25QQuickRegularPolygonShape9fillColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QQuickRegularPolygonShape12setFillColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK25QQuickRegularPolygonShape11strokeColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QQuickRegularPolygonShape14setStrokeColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK25QQuickRegularPolygonShape8capStyleEv": ["int", "address"],
+    "ritual_ZN25QQuickRegularPolygonShape11setCapStyleEN15QQuickShapePath8CapStyleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK25QQuickRegularPolygonShape9joinStyleEv": ["int", "address"],
+    "ritual_ZN25QQuickRegularPolygonShape12setJoinStyleEN15QQuickShapePath9JoinStyleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK25QQuickRegularPolygonShape11strokeStyleEv": [
+      "int", "address"
+    ],
+    "ritual_ZN25QQuickRegularPolygonShape14setStrokeStyleEN15QQuickShapePath11StrokeStyleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK25QQuickRegularPolygonShape12fillGradientEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QQuickRegularPolygonShape15setFillGradientEP19QQuickShapeGradient": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QQuickRegularPolygonShape17resetFillGradientEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK25QQuickRegularPolygonShape8fillItemEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QQuickRegularPolygonShape11setFillItemEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QQuickRegularPolygonShape10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN25QQuickRegularPolygonShape6d_funcEv": ["address", "address"],
+    "ritual_ZNK25QQuickRegularPolygonShape6d_funcEv": ["address", "address"],
+    "ritual_take_QQuickRegularPolygonShape": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN25QQuickRegularPolygonShape10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ]
+  }
+}

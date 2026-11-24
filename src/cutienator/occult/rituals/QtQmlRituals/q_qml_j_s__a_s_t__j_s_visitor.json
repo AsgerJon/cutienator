@@ -1,0 +1,1404 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmljsastvisitor_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN6QQmlJS3AST9JSVisitor8preVisitEPNS0_4NodeE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor9postVisitEPNS0_4NodeE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_14TypeExpressionE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_14TypeExpressionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_14ThisExpressionE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_14ThisExpressionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_20IdentifierExpressionE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_20IdentifierExpressionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_14NullExpressionE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_14NullExpressionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_11TrueLiteralE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_11TrueLiteralE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_12FalseLiteralE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_12FalseLiteralE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_12SuperLiteralE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_12SuperLiteralE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_13StringLiteralE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_13StringLiteralE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_15TemplateLiteralE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_15TemplateLiteralE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_14NumericLiteralE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_14NumericLiteralE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_13RegExpLiteralE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_13RegExpLiteralE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_12ArrayPatternE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_12ArrayPatternE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_13ObjectPatternE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_13ObjectPatternE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_18PatternElementListE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_18PatternElementListE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_19PatternPropertyListE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_19PatternPropertyListE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_14PatternElementE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_14PatternElementE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_15PatternPropertyE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_15PatternPropertyE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_7ElisionE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_7ElisionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_16NestedExpressionE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_16NestedExpressionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_22IdentifierPropertyNameE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_22IdentifierPropertyNameE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_25StringLiteralPropertyNameE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_25StringLiteralPropertyNameE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_26NumericLiteralPropertyNameE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_26NumericLiteralPropertyNameE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_20ComputedPropertyNameE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_20ComputedPropertyNameE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_21ArrayMemberExpressionE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_21ArrayMemberExpressionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_21FieldMemberExpressionE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_21FieldMemberExpressionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_14TaggedTemplateE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_14TaggedTemplateE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_19NewMemberExpressionE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_19NewMemberExpressionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_13NewExpressionE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_13NewExpressionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_14CallExpressionE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_14CallExpressionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_12ArgumentListE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_12ArgumentListE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_23PostIncrementExpressionE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_23PostIncrementExpressionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_23PostDecrementExpressionE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_23PostDecrementExpressionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_16DeleteExpressionE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_16DeleteExpressionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_14VoidExpressionE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_14VoidExpressionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_16TypeOfExpressionE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_16TypeOfExpressionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_22PreIncrementExpressionE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_22PreIncrementExpressionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_22PreDecrementExpressionE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_22PreDecrementExpressionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_19UnaryPlusExpressionE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_19UnaryPlusExpressionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_20UnaryMinusExpressionE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_20UnaryMinusExpressionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_15TildeExpressionE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_15TildeExpressionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_13NotExpressionE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_13NotExpressionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_16BinaryExpressionE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_16BinaryExpressionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_21ConditionalExpressionE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_21ConditionalExpressionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_15CommaExpressionE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_15CommaExpressionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_5BlockE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_5BlockE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_13StatementListE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_13StatementListE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_17VariableStatementE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_17VariableStatementE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_23VariableDeclarationListE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_23VariableDeclarationListE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_14EmptyStatementE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_14EmptyStatementE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_19ExpressionStatementE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_19ExpressionStatementE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_11IfStatementE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_11IfStatementE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_16DoWhileStatementE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_16DoWhileStatementE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_14WhileStatementE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_14WhileStatementE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_12ForStatementE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_12ForStatementE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_16ForEachStatementE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_16ForEachStatementE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_17ContinueStatementE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_17ContinueStatementE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_14BreakStatementE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_14BreakStatementE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_15ReturnStatementE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_15ReturnStatementE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_15YieldExpressionE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_15YieldExpressionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_13WithStatementE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_13WithStatementE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_15SwitchStatementE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_15SwitchStatementE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_9CaseBlockE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_9CaseBlockE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_11CaseClausesE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_11CaseClausesE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_10CaseClauseE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_10CaseClauseE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_13DefaultClauseE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_13DefaultClauseE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_17LabelledStatementE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_17LabelledStatementE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_14ThrowStatementE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_14ThrowStatementE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_12TryStatementE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_12TryStatementE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_5CatchE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_5CatchE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_7FinallyE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_7FinallyE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_19FunctionDeclarationE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_19FunctionDeclarationE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_18FunctionExpressionE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_18FunctionExpressionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_19FormalParameterListE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_19FormalParameterListE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_15ClassExpressionE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_15ClassExpressionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_16ClassDeclarationE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_16ClassDeclarationE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_16ClassElementListE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_16ClassElementListE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_7ProgramE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_7ProgramE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_15NameSpaceImportE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_15NameSpaceImportE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_15ImportSpecifierE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_15ImportSpecifierE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_11ImportsListE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_11ImportsListE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_12NamedImportsE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_12NamedImportsE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_10FromClauseE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_10FromClauseE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_12ImportClauseE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_12ImportClauseE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_17ImportDeclarationE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_17ImportDeclarationE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_15ExportSpecifierE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_15ExportSpecifierE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_11ExportsListE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_11ExportsListE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_12ExportClauseE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_12ExportClauseE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_17ExportDeclarationE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_17ExportDeclarationE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_8ESModuleE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_8ESModuleE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_17DebuggerStatementE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_17DebuggerStatementE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_4TypeE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_4TypeE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_14TypeAnnotationE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_14TypeAnnotationE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_9UiProgramE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_9UiProgramE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_16UiHeaderItemListE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_16UiHeaderItemListE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_17UiPragmaValueListE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_17UiPragmaValueListE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_8UiPragmaE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_8UiPragmaE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_8UiImportE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_8UiImportE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_14UiPublicMemberE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_14UiPublicMemberE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_15UiSourceElementE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_15UiSourceElementE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_18UiObjectDefinitionE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_18UiObjectDefinitionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_19UiObjectInitializerE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_19UiObjectInitializerE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_15UiObjectBindingE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_15UiObjectBindingE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_15UiScriptBindingE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_15UiScriptBindingE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_14UiArrayBindingE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_14UiArrayBindingE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_15UiParameterListE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_15UiParameterListE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_18UiObjectMemberListE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_18UiObjectMemberListE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_17UiArrayMemberListE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_17UiArrayMemberListE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_13UiQualifiedIdE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_13UiQualifiedIdE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_17UiEnumDeclarationE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_17UiEnumDeclarationE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_16UiEnumMemberListE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_16UiEnumMemberListE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_18UiVersionSpecifierE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_18UiVersionSpecifierE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_17UiInlineComponentE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_17UiInlineComponentE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_12UiAnnotationE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_12UiAnnotationE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_16UiAnnotationListE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_16UiAnnotationListE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_10UiRequiredE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_10UiRequiredE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QQmlJS_AST_JSVisitor": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8preVisitEPNS0_4NodeE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor9postVisitEPNS0_4NodeE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_14TypeExpressionE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_14TypeExpressionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_14ThisExpressionE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_14ThisExpressionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_20IdentifierExpressionE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_20IdentifierExpressionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_14NullExpressionE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_14NullExpressionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_11TrueLiteralE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_11TrueLiteralE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_12FalseLiteralE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_12FalseLiteralE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_12SuperLiteralE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_12SuperLiteralE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_13StringLiteralE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_13StringLiteralE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_15TemplateLiteralE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_15TemplateLiteralE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_14NumericLiteralE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_14NumericLiteralE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_13RegExpLiteralE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_13RegExpLiteralE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_12ArrayPatternE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_12ArrayPatternE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_13ObjectPatternE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_13ObjectPatternE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_18PatternElementListE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_18PatternElementListE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_19PatternPropertyListE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_19PatternPropertyListE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_14PatternElementE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_14PatternElementE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_15PatternPropertyE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_15PatternPropertyE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_7ElisionE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_7ElisionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_16NestedExpressionE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_16NestedExpressionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_22IdentifierPropertyNameE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_22IdentifierPropertyNameE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_25StringLiteralPropertyNameE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_25StringLiteralPropertyNameE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_26NumericLiteralPropertyNameE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_26NumericLiteralPropertyNameE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_20ComputedPropertyNameE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_20ComputedPropertyNameE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_21ArrayMemberExpressionE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_21ArrayMemberExpressionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_21FieldMemberExpressionE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_21FieldMemberExpressionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_14TaggedTemplateE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_14TaggedTemplateE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_19NewMemberExpressionE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_19NewMemberExpressionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_13NewExpressionE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_13NewExpressionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_14CallExpressionE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_14CallExpressionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_12ArgumentListE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_12ArgumentListE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_23PostIncrementExpressionE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_23PostIncrementExpressionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_23PostDecrementExpressionE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_23PostDecrementExpressionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_16DeleteExpressionE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_16DeleteExpressionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_14VoidExpressionE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_14VoidExpressionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_16TypeOfExpressionE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_16TypeOfExpressionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_22PreIncrementExpressionE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_22PreIncrementExpressionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_22PreDecrementExpressionE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_22PreDecrementExpressionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_19UnaryPlusExpressionE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_19UnaryPlusExpressionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_20UnaryMinusExpressionE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_20UnaryMinusExpressionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_15TildeExpressionE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_15TildeExpressionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_13NotExpressionE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_13NotExpressionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_16BinaryExpressionE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_16BinaryExpressionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_21ConditionalExpressionE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_21ConditionalExpressionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_15CommaExpressionE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_15CommaExpressionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_5BlockE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_5BlockE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_13StatementListE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_13StatementListE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_17VariableStatementE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_17VariableStatementE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_23VariableDeclarationListE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_23VariableDeclarationListE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_14EmptyStatementE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_14EmptyStatementE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_19ExpressionStatementE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_19ExpressionStatementE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_11IfStatementE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_11IfStatementE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_16DoWhileStatementE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_16DoWhileStatementE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_14WhileStatementE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_14WhileStatementE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_12ForStatementE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_12ForStatementE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_16ForEachStatementE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_16ForEachStatementE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_17ContinueStatementE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_17ContinueStatementE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_14BreakStatementE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_14BreakStatementE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_15ReturnStatementE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_15ReturnStatementE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_15YieldExpressionE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_15YieldExpressionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_13WithStatementE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_13WithStatementE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_15SwitchStatementE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_15SwitchStatementE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_9CaseBlockE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_9CaseBlockE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_11CaseClausesE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_11CaseClausesE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_10CaseClauseE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_10CaseClauseE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_13DefaultClauseE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_13DefaultClauseE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_17LabelledStatementE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_17LabelledStatementE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_14ThrowStatementE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_14ThrowStatementE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_12TryStatementE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_12TryStatementE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_5CatchE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_5CatchE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_7FinallyE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_7FinallyE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_19FunctionDeclarationE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_19FunctionDeclarationE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_18FunctionExpressionE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_18FunctionExpressionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_19FormalParameterListE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_19FormalParameterListE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_15ClassExpressionE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_15ClassExpressionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_16ClassDeclarationE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_16ClassDeclarationE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_16ClassElementListE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_16ClassElementListE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_7ProgramE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_7ProgramE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_15NameSpaceImportE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_15NameSpaceImportE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_15ImportSpecifierE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_15ImportSpecifierE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_11ImportsListE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_11ImportsListE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_12NamedImportsE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_12NamedImportsE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_10FromClauseE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_10FromClauseE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_12ImportClauseE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_12ImportClauseE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_17ImportDeclarationE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_17ImportDeclarationE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_15ExportSpecifierE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_15ExportSpecifierE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_11ExportsListE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_11ExportsListE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_12ExportClauseE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_12ExportClauseE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_17ExportDeclarationE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_17ExportDeclarationE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_8ESModuleE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_8ESModuleE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_17DebuggerStatementE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_17DebuggerStatementE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_4TypeE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_4TypeE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_14TypeAnnotationE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_14TypeAnnotationE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_9UiProgramE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_9UiProgramE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_16UiHeaderItemListE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_16UiHeaderItemListE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_17UiPragmaValueListE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_17UiPragmaValueListE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_8UiPragmaE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_8UiPragmaE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_8UiImportE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_8UiImportE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_14UiPublicMemberE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_14UiPublicMemberE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_15UiSourceElementE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_15UiSourceElementE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_18UiObjectDefinitionE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_18UiObjectDefinitionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_19UiObjectInitializerE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_19UiObjectInitializerE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_15UiObjectBindingE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_15UiObjectBindingE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_15UiScriptBindingE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_15UiScriptBindingE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_14UiArrayBindingE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_14UiArrayBindingE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_15UiParameterListE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_15UiParameterListE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_18UiObjectMemberListE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_18UiObjectMemberListE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_17UiArrayMemberListE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_17UiArrayMemberListE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_13UiQualifiedIdE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_13UiQualifiedIdE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_17UiEnumDeclarationE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_17UiEnumDeclarationE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_16UiEnumMemberListE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_16UiEnumMemberListE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_18UiVersionSpecifierE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_18UiVersionSpecifierE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_17UiInlineComponentE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_17UiInlineComponentE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_12UiAnnotationE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_12UiAnnotationE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_16UiAnnotationListE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_16UiAnnotationListE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor5visitEPNS0_10UiRequiredE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlJS3AST9JSVisitor8endVisitEPNS0_10UiRequiredE": [
+      "nothing", "address", "address"
+    ]
+  }
+}

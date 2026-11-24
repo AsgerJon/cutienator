@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickstate_p_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QQuickRevertActionC1Ev": ["address"],
+    "ritual_ZN18QQuickRevertActionC1ERK12QQmlProperty": [
+      "address", "address"
+    ],
+    "ritual_ZN18QQuickRevertActionC1EP22QQuickStateActionEvent": [
+      "address", "address"
+    ],
+    "ritual_ZN18QQuickRevertActionD1Ev": ["nothing", "address"]
+  }
+}

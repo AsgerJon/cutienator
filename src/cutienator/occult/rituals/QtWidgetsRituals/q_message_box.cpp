@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qmessagebox.h, Qt 6.12.0. Changes made here are lost.
+#include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(messagebox)
 #include <QtWidgets/qmessagebox.h>
 #include <QtCore/qstring.h>
 #include <QtWidgets/qabstractbutton.h>
@@ -24,22 +26,60 @@ struct OwnQMessageBox : QMessageBox {
 //  A QMessageBox that Python can take functions over in. Every QMessageBox
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(messagebox)
 typedef bool (*CuteQMessageBoxCall0)(const void *, QEvent *, int *);
+#endif  // QT_CONFIG(messagebox)
+#endif  // !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(messagebox)
 typedef void (*CuteQMessageBoxCall1)(const void *, QResizeEvent *, int *);
+#endif  // QT_CONFIG(messagebox)
+#if QT_CONFIG(messagebox)
 typedef void (*CuteQMessageBoxCall2)(const void *, QShowEvent *, int *);
+#endif  // QT_CONFIG(messagebox)
+#if QT_CONFIG(messagebox)
 typedef void (*CuteQMessageBoxCall3)(const void *, QCloseEvent *, int *);
+#endif  // QT_CONFIG(messagebox)
+#if QT_CONFIG(messagebox)
 typedef void (*CuteQMessageBoxCall4)(const void *, QKeyEvent *, int *);
+#endif  // QT_CONFIG(messagebox)
+#if QT_CONFIG(messagebox)
 typedef void (*CuteQMessageBoxCall5)(const void *, QEvent *, int *);
+#endif  // QT_CONFIG(messagebox)
+#if QT_CONFIG(dialog)
 typedef void (*CuteQMessageBoxCall6)(const void *, bool, int *);
+#endif  // QT_CONFIG(dialog)
+#if QT_CONFIG(dialog)
 typedef const QSize * (*CuteQMessageBoxCall7)(const void *, int *);
+#endif  // QT_CONFIG(dialog)
+#if QT_CONFIG(dialog)
 typedef const QSize * (*CuteQMessageBoxCall8)(const void *, int *);
+#endif  // QT_CONFIG(dialog)
+#if QT_CONFIG(dialog)
 typedef void (*CuteQMessageBoxCall9)(const void *, int *);
+#endif  // QT_CONFIG(dialog)
+#if QT_CONFIG(dialog)
 typedef int (*CuteQMessageBoxCall10)(const void *, int *);
+#endif  // QT_CONFIG(dialog)
+#if QT_CONFIG(dialog)
 typedef void (*CuteQMessageBoxCall11)(const void *, int, int *);
+#endif  // QT_CONFIG(dialog)
+#if QT_CONFIG(dialog)
 typedef void (*CuteQMessageBoxCall12)(const void *, int *);
+#endif  // QT_CONFIG(dialog)
+#if QT_CONFIG(dialog)
 typedef void (*CuteQMessageBoxCall13)(const void *, int *);
+#endif  // QT_CONFIG(dialog)
+#if !defined(QT_NO_CONTEXTMENU)
+#if QT_CONFIG(dialog)
 typedef void (*CuteQMessageBoxCall14)(const void *, QContextMenuEvent *, int *);
+#endif  // QT_CONFIG(dialog)
+#endif  // !defined(QT_NO_CONTEXTMENU)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(dialog)
 typedef bool (*CuteQMessageBoxCall15)(const void *, QObject *, QEvent *, int *);
+#endif  // QT_CONFIG(dialog)
+#endif  // !defined(QT_NO_QOBJECT)
 typedef int (*CuteQMessageBoxCall16)(const void *, int *);
 typedef int (*CuteQMessageBoxCall17)(const void *, int, int *);
 typedef bool (*CuteQMessageBoxCall18)(const void *, int *);
@@ -48,7 +88,9 @@ typedef void (*CuteQMessageBoxCall20)(const void *, QMouseEvent *, int *);
 typedef void (*CuteQMessageBoxCall21)(const void *, QMouseEvent *, int *);
 typedef void (*CuteQMessageBoxCall22)(const void *, QMouseEvent *, int *);
 typedef void (*CuteQMessageBoxCall23)(const void *, QMouseEvent *, int *);
+#if QT_CONFIG(wheelevent)
 typedef void (*CuteQMessageBoxCall24)(const void *, QWheelEvent *, int *);
+#endif  // QT_CONFIG(wheelevent)
 typedef void (*CuteQMessageBoxCall25)(const void *, QKeyEvent *, int *);
 typedef void (*CuteQMessageBoxCall26)(const void *, QFocusEvent *, int *);
 typedef void (*CuteQMessageBoxCall27)(const void *, QFocusEvent *, int *);
@@ -56,12 +98,24 @@ typedef void (*CuteQMessageBoxCall28)(const void *, QEnterEvent *, int *);
 typedef void (*CuteQMessageBoxCall29)(const void *, QEvent *, int *);
 typedef void (*CuteQMessageBoxCall30)(const void *, QPaintEvent *, int *);
 typedef void (*CuteQMessageBoxCall31)(const void *, QMoveEvent *, int *);
+#if QT_CONFIG(tabletevent)
 typedef void (*CuteQMessageBoxCall32)(const void *, QTabletEvent *, int *);
+#endif  // QT_CONFIG(tabletevent)
+#if !defined(QT_NO_ACTION)
 typedef void (*CuteQMessageBoxCall33)(const void *, QActionEvent *, int *);
+#endif  // !defined(QT_NO_ACTION)
+#if QT_CONFIG(draganddrop)
 typedef void (*CuteQMessageBoxCall34)(const void *, QDragEnterEvent *, int *);
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
 typedef void (*CuteQMessageBoxCall35)(const void *, QDragMoveEvent *, int *);
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
 typedef void (*CuteQMessageBoxCall36)(const void *, QDragLeaveEvent *, int *);
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
 typedef void (*CuteQMessageBoxCall37)(const void *, QDropEvent *, int *);
+#endif  // QT_CONFIG(draganddrop)
 typedef void (*CuteQMessageBoxCall38)(const void *, QHideEvent *, int *);
 typedef int (*CuteQMessageBoxCall39)(const void *, int, int *);
 typedef void (*CuteQMessageBoxCall40)(const void *, QPainter *, int *);
@@ -70,81 +124,129 @@ typedef void * (*CuteQMessageBoxCall42)(const void *, int *);
 typedef void (*CuteQMessageBoxCall43)(const void *, QInputMethodEvent *, int *);
 typedef const QVariant * (*CuteQMessageBoxCall44)(const void *, int, int *);
 typedef bool (*CuteQMessageBoxCall45)(const void *, bool, int *);
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQMessageBoxCall46)(const void *, QTimerEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQMessageBoxCall47)(const void *, QChildEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQMessageBoxCall48)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQMessageBoxCall49)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQMessageBoxCall50)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 class CuteQMessageBox : public QMessageBox {
 public:
   using QMessageBox::QMessageBox;
   void *taken[51] = {};
 
   bool take(const char *key, void *call) {
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(messagebox)
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[0] = call;
       return true;
     }
+#endif  // QT_CONFIG(messagebox)
+#endif  // !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(messagebox)
     if (!std::strcmp(key, "_ZN7QWidget11resizeEventEP12QResizeEvent")) {
       taken[1] = call;
       return true;
     }
+#endif  // QT_CONFIG(messagebox)
+#if QT_CONFIG(messagebox)
     if (!std::strcmp(key, "_ZN7QWidget9showEventEP10QShowEvent")) {
       taken[2] = call;
       return true;
     }
+#endif  // QT_CONFIG(messagebox)
+#if QT_CONFIG(messagebox)
     if (!std::strcmp(key, "_ZN7QWidget10closeEventEP11QCloseEvent")) {
       taken[3] = call;
       return true;
     }
+#endif  // QT_CONFIG(messagebox)
+#if QT_CONFIG(messagebox)
     if (!std::strcmp(key, "_ZN7QWidget13keyPressEventEP9QKeyEvent")) {
       taken[4] = call;
       return true;
     }
+#endif  // QT_CONFIG(messagebox)
+#if QT_CONFIG(messagebox)
     if (!std::strcmp(key, "_ZN7QWidget11changeEventEP6QEvent")) {
       taken[5] = call;
       return true;
     }
+#endif  // QT_CONFIG(messagebox)
+#if QT_CONFIG(dialog)
     if (!std::strcmp(key, "_ZN7QWidget10setVisibleEb")) {
       taken[6] = call;
       return true;
     }
+#endif  // QT_CONFIG(dialog)
+#if QT_CONFIG(dialog)
     if (!std::strcmp(key, "_ZNK7QWidget8sizeHintEv")) {
       taken[7] = call;
       return true;
     }
+#endif  // QT_CONFIG(dialog)
+#if QT_CONFIG(dialog)
     if (!std::strcmp(key, "_ZNK7QWidget15minimumSizeHintEv")) {
       taken[8] = call;
       return true;
     }
+#endif  // QT_CONFIG(dialog)
+#if QT_CONFIG(dialog)
     if (!std::strcmp(key, "_ZN7QDialog4openEv")) {
       taken[9] = call;
       return true;
     }
+#endif  // QT_CONFIG(dialog)
+#if QT_CONFIG(dialog)
     if (!std::strcmp(key, "_ZN7QDialog4execEv")) {
       taken[10] = call;
       return true;
     }
+#endif  // QT_CONFIG(dialog)
+#if QT_CONFIG(dialog)
     if (!std::strcmp(key, "_ZN7QDialog4doneEi")) {
       taken[11] = call;
       return true;
     }
+#endif  // QT_CONFIG(dialog)
+#if QT_CONFIG(dialog)
     if (!std::strcmp(key, "_ZN7QDialog6acceptEv")) {
       taken[12] = call;
       return true;
     }
+#endif  // QT_CONFIG(dialog)
+#if QT_CONFIG(dialog)
     if (!std::strcmp(key, "_ZN7QDialog6rejectEv")) {
       taken[13] = call;
       return true;
     }
+#endif  // QT_CONFIG(dialog)
+#if !defined(QT_NO_CONTEXTMENU)
+#if QT_CONFIG(dialog)
     if (!std::strcmp(key, "_ZN7QWidget16contextMenuEventEP17QContextMenuEvent")) {
       taken[14] = call;
       return true;
     }
+#endif  // QT_CONFIG(dialog)
+#endif  // !defined(QT_NO_CONTEXTMENU)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(dialog)
     if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[15] = call;
       return true;
     }
+#endif  // QT_CONFIG(dialog)
+#endif  // !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZNK12QPaintDevice7devTypeEv")) {
       taken[16] = call;
       return true;
@@ -177,10 +279,12 @@ public:
       taken[23] = call;
       return true;
     }
+#if QT_CONFIG(wheelevent)
     if (!std::strcmp(key, "_ZN7QWidget10wheelEventEP11QWheelEvent")) {
       taken[24] = call;
       return true;
     }
+#endif  // QT_CONFIG(wheelevent)
     if (!std::strcmp(key, "_ZN7QWidget15keyReleaseEventEP9QKeyEvent")) {
       taken[25] = call;
       return true;
@@ -209,30 +313,42 @@ public:
       taken[31] = call;
       return true;
     }
+#if QT_CONFIG(tabletevent)
     if (!std::strcmp(key, "_ZN7QWidget11tabletEventEP12QTabletEvent")) {
       taken[32] = call;
       return true;
     }
+#endif  // QT_CONFIG(tabletevent)
+#if !defined(QT_NO_ACTION)
     if (!std::strcmp(key, "_ZN7QWidget11actionEventEP12QActionEvent")) {
       taken[33] = call;
       return true;
     }
+#endif  // !defined(QT_NO_ACTION)
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget14dragEnterEventEP15QDragEnterEvent")) {
       taken[34] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget13dragMoveEventEP14QDragMoveEvent")) {
       taken[35] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget14dragLeaveEventEP15QDragLeaveEvent")) {
       taken[36] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget9dropEventEP10QDropEvent")) {
       taken[37] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget9hideEventEP10QHideEvent")) {
       taken[38] = call;
       return true;
@@ -265,29 +381,41 @@ public:
       taken[45] = call;
       return true;
     }
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[46] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[47] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[48] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[49] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
       taken[50] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
     return false;
   }
 
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(messagebox)
   //  bool QMessageBox::event(QEvent *e)
   bool event(QEvent *e) override {
     if (taken[0]) {
@@ -298,7 +426,10 @@ public:
     }
     return QMessageBox::event(e);
   }
+#endif  // QT_CONFIG(messagebox)
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if QT_CONFIG(messagebox)
   //  void QMessageBox::resizeEvent(QResizeEvent *event)
   void resizeEvent(QResizeEvent *event) override {
     if (taken[1]) {
@@ -309,7 +440,9 @@ public:
     }
     QMessageBox::resizeEvent(event);
   }
+#endif  // QT_CONFIG(messagebox)
 
+#if QT_CONFIG(messagebox)
   //  void QMessageBox::showEvent(QShowEvent *event)
   void showEvent(QShowEvent *event) override {
     if (taken[2]) {
@@ -320,7 +453,9 @@ public:
     }
     QMessageBox::showEvent(event);
   }
+#endif  // QT_CONFIG(messagebox)
 
+#if QT_CONFIG(messagebox)
   //  void QMessageBox::closeEvent(QCloseEvent *event)
   void closeEvent(QCloseEvent *event) override {
     if (taken[3]) {
@@ -331,7 +466,9 @@ public:
     }
     QMessageBox::closeEvent(event);
   }
+#endif  // QT_CONFIG(messagebox)
 
+#if QT_CONFIG(messagebox)
   //  void QMessageBox::keyPressEvent(QKeyEvent *event)
   void keyPressEvent(QKeyEvent *event) override {
     if (taken[4]) {
@@ -342,7 +479,9 @@ public:
     }
     QMessageBox::keyPressEvent(event);
   }
+#endif  // QT_CONFIG(messagebox)
 
+#if QT_CONFIG(messagebox)
   //  void QMessageBox::changeEvent(QEvent *event)
   void changeEvent(QEvent *event) override {
     if (taken[5]) {
@@ -353,7 +492,9 @@ public:
     }
     QMessageBox::changeEvent(event);
   }
+#endif  // QT_CONFIG(messagebox)
 
+#if QT_CONFIG(dialog)
   //  void QDialog::setVisible(bool visible)
   void setVisible(bool visible) override {
     if (taken[6]) {
@@ -364,7 +505,9 @@ public:
     }
     QDialog::setVisible(visible);
   }
+#endif  // QT_CONFIG(dialog)
 
+#if QT_CONFIG(dialog)
   //  QSize QDialog::sizeHint() const
   QSize sizeHint() const override {
     if (taken[7]) {
@@ -375,7 +518,9 @@ public:
     }
     return QDialog::sizeHint();
   }
+#endif  // QT_CONFIG(dialog)
 
+#if QT_CONFIG(dialog)
   //  QSize QDialog::minimumSizeHint() const
   QSize minimumSizeHint() const override {
     if (taken[8]) {
@@ -386,7 +531,9 @@ public:
     }
     return QDialog::minimumSizeHint();
   }
+#endif  // QT_CONFIG(dialog)
 
+#if QT_CONFIG(dialog)
   //  void QDialog::open()
   void open() override {
     if (taken[9]) {
@@ -397,7 +544,9 @@ public:
     }
     QDialog::open();
   }
+#endif  // QT_CONFIG(dialog)
 
+#if QT_CONFIG(dialog)
   //  int QDialog::exec()
   int exec() override {
     if (taken[10]) {
@@ -408,7 +557,9 @@ public:
     }
     return QDialog::exec();
   }
+#endif  // QT_CONFIG(dialog)
 
+#if QT_CONFIG(dialog)
   //  void QDialog::done(int a0)
   void done(int a0) override {
     if (taken[11]) {
@@ -419,7 +570,9 @@ public:
     }
     QDialog::done(a0);
   }
+#endif  // QT_CONFIG(dialog)
 
+#if QT_CONFIG(dialog)
   //  void QDialog::accept()
   void accept() override {
     if (taken[12]) {
@@ -430,7 +583,9 @@ public:
     }
     QDialog::accept();
   }
+#endif  // QT_CONFIG(dialog)
 
+#if QT_CONFIG(dialog)
   //  void QDialog::reject()
   void reject() override {
     if (taken[13]) {
@@ -441,7 +596,10 @@ public:
     }
     QDialog::reject();
   }
+#endif  // QT_CONFIG(dialog)
 
+#if !defined(QT_NO_CONTEXTMENU)
+#if QT_CONFIG(dialog)
   //  void QDialog::contextMenuEvent(QContextMenuEvent *a0)
   void contextMenuEvent(QContextMenuEvent *a0) override {
     if (taken[14]) {
@@ -452,7 +610,11 @@ public:
     }
     QDialog::contextMenuEvent(a0);
   }
+#endif  // QT_CONFIG(dialog)
+#endif  // !defined(QT_NO_CONTEXTMENU)
 
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(dialog)
   //  bool QDialog::eventFilter(QObject *a0, QEvent *a1)
   bool eventFilter(QObject *a0, QEvent *a1) override {
     if (taken[15]) {
@@ -463,6 +625,8 @@ public:
     }
     return QDialog::eventFilter(a0, a1);
   }
+#endif  // QT_CONFIG(dialog)
+#endif  // !defined(QT_NO_QOBJECT)
 
   //  int QWidget::devType() const
   int devType() const override {
@@ -552,6 +716,7 @@ public:
     QWidget::mouseMoveEvent(event);
   }
 
+#if QT_CONFIG(wheelevent)
   //  void QWidget::wheelEvent(QWheelEvent *event)
   void wheelEvent(QWheelEvent *event) override {
     if (taken[24]) {
@@ -562,6 +727,7 @@ public:
     }
     QWidget::wheelEvent(event);
   }
+#endif  // QT_CONFIG(wheelevent)
 
   //  void QWidget::keyReleaseEvent(QKeyEvent *event)
   void keyReleaseEvent(QKeyEvent *event) override {
@@ -640,6 +806,7 @@ public:
     QWidget::moveEvent(event);
   }
 
+#if QT_CONFIG(tabletevent)
   //  void QWidget::tabletEvent(QTabletEvent *event)
   void tabletEvent(QTabletEvent *event) override {
     if (taken[32]) {
@@ -650,7 +817,9 @@ public:
     }
     QWidget::tabletEvent(event);
   }
+#endif  // QT_CONFIG(tabletevent)
 
+#if !defined(QT_NO_ACTION)
   //  void QWidget::actionEvent(QActionEvent *event)
   void actionEvent(QActionEvent *event) override {
     if (taken[33]) {
@@ -661,7 +830,9 @@ public:
     }
     QWidget::actionEvent(event);
   }
+#endif  // !defined(QT_NO_ACTION)
 
+#if QT_CONFIG(draganddrop)
   //  void QWidget::dragEnterEvent(QDragEnterEvent *event)
   void dragEnterEvent(QDragEnterEvent *event) override {
     if (taken[34]) {
@@ -672,7 +843,9 @@ public:
     }
     QWidget::dragEnterEvent(event);
   }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
   //  void QWidget::dragMoveEvent(QDragMoveEvent *event)
   void dragMoveEvent(QDragMoveEvent *event) override {
     if (taken[35]) {
@@ -683,7 +856,9 @@ public:
     }
     QWidget::dragMoveEvent(event);
   }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
   //  void QWidget::dragLeaveEvent(QDragLeaveEvent *event)
   void dragLeaveEvent(QDragLeaveEvent *event) override {
     if (taken[36]) {
@@ -694,7 +869,9 @@ public:
     }
     QWidget::dragLeaveEvent(event);
   }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
   //  void QWidget::dropEvent(QDropEvent *event)
   void dropEvent(QDropEvent *event) override {
     if (taken[37]) {
@@ -705,6 +882,7 @@ public:
     }
     QWidget::dropEvent(event);
   }
+#endif  // QT_CONFIG(draganddrop)
 
   //  void QWidget::hideEvent(QHideEvent *event)
   void hideEvent(QHideEvent *event) override {
@@ -794,6 +972,7 @@ public:
     return QWidget::focusNextPrevChild(next);
   }
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
     if (taken[46]) {
@@ -804,7 +983,9 @@ public:
     }
     QObject::timerEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
     if (taken[47]) {
@@ -815,7 +996,9 @@ public:
     }
     QObject::childEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
     if (taken[48]) {
@@ -826,7 +1009,9 @@ public:
     }
     QObject::customEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
     if (taken[49]) {
@@ -837,7 +1022,9 @@ public:
     }
     QObject::connectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
     if (taken[50]) {
@@ -848,6 +1035,7 @@ public:
     }
     QObject::disconnectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 };
 
 //  const QMetaObject *QMessageBox::metaObject() const
@@ -1176,6 +1364,7 @@ QMessageBox::StandardButton ritual_ZN11QMessageBox11informationEP7QWidgetRK7QStr
       defaultButton);
 }
 
+#if QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
 //  StandardButton QMessageBox::information(QWidget *parent, const QString
 //      &title, const QString &text, StandardButton button0, StandardButton
 //      button1)
@@ -1188,6 +1377,7 @@ QMessageBox::StandardButton ritual_ZN11QMessageBox11informationEP7QWidgetRK7QStr
     QMessageBox::StandardButton button1) {
   return QMessageBox::information(parent, *title, *text, button0, button1);
 }
+#endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
 
 //  StandardButton QMessageBox::question(QWidget *parent, const QString
 //      &title, const QString &text, StandardButtons buttons, StandardButton
@@ -1207,6 +1397,7 @@ QMessageBox::StandardButton ritual_ZN11QMessageBox8questionEP7QWidgetRK7QStringS
       defaultButton);
 }
 
+#if QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
 //  int QMessageBox::question(QWidget *parent, const QString &title, const
 //      QString &text, StandardButton button0, StandardButton button1)
 extern "C" Q_DECL_EXPORT
@@ -1218,6 +1409,7 @@ int ritual_ZN11QMessageBox8questionEP7QWidgetRK7QStringS4_NS_14StandardButtonES5
     QMessageBox::StandardButton button1) {
   return QMessageBox::question(parent, *title, *text, button0, button1);
 }
+#endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
 
 //  StandardButton QMessageBox::warning(QWidget *parent, const QString
 //      &title, const QString &text, StandardButtons buttons, StandardButton
@@ -1237,6 +1429,7 @@ QMessageBox::StandardButton ritual_ZN11QMessageBox7warningEP7QWidgetRK7QStringS4
       defaultButton);
 }
 
+#if QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
 //  int QMessageBox::warning(QWidget *parent, const QString &title, const
 //      QString &text, StandardButton button0, StandardButton button1)
 extern "C" Q_DECL_EXPORT
@@ -1248,6 +1441,7 @@ int ritual_ZN11QMessageBox7warningEP7QWidgetRK7QStringS4_NS_14StandardButtonES5_
     QMessageBox::StandardButton button1) {
   return QMessageBox::warning(parent, *title, *text, button0, button1);
 }
+#endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
 
 //  StandardButton QMessageBox::critical(QWidget *parent, const QString
 //      &title, const QString &text, StandardButtons buttons, StandardButton
@@ -1267,6 +1461,7 @@ QMessageBox::StandardButton ritual_ZN11QMessageBox8criticalEP7QWidgetRK7QStringS
       defaultButton);
 }
 
+#if QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
 //  int QMessageBox::critical(QWidget *parent, const QString &title, const
 //      QString &text, StandardButton button0, StandardButton button1)
 extern "C" Q_DECL_EXPORT
@@ -1278,6 +1473,7 @@ int ritual_ZN11QMessageBox8criticalEP7QWidgetRK7QStringS4_NS_14StandardButtonES5
     QMessageBox::StandardButton button1) {
   return QMessageBox::critical(parent, *title, *text, button0, button1);
 }
+#endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
 
 //  void QMessageBox::about(QWidget *parent, const QString &title, const
 //      QString &text)
@@ -1297,6 +1493,7 @@ void ritual_ZN11QMessageBox7aboutQtEP7QWidgetRK7QString(
   QMessageBox::aboutQt(parent, *title);
 }
 
+#if QT_DEPRECATED_SINCE(6,2)
 //  QMessageBox::QMessageBox(const QString &title, const QString &text, Icon
 //      icon, int button0, int button1, int button2, QWidget *parent,
 //      Qt::WindowFlags f)
@@ -1320,7 +1517,9 @@ QMessageBox *ritual_ZN11QMessageBoxC1ERK7QStringS2_NS_4IconEiiiP7QWidget6QFlagsI
       parent,
       QFlags<Qt::WindowType>::fromInt(f));
 }
+#endif  // QT_DEPRECATED_SINCE(6,2)
 
+#if QT_DEPRECATED_SINCE(6,2)
 //  int QMessageBox::information(QWidget *parent, const QString &title, const
 //      QString &text, int button0, int button1, int button2)
 extern "C" Q_DECL_EXPORT
@@ -1339,7 +1538,9 @@ int ritual_ZN11QMessageBox11informationEP7QWidgetRK7QStringS4_iii(
       button1,
       button2);
 }
+#endif  // QT_DEPRECATED_SINCE(6,2)
 
+#if QT_DEPRECATED_SINCE(6,2)
 //  int QMessageBox::information(QWidget *parent, const QString &title, const
 //      QString &text, const QString &button0Text, const QString
 //      &button1Text, const QString &button2Text, int defaultButtonNumber,
@@ -1364,7 +1565,9 @@ int ritual_ZN11QMessageBox11informationEP7QWidgetRK7QStringS4_S4_S4_S4_ii(
       defaultButtonNumber,
       escapeButtonNumber);
 }
+#endif  // QT_DEPRECATED_SINCE(6,2)
 
+#if QT_DEPRECATED_SINCE(6,2)
 //  int QMessageBox::question(QWidget *parent, const QString &title, const
 //      QString &text, int button0, int button1, int button2)
 extern "C" Q_DECL_EXPORT
@@ -1383,7 +1586,9 @@ int ritual_ZN11QMessageBox8questionEP7QWidgetRK7QStringS4_iii(
       button1,
       button2);
 }
+#endif  // QT_DEPRECATED_SINCE(6,2)
 
+#if QT_DEPRECATED_SINCE(6,2)
 //  int QMessageBox::question(QWidget *parent, const QString &title, const
 //      QString &text, const QString &button0Text, const QString
 //      &button1Text, const QString &button2Text, int defaultButtonNumber,
@@ -1408,7 +1613,9 @@ int ritual_ZN11QMessageBox8questionEP7QWidgetRK7QStringS4_S4_S4_S4_ii(
       defaultButtonNumber,
       escapeButtonNumber);
 }
+#endif  // QT_DEPRECATED_SINCE(6,2)
 
+#if QT_DEPRECATED_SINCE(6,2)
 //  int QMessageBox::warning(QWidget *parent, const QString &title, const
 //      QString &text, int button0, int button1, int button2)
 extern "C" Q_DECL_EXPORT
@@ -1427,7 +1634,9 @@ int ritual_ZN11QMessageBox7warningEP7QWidgetRK7QStringS4_iii(
       button1,
       button2);
 }
+#endif  // QT_DEPRECATED_SINCE(6,2)
 
+#if QT_DEPRECATED_SINCE(6,2)
 //  int QMessageBox::warning(QWidget *parent, const QString &title, const
 //      QString &text, const QString &button0Text, const QString
 //      &button1Text, const QString &button2Text, int defaultButtonNumber,
@@ -1452,7 +1661,9 @@ int ritual_ZN11QMessageBox7warningEP7QWidgetRK7QStringS4_S4_S4_S4_ii(
       defaultButtonNumber,
       escapeButtonNumber);
 }
+#endif  // QT_DEPRECATED_SINCE(6,2)
 
+#if QT_DEPRECATED_SINCE(6,2)
 //  int QMessageBox::critical(QWidget *parent, const QString &title, const
 //      QString &text, int button0, int button1, int button2)
 extern "C" Q_DECL_EXPORT
@@ -1471,7 +1682,9 @@ int ritual_ZN11QMessageBox8criticalEP7QWidgetRK7QStringS4_iii(
       button1,
       button2);
 }
+#endif  // QT_DEPRECATED_SINCE(6,2)
 
+#if QT_DEPRECATED_SINCE(6,2)
 //  int QMessageBox::critical(QWidget *parent, const QString &title, const
 //      QString &text, const QString &button0Text, const QString
 //      &button1Text, const QString &button2Text, int defaultButtonNumber,
@@ -1496,7 +1709,9 @@ int ritual_ZN11QMessageBox8criticalEP7QWidgetRK7QStringS4_S4_S4_S4_ii(
       defaultButtonNumber,
       escapeButtonNumber);
 }
+#endif  // QT_DEPRECATED_SINCE(6,2)
 
+#if QT_DEPRECATED_SINCE(6,2)
 //  QString QMessageBox::buttonText(int button) const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK11QMessageBox10buttonTextEi(
@@ -1504,7 +1719,9 @@ QString *ritual_ZNK11QMessageBox10buttonTextEi(
     int button) {
   return new QString(self->buttonText(button));
 }
+#endif  // QT_DEPRECATED_SINCE(6,2)
 
+#if QT_DEPRECATED_SINCE(6,2)
 //  void QMessageBox::setButtonText(int button, const QString &text)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QMessageBox13setButtonTextEiRK7QString(
@@ -1513,6 +1730,7 @@ void ritual_ZN11QMessageBox13setButtonTextEiRK7QString(
     const QString *text) {
   self->setButtonText(button, *text);
 }
+#endif  // QT_DEPRECATED_SINCE(6,2)
 
 //  QString QMessageBox::informativeText() const
 extern "C" Q_DECL_EXPORT
@@ -1529,12 +1747,15 @@ void ritual_ZN11QMessageBox18setInformativeTextERK7QString(
   self->setInformativeText(*text);
 }
 
+#if QT_CONFIG(textedit)
 //  QString QMessageBox::detailedText() const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK11QMessageBox12detailedTextEv(const QMessageBox *self) {
   return new QString(self->detailedText());
 }
+#endif  // QT_CONFIG(textedit)
 
+#if QT_CONFIG(textedit)
 //  void QMessageBox::setDetailedText(const QString &text)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QMessageBox15setDetailedTextERK7QString(
@@ -1542,6 +1763,7 @@ void ritual_ZN11QMessageBox15setDetailedTextERK7QString(
     const QString *text) {
   self->setDetailedText(*text);
 }
+#endif  // QT_CONFIG(textedit)
 
 //  void QMessageBox::setWindowTitle(const QString &title)
 extern "C" Q_DECL_EXPORT
@@ -1559,12 +1781,14 @@ void ritual_ZN11QMessageBox17setWindowModalityEN2Qt14WindowModalityE(
   self->setWindowModality(windowModality);
 }
 
+#if QT_DEPRECATED_SINCE(6,2)
 //  QPixmap QMessageBox::standardIcon(Icon icon)
 extern "C" Q_DECL_EXPORT
 QPixmap *ritual_ZN11QMessageBox12standardIconENS_4IconE(
     QMessageBox::Icon icon) {
   return new QPixmap(QMessageBox::standardIcon(icon));
 }
+#endif  // QT_DEPRECATED_SINCE(6,2)
 
 //  bool QMessageBox::event(QEvent *e)
 extern "C" Q_DECL_EXPORT
@@ -1669,3 +1893,5 @@ void ritual_own_ZN11QMessageBox11changeEventEP6QEvent(
     QEvent *event) {
   static_cast<OwnQMessageBox *>(self)->OwnQMessageBox::changeEvent(event);
 }
+
+#endif  // QT_CONFIG(messagebox)

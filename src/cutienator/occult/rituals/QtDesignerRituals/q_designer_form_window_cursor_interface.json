@@ -1,0 +1,57 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/abstractformwindowcursor.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN34QDesignerFormWindowCursorInterfaceD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK34QDesignerFormWindowCursorInterface10formWindowEv": [
+      "address", "address"
+    ],
+    "ritual_ZN34QDesignerFormWindowCursorInterface12movePositionENS_13MoveOperationENS_8MoveModeE": [
+      "bool", "address", "int", "int"
+    ],
+    "ritual_ZNK34QDesignerFormWindowCursorInterface8positionEv": [
+      "int", "address"
+    ],
+    "ritual_ZN34QDesignerFormWindowCursorInterface11setPositionEiNS_8MoveModeE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK34QDesignerFormWindowCursorInterface7currentEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK34QDesignerFormWindowCursorInterface11widgetCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK34QDesignerFormWindowCursorInterface6widgetEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK34QDesignerFormWindowCursorInterface12hasSelectionEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK34QDesignerFormWindowCursorInterface19selectedWidgetCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK34QDesignerFormWindowCursorInterface14selectedWidgetEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN34QDesignerFormWindowCursorInterface11setPropertyERK7QStringRK8QVariant": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZN34QDesignerFormWindowCursorInterface17setWidgetPropertyEP7QWidgetRK7QStringRK8QVariant": [
+      "nothing", "address", "address", "text", "address"
+    ],
+    "ritual_ZN34QDesignerFormWindowCursorInterface19resetWidgetPropertyEP7QWidgetRK7QString": [
+      "nothing", "address", "address", "text"
+    ],
+    "ritual_ZNK34QDesignerFormWindowCursorInterface16isWidgetSelectedEP7QWidget": [
+      "bool", "address", "address"
+    ],
+    "ritual_take_QDesignerFormWindowCursorInterface": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

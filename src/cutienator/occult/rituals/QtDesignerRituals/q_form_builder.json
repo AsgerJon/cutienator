@@ -1,0 +1,96 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/formbuilder.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN12QFormBuilderC1Ev": ["address"],
+    "ritual_ZN12QFormBuilderD1Ev": ["nothing", "address"],
+    "ritual_ZNK12QFormBuilder11pluginPathsEv": ["address", "address"],
+    "ritual_ZN12QFormBuilder16clearPluginPathsEv": ["nothing", "address"],
+    "ritual_ZN12QFormBuilder13addPluginPathERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN12QFormBuilder13setPluginPathERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12QFormBuilder13customWidgetsEv": ["address", "address"],
+    "ritual_ZN12QFormBuilder6createEP5DomUIP7QWidget": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN12QFormBuilder6createEP9DomWidgetP7QWidget": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN12QFormBuilder6createEP9DomLayoutP7QLayoutP7QWidget": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN12QFormBuilder6createEP13DomLayoutItemP7QLayoutP7QWidget": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN12QFormBuilder6createEP9DomActionP7QObject": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN12QFormBuilder6createEP14DomActionGroupP7QObject": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN12QFormBuilder12createWidgetERK7QStringP7QWidgetS2_": [
+      "address", "address", "text", "address", "text"
+    ],
+    "ritual_ZN12QFormBuilder12createLayoutERK7QStringP7QObjectS2_": [
+      "address", "address", "text", "address", "text"
+    ],
+    "ritual_ZN12QFormBuilder17createConnectionsEP14DomConnectionsP7QWidget": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN12QFormBuilder7addItemEP13DomLayoutItemP11QLayoutItemP7QLayout": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZN12QFormBuilder7addItemEP9DomWidgetP7QWidgetS3_": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZN12QFormBuilder19updateCustomWidgetsEv": ["nothing", "address"],
+    "ritual_ZN12QFormBuilder15applyPropertiesEP7QObjectRK5QListIP11DomPropertyE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN12QFormBuilder12widgetByNameEP7QWidgetRK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_take_QFormBuilder": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN12QFormBuilder6createEP5DomUIP7QWidget": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN12QFormBuilder6createEP9DomWidgetP7QWidget": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN12QFormBuilder6createEP9DomLayoutP7QLayoutP7QWidget": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN12QFormBuilder6createEP13DomLayoutItemP7QLayoutP7QWidget": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN12QFormBuilder6createEP9DomActionP7QObject": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN12QFormBuilder6createEP14DomActionGroupP7QObject": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN12QFormBuilder12createWidgetERK7QStringP7QWidgetS2_": [
+      "address", "address", "text", "address", "text"
+    ],
+    "ritual_own_ZN12QFormBuilder12createLayoutERK7QStringP7QObjectS2_": [
+      "address", "address", "text", "address", "text"
+    ],
+    "ritual_own_ZN12QFormBuilder17createConnectionsEP14DomConnectionsP7QWidget": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN12QFormBuilder7addItemEP13DomLayoutItemP11QLayoutItemP7QLayout": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN12QFormBuilder7addItemEP9DomWidgetP7QWidgetS3_": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN12QFormBuilder19updateCustomWidgetsEv": [
+      "nothing", "address"
+    ]
+  }
+}

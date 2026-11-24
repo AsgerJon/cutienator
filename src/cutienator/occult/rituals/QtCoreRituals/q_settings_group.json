@@ -1,0 +1,20 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qsettings_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN14QSettingsGroupC1Ev": ["address"],
+    "ritual_ZN14QSettingsGroupC1ERK7QString": ["address", "text"],
+    "ritual_ZN14QSettingsGroupC1ERK7QStringb": ["address", "text", "bool"],
+    "ritual_ZNK14QSettingsGroup4nameEv": ["text", "address"],
+    "ritual_ZNK14QSettingsGroup8toStringEv": ["text", "address"],
+    "ritual_ZNK14QSettingsGroup7isArrayEv": ["bool", "address"],
+    "ritual_ZNK14QSettingsGroup14arraySizeGuessEv": ["long long", "address"],
+    "ritual_ZN14QSettingsGroup13setArrayIndexEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN14QSettingsGroupD1Ev": ["nothing", "address"]
+  }
+}

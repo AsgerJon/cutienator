@@ -1,0 +1,29 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSvg/6.12.0/QtSvg/private/qsvgstyle_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN13QSvgFontStyleC1Ev": ["address"],
+    "ritual_ZN13QSvgFontStyleD1Ev": ["nothing", "address"],
+    "ritual_ZNK13QSvgFontStyle4typeEv": ["unsigned char", "address"],
+    "ritual_ZN13QSvgFontStyle7setSizeEd": ["nothing", "address", "double"],
+    "ritual_ZN13QSvgFontStyle13setTextAnchorE6QFlagsIN2Qt13AlignmentFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN13QSvgFontStyle9setFamilyERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN13QSvgFontStyle8setStyleEN5QFont5StyleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN13QSvgFontStyle10setVariantEN5QFont14CapitalizationE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN13QSvgFontStyle9setWeightEi": ["nothing", "address", "int"],
+    "ritual_ZNK13QSvgFontStyle5qfontEv": ["address", "address"],
+    "ritual_take_QSvgFontStyle": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK13QSvgFontStyle4typeEv": ["unsigned char", "address"]
+  }
+}

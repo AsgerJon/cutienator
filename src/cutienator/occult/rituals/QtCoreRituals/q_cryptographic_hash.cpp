@@ -30,6 +30,7 @@ QCryptographicHash::Algorithm ritual_ZNK18QCryptographicHash9algorithmEv(
   return self->algorithm();
 }
 
+#if QT_DEPRECATED_SINCE(6, 4)
 //  void QCryptographicHash::addData(const char *data, qsizetype length)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QCryptographicHash7addDataEPKcx(
@@ -38,6 +39,7 @@ void ritual_ZN18QCryptographicHash7addDataEPKcx(
     qsizetype length) {
   self->addData(data, length);
 }
+#endif  // QT_DEPRECATED_SINCE(6, 4)
 
 //  void QCryptographicHash::addData(QByteArrayView data)
 extern "C" Q_DECL_EXPORT

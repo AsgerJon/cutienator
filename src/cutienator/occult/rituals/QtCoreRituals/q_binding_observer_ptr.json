@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qproperty_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QBindingObserverPtrC1Ev": ["address"],
+    "ritual_ZN19QBindingObserverPtrC1EP17QPropertyObserver": [
+      "address", "address"
+    ],
+    "ritual_ZN19QBindingObserverPtrD1Ev": ["nothing", "address"],
+    "ritual_ZNK19QBindingObserverPtr7bindingEv": ["address", "address"],
+    "ritual_ZN19QBindingObserverPtrptEv": ["address", "address"]
+  }
+}

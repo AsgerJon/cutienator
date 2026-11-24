@@ -1,0 +1,115 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Particles/6.12.0/QtQuickParticles/private/qquickparticlesystem_p.h",
+    ", Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK20QQuickParticleSystem10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QQuickParticleSystem2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN20QQuickParticleSystemC1EP10QQuickItem": [
+      "address", "address"
+    ],
+    "ritual_ZN20QQuickParticleSystemD1Ev": ["nothing", "address"],
+    "ritual_ZNK20QQuickParticleSystem9isRunningEv": ["bool", "address"],
+    "ritual_ZNK20QQuickParticleSystem5countEv": ["int", "address"],
+    "ritual_ZN20QQuickParticleSystem5startEv": ["nothing", "address"],
+    "ritual_ZN20QQuickParticleSystem4stopEv": ["nothing", "address"],
+    "ritual_ZN20QQuickParticleSystem7restartEv": ["nothing", "address"],
+    "ritual_ZN20QQuickParticleSystem5pauseEv": ["nothing", "address"],
+    "ritual_ZN20QQuickParticleSystem6resumeEv": ["nothing", "address"],
+    "ritual_ZN20QQuickParticleSystem5resetEv": ["nothing", "address"],
+    "ritual_ZN20QQuickParticleSystem10setRunningEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20QQuickParticleSystem9setPausedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK20QQuickParticleSystem8durationEv": ["int", "address"],
+    "ritual_ZN20QQuickParticleSystem17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickParticleSystem15emittersChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickParticleSystem11loadPainterEP21QQuickParticlePainter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickParticleSystem12createEngineEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickParticleSystem19particleStateChangeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQuickParticleSystem12emitParticleEP18QQuickParticleDataP21QQuickParticleEmitter": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN20QQuickParticleSystem8newDatumEibiPK18QQuickParticleData": [
+      "address", "address", "int", "bool", "int", "address"
+    ],
+    "ritual_ZN20QQuickParticleSystem14finishNewDatumEP18QQuickParticleData": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickParticleSystem10moveGroupsEP18QQuickParticleDatai": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN20QQuickParticleSystem15nextSystemIndexEv": ["int", "address"],
+    "ritual_ZN20QQuickParticleSystem10systemSyncEP21QQuickParticlePainter": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN20QQuickParticleSystem25registerParticleGroupDataERK7QStringP23QQuickParticleGroupData": [
+      "int", "address", "text", "address"
+    ],
+    "ritual_ZN20QQuickParticleSystem17updateCurrentTimeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQuickParticleSystem23registerParticlePainterEP21QQuickParticlePainter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickParticleSystem23registerParticleEmitterEP21QQuickParticleEmitter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickParticleSystem32finishRegisteringParticleEmitterEP21QQuickParticleEmitter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickParticleSystem24registerParticleAffectorEP22QQuickParticleAffector": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickParticleSystem21registerParticleGroupEP19QQuickParticleGroup": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickParticleSystem25unregisterParticlePainterEP21QQuickParticlePainter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickParticleSystem25unregisterParticleEmitterEP21QQuickParticleEmitter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickParticleSystem26unregisterParticleAffectorEP22QQuickParticleAffector": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickParticleSystem13stateRedirectEP19QQuickParticleGroupPS_P7QObject": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK20QQuickParticleSystem8isPausedEv": ["bool", "address"],
+    "ritual_ZNK20QQuickParticleSystem7isEmptyEv": ["bool", "address"],
+    "ritual_ZN20QQuickParticleSystem21searchNextFreeGroupIdEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickParticleSystem12emitterAddedEP21QQuickParticleEmitter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickParticleSystem19postProcessEmittersEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickParticleSystem10initGroupsEv": ["nothing", "address"],
+    "ritual_take_QQuickParticleSystem": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK20QQuickParticleSystem8durationEv": ["int", "address"],
+    "ritual_own_ZN20QQuickParticleSystem17componentCompleteEv": [
+      "nothing", "address"
+    ]
+  }
+}

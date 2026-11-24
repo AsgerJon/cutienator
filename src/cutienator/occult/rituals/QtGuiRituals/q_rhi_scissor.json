@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/rhi/qrhi.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN11QRhiScissorC1Ev": ["address"],
+    "ritual_ZN11QRhiScissorC1Eiiii": ["address", "int", "int", "int", "int"],
+    "ritual_ZN11QRhiScissor10setScissorEiiii": [
+      "nothing", "address", "int", "int", "int", "int"
+    ],
+    "ritual_ZeqRK11QRhiScissorS1_": ["bool", "address", "address"],
+    "ritual_ZneRK11QRhiScissorS1_": ["bool", "address", "address"],
+    "ritual_ZN11QRhiScissorD1Ev": ["nothing", "address"]
+  }
+}

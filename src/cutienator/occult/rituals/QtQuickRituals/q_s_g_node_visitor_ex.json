@@ -1,0 +1,80 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qsgadaptationlayer_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN16QSGNodeVisitorExD1Ev": ["nothing", "address"],
+    "ritual_ZN16QSGNodeVisitorEx5visitEP16QSGTransformNode": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN16QSGNodeVisitorEx8endVisitEP16QSGTransformNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QSGNodeVisitorEx5visitEP11QSGClipNode": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN16QSGNodeVisitorEx8endVisitEP11QSGClipNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QSGNodeVisitorEx5visitEP15QSGGeometryNode": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN16QSGNodeVisitorEx8endVisitEP15QSGGeometryNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QSGNodeVisitorEx5visitEP14QSGOpacityNode": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN16QSGNodeVisitorEx8endVisitEP14QSGOpacityNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QSGNodeVisitorEx5visitEP20QSGInternalImageNode": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN16QSGNodeVisitorEx8endVisitEP20QSGInternalImageNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QSGNodeVisitorEx5visitEP14QSGPainterNode": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN16QSGNodeVisitorEx8endVisitEP14QSGPainterNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QSGNodeVisitorEx5visitEP24QSGInternalRectangleNode": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN16QSGNodeVisitorEx8endVisitEP24QSGInternalRectangleNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QSGNodeVisitorEx5visitEP12QSGGlyphNode": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN16QSGNodeVisitorEx8endVisitEP12QSGGlyphNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QSGNodeVisitorEx5visitEP11QSGRootNode": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN16QSGNodeVisitorEx8endVisitEP11QSGRootNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QSGNodeVisitorEx5visitEP13QSGSpriteNode": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN16QSGNodeVisitorEx8endVisitEP13QSGSpriteNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QSGNodeVisitorEx5visitEP13QSGRenderNode": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN16QSGNodeVisitorEx8endVisitEP13QSGRenderNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QSGNodeVisitorEx13visitChildrenEP7QSGNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QSGNodeVisitorEx": ["bool", "address", "chars", "address"]
+  }
+}

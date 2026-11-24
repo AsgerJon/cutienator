@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qiconloader_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN12QIconDirInfoC1ERK7QString": ["address", "text"],
+    "ritual_ZN12QIconDirInfoD1Ev": ["nothing", "address"],
+    "ritual_list_make_QIconDirInfo": ["address"],
+    "ritual_list_add_QIconDirInfo": ["nothing", "address", "address"],
+    "ritual_list_size_QIconDirInfo": ["long long", "address"],
+    "ritual_list_at_QIconDirInfo": ["address", "address", "long long"],
+    "ritual_list_drop_QIconDirInfo": ["nothing", "address"]
+  }
+}

@@ -1,0 +1,183 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquickpopup_p_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QQuickPopupPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK18QQuickPopupPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN18QQuickPopupPrivateC1Ev": ["address"],
+    "ritual_ZN18QQuickPopupPrivate3getEP11QQuickPopup": [
+      "address", "address"
+    ],
+    "ritual_ZN18QQuickPopupPrivate4initEv": ["nothing", "address"],
+    "ritual_ZN18QQuickPopupPrivate13closeOrRejectEv": ["nothing", "address"],
+    "ritual_ZN18QQuickPopupPrivate8tryCloseERK7QPointF6QFlagsIN11QQuickPopup15ClosePolicyFlagEE": [
+      "bool", "address", "address", "int"
+    ],
+    "ritual_ZNK18QQuickPopupPrivate8containsERK7QPointF": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN18QQuickPopupPrivate11acceptTouchERK11QEventPoint": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK18QQuickPopupPrivate10blockInputEP10QQuickItemRK7QPointF": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN18QQuickPopupPrivate11handlePressEP10QQuickItemRK7QPointFm": [
+      "bool", "address", "address", "address", "unsigned long"
+    ],
+    "ritual_ZN18QQuickPopupPrivate10handleMoveEP10QQuickItemRK7QPointFm": [
+      "bool", "address", "address", "address", "unsigned long"
+    ],
+    "ritual_ZN18QQuickPopupPrivate13handleReleaseEP10QQuickItemRK7QPointFm": [
+      "bool", "address", "address", "address", "unsigned long"
+    ],
+    "ritual_ZN18QQuickPopupPrivate24handleReleaseWithoutGrabERK11QEventPoint": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN18QQuickPopupPrivate12handleUngrabEv": ["nothing", "address"],
+    "ritual_ZN18QQuickPopupPrivate16handleMouseEventEP10QQuickItemP11QMouseEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN18QQuickPopupPrivate16handleHoverEventEP10QQuickItemP11QHoverEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN18QQuickPopupPrivate16handleTouchEventEP10QQuickItemP11QTouchEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZNK18QQuickPopupPrivate12windowInsetsEv": ["address", "address"],
+    "ritual_ZNK18QQuickPopupPrivate19windowInsetsTopLeftEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18QQuickPopupPrivate28setEffectivePosFromWindowPosERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQuickPopupPrivate10repositionEv": ["nothing", "address"],
+    "ritual_ZNK18QQuickPopupPrivate14usePopupWindowEv": ["bool", "address"],
+    "ritual_ZN18QQuickPopupPrivate30adjustPopupItemParentAndWindowEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickPopupPrivate13createOverlayEv": ["nothing", "address"],
+    "ritual_ZNK18QQuickPopupPrivate12createDimmerEP13QQmlComponentP11QQuickPopupP10QQuickItem": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN18QQuickPopupPrivate13destroyDimmerEv": ["nothing", "address"],
+    "ritual_ZN18QQuickPopupPrivate13toggleOverlayEv": ["nothing", "address"],
+    "ritual_ZN18QQuickPopupPrivate21updateContentPalettesERK8QPalette": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QQuickPopupPrivate17resolvedPopupTypeEv": [
+      "int", "address"
+    ],
+    "ritual_ZN18QQuickPopupPrivate10showDimmerEv": ["nothing", "address"],
+    "ritual_ZN18QQuickPopupPrivate10hideDimmerEv": ["nothing", "address"],
+    "ritual_ZN18QQuickPopupPrivate12resizeDimmerEv": ["nothing", "address"],
+    "ritual_ZN18QQuickPopupPrivate22prepareEnterTransitionEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN18QQuickPopupPrivate21prepareExitTransitionEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN18QQuickPopupPrivate23finalizeEnterTransitionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickPopupPrivate22finalizeExitTransitionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickPopupPrivate6openedEv": ["nothing", "address"],
+    "ritual_ZNK18QQuickPopupPrivate16popupWindowFlagsEv": ["int", "address"],
+    "ritual_ZN18QQuickPopupPrivate19setPopupWindowFlagsE6QFlagsIN2Qt10WindowTypeEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK18QQuickPopupPrivate10getMarginsEv": ["address", "address"],
+    "ritual_ZN18QQuickPopupPrivate12setTopMarginEdb": [
+      "nothing", "address", "double", "bool"
+    ],
+    "ritual_ZN18QQuickPopupPrivate13setLeftMarginEdb": [
+      "nothing", "address", "double", "bool"
+    ],
+    "ritual_ZN18QQuickPopupPrivate14setRightMarginEdb": [
+      "nothing", "address", "double", "bool"
+    ],
+    "ritual_ZN18QQuickPopupPrivate15setBottomMarginEdb": [
+      "nothing", "address", "double", "bool"
+    ],
+    "ritual_ZN18QQuickPopupPrivate10getAnchorsEv": ["address", "address"],
+    "ritual_ZN18QQuickPopupPrivate13getPositionerEv": ["address", "address"],
+    "ritual_ZN18QQuickPopupPrivate9setWindowEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQuickPopupPrivate13itemDestroyedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QQuickPopupPrivate14defaultPaletteEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18QQuickPopupPrivate22updateChildrenPalettesERK8QPalette": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QQuickPopupPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN18QQuickPopupPrivate11acceptTouchERK11QEventPoint": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZNK18QQuickPopupPrivate10blockInputEP10QQuickItemRK7QPointF": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_own_ZN18QQuickPopupPrivate11handlePressEP10QQuickItemRK7QPointFm": [
+      "bool", "address", "address", "address", "unsigned long"
+    ],
+    "ritual_own_ZN18QQuickPopupPrivate10handleMoveEP10QQuickItemRK7QPointFm": [
+      "bool", "address", "address", "address", "unsigned long"
+    ],
+    "ritual_own_ZN18QQuickPopupPrivate13handleReleaseEP10QQuickItemRK7QPointFm": [
+      "bool", "address", "address", "address", "unsigned long"
+    ],
+    "ritual_own_ZN18QQuickPopupPrivate24handleReleaseWithoutGrabERK11QEventPoint": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN18QQuickPopupPrivate12handleUngrabEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZNK18QQuickPopupPrivate17resolvedPopupTypeEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZN18QQuickPopupPrivate10showDimmerEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN18QQuickPopupPrivate10hideDimmerEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN18QQuickPopupPrivate12resizeDimmerEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN18QQuickPopupPrivate22prepareEnterTransitionEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZN18QQuickPopupPrivate21prepareExitTransitionEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZN18QQuickPopupPrivate23finalizeEnterTransitionEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN18QQuickPopupPrivate22finalizeExitTransitionEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN18QQuickPopupPrivate6openedEv": ["nothing", "address"],
+    "ritual_own_ZN18QQuickPopupPrivate13getPositionerEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN18QQuickPopupPrivate13itemDestroyedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK18QQuickPopupPrivate14defaultPaletteEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN18QQuickPopupPrivate22updateChildrenPalettesERK8QPalette": [
+      "nothing", "address", "address"
+    ]
+  }
+}

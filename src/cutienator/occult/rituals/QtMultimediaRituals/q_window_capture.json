@@ -1,0 +1,36 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtMultimedia/qwindowcapture.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK14QWindowCapture10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QWindowCapture2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN14QWindowCaptureC1EP7QObject": ["address", "address"],
+    "ritual_ZN14QWindowCaptureD1Ev": ["nothing", "address"],
+    "ritual_ZN14QWindowCapture17capturableWindowsEv": ["address"],
+    "ritual_ZNK14QWindowCapture14captureSessionEv": ["address", "address"],
+    "ritual_ZN14QWindowCapture9setWindowE17QCapturableWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QWindowCapture6windowEv": ["address", "address"],
+    "ritual_ZNK14QWindowCapture8isActiveEv": ["bool", "address"],
+    "ritual_ZNK14QWindowCapture5errorEv": ["int", "address"],
+    "ritual_ZNK14QWindowCapture11errorStringEv": ["text", "address"],
+    "ritual_ZN14QWindowCapture9setActiveEb": ["nothing", "address", "bool"],
+    "ritual_ZN14QWindowCapture5startEv": ["nothing", "address"],
+    "ritual_ZN14QWindowCapture4stopEv": ["nothing", "address"],
+    "ritual_ZN14QWindowCapture17setCaptureSessionEP20QMediaCaptureSession": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QWindowCapture21platformWindowCaptureEv": [
+      "address", "address"
+    ],
+    "ritual_ZN14QWindowCapture6d_funcEv": ["address", "address"],
+    "ritual_ZNK14QWindowCapture6d_funcEv": ["address", "address"],
+    "ritual_take_QWindowCapture": ["bool", "address", "chars", "address"]
+  }
+}

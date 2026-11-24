@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/qpermissions.h, Qt 6.12.0. Changes made here are lost.
+#include <QtCore/qglobal.h>
+#if QT_CONFIG(permissions)
 #include <QtCore/qpermissions.h>
 
 //  void QLocationPermission::setAccuracy(Accuracy accuracy)
@@ -51,3 +53,5 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN19QLocationPermissionD1Ev(QLocationPermission *self) {
   delete self;
 }
+
+#endif  // QT_CONFIG(permissions)

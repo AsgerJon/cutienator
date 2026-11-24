@@ -8,6 +8,8 @@
     "ritual_ZN16QCoreApplication2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN16QCoreApplication6d_funcEv": ["address", "address"],
+    "ritual_ZNK16QCoreApplication6d_funcEv": ["address", "address"],
     "ritual_ZN16QCoreApplicationC1ERiPPci": [
       "address", "address", "address", "int"
     ],
@@ -108,6 +110,9 @@
     "ritual_ZN16QCoreApplication5eventEP6QEvent": [
       "bool", "address", "address"
     ],
+    "ritual_ZN16QCoreApplication13compressEventEP6QEventP7QObjectP14QPostEventList": [
+      "bool", "address", "address", "address", "address"
+    ],
     "ritual_ZN16QCoreApplication20sendSpontaneousEventEP7QObjectP6QEvent": [
       "bool", "address", "address"
     ],
@@ -117,12 +122,18 @@
     "ritual_ZN16QCoreApplication12forwardEventEP7QObjectP6QEventS3_": [
       "bool", "address", "address", "address"
     ],
+    "ritual_ZN16QCoreApplication21requestPermissionImplERK11QPermissionPN9QtPrivate15QSlotObjectBaseEPK7QObject": [
+      "nothing", "address", "address", "address", "address"
+    ],
     "ritual_take_QCoreApplication": ["bool", "address", "chars", "address"],
     "ritual_own_ZN16QCoreApplication6notifyEP7QObjectP6QEvent": [
       "bool", "address", "address", "address"
     ],
     "ritual_own_ZN16QCoreApplication5eventEP6QEvent": [
       "bool", "address", "address"
+    ],
+    "ritual_own_ZN16QCoreApplication13compressEventEP6QEventP7QObjectP14QPostEventList": [
+      "bool", "address", "address", "address", "address"
     ]
   }
 }

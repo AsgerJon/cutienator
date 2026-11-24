@@ -1,0 +1,41 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Widgets/6.12.0/QtQuickWidgets/private/qaccessiblequickwidget_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN22QAccessibleQuickWidgetC1EP12QQuickWidget": [
+      "address", "address"
+    ],
+    "ritual_ZN22QAccessibleQuickWidgetD1Ev": ["nothing", "address"],
+    "ritual_ZNK22QAccessibleQuickWidget5childEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK22QAccessibleQuickWidget10childCountEv": ["int", "address"],
+    "ritual_ZNK22QAccessibleQuickWidget12indexOfChildEPK20QAccessibleInterface": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK22QAccessibleQuickWidget7childAtEii": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZN22QAccessibleQuickWidget12repairWindowEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QAccessibleQuickWidget": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK22QAccessibleQuickWidget5childEi": [
+      "address", "address", "int"
+    ],
+    "ritual_own_ZNK22QAccessibleQuickWidget10childCountEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZNK22QAccessibleQuickWidget12indexOfChildEPK20QAccessibleInterface": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZNK22QAccessibleQuickWidget7childAtEii": [
+      "address", "address", "int", "int"
+    ]
+  }
+}

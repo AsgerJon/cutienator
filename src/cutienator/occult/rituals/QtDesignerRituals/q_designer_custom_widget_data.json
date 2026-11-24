@@ -1,0 +1,37 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/pluginmanager_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN25QDesignerCustomWidgetDataC1ERK7QString": ["address", "text"],
+    "ritual_ZN25QDesignerCustomWidgetData8parseXmlERK7QStringS2_PS0_": [
+      "int", "address", "text", "text", "address"
+    ],
+    "ritual_ZN25QDesignerCustomWidgetDataC1ERKS_": ["address", "address"],
+    "ritual_ZN25QDesignerCustomWidgetDataD1Ev": ["nothing", "address"],
+    "ritual_ZNK25QDesignerCustomWidgetData6isNullEv": ["bool", "address"],
+    "ritual_ZNK25QDesignerCustomWidgetData10pluginPathEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK25QDesignerCustomWidgetData12xmlClassNameEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK25QDesignerCustomWidgetData11xmlLanguageEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK25QDesignerCustomWidgetData16xmlAddPageMethodEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK25QDesignerCustomWidgetData10xmlExtendsEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK25QDesignerCustomWidgetData14xmlDisplayNameEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK25QDesignerCustomWidgetData15propertyToolTipERK7QString": [
+      "text", "address", "text"
+    ]
+  }
+}

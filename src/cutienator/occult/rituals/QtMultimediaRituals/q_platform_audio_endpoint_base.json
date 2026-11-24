@@ -1,0 +1,56 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtMultimedia/6.12.0/QtMultimedia/private/qaudiosystem_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK26QPlatformAudioEndpointBase10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QPlatformAudioEndpointBase2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN26QPlatformAudioEndpointBaseC1E12QAudioDeviceRK12QAudioFormatP7QObject": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN26QPlatformAudioEndpointBaseD1Ev": ["nothing", "address"],
+    "ritual_ZNK26QPlatformAudioEndpointBase5errorEv": ["int", "address"],
+    "ritual_ZNK26QPlatformAudioEndpointBase5stateEv": ["int", "address"],
+    "ritual_ZN26QPlatformAudioEndpointBase8setErrorEN6QAudio5ErrorE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK26QPlatformAudioEndpointBase17isFormatSupportedERK12QAudioFormat": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK26QPlatformAudioEndpointBase6formatEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QPlatformAudioEndpointBase9setVolumeEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK26QPlatformAudioEndpointBase6volumeEv": ["float", "address"],
+    "ritual_ZN26QPlatformAudioEndpointBase17updateStreamStateEN6QAudio5StateE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN26QPlatformAudioEndpointBase16updateStreamIdleEbNS_15EmitStateSignalE": [
+      "nothing", "address", "bool", "unsigned char"
+    ],
+    "ritual_ZN26QPlatformAudioEndpointBase10inferStateEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QPlatformAudioEndpointBase": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK26QPlatformAudioEndpointBase5stateEv": ["int", "address"],
+    "ritual_own_ZN26QPlatformAudioEndpointBase8setErrorEN6QAudio5ErrorE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZNK26QPlatformAudioEndpointBase17isFormatSupportedERK12QAudioFormat": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN26QPlatformAudioEndpointBase9setVolumeEf": [
+      "nothing", "address", "float"
+    ]
+  }
+}

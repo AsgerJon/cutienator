@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qpalette_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QPalettePrivateC1Ev": ["address"],
+    "ritual_ZN15QPalettePrivate15colorRoleOffsetEN8QPalette10ColorGroupE": [
+      "unsigned long long", "int"
+    ],
+    "ritual_ZN15QPalettePrivate11bitPositionEN8QPalette10ColorGroupENS0_9ColorRoleE": [
+      "unsigned long long", "int", "int"
+    ],
+    "ritual_ZN15QPalettePrivateD1Ev": ["nothing", "address"]
+  }
+}

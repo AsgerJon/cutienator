@@ -1,0 +1,14 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore5Compat/6.12.0/QtCore5Compat/private/qbinaryjsonarray_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN16QBinaryJsonArrayC1Ev": ["address"],
+    "ritual_ZN16QBinaryJsonArrayD1Ev": ["nothing", "address"],
+    "ritual_ZN16QBinaryJsonArray6detachEj": [
+      "bool", "address", "unsigned int"
+    ]
+  }
+}

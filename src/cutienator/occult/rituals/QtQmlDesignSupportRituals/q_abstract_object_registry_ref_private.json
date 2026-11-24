@@ -1,0 +1,30 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQmlDe",
+    "signSupport/6.12.0/QtQmlDesignSupport/private/qabstractobjectregis",
+    "tryref_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN33QAbstractObjectRegistryRefPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK33QAbstractObjectRegistryRefPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN33QAbstractObjectRegistryRefPrivate17handleObjectAddedEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN33QAbstractObjectRegistryRefPrivate19handleObjectRemovedEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK33QAbstractObjectRegistryRefPrivate3keyEv": [
+      "text", "address"
+    ],
+    "ritual_ZN33QAbstractObjectRegistryRefPrivate20handleInitialObjectsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK33QAbstractObjectRegistryRefPrivate8registryEv": [
+      "address", "address"
+    ]
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtOpenGL/qopenglshaderprogram.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK13QOpenGLShader10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QOpenGLShader2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN13QOpenGLShaderC1E6QFlagsINS_13ShaderTypeBitEEP7QObject": [
+      "address", "int", "address"
+    ],
+    "ritual_ZN13QOpenGLShaderD1Ev": ["nothing", "address"],
+    "ritual_ZNK13QOpenGLShader10shaderTypeEv": ["int", "address"],
+    "ritual_ZN13QOpenGLShader17compileSourceCodeEPKc": [
+      "bool", "address", "chars"
+    ],
+    "ritual_ZN13QOpenGLShader17compileSourceCodeERK10QByteArray": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN13QOpenGLShader17compileSourceCodeERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN13QOpenGLShader17compileSourceFileERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZNK13QOpenGLShader10sourceCodeEv": ["address", "address"],
+    "ritual_ZNK13QOpenGLShader10isCompiledEv": ["bool", "address"],
+    "ritual_ZNK13QOpenGLShader3logEv": ["text", "address"],
+    "ritual_ZN13QOpenGLShader16hasOpenGLShadersE6QFlagsINS_13ShaderTypeBitEEP14QOpenGLContext": [
+      "bool", "int", "address"
+    ],
+    "ritual_take_QOpenGLShader": ["bool", "address", "chars", "address"],
+    "ritual_list_make_QOpenGLShader_ptr": ["address"],
+    "ritual_list_add_QOpenGLShader_ptr": ["nothing", "address", "address"],
+    "ritual_list_size_QOpenGLShader_ptr": ["long long", "address"],
+    "ritual_list_at_QOpenGLShader_ptr": ["address", "address", "long long"],
+    "ritual_list_drop_QOpenGLShader_ptr": ["nothing", "address"]
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmlexpression_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN21QQmlExpressionPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK21QQmlExpressionPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN21QQmlExpressionPrivateC1Ev": ["address"],
+    "ritual_ZN21QQmlExpressionPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN21QQmlExpressionPrivate5valueEPb": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN21QQmlExpressionPrivate7v4valueEPb": [
+      "unsigned long long", "address", "address"
+    ],
+    "ritual_ZNK21QQmlExpressionPrivate27mustCaptureBindablePropertyEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QQmlExpressionPrivate3getEP14QQmlExpression": [
+      "address", "address"
+    ],
+    "ritual_ZN21QQmlExpressionPrivate3getEPS_": ["address", "address"],
+    "ritual_ZNK21QQmlExpressionPrivate20expressionIdentifierEv": [
+      "text", "address"
+    ],
+    "ritual_ZN21QQmlExpressionPrivate17expressionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_cast_QQmlExpressionPrivate_QQmlJavaScriptExpression": [
+      "address", "address"
+    ],
+    "ritual_take_QQmlExpressionPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK21QQmlExpressionPrivate20expressionIdentifierEv": [
+      "text", "address"
+    ],
+    "ritual_own_ZN21QQmlExpressionPrivate17expressionChangedEv": [
+      "nothing", "address"
+    ]
+  }
+}

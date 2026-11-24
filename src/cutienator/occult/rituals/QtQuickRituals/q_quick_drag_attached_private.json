@@ -1,0 +1,54 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickdrag_p_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN25QQuickDragAttachedPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK25QQuickDragAttachedPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN25QQuickDragAttachedPrivate22qt_qmlMarker_anonymousEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QQuickDragAttachedPrivate3getEP18QQuickDragAttached": [
+      "address", "address"
+    ],
+    "ritual_ZN25QQuickDragAttachedPrivateC1Ev": ["address"],
+    "ritual_ZN25QQuickDragAttachedPrivate19itemGeometryChangedEP10QQuickItem20QQuickGeometryChangeRK6QRectF": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN25QQuickDragAttachedPrivate17itemParentChangedEP10QQuickItemS1_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN25QQuickDragAttachedPrivate14updatePositionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QQuickDragAttachedPrivate11restartDragEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QQuickDragAttachedPrivate17deliverEnterEventEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QQuickDragAttachedPrivate16deliverMoveEventEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QQuickDragAttachedPrivate17deliverLeaveEventEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QQuickDragAttachedPrivate12deliverEventEP12QQuickWindowP6QEvent": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN25QQuickDragAttachedPrivate10loadPixmapEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QQuickDragAttachedPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN25QQuickDragAttachedPrivate19itemGeometryChangedEP10QQuickItem20QQuickGeometryChangeRK6QRectF": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN25QQuickDragAttachedPrivate17itemParentChangedEP10QQuickItemS1_": [
+      "nothing", "address", "address", "address"
+    ]
+  }
+}

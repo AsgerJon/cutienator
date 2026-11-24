@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qprogressdialog.h, Qt 6.12.0. Changes made here are lost.
+#include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(progressdialog)
 #include <QtWidgets/qprogressdialog.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qsize.h>
@@ -19,31 +21,69 @@ struct OwnQProgressDialog : QProgressDialog {
 //  A QProgressDialog that Python can take functions over in. Every QProgressDialog
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if QT_CONFIG(progressdialog)
 typedef const QSize * (*CuteQProgressDialogCall0)(const void *, int *);
+#endif  // QT_CONFIG(progressdialog)
+#if QT_CONFIG(progressdialog)
 typedef void (*CuteQProgressDialogCall1)(const void *, QResizeEvent *, int *);
+#endif  // QT_CONFIG(progressdialog)
+#if QT_CONFIG(progressdialog)
 typedef void (*CuteQProgressDialogCall2)(const void *, QCloseEvent *, int *);
+#endif  // QT_CONFIG(progressdialog)
+#if QT_CONFIG(progressdialog)
 typedef void (*CuteQProgressDialogCall3)(const void *, QEvent *, int *);
+#endif  // QT_CONFIG(progressdialog)
+#if QT_CONFIG(progressdialog)
 typedef void (*CuteQProgressDialogCall4)(const void *, QShowEvent *, int *);
+#endif  // QT_CONFIG(progressdialog)
+#if QT_CONFIG(dialog)
 typedef void (*CuteQProgressDialogCall5)(const void *, bool, int *);
+#endif  // QT_CONFIG(dialog)
+#if QT_CONFIG(dialog)
 typedef const QSize * (*CuteQProgressDialogCall6)(const void *, int *);
+#endif  // QT_CONFIG(dialog)
+#if QT_CONFIG(dialog)
 typedef void (*CuteQProgressDialogCall7)(const void *, int *);
+#endif  // QT_CONFIG(dialog)
+#if QT_CONFIG(dialog)
 typedef int (*CuteQProgressDialogCall8)(const void *, int *);
+#endif  // QT_CONFIG(dialog)
+#if QT_CONFIG(dialog)
 typedef void (*CuteQProgressDialogCall9)(const void *, int, int *);
+#endif  // QT_CONFIG(dialog)
+#if QT_CONFIG(dialog)
 typedef void (*CuteQProgressDialogCall10)(const void *, int *);
+#endif  // QT_CONFIG(dialog)
+#if QT_CONFIG(dialog)
 typedef void (*CuteQProgressDialogCall11)(const void *, int *);
+#endif  // QT_CONFIG(dialog)
+#if QT_CONFIG(dialog)
 typedef void (*CuteQProgressDialogCall12)(const void *, QKeyEvent *, int *);
+#endif  // QT_CONFIG(dialog)
+#if !defined(QT_NO_CONTEXTMENU)
+#if QT_CONFIG(dialog)
 typedef void (*CuteQProgressDialogCall13)(const void *, QContextMenuEvent *, int *);
+#endif  // QT_CONFIG(dialog)
+#endif  // !defined(QT_NO_CONTEXTMENU)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(dialog)
 typedef bool (*CuteQProgressDialogCall14)(const void *, QObject *, QEvent *, int *);
+#endif  // QT_CONFIG(dialog)
+#endif  // !defined(QT_NO_QOBJECT)
 typedef int (*CuteQProgressDialogCall15)(const void *, int *);
 typedef int (*CuteQProgressDialogCall16)(const void *, int, int *);
 typedef bool (*CuteQProgressDialogCall17)(const void *, int *);
 typedef void * (*CuteQProgressDialogCall18)(const void *, int *);
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQProgressDialogCall19)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 typedef void (*CuteQProgressDialogCall20)(const void *, QMouseEvent *, int *);
 typedef void (*CuteQProgressDialogCall21)(const void *, QMouseEvent *, int *);
 typedef void (*CuteQProgressDialogCall22)(const void *, QMouseEvent *, int *);
 typedef void (*CuteQProgressDialogCall23)(const void *, QMouseEvent *, int *);
+#if QT_CONFIG(wheelevent)
 typedef void (*CuteQProgressDialogCall24)(const void *, QWheelEvent *, int *);
+#endif  // QT_CONFIG(wheelevent)
 typedef void (*CuteQProgressDialogCall25)(const void *, QKeyEvent *, int *);
 typedef void (*CuteQProgressDialogCall26)(const void *, QFocusEvent *, int *);
 typedef void (*CuteQProgressDialogCall27)(const void *, QFocusEvent *, int *);
@@ -51,12 +91,24 @@ typedef void (*CuteQProgressDialogCall28)(const void *, QEnterEvent *, int *);
 typedef void (*CuteQProgressDialogCall29)(const void *, QEvent *, int *);
 typedef void (*CuteQProgressDialogCall30)(const void *, QPaintEvent *, int *);
 typedef void (*CuteQProgressDialogCall31)(const void *, QMoveEvent *, int *);
+#if QT_CONFIG(tabletevent)
 typedef void (*CuteQProgressDialogCall32)(const void *, QTabletEvent *, int *);
+#endif  // QT_CONFIG(tabletevent)
+#if !defined(QT_NO_ACTION)
 typedef void (*CuteQProgressDialogCall33)(const void *, QActionEvent *, int *);
+#endif  // !defined(QT_NO_ACTION)
+#if QT_CONFIG(draganddrop)
 typedef void (*CuteQProgressDialogCall34)(const void *, QDragEnterEvent *, int *);
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
 typedef void (*CuteQProgressDialogCall35)(const void *, QDragMoveEvent *, int *);
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
 typedef void (*CuteQProgressDialogCall36)(const void *, QDragLeaveEvent *, int *);
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
 typedef void (*CuteQProgressDialogCall37)(const void *, QDropEvent *, int *);
+#endif  // QT_CONFIG(draganddrop)
 typedef void (*CuteQProgressDialogCall38)(const void *, QHideEvent *, int *);
 typedef int (*CuteQProgressDialogCall39)(const void *, int, int *);
 typedef void (*CuteQProgressDialogCall40)(const void *, QPainter *, int *);
@@ -65,77 +117,121 @@ typedef void * (*CuteQProgressDialogCall42)(const void *, int *);
 typedef void (*CuteQProgressDialogCall43)(const void *, QInputMethodEvent *, int *);
 typedef const QVariant * (*CuteQProgressDialogCall44)(const void *, int, int *);
 typedef bool (*CuteQProgressDialogCall45)(const void *, bool, int *);
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQProgressDialogCall46)(const void *, QTimerEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQProgressDialogCall47)(const void *, QChildEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQProgressDialogCall48)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQProgressDialogCall49)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQProgressDialogCall50)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 class CuteQProgressDialog : public QProgressDialog {
 public:
   using QProgressDialog::QProgressDialog;
   void *taken[51] = {};
 
   bool take(const char *key, void *call) {
+#if QT_CONFIG(progressdialog)
     if (!std::strcmp(key, "_ZNK7QWidget8sizeHintEv")) {
       taken[0] = call;
       return true;
     }
+#endif  // QT_CONFIG(progressdialog)
+#if QT_CONFIG(progressdialog)
     if (!std::strcmp(key, "_ZN7QWidget11resizeEventEP12QResizeEvent")) {
       taken[1] = call;
       return true;
     }
+#endif  // QT_CONFIG(progressdialog)
+#if QT_CONFIG(progressdialog)
     if (!std::strcmp(key, "_ZN7QWidget10closeEventEP11QCloseEvent")) {
       taken[2] = call;
       return true;
     }
+#endif  // QT_CONFIG(progressdialog)
+#if QT_CONFIG(progressdialog)
     if (!std::strcmp(key, "_ZN7QWidget11changeEventEP6QEvent")) {
       taken[3] = call;
       return true;
     }
+#endif  // QT_CONFIG(progressdialog)
+#if QT_CONFIG(progressdialog)
     if (!std::strcmp(key, "_ZN7QWidget9showEventEP10QShowEvent")) {
       taken[4] = call;
       return true;
     }
+#endif  // QT_CONFIG(progressdialog)
+#if QT_CONFIG(dialog)
     if (!std::strcmp(key, "_ZN7QWidget10setVisibleEb")) {
       taken[5] = call;
       return true;
     }
+#endif  // QT_CONFIG(dialog)
+#if QT_CONFIG(dialog)
     if (!std::strcmp(key, "_ZNK7QWidget15minimumSizeHintEv")) {
       taken[6] = call;
       return true;
     }
+#endif  // QT_CONFIG(dialog)
+#if QT_CONFIG(dialog)
     if (!std::strcmp(key, "_ZN7QDialog4openEv")) {
       taken[7] = call;
       return true;
     }
+#endif  // QT_CONFIG(dialog)
+#if QT_CONFIG(dialog)
     if (!std::strcmp(key, "_ZN7QDialog4execEv")) {
       taken[8] = call;
       return true;
     }
+#endif  // QT_CONFIG(dialog)
+#if QT_CONFIG(dialog)
     if (!std::strcmp(key, "_ZN7QDialog4doneEi")) {
       taken[9] = call;
       return true;
     }
+#endif  // QT_CONFIG(dialog)
+#if QT_CONFIG(dialog)
     if (!std::strcmp(key, "_ZN7QDialog6acceptEv")) {
       taken[10] = call;
       return true;
     }
+#endif  // QT_CONFIG(dialog)
+#if QT_CONFIG(dialog)
     if (!std::strcmp(key, "_ZN7QDialog6rejectEv")) {
       taken[11] = call;
       return true;
     }
+#endif  // QT_CONFIG(dialog)
+#if QT_CONFIG(dialog)
     if (!std::strcmp(key, "_ZN7QWidget13keyPressEventEP9QKeyEvent")) {
       taken[12] = call;
       return true;
     }
+#endif  // QT_CONFIG(dialog)
+#if !defined(QT_NO_CONTEXTMENU)
+#if QT_CONFIG(dialog)
     if (!std::strcmp(key, "_ZN7QWidget16contextMenuEventEP17QContextMenuEvent")) {
       taken[13] = call;
       return true;
     }
+#endif  // QT_CONFIG(dialog)
+#endif  // !defined(QT_NO_CONTEXTMENU)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(dialog)
     if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[14] = call;
       return true;
     }
+#endif  // QT_CONFIG(dialog)
+#endif  // !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZNK12QPaintDevice7devTypeEv")) {
       taken[15] = call;
       return true;
@@ -152,10 +248,12 @@ public:
       taken[18] = call;
       return true;
     }
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[19] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QWidget15mousePressEventEP11QMouseEvent")) {
       taken[20] = call;
       return true;
@@ -172,10 +270,12 @@ public:
       taken[23] = call;
       return true;
     }
+#if QT_CONFIG(wheelevent)
     if (!std::strcmp(key, "_ZN7QWidget10wheelEventEP11QWheelEvent")) {
       taken[24] = call;
       return true;
     }
+#endif  // QT_CONFIG(wheelevent)
     if (!std::strcmp(key, "_ZN7QWidget15keyReleaseEventEP9QKeyEvent")) {
       taken[25] = call;
       return true;
@@ -204,30 +304,42 @@ public:
       taken[31] = call;
       return true;
     }
+#if QT_CONFIG(tabletevent)
     if (!std::strcmp(key, "_ZN7QWidget11tabletEventEP12QTabletEvent")) {
       taken[32] = call;
       return true;
     }
+#endif  // QT_CONFIG(tabletevent)
+#if !defined(QT_NO_ACTION)
     if (!std::strcmp(key, "_ZN7QWidget11actionEventEP12QActionEvent")) {
       taken[33] = call;
       return true;
     }
+#endif  // !defined(QT_NO_ACTION)
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget14dragEnterEventEP15QDragEnterEvent")) {
       taken[34] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget13dragMoveEventEP14QDragMoveEvent")) {
       taken[35] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget14dragLeaveEventEP15QDragLeaveEvent")) {
       taken[36] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget9dropEventEP10QDropEvent")) {
       taken[37] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget9hideEventEP10QHideEvent")) {
       taken[38] = call;
       return true;
@@ -260,29 +372,40 @@ public:
       taken[45] = call;
       return true;
     }
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[46] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[47] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[48] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[49] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
       taken[50] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
     return false;
   }
 
+#if QT_CONFIG(progressdialog)
   //  QSize QProgressDialog::sizeHint() const
   QSize sizeHint() const override {
     if (taken[0]) {
@@ -293,7 +416,9 @@ public:
     }
     return QProgressDialog::sizeHint();
   }
+#endif  // QT_CONFIG(progressdialog)
 
+#if QT_CONFIG(progressdialog)
   //  void QProgressDialog::resizeEvent(QResizeEvent *event)
   void resizeEvent(QResizeEvent *event) override {
     if (taken[1]) {
@@ -304,7 +429,9 @@ public:
     }
     QProgressDialog::resizeEvent(event);
   }
+#endif  // QT_CONFIG(progressdialog)
 
+#if QT_CONFIG(progressdialog)
   //  void QProgressDialog::closeEvent(QCloseEvent *event)
   void closeEvent(QCloseEvent *event) override {
     if (taken[2]) {
@@ -315,7 +442,9 @@ public:
     }
     QProgressDialog::closeEvent(event);
   }
+#endif  // QT_CONFIG(progressdialog)
 
+#if QT_CONFIG(progressdialog)
   //  void QProgressDialog::changeEvent(QEvent *event)
   void changeEvent(QEvent *event) override {
     if (taken[3]) {
@@ -326,7 +455,9 @@ public:
     }
     QProgressDialog::changeEvent(event);
   }
+#endif  // QT_CONFIG(progressdialog)
 
+#if QT_CONFIG(progressdialog)
   //  void QProgressDialog::showEvent(QShowEvent *event)
   void showEvent(QShowEvent *event) override {
     if (taken[4]) {
@@ -337,7 +468,9 @@ public:
     }
     QProgressDialog::showEvent(event);
   }
+#endif  // QT_CONFIG(progressdialog)
 
+#if QT_CONFIG(dialog)
   //  void QDialog::setVisible(bool visible)
   void setVisible(bool visible) override {
     if (taken[5]) {
@@ -348,7 +481,9 @@ public:
     }
     QDialog::setVisible(visible);
   }
+#endif  // QT_CONFIG(dialog)
 
+#if QT_CONFIG(dialog)
   //  QSize QDialog::minimumSizeHint() const
   QSize minimumSizeHint() const override {
     if (taken[6]) {
@@ -359,7 +494,9 @@ public:
     }
     return QDialog::minimumSizeHint();
   }
+#endif  // QT_CONFIG(dialog)
 
+#if QT_CONFIG(dialog)
   //  void QDialog::open()
   void open() override {
     if (taken[7]) {
@@ -370,7 +507,9 @@ public:
     }
     QDialog::open();
   }
+#endif  // QT_CONFIG(dialog)
 
+#if QT_CONFIG(dialog)
   //  int QDialog::exec()
   int exec() override {
     if (taken[8]) {
@@ -381,7 +520,9 @@ public:
     }
     return QDialog::exec();
   }
+#endif  // QT_CONFIG(dialog)
 
+#if QT_CONFIG(dialog)
   //  void QDialog::done(int a0)
   void done(int a0) override {
     if (taken[9]) {
@@ -392,7 +533,9 @@ public:
     }
     QDialog::done(a0);
   }
+#endif  // QT_CONFIG(dialog)
 
+#if QT_CONFIG(dialog)
   //  void QDialog::accept()
   void accept() override {
     if (taken[10]) {
@@ -403,7 +546,9 @@ public:
     }
     QDialog::accept();
   }
+#endif  // QT_CONFIG(dialog)
 
+#if QT_CONFIG(dialog)
   //  void QDialog::reject()
   void reject() override {
     if (taken[11]) {
@@ -414,7 +559,9 @@ public:
     }
     QDialog::reject();
   }
+#endif  // QT_CONFIG(dialog)
 
+#if QT_CONFIG(dialog)
   //  void QDialog::keyPressEvent(QKeyEvent *a0)
   void keyPressEvent(QKeyEvent *a0) override {
     if (taken[12]) {
@@ -425,7 +572,10 @@ public:
     }
     QDialog::keyPressEvent(a0);
   }
+#endif  // QT_CONFIG(dialog)
 
+#if !defined(QT_NO_CONTEXTMENU)
+#if QT_CONFIG(dialog)
   //  void QDialog::contextMenuEvent(QContextMenuEvent *a0)
   void contextMenuEvent(QContextMenuEvent *a0) override {
     if (taken[13]) {
@@ -436,7 +586,11 @@ public:
     }
     QDialog::contextMenuEvent(a0);
   }
+#endif  // QT_CONFIG(dialog)
+#endif  // !defined(QT_NO_CONTEXTMENU)
 
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(dialog)
   //  bool QDialog::eventFilter(QObject *a0, QEvent *a1)
   bool eventFilter(QObject *a0, QEvent *a1) override {
     if (taken[14]) {
@@ -447,6 +601,8 @@ public:
     }
     return QDialog::eventFilter(a0, a1);
   }
+#endif  // QT_CONFIG(dialog)
+#endif  // !defined(QT_NO_QOBJECT)
 
   //  int QWidget::devType() const
   int devType() const override {
@@ -492,6 +648,7 @@ public:
     return QWidget::paintEngine();
   }
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QWidget::event(QEvent *event)
   bool event(QEvent *event) override {
     if (taken[19]) {
@@ -502,6 +659,7 @@ public:
     }
     return QWidget::event(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
   //  void QWidget::mousePressEvent(QMouseEvent *event)
   void mousePressEvent(QMouseEvent *event) override {
@@ -547,6 +705,7 @@ public:
     QWidget::mouseMoveEvent(event);
   }
 
+#if QT_CONFIG(wheelevent)
   //  void QWidget::wheelEvent(QWheelEvent *event)
   void wheelEvent(QWheelEvent *event) override {
     if (taken[24]) {
@@ -557,6 +716,7 @@ public:
     }
     QWidget::wheelEvent(event);
   }
+#endif  // QT_CONFIG(wheelevent)
 
   //  void QWidget::keyReleaseEvent(QKeyEvent *event)
   void keyReleaseEvent(QKeyEvent *event) override {
@@ -635,6 +795,7 @@ public:
     QWidget::moveEvent(event);
   }
 
+#if QT_CONFIG(tabletevent)
   //  void QWidget::tabletEvent(QTabletEvent *event)
   void tabletEvent(QTabletEvent *event) override {
     if (taken[32]) {
@@ -645,7 +806,9 @@ public:
     }
     QWidget::tabletEvent(event);
   }
+#endif  // QT_CONFIG(tabletevent)
 
+#if !defined(QT_NO_ACTION)
   //  void QWidget::actionEvent(QActionEvent *event)
   void actionEvent(QActionEvent *event) override {
     if (taken[33]) {
@@ -656,7 +819,9 @@ public:
     }
     QWidget::actionEvent(event);
   }
+#endif  // !defined(QT_NO_ACTION)
 
+#if QT_CONFIG(draganddrop)
   //  void QWidget::dragEnterEvent(QDragEnterEvent *event)
   void dragEnterEvent(QDragEnterEvent *event) override {
     if (taken[34]) {
@@ -667,7 +832,9 @@ public:
     }
     QWidget::dragEnterEvent(event);
   }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
   //  void QWidget::dragMoveEvent(QDragMoveEvent *event)
   void dragMoveEvent(QDragMoveEvent *event) override {
     if (taken[35]) {
@@ -678,7 +845,9 @@ public:
     }
     QWidget::dragMoveEvent(event);
   }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
   //  void QWidget::dragLeaveEvent(QDragLeaveEvent *event)
   void dragLeaveEvent(QDragLeaveEvent *event) override {
     if (taken[36]) {
@@ -689,7 +858,9 @@ public:
     }
     QWidget::dragLeaveEvent(event);
   }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
   //  void QWidget::dropEvent(QDropEvent *event)
   void dropEvent(QDropEvent *event) override {
     if (taken[37]) {
@@ -700,6 +871,7 @@ public:
     }
     QWidget::dropEvent(event);
   }
+#endif  // QT_CONFIG(draganddrop)
 
   //  void QWidget::hideEvent(QHideEvent *event)
   void hideEvent(QHideEvent *event) override {
@@ -789,6 +961,7 @@ public:
     return QWidget::focusNextPrevChild(next);
   }
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
     if (taken[46]) {
@@ -799,7 +972,9 @@ public:
     }
     QObject::timerEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
     if (taken[47]) {
@@ -810,7 +985,9 @@ public:
     }
     QObject::childEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
     if (taken[48]) {
@@ -821,7 +998,9 @@ public:
     }
     QObject::customEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
     if (taken[49]) {
@@ -832,7 +1011,9 @@ public:
     }
     QObject::connectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
     if (taken[50]) {
@@ -843,6 +1024,7 @@ public:
     }
     QObject::disconnectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 };
 
 //  const QMetaObject *QProgressDialog::metaObject() const
@@ -1162,3 +1344,5 @@ void ritual_own_ZN15QProgressDialog9showEventEP10QShowEvent(
   static_cast<OwnQProgressDialog *>(self)->OwnQProgressDialog::showEvent(
       event);
 }
+
+#endif  // QT_CONFIG(progressdialog)

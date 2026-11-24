@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmljsengine_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN6QQmlJS10DirectivesD1Ev": ["nothing", "address"],
+    "ritual_ZN6QQmlJS10Directives13pragmaLibraryEv": ["nothing", "address"],
+    "ritual_ZN6QQmlJS10Directives10importFileERK7QStringS3_ii": [
+      "nothing", "address", "text", "text", "int", "int"
+    ],
+    "ritual_ZN6QQmlJS10Directives12importModuleERK7QStringS3_S3_ii": [
+      "nothing", "address", "text", "text", "text", "int", "int"
+    ],
+    "ritual_take_QQmlJS_Directives": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN6QQmlJS10Directives13pragmaLibraryEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN6QQmlJS10Directives10importFileERK7QStringS3_ii": [
+      "nothing", "address", "text", "text", "int", "int"
+    ],
+    "ritual_own_ZN6QQmlJS10Directives12importModuleERK7QStringS3_S3_ii": [
+      "nothing", "address", "text", "text", "text", "int", "int"
+    ]
+  }
+}

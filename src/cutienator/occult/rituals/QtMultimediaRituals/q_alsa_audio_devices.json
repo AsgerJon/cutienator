@@ -1,0 +1,14 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtMultimedia/6.12.0/QtMultimedia/private/qalsaaudiodevices_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QAlsaAudioDevices11backendNameEv": ["address", "address"],
+    "ritual_take_QAlsaAudioDevices": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK17QAlsaAudioDevices11backendNameEv": [
+      "address", "address"
+    ]
+  }
+}

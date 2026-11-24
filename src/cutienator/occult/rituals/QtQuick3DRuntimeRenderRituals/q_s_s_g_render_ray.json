@@ -1,0 +1,23 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgrenderra",
+    "y_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN13QSSGRenderRayC1Ev": ["address"],
+    "ritual_ZN13QSSGRenderRayC1ERK9QVector3DS2_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN13QSSGRenderRay13createRayDataERK10QMatrix4x4RKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN13QSSGRenderRay24createIntersectionResultERKNS_7RayDataERKNS_9HitResultE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN13QSSGRenderRay19intersectWithAABBv2ERKNS_7RayDataERK11QSSGBounds3": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN13QSSGRenderRayD1Ev": ["nothing", "address"]
+  }
+}

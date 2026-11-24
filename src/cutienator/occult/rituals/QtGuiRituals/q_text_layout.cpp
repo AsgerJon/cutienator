@@ -59,6 +59,7 @@ QFont *ritual_ZNK11QTextLayout4fontEv(const QTextLayout *self) {
   return new QFont(self->font());
 }
 
+#if !defined(QT_NO_RAWFONT)
 //  void QTextLayout::setRawFont(const QRawFont &rawFont)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QTextLayout10setRawFontERK8QRawFont(
@@ -66,6 +67,7 @@ void ritual_ZN11QTextLayout10setRawFontERK8QRawFont(
     const QRawFont *rawFont) {
   self->setRawFont(*rawFont);
 }
+#endif  // !defined(QT_NO_RAWFONT)
 
 //  void QTextLayout::setText(const QString &string)
 extern "C" Q_DECL_EXPORT
@@ -294,6 +296,8 @@ qreal ritual_ZNK11QTextLayout12maximumWidthEv(const QTextLayout *self) {
   return self->maximumWidth();
 }
 
+#if !defined(QT_NO_RAWFONT)
+#if QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
 //  QList<QGlyphRun> QTextLayout::glyphRuns(int from, int length,
 //      GlyphRunRetrievalFlags flags) const
 extern "C" Q_DECL_EXPORT
@@ -308,7 +312,11 @@ QList<QGlyphRun> *ritual_ZNK11QTextLayout9glyphRunsEii6QFlagsINS_21GlyphRunRetri
           length,
           QFlags<QTextLayout::GlyphRunRetrievalFlag>::fromInt(flags)));
 }
+#endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+#endif  // !defined(QT_NO_RAWFONT)
 
+#if !defined(QT_NO_RAWFONT)
+#if QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
 //  QList<QGlyphRun> QTextLayout::glyphRuns(int from, int length) const
 extern "C" Q_DECL_EXPORT
 QList<QGlyphRun> *ritual_ZNK11QTextLayout9glyphRunsEii(
@@ -317,9 +325,23 @@ QList<QGlyphRun> *ritual_ZNK11QTextLayout9glyphRunsEii(
     int length) {
   return new QList<QGlyphRun>(self->glyphRuns(from, length));
 }
+#endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+#endif  // !defined(QT_NO_RAWFONT)
+
+//  QTextEngine *QTextLayout::engine() const
+extern "C" Q_DECL_EXPORT
+QTextEngine *ritual_ZNK11QTextLayout6engineEv(const QTextLayout *self) {
+  return self->engine();
+}
 
 //  void QTextLayout::setFlags(int flags)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QTextLayout8setFlagsEi(QTextLayout *self, int flags) {
   self->setFlags(flags);
+}
+
+//  QTextLayout::QTextLayout(QTextEngine *e)
+extern "C" Q_DECL_EXPORT
+QTextLayout *ritual_ZN11QTextLayoutC1EP11QTextEngine(QTextEngine *e) {
+  return new QTextLayout(e);
 }

@@ -1,0 +1,50 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DHelpers/6.12.0/QtQuick3DHelpers/private/extrudedtextgeometry_p.h",
+    ", Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK20ExtrudedTextGeometry10metaObjectEv": ["address", "address"],
+    "ritual_ZN20ExtrudedTextGeometry2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN20ExtrudedTextGeometryC1EP14QQuick3DObject": [
+      "address", "address"
+    ],
+    "ritual_ZN20ExtrudedTextGeometryD1Ev": ["nothing", "address"],
+    "ritual_ZNK20ExtrudedTextGeometry4textEv": ["text", "address"],
+    "ritual_ZN20ExtrudedTextGeometry7setTextERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK20ExtrudedTextGeometry4fontEv": ["address", "address"],
+    "ritual_ZN20ExtrudedTextGeometry7setFontERK5QFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20ExtrudedTextGeometry5depthEv": ["float", "address"],
+    "ritual_ZN20ExtrudedTextGeometry8setDepthEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK20ExtrudedTextGeometry5scaleEv": ["float", "address"],
+    "ritual_ZN20ExtrudedTextGeometry8setScaleEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK20ExtrudedTextGeometry12asynchronousEv": ["bool", "address"],
+    "ritual_ZN20ExtrudedTextGeometry15setAsynchronousEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK20ExtrudedTextGeometry6statusEv": ["int", "address"],
+    "ritual_ZN20ExtrudedTextGeometry16doUpdateGeometryEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20ExtrudedTextGeometry15requestFinishedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20ExtrudedTextGeometry22scheduleGeometryUpdateEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_ExtrudedTextGeometry": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

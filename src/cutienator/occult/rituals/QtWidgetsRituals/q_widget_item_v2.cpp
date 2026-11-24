@@ -1,9 +1,11 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qlayoutitem.h, Qt 6.12.0. Changes made here are lost.
+#include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/qlayoutitem.h>
 #include <QtCore/qsize.h>
 #include <QtCore/qrect.h>
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include "qlayout.h"
 #include "qapplication.h"
 #include "qlayoutengine_p.h"
@@ -11,16 +13,17 @@
 #include "qstyle.h"
 #include "qvariant.h"
 #include "qwidget_p.h"
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
 //  Qt's source, because Qt's library carries it under no name.
 //  Copyright (C) The Qt Company Ltd. It is licensed
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
-//  'inline' put before it.
+//  'inline' put before it where Qt did not write it.
 
 //  from src/widgets/kernel/qlayoutitem.cpp, line 712, as _ZNK13QWidgetItemV212useSizeCacheEv
-inline inline bool QWidgetItemV2::useSizeCache() const
+inline bool QWidgetItemV2::useSizeCache() const
 {
     return wid->d_func()->widgetItem == this;
 }

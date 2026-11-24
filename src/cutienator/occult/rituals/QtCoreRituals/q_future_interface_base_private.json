@@ -1,0 +1,32 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qfutureinterface_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN27QFutureInterfaceBasePrivateC1EN20QFutureInterfaceBase5StateE": [
+      "address", "int"
+    ],
+    "ritual_ZN27QFutureInterfaceBasePrivateD1Ev": ["nothing", "address"],
+    "ritual_ZNK27QFutureInterfaceBasePrivate4poolEv": ["address", "address"],
+    "ritual_ZNK27QFutureInterfaceBasePrivate20internal_resultCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK27QFutureInterfaceBasePrivate24internal_isResultReadyAtEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN27QFutureInterfaceBasePrivate26internal_waitForNextResultEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN27QFutureInterfaceBasePrivate22connectOutputInterfaceEP23QFutureCallOutInterface": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN27QFutureInterfaceBasePrivate25disconnectOutputInterfaceEP23QFutureCallOutInterface": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN27QFutureInterfaceBasePrivate8setStateEN20QFutureInterfaceBase5StateE": [
+      "nothing", "address", "int"
+    ]
+  }
+}

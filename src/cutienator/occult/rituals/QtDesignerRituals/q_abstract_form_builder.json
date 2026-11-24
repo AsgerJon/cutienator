@@ -1,0 +1,332 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/abstractformbuilder.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN20QAbstractFormBuilderC1Ev": ["address"],
+    "ritual_ZN20QAbstractFormBuilderD1Ev": ["nothing", "address"],
+    "ritual_ZNK20QAbstractFormBuilder16workingDirectoryEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QAbstractFormBuilder19setWorkingDirectoryERK4QDir": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QAbstractFormBuilder4loadEP9QIODeviceP7QWidget": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN20QAbstractFormBuilder4saveEP9QIODeviceP7QWidget": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK20QAbstractFormBuilder11errorStringEv": ["text", "address"],
+    "ritual_ZN20QAbstractFormBuilder13loadExtraInfoEP9DomWidgetP7QWidgetS3_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN20QAbstractFormBuilder6createEP5DomUIP7QWidget": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN20QAbstractFormBuilder6createEP9DomWidgetP7QWidget": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN20QAbstractFormBuilder6createEP9DomLayoutP7QLayoutP7QWidget": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN20QAbstractFormBuilder6createEP13DomLayoutItemP7QLayoutP7QWidget": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN20QAbstractFormBuilder6createEP9DomActionP7QObject": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN20QAbstractFormBuilder6createEP14DomActionGroupP7QObject": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN20QAbstractFormBuilder13addMenuActionEP7QAction": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QAbstractFormBuilder15applyPropertiesEP7QObjectRK5QListIP11DomPropertyE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN20QAbstractFormBuilder23applyPropertyInternallyEP7QObjectRK7QStringRK8QVariant": [
+      "bool", "address", "address", "text", "address"
+    ],
+    "ritual_ZN20QAbstractFormBuilder13applyTabStopsEP7QWidgetP11DomTabStops": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN20QAbstractFormBuilder12createWidgetERK7QStringP7QWidgetS2_": [
+      "address", "address", "text", "address", "text"
+    ],
+    "ritual_ZN20QAbstractFormBuilder12createLayoutERK7QStringP7QObjectS2_": [
+      "address", "address", "text", "address", "text"
+    ],
+    "ritual_ZN20QAbstractFormBuilder12createActionEP7QObjectRK7QString": [
+      "address", "address", "address", "text"
+    ],
+    "ritual_ZN20QAbstractFormBuilder17createActionGroupEP7QObjectRK7QString": [
+      "address", "address", "address", "text"
+    ],
+    "ritual_ZN20QAbstractFormBuilder19createCustomWidgetsEP16DomCustomWidgets": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QAbstractFormBuilder17createConnectionsEP14DomConnectionsP7QWidget": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN20QAbstractFormBuilder15createResourcesEP12DomResources": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QAbstractFormBuilder7addItemEP13DomLayoutItemP11QLayoutItemP7QLayout": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZN20QAbstractFormBuilder7addItemEP9DomWidgetP7QWidgetS3_": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZN20QAbstractFormBuilder13saveExtraInfoEP7QWidgetP9DomWidgetS3_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN20QAbstractFormBuilder7saveDomEP5DomUIP7QWidget": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN20QAbstractFormBuilder18createActionRefDomEP7QAction": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN20QAbstractFormBuilder9createDomEP7QWidgetP9DomWidgetb": [
+      "address", "address", "address", "address", "bool"
+    ],
+    "ritual_ZN20QAbstractFormBuilder9createDomEP7QLayoutP9DomLayoutP9DomWidget": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN20QAbstractFormBuilder9createDomEP11QLayoutItemP9DomLayoutP9DomWidget": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN20QAbstractFormBuilder9createDomEP11QSpacerItemP9DomLayoutP9DomWidget": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN20QAbstractFormBuilder9createDomEP7QAction": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN20QAbstractFormBuilder9createDomEP12QActionGroup": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN20QAbstractFormBuilder9createDomEP12QButtonGroup": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN20QAbstractFormBuilder15saveConnectionsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QAbstractFormBuilder17saveCustomWidgetsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QAbstractFormBuilder12saveTabStopsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QAbstractFormBuilder13saveResourcesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QAbstractFormBuilder16saveButtonGroupsEPK7QWidget": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN20QAbstractFormBuilder17computePropertiesEP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK20QAbstractFormBuilder13checkPropertyEP7QObjectRK7QString": [
+      "bool", "address", "address", "text"
+    ],
+    "ritual_ZN20QAbstractFormBuilder14createPropertyEP7QObjectRK7QStringRK8QVariant": [
+      "address", "address", "address", "text", "address"
+    ],
+    "ritual_ZN20QAbstractFormBuilder10layoutInfoEP9DomLayoutP7QObjectPiS4_": [
+      "nothing", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN20QAbstractFormBuilder23loadListWidgetExtraInfoEP9DomWidgetP11QListWidgetP7QWidget": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN20QAbstractFormBuilder23loadTreeWidgetExtraInfoEP9DomWidgetP11QTreeWidgetP7QWidget": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN20QAbstractFormBuilder24loadTableWidgetExtraInfoEP9DomWidgetP12QTableWidgetP7QWidget": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN20QAbstractFormBuilder21loadComboBoxExtraInfoEP9DomWidgetP9QComboBoxP7QWidget": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN20QAbstractFormBuilder19loadButtonExtraInfoEPK9DomWidgetP15QAbstractButtonP7QWidget": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN20QAbstractFormBuilder21loadItemViewExtraInfoEP9DomWidgetP17QAbstractItemViewP7QWidget": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN20QAbstractFormBuilder23saveListWidgetExtraInfoEP11QListWidgetP9DomWidgetS3_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN20QAbstractFormBuilder23saveTreeWidgetExtraInfoEP11QTreeWidgetP9DomWidgetS3_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN20QAbstractFormBuilder24saveTableWidgetExtraInfoEP12QTableWidgetP9DomWidgetS3_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN20QAbstractFormBuilder21saveComboBoxExtraInfoEP9QComboBoxP9DomWidgetS3_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN20QAbstractFormBuilder19saveButtonExtraInfoEPK15QAbstractButtonP9DomWidgetS4_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN20QAbstractFormBuilder21saveItemViewExtraInfoEPK17QAbstractItemViewP9DomWidgetS4_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN20QAbstractFormBuilder18setResourceBuilderEP16QResourceBuilder": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QAbstractFormBuilder15resourceBuilderEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QAbstractFormBuilder12saveResourceERK8QVariant": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN20QAbstractFormBuilder14setTextBuilderEP12QTextBuilder": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QAbstractFormBuilder11textBuilderEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QAbstractFormBuilder8saveTextERK7QStringRK8QVariant": [
+      "address", "address", "text", "address"
+    ],
+    "ritual_ZN20QAbstractFormBuilder9toVariantEPK11QMetaObjectP11DomProperty": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN20QAbstractFormBuilder8toStringEPK9DomString": [
+      "text", "address"
+    ],
+    "ritual_ZN20QAbstractFormBuilder11propertyMapERK5QListIP11DomPropertyE": [
+      "address", "address"
+    ],
+    "ritual_ZN20QAbstractFormBuilder14saveColorGroupERK8QPalette": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN20QAbstractFormBuilder10setupBrushEP8DomBrush": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN20QAbstractFormBuilder9saveBrushERK6QBrush": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN20QAbstractFormBuilder5resetEv": ["nothing", "address"],
+    "ritual_ZN20QAbstractFormBuilder10initializeEPK5DomUI": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QAbstractFormBuilder19toolBarAreaMetaEnumEv": ["address"],
+    "ritual_ZN20QAbstractFormBuilder9domPixmapEPK11DomProperty": [
+      "address", "address"
+    ],
+    "ritual_ZN20QAbstractFormBuilder28toolbarAreaFromDOMAttributesERK5QHashI7QStringP11DomPropertyE": [
+      "int", "address"
+    ],
+    "ritual_take_QAbstractFormBuilder": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN20QAbstractFormBuilder4loadEP9QIODeviceP7QWidget": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN20QAbstractFormBuilder4saveEP9QIODeviceP7QWidget": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN20QAbstractFormBuilder13loadExtraInfoEP9DomWidgetP7QWidgetS3_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN20QAbstractFormBuilder6createEP5DomUIP7QWidget": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN20QAbstractFormBuilder6createEP9DomWidgetP7QWidget": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN20QAbstractFormBuilder6createEP9DomLayoutP7QLayoutP7QWidget": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN20QAbstractFormBuilder6createEP13DomLayoutItemP7QLayoutP7QWidget": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN20QAbstractFormBuilder6createEP9DomActionP7QObject": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN20QAbstractFormBuilder6createEP14DomActionGroupP7QObject": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN20QAbstractFormBuilder13addMenuActionEP7QAction": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20QAbstractFormBuilder13applyTabStopsEP7QWidgetP11DomTabStops": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN20QAbstractFormBuilder12createWidgetERK7QStringP7QWidgetS2_": [
+      "address", "address", "text", "address", "text"
+    ],
+    "ritual_own_ZN20QAbstractFormBuilder12createLayoutERK7QStringP7QObjectS2_": [
+      "address", "address", "text", "address", "text"
+    ],
+    "ritual_own_ZN20QAbstractFormBuilder12createActionEP7QObjectRK7QString": [
+      "address", "address", "address", "text"
+    ],
+    "ritual_own_ZN20QAbstractFormBuilder17createActionGroupEP7QObjectRK7QString": [
+      "address", "address", "address", "text"
+    ],
+    "ritual_own_ZN20QAbstractFormBuilder19createCustomWidgetsEP16DomCustomWidgets": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20QAbstractFormBuilder17createConnectionsEP14DomConnectionsP7QWidget": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN20QAbstractFormBuilder15createResourcesEP12DomResources": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20QAbstractFormBuilder7addItemEP13DomLayoutItemP11QLayoutItemP7QLayout": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN20QAbstractFormBuilder7addItemEP9DomWidgetP7QWidgetS3_": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN20QAbstractFormBuilder13saveExtraInfoEP7QWidgetP9DomWidgetS3_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN20QAbstractFormBuilder7saveDomEP5DomUIP7QWidget": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN20QAbstractFormBuilder18createActionRefDomEP7QAction": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN20QAbstractFormBuilder9createDomEP7QWidgetP9DomWidgetb": [
+      "address", "address", "address", "address", "bool"
+    ],
+    "ritual_own_ZN20QAbstractFormBuilder9createDomEP7QLayoutP9DomLayoutP9DomWidget": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN20QAbstractFormBuilder9createDomEP11QLayoutItemP9DomLayoutP9DomWidget": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN20QAbstractFormBuilder9createDomEP11QSpacerItemP9DomLayoutP9DomWidget": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN20QAbstractFormBuilder9createDomEP7QAction": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN20QAbstractFormBuilder9createDomEP12QActionGroup": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN20QAbstractFormBuilder15saveConnectionsEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN20QAbstractFormBuilder17saveCustomWidgetsEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN20QAbstractFormBuilder12saveTabStopsEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN20QAbstractFormBuilder13saveResourcesEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK20QAbstractFormBuilder13checkPropertyEP7QObjectRK7QString": [
+      "bool", "address", "address", "text"
+    ],
+    "ritual_own_ZN20QAbstractFormBuilder14createPropertyEP7QObjectRK7QStringRK8QVariant": [
+      "address", "address", "address", "text", "address"
+    ]
+  }
+}

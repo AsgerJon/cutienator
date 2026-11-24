@@ -1,0 +1,77 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtPrintSupport/qprintpreviewwidget.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZNK19QPrintPreviewWidget10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QPrintPreviewWidget2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN19QPrintPreviewWidgetC1EP8QPrinterP7QWidget6QFlagsIN2Qt10WindowTypeEE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN19QPrintPreviewWidgetC1EP7QWidget6QFlagsIN2Qt10WindowTypeEE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN19QPrintPreviewWidgetD1Ev": ["nothing", "address"],
+    "ritual_ZNK19QPrintPreviewWidget10zoomFactorEv": ["double", "address"],
+    "ritual_ZNK19QPrintPreviewWidget11orientationEv": ["int", "address"],
+    "ritual_ZNK19QPrintPreviewWidget8viewModeEv": ["int", "address"],
+    "ritual_ZNK19QPrintPreviewWidget8zoomModeEv": ["int", "address"],
+    "ritual_ZNK19QPrintPreviewWidget11currentPageEv": ["int", "address"],
+    "ritual_ZNK19QPrintPreviewWidget9pageCountEv": ["int", "address"],
+    "ritual_ZN19QPrintPreviewWidget10setVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN19QPrintPreviewWidget5printEv": ["nothing", "address"],
+    "ritual_ZN19QPrintPreviewWidget6zoomInEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN19QPrintPreviewWidget7zoomOutEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN19QPrintPreviewWidget13setZoomFactorEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN19QPrintPreviewWidget14setOrientationEN11QPageLayout11OrientationE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN19QPrintPreviewWidget11setViewModeENS_8ViewModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN19QPrintPreviewWidget11setZoomModeENS_8ZoomModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN19QPrintPreviewWidget14setCurrentPageEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN19QPrintPreviewWidget10fitToWidthEv": ["nothing", "address"],
+    "ritual_ZN19QPrintPreviewWidget9fitInViewEv": ["nothing", "address"],
+    "ritual_ZN19QPrintPreviewWidget23setLandscapeOrientationEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QPrintPreviewWidget22setPortraitOrientationEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QPrintPreviewWidget21setSinglePageViewModeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QPrintPreviewWidget22setFacingPagesViewModeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QPrintPreviewWidget19setAllPagesViewModeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QPrintPreviewWidget13updatePreviewEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QPrintPreviewWidget": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN19QPrintPreviewWidget10setVisibleEb": [
+      "nothing", "address", "bool"
+    ]
+  }
+}

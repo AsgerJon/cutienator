@@ -1,0 +1,55 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquickmenubaritem_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QQuickMenuBarItem10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QQuickMenuBarItem2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QQuickMenuBarItemC1EP10QQuickItem": ["address", "address"],
+    "ritual_ZNK17QQuickMenuBarItem7menuBarEv": ["address", "address"],
+    "ritual_ZNK17QQuickMenuBarItem4menuEv": ["address", "address"],
+    "ritual_ZN17QQuickMenuBarItem7setMenuEP10QQuickMenu": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QQuickMenuBarItem13isHighlightedEv": ["bool", "address"],
+    "ritual_ZN17QQuickMenuBarItem14setHighlightedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN17QQuickMenuBarItem5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN17QQuickMenuBarItem13keyPressEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QQuickMenuBarItem15keyReleaseEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QQuickMenuBarItem14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK17QQuickMenuBarItem11defaultFontEv": ["address", "address"],
+    "ritual_ZNK17QQuickMenuBarItem14accessibleRoleEv": ["int", "address"],
+    "ritual_ZN17QQuickMenuBarItem6d_funcEv": ["address", "address"],
+    "ritual_ZNK17QQuickMenuBarItem6d_funcEv": ["address", "address"],
+    "ritual_own_ZN17QQuickMenuBarItem5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN17QQuickMenuBarItem13keyPressEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN17QQuickMenuBarItem15keyReleaseEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN17QQuickMenuBarItem14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZNK17QQuickMenuBarItem11defaultFontEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK17QQuickMenuBarItem14accessibleRoleEv": ["int", "address"]
+  }
+}

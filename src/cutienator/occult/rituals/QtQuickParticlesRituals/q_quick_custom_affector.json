@@ -1,0 +1,61 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Particles/6.12.0/QtQuickParticles/private/qquickcustomaffector_p.h",
+    ", Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK20QQuickCustomAffector10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QQuickCustomAffector2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN20QQuickCustomAffectorC1EP10QQuickItem": [
+      "address", "address"
+    ],
+    "ritual_ZN20QQuickCustomAffector12affectSystemEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK20QQuickCustomAffector8positionEv": ["address", "address"],
+    "ritual_ZNK20QQuickCustomAffector8velocityEv": ["address", "address"],
+    "ritual_ZNK20QQuickCustomAffector12accelerationEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QQuickCustomAffector13positionResetEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickCustomAffector13velocityResetEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickCustomAffector17accelerationResetEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK20QQuickCustomAffector8relativeEv": ["bool", "address"],
+    "ritual_ZN20QQuickCustomAffector11setPositionEP15QQuickDirection": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickCustomAffector11setVelocityEP15QQuickDirection": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickCustomAffector15setAccelerationEP15QQuickDirection": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickCustomAffector11setRelativeEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20QQuickCustomAffector17isAffectConnectedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN20QQuickCustomAffector14affectParticleEP18QQuickParticleDatad": [
+      "bool", "address", "address", "double"
+    ],
+    "ritual_ZN20QQuickCustomAffector16affectPropertiesERK5QListIP18QQuickParticleDataEd": [
+      "nothing", "address", "address", "double"
+    ],
+    "ritual_own_ZN20QQuickCustomAffector12affectSystemEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_own_ZN20QQuickCustomAffector14affectParticleEP18QQuickParticleDatad": [
+      "bool", "address", "address", "double"
+    ]
+  }
+}

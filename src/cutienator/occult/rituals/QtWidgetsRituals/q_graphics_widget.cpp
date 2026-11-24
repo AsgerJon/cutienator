@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qgraphicswidget.h, Qt 6.12.0. Changes made here are lost.
+#include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(graphicsview)
 #include <QtWidgets/qgraphicswidget.h>
 #include <QtCore/qstring.h>
 #include <QtGui/qfont.h>
@@ -49,320 +51,569 @@ struct OwnQGraphicsWidget : QGraphicsWidget {
 //  A QGraphicsWidget that Python can take functions over in. Every QGraphicsWidget
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if QT_CONFIG(graphicsview)
 typedef void (*CuteQGraphicsWidgetCall0)(const void *, const QRectF *, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 typedef int (*CuteQGraphicsWidgetCall1)(const void *, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 typedef void (*CuteQGraphicsWidgetCall2)(const void *, QPainter *, const QStyleOptionGraphicsItem *, QWidget *, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 typedef void (*CuteQGraphicsWidgetCall3)(const void *, QPainter *, const QStyleOptionGraphicsItem *, QWidget *, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 typedef const QRectF * (*CuteQGraphicsWidgetCall4)(const void *, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 typedef const QPainterPath * (*CuteQGraphicsWidgetCall5)(const void *, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 typedef void (*CuteQGraphicsWidgetCall6)(const void *, QStyleOption *, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 typedef const QSizeF * (*CuteQGraphicsWidgetCall7)(const void *, int, const QSizeF *, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 typedef void (*CuteQGraphicsWidgetCall8)(const void *, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 typedef const QVariant * (*CuteQGraphicsWidgetCall9)(const void *, int, const QVariant *, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 typedef const QVariant * (*CuteQGraphicsWidgetCall10)(const void *, const QString *, const QVariant *, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 typedef bool (*CuteQGraphicsWidgetCall11)(const void *, QEvent *, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 typedef bool (*CuteQGraphicsWidgetCall12)(const void *, QEvent *, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 typedef int (*CuteQGraphicsWidgetCall13)(const void *, const QPointF *, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(graphicsview)
 typedef bool (*CuteQGraphicsWidgetCall14)(const void *, QEvent *, int *);
+#endif  // QT_CONFIG(graphicsview)
+#endif  // !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(graphicsview)
 typedef void (*CuteQGraphicsWidgetCall15)(const void *, QEvent *, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 typedef void (*CuteQGraphicsWidgetCall16)(const void *, QCloseEvent *, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 typedef void (*CuteQGraphicsWidgetCall17)(const void *, QFocusEvent *, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 typedef bool (*CuteQGraphicsWidgetCall18)(const void *, bool, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 typedef void (*CuteQGraphicsWidgetCall19)(const void *, QFocusEvent *, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 typedef void (*CuteQGraphicsWidgetCall20)(const void *, QHideEvent *, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 typedef void (*CuteQGraphicsWidgetCall21)(const void *, QGraphicsSceneMoveEvent *, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 typedef void (*CuteQGraphicsWidgetCall22)(const void *, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 typedef void (*CuteQGraphicsWidgetCall23)(const void *, QGraphicsSceneResizeEvent *, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 typedef void (*CuteQGraphicsWidgetCall24)(const void *, QShowEvent *, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 typedef void (*CuteQGraphicsWidgetCall25)(const void *, QGraphicsSceneHoverEvent *, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 typedef void (*CuteQGraphicsWidgetCall26)(const void *, QGraphicsSceneHoverEvent *, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 typedef void (*CuteQGraphicsWidgetCall27)(const void *, QEvent *, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 typedef void (*CuteQGraphicsWidgetCall28)(const void *, QEvent *, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 typedef void (*CuteQGraphicsWidgetCall29)(const void *, QEvent *, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 typedef void (*CuteQGraphicsWidgetCall30)(const void *, QEvent *, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQGraphicsWidgetCall31)(const void *, QObject *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQGraphicsWidgetCall32)(const void *, QTimerEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQGraphicsWidgetCall33)(const void *, QChildEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQGraphicsWidgetCall34)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQGraphicsWidgetCall35)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQGraphicsWidgetCall36)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(graphicsview)
 typedef bool (*CuteQGraphicsWidgetCall37)(const void *, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 typedef void (*CuteQGraphicsWidgetCall38)(const void *, int, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 typedef bool (*CuteQGraphicsWidgetCall39)(const void *, const QPointF *, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 typedef bool (*CuteQGraphicsWidgetCall40)(const void *, const QGraphicsItem *, int, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 typedef bool (*CuteQGraphicsWidgetCall41)(const void *, const QPainterPath *, int, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 typedef bool (*CuteQGraphicsWidgetCall42)(const void *, const QGraphicsItem *, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 typedef const QPainterPath * (*CuteQGraphicsWidgetCall43)(const void *, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 typedef bool (*CuteQGraphicsWidgetCall44)(const void *, QGraphicsItem *, QEvent *, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 typedef void (*CuteQGraphicsWidgetCall45)(const void *, QGraphicsSceneContextMenuEvent *, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 typedef void (*CuteQGraphicsWidgetCall46)(const void *, QGraphicsSceneDragDropEvent *, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 typedef void (*CuteQGraphicsWidgetCall47)(const void *, QGraphicsSceneDragDropEvent *, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 typedef void (*CuteQGraphicsWidgetCall48)(const void *, QGraphicsSceneDragDropEvent *, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 typedef void (*CuteQGraphicsWidgetCall49)(const void *, QGraphicsSceneDragDropEvent *, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 typedef void (*CuteQGraphicsWidgetCall50)(const void *, QGraphicsSceneHoverEvent *, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 typedef void (*CuteQGraphicsWidgetCall51)(const void *, QKeyEvent *, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 typedef void (*CuteQGraphicsWidgetCall52)(const void *, QKeyEvent *, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 typedef void (*CuteQGraphicsWidgetCall53)(const void *, QGraphicsSceneMouseEvent *, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 typedef void (*CuteQGraphicsWidgetCall54)(const void *, QGraphicsSceneMouseEvent *, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 typedef void (*CuteQGraphicsWidgetCall55)(const void *, QGraphicsSceneMouseEvent *, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 typedef void (*CuteQGraphicsWidgetCall56)(const void *, QGraphicsSceneMouseEvent *, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 typedef void (*CuteQGraphicsWidgetCall57)(const void *, QGraphicsSceneWheelEvent *, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 typedef void (*CuteQGraphicsWidgetCall58)(const void *, QInputMethodEvent *, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 typedef const QVariant * (*CuteQGraphicsWidgetCall59)(const void *, int, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 typedef const QVariant * (*CuteQGraphicsWidgetCall60)(const void *, const QVariant *, int *);
+#endif  // QT_CONFIG(graphicsview)
 class CuteQGraphicsWidget : public QGraphicsWidget {
 public:
   using QGraphicsWidget::QGraphicsWidget;
   void *taken[61] = {};
 
   bool take(const char *key, void *call) {
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZN19QGraphicsLayoutItem11setGeometryERK6QRectF")) {
       taken[0] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZNK13QGraphicsItem4typeEv")) {
       taken[1] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZN13QGraphicsItem5paintEP8QPainterPK24QStyleOptionGraphicsItemP7QWidget")) {
       taken[2] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZN15QGraphicsWidget16paintWindowFrameEP8QPainterPK24QStyleOptionGraphicsItemP7QWidget")) {
       taken[3] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZNK13QGraphicsItem12boundingRectEv")) {
       taken[4] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZNK13QGraphicsItem5shapeEv")) {
       taken[5] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZNK15QGraphicsWidget15initStyleOptionEP12QStyleOption")) {
       taken[6] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZNK19QGraphicsLayoutItem8sizeHintEN2Qt8SizeHintERK6QSizeF")) {
       taken[7] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZN19QGraphicsLayoutItem14updateGeometryEv")) {
       taken[8] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZN13QGraphicsItem10itemChangeENS_18GraphicsItemChangeERK8QVariant")) {
       taken[9] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZN15QGraphicsWidget14propertyChangeERK7QStringRK8QVariant")) {
       taken[10] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZN13QGraphicsItem10sceneEventEP6QEvent")) {
       taken[11] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZN15QGraphicsWidget16windowFrameEventEP6QEvent")) {
       taken[12] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZNK15QGraphicsWidget20windowFrameSectionAtERK7QPointF")) {
       taken[13] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[14] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#endif  // !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZN15QGraphicsWidget11changeEventEP6QEvent")) {
       taken[15] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZN15QGraphicsWidget10closeEventEP11QCloseEvent")) {
       taken[16] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZN13QGraphicsItem12focusInEventEP11QFocusEvent")) {
       taken[17] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZN15QGraphicsWidget18focusNextPrevChildEb")) {
       taken[18] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZN13QGraphicsItem13focusOutEventEP11QFocusEvent")) {
       taken[19] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZN15QGraphicsWidget9hideEventEP10QHideEvent")) {
       taken[20] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZN15QGraphicsWidget9moveEventEP23QGraphicsSceneMoveEvent")) {
       taken[21] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZN15QGraphicsWidget11polishEventEv")) {
       taken[22] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZN15QGraphicsWidget11resizeEventEP25QGraphicsSceneResizeEvent")) {
       taken[23] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZN15QGraphicsWidget9showEventEP10QShowEvent")) {
       taken[24] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZN13QGraphicsItem14hoverMoveEventEP24QGraphicsSceneHoverEvent")) {
       taken[25] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZN13QGraphicsItem15hoverLeaveEventEP24QGraphicsSceneHoverEvent")) {
       taken[26] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZN15QGraphicsWidget14grabMouseEventEP6QEvent")) {
       taken[27] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZN15QGraphicsWidget16ungrabMouseEventEP6QEvent")) {
       taken[28] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZN15QGraphicsWidget17grabKeyboardEventEP6QEvent")) {
       taken[29] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZN15QGraphicsWidget19ungrabKeyboardEventEP6QEvent")) {
       taken[30] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[31] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[32] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[33] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[34] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[35] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
       taken[36] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZNK19QGraphicsLayoutItem7isEmptyEv")) {
       taken[37] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZN13QGraphicsItem7advanceEi")) {
       taken[38] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZNK13QGraphicsItem8containsERK7QPointF")) {
       taken[39] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZNK13QGraphicsItem16collidesWithItemEPKS_N2Qt17ItemSelectionModeE")) {
       taken[40] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZNK13QGraphicsItem16collidesWithPathERK12QPainterPathN2Qt17ItemSelectionModeE")) {
       taken[41] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZNK13QGraphicsItem12isObscuredByEPKS_")) {
       taken[42] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZNK13QGraphicsItem10opaqueAreaEv")) {
       taken[43] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZN13QGraphicsItem16sceneEventFilterEPS_P6QEvent")) {
       taken[44] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZN13QGraphicsItem16contextMenuEventEP30QGraphicsSceneContextMenuEvent")) {
       taken[45] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZN13QGraphicsItem14dragEnterEventEP27QGraphicsSceneDragDropEvent")) {
       taken[46] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZN13QGraphicsItem14dragLeaveEventEP27QGraphicsSceneDragDropEvent")) {
       taken[47] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZN13QGraphicsItem13dragMoveEventEP27QGraphicsSceneDragDropEvent")) {
       taken[48] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZN13QGraphicsItem9dropEventEP27QGraphicsSceneDragDropEvent")) {
       taken[49] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZN13QGraphicsItem15hoverEnterEventEP24QGraphicsSceneHoverEvent")) {
       taken[50] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZN13QGraphicsItem13keyPressEventEP9QKeyEvent")) {
       taken[51] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZN13QGraphicsItem15keyReleaseEventEP9QKeyEvent")) {
       taken[52] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZN13QGraphicsItem15mousePressEventEP24QGraphicsSceneMouseEvent")) {
       taken[53] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZN13QGraphicsItem14mouseMoveEventEP24QGraphicsSceneMouseEvent")) {
       taken[54] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZN13QGraphicsItem17mouseReleaseEventEP24QGraphicsSceneMouseEvent")) {
       taken[55] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZN13QGraphicsItem21mouseDoubleClickEventEP24QGraphicsSceneMouseEvent")) {
       taken[56] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZN13QGraphicsItem10wheelEventEP24QGraphicsSceneWheelEvent")) {
       taken[57] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZN13QGraphicsItem16inputMethodEventEP17QInputMethodEvent")) {
       taken[58] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZNK13QGraphicsItem16inputMethodQueryEN2Qt16InputMethodQueryE")) {
       taken[59] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZNK13QGraphicsItem9extensionERK8QVariant")) {
       taken[60] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
     return false;
   }
 
+#if QT_CONFIG(graphicsview)
   //  void QGraphicsWidget::setGeometry(const QRectF &rect)
   void setGeometry(const QRectF &rect) override {
     if (taken[0]) {
@@ -373,7 +624,9 @@ public:
     }
     QGraphicsWidget::setGeometry(rect);
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if QT_CONFIG(graphicsview)
   //  int QGraphicsWidget::type() const
   int type() const override {
     if (taken[1]) {
@@ -384,7 +637,9 @@ public:
     }
     return QGraphicsWidget::type();
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if QT_CONFIG(graphicsview)
   //  void QGraphicsWidget::paint(QPainter *painter, const
   //      QStyleOptionGraphicsItem *option, QWidget *widget)
   void paint(
@@ -399,7 +654,9 @@ public:
     }
     QGraphicsWidget::paint(painter, option, widget);
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if QT_CONFIG(graphicsview)
   //  void QGraphicsWidget::paintWindowFrame(QPainter *painter, const
   //      QStyleOptionGraphicsItem *option, QWidget *widget)
   void paintWindowFrame(
@@ -414,7 +671,9 @@ public:
     }
     QGraphicsWidget::paintWindowFrame(painter, option, widget);
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if QT_CONFIG(graphicsview)
   //  QRectF QGraphicsWidget::boundingRect() const
   QRectF boundingRect() const override {
     if (taken[4]) {
@@ -425,7 +684,9 @@ public:
     }
     return QGraphicsWidget::boundingRect();
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if QT_CONFIG(graphicsview)
   //  QPainterPath QGraphicsWidget::shape() const
   QPainterPath shape() const override {
     if (taken[5]) {
@@ -436,7 +697,9 @@ public:
     }
     return QGraphicsWidget::shape();
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if QT_CONFIG(graphicsview)
   //  void QGraphicsWidget::initStyleOption(QStyleOption *option) const
   void initStyleOption(QStyleOption *option) const override {
     if (taken[6]) {
@@ -447,7 +710,9 @@ public:
     }
     QGraphicsWidget::initStyleOption(option);
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if QT_CONFIG(graphicsview)
   //  QSizeF QGraphicsWidget::sizeHint(Qt::SizeHint which, const QSizeF
   //      &constraint) const
   QSizeF sizeHint(
@@ -461,7 +726,9 @@ public:
     }
     return QGraphicsWidget::sizeHint(which, constraint);
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if QT_CONFIG(graphicsview)
   //  void QGraphicsWidget::updateGeometry()
   void updateGeometry() override {
     if (taken[8]) {
@@ -472,7 +739,9 @@ public:
     }
     QGraphicsWidget::updateGeometry();
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if QT_CONFIG(graphicsview)
   //  QVariant QGraphicsWidget::itemChange(GraphicsItemChange change, const
   //      QVariant &value)
   QVariant itemChange(
@@ -486,7 +755,9 @@ public:
     }
     return QGraphicsWidget::itemChange(change, value);
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if QT_CONFIG(graphicsview)
   //  QVariant QGraphicsWidget::propertyChange(const QString &propertyName,
   //      const QVariant &value)
   QVariant propertyChange(
@@ -500,7 +771,9 @@ public:
     }
     return QGraphicsWidget::propertyChange(propertyName, value);
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if QT_CONFIG(graphicsview)
   //  bool QGraphicsWidget::sceneEvent(QEvent *event)
   bool sceneEvent(QEvent *event) override {
     if (taken[11]) {
@@ -511,7 +784,9 @@ public:
     }
     return QGraphicsWidget::sceneEvent(event);
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if QT_CONFIG(graphicsview)
   //  bool QGraphicsWidget::windowFrameEvent(QEvent *e)
   bool windowFrameEvent(QEvent *e) override {
     if (taken[12]) {
@@ -522,7 +797,9 @@ public:
     }
     return QGraphicsWidget::windowFrameEvent(e);
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if QT_CONFIG(graphicsview)
   //  Qt::WindowFrameSection QGraphicsWidget::windowFrameSectionAt(const
   //      QPointF &pos) const
   Qt::WindowFrameSection windowFrameSectionAt(
@@ -535,7 +812,10 @@ public:
     }
     return QGraphicsWidget::windowFrameSectionAt(pos);
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(graphicsview)
   //  bool QGraphicsWidget::event(QEvent *event)
   bool event(QEvent *event) override {
     if (taken[14]) {
@@ -546,7 +826,10 @@ public:
     }
     return QGraphicsWidget::event(event);
   }
+#endif  // QT_CONFIG(graphicsview)
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if QT_CONFIG(graphicsview)
   //  void QGraphicsWidget::changeEvent(QEvent *event)
   void changeEvent(QEvent *event) override {
     if (taken[15]) {
@@ -557,7 +840,9 @@ public:
     }
     QGraphicsWidget::changeEvent(event);
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if QT_CONFIG(graphicsview)
   //  void QGraphicsWidget::closeEvent(QCloseEvent *event)
   void closeEvent(QCloseEvent *event) override {
     if (taken[16]) {
@@ -568,7 +853,9 @@ public:
     }
     QGraphicsWidget::closeEvent(event);
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if QT_CONFIG(graphicsview)
   //  void QGraphicsWidget::focusInEvent(QFocusEvent *event)
   void focusInEvent(QFocusEvent *event) override {
     if (taken[17]) {
@@ -579,7 +866,9 @@ public:
     }
     QGraphicsWidget::focusInEvent(event);
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if QT_CONFIG(graphicsview)
   //  bool QGraphicsWidget::focusNextPrevChild(bool next)
   bool focusNextPrevChild(bool next) override {
     if (taken[18]) {
@@ -590,7 +879,9 @@ public:
     }
     return QGraphicsWidget::focusNextPrevChild(next);
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if QT_CONFIG(graphicsview)
   //  void QGraphicsWidget::focusOutEvent(QFocusEvent *event)
   void focusOutEvent(QFocusEvent *event) override {
     if (taken[19]) {
@@ -601,7 +892,9 @@ public:
     }
     QGraphicsWidget::focusOutEvent(event);
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if QT_CONFIG(graphicsview)
   //  void QGraphicsWidget::hideEvent(QHideEvent *event)
   void hideEvent(QHideEvent *event) override {
     if (taken[20]) {
@@ -612,7 +905,9 @@ public:
     }
     QGraphicsWidget::hideEvent(event);
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if QT_CONFIG(graphicsview)
   //  void QGraphicsWidget::moveEvent(QGraphicsSceneMoveEvent *event)
   void moveEvent(QGraphicsSceneMoveEvent *event) override {
     if (taken[21]) {
@@ -623,7 +918,9 @@ public:
     }
     QGraphicsWidget::moveEvent(event);
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if QT_CONFIG(graphicsview)
   //  void QGraphicsWidget::polishEvent()
   void polishEvent() override {
     if (taken[22]) {
@@ -634,7 +931,9 @@ public:
     }
     QGraphicsWidget::polishEvent();
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if QT_CONFIG(graphicsview)
   //  void QGraphicsWidget::resizeEvent(QGraphicsSceneResizeEvent *event)
   void resizeEvent(QGraphicsSceneResizeEvent *event) override {
     if (taken[23]) {
@@ -645,7 +944,9 @@ public:
     }
     QGraphicsWidget::resizeEvent(event);
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if QT_CONFIG(graphicsview)
   //  void QGraphicsWidget::showEvent(QShowEvent *event)
   void showEvent(QShowEvent *event) override {
     if (taken[24]) {
@@ -656,7 +957,9 @@ public:
     }
     QGraphicsWidget::showEvent(event);
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if QT_CONFIG(graphicsview)
   //  void QGraphicsWidget::hoverMoveEvent(QGraphicsSceneHoverEvent *event)
   void hoverMoveEvent(QGraphicsSceneHoverEvent *event) override {
     if (taken[25]) {
@@ -667,7 +970,9 @@ public:
     }
     QGraphicsWidget::hoverMoveEvent(event);
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if QT_CONFIG(graphicsview)
   //  void QGraphicsWidget::hoverLeaveEvent(QGraphicsSceneHoverEvent
   //      *event)
   void hoverLeaveEvent(QGraphicsSceneHoverEvent *event) override {
@@ -679,7 +984,9 @@ public:
     }
     QGraphicsWidget::hoverLeaveEvent(event);
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if QT_CONFIG(graphicsview)
   //  void QGraphicsWidget::grabMouseEvent(QEvent *event)
   void grabMouseEvent(QEvent *event) override {
     if (taken[27]) {
@@ -690,7 +997,9 @@ public:
     }
     QGraphicsWidget::grabMouseEvent(event);
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if QT_CONFIG(graphicsview)
   //  void QGraphicsWidget::ungrabMouseEvent(QEvent *event)
   void ungrabMouseEvent(QEvent *event) override {
     if (taken[28]) {
@@ -701,7 +1010,9 @@ public:
     }
     QGraphicsWidget::ungrabMouseEvent(event);
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if QT_CONFIG(graphicsview)
   //  void QGraphicsWidget::grabKeyboardEvent(QEvent *event)
   void grabKeyboardEvent(QEvent *event) override {
     if (taken[29]) {
@@ -712,7 +1023,9 @@ public:
     }
     QGraphicsWidget::grabKeyboardEvent(event);
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if QT_CONFIG(graphicsview)
   //  void QGraphicsWidget::ungrabKeyboardEvent(QEvent *event)
   void ungrabKeyboardEvent(QEvent *event) override {
     if (taken[30]) {
@@ -723,7 +1036,9 @@ public:
     }
     QGraphicsWidget::ungrabKeyboardEvent(event);
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
     if (taken[31]) {
@@ -734,7 +1049,9 @@ public:
     }
     return QObject::eventFilter(watched, event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
     if (taken[32]) {
@@ -745,7 +1062,9 @@ public:
     }
     QObject::timerEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
     if (taken[33]) {
@@ -756,7 +1075,9 @@ public:
     }
     QObject::childEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
     if (taken[34]) {
@@ -767,7 +1088,9 @@ public:
     }
     QObject::customEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
     if (taken[35]) {
@@ -778,7 +1101,9 @@ public:
     }
     QObject::connectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
     if (taken[36]) {
@@ -789,7 +1114,9 @@ public:
     }
     QObject::disconnectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if QT_CONFIG(graphicsview)
   //  bool QGraphicsLayoutItem::isEmpty() const
   bool isEmpty() const override {
     if (taken[37]) {
@@ -800,7 +1127,9 @@ public:
     }
     return QGraphicsLayoutItem::isEmpty();
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if QT_CONFIG(graphicsview)
   //  void QGraphicsItem::advance(int phase)
   void advance(int phase) override {
     if (taken[38]) {
@@ -811,7 +1140,9 @@ public:
     }
     QGraphicsItem::advance(phase);
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if QT_CONFIG(graphicsview)
   //  bool QGraphicsItem::contains(const QPointF &point) const
   bool contains(const QPointF &point) const override {
     if (taken[39]) {
@@ -822,7 +1153,9 @@ public:
     }
     return QGraphicsItem::contains(point);
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if QT_CONFIG(graphicsview)
   //  bool QGraphicsItem::collidesWithItem(const QGraphicsItem *other,
   //      Qt::ItemSelectionMode mode) const
   bool collidesWithItem(
@@ -836,7 +1169,9 @@ public:
     }
     return QGraphicsItem::collidesWithItem(other, mode);
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if QT_CONFIG(graphicsview)
   //  bool QGraphicsItem::collidesWithPath(const QPainterPath &path,
   //      Qt::ItemSelectionMode mode) const
   bool collidesWithPath(
@@ -850,7 +1185,9 @@ public:
     }
     return QGraphicsItem::collidesWithPath(path, mode);
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if QT_CONFIG(graphicsview)
   //  bool QGraphicsItem::isObscuredBy(const QGraphicsItem *item) const
   bool isObscuredBy(const QGraphicsItem *item) const override {
     if (taken[42]) {
@@ -861,7 +1198,9 @@ public:
     }
     return QGraphicsItem::isObscuredBy(item);
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if QT_CONFIG(graphicsview)
   //  QPainterPath QGraphicsItem::opaqueArea() const
   QPainterPath opaqueArea() const override {
     if (taken[43]) {
@@ -872,7 +1211,9 @@ public:
     }
     return QGraphicsItem::opaqueArea();
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if QT_CONFIG(graphicsview)
   //  bool QGraphicsItem::sceneEventFilter(QGraphicsItem *watched, QEvent
   //      *event)
   bool sceneEventFilter(QGraphicsItem *watched, QEvent *event) override {
@@ -884,7 +1225,9 @@ public:
     }
     return QGraphicsItem::sceneEventFilter(watched, event);
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if QT_CONFIG(graphicsview)
   //  void QGraphicsItem::contextMenuEvent(QGraphicsSceneContextMenuEvent
   //      *event)
   void contextMenuEvent(QGraphicsSceneContextMenuEvent *event) override {
@@ -896,7 +1239,9 @@ public:
     }
     QGraphicsItem::contextMenuEvent(event);
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if QT_CONFIG(graphicsview)
   //  void QGraphicsItem::dragEnterEvent(QGraphicsSceneDragDropEvent
   //      *event)
   void dragEnterEvent(QGraphicsSceneDragDropEvent *event) override {
@@ -908,7 +1253,9 @@ public:
     }
     QGraphicsItem::dragEnterEvent(event);
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if QT_CONFIG(graphicsview)
   //  void QGraphicsItem::dragLeaveEvent(QGraphicsSceneDragDropEvent
   //      *event)
   void dragLeaveEvent(QGraphicsSceneDragDropEvent *event) override {
@@ -920,7 +1267,9 @@ public:
     }
     QGraphicsItem::dragLeaveEvent(event);
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if QT_CONFIG(graphicsview)
   //  void QGraphicsItem::dragMoveEvent(QGraphicsSceneDragDropEvent *event)
   void dragMoveEvent(QGraphicsSceneDragDropEvent *event) override {
     if (taken[48]) {
@@ -931,7 +1280,9 @@ public:
     }
     QGraphicsItem::dragMoveEvent(event);
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if QT_CONFIG(graphicsview)
   //  void QGraphicsItem::dropEvent(QGraphicsSceneDragDropEvent *event)
   void dropEvent(QGraphicsSceneDragDropEvent *event) override {
     if (taken[49]) {
@@ -942,7 +1293,9 @@ public:
     }
     QGraphicsItem::dropEvent(event);
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if QT_CONFIG(graphicsview)
   //  void QGraphicsItem::hoverEnterEvent(QGraphicsSceneHoverEvent *event)
   void hoverEnterEvent(QGraphicsSceneHoverEvent *event) override {
     if (taken[50]) {
@@ -953,7 +1306,9 @@ public:
     }
     QGraphicsItem::hoverEnterEvent(event);
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if QT_CONFIG(graphicsview)
   //  void QGraphicsItem::keyPressEvent(QKeyEvent *event)
   void keyPressEvent(QKeyEvent *event) override {
     if (taken[51]) {
@@ -964,7 +1319,9 @@ public:
     }
     QGraphicsItem::keyPressEvent(event);
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if QT_CONFIG(graphicsview)
   //  void QGraphicsItem::keyReleaseEvent(QKeyEvent *event)
   void keyReleaseEvent(QKeyEvent *event) override {
     if (taken[52]) {
@@ -975,7 +1332,9 @@ public:
     }
     QGraphicsItem::keyReleaseEvent(event);
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if QT_CONFIG(graphicsview)
   //  void QGraphicsItem::mousePressEvent(QGraphicsSceneMouseEvent *event)
   void mousePressEvent(QGraphicsSceneMouseEvent *event) override {
     if (taken[53]) {
@@ -986,7 +1345,9 @@ public:
     }
     QGraphicsItem::mousePressEvent(event);
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if QT_CONFIG(graphicsview)
   //  void QGraphicsItem::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
   void mouseMoveEvent(QGraphicsSceneMouseEvent *event) override {
     if (taken[54]) {
@@ -997,7 +1358,9 @@ public:
     }
     QGraphicsItem::mouseMoveEvent(event);
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if QT_CONFIG(graphicsview)
   //  void QGraphicsItem::mouseReleaseEvent(QGraphicsSceneMouseEvent
   //      *event)
   void mouseReleaseEvent(QGraphicsSceneMouseEvent *event) override {
@@ -1009,7 +1372,9 @@ public:
     }
     QGraphicsItem::mouseReleaseEvent(event);
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if QT_CONFIG(graphicsview)
   //  void QGraphicsItem::mouseDoubleClickEvent(QGraphicsSceneMouseEvent
   //      *event)
   void mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event) override {
@@ -1021,7 +1386,9 @@ public:
     }
     QGraphicsItem::mouseDoubleClickEvent(event);
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if QT_CONFIG(graphicsview)
   //  void QGraphicsItem::wheelEvent(QGraphicsSceneWheelEvent *event)
   void wheelEvent(QGraphicsSceneWheelEvent *event) override {
     if (taken[57]) {
@@ -1032,7 +1399,9 @@ public:
     }
     QGraphicsItem::wheelEvent(event);
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if QT_CONFIG(graphicsview)
   //  void QGraphicsItem::inputMethodEvent(QInputMethodEvent *event)
   void inputMethodEvent(QInputMethodEvent *event) override {
     if (taken[58]) {
@@ -1043,7 +1412,9 @@ public:
     }
     QGraphicsItem::inputMethodEvent(event);
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if QT_CONFIG(graphicsview)
   //  QVariant QGraphicsItem::inputMethodQuery(Qt::InputMethodQuery query)
   //      const
   QVariant inputMethodQuery(Qt::InputMethodQuery query) const override {
@@ -1055,7 +1426,9 @@ public:
     }
     return QGraphicsItem::inputMethodQuery(query);
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if QT_CONFIG(graphicsview)
   //  QVariant QGraphicsItem::extension(const QVariant &variant) const
   QVariant extension(const QVariant &variant) const override {
     if (taken[60]) {
@@ -1066,6 +1439,7 @@ public:
     }
     return QGraphicsItem::extension(variant);
   }
+#endif  // QT_CONFIG(graphicsview)
 };
 
 //  const QMetaObject *QGraphicsWidget::metaObject() const
@@ -1409,6 +1783,7 @@ QGraphicsWidget *ritual_ZNK15QGraphicsWidget11focusWidgetEv(
   return self->focusWidget();
 }
 
+#if !defined(QT_NO_SHORTCUT)
 //  int QGraphicsWidget::grabShortcut(const QKeySequence &sequence,
 //      Qt::ShortcutContext context)
 extern "C" Q_DECL_EXPORT
@@ -1418,7 +1793,9 @@ int ritual_ZN15QGraphicsWidget12grabShortcutERK12QKeySequenceN2Qt15ShortcutConte
     Qt::ShortcutContext context) {
   return self->grabShortcut(*sequence, context);
 }
+#endif  // !defined(QT_NO_SHORTCUT)
 
+#if !defined(QT_NO_SHORTCUT)
 //  void QGraphicsWidget::releaseShortcut(int id)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QGraphicsWidget15releaseShortcutEi(
@@ -1426,7 +1803,9 @@ void ritual_ZN15QGraphicsWidget15releaseShortcutEi(
     int id) {
   self->releaseShortcut(id);
 }
+#endif  // !defined(QT_NO_SHORTCUT)
 
+#if !defined(QT_NO_SHORTCUT)
 //  void QGraphicsWidget::setShortcutEnabled(int id, bool enabled)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QGraphicsWidget18setShortcutEnabledEib(
@@ -1435,7 +1814,9 @@ void ritual_ZN15QGraphicsWidget18setShortcutEnabledEib(
     bool enabled) {
   self->setShortcutEnabled(id, enabled);
 }
+#endif  // !defined(QT_NO_SHORTCUT)
 
+#if !defined(QT_NO_SHORTCUT)
 //  void QGraphicsWidget::setShortcutAutoRepeat(int id, bool enabled)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QGraphicsWidget21setShortcutAutoRepeatEib(
@@ -1444,7 +1825,9 @@ void ritual_ZN15QGraphicsWidget21setShortcutAutoRepeatEib(
     bool enabled) {
   self->setShortcutAutoRepeat(id, enabled);
 }
+#endif  // !defined(QT_NO_SHORTCUT)
 
+#if !defined(QT_NO_ACTION)
 //  void QGraphicsWidget::addAction(QAction *action)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QGraphicsWidget9addActionEP7QAction(
@@ -1452,7 +1835,9 @@ void ritual_ZN15QGraphicsWidget9addActionEP7QAction(
     QAction *action) {
   self->addAction(action);
 }
+#endif  // !defined(QT_NO_ACTION)
 
+#if !defined(QT_NO_ACTION)
 //  void QGraphicsWidget::addActions(const QList<QAction *> &actions)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QGraphicsWidget10addActionsERK5QListIP7QActionE(
@@ -1460,7 +1845,9 @@ void ritual_ZN15QGraphicsWidget10addActionsERK5QListIP7QActionE(
     const QList<QAction *> *actions) {
   self->addActions(*actions);
 }
+#endif  // !defined(QT_NO_ACTION)
 
+#if !defined(QT_NO_ACTION)
 //  void QGraphicsWidget::insertActions(QAction *before, const QList<QAction
 //      *> &actions)
 extern "C" Q_DECL_EXPORT
@@ -1470,7 +1857,9 @@ void ritual_ZN15QGraphicsWidget13insertActionsEP7QActionRK5QListIS1_E(
     const QList<QAction *> *actions) {
   self->insertActions(before, *actions);
 }
+#endif  // !defined(QT_NO_ACTION)
 
+#if !defined(QT_NO_ACTION)
 //  void QGraphicsWidget::insertAction(QAction *before, QAction *action)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QGraphicsWidget12insertActionEP7QActionS1_(
@@ -1479,7 +1868,9 @@ void ritual_ZN15QGraphicsWidget12insertActionEP7QActionS1_(
     QAction *action) {
   self->insertAction(before, action);
 }
+#endif  // !defined(QT_NO_ACTION)
 
+#if !defined(QT_NO_ACTION)
 //  void QGraphicsWidget::removeAction(QAction *action)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QGraphicsWidget12removeActionEP7QAction(
@@ -1487,13 +1878,16 @@ void ritual_ZN15QGraphicsWidget12removeActionEP7QAction(
     QAction *action) {
   self->removeAction(action);
 }
+#endif  // !defined(QT_NO_ACTION)
 
+#if !defined(QT_NO_ACTION)
 //  QList<QAction *> QGraphicsWidget::actions() const
 extern "C" Q_DECL_EXPORT
 QList<QAction *> *ritual_ZNK15QGraphicsWidget7actionsEv(
     const QGraphicsWidget *self) {
   return new QList<QAction *>(self->actions());
 }
+#endif  // !defined(QT_NO_ACTION)
 
 //  void QGraphicsWidget::setAttribute(Qt::WidgetAttribute attribute, bool
 //      on)
@@ -1762,6 +2156,20 @@ void ritual_ZN15QGraphicsWidget19ungrabKeyboardEventEP6QEvent(
     QGraphicsWidget *self,
     QEvent *event) {
   self->ungrabKeyboardEvent(event);
+}
+
+//  QGraphicsWidgetPrivate *QGraphicsWidget::d_func()
+extern "C" Q_DECL_EXPORT
+QGraphicsWidgetPrivate *ritual_ZN15QGraphicsWidget6d_funcEv(
+    QGraphicsWidget *self) {
+  return self->d_func();
+}
+
+//  const QGraphicsWidgetPrivate *QGraphicsWidget::d_func() const
+extern "C" Q_DECL_EXPORT
+const QGraphicsWidgetPrivate *ritual_ZNK15QGraphicsWidget6d_funcEv(
+    const QGraphicsWidget *self) {
+  return self->d_func();
 }
 
 //  QGraphicsWidget as the QGraphicsLayoutItem it is built on
@@ -2063,3 +2471,5 @@ void ritual_own_ZN15QGraphicsWidget19ungrabKeyboardEventEP6QEvent(
   static_cast<OwnQGraphicsWidget *>(self)->OwnQGraphicsWidget::ungrabKeyboardEvent(
       event);
 }
+
+#endif  // QT_CONFIG(graphicsview)

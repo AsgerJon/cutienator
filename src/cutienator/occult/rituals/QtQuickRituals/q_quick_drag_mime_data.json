@@ -1,0 +1,12 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickdrag_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18QQuickDragMimeData10metaObjectEv": ["address", "address"],
+    "ritual_ZNK18QQuickDragMimeData4keysEv": ["address", "address"],
+    "ritual_ZNK18QQuickDragMimeData6sourceEv": ["address", "address"]
+  }
+}

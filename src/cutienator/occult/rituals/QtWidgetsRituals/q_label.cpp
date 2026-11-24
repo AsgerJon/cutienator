@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qlabel.h, Qt 6.12.0. Changes made here are lost.
+#include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(label)
 #include <QtWidgets/qlabel.h>
 #include <QtCore/qstring.h>
 #include <QtGui/qpixmap.h>
@@ -28,39 +30,85 @@ struct OwnQLabel : QLabel {
 //  A QLabel that Python can take functions over in. Every QLabel
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if QT_CONFIG(label)
 typedef const QSize * (*CuteQLabelCall0)(const void *, int *);
+#endif  // QT_CONFIG(label)
+#if QT_CONFIG(label)
 typedef const QSize * (*CuteQLabelCall1)(const void *, int *);
+#endif  // QT_CONFIG(label)
+#if QT_CONFIG(label)
 typedef int (*CuteQLabelCall2)(const void *, int, int *);
+#endif  // QT_CONFIG(label)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(label)
 typedef bool (*CuteQLabelCall3)(const void *, QEvent *, int *);
+#endif  // QT_CONFIG(label)
+#endif  // !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(label)
 typedef void (*CuteQLabelCall4)(const void *, QKeyEvent *, int *);
+#endif  // QT_CONFIG(label)
+#if QT_CONFIG(label)
 typedef void (*CuteQLabelCall5)(const void *, QPaintEvent *, int *);
+#endif  // QT_CONFIG(label)
+#if QT_CONFIG(label)
 typedef void (*CuteQLabelCall6)(const void *, QEvent *, int *);
+#endif  // QT_CONFIG(label)
+#if QT_CONFIG(label)
 typedef void (*CuteQLabelCall7)(const void *, QMouseEvent *, int *);
+#endif  // QT_CONFIG(label)
+#if QT_CONFIG(label)
 typedef void (*CuteQLabelCall8)(const void *, QMouseEvent *, int *);
+#endif  // QT_CONFIG(label)
+#if QT_CONFIG(label)
 typedef void (*CuteQLabelCall9)(const void *, QMouseEvent *, int *);
+#endif  // QT_CONFIG(label)
+#if !defined(QT_NO_CONTEXTMENU)
+#if QT_CONFIG(label)
 typedef void (*CuteQLabelCall10)(const void *, QContextMenuEvent *, int *);
+#endif  // QT_CONFIG(label)
+#endif  // !defined(QT_NO_CONTEXTMENU)
+#if QT_CONFIG(label)
 typedef void (*CuteQLabelCall11)(const void *, QFocusEvent *, int *);
+#endif  // QT_CONFIG(label)
+#if QT_CONFIG(label)
 typedef void (*CuteQLabelCall12)(const void *, QFocusEvent *, int *);
+#endif  // QT_CONFIG(label)
+#if QT_CONFIG(label)
 typedef bool (*CuteQLabelCall13)(const void *, bool, int *);
+#endif  // QT_CONFIG(label)
 typedef void (*CuteQLabelCall14)(const void *, QStyleOptionFrame *, int *);
 typedef int (*CuteQLabelCall15)(const void *, int *);
 typedef void (*CuteQLabelCall16)(const void *, bool, int *);
 typedef bool (*CuteQLabelCall17)(const void *, int *);
 typedef void * (*CuteQLabelCall18)(const void *, int *);
 typedef void (*CuteQLabelCall19)(const void *, QMouseEvent *, int *);
+#if QT_CONFIG(wheelevent)
 typedef void (*CuteQLabelCall20)(const void *, QWheelEvent *, int *);
+#endif  // QT_CONFIG(wheelevent)
 typedef void (*CuteQLabelCall21)(const void *, QKeyEvent *, int *);
 typedef void (*CuteQLabelCall22)(const void *, QEnterEvent *, int *);
 typedef void (*CuteQLabelCall23)(const void *, QEvent *, int *);
 typedef void (*CuteQLabelCall24)(const void *, QMoveEvent *, int *);
 typedef void (*CuteQLabelCall25)(const void *, QResizeEvent *, int *);
 typedef void (*CuteQLabelCall26)(const void *, QCloseEvent *, int *);
+#if QT_CONFIG(tabletevent)
 typedef void (*CuteQLabelCall27)(const void *, QTabletEvent *, int *);
+#endif  // QT_CONFIG(tabletevent)
+#if !defined(QT_NO_ACTION)
 typedef void (*CuteQLabelCall28)(const void *, QActionEvent *, int *);
+#endif  // !defined(QT_NO_ACTION)
+#if QT_CONFIG(draganddrop)
 typedef void (*CuteQLabelCall29)(const void *, QDragEnterEvent *, int *);
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
 typedef void (*CuteQLabelCall30)(const void *, QDragMoveEvent *, int *);
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
 typedef void (*CuteQLabelCall31)(const void *, QDragLeaveEvent *, int *);
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
 typedef void (*CuteQLabelCall32)(const void *, QDropEvent *, int *);
+#endif  // QT_CONFIG(draganddrop)
 typedef void (*CuteQLabelCall33)(const void *, QShowEvent *, int *);
 typedef void (*CuteQLabelCall34)(const void *, QHideEvent *, int *);
 typedef int (*CuteQLabelCall35)(const void *, int, int *);
@@ -69,74 +117,118 @@ typedef void * (*CuteQLabelCall37)(const void *, QPoint *, int *);
 typedef void * (*CuteQLabelCall38)(const void *, int *);
 typedef void (*CuteQLabelCall39)(const void *, QInputMethodEvent *, int *);
 typedef const QVariant * (*CuteQLabelCall40)(const void *, int, int *);
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQLabelCall41)(const void *, QObject *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQLabelCall42)(const void *, QTimerEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQLabelCall43)(const void *, QChildEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQLabelCall44)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQLabelCall45)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQLabelCall46)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 class CuteQLabel : public QLabel {
 public:
   using QLabel::QLabel;
   void *taken[47] = {};
 
   bool take(const char *key, void *call) {
+#if QT_CONFIG(label)
     if (!std::strcmp(key, "_ZNK7QWidget8sizeHintEv")) {
       taken[0] = call;
       return true;
     }
+#endif  // QT_CONFIG(label)
+#if QT_CONFIG(label)
     if (!std::strcmp(key, "_ZNK7QWidget15minimumSizeHintEv")) {
       taken[1] = call;
       return true;
     }
+#endif  // QT_CONFIG(label)
+#if QT_CONFIG(label)
     if (!std::strcmp(key, "_ZNK7QWidget14heightForWidthEi")) {
       taken[2] = call;
       return true;
     }
+#endif  // QT_CONFIG(label)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(label)
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[3] = call;
       return true;
     }
+#endif  // QT_CONFIG(label)
+#endif  // !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(label)
     if (!std::strcmp(key, "_ZN7QWidget13keyPressEventEP9QKeyEvent")) {
       taken[4] = call;
       return true;
     }
+#endif  // QT_CONFIG(label)
+#if QT_CONFIG(label)
     if (!std::strcmp(key, "_ZN7QWidget10paintEventEP11QPaintEvent")) {
       taken[5] = call;
       return true;
     }
+#endif  // QT_CONFIG(label)
+#if QT_CONFIG(label)
     if (!std::strcmp(key, "_ZN7QWidget11changeEventEP6QEvent")) {
       taken[6] = call;
       return true;
     }
+#endif  // QT_CONFIG(label)
+#if QT_CONFIG(label)
     if (!std::strcmp(key, "_ZN7QWidget15mousePressEventEP11QMouseEvent")) {
       taken[7] = call;
       return true;
     }
+#endif  // QT_CONFIG(label)
+#if QT_CONFIG(label)
     if (!std::strcmp(key, "_ZN7QWidget14mouseMoveEventEP11QMouseEvent")) {
       taken[8] = call;
       return true;
     }
+#endif  // QT_CONFIG(label)
+#if QT_CONFIG(label)
     if (!std::strcmp(key, "_ZN7QWidget17mouseReleaseEventEP11QMouseEvent")) {
       taken[9] = call;
       return true;
     }
+#endif  // QT_CONFIG(label)
+#if !defined(QT_NO_CONTEXTMENU)
+#if QT_CONFIG(label)
     if (!std::strcmp(key, "_ZN7QWidget16contextMenuEventEP17QContextMenuEvent")) {
       taken[10] = call;
       return true;
     }
+#endif  // QT_CONFIG(label)
+#endif  // !defined(QT_NO_CONTEXTMENU)
+#if QT_CONFIG(label)
     if (!std::strcmp(key, "_ZN7QWidget12focusInEventEP11QFocusEvent")) {
       taken[11] = call;
       return true;
     }
+#endif  // QT_CONFIG(label)
+#if QT_CONFIG(label)
     if (!std::strcmp(key, "_ZN7QWidget13focusOutEventEP11QFocusEvent")) {
       taken[12] = call;
       return true;
     }
+#endif  // QT_CONFIG(label)
+#if QT_CONFIG(label)
     if (!std::strcmp(key, "_ZN7QWidget18focusNextPrevChildEb")) {
       taken[13] = call;
       return true;
     }
+#endif  // QT_CONFIG(label)
     if (!std::strcmp(key, "_ZNK6QFrame15initStyleOptionEP17QStyleOptionFrame")) {
       taken[14] = call;
       return true;
@@ -161,10 +253,12 @@ public:
       taken[19] = call;
       return true;
     }
+#if QT_CONFIG(wheelevent)
     if (!std::strcmp(key, "_ZN7QWidget10wheelEventEP11QWheelEvent")) {
       taken[20] = call;
       return true;
     }
+#endif  // QT_CONFIG(wheelevent)
     if (!std::strcmp(key, "_ZN7QWidget15keyReleaseEventEP9QKeyEvent")) {
       taken[21] = call;
       return true;
@@ -189,30 +283,42 @@ public:
       taken[26] = call;
       return true;
     }
+#if QT_CONFIG(tabletevent)
     if (!std::strcmp(key, "_ZN7QWidget11tabletEventEP12QTabletEvent")) {
       taken[27] = call;
       return true;
     }
+#endif  // QT_CONFIG(tabletevent)
+#if !defined(QT_NO_ACTION)
     if (!std::strcmp(key, "_ZN7QWidget11actionEventEP12QActionEvent")) {
       taken[28] = call;
       return true;
     }
+#endif  // !defined(QT_NO_ACTION)
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget14dragEnterEventEP15QDragEnterEvent")) {
       taken[29] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget13dragMoveEventEP14QDragMoveEvent")) {
       taken[30] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget14dragLeaveEventEP15QDragLeaveEvent")) {
       taken[31] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget9dropEventEP10QDropEvent")) {
       taken[32] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget9showEventEP10QShowEvent")) {
       taken[33] = call;
       return true;
@@ -245,33 +351,46 @@ public:
       taken[40] = call;
       return true;
     }
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[41] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[42] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[43] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[44] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[45] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
       taken[46] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
     return false;
   }
 
+#if QT_CONFIG(label)
   //  QSize QLabel::sizeHint() const
   QSize sizeHint() const override {
     if (taken[0]) {
@@ -282,7 +401,9 @@ public:
     }
     return QLabel::sizeHint();
   }
+#endif  // QT_CONFIG(label)
 
+#if QT_CONFIG(label)
   //  QSize QLabel::minimumSizeHint() const
   QSize minimumSizeHint() const override {
     if (taken[1]) {
@@ -293,7 +414,9 @@ public:
     }
     return QLabel::minimumSizeHint();
   }
+#endif  // QT_CONFIG(label)
 
+#if QT_CONFIG(label)
   //  int QLabel::heightForWidth(int a0) const
   int heightForWidth(int a0) const override {
     if (taken[2]) {
@@ -304,7 +427,10 @@ public:
     }
     return QLabel::heightForWidth(a0);
   }
+#endif  // QT_CONFIG(label)
 
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(label)
   //  bool QLabel::event(QEvent *e)
   bool event(QEvent *e) override {
     if (taken[3]) {
@@ -315,7 +441,10 @@ public:
     }
     return QLabel::event(e);
   }
+#endif  // QT_CONFIG(label)
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if QT_CONFIG(label)
   //  void QLabel::keyPressEvent(QKeyEvent *ev)
   void keyPressEvent(QKeyEvent *ev) override {
     if (taken[4]) {
@@ -326,7 +455,9 @@ public:
     }
     QLabel::keyPressEvent(ev);
   }
+#endif  // QT_CONFIG(label)
 
+#if QT_CONFIG(label)
   //  void QLabel::paintEvent(QPaintEvent *a0)
   void paintEvent(QPaintEvent *a0) override {
     if (taken[5]) {
@@ -337,7 +468,9 @@ public:
     }
     QLabel::paintEvent(a0);
   }
+#endif  // QT_CONFIG(label)
 
+#if QT_CONFIG(label)
   //  void QLabel::changeEvent(QEvent *a0)
   void changeEvent(QEvent *a0) override {
     if (taken[6]) {
@@ -348,7 +481,9 @@ public:
     }
     QLabel::changeEvent(a0);
   }
+#endif  // QT_CONFIG(label)
 
+#if QT_CONFIG(label)
   //  void QLabel::mousePressEvent(QMouseEvent *ev)
   void mousePressEvent(QMouseEvent *ev) override {
     if (taken[7]) {
@@ -359,7 +494,9 @@ public:
     }
     QLabel::mousePressEvent(ev);
   }
+#endif  // QT_CONFIG(label)
 
+#if QT_CONFIG(label)
   //  void QLabel::mouseMoveEvent(QMouseEvent *ev)
   void mouseMoveEvent(QMouseEvent *ev) override {
     if (taken[8]) {
@@ -370,7 +507,9 @@ public:
     }
     QLabel::mouseMoveEvent(ev);
   }
+#endif  // QT_CONFIG(label)
 
+#if QT_CONFIG(label)
   //  void QLabel::mouseReleaseEvent(QMouseEvent *ev)
   void mouseReleaseEvent(QMouseEvent *ev) override {
     if (taken[9]) {
@@ -381,7 +520,10 @@ public:
     }
     QLabel::mouseReleaseEvent(ev);
   }
+#endif  // QT_CONFIG(label)
 
+#if !defined(QT_NO_CONTEXTMENU)
+#if QT_CONFIG(label)
   //  void QLabel::contextMenuEvent(QContextMenuEvent *ev)
   void contextMenuEvent(QContextMenuEvent *ev) override {
     if (taken[10]) {
@@ -392,7 +534,10 @@ public:
     }
     QLabel::contextMenuEvent(ev);
   }
+#endif  // QT_CONFIG(label)
+#endif  // !defined(QT_NO_CONTEXTMENU)
 
+#if QT_CONFIG(label)
   //  void QLabel::focusInEvent(QFocusEvent *ev)
   void focusInEvent(QFocusEvent *ev) override {
     if (taken[11]) {
@@ -403,7 +548,9 @@ public:
     }
     QLabel::focusInEvent(ev);
   }
+#endif  // QT_CONFIG(label)
 
+#if QT_CONFIG(label)
   //  void QLabel::focusOutEvent(QFocusEvent *ev)
   void focusOutEvent(QFocusEvent *ev) override {
     if (taken[12]) {
@@ -414,7 +561,9 @@ public:
     }
     QLabel::focusOutEvent(ev);
   }
+#endif  // QT_CONFIG(label)
 
+#if QT_CONFIG(label)
   //  bool QLabel::focusNextPrevChild(bool next)
   bool focusNextPrevChild(bool next) override {
     if (taken[13]) {
@@ -425,6 +574,7 @@ public:
     }
     return QLabel::focusNextPrevChild(next);
   }
+#endif  // QT_CONFIG(label)
 
   //  void QFrame::initStyleOption(QStyleOptionFrame *option) const
   void initStyleOption(QStyleOptionFrame *option) const override {
@@ -492,6 +642,7 @@ public:
     QWidget::mouseDoubleClickEvent(event);
   }
 
+#if QT_CONFIG(wheelevent)
   //  void QWidget::wheelEvent(QWheelEvent *event)
   void wheelEvent(QWheelEvent *event) override {
     if (taken[20]) {
@@ -502,6 +653,7 @@ public:
     }
     QWidget::wheelEvent(event);
   }
+#endif  // QT_CONFIG(wheelevent)
 
   //  void QWidget::keyReleaseEvent(QKeyEvent *event)
   void keyReleaseEvent(QKeyEvent *event) override {
@@ -569,6 +721,7 @@ public:
     QWidget::closeEvent(event);
   }
 
+#if QT_CONFIG(tabletevent)
   //  void QWidget::tabletEvent(QTabletEvent *event)
   void tabletEvent(QTabletEvent *event) override {
     if (taken[27]) {
@@ -579,7 +732,9 @@ public:
     }
     QWidget::tabletEvent(event);
   }
+#endif  // QT_CONFIG(tabletevent)
 
+#if !defined(QT_NO_ACTION)
   //  void QWidget::actionEvent(QActionEvent *event)
   void actionEvent(QActionEvent *event) override {
     if (taken[28]) {
@@ -590,7 +745,9 @@ public:
     }
     QWidget::actionEvent(event);
   }
+#endif  // !defined(QT_NO_ACTION)
 
+#if QT_CONFIG(draganddrop)
   //  void QWidget::dragEnterEvent(QDragEnterEvent *event)
   void dragEnterEvent(QDragEnterEvent *event) override {
     if (taken[29]) {
@@ -601,7 +758,9 @@ public:
     }
     QWidget::dragEnterEvent(event);
   }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
   //  void QWidget::dragMoveEvent(QDragMoveEvent *event)
   void dragMoveEvent(QDragMoveEvent *event) override {
     if (taken[30]) {
@@ -612,7 +771,9 @@ public:
     }
     QWidget::dragMoveEvent(event);
   }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
   //  void QWidget::dragLeaveEvent(QDragLeaveEvent *event)
   void dragLeaveEvent(QDragLeaveEvent *event) override {
     if (taken[31]) {
@@ -623,7 +784,9 @@ public:
     }
     QWidget::dragLeaveEvent(event);
   }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
   //  void QWidget::dropEvent(QDropEvent *event)
   void dropEvent(QDropEvent *event) override {
     if (taken[32]) {
@@ -634,6 +797,7 @@ public:
     }
     QWidget::dropEvent(event);
   }
+#endif  // QT_CONFIG(draganddrop)
 
   //  void QWidget::showEvent(QShowEvent *event)
   void showEvent(QShowEvent *event) override {
@@ -723,6 +887,7 @@ public:
     return QWidget::inputMethodQuery(a0);
   }
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
     if (taken[41]) {
@@ -733,7 +898,9 @@ public:
     }
     return QObject::eventFilter(watched, event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
     if (taken[42]) {
@@ -744,7 +911,9 @@ public:
     }
     QObject::timerEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
     if (taken[43]) {
@@ -755,7 +924,9 @@ public:
     }
     QObject::childEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
     if (taken[44]) {
@@ -766,7 +937,9 @@ public:
     }
     QObject::customEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
     if (taken[45]) {
@@ -777,7 +950,9 @@ public:
     }
     QObject::connectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
     if (taken[46]) {
@@ -788,6 +963,7 @@ public:
     }
     QObject::disconnectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 };
 
 //  const QMetaObject *QLabel::metaObject() const
@@ -831,6 +1007,7 @@ QString *ritual_ZNK6QLabel4textEv(const QLabel *self) {
   return new QString(self->text());
 }
 
+#if QT_DEPRECATED_SINCE(6,6)
 //  QPixmap QLabel::pixmap(Qt::ReturnByValueConstant a0) const
 extern "C" Q_DECL_EXPORT
 QPixmap *ritual_ZNK6QLabel6pixmapEN2Qt21ReturnByValueConstantE(
@@ -838,6 +1015,7 @@ QPixmap *ritual_ZNK6QLabel6pixmapEN2Qt21ReturnByValueConstantE(
     Qt::ReturnByValueConstant a0) {
   return new QPixmap(self->pixmap(a0));
 }
+#endif  // QT_DEPRECATED_SINCE(6,6)
 
 //  QPixmap QLabel::pixmap() const
 extern "C" Q_DECL_EXPORT
@@ -845,6 +1023,8 @@ QPixmap *ritual_ZNK6QLabel6pixmapEv(const QLabel *self) {
   return new QPixmap(self->pixmap());
 }
 
+#if !defined(QT_NO_PICTURE)
+#if QT_DEPRECATED_SINCE(6,6)
 //  QPicture QLabel::picture(Qt::ReturnByValueConstant a0) const
 extern "C" Q_DECL_EXPORT
 QPicture *ritual_ZNK6QLabel7pictureEN2Qt21ReturnByValueConstantE(
@@ -852,18 +1032,24 @@ QPicture *ritual_ZNK6QLabel7pictureEN2Qt21ReturnByValueConstantE(
     Qt::ReturnByValueConstant a0) {
   return new QPicture(self->picture(a0));
 }
+#endif  // QT_DEPRECATED_SINCE(6,6)
+#endif  // !defined(QT_NO_PICTURE)
 
+#if !defined(QT_NO_PICTURE)
 //  QPicture QLabel::picture() const
 extern "C" Q_DECL_EXPORT
 QPicture *ritual_ZNK6QLabel7pictureEv(const QLabel *self) {
   return new QPicture(self->picture());
 }
+#endif  // !defined(QT_NO_PICTURE)
 
+#if QT_CONFIG(movie)
 //  QMovie *QLabel::movie() const
 extern "C" Q_DECL_EXPORT
 QMovie *ritual_ZNK6QLabel5movieEv(const QLabel *self) {
   return self->movie();
 }
+#endif  // QT_CONFIG(movie)
 
 //  Qt::TextFormat QLabel::textFormat() const
 extern "C" Q_DECL_EXPORT
@@ -953,17 +1139,21 @@ QSize *ritual_ZNK6QLabel15minimumSizeHintEv(const QLabel *self) {
   return new QSize(self->minimumSizeHint());
 }
 
+#if !defined(QT_NO_SHORTCUT)
 //  void QLabel::setBuddy(QWidget *a0)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN6QLabel8setBuddyEP7QWidget(QLabel *self, QWidget *a0) {
   self->setBuddy(a0);
 }
+#endif  // !defined(QT_NO_SHORTCUT)
 
+#if !defined(QT_NO_SHORTCUT)
 //  QWidget *QLabel::buddy() const
 extern "C" Q_DECL_EXPORT
 QWidget *ritual_ZNK6QLabel5buddyEv(const QLabel *self) {
   return self->buddy();
 }
+#endif  // !defined(QT_NO_SHORTCUT)
 
 //  int QLabel::heightForWidth(int a0) const
 extern "C" Q_DECL_EXPORT
@@ -1034,6 +1224,7 @@ void ritual_ZN6QLabel9setPixmapERK7QPixmap(QLabel *self, const QPixmap *a0) {
   self->setPixmap(*a0);
 }
 
+#if !defined(QT_NO_PICTURE)
 //  void QLabel::setPicture(const QPicture &a0)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN6QLabel10setPictureERK8QPicture(
@@ -1041,12 +1232,15 @@ void ritual_ZN6QLabel10setPictureERK8QPicture(
     const QPicture *a0) {
   self->setPicture(*a0);
 }
+#endif  // !defined(QT_NO_PICTURE)
 
+#if QT_CONFIG(movie)
 //  void QLabel::setMovie(QMovie *movie)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN6QLabel8setMovieEP6QMovie(QLabel *self, QMovie *movie) {
   self->setMovie(movie);
 }
+#endif  // QT_CONFIG(movie)
 
 //  void QLabel::setNum(int a0)
 extern "C" Q_DECL_EXPORT
@@ -1118,6 +1312,7 @@ void ritual_ZN6QLabel17mouseReleaseEventEP11QMouseEvent(
   self->mouseReleaseEvent(ev);
 }
 
+#if !defined(QT_NO_CONTEXTMENU)
 //  void QLabel::contextMenuEvent(QContextMenuEvent *ev)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN6QLabel16contextMenuEventEP17QContextMenuEvent(
@@ -1125,6 +1320,7 @@ void ritual_ZN6QLabel16contextMenuEventEP17QContextMenuEvent(
     QContextMenuEvent *ev) {
   self->contextMenuEvent(ev);
 }
+#endif  // !defined(QT_NO_CONTEXTMENU)
 
 //  void QLabel::focusInEvent(QFocusEvent *ev)
 extern "C" Q_DECL_EXPORT
@@ -1146,6 +1342,18 @@ void ritual_ZN6QLabel13focusOutEventEP11QFocusEvent(
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN6QLabel18focusNextPrevChildEb(QLabel *self, bool next) {
   return self->focusNextPrevChild(next);
+}
+
+//  QLabelPrivate *QLabel::d_func()
+extern "C" Q_DECL_EXPORT
+QLabelPrivate *ritual_ZN6QLabel6d_funcEv(QLabel *self) {
+  return self->d_func();
+}
+
+//  const QLabelPrivate *QLabel::d_func() const
+extern "C" Q_DECL_EXPORT
+const QLabelPrivate *ritual_ZNK6QLabel6d_funcEv(const QLabel *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQLabel, for the function named by the
@@ -1225,6 +1433,7 @@ void ritual_own_ZN6QLabel17mouseReleaseEventEP11QMouseEvent(
   static_cast<OwnQLabel *>(self)->OwnQLabel::mouseReleaseEvent(ev);
 }
 
+#if !defined(QT_NO_CONTEXTMENU)
 //  void QLabel::contextMenuEvent(QContextMenuEvent *ev)
 extern "C" Q_DECL_EXPORT
 void ritual_own_ZN6QLabel16contextMenuEventEP17QContextMenuEvent(
@@ -1232,6 +1441,7 @@ void ritual_own_ZN6QLabel16contextMenuEventEP17QContextMenuEvent(
     QContextMenuEvent *ev) {
   static_cast<OwnQLabel *>(self)->OwnQLabel::contextMenuEvent(ev);
 }
+#endif  // !defined(QT_NO_CONTEXTMENU)
 
 //  void QLabel::focusInEvent(QFocusEvent *ev)
 extern "C" Q_DECL_EXPORT
@@ -1254,3 +1464,5 @@ extern "C" Q_DECL_EXPORT
 bool ritual_own_ZN6QLabel18focusNextPrevChildEb(QLabel *self, bool next) {
   return static_cast<OwnQLabel *>(self)->OwnQLabel::focusNextPrevChild(next);
 }
+
+#endif  // QT_CONFIG(label)

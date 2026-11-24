@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGui/qevent.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
+#if QT_CONFIG(wheelevent)
 #include <QtGui/qevent.h>
 #include <QtCore/qpoint.h>
 #include <cstring>
@@ -7,10 +9,18 @@
 //  A QWheelEvent that Python can take functions over in. Every QWheelEvent
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if QT_CONFIG(wheelevent)
 typedef void * (*CuteQWheelEventCall0)(const void *, int *);
+#endif  // QT_CONFIG(wheelevent)
+#if QT_CONFIG(wheelevent)
 typedef bool (*CuteQWheelEventCall1)(const void *, int *);
+#endif  // QT_CONFIG(wheelevent)
+#if QT_CONFIG(wheelevent)
 typedef bool (*CuteQWheelEventCall2)(const void *, int *);
+#endif  // QT_CONFIG(wheelevent)
+#if QT_CONFIG(wheelevent)
 typedef bool (*CuteQWheelEventCall3)(const void *, int *);
+#endif  // QT_CONFIG(wheelevent)
 typedef void (*CuteQWheelEventCall4)(const void *, quint64, int *);
 typedef void (*CuteQWheelEventCall5)(const void *, bool, int *);
 class CuteQWheelEvent : public QWheelEvent {
@@ -19,22 +29,30 @@ public:
   void *taken[6] = {};
 
   bool take(const char *key, void *call) {
+#if QT_CONFIG(wheelevent)
     if (!std::strcmp(key, "_ZNK6QEvent5cloneEv")) {
       taken[0] = call;
       return true;
     }
+#endif  // QT_CONFIG(wheelevent)
+#if QT_CONFIG(wheelevent)
     if (!std::strcmp(key, "_ZNK13QPointerEvent12isBeginEventEv")) {
       taken[1] = call;
       return true;
     }
+#endif  // QT_CONFIG(wheelevent)
+#if QT_CONFIG(wheelevent)
     if (!std::strcmp(key, "_ZNK13QPointerEvent13isUpdateEventEv")) {
       taken[2] = call;
       return true;
     }
+#endif  // QT_CONFIG(wheelevent)
+#if QT_CONFIG(wheelevent)
     if (!std::strcmp(key, "_ZNK13QPointerEvent10isEndEventEv")) {
       taken[3] = call;
       return true;
     }
+#endif  // QT_CONFIG(wheelevent)
     if (!std::strcmp(key, "_ZN11QInputEvent12setTimestampEy")) {
       taken[4] = call;
       return true;
@@ -46,6 +64,7 @@ public:
     return false;
   }
 
+#if QT_CONFIG(wheelevent)
   //  QWheelEvent *QWheelEvent::clone() const
   QWheelEvent *clone() const override {
     if (taken[0]) {
@@ -56,7 +75,9 @@ public:
     }
     return QWheelEvent::clone();
   }
+#endif  // QT_CONFIG(wheelevent)
 
+#if QT_CONFIG(wheelevent)
   //  bool QWheelEvent::isBeginEvent() const
   bool isBeginEvent() const override {
     if (taken[1]) {
@@ -67,7 +88,9 @@ public:
     }
     return QWheelEvent::isBeginEvent();
   }
+#endif  // QT_CONFIG(wheelevent)
 
+#if QT_CONFIG(wheelevent)
   //  bool QWheelEvent::isUpdateEvent() const
   bool isUpdateEvent() const override {
     if (taken[2]) {
@@ -78,7 +101,9 @@ public:
     }
     return QWheelEvent::isUpdateEvent();
   }
+#endif  // QT_CONFIG(wheelevent)
 
+#if QT_CONFIG(wheelevent)
   //  bool QWheelEvent::isEndEvent() const
   bool isEndEvent() const override {
     if (taken[3]) {
@@ -89,6 +114,7 @@ public:
     }
     return QWheelEvent::isEndEvent();
   }
+#endif  // QT_CONFIG(wheelevent)
 
   //  void QPointerEvent::setTimestamp(quint64 timestamp)
   void setTimestamp(quint64 timestamp) override {
@@ -248,3 +274,5 @@ extern "C" Q_DECL_EXPORT
 bool ritual_own_ZNK11QWheelEvent10isEndEventEv(const QWheelEvent *self) {
   return self->QWheelEvent::isEndEvent();
 }
+
+#endif  // QT_CONFIG(wheelevent)

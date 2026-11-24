@@ -1,0 +1,50 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquicktaphandler_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK16QQuickTapHandler10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QQuickTapHandler2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN16QQuickTapHandlerC1EP10QQuickItem": ["address", "address"],
+    "ritual_ZNK16QQuickTapHandler9isPressedEv": ["bool", "address"],
+    "ritual_ZNK16QQuickTapHandler8tapCountEv": ["int", "address"],
+    "ritual_ZNK16QQuickTapHandler8timeHeldEv": ["double", "address"],
+    "ritual_ZNK16QQuickTapHandler18longPressThresholdEv": [
+      "double", "address"
+    ],
+    "ritual_ZN16QQuickTapHandler21setLongPressThresholdEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN16QQuickTapHandler23resetLongPressThresholdEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK16QQuickTapHandler13gesturePolicyEv": ["int", "address"],
+    "ritual_ZN16QQuickTapHandler16setGesturePolicyENS_13GesturePolicyE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16QQuickTapHandler16exclusiveSignalsEv": ["int", "address"],
+    "ritual_ZN16QQuickTapHandler19setExclusiveSignalsE6QFlagsINS_15ExclusiveSignalEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16QQuickTapHandler10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickTapHandler15wantsEventPointEPK13QPointerEventRK11QEventPoint": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN16QQuickTapHandler22connectPreRenderSignalEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN16QQuickTapHandler14updateTimeHeldEv": ["nothing", "address"],
+    "ritual_own_ZN16QQuickTapHandler10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16QQuickTapHandler15wantsEventPointEPK13QPointerEventRK11QEventPoint": [
+      "bool", "address", "address", "address"
+    ]
+  }
+}

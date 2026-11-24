@@ -1,0 +1,67 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/qqmlcontext.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK11QQmlContext10metaObjectEv": ["address", "address"],
+    "ritual_ZN11QQmlContext2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN11QQmlContext6d_funcEv": ["address", "address"],
+    "ritual_ZNK11QQmlContext6d_funcEv": ["address", "address"],
+    "ritual_ZN11QQmlContextC1EP10QQmlEngineP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN11QQmlContextC1EPS_P7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN11QQmlContextD1Ev": ["nothing", "address"],
+    "ritual_ZNK11QQmlContext7isValidEv": ["bool", "address"],
+    "ritual_ZNK11QQmlContext6engineEv": ["address", "address"],
+    "ritual_ZNK11QQmlContext13parentContextEv": ["address", "address"],
+    "ritual_ZNK11QQmlContext13childContextsEv": ["address", "address"],
+    "ritual_ZNK11QQmlContext13contextObjectEv": ["address", "address"],
+    "ritual_ZN11QQmlContext16setContextObjectEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QQmlContext15contextPropertyERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN11QQmlContext18setContextPropertyERK7QStringP7QObject": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZN11QQmlContext18setContextPropertyERK7QStringRK8QVariant": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZNK11QQmlContext13nameForObjectEPK7QObject": [
+      "text", "address", "address"
+    ],
+    "ritual_ZNK11QQmlContext13objectForNameERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK11QQmlContext21findObjectRecursivelyERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK11QQmlContext22findObjectsRecursivelyERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK11QQmlContext11resolvedUrlERK4QUrl": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN11QQmlContext10setBaseUrlERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QQmlContext7baseUrlEv": ["address", "address"],
+    "ritual_ZNK11QQmlContext14importedScriptERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN11QQmlContextC1EP10QQmlEngineb": [
+      "address", "address", "bool"
+    ],
+    "ritual_take_QQmlContext": ["bool", "address", "chars", "address"],
+    "ritual_list_make_QQmlContext_ptr": ["address"],
+    "ritual_list_add_QQmlContext_ptr": ["nothing", "address", "address"],
+    "ritual_list_size_QQmlContext_ptr": ["long long", "address"],
+    "ritual_list_at_QQmlContext_ptr": ["address", "address", "long long"],
+    "ritual_list_drop_QQmlContext_ptr": ["nothing", "address"]
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLocation/6.12.0/QtLocation/private/qgeomap_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK7QGeoMap10metaObjectEv": ["address", "address"],
+    "ritual_ZN7QGeoMap2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN7QGeoMap6d_funcEv": ["address", "address"],
+    "ritual_ZNK7QGeoMap6d_funcEv": ["address", "address"],
+    "ritual_ZN7QGeoMapD1Ev": ["nothing", "address"],
+    "ritual_ZN7QGeoMap15setViewportSizeERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK7QGeoMap12viewportSizeEv": ["address", "address"],
+    "ritual_ZNK7QGeoMap13viewportWidthEv": ["int", "address"],
+    "ritual_ZNK7QGeoMap14viewportHeightEv": ["int", "address"],
+    "ritual_ZNK7QGeoMap10cameraDataEv": ["address", "address"],
+    "ritual_ZNK7QGeoMap18cameraCapabilitiesEv": ["address", "address"],
+    "ritual_ZNK7QGeoMap12capabilitiesEv": ["int", "address"],
+    "ritual_ZN7QGeoMap16setActiveMapTypeERK11QGeoMapType": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK7QGeoMap13activeMapTypeEv": ["address", "address"],
+    "ritual_ZNK7QGeoMap11minimumZoomEv": ["double", "address"],
+    "ritual_ZNK7QGeoMap27maximumCenterLatitudeAtZoomERK14QGeoCameraData": [
+      "double", "address", "address"
+    ],
+    "ritual_ZNK7QGeoMap27minimumCenterLatitudeAtZoomERK14QGeoCameraData": [
+      "double", "address", "address"
+    ],
+    "ritual_ZNK7QGeoMap8mapWidthEv": ["double", "address"],
+    "ritual_ZNK7QGeoMap9mapHeightEv": ["double", "address"],
+    "ritual_ZN7QGeoMap12prefetchDataEv": ["nothing", "address"],
+    "ritual_ZN7QGeoMap9clearDataEv": ["nothing", "address"],
+    "ritual_ZNK7QGeoMap21supportedMapItemTypesEv": ["int", "address"],
+    "ritual_ZN7QGeoMap10addMapItemEP26QDeclarativeGeoMapItemBase": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QGeoMap13removeMapItemEP26QDeclarativeGeoMapItemBase": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QGeoMap13clearMapItemsEv": ["nothing", "address"],
+    "ritual_ZNK7QGeoMap20copyrightsStyleSheetEv": ["text", "address"],
+    "ritual_ZN7QGeoMap19setAcceptedGesturesEbbbbb": [
+      "nothing", "address", "bool", "bool", "bool", "bool", "bool"
+    ],
+    "ritual_ZN7QGeoMap11handleEventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN7QGeoMap10setBearingEdRK14QGeoCoordinate": [
+      "bool", "address", "double", "address"
+    ],
+    "ritual_ZNK7QGeoMap13visibleRegionEv": ["address", "address"],
+    "ritual_ZN7QGeoMap23anchorCoordinateToPointERK14QGeoCoordinateRK7QPointF": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN7QGeoMap25fitViewportToGeoRectangleERK13QGeoRectangleRK8QMargins": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN7QGeoMap19setCopyrightVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN7QGeoMap24setItemToWindowTransformERK10QTransform": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QGeoMap14setVisibleAreaERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK7QGeoMap11visibleAreaEv": ["address", "address"],
+    "ritual_ZN7QGeoMap13setCameraDataERK14QGeoCameraData": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QGeoMap21setCameraCapabilitiesERK22QGeoCameraCapabilities": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QGeoMap16updateSceneGraphEP7QSGNodeP12QQuickWindow": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_take_QGeoMap": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK7QGeoMap12capabilitiesEv": ["int", "address"],
+    "ritual_own_ZN7QGeoMap12prefetchDataEv": ["nothing", "address"],
+    "ritual_own_ZN7QGeoMap9clearDataEv": ["nothing", "address"],
+    "ritual_own_ZNK7QGeoMap20copyrightsStyleSheetEv": ["text", "address"],
+    "ritual_own_ZN7QGeoMap19setAcceptedGesturesEbbbbb": [
+      "nothing", "address", "bool", "bool", "bool", "bool", "bool"
+    ],
+    "ritual_own_ZN7QGeoMap11handleEventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN7QGeoMap10setBearingEdRK14QGeoCoordinate": [
+      "bool", "address", "double", "address"
+    ],
+    "ritual_own_ZNK7QGeoMap13visibleRegionEv": ["address", "address"],
+    "ritual_own_ZN7QGeoMap23anchorCoordinateToPointERK14QGeoCoordinateRK7QPointF": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_own_ZN7QGeoMap25fitViewportToGeoRectangleERK13QGeoRectangleRK8QMargins": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_own_ZN7QGeoMap19setCopyrightVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZN7QGeoMap24setItemToWindowTransformERK10QTransform": [
+      "nothing", "address", "address"
+    ]
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquicktextedit_p_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN21QQuickTextEditPrivate4NodeC1EiP19QSGInternalTextNode": [
+      "address", "int", "address"
+    ],
+    "ritual_ZNK21QQuickTextEditPrivate4Node8textNodeEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QQuickTextEditPrivate4Node12moveStartPosEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK21QQuickTextEditPrivate4Node8startPosEv": ["int", "address"],
+    "ritual_ZN21QQuickTextEditPrivate4Node8setDirtyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK21QQuickTextEditPrivate4Node5dirtyEv": ["bool", "address"],
+    "ritual_Zls6QDebugRKN21QQuickTextEditPrivate4NodeE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN21QQuickTextEditPrivate4NodeD1Ev": ["nothing", "address"]
+  }
+}

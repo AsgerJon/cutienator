@@ -1,0 +1,42 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/6.12.0/QtCharts/private/legendlayout_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN12LegendLayoutC1EP7QLegend": ["address", "address"],
+    "ritual_ZN12LegendLayoutD1Ev": ["nothing", "address"],
+    "ritual_ZN12LegendLayout11setGeometryERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12LegendLayout9setOffsetEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZNK12LegendLayout6offsetEv": ["address", "address"],
+    "ritual_ZN12LegendLayout10invalidateEv": ["nothing", "address"],
+    "ritual_ZNK12LegendLayout8sizeHintEN2Qt8SizeHintERK6QSizeF": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_ZNK12LegendLayout5countEv": ["int", "address"],
+    "ritual_ZNK12LegendLayout6itemAtEi": ["address", "address", "int"],
+    "ritual_ZN12LegendLayout8removeAtEi": ["nothing", "address", "int"],
+    "ritual_ZN12LegendLayout19setAttachedGeometryERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12LegendLayout20setDettachedGeometryERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_LegendLayout": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN12LegendLayout11setGeometryERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN12LegendLayout10invalidateEv": ["nothing", "address"],
+    "ritual_own_ZNK12LegendLayout8sizeHintEN2Qt8SizeHintERK6QSizeF": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_own_ZNK12LegendLayout5countEv": ["int", "address"],
+    "ritual_own_ZNK12LegendLayout6itemAtEi": ["address", "address", "int"],
+    "ritual_own_ZN12LegendLayout8removeAtEi": ["nothing", "address", "int"]
+  }
+}

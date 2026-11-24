@@ -1,0 +1,29 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSvg/6.12.0/QtSvg/private/qsvgstructure_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN14QSvgSymbolLikeD1Ev": ["nothing", "address"],
+    "ritual_ZNK14QSvgSymbolLike22requiresGroupRenderingEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK14QSvgSymbolLike7viewBoxEv": ["address", "address"],
+    "ritual_ZNK14QSvgSymbolLike4rectEv": ["address", "address"],
+    "ritual_ZNK14QSvgSymbolLike4refPEv": ["address", "address"],
+    "ritual_ZNK14QSvgSymbolLike20aspectRatioTransformEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK14QSvgSymbolLike8clipRectEv": ["address", "address"],
+    "ritual_ZNK14QSvgSymbolLike8overflowEv": ["unsigned char", "address"],
+    "ritual_ZNK14QSvgSymbolLike20preserveAspectRatiosEv": ["int", "address"],
+    "ritual_ZNK14QSvgSymbolLike29setPainterToRectAndAdjustmentEP8QPainter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QSvgSymbolLike": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK14QSvgSymbolLike22requiresGroupRenderingEv": [
+      "bool", "address"
+    ]
+  }
+}

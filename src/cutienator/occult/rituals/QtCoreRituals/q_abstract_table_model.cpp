@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/qabstractitemmodel.h, Qt 6.12.0. Changes made here are lost.
+#include <QtCore/qglobal.h>
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qabstractitemmodel.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qvariant.h>
@@ -10,205 +12,358 @@
 //  A QAbstractTableModel that Python can take functions over in. Every QAbstractTableModel
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if QT_CONFIG(itemmodel)
 typedef const QModelIndex * (*CuteQAbstractTableModelCall0)(const void *, int, int, const QModelIndex *, int *);
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
 typedef const QModelIndex * (*CuteQAbstractTableModelCall1)(const void *, int, int, const QModelIndex *, int *);
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
 typedef bool (*CuteQAbstractTableModelCall2)(const void *, const QMimeData *, int, int, int, const QModelIndex *, int *);
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
 typedef int (*CuteQAbstractTableModelCall3)(const void *, const QModelIndex *, int *);
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
 typedef const QModelIndex * (*CuteQAbstractTableModelCall4)(const void *, const QModelIndex *, int *);
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
 typedef bool (*CuteQAbstractTableModelCall5)(const void *, const QModelIndex *, int *);
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
 typedef int (*CuteQAbstractTableModelCall6)(const void *, const QModelIndex *, int *);
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
 typedef int (*CuteQAbstractTableModelCall7)(const void *, const QModelIndex *, int *);
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
 typedef const QVariant * (*CuteQAbstractTableModelCall8)(const void *, const QModelIndex *, int, int *);
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
 typedef bool (*CuteQAbstractTableModelCall9)(const void *, const QModelIndex *, const QVariant *, int, int *);
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
 typedef const QVariant * (*CuteQAbstractTableModelCall10)(const void *, int, int, int, int *);
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
 typedef bool (*CuteQAbstractTableModelCall11)(const void *, int, int, const QVariant *, int, int *);
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
 typedef bool (*CuteQAbstractTableModelCall12)(const void *, const QModelIndex *, int *);
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
 typedef bool (*CuteQAbstractTableModelCall13)(const void *, const QMimeData *, int, int, int, const QModelIndex *, int *);
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
 typedef int (*CuteQAbstractTableModelCall14)(const void *, int *);
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
 typedef int (*CuteQAbstractTableModelCall15)(const void *, int *);
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
 typedef bool (*CuteQAbstractTableModelCall16)(const void *, int, int, const QModelIndex *, int *);
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
 typedef bool (*CuteQAbstractTableModelCall17)(const void *, int, int, const QModelIndex *, int *);
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
 typedef bool (*CuteQAbstractTableModelCall18)(const void *, int, int, const QModelIndex *, int *);
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
 typedef bool (*CuteQAbstractTableModelCall19)(const void *, int, int, const QModelIndex *, int *);
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
 typedef bool (*CuteQAbstractTableModelCall20)(const void *, const QModelIndex *, int, int, const QModelIndex *, int, int *);
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
 typedef bool (*CuteQAbstractTableModelCall21)(const void *, const QModelIndex *, int, int, const QModelIndex *, int, int *);
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
 typedef void (*CuteQAbstractTableModelCall22)(const void *, const QModelIndex *, int *);
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
 typedef bool (*CuteQAbstractTableModelCall23)(const void *, const QModelIndex *, int *);
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
 typedef void (*CuteQAbstractTableModelCall24)(const void *, int, int, int *);
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
 typedef const QModelIndex * (*CuteQAbstractTableModelCall25)(const void *, const QModelIndex *, int *);
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
 typedef const QSize * (*CuteQAbstractTableModelCall26)(const void *, const QModelIndex *, int *);
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
 typedef void (*CuteQAbstractTableModelCall27)(const void *, const QModelIndex *, const QModelRoleDataSpan *, int *);
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
 typedef bool (*CuteQAbstractTableModelCall28)(const void *, int *);
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
 typedef void (*CuteQAbstractTableModelCall29)(const void *, int *);
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
 typedef void (*CuteQAbstractTableModelCall30)(const void *, int *);
+#endif  // QT_CONFIG(itemmodel)
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQAbstractTableModelCall31)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQAbstractTableModelCall32)(const void *, QObject *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQAbstractTableModelCall33)(const void *, QTimerEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQAbstractTableModelCall34)(const void *, QChildEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQAbstractTableModelCall35)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQAbstractTableModelCall36)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQAbstractTableModelCall37)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 class CuteQAbstractTableModel : public QAbstractTableModel {
 public:
   using QAbstractTableModel::QAbstractTableModel;
   void *taken[38] = {};
 
   bool take(const char *key, void *call) {
+#if QT_CONFIG(itemmodel)
     if (!std::strcmp(key, "_ZNK18QAbstractItemModel5indexEiiRK11QModelIndex")) {
       taken[0] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
     if (!std::strcmp(key, "_ZNK18QAbstractItemModel7siblingEiiRK11QModelIndex")) {
       taken[1] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
     if (!std::strcmp(key, "_ZN18QAbstractItemModel12dropMimeDataEPK9QMimeDataN2Qt10DropActionEiiRK11QModelIndex")) {
       taken[2] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
     if (!std::strcmp(key, "_ZNK18QAbstractItemModel5flagsERK11QModelIndex")) {
       taken[3] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
     if (!std::strcmp(key, "_ZNK18QAbstractItemModel6parentERK11QModelIndex")) {
       taken[4] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
     if (!std::strcmp(key, "_ZNK18QAbstractItemModel11hasChildrenERK11QModelIndex")) {
       taken[5] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
     if (!std::strcmp(key, "_ZNK18QAbstractItemModel8rowCountERK11QModelIndex")) {
       taken[6] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
     if (!std::strcmp(key, "_ZNK18QAbstractItemModel11columnCountERK11QModelIndex")) {
       taken[7] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
     if (!std::strcmp(key, "_ZNK18QAbstractItemModel4dataERK11QModelIndexi")) {
       taken[8] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
     if (!std::strcmp(key, "_ZN18QAbstractItemModel7setDataERK11QModelIndexRK8QVarianti")) {
       taken[9] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
     if (!std::strcmp(key, "_ZNK18QAbstractItemModel10headerDataEiN2Qt11OrientationEi")) {
       taken[10] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
     if (!std::strcmp(key, "_ZN18QAbstractItemModel13setHeaderDataEiN2Qt11OrientationERK8QVarianti")) {
       taken[11] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
     if (!std::strcmp(key, "_ZN18QAbstractItemModel13clearItemDataERK11QModelIndex")) {
       taken[12] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
     if (!std::strcmp(key, "_ZNK18QAbstractItemModel15canDropMimeDataEPK9QMimeDataN2Qt10DropActionEiiRK11QModelIndex")) {
       taken[13] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
     if (!std::strcmp(key, "_ZNK18QAbstractItemModel20supportedDropActionsEv")) {
       taken[14] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
     if (!std::strcmp(key, "_ZNK18QAbstractItemModel20supportedDragActionsEv")) {
       taken[15] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
     if (!std::strcmp(key, "_ZN18QAbstractItemModel10insertRowsEiiRK11QModelIndex")) {
       taken[16] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
     if (!std::strcmp(key, "_ZN18QAbstractItemModel13insertColumnsEiiRK11QModelIndex")) {
       taken[17] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
     if (!std::strcmp(key, "_ZN18QAbstractItemModel10removeRowsEiiRK11QModelIndex")) {
       taken[18] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
     if (!std::strcmp(key, "_ZN18QAbstractItemModel13removeColumnsEiiRK11QModelIndex")) {
       taken[19] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
     if (!std::strcmp(key, "_ZN18QAbstractItemModel8moveRowsERK11QModelIndexiiS2_i")) {
       taken[20] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
     if (!std::strcmp(key, "_ZN18QAbstractItemModel11moveColumnsERK11QModelIndexiiS2_i")) {
       taken[21] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
     if (!std::strcmp(key, "_ZN18QAbstractItemModel9fetchMoreERK11QModelIndex")) {
       taken[22] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
     if (!std::strcmp(key, "_ZNK18QAbstractItemModel12canFetchMoreERK11QModelIndex")) {
       taken[23] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
     if (!std::strcmp(key, "_ZN18QAbstractItemModel4sortEiN2Qt9SortOrderE")) {
       taken[24] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
     if (!std::strcmp(key, "_ZNK18QAbstractItemModel5buddyERK11QModelIndex")) {
       taken[25] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
     if (!std::strcmp(key, "_ZNK18QAbstractItemModel4spanERK11QModelIndex")) {
       taken[26] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
     if (!std::strcmp(key, "_ZNK18QAbstractItemModel9multiDataERK11QModelIndex18QModelRoleDataSpan")) {
       taken[27] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
     if (!std::strcmp(key, "_ZN18QAbstractItemModel6submitEv")) {
       taken[28] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
     if (!std::strcmp(key, "_ZN18QAbstractItemModel6revertEv")) {
       taken[29] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemmodel)
+#if QT_CONFIG(itemmodel)
     if (!std::strcmp(key, "_ZN18QAbstractItemModel17resetInternalDataEv")) {
       taken[30] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemmodel)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[31] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[32] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[33] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[34] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[35] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[36] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
       taken[37] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
     return false;
   }
 
+#if QT_CONFIG(itemmodel)
   //  QModelIndex QAbstractTableModel::index(int row, int column, const
   //      QModelIndex &parent) const
   QModelIndex index(
@@ -223,7 +378,9 @@ public:
     }
     return QAbstractTableModel::index(row, column, parent);
   }
+#endif  // QT_CONFIG(itemmodel)
 
+#if QT_CONFIG(itemmodel)
   //  QModelIndex QAbstractTableModel::sibling(int row, int column, const
   //      QModelIndex &idx) const
   QModelIndex sibling(
@@ -238,7 +395,9 @@ public:
     }
     return QAbstractTableModel::sibling(row, column, idx);
   }
+#endif  // QT_CONFIG(itemmodel)
 
+#if QT_CONFIG(itemmodel)
   //  bool QAbstractTableModel::dropMimeData(const QMimeData *data,
   //      Qt::DropAction action, int row, int column, const QModelIndex
   //      &parent)
@@ -256,7 +415,9 @@ public:
     }
     return QAbstractTableModel::dropMimeData(data, action, row, column, parent);
   }
+#endif  // QT_CONFIG(itemmodel)
 
+#if QT_CONFIG(itemmodel)
   //  Qt::ItemFlags QAbstractTableModel::flags(const QModelIndex &index)
   //      const
   Qt::ItemFlags flags(const QModelIndex &index) const override {
@@ -268,7 +429,9 @@ public:
     }
     return QAbstractTableModel::flags(index);
   }
+#endif  // QT_CONFIG(itemmodel)
 
+#if QT_CONFIG(itemmodel)
   //  QModelIndex QAbstractTableModel::parent(const QModelIndex &child)
   //      const
   QModelIndex parent(const QModelIndex &child) const override {
@@ -280,7 +443,9 @@ public:
     }
     return QAbstractTableModel::parent(child);
   }
+#endif  // QT_CONFIG(itemmodel)
 
+#if QT_CONFIG(itemmodel)
   //  bool QAbstractTableModel::hasChildren(const QModelIndex &parent)
   //      const
   bool hasChildren(const QModelIndex &parent) const override {
@@ -292,7 +457,9 @@ public:
     }
     return QAbstractTableModel::hasChildren(parent);
   }
+#endif  // QT_CONFIG(itemmodel)
 
+#if QT_CONFIG(itemmodel)
   //  int QAbstractItemModel::rowCount(const QModelIndex &parent) const
   int rowCount(const QModelIndex &parent) const override {
     if (taken[6]) {
@@ -303,7 +470,9 @@ public:
     }
     return {};
   }
+#endif  // QT_CONFIG(itemmodel)
 
+#if QT_CONFIG(itemmodel)
   //  int QAbstractItemModel::columnCount(const QModelIndex &parent) const
   int columnCount(const QModelIndex &parent) const override {
     if (taken[7]) {
@@ -314,7 +483,9 @@ public:
     }
     return {};
   }
+#endif  // QT_CONFIG(itemmodel)
 
+#if QT_CONFIG(itemmodel)
   //  QVariant QAbstractItemModel::data(const QModelIndex &index, int role)
   //      const
   QVariant data(const QModelIndex &index, int role) const override {
@@ -326,7 +497,9 @@ public:
     }
     return {};
   }
+#endif  // QT_CONFIG(itemmodel)
 
+#if QT_CONFIG(itemmodel)
   //  bool QAbstractItemModel::setData(const QModelIndex &index, const
   //      QVariant &value, int role)
   bool setData(
@@ -341,7 +514,9 @@ public:
     }
     return QAbstractItemModel::setData(index, value, role);
   }
+#endif  // QT_CONFIG(itemmodel)
 
+#if QT_CONFIG(itemmodel)
   //  QVariant QAbstractItemModel::headerData(int section, Qt::Orientation
   //      orientation, int role) const
   QVariant headerData(
@@ -356,7 +531,9 @@ public:
     }
     return QAbstractItemModel::headerData(section, orientation, role);
   }
+#endif  // QT_CONFIG(itemmodel)
 
+#if QT_CONFIG(itemmodel)
   //  bool QAbstractItemModel::setHeaderData(int section, Qt::Orientation
   //      orientation, const QVariant &value, int role)
   bool setHeaderData(
@@ -372,7 +549,9 @@ public:
     }
     return QAbstractItemModel::setHeaderData(section, orientation, value, role);
   }
+#endif  // QT_CONFIG(itemmodel)
 
+#if QT_CONFIG(itemmodel)
   //  bool QAbstractItemModel::clearItemData(const QModelIndex &index)
   bool clearItemData(const QModelIndex &index) override {
     if (taken[12]) {
@@ -383,7 +562,9 @@ public:
     }
     return QAbstractItemModel::clearItemData(index);
   }
+#endif  // QT_CONFIG(itemmodel)
 
+#if QT_CONFIG(itemmodel)
   //  bool QAbstractItemModel::canDropMimeData(const QMimeData *data,
   //      Qt::DropAction action, int row, int column, const QModelIndex
   //      &parent) const
@@ -401,7 +582,9 @@ public:
     }
     return QAbstractItemModel::canDropMimeData(data, action, row, column, parent);
   }
+#endif  // QT_CONFIG(itemmodel)
 
+#if QT_CONFIG(itemmodel)
   //  Qt::DropActions QAbstractItemModel::supportedDropActions() const
   Qt::DropActions supportedDropActions() const override {
     if (taken[14]) {
@@ -412,7 +595,9 @@ public:
     }
     return QAbstractItemModel::supportedDropActions();
   }
+#endif  // QT_CONFIG(itemmodel)
 
+#if QT_CONFIG(itemmodel)
   //  Qt::DropActions QAbstractItemModel::supportedDragActions() const
   Qt::DropActions supportedDragActions() const override {
     if (taken[15]) {
@@ -423,7 +608,9 @@ public:
     }
     return QAbstractItemModel::supportedDragActions();
   }
+#endif  // QT_CONFIG(itemmodel)
 
+#if QT_CONFIG(itemmodel)
   //  bool QAbstractItemModel::insertRows(int row, int count, const
   //      QModelIndex &parent)
   bool insertRows(int row, int count, const QModelIndex &parent) override {
@@ -435,7 +622,9 @@ public:
     }
     return QAbstractItemModel::insertRows(row, count, parent);
   }
+#endif  // QT_CONFIG(itemmodel)
 
+#if QT_CONFIG(itemmodel)
   //  bool QAbstractItemModel::insertColumns(int column, int count, const
   //      QModelIndex &parent)
   bool insertColumns(
@@ -450,7 +639,9 @@ public:
     }
     return QAbstractItemModel::insertColumns(column, count, parent);
   }
+#endif  // QT_CONFIG(itemmodel)
 
+#if QT_CONFIG(itemmodel)
   //  bool QAbstractItemModel::removeRows(int row, int count, const
   //      QModelIndex &parent)
   bool removeRows(int row, int count, const QModelIndex &parent) override {
@@ -462,7 +653,9 @@ public:
     }
     return QAbstractItemModel::removeRows(row, count, parent);
   }
+#endif  // QT_CONFIG(itemmodel)
 
+#if QT_CONFIG(itemmodel)
   //  bool QAbstractItemModel::removeColumns(int column, int count, const
   //      QModelIndex &parent)
   bool removeColumns(
@@ -477,7 +670,9 @@ public:
     }
     return QAbstractItemModel::removeColumns(column, count, parent);
   }
+#endif  // QT_CONFIG(itemmodel)
 
+#if QT_CONFIG(itemmodel)
   //  bool QAbstractItemModel::moveRows(const QModelIndex &sourceParent,
   //      int sourceRow, int count, const QModelIndex &destinationParent,
   //      int destinationChild)
@@ -495,7 +690,9 @@ public:
     }
     return QAbstractItemModel::moveRows(sourceParent, sourceRow, count, destinationParent, destinationChild);
   }
+#endif  // QT_CONFIG(itemmodel)
 
+#if QT_CONFIG(itemmodel)
   //  bool QAbstractItemModel::moveColumns(const QModelIndex &sourceParent,
   //      int sourceColumn, int count, const QModelIndex
   //      &destinationParent, int destinationChild)
@@ -513,7 +710,9 @@ public:
     }
     return QAbstractItemModel::moveColumns(sourceParent, sourceColumn, count, destinationParent, destinationChild);
   }
+#endif  // QT_CONFIG(itemmodel)
 
+#if QT_CONFIG(itemmodel)
   //  void QAbstractItemModel::fetchMore(const QModelIndex &parent)
   void fetchMore(const QModelIndex &parent) override {
     if (taken[22]) {
@@ -524,7 +723,9 @@ public:
     }
     QAbstractItemModel::fetchMore(parent);
   }
+#endif  // QT_CONFIG(itemmodel)
 
+#if QT_CONFIG(itemmodel)
   //  bool QAbstractItemModel::canFetchMore(const QModelIndex &parent)
   //      const
   bool canFetchMore(const QModelIndex &parent) const override {
@@ -536,7 +737,9 @@ public:
     }
     return QAbstractItemModel::canFetchMore(parent);
   }
+#endif  // QT_CONFIG(itemmodel)
 
+#if QT_CONFIG(itemmodel)
   //  void QAbstractItemModel::sort(int column, Qt::SortOrder order)
   void sort(int column, Qt::SortOrder order) override {
     if (taken[24]) {
@@ -547,7 +750,9 @@ public:
     }
     QAbstractItemModel::sort(column, order);
   }
+#endif  // QT_CONFIG(itemmodel)
 
+#if QT_CONFIG(itemmodel)
   //  QModelIndex QAbstractItemModel::buddy(const QModelIndex &index) const
   QModelIndex buddy(const QModelIndex &index) const override {
     if (taken[25]) {
@@ -558,7 +763,9 @@ public:
     }
     return QAbstractItemModel::buddy(index);
   }
+#endif  // QT_CONFIG(itemmodel)
 
+#if QT_CONFIG(itemmodel)
   //  QSize QAbstractItemModel::span(const QModelIndex &index) const
   QSize span(const QModelIndex &index) const override {
     if (taken[26]) {
@@ -569,7 +776,9 @@ public:
     }
     return QAbstractItemModel::span(index);
   }
+#endif  // QT_CONFIG(itemmodel)
 
+#if QT_CONFIG(itemmodel)
   //  void QAbstractItemModel::multiData(const QModelIndex &index,
   //      QModelRoleDataSpan roleDataSpan) const
   void multiData(
@@ -583,7 +792,9 @@ public:
     }
     QAbstractItemModel::multiData(index, roleDataSpan);
   }
+#endif  // QT_CONFIG(itemmodel)
 
+#if QT_CONFIG(itemmodel)
   //  bool QAbstractItemModel::submit()
   bool submit() override {
     if (taken[28]) {
@@ -594,7 +805,9 @@ public:
     }
     return QAbstractItemModel::submit();
   }
+#endif  // QT_CONFIG(itemmodel)
 
+#if QT_CONFIG(itemmodel)
   //  void QAbstractItemModel::revert()
   void revert() override {
     if (taken[29]) {
@@ -605,7 +818,9 @@ public:
     }
     QAbstractItemModel::revert();
   }
+#endif  // QT_CONFIG(itemmodel)
 
+#if QT_CONFIG(itemmodel)
   //  void QAbstractItemModel::resetInternalData()
   void resetInternalData() override {
     if (taken[30]) {
@@ -616,7 +831,9 @@ public:
     }
     QAbstractItemModel::resetInternalData();
   }
+#endif  // QT_CONFIG(itemmodel)
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QObject::event(QEvent *event)
   bool event(QEvent *event) override {
     if (taken[31]) {
@@ -627,7 +844,9 @@ public:
     }
     return QObject::event(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
     if (taken[32]) {
@@ -638,7 +857,9 @@ public:
     }
     return QObject::eventFilter(watched, event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
     if (taken[33]) {
@@ -649,7 +870,9 @@ public:
     }
     QObject::timerEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
     if (taken[34]) {
@@ -660,7 +883,9 @@ public:
     }
     QObject::childEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
     if (taken[35]) {
@@ -671,7 +896,9 @@ public:
     }
     QObject::customEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
     if (taken[36]) {
@@ -682,7 +909,9 @@ public:
     }
     QObject::connectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
     if (taken[37]) {
@@ -693,6 +922,7 @@ public:
     }
     QObject::disconnectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 };
 
 //  const QMetaObject *QAbstractTableModel::metaObject() const
@@ -759,6 +989,20 @@ int ritual_ZNK19QAbstractTableModel5flagsERK11QModelIndex(
     const QAbstractTableModel *self,
     const QModelIndex *index) {
   return static_cast<int>(self->flags(*index).toInt());
+}
+
+//  QAbstractItemModelPrivate *QAbstractTableModel::d_func()
+extern "C" Q_DECL_EXPORT
+QAbstractItemModelPrivate *ritual_ZN19QAbstractTableModel6d_funcEv(
+    QAbstractTableModel *self) {
+  return self->d_func();
+}
+
+//  const QAbstractItemModelPrivate *QAbstractTableModel::d_func() const
+extern "C" Q_DECL_EXPORT
+const QAbstractItemModelPrivate *ritual_ZNK19QAbstractTableModel6d_funcEv(
+    const QAbstractTableModel *self) {
+  return self->d_func();
 }
 
 //  QModelIndex QAbstractTableModel::parent(const QModelIndex &child) const
@@ -859,3 +1103,5 @@ bool ritual_own_ZNK19QAbstractTableModel11hasChildrenERK11QModelIndex(
     const QModelIndex *parent) {
   return self->QAbstractTableModel::hasChildren(*parent);
 }
+
+#endif  // QT_CONFIG(itemmodel)

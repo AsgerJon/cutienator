@@ -80,11 +80,13 @@ void ritual_ZN16QTextImageFormat10setQualityEi(
   self->setQuality(quality);
 }
 
+#if QT_DEPRECATED_SINCE(6, 3)
 //  void QTextImageFormat::setQuality()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QTextImageFormat10setQualityEv(QTextImageFormat *self) {
   self->setQuality();
 }
+#endif  // QT_DEPRECATED_SINCE(6, 3)
 
 //  int QTextImageFormat::quality() const
 extern "C" Q_DECL_EXPORT

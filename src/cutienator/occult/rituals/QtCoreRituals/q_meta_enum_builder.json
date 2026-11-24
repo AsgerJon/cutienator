@@ -1,0 +1,46 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qmetaobjectbuilder_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN16QMetaEnumBuilderC1Ev": ["address"],
+    "ritual_ZNK16QMetaEnumBuilder5indexEv": ["int", "address"],
+    "ritual_ZNK16QMetaEnumBuilder4nameEv": ["address", "address"],
+    "ritual_ZNK16QMetaEnumBuilder8enumNameEv": ["address", "address"],
+    "ritual_ZN16QMetaEnumBuilder11setEnumNameERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QMetaEnumBuilder8metaTypeEv": ["address", "address"],
+    "ritual_ZN16QMetaEnumBuilder11setMetaTypeE9QMetaType": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QMetaEnumBuilder6isFlagEv": ["bool", "address"],
+    "ritual_ZN16QMetaEnumBuilder9setIsFlagEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK16QMetaEnumBuilder8isScopedEv": ["bool", "address"],
+    "ritual_ZN16QMetaEnumBuilder11setIsScopedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK16QMetaEnumBuilder7is64BitEv": ["bool", "address"],
+    "ritual_ZN16QMetaEnumBuilder10setIs64BitEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK16QMetaEnumBuilder8keyCountEv": ["int", "address"],
+    "ritual_ZNK16QMetaEnumBuilder3keyEi": ["address", "address", "int"],
+    "ritual_ZNK16QMetaEnumBuilder5valueEi": ["int", "address", "int"],
+    "ritual_ZN16QMetaEnumBuilder6addKeyERK10QByteArrayi": [
+      "int", "address", "address", "int"
+    ],
+    "ritual_ZN16QMetaEnumBuilder6addKeyERK10QByteArrayy": [
+      "int", "address", "address", "unsigned long long"
+    ],
+    "ritual_ZN16QMetaEnumBuilder9removeKeyEi": ["nothing", "address", "int"],
+    "ritual_ZN16QMetaEnumBuilderC1EPK18QMetaObjectBuilderi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN16QMetaEnumBuilderD1Ev": ["nothing", "address"]
+  }
+}

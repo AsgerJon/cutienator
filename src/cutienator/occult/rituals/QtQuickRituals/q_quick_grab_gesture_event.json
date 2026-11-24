@@ -1,0 +1,20 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickmultipointtoucharea_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK22QQuickGrabGestureEvent10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QQuickGrabGestureEvent24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickGrabGestureEvent4grabEv": ["nothing", "address"],
+    "ritual_ZNK22QQuickGrabGestureEvent9wantsGrabEv": ["bool", "address"],
+    "ritual_ZNK22QQuickGrabGestureEvent13dragThresholdEv": [
+      "double", "address"
+    ]
+  }
+}

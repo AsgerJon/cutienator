@@ -1,0 +1,30 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/qsslcertificateextension.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZN24QSslCertificateExtensionC1Ev": ["address"],
+    "ritual_ZN24QSslCertificateExtensionC1ERKS_": ["address", "address"],
+    "ritual_ZN24QSslCertificateExtensionD1Ev": ["nothing", "address"],
+    "ritual_ZNK24QSslCertificateExtension3oidEv": ["text", "address"],
+    "ritual_ZNK24QSslCertificateExtension4nameEv": ["text", "address"],
+    "ritual_ZNK24QSslCertificateExtension5valueEv": ["address", "address"],
+    "ritual_ZNK24QSslCertificateExtension10isCriticalEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK24QSslCertificateExtension11isSupportedEv": [
+      "bool", "address"
+    ],
+    "ritual_list_make_QSslCertificateExtension": ["address"],
+    "ritual_list_add_QSslCertificateExtension": [
+      "nothing", "address", "address"
+    ],
+    "ritual_list_size_QSslCertificateExtension": ["long long", "address"],
+    "ritual_list_at_QSslCertificateExtension": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_QSslCertificateExtension": ["nothing", "address"]
+  }
+}

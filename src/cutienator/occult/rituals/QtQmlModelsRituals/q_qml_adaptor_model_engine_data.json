@@ -1,0 +1,13 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQmlMo",
+    "dels/6.12.0/QtQmlModels/private/qqmladaptormodelenginedata_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN26QQmlAdaptorModelEngineData11addPropertyEP18QMetaObjectBuilderiRK10QByteArrayS4_b": [
+      "nothing", "address", "int", "address", "address", "bool"
+    ],
+    "ritual_ZN26QQmlAdaptorModelEngineDataD1Ev": ["nothing", "address"]
+  }
+}

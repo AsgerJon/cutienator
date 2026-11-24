@@ -1,0 +1,35 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLocation/6.12.0/QtLocation/private/qgeocameradata_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN14QGeoCameraDataC1Ev": ["address"],
+    "ritual_ZN14QGeoCameraDataC1ERKS_": ["address", "address"],
+    "ritual_ZN14QGeoCameraDataD1Ev": ["nothing", "address"],
+    "ritual_ZeqRK14QGeoCameraDataS1_": ["bool", "address", "address"],
+    "ritual_ZneRK14QGeoCameraDataS1_": ["bool", "address", "address"],
+    "ritual_ZN14QGeoCameraData9setCenterERK14QGeoCoordinate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QGeoCameraData6centerEv": ["address", "address"],
+    "ritual_ZN14QGeoCameraData10setBearingEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK14QGeoCameraData7bearingEv": ["double", "address"],
+    "ritual_ZN14QGeoCameraData7setTiltEd": ["nothing", "address", "double"],
+    "ritual_ZNK14QGeoCameraData4tiltEv": ["double", "address"],
+    "ritual_ZN14QGeoCameraData7setRollEd": ["nothing", "address", "double"],
+    "ritual_ZNK14QGeoCameraData4rollEv": ["double", "address"],
+    "ritual_ZN14QGeoCameraData14setFieldOfViewEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK14QGeoCameraData11fieldOfViewEv": ["double", "address"],
+    "ritual_ZN14QGeoCameraData12setZoomLevelEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK14QGeoCameraData9zoomLevelEv": ["double", "address"],
+    "ritual_ZNK14QGeoCameraData7isEqualERKS_": ["bool", "address", "address"]
+  }
+}

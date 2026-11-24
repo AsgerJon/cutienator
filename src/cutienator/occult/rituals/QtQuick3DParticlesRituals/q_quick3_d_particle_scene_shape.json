@@ -1,0 +1,92 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DParticles/6.12.0/QtQuick3DParticles/private/qquick3dparticlescen",
+    "eshape_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK26QQuick3DParticleSceneShape10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QQuick3DParticleSceneShape2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN26QQuick3DParticleSceneShapeC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN26QQuick3DParticleSceneShapeD1Ev": ["nothing", "address"],
+    "ritual_ZNK26QQuick3DParticleSceneShape5sceneEv": ["address", "address"],
+    "ritual_ZNK26QQuick3DParticleSceneShape11sceneCenterEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK26QQuick3DParticleSceneShape12sceneExtentsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK26QQuick3DParticleSceneShape15shapeResolutionEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK26QQuick3DParticleSceneShape8geometryEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK26QQuick3DParticleSceneShape13excludedNodesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QQuick3DParticleSceneShape8setSceneEP12QQuick3DNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QQuick3DParticleSceneShape14setSceneCenterERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QQuick3DParticleSceneShape15setSceneExtentsERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QQuick3DParticleSceneShape18setShapeResolutionEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN26QQuick3DParticleSceneShape16setExcludedNodesERK5QListIP12QQuick3DNodeE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QQuick3DParticleSceneShape11getPositionEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN26QQuick3DParticleSceneShape16getSurfaceNormalEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN26QQuick3DParticleSceneShape19randomPositionModelEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN26QQuick3DParticleSceneShape15createShapeDataEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QQuick3DParticleSceneShape25clearModelVertexPositionsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QQuick3DParticleSceneShape29calculateModelVertexPositionsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QQuick3DParticleSceneShape16excludeTrianglesERK5QListI9QVector3DE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN26QQuick3DParticleSceneShape14updateGeometryEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QQuick3DParticleSceneShape18isVisibleRecursiveEP12QQuick3DNode": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN26QQuick3DParticleSceneShape10isExcludedEP13QQuick3DModel": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN26QQuick3DParticleSceneShape9markDirtyEbb": [
+      "nothing", "address", "bool", "bool"
+    ],
+    "ritual_take_QQuick3DParticleSceneShape": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN26QQuick3DParticleSceneShape11getPositionEi": [
+      "address", "address", "int"
+    ],
+    "ritual_own_ZN26QQuick3DParticleSceneShape16getSurfaceNormalEi": [
+      "address", "address", "int"
+    ]
+  }
+}

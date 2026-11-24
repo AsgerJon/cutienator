@@ -1,0 +1,120 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSql/qsqldriver.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK10QSqlDriver10metaObjectEv": ["address", "address"],
+    "ritual_ZN10QSqlDriver2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN10QSqlDriver6d_funcEv": ["address", "address"],
+    "ritual_ZNK10QSqlDriver6d_funcEv": ["address", "address"],
+    "ritual_ZN10QSqlDriverD1Ev": ["nothing", "address"],
+    "ritual_ZNK10QSqlDriver6isOpenEv": ["bool", "address"],
+    "ritual_ZNK10QSqlDriver11isOpenErrorEv": ["bool", "address"],
+    "ritual_ZN10QSqlDriver16beginTransactionEv": ["bool", "address"],
+    "ritual_ZN10QSqlDriver17commitTransactionEv": ["bool", "address"],
+    "ritual_ZN10QSqlDriver19rollbackTransactionEv": ["bool", "address"],
+    "ritual_ZNK10QSqlDriver6tablesEN4QSql9TableTypeE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK10QSqlDriver12primaryIndexERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK10QSqlDriver6recordERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK10QSqlDriver11formatValueERK9QSqlFieldb": [
+      "text", "address", "address", "bool"
+    ],
+    "ritual_ZNK10QSqlDriver16escapeIdentifierERK7QStringNS_14IdentifierTypeE": [
+      "text", "address", "text", "int"
+    ],
+    "ritual_ZNK10QSqlDriver12sqlStatementENS_13StatementTypeERK7QStringRK10QSqlRecordb": [
+      "text", "address", "int", "text", "address", "bool"
+    ],
+    "ritual_ZNK10QSqlDriver9lastErrorEv": ["address", "address"],
+    "ritual_ZNK10QSqlDriver6handleEv": ["address", "address"],
+    "ritual_ZNK10QSqlDriver10hasFeatureENS_13DriverFeatureE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN10QSqlDriver5closeEv": ["nothing", "address"],
+    "ritual_ZNK10QSqlDriver12createResultEv": ["address", "address"],
+    "ritual_ZN10QSqlDriver4openERK7QStringS2_S2_S2_iS2_": [
+      "bool", "address", "text", "text", "text", "text", "int", "text"
+    ],
+    "ritual_ZN10QSqlDriver23subscribeToNotificationERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN10QSqlDriver27unsubscribeFromNotificationERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZNK10QSqlDriver25subscribedToNotificationsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10QSqlDriver19isIdentifierEscapedERK7QStringNS_14IdentifierTypeE": [
+      "bool", "address", "text", "int"
+    ],
+    "ritual_ZNK10QSqlDriver15stripDelimitersERK7QStringNS_14IdentifierTypeE": [
+      "text", "address", "text", "int"
+    ],
+    "ritual_ZN10QSqlDriver27setNumericalPrecisionPolicyEN4QSql24NumericalPrecisionPolicyE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK10QSqlDriver24numericalPrecisionPolicyEv": ["int", "address"],
+    "ritual_ZNK10QSqlDriver8dbmsTypeEv": ["int", "address"],
+    "ritual_ZNK10QSqlDriver23maximumIdentifierLengthENS_14IdentifierTypeE": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK10QSqlDriver14connectionNameEv": ["text", "address"],
+    "ritual_ZN10QSqlDriver11cancelQueryEv": ["bool", "address"],
+    "ritual_ZN10QSqlDriver7setOpenEb": ["nothing", "address", "bool"],
+    "ritual_ZN10QSqlDriver12setOpenErrorEb": ["nothing", "address", "bool"],
+    "ritual_ZN10QSqlDriver12setLastErrorERK9QSqlError": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QSqlDriver": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK10QSqlDriver6isOpenEv": ["bool", "address"],
+    "ritual_own_ZN10QSqlDriver16beginTransactionEv": ["bool", "address"],
+    "ritual_own_ZN10QSqlDriver17commitTransactionEv": ["bool", "address"],
+    "ritual_own_ZN10QSqlDriver19rollbackTransactionEv": ["bool", "address"],
+    "ritual_own_ZNK10QSqlDriver12primaryIndexERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_own_ZNK10QSqlDriver6recordERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_own_ZNK10QSqlDriver11formatValueERK9QSqlFieldb": [
+      "text", "address", "address", "bool"
+    ],
+    "ritual_own_ZNK10QSqlDriver16escapeIdentifierERK7QStringNS_14IdentifierTypeE": [
+      "text", "address", "text", "int"
+    ],
+    "ritual_own_ZNK10QSqlDriver12sqlStatementENS_13StatementTypeERK7QStringRK10QSqlRecordb": [
+      "text", "address", "int", "text", "address", "bool"
+    ],
+    "ritual_own_ZNK10QSqlDriver6handleEv": ["address", "address"],
+    "ritual_own_ZN10QSqlDriver23subscribeToNotificationERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_own_ZN10QSqlDriver27unsubscribeFromNotificationERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_own_ZNK10QSqlDriver19isIdentifierEscapedERK7QStringNS_14IdentifierTypeE": [
+      "bool", "address", "text", "int"
+    ],
+    "ritual_own_ZNK10QSqlDriver15stripDelimitersERK7QStringNS_14IdentifierTypeE": [
+      "text", "address", "text", "int"
+    ],
+    "ritual_own_ZNK10QSqlDriver23maximumIdentifierLengthENS_14IdentifierTypeE": [
+      "int", "address", "int"
+    ],
+    "ritual_own_ZN10QSqlDriver11cancelQueryEv": ["bool", "address"],
+    "ritual_own_ZN10QSqlDriver7setOpenEb": ["nothing", "address", "bool"],
+    "ritual_own_ZN10QSqlDriver12setOpenErrorEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZN10QSqlDriver12setLastErrorERK9QSqlError": [
+      "nothing", "address", "address"
+    ]
+  }
+}

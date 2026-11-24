@@ -6,6 +6,9 @@
   ],
   "rows": {
     "ritual_ZN10QFontCache3KeyC1Ev": ["address"],
+    "ritual_ZN10QFontCache3KeyC1ERK8QFontDefhb": [
+      "address", "address", "unsigned char", "bool"
+    ],
     "ritual_ZNK10QFontCache3KeyltERKS0_": ["bool", "address", "address"],
     "ritual_ZNK10QFontCache3KeyeqERKS0_": ["bool", "address", "address"],
     "ritual_ZN10QFontCache3KeyD1Ev": ["nothing", "address"]

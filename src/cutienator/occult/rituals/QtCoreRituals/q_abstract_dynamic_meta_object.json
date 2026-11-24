@@ -1,0 +1,25 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qobject_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN26QAbstractDynamicMetaObjectD1Ev": ["nothing", "address"],
+    "ritual_ZN26QAbstractDynamicMetaObject19toDynamicMetaObjectEP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN26QAbstractDynamicMetaObject14createPropertyEPKcS1_": [
+      "int", "address", "chars", "chars"
+    ],
+    "ritual_cast_QAbstractDynamicMetaObject_QMetaObject": [
+      "address", "address"
+    ],
+    "ritual_take_QAbstractDynamicMetaObject": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN26QAbstractDynamicMetaObject19toDynamicMetaObjectEP7QObject": [
+      "address", "address", "address"
+    ]
+  }
+}

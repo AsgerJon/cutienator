@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qtriangulatingstroker_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN21QTriangulatingStrokerC1Ev": ["address"],
+    "ritual_ZNK21QTriangulatingStroker11vertexCountEv": ["int", "address"],
+    "ritual_ZN21QTriangulatingStroker11setInvScaleEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN21QTriangulatingStroker15emitLineSegmentEffff": [
+      "nothing", "address", "float", "float", "float", "float"
+    ],
+    "ritual_ZN21QTriangulatingStroker12normalVectorEffffPfS0_": [
+      "nothing", "address", "float", "float", "float", "float", "address",
+      "address"
+    ]
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Particles/6.12.0/QtQuickParticles/private/qquicklineextruder_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18QQuickLineExtruder10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QQuickLineExtruder2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18QQuickLineExtruderC1EP7QObject": ["address", "address"],
+    "ritual_ZN18QQuickLineExtruder7extrudeERK6QRectF": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK18QQuickLineExtruder8mirroredEv": ["bool", "address"],
+    "ritual_ZN18QQuickLineExtruder11setMirroredEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZN18QQuickLineExtruder7extrudeERK6QRectF": [
+      "address", "address", "address"
+    ]
+  }
+}

@@ -1,13 +1,20 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/6.12.0/QtWidgets/private/qcolorwell_p.h, Qt 6.12.0. Changes
 //  made here are lost.
+#include <QtWidgets/qtwidgetsglobal.h>
+#include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
+#if QT_CONFIG(colordialog)
+#include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/QtWidgets>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/6.12.0/QtWidgets/private/qcolorwell_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qsize.h>
 #include <QtCore/qrect.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include "qcolordialog.h"
 #if QT_CONFIG(accessibility)
 #include "qaccessible.h"
@@ -52,13 +59,14 @@
 #include <private/qguiapplication_p.h>
 #include <QtCore/qpointer.h>
 #include <algorithm>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
 //  Qt's source, because Qt's library carries it under no name.
 //  Copyright (C) The Qt Company Ltd. It is licensed
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
-//  'inline' put before it.
+//  'inline' put before it where Qt did not write it.
 
 //  from src/widgets/dialogs/qcolordialog.cpp, line 293, as _ZN10QWellArray10setCurrentEii
 inline void QWellArray::setCurrent(int row, int col)
@@ -290,40 +298,80 @@ struct OwnQWellArray : QWellArray {
 //  A QWellArray that Python can take functions over in. Every QWellArray
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if QT_CONFIG(colordialog)
 typedef void (*CuteQWellArrayCall0)(const void *, int, int, int *);
+#endif  // QT_CONFIG(colordialog)
+#if QT_CONFIG(colordialog)
 typedef void (*CuteQWellArrayCall1)(const void *, int, int, int *);
+#endif  // QT_CONFIG(colordialog)
+#if QT_CONFIG(colordialog)
 typedef const QSize * (*CuteQWellArrayCall2)(const void *, int *);
+#endif  // QT_CONFIG(colordialog)
+#if QT_CONFIG(colordialog)
 typedef void (*CuteQWellArrayCall3)(const void *, QPainter *, int, int, const QRect *, int *);
+#endif  // QT_CONFIG(colordialog)
+#if QT_CONFIG(colordialog)
 typedef void (*CuteQWellArrayCall4)(const void *, QPainter *, int, int, const QRect *, int *);
+#endif  // QT_CONFIG(colordialog)
+#if QT_CONFIG(colordialog)
 typedef void (*CuteQWellArrayCall5)(const void *, QMouseEvent *, int *);
+#endif  // QT_CONFIG(colordialog)
+#if QT_CONFIG(colordialog)
 typedef void (*CuteQWellArrayCall6)(const void *, QMouseEvent *, int *);
+#endif  // QT_CONFIG(colordialog)
+#if QT_CONFIG(colordialog)
 typedef void (*CuteQWellArrayCall7)(const void *, QKeyEvent *, int *);
+#endif  // QT_CONFIG(colordialog)
+#if QT_CONFIG(colordialog)
 typedef void (*CuteQWellArrayCall8)(const void *, QFocusEvent *, int *);
+#endif  // QT_CONFIG(colordialog)
+#if QT_CONFIG(colordialog)
 typedef void (*CuteQWellArrayCall9)(const void *, QFocusEvent *, int *);
+#endif  // QT_CONFIG(colordialog)
+#if QT_CONFIG(colordialog)
 typedef void (*CuteQWellArrayCall10)(const void *, QPaintEvent *, int *);
+#endif  // QT_CONFIG(colordialog)
 typedef int (*CuteQWellArrayCall11)(const void *, int *);
 typedef void (*CuteQWellArrayCall12)(const void *, bool, int *);
 typedef const QSize * (*CuteQWellArrayCall13)(const void *, int *);
 typedef int (*CuteQWellArrayCall14)(const void *, int, int *);
 typedef bool (*CuteQWellArrayCall15)(const void *, int *);
 typedef void * (*CuteQWellArrayCall16)(const void *, int *);
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQWellArrayCall17)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 typedef void (*CuteQWellArrayCall18)(const void *, QMouseEvent *, int *);
 typedef void (*CuteQWellArrayCall19)(const void *, QMouseEvent *, int *);
+#if QT_CONFIG(wheelevent)
 typedef void (*CuteQWellArrayCall20)(const void *, QWheelEvent *, int *);
+#endif  // QT_CONFIG(wheelevent)
 typedef void (*CuteQWellArrayCall21)(const void *, QKeyEvent *, int *);
 typedef void (*CuteQWellArrayCall22)(const void *, QEnterEvent *, int *);
 typedef void (*CuteQWellArrayCall23)(const void *, QEvent *, int *);
 typedef void (*CuteQWellArrayCall24)(const void *, QMoveEvent *, int *);
 typedef void (*CuteQWellArrayCall25)(const void *, QResizeEvent *, int *);
 typedef void (*CuteQWellArrayCall26)(const void *, QCloseEvent *, int *);
+#if !defined(QT_NO_CONTEXTMENU)
 typedef void (*CuteQWellArrayCall27)(const void *, QContextMenuEvent *, int *);
+#endif  // !defined(QT_NO_CONTEXTMENU)
+#if QT_CONFIG(tabletevent)
 typedef void (*CuteQWellArrayCall28)(const void *, QTabletEvent *, int *);
+#endif  // QT_CONFIG(tabletevent)
+#if !defined(QT_NO_ACTION)
 typedef void (*CuteQWellArrayCall29)(const void *, QActionEvent *, int *);
+#endif  // !defined(QT_NO_ACTION)
+#if QT_CONFIG(draganddrop)
 typedef void (*CuteQWellArrayCall30)(const void *, QDragEnterEvent *, int *);
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
 typedef void (*CuteQWellArrayCall31)(const void *, QDragMoveEvent *, int *);
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
 typedef void (*CuteQWellArrayCall32)(const void *, QDragLeaveEvent *, int *);
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
 typedef void (*CuteQWellArrayCall33)(const void *, QDropEvent *, int *);
+#endif  // QT_CONFIG(draganddrop)
 typedef void (*CuteQWellArrayCall34)(const void *, QShowEvent *, int *);
 typedef void (*CuteQWellArrayCall35)(const void *, QHideEvent *, int *);
 typedef void (*CuteQWellArrayCall36)(const void *, QEvent *, int *);
@@ -334,62 +382,96 @@ typedef void * (*CuteQWellArrayCall40)(const void *, int *);
 typedef void (*CuteQWellArrayCall41)(const void *, QInputMethodEvent *, int *);
 typedef const QVariant * (*CuteQWellArrayCall42)(const void *, int, int *);
 typedef bool (*CuteQWellArrayCall43)(const void *, bool, int *);
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQWellArrayCall44)(const void *, QObject *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQWellArrayCall45)(const void *, QTimerEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQWellArrayCall46)(const void *, QChildEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQWellArrayCall47)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQWellArrayCall48)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQWellArrayCall49)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 class CuteQWellArray : public QWellArray {
 public:
   using QWellArray::QWellArray;
   void *taken[50] = {};
 
   bool take(const char *key, void *call) {
+#if QT_CONFIG(colordialog)
     if (!std::strcmp(key, "_ZN10QWellArray10setCurrentEii")) {
       taken[0] = call;
       return true;
     }
+#endif  // QT_CONFIG(colordialog)
+#if QT_CONFIG(colordialog)
     if (!std::strcmp(key, "_ZN10QWellArray11setSelectedEii")) {
       taken[1] = call;
       return true;
     }
+#endif  // QT_CONFIG(colordialog)
+#if QT_CONFIG(colordialog)
     if (!std::strcmp(key, "_ZNK7QWidget8sizeHintEv")) {
       taken[2] = call;
       return true;
     }
+#endif  // QT_CONFIG(colordialog)
+#if QT_CONFIG(colordialog)
     if (!std::strcmp(key, "_ZN10QWellArray9paintCellEP8QPainteriiRK5QRect")) {
       taken[3] = call;
       return true;
     }
+#endif  // QT_CONFIG(colordialog)
+#if QT_CONFIG(colordialog)
     if (!std::strcmp(key, "_ZN10QWellArray17paintCellContentsEP8QPainteriiRK5QRect")) {
       taken[4] = call;
       return true;
     }
+#endif  // QT_CONFIG(colordialog)
+#if QT_CONFIG(colordialog)
     if (!std::strcmp(key, "_ZN7QWidget15mousePressEventEP11QMouseEvent")) {
       taken[5] = call;
       return true;
     }
+#endif  // QT_CONFIG(colordialog)
+#if QT_CONFIG(colordialog)
     if (!std::strcmp(key, "_ZN7QWidget17mouseReleaseEventEP11QMouseEvent")) {
       taken[6] = call;
       return true;
     }
+#endif  // QT_CONFIG(colordialog)
+#if QT_CONFIG(colordialog)
     if (!std::strcmp(key, "_ZN7QWidget13keyPressEventEP9QKeyEvent")) {
       taken[7] = call;
       return true;
     }
+#endif  // QT_CONFIG(colordialog)
+#if QT_CONFIG(colordialog)
     if (!std::strcmp(key, "_ZN7QWidget12focusInEventEP11QFocusEvent")) {
       taken[8] = call;
       return true;
     }
+#endif  // QT_CONFIG(colordialog)
+#if QT_CONFIG(colordialog)
     if (!std::strcmp(key, "_ZN7QWidget13focusOutEventEP11QFocusEvent")) {
       taken[9] = call;
       return true;
     }
+#endif  // QT_CONFIG(colordialog)
+#if QT_CONFIG(colordialog)
     if (!std::strcmp(key, "_ZN7QWidget10paintEventEP11QPaintEvent")) {
       taken[10] = call;
       return true;
     }
+#endif  // QT_CONFIG(colordialog)
     if (!std::strcmp(key, "_ZNK12QPaintDevice7devTypeEv")) {
       taken[11] = call;
       return true;
@@ -414,10 +496,12 @@ public:
       taken[16] = call;
       return true;
     }
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[17] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QWidget21mouseDoubleClickEventEP11QMouseEvent")) {
       taken[18] = call;
       return true;
@@ -426,10 +510,12 @@ public:
       taken[19] = call;
       return true;
     }
+#if QT_CONFIG(wheelevent)
     if (!std::strcmp(key, "_ZN7QWidget10wheelEventEP11QWheelEvent")) {
       taken[20] = call;
       return true;
     }
+#endif  // QT_CONFIG(wheelevent)
     if (!std::strcmp(key, "_ZN7QWidget15keyReleaseEventEP9QKeyEvent")) {
       taken[21] = call;
       return true;
@@ -454,34 +540,48 @@ public:
       taken[26] = call;
       return true;
     }
+#if !defined(QT_NO_CONTEXTMENU)
     if (!std::strcmp(key, "_ZN7QWidget16contextMenuEventEP17QContextMenuEvent")) {
       taken[27] = call;
       return true;
     }
+#endif  // !defined(QT_NO_CONTEXTMENU)
+#if QT_CONFIG(tabletevent)
     if (!std::strcmp(key, "_ZN7QWidget11tabletEventEP12QTabletEvent")) {
       taken[28] = call;
       return true;
     }
+#endif  // QT_CONFIG(tabletevent)
+#if !defined(QT_NO_ACTION)
     if (!std::strcmp(key, "_ZN7QWidget11actionEventEP12QActionEvent")) {
       taken[29] = call;
       return true;
     }
+#endif  // !defined(QT_NO_ACTION)
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget14dragEnterEventEP15QDragEnterEvent")) {
       taken[30] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget13dragMoveEventEP14QDragMoveEvent")) {
       taken[31] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget14dragLeaveEventEP15QDragLeaveEvent")) {
       taken[32] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget9dropEventEP10QDropEvent")) {
       taken[33] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget9showEventEP10QShowEvent")) {
       taken[34] = call;
       return true;
@@ -522,33 +622,46 @@ public:
       taken[43] = call;
       return true;
     }
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[44] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[45] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[46] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[47] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[48] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
       taken[49] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
     return false;
   }
 
+#if QT_CONFIG(colordialog)
   //  void QWellArray::setCurrent(int row, int col)
   void setCurrent(int row, int col) override {
     if (taken[0]) {
@@ -559,7 +672,9 @@ public:
     }
     QWellArray::setCurrent(row, col);
   }
+#endif  // QT_CONFIG(colordialog)
 
+#if QT_CONFIG(colordialog)
   //  void QWellArray::setSelected(int row, int col)
   void setSelected(int row, int col) override {
     if (taken[1]) {
@@ -570,7 +685,9 @@ public:
     }
     QWellArray::setSelected(row, col);
   }
+#endif  // QT_CONFIG(colordialog)
 
+#if QT_CONFIG(colordialog)
   //  QSize QWellArray::sizeHint() const
   QSize sizeHint() const override {
     if (taken[2]) {
@@ -581,7 +698,9 @@ public:
     }
     return QWellArray::sizeHint();
   }
+#endif  // QT_CONFIG(colordialog)
 
+#if QT_CONFIG(colordialog)
   //  void QWellArray::paintCell(QPainter *a0, int row, int col, const
   //      QRect &a3)
   void paintCell(QPainter *a0, int row, int col, const QRect &a3) override {
@@ -593,7 +712,9 @@ public:
     }
     QWellArray::paintCell(a0, row, col, a3);
   }
+#endif  // QT_CONFIG(colordialog)
 
+#if QT_CONFIG(colordialog)
   //  void QWellArray::paintCellContents(QPainter *a0, int row, int col,
   //      const QRect &a3)
   void paintCellContents(
@@ -609,7 +730,9 @@ public:
     }
     QWellArray::paintCellContents(a0, row, col, a3);
   }
+#endif  // QT_CONFIG(colordialog)
 
+#if QT_CONFIG(colordialog)
   //  void QWellArray::mousePressEvent(QMouseEvent *a0)
   void mousePressEvent(QMouseEvent *a0) override {
     if (taken[5]) {
@@ -620,7 +743,9 @@ public:
     }
     QWellArray::mousePressEvent(a0);
   }
+#endif  // QT_CONFIG(colordialog)
 
+#if QT_CONFIG(colordialog)
   //  void QWellArray::mouseReleaseEvent(QMouseEvent *a0)
   void mouseReleaseEvent(QMouseEvent *a0) override {
     if (taken[6]) {
@@ -631,7 +756,9 @@ public:
     }
     QWellArray::mouseReleaseEvent(a0);
   }
+#endif  // QT_CONFIG(colordialog)
 
+#if QT_CONFIG(colordialog)
   //  void QWellArray::keyPressEvent(QKeyEvent *a0)
   void keyPressEvent(QKeyEvent *a0) override {
     if (taken[7]) {
@@ -642,7 +769,9 @@ public:
     }
     QWellArray::keyPressEvent(a0);
   }
+#endif  // QT_CONFIG(colordialog)
 
+#if QT_CONFIG(colordialog)
   //  void QWellArray::focusInEvent(QFocusEvent *a0)
   void focusInEvent(QFocusEvent *a0) override {
     if (taken[8]) {
@@ -653,7 +782,9 @@ public:
     }
     QWellArray::focusInEvent(a0);
   }
+#endif  // QT_CONFIG(colordialog)
 
+#if QT_CONFIG(colordialog)
   //  void QWellArray::focusOutEvent(QFocusEvent *a0)
   void focusOutEvent(QFocusEvent *a0) override {
     if (taken[9]) {
@@ -664,7 +795,9 @@ public:
     }
     QWellArray::focusOutEvent(a0);
   }
+#endif  // QT_CONFIG(colordialog)
 
+#if QT_CONFIG(colordialog)
   //  void QWellArray::paintEvent(QPaintEvent *a0)
   void paintEvent(QPaintEvent *a0) override {
     if (taken[10]) {
@@ -675,6 +808,7 @@ public:
     }
     QWellArray::paintEvent(a0);
   }
+#endif  // QT_CONFIG(colordialog)
 
   //  int QWidget::devType() const
   int devType() const override {
@@ -742,6 +876,7 @@ public:
     return QWidget::paintEngine();
   }
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QWidget::event(QEvent *event)
   bool event(QEvent *event) override {
     if (taken[17]) {
@@ -752,6 +887,7 @@ public:
     }
     return QWidget::event(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
   //  void QWidget::mouseDoubleClickEvent(QMouseEvent *event)
   void mouseDoubleClickEvent(QMouseEvent *event) override {
@@ -775,6 +911,7 @@ public:
     QWidget::mouseMoveEvent(event);
   }
 
+#if QT_CONFIG(wheelevent)
   //  void QWidget::wheelEvent(QWheelEvent *event)
   void wheelEvent(QWheelEvent *event) override {
     if (taken[20]) {
@@ -785,6 +922,7 @@ public:
     }
     QWidget::wheelEvent(event);
   }
+#endif  // QT_CONFIG(wheelevent)
 
   //  void QWidget::keyReleaseEvent(QKeyEvent *event)
   void keyReleaseEvent(QKeyEvent *event) override {
@@ -852,6 +990,7 @@ public:
     QWidget::closeEvent(event);
   }
 
+#if !defined(QT_NO_CONTEXTMENU)
   //  void QWidget::contextMenuEvent(QContextMenuEvent *event)
   void contextMenuEvent(QContextMenuEvent *event) override {
     if (taken[27]) {
@@ -862,7 +1001,9 @@ public:
     }
     QWidget::contextMenuEvent(event);
   }
+#endif  // !defined(QT_NO_CONTEXTMENU)
 
+#if QT_CONFIG(tabletevent)
   //  void QWidget::tabletEvent(QTabletEvent *event)
   void tabletEvent(QTabletEvent *event) override {
     if (taken[28]) {
@@ -873,7 +1014,9 @@ public:
     }
     QWidget::tabletEvent(event);
   }
+#endif  // QT_CONFIG(tabletevent)
 
+#if !defined(QT_NO_ACTION)
   //  void QWidget::actionEvent(QActionEvent *event)
   void actionEvent(QActionEvent *event) override {
     if (taken[29]) {
@@ -884,7 +1027,9 @@ public:
     }
     QWidget::actionEvent(event);
   }
+#endif  // !defined(QT_NO_ACTION)
 
+#if QT_CONFIG(draganddrop)
   //  void QWidget::dragEnterEvent(QDragEnterEvent *event)
   void dragEnterEvent(QDragEnterEvent *event) override {
     if (taken[30]) {
@@ -895,7 +1040,9 @@ public:
     }
     QWidget::dragEnterEvent(event);
   }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
   //  void QWidget::dragMoveEvent(QDragMoveEvent *event)
   void dragMoveEvent(QDragMoveEvent *event) override {
     if (taken[31]) {
@@ -906,7 +1053,9 @@ public:
     }
     QWidget::dragMoveEvent(event);
   }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
   //  void QWidget::dragLeaveEvent(QDragLeaveEvent *event)
   void dragLeaveEvent(QDragLeaveEvent *event) override {
     if (taken[32]) {
@@ -917,7 +1066,9 @@ public:
     }
     QWidget::dragLeaveEvent(event);
   }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
   //  void QWidget::dropEvent(QDropEvent *event)
   void dropEvent(QDropEvent *event) override {
     if (taken[33]) {
@@ -928,6 +1079,7 @@ public:
     }
     QWidget::dropEvent(event);
   }
+#endif  // QT_CONFIG(draganddrop)
 
   //  void QWidget::showEvent(QShowEvent *event)
   void showEvent(QShowEvent *event) override {
@@ -1039,6 +1191,7 @@ public:
     return QWidget::focusNextPrevChild(next);
   }
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
     if (taken[44]) {
@@ -1049,7 +1202,9 @@ public:
     }
     return QObject::eventFilter(watched, event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
     if (taken[45]) {
@@ -1060,7 +1215,9 @@ public:
     }
     QObject::timerEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
     if (taken[46]) {
@@ -1071,7 +1228,9 @@ public:
     }
     QObject::childEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
     if (taken[47]) {
@@ -1082,7 +1241,9 @@ public:
     }
     QObject::customEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
     if (taken[48]) {
@@ -1093,7 +1254,9 @@ public:
     }
     QObject::connectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
     if (taken[49]) {
@@ -1104,6 +1267,7 @@ public:
     }
     QObject::disconnectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 };
 
 //  const QMetaObject *QWellArray::metaObject() const
@@ -1414,3 +1578,5 @@ void ritual_own_ZN10QWellArray10paintEventEP11QPaintEvent(
     QPaintEvent *a0) {
   static_cast<OwnQWellArray *>(self)->OwnQWellArray::paintEvent(a0);
 }
+
+#endif  // QT_CONFIG(colordialog)

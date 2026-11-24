@@ -1,0 +1,43 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtScxmlQml/6.12.0/QtScxmlQml/private/statemachineloader_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK24QScxmlStateMachineLoader10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QScxmlStateMachineLoader2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN24QScxmlStateMachineLoaderC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZNK24QScxmlStateMachineLoader12stateMachineEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QScxmlStateMachineLoader6sourceEv": ["address", "address"],
+    "ritual_ZN24QScxmlStateMachineLoader9setSourceERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK24QScxmlStateMachineLoader13initialValuesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QScxmlStateMachineLoader16setInitialValuesERK4QMapI7QString8QVariantE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK24QScxmlStateMachineLoader9dataModelEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QScxmlStateMachineLoader12setDataModelEP15QScxmlDataModel": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QScxmlStateMachineLoader5parseERK4QUrl": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN24QScxmlStateMachineLoader15setStateMachineEP18QScxmlStateMachine": [
+      "nothing", "address", "address"
+    ]
+  }
+}

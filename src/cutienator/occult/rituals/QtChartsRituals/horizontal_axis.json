@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/6.12.0/QtCharts/private/horizontalaxis_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN14HorizontalAxisD1Ev": ["nothing", "address"],
+    "ritual_ZNK14HorizontalAxis8sizeHintEN2Qt8SizeHintERK6QSizeF": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_ZN14HorizontalAxis14updateGeometryEv": ["nothing", "address"],
+    "ritual_ZN14HorizontalAxis23updateMinorTickGeometryEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_HorizontalAxis": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK14HorizontalAxis8sizeHintEN2Qt8SizeHintERK6QSizeF": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_own_ZN14HorizontalAxis14updateGeometryEv": ["nothing", "address"]
+  }
+}

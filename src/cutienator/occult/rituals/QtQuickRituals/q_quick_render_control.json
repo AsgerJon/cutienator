@@ -1,0 +1,48 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/qquickrendercontrol.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK19QQuickRenderControl10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QQuickRenderControl2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN19QQuickRenderControlC1EP7QObject": ["address", "address"],
+    "ritual_ZN19QQuickRenderControlD1Ev": ["nothing", "address"],
+    "ritual_ZN19QQuickRenderControl13prepareThreadEP7QThread": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickRenderControl10setSamplesEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK19QQuickRenderControl7samplesEv": ["int", "address"],
+    "ritual_ZN19QQuickRenderControl10initializeEv": ["bool", "address"],
+    "ritual_ZN19QQuickRenderControl10invalidateEv": ["nothing", "address"],
+    "ritual_ZN19QQuickRenderControl10beginFrameEv": ["nothing", "address"],
+    "ritual_ZN19QQuickRenderControl8endFrameEv": ["nothing", "address"],
+    "ritual_ZN19QQuickRenderControl11polishItemsEv": ["nothing", "address"],
+    "ritual_ZN19QQuickRenderControl4syncEv": ["bool", "address"],
+    "ritual_ZN19QQuickRenderControl6renderEv": ["nothing", "address"],
+    "ritual_ZN19QQuickRenderControl15renderWindowForEP12QQuickWindowP6QPoint": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN19QQuickRenderControl12renderWindowEP6QPoint": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK19QQuickRenderControl6windowEv": ["address", "address"],
+    "ritual_ZNK19QQuickRenderControl3rhiEv": ["address", "address"],
+    "ritual_ZNK19QQuickRenderControl13commandBufferEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QQuickRenderControl6d_funcEv": ["address", "address"],
+    "ritual_ZNK19QQuickRenderControl6d_funcEv": ["address", "address"],
+    "ritual_take_QQuickRenderControl": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN19QQuickRenderControl12renderWindowEP6QPoint": [
+      "address", "address", "address"
+    ]
+  }
+}

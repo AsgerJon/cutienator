@@ -44,11 +44,13 @@ QBitArray *ritual_ZN9QBitArrayC1Exb(qsizetype size, bool val) {
   return new QBitArray(size, val);
 }
 
+#if QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
 //  QBitArray::QBitArray(const QBitArray &other)
 extern "C" Q_DECL_EXPORT
 QBitArray *ritual_ZN9QBitArrayC1ERKS_(const QBitArray *other) {
   return new QBitArray(*other);
 }
+#endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
 
 //  qsizetype QBitArray::size() const
 extern "C" Q_DECL_EXPORT

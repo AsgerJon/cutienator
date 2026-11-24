@@ -1,0 +1,38 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/qquickrhiitem.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN21QQuickRhiItemRendererD1Ev": ["nothing", "address"],
+    "ritual_ZN21QQuickRhiItemRenderer10initializeEP17QRhiCommandBuffer": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QQuickRhiItemRenderer11synchronizeEP13QQuickRhiItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QQuickRhiItemRenderer6renderEP17QRhiCommandBuffer": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QQuickRhiItemRenderer6updateEv": ["nothing", "address"],
+    "ritual_ZNK21QQuickRhiItemRenderer3rhiEv": ["address", "address"],
+    "ritual_ZNK21QQuickRhiItemRenderer12colorTextureEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK21QQuickRhiItemRenderer15msaaColorBufferEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK21QQuickRhiItemRenderer14resolveTextureEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK21QQuickRhiItemRenderer18depthStencilBufferEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK21QQuickRhiItemRenderer12renderTargetEv": [
+      "address", "address"
+    ],
+    "ritual_take_QQuickRhiItemRenderer": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

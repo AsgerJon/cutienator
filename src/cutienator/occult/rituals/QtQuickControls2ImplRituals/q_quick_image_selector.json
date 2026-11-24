@@ -1,0 +1,51 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Controls2Impl/6.12.0/QtQuickControls2Impl/private/qquickimageselec",
+    "tor_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK19QQuickImageSelector10metaObjectEv": ["address", "address"],
+    "ritual_ZNK19QQuickImageSelector6sourceEv": ["address", "address"],
+    "ritual_ZNK19QQuickImageSelector4nameEv": ["text", "address"],
+    "ritual_ZNK19QQuickImageSelector4pathEv": ["text", "address"],
+    "ritual_ZNK19QQuickImageSelector6statesEv": ["address", "address"],
+    "ritual_ZNK19QQuickImageSelector9separatorEv": ["text", "address"],
+    "ritual_ZNK19QQuickImageSelector5cacheEv": ["bool", "address"],
+    "ritual_ZN19QQuickImageSelector8setCacheEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN19QQuickImageSelector5writeERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickImageSelector9setTargetERK12QQmlProperty": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickImageSelector10classBeginEv": ["nothing", "address"],
+    "ritual_ZN19QQuickImageSelector17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK19QQuickImageSelector14fileExtensionsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QQuickImageSelector8cacheKeyEv": ["text", "address"],
+    "ritual_ZN19QQuickImageSelector18updateActiveStatesEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK19QQuickImageSelector14calculateScoreERK5QListI7QStringE": [
+      "int", "address", "address"
+    ],
+    "ritual_cast_QQuickImageSelector_QQmlParserStatus": [
+      "address", "address"
+    ],
+    "ritual_cast_QQuickImageSelector_QQmlPropertyValueInterceptor": [
+      "address", "address"
+    ],
+    "ritual_own_ZN19QQuickImageSelector9setTargetERK12QQmlProperty": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN19QQuickImageSelector10classBeginEv": [
+      "nothing", "address"
+    ]
+  }
+}

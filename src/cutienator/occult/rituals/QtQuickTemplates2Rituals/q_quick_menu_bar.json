@@ -1,0 +1,93 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquickmenubar_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK13QQuickMenuBar10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QQuickMenuBar2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN13QQuickMenuBarC1EP10QQuickItem": ["address", "address"],
+    "ritual_ZN13QQuickMenuBarD1Ev": ["nothing", "address"],
+    "ritual_ZNK13QQuickMenuBar8delegateEv": ["address", "address"],
+    "ritual_ZN13QQuickMenuBar11setDelegateEP13QQmlComponent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QQuickMenuBar6menuAtEi": ["address", "address", "int"],
+    "ritual_ZN13QQuickMenuBar7addMenuEP10QQuickMenu": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QQuickMenuBar10insertMenuEiP10QQuickMenu": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN13QQuickMenuBar10removeMenuEP10QQuickMenu": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QQuickMenuBar8takeMenuEi": ["address", "address", "int"],
+    "ritual_ZN13QQuickMenuBar11eventFilterEP7QObjectP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN13QQuickMenuBar13keyPressEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QQuickMenuBar15keyReleaseEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QQuickMenuBar15hoverLeaveEventEP11QHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QQuickMenuBar9isContentEP10QQuickItem": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN13QQuickMenuBar10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN13QQuickMenuBar9itemAddedEiP10QQuickItem": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN13QQuickMenuBar9itemMovedEiP10QQuickItem": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN13QQuickMenuBar11itemRemovedEiP10QQuickItem": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN13QQuickMenuBar17componentCompleteEv": ["nothing", "address"],
+    "ritual_ZNK13QQuickMenuBar11defaultFontEv": ["address", "address"],
+    "ritual_ZNK13QQuickMenuBar14accessibleRoleEv": ["int", "address"],
+    "ritual_ZN13QQuickMenuBar6d_funcEv": ["address", "address"],
+    "ritual_ZNK13QQuickMenuBar6d_funcEv": ["address", "address"],
+    "ritual_take_QQuickMenuBar": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN13QQuickMenuBar11eventFilterEP7QObjectP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_own_ZN13QQuickMenuBar13keyPressEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN13QQuickMenuBar15keyReleaseEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN13QQuickMenuBar15hoverLeaveEventEP11QHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK13QQuickMenuBar9isContentEP10QQuickItem": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN13QQuickMenuBar10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZN13QQuickMenuBar9itemAddedEiP10QQuickItem": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZN13QQuickMenuBar9itemMovedEiP10QQuickItem": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZN13QQuickMenuBar11itemRemovedEiP10QQuickItem": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZN13QQuickMenuBar17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZNK13QQuickMenuBar11defaultFontEv": ["address", "address"],
+    "ritual_own_ZNK13QQuickMenuBar14accessibleRoleEv": ["int", "address"]
+  }
+}

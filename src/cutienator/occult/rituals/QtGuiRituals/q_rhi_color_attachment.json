@@ -1,0 +1,53 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/rhi/qrhi.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN19QRhiColorAttachmentC1Ev": ["address"],
+    "ritual_ZN19QRhiColorAttachmentC1EP11QRhiTexture": [
+      "address", "address"
+    ],
+    "ritual_ZN19QRhiColorAttachmentC1EP16QRhiRenderBuffer": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QRhiColorAttachment7textureEv": ["address", "address"],
+    "ritual_ZN19QRhiColorAttachment10setTextureEP11QRhiTexture": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QRhiColorAttachment12renderBufferEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QRhiColorAttachment15setRenderBufferEP16QRhiRenderBuffer": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QRhiColorAttachment5layerEv": ["int", "address"],
+    "ritual_ZN19QRhiColorAttachment8setLayerEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK19QRhiColorAttachment5levelEv": ["int", "address"],
+    "ritual_ZN19QRhiColorAttachment8setLevelEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK19QRhiColorAttachment14resolveTextureEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QRhiColorAttachment17setResolveTextureEP11QRhiTexture": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QRhiColorAttachment12resolveLayerEv": ["int", "address"],
+    "ritual_ZN19QRhiColorAttachment15setResolveLayerEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK19QRhiColorAttachment12resolveLevelEv": ["int", "address"],
+    "ritual_ZN19QRhiColorAttachment15setResolveLevelEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK19QRhiColorAttachment14multiViewCountEv": ["int", "address"],
+    "ritual_ZN19QRhiColorAttachment17setMultiViewCountEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN19QRhiColorAttachmentD1Ev": ["nothing", "address"]
+  }
+}

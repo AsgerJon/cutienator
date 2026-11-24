@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquicktextdocument_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN9QtPrivate23ProtectedLayoutAccessor14formatAccessorEi": [
+      "address", "address", "int"
+    ],
+    "ritual_take_QtPrivate_ProtectedLayoutAccessor": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

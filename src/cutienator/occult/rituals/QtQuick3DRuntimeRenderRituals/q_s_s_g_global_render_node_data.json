@@ -1,0 +1,35 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgrenderda",
+    "ta_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN24QSSGGlobalRenderNodeDataC1EP14QSSGRenderRoot": [
+      "address", "address"
+    ],
+    "ritual_ZN24QSSGGlobalRenderNodeDataD1Ev": ["nothing", "address"],
+    "ritual_ZN24QSSGGlobalRenderNodeData7reindexEv": ["nothing", "address"],
+    "ritual_ZN24QSSGGlobalRenderNodeData10invalidateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK24QSSGGlobalRenderNodeData7versionEv": [
+      "unsigned short", "address"
+    ],
+    "ritual_ZNK24QSSGGlobalRenderNodeData15stateGenerationEv": [
+      "unsigned short", "address"
+    ],
+    "ritual_ZN24QSSGGlobalRenderNodeData19bumpStateGenerationEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK24QSSGGlobalRenderNodeData10threadPoolEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QSSGGlobalRenderNodeData12collectNodesEP14QSSGRenderRoot": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QSSGGlobalRenderNodeData17updateGlobalStateEv": [
+      "nothing", "address"
+    ]
+  }
+}

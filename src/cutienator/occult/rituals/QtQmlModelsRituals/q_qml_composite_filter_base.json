@@ -1,0 +1,54 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQmlMo",
+    "dels/6.12.0/QtQmlModels/private/qqmlcompositefilterbase_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK23QQmlCompositeFilterBase10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QQmlCompositeFilterBase2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN23QQmlCompositeFilterBase24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQmlCompositeFilterBaseC1EP7QObject": ["address", "address"],
+    "ritual_ZN23QQmlCompositeFilterBase6updateEPK24QQmlSortFilterProxyModel": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK23QQmlCompositeFilterBase8isActiveEv": ["bool", "address"],
+    "ritual_ZNK23QQmlCompositeFilterBase6columnEv": ["int", "address"],
+    "ritual_ZN23QQmlCompositeFilterBase9setColumnEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK23QQmlCompositeFilterBase22supportColumnFilteringEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN23QQmlCompositeFilterBaseC1EP27QQmlFilterCompositorPrivateP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN23QQmlCompositeFilterBase12refreshCacheEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQmlCompositeFilterBase6d_funcEv": ["address", "address"],
+    "ritual_ZNK23QQmlCompositeFilterBase6d_funcEv": ["address", "address"],
+    "ritual_own_ZN23QQmlCompositeFilterBase6updateEPK24QQmlSortFilterProxyModel": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK23QQmlCompositeFilterBase8isActiveEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZNK23QQmlCompositeFilterBase6columnEv": ["int", "address"],
+    "ritual_own_ZN23QQmlCompositeFilterBase9setColumnEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZNK23QQmlCompositeFilterBase22supportColumnFilteringEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZN23QQmlCompositeFilterBase12refreshCacheEv": [
+      "nothing", "address"
+    ]
+  }
+}

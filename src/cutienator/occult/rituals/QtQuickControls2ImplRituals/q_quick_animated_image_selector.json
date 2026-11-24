@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Controls2Impl/6.12.0/QtQuickControls2Impl/private/qquickimageselec",
+    "tor_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK27QQuickAnimatedImageSelector10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK27QQuickAnimatedImageSelector14fileExtensionsEv": [
+      "address", "address"
+    ],
+    "ritual_take_QQuickAnimatedImageSelector": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

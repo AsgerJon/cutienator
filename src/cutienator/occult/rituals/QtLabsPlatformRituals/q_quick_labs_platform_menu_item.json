@@ -1,0 +1,73 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtLabsP",
+    "latform/6.12.0/QtLabsPlatform/private/qquicklabsplatformmenuitem_p",
+    ".h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK26QQuickLabsPlatformMenuItem10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QQuickLabsPlatformMenuItem20qmlExtendedNamespaceEv": [
+      "address"
+    ],
+    "ritual_ZN26QQuickLabsPlatformMenuItem30qt_qmlMarker_extendedNamespaceEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QQuickLabsPlatformMenuItemD1Ev": ["nothing", "address"],
+    "ritual_ZNK26QQuickLabsPlatformMenuItem6handleEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK26QQuickLabsPlatformMenuItem4menuEv": ["address", "address"],
+    "ritual_ZNK26QQuickLabsPlatformMenuItem7subMenuEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK26QQuickLabsPlatformMenuItem5groupEv": ["address", "address"],
+    "ritual_ZNK26QQuickLabsPlatformMenuItem9isEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK26QQuickLabsPlatformMenuItem9isVisibleEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK26QQuickLabsPlatformMenuItem11isSeparatorEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK26QQuickLabsPlatformMenuItem11isCheckableEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK26QQuickLabsPlatformMenuItem9isCheckedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK26QQuickLabsPlatformMenuItem4roleEv": ["int", "address"],
+    "ritual_ZNK26QQuickLabsPlatformMenuItem4textEv": ["text", "address"],
+    "ritual_ZNK26QQuickLabsPlatformMenuItem8shortcutEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK26QQuickLabsPlatformMenuItem4fontEv": ["address", "address"],
+    "ritual_ZNK26QQuickLabsPlatformMenuItem4iconEv": ["address", "address"],
+    "ritual_ZN26QQuickLabsPlatformMenuItem10classBeginEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QQuickLabsPlatformMenuItem17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QQuickLabsPlatformMenuItem5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN26QQuickLabsPlatformMenuItem11addShortcutEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QQuickLabsPlatformMenuItem14removeShortcutEv": [
+      "nothing", "address"
+    ],
+    "ritual_cast_QQuickLabsPlatformMenuItem_QQmlParserStatus": [
+      "address", "address"
+    ],
+    "ritual_take_QQuickLabsPlatformMenuItem": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN26QQuickLabsPlatformMenuItem10classBeginEv": [
+      "nothing", "address"
+    ]
+  }
+}

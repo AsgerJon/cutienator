@@ -1,0 +1,59 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/qabstractbarseries.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK18QAbstractBarSeries10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QAbstractBarSeries2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18QAbstractBarSeriesD1Ev": ["nothing", "address"],
+    "ritual_ZN18QAbstractBarSeries11setBarWidthEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK18QAbstractBarSeries8barWidthEv": ["double", "address"],
+    "ritual_ZN18QAbstractBarSeries6appendEP7QBarSet": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN18QAbstractBarSeries6removeEP7QBarSet": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN18QAbstractBarSeries4takeEP7QBarSet": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN18QAbstractBarSeries6appendERK5QListIP7QBarSetE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN18QAbstractBarSeries6insertEiP7QBarSet": [
+      "bool", "address", "int", "address"
+    ],
+    "ritual_ZNK18QAbstractBarSeries5countEv": ["int", "address"],
+    "ritual_ZNK18QAbstractBarSeries7barSetsEv": ["address", "address"],
+    "ritual_ZN18QAbstractBarSeries5clearEv": ["nothing", "address"],
+    "ritual_ZN18QAbstractBarSeries16setLabelsVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK18QAbstractBarSeries15isLabelsVisibleEv": ["bool", "address"],
+    "ritual_ZN18QAbstractBarSeries15setLabelsFormatERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK18QAbstractBarSeries12labelsFormatEv": ["text", "address"],
+    "ritual_ZN18QAbstractBarSeries14setLabelsAngleEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK18QAbstractBarSeries11labelsAngleEv": ["double", "address"],
+    "ritual_ZN18QAbstractBarSeries17setLabelsPositionENS_14LabelsPositionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK18QAbstractBarSeries14labelsPositionEv": ["int", "address"],
+    "ritual_ZN18QAbstractBarSeries18setLabelsPrecisionEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK18QAbstractBarSeries15labelsPrecisionEv": ["int", "address"],
+    "ritual_ZN18QAbstractBarSeries6d_funcEv": ["address", "address"],
+    "ritual_ZNK18QAbstractBarSeries6d_funcEv": ["address", "address"],
+    "ritual_take_QAbstractBarSeries": ["bool", "address", "chars", "address"]
+  }
+}

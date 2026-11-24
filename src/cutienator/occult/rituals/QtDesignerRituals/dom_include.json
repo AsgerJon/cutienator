@@ -1,0 +1,36 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/ui4_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN10DomIncludeC1Ev": ["address"],
+    "ritual_ZN10DomIncludeD1Ev": ["nothing", "address"],
+    "ritual_ZNK10DomInclude4textEv": ["text", "address"],
+    "ritual_ZN10DomInclude7setTextERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK10DomInclude20hasAttributeLocationEv": ["bool", "address"],
+    "ritual_ZNK10DomInclude17attributeLocationEv": ["text", "address"],
+    "ritual_ZN10DomInclude20setAttributeLocationERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN10DomInclude22clearAttributeLocationEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK10DomInclude20hasAttributeImpldeclEv": ["bool", "address"],
+    "ritual_ZNK10DomInclude17attributeImpldeclEv": ["text", "address"],
+    "ritual_ZN10DomInclude20setAttributeImpldeclERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN10DomInclude22clearAttributeImpldeclEv": [
+      "nothing", "address"
+    ],
+    "ritual_list_make_DomInclude_ptr": ["address"],
+    "ritual_list_add_DomInclude_ptr": ["nothing", "address", "address"],
+    "ritual_list_size_DomInclude_ptr": ["long long", "address"],
+    "ritual_list_at_DomInclude_ptr": ["address", "address", "long long"],
+    "ritual_list_drop_DomInclude_ptr": ["nothing", "address"]
+  }
+}

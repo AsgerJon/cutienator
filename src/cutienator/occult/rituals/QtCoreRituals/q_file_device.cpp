@@ -27,13 +27,27 @@ typedef bool (*CuteQFileDeviceCall14)(const void *, int *);
 typedef bool (*CuteQFileDeviceCall15)(const void *, int, int *);
 typedef bool (*CuteQFileDeviceCall16)(const void *, int, int *);
 typedef qint64 (*CuteQFileDeviceCall17)(const void *, qint64, int *);
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQFileDeviceCall18)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQFileDeviceCall19)(const void *, QObject *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQFileDeviceCall20)(const void *, QTimerEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQFileDeviceCall21)(const void *, QChildEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQFileDeviceCall22)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQFileDeviceCall23)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQFileDeviceCall24)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 class CuteQFileDevice : public QFileDevice {
 public:
   using QFileDevice::QFileDevice;
@@ -112,34 +126,48 @@ public:
       taken[17] = call;
       return true;
     }
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[18] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[19] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[20] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[21] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[22] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[23] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
       taken[24] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
     return false;
   }
 
@@ -345,6 +373,7 @@ public:
     return QIODevice::skipData(maxSize);
   }
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QObject::event(QEvent *event)
   bool event(QEvent *event) override {
     if (taken[18]) {
@@ -355,7 +384,9 @@ public:
     }
     return QObject::event(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
     if (taken[19]) {
@@ -366,7 +397,9 @@ public:
     }
     return QObject::eventFilter(watched, event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
     if (taken[20]) {
@@ -377,7 +410,9 @@ public:
     }
     QObject::timerEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
     if (taken[21]) {
@@ -388,7 +423,9 @@ public:
     }
     QObject::childEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
     if (taken[22]) {
@@ -399,7 +436,9 @@ public:
     }
     QObject::customEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
     if (taken[23]) {
@@ -410,7 +449,9 @@ public:
     }
     QObject::connectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
     if (taken[24]) {
@@ -421,15 +462,19 @@ public:
     }
     QObject::disconnectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 };
 
+#if !defined(QT_NO_QOBJECT)
 //  const QMetaObject *QFileDevice::metaObject() const
 extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK11QFileDevice10metaObjectEv(
     const QFileDevice *self) {
   return self->metaObject();
 }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
 //  QString QFileDevice::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN11QFileDevice2trEPKcS1_i(
@@ -437,6 +482,20 @@ QString *ritual_ZN11QFileDevice2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QFileDevice::tr(s, c, n));
+}
+#endif  // !defined(QT_NO_QOBJECT)
+
+//  QFileDevicePrivate *QFileDevice::d_func()
+extern "C" Q_DECL_EXPORT
+QFileDevicePrivate *ritual_ZN11QFileDevice6d_funcEv(QFileDevice *self) {
+  return self->d_func();
+}
+
+//  const QFileDevicePrivate *QFileDevice::d_func() const
+extern "C" Q_DECL_EXPORT
+const QFileDevicePrivate *ritual_ZNK11QFileDevice6d_funcEv(
+    const QFileDevice *self) {
+  return self->d_func();
 }
 
 //  QFileDevice::~QFileDevice()
@@ -563,11 +622,13 @@ QFileDevice *ritual_ZN11QFileDeviceC1Ev() {
   return new CuteQFileDevice();
 }
 
+#if !(defined(QT_NO_QOBJECT))
 //  QFileDevice::QFileDevice(QObject *parent)
 extern "C" Q_DECL_EXPORT
 QFileDevice *ritual_ZN11QFileDeviceC1EP7QObject(QObject *parent) {
   return new CuteQFileDevice(parent);
 }
+#endif  // !(defined(QT_NO_QOBJECT))
 
 //  qint64 QFileDevice::writeData(const char *data, qint64 len)
 extern "C" Q_DECL_EXPORT

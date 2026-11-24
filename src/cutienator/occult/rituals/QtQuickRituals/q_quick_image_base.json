@@ -1,0 +1,128 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickimagebase_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK15QQuickImageBase10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QQuickImageBase2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN15QQuickImageBase24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickImageBaseC1EP10QQuickItem": ["address", "address"],
+    "ritual_ZN15QQuickImageBaseD1Ev": ["nothing", "address"],
+    "ritual_ZNK15QQuickImageBase6statusEv": ["int", "address"],
+    "ritual_ZNK15QQuickImageBase8progressEv": ["double", "address"],
+    "ritual_ZNK15QQuickImageBase6sourceEv": ["address", "address"],
+    "ritual_ZN15QQuickImageBase9setSourceERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QQuickImageBase12asynchronousEv": ["bool", "address"],
+    "ritual_ZN15QQuickImageBase15setAsynchronousEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK15QQuickImageBase5cacheEv": ["bool", "address"],
+    "ritual_ZN15QQuickImageBase8setCacheEb": ["nothing", "address", "bool"],
+    "ritual_ZNK15QQuickImageBase5imageEv": ["address", "address"],
+    "ritual_ZN15QQuickImageBase13setSourceSizeERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QQuickImageBase10sourceSizeEv": ["address", "address"],
+    "ritual_ZN15QQuickImageBase15resetSourceSizeEv": ["nothing", "address"],
+    "ritual_ZNK15QQuickImageBase14sourceClipRectEv": ["address", "address"],
+    "ritual_ZN15QQuickImageBase17setSourceClipRectERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QQuickImageBase19resetSourceClipRectEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickImageBase9setMirrorEb": ["nothing", "address", "bool"],
+    "ritual_ZNK15QQuickImageBase6mirrorEv": ["bool", "address"],
+    "ritual_ZN15QQuickImageBase19setMirrorVerticallyEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK15QQuickImageBase16mirrorVerticallyEv": ["bool", "address"],
+    "ritual_ZN15QQuickImageBase15setCurrentFrameEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QQuickImageBase12currentFrameEv": ["int", "address"],
+    "ritual_ZNK15QQuickImageBase10frameCountEv": ["int", "address"],
+    "ritual_ZN15QQuickImageBase16setAutoTransformEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK15QQuickImageBase13autoTransformEv": ["bool", "address"],
+    "ritual_ZNK15QQuickImageBase10colorSpaceEv": ["address", "address"],
+    "ritual_ZN15QQuickImageBase13setColorSpaceERK11QColorSpace": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QQuickImageBase18retainWhileLoadingEv": ["bool", "address"],
+    "ritual_ZN15QQuickImageBase21setRetainWhileLoadingEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN15QQuickImageBase18resolve2xLocalFileERK4QUrldPS0_Pd": [
+      "nothing", "address", "double", "address", "address"
+    ],
+    "ritual_ZN15QQuickImageBase28emitAutoTransformBaseChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickImageBase12loadEmptyUrlEv": ["nothing", "address"],
+    "ritual_ZN15QQuickImageBase10loadPixmapERK4QUrl6QFlagsINS_16LoadPixmapOptionEE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN15QQuickImageBase4loadEv": ["nothing", "address"],
+    "ritual_ZN15QQuickImageBase17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickImageBase12pixmapChangeEv": ["nothing", "address"],
+    "ritual_ZN15QQuickImageBase10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN15QQuickImageBase15requestFinishedEv": ["nothing", "address"],
+    "ritual_ZN15QQuickImageBase15requestProgressExx": [
+      "nothing", "address", "long long", "long long"
+    ],
+    "ritual_ZN15QQuickImageBase6d_funcEv": ["address", "address"],
+    "ritual_ZNK15QQuickImageBase6d_funcEv": ["address", "address"],
+    "ritual_take_QQuickImageBase": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN15QQuickImageBase9setSourceERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN15QQuickImageBase13setSourceSizeERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN15QQuickImageBase9setMirrorEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZN15QQuickImageBase19setMirrorVerticallyEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZN15QQuickImageBase15setCurrentFrameEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZNK15QQuickImageBase12currentFrameEv": ["int", "address"],
+    "ritual_own_ZNK15QQuickImageBase10frameCountEv": ["int", "address"],
+    "ritual_own_ZN15QQuickImageBase16setAutoTransformEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZN15QQuickImageBase13setColorSpaceERK11QColorSpace": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN15QQuickImageBase28emitAutoTransformBaseChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN15QQuickImageBase4loadEv": ["nothing", "address"],
+    "ritual_own_ZN15QQuickImageBase17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN15QQuickImageBase12pixmapChangeEv": ["nothing", "address"],
+    "ritual_own_ZN15QQuickImageBase10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZN15QQuickImageBase15requestFinishedEv": [
+      "nothing", "address"
+    ]
+  }
+}

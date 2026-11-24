@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmljsastvisitor_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN6QQmlJS3AST11BaseVisitor19RecursionDepthCheckC1EPS1_": [
+      "address", "address"
+    ],
+    "ritual_ZN6QQmlJS3AST11BaseVisitor19RecursionDepthCheckD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK6QQmlJS3AST11BaseVisitor19RecursionDepthCheckclEv": [
+      "bool", "address"
+    ]
+  }
+}

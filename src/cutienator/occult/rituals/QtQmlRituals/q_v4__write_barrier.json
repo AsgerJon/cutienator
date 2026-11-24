@@ -1,0 +1,13 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4writebarrier_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN3QV412WriteBarrier5writeEPNS_10EngineBaseEPNS_4Heap4BaseEPyy": [
+      "nothing", "address", "address", "address", "unsigned long long"
+    ],
+    "ritual_ZN3QV412WriteBarrierD1Ev": ["nothing", "address"]
+  }
+}

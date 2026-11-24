@@ -1,0 +1,157 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qlistview_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QCommonListViewBaseD1Ev": ["nothing", "address"],
+    "ritual_ZNK19QCommonListViewBase9itemIndexERK13QListViewItem": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK19QCommonListViewBase19indexToListViewItemERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN19QCommonListViewBase19doBatchedItemLayoutERK19QListViewLayoutInfoi": [
+      "bool", "address", "address", "int"
+    ],
+    "ritual_ZN19QCommonListViewBase5clearEv": ["nothing", "address"],
+    "ritual_ZN19QCommonListViewBase11setRowCountEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK19QCommonListViewBase15intersectingSetERK5QRect": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN19QCommonListViewBase11dataChangedERK11QModelIndexS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN19QCommonListViewBase16scrollContentsByEiib": [
+      "nothing", "address", "int", "int", "bool"
+    ],
+    "ritual_ZNK19QCommonListViewBase13mapToViewportERK5QRect": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK19QCommonListViewBase16horizontalOffsetEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK19QCommonListViewBase14verticalOffsetEv": ["int", "address"],
+    "ritual_ZN19QCommonListViewBase25updateHorizontalScrollBarERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QCommonListViewBase23updateVerticalScrollBarERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QCommonListViewBase15appendHiddenRowEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN19QCommonListViewBase15removeHiddenRowEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN19QCommonListViewBase19setPositionForIndexERK6QPointRK11QModelIndex": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN19QCommonListViewBase13paintDragDropEP8QPainter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QCommonListViewBase19filterDragMoveEventEP14QDragMoveEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN19QCommonListViewBase20filterDragLeaveEventEP15QDragLeaveEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN19QCommonListViewBase15filterDropEventEP10QDropEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN19QCommonListViewBase15filterStartDragE6QFlagsIN2Qt10DropActionEE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK19QCommonListViewBase7spacingEv": ["int", "address"],
+    "ritual_ZNK19QCommonListViewBase10isWrappingEv": ["bool", "address"],
+    "ritual_ZNK19QCommonListViewBase8gridSizeEv": ["address", "address"],
+    "ritual_ZNK19QCommonListViewBase4flowEv": ["int", "address"],
+    "ritual_ZNK19QCommonListViewBase8movementEv": ["int", "address"],
+    "ritual_ZNK19QCommonListViewBase6offsetEv": ["address", "address"],
+    "ritual_ZNK19QCommonListViewBase15pressedPositionEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QCommonListViewBase16uniformItemSizesEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK19QCommonListViewBase6columnEv": ["int", "address"],
+    "ritual_ZNK19QCommonListViewBase17verticalScrollBarEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QCommonListViewBase19horizontalScrollBarEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QCommonListViewBase10modelIndexEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK19QCommonListViewBase8rowCountEv": ["int", "address"],
+    "ritual_ZNK19QCommonListViewBase18initViewItemOptionEP20QStyleOptionViewItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QCommonListViewBase8viewportEv": ["address", "address"],
+    "ritual_ZNK19QCommonListViewBase8clipRectEv": ["address", "address"],
+    "ritual_ZNK19QCommonListViewBase14cachedItemSizeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QCommonListViewBase12viewItemRectERK13QListViewItem": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK19QCommonListViewBase8itemSizeERK20QStyleOptionViewItemRK11QModelIndex": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK19QCommonListViewBase8delegateERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK19QCommonListViewBase8isHiddenEi": ["bool", "address", "int"],
+    "ritual_ZNK19QCommonListViewBase11hiddenCountEv": ["int", "address"],
+    "ritual_ZNK19QCommonListViewBase13isRightToLeftEv": ["bool", "address"],
+    "ritual_take_QCommonListViewBase": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN19QCommonListViewBase16scrollContentsByEiib": [
+      "nothing", "address", "int", "int", "bool"
+    ],
+    "ritual_own_ZNK19QCommonListViewBase13mapToViewportERK5QRect": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZNK19QCommonListViewBase16horizontalOffsetEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZNK19QCommonListViewBase14verticalOffsetEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZN19QCommonListViewBase25updateHorizontalScrollBarERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN19QCommonListViewBase23updateVerticalScrollBarERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN19QCommonListViewBase15appendHiddenRowEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN19QCommonListViewBase15removeHiddenRowEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN19QCommonListViewBase19setPositionForIndexERK6QPointRK11QModelIndex": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN19QCommonListViewBase13paintDragDropEP8QPainter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN19QCommonListViewBase19filterDragMoveEventEP14QDragMoveEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN19QCommonListViewBase20filterDragLeaveEventEP15QDragLeaveEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN19QCommonListViewBase15filterDropEventEP10QDropEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN19QCommonListViewBase15filterStartDragE6QFlagsIN2Qt10DropActionEE": [
+      "bool", "address", "int"
+    ]
+  }
+}

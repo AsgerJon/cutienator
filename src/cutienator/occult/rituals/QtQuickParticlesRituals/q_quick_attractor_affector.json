@@ -1,0 +1,48 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Particles/6.12.0/QtQuickParticles/private/qquickpointattractor_p.h",
+    ", Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK23QQuickAttractorAffector10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QQuickAttractorAffector2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN23QQuickAttractorAffectorC1EP10QQuickItem": [
+      "address", "address"
+    ],
+    "ritual_ZNK23QQuickAttractorAffector8strengthEv": ["double", "address"],
+    "ritual_ZNK23QQuickAttractorAffector6pointXEv": ["double", "address"],
+    "ritual_ZNK23QQuickAttractorAffector6pointYEv": ["double", "address"],
+    "ritual_ZNK23QQuickAttractorAffector17affectedParameterEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK23QQuickAttractorAffector22proportionalToDistanceEv": [
+      "int", "address"
+    ],
+    "ritual_ZN23QQuickAttractorAffector11setStrengthEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN23QQuickAttractorAffector9setPointXEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN23QQuickAttractorAffector9setPointYEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN23QQuickAttractorAffector20setAffectedParameterENS_20AffectableParametersE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN23QQuickAttractorAffector25setProportionalToDistanceENS_10ProportionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN23QQuickAttractorAffector14affectParticleEP18QQuickParticleDatad": [
+      "bool", "address", "address", "double"
+    ],
+    "ritual_own_ZN23QQuickAttractorAffector14affectParticleEP18QQuickParticleDatad": [
+      "bool", "address", "address", "double"
+    ]
+  }
+}

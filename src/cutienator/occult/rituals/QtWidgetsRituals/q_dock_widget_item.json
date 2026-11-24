@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qdockwidget_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QDockWidgetItemC1EP11QDockWidget": ["address", "address"],
+    "ritual_ZNK15QDockWidgetItem11minimumSizeEv": ["address", "address"],
+    "ritual_ZNK15QDockWidgetItem11maximumSizeEv": ["address", "address"],
+    "ritual_ZNK15QDockWidgetItem8sizeHintEv": ["address", "address"],
+    "ritual_ZNK15QDockWidgetItem19dockWidgetChildItemEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK15QDockWidgetItem16dockWidgetLayoutEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK15QDockWidgetItem11minimumSizeEv": ["address", "address"],
+    "ritual_own_ZNK15QDockWidgetItem11maximumSizeEv": ["address", "address"],
+    "ritual_own_ZNK15QDockWidgetItem8sizeHintEv": ["address", "address"]
+  }
+}

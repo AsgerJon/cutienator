@@ -1,0 +1,23 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgrenderab",
+    "leobjects_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN26QSSGRenderableObjectHandleC1Ev": ["address"],
+    "ritual_ZN26QSSGRenderableObjectHandleC1EP20QSSGRenderableObjectf14QSSGRenderFlag": [
+      "address", "address", "float", "address"
+    ],
+    "ritual_ZN26QSSGRenderableObjectHandleD1Ev": ["nothing", "address"],
+    "ritual_list_make_QSSGRenderableObjectHandle": ["address"],
+    "ritual_list_add_QSSGRenderableObjectHandle": [
+      "nothing", "address", "address"
+    ],
+    "ritual_list_size_QSSGRenderableObjectHandle": ["long long", "address"],
+    "ritual_list_at_QSSGRenderableObjectHandle": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_QSSGRenderableObjectHandle": ["nothing", "address"]
+  }
+}

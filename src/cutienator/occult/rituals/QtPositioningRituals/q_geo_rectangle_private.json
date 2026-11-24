@@ -1,0 +1,34 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtPositioning/6.12.0/QtPositioning/private/qgeorectangle_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK20QGeoRectanglePrivate7isValidEv": ["bool", "address"],
+    "ritual_ZNK20QGeoRectanglePrivate7isEmptyEv": ["bool", "address"],
+    "ritual_ZNK20QGeoRectanglePrivate8containsERK14QGeoCoordinate": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK20QGeoRectanglePrivate6centerEv": ["address", "address"],
+    "ritual_ZNK20QGeoRectanglePrivate20boundingGeoRectangleEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QGeoRectanglePrivate15extendRectangleERK14QGeoCoordinate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QGeoRectanglePrivate5cloneEv": ["address", "address"],
+    "ritual_take_QGeoRectanglePrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK20QGeoRectanglePrivate7isValidEv": ["bool", "address"],
+    "ritual_own_ZNK20QGeoRectanglePrivate7isEmptyEv": ["bool", "address"],
+    "ritual_own_ZNK20QGeoRectanglePrivate8containsERK14QGeoCoordinate": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZNK20QGeoRectanglePrivate6centerEv": ["address", "address"],
+    "ritual_own_ZNK20QGeoRectanglePrivate20boundingGeoRectangleEv": [
+      "address", "address"
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4property_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN3QV413PropertyIndex3setEPNS_10EngineBaseENS_5ValueE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK3QV413PropertyIndexptEv": ["address", "address"],
+    "ritual_ZNK3QV413PropertyIndexdeEv": ["address", "address"],
+    "ritual_ZNK3QV413PropertyIndex6isNullEv": ["bool", "address"],
+    "ritual_ZN3QV413PropertyIndexD1Ev": ["nothing", "address"]
+  }
+}

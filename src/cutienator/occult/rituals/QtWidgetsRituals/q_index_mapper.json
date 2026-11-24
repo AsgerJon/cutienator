@@ -1,0 +1,23 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qcompleter_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN12QIndexMapperC1Ev": ["address"],
+    "ritual_ZN12QIndexMapperC1Eii": ["address", "int", "int"],
+    "ritual_ZNK12QIndexMapper5countEv": ["int", "address"],
+    "ritual_ZNK12QIndexMapperixEi": ["int", "address", "int"],
+    "ritual_ZNK12QIndexMapper7indexOfEi": ["int", "address", "int"],
+    "ritual_ZNK12QIndexMapper7isValidEv": ["bool", "address"],
+    "ritual_ZNK12QIndexMapper7isEmptyEv": ["bool", "address"],
+    "ritual_ZN12QIndexMapper6appendEi": ["nothing", "address", "int"],
+    "ritual_ZNK12QIndexMapper5firstEv": ["int", "address"],
+    "ritual_ZNK12QIndexMapper4lastEv": ["int", "address"],
+    "ritual_ZNK12QIndexMapper4fromEv": ["int", "address"],
+    "ritual_ZNK12QIndexMapper2toEv": ["int", "address"],
+    "ritual_ZNK12QIndexMapper4costEv": ["int", "address"],
+    "ritual_ZN12QIndexMapperD1Ev": ["nothing", "address"]
+  }
+}

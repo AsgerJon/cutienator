@@ -1,0 +1,67 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qdialog_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN14QDialogPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK14QDialogPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN14QDialogPrivateC1Ev": ["address"],
+    "ritual_ZN14QDialogPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN14QDialogPrivate10setVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK14QDialogPrivate21transientParentWindowEv": [
+      "address", "address"
+    ],
+    "ritual_ZN14QDialogPrivate22setNativeDialogVisibleEb": [
+      "bool", "address", "bool"
+    ],
+    "ritual_ZNK14QDialogPrivate9styleHintEN21QPlatformDialogHelper9StyleHintE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN14QDialogPrivate10setDefaultEP11QPushButton": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QDialogPrivate14setMainDefaultEP11QPushButton": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QDialogPrivate11hideDefaultEv": ["nothing", "address"],
+    "ritual_ZN14QDialogPrivate22resetModalitySetByOpenEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK14QDialogPrivate14platformHelperEv": ["address", "address"],
+    "ritual_ZNK14QDialogPrivate17canBeNativeDialogEv": ["bool", "address"],
+    "ritual_ZN14QDialogPrivate5closeEi": ["nothing", "address", "int"],
+    "ritual_ZN14QDialogPrivate8recreateEv": ["nothing", "address"],
+    "ritual_ZNK14QDialogPrivate10dialogCodeEv": ["int", "address"],
+    "ritual_ZN14QDialogPrivate10initHelperEP21QPlatformDialogHelper": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QDialogPrivate17helperPrepareShowEP21QPlatformDialogHelper": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QDialogPrivate10helperDoneEN7QDialog10DialogCodeEP21QPlatformDialogHelper": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_take_QDialogPrivate": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN14QDialogPrivate10setVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZNK14QDialogPrivate17canBeNativeDialogEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZN14QDialogPrivate8recreateEv": ["nothing", "address"],
+    "ritual_own_ZNK14QDialogPrivate10dialogCodeEv": ["int", "address"],
+    "ritual_own_ZN14QDialogPrivate10initHelperEP21QPlatformDialogHelper": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN14QDialogPrivate17helperPrepareShowEP21QPlatformDialogHelper": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN14QDialogPrivate10helperDoneEN7QDialog10DialogCodeEP21QPlatformDialogHelper": [
+      "nothing", "address", "int", "address"
+    ]
+  }
+}

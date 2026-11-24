@@ -1,0 +1,42 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSql/6.12.0/QtSql/private/qsqlcachedresult_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN16QSqlCachedResult6d_funcEv": ["address", "address"],
+    "ritual_ZNK16QSqlCachedResult6d_funcEv": ["address", "address"],
+    "ritual_ZN16QSqlCachedResult4initEi": ["nothing", "address", "int"],
+    "ritual_ZN16QSqlCachedResult7cleanupEv": ["nothing", "address"],
+    "ritual_ZN16QSqlCachedResult11clearValuesEv": ["nothing", "address"],
+    "ritual_ZN16QSqlCachedResult4dataEi": ["address", "address", "int"],
+    "ritual_ZN16QSqlCachedResult6isNullEi": ["bool", "address", "int"],
+    "ritual_ZN16QSqlCachedResult5fetchEi": ["bool", "address", "int"],
+    "ritual_ZN16QSqlCachedResult9fetchNextEv": ["bool", "address"],
+    "ritual_ZN16QSqlCachedResult13fetchPreviousEv": ["bool", "address"],
+    "ritual_ZN16QSqlCachedResult10fetchFirstEv": ["bool", "address"],
+    "ritual_ZN16QSqlCachedResult9fetchLastEv": ["bool", "address"],
+    "ritual_ZNK16QSqlCachedResult8colCountEv": ["int", "address"],
+    "ritual_ZN16QSqlCachedResult19detachFromResultSetEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QSqlCachedResult27setNumericalPrecisionPolicyEN4QSql24NumericalPrecisionPolicyE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16QSqlCachedResult9cacheNextEv": ["bool", "address"],
+    "ritual_own_ZN16QSqlCachedResult4dataEi": ["address", "address", "int"],
+    "ritual_own_ZN16QSqlCachedResult6isNullEi": ["bool", "address", "int"],
+    "ritual_own_ZN16QSqlCachedResult5fetchEi": ["bool", "address", "int"],
+    "ritual_own_ZN16QSqlCachedResult9fetchNextEv": ["bool", "address"],
+    "ritual_own_ZN16QSqlCachedResult13fetchPreviousEv": ["bool", "address"],
+    "ritual_own_ZN16QSqlCachedResult10fetchFirstEv": ["bool", "address"],
+    "ritual_own_ZN16QSqlCachedResult9fetchLastEv": ["bool", "address"],
+    "ritual_own_ZN16QSqlCachedResult19detachFromResultSetEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN16QSqlCachedResult27setNumericalPrecisionPolicyEN4QSql24NumericalPrecisionPolicyE": [
+      "nothing", "address", "int"
+    ]
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Dialogs2QuickImpl/6.12.0/QtQuickDialogs2QuickImpl/private/qquickfo",
+    "ntdialogimpl_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK20QQuickFontDialogImpl10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QQuickFontDialogImpl2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN20QQuickFontDialogImpl21qt_qmlMarker_attachedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickFontDialogImplC1EP7QObject": ["address", "address"],
+    "ritual_ZN20QQuickFontDialogImpl21qmlAttachedPropertiesEP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QQuickFontDialogImpl11currentFontEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QQuickFontDialogImpl14setCurrentFontERK5QFontb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN20QQuickFontDialogImpl4initEv": ["nothing", "address"],
+    "ritual_ZN20QQuickFontDialogImpl15keyReleaseEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickFontDialogImpl13focusOutEventEP11QFocusEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickFontDialogImpl10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN20QQuickFontDialogImpl6d_funcEv": ["address", "address"],
+    "ritual_ZNK20QQuickFontDialogImpl6d_funcEv": ["address", "address"],
+    "ritual_own_ZN20QQuickFontDialogImpl15keyReleaseEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20QQuickFontDialogImpl13focusOutEventEP11QFocusEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20QQuickFontDialogImpl10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ]
+  }
+}

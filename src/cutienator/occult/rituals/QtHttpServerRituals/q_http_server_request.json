@@ -1,0 +1,49 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtHttpServer/qhttpserverrequest.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QHttpServerRequestC1Ev": ["address"],
+    "ritual_ZN18QHttpServerRequestC1ERKS_": ["address", "address"],
+    "ritual_ZN18QHttpServerRequestD1Ev": ["nothing", "address"],
+    "ritual_ZNK18QHttpServerRequest5valueERK10QByteArray": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK18QHttpServerRequest3urlEv": ["address", "address"],
+    "ritual_ZNK18QHttpServerRequest5queryEv": ["address", "address"],
+    "ritual_ZNK18QHttpServerRequest6methodEv": ["int", "address"],
+    "ritual_ZNKR18QHttpServerRequest7headersEv": ["address", "address"],
+    "ritual_ZNK18QHttpServerRequest4bodyEv": ["address", "address"],
+    "ritual_ZNK18QHttpServerRequest13remoteAddressEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18QHttpServerRequest10remotePortEv": [
+      "unsigned short", "address"
+    ],
+    "ritual_ZNK18QHttpServerRequest12localAddressEv": ["address", "address"],
+    "ritual_ZNK18QHttpServerRequest9localPortEv": [
+      "unsigned short", "address"
+    ],
+    "ritual_ZNK18QHttpServerRequest16sslConfigurationEv": [
+      "address", "address"
+    ],
+    "ritual_Zls6QDebugRK18QHttpServerRequest": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18QHttpServerRequest6createERK17QHttpServerParser": [
+      "address", "address"
+    ],
+    "ritual_ZN18QHttpServerRequest6createERK17QHttpServerParserRK17QSslConfiguration": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18QHttpServerRequestC1ERK12QHostAddresstS2_t": [
+      "address", "address", "unsigned short", "address", "unsigned short"
+    ],
+    "ritual_ZN18QHttpServerRequestC1ERK12QHostAddresstS2_tRK17QSslConfiguration": [
+      "address", "address", "unsigned short", "address", "unsigned short",
+      "address"
+    ]
+  }
+}

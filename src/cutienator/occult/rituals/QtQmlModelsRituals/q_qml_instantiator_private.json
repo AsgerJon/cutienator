@@ -1,0 +1,37 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQmlModels/6.12.0/QtQmlModels/private/qqmlinstantiator_p_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN23QQmlInstantiatorPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK23QQmlInstantiatorPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN23QQmlInstantiatorPrivateC1Ev": ["address"],
+    "ritual_ZN23QQmlInstantiatorPrivate5clearEv": ["nothing", "address"],
+    "ritual_ZN23QQmlInstantiatorPrivate10regenerateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQmlInstantiatorPrivate14_q_createdItemEiP7QObject": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN23QQmlInstantiatorPrivate15_q_modelUpdatedERK13QQmlChangeSetb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN23QQmlInstantiatorPrivate11modelObjectEib": [
+      "address", "address", "int", "bool"
+    ],
+    "ritual_ZN23QQmlInstantiatorPrivate3getEP16QQmlInstantiator": [
+      "address", "address"
+    ],
+    "ritual_ZN23QQmlInstantiatorPrivate3getEPK16QQmlInstantiator": [
+      "address", "address"
+    ],
+    "ritual_ZN23QQmlInstantiatorPrivate12connectModelEP16QQmlInstantiatorP24QQmlDelegateModelPointer": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN23QQmlInstantiatorPrivate15disconnectModelEP16QQmlInstantiatorP24QQmlDelegateModelPointer": [
+      "nothing", "address", "address", "address"
+    ]
+  }
+}

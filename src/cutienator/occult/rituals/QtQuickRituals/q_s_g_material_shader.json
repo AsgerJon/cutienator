@@ -1,0 +1,32 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/qsgmaterialshader.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN17QSGMaterialShaderC1Ev": ["address"],
+    "ritual_ZN17QSGMaterialShaderD1Ev": ["nothing", "address"],
+    "ritual_ZNK17QSGMaterialShader5flagsEv": ["int", "address"],
+    "ritual_ZN17QSGMaterialShader7setFlagE6QFlagsINS_4FlagEEb": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZN17QSGMaterialShader8setFlagsE6QFlagsINS_4FlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK17QSGMaterialShader25combinedImageSamplerCountEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZN17QSGMaterialShader6d_funcEv": ["address", "address"],
+    "ritual_ZNK17QSGMaterialShader6d_funcEv": ["address", "address"],
+    "ritual_ZN17QSGMaterialShader17setShaderFileNameENS_5StageERK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZN17QSGMaterialShader17setShaderFileNameENS_5StageERK7QStringi": [
+      "nothing", "address", "int", "text", "int"
+    ],
+    "ritual_ZN17QSGMaterialShader9setShaderENS_5StageERK7QShader": [
+      "nothing", "address", "int", "address"
+    ]
+  }
+}

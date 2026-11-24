@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/qsimpleresource_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18qdesigner_internal15QSimpleResource4coreEv": [
+      "address", "address"
+    ],
+    "ritual_take_qdesigner_internal_QSimpleResource": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

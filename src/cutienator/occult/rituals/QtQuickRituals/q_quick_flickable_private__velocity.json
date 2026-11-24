@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickflickable_p_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN22QQuickFlickablePrivate8Velocity8setValueEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN22QQuickFlickablePrivate8VelocityD1Ev": ["nothing", "address"],
+    "ritual_take_QQuickFlickablePrivate_Velocity": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN22QQuickFlickablePrivate8Velocity8setValueEd": [
+      "nothing", "address", "double"
+    ]
+  }
+}

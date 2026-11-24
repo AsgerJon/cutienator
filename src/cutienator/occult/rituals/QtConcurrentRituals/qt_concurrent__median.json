@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtConcurrent/qtconcurrentmedian.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZN12QtConcurrent6MedianC1Ev": ["address"],
+    "ritual_ZN12QtConcurrent6Median5resetEv": ["nothing", "address"],
+    "ritual_ZN12QtConcurrent6Median8addValueEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK12QtConcurrent6Median13isMedianValidEv": ["bool", "address"],
+    "ritual_ZN12QtConcurrent6Median6medianEv": ["double", "address"],
+    "ritual_ZN12QtConcurrent6MedianD1Ev": ["nothing", "address"]
+  }
+}

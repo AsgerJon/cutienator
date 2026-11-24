@@ -1,0 +1,32 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtOpenGL/6.12.0/QtOpenGL/private/qopengl2pexvertexarray_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN22QOpenGL2PEXVertexArrayC1Ev": ["address"],
+    "ritual_ZN22QOpenGL2PEXVertexArray7addRectERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QOpenGL2PEXVertexArray7addQuadERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QOpenGL2PEXVertexArray9addVertexEff": [
+      "nothing", "address", "float", "float"
+    ],
+    "ritual_ZN22QOpenGL2PEXVertexArray5clearEv": ["nothing", "address"],
+    "ritual_ZN22QOpenGL2PEXVertexArray4dataEv": ["address", "address"],
+    "ritual_ZNK22QOpenGL2PEXVertexArray9stopCountEv": ["int", "address"],
+    "ritual_ZNK22QOpenGL2PEXVertexArray12boundingRectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK22QOpenGL2PEXVertexArray11vertexCountEv": ["int", "address"],
+    "ritual_ZN22QOpenGL2PEXVertexArray11lineToArrayEff": [
+      "nothing", "address", "float", "float"
+    ],
+    "ritual_ZN22QOpenGL2PEXVertexArray14addClosingLineEi": [
+      "nothing", "address", "int"
+    ]
+  }
+}

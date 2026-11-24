@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQmlModels/6.12.0/QtQmlModels/private/qqmllistcompositor_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QQmlListCompositor5RangeC1Ev": ["address"],
+    "ritual_ZNK18QQmlListCompositor5Range5startEv": ["int", "address"],
+    "ritual_ZNK18QQmlListCompositor5Range3endEv": ["int", "address"],
+    "ritual_ZNK18QQmlListCompositor5Range6groupsEv": ["int", "address"],
+    "ritual_ZNK18QQmlListCompositor5Range7inGroupEv": ["bool", "address"],
+    "ritual_ZNK18QQmlListCompositor5Range7inCacheEv": ["bool", "address"],
+    "ritual_ZNK18QQmlListCompositor5Range7inGroupEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK18QQmlListCompositor5Range12isUnresolvedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK18QQmlListCompositor5Range7prependEv": ["bool", "address"],
+    "ritual_ZNK18QQmlListCompositor5Range6appendEv": ["bool", "address"],
+    "ritual_ZN18QQmlListCompositor5RangeD1Ev": ["nothing", "address"]
+  }
+}

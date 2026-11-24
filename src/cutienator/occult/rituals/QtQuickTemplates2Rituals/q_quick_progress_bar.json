@@ -1,0 +1,42 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquickprogressbar_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QQuickProgressBar10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QQuickProgressBar2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QQuickProgressBarC1EP10QQuickItem": ["address", "address"],
+    "ritual_ZNK17QQuickProgressBar4fromEv": ["double", "address"],
+    "ritual_ZN17QQuickProgressBar7setFromEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK17QQuickProgressBar2toEv": ["double", "address"],
+    "ritual_ZN17QQuickProgressBar5setToEd": ["nothing", "address", "double"],
+    "ritual_ZNK17QQuickProgressBar5valueEv": ["double", "address"],
+    "ritual_ZN17QQuickProgressBar8setValueEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK17QQuickProgressBar8positionEv": ["double", "address"],
+    "ritual_ZNK17QQuickProgressBar14visualPositionEv": ["double", "address"],
+    "ritual_ZNK17QQuickProgressBar15isIndeterminateEv": ["bool", "address"],
+    "ritual_ZN17QQuickProgressBar16setIndeterminateEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN17QQuickProgressBar12mirrorChangeEv": ["nothing", "address"],
+    "ritual_ZN17QQuickProgressBar17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK17QQuickProgressBar14accessibleRoleEv": ["int", "address"],
+    "ritual_own_ZN17QQuickProgressBar12mirrorChangeEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN17QQuickProgressBar17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZNK17QQuickProgressBar14accessibleRoleEv": ["int", "address"]
+  }
+}

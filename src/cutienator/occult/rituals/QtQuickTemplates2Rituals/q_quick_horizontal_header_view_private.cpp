@@ -1,0 +1,833 @@
+//  Written by dev_tooling.RitualGenerator from the records of QtQuickTemplat
+//  es2/6.12.0/QtQuickTemplates2/private/qquickheaderview_p_p.h, Qt 6.12.0.
+//  Changes made here are lost.
+#include <QtQuick/6.12.0/QtQuick/private/qtquickglobal_p.h>
+#include <QtGui/qtguiglobal.h>
+#include <QtQuickTemplates2/qtquicktemplates2exports.h>
+#include <QtQuickTemplates2/6.12.0/QtQuickTemplates2/private/qtquicktemplates2global_p.h>
+#if QT_CONFIG(quick_tableview)
+#include <QtQuickTemplates2/6.12.0/QtQuickTemplates2/private/qtquicktemplates2global_p.h>
+#include <QtQuickTemplates2/QtQuickTemplates2>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtQuickTemplates2/6.12.0/QtQuickTemplates2/private/qquickheaderview_p.h>
+#include <QtQuickTemplates2/6.12.0/QtQuickTemplates2/private/qquickheaderview_p_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qvariant.h>
+#include <QtQmlModels/QtQmlModels>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtQmlModels/6.12.0/QtQmlModels/private/qqmlchangeset_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qpoint.h>
+#include <QtCore/qrect.h>
+#include <QtCore/qsize.h>
+#include <QtQuick/QtQuick>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtQuick/6.12.0/QtQuick/private/qquickitemchangelistener_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <cstring>
+
+//  A QQuickHorizontalHeaderViewPrivate that Python can take functions over in. Every QQuickHorizontalHeaderViewPrivate
+//  Python makes is one. Each function below asks the Python
+//  function handed over for it, and runs Qt's own without one.
+typedef const QVariant * (*CuteQQuickHorizontalHeaderViewPrivateCall0)(const void *, int *);
+typedef void (*CuteQQuickHorizontalHeaderViewPrivateCall1)(const void *, const QVariant *, int *);
+typedef void (*CuteQQuickHorizontalHeaderViewPrivateCall2)(const void *, int *);
+typedef void (*CuteQQuickHorizontalHeaderViewPrivateCall3)(const void *, int *);
+typedef void * (*CuteQQuickHorizontalHeaderViewPrivateCall4)(const void *, int *);
+typedef void (*CuteQQuickHorizontalHeaderViewPrivateCall5)(const void *, int, QObject *, int *);
+typedef void (*CuteQQuickHorizontalHeaderViewPrivateCall6)(const void *, int *);
+typedef void (*CuteQQuickHorizontalHeaderViewPrivateCall7)(const void *, int, QObject *, int *);
+typedef void (*CuteQQuickHorizontalHeaderViewPrivateCall8)(const void *, int, QObject *, int *);
+typedef void (*CuteQQuickHorizontalHeaderViewPrivateCall9)(const void *, int, QObject *, int *);
+typedef void (*CuteQQuickHorizontalHeaderViewPrivateCall10)(const void *, const QQmlChangeSet *, bool, int *);
+typedef void (*CuteQQuickHorizontalHeaderViewPrivateCall11)(const void *, int, QObject *, bool, int *);
+typedef void (*CuteQQuickHorizontalHeaderViewPrivateCall12)(const void *, int *);
+typedef void (*CuteQQuickHorizontalHeaderViewPrivateCall13)(const void *, int *);
+typedef void (*CuteQQuickHorizontalHeaderViewPrivateCall14)(const void *, int *);
+typedef void (*CuteQQuickHorizontalHeaderViewPrivateCall15)(const void *, int *);
+typedef void * (*CuteQQuickHorizontalHeaderViewPrivateCall16)(const void *, int *);
+typedef bool (*CuteQQuickHorizontalHeaderViewPrivateCall17)(const void *, int *);
+typedef bool (*CuteQQuickHorizontalHeaderViewPrivateCall18)(const void *, const QPointF *, int, int *);
+typedef void (*CuteQQuickHorizontalHeaderViewPrivateCall19)(const void *, const QPointF *, int *);
+typedef void (*CuteQQuickHorizontalHeaderViewPrivateCall20)(const void *, const QPointF *, int *);
+typedef void (*CuteQQuickHorizontalHeaderViewPrivateCall21)(const void *, int *);
+typedef void (*CuteQQuickHorizontalHeaderViewPrivateCall22)(const void *, int *);
+typedef const QRectF * (*CuteQQuickHorizontalHeaderViewPrivateCall23)(const void *, int *);
+typedef const QSizeF * (*CuteQQuickHorizontalHeaderViewPrivateCall24)(const void *, const QPointF *, const QSizeF *, int *);
+typedef void (*CuteQQuickHorizontalHeaderViewPrivateCall25)(const void *, const QRect *, const QRect *, int *);
+typedef void (*CuteQQuickHorizontalHeaderViewPrivateCall26)(const void *, QQuickItem *, const QQuickGeometryChange *, const QRectF *, int *);
+typedef void (*CuteQQuickHorizontalHeaderViewPrivateCall27)(const void *, QQuickPointerHandler *, int *);
+typedef bool (*CuteQQuickHorizontalHeaderViewPrivateCall28)(const void *, const QPointerEvent *, int *);
+typedef void (*CuteQQuickHorizontalHeaderViewPrivateCall29)(const void *, QQuickPointerHandler *, int *);
+typedef void * (*CuteQQuickHorizontalHeaderViewPrivateCall30)(const void *, const QMetaObject *, int *);
+typedef void (*CuteQQuickHorizontalHeaderViewPrivateCall31)(const void *, QQuickItem *, bool, int *);
+typedef bool (*CuteQQuickHorizontalHeaderViewPrivateCall32)(const void *, int, int *);
+typedef qreal (*CuteQQuickHorizontalHeaderViewPrivateCall33)(const void *, int *);
+typedef qreal (*CuteQQuickHorizontalHeaderViewPrivateCall34)(const void *, int *);
+typedef void (*CuteQQuickHorizontalHeaderViewPrivateCall35)(const void *, int *);
+typedef void (*CuteQQuickHorizontalHeaderViewPrivateCall36)(const void *, int *);
+#if QT_CONFIG(accessibility)
+typedef int (*CuteQQuickHorizontalHeaderViewPrivateCall37)(const void *, int *);
+#endif  // QT_CONFIG(accessibility)
+typedef bool (*CuteQQuickHorizontalHeaderViewPrivateCall38)(const void *, QQuickItem *, int *);
+typedef bool (*CuteQQuickHorizontalHeaderViewPrivateCall39)(const void *, QPointerEvent *, bool, int *);
+#if QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+typedef bool (*CuteQQuickHorizontalHeaderViewPrivateCall40)(const void *, QContextMenuEvent *, int *);
+#endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+typedef void (*CuteQQuickHorizontalHeaderViewPrivateCall41)(const void *, bool, int *);
+typedef void * (*CuteQQuickHorizontalHeaderViewPrivateCall42)(const void *, int *);
+typedef void (*CuteQQuickHorizontalHeaderViewPrivateCall43)(const void *, int *);
+typedef void (*CuteQQuickHorizontalHeaderViewPrivateCall44)(const void *, int, int *);
+class CuteQQuickHorizontalHeaderViewPrivate : public QQuickHorizontalHeaderViewPrivate {
+public:
+  using QQuickHorizontalHeaderViewPrivate::QQuickHorizontalHeaderViewPrivate;
+  void *taken[45] = {};
+
+  bool take(const char *key, void *call) {
+    if (!std::strcmp(key, "_ZNK22QQuickTableViewPrivate9modelImplEv")) {
+      taken[0] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN22QQuickTableViewPrivate12setModelImplERK8QVariant")) {
+      taken[1] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN22QQuickTableViewPrivate9syncModelEv")) {
+      taken[2] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN22QQuickTableViewPrivate12syncSyncViewEv")) {
+      taken[3] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN22QQuickTableViewPrivate20selectionSourceModelEv")) {
+      taken[4] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN22QQuickTableViewPrivate16initItemCallbackEiP7QObject")) {
+      taken[5] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN17QQuickItemPrivate12updatePolishEv")) {
+      taken[6] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN22QQuickTableViewPrivate19itemCreatedCallbackEiP7QObject")) {
+      taken[7] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN22QQuickTableViewPrivate18itemPooledCallbackEiP7QObject")) {
+      taken[8] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN22QQuickTableViewPrivate18itemReusedCallbackEiP7QObject")) {
+      taken[9] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN22QQuickTableViewPrivate12modelUpdatedERK13QQmlChangeSetb")) {
+      taken[10] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN22QQuickTableViewPrivate20updateItemPropertiesEiP7QObjectb")) {
+      taken[11] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN22QQuickTableViewPrivate22syncWithPendingChangesEv")) {
+      taken[12] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN22QQuickTableViewPrivate12syncDelegateEv")) {
+      taken[13] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN22QQuickTableViewPrivate23syncDelegateModelAccessEv")) {
+      taken[14] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN22QQuickTableViewPrivate16syncPositionViewEv")) {
+      taken[15] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK16QQuickSelectable29selectionPointerHandlerTargetEv")) {
+      taken[16] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK16QQuickSelectable12hasSelectionEv")) {
+      taken[17] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN16QQuickSelectable14startSelectionERK7QPointF6QFlagsIN2Qt16KeyboardModifierEE")) {
+      taken[18] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN16QQuickSelectable20setSelectionStartPosERK7QPointF")) {
+      taken[19] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN16QQuickSelectable18setSelectionEndPosERK7QPointF")) {
+      taken[20] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN16QQuickSelectable14clearSelectionEv")) {
+      taken[21] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN16QQuickSelectable18normalizeSelectionEv")) {
+      taken[22] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK16QQuickSelectable18selectionRectangleEv")) {
+      taken[23] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN16QQuickSelectable18scrollTowardsPointERK7QPointFRK6QSizeF")) {
+      taken[24] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN22QQuickTableViewPrivate15updateSelectionERK5QRectS2_")) {
+      taken[25] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN22QQuickFlickablePrivate19itemGeometryChangedEP10QQuickItem20QQuickGeometryChangeRK6QRectF")) {
+      taken[26] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN17QQuickItemPrivate17addPointerHandlerEP20QQuickPointerHandler")) {
+      taken[27] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN22QQuickFlickablePrivate17wantsPointerEventEPK13QPointerEvent")) {
+      taken[28] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN17QQuickItemPrivate20removePointerHandlerEP20QQuickPointerHandler")) {
+      taken[29] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN17QQuickItemPrivate33attachedPropertyPropagator_parentEPK11QMetaObject")) {
+      taken[30] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN17QQuickItemPrivate25registerAsContainmentMaskEP10QQuickItemb")) {
+      taken[31] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN17QQuickItemPrivate24setLastFocusChangeReasonEN2Qt11FocusReasonE")) {
+      taken[32] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK17QQuickItemPrivate16getImplicitWidthEv")) {
+      taken[33] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK17QQuickItemPrivate17getImplicitHeightEv")) {
+      taken[34] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN17QQuickItemPrivate20implicitWidthChangedEv")) {
+      taken[35] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN17QQuickItemPrivate21implicitHeightChangedEv")) {
+      taken[36] = call;
+      return true;
+    }
+#if QT_CONFIG(accessibility)
+    if (!std::strcmp(key, "_ZNK17QQuickItemPrivate14accessibleRoleEv")) {
+      taken[37] = call;
+      return true;
+    }
+#endif  // QT_CONFIG(accessibility)
+    if (!std::strcmp(key, "_ZN17QQuickItemPrivate16transformChangedEP10QQuickItem")) {
+      taken[38] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN17QQuickItemPrivate18handlePointerEventEP13QPointerEventb")) {
+      taken[39] = call;
+      return true;
+    }
+#if QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+    if (!std::strcmp(key, "_ZN17QQuickItemPrivate22handleContextMenuEventEP17QContextMenuEvent")) {
+      taken[40] = call;
+      return true;
+    }
+#endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+    if (!std::strcmp(key, "_ZN17QQuickItemPrivate10setVisibleEb")) {
+      taken[41] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN17QQuickItemPrivate19createTransformNodeEv")) {
+      taken[42] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN17QQuickItemPrivate12mirrorChangeEv")) {
+      taken[43] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZNK17QQuickItemPrivate12dumpItemTreeEi")) {
+      taken[44] = call;
+      return true;
+    }
+    return false;
+  }
+
+  //  QVariant QQuickHeaderViewBasePrivate::modelImpl() const
+  QVariant modelImpl() const override {
+    if (taken[0]) {
+      int handled = 0;
+      CuteQQuickHorizontalHeaderViewPrivateCall0 call = reinterpret_cast<CuteQQuickHorizontalHeaderViewPrivateCall0>(taken[0]);
+      const QVariant * given = call(this, &handled);
+      if (handled && given) return *given;
+    }
+    return QQuickHeaderViewBasePrivate::modelImpl();
+  }
+
+  //  void QQuickHeaderViewBasePrivate::setModelImpl(const QVariant
+  //      &newModel)
+  void setModelImpl(const QVariant &newModel) override {
+    if (taken[1]) {
+      int handled = 0;
+      CuteQQuickHorizontalHeaderViewPrivateCall1 call = reinterpret_cast<CuteQQuickHorizontalHeaderViewPrivateCall1>(taken[1]);
+      call(this, &newModel, &handled);
+      if (handled) return;
+    }
+    QQuickHeaderViewBasePrivate::setModelImpl(newModel);
+  }
+
+  //  void QQuickHeaderViewBasePrivate::syncModel()
+  void syncModel() override {
+    if (taken[2]) {
+      int handled = 0;
+      CuteQQuickHorizontalHeaderViewPrivateCall2 call = reinterpret_cast<CuteQQuickHorizontalHeaderViewPrivateCall2>(taken[2]);
+      call(this, &handled);
+      if (handled) return;
+    }
+    QQuickHeaderViewBasePrivate::syncModel();
+  }
+
+  //  void QQuickHeaderViewBasePrivate::syncSyncView()
+  void syncSyncView() override {
+    if (taken[3]) {
+      int handled = 0;
+      CuteQQuickHorizontalHeaderViewPrivateCall3 call = reinterpret_cast<CuteQQuickHorizontalHeaderViewPrivateCall3>(taken[3]);
+      call(this, &handled);
+      if (handled) return;
+    }
+    QQuickHeaderViewBasePrivate::syncSyncView();
+  }
+
+  //  QAbstractItemModel
+  //      *QQuickHeaderViewBasePrivate::selectionSourceModel()
+  QAbstractItemModel *selectionSourceModel() override {
+    if (taken[4]) {
+      int handled = 0;
+      CuteQQuickHorizontalHeaderViewPrivateCall4 call = reinterpret_cast<CuteQQuickHorizontalHeaderViewPrivateCall4>(taken[4]);
+      void * given = call(this, &handled);
+      if (handled) return static_cast<QAbstractItemModel *>(given);
+    }
+    return QQuickHeaderViewBasePrivate::selectionSourceModel();
+  }
+
+  //  void QQuickHeaderViewBasePrivate::initItemCallback(int modelIndex,
+  //      QObject *item)
+  void initItemCallback(int modelIndex, QObject *item) override {
+    if (taken[5]) {
+      int handled = 0;
+      CuteQQuickHorizontalHeaderViewPrivateCall5 call = reinterpret_cast<CuteQQuickHorizontalHeaderViewPrivateCall5>(taken[5]);
+      call(this, modelIndex, item, &handled);
+      if (handled) return;
+    }
+    QQuickHeaderViewBasePrivate::initItemCallback(modelIndex, item);
+  }
+
+  //  void QQuickTableViewPrivate::updatePolish()
+  void updatePolish() override {
+    if (taken[6]) {
+      int handled = 0;
+      CuteQQuickHorizontalHeaderViewPrivateCall6 call = reinterpret_cast<CuteQQuickHorizontalHeaderViewPrivateCall6>(taken[6]);
+      call(this, &handled);
+      if (handled) return;
+    }
+    QQuickTableViewPrivate::updatePolish();
+  }
+
+  //  void QQuickTableViewPrivate::itemCreatedCallback(int modelIndex,
+  //      QObject *object)
+  void itemCreatedCallback(int modelIndex, QObject *object) override {
+    if (taken[7]) {
+      int handled = 0;
+      CuteQQuickHorizontalHeaderViewPrivateCall7 call = reinterpret_cast<CuteQQuickHorizontalHeaderViewPrivateCall7>(taken[7]);
+      call(this, modelIndex, object, &handled);
+      if (handled) return;
+    }
+    QQuickTableViewPrivate::itemCreatedCallback(modelIndex, object);
+  }
+
+  //  void QQuickTableViewPrivate::itemPooledCallback(int modelIndex,
+  //      QObject *object)
+  void itemPooledCallback(int modelIndex, QObject *object) override {
+    if (taken[8]) {
+      int handled = 0;
+      CuteQQuickHorizontalHeaderViewPrivateCall8 call = reinterpret_cast<CuteQQuickHorizontalHeaderViewPrivateCall8>(taken[8]);
+      call(this, modelIndex, object, &handled);
+      if (handled) return;
+    }
+    QQuickTableViewPrivate::itemPooledCallback(modelIndex, object);
+  }
+
+  //  void QQuickTableViewPrivate::itemReusedCallback(int modelIndex,
+  //      QObject *object)
+  void itemReusedCallback(int modelIndex, QObject *object) override {
+    if (taken[9]) {
+      int handled = 0;
+      CuteQQuickHorizontalHeaderViewPrivateCall9 call = reinterpret_cast<CuteQQuickHorizontalHeaderViewPrivateCall9>(taken[9]);
+      call(this, modelIndex, object, &handled);
+      if (handled) return;
+    }
+    QQuickTableViewPrivate::itemReusedCallback(modelIndex, object);
+  }
+
+  //  void QQuickTableViewPrivate::modelUpdated(const QQmlChangeSet
+  //      &changeSet, bool reset)
+  void modelUpdated(const QQmlChangeSet &changeSet, bool reset) override {
+    if (taken[10]) {
+      int handled = 0;
+      CuteQQuickHorizontalHeaderViewPrivateCall10 call = reinterpret_cast<CuteQQuickHorizontalHeaderViewPrivateCall10>(taken[10]);
+      call(this, &changeSet, reset, &handled);
+      if (handled) return;
+    }
+    QQuickTableViewPrivate::modelUpdated(changeSet, reset);
+  }
+
+  //  void QQuickTableViewPrivate::updateItemProperties(int flatIndex,
+  //      QObject *object, bool init)
+  void updateItemProperties(
+      int flatIndex,
+      QObject *object,
+      bool init) override {
+    if (taken[11]) {
+      int handled = 0;
+      CuteQQuickHorizontalHeaderViewPrivateCall11 call = reinterpret_cast<CuteQQuickHorizontalHeaderViewPrivateCall11>(taken[11]);
+      call(this, flatIndex, object, init, &handled);
+      if (handled) return;
+    }
+    QQuickTableViewPrivate::updateItemProperties(flatIndex, object, init);
+  }
+
+  //  void QQuickTableViewPrivate::syncWithPendingChanges()
+  void syncWithPendingChanges() override {
+    if (taken[12]) {
+      int handled = 0;
+      CuteQQuickHorizontalHeaderViewPrivateCall12 call = reinterpret_cast<CuteQQuickHorizontalHeaderViewPrivateCall12>(taken[12]);
+      call(this, &handled);
+      if (handled) return;
+    }
+    QQuickTableViewPrivate::syncWithPendingChanges();
+  }
+
+  //  void QQuickTableViewPrivate::syncDelegate()
+  void syncDelegate() override {
+    if (taken[13]) {
+      int handled = 0;
+      CuteQQuickHorizontalHeaderViewPrivateCall13 call = reinterpret_cast<CuteQQuickHorizontalHeaderViewPrivateCall13>(taken[13]);
+      call(this, &handled);
+      if (handled) return;
+    }
+    QQuickTableViewPrivate::syncDelegate();
+  }
+
+  //  void QQuickTableViewPrivate::syncDelegateModelAccess()
+  void syncDelegateModelAccess() override {
+    if (taken[14]) {
+      int handled = 0;
+      CuteQQuickHorizontalHeaderViewPrivateCall14 call = reinterpret_cast<CuteQQuickHorizontalHeaderViewPrivateCall14>(taken[14]);
+      call(this, &handled);
+      if (handled) return;
+    }
+    QQuickTableViewPrivate::syncDelegateModelAccess();
+  }
+
+  //  void QQuickTableViewPrivate::syncPositionView()
+  void syncPositionView() override {
+    if (taken[15]) {
+      int handled = 0;
+      CuteQQuickHorizontalHeaderViewPrivateCall15 call = reinterpret_cast<CuteQQuickHorizontalHeaderViewPrivateCall15>(taken[15]);
+      call(this, &handled);
+      if (handled) return;
+    }
+    QQuickTableViewPrivate::syncPositionView();
+  }
+
+  //  QQuickItem *QQuickTableViewPrivate::selectionPointerHandlerTarget()
+  //      const
+  QQuickItem *selectionPointerHandlerTarget() const override {
+    if (taken[16]) {
+      int handled = 0;
+      CuteQQuickHorizontalHeaderViewPrivateCall16 call = reinterpret_cast<CuteQQuickHorizontalHeaderViewPrivateCall16>(taken[16]);
+      void * given = call(this, &handled);
+      if (handled) return static_cast<QQuickItem *>(given);
+    }
+    return QQuickTableViewPrivate::selectionPointerHandlerTarget();
+  }
+
+  //  bool QQuickTableViewPrivate::hasSelection() const
+  bool hasSelection() const override {
+    if (taken[17]) {
+      int handled = 0;
+      CuteQQuickHorizontalHeaderViewPrivateCall17 call = reinterpret_cast<CuteQQuickHorizontalHeaderViewPrivateCall17>(taken[17]);
+      bool given = call(this, &handled);
+      if (handled) return given;
+    }
+    return QQuickTableViewPrivate::hasSelection();
+  }
+
+  //  bool QQuickTableViewPrivate::startSelection(const QPointF &pos,
+  //      Qt::KeyboardModifiers modifiers)
+  bool startSelection(
+      const QPointF &pos,
+      Qt::KeyboardModifiers modifiers) override {
+    if (taken[18]) {
+      int handled = 0;
+      CuteQQuickHorizontalHeaderViewPrivateCall18 call = reinterpret_cast<CuteQQuickHorizontalHeaderViewPrivateCall18>(taken[18]);
+      bool given = call(this, &pos, static_cast<int>(modifiers.toInt()), &handled);
+      if (handled) return given;
+    }
+    return QQuickTableViewPrivate::startSelection(pos, modifiers);
+  }
+
+  //  void QQuickTableViewPrivate::setSelectionStartPos(const QPointF &pos)
+  void setSelectionStartPos(const QPointF &pos) override {
+    if (taken[19]) {
+      int handled = 0;
+      CuteQQuickHorizontalHeaderViewPrivateCall19 call = reinterpret_cast<CuteQQuickHorizontalHeaderViewPrivateCall19>(taken[19]);
+      call(this, &pos, &handled);
+      if (handled) return;
+    }
+    QQuickTableViewPrivate::setSelectionStartPos(pos);
+  }
+
+  //  void QQuickTableViewPrivate::setSelectionEndPos(const QPointF &pos)
+  void setSelectionEndPos(const QPointF &pos) override {
+    if (taken[20]) {
+      int handled = 0;
+      CuteQQuickHorizontalHeaderViewPrivateCall20 call = reinterpret_cast<CuteQQuickHorizontalHeaderViewPrivateCall20>(taken[20]);
+      call(this, &pos, &handled);
+      if (handled) return;
+    }
+    QQuickTableViewPrivate::setSelectionEndPos(pos);
+  }
+
+  //  void QQuickTableViewPrivate::clearSelection()
+  void clearSelection() override {
+    if (taken[21]) {
+      int handled = 0;
+      CuteQQuickHorizontalHeaderViewPrivateCall21 call = reinterpret_cast<CuteQQuickHorizontalHeaderViewPrivateCall21>(taken[21]);
+      call(this, &handled);
+      if (handled) return;
+    }
+    QQuickTableViewPrivate::clearSelection();
+  }
+
+  //  void QQuickTableViewPrivate::normalizeSelection()
+  void normalizeSelection() override {
+    if (taken[22]) {
+      int handled = 0;
+      CuteQQuickHorizontalHeaderViewPrivateCall22 call = reinterpret_cast<CuteQQuickHorizontalHeaderViewPrivateCall22>(taken[22]);
+      call(this, &handled);
+      if (handled) return;
+    }
+    QQuickTableViewPrivate::normalizeSelection();
+  }
+
+  //  QRectF QQuickTableViewPrivate::selectionRectangle() const
+  QRectF selectionRectangle() const override {
+    if (taken[23]) {
+      int handled = 0;
+      CuteQQuickHorizontalHeaderViewPrivateCall23 call = reinterpret_cast<CuteQQuickHorizontalHeaderViewPrivateCall23>(taken[23]);
+      const QRectF * given = call(this, &handled);
+      if (handled && given) return *given;
+    }
+    return QQuickTableViewPrivate::selectionRectangle();
+  }
+
+  //  QSizeF QQuickTableViewPrivate::scrollTowardsPoint(const QPointF &pos,
+  //      const QSizeF &step)
+  QSizeF scrollTowardsPoint(
+      const QPointF &pos,
+      const QSizeF &step) override {
+    if (taken[24]) {
+      int handled = 0;
+      CuteQQuickHorizontalHeaderViewPrivateCall24 call = reinterpret_cast<CuteQQuickHorizontalHeaderViewPrivateCall24>(taken[24]);
+      const QSizeF * given = call(this, &pos, &step, &handled);
+      if (handled && given) return *given;
+    }
+    return QQuickTableViewPrivate::scrollTowardsPoint(pos, step);
+  }
+
+  //  void QQuickTableViewPrivate::updateSelection(const QRect
+  //      &oldSelection, const QRect &newSelection)
+  void updateSelection(
+      const QRect &oldSelection,
+      const QRect &newSelection) override {
+    if (taken[25]) {
+      int handled = 0;
+      CuteQQuickHorizontalHeaderViewPrivateCall25 call = reinterpret_cast<CuteQQuickHorizontalHeaderViewPrivateCall25>(taken[25]);
+      call(this, &oldSelection, &newSelection, &handled);
+      if (handled) return;
+    }
+    QQuickTableViewPrivate::updateSelection(oldSelection, newSelection);
+  }
+
+  //  void QQuickFlickablePrivate::itemGeometryChanged(QQuickItem *a0,
+  //      QQuickGeometryChange a1, const QRectF &a2)
+  void itemGeometryChanged(
+      QQuickItem *a0,
+      QQuickGeometryChange a1,
+      const QRectF &a2) override {
+    if (taken[26]) {
+      int handled = 0;
+      CuteQQuickHorizontalHeaderViewPrivateCall26 call = reinterpret_cast<CuteQQuickHorizontalHeaderViewPrivateCall26>(taken[26]);
+      call(this, a0, &a1, &a2, &handled);
+      if (handled) return;
+    }
+    QQuickFlickablePrivate::itemGeometryChanged(a0, a1, a2);
+  }
+
+  //  void QQuickFlickablePrivate::addPointerHandler(QQuickPointerHandler
+  //      *h)
+  void addPointerHandler(QQuickPointerHandler *h) override {
+    if (taken[27]) {
+      int handled = 0;
+      CuteQQuickHorizontalHeaderViewPrivateCall27 call = reinterpret_cast<CuteQQuickHorizontalHeaderViewPrivateCall27>(taken[27]);
+      call(this, h, &handled);
+      if (handled) return;
+    }
+    QQuickFlickablePrivate::addPointerHandler(h);
+  }
+
+  //  bool QQuickFlickablePrivate::wantsPointerEvent(const QPointerEvent
+  //      *a0)
+  bool wantsPointerEvent(const QPointerEvent *a0) override {
+    if (taken[28]) {
+      int handled = 0;
+      CuteQQuickHorizontalHeaderViewPrivateCall28 call = reinterpret_cast<CuteQQuickHorizontalHeaderViewPrivateCall28>(taken[28]);
+      bool given = call(this, a0, &handled);
+      if (handled) return given;
+    }
+    return QQuickFlickablePrivate::wantsPointerEvent(a0);
+  }
+
+  //  void QQuickItemPrivate::removePointerHandler(QQuickPointerHandler *h)
+  void removePointerHandler(QQuickPointerHandler *h) override {
+    if (taken[29]) {
+      int handled = 0;
+      CuteQQuickHorizontalHeaderViewPrivateCall29 call = reinterpret_cast<CuteQQuickHorizontalHeaderViewPrivateCall29>(taken[29]);
+      call(this, h, &handled);
+      if (handled) return;
+    }
+    QQuickItemPrivate::removePointerHandler(h);
+  }
+
+  //  QtPrivate::QQuickAttachedPropertyPropagator
+  //      *QQuickItemPrivate::attachedPropertyPropagator_parent(const
+  //      QMetaObject *attachedType)
+  QtPrivate::QQuickAttachedPropertyPropagator *attachedPropertyPropagator_parent(
+      const QMetaObject *attachedType) override {
+    if (taken[30]) {
+      int handled = 0;
+      CuteQQuickHorizontalHeaderViewPrivateCall30 call = reinterpret_cast<CuteQQuickHorizontalHeaderViewPrivateCall30>(taken[30]);
+      void * given = call(this, attachedType, &handled);
+      if (handled) return static_cast<QtPrivate::QQuickAttachedPropertyPropagator *>(given);
+    }
+    return QQuickItemPrivate::attachedPropertyPropagator_parent(attachedType);
+  }
+
+  //  void QQuickItemPrivate::registerAsContainmentMask(QQuickItem *a0,
+  //      bool a1)
+  void registerAsContainmentMask(QQuickItem *a0, bool a1) override {
+    if (taken[31]) {
+      int handled = 0;
+      CuteQQuickHorizontalHeaderViewPrivateCall31 call = reinterpret_cast<CuteQQuickHorizontalHeaderViewPrivateCall31>(taken[31]);
+      call(this, a0, a1, &handled);
+      if (handled) return;
+    }
+    QQuickItemPrivate::registerAsContainmentMask(a0, a1);
+  }
+
+  //  bool QQuickItemPrivate::setLastFocusChangeReason(Qt::FocusReason
+  //      reason)
+  bool setLastFocusChangeReason(Qt::FocusReason reason) override {
+    if (taken[32]) {
+      int handled = 0;
+      CuteQQuickHorizontalHeaderViewPrivateCall32 call = reinterpret_cast<CuteQQuickHorizontalHeaderViewPrivateCall32>(taken[32]);
+      bool given = call(this, static_cast<int>(reason), &handled);
+      if (handled) return given;
+    }
+    return QQuickItemPrivate::setLastFocusChangeReason(reason);
+  }
+
+  //  qreal QQuickItemPrivate::getImplicitWidth() const
+  qreal getImplicitWidth() const override {
+    if (taken[33]) {
+      int handled = 0;
+      CuteQQuickHorizontalHeaderViewPrivateCall33 call = reinterpret_cast<CuteQQuickHorizontalHeaderViewPrivateCall33>(taken[33]);
+      qreal given = call(this, &handled);
+      if (handled) return given;
+    }
+    return QQuickItemPrivate::getImplicitWidth();
+  }
+
+  //  qreal QQuickItemPrivate::getImplicitHeight() const
+  qreal getImplicitHeight() const override {
+    if (taken[34]) {
+      int handled = 0;
+      CuteQQuickHorizontalHeaderViewPrivateCall34 call = reinterpret_cast<CuteQQuickHorizontalHeaderViewPrivateCall34>(taken[34]);
+      qreal given = call(this, &handled);
+      if (handled) return given;
+    }
+    return QQuickItemPrivate::getImplicitHeight();
+  }
+
+  //  void QQuickItemPrivate::implicitWidthChanged()
+  void implicitWidthChanged() override {
+    if (taken[35]) {
+      int handled = 0;
+      CuteQQuickHorizontalHeaderViewPrivateCall35 call = reinterpret_cast<CuteQQuickHorizontalHeaderViewPrivateCall35>(taken[35]);
+      call(this, &handled);
+      if (handled) return;
+    }
+    QQuickItemPrivate::implicitWidthChanged();
+  }
+
+  //  void QQuickItemPrivate::implicitHeightChanged()
+  void implicitHeightChanged() override {
+    if (taken[36]) {
+      int handled = 0;
+      CuteQQuickHorizontalHeaderViewPrivateCall36 call = reinterpret_cast<CuteQQuickHorizontalHeaderViewPrivateCall36>(taken[36]);
+      call(this, &handled);
+      if (handled) return;
+    }
+    QQuickItemPrivate::implicitHeightChanged();
+  }
+
+#if QT_CONFIG(accessibility)
+  //  QAccessible::Role QQuickItemPrivate::accessibleRole() const
+  QAccessible::Role accessibleRole() const override {
+    if (taken[37]) {
+      int handled = 0;
+      CuteQQuickHorizontalHeaderViewPrivateCall37 call = reinterpret_cast<CuteQQuickHorizontalHeaderViewPrivateCall37>(taken[37]);
+      int given = call(this, &handled);
+      if (handled) return static_cast<QAccessible::Role>(given);
+    }
+    return QQuickItemPrivate::accessibleRole();
+  }
+#endif  // QT_CONFIG(accessibility)
+
+  //  bool QQuickItemPrivate::transformChanged(QQuickItem *transformedItem)
+  bool transformChanged(QQuickItem *transformedItem) override {
+    if (taken[38]) {
+      int handled = 0;
+      CuteQQuickHorizontalHeaderViewPrivateCall38 call = reinterpret_cast<CuteQQuickHorizontalHeaderViewPrivateCall38>(taken[38]);
+      bool given = call(this, transformedItem, &handled);
+      if (handled) return given;
+    }
+    return QQuickItemPrivate::transformChanged(transformedItem);
+  }
+
+  //  bool QQuickItemPrivate::handlePointerEvent(QPointerEvent *a0, bool
+  //      avoidGrabbers)
+  bool handlePointerEvent(QPointerEvent *a0, bool avoidGrabbers) override {
+    if (taken[39]) {
+      int handled = 0;
+      CuteQQuickHorizontalHeaderViewPrivateCall39 call = reinterpret_cast<CuteQQuickHorizontalHeaderViewPrivateCall39>(taken[39]);
+      bool given = call(this, a0, avoidGrabbers, &handled);
+      if (handled) return given;
+    }
+    return QQuickItemPrivate::handlePointerEvent(a0, avoidGrabbers);
+  }
+
+#if QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+  //  bool QQuickItemPrivate::handleContextMenuEvent(QContextMenuEvent
+  //      *event)
+  bool handleContextMenuEvent(QContextMenuEvent *event) override {
+    if (taken[40]) {
+      int handled = 0;
+      CuteQQuickHorizontalHeaderViewPrivateCall40 call = reinterpret_cast<CuteQQuickHorizontalHeaderViewPrivateCall40>(taken[40]);
+      bool given = call(this, event, &handled);
+      if (handled) return given;
+    }
+    return QQuickItemPrivate::handleContextMenuEvent(event);
+  }
+#endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+
+  //  void QQuickItemPrivate::setVisible(bool visible)
+  void setVisible(bool visible) override {
+    if (taken[41]) {
+      int handled = 0;
+      CuteQQuickHorizontalHeaderViewPrivateCall41 call = reinterpret_cast<CuteQQuickHorizontalHeaderViewPrivateCall41>(taken[41]);
+      call(this, visible, &handled);
+      if (handled) return;
+    }
+    QQuickItemPrivate::setVisible(visible);
+  }
+
+  //  QSGTransformNode *QQuickItemPrivate::createTransformNode()
+  QSGTransformNode *createTransformNode() override {
+    if (taken[42]) {
+      int handled = 0;
+      CuteQQuickHorizontalHeaderViewPrivateCall42 call = reinterpret_cast<CuteQQuickHorizontalHeaderViewPrivateCall42>(taken[42]);
+      void * given = call(this, &handled);
+      if (handled) return static_cast<QSGTransformNode *>(given);
+    }
+    return QQuickItemPrivate::createTransformNode();
+  }
+
+  //  void QQuickItemPrivate::mirrorChange()
+  void mirrorChange() override {
+    if (taken[43]) {
+      int handled = 0;
+      CuteQQuickHorizontalHeaderViewPrivateCall43 call = reinterpret_cast<CuteQQuickHorizontalHeaderViewPrivateCall43>(taken[43]);
+      call(this, &handled);
+      if (handled) return;
+    }
+    QQuickItemPrivate::mirrorChange();
+  }
+
+  //  void QQuickItemPrivate::dumpItemTree(int indent) const
+  void dumpItemTree(int indent) const override {
+    if (taken[44]) {
+      int handled = 0;
+      CuteQQuickHorizontalHeaderViewPrivateCall44 call = reinterpret_cast<CuteQQuickHorizontalHeaderViewPrivateCall44>(taken[44]);
+      call(this, indent, &handled);
+      if (handled) return;
+    }
+    QQuickItemPrivate::dumpItemTree(indent);
+  }
+};
+
+//  QQuickHorizontalHeaderView *QQuickHorizontalHeaderViewPrivate::q_func()
+extern "C" Q_DECL_EXPORT
+QQuickHorizontalHeaderView *ritual_ZN33QQuickHorizontalHeaderViewPrivate6q_funcEv(
+    QQuickHorizontalHeaderViewPrivate *self) {
+  return self->q_func();
+}
+
+//  const QQuickHorizontalHeaderView
+//      *QQuickHorizontalHeaderViewPrivate::q_func() const
+extern "C" Q_DECL_EXPORT
+const QQuickHorizontalHeaderView *ritual_ZNK33QQuickHorizontalHeaderViewPrivate6q_funcEv(
+    const QQuickHorizontalHeaderViewPrivate *self) {
+  return self->q_func();
+}
+
+//  a Python function taken by a CuteQQuickHorizontalHeaderViewPrivate, for
+//      the function named by the key
+extern "C" Q_DECL_EXPORT
+bool ritual_take_QQuickHorizontalHeaderViewPrivate(
+    QQuickHorizontalHeaderViewPrivate *self,
+    const char *key,
+    void *call) {
+  return static_cast<CuteQQuickHorizontalHeaderViewPrivate *>(self)->take(key, call);
+}
+
+#endif  // QT_CONFIG(quick_tableview)

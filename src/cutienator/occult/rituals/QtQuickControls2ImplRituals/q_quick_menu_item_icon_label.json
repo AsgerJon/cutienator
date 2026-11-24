@@ -1,0 +1,25 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Controls2Impl/6.12.0/QtQuickControls2Impl/private/qquickmenuitemic",
+    "onlabel_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK23QQuickMenuItemIconLabel10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QQuickMenuItemIconLabelD1Ev": ["nothing", "address"],
+    "ritual_ZNK23QQuickMenuItemIconLabel8menuItemEv": ["address", "address"],
+    "ritual_ZN23QQuickMenuItemIconLabel17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickMenuItemIconLabel6d_funcEv": ["address", "address"],
+    "ritual_ZNK23QQuickMenuItemIconLabel6d_funcEv": ["address", "address"],
+    "ritual_take_QQuickMenuItemIconLabel": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN23QQuickMenuItemIconLabel17componentCompleteEv": [
+      "nothing", "address"
+    ]
+  }
+}

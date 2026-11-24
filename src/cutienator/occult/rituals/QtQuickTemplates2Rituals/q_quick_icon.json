@@ -1,0 +1,48 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuickTemplates2/6.12.0/QtQuickTemplates2/private/qquickicon_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN10QQuickIcon22qt_qmlMarker_anonymousEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10QQuickIconC1Ev": ["address"],
+    "ritual_ZN10QQuickIconC1ERKS_": ["address", "address"],
+    "ritual_ZN10QQuickIconD1Ev": ["nothing", "address"],
+    "ritual_ZNK10QQuickIconeqERKS_": ["bool", "address", "address"],
+    "ritual_ZNK10QQuickIconneERKS_": ["bool", "address", "address"],
+    "ritual_ZNK10QQuickIcon7isEmptyEv": ["bool", "address"],
+    "ritual_ZNK10QQuickIcon4nameEv": ["text", "address"],
+    "ritual_ZN10QQuickIcon7setNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN10QQuickIcon9resetNameEv": ["nothing", "address"],
+    "ritual_ZNK10QQuickIcon6sourceEv": ["address", "address"],
+    "ritual_ZN10QQuickIcon9setSourceERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QQuickIcon11resetSourceEv": ["nothing", "address"],
+    "ritual_ZNK10QQuickIcon14resolvedSourceEv": ["address", "address"],
+    "ritual_ZN10QQuickIcon28ensureRelativeSourceResolvedEPK7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10QQuickIcon5widthEv": ["int", "address"],
+    "ritual_ZN10QQuickIcon8setWidthEi": ["nothing", "address", "int"],
+    "ritual_ZN10QQuickIcon10resetWidthEv": ["nothing", "address"],
+    "ritual_ZNK10QQuickIcon6heightEv": ["int", "address"],
+    "ritual_ZN10QQuickIcon9setHeightEi": ["nothing", "address", "int"],
+    "ritual_ZN10QQuickIcon11resetHeightEv": ["nothing", "address"],
+    "ritual_ZNK10QQuickIcon5colorEv": ["address", "address"],
+    "ritual_ZN10QQuickIcon8setColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QQuickIcon10resetColorEv": ["nothing", "address"],
+    "ritual_ZN10QQuickIcon12resolveColorEv": ["nothing", "address"],
+    "ritual_ZNK10QQuickIcon5cacheEv": ["bool", "address"],
+    "ritual_ZN10QQuickIcon8setCacheEb": ["nothing", "address", "bool"],
+    "ritual_ZN10QQuickIcon10resetCacheEv": ["nothing", "address"],
+    "ritual_ZNK10QQuickIcon7resolveERKS_": ["address", "address", "address"]
+  }
+}

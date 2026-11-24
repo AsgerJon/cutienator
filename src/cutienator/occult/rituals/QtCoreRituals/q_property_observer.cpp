@@ -14,6 +14,7 @@ void ritual_ZN17QPropertyObserverD1Ev(QPropertyObserver *self) {
   delete self;
 }
 
+#if QT_DEPRECATED_SINCE(6, 6)
 //  QPropertyObserver::QPropertyObserver(QUntypedPropertyData
 //      *aliasedPropertyPtr)
 extern "C" Q_DECL_EXPORT
@@ -21,6 +22,7 @@ QPropertyObserver *ritual_ZN17QPropertyObserverC1EP20QUntypedPropertyData(
     QUntypedPropertyData *aliasedPropertyPtr) {
   return new QPropertyObserver(aliasedPropertyPtr);
 }
+#endif  // QT_DEPRECATED_SINCE(6, 6)
 
 //  QUntypedPropertyData *QPropertyObserver::aliasedProperty() const
 extern "C" Q_DECL_EXPORT

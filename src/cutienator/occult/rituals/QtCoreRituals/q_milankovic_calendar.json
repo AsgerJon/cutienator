@@ -1,0 +1,30 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qmilankoviccalendar_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK19QMilankovicCalendar4nameEv": ["text", "address"],
+    "ritual_ZN19QMilankovicCalendar8nameListEv": ["address"],
+    "ritual_ZNK19QMilankovicCalendar10isLeapYearEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK19QMilankovicCalendar15dateToJulianDayEiiiPx": [
+      "bool", "address", "int", "int", "int", "address"
+    ],
+    "ritual_ZNK19QMilankovicCalendar15julianDayToDateEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_take_QMilankovicCalendar": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK19QMilankovicCalendar4nameEv": ["text", "address"],
+    "ritual_own_ZNK19QMilankovicCalendar10isLeapYearEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_own_ZNK19QMilankovicCalendar15julianDayToDateEx": [
+      "address", "address", "long long"
+    ]
+  }
+}

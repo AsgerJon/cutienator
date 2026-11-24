@@ -1,0 +1,32 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtMultimedia/6.12.0/QtMultimedia/private/qsoundeffect_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QSoundEffectPrivate14setAudioDeviceE12QAudioDevice": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK19QSoundEffectPrivate11audioDeviceEv": ["address", "address"],
+    "ritual_ZNK19QSoundEffectPrivate3urlEv": ["address", "address"],
+    "ritual_ZNK19QSoundEffectPrivate6statusEv": ["int", "address"],
+    "ritual_ZNK19QSoundEffectPrivate9loopCountEv": ["int", "address"],
+    "ritual_ZN19QSoundEffectPrivate12setLoopCountEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK19QSoundEffectPrivate14loopsRemainingEv": ["int", "address"],
+    "ritual_ZNK19QSoundEffectPrivate6volumeEv": ["float", "address"],
+    "ritual_ZN19QSoundEffectPrivate9setVolumeEf": [
+      "bool", "address", "float"
+    ],
+    "ritual_ZNK19QSoundEffectPrivate5mutedEv": ["bool", "address"],
+    "ritual_ZN19QSoundEffectPrivate8setMutedEb": ["bool", "address", "bool"],
+    "ritual_ZN19QSoundEffectPrivate4playEv": ["nothing", "address"],
+    "ritual_ZN19QSoundEffectPrivate4stopEv": ["nothing", "address"],
+    "ritual_ZNK19QSoundEffectPrivate7playingEv": ["bool", "address"],
+    "ritual_ZN19QSoundEffectPrivate3getEP12QSoundEffect": [
+      "address", "address"
+    ]
+  }
+}

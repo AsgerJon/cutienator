@@ -1,0 +1,64 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/qbarset.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK7QBarSet10metaObjectEv": ["address", "address"],
+    "ritual_ZN7QBarSet2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN7QBarSetC1E7QStringP7QObject": ["address", "text", "address"],
+    "ritual_ZN7QBarSetD1Ev": ["nothing", "address"],
+    "ritual_ZN7QBarSet8setLabelE7QString": ["nothing", "address", "text"],
+    "ritual_ZNK7QBarSet5labelEv": ["text", "address"],
+    "ritual_ZN7QBarSet6appendEd": ["nothing", "address", "double"],
+    "ritual_ZN7QBarSet6insertEid": ["nothing", "address", "int", "double"],
+    "ritual_ZN7QBarSet6removeEii": ["nothing", "address", "int", "int"],
+    "ritual_ZN7QBarSet7replaceEid": ["nothing", "address", "int", "double"],
+    "ritual_ZNK7QBarSet2atEi": ["double", "address", "int"],
+    "ritual_ZNK7QBarSetixEi": ["double", "address", "int"],
+    "ritual_ZNK7QBarSet5countEv": ["int", "address"],
+    "ritual_ZNK7QBarSet3sumEv": ["double", "address"],
+    "ritual_ZN7QBarSet6setPenERK4QPen": ["nothing", "address", "address"],
+    "ritual_ZNK7QBarSet3penEv": ["address", "address"],
+    "ritual_ZN7QBarSet8setBrushERK6QBrush": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK7QBarSet5brushEv": ["address", "address"],
+    "ritual_ZN7QBarSet13setLabelBrushERK6QBrush": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK7QBarSet10labelBrushEv": ["address", "address"],
+    "ritual_ZN7QBarSet12setLabelFontERK5QFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK7QBarSet9labelFontEv": ["address", "address"],
+    "ritual_ZN7QBarSet5colorEv": ["address", "address"],
+    "ritual_ZN7QBarSet8setColorE6QColor": ["nothing", "address", "address"],
+    "ritual_ZN7QBarSet11borderColorEv": ["address", "address"],
+    "ritual_ZN7QBarSet14setBorderColorE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QBarSet10labelColorEv": ["address", "address"],
+    "ritual_ZN7QBarSet13setLabelColorE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK7QBarSet13selectedColorEv": ["address", "address"],
+    "ritual_ZN7QBarSet16setSelectedColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK7QBarSet13isBarSelectedEi": ["bool", "address", "int"],
+    "ritual_ZN7QBarSet9selectBarEi": ["nothing", "address", "int"],
+    "ritual_ZN7QBarSet11deselectBarEi": ["nothing", "address", "int"],
+    "ritual_ZN7QBarSet14setBarSelectedEib": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZN7QBarSet13selectAllBarsEv": ["nothing", "address"],
+    "ritual_ZN7QBarSet15deselectAllBarsEv": ["nothing", "address"],
+    "ritual_take_QBarSet": ["bool", "address", "chars", "address"],
+    "ritual_list_make_QBarSet_ptr": ["address"],
+    "ritual_list_add_QBarSet_ptr": ["nothing", "address", "address"],
+    "ritual_list_size_QBarSet_ptr": ["long long", "address"],
+    "ritual_list_at_QBarSet_ptr": ["address", "address", "long long"],
+    "ritual_list_drop_QBarSet_ptr": ["nothing", "address"]
+  }
+}

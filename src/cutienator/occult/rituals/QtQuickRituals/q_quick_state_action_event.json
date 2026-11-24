@@ -1,0 +1,76 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickstate_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN22QQuickStateActionEventD1Ev": ["nothing", "address"],
+    "ritual_ZNK22QQuickStateActionEvent4typeEv": ["int", "address"],
+    "ritual_ZN22QQuickStateActionEvent7executeEv": ["nothing", "address"],
+    "ritual_ZN22QQuickStateActionEvent12isReversableEv": ["bool", "address"],
+    "ritual_ZN22QQuickStateActionEvent7reverseEv": ["nothing", "address"],
+    "ritual_ZN22QQuickStateActionEvent13saveOriginalsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickStateActionEvent9needsCopyEv": ["bool", "address"],
+    "ritual_ZN22QQuickStateActionEvent13copyOriginalsEPS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQuickStateActionEvent12isRewindableEv": ["bool", "address"],
+    "ritual_ZN22QQuickStateActionEvent6rewindEv": ["nothing", "address"],
+    "ritual_ZN22QQuickStateActionEvent17saveCurrentValuesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickStateActionEvent16saveTargetValuesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickStateActionEvent15changesBindingsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN22QQuickStateActionEvent13clearBindingsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickStateActionEvent11mayOverrideEPS_": [
+      "bool", "address", "address"
+    ],
+    "ritual_take_QQuickStateActionEvent": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN22QQuickStateActionEvent7executeEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN22QQuickStateActionEvent12isReversableEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZN22QQuickStateActionEvent7reverseEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN22QQuickStateActionEvent13saveOriginalsEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN22QQuickStateActionEvent9needsCopyEv": ["bool", "address"],
+    "ritual_own_ZN22QQuickStateActionEvent13copyOriginalsEPS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN22QQuickStateActionEvent12isRewindableEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZN22QQuickStateActionEvent6rewindEv": ["nothing", "address"],
+    "ritual_own_ZN22QQuickStateActionEvent17saveCurrentValuesEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN22QQuickStateActionEvent16saveTargetValuesEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN22QQuickStateActionEvent15changesBindingsEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZN22QQuickStateActionEvent13clearBindingsEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN22QQuickStateActionEvent11mayOverrideEPS_": [
+      "bool", "address", "address"
+    ]
+  }
+}

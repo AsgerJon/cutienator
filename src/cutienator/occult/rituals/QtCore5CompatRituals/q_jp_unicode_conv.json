@@ -1,0 +1,133 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore5Compat/6.12.0/QtCore5Compat/private/qjpunicode_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN14QJpUnicodeConvD1Ev": ["nothing", "address"],
+    "ritual_ZN14QJpUnicodeConv12newConverterEi": ["address", "int"],
+    "ritual_ZNK14QJpUnicodeConv14asciiToUnicodeEjj": [
+      "unsigned int", "address", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZNK14QJpUnicodeConv17jisx0201ToUnicodeEjj": [
+      "unsigned int", "address", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZNK14QJpUnicodeConv22jisx0201LatinToUnicodeEjj": [
+      "unsigned int", "address", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZNK14QJpUnicodeConv21jisx0201KanaToUnicodeEjj": [
+      "unsigned int", "address", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZNK14QJpUnicodeConv17jisx0208ToUnicodeEjj": [
+      "unsigned int", "address", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZNK14QJpUnicodeConv17jisx0212ToUnicodeEjj": [
+      "unsigned int", "address", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZNK14QJpUnicodeConv14asciiToUnicodeEj": [
+      "unsigned int", "address", "unsigned int"
+    ],
+    "ritual_ZNK14QJpUnicodeConv17jisx0201ToUnicodeEj": [
+      "unsigned int", "address", "unsigned int"
+    ],
+    "ritual_ZNK14QJpUnicodeConv22jisx0201LatinToUnicodeEj": [
+      "unsigned int", "address", "unsigned int"
+    ],
+    "ritual_ZNK14QJpUnicodeConv21jisx0201KanaToUnicodeEj": [
+      "unsigned int", "address", "unsigned int"
+    ],
+    "ritual_ZNK14QJpUnicodeConv17jisx0208ToUnicodeEj": [
+      "unsigned int", "address", "unsigned int"
+    ],
+    "ritual_ZNK14QJpUnicodeConv17jisx0212ToUnicodeEj": [
+      "unsigned int", "address", "unsigned int"
+    ],
+    "ritual_ZNK14QJpUnicodeConv14unicodeToAsciiEjj": [
+      "unsigned int", "address", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZNK14QJpUnicodeConv17unicodeToJisx0201Ejj": [
+      "unsigned int", "address", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZNK14QJpUnicodeConv22unicodeToJisx0201LatinEjj": [
+      "unsigned int", "address", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZNK14QJpUnicodeConv21unicodeToJisx0201KanaEjj": [
+      "unsigned int", "address", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZNK14QJpUnicodeConv17unicodeToJisx0208Ejj": [
+      "unsigned int", "address", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZNK14QJpUnicodeConv17unicodeToJisx0212Ejj": [
+      "unsigned int", "address", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZNK14QJpUnicodeConv14unicodeToAsciiEj": [
+      "unsigned int", "address", "unsigned int"
+    ],
+    "ritual_ZNK14QJpUnicodeConv17unicodeToJisx0201Ej": [
+      "unsigned int", "address", "unsigned int"
+    ],
+    "ritual_ZNK14QJpUnicodeConv22unicodeToJisx0201LatinEj": [
+      "unsigned int", "address", "unsigned int"
+    ],
+    "ritual_ZNK14QJpUnicodeConv21unicodeToJisx0201KanaEj": [
+      "unsigned int", "address", "unsigned int"
+    ],
+    "ritual_ZNK14QJpUnicodeConv17unicodeToJisx0208Ej": [
+      "unsigned int", "address", "unsigned int"
+    ],
+    "ritual_ZNK14QJpUnicodeConv17unicodeToJisx0212Ej": [
+      "unsigned int", "address", "unsigned int"
+    ],
+    "ritual_ZNK14QJpUnicodeConv13sjisToUnicodeEjj": [
+      "unsigned int", "address", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZNK14QJpUnicodeConv13unicodeToSjisEjj": [
+      "unsigned int", "address", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZNK14QJpUnicodeConv19sjisibmvdcToUnicodeEjj": [
+      "unsigned int", "address", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZNK14QJpUnicodeConv19unicodeToSjisibmvdcEjj": [
+      "unsigned int", "address", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZNK14QJpUnicodeConv14cp932ToUnicodeEjj": [
+      "unsigned int", "address", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZNK14QJpUnicodeConv14unicodeToCp932Ejj": [
+      "unsigned int", "address", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZNK14QJpUnicodeConv13sjisToUnicodeEj": [
+      "unsigned int", "address", "unsigned int"
+    ],
+    "ritual_ZNK14QJpUnicodeConv13unicodeToSjisEj": [
+      "unsigned int", "address", "unsigned int"
+    ],
+    "ritual_ZN14QJpUnicodeConvC1Ei": ["address", "int"],
+    "ritual_take_QJpUnicodeConv": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK14QJpUnicodeConv14asciiToUnicodeEjj": [
+      "unsigned int", "address", "unsigned int", "unsigned int"
+    ],
+    "ritual_own_ZNK14QJpUnicodeConv22jisx0201LatinToUnicodeEjj": [
+      "unsigned int", "address", "unsigned int", "unsigned int"
+    ],
+    "ritual_own_ZNK14QJpUnicodeConv17jisx0208ToUnicodeEjj": [
+      "unsigned int", "address", "unsigned int", "unsigned int"
+    ],
+    "ritual_own_ZNK14QJpUnicodeConv17jisx0212ToUnicodeEjj": [
+      "unsigned int", "address", "unsigned int", "unsigned int"
+    ],
+    "ritual_own_ZNK14QJpUnicodeConv14unicodeToAsciiEjj": [
+      "unsigned int", "address", "unsigned int", "unsigned int"
+    ],
+    "ritual_own_ZNK14QJpUnicodeConv22unicodeToJisx0201LatinEjj": [
+      "unsigned int", "address", "unsigned int", "unsigned int"
+    ],
+    "ritual_own_ZNK14QJpUnicodeConv17unicodeToJisx0208Ejj": [
+      "unsigned int", "address", "unsigned int", "unsigned int"
+    ],
+    "ritual_own_ZNK14QJpUnicodeConv17unicodeToJisx0212Ejj": [
+      "unsigned int", "address", "unsigned int", "unsigned int"
+    ]
+  }
+}

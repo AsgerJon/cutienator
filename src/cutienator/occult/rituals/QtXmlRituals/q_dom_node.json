@@ -1,0 +1,101 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtXml/qdom.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN8QDomNodeC1Ev": ["address"],
+    "ritual_ZN8QDomNodeC1ERKS_": ["address", "address"],
+    "ritual_ZNK8QDomNodeeqERKS_": ["bool", "address", "address"],
+    "ritual_ZNK8QDomNodeneERKS_": ["bool", "address", "address"],
+    "ritual_ZN8QDomNodeD1Ev": ["nothing", "address"],
+    "ritual_ZN8QDomNode12insertBeforeERKS_S1_": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN8QDomNode11insertAfterERKS_S1_": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN8QDomNode12replaceChildERKS_S1_": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN8QDomNode11removeChildERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN8QDomNode11appendChildERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK8QDomNode13hasChildNodesEv": ["bool", "address"],
+    "ritual_ZNK8QDomNode9cloneNodeEb": ["address", "address", "bool"],
+    "ritual_ZN8QDomNode9normalizeEv": ["nothing", "address"],
+    "ritual_ZNK8QDomNode11isSupportedERK7QStringS2_": [
+      "bool", "address", "text", "text"
+    ],
+    "ritual_ZNK8QDomNode8nodeNameEv": ["text", "address"],
+    "ritual_ZNK8QDomNode8nodeTypeEv": ["int", "address"],
+    "ritual_ZNK8QDomNode10parentNodeEv": ["address", "address"],
+    "ritual_ZNK8QDomNode10childNodesEv": ["address", "address"],
+    "ritual_ZNK8QDomNode10firstChildEv": ["address", "address"],
+    "ritual_ZNK8QDomNode9lastChildEv": ["address", "address"],
+    "ritual_ZNK8QDomNode15previousSiblingEv": ["address", "address"],
+    "ritual_ZNK8QDomNode11nextSiblingEv": ["address", "address"],
+    "ritual_ZNK8QDomNode10attributesEv": ["address", "address"],
+    "ritual_ZNK8QDomNode13ownerDocumentEv": ["address", "address"],
+    "ritual_ZNK8QDomNode12namespaceURIEv": ["text", "address"],
+    "ritual_ZNK8QDomNode9localNameEv": ["text", "address"],
+    "ritual_ZNK8QDomNode13hasAttributesEv": ["bool", "address"],
+    "ritual_ZNK8QDomNode9nodeValueEv": ["text", "address"],
+    "ritual_ZN8QDomNode12setNodeValueERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK8QDomNode6prefixEv": ["text", "address"],
+    "ritual_ZN8QDomNode9setPrefixERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK8QDomNode6isAttrEv": ["bool", "address"],
+    "ritual_ZNK8QDomNode14isCDATASectionEv": ["bool", "address"],
+    "ritual_ZNK8QDomNode18isDocumentFragmentEv": ["bool", "address"],
+    "ritual_ZNK8QDomNode10isDocumentEv": ["bool", "address"],
+    "ritual_ZNK8QDomNode14isDocumentTypeEv": ["bool", "address"],
+    "ritual_ZNK8QDomNode9isElementEv": ["bool", "address"],
+    "ritual_ZNK8QDomNode17isEntityReferenceEv": ["bool", "address"],
+    "ritual_ZNK8QDomNode6isTextEv": ["bool", "address"],
+    "ritual_ZNK8QDomNode8isEntityEv": ["bool", "address"],
+    "ritual_ZNK8QDomNode10isNotationEv": ["bool", "address"],
+    "ritual_ZNK8QDomNode23isProcessingInstructionEv": ["bool", "address"],
+    "ritual_ZNK8QDomNode15isCharacterDataEv": ["bool", "address"],
+    "ritual_ZNK8QDomNode9isCommentEv": ["bool", "address"],
+    "ritual_ZNK8QDomNode9namedItemERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK8QDomNode6isNullEv": ["bool", "address"],
+    "ritual_ZN8QDomNode5clearEv": ["nothing", "address"],
+    "ritual_ZNK8QDomNode6toAttrEv": ["address", "address"],
+    "ritual_ZNK8QDomNode14toCDATASectionEv": ["address", "address"],
+    "ritual_ZNK8QDomNode18toDocumentFragmentEv": ["address", "address"],
+    "ritual_ZNK8QDomNode10toDocumentEv": ["address", "address"],
+    "ritual_ZNK8QDomNode14toDocumentTypeEv": ["address", "address"],
+    "ritual_ZNK8QDomNode9toElementEv": ["address", "address"],
+    "ritual_ZNK8QDomNode17toEntityReferenceEv": ["address", "address"],
+    "ritual_ZNK8QDomNode6toTextEv": ["address", "address"],
+    "ritual_ZNK8QDomNode8toEntityEv": ["address", "address"],
+    "ritual_ZNK8QDomNode10toNotationEv": ["address", "address"],
+    "ritual_ZNK8QDomNode23toProcessingInstructionEv": ["address", "address"],
+    "ritual_ZNK8QDomNode15toCharacterDataEv": ["address", "address"],
+    "ritual_ZNK8QDomNode9toCommentEv": ["address", "address"],
+    "ritual_ZNK8QDomNode17firstChildElementERK7QStringS2_": [
+      "address", "address", "text", "text"
+    ],
+    "ritual_ZNK8QDomNode16lastChildElementERK7QStringS2_": [
+      "address", "address", "text", "text"
+    ],
+    "ritual_ZNK8QDomNode22previousSiblingElementERK7QStringS2_": [
+      "address", "address", "text", "text"
+    ],
+    "ritual_ZNK8QDomNode18nextSiblingElementERK7QStringS2_": [
+      "address", "address", "text", "text"
+    ],
+    "ritual_ZNK8QDomNode10lineNumberEv": ["int", "address"],
+    "ritual_ZNK8QDomNode12columnNumberEv": ["int", "address"],
+    "ritual_ZN8QDomNodeC1EP15QDomNodePrivate": ["address", "address"]
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Controls2MaterialStyleImpl/6.12.0/QtQuickControls2MaterialStyleImp",
+    "l/private/qquickmaterialplaceholdertext_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK29QQuickMaterialPlaceholderText10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK29QQuickMaterialPlaceholderText8isFilledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN29QQuickMaterialPlaceholderText9setFilledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK29QQuickMaterialPlaceholderText13largestHeightEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK29QQuickMaterialPlaceholderText21controlHasActiveFocusEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK29QQuickMaterialPlaceholderText14controlHasTextEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK29QQuickMaterialPlaceholderText31controlImplicitBackgroundHeightEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK29QQuickMaterialPlaceholderText13controlHeightEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK29QQuickMaterialPlaceholderText15verticalPaddingEv": [
+      "double", "address"
+    ],
+    "ritual_ZN29QQuickMaterialPlaceholderText21adjustTransformOriginEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK29QQuickMaterialPlaceholderText11shouldFloatEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK29QQuickMaterialPlaceholderText13shouldAnimateEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN29QQuickMaterialPlaceholderText7updateXEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK29QQuickMaterialPlaceholderText13normalTargetXEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK29QQuickMaterialPlaceholderText15floatingTargetXEv": [
+      "double", "address"
+    ],
+    "ritual_ZN29QQuickMaterialPlaceholderText17componentCompleteEv": [
+      "nothing", "address"
+    ]
+  }
+}

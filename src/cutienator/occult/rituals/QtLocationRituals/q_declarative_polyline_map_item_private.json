@@ -1,0 +1,45 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtLocat",
+    "ion/6.12.0/QtLocation/private/qdeclarativepolylinemapitem_p_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN34QDeclarativePolylineMapItemPrivateD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN34QDeclarativePolylineMapItemPrivate24markSourceDirtyAndUpdateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN34QDeclarativePolylineMapItemPrivate8onMapSetEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN34QDeclarativePolylineMapItemPrivate23onLinePropertiesChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN34QDeclarativePolylineMapItemPrivate20onGeoGeometryChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN34QDeclarativePolylineMapItemPrivate20onGeoGeometryUpdatedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN34QDeclarativePolylineMapItemPrivate21onItemGeometryChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN34QDeclarativePolylineMapItemPrivate12updatePolishEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN34QDeclarativePolylineMapItemPrivate20afterViewportChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN34QDeclarativePolylineMapItemPrivate22updateMapItemPaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK34QDeclarativePolylineMapItemPrivate8containsERK7QPointF": [
+      "bool", "address", "address"
+    ],
+    "ritual_take_QDeclarativePolylineMapItemPrivate": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

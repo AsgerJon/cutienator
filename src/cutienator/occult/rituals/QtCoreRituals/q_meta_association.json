@@ -5,6 +5,9 @@
   ],
   "rows": {
     "ritual_ZN16QMetaAssociationC1Ev": ["address"],
+    "ritual_ZN16QMetaAssociationC1EPKN22QtMetaContainerPrivate25QMetaAssociationInterfaceE": [
+      "address", "address"
+    ],
     "ritual_ZNK16QMetaAssociation11keyMetaTypeEv": ["address", "address"],
     "ritual_ZNK16QMetaAssociation14mappedMetaTypeEv": ["address", "address"],
     "ritual_ZNK16QMetaAssociation12canInsertKeyEv": ["bool", "address"],
@@ -33,8 +36,10 @@
     "ritual_ZNK16QMetaAssociation27canCreateConstIteratorAtKeyEv": [
       "bool", "address"
     ],
+    "ritual_ZNK16QMetaAssociation5ifaceEv": ["address", "address"],
     "ritual_ZeqRK16QMetaAssociationS1_": ["bool", "address", "address"],
     "ritual_ZneRK16QMetaAssociationS1_": ["bool", "address", "address"],
+    "ritual_ZNK16QMetaAssociation1dEv": ["address", "address"],
     "ritual_ZN16QMetaAssociationD1Ev": ["nothing", "address"]
   }
 }

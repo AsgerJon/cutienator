@@ -1,0 +1,34 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DHelpers/6.12.0/QtQuick3DHelpers/private/instancerepeater_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK13InstanceModel10metaObjectEv": ["address", "address"],
+    "ritual_ZN13InstanceModel2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN13InstanceModelC1EP7QObject": ["address", "address"],
+    "ritual_ZNK13InstanceModel4dataERK11QModelIndexi": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZNK13InstanceModel8rowCountERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK13InstanceModel10instancingEv": ["address", "address"],
+    "ritual_ZN13InstanceModel13setInstancingEP18QQuick3DInstancing": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13InstanceModel12instanceDataEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK13InstanceModel9roleNamesEv": ["address", "address"],
+    "ritual_ZN13InstanceModel5resetEv": ["nothing", "address"],
+    "ritual_ZNK13InstanceModel11ensureTableEv": ["nothing", "address"],
+    "ritual_own_ZNK13InstanceModel4dataERK11QModelIndexi": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_own_ZNK13InstanceModel8rowCountERK11QModelIndex": [
+      "int", "address", "address"
+    ]
+  }
+}

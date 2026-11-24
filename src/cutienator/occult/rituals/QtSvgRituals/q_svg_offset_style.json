@@ -1,0 +1,30 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSvg/6.12.0/QtSvg/private/qsvgstyle_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QSvgOffsetStyleC1Ev": ["address"],
+    "ritual_ZN15QSvgOffsetStyleD1Ev": ["nothing", "address"],
+    "ritual_ZNK15QSvgOffsetStyle4typeEv": ["unsigned char", "address"],
+    "ritual_ZN15QSvgOffsetStyle7setPathERK12QPainterPath": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QSvgOffsetStyle4pathEv": ["address", "address"],
+    "ritual_ZN15QSvgOffsetStyle14setRotateAngleEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK15QSvgOffsetStyle11rotateAngleEv": ["double", "address"],
+    "ritual_ZN15QSvgOffsetStyle13setRotateTypeEN5QtSvg16OffsetRotateTypeE": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZNK15QSvgOffsetStyle10rotateTypeEv": ["unsigned int", "address"],
+    "ritual_ZN15QSvgOffsetStyle11setDistanceEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK15QSvgOffsetStyle8distanceEv": ["double", "address"],
+    "ritual_take_QSvgOffsetStyle": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK15QSvgOffsetStyle4typeEv": ["unsigned char", "address"]
+  }
+}

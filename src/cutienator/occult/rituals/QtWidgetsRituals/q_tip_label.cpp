@@ -1,8 +1,14 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/6.12.0/QtWidgets/private/qtooltip_p.h, Qt 6.12.0. Changes made
 //  here are lost.
+#include <QtWidgets/qtwidgetsglobal.h>
+#include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
+#if QT_CONFIG(tooltip)
+#include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/QtWidgets>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/6.12.0/QtWidgets/private/qtooltip_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #include <QtCore/qpoint.h>
 #include <QtCore/qrect.h>
@@ -157,8 +163,12 @@ void ritual_ZN9QTipLabel11resizeEventEP12QResizeEvent(
   self->resizeEvent(e);
 }
 
+#if QT_CONFIG(style_stylesheet)
 //  void QTipLabel::styleSheetParentDestroyed()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN9QTipLabel25styleSheetParentDestroyedEv(QTipLabel *self) {
   self->styleSheetParentDestroyed();
 }
+#endif  // QT_CONFIG(style_stylesheet)
+
+#endif  // QT_CONFIG(tooltip)

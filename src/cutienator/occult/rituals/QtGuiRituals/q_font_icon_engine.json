@@ -1,0 +1,56 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qfonticonengine_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QFontIconEngineC1ERK7QStringRK5QFont": [
+      "address", "text", "address"
+    ],
+    "ritual_ZN15QFontIconEngineD1Ev": ["nothing", "address"],
+    "ritual_ZN15QFontIconEngine8iconNameEv": ["text", "address"],
+    "ritual_ZN15QFontIconEngine6isNullEv": ["bool", "address"],
+    "ritual_ZNK15QFontIconEngine3keyEv": ["text", "address"],
+    "ritual_ZNK15QFontIconEngine5cloneEv": ["address", "address"],
+    "ritual_ZN15QFontIconEngine14availableSizesEN5QIcon4ModeENS0_5StateE": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZN15QFontIconEngine10actualSizeERK5QSizeN5QIcon4ModeENS3_5StateE": [
+      "address", "address", "address", "int", "int"
+    ],
+    "ritual_ZN15QFontIconEngine6pixmapERK5QSizeN5QIcon4ModeENS3_5StateE": [
+      "address", "address", "address", "int", "int"
+    ],
+    "ritual_ZN15QFontIconEngine12scaledPixmapERK5QSizeN5QIcon4ModeENS3_5StateEd": [
+      "address", "address", "address", "int", "int", "double"
+    ],
+    "ritual_ZN15QFontIconEngine5paintEP8QPainterRK5QRectN5QIcon4ModeENS5_5StateE": [
+      "nothing", "address", "address", "address", "int", "int"
+    ],
+    "ritual_ZNK15QFontIconEngine6stringEv": ["text", "address"],
+    "ritual_ZNK15QFontIconEngine5glyphEv": ["unsigned int", "address"],
+    "ritual_ZN15QFontIconEngine17calculateCacheKeyEN5QIcon4ModeENS0_5StateE": [
+      "unsigned long long", "int", "int"
+    ],
+    "ritual_take_QFontIconEngine": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN15QFontIconEngine8iconNameEv": ["text", "address"],
+    "ritual_own_ZN15QFontIconEngine6isNullEv": ["bool", "address"],
+    "ritual_own_ZNK15QFontIconEngine3keyEv": ["text", "address"],
+    "ritual_own_ZNK15QFontIconEngine5cloneEv": ["address", "address"],
+    "ritual_own_ZN15QFontIconEngine10actualSizeERK5QSizeN5QIcon4ModeENS3_5StateE": [
+      "address", "address", "address", "int", "int"
+    ],
+    "ritual_own_ZN15QFontIconEngine6pixmapERK5QSizeN5QIcon4ModeENS3_5StateE": [
+      "address", "address", "address", "int", "int"
+    ],
+    "ritual_own_ZN15QFontIconEngine12scaledPixmapERK5QSizeN5QIcon4ModeENS3_5StateEd": [
+      "address", "address", "address", "int", "int", "double"
+    ],
+    "ritual_own_ZN15QFontIconEngine5paintEP8QPainterRK5QRectN5QIcon4ModeENS5_5StateE": [
+      "nothing", "address", "address", "address", "int", "int"
+    ],
+    "ritual_own_ZNK15QFontIconEngine6stringEv": ["text", "address"],
+    "ritual_own_ZNK15QFontIconEngine5glyphEv": ["unsigned int", "address"]
+  }
+}

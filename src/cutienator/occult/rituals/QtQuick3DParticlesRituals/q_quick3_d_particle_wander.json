@@ -1,0 +1,78 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DParticles/6.12.0/QtQuick3DParticles/private/qquick3dparticlewand",
+    "er_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK22QQuick3DParticleWander10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QQuick3DParticleWander2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN22QQuick3DParticleWanderC1EP12QQuick3DNode": [
+      "address", "address"
+    ],
+    "ritual_ZNK22QQuick3DParticleWander12globalAmountEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK22QQuick3DParticleWander10globalPaceEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK22QQuick3DParticleWander15globalPaceStartEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK22QQuick3DParticleWander12uniqueAmountEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK22QQuick3DParticleWander10uniquePaceEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK22QQuick3DParticleWander21uniqueAmountVariationEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK22QQuick3DParticleWander19uniquePaceVariationEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK22QQuick3DParticleWander14fadeInDurationEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK22QQuick3DParticleWander15fadeOutDurationEv": [
+      "int", "address"
+    ],
+    "ritual_ZN22QQuick3DParticleWander15setGlobalAmountERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQuick3DParticleWander13setGlobalPaceERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQuick3DParticleWander18setGlobalPaceStartERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQuick3DParticleWander15setUniqueAmountERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQuick3DParticleWander13setUniquePaceERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQuick3DParticleWander24setUniqueAmountVariationEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN22QQuick3DParticleWander22setUniquePaceVariationEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN22QQuick3DParticleWander17setFadeInDurationEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN22QQuick3DParticleWander18setFadeOutDurationEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN22QQuick3DParticleWander14affectParticleERK20QQuick3DParticleDataP27QQuick3DParticleDataCurrentf": [
+      "nothing", "address", "address", "address", "float"
+    ],
+    "ritual_own_ZN22QQuick3DParticleWander14affectParticleERK20QQuick3DParticleDataP27QQuick3DParticleDataCurrentf": [
+      "nothing", "address", "address", "address", "float"
+    ]
+  }
+}

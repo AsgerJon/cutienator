@@ -29,13 +29,27 @@ typedef bool (*CuteQIODeviceCall10)(const void *, int *);
 typedef bool (*CuteQIODeviceCall11)(const void *, int, int *);
 typedef bool (*CuteQIODeviceCall12)(const void *, int, int *);
 typedef qint64 (*CuteQIODeviceCall13)(const void *, qint64, int *);
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQIODeviceCall14)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQIODeviceCall15)(const void *, QObject *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQIODeviceCall16)(const void *, QTimerEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQIODeviceCall17)(const void *, QChildEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQIODeviceCall18)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQIODeviceCall19)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQIODeviceCall20)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 class CuteQIODevice : public QIODevice {
 public:
   using QIODevice::QIODevice;
@@ -98,34 +112,48 @@ public:
       taken[13] = call;
       return true;
     }
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[14] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[15] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[16] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[17] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[18] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[19] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
       taken[20] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
     return false;
   }
 
@@ -283,6 +311,7 @@ public:
     return QIODevice::skipData(maxSize);
   }
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QObject::event(QEvent *event)
   bool event(QEvent *event) override {
     if (taken[14]) {
@@ -293,7 +322,9 @@ public:
     }
     return QObject::event(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
     if (taken[15]) {
@@ -304,7 +335,9 @@ public:
     }
     return QObject::eventFilter(watched, event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
     if (taken[16]) {
@@ -315,7 +348,9 @@ public:
     }
     QObject::timerEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
     if (taken[17]) {
@@ -326,7 +361,9 @@ public:
     }
     QObject::childEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
     if (taken[18]) {
@@ -337,7 +374,9 @@ public:
     }
     QObject::customEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
     if (taken[19]) {
@@ -348,7 +387,9 @@ public:
     }
     QObject::connectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
     if (taken[20]) {
@@ -359,15 +400,19 @@ public:
     }
     QObject::disconnectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 };
 
+#if !defined(QT_NO_QOBJECT)
 //  const QMetaObject *QIODevice::metaObject() const
 extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK9QIODevice10metaObjectEv(
     const QIODevice *self) {
   return self->metaObject();
 }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
 //  QString QIODevice::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN9QIODevice2trEPKcS1_i(
@@ -376,6 +421,7 @@ QString *ritual_ZN9QIODevice2trEPKcS1_i(
     int n) {
   return new QString(QIODevice::tr(s, c, n));
 }
+#endif  // !defined(QT_NO_QOBJECT)
 
 //  QIODevice::~QIODevice()
 extern "C" Q_DECL_EXPORT
@@ -674,6 +720,19 @@ void ritual_ZN9QIODevice14setErrorStringERK7QString(
     QIODevice *self,
     const QString *errorString) {
   self->setErrorString(*errorString);
+}
+
+//  QIODevicePrivate *QIODevice::d_func()
+extern "C" Q_DECL_EXPORT
+QIODevicePrivate *ritual_ZN9QIODevice6d_funcEv(QIODevice *self) {
+  return self->d_func();
+}
+
+//  const QIODevicePrivate *QIODevice::d_func() const
+extern "C" Q_DECL_EXPORT
+const QIODevicePrivate *ritual_ZNK9QIODevice6d_funcEv(
+    const QIODevice *self) {
+  return self->d_func();
 }
 
 //  QIODevice as the QIODeviceBase it is built on

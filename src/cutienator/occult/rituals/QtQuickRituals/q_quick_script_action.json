@@ -1,0 +1,28 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickanimation_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18QQuickScriptAction10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QQuickScriptAction2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18QQuickScriptAction6d_funcEv": ["address", "address"],
+    "ritual_ZNK18QQuickScriptAction6d_funcEv": ["address", "address"],
+    "ritual_ZN18QQuickScriptActionC1EP7QObject": ["address", "address"],
+    "ritual_ZN18QQuickScriptActionD1Ev": ["nothing", "address"],
+    "ritual_ZNK18QQuickScriptAction6scriptEv": ["address", "address"],
+    "ritual_ZN18QQuickScriptAction9setScriptERK16QQmlScriptString": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QQuickScriptAction21stateChangeScriptNameEv": [
+      "text", "address"
+    ],
+    "ritual_ZN18QQuickScriptAction24setStateChangeScriptNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_take_QQuickScriptAction": ["bool", "address", "chars", "address"]
+  }
+}

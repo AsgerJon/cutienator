@@ -1,0 +1,45 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/qchartview.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK10QChartView10metaObjectEv": ["address", "address"],
+    "ritual_ZN10QChartView2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN10QChartViewC1EP7QWidget": ["address", "address"],
+    "ritual_ZN10QChartViewC1EP6QChartP7QWidget": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN10QChartViewD1Ev": ["nothing", "address"],
+    "ritual_ZNK10QChartView10rubberBandEv": ["int", "address"],
+    "ritual_ZNK10QChartView5chartEv": ["address", "address"],
+    "ritual_ZN10QChartView8setChartEP6QChart": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QChartView11resizeEventEP12QResizeEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QChartView15mousePressEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QChartView14mouseMoveEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QChartView17mouseReleaseEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QChartView": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN10QChartView11resizeEventEP12QResizeEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN10QChartView15mousePressEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN10QChartView14mouseMoveEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN10QChartView17mouseReleaseEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ]
+  }
+}

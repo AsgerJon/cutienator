@@ -1,0 +1,13 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DAssetUtils/6.12.0/QtQuick3DAssetUtils/private/qtquick3dassetutil",
+    "sglobal_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZeqRK24QSSGRuntimeObjectNameKeyS1_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN24QSSGRuntimeObjectNameKeyD1Ev": ["nothing", "address"]
+  }
+}

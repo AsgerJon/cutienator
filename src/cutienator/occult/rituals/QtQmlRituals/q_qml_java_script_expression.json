@@ -1,0 +1,109 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmljavascriptexpression_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN24QQmlJavaScriptExpressionD1Ev": ["nothing", "address"],
+    "ritual_ZNK24QQmlJavaScriptExpression20expressionIdentifierEv": [
+      "text", "address"
+    ],
+    "ritual_ZN24QQmlJavaScriptExpression17expressionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQmlJavaScriptExpression8evaluateEPb": [
+      "unsigned long long", "address", "address"
+    ],
+    "ritual_ZN24QQmlJavaScriptExpression8evaluateEPN3QV48CallDataEPb": [
+      "unsigned long long", "address", "address", "address"
+    ],
+    "ritual_ZNK24QQmlJavaScriptExpression20notifyOnValueChangedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN24QQmlJavaScriptExpression23setNotifyOnValueChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN24QQmlJavaScriptExpression25resetNotifyOnValueChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK24QQmlJavaScriptExpression11scopeObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QQmlJavaScriptExpression14setScopeObjectEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK24QQmlJavaScriptExpression14sourceLocationEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK24QQmlJavaScriptExpression10hasContextEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK24QQmlJavaScriptExpression15hasValidContextEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK24QQmlJavaScriptExpression13publicContextEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK24QQmlJavaScriptExpression8functionEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QQmlJavaScriptExpression11setFunctionEPN3QV48FunctionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK24QQmlJavaScriptExpression15compilationUnitEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK24QQmlJavaScriptExpression14nextExpressionEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QQmlJavaScriptExpression7refreshEv": ["nothing", "address"],
+    "ritual_ZNK24QQmlJavaScriptExpression8hasErrorEv": ["bool", "address"],
+    "ritual_ZNK24QQmlJavaScriptExpression15hasDelayedErrorEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK24QQmlJavaScriptExpression5errorEP10QQmlEngine": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN24QQmlJavaScriptExpression10clearErrorEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQmlJavaScriptExpression17clearActiveGuardsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQmlJavaScriptExpression12delayedErrorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK24QQmlJavaScriptExpression27mustCaptureBindablePropertyEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK24QQmlJavaScriptExpression6engineEv": ["address", "address"],
+    "ritual_ZNK24QQmlJavaScriptExpression18hasUnresolvedNamesEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN24QQmlJavaScriptExpression26needsPropertyChangeTriggerEP7QObjecti": [
+      "bool", "address", "address", "int"
+    ],
+    "ritual_ZN24QQmlJavaScriptExpression29allocatePropertyChangeTriggerEP7QObjecti": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN24QQmlJavaScriptExpression13setupFunctionEPN3QV416ExecutionContextEPNS0_8FunctionE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_take_QQmlJavaScriptExpression": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK24QQmlJavaScriptExpression20expressionIdentifierEv": [
+      "text", "address"
+    ],
+    "ritual_own_ZNK24QQmlJavaScriptExpression14sourceLocationEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN24QQmlJavaScriptExpression7refreshEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZNK24QQmlJavaScriptExpression27mustCaptureBindablePropertyEv": [
+      "bool", "address"
+    ]
+  }
+}

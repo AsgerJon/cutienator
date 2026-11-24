@@ -1,0 +1,23 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmldebugstatesdelegate_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN23QQmlDebugStatesDelegateD1Ev": ["nothing", "address"],
+    "ritual_ZN23QQmlDebugStatesDelegate13updateBindingEP11QQmlContextRK12QQmlPropertyRK8QVariantbRK7QStringiiPb": [
+      "nothing", "address", "address", "address", "address", "bool", "text",
+      "int", "int", "address"
+    ],
+    "ritual_ZN23QQmlDebugStatesDelegate28setBindingForInvalidPropertyEP7QObjectRK7QStringRK8QVariantb": [
+      "bool", "address", "address", "text", "address", "bool"
+    ],
+    "ritual_ZN23QQmlDebugStatesDelegate30resetBindingForInvalidPropertyEP7QObjectRK7QString": [
+      "nothing", "address", "address", "text"
+    ],
+    "ritual_take_QQmlDebugStatesDelegate": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DAssetImport/6.12.0/QtQuick3DAssetImport/private/qssgassetimporte",
+    "rplugin_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK23QSSGAssetImporterPlugin10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QSSGAssetImporterPlugin2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN23QSSGAssetImporterPlugin6createERK7QStringRK5QListIS0_E": [
+      "address", "address", "text", "address"
+    ],
+    "ritual_take_QSSGAssetImporterPlugin": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

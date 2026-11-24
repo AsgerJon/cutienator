@@ -1,0 +1,31 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qbackingstorerhisupport_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN23QBackingStoreRhiSupportD1Ev": ["nothing", "address"],
+    "ritual_ZN23QBackingStoreRhiSupport5resetEv": ["nothing", "address"],
+    "ritual_ZN23QBackingStoreRhiSupport9setFormatERK14QSurfaceFormat": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QBackingStoreRhiSupport9setWindowEP7QWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QBackingStoreRhiSupport9setConfigERK30QPlatformBackingStoreRhiConfig": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QBackingStoreRhiSupport6createEv": ["bool", "address"],
+    "ritual_ZN23QBackingStoreRhiSupport18swapChainForWindowEP7QWindow": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN23QBackingStoreRhiSupport20surfaceTypeForConfigERK30QPlatformBackingStoreRhiConfig": [
+      "int", "address"
+    ],
+    "ritual_ZN23QBackingStoreRhiSupport15apiToRhiBackendEN30QPlatformBackingStoreRhiConfig3ApiE": [
+      "int", "int"
+    ],
+    "ritual_ZNK23QBackingStoreRhiSupport3rhiEv": ["address", "address"]
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquickdrawer_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK12QQuickDrawer10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QQuickDrawer2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN12QQuickDrawerC1EP7QObject": ["address", "address"],
+    "ritual_ZNK12QQuickDrawer4edgeEv": ["int", "address"],
+    "ritual_ZN12QQuickDrawer7setEdgeEN2Qt4EdgeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK12QQuickDrawer8positionEv": ["double", "address"],
+    "ritual_ZN12QQuickDrawer11setPositionEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK12QQuickDrawer10dragMarginEv": ["double", "address"],
+    "ritual_ZN12QQuickDrawer13setDragMarginEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN12QQuickDrawer15resetDragMarginEv": ["nothing", "address"],
+    "ritual_ZNK12QQuickDrawer13isInteractiveEv": ["bool", "address"],
+    "ritual_ZN12QQuickDrawer14setInteractiveEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN12QQuickDrawer21childMouseEventFilterEP10QQuickItemP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN12QQuickDrawer14mouseMoveEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QQuickDrawer12overlayEventEP10QQuickItemP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN12QQuickDrawer10touchEventEP11QTouchEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QQuickDrawer14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN12QQuickDrawer6d_funcEv": ["address", "address"],
+    "ritual_ZNK12QQuickDrawer6d_funcEv": ["address", "address"],
+    "ritual_own_ZN12QQuickDrawer21childMouseEventFilterEP10QQuickItemP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_own_ZN12QQuickDrawer14mouseMoveEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN12QQuickDrawer12overlayEventEP10QQuickItemP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_own_ZN12QQuickDrawer10touchEventEP11QTouchEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN12QQuickDrawer14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ]
+  }
+}

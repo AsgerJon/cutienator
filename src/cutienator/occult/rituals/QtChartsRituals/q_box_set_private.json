@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/6.12.0/QtCharts/private/qboxset_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK14QBoxSetPrivate10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QBoxSetPrivate2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN14QBoxSetPrivateC1E7QStringP7QBoxSet": [
+      "address", "text", "address"
+    ],
+    "ritual_ZN14QBoxSetPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN14QBoxSetPrivate6appendEd": ["bool", "address", "double"],
+    "ritual_ZN14QBoxSetPrivate5clearEv": ["nothing", "address"],
+    "ritual_ZN14QBoxSetPrivate8setValueEid": [
+      "nothing", "address", "int", "double"
+    ],
+    "ritual_ZN14QBoxSetPrivate5valueEi": ["double", "address", "int"],
+    "ritual_take_QBoxSetPrivate": ["bool", "address", "chars", "address"]
+  }
+}

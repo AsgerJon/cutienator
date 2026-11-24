@@ -1,0 +1,42 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/ui4_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN14DomActionGroupC1Ev": ["address"],
+    "ritual_ZN14DomActionGroupD1Ev": ["nothing", "address"],
+    "ritual_ZNK14DomActionGroup16hasAttributeNameEv": ["bool", "address"],
+    "ritual_ZNK14DomActionGroup13attributeNameEv": ["text", "address"],
+    "ritual_ZN14DomActionGroup16setAttributeNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN14DomActionGroup18clearAttributeNameEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK14DomActionGroup13elementActionEv": ["address", "address"],
+    "ritual_ZN14DomActionGroup16setElementActionERK5QListIP9DomActionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14DomActionGroup18elementActionGroupEv": [
+      "address", "address"
+    ],
+    "ritual_ZN14DomActionGroup21setElementActionGroupERK5QListIPS_E": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14DomActionGroup15elementPropertyEv": ["address", "address"],
+    "ritual_ZN14DomActionGroup18setElementPropertyERK5QListIP11DomPropertyE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14DomActionGroup16elementAttributeEv": ["address", "address"],
+    "ritual_ZN14DomActionGroup19setElementAttributeERK5QListIP11DomPropertyE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_list_make_DomActionGroup_ptr": ["address"],
+    "ritual_list_add_DomActionGroup_ptr": ["nothing", "address", "address"],
+    "ritual_list_size_DomActionGroup_ptr": ["long long", "address"],
+    "ritual_list_at_DomActionGroup_ptr": ["address", "address", "long long"],
+    "ritual_list_drop_DomActionGroup_ptr": ["nothing", "address"]
+  }
+}

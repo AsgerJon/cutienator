@@ -1,0 +1,13 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtMultimedia/6.12.0/QtMultimedia/private/qcoreaudiodevice_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QCoreAudioDeviceInfoC1ERK10QByteArrayN12QAudioDevice4ModeE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN20QCoreAudioDeviceInfoD1Ev": ["nothing", "address"]
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDBus/qdbusconnection.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QDBusConnectionC1ERK7QString": ["address", "text"],
+    "ritual_ZN15QDBusConnectionC1ERKS_": ["address", "address"],
+    "ritual_ZN15QDBusConnectionD1Ev": ["nothing", "address"],
+    "ritual_ZNK15QDBusConnection11isConnectedEv": ["bool", "address"],
+    "ritual_ZNK15QDBusConnection11baseServiceEv": ["text", "address"],
+    "ritual_ZNK15QDBusConnection9lastErrorEv": ["address", "address"],
+    "ritual_ZNK15QDBusConnection4nameEv": ["text", "address"],
+    "ritual_ZNK15QDBusConnection22connectionCapabilitiesEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK15QDBusConnection4sendERK12QDBusMessage": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK15QDBusConnection16callWithCallbackERK12QDBusMessageP7QObjectPKcS6_i": [
+      "bool", "address", "address", "address", "chars", "chars", "int"
+    ],
+    "ritual_ZNK15QDBusConnection16callWithCallbackERK12QDBusMessageP7QObjectPKci": [
+      "bool", "address", "address", "address", "chars", "int"
+    ],
+    "ritual_ZNK15QDBusConnection4callERK12QDBusMessageN5QDBus8CallModeEi": [
+      "address", "address", "address", "int", "int"
+    ],
+    "ritual_ZNK15QDBusConnection9asyncCallERK12QDBusMessagei": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN15QDBusConnection7connectERK7QStringS2_S2_S2_P7QObjectPKc": [
+      "bool", "address", "text", "text", "text", "text", "address", "chars"
+    ],
+    "ritual_ZN15QDBusConnection7connectERK7QStringS2_S2_S2_S2_P7QObjectPKc": [
+      "bool", "address", "text", "text", "text", "text", "text", "address",
+      "chars"
+    ],
+    "ritual_ZN15QDBusConnection7connectERK7QStringS2_S2_S2_RK5QListIS0_ES2_P7QObjectPKc": [
+      "bool", "address", "text", "text", "text", "text", "address", "text",
+      "address", "chars"
+    ],
+    "ritual_ZN15QDBusConnection10disconnectERK7QStringS2_S2_S2_P7QObjectPKc": [
+      "bool", "address", "text", "text", "text", "text", "address", "chars"
+    ],
+    "ritual_ZN15QDBusConnection10disconnectERK7QStringS2_S2_S2_S2_P7QObjectPKc": [
+      "bool", "address", "text", "text", "text", "text", "text", "address",
+      "chars"
+    ],
+    "ritual_ZN15QDBusConnection10disconnectERK7QStringS2_S2_S2_RK5QListIS0_ES2_P7QObjectPKc": [
+      "bool", "address", "text", "text", "text", "text", "address", "text",
+      "address", "chars"
+    ],
+    "ritual_ZN15QDBusConnection14registerObjectERK7QStringP7QObject6QFlagsINS_14RegisterOptionEE": [
+      "bool", "address", "text", "address", "int"
+    ],
+    "ritual_ZN15QDBusConnection14registerObjectERK7QStringS2_P7QObject6QFlagsINS_14RegisterOptionEE": [
+      "bool", "address", "text", "text", "address", "int"
+    ],
+    "ritual_ZN15QDBusConnection16unregisterObjectERK7QStringNS_14UnregisterModeE": [
+      "nothing", "address", "text", "int"
+    ],
+    "ritual_ZNK15QDBusConnection18objectRegisteredAtERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN15QDBusConnection21registerVirtualObjectERK7QStringP18QDBusVirtualObjectNS_27VirtualObjectRegisterOptionE": [
+      "bool", "address", "text", "address", "int"
+    ],
+    "ritual_ZN15QDBusConnection15registerServiceERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN15QDBusConnection17unregisterServiceERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZNK15QDBusConnection9interfaceEv": ["address", "address"],
+    "ritual_ZN15QDBusConnection12connectToBusENS_7BusTypeERK7QString": [
+      "address", "int", "text"
+    ],
+    "ritual_ZN15QDBusConnection12connectToBusERK7QStringS2_": [
+      "address", "text", "text"
+    ],
+    "ritual_ZN15QDBusConnection13connectToPeerERK7QStringS2_": [
+      "address", "text", "text"
+    ],
+    "ritual_ZN15QDBusConnection17disconnectFromBusERK7QString": [
+      "nothing", "text"
+    ],
+    "ritual_ZN15QDBusConnection18disconnectFromPeerERK7QString": [
+      "nothing", "text"
+    ],
+    "ritual_ZN15QDBusConnection14localMachineIdEv": ["address"],
+    "ritual_ZN15QDBusConnection10sessionBusEv": ["address"],
+    "ritual_ZN15QDBusConnection9systemBusEv": ["address"],
+    "ritual_ZN15QDBusConnectionC1EP22QDBusConnectionPrivate": [
+      "address", "address"
+    ]
+  }
+}

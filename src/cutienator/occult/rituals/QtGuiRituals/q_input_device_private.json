@@ -1,0 +1,37 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qinputdevice_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QInputDevicePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK19QInputDevicePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN19QInputDevicePrivateC1ERK7QStringxN12QInputDevice10DeviceTypeE6QFlagsINS3_10CapabilityEES2_": [
+      "address", "text", "long long", "int", "int", "text"
+    ],
+    "ritual_ZN19QInputDevicePrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN19QInputDevicePrivate14registerDeviceEPK12QInputDevice": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QInputDevicePrivate16unregisterDeviceEPK12QInputDevice": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QInputDevicePrivate12isRegisteredEPK12QInputDevice": [
+      "bool", "address"
+    ],
+    "ritual_ZN19QInputDevicePrivate6fromIdEx": ["address", "long long"],
+    "ritual_ZN19QInputDevicePrivate27setAvailableVirtualGeometryE5QRect": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QInputDevicePrivate15setCapabilitiesE6QFlagsIN12QInputDevice10CapabilityEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN19QInputDevicePrivate3getEP12QInputDevice": [
+      "address", "address"
+    ],
+    "ritual_ZN19QInputDevicePrivate3getEPK12QInputDevice": [
+      "address", "address"
+    ]
+  }
+}

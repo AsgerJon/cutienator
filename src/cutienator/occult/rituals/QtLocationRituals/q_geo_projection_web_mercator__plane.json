@@ -1,0 +1,20 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLocation/6.12.0/QtLocation/private/qgeoprojection_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN25QGeoProjectionWebMercator5PlaneC1Ev": ["address"],
+    "ritual_ZNK25QGeoProjectionWebMercator5Plane16lineIntersectionERK15QDoubleVector3DS3_": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK25QGeoProjectionWebMercator5Plane16lineIntersectionERK15QDoubleVector3DS3_Rd": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK25QGeoProjectionWebMercator5Plane7isValidEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN25QGeoProjectionWebMercator5PlaneD1Ev": ["nothing", "address"]
+  }
+}

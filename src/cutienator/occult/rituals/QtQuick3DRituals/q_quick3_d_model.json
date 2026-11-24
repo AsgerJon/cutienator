@@ -1,0 +1,143 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3D/6.12.0/QtQuick3D/private/qquick3dmodel_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK13QQuick3DModel10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QQuick3DModel2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN13QQuick3DModelC1EP12QQuick3DNode": ["address", "address"],
+    "ritual_ZN13QQuick3DModelD1Ev": ["nothing", "address"],
+    "ritual_ZNK13QQuick3DModel6sourceEv": ["address", "address"],
+    "ritual_ZNK13QQuick3DModel12castsShadowsEv": ["bool", "address"],
+    "ritual_ZNK13QQuick3DModel15receivesShadowsEv": ["bool", "address"],
+    "ritual_ZNK13QQuick3DModel8pickableEv": ["bool", "address"],
+    "ritual_ZNK13QQuick3DModel8geometryEv": ["address", "address"],
+    "ritual_ZNK13QQuick3DModel8skeletonEv": ["address", "address"],
+    "ritual_ZNK13QQuick3DModel16inverseBindPosesEv": ["address", "address"],
+    "ritual_ZNK13QQuick3DModel6boundsEv": ["address", "address"],
+    "ritual_ZNK13QQuick3DModel9depthBiasEv": ["float", "address"],
+    "ritual_ZNK13QQuick3DModel10instancingEv": ["address", "address"],
+    "ritual_ZNK13QQuick3DModel12instanceRootEv": ["address", "address"],
+    "ritual_ZNK13QQuick3DModel19receivesReflectionsEv": ["bool", "address"],
+    "ritual_ZNK13QQuick3DModel16castsReflectionsEv": ["bool", "address"],
+    "ritual_ZNK13QQuick3DModel4skinEv": ["address", "address"],
+    "ritual_ZN13QQuick3DModel19translateMeshSourceERK4QUrlP7QObject": [
+      "text", "address", "address"
+    ],
+    "ritual_ZNK13QQuick3DModel21isUsedInBakedLightingEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK13QQuick3DModel22lightmapBaseResolutionEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK13QQuick3DModel13bakedLightmapEv": ["address", "address"],
+    "ritual_ZNK13QQuick3DModel16instancingLodMinEv": ["float", "address"],
+    "ritual_ZNK13QQuick3DModel16instancingLodMaxEv": ["float", "address"],
+    "ritual_ZNK13QQuick3DModel17levelOfDetailBiasEv": ["float", "address"],
+    "ritual_ZNK13QQuick3DModel19instancingLodFactorEv": ["float", "address"],
+    "ritual_ZNK13QQuick3DModel13texelsPerUnitEv": ["float", "address"],
+    "ritual_ZN13QQuick3DModel16setTexelsPerUnitEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK13QQuick3DModel19motionVectorEnabledEv": ["bool", "address"],
+    "ritual_ZNK13QQuick3DModel17motionVectorScaleEv": ["float", "address"],
+    "ritual_ZN13QQuick3DModel9setSourceERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QQuick3DModel15setCastsShadowsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN13QQuick3DModel18setReceivesShadowsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN13QQuick3DModel11setPickableEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN13QQuick3DModel11setGeometryEP16QQuick3DGeometry": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QQuick3DModel11setSkeletonEP16QQuick3DSkeleton": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QQuick3DModel19setInverseBindPosesERK5QListI10QMatrix4x4E": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QQuick3DModel9setBoundsERK9QVector3DS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN13QQuick3DModel13setInstancingEP18QQuick3DInstancing": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QQuick3DModel15setInstanceRootEP12QQuick3DNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QQuick3DModel12setDepthBiasEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN13QQuick3DModel22setReceivesReflectionsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN13QQuick3DModel19setCastsReflectionsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN13QQuick3DModel7setSkinEP12QQuick3DSkin": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QQuick3DModel22setUsedInBakedLightingEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN13QQuick3DModel25setLightmapBaseResolutionEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN13QQuick3DModel16setBakedLightmapEP21QQuick3DBakedLightmap": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QQuick3DModel19setInstancingLodMinEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN13QQuick3DModel19setInstancingLodMaxEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN13QQuick3DModel20setLevelOfDetailBiasEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN13QQuick3DModel22setInstancingLodFactorEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN13QQuick3DModel20setMotionVectorScaleEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN13QQuick3DModel22setMotionVectorEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN13QQuick3DModel17updateSpatialNodeEP21QSSGRenderGraphObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN13QQuick3DModel12markAllDirtyEv": ["nothing", "address"],
+    "ritual_ZN13QQuick3DModel10itemChangeEN14QQuick3DObject10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN13QQuick3DModel19onMaterialDestroyedEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QQuick3DModel22onMorphTargetDestroyedEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QQuick3DModel9markDirtyENS_18QSSGModelDirtyTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN13QQuick3DModel18updateSceneManagerEP20QQuick3DSceneManager": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QQuick3DModel": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN13QQuick3DModel17updateSpatialNodeEP21QSSGRenderGraphObject": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN13QQuick3DModel12markAllDirtyEv": ["nothing", "address"],
+    "ritual_own_ZN13QQuick3DModel10itemChangeEN14QQuick3DObject10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ]
+  }
+}

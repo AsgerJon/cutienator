@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qundostack_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN17QUndoStackPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK17QUndoStackPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN17QUndoStackPrivateC1Ev": ["address"],
+    "ritual_ZN17QUndoStackPrivate8setIndexEib": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZN17QUndoStackPrivate14checkUndoLimitEv": ["bool", "address"],
+    "ritual_ZN17QUndoStackPrivate15setPrefixedTextEP7QActionRK7QStringS4_S4_": [
+      "nothing", "address", "text", "text", "text"
+    ]
+  }
+}

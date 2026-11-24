@@ -1,0 +1,14 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtScxml/qscxmldatamodel.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QScxmlDataModel15ForeachLoopBodyD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QScxmlDataModel15ForeachLoopBody3runEPb": [
+      "nothing", "address", "address"
+    ]
+  }
+}

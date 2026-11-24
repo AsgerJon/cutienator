@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/simplewidgets_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK19QAccessibleGroupBox5stateEv": ["address", "address"],
+    "ritual_ZNK19QAccessibleGroupBox4roleEv": ["int", "address"],
+    "ritual_ZNK19QAccessibleGroupBox11actionNamesEv": ["address", "address"],
+    "ritual_ZN19QAccessibleGroupBox8doActionERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK19QAccessibleGroupBox20keyBindingsForActionERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK19QAccessibleGroupBox8groupBoxEv": ["address", "address"],
+    "ritual_own_ZNK19QAccessibleGroupBox5stateEv": ["address", "address"],
+    "ritual_own_ZNK19QAccessibleGroupBox4roleEv": ["int", "address"],
+    "ritual_own_ZN19QAccessibleGroupBox8doActionERK7QString": [
+      "nothing", "address", "text"
+    ]
+  }
+}

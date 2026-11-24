@@ -1,0 +1,44 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qromancalendar_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK14QRomanCalendar11daysInMonthEii": [
+      "int", "address", "int", "int"
+    ],
+    "ritual_ZNK14QRomanCalendar18minimumDaysInMonthEv": ["int", "address"],
+    "ritual_ZNK14QRomanCalendar7isLunarEv": ["bool", "address"],
+    "ritual_ZNK14QRomanCalendar11isLuniSolarEv": ["bool", "address"],
+    "ritual_ZNK14QRomanCalendar7isSolarEv": ["bool", "address"],
+    "ritual_ZNK14QRomanCalendar9monthNameERK7QLocaleiiNS0_10FormatTypeE": [
+      "text", "address", "address", "int", "int", "int"
+    ],
+    "ritual_ZNK14QRomanCalendar19standaloneMonthNameERK7QLocaleiiNS0_10FormatTypeE": [
+      "text", "address", "address", "int", "int", "int"
+    ],
+    "ritual_ZNK14QRomanCalendar20localeMonthIndexDataEv": [
+      "address", "address"
+    ],
+    "ritual_take_QRomanCalendar": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK14QRomanCalendar11daysInMonthEii": [
+      "int", "address", "int", "int"
+    ],
+    "ritual_own_ZNK14QRomanCalendar18minimumDaysInMonthEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZNK14QRomanCalendar7isLunarEv": ["bool", "address"],
+    "ritual_own_ZNK14QRomanCalendar11isLuniSolarEv": ["bool", "address"],
+    "ritual_own_ZNK14QRomanCalendar7isSolarEv": ["bool", "address"],
+    "ritual_own_ZNK14QRomanCalendar9monthNameERK7QLocaleiiNS0_10FormatTypeE": [
+      "text", "address", "address", "int", "int", "int"
+    ],
+    "ritual_own_ZNK14QRomanCalendar19standaloneMonthNameERK7QLocaleiiNS0_10FormatTypeE": [
+      "text", "address", "address", "int", "int", "int"
+    ],
+    "ritual_own_ZNK14QRomanCalendar20localeMonthIndexDataEv": [
+      "address", "address"
+    ]
+  }
+}

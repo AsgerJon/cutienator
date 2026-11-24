@@ -1,0 +1,46 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQmlDe",
+    "signSupport/6.12.0/QtQmlDesignSupport/private/qobjectregistrysingl",
+    "eton_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK24QObjectRegistrySingleton10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QObjectRegistrySingleton2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN24QObjectRegistrySingleton22qt_qmlMarker_singletonEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QObjectRegistrySingletonC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN24QObjectRegistrySingletonD1Ev": ["nothing", "address"],
+    "ritual_ZN24QObjectRegistrySingleton11registerRefEP33QAbstractObjectRegistryRefPrivate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QObjectRegistrySingleton13deregisterRefEP33QAbstractObjectRegistryRefPrivate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QObjectRegistrySingleton3addERK7QStringP7QObject": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZN24QObjectRegistrySingleton6removeERK7QStringP7QObject": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZN24QObjectRegistrySingleton17registryForObjectEP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN24QObjectRegistrySingleton17registryForEngineEP10QQmlEngine": [
+      "address", "address"
+    ],
+    "ritual_ZN24QObjectRegistrySingleton10notifyRefsERK7QStringP7QObjectNS_12NotificationE": [
+      "nothing", "address", "text", "address", "int"
+    ],
+    "ritual_take_QObjectRegistrySingleton": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

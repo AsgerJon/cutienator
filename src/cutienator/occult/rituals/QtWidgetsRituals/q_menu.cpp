@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qmenu.h, Qt 6.12.0. Changes made here are lost.
+#include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(menu)
 #include <QtWidgets/qmenu.h>
 #include <QtCore/qstring.h>
 #include <QtGui/qkeysequence.h>
@@ -36,22 +38,62 @@ struct OwnQMenu : QMenu {
 //  A QMenu that Python can take functions over in. Every QMenu
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if QT_CONFIG(menu)
 typedef const QSize * (*CuteQMenuCall0)(const void *, int *);
+#endif  // QT_CONFIG(menu)
+#if QT_CONFIG(menu)
 typedef void (*CuteQMenuCall1)(const void *, QEvent *, int *);
+#endif  // QT_CONFIG(menu)
+#if QT_CONFIG(menu)
 typedef void (*CuteQMenuCall2)(const void *, QKeyEvent *, int *);
+#endif  // QT_CONFIG(menu)
+#if QT_CONFIG(menu)
 typedef void (*CuteQMenuCall3)(const void *, QMouseEvent *, int *);
+#endif  // QT_CONFIG(menu)
+#if QT_CONFIG(menu)
 typedef void (*CuteQMenuCall4)(const void *, QMouseEvent *, int *);
+#endif  // QT_CONFIG(menu)
+#if QT_CONFIG(menu)
 typedef void (*CuteQMenuCall5)(const void *, QMouseEvent *, int *);
+#endif  // QT_CONFIG(menu)
+#if QT_CONFIG(wheelevent)
+#if QT_CONFIG(menu)
 typedef void (*CuteQMenuCall6)(const void *, QWheelEvent *, int *);
+#endif  // QT_CONFIG(menu)
+#endif  // QT_CONFIG(wheelevent)
+#if QT_CONFIG(menu)
 typedef void (*CuteQMenuCall7)(const void *, QEnterEvent *, int *);
+#endif  // QT_CONFIG(menu)
+#if QT_CONFIG(menu)
 typedef void (*CuteQMenuCall8)(const void *, QEvent *, int *);
+#endif  // QT_CONFIG(menu)
+#if QT_CONFIG(menu)
 typedef void (*CuteQMenuCall9)(const void *, QHideEvent *, int *);
+#endif  // QT_CONFIG(menu)
+#if QT_CONFIG(menu)
 typedef void (*CuteQMenuCall10)(const void *, QPaintEvent *, int *);
+#endif  // QT_CONFIG(menu)
+#if !defined(QT_NO_ACTION)
+#if QT_CONFIG(menu)
 typedef void (*CuteQMenuCall11)(const void *, QActionEvent *, int *);
+#endif  // QT_CONFIG(menu)
+#endif  // !defined(QT_NO_ACTION)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(menu)
 typedef void (*CuteQMenuCall12)(const void *, QTimerEvent *, int *);
+#endif  // QT_CONFIG(menu)
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(menu)
 typedef bool (*CuteQMenuCall13)(const void *, QEvent *, int *);
+#endif  // QT_CONFIG(menu)
+#endif  // !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(menu)
 typedef bool (*CuteQMenuCall14)(const void *, bool, int *);
+#endif  // QT_CONFIG(menu)
+#if QT_CONFIG(menu)
 typedef void (*CuteQMenuCall15)(const void *, QStyleOptionMenuItem *, const QAction *, int *);
+#endif  // QT_CONFIG(menu)
 typedef int (*CuteQMenuCall16)(const void *, int *);
 typedef void (*CuteQMenuCall17)(const void *, bool, int *);
 typedef const QSize * (*CuteQMenuCall18)(const void *, int *);
@@ -65,12 +107,24 @@ typedef void (*CuteQMenuCall25)(const void *, QFocusEvent *, int *);
 typedef void (*CuteQMenuCall26)(const void *, QMoveEvent *, int *);
 typedef void (*CuteQMenuCall27)(const void *, QResizeEvent *, int *);
 typedef void (*CuteQMenuCall28)(const void *, QCloseEvent *, int *);
+#if !defined(QT_NO_CONTEXTMENU)
 typedef void (*CuteQMenuCall29)(const void *, QContextMenuEvent *, int *);
+#endif  // !defined(QT_NO_CONTEXTMENU)
+#if QT_CONFIG(tabletevent)
 typedef void (*CuteQMenuCall30)(const void *, QTabletEvent *, int *);
+#endif  // QT_CONFIG(tabletevent)
+#if QT_CONFIG(draganddrop)
 typedef void (*CuteQMenuCall31)(const void *, QDragEnterEvent *, int *);
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
 typedef void (*CuteQMenuCall32)(const void *, QDragMoveEvent *, int *);
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
 typedef void (*CuteQMenuCall33)(const void *, QDragLeaveEvent *, int *);
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
 typedef void (*CuteQMenuCall34)(const void *, QDropEvent *, int *);
+#endif  // QT_CONFIG(draganddrop)
 typedef void (*CuteQMenuCall35)(const void *, QShowEvent *, int *);
 typedef int (*CuteQMenuCall36)(const void *, int, int *);
 typedef void (*CuteQMenuCall37)(const void *, QPainter *, int *);
@@ -78,81 +132,131 @@ typedef void * (*CuteQMenuCall38)(const void *, QPoint *, int *);
 typedef void * (*CuteQMenuCall39)(const void *, int *);
 typedef void (*CuteQMenuCall40)(const void *, QInputMethodEvent *, int *);
 typedef const QVariant * (*CuteQMenuCall41)(const void *, int, int *);
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQMenuCall42)(const void *, QObject *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQMenuCall43)(const void *, QChildEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQMenuCall44)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQMenuCall45)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQMenuCall46)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 class CuteQMenu : public QMenu {
 public:
   using QMenu::QMenu;
   void *taken[47] = {};
 
   bool take(const char *key, void *call) {
+#if QT_CONFIG(menu)
     if (!std::strcmp(key, "_ZNK7QWidget8sizeHintEv")) {
       taken[0] = call;
       return true;
     }
+#endif  // QT_CONFIG(menu)
+#if QT_CONFIG(menu)
     if (!std::strcmp(key, "_ZN7QWidget11changeEventEP6QEvent")) {
       taken[1] = call;
       return true;
     }
+#endif  // QT_CONFIG(menu)
+#if QT_CONFIG(menu)
     if (!std::strcmp(key, "_ZN7QWidget13keyPressEventEP9QKeyEvent")) {
       taken[2] = call;
       return true;
     }
+#endif  // QT_CONFIG(menu)
+#if QT_CONFIG(menu)
     if (!std::strcmp(key, "_ZN7QWidget17mouseReleaseEventEP11QMouseEvent")) {
       taken[3] = call;
       return true;
     }
+#endif  // QT_CONFIG(menu)
+#if QT_CONFIG(menu)
     if (!std::strcmp(key, "_ZN7QWidget15mousePressEventEP11QMouseEvent")) {
       taken[4] = call;
       return true;
     }
+#endif  // QT_CONFIG(menu)
+#if QT_CONFIG(menu)
     if (!std::strcmp(key, "_ZN7QWidget14mouseMoveEventEP11QMouseEvent")) {
       taken[5] = call;
       return true;
     }
+#endif  // QT_CONFIG(menu)
+#if QT_CONFIG(wheelevent)
+#if QT_CONFIG(menu)
     if (!std::strcmp(key, "_ZN7QWidget10wheelEventEP11QWheelEvent")) {
       taken[6] = call;
       return true;
     }
+#endif  // QT_CONFIG(menu)
+#endif  // QT_CONFIG(wheelevent)
+#if QT_CONFIG(menu)
     if (!std::strcmp(key, "_ZN7QWidget10enterEventEP11QEnterEvent")) {
       taken[7] = call;
       return true;
     }
+#endif  // QT_CONFIG(menu)
+#if QT_CONFIG(menu)
     if (!std::strcmp(key, "_ZN7QWidget10leaveEventEP6QEvent")) {
       taken[8] = call;
       return true;
     }
+#endif  // QT_CONFIG(menu)
+#if QT_CONFIG(menu)
     if (!std::strcmp(key, "_ZN7QWidget9hideEventEP10QHideEvent")) {
       taken[9] = call;
       return true;
     }
+#endif  // QT_CONFIG(menu)
+#if QT_CONFIG(menu)
     if (!std::strcmp(key, "_ZN7QWidget10paintEventEP11QPaintEvent")) {
       taken[10] = call;
       return true;
     }
+#endif  // QT_CONFIG(menu)
+#if !defined(QT_NO_ACTION)
+#if QT_CONFIG(menu)
     if (!std::strcmp(key, "_ZN7QWidget11actionEventEP12QActionEvent")) {
       taken[11] = call;
       return true;
     }
+#endif  // QT_CONFIG(menu)
+#endif  // !defined(QT_NO_ACTION)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(menu)
     if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[12] = call;
       return true;
     }
+#endif  // QT_CONFIG(menu)
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(menu)
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[13] = call;
       return true;
     }
+#endif  // QT_CONFIG(menu)
+#endif  // !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(menu)
     if (!std::strcmp(key, "_ZN7QWidget18focusNextPrevChildEb")) {
       taken[14] = call;
       return true;
     }
+#endif  // QT_CONFIG(menu)
+#if QT_CONFIG(menu)
     if (!std::strcmp(key, "_ZNK5QMenu15initStyleOptionEP20QStyleOptionMenuItemPK7QAction")) {
       taken[15] = call;
       return true;
     }
+#endif  // QT_CONFIG(menu)
     if (!std::strcmp(key, "_ZNK12QPaintDevice7devTypeEv")) {
       taken[16] = call;
       return true;
@@ -205,30 +309,42 @@ public:
       taken[28] = call;
       return true;
     }
+#if !defined(QT_NO_CONTEXTMENU)
     if (!std::strcmp(key, "_ZN7QWidget16contextMenuEventEP17QContextMenuEvent")) {
       taken[29] = call;
       return true;
     }
+#endif  // !defined(QT_NO_CONTEXTMENU)
+#if QT_CONFIG(tabletevent)
     if (!std::strcmp(key, "_ZN7QWidget11tabletEventEP12QTabletEvent")) {
       taken[30] = call;
       return true;
     }
+#endif  // QT_CONFIG(tabletevent)
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget14dragEnterEventEP15QDragEnterEvent")) {
       taken[31] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget13dragMoveEventEP14QDragMoveEvent")) {
       taken[32] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget14dragLeaveEventEP15QDragLeaveEvent")) {
       taken[33] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget9dropEventEP10QDropEvent")) {
       taken[34] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget9showEventEP10QShowEvent")) {
       taken[35] = call;
       return true;
@@ -257,29 +373,40 @@ public:
       taken[41] = call;
       return true;
     }
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[42] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[43] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[44] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[45] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
       taken[46] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
     return false;
   }
 
+#if QT_CONFIG(menu)
   //  QSize QMenu::sizeHint() const
   QSize sizeHint() const override {
     if (taken[0]) {
@@ -290,7 +417,9 @@ public:
     }
     return QMenu::sizeHint();
   }
+#endif  // QT_CONFIG(menu)
 
+#if QT_CONFIG(menu)
   //  void QMenu::changeEvent(QEvent *a0)
   void changeEvent(QEvent *a0) override {
     if (taken[1]) {
@@ -301,7 +430,9 @@ public:
     }
     QMenu::changeEvent(a0);
   }
+#endif  // QT_CONFIG(menu)
 
+#if QT_CONFIG(menu)
   //  void QMenu::keyPressEvent(QKeyEvent *a0)
   void keyPressEvent(QKeyEvent *a0) override {
     if (taken[2]) {
@@ -312,7 +443,9 @@ public:
     }
     QMenu::keyPressEvent(a0);
   }
+#endif  // QT_CONFIG(menu)
 
+#if QT_CONFIG(menu)
   //  void QMenu::mouseReleaseEvent(QMouseEvent *a0)
   void mouseReleaseEvent(QMouseEvent *a0) override {
     if (taken[3]) {
@@ -323,7 +456,9 @@ public:
     }
     QMenu::mouseReleaseEvent(a0);
   }
+#endif  // QT_CONFIG(menu)
 
+#if QT_CONFIG(menu)
   //  void QMenu::mousePressEvent(QMouseEvent *a0)
   void mousePressEvent(QMouseEvent *a0) override {
     if (taken[4]) {
@@ -334,7 +469,9 @@ public:
     }
     QMenu::mousePressEvent(a0);
   }
+#endif  // QT_CONFIG(menu)
 
+#if QT_CONFIG(menu)
   //  void QMenu::mouseMoveEvent(QMouseEvent *a0)
   void mouseMoveEvent(QMouseEvent *a0) override {
     if (taken[5]) {
@@ -345,7 +482,10 @@ public:
     }
     QMenu::mouseMoveEvent(a0);
   }
+#endif  // QT_CONFIG(menu)
 
+#if QT_CONFIG(wheelevent)
+#if QT_CONFIG(menu)
   //  void QMenu::wheelEvent(QWheelEvent *a0)
   void wheelEvent(QWheelEvent *a0) override {
     if (taken[6]) {
@@ -356,7 +496,10 @@ public:
     }
     QMenu::wheelEvent(a0);
   }
+#endif  // QT_CONFIG(menu)
+#endif  // QT_CONFIG(wheelevent)
 
+#if QT_CONFIG(menu)
   //  void QMenu::enterEvent(QEnterEvent *a0)
   void enterEvent(QEnterEvent *a0) override {
     if (taken[7]) {
@@ -367,7 +510,9 @@ public:
     }
     QMenu::enterEvent(a0);
   }
+#endif  // QT_CONFIG(menu)
 
+#if QT_CONFIG(menu)
   //  void QMenu::leaveEvent(QEvent *a0)
   void leaveEvent(QEvent *a0) override {
     if (taken[8]) {
@@ -378,7 +523,9 @@ public:
     }
     QMenu::leaveEvent(a0);
   }
+#endif  // QT_CONFIG(menu)
 
+#if QT_CONFIG(menu)
   //  void QMenu::hideEvent(QHideEvent *a0)
   void hideEvent(QHideEvent *a0) override {
     if (taken[9]) {
@@ -389,7 +536,9 @@ public:
     }
     QMenu::hideEvent(a0);
   }
+#endif  // QT_CONFIG(menu)
 
+#if QT_CONFIG(menu)
   //  void QMenu::paintEvent(QPaintEvent *a0)
   void paintEvent(QPaintEvent *a0) override {
     if (taken[10]) {
@@ -400,7 +549,10 @@ public:
     }
     QMenu::paintEvent(a0);
   }
+#endif  // QT_CONFIG(menu)
 
+#if !defined(QT_NO_ACTION)
+#if QT_CONFIG(menu)
   //  void QMenu::actionEvent(QActionEvent *a0)
   void actionEvent(QActionEvent *a0) override {
     if (taken[11]) {
@@ -411,7 +563,11 @@ public:
     }
     QMenu::actionEvent(a0);
   }
+#endif  // QT_CONFIG(menu)
+#endif  // !defined(QT_NO_ACTION)
 
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(menu)
   //  void QMenu::timerEvent(QTimerEvent *a0)
   void timerEvent(QTimerEvent *a0) override {
     if (taken[12]) {
@@ -422,7 +578,11 @@ public:
     }
     QMenu::timerEvent(a0);
   }
+#endif  // QT_CONFIG(menu)
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(menu)
   //  bool QMenu::event(QEvent *a0)
   bool event(QEvent *a0) override {
     if (taken[13]) {
@@ -433,7 +593,10 @@ public:
     }
     return QMenu::event(a0);
   }
+#endif  // QT_CONFIG(menu)
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if QT_CONFIG(menu)
   //  bool QMenu::focusNextPrevChild(bool next)
   bool focusNextPrevChild(bool next) override {
     if (taken[14]) {
@@ -444,7 +607,9 @@ public:
     }
     return QMenu::focusNextPrevChild(next);
   }
+#endif  // QT_CONFIG(menu)
 
+#if QT_CONFIG(menu)
   //  void QMenu::initStyleOption(QStyleOptionMenuItem *option, const
   //      QAction *action) const
   void initStyleOption(
@@ -458,6 +623,7 @@ public:
     }
     QMenu::initStyleOption(option, action);
   }
+#endif  // QT_CONFIG(menu)
 
   //  int QWidget::devType() const
   int devType() const override {
@@ -602,6 +768,7 @@ public:
     QWidget::closeEvent(event);
   }
 
+#if !defined(QT_NO_CONTEXTMENU)
   //  void QWidget::contextMenuEvent(QContextMenuEvent *event)
   void contextMenuEvent(QContextMenuEvent *event) override {
     if (taken[29]) {
@@ -612,7 +779,9 @@ public:
     }
     QWidget::contextMenuEvent(event);
   }
+#endif  // !defined(QT_NO_CONTEXTMENU)
 
+#if QT_CONFIG(tabletevent)
   //  void QWidget::tabletEvent(QTabletEvent *event)
   void tabletEvent(QTabletEvent *event) override {
     if (taken[30]) {
@@ -623,7 +792,9 @@ public:
     }
     QWidget::tabletEvent(event);
   }
+#endif  // QT_CONFIG(tabletevent)
 
+#if QT_CONFIG(draganddrop)
   //  void QWidget::dragEnterEvent(QDragEnterEvent *event)
   void dragEnterEvent(QDragEnterEvent *event) override {
     if (taken[31]) {
@@ -634,7 +805,9 @@ public:
     }
     QWidget::dragEnterEvent(event);
   }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
   //  void QWidget::dragMoveEvent(QDragMoveEvent *event)
   void dragMoveEvent(QDragMoveEvent *event) override {
     if (taken[32]) {
@@ -645,7 +818,9 @@ public:
     }
     QWidget::dragMoveEvent(event);
   }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
   //  void QWidget::dragLeaveEvent(QDragLeaveEvent *event)
   void dragLeaveEvent(QDragLeaveEvent *event) override {
     if (taken[33]) {
@@ -656,7 +831,9 @@ public:
     }
     QWidget::dragLeaveEvent(event);
   }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
   //  void QWidget::dropEvent(QDropEvent *event)
   void dropEvent(QDropEvent *event) override {
     if (taken[34]) {
@@ -667,6 +844,7 @@ public:
     }
     QWidget::dropEvent(event);
   }
+#endif  // QT_CONFIG(draganddrop)
 
   //  void QWidget::showEvent(QShowEvent *event)
   void showEvent(QShowEvent *event) override {
@@ -745,6 +923,7 @@ public:
     return QWidget::inputMethodQuery(a0);
   }
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
     if (taken[42]) {
@@ -755,7 +934,9 @@ public:
     }
     return QObject::eventFilter(watched, event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
     if (taken[43]) {
@@ -766,7 +947,9 @@ public:
     }
     QObject::childEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
     if (taken[44]) {
@@ -777,7 +960,9 @@ public:
     }
     QObject::customEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
     if (taken[45]) {
@@ -788,7 +973,9 @@ public:
     }
     QObject::connectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
     if (taken[46]) {
@@ -799,6 +986,7 @@ public:
     }
     QObject::disconnectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 };
 
 //  const QMetaObject *QMenu::metaObject() const
@@ -811,6 +999,18 @@ const QMetaObject *ritual_ZNK5QMenu10metaObjectEv(const QMenu *self) {
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN5QMenu2trEPKcS1_i(const char *s, const char *c, int n) {
   return new QString(QMenu::tr(s, c, n));
+}
+
+//  QMenuPrivate *QMenu::d_func()
+extern "C" Q_DECL_EXPORT
+QMenuPrivate *ritual_ZN5QMenu6d_funcEv(QMenu *self) {
+  return self->d_func();
+}
+
+//  const QMenuPrivate *QMenu::d_func() const
+extern "C" Q_DECL_EXPORT
+const QMenuPrivate *ritual_ZNK5QMenu6d_funcEv(const QMenu *self) {
+  return self->d_func();
 }
 
 //  QMenu::QMenu(QWidget *parent)
@@ -833,6 +1033,8 @@ void ritual_ZN5QMenuD1Ev(QMenu *self) {
   delete self;
 }
 
+#if QT_CONFIG(shortcut)
+#if QT_DEPRECATED_SINCE(6, 4)
 //  QAction *QMenu::addAction(const QString &text, const QObject *receiver,
 //      const char *member, const QKeySequence &shortcut)
 extern "C" Q_DECL_EXPORT
@@ -844,7 +1046,11 @@ QAction *ritual_ZN5QMenu9addActionERK7QStringPK7QObjectPKcRK12QKeySequence(
     const QKeySequence *shortcut) {
   return self->addAction(*text, receiver, member, *shortcut);
 }
+#endif  // QT_DEPRECATED_SINCE(6, 4)
+#endif  // QT_CONFIG(shortcut)
 
+#if QT_CONFIG(shortcut)
+#if QT_DEPRECATED_SINCE(6, 4)
 //  QAction *QMenu::addAction(const QIcon &icon, const QString &text, const
 //      QObject *receiver, const char *member, const QKeySequence &shortcut)
 extern "C" Q_DECL_EXPORT
@@ -857,6 +1063,8 @@ QAction *ritual_ZN5QMenu9addActionERK5QIconRK7QStringPK7QObjectPKcRK12QKeySequen
     const QKeySequence *shortcut) {
   return self->addAction(*icon, *text, receiver, member, *shortcut);
 }
+#endif  // QT_DEPRECATED_SINCE(6, 4)
+#endif  // QT_CONFIG(shortcut)
 
 //  QAction *QMenu::addMenu(QMenu *menu)
 extern "C" Q_DECL_EXPORT
@@ -1116,6 +1324,20 @@ void ritual_ZN5QMenu14setNoReplayForEP7QWidget(
   self->setNoReplayFor(widget);
 }
 
+//  QPlatformMenu *QMenu::platformMenu()
+extern "C" Q_DECL_EXPORT
+QPlatformMenu *ritual_ZN5QMenu12platformMenuEv(QMenu *self) {
+  return self->platformMenu();
+}
+
+//  void QMenu::setPlatformMenu(QPlatformMenu *platformMenu)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN5QMenu15setPlatformMenuEP13QPlatformMenu(
+    QMenu *self,
+    QPlatformMenu *platformMenu) {
+  self->setPlatformMenu(platformMenu);
+}
+
 //  bool QMenu::separatorsCollapsible() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK5QMenu21separatorsCollapsibleEv(const QMenu *self) {
@@ -1184,6 +1406,7 @@ void ritual_ZN5QMenu14mouseMoveEventEP11QMouseEvent(
   self->mouseMoveEvent(a0);
 }
 
+#if QT_CONFIG(wheelevent)
 //  void QMenu::wheelEvent(QWheelEvent *a0)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN5QMenu10wheelEventEP11QWheelEvent(
@@ -1191,6 +1414,7 @@ void ritual_ZN5QMenu10wheelEventEP11QWheelEvent(
     QWheelEvent *a0) {
   self->wheelEvent(a0);
 }
+#endif  // QT_CONFIG(wheelevent)
 
 //  void QMenu::enterEvent(QEnterEvent *a0)
 extern "C" Q_DECL_EXPORT
@@ -1314,6 +1538,7 @@ void ritual_own_ZN5QMenu14mouseMoveEventEP11QMouseEvent(
   static_cast<OwnQMenu *>(self)->OwnQMenu::mouseMoveEvent(a0);
 }
 
+#if QT_CONFIG(wheelevent)
 //  void QMenu::wheelEvent(QWheelEvent *a0)
 extern "C" Q_DECL_EXPORT
 void ritual_own_ZN5QMenu10wheelEventEP11QWheelEvent(
@@ -1321,6 +1546,7 @@ void ritual_own_ZN5QMenu10wheelEventEP11QWheelEvent(
     QWheelEvent *a0) {
   static_cast<OwnQMenu *>(self)->OwnQMenu::wheelEvent(a0);
 }
+#endif  // QT_CONFIG(wheelevent)
 
 //  void QMenu::enterEvent(QEnterEvent *a0)
 extern "C" Q_DECL_EXPORT
@@ -1391,3 +1617,5 @@ void ritual_own_ZNK5QMenu15initStyleOptionEP20QStyleOptionMenuItemPK7QAction(
       option,
       action);
 }
+
+#endif  // QT_CONFIG(menu)

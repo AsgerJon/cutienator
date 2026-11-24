@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/6.12.0/QtNetwork/private/qnetworkdiskcache_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN24QNetworkDiskCachePrivateC1Ev": ["address"],
+    "ritual_ZN24QNetworkDiskCachePrivate13prepareLayoutEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QNetworkDiskCachePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK24QNetworkDiskCachePrivate6q_funcEv": ["address", "address"]
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Dialogs2QuickImpl/6.12.0/QtQuickDialogs2QuickImpl/private/qquicksi",
+    "debar_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK13QQuickSideBar10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QQuickSideBar2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN13QQuickSideBarC1EP10QQuickItem": ["address", "address"],
+    "ritual_ZN13QQuickSideBarD1Ev": ["nothing", "address"],
+    "ritual_ZNK13QQuickSideBar6dialogEv": ["address", "address"],
+    "ritual_ZN13QQuickSideBar9setDialogEP12QQuickDialog": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QQuickSideBar13favoritePathsEv": ["address", "address"],
+    "ritual_ZNK13QQuickSideBar14buttonDelegateEv": ["address", "address"],
+    "ritual_ZN13QQuickSideBar17setButtonDelegateEP13QQmlComponent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QQuickSideBar17separatorDelegateEv": ["address", "address"],
+    "ritual_ZN13QQuickSideBar20setSeparatorDelegateEP13QQmlComponent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QQuickSideBar19addFavoriteDelegateEv": [
+      "address", "address"
+    ],
+    "ritual_ZN13QQuickSideBar22setAddFavoriteDelegateEP13QQmlComponent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QQuickSideBar17componentCompleteEv": ["nothing", "address"],
+    "ritual_ZN13QQuickSideBar16setFavoritePathsERK5QListI4QUrlE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QQuickSideBar6d_funcEv": ["address", "address"],
+    "ritual_ZNK13QQuickSideBar6d_funcEv": ["address", "address"],
+    "ritual_take_QQuickSideBar": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN13QQuickSideBar17componentCompleteEv": [
+      "nothing", "address"
+    ]
+  }
+}

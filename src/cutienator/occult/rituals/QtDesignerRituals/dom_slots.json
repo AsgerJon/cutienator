@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/ui4_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN8DomSlotsC1Ev": ["address"],
+    "ritual_ZN8DomSlotsD1Ev": ["nothing", "address"],
+    "ritual_ZNK8DomSlots13elementSignalEv": ["address", "address"],
+    "ritual_ZN8DomSlots16setElementSignalERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK8DomSlots11elementSlotEv": ["address", "address"],
+    "ritual_ZN8DomSlots14setElementSlotERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ]
+  }
+}

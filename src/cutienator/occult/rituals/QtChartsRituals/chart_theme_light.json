@@ -1,0 +1,11 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/6.12.0/QtCharts/private/chartthemelight_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15ChartThemeLightC1Ev": ["address"],
+    "ritual_ZN15ChartThemeLightD1Ev": ["nothing", "address"]
+  }
+}

@@ -56,6 +56,9 @@
     "ritual_ZN15QAbstractButton10setCheckedEb": [
       "nothing", "address", "bool"
     ],
+    "ritual_ZN15QAbstractButton10paintEventEP11QPaintEvent": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK15QAbstractButton9hitButtonERK6QPoint": [
       "bool", "address", "address"
     ],
@@ -91,6 +94,8 @@
     "ritual_ZN15QAbstractButton10timerEventEP11QTimerEvent": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN15QAbstractButton6d_funcEv": ["address", "address"],
+    "ritual_ZNK15QAbstractButton6d_funcEv": ["address", "address"],
     "ritual_take_QAbstractButton": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK15QAbstractButton9hitButtonERK6QPoint": [
       "bool", "address", "address"

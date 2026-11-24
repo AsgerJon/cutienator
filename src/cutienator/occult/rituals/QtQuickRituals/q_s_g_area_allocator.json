@@ -1,0 +1,23 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qsgareaallocator_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN16QSGAreaAllocatorC1ERK5QSize": ["address", "address"],
+    "ritual_ZN16QSGAreaAllocatorD1Ev": ["nothing", "address"],
+    "ritual_ZN16QSGAreaAllocator8allocateERK5QSize": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN16QSGAreaAllocator10deallocateERK5QRect": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK16QSGAreaAllocator7isEmptyEv": ["bool", "address"],
+    "ritual_ZNK16QSGAreaAllocator4sizeEv": ["address", "address"],
+    "ritual_ZN16QSGAreaAllocator9serializeEv": ["address", "address"],
+    "ritual_ZN16QSGAreaAllocator11deserializeEPKci": [
+      "chars", "address", "chars", "int"
+    ]
+  }
+}

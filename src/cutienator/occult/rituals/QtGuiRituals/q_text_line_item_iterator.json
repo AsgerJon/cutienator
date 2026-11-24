@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qtextengine_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN21QTextLineItemIteratorC1EP11QTextEngineiRK7QPointFPKN11QTextLayout11FormatRangeE": [
+      "address", "address", "int", "address", "address"
+    ],
+    "ritual_ZNK21QTextLineItemIterator5atEndEv": ["bool", "address"],
+    "ritual_ZNK21QTextLineItemIterator11atBeginningEv": ["bool", "address"],
+    "ritual_ZNK21QTextLineItemIterator18getSelectionBoundsEP6QFixedS1_": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZNK21QTextLineItemIterator18isOutsideSelectionEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QTextLineItemIteratorD1Ev": ["nothing", "address"]
+  }
+}

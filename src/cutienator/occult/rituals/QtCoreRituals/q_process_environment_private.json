@@ -1,0 +1,34 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qprocess_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK26QProcessEnvironmentPrivate11prepareNameERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK26QProcessEnvironmentPrivate12nameToStringERK10QByteArray": [
+      "text", "address", "address"
+    ],
+    "ritual_ZNK26QProcessEnvironmentPrivate12prepareValueERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK26QProcessEnvironmentPrivate13valueToStringERK13QProcEnvValue": [
+      "text", "address", "address"
+    ],
+    "ritual_ZN26QProcessEnvironmentPrivateC1Ev": ["address"],
+    "ritual_ZN26QProcessEnvironmentPrivateC1ERKS_": ["address", "address"],
+    "ritual_ZN26QProcessEnvironmentPrivate8fromListERK5QListI7QStringE": [
+      "address", "address"
+    ],
+    "ritual_ZNK26QProcessEnvironmentPrivate6toListEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK26QProcessEnvironmentPrivate4keysEv": ["address", "address"],
+    "ritual_ZN26QProcessEnvironmentPrivate6insertERKS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QProcessEnvironmentPrivateD1Ev": ["nothing", "address"]
+  }
+}

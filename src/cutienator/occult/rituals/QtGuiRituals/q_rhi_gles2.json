@@ -1,0 +1,217 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qrhigles2_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN9QRhiGles27destroyEv": ["nothing", "address"],
+    "ritual_ZN9QRhiGles222createGraphicsPipelineEv": ["address", "address"],
+    "ritual_ZN9QRhiGles221createComputePipelineEv": ["address", "address"],
+    "ritual_ZN9QRhiGles228createShaderResourceBindingsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN9QRhiGles212createBufferEN10QRhiBuffer4TypeE6QFlagsINS0_9UsageFlagEEj": [
+      "address", "address", "int", "int", "unsigned int"
+    ],
+    "ritual_ZN9QRhiGles218createRenderBufferEN16QRhiRenderBuffer4TypeERK5QSizei6QFlagsINS0_4FlagEEN11QRhiTexture6FormatE": [
+      "address", "address", "int", "address", "int", "int", "int"
+    ],
+    "ritual_ZN9QRhiGles213createTextureEN11QRhiTexture6FormatERK5QSizeiii6QFlagsINS0_4FlagEE": [
+      "address", "address", "int", "address", "int", "int", "int", "int"
+    ],
+    "ritual_ZN9QRhiGles213createSamplerEN11QRhiSampler6FilterES1_S1_NS0_11AddressModeES2_S2_": [
+      "address", "address", "int", "int", "int", "int", "int", "int"
+    ],
+    "ritual_ZN9QRhiGles225createTextureRenderTargetERK34QRhiTextureRenderTargetDescription6QFlagsIN23QRhiTextureRenderTarget4FlagEE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN9QRhiGles220createShadingRateMapEv": ["address", "address"],
+    "ritual_ZN9QRhiGles215createSwapChainEv": ["address", "address"],
+    "ritual_ZN9QRhiGles26finishEv": ["int", "address"],
+    "ritual_ZN9QRhiGles214resourceUpdateEP17QRhiCommandBufferP23QRhiResourceUpdateBatch": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN9QRhiGles29beginPassEP17QRhiCommandBufferP16QRhiRenderTargetRK6QColorRK26QRhiDepthStencilClearValueP23QRhiResourceUpdateBatch6QFlagsINS0_13BeginPassFlagEE": [
+      "nothing", "address", "address", "address", "address", "address",
+      "address", "int"
+    ],
+    "ritual_ZN9QRhiGles27endPassEP17QRhiCommandBufferP23QRhiResourceUpdateBatch": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN9QRhiGles219setGraphicsPipelineEP17QRhiCommandBufferP20QRhiGraphicsPipeline": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN9QRhiGles211setViewportEP17QRhiCommandBufferRK12QRhiViewport": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN9QRhiGles210setScissorEP17QRhiCommandBufferRK11QRhiScissor": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN9QRhiGles217setBlendConstantsEP17QRhiCommandBufferRK6QColor": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN9QRhiGles213setStencilRefEP17QRhiCommandBufferj": [
+      "nothing", "address", "address", "unsigned int"
+    ],
+    "ritual_ZN9QRhiGles214setShadingRateEP17QRhiCommandBufferRK5QSize": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN9QRhiGles24drawEP17QRhiCommandBufferjjjj": [
+      "nothing", "address", "address", "unsigned int", "unsigned int",
+      "unsigned int", "unsigned int"
+    ],
+    "ritual_ZN9QRhiGles211drawIndexedEP17QRhiCommandBufferjjjij": [
+      "nothing", "address", "address", "unsigned int", "unsigned int",
+      "unsigned int", "int", "unsigned int"
+    ],
+    "ritual_ZN9QRhiGles212drawIndirectEP17QRhiCommandBufferP10QRhiBufferjjj": [
+      "nothing", "address", "address", "address", "unsigned int",
+      "unsigned int", "unsigned int"
+    ],
+    "ritual_ZN9QRhiGles219drawIndexedIndirectEP17QRhiCommandBufferP10QRhiBufferjjj": [
+      "nothing", "address", "address", "address", "unsigned int",
+      "unsigned int", "unsigned int"
+    ],
+    "ritual_ZN9QRhiGles214debugMarkBeginEP17QRhiCommandBufferRK10QByteArray": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN9QRhiGles212debugMarkEndEP17QRhiCommandBuffer": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QRhiGles212debugMarkMsgEP17QRhiCommandBufferRK10QByteArray": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN9QRhiGles216beginComputePassEP17QRhiCommandBufferP23QRhiResourceUpdateBatch6QFlagsINS0_13BeginPassFlagEE": [
+      "nothing", "address", "address", "address", "int"
+    ],
+    "ritual_ZN9QRhiGles214endComputePassEP17QRhiCommandBufferP23QRhiResourceUpdateBatch": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN9QRhiGles218setComputePipelineEP17QRhiCommandBufferP19QRhiComputePipeline": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN9QRhiGles213nativeHandlesEP17QRhiCommandBuffer": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN9QRhiGles213beginExternalEP17QRhiCommandBuffer": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QRhiGles220lastCompletedGpuTimeEP17QRhiCommandBuffer": [
+      "double", "address", "address"
+    ],
+    "ritual_ZNK9QRhiGles221supportedShadingRatesEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK9QRhiGles213ubufAlignmentEv": ["int", "address"],
+    "ritual_ZNK9QRhiGles218isYUpInFramebufferEv": ["bool", "address"],
+    "ritual_ZNK9QRhiGles210isYUpInNDCEv": ["bool", "address"],
+    "ritual_ZNK9QRhiGles220isClipDepthZeroToOneEv": ["bool", "address"],
+    "ritual_ZNK9QRhiGles219clipSpaceCorrMatrixEv": ["address", "address"],
+    "ritual_ZNK9QRhiGles218isFeatureSupportedEN4QRhi7FeatureE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK9QRhiGles213resourceLimitEN4QRhi13ResourceLimitE": [
+      "int", "address", "int"
+    ],
+    "ritual_ZN9QRhiGles213nativeHandlesEv": ["address", "address"],
+    "ritual_ZNK9QRhiGles210driverInfoEv": ["address", "address"],
+    "ritual_ZN9QRhiGles210statisticsEv": ["address", "address"],
+    "ritual_ZN9QRhiGles235makeThreadLocalNativeContextCurrentEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN9QRhiGles220setQueueSubmitParamsEP17QRhiNativeHandles": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QRhiGles222releaseCachedResourcesEv": ["nothing", "address"],
+    "ritual_ZNK9QRhiGles212isDeviceLostEv": ["bool", "address"],
+    "ritual_ZNK9QRhiGles223evaluateFallbackSurfaceEv": [
+      "address", "address"
+    ],
+    "ritual_ZN9QRhiGles223executeDeferredReleasesEv": ["nothing", "address"],
+    "ritual_ZN9QRhiGles222enqueueBarriersForPassEP19QGles2CommandBuffer": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9QRhiGles217glslVersionsToTryEv": ["address", "address"],
+    "ritual_ZN9QRhiGles211linkProgramEj": [
+      "bool", "address", "unsigned int"
+    ],
+    "ritual_ZN9QRhiGles234sanityCheckVertexFragmentInterfaceERK18QShaderDescriptionS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK9QRhiGles231isProgramBinaryDiskCacheEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN9QRhiGles222trySaveToPipelineCacheEjRK10QByteArrayb": [
+      "nothing", "address", "unsigned int", "address", "bool"
+    ],
+    "ritual_take_QRhiGles2": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN9QRhiGles220createShadingRateMapEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN9QRhiGles219setGraphicsPipelineEP17QRhiCommandBufferP20QRhiGraphicsPipeline": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN9QRhiGles211setViewportEP17QRhiCommandBufferRK12QRhiViewport": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN9QRhiGles210setScissorEP17QRhiCommandBufferRK11QRhiScissor": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN9QRhiGles217setBlendConstantsEP17QRhiCommandBufferRK6QColor": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN9QRhiGles213setStencilRefEP17QRhiCommandBufferj": [
+      "nothing", "address", "address", "unsigned int"
+    ],
+    "ritual_own_ZN9QRhiGles214setShadingRateEP17QRhiCommandBufferRK5QSize": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN9QRhiGles24drawEP17QRhiCommandBufferjjjj": [
+      "nothing", "address", "address", "unsigned int", "unsigned int",
+      "unsigned int", "unsigned int"
+    ],
+    "ritual_own_ZN9QRhiGles211drawIndexedEP17QRhiCommandBufferjjjij": [
+      "nothing", "address", "address", "unsigned int", "unsigned int",
+      "unsigned int", "int", "unsigned int"
+    ],
+    "ritual_own_ZN9QRhiGles214debugMarkBeginEP17QRhiCommandBufferRK10QByteArray": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN9QRhiGles212debugMarkEndEP17QRhiCommandBuffer": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN9QRhiGles212debugMarkMsgEP17QRhiCommandBufferRK10QByteArray": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN9QRhiGles218setComputePipelineEP17QRhiCommandBufferP19QRhiComputePipeline": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN9QRhiGles213nativeHandlesEP17QRhiCommandBuffer": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN9QRhiGles220lastCompletedGpuTimeEP17QRhiCommandBuffer": [
+      "double", "address", "address"
+    ],
+    "ritual_own_ZNK9QRhiGles213ubufAlignmentEv": ["int", "address"],
+    "ritual_own_ZNK9QRhiGles218isYUpInFramebufferEv": ["bool", "address"],
+    "ritual_own_ZNK9QRhiGles210isYUpInNDCEv": ["bool", "address"],
+    "ritual_own_ZNK9QRhiGles220isClipDepthZeroToOneEv": ["bool", "address"],
+    "ritual_own_ZNK9QRhiGles219clipSpaceCorrMatrixEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK9QRhiGles218isFeatureSupportedEN4QRhi7FeatureE": [
+      "bool", "address", "int"
+    ],
+    "ritual_own_ZNK9QRhiGles213resourceLimitEN4QRhi13ResourceLimitE": [
+      "int", "address", "int"
+    ],
+    "ritual_own_ZN9QRhiGles213nativeHandlesEv": ["address", "address"],
+    "ritual_own_ZNK9QRhiGles210driverInfoEv": ["address", "address"],
+    "ritual_own_ZN9QRhiGles210statisticsEv": ["address", "address"],
+    "ritual_own_ZN9QRhiGles220setQueueSubmitParamsEP17QRhiNativeHandles": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK9QRhiGles212isDeviceLostEv": ["bool", "address"]
+  }
+}

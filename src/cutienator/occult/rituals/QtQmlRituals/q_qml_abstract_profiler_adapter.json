@@ -1,0 +1,49 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmlabstractprofileradapter_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK27QQmlAbstractProfilerAdapter10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QQmlAbstractProfilerAdapter2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN27QQmlAbstractProfilerAdapterD1Ev": ["nothing", "address"],
+    "ritual_ZN27QQmlAbstractProfilerAdapter10setServiceEP19QQmlProfilerService": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN27QQmlAbstractProfilerAdapter14startProfilingEy": [
+      "nothing", "address", "unsigned long long"
+    ],
+    "ritual_ZN27QQmlAbstractProfilerAdapter13stopProfilingEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QQmlAbstractProfilerAdapter10reportDataEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QQmlAbstractProfilerAdapter11stopWaitingEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QQmlAbstractProfilerAdapter12startWaitingEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK27QQmlAbstractProfilerAdapter9isRunningEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK27QQmlAbstractProfilerAdapter8featuresEv": [
+      "unsigned long long", "address"
+    ],
+    "ritual_ZN27QQmlAbstractProfilerAdapter11synchronizeERK13QElapsedTimer": [
+      "nothing", "address", "address"
+    ],
+    "ritual_cast_QQmlAbstractProfilerAdapter_QQmlProfilerDefinitions": [
+      "address", "address"
+    ],
+    "ritual_take_QQmlAbstractProfilerAdapter": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

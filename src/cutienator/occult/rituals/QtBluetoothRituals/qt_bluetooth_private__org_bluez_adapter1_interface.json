@@ -1,0 +1,72 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtBluetooth/6.12.0/QtBluetooth/private/adapter1_bluez5_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18QtBluetoothPrivate25OrgBluezAdapter1Interface10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18QtBluetoothPrivate25OrgBluezAdapter1Interface19staticInterfaceNameEv": [
+      "chars"
+    ],
+    "ritual_ZNK18QtBluetoothPrivate25OrgBluezAdapter1Interface7addressEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK18QtBluetoothPrivate25OrgBluezAdapter1Interface5aliasEv": [
+      "text", "address"
+    ],
+    "ritual_ZN18QtBluetoothPrivate25OrgBluezAdapter1Interface8setAliasERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK18QtBluetoothPrivate25OrgBluezAdapter1Interface13classPropertyEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZNK18QtBluetoothPrivate25OrgBluezAdapter1Interface12discoverableEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN18QtBluetoothPrivate25OrgBluezAdapter1Interface15setDiscoverableEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK18QtBluetoothPrivate25OrgBluezAdapter1Interface19discoverableTimeoutEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN18QtBluetoothPrivate25OrgBluezAdapter1Interface22setDiscoverableTimeoutEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZNK18QtBluetoothPrivate25OrgBluezAdapter1Interface11discoveringEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK18QtBluetoothPrivate25OrgBluezAdapter1Interface8modaliasEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK18QtBluetoothPrivate25OrgBluezAdapter1Interface4nameEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK18QtBluetoothPrivate25OrgBluezAdapter1Interface8pairableEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN18QtBluetoothPrivate25OrgBluezAdapter1Interface11setPairableEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK18QtBluetoothPrivate25OrgBluezAdapter1Interface15pairableTimeoutEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN18QtBluetoothPrivate25OrgBluezAdapter1Interface18setPairableTimeoutEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZNK18QtBluetoothPrivate25OrgBluezAdapter1Interface7poweredEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN18QtBluetoothPrivate25OrgBluezAdapter1Interface10setPoweredEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK18QtBluetoothPrivate25OrgBluezAdapter1Interface5uUIDsEv": [
+      "address", "address"
+    ],
+    "ritual_take_QtBluetoothPrivate_OrgBluezAdapter1Interface": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

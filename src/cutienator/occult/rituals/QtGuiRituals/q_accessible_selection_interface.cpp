@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGui/qaccessible.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
+#if QT_CONFIG(accessibility)
 #include <QtGui/qaccessible.h>
 #include <QtCore/qlist.h>
 #include <cstring>
@@ -7,50 +9,79 @@
 //  A QAccessibleSelectionInterface that Python can take functions over in. Every QAccessibleSelectionInterface
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if QT_CONFIG(accessibility)
 typedef int (*CuteQAccessibleSelectionInterfaceCall0)(const void *, int *);
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
 typedef void * (*CuteQAccessibleSelectionInterfaceCall1)(const void *, int, int *);
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
 typedef bool (*CuteQAccessibleSelectionInterfaceCall2)(const void *, QAccessibleInterface *, int *);
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
 typedef bool (*CuteQAccessibleSelectionInterfaceCall3)(const void *, QAccessibleInterface *, int *);
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
 typedef bool (*CuteQAccessibleSelectionInterfaceCall4)(const void *, QAccessibleInterface *, int *);
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
 typedef bool (*CuteQAccessibleSelectionInterfaceCall5)(const void *, int *);
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
 typedef bool (*CuteQAccessibleSelectionInterfaceCall6)(const void *, int *);
+#endif  // QT_CONFIG(accessibility)
 class CuteQAccessibleSelectionInterface : public QAccessibleSelectionInterface {
 public:
   using QAccessibleSelectionInterface::QAccessibleSelectionInterface;
   void *taken[7] = {};
 
   bool take(const char *key, void *call) {
+#if QT_CONFIG(accessibility)
     if (!std::strcmp(key, "_ZNK29QAccessibleSelectionInterface17selectedItemCountEv")) {
       taken[0] = call;
       return true;
     }
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
     if (!std::strcmp(key, "_ZNK29QAccessibleSelectionInterface12selectedItemEi")) {
       taken[1] = call;
       return true;
     }
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
     if (!std::strcmp(key, "_ZNK29QAccessibleSelectionInterface10isSelectedEP20QAccessibleInterface")) {
       taken[2] = call;
       return true;
     }
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
     if (!std::strcmp(key, "_ZN29QAccessibleSelectionInterface6selectEP20QAccessibleInterface")) {
       taken[3] = call;
       return true;
     }
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
     if (!std::strcmp(key, "_ZN29QAccessibleSelectionInterface8unselectEP20QAccessibleInterface")) {
       taken[4] = call;
       return true;
     }
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
     if (!std::strcmp(key, "_ZN29QAccessibleSelectionInterface9selectAllEv")) {
       taken[5] = call;
       return true;
     }
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
     if (!std::strcmp(key, "_ZN29QAccessibleSelectionInterface5clearEv")) {
       taken[6] = call;
       return true;
     }
+#endif  // QT_CONFIG(accessibility)
     return false;
   }
 
+#if QT_CONFIG(accessibility)
   //  int QAccessibleSelectionInterface::selectedItemCount() const
   int selectedItemCount() const override {
     if (taken[0]) {
@@ -61,7 +92,9 @@ public:
     }
     return {};
   }
+#endif  // QT_CONFIG(accessibility)
 
+#if QT_CONFIG(accessibility)
   //  QAccessibleInterface *QAccessibleSelectionInterface::selectedItem(int
   //      selectionIndex) const
   QAccessibleInterface *selectedItem(int selectionIndex) const override {
@@ -73,7 +106,9 @@ public:
     }
     return QAccessibleSelectionInterface::selectedItem(selectionIndex);
   }
+#endif  // QT_CONFIG(accessibility)
 
+#if QT_CONFIG(accessibility)
   //  bool QAccessibleSelectionInterface::isSelected(QAccessibleInterface
   //      *childItem) const
   bool isSelected(QAccessibleInterface *childItem) const override {
@@ -85,7 +120,9 @@ public:
     }
     return QAccessibleSelectionInterface::isSelected(childItem);
   }
+#endif  // QT_CONFIG(accessibility)
 
+#if QT_CONFIG(accessibility)
   //  bool QAccessibleSelectionInterface::select(QAccessibleInterface
   //      *childItem)
   bool select(QAccessibleInterface *childItem) override {
@@ -97,7 +134,9 @@ public:
     }
     return {};
   }
+#endif  // QT_CONFIG(accessibility)
 
+#if QT_CONFIG(accessibility)
   //  bool QAccessibleSelectionInterface::unselect(QAccessibleInterface
   //      *childItem)
   bool unselect(QAccessibleInterface *childItem) override {
@@ -109,7 +148,9 @@ public:
     }
     return {};
   }
+#endif  // QT_CONFIG(accessibility)
 
+#if QT_CONFIG(accessibility)
   //  bool QAccessibleSelectionInterface::selectAll()
   bool selectAll() override {
     if (taken[5]) {
@@ -120,7 +161,9 @@ public:
     }
     return {};
   }
+#endif  // QT_CONFIG(accessibility)
 
+#if QT_CONFIG(accessibility)
   //  bool QAccessibleSelectionInterface::clear()
   bool clear() override {
     if (taken[6]) {
@@ -131,6 +174,7 @@ public:
     }
     return {};
   }
+#endif  // QT_CONFIG(accessibility)
 };
 
 //  QAccessibleSelectionInterface::~QAccessibleSelectionInterface()
@@ -232,3 +276,5 @@ bool ritual_own_ZNK29QAccessibleSelectionInterface10isSelectedEP20QAccessibleInt
     QAccessibleInterface *childItem) {
   return self->QAccessibleSelectionInterface::isSelected(childItem);
 }
+
+#endif  // QT_CONFIG(accessibility)

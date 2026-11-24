@@ -1,0 +1,69 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquickscrollbar_p_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN30QQuickScrollBarAttachedPrivate3getEP23QQuickScrollBarAttached": [
+      "address", "address"
+    ],
+    "ritual_ZN30QQuickScrollBarAttachedPrivate12setFlickableEP15QQuickFlickable": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN30QQuickScrollBarAttachedPrivate14initHorizontalEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuickScrollBarAttachedPrivate12initVerticalEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuickScrollBarAttachedPrivate17cleanupHorizontalEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuickScrollBarAttachedPrivate15cleanupVerticalEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuickScrollBarAttachedPrivate18activateHorizontalEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuickScrollBarAttachedPrivate16activateVerticalEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuickScrollBarAttachedPrivate14mirrorVerticalEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuickScrollBarAttachedPrivate16layoutHorizontalEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN30QQuickScrollBarAttachedPrivate14layoutVerticalEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN30QQuickScrollBarAttachedPrivate19itemGeometryChangedEP10QQuickItem20QQuickGeometryChangeRK6QRectF": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN30QQuickScrollBarAttachedPrivate24itemImplicitWidthChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN30QQuickScrollBarAttachedPrivate25itemImplicitHeightChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN30QQuickScrollBarAttachedPrivate13itemDestroyedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QQuickScrollBarAttachedPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN30QQuickScrollBarAttachedPrivate19itemGeometryChangedEP10QQuickItem20QQuickGeometryChangeRK6QRectF": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN30QQuickScrollBarAttachedPrivate24itemImplicitWidthChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN30QQuickScrollBarAttachedPrivate25itemImplicitHeightChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN30QQuickScrollBarAttachedPrivate13itemDestroyedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ]
+  }
+}

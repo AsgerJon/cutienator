@@ -1,0 +1,29 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmlopenmetaobject_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN22QQmlOpenMetaObjectTypeC1EPK11QMetaObject": [
+      "address", "address"
+    ],
+    "ritual_ZN22QQmlOpenMetaObjectTypeD1Ev": ["nothing", "address"],
+    "ritual_ZN22QQmlOpenMetaObjectType16createPropertiesERK5QListI10QByteArrayE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQmlOpenMetaObjectType14createPropertyERK10QByteArray": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK22QQmlOpenMetaObjectType14propertyOffsetEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK22QQmlOpenMetaObjectType12signalOffsetEv": ["int", "address"],
+    "ritual_ZNK22QQmlOpenMetaObjectType13propertyCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK22QQmlOpenMetaObjectType12propertyNameEi": [
+      "address", "address", "int"
+    ]
+  }
+}

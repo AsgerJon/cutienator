@@ -1,0 +1,143 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/6.12.0/QtNetwork/private/qabstractsocket_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN22QAbstractSocketPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK22QAbstractSocketPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN22QAbstractSocketPrivateC1E16QtPrivate_6_12_0": [
+      "address", "int"
+    ],
+    "ritual_ZN22QAbstractSocketPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN22QAbstractSocketPrivate16readNotificationEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QAbstractSocketPrivate17writeNotificationEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QAbstractSocketPrivate21exceptionNotificationEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QAbstractSocketPrivate17closeNotificationEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QAbstractSocketPrivate22connectionNotificationEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QAbstractSocketPrivate27proxyAuthenticationRequiredERK13QNetworkProxyP14QAuthenticator": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN22QAbstractSocketPrivate4bindERK12QHostAddresst6QFlagsIN15QAbstractSocket8BindFlagEEPK17QNetworkInterface": [
+      "bool", "address", "address", "unsigned short", "int", "address"
+    ],
+    "ritual_ZN22QAbstractSocketPrivate19canReadNotificationEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN22QAbstractSocketPrivate20canWriteNotificationEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN22QAbstractSocketPrivate20canCloseNotificationEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QAbstractSocketPrivate23_q_connectToNextAddressEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QAbstractSocketPrivate18_q_startConnectingERK9QHostInfo": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QAbstractSocketPrivate17_q_testConnectionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QAbstractSocketPrivate25_q_abortConnectionAttemptEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QAbstractSocketPrivate12resolveProxyERK7QStringt": [
+      "nothing", "address", "text", "unsigned short"
+    ],
+    "ritual_ZN22QAbstractSocketPrivate12resolveProxyEt": [
+      "nothing", "address", "unsigned short"
+    ],
+    "ritual_ZN22QAbstractSocketPrivate16resetSocketLayerEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QAbstractSocketPrivate5flushEv": ["bool", "address"],
+    "ritual_ZN22QAbstractSocketPrivate15initSocketLayerEN15QAbstractSocket20NetworkLayerProtocolE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN22QAbstractSocketPrivate22configureCreatedSocketEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QAbstractSocketPrivate21startConnectingByNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN22QAbstractSocketPrivate25fetchConnectionParametersEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QAbstractSocketPrivate14readFromSocketEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN22QAbstractSocketPrivate13writeToSocketEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN22QAbstractSocketPrivate13emitReadyReadEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN22QAbstractSocketPrivate16emitBytesWrittenExi": [
+      "nothing", "address", "long long", "int"
+    ],
+    "ritual_ZN22QAbstractSocketPrivate8setErrorEN15QAbstractSocket11SocketErrorERK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZN22QAbstractSocketPrivate15setErrorAndEmitEN15QAbstractSocket11SocketErrorERK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZN22QAbstractSocketPrivate20pauseSocketNotifiersEP15QAbstractSocket": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QAbstractSocketPrivate21resumeSocketNotifiersEP15QAbstractSocket": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QAbstractSocketPrivate15getSocketEngineEP15QAbstractSocket": [
+      "address", "address"
+    ],
+    "ritual_cast_QAbstractSocketPrivate_QAbstractSocketEngineReceiver": [
+      "address", "address"
+    ],
+    "ritual_take_QAbstractSocketPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN22QAbstractSocketPrivate16readNotificationEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN22QAbstractSocketPrivate17writeNotificationEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN22QAbstractSocketPrivate21exceptionNotificationEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN22QAbstractSocketPrivate17closeNotificationEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN22QAbstractSocketPrivate22connectionNotificationEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN22QAbstractSocketPrivate27proxyAuthenticationRequiredERK13QNetworkProxyP14QAuthenticator": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN22QAbstractSocketPrivate4bindERK12QHostAddresst6QFlagsIN15QAbstractSocket8BindFlagEEPK17QNetworkInterface": [
+      "bool", "address", "address", "unsigned short", "int", "address"
+    ],
+    "ritual_own_ZN22QAbstractSocketPrivate19canReadNotificationEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZN22QAbstractSocketPrivate5flushEv": ["bool", "address"],
+    "ritual_own_ZN22QAbstractSocketPrivate22configureCreatedSocketEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN22QAbstractSocketPrivate13writeToSocketEv": [
+      "bool", "address"
+    ]
+  }
+}

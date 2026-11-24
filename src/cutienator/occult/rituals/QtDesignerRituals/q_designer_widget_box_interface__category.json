@@ -1,0 +1,42 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/abstractwidgetbox.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN27QDesignerWidgetBoxInterface8CategoryC1ERK7QStringNS0_4TypeE": [
+      "address", "text", "int"
+    ],
+    "ritual_ZNK27QDesignerWidgetBoxInterface8Category4nameEv": [
+      "text", "address"
+    ],
+    "ritual_ZN27QDesignerWidgetBoxInterface8Category7setNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK27QDesignerWidgetBoxInterface8Category11widgetCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK27QDesignerWidgetBoxInterface8Category6widgetEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN27QDesignerWidgetBoxInterface8Category12removeWidgetEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN27QDesignerWidgetBoxInterface8Category9addWidgetERKNS_6WidgetE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK27QDesignerWidgetBoxInterface8Category4typeEv": [
+      "int", "address"
+    ],
+    "ritual_ZN27QDesignerWidgetBoxInterface8Category7setTypeENS0_4TypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK27QDesignerWidgetBoxInterface8Category6isNullEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN27QDesignerWidgetBoxInterface8CategoryD1Ev": [
+      "nothing", "address"
+    ]
+  }
+}

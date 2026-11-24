@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQmlCompiler/6.12.0/QtQmlCompiler/private/qqmljsimporter_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN6QQmlJS6ImportC1Ev": ["address"],
+    "ritual_ZN6QQmlJS6ImportC1E7QStringS1_13QTypeRevisionbb": [
+      "address", "text", "text", "address", "bool", "bool"
+    ],
+    "ritual_ZNK6QQmlJS6Import7isValidEv": ["bool", "address"],
+    "ritual_ZNK6QQmlJS6Import6prefixEv": ["text", "address"],
+    "ritual_ZNK6QQmlJS6Import4nameEv": ["text", "address"],
+    "ritual_ZNK6QQmlJS6Import7versionEv": ["address", "address"],
+    "ritual_ZNK6QQmlJS6Import6isFileEv": ["bool", "address"],
+    "ritual_ZNK6QQmlJS6Import12isDependencyEv": ["bool", "address"],
+    "ritual_ZN6QQmlJSeqERKNS_6ImportES2_": ["bool", "address", "address"],
+    "ritual_ZN6QQmlJS6ImportD1Ev": ["nothing", "address"]
+  }
+}

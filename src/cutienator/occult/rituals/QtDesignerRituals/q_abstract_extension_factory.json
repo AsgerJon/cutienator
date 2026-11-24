@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/extension.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN25QAbstractExtensionFactoryD1Ev": ["nothing", "address"],
+    "ritual_ZNK25QAbstractExtensionFactory9extensionEP7QObjectRK7QString": [
+      "address", "address", "address", "text"
+    ],
+    "ritual_take_QAbstractExtensionFactory": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

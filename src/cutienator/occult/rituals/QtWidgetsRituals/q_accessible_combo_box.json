@@ -1,0 +1,60 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/complexwidgets_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QAccessibleComboBoxC1EP7QWidget": ["address", "address"],
+    "ritual_ZNK19QAccessibleComboBox10childCountEv": ["int", "address"],
+    "ritual_ZNK19QAccessibleComboBox7childAtEii": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZNK19QAccessibleComboBox12indexOfChildEPK20QAccessibleInterface": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK19QAccessibleComboBox5childEi": ["address", "address", "int"],
+    "ritual_ZNK19QAccessibleComboBox10focusChildEv": ["address", "address"],
+    "ritual_ZNK19QAccessibleComboBox4textEN11QAccessible4TextE": [
+      "text", "address", "int"
+    ],
+    "ritual_ZNK19QAccessibleComboBox5stateEv": ["address", "address"],
+    "ritual_ZNK19QAccessibleComboBox11actionNamesEv": ["address", "address"],
+    "ritual_ZNK19QAccessibleComboBox26localizedActionDescriptionERK7QString": [
+      "text", "address", "text"
+    ],
+    "ritual_ZN19QAccessibleComboBox8doActionERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK19QAccessibleComboBox20keyBindingsForActionERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK19QAccessibleComboBox8comboBoxEv": ["address", "address"],
+    "ritual_take_QAccessibleComboBox": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK19QAccessibleComboBox10childCountEv": ["int", "address"],
+    "ritual_own_ZNK19QAccessibleComboBox7childAtEii": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_own_ZNK19QAccessibleComboBox12indexOfChildEPK20QAccessibleInterface": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZNK19QAccessibleComboBox5childEi": [
+      "address", "address", "int"
+    ],
+    "ritual_own_ZNK19QAccessibleComboBox10focusChildEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK19QAccessibleComboBox4textEN11QAccessible4TextE": [
+      "text", "address", "int"
+    ],
+    "ritual_own_ZNK19QAccessibleComboBox5stateEv": ["address", "address"],
+    "ritual_own_ZNK19QAccessibleComboBox26localizedActionDescriptionERK7QString": [
+      "text", "address", "text"
+    ],
+    "ritual_own_ZN19QAccessibleComboBox8doActionERK7QString": [
+      "nothing", "address", "text"
+    ]
+  }
+}

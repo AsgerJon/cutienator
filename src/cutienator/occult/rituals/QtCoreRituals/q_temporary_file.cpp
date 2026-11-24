@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/qtemporaryfile.h, Qt 6.12.0. Changes made here are lost.
+#include <QtCore/qglobal.h>
+#if QT_CONFIG(temporaryfile)
 #include <QtCore/qtemporaryfile.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
@@ -14,8 +16,12 @@ struct OwnQTemporaryFile : QTemporaryFile {
 //  A QTemporaryFile that Python can take functions over in. Every QTemporaryFile
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if QT_CONFIG(temporaryfile)
 typedef QString * (*CuteQTemporaryFileCall0)(const void *, int *);
+#endif  // QT_CONFIG(temporaryfile)
+#if QT_CONFIG(temporaryfile)
 typedef bool (*CuteQTemporaryFileCall1)(const void *, int, int *);
+#endif  // QT_CONFIG(temporaryfile)
 typedef qint64 (*CuteQTemporaryFileCall2)(const void *, int *);
 typedef bool (*CuteQTemporaryFileCall3)(const void *, qint64, int *);
 typedef int (*CuteQTemporaryFileCall4)(const void *, int *);
@@ -32,27 +38,45 @@ typedef bool (*CuteQTemporaryFileCall14)(const void *, int *);
 typedef bool (*CuteQTemporaryFileCall15)(const void *, int, int *);
 typedef bool (*CuteQTemporaryFileCall16)(const void *, int, int *);
 typedef qint64 (*CuteQTemporaryFileCall17)(const void *, qint64, int *);
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQTemporaryFileCall18)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQTemporaryFileCall19)(const void *, QObject *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQTemporaryFileCall20)(const void *, QTimerEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQTemporaryFileCall21)(const void *, QChildEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQTemporaryFileCall22)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQTemporaryFileCall23)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQTemporaryFileCall24)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 class CuteQTemporaryFile : public QTemporaryFile {
 public:
   using QTemporaryFile::QTemporaryFile;
   void *taken[25] = {};
 
   bool take(const char *key, void *call) {
+#if QT_CONFIG(temporaryfile)
     if (!std::strcmp(key, "_ZNK11QFileDevice8fileNameEv")) {
       taken[0] = call;
       return true;
     }
+#endif  // QT_CONFIG(temporaryfile)
+#if QT_CONFIG(temporaryfile)
     if (!std::strcmp(key, "_ZN9QIODevice4openE6QFlagsIN13QIODeviceBase12OpenModeFlagEE")) {
       taken[1] = call;
       return true;
     }
+#endif  // QT_CONFIG(temporaryfile)
     if (!std::strcmp(key, "_ZNK9QIODevice4sizeEv")) {
       taken[2] = call;
       return true;
@@ -117,37 +141,52 @@ public:
       taken[17] = call;
       return true;
     }
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[18] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[19] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[20] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[21] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[22] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[23] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
       taken[24] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
     return false;
   }
 
+#if QT_CONFIG(temporaryfile)
   //  QString QTemporaryFile::fileName() const
   QString fileName() const override {
     if (taken[0]) {
@@ -162,7 +201,9 @@ public:
     }
     return QTemporaryFile::fileName();
   }
+#endif  // QT_CONFIG(temporaryfile)
 
+#if QT_CONFIG(temporaryfile)
   //  bool QTemporaryFile::open(OpenMode flags)
   bool open(QIODeviceBase::OpenMode flags) override {
     if (taken[1]) {
@@ -173,6 +214,7 @@ public:
     }
     return QTemporaryFile::open(flags);
   }
+#endif  // QT_CONFIG(temporaryfile)
 
   //  qint64 QFile::size() const
   qint64 size() const override {
@@ -350,6 +392,7 @@ public:
     return QIODevice::skipData(maxSize);
   }
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QObject::event(QEvent *event)
   bool event(QEvent *event) override {
     if (taken[18]) {
@@ -360,7 +403,9 @@ public:
     }
     return QObject::event(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
     if (taken[19]) {
@@ -371,7 +416,9 @@ public:
     }
     return QObject::eventFilter(watched, event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
     if (taken[20]) {
@@ -382,7 +429,9 @@ public:
     }
     QObject::timerEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
     if (taken[21]) {
@@ -393,7 +442,9 @@ public:
     }
     QObject::childEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
     if (taken[22]) {
@@ -404,7 +455,9 @@ public:
     }
     QObject::customEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
     if (taken[23]) {
@@ -415,7 +468,9 @@ public:
     }
     QObject::connectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
     if (taken[24]) {
@@ -426,15 +481,19 @@ public:
     }
     QObject::disconnectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 };
 
+#if !defined(QT_NO_QOBJECT)
 //  const QMetaObject *QTemporaryFile::metaObject() const
 extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK14QTemporaryFile10metaObjectEv(
     const QTemporaryFile *self) {
   return self->metaObject();
 }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
 //  QString QTemporaryFile::tr(const char *s, const char *c, int n)
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN14QTemporaryFile2trEPKcS1_i(
@@ -442,6 +501,21 @@ QString *ritual_ZN14QTemporaryFile2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QTemporaryFile::tr(s, c, n));
+}
+#endif  // !defined(QT_NO_QOBJECT)
+
+//  QTemporaryFilePrivate *QTemporaryFile::d_func()
+extern "C" Q_DECL_EXPORT
+QTemporaryFilePrivate *ritual_ZN14QTemporaryFile6d_funcEv(
+    QTemporaryFile *self) {
+  return self->d_func();
+}
+
+//  const QTemporaryFilePrivate *QTemporaryFile::d_func() const
+extern "C" Q_DECL_EXPORT
+const QTemporaryFilePrivate *ritual_ZNK14QTemporaryFile6d_funcEv(
+    const QTemporaryFile *self) {
+  return self->d_func();
 }
 
 //  QTemporaryFile::QTemporaryFile()
@@ -457,12 +531,15 @@ QTemporaryFile *ritual_ZN14QTemporaryFileC1ERK7QString(
   return new CuteQTemporaryFile(*templateName);
 }
 
+#if !defined(QT_NO_QOBJECT)
 //  QTemporaryFile::QTemporaryFile(QObject *parent)
 extern "C" Q_DECL_EXPORT
 QTemporaryFile *ritual_ZN14QTemporaryFileC1EP7QObject(QObject *parent) {
   return new CuteQTemporaryFile(parent);
 }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
 //  QTemporaryFile::QTemporaryFile(const QString &templateName, QObject
 //      *parent)
 extern "C" Q_DECL_EXPORT
@@ -471,6 +548,7 @@ QTemporaryFile *ritual_ZN14QTemporaryFileC1ERK7QStringP7QObject(
     QObject *parent) {
   return new CuteQTemporaryFile(*templateName, parent);
 }
+#endif  // !defined(QT_NO_QOBJECT)
 
 //  QTemporaryFile::~QTemporaryFile()
 extern "C" Q_DECL_EXPORT
@@ -575,3 +653,5 @@ bool ritual_own_ZN14QTemporaryFile4openE6QFlagsIN13QIODeviceBase12OpenModeFlagEE
   return static_cast<OwnQTemporaryFile *>(self)->OwnQTemporaryFile::open(
       QFlags<QIODeviceBase::OpenModeFlag>::fromInt(flags));
 }
+
+#endif  // QT_CONFIG(temporaryfile)

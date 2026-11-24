@@ -1,0 +1,53 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/rhi/qshader.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN7QShaderC1Ev": ["address"],
+    "ritual_ZN7QShaderC1ERKS_": ["address", "address"],
+    "ritual_ZN7QShaderD1Ev": ["nothing", "address"],
+    "ritual_ZN7QShader6detachEv": ["nothing", "address"],
+    "ritual_ZNK7QShader7isValidEv": ["bool", "address"],
+    "ritual_ZNK7QShader5stageEv": ["int", "address"],
+    "ritual_ZN7QShader8setStageENS_5StageE": ["nothing", "address", "int"],
+    "ritual_ZNK7QShader11descriptionEv": ["address", "address"],
+    "ritual_ZN7QShader14setDescriptionERK18QShaderDescription": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK7QShader16availableShadersEv": ["address", "address"],
+    "ritual_ZNK7QShader6shaderERK10QShaderKey": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN7QShader9setShaderERK10QShaderKeyRK11QShaderCode": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN7QShader12removeShaderERK10QShaderKey": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK7QShader10serializedENS_23SerializedFormatVersionE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN7QShader14fromSerializedERK10QByteArray": [
+      "address", "address"
+    ],
+    "ritual_ZN7QShader24removeResourceBindingMapERK10QShaderKey": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QShader47removeSeparateToCombinedImageSamplerMappingListERK10QShaderKey": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK7QShader16nativeShaderInfoERK10QShaderKey": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN7QShader19setNativeShaderInfoERK10QShaderKeyRKNS_16NativeShaderInfoE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN7QShader22removeNativeShaderInfoERK10QShaderKey": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZeqRK7QShaderS1_": ["bool", "address", "address"],
+    "ritual_Zls6QDebugRK7QShader": ["address", "address", "address"]
+  }
+}

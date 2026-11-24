@@ -5,6 +5,7 @@
   ],
   "rows": {
     "ritual_ZN7QPixmapC1Ev": ["address"],
+    "ritual_ZN7QPixmapC1EP15QPlatformPixmap": ["address", "address"],
     "ritual_ZN7QPixmapC1Eii": ["address", "int", "int"],
     "ritual_ZN7QPixmapC1ERK5QSize": ["address", "address"],
     "ritual_ZN7QPixmapC1ERK7QStringPKc6QFlagsIN2Qt19ImageConversionFlagEE": [
@@ -106,6 +107,7 @@
     "ritual_ZN7QPixmap6doInitEiii": [
       "nothing", "address", "int", "int", "int"
     ],
+    "ritual_ZNK7QPixmap6handleEv": ["address", "address"],
     "ritual_take_QPixmap": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK7QPixmap7devTypeEv": ["int", "address"],
     "ritual_own_ZNK7QPixmap11paintEngineEv": ["address", "address"],

@@ -1,0 +1,13 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQmlCo",
+    "mpiler/6.12.0/QtQmlCompiler/private/qqmljsresourcefilemapper_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK24QQmlJSResourceFileMapper5Entry7isValidEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN24QQmlJSResourceFileMapper5EntryD1Ev": ["nothing", "address"]
+  }
+}

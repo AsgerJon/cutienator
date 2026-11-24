@@ -149,6 +149,8 @@
     "ritual_ZN16QFileSystemModel5eventEP6QEvent": [
       "bool", "address", "address"
     ],
+    "ritual_ZN16QFileSystemModel6d_funcEv": ["address", "address"],
+    "ritual_ZNK16QFileSystemModel6d_funcEv": ["address", "address"],
     "ritual_take_QFileSystemModel": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK16QFileSystemModel5indexEiiRK11QModelIndex": [
       "address", "address", "int", "int", "address"

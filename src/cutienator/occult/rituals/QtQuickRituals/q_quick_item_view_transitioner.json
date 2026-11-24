@@ -1,0 +1,38 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickitemviewtransition_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN26QQuickItemViewTransitionerC1Ev": ["address"],
+    "ritual_ZN26QQuickItemViewTransitionerD1Ev": ["nothing", "address"],
+    "ritual_ZNK26QQuickItemViewTransitioner13canTransitionENS_14TransitionTypeEb": [
+      "bool", "address", "int", "bool"
+    ],
+    "ritual_ZN26QQuickItemViewTransitioner24transitionNextRepositionEP32QQuickItemViewTransitionableItemNS_14TransitionTypeEb": [
+      "nothing", "address", "address", "int", "bool"
+    ],
+    "ritual_ZN26QQuickItemViewTransitioner16addToTargetListsENS_14TransitionTypeEP32QQuickItemViewTransitionableItemi": [
+      "nothing", "address", "int", "address", "int"
+    ],
+    "ritual_ZN26QQuickItemViewTransitioner16resetTargetListsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK26QQuickItemViewTransitioner16transitionObjectENS_14TransitionTypeEb": [
+      "address", "address", "int", "bool"
+    ],
+    "ritual_ZNK26QQuickItemViewTransitioner11targetItemsENS_14TransitionTypeE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN26QQuickItemViewTransitioner28setPopulateTransitionEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK26QQuickItemViewTransitioner25populateTransitionEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN26QQuickItemViewTransitioner17setChangeListenerEP38QQuickItemViewTransitionChangeListener": [
+      "nothing", "address", "address"
+    ]
+  }
+}

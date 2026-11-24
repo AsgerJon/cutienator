@@ -1,0 +1,25 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWebSockets/qwebsocketcorsauthenticator.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN27QWebSocketCorsAuthenticator6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK27QWebSocketCorsAuthenticator6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QWebSocketCorsAuthenticatorC1ERK7QString": [
+      "address", "text"
+    ],
+    "ritual_ZN27QWebSocketCorsAuthenticatorD1Ev": ["nothing", "address"],
+    "ritual_ZN27QWebSocketCorsAuthenticatorC1ERKS_": ["address", "address"],
+    "ritual_ZNK27QWebSocketCorsAuthenticator6originEv": ["text", "address"],
+    "ritual_ZN27QWebSocketCorsAuthenticator10setAllowedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK27QWebSocketCorsAuthenticator7allowedEv": ["bool", "address"]
+  }
+}

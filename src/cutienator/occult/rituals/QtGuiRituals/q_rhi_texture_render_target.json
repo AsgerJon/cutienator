@@ -1,0 +1,32 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/rhi/qrhi.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK23QRhiTextureRenderTarget12resourceTypeEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK23QRhiTextureRenderTarget11descriptionEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QRhiTextureRenderTarget14setDescriptionERK34QRhiTextureRenderTargetDescription": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK23QRhiTextureRenderTarget5flagsEv": ["int", "address"],
+    "ritual_ZN23QRhiTextureRenderTarget8setFlagsE6QFlagsINS_4FlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN23QRhiTextureRenderTarget33newCompatibleRenderPassDescriptorEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QRhiTextureRenderTarget6createEv": ["bool", "address"],
+    "ritual_take_QRhiTextureRenderTarget": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK23QRhiTextureRenderTarget12resourceTypeEv": [
+      "int", "address"
+    ]
+  }
+}

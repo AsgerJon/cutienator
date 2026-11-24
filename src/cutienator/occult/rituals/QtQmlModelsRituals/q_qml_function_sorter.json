@@ -1,0 +1,39 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQmlModels/6.12.0/QtQmlModels/private/qqmlfunctionsorter_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18QQmlFunctionSorter10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QQmlFunctionSorter2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18QQmlFunctionSorterC1EP7QObject": ["address", "address"],
+    "ritual_ZN18QQmlFunctionSorterD1Ev": ["nothing", "address"],
+    "ritual_ZNK18QQmlFunctionSorter7compareERK11QModelIndexS2_PK24QQmlSortFilterProxyModel": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN18QQmlFunctionSorter10classBeginEv": ["nothing", "address"],
+    "ritual_ZN18QQmlFunctionSorter17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQmlFunctionSorter6d_funcEv": ["address", "address"],
+    "ritual_ZNK18QQmlFunctionSorter6d_funcEv": ["address", "address"],
+    "ritual_cast_QQmlFunctionSorter_QQmlParserStatus": [
+      "address", "address"
+    ],
+    "ritual_take_QQmlFunctionSorter": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK18QQmlFunctionSorter7compareERK11QModelIndexS2_PK24QQmlSortFilterProxyModel": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN18QQmlFunctionSorter10classBeginEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN18QQmlFunctionSorter17componentCompleteEv": [
+      "nothing", "address"
+    ]
+  }
+}

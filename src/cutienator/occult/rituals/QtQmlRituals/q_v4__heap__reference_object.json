@@ -1,0 +1,66 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4referenceobject_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN3QV44Heap15ReferenceObject11markObjectsEPNS0_4BaseEPNS_9MarkStackE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN3QV44Heap15ReferenceObject4initEPNS0_6ObjectEi6QFlagsINS1_4FlagEE": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZNK3QV44Heap15ReferenceObject5flagsEv": ["int", "address"],
+    "ritual_ZNK3QV44Heap15ReferenceObject6objectEv": ["address", "address"],
+    "ritual_ZN3QV44Heap15ReferenceObject9setObjectEPNS0_6ObjectE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK3QV44Heap15ReferenceObject8propertyEv": ["int", "address"],
+    "ritual_ZNK3QV44Heap15ReferenceObject12canWriteBackEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK3QV44Heap15ReferenceObject9isVariantEv": ["bool", "address"],
+    "ritual_ZNK3QV44Heap15ReferenceObject16enforcesLocationEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN3QV44Heap15ReferenceObject11setLocationEPKNS_8FunctionEt": [
+      "nothing", "address", "address", "unsigned short"
+    ],
+    "ritual_ZNK3QV44Heap15ReferenceObject8functionEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV44Heap15ReferenceObject14statementIndexEv": [
+      "unsigned short", "address"
+    ],
+    "ritual_ZNK3QV44Heap15ReferenceObject20isAttachedToPropertyEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK3QV44Heap15ReferenceObject11isReferenceEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK3QV44Heap15ReferenceObject7isDirtyEv": ["bool", "address"],
+    "ritual_ZN3QV44Heap15ReferenceObject8setDirtyEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK3QV44Heap15ReferenceObject13isAlwaysDirtyEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN3QV44Heap15ReferenceObject14setAlwaysDirtyEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN3QV44Heap15ReferenceObject11isConnectedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN3QV44Heap15ReferenceObject7destroyEv": ["nothing", "address"],
+    "ritual_ZNK3QV44Heap15ReferenceObject7hasFlagENS1_4FlagE": [
+      "bool", "address", "unsigned char"
+    ],
+    "ritual_ZN3QV44Heap15ReferenceObject7setFlagENS1_4FlagEb": [
+      "nothing", "address", "unsigned char", "bool"
+    ],
+    "ritual_cast_QV4_Heap_ReferenceObject_QV4_Heap_ReferenceObjectData": [
+      "address", "address"
+    ]
+  }
+}

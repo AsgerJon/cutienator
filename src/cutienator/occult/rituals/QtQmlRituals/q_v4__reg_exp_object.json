@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4regexpobject_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN3QV412RegExpObject12staticVTableEv": ["address"],
+    "ritual_ZN3QV412RegExpObject10__dataTestEv": ["nothing", "address"],
+    "ritual_ZNK3QV412RegExpObject11d_uncheckedEv": ["address", "address"],
+    "ritual_ZNK3QV412RegExpObject1dEv": ["address", "address"],
+    "ritual_ZN3QV412RegExpObject20defaultInternalClassEPNS_10EngineBaseE": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV412RegExpObject16defaultPrototypeEPNS_15ExecutionEngineE": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV412RegExpObject9lastIndexEv": ["int", "address"],
+    "ritual_ZN3QV412RegExpObject12setLastIndexEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK3QV412RegExpObject6sourceEv": ["text", "address"]
+  }
+}

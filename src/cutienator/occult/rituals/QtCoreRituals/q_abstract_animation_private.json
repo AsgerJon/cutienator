@@ -1,0 +1,31 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qabstractanimation_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN25QAbstractAnimationPrivateC1Ev": ["address"],
+    "ritual_ZN25QAbstractAnimationPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN25QAbstractAnimationPrivate3getEP18QAbstractAnimation": [
+      "address", "address"
+    ],
+    "ritual_ZN25QAbstractAnimationPrivate8setStateEN18QAbstractAnimation5StateE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN25QAbstractAnimationPrivate12setDirectionEN18QAbstractAnimation9DirectionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN25QAbstractAnimationPrivate20emitDirectionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QAbstractAnimationPrivate14setCurrentTimeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN25QAbstractAnimationPrivate22emitCurrentLoopChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QAbstractAnimationPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK25QAbstractAnimationPrivate6q_funcEv": ["address", "address"]
+  }
+}

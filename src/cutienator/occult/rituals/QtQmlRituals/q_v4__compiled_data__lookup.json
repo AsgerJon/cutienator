@@ -1,0 +1,23 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4compileddata_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK3QV412CompiledData6Lookup4typeEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData6Lookup9nameIndexEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData6Lookup4modeEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN3QV412CompiledData6LookupC1Ev": ["address"],
+    "ritual_ZN3QV412CompiledData6LookupC1ENS1_4TypeENS1_4ModeEj": [
+      "address", "unsigned int", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZN3QV412CompiledData6LookupD1Ev": ["nothing", "address"]
+  }
+}

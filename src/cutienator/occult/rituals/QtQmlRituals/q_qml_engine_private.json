@@ -1,0 +1,64 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmlengine_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN17QQmlEnginePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK17QQmlEnginePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN17QQmlEnginePrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN17QQmlEnginePrivate4initEv": ["nothing", "address"],
+    "ritual_ZN17QQmlEnginePrivate24referenceScarceResourcesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQmlEnginePrivate26dereferenceScarceResourcesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK17QQmlEnginePrivate31offlineStorageDatabaseDirectoryEv": [
+      "text", "address"
+    ],
+    "ritual_ZN17QQmlEnginePrivate8sendQuitEv": ["nothing", "address"],
+    "ritual_ZN17QQmlEnginePrivate8sendExitEi": ["nothing", "address", "int"],
+    "ritual_ZN17QQmlEnginePrivate7warningERK9QQmlError": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QQmlEnginePrivate7warningERK5QListI9QQmlErrorE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QQmlEnginePrivate7warningEP10QQmlEngineRK9QQmlError": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QQmlEnginePrivate7warningEP10QQmlEngineRK5QListI9QQmlErrorE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QQmlEnginePrivate7warningEPS_RK9QQmlError": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QQmlEnginePrivate7warningEPS_RK5QListI9QQmlErrorE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QQmlEnginePrivate3getEP10QQmlEngine": ["address", "address"],
+    "ritual_ZN17QQmlEnginePrivate3getEPK10QQmlEngine": [
+      "address", "address"
+    ],
+    "ritual_ZN17QQmlEnginePrivate3getEPS_": ["address", "address"],
+    "ritual_ZN17QQmlEnginePrivate3getEPN3QV415ExecutionEngineE": [
+      "address", "address"
+    ],
+    "ritual_ZN17QQmlEnginePrivate3getEP11QQmlContext": [
+      "address", "address"
+    ],
+    "ritual_ZN17QQmlEnginePrivate12designerModeEv": ["bool"],
+    "ritual_ZN17QQmlEnginePrivate20activateDesignerModeEv": ["nothing"],
+    "ritual_ZN17QQmlEnginePrivate17valueTypeInstanceE9QMetaType": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN17QQmlEnginePrivate22compilationUnitFromUrlERK4QUrl": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN17QQmlEnginePrivate22cleanupScarceResourcesEv": [
+      "nothing", "address"
+    ]
+  }
+}

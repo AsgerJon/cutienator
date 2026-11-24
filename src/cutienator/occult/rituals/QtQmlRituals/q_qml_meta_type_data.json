@@ -1,0 +1,41 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmlmetatypedata_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN16QQmlMetaTypeDataC1Ev": ["address"],
+    "ritual_ZN16QQmlMetaTypeDataD1Ev": ["nothing", "address"],
+    "ritual_ZN16QQmlMetaTypeData12registerTypeEP15QQmlTypePrivate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQmlMetaTypeData14findTypeModuleERK7QString13QTypeRevision": [
+      "address", "address", "text", "address"
+    ],
+    "ritual_ZN16QQmlMetaTypeData19registerModuleTypesERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZNK16QQmlMetaTypeData23propertyCacheForVersionEi13QTypeRevision": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_ZN16QQmlMetaTypeData26setPropertyCacheForVersionEi13QTypeRevisionRKN17QQmlPropertyCache8ConstPtrE": [
+      "nothing", "address", "int", "address", "address"
+    ],
+    "ritual_ZN16QQmlMetaTypeData13propertyCacheEPK11QMetaObject13QTypeRevision": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN16QQmlMetaTypeData13propertyCacheERK8QQmlType13QTypeRevision": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN16QQmlMetaTypeData20recordTypeRegFailureERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN16QQmlMetaTypeData19clearCompositeTypesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQmlMetaTypeData23clearCompositeMetaTypesEv": [
+      "nothing", "address"
+    ]
+  }
+}

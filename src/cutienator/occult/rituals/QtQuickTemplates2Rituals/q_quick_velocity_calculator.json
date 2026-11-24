@@ -1,0 +1,20 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquickvelocitycalculat",
+    "or_p_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN24QQuickVelocityCalculator14startMeasuringERK7QPointFx": [
+      "nothing", "address", "address", "long long"
+    ],
+    "ritual_ZN24QQuickVelocityCalculator13stopMeasuringERK7QPointFx": [
+      "nothing", "address", "address", "long long"
+    ],
+    "ritual_ZN24QQuickVelocityCalculator5resetEv": ["nothing", "address"],
+    "ritual_ZNK24QQuickVelocityCalculator8velocityEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QQuickVelocityCalculatorD1Ev": ["nothing", "address"]
+  }
+}

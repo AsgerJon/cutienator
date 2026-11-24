@@ -39,7 +39,7 @@ def createBuild() -> Build:
   build.setRitualFiles(*Rituals.getRitualFiles())
   build.setTargetFile(Rituals.getTargetFile())
   build.setQtSharedObjects(*Rituals.getQtSharedObjects())
-  build.setComponents(*Rituals.getComponents())
+  build.setComponents(*Rituals.getRitualParts())
   return build
 
 

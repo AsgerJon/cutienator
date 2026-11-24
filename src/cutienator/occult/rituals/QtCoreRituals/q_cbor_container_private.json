@@ -1,0 +1,64 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qcborvalue_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN21QCborContainerPrivateC1Ev": ["address"],
+    "ritual_ZN21QCborContainerPrivate11addByteDataEPKcx": [
+      "long long", "address", "chars", "long long"
+    ],
+    "ritual_ZNK21QCborContainerPrivate8byteDataEN6QtCbor7ElementE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK21QCborContainerPrivate8byteDataEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZNK21QCborContainerPrivate11containerAtExN10QCborValue4TypeE": [
+      "address", "address", "long long", "int"
+    ],
+    "ritual_ZN21QCborContainerPrivate6appendEN6QtCbor9UndefinedE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QCborContainerPrivate6appendEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN21QCborContainerPrivate6appendE8QCborTag": [
+      "nothing", "address", "unsigned long long"
+    ],
+    "ritual_ZN21QCborContainerPrivate14appendByteDataEPKcxN10QCborValue4TypeE6QFlagsIN6QtCbor7Element9ValueFlagEE": [
+      "nothing", "address", "chars", "long long", "int", "int"
+    ],
+    "ritual_ZN21QCborContainerPrivate17appendAsciiStringEPKcx": [
+      "nothing", "address", "chars", "long long"
+    ],
+    "ritual_ZN21QCborContainerPrivate16appendUtf8StringEPKcx": [
+      "nothing", "address", "chars", "long long"
+    ],
+    "ritual_ZN21QCborContainerPrivate6appendE13QLatin1String": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QCborContainerPrivate20appendNonAsciiStringE11QStringView": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK21QCborContainerPrivate11byteArrayAtEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZNK21QCborContainerPrivate8stringAtEx": [
+      "text", "address", "long long"
+    ],
+    "ritual_ZNK21QCborContainerPrivate15anyStringViewAtEx": [
+      "text", "address", "long long"
+    ],
+    "ritual_ZN21QCborContainerPrivate9makeValueEN10QCborValue4TypeExPS_NS_20ContainerDispositionE": [
+      "address", "int", "long long", "address", "int"
+    ],
+    "ritual_ZNK21QCborContainerPrivate7valueAtEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN21QCborContainerPrivate16elementFromValueERK10QCborValue": [
+      "address", "address"
+    ]
+  }
+}

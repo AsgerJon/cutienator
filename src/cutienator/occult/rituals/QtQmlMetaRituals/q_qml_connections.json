@@ -1,0 +1,46 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQmlMeta/6.12.0/QtQmlMeta/private/qqmlconnections_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK15QQmlConnections10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QQmlConnections2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN15QQmlConnectionsC1EP7QObject": ["address", "address"],
+    "ritual_ZN15QQmlConnectionsD1Ev": ["nothing", "address"],
+    "ritual_ZNK15QQmlConnections6targetEv": ["address", "address"],
+    "ritual_ZN15QQmlConnections9setTargetEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QQmlConnections9isEnabledEv": ["bool", "address"],
+    "ritual_ZN15QQmlConnections10setEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK15QQmlConnections20ignoreUnknownSignalsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN15QQmlConnections23setIgnoreUnknownSignalsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN15QQmlConnections10classBeginEv": ["nothing", "address"],
+    "ritual_ZN15QQmlConnections17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQmlConnections14connectSignalsEv": ["nothing", "address"],
+    "ritual_ZN15QQmlConnections23connectSignalsToMethodsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQmlConnections24connectSignalsToBindingsEv": [
+      "nothing", "address"
+    ],
+    "ritual_cast_QQmlConnections_QQmlParserStatus": ["address", "address"],
+    "ritual_take_QQmlConnections": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN15QQmlConnections10classBeginEv": ["nothing", "address"],
+    "ritual_own_ZN15QQmlConnections17componentCompleteEv": [
+      "nothing", "address"
+    ]
+  }
+}

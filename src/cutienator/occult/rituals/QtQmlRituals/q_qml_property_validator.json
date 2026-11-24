@@ -1,0 +1,37 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmlpropertyvalidator_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN21QQmlPropertyValidator2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZNK21QQmlPropertyValidator17rootPropertyCacheEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK21QQmlPropertyValidator17documentSourceUrlEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK21QQmlPropertyValidator10typeLoaderEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK21QQmlPropertyValidator9canCoerceE9QMetaTypeN17QQmlPropertyCache8ConstPtrE": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZNK21QQmlPropertyValidator11recordErrorERKN3QV412CompiledData8LocationERK7QString": [
+      "address", "address", "address", "text"
+    ],
+    "ritual_ZNK21QQmlPropertyValidator11recordErrorERK9QQmlError": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK21QQmlPropertyValidator8stringAtEi": [
+      "text", "address", "int"
+    ],
+    "ritual_ZNK21QQmlPropertyValidator12resolvedTypeEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN21QQmlPropertyValidatorD1Ev": ["nothing", "address"]
+  }
+}

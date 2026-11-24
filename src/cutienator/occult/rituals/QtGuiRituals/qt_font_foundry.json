@@ -1,0 +1,14 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qfontdatabase_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN13QtFontFoundryC1ERK7QString": ["address", "text"],
+    "ritual_ZN13QtFontFoundryD1Ev": ["nothing", "address"],
+    "ritual_ZN13QtFontFoundry5styleERKN11QtFontStyle3KeyERK7QStringNS_19StyleRetrievalFlagsE": [
+      "address", "address", "address", "text", "unsigned char"
+    ]
+  }
+}

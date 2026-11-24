@@ -1,0 +1,125 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuickLayouts/6.12.0/QtQuickLayouts/private/qquicklayout_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK12QQuickLayout10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QQuickLayout2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN12QQuickLayout24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN12QQuickLayout21qt_qmlMarker_attachedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN12QQuickLayoutD1Ev": ["nothing", "address"],
+    "ritual_ZN12QQuickLayout21qmlAttachedPropertiesEP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN12QQuickLayout17componentCompleteEv": ["nothing", "address"],
+    "ritual_ZNK12QQuickLayout8sizeHintEN2Qt8SizeHintE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN12QQuickLayout12setAlignmentEP10QQuickItem6QFlagsIN2Qt13AlignmentFlagEE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN12QQuickLayout16setStretchFactorEP10QQuickItemiN2Qt11OrientationE": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN12QQuickLayout10invalidateEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QQuickLayout17updateLayoutItemsEv": ["nothing", "address"],
+    "ritual_ZNK12QQuickLayout24ensureLayoutItemsUpdatedE6QFlagsINS_30EnsureLayoutItemsUpdatedOptionEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK12QQuickLayout6itemAtEi": ["address", "address", "int"],
+    "ritual_ZNK12QQuickLayout9itemCountEv": ["int", "address"],
+    "ritual_ZN12QQuickLayout9rearrangeERK6QSizeF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QQuickLayout26effectiveSizePolicy_helperEP10QQuickItemN2Qt11OrientationEP20QQuickLayoutAttached": [
+      "int", "address", "int", "address"
+    ],
+    "ritual_ZNK12QQuickLayout16shouldIgnoreItemEP10QQuickItem": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK12QQuickLayout12checkAnchorsEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QQuickLayout10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN12QQuickLayout14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK12QQuickLayout7isReadyEv": ["bool", "address"],
+    "ritual_ZN12QQuickLayout15deactivateRecurEv": ["nothing", "address"],
+    "ritual_ZNK12QQuickLayout11invalidatedEv": ["bool", "address"],
+    "ritual_ZNK12QQuickLayout22invalidatedArrangementEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK12QQuickLayout10isMirroredEv": ["bool", "address"],
+    "ritual_ZN12QQuickLayout23itemSiblingOrderChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QQuickLayout24itemImplicitWidthChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QQuickLayout25itemImplicitHeightChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QQuickLayout13itemDestroyedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QQuickLayout21itemVisibilityChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QQuickLayout37maybeSubscribeToBaseLineOffsetChangesEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12QQuickLayout17_q_dumpLayoutTreeEv": ["nothing", "address"],
+    "ritual_ZN12QQuickLayout12updatePolishEv": ["nothing", "address"],
+    "ritual_ZN12QQuickLayout20invalidateSenderItemEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN12QQuickLayout6d_funcEv": ["address", "address"],
+    "ritual_ZNK12QQuickLayout6d_funcEv": ["address", "address"],
+    "ritual_cast_QQuickLayout_QQuickItemChangeListener": [
+      "address", "address"
+    ],
+    "ritual_take_QQuickLayout": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN12QQuickLayout17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN12QQuickLayout10invalidateEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN12QQuickLayout9rearrangeERK6QSizeF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN12QQuickLayout10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZN12QQuickLayout14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN12QQuickLayout23itemSiblingOrderChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN12QQuickLayout24itemImplicitWidthChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN12QQuickLayout25itemImplicitHeightChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN12QQuickLayout13itemDestroyedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN12QQuickLayout21itemVisibilityChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN12QQuickLayout12updatePolishEv": ["nothing", "address"]
+  }
+}

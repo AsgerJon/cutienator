@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qstringhash_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QStringHashDataC1Ev": ["address"],
+    "ritual_ZN15QStringHashDataD1Ev": ["nothing", "address"],
+    "ritual_ZN15QStringHashData12rehashToBitsEs": [
+      "nothing", "address", "short"
+    ],
+    "ritual_ZN15QStringHashData12rehashToSizeEi": [
+      "nothing", "address", "int"
+    ]
+  }
+}

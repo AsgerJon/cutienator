@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/shared_settings_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18qdesigner_internal23QDesignerSharedSettings8settingsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal23QDesignerSharedSettingsD1Ev": [
+      "nothing", "address"
+    ]
+  }
+}

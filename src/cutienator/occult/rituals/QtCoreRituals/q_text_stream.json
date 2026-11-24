@@ -4,6 +4,8 @@
     "QtCore/qtextstream.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
+    "ritual_ZN11QTextStream6d_funcEv": ["address", "address"],
+    "ritual_ZNK11QTextStream6d_funcEv": ["address", "address"],
     "ritual_ZN11QTextStreamC1Ev": ["address"],
     "ritual_ZN11QTextStreamC1EP9QIODevice": ["address", "address"],
     "ritual_ZN11QTextStreamC1EP7QString6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [

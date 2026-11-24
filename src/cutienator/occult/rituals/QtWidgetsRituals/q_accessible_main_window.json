@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qaccessiblewidgets_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK21QAccessibleMainWindow10mainWindowEv": [
+      "address", "address"
+    ],
+    "ritual_take_QAccessibleMainWindow": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

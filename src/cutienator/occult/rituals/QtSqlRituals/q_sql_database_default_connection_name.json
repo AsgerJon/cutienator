@@ -1,0 +1,14 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSql/qsqldatabase.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN33QSqlDatabaseDefaultConnectionName21defaultConnectionNameEv": [
+      "text"
+    ],
+    "ritual_ZN33QSqlDatabaseDefaultConnectionNameD1Ev": [
+      "nothing", "address"
+    ]
+  }
+}

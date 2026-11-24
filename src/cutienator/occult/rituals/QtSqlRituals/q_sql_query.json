@@ -1,0 +1,78 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSql/qsqlquery.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN9QSqlQueryC1EP10QSqlResult": ["address", "address"],
+    "ritual_ZN9QSqlQueryC1ERK7QStringRK12QSqlDatabase": [
+      "address", "text", "address"
+    ],
+    "ritual_ZN9QSqlQueryC1ERK12QSqlDatabase": ["address", "address"],
+    "ritual_ZN9QSqlQueryC1ERKS_": ["address", "address"],
+    "ritual_ZN9QSqlQueryD1Ev": ["nothing", "address"],
+    "ritual_ZNK9QSqlQuery7isValidEv": ["bool", "address"],
+    "ritual_ZNK9QSqlQuery8isActiveEv": ["bool", "address"],
+    "ritual_ZNK9QSqlQuery6isNullEi": ["bool", "address", "int"],
+    "ritual_ZNK9QSqlQuery6isNullE14QAnyStringView": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZNK9QSqlQuery2atEv": ["int", "address"],
+    "ritual_ZNK9QSqlQuery9lastQueryEv": ["text", "address"],
+    "ritual_ZNK9QSqlQuery15numRowsAffectedEv": ["int", "address"],
+    "ritual_ZNK9QSqlQuery9lastErrorEv": ["address", "address"],
+    "ritual_ZNK9QSqlQuery8isSelectEv": ["bool", "address"],
+    "ritual_ZNK9QSqlQuery4sizeEv": ["int", "address"],
+    "ritual_ZNK9QSqlQuery6driverEv": ["address", "address"],
+    "ritual_ZNK9QSqlQuery6resultEv": ["address", "address"],
+    "ritual_ZNK9QSqlQuery13isForwardOnlyEv": ["bool", "address"],
+    "ritual_ZNK9QSqlQuery6recordEv": ["address", "address"],
+    "ritual_ZN9QSqlQuery14setForwardOnlyEb": ["nothing", "address", "bool"],
+    "ritual_ZN9QSqlQuery4execERK7QString": ["bool", "address", "text"],
+    "ritual_ZNK9QSqlQuery5valueEi": ["address", "address", "int"],
+    "ritual_ZNK9QSqlQuery5valueE14QAnyStringView": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN9QSqlQuery27setNumericalPrecisionPolicyEN4QSql24NumericalPrecisionPolicyE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK9QSqlQuery24numericalPrecisionPolicyEv": ["int", "address"],
+    "ritual_ZN9QSqlQuery27setPositionalBindingEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK9QSqlQuery26isPositionalBindingEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN9QSqlQuery4seekEib": ["bool", "address", "int", "bool"],
+    "ritual_ZN9QSqlQuery4nextEv": ["bool", "address"],
+    "ritual_ZN9QSqlQuery8previousEv": ["bool", "address"],
+    "ritual_ZN9QSqlQuery5firstEv": ["bool", "address"],
+    "ritual_ZN9QSqlQuery4lastEv": ["bool", "address"],
+    "ritual_ZN9QSqlQuery5clearEv": ["nothing", "address"],
+    "ritual_ZN9QSqlQuery4execEv": ["bool", "address"],
+    "ritual_ZN9QSqlQuery9execBatchENS_18BatchExecutionModeE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN9QSqlQuery7prepareERK7QString": ["bool", "address", "text"],
+    "ritual_ZN9QSqlQuery9bindValueERK7QStringRK8QVariant6QFlagsIN4QSql13ParamTypeFlagEE": [
+      "nothing", "address", "text", "address", "int"
+    ],
+    "ritual_ZN9QSqlQuery9bindValueEiRK8QVariant6QFlagsIN4QSql13ParamTypeFlagEE": [
+      "nothing", "address", "int", "address", "int"
+    ],
+    "ritual_ZN9QSqlQuery12addBindValueERK8QVariant6QFlagsIN4QSql13ParamTypeFlagEE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZNK9QSqlQuery10boundValueERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK9QSqlQuery10boundValueEi": ["address", "address", "int"],
+    "ritual_ZNK9QSqlQuery11boundValuesEv": ["address", "address"],
+    "ritual_ZNK9QSqlQuery15boundValueNamesEv": ["address", "address"],
+    "ritual_ZNK9QSqlQuery14boundValueNameEi": ["text", "address", "int"],
+    "ritual_ZNK9QSqlQuery13executedQueryEv": ["text", "address"],
+    "ritual_ZNK9QSqlQuery12lastInsertIdEv": ["address", "address"],
+    "ritual_ZN9QSqlQuery6finishEv": ["nothing", "address"],
+    "ritual_ZN9QSqlQuery10nextResultEv": ["bool", "address"]
+  }
+}

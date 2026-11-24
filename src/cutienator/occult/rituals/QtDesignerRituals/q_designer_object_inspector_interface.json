@@ -1,0 +1,30 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/abstractobjectinspector.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZNK33QDesignerObjectInspectorInterface10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN33QDesignerObjectInspectorInterface2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN33QDesignerObjectInspectorInterfaceD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK33QDesignerObjectInspectorInterface4coreEv": [
+      "address", "address"
+    ],
+    "ritual_ZN33QDesignerObjectInspectorInterface13setFormWindowEP28QDesignerFormWindowInterface": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QDesignerObjectInspectorInterface": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK33QDesignerObjectInspectorInterface4coreEv": [
+      "address", "address"
+    ]
+  }
+}

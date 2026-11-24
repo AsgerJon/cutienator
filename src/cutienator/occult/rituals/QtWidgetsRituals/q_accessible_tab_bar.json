@@ -1,0 +1,54 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/complexwidgets_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN17QAccessibleTabBarD1Ev": ["nothing", "address"],
+    "ritual_ZNK17QAccessibleTabBar10focusChildEv": ["address", "address"],
+    "ritual_ZNK17QAccessibleTabBar10childCountEv": ["int", "address"],
+    "ritual_ZNK17QAccessibleTabBar17selectedItemCountEv": ["int", "address"],
+    "ritual_ZNK17QAccessibleTabBar13selectedItemsEv": ["address", "address"],
+    "ritual_ZNK17QAccessibleTabBar12selectedItemEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK17QAccessibleTabBar10isSelectedEP20QAccessibleInterface": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN17QAccessibleTabBar6selectEP20QAccessibleInterface": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN17QAccessibleTabBar8unselectEP20QAccessibleInterface": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN17QAccessibleTabBar9selectAllEv": ["bool", "address"],
+    "ritual_ZN17QAccessibleTabBar5clearEv": ["bool", "address"],
+    "ritual_ZNK17QAccessibleTabBar6tabBarEv": ["address", "address"],
+    "ritual_cast_QAccessibleTabBar_QAccessibleSelectionInterface": [
+      "address", "address"
+    ],
+    "ritual_take_QAccessibleTabBar": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK17QAccessibleTabBar10focusChildEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK17QAccessibleTabBar10childCountEv": ["int", "address"],
+    "ritual_own_ZNK17QAccessibleTabBar17selectedItemCountEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZNK17QAccessibleTabBar12selectedItemEi": [
+      "address", "address", "int"
+    ],
+    "ritual_own_ZNK17QAccessibleTabBar10isSelectedEP20QAccessibleInterface": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN17QAccessibleTabBar6selectEP20QAccessibleInterface": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN17QAccessibleTabBar8unselectEP20QAccessibleInterface": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN17QAccessibleTabBar9selectAllEv": ["bool", "address"],
+    "ritual_own_ZN17QAccessibleTabBar5clearEv": ["bool", "address"]
+  }
+}

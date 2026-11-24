@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qstyleoption.h, Qt 6.12.0. Changes made here are lost.
+#include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(tabbar)
 #include <QtWidgets/qstyleoption.h>
 
 //  QStyleOptionTab::QStyleOptionTab()
@@ -26,3 +28,5 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN15QStyleOptionTabD1Ev(QStyleOptionTab *self) {
   delete self;
 }
+
+#endif  // QT_CONFIG(tabbar)

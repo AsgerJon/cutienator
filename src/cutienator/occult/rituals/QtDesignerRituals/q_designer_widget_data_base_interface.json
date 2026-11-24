@@ -1,0 +1,78 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/abstractwidgetdatabase.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZNK32QDesignerWidgetDataBaseInterface10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN32QDesignerWidgetDataBaseInterface2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN32QDesignerWidgetDataBaseInterfaceC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN32QDesignerWidgetDataBaseInterfaceD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK32QDesignerWidgetDataBaseInterface5countEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK32QDesignerWidgetDataBaseInterface4itemEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK32QDesignerWidgetDataBaseInterface7indexOfEP36QDesignerWidgetDataBaseItemInterface": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN32QDesignerWidgetDataBaseInterface6insertEiP36QDesignerWidgetDataBaseItemInterface": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN32QDesignerWidgetDataBaseInterface6appendEP36QDesignerWidgetDataBaseItemInterface": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK32QDesignerWidgetDataBaseInterface13indexOfObjectEP7QObjectb": [
+      "int", "address", "address", "bool"
+    ],
+    "ritual_ZNK32QDesignerWidgetDataBaseInterface16indexOfClassNameERK7QStringb": [
+      "int", "address", "text", "bool"
+    ],
+    "ritual_ZNK32QDesignerWidgetDataBaseInterface4coreEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK32QDesignerWidgetDataBaseInterface11isContainerEP7QObjectb": [
+      "bool", "address", "address", "bool"
+    ],
+    "ritual_ZNK32QDesignerWidgetDataBaseInterface8isCustomEP7QObjectb": [
+      "bool", "address", "address", "bool"
+    ],
+    "ritual_take_QDesignerWidgetDataBaseInterface": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK32QDesignerWidgetDataBaseInterface5countEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZNK32QDesignerWidgetDataBaseInterface4itemEi": [
+      "address", "address", "int"
+    ],
+    "ritual_own_ZNK32QDesignerWidgetDataBaseInterface7indexOfEP36QDesignerWidgetDataBaseItemInterface": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZN32QDesignerWidgetDataBaseInterface6insertEiP36QDesignerWidgetDataBaseItemInterface": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZN32QDesignerWidgetDataBaseInterface6appendEP36QDesignerWidgetDataBaseItemInterface": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK32QDesignerWidgetDataBaseInterface13indexOfObjectEP7QObjectb": [
+      "int", "address", "address", "bool"
+    ],
+    "ritual_own_ZNK32QDesignerWidgetDataBaseInterface16indexOfClassNameERK7QStringb": [
+      "int", "address", "text", "bool"
+    ],
+    "ritual_own_ZNK32QDesignerWidgetDataBaseInterface4coreEv": [
+      "address", "address"
+    ]
+  }
+}

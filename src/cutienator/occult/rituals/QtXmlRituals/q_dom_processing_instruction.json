@@ -1,0 +1,20 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtXml/qdom.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN25QDomProcessingInstructionC1Ev": ["address"],
+    "ritual_ZN25QDomProcessingInstructionC1ERKS_": ["address", "address"],
+    "ritual_ZNK25QDomProcessingInstruction6targetEv": ["text", "address"],
+    "ritual_ZNK25QDomProcessingInstruction4dataEv": ["text", "address"],
+    "ritual_ZN25QDomProcessingInstruction7setDataERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK25QDomProcessingInstruction8nodeTypeEv": ["int", "address"],
+    "ritual_ZN25QDomProcessingInstructionC1EP32QDomProcessingInstructionPrivate": [
+      "address", "address"
+    ],
+    "ritual_ZN25QDomProcessingInstructionD1Ev": ["nothing", "address"]
+  }
+}

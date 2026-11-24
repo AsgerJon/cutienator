@@ -54,11 +54,13 @@ QJsonValue *ritual_ZN10QJsonValueC1E13QLatin1String(const QLatin1String *s) {
   return new QJsonValue(*s);
 }
 
+#if !defined(QT_NO_CAST_FROM_ASCII)
 //  QJsonValue::QJsonValue(const char *s)
 extern "C" Q_DECL_EXPORT
 QJsonValue *ritual_ZN10QJsonValueC1EPKc(const char *s) {
   return new QJsonValue(s);
 }
+#endif  // !defined(QT_NO_CAST_FROM_ASCII)
 
 //  QJsonValue::QJsonValue(const QJsonArray &a)
 extern "C" Q_DECL_EXPORT

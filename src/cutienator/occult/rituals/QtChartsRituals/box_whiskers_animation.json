@@ -1,0 +1,38 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/6.12.0/QtCharts/private/boxwhiskersanimation_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK20BoxWhiskersAnimation10metaObjectEv": ["address", "address"],
+    "ritual_ZN20BoxWhiskersAnimation2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN20BoxWhiskersAnimationD1Ev": ["nothing", "address"],
+    "ritual_ZNK20BoxWhiskersAnimation12interpolatedERK8QVariantS2_d": [
+      "address", "address", "address", "address", "double"
+    ],
+    "ritual_ZN20BoxWhiskersAnimation18updateCurrentValueERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20BoxWhiskersAnimation5setupERK15BoxWhiskersDataS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN20BoxWhiskersAnimation10setEndDataERK15BoxWhiskersData": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20BoxWhiskersAnimation12setStartDataERK15BoxWhiskersData": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_BoxWhiskersAnimation": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK20BoxWhiskersAnimation12interpolatedERK8QVariantS2_d": [
+      "address", "address", "address", "address", "double"
+    ],
+    "ritual_own_ZN20BoxWhiskersAnimation18updateCurrentValueERK8QVariant": [
+      "nothing", "address", "address"
+    ]
+  }
+}

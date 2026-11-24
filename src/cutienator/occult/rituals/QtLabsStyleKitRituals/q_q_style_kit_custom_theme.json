@@ -1,0 +1,23 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtLabsS",
+    "tyleKit/6.12.0/QtLabsStyleKit/private/qqstylekitcustomtheme_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK21QQStyleKitCustomTheme10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK21QQStyleKitCustomTheme4nameEv": ["text", "address"],
+    "ritual_ZNK21QQStyleKitCustomTheme5themeEv": ["address", "address"],
+    "ritual_list_make_QQStyleKitCustomTheme_ptr": ["address"],
+    "ritual_list_add_QQStyleKitCustomTheme_ptr": [
+      "nothing", "address", "address"
+    ],
+    "ritual_list_size_QQStyleKitCustomTheme_ptr": ["long long", "address"],
+    "ritual_list_at_QQStyleKitCustomTheme_ptr": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_QQStyleKitCustomTheme_ptr": ["nothing", "address"]
+  }
+}

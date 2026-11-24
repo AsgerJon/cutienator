@@ -125,6 +125,7 @@ void ritual_ZN11QMouseEventD1Ev(QMouseEvent *self) {
   delete self;
 }
 
+#if QT_DEPRECATED_SINCE(6, 4)
 //  QMouseEvent::QMouseEvent(Type type, const QPointF &localPos,
 //      Qt::MouseButton button, Qt::MouseButtons buttons,
 //      Qt::KeyboardModifiers modifiers, const QPointingDevice *device)
@@ -144,6 +145,7 @@ QMouseEvent *ritual_ZN11QMouseEventC1EN6QEvent4TypeERK7QPointFN2Qt11MouseButtonE
       QFlags<Qt::KeyboardModifier>::fromInt(modifiers),
       device);
 }
+#endif  // QT_DEPRECATED_SINCE(6, 4)
 
 //  QMouseEvent::QMouseEvent(Type type, const QPointF &localPos, const
 //      QPointF &globalPos, Qt::MouseButton button, Qt::MouseButtons buttons,
@@ -219,59 +221,87 @@ QMouseEvent *ritual_ZN11QMouseEventC1EN6QEvent4TypeERK7QPointFS4_S4_N2Qt11MouseB
       device);
 }
 
+#if !defined(QT_NO_INTEGER_EVENT_COORDINATES)
 //  QPoint QMouseEvent::pos() const
 extern "C" Q_DECL_EXPORT
 QPoint *ritual_ZNK11QMouseEvent3posEv(const QMouseEvent *self) {
   return new QPoint(self->pos());
 }
+#endif  // !defined(QT_NO_INTEGER_EVENT_COORDINATES)
 
+#if QT_DEPRECATED_SINCE(6, 0)
+#if !defined(QT_NO_INTEGER_EVENT_COORDINATES)
 //  QPoint QMouseEvent::globalPos() const
 extern "C" Q_DECL_EXPORT
 QPoint *ritual_ZNK11QMouseEvent9globalPosEv(const QMouseEvent *self) {
   return new QPoint(self->globalPos());
 }
+#endif  // !defined(QT_NO_INTEGER_EVENT_COORDINATES)
+#endif  // QT_DEPRECATED_SINCE(6, 0)
 
+#if QT_DEPRECATED_SINCE(6, 0)
+#if !defined(QT_NO_INTEGER_EVENT_COORDINATES)
 //  int QMouseEvent::x() const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK11QMouseEvent1xEv(const QMouseEvent *self) {
   return self->x();
 }
+#endif  // !defined(QT_NO_INTEGER_EVENT_COORDINATES)
+#endif  // QT_DEPRECATED_SINCE(6, 0)
 
+#if QT_DEPRECATED_SINCE(6, 0)
+#if !defined(QT_NO_INTEGER_EVENT_COORDINATES)
 //  int QMouseEvent::y() const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK11QMouseEvent1yEv(const QMouseEvent *self) {
   return self->y();
 }
+#endif  // !defined(QT_NO_INTEGER_EVENT_COORDINATES)
+#endif  // QT_DEPRECATED_SINCE(6, 0)
 
+#if QT_DEPRECATED_SINCE(6, 0)
+#if !defined(QT_NO_INTEGER_EVENT_COORDINATES)
 //  int QMouseEvent::globalX() const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK11QMouseEvent7globalXEv(const QMouseEvent *self) {
   return self->globalX();
 }
+#endif  // !defined(QT_NO_INTEGER_EVENT_COORDINATES)
+#endif  // QT_DEPRECATED_SINCE(6, 0)
 
+#if QT_DEPRECATED_SINCE(6, 0)
+#if !defined(QT_NO_INTEGER_EVENT_COORDINATES)
 //  int QMouseEvent::globalY() const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK11QMouseEvent7globalYEv(const QMouseEvent *self) {
   return self->globalY();
 }
+#endif  // !defined(QT_NO_INTEGER_EVENT_COORDINATES)
+#endif  // QT_DEPRECATED_SINCE(6, 0)
 
+#if QT_DEPRECATED_SINCE(6, 0)
 //  QPointF QMouseEvent::localPos() const
 extern "C" Q_DECL_EXPORT
 QPointF *ritual_ZNK11QMouseEvent8localPosEv(const QMouseEvent *self) {
   return new QPointF(self->localPos());
 }
+#endif  // QT_DEPRECATED_SINCE(6, 0)
 
+#if QT_DEPRECATED_SINCE(6, 0)
 //  QPointF QMouseEvent::windowPos() const
 extern "C" Q_DECL_EXPORT
 QPointF *ritual_ZNK11QMouseEvent9windowPosEv(const QMouseEvent *self) {
   return new QPointF(self->windowPos());
 }
+#endif  // QT_DEPRECATED_SINCE(6, 0)
 
+#if QT_DEPRECATED_SINCE(6, 0)
 //  QPointF QMouseEvent::screenPos() const
 extern "C" Q_DECL_EXPORT
 QPointF *ritual_ZNK11QMouseEvent9screenPosEv(const QMouseEvent *self) {
   return new QPointF(self->screenPos());
 }
+#endif  // QT_DEPRECATED_SINCE(6, 0)
 
 //  Qt::MouseEventSource QMouseEvent::source() const
 extern "C" Q_DECL_EXPORT

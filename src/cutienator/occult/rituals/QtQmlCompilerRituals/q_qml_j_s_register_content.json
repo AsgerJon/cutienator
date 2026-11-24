@@ -1,0 +1,80 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQmlCo",
+    "mpiler/6.12.0/QtQmlCompiler/private/qqmljsregistercontent_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN21QQmlJSRegisterContentC1Ev": ["address"],
+    "ritual_ZNK21QQmlJSRegisterContent6isNullEv": ["bool", "address"],
+    "ritual_ZNK21QQmlJSRegisterContent7isValidEv": ["bool", "address"],
+    "ritual_ZNK21QQmlJSRegisterContent6isListEv": ["bool", "address"],
+    "ritual_ZNK21QQmlJSRegisterContent10isWritableEv": ["bool", "address"],
+    "ritual_ZNK21QQmlJSRegisterContent7variantEv": ["int", "address"],
+    "ritual_ZNK21QQmlJSRegisterContent15descriptiveNameEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK21QQmlJSRegisterContent17containedTypeNameEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK21QQmlJSRegisterContent17resultLookupIndexEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK21QQmlJSRegisterContent6isTypeEv": ["bool", "address"],
+    "ritual_ZNK21QQmlJSRegisterContent10isPropertyEv": ["bool", "address"],
+    "ritual_ZNK21QQmlJSRegisterContent8propertyEv": ["address", "address"],
+    "ritual_ZNK21QQmlJSRegisterContent15baseLookupIndexEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK21QQmlJSRegisterContent13isEnumerationEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK21QQmlJSRegisterContent11enumerationEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK21QQmlJSRegisterContent10enumMemberEv": ["text", "address"],
+    "ritual_ZNK21QQmlJSRegisterContent8isMethodEv": ["bool", "address"],
+    "ritual_ZNK21QQmlJSRegisterContent6methodEv": ["address", "address"],
+    "ritual_ZNK21QQmlJSRegisterContent17isImportNamespaceEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK21QQmlJSRegisterContent15importNamespaceEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZNK21QQmlJSRegisterContent12isConversionEv": ["bool", "address"],
+    "ritual_ZNK21QQmlJSRegisterContent21conversionResultScopeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK21QQmlJSRegisterContent17conversionOriginsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK21QQmlJSRegisterContent12isMethodCallEv": ["bool", "address"],
+    "ritual_ZNK21QQmlJSRegisterContent10methodCallEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK21QQmlJSRegisterContent23isJavaScriptReturnValueEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK21QQmlJSRegisterContent8attacherEv": ["address", "address"],
+    "ritual_ZNK21QQmlJSRegisterContent8attacheeEv": ["address", "address"],
+    "ritual_ZNK21QQmlJSRegisterContent5scopeEv": ["address", "address"],
+    "ritual_ZNK21QQmlJSRegisterContent7storageEv": ["address", "address"],
+    "ritual_ZNK21QQmlJSRegisterContent8originalEv": ["address", "address"],
+    "ritual_ZNK21QQmlJSRegisterContent8shadowedEv": ["address", "address"],
+    "ritual_ZNK21QQmlJSRegisterContent2idEv": [
+      "unsigned long long", "address"
+    ],
+    "ritual_Zeq21QQmlJSRegisterContentS_": ["bool", "address", "address"],
+    "ritual_Zne21QQmlJSRegisterContentS_": ["bool", "address", "address"],
+    "ritual_ZN21QQmlJSRegisterContentD1Ev": ["nothing", "address"],
+    "ritual_list_make_QQmlJSRegisterContent": ["address"],
+    "ritual_list_add_QQmlJSRegisterContent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_list_size_QQmlJSRegisterContent": ["long long", "address"],
+    "ritual_list_at_QQmlJSRegisterContent": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_QQmlJSRegisterContent": ["nothing", "address"]
+  }
+}

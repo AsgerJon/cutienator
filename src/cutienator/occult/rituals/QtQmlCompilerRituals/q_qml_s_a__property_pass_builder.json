@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQmlCompiler/6.12.0/QtQmlCompiler/private/qqmlsa_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN6QQmlSA19PropertyPassBuilderC1EPNS_11PassManagerE": [
+      "address", "address"
+    ],
+    "ritual_ZN6QQmlSA19PropertyPassBuilderD1Ev": ["nothing", "address"],
+    "ritual_ZN6QQmlSA19PropertyPassBuilder10registerOnE14QAnyStringViewS1_S1_": [
+      "nothing", "address", "text", "text", "text"
+    ],
+    "ritual_ZN6QQmlSA19PropertyPassBuilder17registerOnBuiltinE14QAnyStringViewS1_": [
+      "nothing", "address", "text", "text"
+    ]
+  }
+}

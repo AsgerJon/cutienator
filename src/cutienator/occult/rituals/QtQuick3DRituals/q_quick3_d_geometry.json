@@ -1,0 +1,101 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3D/qquick3dgeometry.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK16QQuick3DGeometry10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QQuick3DGeometry2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN16QQuick3DGeometry6d_funcEv": ["address", "address"],
+    "ritual_ZNK16QQuick3DGeometry6d_funcEv": ["address", "address"],
+    "ritual_ZN16QQuick3DGeometry24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuick3DGeometryC1EP14QQuick3DObject": [
+      "address", "address"
+    ],
+    "ritual_ZN16QQuick3DGeometryD1Ev": ["nothing", "address"],
+    "ritual_ZNK16QQuick3DGeometry10vertexDataEv": ["address", "address"],
+    "ritual_ZNK16QQuick3DGeometry9indexDataEv": ["address", "address"],
+    "ritual_ZNK16QQuick3DGeometry14attributeCountEv": ["int", "address"],
+    "ritual_ZNK16QQuick3DGeometry9attributeEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK16QQuick3DGeometry13primitiveTypeEv": ["int", "address"],
+    "ritual_ZNK16QQuick3DGeometry9boundsMinEv": ["address", "address"],
+    "ritual_ZNK16QQuick3DGeometry9boundsMaxEv": ["address", "address"],
+    "ritual_ZNK16QQuick3DGeometry6strideEv": ["int", "address"],
+    "ritual_ZN16QQuick3DGeometry13setVertexDataERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuick3DGeometry13setVertexDataEiRK10QByteArray": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN16QQuick3DGeometry12setIndexDataERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuick3DGeometry12setIndexDataEiRK10QByteArray": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN16QQuick3DGeometry9setStrideEi": ["nothing", "address", "int"],
+    "ritual_ZN16QQuick3DGeometry9setBoundsERK9QVector3DS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN16QQuick3DGeometry16setPrimitiveTypeENS_13PrimitiveTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16QQuick3DGeometry12addAttributeENS_9Attribute8SemanticEiNS0_13ComponentTypeE": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZN16QQuick3DGeometry12addAttributeERKNS_9AttributeE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QQuick3DGeometry11subsetCountEv": ["int", "address"],
+    "ritual_ZNK16QQuick3DGeometry15subsetBoundsMinEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK16QQuick3DGeometry15subsetBoundsMaxEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK16QQuick3DGeometry12subsetOffsetEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK16QQuick3DGeometry11subsetCountEi": ["int", "address", "int"],
+    "ritual_ZNK16QQuick3DGeometry10subsetNameEi": ["text", "address", "int"],
+    "ritual_ZN16QQuick3DGeometry9addSubsetEiiRK9QVector3DS2_RK7QString": [
+      "nothing", "address", "int", "int", "address", "address", "text"
+    ],
+    "ritual_ZNK16QQuick3DGeometry10targetDataEv": ["address", "address"],
+    "ritual_ZN16QQuick3DGeometry13setTargetDataERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuick3DGeometry13setTargetDataEiRK10QByteArray": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZNK16QQuick3DGeometry15targetAttributeEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK16QQuick3DGeometry20targetAttributeCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZN16QQuick3DGeometry18addTargetAttributeEjNS_9Attribute8SemanticEii": [
+      "nothing", "address", "unsigned int", "int", "int", "int"
+    ],
+    "ritual_ZN16QQuick3DGeometry18addTargetAttributeERKNS_15TargetAttributeE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuick3DGeometry5clearEv": ["nothing", "address"],
+    "ritual_ZN16QQuick3DGeometry17updateSpatialNodeEP21QSSGRenderGraphObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN16QQuick3DGeometry12markAllDirtyEv": ["nothing", "address"],
+    "ritual_take_QQuick3DGeometry": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN16QQuick3DGeometry17updateSpatialNodeEP21QSSGRenderGraphObject": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN16QQuick3DGeometry12markAllDirtyEv": ["nothing", "address"]
+  }
+}

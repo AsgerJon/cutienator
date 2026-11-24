@@ -1,0 +1,52 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickanchors_p_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QQuickAnchorsPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK20QQuickAnchorsPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN20QQuickAnchorsPrivate9clearItemEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QQuickAnchorsPrivate14isItemCompleteEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN20QQuickAnchorsPrivate13setItemHeightEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN20QQuickAnchorsPrivate12setItemWidthEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN20QQuickAnchorsPrivate8setItemXEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN20QQuickAnchorsPrivate8setItemYEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN20QQuickAnchorsPrivate10setItemPosERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickAnchorsPrivate11setItemSizeERK6QSizeF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickAnchorsPrivate19itemGeometryChangedEP10QQuickItem20QQuickGeometryChangeRK6QRectF": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN20QQuickAnchorsPrivate13anchorPrivateEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QQuickAnchorsPrivate11checkHValidEv": ["bool", "address"],
+    "ritual_ZNK20QQuickAnchorsPrivate11checkVValidEv": ["bool", "address"],
+    "ritual_ZN20QQuickAnchorsPrivate3getEP13QQuickAnchors": [
+      "address", "address"
+    ],
+    "ritual_take_QQuickAnchorsPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN20QQuickAnchorsPrivate13anchorPrivateEv": [
+      "address", "address"
+    ]
+  }
+}

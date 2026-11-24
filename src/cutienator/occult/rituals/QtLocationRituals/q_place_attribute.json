@@ -1,0 +1,44 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLocation/qplaceattribute.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN15QPlaceAttributeC1Ev": ["address"],
+    "ritual_ZN15QPlaceAttributeC1ERKS_": ["address", "address"],
+    "ritual_ZN15QPlaceAttributeD1Ev": ["nothing", "address"],
+    "ritual_ZeqRK15QPlaceAttributeS1_": ["bool", "address", "address"],
+    "ritual_ZneRK15QPlaceAttributeS1_": ["bool", "address", "address"],
+    "ritual_ZNK15QPlaceAttribute5labelEv": ["text", "address"],
+    "ritual_ZN15QPlaceAttribute8setLabelERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK15QPlaceAttribute4textEv": ["text", "address"],
+    "ritual_ZN15QPlaceAttribute7setTextERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK15QPlaceAttribute7isEmptyEv": ["bool", "address"],
+    "ritual_ZNK15QPlaceAttribute7isEqualERKS_": [
+      "bool", "address", "address"
+    ],
+    "ritual_map_make_QMap_QString_QPlaceAttribute": ["address"],
+    "ritual_map_put_QMap_QString_QPlaceAttribute": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_map_size_QMap_QString_QPlaceAttribute": ["long long", "address"],
+    "ritual_map_key_QMap_QString_QPlaceAttribute": [
+      "text", "address", "long long"
+    ],
+    "ritual_map_value_QMap_QString_QPlaceAttribute": [
+      "address", "address", "long long"
+    ],
+    "ritual_map_has_QMap_QString_QPlaceAttribute": [
+      "bool", "address", "text"
+    ],
+    "ritual_map_get_QMap_QString_QPlaceAttribute": [
+      "address", "address", "text"
+    ],
+    "ritual_map_drop_QMap_QString_QPlaceAttribute": ["nothing", "address"]
+  }
+}

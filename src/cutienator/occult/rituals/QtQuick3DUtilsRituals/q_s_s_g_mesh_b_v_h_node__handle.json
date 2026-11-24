@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3DUtils/6.12.0/QtQuick3DUtils/private/qssgmeshbvh_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QSSGMeshBVHNode6HandleC1Ev": ["address"],
+    "ritual_ZNK15QSSGMeshBVHNode6Handle6isNullEv": ["bool", "address"],
+    "ritual_ZNK15QSSGMeshBVHNode6HandlecvPKS_Ev": ["address", "address"],
+    "ritual_ZNK15QSSGMeshBVHNode6HandleptEv": ["address", "address"],
+    "ritual_ZN15QSSGMeshBVHNode6HandleC1EP11QSSGMeshBVHm": [
+      "address", "address", "size_t"
+    ],
+    "ritual_ZN15QSSGMeshBVHNode6HandleD1Ev": ["nothing", "address"]
+  }
+}

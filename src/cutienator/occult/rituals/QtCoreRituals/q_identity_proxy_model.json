@@ -80,6 +80,8 @@
     "ritual_ZN19QIdentityProxyModel26setHandleSourceDataChangesEb": [
       "nothing", "address", "bool"
     ],
+    "ritual_ZN19QIdentityProxyModel6d_funcEv": ["address", "address"],
+    "ritual_ZNK19QIdentityProxyModel6d_funcEv": ["address", "address"],
     "ritual_take_QIdentityProxyModel": [
       "bool", "address", "chars", "address"
     ],

@@ -1,0 +1,32 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/ssg/qssgrhicontext.h",
+    ", Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN14QSSGRhiContextC1EP4QRhi": ["address", "address"],
+    "ritual_ZN14QSSGRhiContextD1Ev": ["nothing", "address"],
+    "ritual_ZNK14QSSGRhiContext3rhiEv": ["address", "address"],
+    "ritual_ZNK14QSSGRhiContext7isValidEv": ["bool", "address"],
+    "ritual_ZNK14QSSGRhiContext24mainRenderPassDescriptorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK14QSSGRhiContext13commandBufferEv": ["address", "address"],
+    "ritual_ZNK14QSSGRhiContext12renderTargetEv": ["address", "address"],
+    "ritual_ZNK14QSSGRhiContext19mainPassSampleCountEv": ["int", "address"],
+    "ritual_ZNK14QSSGRhiContext17mainPassViewCountEv": ["int", "address"],
+    "ritual_ZN14QSSGRhiContext7samplerERK25QSSGRhiSamplerDescription": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN14QSSGRhiContext21checkAndAdjustForNPoTEP11QRhiTextureP25QSSGRhiSamplerDescription": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN14QSSGRhiContext12dummyTextureE6QFlagsIN11QRhiTexture4FlagEEP23QRhiResourceUpdateBatchRK5QSizeRK6QColori": [
+      "address", "address", "int", "address", "address", "address", "int"
+    ],
+    "ritual_ZNK14QSSGRhiContext15commonPassFlagsEv": ["int", "address"],
+    "ritual_ZN14QSSGRhiContext6d_funcEv": ["address", "address"],
+    "ritual_ZNK14QSSGRhiContext6d_funcEv": ["address", "address"]
+  }
+}

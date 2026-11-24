@@ -1,0 +1,49 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickitemview_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK22QQuickItemViewAttached10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QQuickItemViewAttached2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN22QQuickItemViewAttachedC1EP7QObject": ["address", "address"],
+    "ritual_ZN22QQuickItemViewAttachedD1Ev": ["nothing", "address"],
+    "ritual_ZNK22QQuickItemViewAttached13isCurrentItemEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN22QQuickItemViewAttached16setIsCurrentItemEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK22QQuickItemViewAttached11delayRemoveEv": ["bool", "address"],
+    "ritual_ZN22QQuickItemViewAttached14setDelayRemoveEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK22QQuickItemViewAttached7sectionEv": ["text", "address"],
+    "ritual_ZN22QQuickItemViewAttached10setSectionERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK22QQuickItemViewAttached11prevSectionEv": ["text", "address"],
+    "ritual_ZN22QQuickItemViewAttached14setPrevSectionERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK22QQuickItemViewAttached11nextSectionEv": ["text", "address"],
+    "ritual_ZN22QQuickItemViewAttached14setNextSectionERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN22QQuickItemViewAttached11setSectionsERK7QStringS2_S2_": [
+      "nothing", "address", "text", "text", "text"
+    ],
+    "ritual_ZN22QQuickItemViewAttached7emitAddEv": ["nothing", "address"],
+    "ritual_ZN22QQuickItemViewAttached10emitRemoveEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QQuickItemViewAttached": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

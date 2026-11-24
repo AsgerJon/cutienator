@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtNetwo",
+    "rkAuth/6.12.0/QtNetworkAuth/private/qoauthhttpserverreplyhandler_p",
+    ".h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN35QOAuthHttpServerReplyHandlerPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK35QOAuthHttpServerReplyHandlerPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN35QOAuthHttpServerReplyHandlerPrivateC1EP28QOAuthHttpServerReplyHandler": [
+      "address", "address"
+    ],
+    "ritual_ZN35QOAuthHttpServerReplyHandlerPrivateD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN35QOAuthHttpServerReplyHandlerPrivate6listenERK12QHostAddresst": [
+      "bool", "address", "address", "unsigned short"
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qmetaobject_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN13QArgumentTypeC1Ev": ["address"],
+    "ritual_ZN13QArgumentTypeC1E9QMetaType": ["address", "address"],
+    "ritual_ZNK13QArgumentType8metaTypeEv": ["address", "address"],
+    "ritual_ZNK13QArgumentType4nameEv": ["address", "address"],
+    "ritual_ZeqRK13QArgumentTypeS1_": ["bool", "address", "address"],
+    "ritual_ZneRK13QArgumentTypeS1_": ["bool", "address", "address"],
+    "ritual_ZN13QArgumentTypeD1Ev": ["nothing", "address"]
+  }
+}

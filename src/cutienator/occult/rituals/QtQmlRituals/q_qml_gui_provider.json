@@ -1,0 +1,30 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmlglobal_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QQmlGuiProviderD1Ev": ["nothing", "address"],
+    "ritual_ZN15QQmlGuiProvider11applicationEP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN15QQmlGuiProvider11inputMethodEv": ["address", "address"],
+    "ritual_ZN15QQmlGuiProvider10styleHintsEv": ["address", "address"],
+    "ritual_ZN15QQmlGuiProvider12fontFamiliesEv": ["address", "address"],
+    "ritual_ZN15QQmlGuiProvider17openUrlExternallyERK4QUrl": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK15QQmlGuiProvider10pluginNameEv": ["text", "address"],
+    "ritual_take_QQmlGuiProvider": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN15QQmlGuiProvider11applicationEP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN15QQmlGuiProvider11inputMethodEv": ["address", "address"],
+    "ritual_own_ZN15QQmlGuiProvider10styleHintsEv": ["address", "address"],
+    "ritual_own_ZN15QQmlGuiProvider17openUrlExternallyERK4QUrl": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZNK15QQmlGuiProvider10pluginNameEv": ["text", "address"]
+  }
+}

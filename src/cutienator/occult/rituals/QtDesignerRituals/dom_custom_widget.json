@@ -1,0 +1,110 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/ui4_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15DomCustomWidgetC1Ev": ["address"],
+    "ritual_ZN15DomCustomWidgetD1Ev": ["nothing", "address"],
+    "ritual_ZNK15DomCustomWidget12elementClassEv": ["text", "address"],
+    "ritual_ZN15DomCustomWidget15setElementClassERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK15DomCustomWidget15hasElementClassEv": ["bool", "address"],
+    "ritual_ZN15DomCustomWidget17clearElementClassEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK15DomCustomWidget14elementExtendsEv": ["text", "address"],
+    "ritual_ZN15DomCustomWidget17setElementExtendsERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK15DomCustomWidget17hasElementExtendsEv": ["bool", "address"],
+    "ritual_ZN15DomCustomWidget19clearElementExtendsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK15DomCustomWidget13elementHeaderEv": ["address", "address"],
+    "ritual_ZN15DomCustomWidget17takeElementHeaderEv": [
+      "address", "address"
+    ],
+    "ritual_ZN15DomCustomWidget16setElementHeaderEP9DomHeader": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15DomCustomWidget16hasElementHeaderEv": ["bool", "address"],
+    "ritual_ZN15DomCustomWidget18clearElementHeaderEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK15DomCustomWidget15elementSizeHintEv": ["address", "address"],
+    "ritual_ZN15DomCustomWidget19takeElementSizeHintEv": [
+      "address", "address"
+    ],
+    "ritual_ZN15DomCustomWidget18setElementSizeHintEP7DomSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15DomCustomWidget18hasElementSizeHintEv": ["bool", "address"],
+    "ritual_ZN15DomCustomWidget20clearElementSizeHintEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK15DomCustomWidget20elementAddPageMethodEv": [
+      "text", "address"
+    ],
+    "ritual_ZN15DomCustomWidget23setElementAddPageMethodERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK15DomCustomWidget23hasElementAddPageMethodEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN15DomCustomWidget25clearElementAddPageMethodEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK15DomCustomWidget16elementContainerEv": ["int", "address"],
+    "ritual_ZN15DomCustomWidget19setElementContainerEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15DomCustomWidget19hasElementContainerEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN15DomCustomWidget21clearElementContainerEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK15DomCustomWidget13elementPixmapEv": ["text", "address"],
+    "ritual_ZN15DomCustomWidget16setElementPixmapERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK15DomCustomWidget16hasElementPixmapEv": ["bool", "address"],
+    "ritual_ZN15DomCustomWidget18clearElementPixmapEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK15DomCustomWidget12elementSlotsEv": ["address", "address"],
+    "ritual_ZN15DomCustomWidget16takeElementSlotsEv": ["address", "address"],
+    "ritual_ZN15DomCustomWidget15setElementSlotsEP8DomSlots": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15DomCustomWidget15hasElementSlotsEv": ["bool", "address"],
+    "ritual_ZN15DomCustomWidget17clearElementSlotsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK15DomCustomWidget29elementPropertyspecificationsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN15DomCustomWidget33takeElementPropertyspecificationsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN15DomCustomWidget32setElementPropertyspecificationsEP25DomPropertySpecifications": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15DomCustomWidget32hasElementPropertyspecificationsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN15DomCustomWidget34clearElementPropertyspecificationsEv": [
+      "nothing", "address"
+    ],
+    "ritual_list_make_DomCustomWidget_ptr": ["address"],
+    "ritual_list_add_DomCustomWidget_ptr": ["nothing", "address", "address"],
+    "ritual_list_size_DomCustomWidget_ptr": ["long long", "address"],
+    "ritual_list_at_DomCustomWidget_ptr": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_DomCustomWidget_ptr": ["nothing", "address"]
+  }
+}

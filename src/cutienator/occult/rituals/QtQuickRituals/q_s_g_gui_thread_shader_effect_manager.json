@@ -1,0 +1,29 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qsgadaptationlayer_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK31QSGGuiThreadShaderEffectManager10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN31QSGGuiThreadShaderEffectManager2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN31QSGGuiThreadShaderEffectManagerD1Ev": ["nothing", "address"],
+    "ritual_ZNK31QSGGuiThreadShaderEffectManager35hasSeparateSamplerAndTextureObjectsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK31QSGGuiThreadShaderEffectManager3logEv": ["text", "address"],
+    "ritual_ZNK31QSGGuiThreadShaderEffectManager6statusEv": [
+      "int", "address"
+    ],
+    "ritual_ZN31QSGGuiThreadShaderEffectManager17prepareShaderCodeENS_10ShaderInfo4TypeERK4QUrlPS0_": [
+      "nothing", "address", "int", "address", "address"
+    ],
+    "ritual_take_QSGGuiThreadShaderEffectManager": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

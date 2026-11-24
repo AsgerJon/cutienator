@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qsgtransform_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN12QSGTransform9setMatrixERK10QMatrix4x4": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12QSGTransform6matrixEv": ["address", "address"],
+    "ritual_ZNK12QSGTransform10isIdentityEv": ["bool", "address"],
+    "ritual_ZNK12QSGTransformeqERK10QMatrix4x4": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK12QSGTransformneERK10QMatrix4x4": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK12QSGTransformeqERKS_": ["bool", "address", "address"],
+    "ritual_ZNK12QSGTransformneERKS_": ["bool", "address", "address"],
+    "ritual_ZNK12QSGTransform9compareToERKS_": ["int", "address", "address"],
+    "ritual_ZN12QSGTransformD1Ev": ["nothing", "address"]
+  }
+}

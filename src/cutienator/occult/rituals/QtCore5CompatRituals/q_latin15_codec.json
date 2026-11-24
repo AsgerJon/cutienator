@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore5Compat/6.12.0/QtCore5Compat/private/qlatincodec_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN13QLatin15CodecD1Ev": ["nothing", "address"],
+    "ritual_ZNK13QLatin15Codec4nameEv": ["address", "address"],
+    "ritual_ZNK13QLatin15Codec7aliasesEv": ["address", "address"],
+    "ritual_ZNK13QLatin15Codec7mibEnumEv": ["int", "address"],
+    "ritual_take_QLatin15Codec": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK13QLatin15Codec4nameEv": ["address", "address"],
+    "ritual_own_ZNK13QLatin15Codec7mibEnumEv": ["int", "address"]
+  }
+}

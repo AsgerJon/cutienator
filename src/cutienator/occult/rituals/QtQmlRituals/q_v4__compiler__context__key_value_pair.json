@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4compilercontext_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN3QV48Compiler7Context12KeyValuePairC1Ev": ["address"],
+    "ritual_ZN3QV48Compiler7Context12KeyValuePairC1Ejj": [
+      "address", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZNK3QV48Compiler7Context12KeyValuePair3keyEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZNK3QV48Compiler7Context12KeyValuePair5valueEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN3QV48Compiler7Context12KeyValuePairD1Ev": [
+      "nothing", "address"
+    ]
+  }
+}

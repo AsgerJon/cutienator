@@ -1,0 +1,38 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qpathclipper_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11QWingedEdgeC1Ev": ["address"],
+    "ritual_ZN11QWingedEdge8simplifyEv": ["nothing", "address"],
+    "ritual_ZNK11QWingedEdge9edgeCountEv": ["int", "address"],
+    "ritual_ZN11QWingedEdge4edgeEi": ["address", "address", "int"],
+    "ritual_ZNK11QWingedEdge4edgeEi": ["address", "address", "int"],
+    "ritual_ZNK11QWingedEdge11vertexCountEv": ["int", "address"],
+    "ritual_ZN11QWingedEdge9addVertexERK7QPointF": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN11QWingedEdge6vertexEi": ["address", "address", "int"],
+    "ritual_ZNK11QWingedEdge6vertexEi": ["address", "address", "int"],
+    "ritual_ZNK11QWingedEdge4nextERKNS_15TraversalStatusE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK11QWingedEdge8isInsideEdd": [
+      "bool", "address", "double", "double"
+    ],
+    "ritual_ZN11QWingedEdge4flipEN9QPathEdge9TraversalE": ["int", "int"],
+    "ritual_ZN11QWingedEdge4flipEN9QPathEdge9DirectionE": ["int", "int"],
+    "ritual_ZN11QWingedEdge10removeEdgeEi": ["nothing", "address", "int"],
+    "ritual_ZN11QWingedEdge6insertERK11QPathVertex": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK11QWingedEdge16findInsertStatusEii": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZNK11QWingedEdge5deltaEiii": [
+      "double", "address", "int", "int", "int"
+    ]
+  }
+}

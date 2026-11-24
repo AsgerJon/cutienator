@@ -1,0 +1,50 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qmetaobjectbuilder_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QMetaMethodBuilderC1Ev": ["address"],
+    "ritual_ZNK18QMetaMethodBuilder5indexEv": ["int", "address"],
+    "ritual_ZNK18QMetaMethodBuilder10methodTypeEv": ["int", "address"],
+    "ritual_ZNK18QMetaMethodBuilder9signatureEv": ["address", "address"],
+    "ritual_ZNK18QMetaMethodBuilder10returnTypeEv": ["address", "address"],
+    "ritual_ZN18QMetaMethodBuilder13setReturnTypeERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QMetaMethodBuilder14parameterTypesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18QMetaMethodBuilder14parameterNamesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18QMetaMethodBuilder17setParameterNamesERK5QListI10QByteArrayE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QMetaMethodBuilder3tagEv": ["address", "address"],
+    "ritual_ZN18QMetaMethodBuilder6setTagERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QMetaMethodBuilder6accessEv": ["int", "address"],
+    "ritual_ZN18QMetaMethodBuilder9setAccessEN11QMetaMethod6AccessE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK18QMetaMethodBuilder10attributesEv": ["int", "address"],
+    "ritual_ZN18QMetaMethodBuilder13setAttributesEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK18QMetaMethodBuilder7isConstEv": ["bool", "address"],
+    "ritual_ZN18QMetaMethodBuilder8setConstEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK18QMetaMethodBuilder8revisionEv": ["int", "address"],
+    "ritual_ZN18QMetaMethodBuilder11setRevisionEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18QMetaMethodBuilderC1EPK18QMetaObjectBuilderiN11QMetaMethod10MethodTypeE": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZN18QMetaMethodBuilderD1Ev": ["nothing", "address"]
+  }
+}

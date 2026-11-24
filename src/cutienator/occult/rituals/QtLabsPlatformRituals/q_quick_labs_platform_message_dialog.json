@@ -1,0 +1,39 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtLabsP",
+    "latform/6.12.0/QtLabsPlatform/private/qquicklabsplatformmessagedia",
+    "log_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK31QQuickLabsPlatformMessageDialog10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN31QQuickLabsPlatformMessageDialog20qmlExtendedNamespaceEv": [
+      "address"
+    ],
+    "ritual_ZN31QQuickLabsPlatformMessageDialog30qt_qmlMarker_extendedNamespaceEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK31QQuickLabsPlatformMessageDialog4textEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK31QQuickLabsPlatformMessageDialog15informativeTextEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK31QQuickLabsPlatformMessageDialog12detailedTextEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK31QQuickLabsPlatformMessageDialog7buttonsEv": [
+      "int", "address"
+    ],
+    "ritual_ZN31QQuickLabsPlatformMessageDialog8onCreateEP21QPlatformDialogHelper": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN31QQuickLabsPlatformMessageDialog6onShowEP21QPlatformDialogHelper": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN31QQuickLabsPlatformMessageDialog6onShowEP21QPlatformDialogHelper": [
+      "nothing", "address", "address"
+    ]
+  }
+}

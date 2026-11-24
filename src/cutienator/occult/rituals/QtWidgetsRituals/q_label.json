@@ -98,6 +98,8 @@
       "nothing", "address", "address"
     ],
     "ritual_ZN6QLabel18focusNextPrevChildEb": ["bool", "address", "bool"],
+    "ritual_ZN6QLabel6d_funcEv": ["address", "address"],
+    "ritual_ZNK6QLabel6d_funcEv": ["address", "address"],
     "ritual_take_QLabel": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK6QLabel8sizeHintEv": ["address", "address"],
     "ritual_own_ZNK6QLabel15minimumSizeHintEv": ["address", "address"],

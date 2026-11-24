@@ -1,0 +1,63 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLocation/qgeoroute.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN9QGeoRouteC1Ev": ["address"],
+    "ritual_ZN9QGeoRouteC1ERKS_": ["address", "address"],
+    "ritual_ZN9QGeoRouteD1Ev": ["nothing", "address"],
+    "ritual_ZeqRK9QGeoRouteS1_": ["bool", "address", "address"],
+    "ritual_ZneRK9QGeoRouteS1_": ["bool", "address", "address"],
+    "ritual_ZN9QGeoRoute10setRouteIdERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK9QGeoRoute7routeIdEv": ["text", "address"],
+    "ritual_ZN9QGeoRoute10setRequestERK16QGeoRouteRequest": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9QGeoRoute7requestEv": ["address", "address"],
+    "ritual_ZN9QGeoRoute9setBoundsERK13QGeoRectangle": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9QGeoRoute6boundsEv": ["address", "address"],
+    "ritual_ZN9QGeoRoute20setFirstRouteSegmentERK16QGeoRouteSegment": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9QGeoRoute17firstRouteSegmentEv": ["address", "address"],
+    "ritual_ZNK9QGeoRoute13segmentsCountEv": ["long long", "address"],
+    "ritual_ZNK9QGeoRoute8segmentsEv": ["address", "address"],
+    "ritual_ZN9QGeoRoute13setTravelTimeEi": ["nothing", "address", "int"],
+    "ritual_ZNK9QGeoRoute10travelTimeEv": ["int", "address"],
+    "ritual_ZN9QGeoRoute11setDistanceEd": ["nothing", "address", "double"],
+    "ritual_ZNK9QGeoRoute8distanceEv": ["double", "address"],
+    "ritual_ZN9QGeoRoute13setTravelModeEN16QGeoRouteRequest10TravelModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK9QGeoRoute10travelModeEv": ["int", "address"],
+    "ritual_ZN9QGeoRoute7setPathERK5QListI14QGeoCoordinateE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9QGeoRoute4pathEv": ["address", "address"],
+    "ritual_ZN9QGeoRoute12setRouteLegsERK5QListIS_E": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9QGeoRoute9routeLegsEv": ["address", "address"],
+    "ritual_ZN9QGeoRoute21setExtendedAttributesERK4QMapI7QString8QVariantE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9QGeoRoute18extendedAttributesEv": ["address", "address"],
+    "ritual_ZN9QGeoRoute11setLegIndexEi": ["nothing", "address", "int"],
+    "ritual_ZNK9QGeoRoute8legIndexEv": ["int", "address"],
+    "ritual_ZN9QGeoRoute15setOverallRouteERKS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9QGeoRoute12overallRouteEv": ["address", "address"],
+    "ritual_ZNK9QGeoRoute7isEqualERKS_": ["bool", "address", "address"],
+    "ritual_list_make_QGeoRoute": ["address"],
+    "ritual_list_add_QGeoRoute": ["nothing", "address", "address"],
+    "ritual_list_size_QGeoRoute": ["long long", "address"],
+    "ritual_list_at_QGeoRoute": ["address", "address", "long long"],
+    "ritual_list_drop_QGeoRoute": ["nothing", "address"]
+  }
+}

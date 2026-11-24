@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNfc/qndefnfcurirecord.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN17QNdefNfcUriRecordC1Ev": ["address"],
+    "ritual_ZN17QNdefNfcUriRecordC1ERK11QNdefRecord": ["address", "address"],
+    "ritual_ZNK17QNdefNfcUriRecord3uriEv": ["address", "address"],
+    "ritual_ZN17QNdefNfcUriRecord6setUriERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QNdefNfcUriRecordD1Ev": ["nothing", "address"]
+  }
+}

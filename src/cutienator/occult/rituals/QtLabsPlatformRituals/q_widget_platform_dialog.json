@@ -1,0 +1,13 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtLabsP",
+    "latform/6.12.0/QtLabsPlatform/private/qwidgetplatformdialog_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN21QWidgetPlatformDialog4showEP7QDialog6QFlagsIN2Qt10WindowTypeEENS3_14WindowModalityEP7QWindow": [
+      "bool", "address", "int", "int", "address"
+    ],
+    "ritual_ZN21QWidgetPlatformDialogD1Ev": ["nothing", "address"]
+  }
+}

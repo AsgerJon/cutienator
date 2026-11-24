@@ -1,0 +1,44 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtBluetooth/qlowenergyservicedata.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZN21QLowEnergyServiceDataC1Ev": ["address"],
+    "ritual_ZN21QLowEnergyServiceDataC1ERKS_": ["address", "address"],
+    "ritual_ZN21QLowEnergyServiceDataD1Ev": ["nothing", "address"],
+    "ritual_ZeqRK21QLowEnergyServiceDataS1_": ["bool", "address", "address"],
+    "ritual_ZneRK21QLowEnergyServiceDataS1_": ["bool", "address", "address"],
+    "ritual_ZNK21QLowEnergyServiceData4typeEv": ["int", "address"],
+    "ritual_ZN21QLowEnergyServiceData7setTypeENS_11ServiceTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK21QLowEnergyServiceData4uuidEv": ["address", "address"],
+    "ritual_ZN21QLowEnergyServiceData7setUuidERK14QBluetoothUuid": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21QLowEnergyServiceData16includedServicesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QLowEnergyServiceData19setIncludedServicesERK5QListIP17QLowEnergyServiceE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QLowEnergyServiceData18addIncludedServiceEP17QLowEnergyService": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21QLowEnergyServiceData15characteristicsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QLowEnergyServiceData18setCharacteristicsERK5QListI28QLowEnergyCharacteristicDataE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QLowEnergyServiceData17addCharacteristicERK28QLowEnergyCharacteristicData": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21QLowEnergyServiceData7isValidEv": ["bool", "address"],
+    "ritual_ZN21QLowEnergyServiceData6equalsERKS_S1_": [
+      "bool", "address", "address"
+    ]
+  }
+}

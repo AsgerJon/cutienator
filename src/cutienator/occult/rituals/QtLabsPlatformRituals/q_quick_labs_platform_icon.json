@@ -1,0 +1,25 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtLabsP",
+    "latform/6.12.0/QtLabsPlatform/private/qquicklabsplatformicon_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN22QQuickLabsPlatformIcon22qt_qmlMarker_anonymousEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK22QQuickLabsPlatformIcon6sourceEv": ["address", "address"],
+    "ritual_ZN22QQuickLabsPlatformIcon9setSourceERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK22QQuickLabsPlatformIcon4nameEv": ["text", "address"],
+    "ritual_ZN22QQuickLabsPlatformIcon7setNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK22QQuickLabsPlatformIcon6isMaskEv": ["bool", "address"],
+    "ritual_ZN22QQuickLabsPlatformIcon7setMaskEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN22QQuickLabsPlatformIconD1Ev": ["nothing", "address"]
+  }
+}

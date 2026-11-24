@@ -8,6 +8,14 @@ QMetaContainer *ritual_ZN14QMetaContainerC1Ev() {
   return new QMetaContainer();
 }
 
+//  QMetaContainer::QMetaContainer(const
+//      QtMetaContainerPrivate::QMetaContainerInterface *d)
+extern "C" Q_DECL_EXPORT
+QMetaContainer *ritual_ZN14QMetaContainerC1EPKN22QtMetaContainerPrivate23QMetaContainerInterfaceE(
+    const QtMetaContainerPrivate::QMetaContainerInterface *d) {
+  return new QMetaContainer(d);
+}
+
 //  bool QMetaContainer::hasInputIterator() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK14QMetaContainer16hasInputIteratorEv(

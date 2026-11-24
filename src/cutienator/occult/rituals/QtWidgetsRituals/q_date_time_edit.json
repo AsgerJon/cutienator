@@ -150,6 +150,8 @@
     "ritual_ZN13QDateTimeEditC1ERK8QVariantN9QMetaType4TypeEP7QWidget": [
       "address", "address", "int", "address"
     ],
+    "ritual_ZN13QDateTimeEdit6d_funcEv": ["address", "address"],
+    "ritual_ZNK13QDateTimeEdit6d_funcEv": ["address", "address"],
     "ritual_take_QDateTimeEdit": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK13QDateTimeEdit8sizeHintEv": ["address", "address"],
     "ritual_own_ZN13QDateTimeEdit5clearEv": ["nothing", "address"],

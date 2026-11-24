@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qmenu_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN12QMenuPrivate19ScrollerTearOffItemC1ENS0_4TypeEPS_P7QWidget6QFlagsIN2Qt10WindowTypeEE": [
+      "address", "int", "address", "address", "int"
+    ],
+    "ritual_ZN12QMenuPrivate19ScrollerTearOffItem10paintEventEP11QPaintEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QMenuPrivate19ScrollerTearOffItem19updateScrollerRectsERK5QRect": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN12QMenuPrivate19ScrollerTearOffItem10paintEventEP11QPaintEvent": [
+      "nothing", "address", "address"
+    ]
+  }
+}

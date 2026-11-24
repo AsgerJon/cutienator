@@ -1,0 +1,54 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLocation/6.12.0/QtLocation/private/qdeclarativegeojsondata_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK23QDeclarativeGeoJsonData10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QDeclarativeGeoJsonData2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN23QDeclarativeGeoJsonDataC1EP7QObject": ["address", "address"],
+    "ritual_ZN23QDeclarativeGeoJsonDataD1Ev": ["nothing", "address"],
+    "ritual_ZNK23QDeclarativeGeoJsonData5modelEv": ["address", "address"],
+    "ritual_ZN23QDeclarativeGeoJsonData8setModelERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK23QDeclarativeGeoJsonData9sourceUrlEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QDeclarativeGeoJsonData5clearEv": ["nothing", "address"],
+    "ritual_ZN23QDeclarativeGeoJsonData7addItemEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QDeclarativeGeoJsonData4openEv": ["bool", "address"],
+    "ritual_ZN23QDeclarativeGeoJsonData7openUrlERK4QUrl": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN23QDeclarativeGeoJsonData4saveEv": ["bool", "address"],
+    "ritual_ZN23QDeclarativeGeoJsonData6saveAsERK4QUrl": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN23QDeclarativeGeoJsonData21setModelToMapContentsEP18QDeclarativeGeoMap": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QDeclarativeGeoJsonData9toVariantEP18QDeclarativeGeoMap": [
+      "address", "address"
+    ],
+    "ritual_ZN23QDeclarativeGeoJsonData11dumpGeoJSONERK5QListI8QVariantERK4QUrl": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN23QDeclarativeGeoJsonData10writeDebugERK5QListI8QVariantERK4QUrl": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN23QDeclarativeGeoJsonData8toStringERK5QListI8QVariantE": [
+      "text", "address"
+    ],
+    "ritual_take_QDeclarativeGeoJsonData": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

@@ -95,6 +95,9 @@
     "ritual_ZN13QCborValueRef12concreteTypeES_": ["int", "address"],
     "ritual_ZNK13QCborValueRef12concreteTypeEv": ["int", "address"],
     "ritual_ZN13QCborValueRefC1Ev": ["address"],
+    "ritual_ZN13QCborValueRefC1EP21QCborContainerPrivatex": [
+      "address", "address", "long long"
+    ],
     "ritual_ZN13QCborValueRef6assignES_RK10QCborValue": [
       "nothing", "address", "address"
     ],

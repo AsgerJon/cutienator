@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qspi_struct_marshallers_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN23QSpiAccessibleCacheItemD1Ev": ["nothing", "address"],
+    "ritual_list_make_QSpiAccessibleCacheItem": ["address"],
+    "ritual_list_add_QSpiAccessibleCacheItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_list_size_QSpiAccessibleCacheItem": ["long long", "address"],
+    "ritual_list_at_QSpiAccessibleCacheItem": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_QSpiAccessibleCacheItem": ["nothing", "address"]
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQmlLo",
+    "calStorage/6.12.0/QtQmlLocalStorage/private/qqmllocalstorage_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK16QQmlLocalStorage10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QQmlLocalStorage2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN16QQmlLocalStorage22qt_qmlMarker_singletonEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQmlLocalStorageC1EP7QObject": ["address", "address"],
+    "ritual_ZN16QQmlLocalStorageD1Ev": ["nothing", "address"],
+    "ritual_ZN16QQmlLocalStorage16openDatabaseSyncEP14QQmlV4Function": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QQmlLocalStorage": ["bool", "address", "chars", "address"]
+  }
+}

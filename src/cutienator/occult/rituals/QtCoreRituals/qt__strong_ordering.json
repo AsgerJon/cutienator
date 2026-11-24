@@ -1,0 +1,84 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qcompare.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK2Qt15strong_orderingcvNS_16partial_orderingEEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK2Qt15strong_orderingcvNS_13weak_orderingEEv": [
+      "address", "address"
+    ],
+    "ritual_ZN2QteqENS_15strong_orderingEN9QtPrivate25CompareAgainstLiteralZeroE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN2QtneENS_15strong_orderingEN9QtPrivate25CompareAgainstLiteralZeroE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN2QtltENS_15strong_orderingEN9QtPrivate25CompareAgainstLiteralZeroE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN2QtleENS_15strong_orderingEN9QtPrivate25CompareAgainstLiteralZeroE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN2QtgtENS_15strong_orderingEN9QtPrivate25CompareAgainstLiteralZeroE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN2QtgeENS_15strong_orderingEN9QtPrivate25CompareAgainstLiteralZeroE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN2QteqEN9QtPrivate25CompareAgainstLiteralZeroENS_15strong_orderingE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN2QtneEN9QtPrivate25CompareAgainstLiteralZeroENS_15strong_orderingE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN2QtltEN9QtPrivate25CompareAgainstLiteralZeroENS_15strong_orderingE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN2QtleEN9QtPrivate25CompareAgainstLiteralZeroENS_15strong_orderingE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN2QtgtEN9QtPrivate25CompareAgainstLiteralZeroENS_15strong_orderingE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN2QtgeEN9QtPrivate25CompareAgainstLiteralZeroENS_15strong_orderingE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN2QteqENS_15strong_orderingES0_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN2QtneENS_15strong_orderingES0_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN2QteqENS_15strong_orderingENS_16partial_orderingE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN2QtneENS_15strong_orderingENS_16partial_orderingE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN2QteqENS_16partial_orderingENS_15strong_orderingE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN2QtneENS_16partial_orderingENS_15strong_orderingE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN2QteqENS_15strong_orderingENS_13weak_orderingE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN2QtneENS_15strong_orderingENS_13weak_orderingE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN2QteqENS_13weak_orderingENS_15strong_orderingE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN2QtneENS_13weak_orderingENS_15strong_orderingE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN2Qt15strong_orderingC1EN9QtPrivate8OrderingE": [
+      "address", "signed char"
+    ],
+    "ritual_ZN2Qt15strong_orderingD1Ev": ["nothing", "address"]
+  }
+}

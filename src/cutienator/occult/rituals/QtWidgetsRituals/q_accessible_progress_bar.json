@@ -1,0 +1,48 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/simplewidgets_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK22QAccessibleProgressBar12currentValueEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK22QAccessibleProgressBar12maximumValueEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK22QAccessibleProgressBar12minimumValueEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK22QAccessibleProgressBar15minimumStepSizeEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QAccessibleProgressBar15setCurrentValueERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK22QAccessibleProgressBar11progressBarEv": [
+      "address", "address"
+    ],
+    "ritual_cast_QAccessibleProgressBar_QAccessibleValueInterface": [
+      "address", "address"
+    ],
+    "ritual_take_QAccessibleProgressBar": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK22QAccessibleProgressBar12currentValueEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK22QAccessibleProgressBar12maximumValueEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK22QAccessibleProgressBar12minimumValueEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK22QAccessibleProgressBar15minimumStepSizeEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN22QAccessibleProgressBar15setCurrentValueERK8QVariant": [
+      "nothing", "address", "address"
+    ]
+  }
+}

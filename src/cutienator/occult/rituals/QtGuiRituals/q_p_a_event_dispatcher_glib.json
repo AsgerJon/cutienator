@@ -1,0 +1,28 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qeventdispatcher_glib_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK22QPAEventDispatcherGlib10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QPAEventDispatcherGlib2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN22QPAEventDispatcherGlib6d_funcEv": ["address", "address"],
+    "ritual_ZNK22QPAEventDispatcherGlib6d_funcEv": ["address", "address"],
+    "ritual_ZN22QPAEventDispatcherGlibC1EP7QObject": ["address", "address"],
+    "ritual_ZN22QPAEventDispatcherGlibD1Ev": ["nothing", "address"],
+    "ritual_ZN22QPAEventDispatcherGlib13processEventsE6QFlagsIN10QEventLoop17ProcessEventsFlagEE": [
+      "bool", "address", "int"
+    ],
+    "ritual_take_QPAEventDispatcherGlib": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN22QPAEventDispatcherGlib13processEventsE6QFlagsIN10QEventLoop17ProcessEventsFlagEE": [
+      "bool", "address", "int"
+    ]
+  }
+}

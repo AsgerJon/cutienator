@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquicktextutil_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK14QQuickTextUtil10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QQuickTextUtil8alignedXEddi": [
+      "double", "double", "double", "int"
+    ],
+    "ritual_ZN14QQuickTextUtil8alignedYEddi": [
+      "double", "double", "double", "int"
+    ]
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquickindicatorbutton_",
+    "p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN28QQuickIndicatorButtonPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QQuickIndicatorButtonPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QQuickIndicatorButtonPrivate3getEP21QQuickIndicatorButton": [
+      "address", "address"
+    ],
+    "ritual_ZN28QQuickIndicatorButtonPrivate15cancelIndicatorEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QQuickIndicatorButtonPrivate16executeIndicatorEb": [
+      "nothing", "address", "bool"
+    ]
+  }
+}

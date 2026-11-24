@@ -1,0 +1,182 @@
+//  Written by dev_tooling.RitualGenerator from the records of
+//  QtScxml/6.12.0/QtScxml/private/qscxmlcompiler_p.h, Qt 6.12.0. Changes
+//  made here are lost.
+#include <QtScxml/6.12.0/QtScxml/private/qscxmlglobals_p.h>
+#include <QtScxml/QtScxml>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtScxml/6.12.0/QtScxml/private/qscxmlcompiler_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <cstring>
+
+//  A DocumentModel::Instruction that Python can take functions over in. Every DocumentModel::Instruction
+//  Python makes is one. Each function below asks the Python
+//  function handed over for it, and runs Qt's own without one.
+typedef void (*CuteDocumentModel_InstructionCall0)(const void *, DocumentModel::NodeVisitor *, int *);
+typedef void * (*CuteDocumentModel_InstructionCall1)(const void *, int *);
+typedef void * (*CuteDocumentModel_InstructionCall2)(const void *, int *);
+typedef void * (*CuteDocumentModel_InstructionCall3)(const void *, int *);
+typedef void * (*CuteDocumentModel_InstructionCall4)(const void *, int *);
+typedef void * (*CuteDocumentModel_InstructionCall5)(const void *, int *);
+typedef void * (*CuteDocumentModel_InstructionCall6)(const void *, int *);
+typedef void * (*CuteDocumentModel_InstructionCall7)(const void *, int *);
+typedef void * (*CuteDocumentModel_InstructionCall8)(const void *, int *);
+class CuteDocumentModel_Instruction : public DocumentModel::Instruction {
+public:
+  using DocumentModel::Instruction::Instruction;
+  void *taken[9] = {};
+
+  bool take(const char *key, void *call) {
+    if (!std::strcmp(key, "_ZN13DocumentModel4Node6acceptEPNS_11NodeVisitorE")) {
+      taken[0] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN13DocumentModel4Node4asIfEv")) {
+      taken[1] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN13DocumentModel4Node6asSendEv")) {
+      taken[2] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN13DocumentModel4Node8asInvokeEv")) {
+      taken[3] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN13DocumentModel4Node8asScriptEv")) {
+      taken[4] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN13DocumentModel4Node7asStateEv")) {
+      taken[5] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN13DocumentModel4Node12asTransitionEv")) {
+      taken[6] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN13DocumentModel4Node14asHistoryStateEv")) {
+      taken[7] = call;
+      return true;
+    }
+    if (!std::strcmp(key, "_ZN13DocumentModel4Node7asScxmlEv")) {
+      taken[8] = call;
+      return true;
+    }
+    return false;
+  }
+
+  //  void DocumentModel::Node::accept(NodeVisitor *visitor)
+  void accept(DocumentModel::NodeVisitor *visitor) override {
+    if (taken[0]) {
+      int handled = 0;
+      CuteDocumentModel_InstructionCall0 call = reinterpret_cast<CuteDocumentModel_InstructionCall0>(taken[0]);
+      call(this, visitor, &handled);
+      if (handled) return;
+    }
+  }
+
+  //  If *DocumentModel::Node::asIf()
+  DocumentModel::If *asIf() override {
+    if (taken[1]) {
+      int handled = 0;
+      CuteDocumentModel_InstructionCall1 call = reinterpret_cast<CuteDocumentModel_InstructionCall1>(taken[1]);
+      void * given = call(this, &handled);
+      if (handled) return static_cast<DocumentModel::If *>(given);
+    }
+    return DocumentModel::Node::asIf();
+  }
+
+  //  Send *DocumentModel::Node::asSend()
+  DocumentModel::Send *asSend() override {
+    if (taken[2]) {
+      int handled = 0;
+      CuteDocumentModel_InstructionCall2 call = reinterpret_cast<CuteDocumentModel_InstructionCall2>(taken[2]);
+      void * given = call(this, &handled);
+      if (handled) return static_cast<DocumentModel::Send *>(given);
+    }
+    return DocumentModel::Node::asSend();
+  }
+
+  //  Invoke *DocumentModel::Node::asInvoke()
+  DocumentModel::Invoke *asInvoke() override {
+    if (taken[3]) {
+      int handled = 0;
+      CuteDocumentModel_InstructionCall3 call = reinterpret_cast<CuteDocumentModel_InstructionCall3>(taken[3]);
+      void * given = call(this, &handled);
+      if (handled) return static_cast<DocumentModel::Invoke *>(given);
+    }
+    return DocumentModel::Node::asInvoke();
+  }
+
+  //  Script *DocumentModel::Node::asScript()
+  DocumentModel::Script *asScript() override {
+    if (taken[4]) {
+      int handled = 0;
+      CuteDocumentModel_InstructionCall4 call = reinterpret_cast<CuteDocumentModel_InstructionCall4>(taken[4]);
+      void * given = call(this, &handled);
+      if (handled) return static_cast<DocumentModel::Script *>(given);
+    }
+    return DocumentModel::Node::asScript();
+  }
+
+  //  State *DocumentModel::Node::asState()
+  DocumentModel::State *asState() override {
+    if (taken[5]) {
+      int handled = 0;
+      CuteDocumentModel_InstructionCall5 call = reinterpret_cast<CuteDocumentModel_InstructionCall5>(taken[5]);
+      void * given = call(this, &handled);
+      if (handled) return static_cast<DocumentModel::State *>(given);
+    }
+    return DocumentModel::Node::asState();
+  }
+
+  //  Transition *DocumentModel::Node::asTransition()
+  DocumentModel::Transition *asTransition() override {
+    if (taken[6]) {
+      int handled = 0;
+      CuteDocumentModel_InstructionCall6 call = reinterpret_cast<CuteDocumentModel_InstructionCall6>(taken[6]);
+      void * given = call(this, &handled);
+      if (handled) return static_cast<DocumentModel::Transition *>(given);
+    }
+    return DocumentModel::Node::asTransition();
+  }
+
+  //  HistoryState *DocumentModel::Node::asHistoryState()
+  DocumentModel::HistoryState *asHistoryState() override {
+    if (taken[7]) {
+      int handled = 0;
+      CuteDocumentModel_InstructionCall7 call = reinterpret_cast<CuteDocumentModel_InstructionCall7>(taken[7]);
+      void * given = call(this, &handled);
+      if (handled) return static_cast<DocumentModel::HistoryState *>(given);
+    }
+    return DocumentModel::Node::asHistoryState();
+  }
+
+  //  Scxml *DocumentModel::Node::asScxml()
+  DocumentModel::Scxml *asScxml() override {
+    if (taken[8]) {
+      int handled = 0;
+      CuteDocumentModel_InstructionCall8 call = reinterpret_cast<CuteDocumentModel_InstructionCall8>(taken[8]);
+      void * given = call(this, &handled);
+      if (handled) return static_cast<DocumentModel::Scxml *>(given);
+    }
+    return DocumentModel::Node::asScxml();
+  }
+};
+
+//  DocumentModel::Instruction::~Instruction()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN13DocumentModel11InstructionD1Ev(
+    DocumentModel::Instruction *self) {
+  delete self;
+}
+
+//  a Python function taken by a CuteDocumentModel_Instruction, for the
+//      function named by the key
+extern "C" Q_DECL_EXPORT
+bool ritual_take_DocumentModel_Instruction(
+    DocumentModel::Instruction *self,
+    const char *key,
+    void *call) {
+  return static_cast<CuteDocumentModel_Instruction *>(self)->take(key, call);
+}

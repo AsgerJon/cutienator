@@ -1,0 +1,71 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickstate_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK11QQuickState10metaObjectEv": ["address", "address"],
+    "ritual_ZN11QQuickState2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN11QQuickStateC1EP7QObject": ["address", "address"],
+    "ritual_ZN11QQuickStateD1Ev": ["nothing", "address"],
+    "ritual_ZNK11QQuickState4nameEv": ["text", "address"],
+    "ritual_ZN11QQuickState7setNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK11QQuickState7isNamedEv": ["bool", "address"],
+    "ritual_ZNK11QQuickState11isWhenKnownEv": ["bool", "address"],
+    "ritual_ZNK11QQuickState4whenEv": ["bool", "address"],
+    "ritual_ZN11QQuickState7setWhenEb": ["nothing", "address", "bool"],
+    "ritual_ZNK11QQuickState7extendsEv": ["text", "address"],
+    "ritual_ZN11QQuickState10setExtendsERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK11QQuickState14operationCountEv": ["int", "address"],
+    "ritual_ZNK11QQuickState11operationAtEi": ["address", "address", "int"],
+    "ritual_ZN11QQuickState5applyEP16QQuickTransitionPS_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN11QQuickState6cancelEv": ["nothing", "address"],
+    "ritual_ZNK11QQuickState10stateGroupEv": ["address", "address"],
+    "ritual_ZN11QQuickState13setStateGroupEP16QQuickStateGroup": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QQuickState28containsPropertyInRevertListEP7QObjectRK7QString": [
+      "bool", "address", "address", "text"
+    ],
+    "ritual_ZN11QQuickState23changeValueInRevertListEP7QObjectRK7QStringRK8QVariant": [
+      "bool", "address", "address", "text", "address"
+    ],
+    "ritual_ZN11QQuickState25changeBindingInRevertListEP7QObjectRK7QString14QQmlAnyBinding": [
+      "bool", "address", "address", "text", "address"
+    ],
+    "ritual_ZN11QQuickState25removeEntryFromRevertListEP7QObjectRK7QString": [
+      "bool", "address", "address", "text"
+    ],
+    "ritual_ZN11QQuickState20addEntryToRevertListERK17QQuickStateAction": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QQuickState30removeAllEntriesFromRevertListEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QQuickState22addEntriesToRevertListERK5QListI17QQuickStateActionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QQuickState17valueInRevertListEP7QObjectRK7QString": [
+      "address", "address", "address", "text"
+    ],
+    "ritual_ZNK11QQuickState19bindingInRevertListEP7QObjectRK7QString": [
+      "address", "address", "address", "text"
+    ],
+    "ritual_ZNK11QQuickState13isStateActiveEv": ["bool", "address"],
+    "ritual_ZN11QQuickState6d_funcEv": ["address", "address"],
+    "ritual_ZNK11QQuickState6d_funcEv": ["address", "address"],
+    "ritual_take_QQuickState": ["bool", "address", "chars", "address"],
+    "ritual_list_make_QQuickState_ptr": ["address"],
+    "ritual_list_add_QQuickState_ptr": ["nothing", "address", "address"],
+    "ritual_list_size_QQuickState_ptr": ["long long", "address"],
+    "ritual_list_at_QQuickState_ptr": ["address", "address", "long long"],
+    "ritual_list_drop_QQuickState_ptr": ["nothing", "address"]
+  }
+}

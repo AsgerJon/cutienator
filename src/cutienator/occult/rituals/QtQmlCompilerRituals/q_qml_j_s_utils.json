@@ -1,0 +1,23 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQmlCompiler/6.12.0/QtQmlCompiler/private/qqmljsutils_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11QQmlJSUtils11constRefifyE7QString": ["text", "text"],
+    "ritual_ZN11QQmlJSUtils34bindablePropertyHasDefaultAccessorERK18QQmlJSMetaPropertyNS_16PropertyAccessorE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN11QQmlJSUtils29resourceFilesFromBuildFoldersERK5QListI7QStringE": [
+      "address", "address"
+    ],
+    "ritual_ZN11QQmlJSUtils26qmlSourcePathFromBuildPathEPK24QQmlJSResourceFileMapperRK7QString": [
+      "text", "address", "text"
+    ],
+    "ritual_ZN11QQmlJSUtils26qmlBuildPathFromSourcePathEPK24QQmlJSResourceFileMapperRK7QString": [
+      "text", "address", "text"
+    ],
+    "ritual_ZN11QQmlJSUtilsD1Ev": ["nothing", "address"]
+  }
+}

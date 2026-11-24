@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSql/qsqlindex.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN9QSqlIndexC1ERK7QStringS2_": ["address", "text", "text"],
+    "ritual_ZN9QSqlIndexC1ERKS_": ["address", "address"],
+    "ritual_ZN9QSqlIndexD1Ev": ["nothing", "address"],
+    "ritual_ZN9QSqlIndex13setCursorNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK9QSqlIndex10cursorNameEv": ["text", "address"],
+    "ritual_ZN9QSqlIndex7setNameERK7QString": ["nothing", "address", "text"],
+    "ritual_ZNK9QSqlIndex4nameEv": ["text", "address"],
+    "ritual_ZN9QSqlIndex6appendERK9QSqlField": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QSqlIndex6appendERK9QSqlFieldb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZNK9QSqlIndex12isDescendingEi": ["bool", "address", "int"],
+    "ritual_ZN9QSqlIndex13setDescendingEib": [
+      "nothing", "address", "int", "bool"
+    ]
+  }
+}

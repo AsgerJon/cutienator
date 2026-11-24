@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/6.12.0/QtCharts/private/areachartitem_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN13AreaBoundItemC1EP13AreaChartItemP11QLineSeriesP13QGraphicsItem": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN13AreaBoundItemD1Ev": ["nothing", "address"],
+    "ritual_ZN13AreaBoundItem14updateGeometryEv": ["nothing", "address"],
+    "ritual_take_AreaBoundItem": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN13AreaBoundItem14updateGeometryEv": ["nothing", "address"]
+  }
+}

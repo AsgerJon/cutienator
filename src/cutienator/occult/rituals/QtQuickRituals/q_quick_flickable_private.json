@@ -1,0 +1,112 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickflickable_p_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN22QQuickFlickablePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK22QQuickFlickablePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN22QQuickFlickablePrivate3getEP15QQuickFlickable": [
+      "address", "address"
+    ],
+    "ritual_ZN22QQuickFlickablePrivateC1Ev": ["address"],
+    "ritual_ZN22QQuickFlickablePrivate4initEv": ["nothing", "address"],
+    "ritual_ZN22QQuickFlickablePrivate6flickXEN6QEvent4TypeEd": [
+      "bool", "address", "int", "double"
+    ],
+    "ritual_ZN22QQuickFlickablePrivate6flickYEN6QEvent4TypeEd": [
+      "bool", "address", "int", "double"
+    ],
+    "ritual_ZN22QQuickFlickablePrivate15flickingStartedEbb": [
+      "nothing", "address", "bool", "bool"
+    ],
+    "ritual_ZN22QQuickFlickablePrivate6fixupXEv": ["nothing", "address"],
+    "ritual_ZN22QQuickFlickablePrivate6fixupYEv": ["nothing", "address"],
+    "ritual_ZN22QQuickFlickablePrivate13clearTimelineEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickFlickablePrivate18updateBeginningEndEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK22QQuickFlickablePrivate21isInnermostPressDelayEP10QQuickItem": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN22QQuickFlickablePrivate19captureDelayedPressEP10QQuickItemP13QPointerEvent": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN22QQuickFlickablePrivate17clearDelayedPressEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickFlickablePrivate18replayDelayedPressEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickFlickablePrivate12setViewportXEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN22QQuickFlickablePrivate12setViewportYEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK22QQuickFlickablePrivate17overShootDistanceEd": [
+      "double", "address", "double"
+    ],
+    "ritual_ZN22QQuickFlickablePrivate19itemGeometryChangedEP10QQuickItem20QQuickGeometryChangeRK6QRectF": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN22QQuickFlickablePrivate16draggingStartingEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickFlickablePrivate14draggingEndingEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK22QQuickFlickablePrivate12isViewMovingEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN22QQuickFlickablePrivate17cancelInteractionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickFlickablePrivate17addPointerHandlerEP20QQuickPointerHandler": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQuickFlickablePrivate17wantsPointerEventEPK13QPointerEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN22QQuickFlickablePrivate14updateVelocityEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickFlickablePrivate16handlePressEventEP13QPointerEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQuickFlickablePrivate15handleMoveEventEP13QPointerEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQuickFlickablePrivate18handleReleaseEventEP13QPointerEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQuickFlickablePrivate15buttonsAcceptedEPK17QSinglePointEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN22QQuickFlickablePrivate14maybeBeginDragExRK7QPointF6QFlagsIN2Qt11MouseButtonEE": [
+      "nothing", "address", "long long", "address", "int"
+    ],
+    "ritual_ZN22QQuickFlickablePrivate4dragExN6QEvent4TypeERK7QPointFRK9QVector2DbbbS7_": [
+      "nothing", "address", "long long", "int", "address", "address", "bool",
+      "bool", "bool", "address"
+    ],
+    "ritual_ZN22QQuickFlickablePrivate23firstPointLocalVelocityEP13QPointerEvent": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK22QQuickFlickablePrivate18computeCurrentTimeEP11QInputEvent": [
+      "long long", "address", "address"
+    ],
+    "ritual_own_ZN22QQuickFlickablePrivate19itemGeometryChangedEP10QQuickItem20QQuickGeometryChangeRK6QRectF": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN22QQuickFlickablePrivate17addPointerHandlerEP20QQuickPointerHandler": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN22QQuickFlickablePrivate17wantsPointerEventEPK13QPointerEvent": [
+      "bool", "address", "address"
+    ]
+  }
+}

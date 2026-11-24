@@ -1,0 +1,81 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Particles/6.12.0/QtQuickParticles/private/qquickitemparticle_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18QQuickItemParticle10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QQuickItemParticle2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18QQuickItemParticle21qt_qmlMarker_attachedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickItemParticleC1EP10QQuickItem": ["address", "address"],
+    "ritual_ZN18QQuickItemParticleD1Ev": ["nothing", "address"],
+    "ritual_ZNK18QQuickItemParticle4fadeEv": ["bool", "address"],
+    "ritual_ZN18QQuickItemParticle15updatePaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN18QQuickItemParticle21qmlAttachedPropertiesEP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZNK18QQuickItemParticle8delegateEv": ["address", "address"],
+    "ritual_ZN18QQuickItemParticle6freezeEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQuickItemParticle8unfreezeEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQuickItemParticle4takeEP10QQuickItemb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN18QQuickItemParticle4giveEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQuickItemParticle7setFadeEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN18QQuickItemParticle11setDelegateEP13QQmlComponent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQuickItemParticle5resetEv": ["nothing", "address"],
+    "ritual_ZN18QQuickItemParticle6commitEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN18QQuickItemParticle10initializeEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN18QQuickItemParticle16prepareNextFrameEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK18QQuickItemParticle17clockShouldUpdateEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN18QQuickItemParticle11updateClockEv": ["nothing", "address"],
+    "ritual_ZN18QQuickItemParticle15reconnectSystemEP20QQuickParticleSystem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQuickItemParticle15reconnectParentEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQuickItemParticle17processDeletablesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickItemParticle4tickEi": ["nothing", "address", "int"],
+    "ritual_take_QQuickItemParticle": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN18QQuickItemParticle15updatePaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN18QQuickItemParticle5resetEv": ["nothing", "address"],
+    "ritual_own_ZN18QQuickItemParticle6commitEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZN18QQuickItemParticle10initializeEii": [
+      "nothing", "address", "int", "int"
+    ]
+  }
+}

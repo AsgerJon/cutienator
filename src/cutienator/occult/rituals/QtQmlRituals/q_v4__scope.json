@@ -1,0 +1,30 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4scopedvalue_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN3QV45ScopeC1EPNS_16ExecutionContextE": ["address", "address"],
+    "ritual_ZN3QV45ScopeC1EPNS_15ExecutionEngineE": ["address", "address"],
+    "ritual_ZN3QV45ScopeC1EPKNS_7ManagedE": ["address", "address"],
+    "ritual_ZN3QV45ScopeD1Ev": ["nothing", "address"],
+    "ritual_ZNK3QV45Scope9constructEiRKy": [
+      "address", "address", "int", "unsigned long long"
+    ],
+    "ritual_ZNK3QV45Scope9constructEiRKNS_5ValueE": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_ZNK3QV45Scope9constructEiPNS_4Heap4BaseE": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_ZNK3QV45Scope9constructEiRKNS_11PropertyKeyE": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_ZNK3QV45Scope18constructUndefinedEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK3QV45Scope12hasExceptionEv": ["bool", "address"],
+    "ritual_ZNK3QV45Scope5allocEi": ["address", "address", "int"]
+  }
+}

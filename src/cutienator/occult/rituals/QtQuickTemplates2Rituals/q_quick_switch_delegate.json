@@ -1,0 +1,56 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquickswitchdelegate_p",
+    ".h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK20QQuickSwitchDelegate10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QQuickSwitchDelegate2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN20QQuickSwitchDelegateC1EP10QQuickItem": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QQuickSwitchDelegate8positionEv": ["double", "address"],
+    "ritual_ZN20QQuickSwitchDelegate11setPositionEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK20QQuickSwitchDelegate14visualPositionEv": [
+      "double", "address"
+    ],
+    "ritual_ZN20QQuickSwitchDelegate14mouseMoveEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickSwitchDelegate10touchEventEP11QTouchEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QQuickSwitchDelegate11defaultFontEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QQuickSwitchDelegate12mirrorChangeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickSwitchDelegate14nextCheckStateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickSwitchDelegate12buttonChangeEN20QQuickAbstractButton12ButtonChangeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN20QQuickSwitchDelegate14mouseMoveEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20QQuickSwitchDelegate10touchEventEP11QTouchEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK20QQuickSwitchDelegate11defaultFontEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN20QQuickSwitchDelegate12mirrorChangeEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN20QQuickSwitchDelegate14nextCheckStateEv": [
+      "nothing", "address"
+    ]
+  }
+}

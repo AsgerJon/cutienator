@@ -1,0 +1,47 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtLabsP",
+    "latform/6.12.0/QtLabsPlatform/private/qquicklabsplatformmenu_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK22QQuickLabsPlatformMenu10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QQuickLabsPlatformMenu20qmlExtendedNamespaceEv": ["address"],
+    "ritual_ZN22QQuickLabsPlatformMenu30qt_qmlMarker_extendedNamespaceEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickLabsPlatformMenuD1Ev": ["nothing", "address"],
+    "ritual_ZNK22QQuickLabsPlatformMenu6handleEv": ["address", "address"],
+    "ritual_ZNK22QQuickLabsPlatformMenu7menuBarEv": ["address", "address"],
+    "ritual_ZNK22QQuickLabsPlatformMenu10parentMenuEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK22QQuickLabsPlatformMenu14systemTrayIconEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK22QQuickLabsPlatformMenu9isEnabledEv": ["bool", "address"],
+    "ritual_ZNK22QQuickLabsPlatformMenu9isVisibleEv": ["bool", "address"],
+    "ritual_ZNK22QQuickLabsPlatformMenu12minimumWidthEv": ["int", "address"],
+    "ritual_ZNK22QQuickLabsPlatformMenu4typeEv": ["int", "address"],
+    "ritual_ZNK22QQuickLabsPlatformMenu5titleEv": ["text", "address"],
+    "ritual_ZNK22QQuickLabsPlatformMenu4fontEv": ["address", "address"],
+    "ritual_ZN22QQuickLabsPlatformMenu5closeEv": ["nothing", "address"],
+    "ritual_ZN22QQuickLabsPlatformMenu10classBeginEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickLabsPlatformMenu17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_cast_QQuickLabsPlatformMenu_QQmlParserStatus": [
+      "address", "address"
+    ],
+    "ritual_take_QQuickLabsPlatformMenu": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN22QQuickLabsPlatformMenu10classBeginEv": [
+      "nothing", "address"
+    ]
+  }
+}

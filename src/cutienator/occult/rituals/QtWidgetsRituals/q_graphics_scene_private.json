@@ -1,0 +1,118 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qgraphicsscene_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN21QGraphicsScenePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK21QGraphicsScenePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN21QGraphicsScenePrivateC1Ev": ["address"],
+    "ritual_ZN21QGraphicsScenePrivate3getEP14QGraphicsScene": [
+      "address", "address"
+    ],
+    "ritual_ZN21QGraphicsScenePrivate14_q_emitUpdatedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QGraphicsScenePrivate20registerTopLevelItemEP13QGraphicsItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QGraphicsScenePrivate22unregisterTopLevelItemEP13QGraphicsItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QGraphicsScenePrivate14_q_polishItemsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QGraphicsScenePrivate22setScenePosItemEnabledEP13QGraphicsItemb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN21QGraphicsScenePrivate20registerScenePosItemEP13QGraphicsItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QGraphicsScenePrivate22unregisterScenePosItemEP13QGraphicsItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QGraphicsScenePrivate28_q_updateScenePosDescendantsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QGraphicsScenePrivate17clearMouseGrabberEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QGraphicsScenePrivate26enableMouseTrackingOnViewsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK21QGraphicsScenePrivate15itemsAtPositionERK6QPointRK7QPointFP7QWidget": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN21QGraphicsScenePrivate32storeMouseButtonsForMouseGrabberEP24QGraphicsSceneMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QGraphicsScenePrivate7addViewEP13QGraphicsView": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QGraphicsScenePrivate10removeViewEP13QGraphicsView": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QGraphicsScenePrivate23installSceneEventFilterEP13QGraphicsItemS1_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN21QGraphicsScenePrivate22removeSceneEventFilterEP13QGraphicsItemS1_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN21QGraphicsScenePrivate21filterDescendantEventEP13QGraphicsItemP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN21QGraphicsScenePrivate11filterEventEP13QGraphicsItemP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZNK21QGraphicsScenePrivate29itemAcceptsHoverEvents_helperEPK13QGraphicsItem": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN21QGraphicsScenePrivate18cloneDragDropEventEP27QGraphicsSceneDragDropEventS1_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN21QGraphicsScenePrivate9markDirtyEP13QGraphicsItemRK6QRectFbbbbb": [
+      "nothing", "address", "address", "address", "bool", "bool", "bool",
+      "bool", "bool"
+    ],
+    "ritual_ZN21QGraphicsScenePrivate14resetDirtyItemEP13QGraphicsItemb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN21QGraphicsScenePrivate25ensureSortedTopLevelItemsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QGraphicsScenePrivate38ensureSequentialTopLevelSiblingIndexesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QGraphicsScenePrivate14setFont_helperERK5QFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QGraphicsScenePrivate11resolveFontEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QGraphicsScenePrivate10updateFontERK5QFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QGraphicsScenePrivate17setPalette_helperERK8QPalette": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QGraphicsScenePrivate14resolvePaletteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QGraphicsScenePrivate13updatePaletteERK8QPalette": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QGraphicsScenePrivate24updateTouchPointsForItemEP13QGraphicsItemP11QTouchEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QGraphicsScenePrivate23findClosestTouchPointIdERK7QPointF": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN21QGraphicsScenePrivate24enableTouchEventsOnViewsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QGraphicsScenePrivate35updateInputMethodSensitivityInViewsEv": [
+      "nothing", "address"
+    ]
+  }
+}

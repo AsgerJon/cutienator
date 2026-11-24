@@ -2,6 +2,7 @@
 //  Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qdir.h>
 #include <QtCore/qstring.h>
+#include <QtCore/qnamespace.h>
 #include <QtCore/qfileinfo.h>
 #include <QtCore/qchar.h>
 #include <QtCore/qlist.h>
@@ -63,6 +64,7 @@ QString *ritual_ZNK4QDir13canonicalPathEv(const QDir *self) {
   return new QString(self->canonicalPath());
 }
 
+#if !defined(QT_BOOTSTRAPPED)
 //  void QDir::setSearchPaths(const QString &prefix, const QStringList
 //      &searchPaths)
 extern "C" Q_DECL_EXPORT
@@ -71,7 +73,9 @@ void ritual_ZN4QDir14setSearchPathsERK7QStringRK5QListIS0_E(
     const QList<QString> *searchPaths) {
   QDir::setSearchPaths(*prefix, *searchPaths);
 }
+#endif  // !defined(QT_BOOTSTRAPPED)
 
+#if !defined(QT_BOOTSTRAPPED)
 //  void QDir::addSearchPath(const QString &prefix, const QString &path)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN4QDir13addSearchPathERK7QStringS2_(
@@ -79,13 +83,16 @@ void ritual_ZN4QDir13addSearchPathERK7QStringS2_(
     const QString *path) {
   QDir::addSearchPath(*prefix, *path);
 }
+#endif  // !defined(QT_BOOTSTRAPPED)
 
+#if !defined(QT_BOOTSTRAPPED)
 //  QStringList QDir::searchPaths(const QString &prefix)
 extern "C" Q_DECL_EXPORT
 QList<QString> *ritual_ZN4QDir11searchPathsERK7QString(
     const QString *prefix) {
   return new QList<QString>(QDir::searchPaths(*prefix));
 }
+#endif  // !defined(QT_BOOTSTRAPPED)
 
 //  QString QDir::dirName() const
 extern "C" Q_DECL_EXPORT
@@ -181,6 +188,14 @@ void ritual_ZN4QDir10setSortingE6QFlagsINS_8SortFlagEE(
     QDir *self,
     int sort) {
   self->setSorting(QFlags<QDir::SortFlag>::fromInt(sort));
+}
+
+//  qsizetype QDir::count(Qt::Disambiguated_t a0) const
+extern "C" Q_DECL_EXPORT
+qsizetype ritual_ZNK4QDir5countEN2Qt15Disambiguated_tE(
+    const QDir *self,
+    const Qt::Disambiguated_t *a0) {
+  return self->count(*a0);
 }
 
 //  bool QDir::isEmpty(Filters filters) const
@@ -423,6 +438,7 @@ QString *ritual_ZN4QDir8tempPathEv() {
   return new QString(QDir::tempPath());
 }
 
+#if QT_CONFIG(regularexpression)
 //  bool QDir::match(const QStringList &filters, const QString &fileName)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN4QDir5matchERK5QListI7QStringERKS1_(
@@ -430,7 +446,9 @@ bool ritual_ZN4QDir5matchERK5QListI7QStringERKS1_(
     const QString *fileName) {
   return QDir::match(*filters, *fileName);
 }
+#endif  // QT_CONFIG(regularexpression)
 
+#if QT_CONFIG(regularexpression)
 //  bool QDir::match(const QString &filter, const QString &fileName)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN4QDir5matchERK7QStringS2_(
@@ -438,6 +456,7 @@ bool ritual_ZN4QDir5matchERK7QStringS2_(
     const QString *fileName) {
   return QDir::match(*filter, *fileName);
 }
+#endif  // QT_CONFIG(regularexpression)
 
 //  QString QDir::cleanPath(const QString &path)
 extern "C" Q_DECL_EXPORT
@@ -461,4 +480,16 @@ bool ritual_ZeqRK4QDirS1_(const QDir *lhs, const QDir *rhs) {
 extern "C" Q_DECL_EXPORT
 bool ritual_ZneRK4QDirS1_(const QDir *lhs, const QDir *rhs) {
   return operator!=(*lhs, *rhs);
+}
+
+//  QDirPrivate *QDir::d_func()
+extern "C" Q_DECL_EXPORT
+QDirPrivate *ritual_ZN4QDir6d_funcEv(QDir *self) {
+  return self->d_func();
+}
+
+//  const QDirPrivate *QDir::d_func() const
+extern "C" Q_DECL_EXPORT
+const QDirPrivate *ritual_ZNK4QDir6d_funcEv(const QDir *self) {
+  return self->d_func();
 }

@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtPositioning/6.12.0/QtPositioning/private/qgeoshape_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN16QGeoShapePrivateD1Ev": ["nothing", "address"],
+    "ritual_ZNK16QGeoShapePrivate7isValidEv": ["bool", "address"],
+    "ritual_ZNK16QGeoShapePrivate7isEmptyEv": ["bool", "address"],
+    "ritual_ZNK16QGeoShapePrivate8containsERK14QGeoCoordinate": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK16QGeoShapePrivate6centerEv": ["address", "address"],
+    "ritual_ZNK16QGeoShapePrivate20boundingGeoRectangleEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK16QGeoShapePrivate5cloneEv": ["address", "address"],
+    "ritual_take_QGeoShapePrivate": ["bool", "address", "chars", "address"]
+  }
+}

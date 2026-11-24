@@ -1,0 +1,62 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/6.12.0/QtCharts/private/boxplotchartitem_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK16BoxPlotChartItem10metaObjectEv": ["address", "address"],
+    "ritual_ZN16BoxPlotChartItem2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN16BoxPlotChartItemC1EP14QBoxPlotSeriesP13QGraphicsItem": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN16BoxPlotChartItemD1Ev": ["nothing", "address"],
+    "ritual_ZN16BoxPlotChartItem12setAnimationEP16BoxPlotAnimation": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16BoxPlotChartItem5paintEP8QPainterPK24QStyleOptionGraphicsItemP7QWidget": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK16BoxPlotChartItem12boundingRectEv": ["address", "address"],
+    "ritual_ZN16BoxPlotChartItem26handleSeriesVisibleChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16BoxPlotChartItem20handleOpacityChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16BoxPlotChartItem26handleDataStructureChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16BoxPlotChartItem19handleDomainUpdatedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16BoxPlotChartItem19handleLayoutChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16BoxPlotChartItem17handleUpdatedBarsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16BoxPlotChartItem18handleBoxsetRemoveERK5QListIP7QBoxSetE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16BoxPlotChartItem15calculateLayoutEv": ["address", "address"],
+    "ritual_ZN16BoxPlotChartItem16initializeLayoutEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16BoxPlotChartItem17updateBoxGeometryEP11BoxWhiskersi": [
+      "bool", "address", "address", "int"
+    ],
+    "ritual_take_BoxPlotChartItem": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN16BoxPlotChartItem5paintEP8QPainterPK24QStyleOptionGraphicsItemP7QWidget": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZNK16BoxPlotChartItem12boundingRectEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN16BoxPlotChartItem19handleDomainUpdatedEv": [
+      "nothing", "address"
+    ]
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickcontext2dtexture_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK22QQuickContext2DTexture10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QQuickContext2DTextureD1Ev": ["nothing", "address"],
+    "ritual_ZNK22QQuickContext2DTexture12renderTargetEv": ["int", "address"],
+    "ritual_ZN22QQuickContext2DTexture9tiledRectERK6QRectFRK5QSize": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN22QQuickContext2DTexture13setCanvasSizeERK5QSize": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN22QQuickContext2DTexture11setTileSizeERK5QSize": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN22QQuickContext2DTexture9setSmoothEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN22QQuickContext2DTexture15setAntialiasingEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN22QQuickContext2DTexture12setDirtyRectERK5QRect": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN22QQuickContext2DTexture15canvasDestroyedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN22QQuickContext2DTexture17setOnCustomThreadEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK22QQuickContext2DTexture16isOnCustomThreadEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN22QQuickContext2DTexture19textureForNextFrameEP10QSGTextureP12QQuickWindow": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN22QQuickContext2DTexture5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN22QQuickContext2DTexture9grabImageERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK22QQuickContext2DTexture11scaleFactorEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QQuickContext2DTexture13beginPaintingEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QQuickContext2DTexture11endPaintingEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK22QQuickContext2DTexture10createTileEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QQuickContext2DTexture13compositeTileEP19QQuickContext2DTile": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQuickContext2DTexture10clearTilesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickContext2DTexture16adjustedTileSizeERK5QSize": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN22QQuickContext2DTexture11createTilesERK5QRect": [
+      "address", "address", "address"
+    ],
+    "ritual_take_QQuickContext2DTexture": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK22QQuickContext2DTexture11scaleFactorEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN22QQuickContext2DTexture13beginPaintingEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN22QQuickContext2DTexture11endPaintingEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN22QQuickContext2DTexture16adjustedTileSizeERK5QSize": [
+      "address", "address", "address"
+    ]
+  }
+}

@@ -1,0 +1,172 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Particles/6.12.0/QtQuickParticles/private/qquickv4particledata_p.h",
+    ", Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK20QQuickV4ParticleData8initialXEv": ["float", "address"],
+    "ritual_ZN20QQuickV4ParticleData12set_initialXEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK20QQuickV4ParticleData9initialVXEv": ["float", "address"],
+    "ritual_ZN20QQuickV4ParticleData13set_initialVXEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK20QQuickV4ParticleData9initialAXEv": ["float", "address"],
+    "ritual_ZN20QQuickV4ParticleData13set_initialAXEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK20QQuickV4ParticleData8initialYEv": ["float", "address"],
+    "ritual_ZN20QQuickV4ParticleData12set_initialYEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK20QQuickV4ParticleData9initialVYEv": ["float", "address"],
+    "ritual_ZN20QQuickV4ParticleData13set_initialVYEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK20QQuickV4ParticleData9initialAYEv": ["float", "address"],
+    "ritual_ZN20QQuickV4ParticleData13set_initialAYEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK20QQuickV4ParticleData1tEv": ["float", "address"],
+    "ritual_ZN20QQuickV4ParticleData5set_tEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK20QQuickV4ParticleData9startSizeEv": ["float", "address"],
+    "ritual_ZN20QQuickV4ParticleData13set_startSizeEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK20QQuickV4ParticleData7endSizeEv": ["float", "address"],
+    "ritual_ZN20QQuickV4ParticleData11set_endSizeEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK20QQuickV4ParticleData8lifeSpanEv": ["float", "address"],
+    "ritual_ZN20QQuickV4ParticleData12set_lifeSpanEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK20QQuickV4ParticleData8rotationEv": ["float", "address"],
+    "ritual_ZN20QQuickV4ParticleData12set_rotationEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK20QQuickV4ParticleData16rotationVelocityEv": [
+      "float", "address"
+    ],
+    "ritual_ZN20QQuickV4ParticleData20set_rotationVelocityEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK20QQuickV4ParticleData10autoRotateEv": ["bool", "address"],
+    "ritual_ZN20QQuickV4ParticleData14set_autoRotateEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK20QQuickV4ParticleData6updateEv": ["bool", "address"],
+    "ritual_ZN20QQuickV4ParticleData10set_updateEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK20QQuickV4ParticleData19xDeformationVectorXEv": [
+      "float", "address"
+    ],
+    "ritual_ZN20QQuickV4ParticleData23set_xDeformationVectorXEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK20QQuickV4ParticleData19yDeformationVectorXEv": [
+      "float", "address"
+    ],
+    "ritual_ZN20QQuickV4ParticleData23set_yDeformationVectorXEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK20QQuickV4ParticleData19xDeformationVectorYEv": [
+      "float", "address"
+    ],
+    "ritual_ZN20QQuickV4ParticleData23set_xDeformationVectorYEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK20QQuickV4ParticleData19yDeformationVectorYEv": [
+      "float", "address"
+    ],
+    "ritual_ZN20QQuickV4ParticleData23set_yDeformationVectorYEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK20QQuickV4ParticleData14animationIndexEv": [
+      "float", "address"
+    ],
+    "ritual_ZN20QQuickV4ParticleData18set_animationIndexEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK20QQuickV4ParticleData13frameDurationEv": [
+      "float", "address"
+    ],
+    "ritual_ZN20QQuickV4ParticleData17set_frameDurationEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK20QQuickV4ParticleData7frameAtEv": ["float", "address"],
+    "ritual_ZN20QQuickV4ParticleData11set_frameAtEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK20QQuickV4ParticleData10frameCountEv": ["float", "address"],
+    "ritual_ZN20QQuickV4ParticleData14set_frameCountEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK20QQuickV4ParticleData10animationTEv": ["float", "address"],
+    "ritual_ZN20QQuickV4ParticleData14set_animationTEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK20QQuickV4ParticleData1xEv": ["float", "address"],
+    "ritual_ZN20QQuickV4ParticleData5set_xEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK20QQuickV4ParticleData2vxEv": ["float", "address"],
+    "ritual_ZN20QQuickV4ParticleData6set_vxEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK20QQuickV4ParticleData2axEv": ["float", "address"],
+    "ritual_ZN20QQuickV4ParticleData6set_axEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK20QQuickV4ParticleData1yEv": ["float", "address"],
+    "ritual_ZN20QQuickV4ParticleData5set_yEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK20QQuickV4ParticleData2vyEv": ["float", "address"],
+    "ritual_ZN20QQuickV4ParticleData6set_vyEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK20QQuickV4ParticleData2ayEv": ["float", "address"],
+    "ritual_ZN20QQuickV4ParticleData6set_ayEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK20QQuickV4ParticleData3redEv": ["float", "address"],
+    "ritual_ZN20QQuickV4ParticleData7set_redEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK20QQuickV4ParticleData5greenEv": ["float", "address"],
+    "ritual_ZN20QQuickV4ParticleData9set_greenEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK20QQuickV4ParticleData4blueEv": ["float", "address"],
+    "ritual_ZN20QQuickV4ParticleData8set_blueEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK20QQuickV4ParticleData5alphaEv": ["float", "address"],
+    "ritual_ZN20QQuickV4ParticleData9set_alphaEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN20QQuickV4ParticleDataC1Ev": ["address"],
+    "ritual_ZN20QQuickV4ParticleDataC1EP18QQuickParticleDataP20QQuickParticleSystem": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN20QQuickV4ParticleData7discardEv": ["nothing", "address"],
+    "ritual_ZNK20QQuickV4ParticleData8lifeLeftEv": ["float", "address"],
+    "ritual_ZNK20QQuickV4ParticleData11currentSizeEv": ["float", "address"],
+    "ritual_ZN20QQuickV4ParticleDataD1Ev": ["nothing", "address"],
+    "ritual_list_make_QQuickV4ParticleData": ["address"],
+    "ritual_list_add_QQuickV4ParticleData": [
+      "nothing", "address", "address"
+    ],
+    "ritual_list_size_QQuickV4ParticleData": ["long long", "address"],
+    "ritual_list_at_QQuickV4ParticleData": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_QQuickV4ParticleData": ["nothing", "address"]
+  }
+}

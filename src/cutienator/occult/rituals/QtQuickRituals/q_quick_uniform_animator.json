@@ -1,0 +1,33 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickanimator_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK21QQuickUniformAnimator10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QQuickUniformAnimator2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN21QQuickUniformAnimator6d_funcEv": ["address", "address"],
+    "ritual_ZNK21QQuickUniformAnimator6d_funcEv": ["address", "address"],
+    "ritual_ZN21QQuickUniformAnimatorC1EP7QObject": ["address", "address"],
+    "ritual_ZNK21QQuickUniformAnimator7uniformEv": ["text", "address"],
+    "ritual_ZN21QQuickUniformAnimator10setUniformERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK21QQuickUniformAnimator9createJobEv": ["address", "address"],
+    "ritual_ZNK21QQuickUniformAnimator12propertyNameEv": ["text", "address"],
+    "ritual_take_QQuickUniformAnimator": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK21QQuickUniformAnimator9createJobEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK21QQuickUniformAnimator12propertyNameEv": [
+      "text", "address"
+    ]
+  }
+}

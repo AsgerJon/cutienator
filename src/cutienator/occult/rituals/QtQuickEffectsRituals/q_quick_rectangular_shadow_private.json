@@ -1,0 +1,58 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Effects/6.12.0/QtQuickEffects/private/qquickrectangularshadow_p_p.",
+    "h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN30QQuickRectangularShadowPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK30QQuickRectangularShadowPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN30QQuickRectangularShadowPrivateC1Ev": ["address"],
+    "ritual_ZN30QQuickRectangularShadowPrivate10initializeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuickRectangularShadowPrivate20handleGeometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN30QQuickRectangularShadowPrivate16handleItemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZNK30QQuickRectangularShadowPrivate10getPaddingEv": [
+      "double", "address"
+    ],
+    "ritual_ZN30QQuickRectangularShadowPrivate11updateColorEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuickRectangularShadowPrivate18updateShaderSourceEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuickRectangularShadowPrivate20updateSizePropertiesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuickRectangularShadowPrivate12updateCachedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK30QQuickRectangularShadowPrivate13clampedRadiusEd": [
+      "double", "address", "double"
+    ],
+    "ritual_ZNK30QQuickRectangularShadowPrivate15clampedRadius4REv": [
+      "address", "address"
+    ],
+    "ritual_ZNK30QQuickRectangularShadowPrivate15currentMaterialEv": [
+      "address", "address"
+    ],
+    "ritual_ZN30QQuickRectangularShadowPrivate28maybeSetImplicitAntialiasingEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK30QQuickRectangularShadowPrivate19useIndividualRadiusEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN30QQuickRectangularShadowPrivate19updateDefaultShaderEv": [
+      "nothing", "address"
+    ]
+  }
+}

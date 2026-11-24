@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qsgsoftwareinternalimagenode_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QSGSoftwareHelpers10QTileRulesC1EN2Qt8TileRuleES2_": [
+      "address", "int", "int"
+    ],
+    "ritual_ZN18QSGSoftwareHelpers10QTileRulesC1EN2Qt8TileRuleE": [
+      "address", "int"
+    ],
+    "ritual_ZN18QSGSoftwareHelpers10QTileRulesD1Ev": ["nothing", "address"]
+  }
+}

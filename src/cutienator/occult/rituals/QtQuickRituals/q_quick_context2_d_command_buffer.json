@@ -1,0 +1,157 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickcontext2dcommandbuffer_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN28QQuickContext2DCommandBufferC1Ev": ["address"],
+    "ritual_ZN28QQuickContext2DCommandBufferD1Ev": ["nothing", "address"],
+    "ritual_ZN28QQuickContext2DCommandBuffer5resetEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QQuickContext2DCommandBuffer5clearEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK28QQuickContext2DCommandBuffer4sizeEv": ["int", "address"],
+    "ritual_ZNK28QQuickContext2DCommandBuffer7isEmptyEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK28QQuickContext2DCommandBuffer7hasNextEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN28QQuickContext2DCommandBuffer15takeNextCommandEv": [
+      "int", "address"
+    ],
+    "ritual_ZN28QQuickContext2DCommandBuffer15takeGlobalAlphaEv": [
+      "double", "address"
+    ],
+    "ritual_ZN28QQuickContext2DCommandBuffer28takeGlobalCompositeOperationEv": [
+      "int", "address"
+    ],
+    "ritual_ZN28QQuickContext2DCommandBuffer15takeStrokeStyleEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QQuickContext2DCommandBuffer13takeFillStyleEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QQuickContext2DCommandBuffer13takeLineWidthEv": [
+      "double", "address"
+    ],
+    "ritual_ZN28QQuickContext2DCommandBuffer11takeLineCapEv": [
+      "int", "address"
+    ],
+    "ritual_ZN28QQuickContext2DCommandBuffer12takeLineJoinEv": [
+      "int", "address"
+    ],
+    "ritual_ZN28QQuickContext2DCommandBuffer14takeMiterLimitEv": [
+      "double", "address"
+    ],
+    "ritual_ZN28QQuickContext2DCommandBuffer14setGlobalAlphaEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN28QQuickContext2DCommandBuffer27setGlobalCompositeOperationEN8QPainter15CompositionModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN28QQuickContext2DCommandBuffer14setStrokeStyleERK6QBrushbb": [
+      "nothing", "address", "address", "bool", "bool"
+    ],
+    "ritual_ZN28QQuickContext2DCommandBuffer9drawImageERK6QImageRK6QRectFS5_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN28QQuickContext2DCommandBuffer17takeShadowOffsetXEv": [
+      "double", "address"
+    ],
+    "ritual_ZN28QQuickContext2DCommandBuffer17takeShadowOffsetYEv": [
+      "double", "address"
+    ],
+    "ritual_ZN28QQuickContext2DCommandBuffer14takeShadowBlurEv": [
+      "double", "address"
+    ],
+    "ritual_ZN28QQuickContext2DCommandBuffer15takeShadowColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QQuickContext2DCommandBuffer12updateMatrixERK10QTransform": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QQuickContext2DCommandBuffer9clearRectERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QQuickContext2DCommandBuffer8fillRectERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QQuickContext2DCommandBuffer10strokeRectERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QQuickContext2DCommandBuffer4fillERK12QPainterPath": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QQuickContext2DCommandBuffer6strokeERK12QPainterPath": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QQuickContext2DCommandBuffer4clipEbRK12QPainterPath": [
+      "nothing", "address", "bool", "address"
+    ],
+    "ritual_ZN28QQuickContext2DCommandBuffer12setFillStyleERK6QBrushbb": [
+      "nothing", "address", "address", "bool", "bool"
+    ],
+    "ritual_ZN28QQuickContext2DCommandBuffer12setLineWidthEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN28QQuickContext2DCommandBuffer10setLineCapEN2Qt11PenCapStyleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN28QQuickContext2DCommandBuffer11setLineJoinEN2Qt12PenJoinStyleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN28QQuickContext2DCommandBuffer17setLineDashOffsetEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN28QQuickContext2DCommandBuffer13setMiterLimitEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN28QQuickContext2DCommandBuffer16setShadowOffsetXEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN28QQuickContext2DCommandBuffer16setShadowOffsetYEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN28QQuickContext2DCommandBuffer13setShadowBlurEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN28QQuickContext2DCommandBuffer14setShadowColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QQuickContext2DCommandBuffer10takeMatrixEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QQuickContext2DCommandBuffer8takeRectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QQuickContext2DCommandBuffer8takePathEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QQuickContext2DCommandBuffer9takeImageEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QQuickContext2DCommandBuffer7takeIntEv": ["int", "address"],
+    "ritual_ZN28QQuickContext2DCommandBuffer8takeBoolEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN28QQuickContext2DCommandBuffer8takeRealEv": [
+      "double", "address"
+    ],
+    "ritual_ZN28QQuickContext2DCommandBuffer9takeColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QQuickContext2DCommandBuffer9takeBrushEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QQuickContext2DCommandBuffer7makePenERKN15QQuickContext2D5StateE": [
+      "address", "address"
+    ],
+    "ritual_ZN28QQuickContext2DCommandBuffer15setPainterStateEP8QPainterRKN15QQuickContext2D5StateERK4QPen": [
+      "nothing", "address", "address", "address", "address"
+    ]
+  }
+}

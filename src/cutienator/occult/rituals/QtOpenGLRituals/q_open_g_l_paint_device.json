@@ -1,0 +1,56 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtOpenGL/qopenglpaintdevice.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN18QOpenGLPaintDevice6d_funcEv": ["address", "address"],
+    "ritual_ZNK18QOpenGLPaintDevice6d_funcEv": ["address", "address"],
+    "ritual_ZN18QOpenGLPaintDeviceC1Ev": ["address"],
+    "ritual_ZN18QOpenGLPaintDeviceC1ERK5QSize": ["address", "address"],
+    "ritual_ZN18QOpenGLPaintDeviceC1Eii": ["address", "int", "int"],
+    "ritual_ZN18QOpenGLPaintDeviceD1Ev": ["nothing", "address"],
+    "ritual_ZNK18QOpenGLPaintDevice7devTypeEv": ["int", "address"],
+    "ritual_ZNK18QOpenGLPaintDevice11paintEngineEv": ["address", "address"],
+    "ritual_ZNK18QOpenGLPaintDevice7contextEv": ["address", "address"],
+    "ritual_ZNK18QOpenGLPaintDevice4sizeEv": ["address", "address"],
+    "ritual_ZN18QOpenGLPaintDevice7setSizeERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QOpenGLPaintDevice19setDevicePixelRatioEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK18QOpenGLPaintDevice13dotsPerMeterXEv": ["double", "address"],
+    "ritual_ZNK18QOpenGLPaintDevice13dotsPerMeterYEv": ["double", "address"],
+    "ritual_ZN18QOpenGLPaintDevice16setDotsPerMeterXEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN18QOpenGLPaintDevice16setDotsPerMeterYEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN18QOpenGLPaintDevice15setPaintFlippedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK18QOpenGLPaintDevice12paintFlippedEv": ["bool", "address"],
+    "ritual_ZN18QOpenGLPaintDevice18ensureActiveTargetEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK18QOpenGLPaintDevice6metricEN12QPaintDevice17PaintDeviceMetricE": [
+      "int", "address", "int"
+    ],
+    "ritual_take_QOpenGLPaintDevice": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK18QOpenGLPaintDevice7devTypeEv": ["int", "address"],
+    "ritual_own_ZNK18QOpenGLPaintDevice11paintEngineEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN18QOpenGLPaintDevice18ensureActiveTargetEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZNK18QOpenGLPaintDevice6metricEN12QPaintDevice17PaintDeviceMetricE": [
+      "int", "address", "int"
+    ]
+  }
+}

@@ -22,6 +22,8 @@
     "ritual_ZNK19QAbstractTableModel5flagsERK11QModelIndex": [
       "int", "address", "address"
     ],
+    "ritual_ZN19QAbstractTableModel6d_funcEv": ["address", "address"],
+    "ritual_ZNK19QAbstractTableModel6d_funcEv": ["address", "address"],
     "ritual_ZNK19QAbstractTableModel6parentERK11QModelIndex": [
       "address", "address", "address"
     ],

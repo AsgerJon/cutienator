@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/qmimedatabase.h, Qt 6.12.0. Changes made here are lost.
+#include <QtCore/qglobal.h>
+#if QT_CONFIG(mimetype)
 #include <QtCore/qmimedatabase.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qmimetype.h>
@@ -116,3 +118,5 @@ QList<QMimeType> *ritual_ZNK13QMimeDatabase12allMimeTypesEv(
     const QMimeDatabase *self) {
   return new QList<QMimeType>(self->allMimeTypes());
 }
+
+#endif  // QT_CONFIG(mimetype)

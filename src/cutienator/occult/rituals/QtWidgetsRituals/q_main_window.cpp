@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qmainwindow.h, Qt 6.12.0. Changes made here are lost.
+#include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(mainwindow)
 #include <QtWidgets/qmainwindow.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qsize.h>
@@ -21,9 +23,21 @@ struct OwnQMainWindow : QMainWindow {
 //  A QMainWindow that Python can take functions over in. Every QMainWindow
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if QT_CONFIG(mainwindow)
+#if QT_CONFIG(menu)
 typedef void * (*CuteQMainWindowCall0)(const void *, int *);
+#endif  // QT_CONFIG(menu)
+#endif  // QT_CONFIG(mainwindow)
+#if !defined(QT_NO_CONTEXTMENU)
+#if QT_CONFIG(mainwindow)
 typedef void (*CuteQMainWindowCall1)(const void *, QContextMenuEvent *, int *);
+#endif  // QT_CONFIG(mainwindow)
+#endif  // !defined(QT_NO_CONTEXTMENU)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(mainwindow)
 typedef bool (*CuteQMainWindowCall2)(const void *, QEvent *, int *);
+#endif  // QT_CONFIG(mainwindow)
+#endif  // !defined(QT_NO_QOBJECT)
 typedef int (*CuteQMainWindowCall3)(const void *, int *);
 typedef void (*CuteQMainWindowCall4)(const void *, bool, int *);
 typedef const QSize * (*CuteQMainWindowCall5)(const void *, int *);
@@ -35,7 +49,9 @@ typedef void (*CuteQMainWindowCall10)(const void *, QMouseEvent *, int *);
 typedef void (*CuteQMainWindowCall11)(const void *, QMouseEvent *, int *);
 typedef void (*CuteQMainWindowCall12)(const void *, QMouseEvent *, int *);
 typedef void (*CuteQMainWindowCall13)(const void *, QMouseEvent *, int *);
+#if QT_CONFIG(wheelevent)
 typedef void (*CuteQMainWindowCall14)(const void *, QWheelEvent *, int *);
+#endif  // QT_CONFIG(wheelevent)
 typedef void (*CuteQMainWindowCall15)(const void *, QKeyEvent *, int *);
 typedef void (*CuteQMainWindowCall16)(const void *, QKeyEvent *, int *);
 typedef void (*CuteQMainWindowCall17)(const void *, QFocusEvent *, int *);
@@ -46,12 +62,24 @@ typedef void (*CuteQMainWindowCall21)(const void *, QPaintEvent *, int *);
 typedef void (*CuteQMainWindowCall22)(const void *, QMoveEvent *, int *);
 typedef void (*CuteQMainWindowCall23)(const void *, QResizeEvent *, int *);
 typedef void (*CuteQMainWindowCall24)(const void *, QCloseEvent *, int *);
+#if QT_CONFIG(tabletevent)
 typedef void (*CuteQMainWindowCall25)(const void *, QTabletEvent *, int *);
+#endif  // QT_CONFIG(tabletevent)
+#if !defined(QT_NO_ACTION)
 typedef void (*CuteQMainWindowCall26)(const void *, QActionEvent *, int *);
+#endif  // !defined(QT_NO_ACTION)
+#if QT_CONFIG(draganddrop)
 typedef void (*CuteQMainWindowCall27)(const void *, QDragEnterEvent *, int *);
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
 typedef void (*CuteQMainWindowCall28)(const void *, QDragMoveEvent *, int *);
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
 typedef void (*CuteQMainWindowCall29)(const void *, QDragLeaveEvent *, int *);
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
 typedef void (*CuteQMainWindowCall30)(const void *, QDropEvent *, int *);
+#endif  // QT_CONFIG(draganddrop)
 typedef void (*CuteQMainWindowCall31)(const void *, QShowEvent *, int *);
 typedef void (*CuteQMainWindowCall32)(const void *, QHideEvent *, int *);
 typedef void (*CuteQMainWindowCall33)(const void *, QEvent *, int *);
@@ -62,30 +90,54 @@ typedef void * (*CuteQMainWindowCall37)(const void *, int *);
 typedef void (*CuteQMainWindowCall38)(const void *, QInputMethodEvent *, int *);
 typedef const QVariant * (*CuteQMainWindowCall39)(const void *, int, int *);
 typedef bool (*CuteQMainWindowCall40)(const void *, bool, int *);
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQMainWindowCall41)(const void *, QObject *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQMainWindowCall42)(const void *, QTimerEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQMainWindowCall43)(const void *, QChildEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQMainWindowCall44)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQMainWindowCall45)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQMainWindowCall46)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 class CuteQMainWindow : public QMainWindow {
 public:
   using QMainWindow::QMainWindow;
   void *taken[47] = {};
 
   bool take(const char *key, void *call) {
+#if QT_CONFIG(mainwindow)
+#if QT_CONFIG(menu)
     if (!std::strcmp(key, "_ZN11QMainWindow15createPopupMenuEv")) {
       taken[0] = call;
       return true;
     }
+#endif  // QT_CONFIG(menu)
+#endif  // QT_CONFIG(mainwindow)
+#if !defined(QT_NO_CONTEXTMENU)
+#if QT_CONFIG(mainwindow)
     if (!std::strcmp(key, "_ZN7QWidget16contextMenuEventEP17QContextMenuEvent")) {
       taken[1] = call;
       return true;
     }
+#endif  // QT_CONFIG(mainwindow)
+#endif  // !defined(QT_NO_CONTEXTMENU)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(mainwindow)
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[2] = call;
       return true;
     }
+#endif  // QT_CONFIG(mainwindow)
+#endif  // !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZNK12QPaintDevice7devTypeEv")) {
       taken[3] = call;
       return true;
@@ -130,10 +182,12 @@ public:
       taken[13] = call;
       return true;
     }
+#if QT_CONFIG(wheelevent)
     if (!std::strcmp(key, "_ZN7QWidget10wheelEventEP11QWheelEvent")) {
       taken[14] = call;
       return true;
     }
+#endif  // QT_CONFIG(wheelevent)
     if (!std::strcmp(key, "_ZN7QWidget13keyPressEventEP9QKeyEvent")) {
       taken[15] = call;
       return true;
@@ -174,30 +228,42 @@ public:
       taken[24] = call;
       return true;
     }
+#if QT_CONFIG(tabletevent)
     if (!std::strcmp(key, "_ZN7QWidget11tabletEventEP12QTabletEvent")) {
       taken[25] = call;
       return true;
     }
+#endif  // QT_CONFIG(tabletevent)
+#if !defined(QT_NO_ACTION)
     if (!std::strcmp(key, "_ZN7QWidget11actionEventEP12QActionEvent")) {
       taken[26] = call;
       return true;
     }
+#endif  // !defined(QT_NO_ACTION)
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget14dragEnterEventEP15QDragEnterEvent")) {
       taken[27] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget13dragMoveEventEP14QDragMoveEvent")) {
       taken[28] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget14dragLeaveEventEP15QDragLeaveEvent")) {
       taken[29] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget9dropEventEP10QDropEvent")) {
       taken[30] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget9showEventEP10QShowEvent")) {
       taken[31] = call;
       return true;
@@ -238,33 +304,47 @@ public:
       taken[40] = call;
       return true;
     }
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[41] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[42] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[43] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[44] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[45] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
       taken[46] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
     return false;
   }
 
+#if QT_CONFIG(mainwindow)
+#if QT_CONFIG(menu)
   //  QMenu *QMainWindow::createPopupMenu()
   QMenu *createPopupMenu() override {
     if (taken[0]) {
@@ -275,7 +355,11 @@ public:
     }
     return QMainWindow::createPopupMenu();
   }
+#endif  // QT_CONFIG(menu)
+#endif  // QT_CONFIG(mainwindow)
 
+#if !defined(QT_NO_CONTEXTMENU)
+#if QT_CONFIG(mainwindow)
   //  void QMainWindow::contextMenuEvent(QContextMenuEvent *event)
   void contextMenuEvent(QContextMenuEvent *event) override {
     if (taken[1]) {
@@ -286,7 +370,11 @@ public:
     }
     QMainWindow::contextMenuEvent(event);
   }
+#endif  // QT_CONFIG(mainwindow)
+#endif  // !defined(QT_NO_CONTEXTMENU)
 
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(mainwindow)
   //  bool QMainWindow::event(QEvent *event)
   bool event(QEvent *event) override {
     if (taken[2]) {
@@ -297,6 +385,8 @@ public:
     }
     return QMainWindow::event(event);
   }
+#endif  // QT_CONFIG(mainwindow)
+#endif  // !defined(QT_NO_QOBJECT)
 
   //  int QWidget::devType() const
   int devType() const override {
@@ -419,6 +509,7 @@ public:
     QWidget::mouseMoveEvent(event);
   }
 
+#if QT_CONFIG(wheelevent)
   //  void QWidget::wheelEvent(QWheelEvent *event)
   void wheelEvent(QWheelEvent *event) override {
     if (taken[14]) {
@@ -429,6 +520,7 @@ public:
     }
     QWidget::wheelEvent(event);
   }
+#endif  // QT_CONFIG(wheelevent)
 
   //  void QWidget::keyPressEvent(QKeyEvent *event)
   void keyPressEvent(QKeyEvent *event) override {
@@ -540,6 +632,7 @@ public:
     QWidget::closeEvent(event);
   }
 
+#if QT_CONFIG(tabletevent)
   //  void QWidget::tabletEvent(QTabletEvent *event)
   void tabletEvent(QTabletEvent *event) override {
     if (taken[25]) {
@@ -550,7 +643,9 @@ public:
     }
     QWidget::tabletEvent(event);
   }
+#endif  // QT_CONFIG(tabletevent)
 
+#if !defined(QT_NO_ACTION)
   //  void QWidget::actionEvent(QActionEvent *event)
   void actionEvent(QActionEvent *event) override {
     if (taken[26]) {
@@ -561,7 +656,9 @@ public:
     }
     QWidget::actionEvent(event);
   }
+#endif  // !defined(QT_NO_ACTION)
 
+#if QT_CONFIG(draganddrop)
   //  void QWidget::dragEnterEvent(QDragEnterEvent *event)
   void dragEnterEvent(QDragEnterEvent *event) override {
     if (taken[27]) {
@@ -572,7 +669,9 @@ public:
     }
     QWidget::dragEnterEvent(event);
   }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
   //  void QWidget::dragMoveEvent(QDragMoveEvent *event)
   void dragMoveEvent(QDragMoveEvent *event) override {
     if (taken[28]) {
@@ -583,7 +682,9 @@ public:
     }
     QWidget::dragMoveEvent(event);
   }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
   //  void QWidget::dragLeaveEvent(QDragLeaveEvent *event)
   void dragLeaveEvent(QDragLeaveEvent *event) override {
     if (taken[29]) {
@@ -594,7 +695,9 @@ public:
     }
     QWidget::dragLeaveEvent(event);
   }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
   //  void QWidget::dropEvent(QDropEvent *event)
   void dropEvent(QDropEvent *event) override {
     if (taken[30]) {
@@ -605,6 +708,7 @@ public:
     }
     QWidget::dropEvent(event);
   }
+#endif  // QT_CONFIG(draganddrop)
 
   //  void QWidget::showEvent(QShowEvent *event)
   void showEvent(QShowEvent *event) override {
@@ -716,6 +820,7 @@ public:
     return QWidget::focusNextPrevChild(next);
   }
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
     if (taken[41]) {
@@ -726,7 +831,9 @@ public:
     }
     return QObject::eventFilter(watched, event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
     if (taken[42]) {
@@ -737,7 +844,9 @@ public:
     }
     QObject::timerEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
     if (taken[43]) {
@@ -748,7 +857,9 @@ public:
     }
     QObject::childEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
     if (taken[44]) {
@@ -759,7 +870,9 @@ public:
     }
     QObject::customEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
     if (taken[45]) {
@@ -770,7 +883,9 @@ public:
     }
     QObject::connectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
     if (taken[46]) {
@@ -781,6 +896,7 @@ public:
     }
     QObject::disconnectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 };
 
 //  const QMetaObject *QMainWindow::metaObject() const
@@ -842,25 +958,32 @@ void ritual_ZN11QMainWindow18setToolButtonStyleEN2Qt15ToolButtonStyleE(
   self->setToolButtonStyle(toolButtonStyle);
 }
 
+#if QT_CONFIG(dockwidget)
 //  bool QMainWindow::isAnimated() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK11QMainWindow10isAnimatedEv(const QMainWindow *self) {
   return self->isAnimated();
 }
+#endif  // QT_CONFIG(dockwidget)
 
+#if QT_CONFIG(dockwidget)
 //  bool QMainWindow::isDockNestingEnabled() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK11QMainWindow20isDockNestingEnabledEv(
     const QMainWindow *self) {
   return self->isDockNestingEnabled();
 }
+#endif  // QT_CONFIG(dockwidget)
 
+#if QT_CONFIG(tabbar)
 //  bool QMainWindow::documentMode() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK11QMainWindow12documentModeEv(const QMainWindow *self) {
   return self->documentMode();
 }
+#endif  // QT_CONFIG(tabbar)
 
+#if QT_CONFIG(tabbar)
 //  void QMainWindow::setDocumentMode(bool enabled)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QMainWindow15setDocumentModeEb(
@@ -868,14 +991,18 @@ void ritual_ZN11QMainWindow15setDocumentModeEb(
     bool enabled) {
   self->setDocumentMode(enabled);
 }
+#endif  // QT_CONFIG(tabbar)
 
+#if QT_CONFIG(tabwidget)
 //  QTabWidget::TabShape QMainWindow::tabShape() const
 extern "C" Q_DECL_EXPORT
 QTabWidget::TabShape ritual_ZNK11QMainWindow8tabShapeEv(
     const QMainWindow *self) {
   return self->tabShape();
 }
+#endif  // QT_CONFIG(tabwidget)
 
+#if QT_CONFIG(tabwidget)
 //  void QMainWindow::setTabShape(QTabWidget::TabShape tabShape)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QMainWindow11setTabShapeEN10QTabWidget8TabShapeE(
@@ -883,7 +1010,9 @@ void ritual_ZN11QMainWindow11setTabShapeEN10QTabWidget8TabShapeE(
     QTabWidget::TabShape tabShape) {
   self->setTabShape(tabShape);
 }
+#endif  // QT_CONFIG(tabwidget)
 
+#if QT_CONFIG(tabwidget)
 //  QTabWidget::TabPosition QMainWindow::tabPosition(Qt::DockWidgetArea area)
 //      const
 extern "C" Q_DECL_EXPORT
@@ -892,7 +1021,9 @@ QTabWidget::TabPosition ritual_ZNK11QMainWindow11tabPositionEN2Qt14DockWidgetAre
     Qt::DockWidgetArea area) {
   return self->tabPosition(area);
 }
+#endif  // QT_CONFIG(tabwidget)
 
+#if QT_CONFIG(tabwidget)
 //  void QMainWindow::setTabPosition(Qt::DockWidgetAreas areas,
 //      QTabWidget::TabPosition tabPosition)
 extern "C" Q_DECL_EXPORT
@@ -904,6 +1035,7 @@ void ritual_ZN11QMainWindow14setTabPositionE6QFlagsIN2Qt14DockWidgetAreaEEN10QTa
       QFlags<Qt::DockWidgetArea>::fromInt(areas),
       tabPosition);
 }
+#endif  // QT_CONFIG(tabwidget)
 
 //  void QMainWindow::setDockOptions(DockOptions options)
 extern "C" Q_DECL_EXPORT
@@ -927,12 +1059,15 @@ bool ritual_ZNK11QMainWindow11isSeparatorERK6QPoint(
   return self->isSeparator(*pos);
 }
 
+#if QT_CONFIG(menubar)
 //  QMenuBar *QMainWindow::menuBar() const
 extern "C" Q_DECL_EXPORT
 QMenuBar *ritual_ZNK11QMainWindow7menuBarEv(const QMainWindow *self) {
   return self->menuBar();
 }
+#endif  // QT_CONFIG(menubar)
 
+#if QT_CONFIG(menubar)
 //  void QMainWindow::setMenuBar(QMenuBar *menubar)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QMainWindow10setMenuBarEP8QMenuBar(
@@ -940,13 +1075,17 @@ void ritual_ZN11QMainWindow10setMenuBarEP8QMenuBar(
     QMenuBar *menubar) {
   self->setMenuBar(menubar);
 }
+#endif  // QT_CONFIG(menubar)
 
+#if QT_CONFIG(menubar)
 //  QWidget *QMainWindow::menuWidget() const
 extern "C" Q_DECL_EXPORT
 QWidget *ritual_ZNK11QMainWindow10menuWidgetEv(const QMainWindow *self) {
   return self->menuWidget();
 }
+#endif  // QT_CONFIG(menubar)
 
+#if QT_CONFIG(menubar)
 //  void QMainWindow::setMenuWidget(QWidget *menubar)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QMainWindow13setMenuWidgetEP7QWidget(
@@ -954,13 +1093,17 @@ void ritual_ZN11QMainWindow13setMenuWidgetEP7QWidget(
     QWidget *menubar) {
   self->setMenuWidget(menubar);
 }
+#endif  // QT_CONFIG(menubar)
 
+#if QT_CONFIG(statusbar)
 //  QStatusBar *QMainWindow::statusBar() const
 extern "C" Q_DECL_EXPORT
 QStatusBar *ritual_ZNK11QMainWindow9statusBarEv(const QMainWindow *self) {
   return self->statusBar();
 }
+#endif  // QT_CONFIG(statusbar)
 
+#if QT_CONFIG(statusbar)
 //  void QMainWindow::setStatusBar(QStatusBar *statusbar)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QMainWindow12setStatusBarEP10QStatusBar(
@@ -968,6 +1111,7 @@ void ritual_ZN11QMainWindow12setStatusBarEP10QStatusBar(
     QStatusBar *statusbar) {
   self->setStatusBar(statusbar);
 }
+#endif  // QT_CONFIG(statusbar)
 
 //  QWidget *QMainWindow::centralWidget() const
 extern "C" Q_DECL_EXPORT
@@ -989,6 +1133,7 @@ QWidget *ritual_ZN11QMainWindow17takeCentralWidgetEv(QMainWindow *self) {
   return self->takeCentralWidget();
 }
 
+#if QT_CONFIG(dockwidget)
 //  void QMainWindow::setCorner(Qt::Corner corner, Qt::DockWidgetArea area)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QMainWindow9setCornerEN2Qt6CornerENS0_14DockWidgetAreaE(
@@ -997,7 +1142,9 @@ void ritual_ZN11QMainWindow9setCornerEN2Qt6CornerENS0_14DockWidgetAreaE(
     Qt::DockWidgetArea area) {
   self->setCorner(corner, area);
 }
+#endif  // QT_CONFIG(dockwidget)
 
+#if QT_CONFIG(dockwidget)
 //  Qt::DockWidgetArea QMainWindow::corner(Qt::Corner corner) const
 extern "C" Q_DECL_EXPORT
 Qt::DockWidgetArea ritual_ZNK11QMainWindow6cornerEN2Qt6CornerE(
@@ -1005,7 +1152,9 @@ Qt::DockWidgetArea ritual_ZNK11QMainWindow6cornerEN2Qt6CornerE(
     Qt::Corner corner) {
   return self->corner(corner);
 }
+#endif  // QT_CONFIG(dockwidget)
 
+#if QT_CONFIG(toolbar)
 //  void QMainWindow::addToolBarBreak(Qt::ToolBarArea area)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QMainWindow15addToolBarBreakEN2Qt11ToolBarAreaE(
@@ -1013,7 +1162,9 @@ void ritual_ZN11QMainWindow15addToolBarBreakEN2Qt11ToolBarAreaE(
     Qt::ToolBarArea area) {
   self->addToolBarBreak(area);
 }
+#endif  // QT_CONFIG(toolbar)
 
+#if QT_CONFIG(toolbar)
 //  void QMainWindow::insertToolBarBreak(QToolBar *before)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QMainWindow18insertToolBarBreakEP8QToolBar(
@@ -1021,7 +1172,9 @@ void ritual_ZN11QMainWindow18insertToolBarBreakEP8QToolBar(
     QToolBar *before) {
   self->insertToolBarBreak(before);
 }
+#endif  // QT_CONFIG(toolbar)
 
+#if QT_CONFIG(toolbar)
 //  void QMainWindow::addToolBar(Qt::ToolBarArea area, QToolBar *toolbar)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QMainWindow10addToolBarEN2Qt11ToolBarAreaEP8QToolBar(
@@ -1030,7 +1183,9 @@ void ritual_ZN11QMainWindow10addToolBarEN2Qt11ToolBarAreaEP8QToolBar(
     QToolBar *toolbar) {
   self->addToolBar(area, toolbar);
 }
+#endif  // QT_CONFIG(toolbar)
 
+#if QT_CONFIG(toolbar)
 //  void QMainWindow::addToolBar(QToolBar *toolbar)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QMainWindow10addToolBarEP8QToolBar(
@@ -1038,7 +1193,9 @@ void ritual_ZN11QMainWindow10addToolBarEP8QToolBar(
     QToolBar *toolbar) {
   self->addToolBar(toolbar);
 }
+#endif  // QT_CONFIG(toolbar)
 
+#if QT_CONFIG(toolbar)
 //  QToolBar *QMainWindow::addToolBar(const QString &title)
 extern "C" Q_DECL_EXPORT
 QToolBar *ritual_ZN11QMainWindow10addToolBarERK7QString(
@@ -1046,7 +1203,9 @@ QToolBar *ritual_ZN11QMainWindow10addToolBarERK7QString(
     const QString *title) {
   return self->addToolBar(*title);
 }
+#endif  // QT_CONFIG(toolbar)
 
+#if QT_CONFIG(toolbar)
 //  void QMainWindow::insertToolBar(QToolBar *before, QToolBar *toolbar)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QMainWindow13insertToolBarEP8QToolBarS1_(
@@ -1055,7 +1214,9 @@ void ritual_ZN11QMainWindow13insertToolBarEP8QToolBarS1_(
     QToolBar *toolbar) {
   self->insertToolBar(before, toolbar);
 }
+#endif  // QT_CONFIG(toolbar)
 
+#if QT_CONFIG(toolbar)
 //  void QMainWindow::removeToolBar(QToolBar *toolbar)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QMainWindow13removeToolBarEP8QToolBar(
@@ -1063,7 +1224,9 @@ void ritual_ZN11QMainWindow13removeToolBarEP8QToolBar(
     QToolBar *toolbar) {
   self->removeToolBar(toolbar);
 }
+#endif  // QT_CONFIG(toolbar)
 
+#if QT_CONFIG(toolbar)
 //  void QMainWindow::removeToolBarBreak(QToolBar *before)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QMainWindow18removeToolBarBreakEP8QToolBar(
@@ -1071,14 +1234,18 @@ void ritual_ZN11QMainWindow18removeToolBarBreakEP8QToolBar(
     QToolBar *before) {
   self->removeToolBarBreak(before);
 }
+#endif  // QT_CONFIG(toolbar)
 
+#if QT_CONFIG(toolbar)
 //  bool QMainWindow::unifiedTitleAndToolBarOnMac() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK11QMainWindow27unifiedTitleAndToolBarOnMacEv(
     const QMainWindow *self) {
   return self->unifiedTitleAndToolBarOnMac();
 }
+#endif  // QT_CONFIG(toolbar)
 
+#if QT_CONFIG(toolbar)
 //  Qt::ToolBarArea QMainWindow::toolBarArea(const QToolBar *toolbar) const
 extern "C" Q_DECL_EXPORT
 Qt::ToolBarArea ritual_ZNK11QMainWindow11toolBarAreaEPK8QToolBar(
@@ -1086,7 +1253,9 @@ Qt::ToolBarArea ritual_ZNK11QMainWindow11toolBarAreaEPK8QToolBar(
     const QToolBar *toolbar) {
   return self->toolBarArea(toolbar);
 }
+#endif  // QT_CONFIG(toolbar)
 
+#if QT_CONFIG(toolbar)
 //  bool QMainWindow::toolBarBreak(QToolBar *toolbar) const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK11QMainWindow12toolBarBreakEP8QToolBar(
@@ -1094,7 +1263,9 @@ bool ritual_ZNK11QMainWindow12toolBarBreakEP8QToolBar(
     QToolBar *toolbar) {
   return self->toolBarBreak(toolbar);
 }
+#endif  // QT_CONFIG(toolbar)
 
+#if QT_CONFIG(dockwidget)
 //  void QMainWindow::addDockWidget(Qt::DockWidgetArea area, QDockWidget
 //      *dockwidget)
 extern "C" Q_DECL_EXPORT
@@ -1104,7 +1275,9 @@ void ritual_ZN11QMainWindow13addDockWidgetEN2Qt14DockWidgetAreaEP11QDockWidget(
     QDockWidget *dockwidget) {
   self->addDockWidget(area, dockwidget);
 }
+#endif  // QT_CONFIG(dockwidget)
 
+#if QT_CONFIG(dockwidget)
 //  void QMainWindow::addDockWidget(Qt::DockWidgetArea area, QDockWidget
 //      *dockwidget, Qt::Orientation orientation)
 extern "C" Q_DECL_EXPORT
@@ -1115,7 +1288,9 @@ void ritual_ZN11QMainWindow13addDockWidgetEN2Qt14DockWidgetAreaEP11QDockWidgetNS
     Qt::Orientation orientation) {
   self->addDockWidget(area, dockwidget, orientation);
 }
+#endif  // QT_CONFIG(dockwidget)
 
+#if QT_CONFIG(dockwidget)
 //  void QMainWindow::splitDockWidget(QDockWidget *after, QDockWidget
 //      *dockwidget, Qt::Orientation orientation)
 extern "C" Q_DECL_EXPORT
@@ -1126,7 +1301,10 @@ void ritual_ZN11QMainWindow15splitDockWidgetEP11QDockWidgetS1_N2Qt11OrientationE
     Qt::Orientation orientation) {
   self->splitDockWidget(after, dockwidget, orientation);
 }
+#endif  // QT_CONFIG(dockwidget)
 
+#if QT_CONFIG(dockwidget)
+#if QT_CONFIG(tabbar)
 //  void QMainWindow::tabifyDockWidget(QDockWidget *first, QDockWidget
 //      *second)
 extern "C" Q_DECL_EXPORT
@@ -1136,7 +1314,11 @@ void ritual_ZN11QMainWindow16tabifyDockWidgetEP11QDockWidgetS1_(
     QDockWidget *second) {
   self->tabifyDockWidget(first, second);
 }
+#endif  // QT_CONFIG(tabbar)
+#endif  // QT_CONFIG(dockwidget)
 
+#if QT_CONFIG(dockwidget)
+#if QT_CONFIG(tabbar)
 //  QList<QDockWidget *> QMainWindow::tabifiedDockWidgets(QDockWidget
 //      *dockwidget) const
 extern "C" Q_DECL_EXPORT
@@ -1145,7 +1327,10 @@ QList<QDockWidget *> *ritual_ZNK11QMainWindow19tabifiedDockWidgetsEP11QDockWidge
     QDockWidget *dockwidget) {
   return new QList<QDockWidget *>(self->tabifiedDockWidgets(dockwidget));
 }
+#endif  // QT_CONFIG(tabbar)
+#endif  // QT_CONFIG(dockwidget)
 
+#if QT_CONFIG(dockwidget)
 //  void QMainWindow::removeDockWidget(QDockWidget *dockwidget)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QMainWindow16removeDockWidgetEP11QDockWidget(
@@ -1153,7 +1338,9 @@ void ritual_ZN11QMainWindow16removeDockWidgetEP11QDockWidget(
     QDockWidget *dockwidget) {
   self->removeDockWidget(dockwidget);
 }
+#endif  // QT_CONFIG(dockwidget)
 
+#if QT_CONFIG(dockwidget)
 //  bool QMainWindow::restoreDockWidget(QDockWidget *dockwidget)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN11QMainWindow17restoreDockWidgetEP11QDockWidget(
@@ -1161,7 +1348,9 @@ bool ritual_ZN11QMainWindow17restoreDockWidgetEP11QDockWidget(
     QDockWidget *dockwidget) {
   return self->restoreDockWidget(dockwidget);
 }
+#endif  // QT_CONFIG(dockwidget)
 
+#if QT_CONFIG(dockwidget)
 //  Qt::DockWidgetArea QMainWindow::dockWidgetArea(QDockWidget *dockwidget)
 //      const
 extern "C" Q_DECL_EXPORT
@@ -1170,6 +1359,7 @@ Qt::DockWidgetArea ritual_ZNK11QMainWindow14dockWidgetAreaEP11QDockWidget(
     QDockWidget *dockwidget) {
   return self->dockWidgetArea(dockwidget);
 }
+#endif  // QT_CONFIG(dockwidget)
 
 //  QByteArray QMainWindow::saveState(int version) const
 extern "C" Q_DECL_EXPORT
@@ -1188,18 +1378,23 @@ bool ritual_ZN11QMainWindow12restoreStateERK10QByteArrayi(
   return self->restoreState(*state, version);
 }
 
+#if QT_CONFIG(menu)
 //  QMenu *QMainWindow::createPopupMenu()
 extern "C" Q_DECL_EXPORT
 QMenu *ritual_ZN11QMainWindow15createPopupMenuEv(QMainWindow *self) {
   return self->createPopupMenu();
 }
+#endif  // QT_CONFIG(menu)
 
+#if QT_CONFIG(dockwidget)
 //  void QMainWindow::setAnimated(bool enabled)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QMainWindow11setAnimatedEb(QMainWindow *self, bool enabled) {
   self->setAnimated(enabled);
 }
+#endif  // QT_CONFIG(dockwidget)
 
+#if QT_CONFIG(dockwidget)
 //  void QMainWindow::setDockNestingEnabled(bool enabled)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QMainWindow21setDockNestingEnabledEb(
@@ -1207,7 +1402,9 @@ void ritual_ZN11QMainWindow21setDockNestingEnabledEb(
     bool enabled) {
   self->setDockNestingEnabled(enabled);
 }
+#endif  // QT_CONFIG(dockwidget)
 
+#if QT_CONFIG(toolbar)
 //  void QMainWindow::setUnifiedTitleAndToolBarOnMac(bool set)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QMainWindow30setUnifiedTitleAndToolBarOnMacEb(
@@ -1215,7 +1412,9 @@ void ritual_ZN11QMainWindow30setUnifiedTitleAndToolBarOnMacEb(
     bool set) {
   self->setUnifiedTitleAndToolBarOnMac(set);
 }
+#endif  // QT_CONFIG(toolbar)
 
+#if !defined(QT_NO_CONTEXTMENU)
 //  void QMainWindow::contextMenuEvent(QContextMenuEvent *event)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN11QMainWindow16contextMenuEventEP17QContextMenuEvent(
@@ -1223,6 +1422,7 @@ void ritual_ZN11QMainWindow16contextMenuEventEP17QContextMenuEvent(
     QContextMenuEvent *event) {
   self->contextMenuEvent(event);
 }
+#endif  // !defined(QT_NO_CONTEXTMENU)
 
 //  bool QMainWindow::event(QEvent *event)
 extern "C" Q_DECL_EXPORT
@@ -1242,12 +1442,15 @@ bool ritual_take_QMainWindow(
   return static_cast<CuteQMainWindow *>(self)->take(key, call);
 }
 
+#if QT_CONFIG(menu)
 //  QMenu *QMainWindow::createPopupMenu()
 extern "C" Q_DECL_EXPORT
 QMenu *ritual_own_ZN11QMainWindow15createPopupMenuEv(QMainWindow *self) {
   return self->QMainWindow::createPopupMenu();
 }
+#endif  // QT_CONFIG(menu)
 
+#if !defined(QT_NO_CONTEXTMENU)
 //  void QMainWindow::contextMenuEvent(QContextMenuEvent *event)
 extern "C" Q_DECL_EXPORT
 void ritual_own_ZN11QMainWindow16contextMenuEventEP17QContextMenuEvent(
@@ -1256,6 +1459,7 @@ void ritual_own_ZN11QMainWindow16contextMenuEventEP17QContextMenuEvent(
   static_cast<OwnQMainWindow *>(self)->OwnQMainWindow::contextMenuEvent(
       event);
 }
+#endif  // !defined(QT_NO_CONTEXTMENU)
 
 //  bool QMainWindow::event(QEvent *event)
 extern "C" Q_DECL_EXPORT
@@ -1264,3 +1468,5 @@ bool ritual_own_ZN11QMainWindow5eventEP6QEvent(
     QEvent *event) {
   return static_cast<OwnQMainWindow *>(self)->OwnQMainWindow::event(event);
 }
+
+#endif  // QT_CONFIG(mainwindow)

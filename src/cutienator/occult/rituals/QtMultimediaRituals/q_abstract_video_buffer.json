@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtMultimedia/qabstractvideobuffer.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QAbstractVideoBufferD1Ev": ["nothing", "address"],
+    "ritual_ZN20QAbstractVideoBuffer3mapEN11QVideoFrame7MapModeE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN20QAbstractVideoBuffer5unmapEv": ["nothing", "address"],
+    "ritual_ZNK20QAbstractVideoBuffer6formatEv": ["address", "address"],
+    "ritual_take_QAbstractVideoBuffer": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN20QAbstractVideoBuffer5unmapEv": ["nothing", "address"]
+  }
+}

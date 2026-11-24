@@ -1,0 +1,49 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquickbuttongroup_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QQuickButtonGroup10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QQuickButtonGroup2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QQuickButtonGroup21qt_qmlMarker_attachedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuickButtonGroupC1EP7QObject": ["address", "address"],
+    "ritual_ZN17QQuickButtonGroupD1Ev": ["nothing", "address"],
+    "ritual_ZN17QQuickButtonGroup21qmlAttachedPropertiesEP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZNK17QQuickButtonGroup13checkedButtonEv": ["address", "address"],
+    "ritual_ZN17QQuickButtonGroup16setCheckedButtonEP20QQuickAbstractButton": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QQuickButtonGroup11isExclusiveEv": ["bool", "address"],
+    "ritual_ZN17QQuickButtonGroup12setExclusiveEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK17QQuickButtonGroup10checkStateEv": ["int", "address"],
+    "ritual_ZN17QQuickButtonGroup13setCheckStateEN2Qt10CheckStateE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQuickButtonGroup9addButtonEP20QQuickAbstractButton": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QQuickButtonGroup12removeButtonEP20QQuickAbstractButton": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QQuickButtonGroup10classBeginEv": ["nothing", "address"],
+    "ritual_ZN17QQuickButtonGroup17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_cast_QQuickButtonGroup_QQmlParserStatus": ["address", "address"],
+    "ritual_take_QQuickButtonGroup": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN17QQuickButtonGroup10classBeginEv": ["nothing", "address"],
+    "ritual_own_ZN17QQuickButtonGroup17componentCompleteEv": [
+      "nothing", "address"
+    ]
+  }
+}

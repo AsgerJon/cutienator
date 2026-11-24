@@ -1,0 +1,36 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Particles/6.12.0/QtQuickParticles/private/qquickpointdirection_p.h",
+    ", Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK20QQuickPointDirection10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QQuickPointDirection2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN20QQuickPointDirectionC1EP7QObject": ["address", "address"],
+    "ritual_ZN20QQuickPointDirection6sampleERK7QPointF": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK20QQuickPointDirection1xEv": ["double", "address"],
+    "ritual_ZNK20QQuickPointDirection1yEv": ["double", "address"],
+    "ritual_ZNK20QQuickPointDirection10xVariationEv": ["double", "address"],
+    "ritual_ZNK20QQuickPointDirection10yVariationEv": ["double", "address"],
+    "ritual_ZN20QQuickPointDirection4setXEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN20QQuickPointDirection4setYEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN20QQuickPointDirection13setXVariationEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN20QQuickPointDirection13setYVariationEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_own_ZN20QQuickPointDirection6sampleERK7QPointF": [
+      "address", "address", "address"
+    ]
+  }
+}

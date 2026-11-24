@@ -1,0 +1,66 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtPosit",
+    "ioningQuick/6.12.0/QtPositioningQuick/private/locationsingleton_p.",
+    "h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17LocationSingleton10metaObjectEv": ["address", "address"],
+    "ritual_ZN17LocationSingleton2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17LocationSingleton22qt_qmlMarker_singletonEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17LocationSingletonC1EP7QObject": ["address", "address"],
+    "ritual_ZNK17LocationSingleton10coordinateEv": ["address", "address"],
+    "ritual_ZNK17LocationSingleton10coordinateEddd": [
+      "address", "address", "double", "double", "double"
+    ],
+    "ritual_ZNK17LocationSingleton5shapeEv": ["address", "address"],
+    "ritual_ZNK17LocationSingleton9rectangleEv": ["address", "address"],
+    "ritual_ZNK17LocationSingleton9rectangleERK14QGeoCoordinatedd": [
+      "address", "address", "address", "double", "double"
+    ],
+    "ritual_ZNK17LocationSingleton9rectangleERK14QGeoCoordinateS2_": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK17LocationSingleton9rectangleERK5QListI8QVariantE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK17LocationSingleton6circleEv": ["address", "address"],
+    "ritual_ZNK17LocationSingleton6circleERK14QGeoCoordinated": [
+      "address", "address", "address", "double"
+    ],
+    "ritual_ZNK17LocationSingleton4pathEv": ["address", "address"],
+    "ritual_ZNK17LocationSingleton4pathERK8QJSValued": [
+      "address", "address", "address", "double"
+    ],
+    "ritual_ZNK17LocationSingleton7polygonEv": ["address", "address"],
+    "ritual_ZNK17LocationSingleton7polygonERK5QListI8QVariantE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK17LocationSingleton7polygonERK5QListI8QVariantES4_": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK17LocationSingleton13shapeToCircleERK9QGeoShape": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK17LocationSingleton16shapeToRectangleERK9QGeoShape": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK17LocationSingleton11shapeToPathERK9QGeoShape": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK17LocationSingleton14shapeToPolygonERK9QGeoShape": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK17LocationSingleton15mercatorToCoordERK7QPointF": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK17LocationSingleton15coordToMercatorERK14QGeoCoordinate": [
+      "address", "address", "address"
+    ],
+    "ritual_take_LocationSingleton": ["bool", "address", "chars", "address"]
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickrepeater_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK14QQuickRepeater10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QQuickRepeater2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN14QQuickRepeaterC1EP10QQuickItem": ["address", "address"],
+    "ritual_ZN14QQuickRepeaterD1Ev": ["nothing", "address"],
+    "ritual_ZNK14QQuickRepeater5modelEv": ["address", "address"],
+    "ritual_ZN14QQuickRepeater8setModelERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QQuickRepeater8delegateEv": ["address", "address"],
+    "ritual_ZN14QQuickRepeater11setDelegateEP13QQmlComponent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QQuickRepeater5countEv": ["int", "address"],
+    "ritual_ZNK14QQuickRepeater6itemAtEi": ["address", "address", "int"],
+    "ritual_ZNK14QQuickRepeater19delegateModelAccessEv": [
+      "unsigned char", "address"
+    ],
+    "ritual_ZN14QQuickRepeater22setDelegateModelAccessEN17QQmlDelegateModel19DelegateModelAccessE": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZN14QQuickRepeater5clearEv": ["nothing", "address"],
+    "ritual_ZN14QQuickRepeater10regenerateEv": ["nothing", "address"],
+    "ritual_ZN14QQuickRepeater17componentCompleteEv": ["nothing", "address"],
+    "ritual_ZN14QQuickRepeater10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN14QQuickRepeater11createdItemEiP7QObject": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN14QQuickRepeater8initItemEiP7QObject": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN14QQuickRepeater12modelUpdatedERK13QQmlChangeSetb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN14QQuickRepeater6d_funcEv": ["address", "address"],
+    "ritual_ZNK14QQuickRepeater6d_funcEv": ["address", "address"],
+    "ritual_take_QQuickRepeater": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN14QQuickRepeater17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN14QQuickRepeater10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ]
+  }
+}

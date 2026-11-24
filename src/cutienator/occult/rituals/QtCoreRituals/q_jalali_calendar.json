@@ -1,0 +1,44 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qjalalicalendar_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK15QJalaliCalendar4nameEv": ["text", "address"],
+    "ritual_ZN15QJalaliCalendar8nameListEv": ["address"],
+    "ritual_ZNK15QJalaliCalendar11daysInMonthEii": [
+      "int", "address", "int", "int"
+    ],
+    "ritual_ZNK15QJalaliCalendar10isLeapYearEi": ["bool", "address", "int"],
+    "ritual_ZNK15QJalaliCalendar7isLunarEv": ["bool", "address"],
+    "ritual_ZNK15QJalaliCalendar11isLuniSolarEv": ["bool", "address"],
+    "ritual_ZNK15QJalaliCalendar7isSolarEv": ["bool", "address"],
+    "ritual_ZNK15QJalaliCalendar15dateToJulianDayEiiiPx": [
+      "bool", "address", "int", "int", "int", "address"
+    ],
+    "ritual_ZNK15QJalaliCalendar15julianDayToDateEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZNK15QJalaliCalendar20localeMonthIndexDataEv": [
+      "address", "address"
+    ],
+    "ritual_take_QJalaliCalendar": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK15QJalaliCalendar4nameEv": ["text", "address"],
+    "ritual_own_ZNK15QJalaliCalendar11daysInMonthEii": [
+      "int", "address", "int", "int"
+    ],
+    "ritual_own_ZNK15QJalaliCalendar10isLeapYearEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_own_ZNK15QJalaliCalendar7isLunarEv": ["bool", "address"],
+    "ritual_own_ZNK15QJalaliCalendar11isLuniSolarEv": ["bool", "address"],
+    "ritual_own_ZNK15QJalaliCalendar7isSolarEv": ["bool", "address"],
+    "ritual_own_ZNK15QJalaliCalendar15julianDayToDateEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_own_ZNK15QJalaliCalendar20localeMonthIndexDataEv": [
+      "address", "address"
+    ]
+  }
+}

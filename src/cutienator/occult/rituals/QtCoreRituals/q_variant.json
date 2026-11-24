@@ -121,18 +121,6 @@
     "ritual_list_size_QVariant": ["long long", "address"],
     "ritual_list_at_QVariant": ["address", "address", "long long"],
     "ritual_list_drop_QVariant": ["nothing", "address"],
-    "ritual_map_make_QMap_QString_QVariant": ["address"],
-    "ritual_map_put_QMap_QString_QVariant": [
-      "nothing", "address", "text", "address"
-    ],
-    "ritual_map_size_QMap_QString_QVariant": ["long long", "address"],
-    "ritual_map_key_QMap_QString_QVariant": ["text", "address", "long long"],
-    "ritual_map_value_QMap_QString_QVariant": [
-      "address", "address", "long long"
-    ],
-    "ritual_map_has_QMap_QString_QVariant": ["bool", "address", "text"],
-    "ritual_map_get_QMap_QString_QVariant": ["address", "address", "text"],
-    "ritual_map_drop_QMap_QString_QVariant": ["nothing", "address"],
     "ritual_map_make_QHash_QString_QVariant": ["address"],
     "ritual_map_put_QHash_QString_QVariant": [
       "nothing", "address", "text", "address"
@@ -147,6 +135,18 @@
     "ritual_map_has_QHash_QString_QVariant": ["bool", "address", "text"],
     "ritual_map_get_QHash_QString_QVariant": ["address", "address", "text"],
     "ritual_map_drop_QHash_QString_QVariant": ["nothing", "address"],
+    "ritual_map_make_QMap_QString_QVariant": ["address"],
+    "ritual_map_put_QMap_QString_QVariant": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_map_size_QMap_QString_QVariant": ["long long", "address"],
+    "ritual_map_key_QMap_QString_QVariant": ["text", "address", "long long"],
+    "ritual_map_value_QMap_QString_QVariant": [
+      "address", "address", "long long"
+    ],
+    "ritual_map_has_QMap_QString_QVariant": ["bool", "address", "text"],
+    "ritual_map_get_QMap_QString_QVariant": ["address", "address", "text"],
+    "ritual_map_drop_QMap_QString_QVariant": ["nothing", "address"],
     "ritual_map_make_QMap_int_QVariant": ["address"],
     "ritual_map_put_QMap_int_QVariant": [
       "nothing", "address", "int", "address"

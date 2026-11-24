@@ -187,6 +187,8 @@ void ritual_ZNK9QTextLine4drawEP8QPainterRK7QPointF(
   self->draw(painter, *position);
 }
 
+#if !defined(QT_NO_RAWFONT)
+#if QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
 //  QList<QGlyphRun> QTextLine::glyphRuns(int from, int length,
 //      QTextLayout::GlyphRunRetrievalFlags flags) const
 extern "C" Q_DECL_EXPORT
@@ -201,7 +203,11 @@ QList<QGlyphRun> *ritual_ZNK9QTextLine9glyphRunsEii6QFlagsIN11QTextLayout21Glyph
           length,
           QFlags<QTextLayout::GlyphRunRetrievalFlag>::fromInt(flags)));
 }
+#endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+#endif  // !defined(QT_NO_RAWFONT)
 
+#if !defined(QT_NO_RAWFONT)
+#if QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
 //  QList<QGlyphRun> QTextLine::glyphRuns(int from, int length) const
 extern "C" Q_DECL_EXPORT
 QList<QGlyphRun> *ritual_ZNK9QTextLine9glyphRunsEii(
@@ -209,6 +215,14 @@ QList<QGlyphRun> *ritual_ZNK9QTextLine9glyphRunsEii(
     int from,
     int length) {
   return new QList<QGlyphRun>(self->glyphRuns(from, length));
+}
+#endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
+#endif  // !defined(QT_NO_RAWFONT)
+
+//  QTextLine::QTextLine(int line, QTextEngine *e)
+extern "C" Q_DECL_EXPORT
+QTextLine *ritual_ZN9QTextLineC1EiP11QTextEngine(int line, QTextEngine *e) {
+  return new QTextLine(line, e);
 }
 
 //  void QTextLine::layout_helper(int numGlyphs)

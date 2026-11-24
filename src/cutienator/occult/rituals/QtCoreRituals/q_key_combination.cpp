@@ -53,11 +53,13 @@ int ritual_ZNK15QKeyCombination10toCombinedEv(const QKeyCombination *self) {
   return self->toCombined();
 }
 
+#if QT_DEPRECATED_SINCE(6, 0)
 //  int QKeyCombination::operator int() const
 extern "C" Q_DECL_EXPORT
 int ritual_ZNK15QKeyCombinationcviEv(const QKeyCombination *self) {
   return self->operator int();
 }
+#endif  // QT_DEPRECATED_SINCE(6, 0)
 
 //  bool operator==(const QKeyCombination &lhs, const QKeyCombination &rhs)
 extern "C" Q_DECL_EXPORT

@@ -1,0 +1,49 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSql/6.12.0/QtSql/private/qsqlquerymodel_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN17QSqlQueryModelSql2asEv": ["address"],
+    "ritual_ZN17QSqlQueryModelSql3ascEv": ["address"],
+    "ritual_ZN17QSqlQueryModelSql5commaEv": ["address"],
+    "ritual_ZN17QSqlQueryModelSql4descEv": ["address"],
+    "ritual_ZN17QSqlQueryModelSql2eqEv": ["address"],
+    "ritual_ZN17QSqlQueryModelSql2etEv": ["address"],
+    "ritual_ZN17QSqlQueryModelSql4fromEv": ["address"],
+    "ritual_ZN17QSqlQueryModelSql8leftJoinEv": ["address"],
+    "ritual_ZN17QSqlQueryModelSql2onEv": ["address"],
+    "ritual_ZN17QSqlQueryModelSql7orderByEv": ["address"],
+    "ritual_ZN17QSqlQueryModelSql10parenCloseEv": ["address"],
+    "ritual_ZN17QSqlQueryModelSql9parenOpenEv": ["address"],
+    "ritual_ZN17QSqlQueryModelSql6selectEv": ["address"],
+    "ritual_ZN17QSqlQueryModelSql2spEv": ["address"],
+    "ritual_ZN17QSqlQueryModelSql5whereEv": ["address"],
+    "ritual_ZN17QSqlQueryModelSql2asERK7QStringS2_": [
+      "text", "text", "text"
+    ],
+    "ritual_ZN17QSqlQueryModelSql3ascERK7QString": ["text", "text"],
+    "ritual_ZN17QSqlQueryModelSql5commaERK7QStringS2_": [
+      "text", "text", "text"
+    ],
+    "ritual_ZN17QSqlQueryModelSql6concatERK7QStringS2_": [
+      "text", "text", "text"
+    ],
+    "ritual_ZN17QSqlQueryModelSql4descERK7QString": ["text", "text"],
+    "ritual_ZN17QSqlQueryModelSql2eqERK7QStringS2_": [
+      "text", "text", "text"
+    ],
+    "ritual_ZN17QSqlQueryModelSql2etERK7QStringS2_": [
+      "text", "text", "text"
+    ],
+    "ritual_ZN17QSqlQueryModelSql4fromERK7QString": ["text", "text"],
+    "ritual_ZN17QSqlQueryModelSql8leftJoinERK7QString": ["text", "text"],
+    "ritual_ZN17QSqlQueryModelSql2onERK7QString": ["text", "text"],
+    "ritual_ZN17QSqlQueryModelSql7orderByERK7QString": ["text", "text"],
+    "ritual_ZN17QSqlQueryModelSql5parenERK7QString": ["text", "text"],
+    "ritual_ZN17QSqlQueryModelSql6selectERK7QString": ["text", "text"],
+    "ritual_ZN17QSqlQueryModelSql5whereERK7QString": ["text", "text"],
+    "ritual_ZN17QSqlQueryModelSqlD1Ev": ["nothing", "address"]
+  }
+}

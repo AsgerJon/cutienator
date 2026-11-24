@@ -1,0 +1,75 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3D/6.12.0/QtQuick3D/private/qquick3ddebugsettings_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK21QQuick3DDebugSettings10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QQuick3DDebugSettings2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN21QQuick3DDebugSettingsC1EP7QObject": ["address", "address"],
+    "ritual_ZNK21QQuick3DDebugSettings16materialOverrideEv": [
+      "int", "address"
+    ],
+    "ritual_ZN21QQuick3DDebugSettings19setMaterialOverrideENS_25QQuick3DMaterialOverridesE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK21QQuick3DDebugSettings16wireframeEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QQuick3DDebugSettings19setWireframeEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK21QQuick3DDebugSettings31drawDirectionalLightShadowBoxesEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QQuick3DDebugSettings34setDrawDirectionalLightShadowBoxesEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK21QQuick3DDebugSettings25drawPointLightShadowBoxesEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QQuick3DDebugSettings28setDrawPointLightShadowBoxesEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK21QQuick3DDebugSettings23drawShadowCastingBoundsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QQuick3DDebugSettings26setDrawShadowCastingBoundsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK21QQuick3DDebugSettings25drawShadowReceivingBoundsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QQuick3DDebugSettings28setDrawShadowReceivingBoundsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK21QQuick3DDebugSettings12drawCascadesEv": ["bool", "address"],
+    "ritual_ZN21QQuick3DDebugSettings15setDrawCascadesEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK21QQuick3DDebugSettings28drawSceneCascadeIntersectionEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QQuick3DDebugSettings31setDrawSceneCascadeIntersectionEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK21QQuick3DDebugSettings25disableShadowCameraUpdateEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QQuick3DDebugSettings28setDisableShadowCameraUpdateEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK21QQuick3DDebugSettings17drawCulledObjectsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QQuick3DDebugSettings20setDrawCulledObjectsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN21QQuick3DDebugSettings6updateEv": ["nothing", "address"]
+  }
+}

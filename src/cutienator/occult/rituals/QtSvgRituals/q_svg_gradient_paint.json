@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSvg/6.12.0/QtSvg/private/qsvgpaintserver_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN17QSvgGradientPaintD1Ev": ["nothing", "address"],
+    "ritual_ZNK17QSvgGradientPaint4typeEv": ["signed char", "address"],
+    "ritual_ZN17QSvgGradientPaint11setStopLinkERK7QStringP12QSvgDocument": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZNK17QSvgGradientPaint8stopLinkEv": ["text", "address"],
+    "ritual_ZN17QSvgGradientPaint12setTransformERK10QTransform": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QSvgGradientPaint10qtransformEv": ["address", "address"],
+    "ritual_ZN17QSvgGradientPaint9qgradientEv": ["address", "address"],
+    "ritual_ZNK17QSvgGradientPaint16gradientStopsSetEv": ["bool", "address"],
+    "ritual_ZN17QSvgGradientPaint19setGradientStopsSetEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN17QSvgGradientPaint12resolveStopsEv": ["nothing", "address"],
+    "ritual_take_QSvgGradientPaint": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK17QSvgGradientPaint4typeEv": ["signed char", "address"]
+  }
+}

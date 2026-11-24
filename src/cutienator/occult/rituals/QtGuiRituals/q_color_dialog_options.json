@@ -1,0 +1,35 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/qpa/qplatformdialoghelper.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QColorDialogOptionsD1Ev": ["nothing", "address"],
+    "ritual_ZNK19QColorDialogOptions11windowTitleEv": ["text", "address"],
+    "ritual_ZN19QColorDialogOptions14setWindowTitleERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN19QColorDialogOptions9setOptionENS_17ColorDialogOptionEb": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZNK19QColorDialogOptions10testOptionENS_17ColorDialogOptionE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN19QColorDialogOptions10setOptionsE6QFlagsINS_17ColorDialogOptionEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK19QColorDialogOptions7optionsEv": ["int", "address"],
+    "ritual_ZN19QColorDialogOptions16customColorCountEv": ["int"],
+    "ritual_ZN19QColorDialogOptions11customColorEi": ["unsigned int", "int"],
+    "ritual_ZN19QColorDialogOptions14setCustomColorEij": [
+      "nothing", "int", "unsigned int"
+    ],
+    "ritual_ZN19QColorDialogOptions13standardColorEi": [
+      "unsigned int", "int"
+    ],
+    "ritual_ZN19QColorDialogOptions16setStandardColorEij": [
+      "nothing", "int", "unsigned int"
+    ]
+  }
+}

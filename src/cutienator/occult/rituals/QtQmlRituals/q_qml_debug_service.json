@@ -1,0 +1,69 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmldebugservice_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK16QQmlDebugService10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QQmlDebugService2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN16QQmlDebugServiceD1Ev": ["nothing", "address"],
+    "ritual_ZNK16QQmlDebugService4nameEv": ["text", "address"],
+    "ritual_ZNK16QQmlDebugService7versionEv": ["float", "address"],
+    "ritual_ZNK16QQmlDebugService5stateEv": ["int", "address"],
+    "ritual_ZN16QQmlDebugService8setStateENS_5StateE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16QQmlDebugService21stateAboutToBeChangedENS_5StateE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16QQmlDebugService12stateChangedENS_5StateE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16QQmlDebugService15messageReceivedERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQmlDebugService20engineAboutToBeAddedEP9QJSEngine": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQmlDebugService22engineAboutToBeRemovedEP9QJSEngine": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQmlDebugService11engineAddedEP9QJSEngine": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQmlDebugService13engineRemovedEP9QJSEngine": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQmlDebugService13objectsForIdsEv": ["address"],
+    "ritual_ZN16QQmlDebugService11idForObjectEP7QObject": ["int", "address"],
+    "ritual_ZN16QQmlDebugService11objectForIdEi": ["address", "int"],
+    "ritual_ZN16QQmlDebugServiceC1ERK7QStringfP7QObject": [
+      "address", "text", "float", "address"
+    ],
+    "ritual_take_QQmlDebugService": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN16QQmlDebugService21stateAboutToBeChangedENS_5StateE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN16QQmlDebugService12stateChangedENS_5StateE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN16QQmlDebugService15messageReceivedERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16QQmlDebugService20engineAboutToBeAddedEP9QJSEngine": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16QQmlDebugService22engineAboutToBeRemovedEP9QJSEngine": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16QQmlDebugService11engineAddedEP9QJSEngine": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16QQmlDebugService13engineRemovedEP9QJSEngine": [
+      "nothing", "address", "address"
+    ]
+  }
+}

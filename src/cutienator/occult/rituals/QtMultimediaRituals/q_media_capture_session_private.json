@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtMultimedia/6.12.0/QtMultimedia/private/qmediacapturesession_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN27QMediaCaptureSessionPrivate3getEP20QMediaCaptureSession": [
+      "address", "address"
+    ],
+    "ritual_ZN27QMediaCaptureSessionPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK27QMediaCaptureSessionPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QMediaCaptureSessionPrivate12setVideoSinkEP10QVideoSink": [
+      "nothing", "address", "address"
+    ]
+  }
+}

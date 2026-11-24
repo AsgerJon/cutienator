@@ -1,0 +1,52 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtOpenGL/6.12.0/QtOpenGL/private/qopengltexture_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN21QOpenGLTexturePrivateC1EN14QOpenGLTexture6TargetEPS0_": [
+      "address", "int", "address"
+    ],
+    "ritual_ZN21QOpenGLTexturePrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN21QOpenGLTexturePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK21QOpenGLTexturePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN21QOpenGLTexturePrivate7destroyEv": ["nothing", "address"],
+    "ritual_ZN21QOpenGLTexturePrivate4bindEv": ["nothing", "address"],
+    "ritual_ZN21QOpenGLTexturePrivate4bindEjN14QOpenGLTexture16TextureUnitResetE": [
+      "nothing", "address", "unsigned int", "int"
+    ],
+    "ritual_ZN21QOpenGLTexturePrivate7releaseEv": ["nothing", "address"],
+    "ritual_ZN21QOpenGLTexturePrivate7releaseEjN14QOpenGLTexture16TextureUnitResetE": [
+      "nothing", "address", "unsigned int", "int"
+    ],
+    "ritual_ZNK21QOpenGLTexturePrivate7isBoundEv": ["bool", "address"],
+    "ritual_ZNK21QOpenGLTexturePrivate7isBoundEj": [
+      "bool", "address", "unsigned int"
+    ],
+    "ritual_ZN21QOpenGLTexturePrivate24allocateImmutableStorageEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QOpenGLTexturePrivate11setWrapModeEN14QOpenGLTexture8WrapModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN21QOpenGLTexturePrivate11setWrapModeEN14QOpenGLTexture19CoordinateDirectionENS0_8WrapModeE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK21QOpenGLTexturePrivate8wrapModeEN14QOpenGLTexture19CoordinateDirectionE": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK21QOpenGLTexturePrivate17createTextureViewEN14QOpenGLTexture6TargetENS0_13TextureFormatEiiii": [
+      "address", "address", "int", "int", "int", "int", "int", "int"
+    ],
+    "ritual_ZNK21QOpenGLTexturePrivate17evaluateMipLevelsEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK21QOpenGLTexturePrivate20maximumMipLevelCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZN21QOpenGLTexturePrivate12mipLevelSizeEii": [
+      "int", "int", "int"
+    ]
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/ui4_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN13DomStringListC1Ev": ["address"],
+    "ritual_ZN13DomStringListD1Ev": ["nothing", "address"],
+    "ritual_ZNK13DomStringList16hasAttributeNotrEv": ["bool", "address"],
+    "ritual_ZNK13DomStringList13attributeNotrEv": ["text", "address"],
+    "ritual_ZN13DomStringList16setAttributeNotrERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN13DomStringList18clearAttributeNotrEv": ["nothing", "address"],
+    "ritual_ZNK13DomStringList19hasAttributeCommentEv": ["bool", "address"],
+    "ritual_ZNK13DomStringList16attributeCommentEv": ["text", "address"],
+    "ritual_ZN13DomStringList19setAttributeCommentERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN13DomStringList21clearAttributeCommentEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK13DomStringList24hasAttributeExtraCommentEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK13DomStringList21attributeExtraCommentEv": [
+      "text", "address"
+    ],
+    "ritual_ZN13DomStringList24setAttributeExtraCommentERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN13DomStringList26clearAttributeExtraCommentEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK13DomStringList14hasAttributeIdEv": ["bool", "address"],
+    "ritual_ZNK13DomStringList11attributeIdEv": ["text", "address"],
+    "ritual_ZN13DomStringList14setAttributeIdERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN13DomStringList16clearAttributeIdEv": ["nothing", "address"],
+    "ritual_ZNK13DomStringList13elementStringEv": ["address", "address"],
+    "ritual_ZN13DomStringList16setElementStringERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ]
+  }
+}

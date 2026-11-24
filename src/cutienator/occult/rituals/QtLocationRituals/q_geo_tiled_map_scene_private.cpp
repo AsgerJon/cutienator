@@ -1,0 +1,62 @@
+//  Written by dev_tooling.RitualGenerator from the records of
+//  QtLocation/6.12.0/QtLocation/private/qgeotiledmapscene_p_p.h, Qt 6.12.0.
+//  Changes made here are lost.
+#include <QtLocation/6.12.0/QtLocation/private/qlocationglobal_p.h>
+#include <QtLocation/QtLocation>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtLocation/6.12.0/QtLocation/private/qgeotiledmapscene_p.h>
+#include <QtLocation/6.12.0/QtLocation/private/qgeotiledmapscene_p_p.h>
+#include <QtLocation/6.12.0/QtLocation/private/qgeotilespec_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  QGeoTiledMapScene *QGeoTiledMapScenePrivate::q_func()
+extern "C" Q_DECL_EXPORT
+QGeoTiledMapScene *ritual_ZN24QGeoTiledMapScenePrivate6q_funcEv(
+    QGeoTiledMapScenePrivate *self) {
+  return self->q_func();
+}
+
+//  const QGeoTiledMapScene *QGeoTiledMapScenePrivate::q_func() const
+extern "C" Q_DECL_EXPORT
+const QGeoTiledMapScene *ritual_ZNK24QGeoTiledMapScenePrivate6q_funcEv(
+    const QGeoTiledMapScenePrivate *self) {
+  return self->q_func();
+}
+
+//  QGeoTiledMapScenePrivate::QGeoTiledMapScenePrivate()
+extern "C" Q_DECL_EXPORT
+QGeoTiledMapScenePrivate *ritual_ZN24QGeoTiledMapScenePrivateC1Ev() {
+  return new QGeoTiledMapScenePrivate();
+}
+
+//  QGeoTiledMapScenePrivate::~QGeoTiledMapScenePrivate()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QGeoTiledMapScenePrivateD1Ev(
+    QGeoTiledMapScenePrivate *self) {
+  delete self;
+}
+
+//  bool QGeoTiledMapScenePrivate::buildGeometry(const QGeoTileSpec &spec,
+//      QSGImageNode *imageNode, bool &overzooming)
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN24QGeoTiledMapScenePrivate13buildGeometryERK12QGeoTileSpecP12QSGImageNodeRb(
+    QGeoTiledMapScenePrivate *self,
+    const QGeoTileSpec *spec,
+    QSGImageNode *imageNode,
+    bool *overzooming) {
+  return self->buildGeometry(*spec, imageNode, *overzooming);
+}
+
+//  void QGeoTiledMapScenePrivate::setupCamera()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN24QGeoTiledMapScenePrivate11setupCameraEv(
+    QGeoTiledMapScenePrivate *self) {
+  self->setupCamera();
+}
+
+//  bool QGeoTiledMapScenePrivate::isTiltedOrRotated() const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK24QGeoTiledMapScenePrivate17isTiltedOrRotatedEv(
+    const QGeoTiledMapScenePrivate *self) {
+  return self->isTiltedOrRotated();
+}

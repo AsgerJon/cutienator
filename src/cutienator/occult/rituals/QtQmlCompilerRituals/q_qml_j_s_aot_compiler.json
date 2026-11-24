@@ -1,0 +1,44 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQmlCompiler/6.12.0/QtQmlCompiler/private/qqmljscompiler_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN17QQmlJSAotCompilerC1EP14QQmlJSImporterRK7QStringRK5QListIS2_EP12QQmlJSLogger": [
+      "address", "address", "text", "address", "address"
+    ],
+    "ritual_ZN17QQmlJSAotCompilerD1Ev": ["nothing", "address"],
+    "ritual_ZN17QQmlJSAotCompiler11setDocumentEPKN5QmlIR9JSCodeGenEPKNS0_8DocumentE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN17QQmlJSAotCompiler8setScopeEPKN5QmlIR6ObjectES3_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK17QQmlJSAotCompiler10globalCodeEv": ["address", "address"],
+    "ritual_ZNK17QQmlJSAotCompiler14isLintCompilerEv": ["bool", "address"],
+    "ritual_ZNK17QQmlJSAotCompiler15noAotValidationEv": ["bool", "address"],
+    "ritual_ZNK17QQmlJSAotCompiler8diagnoseERK7QString9QtMsgTypeRKN6QQmlJS14SourceLocationE": [
+      "address", "address", "text", "int", "address"
+    ],
+    "ritual_ZN17QQmlJSAotCompiler9doCompileEPKN3QV48Compiler7ContextEPKN17QQmlJSCompilePass8FunctionE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN17QQmlJSAotCompiler26doCompileAndRecordAotStatsEPKN3QV48Compiler7ContextEPKN17QQmlJSCompilePass8FunctionERK7QStringN6QQmlJS14SourceLocationE": [
+      "address", "address", "address", "address", "text", "address"
+    ],
+    "ritual_take_QQmlJSAotCompiler": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN17QQmlJSAotCompiler11setDocumentEPKN5QmlIR9JSCodeGenEPKNS0_8DocumentE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN17QQmlJSAotCompiler8setScopeEPKN5QmlIR6ObjectES3_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZNK17QQmlJSAotCompiler10globalCodeEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK17QQmlJSAotCompiler8diagnoseERK7QString9QtMsgTypeRKN6QQmlJS14SourceLocationE": [
+      "address", "address", "text", "int", "address"
+    ]
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qtablewidget_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK22QTableModelGreaterThanclEP16QTableWidgetItemS1_": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN22QTableModelGreaterThanD1Ev": ["nothing", "address"]
+  }
+}

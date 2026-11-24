@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/qstringlistmodel.h, Qt 6.12.0. Changes made here are lost.
+#include <QtCore/qglobal.h>
+#if QT_CONFIG(stringlistmodel)
 #include <QtCore/qstringlistmodel.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qabstractitemmodel.h>
@@ -298,3 +300,5 @@ int ritual_own_ZNK16QStringListModel20supportedDropActionsEv(
   return static_cast<int>(
       self->QStringListModel::supportedDropActions().toInt());
 }
+
+#endif  // QT_CONFIG(stringlistmodel)

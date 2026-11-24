@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquicktabbar_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK20QQuickTabBarAttached10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QQuickTabBarAttached2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN20QQuickTabBarAttachedC1EP7QObject": ["address", "address"],
+    "ritual_ZNK20QQuickTabBarAttached5indexEv": ["int", "address"],
+    "ritual_ZNK20QQuickTabBarAttached6tabBarEv": ["address", "address"],
+    "ritual_ZNK20QQuickTabBarAttached8positionEv": ["int", "address"]
+  }
+}

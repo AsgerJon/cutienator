@@ -1,0 +1,160 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/qpa/qplatformintegration.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QPlatformIntegrationD1Ev": ["nothing", "address"],
+    "ritual_ZNK20QPlatformIntegration13hasCapabilityENS_10CapabilityE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK20QPlatformIntegration20createPlatformPixmapEN15QPlatformPixmap9PixelTypeE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK20QPlatformIntegration20createPlatformWindowEP7QWindow": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK20QPlatformIntegration19createForeignWindowEP7QWindowy": [
+      "address", "address", "address", "unsigned long long"
+    ],
+    "ritual_ZNK20QPlatformIntegration26createPlatformBackingStoreEP7QWindow": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK20QPlatformIntegration27createPlatformOpenGLContextEP14QOpenGLContext": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK20QPlatformIntegration33createPlatformSharedGraphicsCacheEPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZNK20QPlatformIntegration22createImagePaintEngineEP12QPaintDevice": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK20QPlatformIntegration21createEventDispatcherEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QPlatformIntegration10initializeEv": ["nothing", "address"],
+    "ritual_ZN20QPlatformIntegration7destroyEv": ["nothing", "address"],
+    "ritual_ZNK20QPlatformIntegration12fontDatabaseEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QPlatformIntegration9clipboardEv": ["address", "address"],
+    "ritual_ZNK20QPlatformIntegration4dragEv": ["address", "address"],
+    "ritual_ZNK20QPlatformIntegration12inputContextEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QPlatformIntegration13accessibilityEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QPlatformIntegration15nativeInterfaceEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QPlatformIntegration8servicesEv": ["address", "address"],
+    "ritual_ZNK20QPlatformIntegration9styleHintENS_9StyleHintE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK20QPlatformIntegration18defaultWindowStateE6QFlagsIN2Qt10WindowTypeEE": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK20QPlatformIntegration22queryKeyboardModifiersEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK20QPlatformIntegration9keyMapperEv": ["address", "address"],
+    "ritual_ZNK20QPlatformIntegration10themeNamesEv": ["address", "address"],
+    "ritual_ZNK20QPlatformIntegration19createPlatformThemeERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK20QPlatformIntegration30createPlatformOffscreenSurfaceEP17QOffscreenSurface": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK20QPlatformIntegration28createPlatformSessionManagerERK7QStringS2_": [
+      "address", "address", "text", "text"
+    ],
+    "ritual_ZN20QPlatformIntegration4syncEv": ["nothing", "address"],
+    "ritual_ZN20QPlatformIntegration16openGLModuleTypeEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK20QPlatformIntegration18setApplicationIconERK5QIcon": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QPlatformIntegration19setApplicationBadgeEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZNK20QPlatformIntegration4beepEv": ["nothing", "address"],
+    "ritual_ZNK20QPlatformIntegration4quitEv": ["nothing", "address"],
+    "ritual_take_QPlatformIntegration": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK20QPlatformIntegration13hasCapabilityENS_10CapabilityE": [
+      "bool", "address", "int"
+    ],
+    "ritual_own_ZNK20QPlatformIntegration20createPlatformPixmapEN15QPlatformPixmap9PixelTypeE": [
+      "address", "address", "int"
+    ],
+    "ritual_own_ZNK20QPlatformIntegration19createForeignWindowEP7QWindowy": [
+      "address", "address", "address", "unsigned long long"
+    ],
+    "ritual_own_ZNK20QPlatformIntegration27createPlatformOpenGLContextEP14QOpenGLContext": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZNK20QPlatformIntegration22createImagePaintEngineEP12QPaintDevice": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN20QPlatformIntegration10initializeEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN20QPlatformIntegration7destroyEv": ["nothing", "address"],
+    "ritual_own_ZNK20QPlatformIntegration12fontDatabaseEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK20QPlatformIntegration9clipboardEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK20QPlatformIntegration4dragEv": ["address", "address"],
+    "ritual_own_ZNK20QPlatformIntegration12inputContextEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK20QPlatformIntegration13accessibilityEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK20QPlatformIntegration15nativeInterfaceEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK20QPlatformIntegration8servicesEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK20QPlatformIntegration9styleHintENS_9StyleHintE": [
+      "address", "address", "int"
+    ],
+    "ritual_own_ZNK20QPlatformIntegration18defaultWindowStateE6QFlagsIN2Qt10WindowTypeEE": [
+      "int", "address", "int"
+    ],
+    "ritual_own_ZNK20QPlatformIntegration22queryKeyboardModifiersEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZNK20QPlatformIntegration9keyMapperEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK20QPlatformIntegration19createPlatformThemeERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_own_ZNK20QPlatformIntegration30createPlatformOffscreenSurfaceEP17QOffscreenSurface": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZNK20QPlatformIntegration28createPlatformSessionManagerERK7QStringS2_": [
+      "address", "address", "text", "text"
+    ],
+    "ritual_own_ZN20QPlatformIntegration4syncEv": ["nothing", "address"],
+    "ritual_own_ZN20QPlatformIntegration16openGLModuleTypeEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZNK20QPlatformIntegration18setApplicationIconERK5QIcon": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20QPlatformIntegration19setApplicationBadgeEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_own_ZNK20QPlatformIntegration4beepEv": ["nothing", "address"],
+    "ritual_own_ZNK20QPlatformIntegration4quitEv": ["nothing", "address"]
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qpkmhandler_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11QPkmHandler7canReadERK10QByteArrayS2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_take_QPkmHandler": ["bool", "address", "chars", "address"]
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qsgrhishadereffectnode_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK34QSGRhiGuiThreadShaderEffectManager35hasSeparateSamplerAndTextureObjectsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK34QSGRhiGuiThreadShaderEffectManager3logEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK34QSGRhiGuiThreadShaderEffectManager6statusEv": [
+      "int", "address"
+    ],
+    "ritual_ZN34QSGRhiGuiThreadShaderEffectManager7reflectEPN31QSGGuiThreadShaderEffectManager10ShaderInfoE": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZNK34QSGRhiGuiThreadShaderEffectManager35hasSeparateSamplerAndTextureObjectsEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZNK34QSGRhiGuiThreadShaderEffectManager3logEv": [
+      "text", "address"
+    ],
+    "ritual_own_ZNK34QSGRhiGuiThreadShaderEffectManager6statusEv": [
+      "int", "address"
+    ]
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmlmetaobject_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN14QQmlMetaObjectC1Ev": ["address"],
+    "ritual_ZN14QQmlMetaObjectC1EPK7QObject": ["address", "address"],
+    "ritual_ZN14QQmlMetaObjectC1EPK11QMetaObject": ["address", "address"],
+    "ritual_ZN14QQmlMetaObjectC1ERKN17QQmlPropertyCache8ConstPtrE": [
+      "address", "address"
+    ],
+    "ritual_ZN14QQmlMetaObjectC1ERKS_": ["address", "address"],
+    "ritual_ZNK14QQmlMetaObject6isNullEv": ["bool", "address"],
+    "ritual_ZNK14QQmlMetaObject9classNameEv": ["chars", "address"],
+    "ritual_ZNK14QQmlMetaObject13propertyCountEv": ["int", "address"],
+    "ritual_ZNK14QQmlMetaObject10metaObjectEv": ["address", "address"],
+    "ritual_ZNK14QQmlMetaObject16methodReturnTypeERK16QQmlPropertyDataP7QString": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN14QQmlMetaObject10canConvertERKS_S1_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN14QQmlMetaObjectD1Ev": ["nothing", "address"]
+  }
+}

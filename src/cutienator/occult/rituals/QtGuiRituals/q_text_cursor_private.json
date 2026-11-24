@@ -1,0 +1,61 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qtextcursor_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QTextCursorPrivateC1EP20QTextDocumentPrivate": [
+      "address", "address"
+    ],
+    "ritual_ZN18QTextCursorPrivateC1ERKS_": ["address", "address"],
+    "ritual_ZN18QTextCursorPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN18QTextCursorPrivate10getPrivateEP11QTextCursor": [
+      "address", "address"
+    ],
+    "ritual_ZN18QTextCursorPrivate14adjustPositionEiiN16QTextUndoCommand9OperationE": [
+      "int", "address", "int", "int", "int"
+    ],
+    "ritual_ZN18QTextCursorPrivate12adjustCursorEN11QTextCursor13MoveOperationE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18QTextCursorPrivate6removeEv": ["nothing", "address"],
+    "ritual_ZN18QTextCursorPrivate10clearCellsEP10QTextTableiiiiN16QTextUndoCommand9OperationE": [
+      "nothing", "address", "address", "int", "int", "int", "int", "int"
+    ],
+    "ritual_ZN18QTextCursorPrivate11setPositionEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN18QTextCursorPrivate4setXEv": ["nothing", "address"],
+    "ritual_ZNK18QTextCursorPrivate9canDeleteEi": ["bool", "address", "int"],
+    "ritual_ZN18QTextCursorPrivate11insertBlockERK16QTextBlockFormatRK15QTextCharFormat": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN18QTextCursorPrivate12movePositionEN11QTextCursor13MoveOperationENS0_8MoveModeE": [
+      "bool", "address", "int", "int"
+    ],
+    "ritual_ZNK18QTextCursorPrivate5blockEv": ["address", "address"],
+    "ritual_ZNK18QTextCursorPrivate11blockFormatEv": ["address", "address"],
+    "ritual_ZNK18QTextCursorPrivate21complexSelectionTableEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18QTextCursorPrivate18selectedTableCellsEPiS0_S0_S0_": [
+      "nothing", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN18QTextCursorPrivate18setBlockCharFormatERK15QTextCharFormatN20QTextDocumentPrivate16FormatChangeModeE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN18QTextCursorPrivate14setBlockFormatERK16QTextBlockFormatN20QTextDocumentPrivate16FormatChangeModeE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN18QTextCursorPrivate13setCharFormatERK15QTextCharFormatN20QTextDocumentPrivate16FormatChangeModeE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN18QTextCursorPrivate17aboutToRemoveCellEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN18QTextCursorPrivate12fromPositionEP20QTextDocumentPrivatei": [
+      "address", "address", "int"
+    ]
+  }
+}

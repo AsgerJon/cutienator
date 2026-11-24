@@ -1,0 +1,39 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/ui4_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15DomGradientStopC1Ev": ["address"],
+    "ritual_ZN15DomGradientStopD1Ev": ["nothing", "address"],
+    "ritual_ZNK15DomGradientStop20hasAttributePositionEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK15DomGradientStop17attributePositionEv": [
+      "double", "address"
+    ],
+    "ritual_ZN15DomGradientStop20setAttributePositionEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN15DomGradientStop22clearAttributePositionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK15DomGradientStop12elementColorEv": ["address", "address"],
+    "ritual_ZN15DomGradientStop16takeElementColorEv": ["address", "address"],
+    "ritual_ZN15DomGradientStop15setElementColorEP8DomColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15DomGradientStop15hasElementColorEv": ["bool", "address"],
+    "ritual_ZN15DomGradientStop17clearElementColorEv": [
+      "nothing", "address"
+    ],
+    "ritual_list_make_DomGradientStop_ptr": ["address"],
+    "ritual_list_add_DomGradientStop_ptr": ["nothing", "address", "address"],
+    "ritual_list_size_DomGradientStop_ptr": ["long long", "address"],
+    "ritual_list_at_DomGradientStop_ptr": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_DomGradientStop_ptr": ["nothing", "address"]
+  }
+}

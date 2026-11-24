@@ -1,0 +1,32 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/ui4_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN10DomPaletteC1Ev": ["address"],
+    "ritual_ZN10DomPaletteD1Ev": ["nothing", "address"],
+    "ritual_ZNK10DomPalette13elementActiveEv": ["address", "address"],
+    "ritual_ZN10DomPalette17takeElementActiveEv": ["address", "address"],
+    "ritual_ZN10DomPalette16setElementActiveEP13DomColorGroup": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10DomPalette16hasElementActiveEv": ["bool", "address"],
+    "ritual_ZN10DomPalette18clearElementActiveEv": ["nothing", "address"],
+    "ritual_ZNK10DomPalette15elementInactiveEv": ["address", "address"],
+    "ritual_ZN10DomPalette19takeElementInactiveEv": ["address", "address"],
+    "ritual_ZN10DomPalette18setElementInactiveEP13DomColorGroup": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10DomPalette18hasElementInactiveEv": ["bool", "address"],
+    "ritual_ZN10DomPalette20clearElementInactiveEv": ["nothing", "address"],
+    "ritual_ZNK10DomPalette15elementDisabledEv": ["address", "address"],
+    "ritual_ZN10DomPalette19takeElementDisabledEv": ["address", "address"],
+    "ritual_ZN10DomPalette18setElementDisabledEP13DomColorGroup": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10DomPalette18hasElementDisabledEv": ["bool", "address"],
+    "ritual_ZN10DomPalette20clearElementDisabledEv": ["nothing", "address"]
+  }
+}

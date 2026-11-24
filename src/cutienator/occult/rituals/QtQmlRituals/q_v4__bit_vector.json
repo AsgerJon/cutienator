@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4util_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN3QV49BitVectorC1Eib": ["address", "int", "bool"],
+    "ritual_ZN3QV49BitVector5clearEv": ["nothing", "address"],
+    "ritual_ZN3QV49BitVector7reserveEi": ["nothing", "address", "int"],
+    "ritual_ZNK3QV49BitVector4sizeEv": ["int", "address"],
+    "ritual_ZN3QV49BitVector6resizeEi": ["nothing", "address", "int"],
+    "ritual_ZN3QV49BitVector6resizeEib": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZN3QV49BitVector6assignEib": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZNK3QV49BitVector8findNextEibb": [
+      "int", "address", "int", "bool", "bool"
+    ],
+    "ritual_ZNK3QV49BitVector2atEi": ["bool", "address", "int"],
+    "ritual_ZN3QV49BitVector6setBitEi": ["nothing", "address", "int"],
+    "ritual_ZN3QV49BitVector8clearBitEi": ["nothing", "address", "int"],
+    "ritual_ZN3QV49BitVectorD1Ev": ["nothing", "address"]
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickitemanimation_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK19QQuickPathAnimation10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QQuickPathAnimation2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN19QQuickPathAnimation6d_funcEv": ["address", "address"],
+    "ritual_ZNK19QQuickPathAnimation6d_funcEv": ["address", "address"],
+    "ritual_ZN19QQuickPathAnimationC1EP7QObject": ["address", "address"],
+    "ritual_ZN19QQuickPathAnimationD1Ev": ["nothing", "address"],
+    "ritual_ZNK19QQuickPathAnimation8durationEv": ["int", "address"],
+    "ritual_ZN19QQuickPathAnimation11setDurationEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK19QQuickPathAnimation6easingEv": ["address", "address"],
+    "ritual_ZN19QQuickPathAnimation9setEasingERK12QEasingCurve": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QQuickPathAnimation4pathEv": ["address", "address"],
+    "ritual_ZN19QQuickPathAnimation7setPathEP10QQuickPath": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QQuickPathAnimation6targetEv": ["address", "address"],
+    "ritual_ZN19QQuickPathAnimation15setTargetObjectEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QQuickPathAnimation11orientationEv": ["int", "address"],
+    "ritual_ZN19QQuickPathAnimation14setOrientationENS_11OrientationE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK19QQuickPathAnimation11anchorPointEv": ["address", "address"],
+    "ritual_ZN19QQuickPathAnimation14setAnchorPointERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QQuickPathAnimation24orientationEntryDurationEv": [
+      "int", "address"
+    ],
+    "ritual_ZN19QQuickPathAnimation27setOrientationEntryDurationEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK19QQuickPathAnimation23orientationExitDurationEv": [
+      "int", "address"
+    ],
+    "ritual_ZN19QQuickPathAnimation26setOrientationExitDurationEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK19QQuickPathAnimation11endRotationEv": ["double", "address"],
+    "ritual_ZN19QQuickPathAnimation14setEndRotationEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_take_QQuickPathAnimation": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

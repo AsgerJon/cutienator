@@ -1,0 +1,40 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/qbarmodelmapper.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK15QBarModelMapper10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QBarModelMapper2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN15QBarModelMapperC1EP7QObject": ["address", "address"],
+    "ritual_ZNK15QBarModelMapper5modelEv": ["address", "address"],
+    "ritual_ZN15QBarModelMapper8setModelEP18QAbstractItemModel": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QBarModelMapper6seriesEv": ["address", "address"],
+    "ritual_ZN15QBarModelMapper9setSeriesEP18QAbstractBarSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QBarModelMapper5firstEv": ["int", "address"],
+    "ritual_ZN15QBarModelMapper8setFirstEi": ["nothing", "address", "int"],
+    "ritual_ZNK15QBarModelMapper5countEv": ["int", "address"],
+    "ritual_ZN15QBarModelMapper8setCountEi": ["nothing", "address", "int"],
+    "ritual_ZNK15QBarModelMapper18firstBarSetSectionEv": ["int", "address"],
+    "ritual_ZN15QBarModelMapper21setFirstBarSetSectionEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QBarModelMapper17lastBarSetSectionEv": ["int", "address"],
+    "ritual_ZN15QBarModelMapper20setLastBarSetSectionEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QBarModelMapper11orientationEv": ["int", "address"],
+    "ritual_ZN15QBarModelMapper14setOrientationEN2Qt11OrientationE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN15QBarModelMapper6d_funcEv": ["address", "address"],
+    "ritual_ZNK15QBarModelMapper6d_funcEv": ["address", "address"],
+    "ritual_take_QBarModelMapper": ["bool", "address", "chars", "address"]
+  }
+}

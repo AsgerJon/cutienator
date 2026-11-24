@@ -1,0 +1,49 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQmlMeta/6.12.0/QtQmlMeta/private/qqmlbind_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK8QQmlBind10metaObjectEv": ["address", "address"],
+    "ritual_ZN8QQmlBind2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN8QQmlBindC1EP7QObject": ["address", "address"],
+    "ritual_ZN8QQmlBindD1Ev": ["nothing", "address"],
+    "ritual_ZNK8QQmlBind4whenEv": ["bool", "address"],
+    "ritual_ZN8QQmlBind7setWhenEb": ["nothing", "address", "bool"],
+    "ritual_ZNK8QQmlBind6objectEv": ["address", "address"],
+    "ritual_ZN8QQmlBind9setObjectEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK8QQmlBind8propertyEv": ["text", "address"],
+    "ritual_ZN8QQmlBind11setPropertyERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK8QQmlBind5valueEv": ["address", "address"],
+    "ritual_ZN8QQmlBind8setValueERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK8QQmlBind7delayedEv": ["bool", "address"],
+    "ritual_ZN8QQmlBind10setDelayedEb": ["nothing", "address", "bool"],
+    "ritual_ZNK8QQmlBind11restoreModeEv": ["int", "address"],
+    "ritual_ZN8QQmlBind14setRestoreModeENS_15RestorationModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN8QQmlBind9setTargetERK12QQmlProperty": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8QQmlBind10classBeginEv": ["nothing", "address"],
+    "ritual_ZN8QQmlBind17componentCompleteEv": ["nothing", "address"],
+    "ritual_ZN8QQmlBind11prepareEvalEv": ["nothing", "address"],
+    "ritual_ZN8QQmlBind4evalEv": ["nothing", "address"],
+    "ritual_ZN8QQmlBind18targetValueChangedEv": ["nothing", "address"],
+    "ritual_cast_QQmlBind_QQmlPropertyValueSource": ["address", "address"],
+    "ritual_cast_QQmlBind_QQmlParserStatus": ["address", "address"],
+    "ritual_take_QQmlBind": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN8QQmlBind9setTargetERK12QQmlProperty": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN8QQmlBind10classBeginEv": ["nothing", "address"],
+    "ritual_own_ZN8QQmlBind17componentCompleteEv": ["nothing", "address"]
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/qhttpheaders.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QHttpHeaderRangeSetC1Ev": ["address"],
+    "ritual_ZN19QHttpHeaderRangeSetC1ERKS_": ["address", "address"],
+    "ritual_ZN19QHttpHeaderRangeSetD1Ev": ["nothing", "address"],
+    "ritual_Zls6QDebugRK19QHttpHeaderRangeSet": [
+      "address", "address", "address"
+    ],
+    "ritual_ZeqRK19QHttpHeaderRangeSetS1_": ["bool", "address", "address"],
+    "ritual_ZneRK19QHttpHeaderRangeSetS1_": ["bool", "address", "address"]
+  }
+}

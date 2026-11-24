@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4function_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK3QV48Function25executableCompilationUnitEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV48Function13runtimeStringEj": [
+      "address", "address", "unsigned int"
+    ],
+    "ritual_ZN3QV48Function6createEPNS_15ExecutionEngineEPNS_25ExecutableCompilationUnitEPKNS_12CompiledData8FunctionEPKN11QQmlPrivate19AOTCompiledFunctionE": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK3QV48Function4nameEv": ["address", "address"],
+    "ritual_ZNK3QV48Function10sourceFileEv": ["text", "address"],
+    "ritual_ZNK3QV48Function8finalUrlEv": ["address", "address"],
+    "ritual_ZNK3QV48Function8isStrictEv": ["bool", "address"],
+    "ritual_ZNK3QV48Function15isArrowFunctionEv": ["bool", "address"],
+    "ritual_ZNK3QV48Function11isGeneratorEv": ["bool", "address"],
+    "ritual_ZNK3QV48Function16isClosureWrapperEv": ["bool", "address"],
+    "ritual_ZNK3QV48Function14nestedFunctionEv": ["address", "address"],
+    "ritual_ZNK3QV48Function10isJittableEv": ["bool", "address"]
+  }
+}

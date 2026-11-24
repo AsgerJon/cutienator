@@ -1,0 +1,37 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4stackframe_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK3QV419MetaTypesStackFrame10returnTypeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV419MetaTypesStackFrame22isReturnValueUndefinedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN3QV419MetaTypesStackFrame23setReturnValueUndefinedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK3QV419MetaTypesStackFrame8argTypesEv": ["address", "address"],
+    "ritual_ZNK3QV419MetaTypesStackFrame17returnAndArgTypesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV419MetaTypesStackFrame10thisObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV419MetaTypesStackFrame7contextEv": ["address", "address"],
+    "ritual_ZN3QV419MetaTypesStackFrame10setContextEPNS_16ExecutionContextE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK3QV419MetaTypesStackFrame6localsEv": ["address", "address"],
+    "ritual_ZN3QV419MetaTypesStackFrame9setLocalsEPKN11QQmlPrivate23AOTTrackedLocalsStorageE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK3QV419MetaTypesStackFrame11callContextEv": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV419MetaTypesStackFrameD1Ev": ["nothing", "address"]
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qpixmap_raster_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN21QRasterPlatformPixmapC1EN15QPlatformPixmap9PixelTypeE": [
+      "address", "int"
+    ],
+    "ritual_ZN21QRasterPlatformPixmapD1Ev": ["nothing", "address"],
+    "ritual_ZNK21QRasterPlatformPixmap30createCompatiblePlatformPixmapEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QRasterPlatformPixmap6resizeEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN21QRasterPlatformPixmap9fromImageERK6QImage6QFlagsIN2Qt19ImageConversionFlagEE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN21QRasterPlatformPixmap15fromImageReaderEP12QImageReader6QFlagsIN2Qt19ImageConversionFlagEE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN21QRasterPlatformPixmap4copyEPK15QPlatformPixmapRK5QRect": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN21QRasterPlatformPixmap6scrollEiiRK5QRect": [
+      "bool", "address", "int", "int", "address"
+    ],
+    "ritual_ZN21QRasterPlatformPixmap4fillERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21QRasterPlatformPixmap15hasAlphaChannelEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK21QRasterPlatformPixmap7toImageEv": ["address", "address"],
+    "ritual_ZNK21QRasterPlatformPixmap7toImageERK5QRect": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK21QRasterPlatformPixmap11paintEngineEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QRasterPlatformPixmap6bufferEv": ["address", "address"],
+    "ritual_ZNK21QRasterPlatformPixmap16devicePixelRatioEv": [
+      "double", "address"
+    ],
+    "ritual_ZN21QRasterPlatformPixmap19setDevicePixelRatioEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK21QRasterPlatformPixmap6metricEN12QPaintDevice17PaintDeviceMetricE": [
+      "int", "address", "int"
+    ],
+    "ritual_ZN21QRasterPlatformPixmap20createPixmapForImageE6QImage6QFlagsIN2Qt19ImageConversionFlagEE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN21QRasterPlatformPixmap18systemNativeFormatEv": ["int"],
+    "ritual_take_QRasterPlatformPixmap": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK21QRasterPlatformPixmap30createCompatiblePlatformPixmapEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN21QRasterPlatformPixmap6resizeEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZN21QRasterPlatformPixmap9fromImageERK6QImage6QFlagsIN2Qt19ImageConversionFlagEE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_own_ZN21QRasterPlatformPixmap15fromImageReaderEP12QImageReader6QFlagsIN2Qt19ImageConversionFlagEE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_own_ZN21QRasterPlatformPixmap4copyEPK15QPlatformPixmapRK5QRect": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN21QRasterPlatformPixmap6scrollEiiRK5QRect": [
+      "bool", "address", "int", "int", "address"
+    ],
+    "ritual_own_ZN21QRasterPlatformPixmap4fillERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK21QRasterPlatformPixmap15hasAlphaChannelEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZNK21QRasterPlatformPixmap7toImageEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK21QRasterPlatformPixmap7toImageERK5QRect": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZNK21QRasterPlatformPixmap11paintEngineEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN21QRasterPlatformPixmap6bufferEv": ["address", "address"],
+    "ritual_own_ZNK21QRasterPlatformPixmap16devicePixelRatioEv": [
+      "double", "address"
+    ],
+    "ritual_own_ZN21QRasterPlatformPixmap19setDevicePixelRatioEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_own_ZNK21QRasterPlatformPixmap6metricEN12QPaintDevice17PaintDeviceMetricE": [
+      "int", "address", "int"
+    ]
+  }
+}

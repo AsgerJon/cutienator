@@ -6,6 +6,9 @@
   ],
   "rows": {
     "ritual_ZN19QFileDialogTreeViewC1EP7QWidget": ["address", "address"],
+    "ritual_ZN19QFileDialogTreeView20setFileDialogPrivateEP18QFileDialogPrivate": [
+      "nothing", "address", "address"
+    ],
     "ritual_ZNK19QFileDialogTreeView8sizeHintEv": ["address", "address"],
     "ritual_ZN19QFileDialogTreeView13keyPressEventEP9QKeyEvent": [
       "nothing", "address", "address"

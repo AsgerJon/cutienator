@@ -1,0 +1,12 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtOpenGL/6.12.0/QtOpenGL/private/qopenglpaintengine_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN24QOpenGL2PaintEngineStateC1ERKS_": ["address", "address"],
+    "ritual_ZN24QOpenGL2PaintEngineStateC1Ev": ["address"],
+    "ritual_ZN24QOpenGL2PaintEngineStateD1Ev": ["nothing", "address"]
+  }
+}

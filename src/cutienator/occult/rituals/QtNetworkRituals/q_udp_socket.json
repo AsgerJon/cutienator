@@ -1,0 +1,49 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/qudpsocket.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK10QUdpSocket10metaObjectEv": ["address", "address"],
+    "ritual_ZN10QUdpSocket2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN10QUdpSocketC1EP7QObject": ["address", "address"],
+    "ritual_ZN10QUdpSocketD1Ev": ["nothing", "address"],
+    "ritual_ZN10QUdpSocket4bindEN12QHostAddress14SpecialAddressEt6QFlagsIN15QAbstractSocket8BindFlagEE": [
+      "bool", "address", "int", "unsigned short", "int"
+    ],
+    "ritual_ZN10QUdpSocket18joinMulticastGroupERK12QHostAddress": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN10QUdpSocket18joinMulticastGroupERK12QHostAddressRK17QNetworkInterface": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN10QUdpSocket19leaveMulticastGroupERK12QHostAddress": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN10QUdpSocket19leaveMulticastGroupERK12QHostAddressRK17QNetworkInterface": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZNK10QUdpSocket18multicastInterfaceEv": ["address", "address"],
+    "ritual_ZN10QUdpSocket21setMulticastInterfaceERK17QNetworkInterface": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10QUdpSocket19hasPendingDatagramsEv": ["bool", "address"],
+    "ritual_ZNK10QUdpSocket19pendingDatagramSizeEv": [
+      "long long", "address"
+    ],
+    "ritual_ZN10QUdpSocket15receiveDatagramEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN10QUdpSocket13writeDatagramERK16QNetworkDatagram": [
+      "long long", "address", "address"
+    ],
+    "ritual_ZN10QUdpSocket13writeDatagramEPKcxRK12QHostAddresst": [
+      "long long", "address", "chars", "long long", "address",
+      "unsigned short"
+    ],
+    "ritual_ZN10QUdpSocket13writeDatagramERK10QByteArrayRK12QHostAddresst": [
+      "long long", "address", "address", "address", "unsigned short"
+    ],
+    "ritual_take_QUdpSocket": ["bool", "address", "chars", "address"]
+  }
+}

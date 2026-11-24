@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/qpa/qplatformcursor.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QPlatformCursorImage5imageEv": ["address", "address"],
+    "ritual_ZNK20QPlatformCursorImage7hotspotEv": ["address", "address"],
+    "ritual_ZN20QPlatformCursorImage3setERK6QImageii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN20QPlatformCursorImage3setEN2Qt11CursorShapeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QPlatformCursorImage18createSystemCursorEi": [
+      "nothing", "int"
+    ],
+    "ritual_ZN20QPlatformCursorImageD1Ev": ["nothing", "address"]
+  }
+}

@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGui/qaccessible.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
+#if QT_CONFIG(accessibility)
 #include <QtGui/qaccessible.h>
 #include <QtCore/qlist.h>
 #include <cstring>
@@ -7,45 +9,70 @@
 //  A QAccessibleTableCellInterface that Python can take functions over in. Every QAccessibleTableCellInterface
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if QT_CONFIG(accessibility)
 typedef bool (*CuteQAccessibleTableCellInterfaceCall0)(const void *, int *);
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
 typedef int (*CuteQAccessibleTableCellInterfaceCall1)(const void *, int *);
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
 typedef int (*CuteQAccessibleTableCellInterfaceCall2)(const void *, int *);
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
 typedef int (*CuteQAccessibleTableCellInterfaceCall3)(const void *, int *);
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
 typedef int (*CuteQAccessibleTableCellInterfaceCall4)(const void *, int *);
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
 typedef void * (*CuteQAccessibleTableCellInterfaceCall5)(const void *, int *);
+#endif  // QT_CONFIG(accessibility)
 class CuteQAccessibleTableCellInterface : public QAccessibleTableCellInterface {
 public:
   using QAccessibleTableCellInterface::QAccessibleTableCellInterface;
   void *taken[6] = {};
 
   bool take(const char *key, void *call) {
+#if QT_CONFIG(accessibility)
     if (!std::strcmp(key, "_ZNK29QAccessibleTableCellInterface10isSelectedEv")) {
       taken[0] = call;
       return true;
     }
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
     if (!std::strcmp(key, "_ZNK29QAccessibleTableCellInterface11columnIndexEv")) {
       taken[1] = call;
       return true;
     }
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
     if (!std::strcmp(key, "_ZNK29QAccessibleTableCellInterface8rowIndexEv")) {
       taken[2] = call;
       return true;
     }
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
     if (!std::strcmp(key, "_ZNK29QAccessibleTableCellInterface12columnExtentEv")) {
       taken[3] = call;
       return true;
     }
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
     if (!std::strcmp(key, "_ZNK29QAccessibleTableCellInterface9rowExtentEv")) {
       taken[4] = call;
       return true;
     }
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
     if (!std::strcmp(key, "_ZNK29QAccessibleTableCellInterface5tableEv")) {
       taken[5] = call;
       return true;
     }
+#endif  // QT_CONFIG(accessibility)
     return false;
   }
 
+#if QT_CONFIG(accessibility)
   //  bool QAccessibleTableCellInterface::isSelected() const
   bool isSelected() const override {
     if (taken[0]) {
@@ -56,7 +83,9 @@ public:
     }
     return {};
   }
+#endif  // QT_CONFIG(accessibility)
 
+#if QT_CONFIG(accessibility)
   //  int QAccessibleTableCellInterface::columnIndex() const
   int columnIndex() const override {
     if (taken[1]) {
@@ -67,7 +96,9 @@ public:
     }
     return {};
   }
+#endif  // QT_CONFIG(accessibility)
 
+#if QT_CONFIG(accessibility)
   //  int QAccessibleTableCellInterface::rowIndex() const
   int rowIndex() const override {
     if (taken[2]) {
@@ -78,7 +109,9 @@ public:
     }
     return {};
   }
+#endif  // QT_CONFIG(accessibility)
 
+#if QT_CONFIG(accessibility)
   //  int QAccessibleTableCellInterface::columnExtent() const
   int columnExtent() const override {
     if (taken[3]) {
@@ -89,7 +122,9 @@ public:
     }
     return {};
   }
+#endif  // QT_CONFIG(accessibility)
 
+#if QT_CONFIG(accessibility)
   //  int QAccessibleTableCellInterface::rowExtent() const
   int rowExtent() const override {
     if (taken[4]) {
@@ -100,7 +135,9 @@ public:
     }
     return {};
   }
+#endif  // QT_CONFIG(accessibility)
 
+#if QT_CONFIG(accessibility)
   //  QAccessibleInterface *QAccessibleTableCellInterface::table() const
   QAccessibleInterface *table() const override {
     if (taken[5]) {
@@ -111,6 +148,7 @@ public:
     }
     return {};
   }
+#endif  // QT_CONFIG(accessibility)
 };
 
 //  QAccessibleTableCellInterface::~QAccessibleTableCellInterface()
@@ -187,3 +225,5 @@ bool ritual_take_QAccessibleTableCellInterface(
     void *call) {
   return static_cast<CuteQAccessibleTableCellInterface *>(self)->take(key, call);
 }
+
+#endif  // QT_CONFIG(accessibility)

@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qgroupbox.h, Qt 6.12.0. Changes made here are lost.
+#include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(groupbox)
 #include <QtWidgets/qgroupbox.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qsize.h>
@@ -25,17 +27,43 @@ struct OwnQGroupBox : QGroupBox {
 //  A QGroupBox that Python can take functions over in. Every QGroupBox
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if QT_CONFIG(groupbox)
 typedef const QSize * (*CuteQGroupBoxCall0)(const void *, int *);
+#endif  // QT_CONFIG(groupbox)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(groupbox)
 typedef bool (*CuteQGroupBoxCall1)(const void *, QEvent *, int *);
+#endif  // QT_CONFIG(groupbox)
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(groupbox)
 typedef void (*CuteQGroupBoxCall2)(const void *, QChildEvent *, int *);
+#endif  // QT_CONFIG(groupbox)
+#endif  // !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(groupbox)
 typedef void (*CuteQGroupBoxCall3)(const void *, QResizeEvent *, int *);
+#endif  // QT_CONFIG(groupbox)
+#if QT_CONFIG(groupbox)
 typedef void (*CuteQGroupBoxCall4)(const void *, QPaintEvent *, int *);
+#endif  // QT_CONFIG(groupbox)
+#if QT_CONFIG(groupbox)
 typedef void (*CuteQGroupBoxCall5)(const void *, QFocusEvent *, int *);
+#endif  // QT_CONFIG(groupbox)
+#if QT_CONFIG(groupbox)
 typedef void (*CuteQGroupBoxCall6)(const void *, QEvent *, int *);
+#endif  // QT_CONFIG(groupbox)
+#if QT_CONFIG(groupbox)
 typedef void (*CuteQGroupBoxCall7)(const void *, QMouseEvent *, int *);
+#endif  // QT_CONFIG(groupbox)
+#if QT_CONFIG(groupbox)
 typedef void (*CuteQGroupBoxCall8)(const void *, QMouseEvent *, int *);
+#endif  // QT_CONFIG(groupbox)
+#if QT_CONFIG(groupbox)
 typedef void (*CuteQGroupBoxCall9)(const void *, QMouseEvent *, int *);
+#endif  // QT_CONFIG(groupbox)
+#if QT_CONFIG(groupbox)
 typedef void (*CuteQGroupBoxCall10)(const void *, QStyleOptionGroupBox *, int *);
+#endif  // QT_CONFIG(groupbox)
 typedef int (*CuteQGroupBoxCall11)(const void *, int *);
 typedef void (*CuteQGroupBoxCall12)(const void *, bool, int *);
 typedef const QSize * (*CuteQGroupBoxCall13)(const void *, int *);
@@ -43,7 +71,9 @@ typedef int (*CuteQGroupBoxCall14)(const void *, int, int *);
 typedef bool (*CuteQGroupBoxCall15)(const void *, int *);
 typedef void * (*CuteQGroupBoxCall16)(const void *, int *);
 typedef void (*CuteQGroupBoxCall17)(const void *, QMouseEvent *, int *);
+#if QT_CONFIG(wheelevent)
 typedef void (*CuteQGroupBoxCall18)(const void *, QWheelEvent *, int *);
+#endif  // QT_CONFIG(wheelevent)
 typedef void (*CuteQGroupBoxCall19)(const void *, QKeyEvent *, int *);
 typedef void (*CuteQGroupBoxCall20)(const void *, QKeyEvent *, int *);
 typedef void (*CuteQGroupBoxCall21)(const void *, QFocusEvent *, int *);
@@ -51,13 +81,27 @@ typedef void (*CuteQGroupBoxCall22)(const void *, QEnterEvent *, int *);
 typedef void (*CuteQGroupBoxCall23)(const void *, QEvent *, int *);
 typedef void (*CuteQGroupBoxCall24)(const void *, QMoveEvent *, int *);
 typedef void (*CuteQGroupBoxCall25)(const void *, QCloseEvent *, int *);
+#if !defined(QT_NO_CONTEXTMENU)
 typedef void (*CuteQGroupBoxCall26)(const void *, QContextMenuEvent *, int *);
+#endif  // !defined(QT_NO_CONTEXTMENU)
+#if QT_CONFIG(tabletevent)
 typedef void (*CuteQGroupBoxCall27)(const void *, QTabletEvent *, int *);
+#endif  // QT_CONFIG(tabletevent)
+#if !defined(QT_NO_ACTION)
 typedef void (*CuteQGroupBoxCall28)(const void *, QActionEvent *, int *);
+#endif  // !defined(QT_NO_ACTION)
+#if QT_CONFIG(draganddrop)
 typedef void (*CuteQGroupBoxCall29)(const void *, QDragEnterEvent *, int *);
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
 typedef void (*CuteQGroupBoxCall30)(const void *, QDragMoveEvent *, int *);
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
 typedef void (*CuteQGroupBoxCall31)(const void *, QDragLeaveEvent *, int *);
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
 typedef void (*CuteQGroupBoxCall32)(const void *, QDropEvent *, int *);
+#endif  // QT_CONFIG(draganddrop)
 typedef void (*CuteQGroupBoxCall33)(const void *, QShowEvent *, int *);
 typedef void (*CuteQGroupBoxCall34)(const void *, QHideEvent *, int *);
 typedef int (*CuteQGroupBoxCall35)(const void *, int, int *);
@@ -67,61 +111,97 @@ typedef void * (*CuteQGroupBoxCall38)(const void *, int *);
 typedef void (*CuteQGroupBoxCall39)(const void *, QInputMethodEvent *, int *);
 typedef const QVariant * (*CuteQGroupBoxCall40)(const void *, int, int *);
 typedef bool (*CuteQGroupBoxCall41)(const void *, bool, int *);
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQGroupBoxCall42)(const void *, QObject *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQGroupBoxCall43)(const void *, QTimerEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQGroupBoxCall44)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQGroupBoxCall45)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQGroupBoxCall46)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 class CuteQGroupBox : public QGroupBox {
 public:
   using QGroupBox::QGroupBox;
   void *taken[47] = {};
 
   bool take(const char *key, void *call) {
+#if QT_CONFIG(groupbox)
     if (!std::strcmp(key, "_ZNK7QWidget15minimumSizeHintEv")) {
       taken[0] = call;
       return true;
     }
+#endif  // QT_CONFIG(groupbox)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(groupbox)
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[1] = call;
       return true;
     }
+#endif  // QT_CONFIG(groupbox)
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(groupbox)
     if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[2] = call;
       return true;
     }
+#endif  // QT_CONFIG(groupbox)
+#endif  // !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(groupbox)
     if (!std::strcmp(key, "_ZN7QWidget11resizeEventEP12QResizeEvent")) {
       taken[3] = call;
       return true;
     }
+#endif  // QT_CONFIG(groupbox)
+#if QT_CONFIG(groupbox)
     if (!std::strcmp(key, "_ZN7QWidget10paintEventEP11QPaintEvent")) {
       taken[4] = call;
       return true;
     }
+#endif  // QT_CONFIG(groupbox)
+#if QT_CONFIG(groupbox)
     if (!std::strcmp(key, "_ZN7QWidget12focusInEventEP11QFocusEvent")) {
       taken[5] = call;
       return true;
     }
+#endif  // QT_CONFIG(groupbox)
+#if QT_CONFIG(groupbox)
     if (!std::strcmp(key, "_ZN7QWidget11changeEventEP6QEvent")) {
       taken[6] = call;
       return true;
     }
+#endif  // QT_CONFIG(groupbox)
+#if QT_CONFIG(groupbox)
     if (!std::strcmp(key, "_ZN7QWidget15mousePressEventEP11QMouseEvent")) {
       taken[7] = call;
       return true;
     }
+#endif  // QT_CONFIG(groupbox)
+#if QT_CONFIG(groupbox)
     if (!std::strcmp(key, "_ZN7QWidget14mouseMoveEventEP11QMouseEvent")) {
       taken[8] = call;
       return true;
     }
+#endif  // QT_CONFIG(groupbox)
+#if QT_CONFIG(groupbox)
     if (!std::strcmp(key, "_ZN7QWidget17mouseReleaseEventEP11QMouseEvent")) {
       taken[9] = call;
       return true;
     }
+#endif  // QT_CONFIG(groupbox)
+#if QT_CONFIG(groupbox)
     if (!std::strcmp(key, "_ZNK9QGroupBox15initStyleOptionEP20QStyleOptionGroupBox")) {
       taken[10] = call;
       return true;
     }
+#endif  // QT_CONFIG(groupbox)
     if (!std::strcmp(key, "_ZNK12QPaintDevice7devTypeEv")) {
       taken[11] = call;
       return true;
@@ -150,10 +230,12 @@ public:
       taken[17] = call;
       return true;
     }
+#if QT_CONFIG(wheelevent)
     if (!std::strcmp(key, "_ZN7QWidget10wheelEventEP11QWheelEvent")) {
       taken[18] = call;
       return true;
     }
+#endif  // QT_CONFIG(wheelevent)
     if (!std::strcmp(key, "_ZN7QWidget13keyPressEventEP9QKeyEvent")) {
       taken[19] = call;
       return true;
@@ -182,34 +264,48 @@ public:
       taken[25] = call;
       return true;
     }
+#if !defined(QT_NO_CONTEXTMENU)
     if (!std::strcmp(key, "_ZN7QWidget16contextMenuEventEP17QContextMenuEvent")) {
       taken[26] = call;
       return true;
     }
+#endif  // !defined(QT_NO_CONTEXTMENU)
+#if QT_CONFIG(tabletevent)
     if (!std::strcmp(key, "_ZN7QWidget11tabletEventEP12QTabletEvent")) {
       taken[27] = call;
       return true;
     }
+#endif  // QT_CONFIG(tabletevent)
+#if !defined(QT_NO_ACTION)
     if (!std::strcmp(key, "_ZN7QWidget11actionEventEP12QActionEvent")) {
       taken[28] = call;
       return true;
     }
+#endif  // !defined(QT_NO_ACTION)
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget14dragEnterEventEP15QDragEnterEvent")) {
       taken[29] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget13dragMoveEventEP14QDragMoveEvent")) {
       taken[30] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget14dragLeaveEventEP15QDragLeaveEvent")) {
       taken[31] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget9dropEventEP10QDropEvent")) {
       taken[32] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget9showEventEP10QShowEvent")) {
       taken[33] = call;
       return true;
@@ -246,29 +342,40 @@ public:
       taken[41] = call;
       return true;
     }
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[42] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[43] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[44] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[45] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
       taken[46] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
     return false;
   }
 
+#if QT_CONFIG(groupbox)
   //  QSize QGroupBox::minimumSizeHint() const
   QSize minimumSizeHint() const override {
     if (taken[0]) {
@@ -279,7 +386,10 @@ public:
     }
     return QGroupBox::minimumSizeHint();
   }
+#endif  // QT_CONFIG(groupbox)
 
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(groupbox)
   //  bool QGroupBox::event(QEvent *event)
   bool event(QEvent *event) override {
     if (taken[1]) {
@@ -290,7 +400,11 @@ public:
     }
     return QGroupBox::event(event);
   }
+#endif  // QT_CONFIG(groupbox)
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(groupbox)
   //  void QGroupBox::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
     if (taken[2]) {
@@ -301,7 +415,10 @@ public:
     }
     QGroupBox::childEvent(event);
   }
+#endif  // QT_CONFIG(groupbox)
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if QT_CONFIG(groupbox)
   //  void QGroupBox::resizeEvent(QResizeEvent *event)
   void resizeEvent(QResizeEvent *event) override {
     if (taken[3]) {
@@ -312,7 +429,9 @@ public:
     }
     QGroupBox::resizeEvent(event);
   }
+#endif  // QT_CONFIG(groupbox)
 
+#if QT_CONFIG(groupbox)
   //  void QGroupBox::paintEvent(QPaintEvent *event)
   void paintEvent(QPaintEvent *event) override {
     if (taken[4]) {
@@ -323,7 +442,9 @@ public:
     }
     QGroupBox::paintEvent(event);
   }
+#endif  // QT_CONFIG(groupbox)
 
+#if QT_CONFIG(groupbox)
   //  void QGroupBox::focusInEvent(QFocusEvent *event)
   void focusInEvent(QFocusEvent *event) override {
     if (taken[5]) {
@@ -334,7 +455,9 @@ public:
     }
     QGroupBox::focusInEvent(event);
   }
+#endif  // QT_CONFIG(groupbox)
 
+#if QT_CONFIG(groupbox)
   //  void QGroupBox::changeEvent(QEvent *event)
   void changeEvent(QEvent *event) override {
     if (taken[6]) {
@@ -345,7 +468,9 @@ public:
     }
     QGroupBox::changeEvent(event);
   }
+#endif  // QT_CONFIG(groupbox)
 
+#if QT_CONFIG(groupbox)
   //  void QGroupBox::mousePressEvent(QMouseEvent *event)
   void mousePressEvent(QMouseEvent *event) override {
     if (taken[7]) {
@@ -356,7 +481,9 @@ public:
     }
     QGroupBox::mousePressEvent(event);
   }
+#endif  // QT_CONFIG(groupbox)
 
+#if QT_CONFIG(groupbox)
   //  void QGroupBox::mouseMoveEvent(QMouseEvent *event)
   void mouseMoveEvent(QMouseEvent *event) override {
     if (taken[8]) {
@@ -367,7 +494,9 @@ public:
     }
     QGroupBox::mouseMoveEvent(event);
   }
+#endif  // QT_CONFIG(groupbox)
 
+#if QT_CONFIG(groupbox)
   //  void QGroupBox::mouseReleaseEvent(QMouseEvent *event)
   void mouseReleaseEvent(QMouseEvent *event) override {
     if (taken[9]) {
@@ -378,7 +507,9 @@ public:
     }
     QGroupBox::mouseReleaseEvent(event);
   }
+#endif  // QT_CONFIG(groupbox)
 
+#if QT_CONFIG(groupbox)
   //  void QGroupBox::initStyleOption(QStyleOptionGroupBox *option) const
   void initStyleOption(QStyleOptionGroupBox *option) const override {
     if (taken[10]) {
@@ -389,6 +520,7 @@ public:
     }
     QGroupBox::initStyleOption(option);
   }
+#endif  // QT_CONFIG(groupbox)
 
   //  int QWidget::devType() const
   int devType() const override {
@@ -467,6 +599,7 @@ public:
     QWidget::mouseDoubleClickEvent(event);
   }
 
+#if QT_CONFIG(wheelevent)
   //  void QWidget::wheelEvent(QWheelEvent *event)
   void wheelEvent(QWheelEvent *event) override {
     if (taken[18]) {
@@ -477,6 +610,7 @@ public:
     }
     QWidget::wheelEvent(event);
   }
+#endif  // QT_CONFIG(wheelevent)
 
   //  void QWidget::keyPressEvent(QKeyEvent *event)
   void keyPressEvent(QKeyEvent *event) override {
@@ -555,6 +689,7 @@ public:
     QWidget::closeEvent(event);
   }
 
+#if !defined(QT_NO_CONTEXTMENU)
   //  void QWidget::contextMenuEvent(QContextMenuEvent *event)
   void contextMenuEvent(QContextMenuEvent *event) override {
     if (taken[26]) {
@@ -565,7 +700,9 @@ public:
     }
     QWidget::contextMenuEvent(event);
   }
+#endif  // !defined(QT_NO_CONTEXTMENU)
 
+#if QT_CONFIG(tabletevent)
   //  void QWidget::tabletEvent(QTabletEvent *event)
   void tabletEvent(QTabletEvent *event) override {
     if (taken[27]) {
@@ -576,7 +713,9 @@ public:
     }
     QWidget::tabletEvent(event);
   }
+#endif  // QT_CONFIG(tabletevent)
 
+#if !defined(QT_NO_ACTION)
   //  void QWidget::actionEvent(QActionEvent *event)
   void actionEvent(QActionEvent *event) override {
     if (taken[28]) {
@@ -587,7 +726,9 @@ public:
     }
     QWidget::actionEvent(event);
   }
+#endif  // !defined(QT_NO_ACTION)
 
+#if QT_CONFIG(draganddrop)
   //  void QWidget::dragEnterEvent(QDragEnterEvent *event)
   void dragEnterEvent(QDragEnterEvent *event) override {
     if (taken[29]) {
@@ -598,7 +739,9 @@ public:
     }
     QWidget::dragEnterEvent(event);
   }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
   //  void QWidget::dragMoveEvent(QDragMoveEvent *event)
   void dragMoveEvent(QDragMoveEvent *event) override {
     if (taken[30]) {
@@ -609,7 +752,9 @@ public:
     }
     QWidget::dragMoveEvent(event);
   }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
   //  void QWidget::dragLeaveEvent(QDragLeaveEvent *event)
   void dragLeaveEvent(QDragLeaveEvent *event) override {
     if (taken[31]) {
@@ -620,7 +765,9 @@ public:
     }
     QWidget::dragLeaveEvent(event);
   }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
   //  void QWidget::dropEvent(QDropEvent *event)
   void dropEvent(QDropEvent *event) override {
     if (taken[32]) {
@@ -631,6 +778,7 @@ public:
     }
     QWidget::dropEvent(event);
   }
+#endif  // QT_CONFIG(draganddrop)
 
   //  void QWidget::showEvent(QShowEvent *event)
   void showEvent(QShowEvent *event) override {
@@ -731,6 +879,7 @@ public:
     return QWidget::focusNextPrevChild(next);
   }
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
     if (taken[42]) {
@@ -741,7 +890,9 @@ public:
     }
     return QObject::eventFilter(watched, event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
     if (taken[43]) {
@@ -752,7 +903,9 @@ public:
     }
     QObject::timerEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
     if (taken[44]) {
@@ -763,7 +916,9 @@ public:
     }
     QObject::customEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
     if (taken[45]) {
@@ -774,7 +929,9 @@ public:
     }
     QObject::connectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
     if (taken[46]) {
@@ -785,6 +942,7 @@ public:
     }
     QObject::disconnectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 };
 
 //  const QMetaObject *QGroupBox::metaObject() const
@@ -1060,3 +1218,5 @@ void ritual_own_ZNK9QGroupBox15initStyleOptionEP20QStyleOptionGroupBox(
   static_cast<const OwnQGroupBox *>(self)->OwnQGroupBox::initStyleOption(
       option);
 }
+
+#endif  // QT_CONFIG(groupbox)

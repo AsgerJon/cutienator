@@ -1,0 +1,109 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWebSockets/6.12.0/QtWebSockets/private/qwebsocketserver_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN23QWebSocketServerPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK23QWebSocketServerPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN23QWebSocketServerPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN23QWebSocketServerPrivate5closeEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK23QWebSocketServerPrivate11errorStringEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK23QWebSocketServerPrivate21hasPendingConnectionsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK23QWebSocketServerPrivate11isListeningEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN23QWebSocketServerPrivate6listenERK12QHostAddresst": [
+      "bool", "address", "address", "unsigned short"
+    ],
+    "ritual_ZNK23QWebSocketServerPrivate21maxPendingConnectionsEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK23QWebSocketServerPrivate16handshakeTimeoutEv": [
+      "int", "address"
+    ],
+    "ritual_ZN23QWebSocketServerPrivate21nextPendingConnectionEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QWebSocketServerPrivate14pauseAcceptingEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK23QWebSocketServerPrivate5proxyEv": ["address", "address"],
+    "ritual_ZN23QWebSocketServerPrivate8setProxyERK13QNetworkProxy": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QWebSocketServerPrivate15resumeAcceptingEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK23QWebSocketServerPrivate13serverAddressEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK23QWebSocketServerPrivate11serverErrorEv": ["int", "address"],
+    "ritual_ZNK23QWebSocketServerPrivate10serverPortEv": [
+      "unsigned short", "address"
+    ],
+    "ritual_ZN23QWebSocketServerPrivate24setMaxPendingConnectionsEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN23QWebSocketServerPrivate19setHandshakeTimeoutEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN23QWebSocketServerPrivate19setSocketDescriptorEx": [
+      "bool", "address", "long long"
+    ],
+    "ritual_ZNK23QWebSocketServerPrivate16socketDescriptorEv": [
+      "long long", "address"
+    ],
+    "ritual_ZN23QWebSocketServerPrivate24setSupportedSubprotocolsERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK23QWebSocketServerPrivate21supportedSubprotocolsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK23QWebSocketServerPrivate19supportedExtensionsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QWebSocketServerPrivate13setServerNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK23QWebSocketServerPrivate10serverNameEv": ["text", "address"],
+    "ritual_ZNK23QWebSocketServerPrivate10secureModeEv": ["int", "address"],
+    "ritual_ZN23QWebSocketServerPrivate19setSslConfigurationERK17QSslConfiguration": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK23QWebSocketServerPrivate16sslConfigurationEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QWebSocketServerPrivate8setErrorEN18QWebSocketProtocol9CloseCodeERK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZNK23QWebSocketServerPrivate21startHandshakeTimeoutEP10QTcpSocket": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QWebSocketServerPrivate20addPendingConnectionEP10QWebSocket": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QWebSocketServerPrivate23setErrorFromSocketErrorEN15QAbstractSocket11SocketErrorERK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZN23QWebSocketServerPrivate20onSocketDisconnectedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QWebSocketServerPrivate22finishHandshakeTimeoutEP10QTcpSocket": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QWebSocketServerPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN23QWebSocketServerPrivate21nextPendingConnectionEv": [
+      "address", "address"
+    ]
+  }
+}

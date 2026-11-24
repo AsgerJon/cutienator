@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4regexpobject_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN3QV410RegExpCtor10__dataTestEv": ["nothing", "address"],
+    "ritual_ZNK3QV410RegExpCtor11d_uncheckedEv": ["address", "address"],
+    "ritual_ZNK3QV410RegExpCtor1dEv": ["address", "address"],
+    "ritual_ZN3QV410RegExpCtor9lastMatchEv": ["address", "address"],
+    "ritual_ZN3QV410RegExpCtor9lastInputEv": ["address", "address"],
+    "ritual_ZN3QV410RegExpCtor14lastMatchStartEv": ["int", "address"],
+    "ritual_ZN3QV410RegExpCtor12lastMatchEndEv": ["int", "address"]
+  }
+}

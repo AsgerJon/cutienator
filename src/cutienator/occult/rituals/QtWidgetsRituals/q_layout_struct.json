@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qlayoutengine_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN13QLayoutStruct4initEii": ["nothing", "address", "int", "int"],
+    "ritual_ZN13QLayoutStruct13smartSizeHintEv": ["int", "address"],
+    "ritual_ZNK13QLayoutStruct15effectiveSpacerEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZN13QLayoutStructD1Ev": ["nothing", "address"]
+  }
+}

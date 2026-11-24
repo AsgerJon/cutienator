@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4memberdata_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN3QV410MemberData10__dataTestEv": ["nothing", "address"],
+    "ritual_ZNK3QV410MemberData11d_uncheckedEv": ["address", "address"],
+    "ritual_ZNK3QV410MemberData1dEv": ["address", "address"],
+    "ritual_ZN3QV410MemberData20defaultInternalClassEPNS_10EngineBaseE": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV410MemberDataixEj": ["address", "address", "unsigned int"],
+    "ritual_ZNK3QV410MemberData4dataEv": ["address", "address"],
+    "ritual_ZN3QV410MemberData3setEPNS_10EngineBaseEjNS_5ValueE": [
+      "nothing", "address", "address", "unsigned int", "address"
+    ],
+    "ritual_ZN3QV410MemberData3setEPNS_10EngineBaseEjPNS_4Heap4BaseE": [
+      "nothing", "address", "address", "unsigned int", "address"
+    ],
+    "ritual_ZNK3QV410MemberData4sizeEv": ["unsigned int", "address"]
+  }
+}

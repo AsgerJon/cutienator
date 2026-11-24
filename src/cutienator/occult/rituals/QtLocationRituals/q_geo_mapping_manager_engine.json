@@ -1,0 +1,58 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLocation/6.12.0/QtLocation/private/qgeomappingmanagerengine_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK24QGeoMappingManagerEngine10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QGeoMappingManagerEngine2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN24QGeoMappingManagerEngineD1Ev": ["nothing", "address"],
+    "ritual_ZN24QGeoMappingManagerEngine9createMapEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK24QGeoMappingManagerEngine11managerNameEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK24QGeoMappingManagerEngine14managerVersionEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK24QGeoMappingManagerEngine17supportedMapTypesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK24QGeoMappingManagerEngine18cameraCapabilitiesEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN24QGeoMappingManagerEngine9setLocaleERK7QLocale": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK24QGeoMappingManagerEngine6localeEv": ["address", "address"],
+    "ritual_ZNK24QGeoMappingManagerEngine13isInitializedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN24QGeoMappingManagerEngine20setSupportedMapTypesERK5QListI11QGeoMapTypeE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QGeoMappingManagerEngine21setCameraCapabilitiesERK22QGeoCameraCapabilities": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QGeoMappingManagerEngine17engineInitializedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QGeoMappingManagerEngine14setManagerNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN24QGeoMappingManagerEngine17setManagerVersionEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN24QGeoMappingManagerEngine6d_funcEv": ["address", "address"],
+    "ritual_ZNK24QGeoMappingManagerEngine6d_funcEv": ["address", "address"],
+    "ritual_take_QGeoMappingManagerEngine": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

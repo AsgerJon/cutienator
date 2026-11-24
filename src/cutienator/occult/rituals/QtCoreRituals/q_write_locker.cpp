@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/qreadwritelock.h, Qt 6.12.0. Changes made here are lost.
+#include <QtCore/qglobal.h>
+#if QT_CONFIG(thread)
 #include <QtCore/qreadwritelock.h>
 
 //  QWriteLocker::QWriteLocker(QReadWriteLock *readWriteLock)
@@ -33,3 +35,5 @@ QReadWriteLock *ritual_ZNK12QWriteLocker13readWriteLockEv(
     const QWriteLocker *self) {
   return self->readWriteLock();
 }
+
+#endif  // QT_CONFIG(thread)

@@ -1,0 +1,44 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquickmenubaritem_p_p.",
+    "h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN24QQuickMenuBarItemPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK24QQuickMenuBarItemPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN24QQuickMenuBarItemPrivate3getEP17QQuickMenuBarItem": [
+      "address", "address"
+    ],
+    "ritual_ZN24QQuickMenuBarItemPrivate10setMenuBarEP13QQuickMenuBar": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QQuickMenuBarItemPrivate11handlePressERK7QPointFm": [
+      "bool", "address", "address", "unsigned long"
+    ],
+    "ritual_ZN24QQuickMenuBarItemPrivate13handleReleaseERK7QPointFm": [
+      "bool", "address", "address", "unsigned long"
+    ],
+    "ritual_ZNK24QQuickMenuBarItemPrivate14defaultPaletteEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QQuickMenuBarItemPrivate21accessiblePressActionEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QQuickMenuBarItemPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN24QQuickMenuBarItemPrivate11handlePressERK7QPointFm": [
+      "bool", "address", "address", "unsigned long"
+    ],
+    "ritual_own_ZN24QQuickMenuBarItemPrivate13handleReleaseERK7QPointFm": [
+      "bool", "address", "address", "unsigned long"
+    ],
+    "ritual_own_ZNK24QQuickMenuBarItemPrivate14defaultPaletteEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN24QQuickMenuBarItemPrivate21accessiblePressActionEv": [
+      "nothing", "address"
+    ]
+  }
+}

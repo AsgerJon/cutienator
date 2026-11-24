@@ -1,0 +1,146 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquickabstractbutton_p",
+    "_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN27QQuickAbstractButtonPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK27QQuickAbstractButtonPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QQuickAbstractButtonPrivate3getEP20QQuickAbstractButton": [
+      "address", "address"
+    ],
+    "ritual_ZNK27QQuickAbstractButtonPrivate16centerPressPointEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QQuickAbstractButtonPrivate13setPressPointERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN27QQuickAbstractButtonPrivate12setMovePointERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN27QQuickAbstractButtonPrivate11handlePressERK7QPointFm": [
+      "bool", "address", "address", "unsigned long"
+    ],
+    "ritual_ZN27QQuickAbstractButtonPrivate10handleMoveERK7QPointFm": [
+      "bool", "address", "address", "unsigned long"
+    ],
+    "ritual_ZN27QQuickAbstractButtonPrivate13handleReleaseERK7QPointFm": [
+      "bool", "address", "address", "unsigned long"
+    ],
+    "ritual_ZN27QQuickAbstractButtonPrivate12handleUngrabEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK27QQuickAbstractButtonPrivate14acceptKeyClickEN2Qt3KeyE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN27QQuickAbstractButtonPrivate21accessiblePressActionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QQuickAbstractButtonPrivate22accessibleToggleActionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QQuickAbstractButtonPrivate23isPressAndHoldConnectedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN27QQuickAbstractButtonPrivate22isDoubleClickConnectedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN27QQuickAbstractButtonPrivate17startPressAndHoldEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QQuickAbstractButtonPrivate16stopPressAndHoldEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QQuickAbstractButtonPrivate16startRepeatDelayEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QQuickAbstractButtonPrivate16startPressRepeatEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QQuickAbstractButtonPrivate15stopPressRepeatEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QQuickAbstractButtonPrivate12grabShortcutEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QQuickAbstractButtonPrivate14ungrabShortcutEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK27QQuickAbstractButtonPrivate17findCheckedButtonEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK27QQuickAbstractButtonPrivate20findExclusiveButtonsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QQuickAbstractButtonPrivate16actionTextChangeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QQuickAbstractButtonPrivate7setTextERK7QStringN4QQml13PropertyUtils5StateE": [
+      "nothing", "address", "text", "int"
+    ],
+    "ritual_ZN27QQuickAbstractButtonPrivate4initEv": ["nothing", "address"],
+    "ritual_ZN27QQuickAbstractButtonPrivate19updateEffectiveIconEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QQuickAbstractButtonPrivate5clickEv": ["nothing", "address"],
+    "ritual_ZN27QQuickAbstractButtonPrivate7triggerEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN27QQuickAbstractButtonPrivate6toggleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN27QQuickAbstractButtonPrivate15cancelIndicatorEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QQuickAbstractButtonPrivate16executeIndicatorEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN27QQuickAbstractButtonPrivate24itemImplicitWidthChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN27QQuickAbstractButtonPrivate25itemImplicitHeightChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN27QQuickAbstractButtonPrivate13itemDestroyedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QQuickAbstractButtonPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN27QQuickAbstractButtonPrivate11handlePressERK7QPointFm": [
+      "bool", "address", "address", "unsigned long"
+    ],
+    "ritual_own_ZN27QQuickAbstractButtonPrivate10handleMoveERK7QPointFm": [
+      "bool", "address", "address", "unsigned long"
+    ],
+    "ritual_own_ZN27QQuickAbstractButtonPrivate13handleReleaseERK7QPointFm": [
+      "bool", "address", "address", "unsigned long"
+    ],
+    "ritual_own_ZN27QQuickAbstractButtonPrivate12handleUngrabEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZNK27QQuickAbstractButtonPrivate14acceptKeyClickEN2Qt3KeyE": [
+      "bool", "address", "int"
+    ],
+    "ritual_own_ZN27QQuickAbstractButtonPrivate21accessiblePressActionEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN27QQuickAbstractButtonPrivate22accessibleToggleActionEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN27QQuickAbstractButtonPrivate24itemImplicitWidthChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN27QQuickAbstractButtonPrivate25itemImplicitHeightChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN27QQuickAbstractButtonPrivate13itemDestroyedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ]
+  }
+}

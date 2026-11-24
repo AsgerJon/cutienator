@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/qwaitcondition.h, Qt 6.12.0. Changes made here are lost.
+#include <QtCore/qglobal.h>
+#if QT_CONFIG(thread)
 #include <QtCore/qwaitcondition.h>
 #include <QtCore/qdeadlinetimer.h>
 
@@ -76,3 +78,5 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN14QWaitCondition10notify_allEv(QWaitCondition *self) {
   self->notify_all();
 }
+
+#endif  // QT_CONFIG(thread)

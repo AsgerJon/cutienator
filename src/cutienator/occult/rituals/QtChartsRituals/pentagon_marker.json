@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/6.12.0/QtCharts/private/scatterchartitem_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN14PentagonMarkerC1EddddP16ScatterChartItem": [
+      "address", "double", "double", "double", "double", "address"
+    ],
+    "ritual_ZN14PentagonMarker7polygonEdddd": [
+      "address", "double", "double", "double", "double"
+    ]
+  }
+}

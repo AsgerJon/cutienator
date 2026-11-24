@@ -1,0 +1,34 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DHelpers/6.12.0/QtQuick3DHelpers/private/spheregeometry_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK14SphereGeometry10metaObjectEv": ["address", "address"],
+    "ritual_ZN14SphereGeometry2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN14SphereGeometryC1EP14QQuick3DObject": ["address", "address"],
+    "ritual_ZN14SphereGeometryD1Ev": ["nothing", "address"],
+    "ritual_ZNK14SphereGeometry6radiusEv": ["float", "address"],
+    "ritual_ZN14SphereGeometry9setRadiusEf": ["nothing", "address", "float"],
+    "ritual_ZNK14SphereGeometry5ringsEv": ["int", "address"],
+    "ritual_ZN14SphereGeometry8setRingsEi": ["nothing", "address", "int"],
+    "ritual_ZNK14SphereGeometry8segmentsEv": ["int", "address"],
+    "ritual_ZN14SphereGeometry11setSegmentsEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK14SphereGeometry12asynchronousEv": ["bool", "address"],
+    "ritual_ZN14SphereGeometry15setAsynchronousEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK14SphereGeometry6statusEv": ["int", "address"],
+    "ritual_ZN14SphereGeometry16doUpdateGeometryEv": ["nothing", "address"],
+    "ritual_ZN14SphereGeometry15requestFinishedEv": ["nothing", "address"],
+    "ritual_ZN14SphereGeometry22scheduleGeometryUpdateEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_SphereGeometry": ["bool", "address", "chars", "address"]
+  }
+}

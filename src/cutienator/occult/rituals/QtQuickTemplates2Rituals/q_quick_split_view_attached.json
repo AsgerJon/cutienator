@@ -1,0 +1,79 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquicksplitview_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK23QQuickSplitViewAttached10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QQuickSplitViewAttached2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN23QQuickSplitViewAttachedC1EP7QObject": ["address", "address"],
+    "ritual_ZNK23QQuickSplitViewAttached4viewEv": ["address", "address"],
+    "ritual_ZNK23QQuickSplitViewAttached12minimumWidthEv": [
+      "double", "address"
+    ],
+    "ritual_ZN23QQuickSplitViewAttached15setMinimumWidthEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN23QQuickSplitViewAttached17resetMinimumWidthEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK23QQuickSplitViewAttached13minimumHeightEv": [
+      "double", "address"
+    ],
+    "ritual_ZN23QQuickSplitViewAttached16setMinimumHeightEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN23QQuickSplitViewAttached18resetMinimumHeightEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK23QQuickSplitViewAttached14preferredWidthEv": [
+      "double", "address"
+    ],
+    "ritual_ZN23QQuickSplitViewAttached17setPreferredWidthEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN23QQuickSplitViewAttached19resetPreferredWidthEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK23QQuickSplitViewAttached15preferredHeightEv": [
+      "double", "address"
+    ],
+    "ritual_ZN23QQuickSplitViewAttached18setPreferredHeightEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN23QQuickSplitViewAttached20resetPreferredHeightEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK23QQuickSplitViewAttached12maximumWidthEv": [
+      "double", "address"
+    ],
+    "ritual_ZN23QQuickSplitViewAttached15setMaximumWidthEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN23QQuickSplitViewAttached17resetMaximumWidthEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK23QQuickSplitViewAttached13maximumHeightEv": [
+      "double", "address"
+    ],
+    "ritual_ZN23QQuickSplitViewAttached16setMaximumHeightEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN23QQuickSplitViewAttached18resetMaximumHeightEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK23QQuickSplitViewAttached9fillWidthEv": ["bool", "address"],
+    "ritual_ZN23QQuickSplitViewAttached12setFillWidthEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK23QQuickSplitViewAttached10fillHeightEv": ["bool", "address"],
+    "ritual_ZN23QQuickSplitViewAttached13setFillHeightEb": [
+      "nothing", "address", "bool"
+    ]
+  }
+}

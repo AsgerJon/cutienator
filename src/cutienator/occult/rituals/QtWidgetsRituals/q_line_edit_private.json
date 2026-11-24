@@ -1,0 +1,68 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qlineedit_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN16QLineEditPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK16QLineEditPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN16QLineEditPrivateC1Ev": ["address"],
+    "ritual_ZN16QLineEditPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN16QLineEditPrivate19initMouseYThresholdEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QLineEditPrivate7setTextERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK16QLineEditPrivate16textBeforeCursorEi": [
+      "text", "address", "int"
+    ],
+    "ritual_ZNK16QLineEditPrivate15textAfterCursorEi": [
+      "text", "address", "int"
+    ],
+    "ritual_ZN16QLineEditPrivate25updatePasswordEchoEditingEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN16QLineEditPrivate16resetInputMethodEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK16QLineEditPrivate23shouldEnableInputMethodEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK16QLineEditPrivate25shouldShowPlaceholderTextEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN16QLineEditPrivate3getEP9QLineEdit": ["address", "address"],
+    "ritual_ZN16QLineEditPrivate20handleWindowActivateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QLineEditPrivate10textEditedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN16QLineEditPrivate21cursorPositionChangedEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN16QLineEditPrivate4dragEv": ["nothing", "address"],
+    "ritual_ZN16QLineEditPrivate18clearButtonClickedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QLineEditPrivate22controlEditingFinishedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK16QLineEditPrivate20sideWidgetParametersEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK16QLineEditPrivate15clearButtonIconEv": [
+      "address", "address"
+    ],
+    "ritual_ZN16QLineEditPrivate21setClearButtonEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN16QLineEditPrivate19positionSideWidgetsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK16QLineEditPrivate14hasSideWidgetsEv": ["bool", "address"],
+    "ritual_take_QLineEditPrivate": ["bool", "address", "chars", "address"]
+  }
+}

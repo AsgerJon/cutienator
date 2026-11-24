@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGui/qcursor.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
+#if !defined(QT_NO_CURSOR)
 #include <QtGui/qcursor.h>
 #include <QtGui/qbitmap.h>
 #include <QtGui/qpixmap.h>
@@ -70,6 +72,7 @@ void ritual_ZN7QCursor8setShapeEN2Qt11CursorShapeE(
   self->setShape(newShape);
 }
 
+#if QT_DEPRECATED_SINCE(6, 0)
 //  QBitmap QCursor::bitmap(Qt::ReturnByValueConstant a0) const
 extern "C" Q_DECL_EXPORT
 QBitmap *ritual_ZNK7QCursor6bitmapEN2Qt21ReturnByValueConstantE(
@@ -77,7 +80,9 @@ QBitmap *ritual_ZNK7QCursor6bitmapEN2Qt21ReturnByValueConstantE(
     Qt::ReturnByValueConstant a0) {
   return new QBitmap(self->bitmap(a0));
 }
+#endif  // QT_DEPRECATED_SINCE(6, 0)
 
+#if QT_DEPRECATED_SINCE(6, 0)
 //  QBitmap QCursor::mask(Qt::ReturnByValueConstant a0) const
 extern "C" Q_DECL_EXPORT
 QBitmap *ritual_ZNK7QCursor4maskEN2Qt21ReturnByValueConstantE(
@@ -85,6 +90,7 @@ QBitmap *ritual_ZNK7QCursor4maskEN2Qt21ReturnByValueConstantE(
     Qt::ReturnByValueConstant a0) {
   return new QBitmap(self->mask(a0));
 }
+#endif  // QT_DEPRECATED_SINCE(6, 0)
 
 //  QBitmap QCursor::bitmap() const
 extern "C" Q_DECL_EXPORT
@@ -159,3 +165,5 @@ extern "C" Q_DECL_EXPORT
 bool ritual_ZneRK7QCursorS1_(const QCursor *lhs, const QCursor *rhs) {
   return operator!=(*lhs, *rhs);
 }
+
+#endif  // !defined(QT_NO_CURSOR)

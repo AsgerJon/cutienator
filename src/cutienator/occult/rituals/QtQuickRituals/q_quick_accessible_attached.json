@@ -1,0 +1,202 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickaccessibleattached_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK24QQuickAccessibleAttached10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QQuickAccessibleAttached2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN24QQuickAccessibleAttached24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuickAccessibleAttached21qt_qmlMarker_attachedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuickAccessibleAttached20qmlExtendedNamespaceEv": [
+      "address"
+    ],
+    "ritual_ZN24QQuickAccessibleAttached30qt_qmlMarker_extendedNamespaceEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK24QQuickAccessibleAttached9checkableEv": ["bool", "address"],
+    "ritual_ZN24QQuickAccessibleAttached13set_checkableEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK24QQuickAccessibleAttached7checkedEv": ["bool", "address"],
+    "ritual_ZN24QQuickAccessibleAttached11set_checkedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK24QQuickAccessibleAttached8editableEv": ["bool", "address"],
+    "ritual_ZN24QQuickAccessibleAttached12set_editableEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK24QQuickAccessibleAttached10expandableEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN24QQuickAccessibleAttached14set_expandableEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK24QQuickAccessibleAttached8expandedEv": ["bool", "address"],
+    "ritual_ZN24QQuickAccessibleAttached12set_expandedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK24QQuickAccessibleAttached9focusableEv": ["bool", "address"],
+    "ritual_ZN24QQuickAccessibleAttached13set_focusableEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK24QQuickAccessibleAttached7focusedEv": ["bool", "address"],
+    "ritual_ZN24QQuickAccessibleAttached11set_focusedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK24QQuickAccessibleAttached9multiLineEv": ["bool", "address"],
+    "ritual_ZN24QQuickAccessibleAttached13set_multiLineEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK24QQuickAccessibleAttached8readOnlyEv": ["bool", "address"],
+    "ritual_ZN24QQuickAccessibleAttached12set_readOnlyEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK24QQuickAccessibleAttached8selectedEv": ["bool", "address"],
+    "ritual_ZN24QQuickAccessibleAttached12set_selectedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK24QQuickAccessibleAttached10selectableEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN24QQuickAccessibleAttached14set_selectableEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK24QQuickAccessibleAttached7pressedEv": ["bool", "address"],
+    "ritual_ZN24QQuickAccessibleAttached11set_pressedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK24QQuickAccessibleAttached15checkStateMixedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN24QQuickAccessibleAttached19set_checkStateMixedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK24QQuickAccessibleAttached13defaultButtonEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN24QQuickAccessibleAttached17set_defaultButtonEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK24QQuickAccessibleAttached12passwordEditEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN24QQuickAccessibleAttached16set_passwordEditEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK24QQuickAccessibleAttached14selectableTextEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN24QQuickAccessibleAttached18set_selectableTextEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK24QQuickAccessibleAttached10searchEditEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN24QQuickAccessibleAttached14set_searchEditEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN24QQuickAccessibleAttachedC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN24QQuickAccessibleAttachedD1Ev": ["nothing", "address"],
+    "ritual_ZNK24QQuickAccessibleAttached4roleEv": ["int", "address"],
+    "ritual_ZN24QQuickAccessibleAttached7setRoleEN11QAccessible4RoleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK24QQuickAccessibleAttached4nameEv": ["text", "address"],
+    "ritual_ZNK24QQuickAccessibleAttached20wasNameExplicitlySetEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN24QQuickAccessibleAttached7setNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN24QQuickAccessibleAttached17setNameImplicitlyERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK24QQuickAccessibleAttached11descriptionEv": [
+      "text", "address"
+    ],
+    "ritual_ZN24QQuickAccessibleAttached14setDescriptionERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN24QQuickAccessibleAttached24setDescriptionImplicitlyERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK24QQuickAccessibleAttached2idEv": ["text", "address"],
+    "ritual_ZN24QQuickAccessibleAttached5setIdERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK24QQuickAccessibleAttached10labelledByEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QQuickAccessibleAttached13setLabelledByEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QQuickAccessibleAttached21setLabelledByInternalEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK24QQuickAccessibleAttached8labelForEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QQuickAccessibleAttached11setLabelForEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QQuickAccessibleAttached19setLabelForInternalEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QQuickAccessibleAttached21qmlAttachedPropertiesEP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN24QQuickAccessibleAttached18attachedPropertiesEPK7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN24QQuickAccessibleAttached8propertyEPK7QObjectPKc": [
+      "address", "address", "chars"
+    ],
+    "ritual_ZN24QQuickAccessibleAttached11setPropertyEP7QObjectPKcRK8QVariant": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_ZN24QQuickAccessibleAttached14findAccessibleEP7QObjectN11QAccessible4RoleE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK24QQuickAccessibleAttached5stateEv": ["address", "address"],
+    "ritual_ZNK24QQuickAccessibleAttached7ignoredEv": ["bool", "address"],
+    "ritual_ZN24QQuickAccessibleAttached8doActionERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN24QQuickAccessibleAttached9stripHtmlERK7QString": [
+      "text", "text"
+    ],
+    "ritual_ZN24QQuickAccessibleAttached11setProxyingEPS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QQuickAccessibleAttached8announceERK7QStringN11QAccessible22AnnouncementPolitenessE": [
+      "nothing", "address", "text", "int"
+    ],
+    "ritual_ZN24QQuickAccessibleAttached12valueChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuickAccessibleAttached21cursorPositionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuickAccessibleAttached10setIgnoredEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK24QQuickAccessibleAttached12findRelationE6QFlagsIN11QAccessible12RelationFlagEE": [
+      "address", "address", "int"
+    ],
+    "ritual_take_QQuickAccessibleAttached": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

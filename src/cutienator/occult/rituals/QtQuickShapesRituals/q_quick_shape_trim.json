@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuickShapes/6.12.0/QtQuickShapes/private/qquickshape_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK15QQuickShapeTrim10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QQuickShapeTrim2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN15QQuickShapeTrim22qt_qmlMarker_anonymousEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickShapeTrimC1EP7QObject": ["address", "address"],
+    "ritual_ZNK15QQuickShapeTrim5startEv": ["double", "address"],
+    "ritual_ZN15QQuickShapeTrim8setStartEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK15QQuickShapeTrim3endEv": ["double", "address"],
+    "ritual_ZN15QQuickShapeTrim6setEndEd": ["nothing", "address", "double"],
+    "ritual_ZNK15QQuickShapeTrim6offsetEv": ["double", "address"],
+    "ritual_ZN15QQuickShapeTrim9setOffsetEd": [
+      "nothing", "address", "double"
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4jscall_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN3QV410JSCallDataC1EPKNS_5ValueES3_i": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN3QV410JSCallDataC1ERKNS_15JSCallArgumentsE": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV410JSCallDataD1Ev": ["nothing", "address"]
+  }
+}

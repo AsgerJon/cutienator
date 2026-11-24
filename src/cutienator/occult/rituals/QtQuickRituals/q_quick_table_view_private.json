@@ -1,0 +1,572 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquicktableview_p_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN22QQuickTableViewPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK22QQuickTableViewPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN22QQuickTableViewPrivateC1Ev": ["address"],
+    "ritual_ZN22QQuickTableViewPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN22QQuickTableViewPrivate3getEP15QQuickTableView": [
+      "address", "address"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate12updatePolishEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate4initEv": ["nothing", "address"],
+    "ritual_ZNK22QQuickTableViewPrivate17getAttachedObjectEPK7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK22QQuickTableViewPrivate16modelIndexAtCellERK6QPoint": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK22QQuickTableViewPrivate16cellAtModelIndexEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK22QQuickTableViewPrivate21modelIndexToCellIndexERK11QModelIndexb": [
+      "int", "address", "address", "bool"
+    ],
+    "ritual_ZNK22QQuickTableViewPrivate11cellIsValidERK6QPoint": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK22QQuickTableViewPrivate17sizeHintForColumnEi": [
+      "double", "address", "int"
+    ],
+    "ritual_ZNK22QQuickTableViewPrivate14sizeHintForRowEi": [
+      "double", "address", "int"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate18calculateTableSizeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK22QQuickTableViewPrivate14isColumnHiddenEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK22QQuickTableViewPrivate11isRowHiddenEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate20getColumnLayoutWidthEi": [
+      "double", "address", "int"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate18getRowLayoutHeightEi": [
+      "double", "address", "int"
+    ],
+    "ritual_ZNK22QQuickTableViewPrivate14getColumnWidthEi": [
+      "double", "address", "int"
+    ],
+    "ritual_ZNK22QQuickTableViewPrivate12getRowHeightEi": [
+      "double", "address", "int"
+    ],
+    "ritual_ZNK22QQuickTableViewPrivate16getEffectiveRowYEi": [
+      "double", "address", "int"
+    ],
+    "ritual_ZNK22QQuickTableViewPrivate21getEffectiveRowHeightEi": [
+      "double", "address", "int"
+    ],
+    "ritual_ZNK22QQuickTableViewPrivate19getEffectiveColumnXEi": [
+      "double", "address", "int"
+    ],
+    "ritual_ZNK22QQuickTableViewPrivate23getEffectiveColumnWidthEi": [
+      "double", "address", "int"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate20getAlignmentContentXEi6QFlagsIN2Qt13AlignmentFlagEEdRK6QRectF": [
+      "double", "address", "int", "int", "double", "address"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate20getAlignmentContentYEi6QFlagsIN2Qt13AlignmentFlagEEdRK6QRectF": [
+      "double", "address", "int", "int", "double", "address"
+    ],
+    "ritual_ZNK22QQuickTableViewPrivate6topRowEv": ["int", "address"],
+    "ritual_ZNK22QQuickTableViewPrivate9bottomRowEv": ["int", "address"],
+    "ritual_ZNK22QQuickTableViewPrivate10leftColumnEv": ["int", "address"],
+    "ritual_ZNK22QQuickTableViewPrivate11rightColumnEv": ["int", "address"],
+    "ritual_ZNK22QQuickTableViewPrivate12rootSyncViewEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate20updateTableRecursiveEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate11updateTableEv": ["bool", "address"],
+    "ritual_ZN22QQuickTableViewPrivate18relayoutTableItemsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate18layoutVerticalEdgeEN2Qt4EdgeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate20layoutHorizontalEdgeEN2Qt4EdgeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate17layoutTopLeftItemEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate30layoutTableEdgeFromLoadRequestEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate18updateContentWidthEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate19updateContentHeightEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate24updateAverageColumnWidthEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate22updateAverageRowHeightEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate25checkForVisibilityChangesEv": [
+      "int", "address"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate11forceLayoutEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate13updateExtentsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate34syncLoadedTableRectFromLoadedTableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate30syncLoadedTableFromLoadRequestEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK22QQuickTableViewPrivate20nextVisibleEdgeIndexEN2Qt4EdgeEi": [
+      "int", "address", "int", "int"
+    ],
+    "ritual_ZNK22QQuickTableViewPrivate37nextVisibleEdgeIndexAroundLoadedTableEN2Qt4EdgeE": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK22QQuickTableViewPrivate10atTableEndEN2Qt4EdgeE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK22QQuickTableViewPrivate10atTableEndEN2Qt4EdgeEi": [
+      "bool", "address", "int", "int"
+    ],
+    "ritual_ZNK22QQuickTableViewPrivate16edgeToArrayIndexEN2Qt4EdgeE": [
+      "int", "address", "int"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate18clearEdgeSizeCacheEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK22QQuickTableViewPrivate16canLoadTableEdgeEN2Qt4EdgeE6QRectF": [
+      "bool", "address", "int", "address"
+    ],
+    "ritual_ZNK22QQuickTableViewPrivate18canUnloadTableEdgeEN2Qt4EdgeE6QRectF": [
+      "bool", "address", "int", "address"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate14nextEdgeToLoadE6QRectF": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate16nextEdgeToUnloadE6QRectF": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK22QQuickTableViewPrivate9cellWidthERK6QPoint": [
+      "double", "address", "address"
+    ],
+    "ritual_ZNK22QQuickTableViewPrivate10cellHeightERK6QPoint": [
+      "double", "address", "address"
+    ],
+    "ritual_ZNK22QQuickTableViewPrivate15loadedTableItemERK6QPoint": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate17createFxTableItemERK6QPointN13QQmlIncubator14IncubationModeE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate15loadFxTableItemERK6QPointN13QQmlIncubator14IncubationModeE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate10unloadItemERK6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate8loadEdgeEN2Qt4EdgeEN13QQmlIncubator14IncubationModeE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate10unloadEdgeEN2Qt4EdgeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate25loadAndUnloadVisibleEdgesEN13QQmlIncubator14IncubationModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate30drainReusePoolAfterLoadRequestEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate18processLoadRequestEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate19processRebuildTableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate22moveToNextRebuildStateEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate16loadInitialTableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate30layoutAfterLoadingInitialTableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate35adjustViewportXAccordingToAlignmentEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate35adjustViewportYAccordingToAlignmentEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate26cancelOvershootAfterLayoutEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate20scheduleRebuildTableE6QFlagsINS_13RebuildOptionEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate12updateCursorEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate14updateEditItemEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate17updateContentSizeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate20resolveImportVersionEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate18createWrapperModelEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK22QQuickTableViewPrivate4qaimE8QVariant": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate16initItemCallbackEiP7QObject": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate19itemCreatedCallbackEiP7QObject": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate18itemPooledCallbackEiP7QObject": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate18itemReusedCallbackEiP7QObject": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate12modelUpdatedERK13QQmlChangeSetb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate20updateItemPropertiesEiP7QObjectb": [
+      "nothing", "address", "int", "address", "bool"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate22syncWithPendingChangesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate12syncDelegateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate23syncDelegateModelAccessEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK22QQuickTableViewPrivate9modelImplEv": ["address", "address"],
+    "ritual_ZN22QQuickTableViewPrivate12setModelImplERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate9syncModelEv": ["nothing", "address"],
+    "ritual_ZN22QQuickTableViewPrivate12syncSyncViewEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate16syncPositionViewEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate20selectionSourceModelEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate18syncRebuildOptionsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate14connectToModelEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate19disconnectFromModelEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate17rowsMovedCallbackERK11QModelIndexiiS2_i": [
+      "nothing", "address", "address", "int", "int", "address", "int"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate20columnsMovedCallbackERK11QModelIndexiiS2_i": [
+      "nothing", "address", "address", "int", "int", "address", "int"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate20rowsInsertedCallbackERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate19rowsRemovedCallbackERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate23columnsInsertedCallbackERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate22columnsRemovedCallbackERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate21layoutChangedCallbackERK5QListI21QPersistentModelIndexEN18QAbstractItemModel16LayoutChangeHintE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate18modelResetCallbackEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate17positionViewAtRowEi6QFlagsIN2Qt13AlignmentFlagEEd6QRectF": [
+      "nothing", "address", "int", "int", "double", "address"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate20positionViewAtColumnEi6QFlagsIN2Qt13AlignmentFlagEEd6QRectF": [
+      "nothing", "address", "int", "int", "double", "address"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate11scrollToRowEi6QFlagsIN2Qt13AlignmentFlagEEd6QRectF": [
+      "bool", "address", "int", "int", "double", "address"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate14scrollToColumnEi6QFlagsIN2Qt13AlignmentFlagEEd6QRectF": [
+      "bool", "address", "int", "int", "double", "address"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate26scheduleRebuildIfFastFlickEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate17setLocalViewportXEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate17setLocalViewportYEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate16syncViewportRectEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate24syncViewportPosRecursiveEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK22QQuickTableViewPrivate24selectedInSelectionModelERK6QPoint": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate32selectionChangedInSelectionModelERK14QItemSelectionS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate32updateSelectedOnAllDelegateItemsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate25setSelectedOnDelegateItemERK11QModelIndexb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZNK22QQuickTableViewPrivate23currentInSelectionModelERK6QPoint": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate30currentChangedInSelectionModelERK11QModelIndexS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate24setCurrentOnDelegateItemERK11QModelIndexb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate25updateCurrentRowAndColumnEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate13fetchMoreDataEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK22QQuickTableViewPrivate19tableLayoutToStringEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK22QQuickTableViewPrivate9dumpTableEv": ["nothing", "address"],
+    "ritual_ZN22QQuickTableViewPrivate19setRequiredPropertyEPKcRK8QVariantiP7QObjectb": [
+      "nothing", "address", "chars", "address", "int", "address", "bool"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate9handleTapERK18QQuickHandlerPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate22setCurrentIndexFromTapERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate15setCurrentIndexERK6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate27setCurrentIndexFromKeyEventEP9QKeyEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate7canEditE11QModelIndexb": [
+      "bool", "address", "address", "bool"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate16editFromKeyEventEP9QKeyEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate20closeEditorAndCommitEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate45installEventFilterOnFocusObjectInsideEditItemEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK22QQuickTableViewPrivate29selectionPointerHandlerTargetEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK22QQuickTableViewPrivate12hasSelectionEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate14startSelectionERK7QPointF6QFlagsIN2Qt16KeyboardModifierEE": [
+      "bool", "address", "address", "int"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate20setSelectionStartPosERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate18setSelectionEndPosERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate14clearSelectionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate18normalizeSelectionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK22QQuickTableViewPrivate18selectionRectangleEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate18scrollTowardsPointERK7QPointFRK6QSizeF": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate23cancelSelectionTrackingEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK22QQuickTableViewPrivate16clampedCellAtPosERK7QPointF": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate15updateSelectionERK5QRectS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK22QQuickTableViewPrivate9selectionEv": ["address", "address"],
+    "ritual_ZN22QQuickTableViewPrivate22initSectionDragHandlerEN2Qt11OrientationE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate25destroySectionDragHandlerEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate23setActivePointerHandlerEP29QQuickTableViewPointerHandler": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK22QQuickTableViewPrivate20activePointerHandlerEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate11moveSectionEiiN2Qt11OrientationE": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate22initializeIndexMappingEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate17clearIndexMappingEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate12clearSectionEN2Qt11OrientationE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK22QQuickTableViewPrivate15logicalRowIndexEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK22QQuickTableViewPrivate18logicalColumnIndexEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK22QQuickTableViewPrivate14visualRowIndexEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK22QQuickTableViewPrivate17visualColumnIndexEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZN22QQuickTableViewPrivate29setContainsDragOnDelegateItemERK11QModelIndexb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZNK22QQuickTableViewPrivate16getEditCellIndexERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_cast_QQuickTableViewPrivate_QQuickSelectable": [
+      "address", "address"
+    ],
+    "ritual_take_QQuickTableViewPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN22QQuickTableViewPrivate12updatePolishEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN22QQuickTableViewPrivate16initItemCallbackEiP7QObject": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZN22QQuickTableViewPrivate19itemCreatedCallbackEiP7QObject": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZN22QQuickTableViewPrivate18itemPooledCallbackEiP7QObject": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZN22QQuickTableViewPrivate18itemReusedCallbackEiP7QObject": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZN22QQuickTableViewPrivate12modelUpdatedERK13QQmlChangeSetb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_own_ZN22QQuickTableViewPrivate20updateItemPropertiesEiP7QObjectb": [
+      "nothing", "address", "int", "address", "bool"
+    ],
+    "ritual_own_ZN22QQuickTableViewPrivate22syncWithPendingChangesEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN22QQuickTableViewPrivate12syncDelegateEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN22QQuickTableViewPrivate23syncDelegateModelAccessEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZNK22QQuickTableViewPrivate9modelImplEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN22QQuickTableViewPrivate12setModelImplERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN22QQuickTableViewPrivate9syncModelEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN22QQuickTableViewPrivate12syncSyncViewEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN22QQuickTableViewPrivate16syncPositionViewEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN22QQuickTableViewPrivate20selectionSourceModelEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK22QQuickTableViewPrivate29selectionPointerHandlerTargetEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK22QQuickTableViewPrivate12hasSelectionEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZN22QQuickTableViewPrivate14startSelectionERK7QPointF6QFlagsIN2Qt16KeyboardModifierEE": [
+      "bool", "address", "address", "int"
+    ],
+    "ritual_own_ZN22QQuickTableViewPrivate20setSelectionStartPosERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN22QQuickTableViewPrivate18setSelectionEndPosERK7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN22QQuickTableViewPrivate14clearSelectionEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN22QQuickTableViewPrivate18normalizeSelectionEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZNK22QQuickTableViewPrivate18selectionRectangleEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN22QQuickTableViewPrivate18scrollTowardsPointERK7QPointFRK6QSizeF": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN22QQuickTableViewPrivate15updateSelectionERK5QRectS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZNK22QQuickTableViewPrivate15logicalRowIndexEi": [
+      "int", "address", "int"
+    ],
+    "ritual_own_ZNK22QQuickTableViewPrivate18logicalColumnIndexEi": [
+      "int", "address", "int"
+    ],
+    "ritual_own_ZNK22QQuickTableViewPrivate14visualRowIndexEi": [
+      "int", "address", "int"
+    ],
+    "ritual_own_ZNK22QQuickTableViewPrivate17visualColumnIndexEi": [
+      "int", "address", "int"
+    ]
+  }
+}

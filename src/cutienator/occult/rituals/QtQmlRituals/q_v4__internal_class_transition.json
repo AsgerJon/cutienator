@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4internalclass_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK3QV423InternalClassTransitioneqERKS0_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK3QV423InternalClassTransitionltERKS0_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN3QV423InternalClassTransitionD1Ev": ["nothing", "address"]
+  }
+}

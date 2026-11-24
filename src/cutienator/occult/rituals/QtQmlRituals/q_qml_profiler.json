@@ -1,0 +1,39 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmlprofiler_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK12QQmlProfiler10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QQmlProfiler2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN12QQmlProfiler12startBindingEPN3QV48FunctionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QQmlProfiler14startCompilingEP12QQmlDataBlob": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QQmlProfiler19startHandlingSignalEP25QQmlBoundSignalExpression": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QQmlProfiler13startCreatingEPKN3QV412CompiledData6ObjectE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QQmlProfiler14updateCreatingEPKN3QV412CompiledData6ObjectEPNS0_25ExecutableCompilationUnitERK4QUrlRK7QString": [
+      "nothing", "address", "address", "address", "address", "text"
+    ],
+    "ritual_ZN12QQmlProfilerC1Ev": ["address"],
+    "ritual_ZN12QQmlProfiler14startProfilingEy": [
+      "nothing", "address", "unsigned long long"
+    ],
+    "ritual_ZN12QQmlProfiler13stopProfilingEv": ["nothing", "address"],
+    "ritual_ZN12QQmlProfiler10reportDataEv": ["nothing", "address"],
+    "ritual_ZN12QQmlProfiler8setTimerERK13QElapsedTimer": [
+      "nothing", "address", "address"
+    ],
+    "ritual_cast_QQmlProfiler_QQmlProfilerDefinitions": [
+      "address", "address"
+    ],
+    "ritual_take_QQmlProfiler": ["bool", "address", "chars", "address"]
+  }
+}

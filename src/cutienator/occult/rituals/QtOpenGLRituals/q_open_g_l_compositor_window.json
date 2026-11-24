@@ -1,0 +1,44 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtOpenGL/6.12.0/QtOpenGL/private/qopenglcompositor_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN23QOpenGLCompositorWindowD1Ev": ["nothing", "address"],
+    "ritual_ZNK23QOpenGLCompositorWindow12sourceWindowEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK23QOpenGLCompositorWindow8texturesEv": ["address", "address"],
+    "ritual_ZN23QOpenGLCompositorWindow16beginCompositingEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QOpenGLCompositorWindow14endCompositingEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QOpenGLCompositorWindow15setBackingStoreEP29QOpenGLCompositorBackingStore": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK23QOpenGLCompositorWindow12backingStoreEv": [
+      "address", "address"
+    ],
+    "ritual_take_QOpenGLCompositorWindow": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN23QOpenGLCompositorWindow16beginCompositingEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN23QOpenGLCompositorWindow14endCompositingEv": [
+      "nothing", "address"
+    ],
+    "ritual_list_make_QOpenGLCompositorWindow_ptr": ["address"],
+    "ritual_list_add_QOpenGLCompositorWindow_ptr": [
+      "nothing", "address", "address"
+    ],
+    "ritual_list_size_QOpenGLCompositorWindow_ptr": ["long long", "address"],
+    "ritual_list_at_QOpenGLCompositorWindow_ptr": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_QOpenGLCompositorWindow_ptr": ["nothing", "address"]
+  }
+}

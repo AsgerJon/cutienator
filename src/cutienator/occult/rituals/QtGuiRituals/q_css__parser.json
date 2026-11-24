@@ -1,0 +1,45 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qcssparser_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN4QCss6Parser11testRulesetEv": ["bool", "address"],
+    "ritual_ZN4QCss6Parser12testSelectorEv": ["bool", "address"],
+    "ritual_ZN4QCss6Parser17parseNextSelectorEPNS_8SelectorE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN4QCss6Parser23parseNextSimpleSelectorEPNS_13BasicSelectorE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN4QCss6Parser15testElementNameEv": ["bool", "address"],
+    "ritual_ZN4QCss6Parser9testClassEv": ["bool", "address"],
+    "ritual_ZN4QCss6Parser10testAttribEv": ["bool", "address"],
+    "ritual_ZN4QCss6Parser10testPseudoEv": ["bool", "address"],
+    "ritual_ZN4QCss6Parser10testMediumEv": ["bool", "address"],
+    "ritual_ZN4QCss6Parser14testPseudoPageEv": ["bool", "address"],
+    "ritual_ZN4QCss6Parser10testImportEv": ["bool", "address"],
+    "ritual_ZN4QCss6Parser9testMediaEv": ["bool", "address"],
+    "ritual_ZN4QCss6Parser8testPageEv": ["bool", "address"],
+    "ritual_ZN4QCss6Parser13testAnimationEv": ["bool", "address"],
+    "ritual_ZN4QCss6Parser14testCombinatorEv": ["bool", "address"],
+    "ritual_ZN4QCss6Parser12testPropertyEv": ["bool", "address"],
+    "ritual_ZN4QCss6Parser8testExprEv": ["bool", "address"],
+    "ritual_ZN4QCss6Parser12testHexColorEv": ["bool", "address"],
+    "ritual_ZN4QCss6Parser12testFunctionEv": ["bool", "address"],
+    "ritual_ZN4QCss6Parser17parseNextFunctionEP7QStringS2_": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZNK4QCss6Parser17lookupElementNameEv": ["bool", "address"],
+    "ritual_ZN4QCss6Parser9skipSpaceEv": ["nothing", "address"],
+    "ritual_ZNK4QCss6Parser7hasNextEv": ["bool", "address"],
+    "ritual_ZN4QCss6Parser4nextEv": ["int", "address"],
+    "ritual_ZN4QCss6Parser4prevEv": ["nothing", "address"],
+    "ritual_ZNK4QCss6Parser6symbolEv": ["address", "address"],
+    "ritual_ZNK4QCss6Parser5lexemEv": ["text", "address"],
+    "ritual_ZNK4QCss6Parser6lookupEv": ["int", "address"],
+    "ritual_ZN4QCss6Parser11recordErrorEv": ["bool", "address"],
+    "ritual_ZN4QCss6ParserD1Ev": ["nothing", "address"]
+  }
+}

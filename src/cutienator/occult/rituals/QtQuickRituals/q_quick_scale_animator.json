@@ -1,0 +1,25 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickanimator_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK19QQuickScaleAnimator10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QQuickScaleAnimator2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN19QQuickScaleAnimatorC1EP7QObject": ["address", "address"],
+    "ritual_ZNK19QQuickScaleAnimator9createJobEv": ["address", "address"],
+    "ritual_ZNK19QQuickScaleAnimator12propertyNameEv": ["text", "address"],
+    "ritual_take_QQuickScaleAnimator": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK19QQuickScaleAnimator9createJobEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK19QQuickScaleAnimator12propertyNameEv": [
+      "text", "address"
+    ]
+  }
+}

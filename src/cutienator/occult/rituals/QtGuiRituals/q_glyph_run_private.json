@@ -1,0 +1,13 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qglyphrun_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN16QGlyphRunPrivateC1Ev": ["address"],
+    "ritual_ZN16QGlyphRunPrivateC1ERKS_": ["address", "address"],
+    "ritual_ZN16QGlyphRunPrivate3getERK9QGlyphRun": ["address", "address"],
+    "ritual_ZN16QGlyphRunPrivateD1Ev": ["nothing", "address"]
+  }
+}

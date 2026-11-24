@@ -1,0 +1,13 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qeventloop_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN17QEventLoopPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK17QEventLoopPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN17QEventLoopPrivate3refEv": ["nothing", "address"],
+    "ritual_ZN17QEventLoopPrivate5derefEv": ["nothing", "address"]
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/6.12.0/QtCharts/private/qboxplotmodelmapper_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK26QBoxPlotModelMapperPrivate10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QBoxPlotModelMapperPrivate2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN26QBoxPlotModelMapperPrivateC1EP19QBoxPlotModelMapper": [
+      "address", "address"
+    ],
+    "ritual_ZN26QBoxPlotModelMapperPrivate12modelUpdatedE11QModelIndexS0_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN26QBoxPlotModelMapperPrivate22modelHeaderDataUpdatedEN2Qt11OrientationEii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZN26QBoxPlotModelMapperPrivate14modelRowsAddedE11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN26QBoxPlotModelMapperPrivate16modelRowsRemovedE11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN26QBoxPlotModelMapperPrivate17modelColumnsAddedE11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN26QBoxPlotModelMapperPrivate19modelColumnsRemovedE11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN26QBoxPlotModelMapperPrivate20handleModelDestroyedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QBoxPlotModelMapperPrivate12boxSetsAddedERK5QListIP7QBoxSetE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QBoxPlotModelMapperPrivate14boxSetsRemovedERK5QListIP7QBoxSetE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QBoxPlotModelMapperPrivate15boxValueChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN26QBoxPlotModelMapperPrivate21handleSeriesDestroyedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QBoxPlotModelMapperPrivate22initializeBoxFromModelEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QBoxPlotModelMapperPrivate6boxSetE11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN26QBoxPlotModelMapperPrivate13boxModelIndexEii": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZN26QBoxPlotModelMapperPrivate10insertDataEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN26QBoxPlotModelMapperPrivate10removeDataEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN26QBoxPlotModelMapperPrivate17blockModelSignalsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN26QBoxPlotModelMapperPrivate18blockSeriesSignalsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN26QBoxPlotModelMapperPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK26QBoxPlotModelMapperPrivate6q_funcEv": ["address", "address"]
+  }
+}

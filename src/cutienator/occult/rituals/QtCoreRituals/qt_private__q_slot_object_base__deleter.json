@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qobjectdefs_impl.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK9QtPrivate15QSlotObjectBase7DeleterclEPS0_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QtPrivate15QSlotObjectBase7Deleter7cleanupEPS0_": [
+      "nothing", "address"
+    ],
+    "ritual_ZN9QtPrivate15QSlotObjectBase7DeleterD1Ev": [
+      "nothing", "address"
+    ]
+  }
+}

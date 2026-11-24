@@ -1,0 +1,66 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLocation/6.12.0/QtLocation/private/qgeotiledmap_p_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QGeoTiledMapPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK19QGeoTiledMapPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN19QGeoTiledMapPrivateC1EP29QGeoTiledMappingManagerEngine": [
+      "address", "address"
+    ],
+    "ritual_ZN19QGeoTiledMapPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN19QGeoTiledMapPrivate16updateSceneGraphEP7QSGNodeP12QQuickWindow": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN19QGeoTiledMapPrivate10updateTileERK12QGeoTileSpec": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QGeoTiledMapPrivate13prefetchTilesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK19QGeoTiledMapPrivate13activeMapTypeEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QGeoTiledMapPrivate27onCameraCapabilitiesChangedERK22QGeoCameraCapabilities": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QGeoTiledMapPrivate18changeViewportSizeERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QGeoTiledMapPrivate16changeCameraDataERK14QGeoCameraData": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QGeoTiledMapPrivate19changeActiveMapTypeERK11QGeoMapType": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QGeoTiledMapPrivate17changeTileVersionEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN19QGeoTiledMapPrivate10clearSceneEv": ["nothing", "address"],
+    "ritual_ZN19QGeoTiledMapPrivate11updateSceneEv": ["nothing", "address"],
+    "ritual_ZN19QGeoTiledMapPrivate14setVisibleAreaERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QGeoTiledMapPrivate11visibleAreaEv": ["address", "address"],
+    "ritual_take_QGeoTiledMapPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN19QGeoTiledMapPrivate18changeViewportSizeERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN19QGeoTiledMapPrivate16changeCameraDataERK14QGeoCameraData": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN19QGeoTiledMapPrivate19changeActiveMapTypeERK11QGeoMapType": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN19QGeoTiledMapPrivate14setVisibleAreaERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK19QGeoTiledMapPrivate11visibleAreaEv": [
+      "address", "address"
+    ]
+  }
+}

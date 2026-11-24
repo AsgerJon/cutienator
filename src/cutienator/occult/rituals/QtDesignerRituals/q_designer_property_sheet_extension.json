@@ -1,0 +1,60 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/propertysheet.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN31QDesignerPropertySheetExtensionD1Ev": ["nothing", "address"],
+    "ritual_ZNK31QDesignerPropertySheetExtension5countEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK31QDesignerPropertySheetExtension7indexOfERK7QString": [
+      "int", "address", "text"
+    ],
+    "ritual_ZNK31QDesignerPropertySheetExtension12propertyNameEi": [
+      "text", "address", "int"
+    ],
+    "ritual_ZNK31QDesignerPropertySheetExtension13propertyGroupEi": [
+      "text", "address", "int"
+    ],
+    "ritual_ZN31QDesignerPropertySheetExtension16setPropertyGroupEiRK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZNK31QDesignerPropertySheetExtension8hasResetEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN31QDesignerPropertySheetExtension5resetEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK31QDesignerPropertySheetExtension9isVisibleEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN31QDesignerPropertySheetExtension10setVisibleEib": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZNK31QDesignerPropertySheetExtension11isAttributeEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN31QDesignerPropertySheetExtension12setAttributeEib": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZNK31QDesignerPropertySheetExtension8propertyEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN31QDesignerPropertySheetExtension11setPropertyEiRK8QVariant": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZNK31QDesignerPropertySheetExtension9isChangedEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN31QDesignerPropertySheetExtension10setChangedEib": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZNK31QDesignerPropertySheetExtension9isEnabledEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_take_QDesignerPropertySheetExtension": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

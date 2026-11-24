@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qabstractitemview.h, Qt 6.12.0. Changes made here are lost.
+#include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(itemviews)
 #include <QtWidgets/qabstractitemview.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qabstractitemmodel.h>
@@ -58,69 +60,219 @@ struct OwnQAbstractItemView : QAbstractItemView {
 //  A QAbstractItemView that Python can take functions over in. Every QAbstractItemView
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if QT_CONFIG(itemviews)
 typedef void (*CuteQAbstractItemViewCall0)(const void *, QAbstractItemModel *, int *);
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
 typedef void (*CuteQAbstractItemViewCall1)(const void *, QItemSelectionModel *, int *);
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
 typedef void (*CuteQAbstractItemViewCall2)(const void *, const QString *, int *);
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
 typedef const QRect * (*CuteQAbstractItemViewCall3)(const void *, const QModelIndex *, int *);
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
 typedef void (*CuteQAbstractItemViewCall4)(const void *, const QModelIndex *, int, int *);
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
 typedef const QModelIndex * (*CuteQAbstractItemViewCall5)(const void *, const QPoint *, int *);
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
 typedef int (*CuteQAbstractItemViewCall6)(const void *, int, int *);
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
 typedef int (*CuteQAbstractItemViewCall7)(const void *, int, int *);
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
 typedef void * (*CuteQAbstractItemViewCall8)(const void *, const QModelIndex *, int *);
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
 typedef const QVariant * (*CuteQAbstractItemViewCall9)(const void *, int, int *);
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
 typedef void (*CuteQAbstractItemViewCall10)(const void *, int *);
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
 typedef void (*CuteQAbstractItemViewCall11)(const void *, const QModelIndex *, int *);
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
 typedef void (*CuteQAbstractItemViewCall12)(const void *, int *);
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
 typedef void (*CuteQAbstractItemViewCall13)(const void *, int *);
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
 typedef void (*CuteQAbstractItemViewCall14)(const void *, const QModelIndex *, int, int, int *);
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
 typedef void (*CuteQAbstractItemViewCall15)(const void *, const QModelIndex *, int, int, int *);
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
 typedef void (*CuteQAbstractItemViewCall16)(const void *, const QItemSelection *, const QItemSelection *, int *);
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
 typedef void (*CuteQAbstractItemViewCall17)(const void *, const QModelIndex *, const QModelIndex *, int *);
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
 typedef void (*CuteQAbstractItemViewCall18)(const void *, int *);
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
 typedef void (*CuteQAbstractItemViewCall19)(const void *, int *);
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
 typedef void (*CuteQAbstractItemViewCall20)(const void *, int *);
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
 typedef void (*CuteQAbstractItemViewCall21)(const void *, int, int *);
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
 typedef void (*CuteQAbstractItemViewCall22)(const void *, int, int *);
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
 typedef void (*CuteQAbstractItemViewCall23)(const void *, int, int *);
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
 typedef void (*CuteQAbstractItemViewCall24)(const void *, int, int *);
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
 typedef void (*CuteQAbstractItemViewCall25)(const void *, QWidget *, int, int *);
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
 typedef void (*CuteQAbstractItemViewCall26)(const void *, QWidget *, int *);
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
 typedef void (*CuteQAbstractItemViewCall27)(const void *, QObject *, int *);
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
 typedef int (*CuteQAbstractItemViewCall28)(const void *, int *);
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
 typedef int (*CuteQAbstractItemViewCall29)(const void *, int *);
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
 typedef bool (*CuteQAbstractItemViewCall30)(const void *, const QModelIndex *, int *);
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
 typedef void (*CuteQAbstractItemViewCall31)(const void *, const QRect *, int, int *);
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
 typedef const QRegion * (*CuteQAbstractItemViewCall32)(const void *, const QItemSelection *, int *);
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
 typedef bool (*CuteQAbstractItemViewCall33)(const void *, const QModelIndex *, int, QEvent *, int *);
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
 typedef int (*CuteQAbstractItemViewCall34)(const void *, const QModelIndex *, const QEvent *, int *);
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
+#if QT_CONFIG(draganddrop)
 typedef void (*CuteQAbstractItemViewCall35)(const void *, int, int *);
+#endif  // QT_CONFIG(draganddrop)
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
 typedef void (*CuteQAbstractItemViewCall36)(const void *, QStyleOptionViewItem *, int *);
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
 typedef bool (*CuteQAbstractItemViewCall37)(const void *, bool, int *);
+#endif  // QT_CONFIG(itemviews)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(itemviews)
 typedef bool (*CuteQAbstractItemViewCall38)(const void *, QEvent *, int *);
+#endif  // QT_CONFIG(itemviews)
+#endif  // !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(scrollarea)
+#if QT_CONFIG(itemviews)
 typedef bool (*CuteQAbstractItemViewCall39)(const void *, QEvent *, int *);
+#endif  // QT_CONFIG(itemviews)
+#endif  // QT_CONFIG(scrollarea)
+#if QT_CONFIG(itemviews)
 typedef void (*CuteQAbstractItemViewCall40)(const void *, QMouseEvent *, int *);
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
 typedef void (*CuteQAbstractItemViewCall41)(const void *, QMouseEvent *, int *);
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
 typedef void (*CuteQAbstractItemViewCall42)(const void *, QMouseEvent *, int *);
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
 typedef void (*CuteQAbstractItemViewCall43)(const void *, QMouseEvent *, int *);
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(draganddrop)
+#if QT_CONFIG(itemviews)
 typedef void (*CuteQAbstractItemViewCall44)(const void *, QDragEnterEvent *, int *);
+#endif  // QT_CONFIG(itemviews)
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
+#if QT_CONFIG(itemviews)
 typedef void (*CuteQAbstractItemViewCall45)(const void *, QDragMoveEvent *, int *);
+#endif  // QT_CONFIG(itemviews)
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
+#if QT_CONFIG(itemviews)
 typedef void (*CuteQAbstractItemViewCall46)(const void *, QDragLeaveEvent *, int *);
+#endif  // QT_CONFIG(itemviews)
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
+#if QT_CONFIG(itemviews)
 typedef void (*CuteQAbstractItemViewCall47)(const void *, QDropEvent *, int *);
+#endif  // QT_CONFIG(itemviews)
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(itemviews)
 typedef void (*CuteQAbstractItemViewCall48)(const void *, QFocusEvent *, int *);
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
 typedef void (*CuteQAbstractItemViewCall49)(const void *, QFocusEvent *, int *);
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
 typedef void (*CuteQAbstractItemViewCall50)(const void *, QKeyEvent *, int *);
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
 typedef void (*CuteQAbstractItemViewCall51)(const void *, QResizeEvent *, int *);
+#endif  // QT_CONFIG(itemviews)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(itemviews)
 typedef void (*CuteQAbstractItemViewCall52)(const void *, QTimerEvent *, int *);
+#endif  // QT_CONFIG(itemviews)
+#endif  // !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(itemviews)
 typedef void (*CuteQAbstractItemViewCall53)(const void *, QInputMethodEvent *, int *);
+#endif  // QT_CONFIG(itemviews)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(itemviews)
 typedef bool (*CuteQAbstractItemViewCall54)(const void *, QObject *, QEvent *, int *);
+#endif  // QT_CONFIG(itemviews)
+#endif  // !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(scrollarea)
+#if QT_CONFIG(itemviews)
 typedef const QSize * (*CuteQAbstractItemViewCall55)(const void *, int *);
+#endif  // QT_CONFIG(itemviews)
+#endif  // QT_CONFIG(scrollarea)
+#if QT_CONFIG(scrollarea)
 typedef const QSize * (*CuteQAbstractItemViewCall56)(const void *, int *);
+#endif  // QT_CONFIG(scrollarea)
+#if QT_CONFIG(scrollarea)
 typedef const QSize * (*CuteQAbstractItemViewCall57)(const void *, int *);
+#endif  // QT_CONFIG(scrollarea)
+#if QT_CONFIG(scrollarea)
 typedef void (*CuteQAbstractItemViewCall58)(const void *, QWidget *, int *);
+#endif  // QT_CONFIG(scrollarea)
+#if QT_CONFIG(scrollarea)
 typedef void (*CuteQAbstractItemViewCall59)(const void *, QPaintEvent *, int *);
+#endif  // QT_CONFIG(scrollarea)
+#if QT_CONFIG(wheelevent)
+#if QT_CONFIG(scrollarea)
 typedef void (*CuteQAbstractItemViewCall60)(const void *, QWheelEvent *, int *);
+#endif  // QT_CONFIG(scrollarea)
+#endif  // QT_CONFIG(wheelevent)
+#if !defined(QT_NO_CONTEXTMENU)
+#if QT_CONFIG(scrollarea)
 typedef void (*CuteQAbstractItemViewCall61)(const void *, QContextMenuEvent *, int *);
+#endif  // QT_CONFIG(scrollarea)
+#endif  // !defined(QT_NO_CONTEXTMENU)
+#if QT_CONFIG(scrollarea)
 typedef void (*CuteQAbstractItemViewCall62)(const void *, int, int, int *);
+#endif  // QT_CONFIG(scrollarea)
 typedef void (*CuteQAbstractItemViewCall63)(const void *, QEvent *, int *);
 typedef void (*CuteQAbstractItemViewCall64)(const void *, QStyleOptionFrame *, int *);
 typedef int (*CuteQAbstractItemViewCall65)(const void *, int *);
@@ -133,276 +285,438 @@ typedef void (*CuteQAbstractItemViewCall71)(const void *, QEnterEvent *, int *);
 typedef void (*CuteQAbstractItemViewCall72)(const void *, QEvent *, int *);
 typedef void (*CuteQAbstractItemViewCall73)(const void *, QMoveEvent *, int *);
 typedef void (*CuteQAbstractItemViewCall74)(const void *, QCloseEvent *, int *);
+#if QT_CONFIG(tabletevent)
 typedef void (*CuteQAbstractItemViewCall75)(const void *, QTabletEvent *, int *);
+#endif  // QT_CONFIG(tabletevent)
+#if !defined(QT_NO_ACTION)
 typedef void (*CuteQAbstractItemViewCall76)(const void *, QActionEvent *, int *);
+#endif  // !defined(QT_NO_ACTION)
 typedef void (*CuteQAbstractItemViewCall77)(const void *, QShowEvent *, int *);
 typedef void (*CuteQAbstractItemViewCall78)(const void *, QHideEvent *, int *);
 typedef int (*CuteQAbstractItemViewCall79)(const void *, int, int *);
 typedef void (*CuteQAbstractItemViewCall80)(const void *, QPainter *, int *);
 typedef void * (*CuteQAbstractItemViewCall81)(const void *, QPoint *, int *);
 typedef void * (*CuteQAbstractItemViewCall82)(const void *, int *);
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQAbstractItemViewCall83)(const void *, QChildEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQAbstractItemViewCall84)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQAbstractItemViewCall85)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQAbstractItemViewCall86)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 class CuteQAbstractItemView : public QAbstractItemView {
 public:
   using QAbstractItemView::QAbstractItemView;
   void *taken[87] = {};
 
   bool take(const char *key, void *call) {
+#if QT_CONFIG(itemviews)
     if (!std::strcmp(key, "_ZN17QAbstractItemView8setModelEP18QAbstractItemModel")) {
       taken[0] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
     if (!std::strcmp(key, "_ZN17QAbstractItemView17setSelectionModelEP19QItemSelectionModel")) {
       taken[1] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
     if (!std::strcmp(key, "_ZN17QAbstractItemView14keyboardSearchERK7QString")) {
       taken[2] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
     if (!std::strcmp(key, "_ZNK17QAbstractItemView10visualRectERK11QModelIndex")) {
       taken[3] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
     if (!std::strcmp(key, "_ZN17QAbstractItemView8scrollToERK11QModelIndexNS_10ScrollHintE")) {
       taken[4] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
     if (!std::strcmp(key, "_ZNK17QAbstractItemView7indexAtERK6QPoint")) {
       taken[5] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
     if (!std::strcmp(key, "_ZNK17QAbstractItemView14sizeHintForRowEi")) {
       taken[6] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
     if (!std::strcmp(key, "_ZNK17QAbstractItemView17sizeHintForColumnEi")) {
       taken[7] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
     if (!std::strcmp(key, "_ZNK17QAbstractItemView20itemDelegateForIndexERK11QModelIndex")) {
       taken[8] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
     if (!std::strcmp(key, "_ZNK7QWidget16inputMethodQueryEN2Qt16InputMethodQueryE")) {
       taken[9] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
     if (!std::strcmp(key, "_ZN17QAbstractItemView5resetEv")) {
       taken[10] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
     if (!std::strcmp(key, "_ZN17QAbstractItemView12setRootIndexERK11QModelIndex")) {
       taken[11] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
     if (!std::strcmp(key, "_ZN17QAbstractItemView13doItemsLayoutEv")) {
       taken[12] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
     if (!std::strcmp(key, "_ZN17QAbstractItemView9selectAllEv")) {
       taken[13] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
     if (!std::strcmp(key, "_ZN17QAbstractItemView12rowsInsertedERK11QModelIndexii")) {
       taken[14] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
     if (!std::strcmp(key, "_ZN17QAbstractItemView20rowsAboutToBeRemovedERK11QModelIndexii")) {
       taken[15] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
     if (!std::strcmp(key, "_ZN17QAbstractItemView16selectionChangedERK14QItemSelectionS2_")) {
       taken[16] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
     if (!std::strcmp(key, "_ZN17QAbstractItemView14currentChangedERK11QModelIndexS2_")) {
       taken[17] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
     if (!std::strcmp(key, "_ZN17QAbstractItemView16updateEditorDataEv")) {
       taken[18] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
     if (!std::strcmp(key, "_ZN17QAbstractItemView22updateEditorGeometriesEv")) {
       taken[19] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
     if (!std::strcmp(key, "_ZN17QAbstractItemView16updateGeometriesEv")) {
       taken[20] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
     if (!std::strcmp(key, "_ZN17QAbstractItemView23verticalScrollbarActionEi")) {
       taken[21] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
     if (!std::strcmp(key, "_ZN17QAbstractItemView25horizontalScrollbarActionEi")) {
       taken[22] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
     if (!std::strcmp(key, "_ZN17QAbstractItemView29verticalScrollbarValueChangedEi")) {
       taken[23] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
     if (!std::strcmp(key, "_ZN17QAbstractItemView31horizontalScrollbarValueChangedEi")) {
       taken[24] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
     if (!std::strcmp(key, "_ZN17QAbstractItemView11closeEditorEP7QWidgetN21QAbstractItemDelegate11EndEditHintE")) {
       taken[25] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
     if (!std::strcmp(key, "_ZN17QAbstractItemView10commitDataEP7QWidget")) {
       taken[26] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
     if (!std::strcmp(key, "_ZN17QAbstractItemView15editorDestroyedEP7QObject")) {
       taken[27] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
     if (!std::strcmp(key, "_ZNK17QAbstractItemView16horizontalOffsetEv")) {
       taken[28] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
     if (!std::strcmp(key, "_ZNK17QAbstractItemView14verticalOffsetEv")) {
       taken[29] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
     if (!std::strcmp(key, "_ZNK17QAbstractItemView13isIndexHiddenERK11QModelIndex")) {
       taken[30] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
     if (!std::strcmp(key, "_ZN17QAbstractItemView12setSelectionERK5QRect6QFlagsIN19QItemSelectionModel13SelectionFlagEE")) {
       taken[31] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
     if (!std::strcmp(key, "_ZNK17QAbstractItemView24visualRegionForSelectionERK14QItemSelection")) {
       taken[32] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
     if (!std::strcmp(key, "_ZN17QAbstractItemView4editERK11QModelIndexNS_11EditTriggerEP6QEvent")) {
       taken[33] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
     if (!std::strcmp(key, "_ZNK17QAbstractItemView16selectionCommandERK11QModelIndexPK6QEvent")) {
       taken[34] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN17QAbstractItemView9startDragE6QFlagsIN2Qt10DropActionEE")) {
       taken[35] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
     if (!std::strcmp(key, "_ZNK17QAbstractItemView18initViewItemOptionEP20QStyleOptionViewItem")) {
       taken[36] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
     if (!std::strcmp(key, "_ZN7QWidget18focusNextPrevChildEb")) {
       taken[37] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemviews)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(itemviews)
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[38] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemviews)
+#endif  // !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(scrollarea)
+#if QT_CONFIG(itemviews)
     if (!std::strcmp(key, "_ZN19QAbstractScrollArea13viewportEventEP6QEvent")) {
       taken[39] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemviews)
+#endif  // QT_CONFIG(scrollarea)
+#if QT_CONFIG(itemviews)
     if (!std::strcmp(key, "_ZN7QWidget15mousePressEventEP11QMouseEvent")) {
       taken[40] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
     if (!std::strcmp(key, "_ZN7QWidget14mouseMoveEventEP11QMouseEvent")) {
       taken[41] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
     if (!std::strcmp(key, "_ZN7QWidget17mouseReleaseEventEP11QMouseEvent")) {
       taken[42] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
     if (!std::strcmp(key, "_ZN7QWidget21mouseDoubleClickEventEP11QMouseEvent")) {
       taken[43] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(draganddrop)
+#if QT_CONFIG(itemviews)
     if (!std::strcmp(key, "_ZN7QWidget14dragEnterEventEP15QDragEnterEvent")) {
       taken[44] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemviews)
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
+#if QT_CONFIG(itemviews)
     if (!std::strcmp(key, "_ZN7QWidget13dragMoveEventEP14QDragMoveEvent")) {
       taken[45] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemviews)
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
+#if QT_CONFIG(itemviews)
     if (!std::strcmp(key, "_ZN7QWidget14dragLeaveEventEP15QDragLeaveEvent")) {
       taken[46] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemviews)
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
+#if QT_CONFIG(itemviews)
     if (!std::strcmp(key, "_ZN7QWidget9dropEventEP10QDropEvent")) {
       taken[47] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemviews)
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(itemviews)
     if (!std::strcmp(key, "_ZN7QWidget12focusInEventEP11QFocusEvent")) {
       taken[48] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
     if (!std::strcmp(key, "_ZN7QWidget13focusOutEventEP11QFocusEvent")) {
       taken[49] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
     if (!std::strcmp(key, "_ZN7QWidget13keyPressEventEP9QKeyEvent")) {
       taken[50] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
     if (!std::strcmp(key, "_ZN7QWidget11resizeEventEP12QResizeEvent")) {
       taken[51] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemviews)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(itemviews)
     if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[52] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemviews)
+#endif  // !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(itemviews)
     if (!std::strcmp(key, "_ZN7QWidget16inputMethodEventEP17QInputMethodEvent")) {
       taken[53] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemviews)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(itemviews)
     if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[54] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemviews)
+#endif  // !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(scrollarea)
+#if QT_CONFIG(itemviews)
     if (!std::strcmp(key, "_ZNK19QAbstractScrollArea16viewportSizeHintEv")) {
       taken[55] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemviews)
+#endif  // QT_CONFIG(scrollarea)
+#if QT_CONFIG(scrollarea)
     if (!std::strcmp(key, "_ZNK7QWidget15minimumSizeHintEv")) {
       taken[56] = call;
       return true;
     }
+#endif  // QT_CONFIG(scrollarea)
+#if QT_CONFIG(scrollarea)
     if (!std::strcmp(key, "_ZNK7QWidget8sizeHintEv")) {
       taken[57] = call;
       return true;
     }
+#endif  // QT_CONFIG(scrollarea)
+#if QT_CONFIG(scrollarea)
     if (!std::strcmp(key, "_ZN19QAbstractScrollArea13setupViewportEP7QWidget")) {
       taken[58] = call;
       return true;
     }
+#endif  // QT_CONFIG(scrollarea)
+#if QT_CONFIG(scrollarea)
     if (!std::strcmp(key, "_ZN7QWidget10paintEventEP11QPaintEvent")) {
       taken[59] = call;
       return true;
     }
+#endif  // QT_CONFIG(scrollarea)
+#if QT_CONFIG(wheelevent)
+#if QT_CONFIG(scrollarea)
     if (!std::strcmp(key, "_ZN7QWidget10wheelEventEP11QWheelEvent")) {
       taken[60] = call;
       return true;
     }
+#endif  // QT_CONFIG(scrollarea)
+#endif  // QT_CONFIG(wheelevent)
+#if !defined(QT_NO_CONTEXTMENU)
+#if QT_CONFIG(scrollarea)
     if (!std::strcmp(key, "_ZN7QWidget16contextMenuEventEP17QContextMenuEvent")) {
       taken[61] = call;
       return true;
     }
+#endif  // QT_CONFIG(scrollarea)
+#endif  // !defined(QT_NO_CONTEXTMENU)
+#if QT_CONFIG(scrollarea)
     if (!std::strcmp(key, "_ZN19QAbstractScrollArea16scrollContentsByEii")) {
       taken[62] = call;
       return true;
     }
+#endif  // QT_CONFIG(scrollarea)
     if (!std::strcmp(key, "_ZN7QWidget11changeEventEP6QEvent")) {
       taken[63] = call;
       return true;
@@ -451,14 +765,18 @@ public:
       taken[74] = call;
       return true;
     }
+#if QT_CONFIG(tabletevent)
     if (!std::strcmp(key, "_ZN7QWidget11tabletEventEP12QTabletEvent")) {
       taken[75] = call;
       return true;
     }
+#endif  // QT_CONFIG(tabletevent)
+#if !defined(QT_NO_ACTION)
     if (!std::strcmp(key, "_ZN7QWidget11actionEventEP12QActionEvent")) {
       taken[76] = call;
       return true;
     }
+#endif  // !defined(QT_NO_ACTION)
     if (!std::strcmp(key, "_ZN7QWidget9showEventEP10QShowEvent")) {
       taken[77] = call;
       return true;
@@ -483,25 +801,34 @@ public:
       taken[82] = call;
       return true;
     }
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[83] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[84] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[85] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
       taken[86] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
     return false;
   }
 
+#if QT_CONFIG(itemviews)
   //  void QAbstractItemView::setModel(QAbstractItemModel *model)
   void setModel(QAbstractItemModel *model) override {
     if (taken[0]) {
@@ -512,7 +839,9 @@ public:
     }
     QAbstractItemView::setModel(model);
   }
+#endif  // QT_CONFIG(itemviews)
 
+#if QT_CONFIG(itemviews)
   //  void QAbstractItemView::setSelectionModel(QItemSelectionModel
   //      *selectionModel)
   void setSelectionModel(QItemSelectionModel *selectionModel) override {
@@ -524,7 +853,9 @@ public:
     }
     QAbstractItemView::setSelectionModel(selectionModel);
   }
+#endif  // QT_CONFIG(itemviews)
 
+#if QT_CONFIG(itemviews)
   //  void QAbstractItemView::keyboardSearch(const QString &search)
   void keyboardSearch(const QString &search) override {
     if (taken[2]) {
@@ -535,7 +866,9 @@ public:
     }
     QAbstractItemView::keyboardSearch(search);
   }
+#endif  // QT_CONFIG(itemviews)
 
+#if QT_CONFIG(itemviews)
   //  QRect QAbstractItemView::visualRect(const QModelIndex &index) const
   QRect visualRect(const QModelIndex &index) const override {
     if (taken[3]) {
@@ -546,7 +879,9 @@ public:
     }
     return {};
   }
+#endif  // QT_CONFIG(itemviews)
 
+#if QT_CONFIG(itemviews)
   //  void QAbstractItemView::scrollTo(const QModelIndex &index, ScrollHint
   //      hint)
   void scrollTo(
@@ -559,7 +894,9 @@ public:
       if (handled) return;
     }
   }
+#endif  // QT_CONFIG(itemviews)
 
+#if QT_CONFIG(itemviews)
   //  QModelIndex QAbstractItemView::indexAt(const QPoint &point) const
   QModelIndex indexAt(const QPoint &point) const override {
     if (taken[5]) {
@@ -570,7 +907,9 @@ public:
     }
     return {};
   }
+#endif  // QT_CONFIG(itemviews)
 
+#if QT_CONFIG(itemviews)
   //  int QAbstractItemView::sizeHintForRow(int row) const
   int sizeHintForRow(int row) const override {
     if (taken[6]) {
@@ -581,7 +920,9 @@ public:
     }
     return QAbstractItemView::sizeHintForRow(row);
   }
+#endif  // QT_CONFIG(itemviews)
 
+#if QT_CONFIG(itemviews)
   //  int QAbstractItemView::sizeHintForColumn(int column) const
   int sizeHintForColumn(int column) const override {
     if (taken[7]) {
@@ -592,7 +933,9 @@ public:
     }
     return QAbstractItemView::sizeHintForColumn(column);
   }
+#endif  // QT_CONFIG(itemviews)
 
+#if QT_CONFIG(itemviews)
   //  QAbstractItemDelegate *QAbstractItemView::itemDelegateForIndex(const
   //      QModelIndex &index) const
   QAbstractItemDelegate *itemDelegateForIndex(
@@ -605,7 +948,9 @@ public:
     }
     return QAbstractItemView::itemDelegateForIndex(index);
   }
+#endif  // QT_CONFIG(itemviews)
 
+#if QT_CONFIG(itemviews)
   //  QVariant QAbstractItemView::inputMethodQuery(Qt::InputMethodQuery
   //      query) const
   QVariant inputMethodQuery(Qt::InputMethodQuery query) const override {
@@ -617,7 +962,9 @@ public:
     }
     return QAbstractItemView::inputMethodQuery(query);
   }
+#endif  // QT_CONFIG(itemviews)
 
+#if QT_CONFIG(itemviews)
   //  void QAbstractItemView::reset()
   void reset() override {
     if (taken[10]) {
@@ -628,7 +975,9 @@ public:
     }
     QAbstractItemView::reset();
   }
+#endif  // QT_CONFIG(itemviews)
 
+#if QT_CONFIG(itemviews)
   //  void QAbstractItemView::setRootIndex(const QModelIndex &index)
   void setRootIndex(const QModelIndex &index) override {
     if (taken[11]) {
@@ -639,7 +988,9 @@ public:
     }
     QAbstractItemView::setRootIndex(index);
   }
+#endif  // QT_CONFIG(itemviews)
 
+#if QT_CONFIG(itemviews)
   //  void QAbstractItemView::doItemsLayout()
   void doItemsLayout() override {
     if (taken[12]) {
@@ -650,7 +1001,9 @@ public:
     }
     QAbstractItemView::doItemsLayout();
   }
+#endif  // QT_CONFIG(itemviews)
 
+#if QT_CONFIG(itemviews)
   //  void QAbstractItemView::selectAll()
   void selectAll() override {
     if (taken[13]) {
@@ -661,7 +1014,9 @@ public:
     }
     QAbstractItemView::selectAll();
   }
+#endif  // QT_CONFIG(itemviews)
 
+#if QT_CONFIG(itemviews)
   //  void QAbstractItemView::rowsInserted(const QModelIndex &parent, int
   //      start, int end)
   void rowsInserted(const QModelIndex &parent, int start, int end) override {
@@ -673,7 +1028,9 @@ public:
     }
     QAbstractItemView::rowsInserted(parent, start, end);
   }
+#endif  // QT_CONFIG(itemviews)
 
+#if QT_CONFIG(itemviews)
   //  void QAbstractItemView::rowsAboutToBeRemoved(const QModelIndex
   //      &parent, int start, int end)
   void rowsAboutToBeRemoved(
@@ -688,7 +1045,9 @@ public:
     }
     QAbstractItemView::rowsAboutToBeRemoved(parent, start, end);
   }
+#endif  // QT_CONFIG(itemviews)
 
+#if QT_CONFIG(itemviews)
   //  void QAbstractItemView::selectionChanged(const QItemSelection
   //      &selected, const QItemSelection &deselected)
   void selectionChanged(
@@ -702,7 +1061,9 @@ public:
     }
     QAbstractItemView::selectionChanged(selected, deselected);
   }
+#endif  // QT_CONFIG(itemviews)
 
+#if QT_CONFIG(itemviews)
   //  void QAbstractItemView::currentChanged(const QModelIndex &current,
   //      const QModelIndex &previous)
   void currentChanged(
@@ -716,7 +1077,9 @@ public:
     }
     QAbstractItemView::currentChanged(current, previous);
   }
+#endif  // QT_CONFIG(itemviews)
 
+#if QT_CONFIG(itemviews)
   //  void QAbstractItemView::updateEditorData()
   void updateEditorData() override {
     if (taken[18]) {
@@ -727,7 +1090,9 @@ public:
     }
     QAbstractItemView::updateEditorData();
   }
+#endif  // QT_CONFIG(itemviews)
 
+#if QT_CONFIG(itemviews)
   //  void QAbstractItemView::updateEditorGeometries()
   void updateEditorGeometries() override {
     if (taken[19]) {
@@ -738,7 +1103,9 @@ public:
     }
     QAbstractItemView::updateEditorGeometries();
   }
+#endif  // QT_CONFIG(itemviews)
 
+#if QT_CONFIG(itemviews)
   //  void QAbstractItemView::updateGeometries()
   void updateGeometries() override {
     if (taken[20]) {
@@ -749,7 +1116,9 @@ public:
     }
     QAbstractItemView::updateGeometries();
   }
+#endif  // QT_CONFIG(itemviews)
 
+#if QT_CONFIG(itemviews)
   //  void QAbstractItemView::verticalScrollbarAction(int action)
   void verticalScrollbarAction(int action) override {
     if (taken[21]) {
@@ -760,7 +1129,9 @@ public:
     }
     QAbstractItemView::verticalScrollbarAction(action);
   }
+#endif  // QT_CONFIG(itemviews)
 
+#if QT_CONFIG(itemviews)
   //  void QAbstractItemView::horizontalScrollbarAction(int action)
   void horizontalScrollbarAction(int action) override {
     if (taken[22]) {
@@ -771,7 +1142,9 @@ public:
     }
     QAbstractItemView::horizontalScrollbarAction(action);
   }
+#endif  // QT_CONFIG(itemviews)
 
+#if QT_CONFIG(itemviews)
   //  void QAbstractItemView::verticalScrollbarValueChanged(int value)
   void verticalScrollbarValueChanged(int value) override {
     if (taken[23]) {
@@ -782,7 +1155,9 @@ public:
     }
     QAbstractItemView::verticalScrollbarValueChanged(value);
   }
+#endif  // QT_CONFIG(itemviews)
 
+#if QT_CONFIG(itemviews)
   //  void QAbstractItemView::horizontalScrollbarValueChanged(int value)
   void horizontalScrollbarValueChanged(int value) override {
     if (taken[24]) {
@@ -793,7 +1168,9 @@ public:
     }
     QAbstractItemView::horizontalScrollbarValueChanged(value);
   }
+#endif  // QT_CONFIG(itemviews)
 
+#if QT_CONFIG(itemviews)
   //  void QAbstractItemView::closeEditor(QWidget *editor,
   //      QAbstractItemDelegate::EndEditHint hint)
   void closeEditor(
@@ -807,7 +1184,9 @@ public:
     }
     QAbstractItemView::closeEditor(editor, hint);
   }
+#endif  // QT_CONFIG(itemviews)
 
+#if QT_CONFIG(itemviews)
   //  void QAbstractItemView::commitData(QWidget *editor)
   void commitData(QWidget *editor) override {
     if (taken[26]) {
@@ -818,7 +1197,9 @@ public:
     }
     QAbstractItemView::commitData(editor);
   }
+#endif  // QT_CONFIG(itemviews)
 
+#if QT_CONFIG(itemviews)
   //  void QAbstractItemView::editorDestroyed(QObject *editor)
   void editorDestroyed(QObject *editor) override {
     if (taken[27]) {
@@ -829,7 +1210,9 @@ public:
     }
     QAbstractItemView::editorDestroyed(editor);
   }
+#endif  // QT_CONFIG(itemviews)
 
+#if QT_CONFIG(itemviews)
   //  int QAbstractItemView::horizontalOffset() const
   int horizontalOffset() const override {
     if (taken[28]) {
@@ -840,7 +1223,9 @@ public:
     }
     return {};
   }
+#endif  // QT_CONFIG(itemviews)
 
+#if QT_CONFIG(itemviews)
   //  int QAbstractItemView::verticalOffset() const
   int verticalOffset() const override {
     if (taken[29]) {
@@ -851,7 +1236,9 @@ public:
     }
     return {};
   }
+#endif  // QT_CONFIG(itemviews)
 
+#if QT_CONFIG(itemviews)
   //  bool QAbstractItemView::isIndexHidden(const QModelIndex &index) const
   bool isIndexHidden(const QModelIndex &index) const override {
     if (taken[30]) {
@@ -862,7 +1249,9 @@ public:
     }
     return {};
   }
+#endif  // QT_CONFIG(itemviews)
 
+#if QT_CONFIG(itemviews)
   //  void QAbstractItemView::setSelection(const QRect &rect,
   //      QItemSelectionModel::SelectionFlags command)
   void setSelection(
@@ -875,7 +1264,9 @@ public:
       if (handled) return;
     }
   }
+#endif  // QT_CONFIG(itemviews)
 
+#if QT_CONFIG(itemviews)
   //  QRegion QAbstractItemView::visualRegionForSelection(const
   //      QItemSelection &selection) const
   QRegion visualRegionForSelection(
@@ -888,7 +1279,9 @@ public:
     }
     return {};
   }
+#endif  // QT_CONFIG(itemviews)
 
+#if QT_CONFIG(itemviews)
   //  bool QAbstractItemView::edit(const QModelIndex &index, EditTrigger
   //      trigger, QEvent *event)
   bool edit(
@@ -903,7 +1296,9 @@ public:
     }
     return QAbstractItemView::edit(index, trigger, event);
   }
+#endif  // QT_CONFIG(itemviews)
 
+#if QT_CONFIG(itemviews)
   //  QItemSelectionModel::SelectionFlags
   //      QAbstractItemView::selectionCommand(const QModelIndex &index,
   //      const QEvent *event) const
@@ -918,7 +1313,10 @@ public:
     }
     return QAbstractItemView::selectionCommand(index, event);
   }
+#endif  // QT_CONFIG(itemviews)
 
+#if QT_CONFIG(itemviews)
+#if QT_CONFIG(draganddrop)
   //  void QAbstractItemView::startDrag(Qt::DropActions supportedActions)
   void startDrag(Qt::DropActions supportedActions) override {
     if (taken[35]) {
@@ -929,7 +1327,10 @@ public:
     }
     QAbstractItemView::startDrag(supportedActions);
   }
+#endif  // QT_CONFIG(draganddrop)
+#endif  // QT_CONFIG(itemviews)
 
+#if QT_CONFIG(itemviews)
   //  void QAbstractItemView::initViewItemOption(QStyleOptionViewItem
   //      *option) const
   void initViewItemOption(QStyleOptionViewItem *option) const override {
@@ -941,7 +1342,9 @@ public:
     }
     QAbstractItemView::initViewItemOption(option);
   }
+#endif  // QT_CONFIG(itemviews)
 
+#if QT_CONFIG(itemviews)
   //  bool QAbstractItemView::focusNextPrevChild(bool next)
   bool focusNextPrevChild(bool next) override {
     if (taken[37]) {
@@ -952,7 +1355,10 @@ public:
     }
     return QAbstractItemView::focusNextPrevChild(next);
   }
+#endif  // QT_CONFIG(itemviews)
 
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(itemviews)
   //  bool QAbstractItemView::event(QEvent *event)
   bool event(QEvent *event) override {
     if (taken[38]) {
@@ -963,7 +1369,11 @@ public:
     }
     return QAbstractItemView::event(event);
   }
+#endif  // QT_CONFIG(itemviews)
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if QT_CONFIG(scrollarea)
+#if QT_CONFIG(itemviews)
   //  bool QAbstractItemView::viewportEvent(QEvent *event)
   bool viewportEvent(QEvent *event) override {
     if (taken[39]) {
@@ -974,7 +1384,10 @@ public:
     }
     return QAbstractItemView::viewportEvent(event);
   }
+#endif  // QT_CONFIG(itemviews)
+#endif  // QT_CONFIG(scrollarea)
 
+#if QT_CONFIG(itemviews)
   //  void QAbstractItemView::mousePressEvent(QMouseEvent *event)
   void mousePressEvent(QMouseEvent *event) override {
     if (taken[40]) {
@@ -985,7 +1398,9 @@ public:
     }
     QAbstractItemView::mousePressEvent(event);
   }
+#endif  // QT_CONFIG(itemviews)
 
+#if QT_CONFIG(itemviews)
   //  void QAbstractItemView::mouseMoveEvent(QMouseEvent *event)
   void mouseMoveEvent(QMouseEvent *event) override {
     if (taken[41]) {
@@ -996,7 +1411,9 @@ public:
     }
     QAbstractItemView::mouseMoveEvent(event);
   }
+#endif  // QT_CONFIG(itemviews)
 
+#if QT_CONFIG(itemviews)
   //  void QAbstractItemView::mouseReleaseEvent(QMouseEvent *event)
   void mouseReleaseEvent(QMouseEvent *event) override {
     if (taken[42]) {
@@ -1007,7 +1424,9 @@ public:
     }
     QAbstractItemView::mouseReleaseEvent(event);
   }
+#endif  // QT_CONFIG(itemviews)
 
+#if QT_CONFIG(itemviews)
   //  void QAbstractItemView::mouseDoubleClickEvent(QMouseEvent *event)
   void mouseDoubleClickEvent(QMouseEvent *event) override {
     if (taken[43]) {
@@ -1018,7 +1437,10 @@ public:
     }
     QAbstractItemView::mouseDoubleClickEvent(event);
   }
+#endif  // QT_CONFIG(itemviews)
 
+#if QT_CONFIG(draganddrop)
+#if QT_CONFIG(itemviews)
   //  void QAbstractItemView::dragEnterEvent(QDragEnterEvent *event)
   void dragEnterEvent(QDragEnterEvent *event) override {
     if (taken[44]) {
@@ -1029,7 +1451,11 @@ public:
     }
     QAbstractItemView::dragEnterEvent(event);
   }
+#endif  // QT_CONFIG(itemviews)
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
+#if QT_CONFIG(itemviews)
   //  void QAbstractItemView::dragMoveEvent(QDragMoveEvent *event)
   void dragMoveEvent(QDragMoveEvent *event) override {
     if (taken[45]) {
@@ -1040,7 +1466,11 @@ public:
     }
     QAbstractItemView::dragMoveEvent(event);
   }
+#endif  // QT_CONFIG(itemviews)
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
+#if QT_CONFIG(itemviews)
   //  void QAbstractItemView::dragLeaveEvent(QDragLeaveEvent *event)
   void dragLeaveEvent(QDragLeaveEvent *event) override {
     if (taken[46]) {
@@ -1051,7 +1481,11 @@ public:
     }
     QAbstractItemView::dragLeaveEvent(event);
   }
+#endif  // QT_CONFIG(itemviews)
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
+#if QT_CONFIG(itemviews)
   //  void QAbstractItemView::dropEvent(QDropEvent *event)
   void dropEvent(QDropEvent *event) override {
     if (taken[47]) {
@@ -1062,7 +1496,10 @@ public:
     }
     QAbstractItemView::dropEvent(event);
   }
+#endif  // QT_CONFIG(itemviews)
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(itemviews)
   //  void QAbstractItemView::focusInEvent(QFocusEvent *event)
   void focusInEvent(QFocusEvent *event) override {
     if (taken[48]) {
@@ -1073,7 +1510,9 @@ public:
     }
     QAbstractItemView::focusInEvent(event);
   }
+#endif  // QT_CONFIG(itemviews)
 
+#if QT_CONFIG(itemviews)
   //  void QAbstractItemView::focusOutEvent(QFocusEvent *event)
   void focusOutEvent(QFocusEvent *event) override {
     if (taken[49]) {
@@ -1084,7 +1523,9 @@ public:
     }
     QAbstractItemView::focusOutEvent(event);
   }
+#endif  // QT_CONFIG(itemviews)
 
+#if QT_CONFIG(itemviews)
   //  void QAbstractItemView::keyPressEvent(QKeyEvent *event)
   void keyPressEvent(QKeyEvent *event) override {
     if (taken[50]) {
@@ -1095,7 +1536,9 @@ public:
     }
     QAbstractItemView::keyPressEvent(event);
   }
+#endif  // QT_CONFIG(itemviews)
 
+#if QT_CONFIG(itemviews)
   //  void QAbstractItemView::resizeEvent(QResizeEvent *event)
   void resizeEvent(QResizeEvent *event) override {
     if (taken[51]) {
@@ -1106,7 +1549,10 @@ public:
     }
     QAbstractItemView::resizeEvent(event);
   }
+#endif  // QT_CONFIG(itemviews)
 
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(itemviews)
   //  void QAbstractItemView::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
     if (taken[52]) {
@@ -1117,7 +1563,10 @@ public:
     }
     QAbstractItemView::timerEvent(event);
   }
+#endif  // QT_CONFIG(itemviews)
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if QT_CONFIG(itemviews)
   //  void QAbstractItemView::inputMethodEvent(QInputMethodEvent *event)
   void inputMethodEvent(QInputMethodEvent *event) override {
     if (taken[53]) {
@@ -1128,7 +1577,10 @@ public:
     }
     QAbstractItemView::inputMethodEvent(event);
   }
+#endif  // QT_CONFIG(itemviews)
 
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(itemviews)
   //  bool QAbstractItemView::eventFilter(QObject *object, QEvent *event)
   bool eventFilter(QObject *object, QEvent *event) override {
     if (taken[54]) {
@@ -1139,7 +1591,11 @@ public:
     }
     return QAbstractItemView::eventFilter(object, event);
   }
+#endif  // QT_CONFIG(itemviews)
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if QT_CONFIG(scrollarea)
+#if QT_CONFIG(itemviews)
   //  QSize QAbstractItemView::viewportSizeHint() const
   QSize viewportSizeHint() const override {
     if (taken[55]) {
@@ -1150,7 +1606,10 @@ public:
     }
     return QAbstractItemView::viewportSizeHint();
   }
+#endif  // QT_CONFIG(itemviews)
+#endif  // QT_CONFIG(scrollarea)
 
+#if QT_CONFIG(scrollarea)
   //  QSize QAbstractScrollArea::minimumSizeHint() const
   QSize minimumSizeHint() const override {
     if (taken[56]) {
@@ -1161,7 +1620,9 @@ public:
     }
     return QAbstractScrollArea::minimumSizeHint();
   }
+#endif  // QT_CONFIG(scrollarea)
 
+#if QT_CONFIG(scrollarea)
   //  QSize QAbstractScrollArea::sizeHint() const
   QSize sizeHint() const override {
     if (taken[57]) {
@@ -1172,7 +1633,9 @@ public:
     }
     return QAbstractScrollArea::sizeHint();
   }
+#endif  // QT_CONFIG(scrollarea)
 
+#if QT_CONFIG(scrollarea)
   //  void QAbstractScrollArea::setupViewport(QWidget *viewport)
   void setupViewport(QWidget *viewport) override {
     if (taken[58]) {
@@ -1183,7 +1646,9 @@ public:
     }
     QAbstractScrollArea::setupViewport(viewport);
   }
+#endif  // QT_CONFIG(scrollarea)
 
+#if QT_CONFIG(scrollarea)
   //  void QAbstractScrollArea::paintEvent(QPaintEvent *a0)
   void paintEvent(QPaintEvent *a0) override {
     if (taken[59]) {
@@ -1194,7 +1659,10 @@ public:
     }
     QAbstractScrollArea::paintEvent(a0);
   }
+#endif  // QT_CONFIG(scrollarea)
 
+#if QT_CONFIG(wheelevent)
+#if QT_CONFIG(scrollarea)
   //  void QAbstractScrollArea::wheelEvent(QWheelEvent *a0)
   void wheelEvent(QWheelEvent *a0) override {
     if (taken[60]) {
@@ -1205,7 +1673,11 @@ public:
     }
     QAbstractScrollArea::wheelEvent(a0);
   }
+#endif  // QT_CONFIG(scrollarea)
+#endif  // QT_CONFIG(wheelevent)
 
+#if !defined(QT_NO_CONTEXTMENU)
+#if QT_CONFIG(scrollarea)
   //  void QAbstractScrollArea::contextMenuEvent(QContextMenuEvent *a0)
   void contextMenuEvent(QContextMenuEvent *a0) override {
     if (taken[61]) {
@@ -1216,7 +1688,10 @@ public:
     }
     QAbstractScrollArea::contextMenuEvent(a0);
   }
+#endif  // QT_CONFIG(scrollarea)
+#endif  // !defined(QT_NO_CONTEXTMENU)
 
+#if QT_CONFIG(scrollarea)
   //  void QAbstractScrollArea::scrollContentsBy(int dx, int dy)
   void scrollContentsBy(int dx, int dy) override {
     if (taken[62]) {
@@ -1227,6 +1702,7 @@ public:
     }
     QAbstractScrollArea::scrollContentsBy(dx, dy);
   }
+#endif  // QT_CONFIG(scrollarea)
 
   //  void QFrame::changeEvent(QEvent *a0)
   void changeEvent(QEvent *a0) override {
@@ -1360,6 +1836,7 @@ public:
     QWidget::closeEvent(event);
   }
 
+#if QT_CONFIG(tabletevent)
   //  void QWidget::tabletEvent(QTabletEvent *event)
   void tabletEvent(QTabletEvent *event) override {
     if (taken[75]) {
@@ -1370,7 +1847,9 @@ public:
     }
     QWidget::tabletEvent(event);
   }
+#endif  // QT_CONFIG(tabletevent)
 
+#if !defined(QT_NO_ACTION)
   //  void QWidget::actionEvent(QActionEvent *event)
   void actionEvent(QActionEvent *event) override {
     if (taken[76]) {
@@ -1381,6 +1860,7 @@ public:
     }
     QWidget::actionEvent(event);
   }
+#endif  // !defined(QT_NO_ACTION)
 
   //  void QWidget::showEvent(QShowEvent *event)
   void showEvent(QShowEvent *event) override {
@@ -1448,6 +1928,7 @@ public:
     return QWidget::sharedPainter();
   }
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
     if (taken[83]) {
@@ -1458,7 +1939,9 @@ public:
     }
     QObject::childEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
     if (taken[84]) {
@@ -1469,7 +1952,9 @@ public:
     }
     QObject::customEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
     if (taken[85]) {
@@ -1480,7 +1965,9 @@ public:
     }
     QObject::connectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
     if (taken[86]) {
@@ -1491,6 +1978,7 @@ public:
     }
     QObject::disconnectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 };
 
 //  const QMetaObject *QAbstractItemView::metaObject() const
@@ -1713,6 +2201,7 @@ bool ritual_ZNK17QAbstractItemView16tabKeyNavigationEv(
   return self->tabKeyNavigation();
 }
 
+#if QT_CONFIG(draganddrop)
 //  void QAbstractItemView::setDropIndicatorShown(bool enable)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QAbstractItemView21setDropIndicatorShownEb(
@@ -1720,14 +2209,18 @@ void ritual_ZN17QAbstractItemView21setDropIndicatorShownEb(
     bool enable) {
   self->setDropIndicatorShown(enable);
 }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
 //  bool QAbstractItemView::showDropIndicator() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK17QAbstractItemView17showDropIndicatorEv(
     const QAbstractItemView *self) {
   return self->showDropIndicator();
 }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
 //  void QAbstractItemView::setDragEnabled(bool enable)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QAbstractItemView14setDragEnabledEb(
@@ -1735,14 +2228,18 @@ void ritual_ZN17QAbstractItemView14setDragEnabledEb(
     bool enable) {
   self->setDragEnabled(enable);
 }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
 //  bool QAbstractItemView::dragEnabled() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK17QAbstractItemView11dragEnabledEv(
     const QAbstractItemView *self) {
   return self->dragEnabled();
 }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
 //  void QAbstractItemView::setDragDropOverwriteMode(bool overwrite)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QAbstractItemView24setDragDropOverwriteModeEb(
@@ -1750,14 +2247,18 @@ void ritual_ZN17QAbstractItemView24setDragDropOverwriteModeEb(
     bool overwrite) {
   self->setDragDropOverwriteMode(overwrite);
 }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
 //  bool QAbstractItemView::dragDropOverwriteMode() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK17QAbstractItemView21dragDropOverwriteModeEv(
     const QAbstractItemView *self) {
   return self->dragDropOverwriteMode();
 }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
 //  void QAbstractItemView::setDragDropMode(DragDropMode behavior)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QAbstractItemView15setDragDropModeENS_12DragDropModeE(
@@ -1765,14 +2266,18 @@ void ritual_ZN17QAbstractItemView15setDragDropModeENS_12DragDropModeE(
     QAbstractItemView::DragDropMode behavior) {
   self->setDragDropMode(behavior);
 }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
 //  DragDropMode QAbstractItemView::dragDropMode() const
 extern "C" Q_DECL_EXPORT
 QAbstractItemView::DragDropMode ritual_ZNK17QAbstractItemView12dragDropModeEv(
     const QAbstractItemView *self) {
   return self->dragDropMode();
 }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
 //  void QAbstractItemView::setDefaultDropAction(Qt::DropAction dropAction)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QAbstractItemView20setDefaultDropActionEN2Qt10DropActionE(
@@ -1780,13 +2285,16 @@ void ritual_ZN17QAbstractItemView20setDefaultDropActionEN2Qt10DropActionE(
     Qt::DropAction dropAction) {
   self->setDefaultDropAction(dropAction);
 }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
 //  Qt::DropAction QAbstractItemView::defaultDropAction() const
 extern "C" Q_DECL_EXPORT
 Qt::DropAction ritual_ZNK17QAbstractItemView17defaultDropActionEv(
     const QAbstractItemView *self) {
   return self->defaultDropAction();
 }
+#endif  // QT_CONFIG(draganddrop)
 
 //  void QAbstractItemView::setAlternatingRowColors(bool enable)
 extern "C" Q_DECL_EXPORT
@@ -2003,6 +2511,7 @@ QAbstractItemDelegate *ritual_ZNK17QAbstractItemView21itemDelegateForColumnEi(
   return self->itemDelegateForColumn(column);
 }
 
+#if QT_DEPRECATED_SINCE(6, 0)
 //  QAbstractItemDelegate *QAbstractItemView::itemDelegate(const QModelIndex
 //      &index) const
 extern "C" Q_DECL_EXPORT
@@ -2011,6 +2520,7 @@ QAbstractItemDelegate *ritual_ZNK17QAbstractItemView12itemDelegateERK11QModelInd
     const QModelIndex *index) {
   return self->itemDelegate(*index);
 }
+#endif  // QT_DEPRECATED_SINCE(6, 0)
 
 //  QAbstractItemDelegate *QAbstractItemView::itemDelegateForIndex(const
 //      QModelIndex &index) const
@@ -2306,6 +2816,7 @@ int ritual_ZNK17QAbstractItemView16selectionCommandERK11QModelIndexPK6QEvent(
   return static_cast<int>(self->selectionCommand(*index, event).toInt());
 }
 
+#if QT_CONFIG(draganddrop)
 //  void QAbstractItemView::startDrag(Qt::DropActions supportedActions)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QAbstractItemView9startDragE6QFlagsIN2Qt10DropActionEE(
@@ -2313,6 +2824,7 @@ void ritual_ZN17QAbstractItemView9startDragE6QFlagsIN2Qt10DropActionEE(
     int supportedActions) {
   self->startDrag(QFlags<Qt::DropAction>::fromInt(supportedActions));
 }
+#endif  // QT_CONFIG(draganddrop)
 
 //  void QAbstractItemView::initViewItemOption(QStyleOptionViewItem *option)
 //      const
@@ -2452,6 +2964,7 @@ void ritual_ZN17QAbstractItemView21mouseDoubleClickEventEP11QMouseEvent(
   self->mouseDoubleClickEvent(event);
 }
 
+#if QT_CONFIG(draganddrop)
 //  void QAbstractItemView::dragEnterEvent(QDragEnterEvent *event)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QAbstractItemView14dragEnterEventEP15QDragEnterEvent(
@@ -2459,7 +2972,9 @@ void ritual_ZN17QAbstractItemView14dragEnterEventEP15QDragEnterEvent(
     QDragEnterEvent *event) {
   self->dragEnterEvent(event);
 }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
 //  void QAbstractItemView::dragMoveEvent(QDragMoveEvent *event)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QAbstractItemView13dragMoveEventEP14QDragMoveEvent(
@@ -2467,7 +2982,9 @@ void ritual_ZN17QAbstractItemView13dragMoveEventEP14QDragMoveEvent(
     QDragMoveEvent *event) {
   self->dragMoveEvent(event);
 }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
 //  void QAbstractItemView::dragLeaveEvent(QDragLeaveEvent *event)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QAbstractItemView14dragLeaveEventEP15QDragLeaveEvent(
@@ -2475,7 +2992,9 @@ void ritual_ZN17QAbstractItemView14dragLeaveEventEP15QDragLeaveEvent(
     QDragLeaveEvent *event) {
   self->dragLeaveEvent(event);
 }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
 //  void QAbstractItemView::dropEvent(QDropEvent *event)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QAbstractItemView9dropEventEP10QDropEvent(
@@ -2483,6 +3002,7 @@ void ritual_ZN17QAbstractItemView9dropEventEP10QDropEvent(
     QDropEvent *event) {
   self->dropEvent(event);
 }
+#endif  // QT_CONFIG(draganddrop)
 
 //  void QAbstractItemView::focusInEvent(QFocusEvent *event)
 extern "C" Q_DECL_EXPORT
@@ -2541,18 +3061,34 @@ bool ritual_ZN17QAbstractItemView11eventFilterEP7QObjectP6QEvent(
   return self->eventFilter(object, event);
 }
 
+#if QT_CONFIG(draganddrop)
 //  DropIndicatorPosition QAbstractItemView::dropIndicatorPosition() const
 extern "C" Q_DECL_EXPORT
 QAbstractItemView::DropIndicatorPosition ritual_ZNK17QAbstractItemView21dropIndicatorPositionEv(
     const QAbstractItemView *self) {
   return self->dropIndicatorPosition();
 }
+#endif  // QT_CONFIG(draganddrop)
 
 //  QSize QAbstractItemView::viewportSizeHint() const
 extern "C" Q_DECL_EXPORT
 QSize *ritual_ZNK17QAbstractItemView16viewportSizeHintEv(
     const QAbstractItemView *self) {
   return new QSize(self->viewportSizeHint());
+}
+
+//  QAbstractItemViewPrivate *QAbstractItemView::d_func()
+extern "C" Q_DECL_EXPORT
+QAbstractItemViewPrivate *ritual_ZN17QAbstractItemView6d_funcEv(
+    QAbstractItemView *self) {
+  return self->d_func();
+}
+
+//  const QAbstractItemViewPrivate *QAbstractItemView::d_func() const
+extern "C" Q_DECL_EXPORT
+const QAbstractItemViewPrivate *ritual_ZNK17QAbstractItemView6d_funcEv(
+    const QAbstractItemView *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQAbstractItemView, for the function
@@ -2818,6 +3354,7 @@ int ritual_own_ZNK17QAbstractItemView16selectionCommandERK11QModelIndexPK6QEvent
           event).toInt());
 }
 
+#if QT_CONFIG(draganddrop)
 //  void QAbstractItemView::startDrag(Qt::DropActions supportedActions)
 extern "C" Q_DECL_EXPORT
 void ritual_own_ZN17QAbstractItemView9startDragE6QFlagsIN2Qt10DropActionEE(
@@ -2826,6 +3363,7 @@ void ritual_own_ZN17QAbstractItemView9startDragE6QFlagsIN2Qt10DropActionEE(
   static_cast<OwnQAbstractItemView *>(self)->OwnQAbstractItemView::startDrag(
       QFlags<Qt::DropAction>::fromInt(supportedActions));
 }
+#endif  // QT_CONFIG(draganddrop)
 
 //  void QAbstractItemView::initViewItemOption(QStyleOptionViewItem *option)
 //      const
@@ -2900,6 +3438,7 @@ void ritual_own_ZN17QAbstractItemView21mouseDoubleClickEventEP11QMouseEvent(
       event);
 }
 
+#if QT_CONFIG(draganddrop)
 //  void QAbstractItemView::dragEnterEvent(QDragEnterEvent *event)
 extern "C" Q_DECL_EXPORT
 void ritual_own_ZN17QAbstractItemView14dragEnterEventEP15QDragEnterEvent(
@@ -2908,7 +3447,9 @@ void ritual_own_ZN17QAbstractItemView14dragEnterEventEP15QDragEnterEvent(
   static_cast<OwnQAbstractItemView *>(self)->OwnQAbstractItemView::dragEnterEvent(
       event);
 }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
 //  void QAbstractItemView::dragMoveEvent(QDragMoveEvent *event)
 extern "C" Q_DECL_EXPORT
 void ritual_own_ZN17QAbstractItemView13dragMoveEventEP14QDragMoveEvent(
@@ -2917,7 +3458,9 @@ void ritual_own_ZN17QAbstractItemView13dragMoveEventEP14QDragMoveEvent(
   static_cast<OwnQAbstractItemView *>(self)->OwnQAbstractItemView::dragMoveEvent(
       event);
 }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
 //  void QAbstractItemView::dragLeaveEvent(QDragLeaveEvent *event)
 extern "C" Q_DECL_EXPORT
 void ritual_own_ZN17QAbstractItemView14dragLeaveEventEP15QDragLeaveEvent(
@@ -2926,7 +3469,9 @@ void ritual_own_ZN17QAbstractItemView14dragLeaveEventEP15QDragLeaveEvent(
   static_cast<OwnQAbstractItemView *>(self)->OwnQAbstractItemView::dragLeaveEvent(
       event);
 }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
 //  void QAbstractItemView::dropEvent(QDropEvent *event)
 extern "C" Q_DECL_EXPORT
 void ritual_own_ZN17QAbstractItemView9dropEventEP10QDropEvent(
@@ -2935,6 +3480,7 @@ void ritual_own_ZN17QAbstractItemView9dropEventEP10QDropEvent(
   static_cast<OwnQAbstractItemView *>(self)->OwnQAbstractItemView::dropEvent(
       event);
 }
+#endif  // QT_CONFIG(draganddrop)
 
 //  void QAbstractItemView::focusInEvent(QFocusEvent *event)
 extern "C" Q_DECL_EXPORT
@@ -3008,3 +3554,5 @@ QSize *ritual_own_ZNK17QAbstractItemView16viewportSizeHintEv(
   return new QSize(
       static_cast<const OwnQAbstractItemView *>(self)->OwnQAbstractItemView::viewportSizeHint());
 }
+
+#endif  // QT_CONFIG(itemviews)

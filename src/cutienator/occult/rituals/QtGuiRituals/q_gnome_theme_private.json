@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qgnometheme_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QGnomeThemePrivateC1Ev": ["address"],
+    "ritual_ZN18QGnomeThemePrivateD1Ev": ["nothing", "address"],
+    "ritual_ZNK18QGnomeThemePrivate14configureFontsERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK18QGnomeThemePrivate11colorSchemeEv": ["int", "address"],
+    "ritual_ZNK18QGnomeThemePrivate23hasRequestedColorSchemeEv": [
+      "bool", "address"
+    ]
+  }
+}

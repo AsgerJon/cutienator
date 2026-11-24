@@ -36,6 +36,7 @@ QFont *ritual_ZNK15QTextCharFormat4fontEv(const QTextCharFormat *self) {
   return new QFont(self->font());
 }
 
+#if QT_DEPRECATED_SINCE(6, 1)
 //  void QTextCharFormat::setFontFamily(const QString &family)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QTextCharFormat13setFontFamilyERK7QString(
@@ -43,13 +44,16 @@ void ritual_ZN15QTextCharFormat13setFontFamilyERK7QString(
     const QString *family) {
   self->setFontFamily(*family);
 }
+#endif  // QT_DEPRECATED_SINCE(6, 1)
 
+#if QT_DEPRECATED_SINCE(6, 1)
 //  QString QTextCharFormat::fontFamily() const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK15QTextCharFormat10fontFamilyEv(
     const QTextCharFormat *self) {
   return new QString(self->fontFamily());
 }
+#endif  // QT_DEPRECATED_SINCE(6, 1)
 
 //  void QTextCharFormat::setFontFamilies(const QStringList &families)
 extern "C" Q_DECL_EXPORT
@@ -59,12 +63,14 @@ void ritual_ZN15QTextCharFormat15setFontFamiliesERK5QListI7QStringE(
   self->setFontFamilies(*families);
 }
 
+#if QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
 //  QVariant QTextCharFormat::fontFamilies() const
 extern "C" Q_DECL_EXPORT
 QVariant *ritual_ZNK15QTextCharFormat12fontFamiliesEv(
     const QTextCharFormat *self) {
   return new QVariant(self->fontFamilies());
 }
+#endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
 
 //  void QTextCharFormat::setFontStyleName(const QString &styleName)
 extern "C" Q_DECL_EXPORT
@@ -74,12 +80,14 @@ void ritual_ZN15QTextCharFormat16setFontStyleNameERK7QString(
   self->setFontStyleName(*styleName);
 }
 
+#if QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
 //  QVariant QTextCharFormat::fontStyleName() const
 extern "C" Q_DECL_EXPORT
 QVariant *ritual_ZNK15QTextCharFormat13fontStyleNameEv(
     const QTextCharFormat *self) {
   return new QVariant(self->fontStyleName());
 }
+#endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
 
 //  void QTextCharFormat::setFontPointSize(qreal size)
 extern "C" Q_DECL_EXPORT

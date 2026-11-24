@@ -1,0 +1,13 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qpen_p.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZN11QPenPrivateC1ERK6QBrushdN2Qt8PenStyleENS3_11PenCapStyleENS3_12PenJoinStyleE": [
+      "address", "address", "double", "int", "int", "int"
+    ],
+    "ritual_ZN11QPenPrivateD1Ev": ["nothing", "address"]
+  }
+}

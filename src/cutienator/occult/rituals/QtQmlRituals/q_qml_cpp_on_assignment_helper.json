@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmlcpponassignment_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN25QQmlCppOnAssignmentHelper3setEP28QQmlPropertyValueInterceptorRK12QQmlProperty": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QQmlCppOnAssignmentHelper3setEP23QQmlPropertyValueSourceRK12QQmlProperty": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QQmlCppOnAssignmentHelperD1Ev": ["nothing", "address"]
+  }
+}

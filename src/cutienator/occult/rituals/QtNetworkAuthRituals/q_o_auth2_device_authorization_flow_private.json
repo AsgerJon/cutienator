@@ -1,0 +1,48 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtNetwo",
+    "rkAuth/6.12.0/QtNetworkAuth/private/qoauth2deviceauthorizationflow",
+    "_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN37QOAuth2DeviceAuthorizationFlowPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK37QOAuth2DeviceAuthorizationFlowPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN37QOAuth2DeviceAuthorizationFlowPrivateD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN37QOAuth2DeviceAuthorizationFlowPrivate22tokenAcquisitionFailedEN14QAbstractOAuth5ErrorERK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZN37QOAuth2DeviceAuthorizationFlowPrivate11setUserCodeERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN37QOAuth2DeviceAuthorizationFlowPrivate18setVerificationUrlERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN37QOAuth2DeviceAuthorizationFlowPrivate26setVerificationUrlCompleteERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN37QOAuth2DeviceAuthorizationFlowPrivate21setUserCodeExpirationERK9QDateTime": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN37QOAuth2DeviceAuthorizationFlowPrivate16stopTokenPollingEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK37QOAuth2DeviceAuthorizationFlowPrivate25isNextPollAfterExpirationEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN37QOAuth2DeviceAuthorizationFlowPrivate22resetCurrentTokenReplyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN37QOAuth2DeviceAuthorizationFlowPrivate30resetCurrentAuthorizationReplyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN37QOAuth2DeviceAuthorizationFlowPrivate7networkEv": [
+      "address", "address"
+    ]
+  }
+}

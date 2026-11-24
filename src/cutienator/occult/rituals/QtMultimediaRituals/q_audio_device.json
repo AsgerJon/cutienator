@@ -1,0 +1,39 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtMultimedia/qaudiodevice.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN12QAudioDeviceC1Ev": ["address"],
+    "ritual_ZN12QAudioDeviceC1ERKS_": ["address", "address"],
+    "ritual_ZN12QAudioDeviceD1Ev": ["nothing", "address"],
+    "ritual_ZNK12QAudioDeviceeqERKS_": ["bool", "address", "address"],
+    "ritual_ZNK12QAudioDeviceneERKS_": ["bool", "address", "address"],
+    "ritual_ZNK12QAudioDevice6isNullEv": ["bool", "address"],
+    "ritual_ZNK12QAudioDevice2idEv": ["address", "address"],
+    "ritual_ZNK12QAudioDevice11descriptionEv": ["text", "address"],
+    "ritual_ZNK12QAudioDevice9isDefaultEv": ["bool", "address"],
+    "ritual_ZNK12QAudioDevice4modeEv": ["int", "address"],
+    "ritual_ZNK12QAudioDevice17isFormatSupportedERK12QAudioFormat": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK12QAudioDevice15preferredFormatEv": ["address", "address"],
+    "ritual_ZNK12QAudioDevice17minimumSampleRateEv": ["int", "address"],
+    "ritual_ZNK12QAudioDevice17maximumSampleRateEv": ["int", "address"],
+    "ritual_ZNK12QAudioDevice19minimumChannelCountEv": ["int", "address"],
+    "ritual_ZNK12QAudioDevice19maximumChannelCountEv": ["int", "address"],
+    "ritual_ZNK12QAudioDevice20channelConfigurationEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZNK12QAudioDevice6handleEv": ["address", "address"],
+    "ritual_ZN12QAudioDeviceC1EP19QAudioDevicePrivate": [
+      "address", "address"
+    ],
+    "ritual_list_make_QAudioDevice": ["address"],
+    "ritual_list_add_QAudioDevice": ["nothing", "address", "address"],
+    "ritual_list_size_QAudioDevice": ["long long", "address"],
+    "ritual_list_at_QAudioDevice": ["address", "address", "long long"],
+    "ritual_list_drop_QAudioDevice": ["nothing", "address"]
+  }
+}

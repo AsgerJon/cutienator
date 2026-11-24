@@ -1,0 +1,44 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3D/6.12.0/QtQuick3D/private/qquick3dinstancing_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK22QQuick3DFileInstancing10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QQuick3DFileInstancing2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN22QQuick3DFileInstancingC1EP14QQuick3DObject": [
+      "address", "address"
+    ],
+    "ritual_ZN22QQuick3DFileInstancingD1Ev": ["nothing", "address"],
+    "ritual_ZNK22QQuick3DFileInstancing6sourceEv": ["address", "address"],
+    "ritual_ZN22QQuick3DFileInstancing9setSourceERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQuick3DFileInstancing18loadFromBinaryFileERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN22QQuick3DFileInstancing15loadFromXmlFileERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN22QQuick3DFileInstancing17writeToBinaryFileEP9QIODevice": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK22QQuick3DFileInstancing13instanceCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZN22QQuick3DFileInstancing17getInstanceBufferEPi": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN22QQuick3DFileInstancing12loadFromFileERK4QUrl": [
+      "bool", "address", "address"
+    ],
+    "ritual_take_QQuick3DFileInstancing": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

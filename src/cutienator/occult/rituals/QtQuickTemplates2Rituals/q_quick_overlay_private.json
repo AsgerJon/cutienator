@@ -1,0 +1,59 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquickoverlay_p_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QQuickOverlayPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK20QQuickOverlayPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN20QQuickOverlayPrivate3getEP13QQuickOverlay": [
+      "address", "address"
+    ],
+    "ritual_ZN20QQuickOverlayPrivate24eatEventIfBlockedByModalEP13QPointerEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN20QQuickOverlayPrivate9startDragEP6QEventRK7QPointF": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN20QQuickOverlayPrivate10handleMoveEP10QQuickItemP6QEventP11QQuickPopup": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZN20QQuickOverlayPrivate16handleHoverEventEP10QQuickItemP11QHoverEventP11QQuickPopup": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZN20QQuickOverlayPrivate8addPopupEP11QQuickPopup": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickOverlayPrivate11removePopupEP11QQuickPopup": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickOverlayPrivate20setMouseGrabberPopupEP11QQuickPopup": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QQuickOverlayPrivate19stackingOrderPopupsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QQuickOverlayPrivate20stackingOrderDrawersEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QQuickOverlayPrivate19itemGeometryChangedEP10QQuickItem20QQuickGeometryChangeRK6QRectF": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN20QQuickOverlayPrivate19itemRotationChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickOverlayPrivate14updateGeometryEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QQuickOverlayPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN20QQuickOverlayPrivate19itemGeometryChangedEP10QQuickItem20QQuickGeometryChangeRK6QRectF": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN20QQuickOverlayPrivate19itemRotationChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ]
+  }
+}

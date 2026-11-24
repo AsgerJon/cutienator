@@ -1,0 +1,30 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtMultimedia/qcameradevice.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN13QCameraDeviceC1Ev": ["address"],
+    "ritual_ZN13QCameraDeviceC1ERKS_": ["address", "address"],
+    "ritual_ZN13QCameraDeviceD1Ev": ["nothing", "address"],
+    "ritual_ZNK13QCameraDeviceeqERKS_": ["bool", "address", "address"],
+    "ritual_ZNK13QCameraDeviceneERKS_": ["bool", "address", "address"],
+    "ritual_ZNK13QCameraDevice6isNullEv": ["bool", "address"],
+    "ritual_ZNK13QCameraDevice2idEv": ["address", "address"],
+    "ritual_ZNK13QCameraDevice11descriptionEv": ["text", "address"],
+    "ritual_ZNK13QCameraDevice9isDefaultEv": ["bool", "address"],
+    "ritual_ZNK13QCameraDevice8positionEv": ["int", "address"],
+    "ritual_ZNK13QCameraDevice16photoResolutionsEv": ["address", "address"],
+    "ritual_ZNK13QCameraDevice12videoFormatsEv": ["address", "address"],
+    "ritual_ZNK13QCameraDevice15correctionAngleEv": ["int", "address"],
+    "ritual_ZN13QCameraDeviceC1EP20QCameraDevicePrivate": [
+      "address", "address"
+    ],
+    "ritual_list_make_QCameraDevice": ["address"],
+    "ritual_list_add_QCameraDevice": ["nothing", "address", "address"],
+    "ritual_list_size_QCameraDevice": ["long long", "address"],
+    "ritual_list_at_QCameraDevice": ["address", "address", "long long"],
+    "ritual_list_drop_QCameraDevice": ["nothing", "address"]
+  }
+}

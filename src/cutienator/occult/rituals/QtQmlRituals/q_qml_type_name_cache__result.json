@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmltypenamecache_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN17QQmlTypeNameCache6ResultC1Ev": ["address"],
+    "ritual_ZN17QQmlTypeNameCache6ResultC1EPK13QQmlImportRef": [
+      "address", "address"
+    ],
+    "ritual_ZN17QQmlTypeNameCache6ResultC1ERK8QQmlType": [
+      "address", "address"
+    ],
+    "ritual_ZN17QQmlTypeNameCache6ResultC1Ei": ["address", "int"],
+    "ritual_ZNK17QQmlTypeNameCache6Result7isValidEv": ["bool", "address"],
+    "ritual_ZN17QQmlTypeNameCache6ResultD1Ev": ["nothing", "address"]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qpainter_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QPainterPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK15QPainterPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK15QPainterPrivate9fakeStateEv": ["address", "address"],
+    "ritual_ZN15QPainterPrivate20drawOpaqueBackgroundERK12QPainterPathNS_13DrawOperationE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN15QPainterPrivate12updateMatrixEv": ["nothing", "address"],
+    "ritual_ZN15QPainterPrivate15updateInvMatrixEv": ["nothing", "address"],
+    "ritual_ZN15QPainterPrivate3getEP8QPainter": ["address", "address"],
+    "ritual_ZNK15QPainterPrivate13viewTransformEv": ["address", "address"],
+    "ritual_ZNK15QPainterPrivate25effectiveDevicePixelRatioEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK15QPainterPrivate19hidpiScaleTransformEv": [
+      "address", "address"
+    ],
+    "ritual_ZN15QPainterPrivate8initFromEPK12QPaintDevice": [
+      "nothing", "address", "address"
+    ]
+  }
+}

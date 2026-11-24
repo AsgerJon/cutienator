@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Shapes/6.12.0/QtQuickShapes/private/qquickshapegenericrenderer_p.h",
+    ", Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK33QQuickShapeLinearGradientMaterial4typeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK33QQuickShapeLinearGradientMaterial7compareEPK11QSGMaterial": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK33QQuickShapeLinearGradientMaterial12createShaderEN20QSGRendererInterface10RenderModeE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK33QQuickShapeLinearGradientMaterial4nodeEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK33QQuickShapeLinearGradientMaterial4typeEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK33QQuickShapeLinearGradientMaterial7compareEPK11QSGMaterial": [
+      "int", "address", "address"
+    ]
+  }
+}

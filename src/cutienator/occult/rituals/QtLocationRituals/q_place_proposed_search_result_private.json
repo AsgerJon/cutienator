@@ -1,0 +1,30 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtLocat",
+    "ion/6.12.0/QtLocation/private/qplaceproposedsearchresult_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK33QPlaceProposedSearchResultPrivate7compareEPK25QPlaceSearchResultPrivate": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK33QPlaceProposedSearchResultPrivate5cloneEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK33QPlaceProposedSearchResultPrivate4typeEv": [
+      "int", "address"
+    ],
+    "ritual_ZN33QPlaceProposedSearchResultPrivateD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_take_QPlaceProposedSearchResultPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK33QPlaceProposedSearchResultPrivate7compareEPK25QPlaceSearchResultPrivate": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZNK33QPlaceProposedSearchResultPrivate4typeEv": [
+      "int", "address"
+    ]
+  }
+}

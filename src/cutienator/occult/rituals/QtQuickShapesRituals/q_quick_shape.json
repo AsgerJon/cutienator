@@ -1,0 +1,76 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuickShapes/6.12.0/QtQuickShapes/private/qquickshape_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK11QQuickShape10metaObjectEv": ["address", "address"],
+    "ritual_ZN11QQuickShape2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN11QQuickShapeC1EP10QQuickItem": ["address", "address"],
+    "ritual_ZN11QQuickShapeD1Ev": ["nothing", "address"],
+    "ritual_ZNK11QQuickShape12rendererTypeEv": ["int", "address"],
+    "ritual_ZNK11QQuickShape12asynchronousEv": ["bool", "address"],
+    "ritual_ZN11QQuickShape15setAsynchronousEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK11QQuickShape21preferredRendererTypeEv": ["int", "address"],
+    "ritual_ZN11QQuickShape24setPreferredRendererTypeENS_12RendererTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11QQuickShape12boundingRectEv": ["address", "address"],
+    "ritual_ZNK11QQuickShape23vendorExtensionsEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN11QQuickShape26setVendorExtensionsEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK11QQuickShape6statusEv": ["int", "address"],
+    "ritual_ZNK11QQuickShape12containsModeEv": ["int", "address"],
+    "ritual_ZN11QQuickShape15setContainsModeENS_12ContainsModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11QQuickShape8containsERK7QPointF": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK11QQuickShape8fillModeEv": ["int", "address"],
+    "ritual_ZN11QQuickShape11setFillModeENS_8FillModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11QQuickShape19horizontalAlignmentEv": ["int", "address"],
+    "ritual_ZN11QQuickShape22setHorizontalAlignmentENS_10HAlignmentE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11QQuickShape17verticalAlignmentEv": ["int", "address"],
+    "ritual_ZN11QQuickShape20setVerticalAlignmentENS_10VAlignmentE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN11QQuickShape15updatePaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN11QQuickShape12updatePolishEv": ["nothing", "address"],
+    "ritual_ZN11QQuickShape10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN11QQuickShape17componentCompleteEv": ["nothing", "address"],
+    "ritual_ZN11QQuickShape10classBeginEv": ["nothing", "address"],
+    "ritual_ZN11QQuickShape6d_funcEv": ["address", "address"],
+    "ritual_ZNK11QQuickShape6d_funcEv": ["address", "address"],
+    "ritual_take_QQuickShape": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK11QQuickShape12boundingRectEv": ["address", "address"],
+    "ritual_own_ZNK11QQuickShape8containsERK7QPointF": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN11QQuickShape15updatePaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN11QQuickShape12updatePolishEv": ["nothing", "address"],
+    "ritual_own_ZN11QQuickShape10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZN11QQuickShape17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN11QQuickShape10classBeginEv": ["nothing", "address"]
+  }
+}

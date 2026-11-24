@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGui/qopenglcontext.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
+#if !defined(QT_NO_OPENGL)
 #include <QtGui/qopenglcontext.h>
 #include <QtCore/qstring.h>
 #include <QtGui/qsurfaceformat.h>
@@ -11,50 +13,79 @@
 //  A QOpenGLContext that Python can take functions over in. Every QOpenGLContext
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQOpenGLContextCall0)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQOpenGLContextCall1)(const void *, QObject *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQOpenGLContextCall2)(const void *, QTimerEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQOpenGLContextCall3)(const void *, QChildEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQOpenGLContextCall4)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQOpenGLContextCall5)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQOpenGLContextCall6)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 class CuteQOpenGLContext : public QOpenGLContext {
 public:
   using QOpenGLContext::QOpenGLContext;
   void *taken[7] = {};
 
   bool take(const char *key, void *call) {
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[0] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[1] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[2] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[3] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[4] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[5] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
       taken[6] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
     return false;
   }
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QObject::event(QEvent *event)
   bool event(QEvent *event) override {
     if (taken[0]) {
@@ -65,7 +96,9 @@ public:
     }
     return QObject::event(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
     if (taken[1]) {
@@ -76,7 +109,9 @@ public:
     }
     return QObject::eventFilter(watched, event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
     if (taken[2]) {
@@ -87,7 +122,9 @@ public:
     }
     QObject::timerEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
     if (taken[3]) {
@@ -98,7 +135,9 @@ public:
     }
     QObject::childEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
     if (taken[4]) {
@@ -109,7 +148,9 @@ public:
     }
     QObject::customEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
     if (taken[5]) {
@@ -120,7 +161,9 @@ public:
     }
     QObject::connectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
     if (taken[6]) {
@@ -131,6 +174,7 @@ public:
     }
     QObject::disconnectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 };
 
 //  const QMetaObject *QOpenGLContext::metaObject() const
@@ -147,6 +191,20 @@ QString *ritual_ZN14QOpenGLContext2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QOpenGLContext::tr(s, c, n));
+}
+
+//  QOpenGLContextPrivate *QOpenGLContext::d_func()
+extern "C" Q_DECL_EXPORT
+QOpenGLContextPrivate *ritual_ZN14QOpenGLContext6d_funcEv(
+    QOpenGLContext *self) {
+  return self->d_func();
+}
+
+//  const QOpenGLContextPrivate *QOpenGLContext::d_func() const
+extern "C" Q_DECL_EXPORT
+const QOpenGLContextPrivate *ritual_ZNK14QOpenGLContext6d_funcEv(
+    const QOpenGLContext *self) {
+  return self->d_func();
 }
 
 //  QOpenGLContext::QOpenGLContext(QObject *parent)
@@ -267,6 +325,20 @@ bool ritual_ZN14QOpenGLContext10areSharingEPS_S0_(
   return QOpenGLContext::areSharing(first, second);
 }
 
+//  QPlatformOpenGLContext *QOpenGLContext::handle() const
+extern "C" Q_DECL_EXPORT
+QPlatformOpenGLContext *ritual_ZNK14QOpenGLContext6handleEv(
+    const QOpenGLContext *self) {
+  return self->handle();
+}
+
+//  QPlatformOpenGLContext *QOpenGLContext::shareHandle() const
+extern "C" Q_DECL_EXPORT
+QPlatformOpenGLContext *ritual_ZNK14QOpenGLContext11shareHandleEv(
+    const QOpenGLContext *self) {
+  return self->shareHandle();
+}
+
 //  QOpenGLFunctions *QOpenGLContext::functions() const
 extern "C" Q_DECL_EXPORT
 QOpenGLFunctions *ritual_ZNK14QOpenGLContext9functionsEv(
@@ -311,6 +383,13 @@ bool ritual_ZN14QOpenGLContext22supportsThreadedOpenGLEv() {
 extern "C" Q_DECL_EXPORT
 QOpenGLContext *ritual_ZN14QOpenGLContext18globalShareContextEv() {
   return QOpenGLContext::globalShareContext();
+}
+
+//  QOpenGLTextureHelper *QOpenGLContext::textureFunctions() const
+extern "C" Q_DECL_EXPORT
+QOpenGLTextureHelper *ritual_ZNK14QOpenGLContext16textureFunctionsEv(
+    const QOpenGLContext *self) {
+  return self->textureFunctions();
 }
 
 //  void QOpenGLContext::destroy()
@@ -363,3 +442,5 @@ extern "C" Q_DECL_EXPORT
 void ritual_list_drop_QOpenGLContext_ptr(QList<QOpenGLContext *> *self) {
   delete self;
 }
+
+#endif  // !defined(QT_NO_OPENGL)

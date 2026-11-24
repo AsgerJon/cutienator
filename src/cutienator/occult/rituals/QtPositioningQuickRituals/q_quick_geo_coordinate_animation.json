@@ -1,0 +1,44 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtPosit",
+    "ioningQuick/6.12.0/QtPositioningQuick/private/qquickgeocoordinatea",
+    "nimation_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK28QQuickGeoCoordinateAnimation10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QQuickGeoCoordinateAnimation2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN28QQuickGeoCoordinateAnimation6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QQuickGeoCoordinateAnimation6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QQuickGeoCoordinateAnimationC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN28QQuickGeoCoordinateAnimationD1Ev": ["nothing", "address"],
+    "ritual_ZNK28QQuickGeoCoordinateAnimation4fromEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QQuickGeoCoordinateAnimation7setFromERK14QGeoCoordinate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK28QQuickGeoCoordinateAnimation2toEv": ["address", "address"],
+    "ritual_ZN28QQuickGeoCoordinateAnimation5setToERK14QGeoCoordinate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK28QQuickGeoCoordinateAnimation9directionEv": [
+      "int", "address"
+    ],
+    "ritual_ZN28QQuickGeoCoordinateAnimation12setDirectionENS_9DirectionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_take_QQuickGeoCoordinateAnimation": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

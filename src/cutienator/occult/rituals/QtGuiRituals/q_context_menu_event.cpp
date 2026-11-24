@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGui/qevent.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
+#if !defined(QT_NO_CONTEXTMENU)
 #include <QtGui/qevent.h>
 #include <QtCore/qpoint.h>
 #include <cstring>
@@ -7,7 +9,9 @@
 //  A QContextMenuEvent that Python can take functions over in. Every QContextMenuEvent
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if !defined(QT_NO_CONTEXTMENU)
 typedef void * (*CuteQContextMenuEventCall0)(const void *, int *);
+#endif  // !defined(QT_NO_CONTEXTMENU)
 typedef void (*CuteQContextMenuEventCall1)(const void *, quint64, int *);
 typedef void (*CuteQContextMenuEventCall2)(const void *, bool, int *);
 class CuteQContextMenuEvent : public QContextMenuEvent {
@@ -16,10 +20,12 @@ public:
   void *taken[3] = {};
 
   bool take(const char *key, void *call) {
+#if !defined(QT_NO_CONTEXTMENU)
     if (!std::strcmp(key, "_ZNK6QEvent5cloneEv")) {
       taken[0] = call;
       return true;
     }
+#endif  // !defined(QT_NO_CONTEXTMENU)
     if (!std::strcmp(key, "_ZN11QInputEvent12setTimestampEy")) {
       taken[1] = call;
       return true;
@@ -31,6 +37,7 @@ public:
     return false;
   }
 
+#if !defined(QT_NO_CONTEXTMENU)
   //  QContextMenuEvent *QContextMenuEvent::clone() const
   QContextMenuEvent *clone() const override {
     if (taken[0]) {
@@ -41,6 +48,7 @@ public:
     }
     return QContextMenuEvent::clone();
   }
+#endif  // !defined(QT_NO_CONTEXTMENU)
 
   //  void QInputEvent::setTimestamp(quint64 timestamp)
   void setTimestamp(quint64 timestamp) override {
@@ -93,6 +101,7 @@ QContextMenuEvent *ritual_ZN17QContextMenuEventC1ENS_6ReasonERK6QPointS3_6QFlags
       QFlags<Qt::KeyboardModifier>::fromInt(modifiers));
 }
 
+#if QT_DEPRECATED_SINCE(6, 4)
 //  QContextMenuEvent::QContextMenuEvent(Reason reason, const QPoint &pos)
 extern "C" Q_DECL_EXPORT
 QContextMenuEvent *ritual_ZN17QContextMenuEventC1ENS_6ReasonERK6QPoint(
@@ -100,6 +109,7 @@ QContextMenuEvent *ritual_ZN17QContextMenuEventC1ENS_6ReasonERK6QPoint(
     const QPoint *pos) {
   return new CuteQContextMenuEvent(reason, *pos);
 }
+#endif  // QT_DEPRECATED_SINCE(6, 4)
 
 //  int QContextMenuEvent::x() const
 extern "C" Q_DECL_EXPORT
@@ -161,3 +171,5 @@ QContextMenuEvent *ritual_own_ZNK17QContextMenuEvent5cloneEv(
     const QContextMenuEvent *self) {
   return self->QContextMenuEvent::clone();
 }
+
+#endif  // !defined(QT_NO_CONTEXTMENU)

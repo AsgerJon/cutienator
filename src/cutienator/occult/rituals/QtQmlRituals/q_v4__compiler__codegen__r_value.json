@@ -1,0 +1,33 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4codegen_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN3QV48Compiler7Codegen6RValue13fromStackSlotEPS1_NS_4Moth9StackSlotE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN3QV48Compiler7Codegen6RValue15fromAccumulatorEPS1_": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV48Compiler7Codegen6RValue9fromConstEPS1_y": [
+      "address", "address", "unsigned long long"
+    ],
+    "ritual_ZNK3QV48Compiler7Codegen6RValue7isValidEv": ["bool", "address"],
+    "ritual_ZNK3QV48Compiler7Codegen6RValue13isAccumulatorEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK3QV48Compiler7Codegen6RValue11isStackSlotEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK3QV48Compiler7Codegen6RValue7isConstEv": ["bool", "address"],
+    "ritual_ZNK3QV48Compiler7Codegen6RValue9stackSlotEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV48Compiler7Codegen6RValue13constantValueEv": [
+      "unsigned long long", "address"
+    ],
+    "ritual_ZN3QV48Compiler7Codegen6RValueD1Ev": ["nothing", "address"]
+  }
+}

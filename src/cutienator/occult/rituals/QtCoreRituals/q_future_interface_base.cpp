@@ -1,8 +1,11 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/qfutureinterface.h, Qt 6.12.0. Changes made here are lost.
+#include <QtCore/qglobal.h>
+#if QT_CONFIG(future)
 #include <QtCore/qfutureinterface.h>
 #include <QtCore/qexception.h>
 #include <QtCore/qstring.h>
+#include <QtCore/qresultstore.h>
 
 //  QFutureInterfaceBase::QFutureInterfaceBase(State initialState)
 extern "C" Q_DECL_EXPORT
@@ -46,6 +49,7 @@ void ritual_ZN20QFutureInterfaceBase14reportCanceledEv(
   self->reportCanceled();
 }
 
+#if !defined(QT_NO_EXCEPTIONS)
 //  void QFutureInterfaceBase::reportException(const QException &e)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QFutureInterfaceBase15reportExceptionERK10QException(
@@ -53,6 +57,7 @@ void ritual_ZN20QFutureInterfaceBase15reportExceptionERK10QException(
     const QException *e) {
   self->reportException(*e);
 }
+#endif  // !defined(QT_NO_EXCEPTIONS)
 
 //  void QFutureInterfaceBase::reportResultsReady(int beginIndex, int
 //      endIndex)
@@ -215,13 +220,16 @@ bool ritual_ZNK20QFutureInterfaceBase10isFinishedEv(
   return self->isFinished();
 }
 
+#if QT_DEPRECATED_SINCE(6, 0)
 //  bool QFutureInterfaceBase::isPaused() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK20QFutureInterfaceBase8isPausedEv(
     const QFutureInterfaceBase *self) {
   return self->isPaused();
 }
+#endif  // QT_DEPRECATED_SINCE(6, 0)
 
+#if QT_DEPRECATED_SINCE(6, 0)
 //  void QFutureInterfaceBase::setPaused(bool paused)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QFutureInterfaceBase9setPausedEb(
@@ -229,13 +237,16 @@ void ritual_ZN20QFutureInterfaceBase9setPausedEb(
     bool paused) {
   self->setPaused(paused);
 }
+#endif  // QT_DEPRECATED_SINCE(6, 0)
 
+#if QT_DEPRECATED_SINCE(6, 0)
 //  void QFutureInterfaceBase::togglePaused()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN20QFutureInterfaceBase12togglePausedEv(
     QFutureInterfaceBase *self) {
   self->togglePaused();
 }
+#endif  // QT_DEPRECATED_SINCE(6, 0)
 
 //  bool QFutureInterfaceBase::isSuspending() const
 extern "C" Q_DECL_EXPORT
@@ -388,6 +399,14 @@ bool ritual_ZNK20QFutureInterfaceBase12hasExceptionEv(
   return self->hasException();
 }
 
+//  const QtPrivate::ResultStoreBase &QFutureInterfaceBase::resultStoreBase()
+//      const
+extern "C" Q_DECL_EXPORT
+QtPrivate::ResultStoreBase *ritual_ZNK20QFutureInterfaceBase15resultStoreBaseEv(
+    const QFutureInterfaceBase *self) {
+  return new QtPrivate::ResultStoreBase(self->resultStoreBase());
+}
+
 //  bool QFutureInterfaceBase::operator==(const QFutureInterfaceBase &other)
 //      const
 extern "C" Q_DECL_EXPORT
@@ -491,3 +510,5 @@ void ritual_ZN20QFutureInterfaceBase11cancelChainENS_10CancelModeE(
     QFutureInterfaceBase::CancelMode mode) {
   self->cancelChain(mode);
 }
+
+#endif  // QT_CONFIG(future)

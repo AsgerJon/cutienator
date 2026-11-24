@@ -1,0 +1,40 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquickactiongroup_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QQuickActionGroup10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QQuickActionGroup2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QQuickActionGroup21qt_qmlMarker_attachedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuickActionGroupC1EP7QObject": ["address", "address"],
+    "ritual_ZN17QQuickActionGroupD1Ev": ["nothing", "address"],
+    "ritual_ZN17QQuickActionGroup21qmlAttachedPropertiesEP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZNK17QQuickActionGroup13checkedActionEv": ["address", "address"],
+    "ritual_ZN17QQuickActionGroup16setCheckedActionEP12QQuickAction": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QQuickActionGroup11isExclusiveEv": ["bool", "address"],
+    "ritual_ZN17QQuickActionGroup12setExclusiveEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK17QQuickActionGroup9isEnabledEv": ["bool", "address"],
+    "ritual_ZN17QQuickActionGroup10setEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN17QQuickActionGroup9addActionEP12QQuickAction": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QQuickActionGroup12removeActionEP12QQuickAction": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QQuickActionGroup": ["bool", "address", "chars", "address"]
+  }
+}

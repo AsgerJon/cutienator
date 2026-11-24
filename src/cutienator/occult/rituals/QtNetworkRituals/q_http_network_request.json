@@ -1,0 +1,135 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/6.12.0/QtNetwork/private/qhttpnetworkrequest_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QHttpNetworkRequestD1Ev": ["nothing", "address"],
+    "ritual_ZNK19QHttpNetworkRequest3urlEv": ["address", "address"],
+    "ritual_ZN19QHttpNetworkRequest6setUrlERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QHttpNetworkRequest12majorVersionEv": ["int", "address"],
+    "ritual_ZNK19QHttpNetworkRequest12minorVersionEv": ["int", "address"],
+    "ritual_ZNK19QHttpNetworkRequest13contentLengthEv": [
+      "long long", "address"
+    ],
+    "ritual_ZN19QHttpNetworkRequest16setContentLengthEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZNK19QHttpNetworkRequest6headerEv": ["address", "address"],
+    "ritual_ZNK19QHttpNetworkRequest11headerFieldE14QByteArrayViewRK10QByteArray": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN19QHttpNetworkRequest14setHeaderFieldERK10QByteArrayS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN19QHttpNetworkRequest18prependHeaderFieldERK10QByteArrayS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN19QHttpNetworkRequest12clearHeadersEv": ["nothing", "address"],
+    "ritual_ZNK19QHttpNetworkRequest9operationEv": ["int", "address"],
+    "ritual_ZN19QHttpNetworkRequest12setOperationENS_9OperationE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK19QHttpNetworkRequest10customVerbEv": ["address", "address"],
+    "ritual_ZN19QHttpNetworkRequest13setCustomVerbERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QHttpNetworkRequest8priorityEv": ["int", "address"],
+    "ritual_ZN19QHttpNetworkRequest11setPriorityENS_8PriorityE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK19QHttpNetworkRequest19isPipeliningAllowedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN19QHttpNetworkRequest20setPipeliningAllowedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK19QHttpNetworkRequest14isHTTP2AllowedEv": ["bool", "address"],
+    "ritual_ZN19QHttpNetworkRequest15setHTTP2AllowedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK19QHttpNetworkRequest13isHTTP2DirectEv": ["bool", "address"],
+    "ritual_ZN19QHttpNetworkRequest14setHTTP2DirectEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK19QHttpNetworkRequest12isH2cAllowedEv": ["bool", "address"],
+    "ritual_ZN19QHttpNetworkRequest13setH2cAllowedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK19QHttpNetworkRequest15withCredentialsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN19QHttpNetworkRequest18setWithCredentialsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK19QHttpNetworkRequest5isSslEv": ["bool", "address"],
+    "ritual_ZN19QHttpNetworkRequest6setSslEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK19QHttpNetworkRequest12isPreConnectEv": ["bool", "address"],
+    "ritual_ZN19QHttpNetworkRequest13setPreConnectEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK19QHttpNetworkRequest17isFollowRedirectsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN19QHttpNetworkRequest17setRedirectPolicyEN15QNetworkRequest14RedirectPolicyE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK19QHttpNetworkRequest14redirectPolicyEv": ["int", "address"],
+    "ritual_ZNK19QHttpNetworkRequest13redirectCountEv": ["int", "address"],
+    "ritual_ZN19QHttpNetworkRequest16setRedirectCountEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN19QHttpNetworkRequest19setUploadByteDeviceEP24QNonContiguousByteDevice": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QHttpNetworkRequest16uploadByteDeviceEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QHttpNetworkRequest10methodNameEv": ["address", "address"],
+    "ritual_ZNK19QHttpNetworkRequest3uriEb": ["address", "address", "bool"],
+    "ritual_ZNK19QHttpNetworkRequest14peerVerifyNameEv": ["text", "address"],
+    "ritual_ZN19QHttpNetworkRequest17setPeerVerifyNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK19QHttpNetworkRequest19fullLocalServerNameEv": [
+      "text", "address"
+    ],
+    "ritual_ZN19QHttpNetworkRequest22setFullLocalServerNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK19QHttpNetworkRequest18methodIsIdempotentEv": [
+      "bool", "address"
+    ],
+    "ritual_take_QHttpNetworkRequest": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK19QHttpNetworkRequest3urlEv": ["address", "address"],
+    "ritual_own_ZN19QHttpNetworkRequest6setUrlERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK19QHttpNetworkRequest12majorVersionEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZNK19QHttpNetworkRequest12minorVersionEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZNK19QHttpNetworkRequest13contentLengthEv": [
+      "long long", "address"
+    ],
+    "ritual_own_ZN19QHttpNetworkRequest16setContentLengthEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_own_ZNK19QHttpNetworkRequest6headerEv": ["address", "address"],
+    "ritual_own_ZNK19QHttpNetworkRequest11headerFieldE14QByteArrayViewRK10QByteArray": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN19QHttpNetworkRequest14setHeaderFieldERK10QByteArrayS2_": [
+      "nothing", "address", "address", "address"
+    ]
+  }
+}

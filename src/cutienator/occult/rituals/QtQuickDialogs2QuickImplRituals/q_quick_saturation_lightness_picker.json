@@ -1,0 +1,25 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Dialogs2QuickImpl/6.12.0/QtQuickDialogs2QuickImpl/private/qquicksa",
+    "turationlightnesspicker_p.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK31QQuickSaturationLightnessPicker10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN31QQuickSaturationLightnessPicker2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN31QQuickSaturationLightnessPickerC1EP10QQuickItem": [
+      "address", "address"
+    ],
+    "ritual_ZN31QQuickSaturationLightnessPicker7colorAtERK7QPointF": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN31QQuickSaturationLightnessPicker7colorAtERK7QPointF": [
+      "address", "address", "address"
+    ]
+  }
+}

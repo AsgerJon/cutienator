@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmllistwrapper_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK3QV44Heap14QmlListWrapper6objectEv": ["address", "address"],
+    "ritual_ZNK3QV44Heap14QmlListWrapper12propertyTypeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV44Heap14QmlListWrapper11elementTypeEv": [
+      "address", "address"
+    ]
+  }
+}

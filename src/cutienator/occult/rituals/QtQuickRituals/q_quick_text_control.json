@@ -1,0 +1,93 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquicktextcontrol_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QQuickTextControl10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QQuickTextControl6d_funcEv": ["address", "address"],
+    "ritual_ZNK17QQuickTextControl6d_funcEv": ["address", "address"],
+    "ritual_ZN17QQuickTextControlD1Ev": ["nothing", "address"],
+    "ritual_ZNK17QQuickTextControl8documentEv": ["address", "address"],
+    "ritual_ZNK17QQuickTextControl10textCursorEv": ["address", "address"],
+    "ritual_ZNK17QQuickTextControl20textInteractionFlagsEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK17QQuickTextControl11toPlainTextEv": ["text", "address"],
+    "ritual_ZNK17QQuickTextControl6toHtmlEv": ["text", "address"],
+    "ritual_ZNK17QQuickTextControl10toMarkdownEv": ["text", "address"],
+    "ritual_ZNK17QQuickTextControl10hasImStateEv": ["bool", "address"],
+    "ritual_ZNK17QQuickTextControl13overwriteModeEv": ["bool", "address"],
+    "ritual_ZNK17QQuickTextControl13cursorVisibleEv": ["bool", "address"],
+    "ritual_ZNK17QQuickTextControl11hoveredLinkEv": ["text", "address"],
+    "ritual_ZNK17QQuickTextControl8anchorAtERK7QPointF": [
+      "text", "address", "address"
+    ],
+    "ritual_ZNK17QQuickTextControl17blockWithMarkerAtERK7QPointF": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN17QQuickTextControl17setAcceptRichTextEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK17QQuickTextControl8canPasteEv": ["bool", "address"],
+    "ritual_ZN17QQuickTextControl23setWordSelectionEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN17QQuickTextControl28setTouchDragSelectionEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK17QQuickTextControl7hitTestERK7QPointFN2Qt15HitTestAccuracyE": [
+      "int", "address", "address", "int"
+    ],
+    "ritual_ZNK17QQuickTextControl17blockBoundingRectERK10QTextBlock": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK17QQuickTextControl11preeditTextEv": ["text", "address"],
+    "ritual_ZN17QQuickTextControl3cutEv": ["nothing", "address"],
+    "ritual_ZN17QQuickTextControl4copyEv": ["nothing", "address"],
+    "ritual_ZN17QQuickTextControl5pasteEN10QClipboard4ModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQuickTextControl5clearEv": ["nothing", "address"],
+    "ritual_ZN17QQuickTextControl12processEventEP6QEventRK10QTransform": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN17QQuickTextControl12processEventEP6QEventRK7QPointF": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK17QQuickTextControl16inputMethodQueryEN2Qt16InputMethodQueryE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK17QQuickTextControl27createMimeDataFromSelectionEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK17QQuickTextControl21canInsertFromMimeDataEPK9QMimeData": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN17QQuickTextControl18insertFromMimeDataEPK9QMimeData": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QQuickTextControl8cursorOnEv": ["bool", "address"],
+    "ritual_ZN17QQuickTextControl13isBeingEditedEv": ["bool", "address"],
+    "ritual_ZN17QQuickTextControl10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QQuickTextControl5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_take_QQuickTextControl": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK17QQuickTextControl7hitTestERK7QPointFN2Qt15HitTestAccuracyE": [
+      "int", "address", "address", "int"
+    ],
+    "ritual_own_ZNK17QQuickTextControl17blockBoundingRectERK10QTextBlock": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZNK17QQuickTextControl21canInsertFromMimeDataEPK9QMimeData": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN17QQuickTextControl5eventEP6QEvent": [
+      "bool", "address", "address"
+    ]
+  }
+}

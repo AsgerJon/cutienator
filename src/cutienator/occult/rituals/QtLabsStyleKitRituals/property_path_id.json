@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLabsStyleKit/6.12.0/QtLabsStyleKit/private/qqstylekitglobal_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK14PropertyPathId8propertyEv": ["int", "address"],
+    "ritual_ZNK14PropertyPathId6pathIdEv": ["unsigned int", "address"],
+    "ritual_ZNK14PropertyPathId9storageIdE6QFlagsIN4QQSK9StateFlagEE": [
+      "unsigned int", "address", "int"
+    ],
+    "ritual_ZN14PropertyPathIdD1Ev": ["nothing", "address"]
+  }
+}

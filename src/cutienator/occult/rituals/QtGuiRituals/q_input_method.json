@@ -6,6 +6,8 @@
   "rows": {
     "ritual_ZNK12QInputMethod10metaObjectEv": ["address", "address"],
     "ritual_ZN12QInputMethod2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN12QInputMethod6d_funcEv": ["address", "address"],
+    "ritual_ZNK12QInputMethod6d_funcEv": ["address", "address"],
     "ritual_ZNK12QInputMethod18inputItemTransformEv": ["address", "address"],
     "ritual_ZN12QInputMethod21setInputItemTransformERK10QTransform": [
       "nothing", "address", "address"

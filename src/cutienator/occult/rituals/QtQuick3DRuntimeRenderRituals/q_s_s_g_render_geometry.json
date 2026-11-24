@@ -1,0 +1,65 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgrenderge",
+    "ometry_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QSSGRenderGeometryC1Ev": ["address"],
+    "ritual_ZN18QSSGRenderGeometryD1Ev": ["nothing", "address"],
+    "ritual_ZNK18QSSGRenderGeometry12vertexBufferEv": ["address", "address"],
+    "ritual_ZNK18QSSGRenderGeometry11indexBufferEv": ["address", "address"],
+    "ritual_ZNK18QSSGRenderGeometry14attributeCountEv": ["int", "address"],
+    "ritual_ZNK18QSSGRenderGeometry9attributeEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK18QSSGRenderGeometry13primitiveTypeEv": ["int", "address"],
+    "ritual_ZNK18QSSGRenderGeometry9boundsMinEv": ["address", "address"],
+    "ritual_ZNK18QSSGRenderGeometry9boundsMaxEv": ["address", "address"],
+    "ritual_ZNK18QSSGRenderGeometry6strideEv": ["int", "address"],
+    "ritual_ZN18QSSGRenderGeometry13setVertexDataERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QSSGRenderGeometry12setIndexDataERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QSSGRenderGeometry9setStrideEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18QSSGRenderGeometry9setBoundsERK9QVector3DS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN18QSSGRenderGeometry16setPrimitiveTypeE18QSSGRenderDrawMode": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18QSSGRenderGeometry12addAttributeEN8QSSGMesh15RuntimeMeshData9Attribute8SemanticEi23QSSGRenderComponentType": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZN18QSSGRenderGeometry12addAttributeERKNS_9AttributeE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QSSGRenderGeometry9addSubsetEjjRK9QVector3DS2_RK7QString": [
+      "nothing", "address", "unsigned int", "unsigned int", "address",
+      "address", "text"
+    ],
+    "ritual_ZN18QSSGRenderGeometry5clearEv": ["nothing", "address"],
+    "ritual_ZN18QSSGRenderGeometry15clearAttributesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK18QSSGRenderGeometry8meshDataEv": ["address", "address"],
+    "ritual_ZN18QSSGRenderGeometry19clearVertexAndIndexEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QSSGRenderGeometry11clearTargetEv": ["nothing", "address"],
+    "ritual_ZN18QSSGRenderGeometry13setTargetDataERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QSSGRenderGeometry18addTargetAttributeEjN8QSSGMesh15RuntimeMeshData9Attribute8SemanticEii": [
+      "nothing", "address", "unsigned int", "int", "int", "int"
+    ],
+    "ritual_ZN18QSSGRenderGeometry18addTargetAttributeERKNS_15TargetAttributeE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QSSGRenderGeometry9markDirtyEv": ["nothing", "address"]
+  }
+}

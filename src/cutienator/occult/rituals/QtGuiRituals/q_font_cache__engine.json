@@ -6,6 +6,7 @@
   ],
   "rows": {
     "ritual_ZN10QFontCache6EngineC1Ev": ["address"],
+    "ritual_ZN10QFontCache6EngineC1EP11QFontEngine": ["address", "address"],
     "ritual_ZN10QFontCache6EngineD1Ev": ["nothing", "address"]
   }
 }

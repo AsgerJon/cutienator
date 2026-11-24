@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3DUtils/6.12.0/QtQuick3DUtils/private/qqsbcollection_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN14QQsbCollection5EntryC1Ev": ["address"],
+    "ritual_ZN14QQsbCollection5EntryC1ERK10QByteArray": [
+      "address", "address"
+    ],
+    "ritual_ZN14QQsbCollection5EntryC1ERK10QByteArrayx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZNK14QQsbCollection5Entry7isValidEv": ["bool", "address"],
+    "ritual_ZN14QQsbCollection5EntryD1Ev": ["nothing", "address"]
+  }
+}

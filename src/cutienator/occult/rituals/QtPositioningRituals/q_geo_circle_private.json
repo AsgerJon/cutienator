@@ -1,0 +1,43 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtPositioning/6.12.0/QtPositioning/private/qgeocircle_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QGeoCirclePrivate7isValidEv": ["bool", "address"],
+    "ritual_ZNK17QGeoCirclePrivate7isEmptyEv": ["bool", "address"],
+    "ritual_ZNK17QGeoCirclePrivate8containsERK14QGeoCoordinate": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK17QGeoCirclePrivate6centerEv": ["address", "address"],
+    "ritual_ZNK17QGeoCirclePrivate20boundingGeoRectangleEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK17QGeoCirclePrivate14crossNorthPoleEv": ["bool", "address"],
+    "ritual_ZNK17QGeoCirclePrivate14crossSouthPoleEv": ["bool", "address"],
+    "ritual_ZN17QGeoCirclePrivate17updateBoundingBoxEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QGeoCirclePrivate9setCenterERK14QGeoCoordinate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QGeoCirclePrivate9setRadiusEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN17QGeoCirclePrivate12extendCircleERK14QGeoCoordinate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QGeoCirclePrivate5cloneEv": ["address", "address"],
+    "ritual_take_QGeoCirclePrivate": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK17QGeoCirclePrivate7isValidEv": ["bool", "address"],
+    "ritual_own_ZNK17QGeoCirclePrivate7isEmptyEv": ["bool", "address"],
+    "ritual_own_ZNK17QGeoCirclePrivate8containsERK14QGeoCoordinate": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZNK17QGeoCirclePrivate6centerEv": ["address", "address"],
+    "ritual_own_ZNK17QGeoCirclePrivate20boundingGeoRectangleEv": [
+      "address", "address"
+    ]
+  }
+}

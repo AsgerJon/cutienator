@@ -1,0 +1,13 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickanimator_p_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN29QQuickRotationAnimatorPrivateC1Ev": ["address"],
+    "ritual_take_QQuickRotationAnimatorPrivate": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

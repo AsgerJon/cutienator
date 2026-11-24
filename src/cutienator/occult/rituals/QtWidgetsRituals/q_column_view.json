@@ -72,6 +72,8 @@
     "ritual_ZNK11QColumnView16initializeColumnEP17QAbstractItemView": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN11QColumnView6d_funcEv": ["address", "address"],
+    "ritual_ZNK11QColumnView6d_funcEv": ["address", "address"],
     "ritual_take_QColumnView": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK11QColumnView7indexAtERK6QPoint": [
       "address", "address", "address"

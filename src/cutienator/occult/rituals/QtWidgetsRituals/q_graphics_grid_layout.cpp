@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qgraphicsgridlayout.h, Qt 6.12.0. Changes made here are lost.
+#include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(graphicsview)
 #include <QtWidgets/qgraphicsgridlayout.h>
 #include <QtCore/qrect.h>
 #include <QtCore/qsize.h>
@@ -8,60 +10,97 @@
 //  A QGraphicsGridLayout that Python can take functions over in. Every QGraphicsGridLayout
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if QT_CONFIG(graphicsview)
 typedef int (*CuteQGraphicsGridLayoutCall0)(const void *, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 typedef void * (*CuteQGraphicsGridLayoutCall1)(const void *, int, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 typedef void (*CuteQGraphicsGridLayoutCall2)(const void *, int, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 typedef void (*CuteQGraphicsGridLayoutCall3)(const void *, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 typedef void (*CuteQGraphicsGridLayoutCall4)(const void *, const QRectF *, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 typedef const QSizeF * (*CuteQGraphicsGridLayoutCall5)(const void *, int, const QSizeF *, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 typedef void (*CuteQGraphicsGridLayoutCall6)(const void *, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 typedef void (*CuteQGraphicsGridLayoutCall7)(const void *, QEvent *, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 typedef bool (*CuteQGraphicsGridLayoutCall8)(const void *, int *);
+#endif  // QT_CONFIG(graphicsview)
 class CuteQGraphicsGridLayout : public QGraphicsGridLayout {
 public:
   using QGraphicsGridLayout::QGraphicsGridLayout;
   void *taken[9] = {};
 
   bool take(const char *key, void *call) {
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZNK15QGraphicsLayout5countEv")) {
       taken[0] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZNK15QGraphicsLayout6itemAtEi")) {
       taken[1] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZN15QGraphicsLayout8removeAtEi")) {
       taken[2] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZN15QGraphicsLayout10invalidateEv")) {
       taken[3] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZN19QGraphicsLayoutItem11setGeometryERK6QRectF")) {
       taken[4] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZNK19QGraphicsLayoutItem8sizeHintEN2Qt8SizeHintERK6QSizeF")) {
       taken[5] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZN19QGraphicsLayoutItem14updateGeometryEv")) {
       taken[6] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZN15QGraphicsLayout11widgetEventEP6QEvent")) {
       taken[7] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZNK19QGraphicsLayoutItem7isEmptyEv")) {
       taken[8] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
     return false;
   }
 
+#if QT_CONFIG(graphicsview)
   //  int QGraphicsGridLayout::count() const
   int count() const override {
     if (taken[0]) {
@@ -72,7 +111,9 @@ public:
     }
     return QGraphicsGridLayout::count();
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if QT_CONFIG(graphicsview)
   //  QGraphicsLayoutItem *QGraphicsGridLayout::itemAt(int index) const
   QGraphicsLayoutItem *itemAt(int index) const override {
     if (taken[1]) {
@@ -83,7 +124,9 @@ public:
     }
     return QGraphicsGridLayout::itemAt(index);
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if QT_CONFIG(graphicsview)
   //  void QGraphicsGridLayout::removeAt(int index)
   void removeAt(int index) override {
     if (taken[2]) {
@@ -94,7 +137,9 @@ public:
     }
     QGraphicsGridLayout::removeAt(index);
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if QT_CONFIG(graphicsview)
   //  void QGraphicsGridLayout::invalidate()
   void invalidate() override {
     if (taken[3]) {
@@ -105,7 +150,9 @@ public:
     }
     QGraphicsGridLayout::invalidate();
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if QT_CONFIG(graphicsview)
   //  void QGraphicsGridLayout::setGeometry(const QRectF &rect)
   void setGeometry(const QRectF &rect) override {
     if (taken[4]) {
@@ -116,7 +163,9 @@ public:
     }
     QGraphicsGridLayout::setGeometry(rect);
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if QT_CONFIG(graphicsview)
   //  QSizeF QGraphicsGridLayout::sizeHint(Qt::SizeHint which, const QSizeF
   //      &constraint) const
   QSizeF sizeHint(
@@ -130,7 +179,9 @@ public:
     }
     return QGraphicsGridLayout::sizeHint(which, constraint);
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if QT_CONFIG(graphicsview)
   //  void QGraphicsLayout::updateGeometry()
   void updateGeometry() override {
     if (taken[6]) {
@@ -141,7 +192,9 @@ public:
     }
     QGraphicsLayout::updateGeometry();
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if QT_CONFIG(graphicsview)
   //  void QGraphicsLayout::widgetEvent(QEvent *e)
   void widgetEvent(QEvent *e) override {
     if (taken[7]) {
@@ -152,7 +205,9 @@ public:
     }
     QGraphicsLayout::widgetEvent(e);
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if QT_CONFIG(graphicsview)
   //  bool QGraphicsLayoutItem::isEmpty() const
   bool isEmpty() const override {
     if (taken[8]) {
@@ -163,6 +218,7 @@ public:
     }
     return QGraphicsLayoutItem::isEmpty();
   }
+#endif  // QT_CONFIG(graphicsview)
 };
 
 //  QGraphicsGridLayout::QGraphicsGridLayout(QGraphicsLayoutItem *parent)
@@ -635,3 +691,5 @@ QSizeF *ritual_own_ZNK19QGraphicsGridLayout8sizeHintEN2Qt8SizeHintERK6QSizeF(
     const QSizeF *constraint) {
   return new QSizeF(self->QGraphicsGridLayout::sizeHint(which, *constraint));
 }
+
+#endif  // QT_CONFIG(graphicsview)

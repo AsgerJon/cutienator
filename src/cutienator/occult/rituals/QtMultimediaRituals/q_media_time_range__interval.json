@@ -1,0 +1,32 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtMultimedia/qmediatimerange.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN15QMediaTimeRange8IntervalC1Ev": ["address"],
+    "ritual_ZN15QMediaTimeRange8IntervalC1Exx": [
+      "address", "long long", "long long"
+    ],
+    "ritual_ZNK15QMediaTimeRange8Interval5startEv": ["long long", "address"],
+    "ritual_ZNK15QMediaTimeRange8Interval3endEv": ["long long", "address"],
+    "ritual_ZNK15QMediaTimeRange8Interval8containsEx": [
+      "bool", "address", "long long"
+    ],
+    "ritual_ZNK15QMediaTimeRange8Interval8isNormalEv": ["bool", "address"],
+    "ritual_ZNK15QMediaTimeRange8Interval10normalizedEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK15QMediaTimeRange8Interval10translatedEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZeqN15QMediaTimeRange8IntervalES0_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZneN15QMediaTimeRange8IntervalES0_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN15QMediaTimeRange8IntervalD1Ev": ["nothing", "address"]
+  }
+}

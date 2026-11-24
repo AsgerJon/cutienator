@@ -1,0 +1,25 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qttemporalpattern_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK12QTimePattern11timeSupportEv": ["int", "address"],
+    "ritual_ZNK12QTimePattern7isValidEv": ["bool", "address"],
+    "ritual_ZN12QTimePattern9setLocaleERK7QLocale": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12QTimePattern6localeEv": ["address", "address"],
+    "ritual_ZNK12QTimePattern9serializeERK5QTime": [
+      "text", "address", "address"
+    ],
+    "ritual_ZN12QTimePattern12fromQtFormatE11QStringView": [
+      "address", "text"
+    ],
+    "ritual_ZN12QTimePattern9forLocaleERK7QLocaleNS0_10FormatTypeE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN12QTimePatternD1Ev": ["nothing", "address"]
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/qhttp1configuration.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN19QHttp1ConfigurationC1Ev": ["address"],
+    "ritual_ZN19QHttp1ConfigurationC1ERKS_": ["address", "address"],
+    "ritual_ZN19QHttp1ConfigurationD1Ev": ["nothing", "address"],
+    "ritual_ZN19QHttp1Configuration29setNumberOfConnectionsPerHostEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZNK19QHttp1Configuration26numberOfConnectionsPerHostEv": [
+      "long long", "address"
+    ],
+    "ritual_ZNK19QHttp1Configuration6equalsERKS_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZeqRK19QHttp1ConfigurationS1_": ["bool", "address", "address"],
+    "ritual_ZneRK19QHttp1ConfigurationS1_": ["bool", "address", "address"]
+  }
+}

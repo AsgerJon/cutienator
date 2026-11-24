@@ -1,0 +1,39 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQmlCompiler/6.12.0/QtQmlCompiler/private/qqmljsmetatypes_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK19QQmlJSMetaParameter4nameEv": ["text", "address"],
+    "ritual_ZN19QQmlJSMetaParameter7setNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK19QQmlJSMetaParameter8typeNameEv": ["text", "address"],
+    "ritual_ZN19QQmlJSMetaParameter11setTypeNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK19QQmlJSMetaParameter13typeQualifierEv": ["int", "address"],
+    "ritual_ZN19QQmlJSMetaParameter16setTypeQualifierENS_9ConstnessE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK19QQmlJSMetaParameter9isPointerEv": ["bool", "address"],
+    "ritual_ZN19QQmlJSMetaParameter12setIsPointerEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK19QQmlJSMetaParameter6isListEv": ["bool", "address"],
+    "ritual_ZN19QQmlJSMetaParameter9setIsListEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZeqRK19QQmlJSMetaParameterS1_": ["bool", "address", "address"],
+    "ritual_ZneRK19QQmlJSMetaParameterS1_": ["bool", "address", "address"],
+    "ritual_ZN19QQmlJSMetaParameterD1Ev": ["nothing", "address"],
+    "ritual_list_make_QQmlJSMetaParameter": ["address"],
+    "ritual_list_add_QQmlJSMetaParameter": ["nothing", "address", "address"],
+    "ritual_list_size_QQmlJSMetaParameter": ["long long", "address"],
+    "ritual_list_at_QQmlJSMetaParameter": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_QQmlJSMetaParameter": ["nothing", "address"]
+  }
+}

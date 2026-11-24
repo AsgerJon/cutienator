@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGui/qpdfoutputintent.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
+#if !defined(QT_NO_PDF)
 #include <QtGui/qpdfoutputintent.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qurl.h>
@@ -84,3 +86,5 @@ void ritual_ZN16QPdfOutputIntent16setOutputProfileERK11QColorSpace(
     const QColorSpace *profile) {
   self->setOutputProfile(*profile);
 }
+
+#endif  // !defined(QT_NO_PDF)

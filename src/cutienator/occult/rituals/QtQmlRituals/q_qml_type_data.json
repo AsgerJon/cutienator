@@ -1,0 +1,38 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmltypedata_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN12QQmlTypeData2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN12QQmlTypeDataD1Ev": ["nothing", "address"],
+    "ritual_ZNK12QQmlTypeData15compilationUnitEv": ["address", "address"],
+    "ritual_ZNK12QQmlTypeData7qmlTypeERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK12QQmlTypeData13typeClassNameEv": ["address", "address"],
+    "ritual_ZNK12QQmlTypeData16backupSourceCodeEv": ["address", "address"],
+    "ritual_ZN12QQmlTypeData12dataReceivedERKN12QQmlDataBlob14SourceCodeDataE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QQmlTypeData24initializeFromCachedUnitEPKN11QQmlPrivate13CachedQmlUnitE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QQmlTypeData19allDependenciesDoneEv": ["nothing", "address"],
+    "ritual_ZNK12QQmlTypeData8stringAtEi": ["text", "address", "int"],
+    "ritual_ZN12QQmlTypeData12checkScriptsEv": ["bool", "address"],
+    "ritual_ZN12QQmlTypeData17checkDependenciesEv": ["bool", "address"],
+    "ritual_ZN12QQmlTypeData11createErrorERKNS_13TypeReferenceERK7QString": [
+      "nothing", "address", "address", "text"
+    ],
+    "ritual_ZN12QQmlTypeData11createErrorERKNS_15ScriptReferenceERK7QString": [
+      "nothing", "address", "address", "text"
+    ],
+    "ritual_ZN12QQmlTypeData24checkCompositeSingletonsEv": [
+      "bool", "address"
+    ],
+    "ritual_take_QQmlTypeData": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK12QQmlTypeData8stringAtEi": ["text", "address", "int"]
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickpath_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18QQuickPathAngleArc10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QQuickPathAngleArc2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18QQuickPathAngleArcC1EP7QObject": ["address", "address"],
+    "ritual_ZNK18QQuickPathAngleArc7centerXEv": ["double", "address"],
+    "ritual_ZN18QQuickPathAngleArc10setCenterXEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK18QQuickPathAngleArc7centerYEv": ["double", "address"],
+    "ritual_ZN18QQuickPathAngleArc10setCenterYEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK18QQuickPathAngleArc7radiusXEv": ["double", "address"],
+    "ritual_ZN18QQuickPathAngleArc10setRadiusXEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK18QQuickPathAngleArc7radiusYEv": ["double", "address"],
+    "ritual_ZN18QQuickPathAngleArc10setRadiusYEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK18QQuickPathAngleArc10startAngleEv": ["double", "address"],
+    "ritual_ZN18QQuickPathAngleArc13setStartAngleEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK18QQuickPathAngleArc10sweepAngleEv": ["double", "address"],
+    "ritual_ZN18QQuickPathAngleArc13setSweepAngleEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK18QQuickPathAngleArc11moveToStartEv": ["bool", "address"],
+    "ritual_ZN18QQuickPathAngleArc14setMoveToStartEb": [
+      "nothing", "address", "bool"
+    ]
+  }
+}

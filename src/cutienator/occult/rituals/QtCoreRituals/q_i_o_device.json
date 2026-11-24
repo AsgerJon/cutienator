@@ -72,6 +72,8 @@
     "ritual_ZN9QIODevice14setErrorStringERK7QString": [
       "nothing", "address", "text"
     ],
+    "ritual_ZN9QIODevice6d_funcEv": ["address", "address"],
+    "ritual_ZNK9QIODevice6d_funcEv": ["address", "address"],
     "ritual_cast_QIODevice_QIODeviceBase": ["address", "address"],
     "ritual_take_QIODevice": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK9QIODevice12isSequentialEv": ["bool", "address"],

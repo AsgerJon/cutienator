@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qsgdefaultspritenode_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QSGDefaultSpriteNode7setSizeERK6QSizeF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QSGDefaultSpriteNode6updateEv": ["nothing", "address"],
+    "ritual_own_ZN20QSGDefaultSpriteNode7setSizeERK6QSizeF": [
+      "nothing", "address", "address"
+    ]
+  }
+}

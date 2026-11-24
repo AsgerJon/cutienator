@@ -1,0 +1,72 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/qhostaddress.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN12QHostAddressC1Ev": ["address"],
+    "ritual_ZN12QHostAddressC1Ej": ["address", "unsigned int"],
+    "ritual_ZN12QHostAddressC1ERK12QIPv6Address": ["address", "address"],
+    "ritual_ZN12QHostAddressC1ERK7QString": ["address", "text"],
+    "ritual_ZN12QHostAddressC1ERKS_": ["address", "address"],
+    "ritual_ZN12QHostAddressC1ENS_14SpecialAddressE": ["address", "int"],
+    "ritual_ZN12QHostAddressD1Ev": ["nothing", "address"],
+    "ritual_ZN12QHostAddress10setAddressEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN12QHostAddress10setAddressERK12QIPv6Address": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QHostAddress10setAddressERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN12QHostAddress10setAddressENS_14SpecialAddressE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK12QHostAddress8protocolEv": ["int", "address"],
+    "ritual_ZNK12QHostAddress13toIPv4AddressEPb": [
+      "unsigned int", "address", "address"
+    ],
+    "ritual_ZNK12QHostAddress13toIPv6AddressEv": ["address", "address"],
+    "ritual_ZNK12QHostAddress8toStringEv": ["text", "address"],
+    "ritual_ZNK12QHostAddress7scopeIdEv": ["text", "address"],
+    "ritual_ZN12QHostAddress10setScopeIdERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK12QHostAddress7isEqualERKS_6QFlagsINS_18ConversionModeFlagEE": [
+      "bool", "address", "address", "int"
+    ],
+    "ritual_ZNK12QHostAddresseqERKS_": ["bool", "address", "address"],
+    "ritual_ZNK12QHostAddresseqENS_14SpecialAddressE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK12QHostAddressneERKS_": ["bool", "address", "address"],
+    "ritual_ZNK12QHostAddressneENS_14SpecialAddressE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK12QHostAddress6isNullEv": ["bool", "address"],
+    "ritual_ZN12QHostAddress5clearEv": ["nothing", "address"],
+    "ritual_ZNK12QHostAddress10isInSubnetERKS_i": [
+      "bool", "address", "address", "int"
+    ],
+    "ritual_ZNK12QHostAddress10isLoopbackEv": ["bool", "address"],
+    "ritual_ZNK12QHostAddress8isGlobalEv": ["bool", "address"],
+    "ritual_ZNK12QHostAddress11isLinkLocalEv": ["bool", "address"],
+    "ritual_ZNK12QHostAddress11isSiteLocalEv": ["bool", "address"],
+    "ritual_ZNK12QHostAddress20isUniqueLocalUnicastEv": ["bool", "address"],
+    "ritual_ZNK12QHostAddress11isMulticastEv": ["bool", "address"],
+    "ritual_ZNK12QHostAddress11isBroadcastEv": ["bool", "address"],
+    "ritual_ZNK12QHostAddress12isPrivateUseEv": ["bool", "address"],
+    "ritual_ZeqN12QHostAddress14SpecialAddressERKS_": [
+      "bool", "int", "address"
+    ],
+    "ritual_ZneN12QHostAddress14SpecialAddressERKS_": [
+      "bool", "int", "address"
+    ],
+    "ritual_list_make_QHostAddress": ["address"],
+    "ritual_list_add_QHostAddress": ["nothing", "address", "address"],
+    "ritual_list_size_QHostAddress": ["long long", "address"],
+    "ritual_list_at_QHostAddress": ["address", "address", "long long"],
+    "ritual_list_drop_QHostAddress": ["nothing", "address"]
+  }
+}

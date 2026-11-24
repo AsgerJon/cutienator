@@ -1,0 +1,41 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qgraphicsframecapture_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN21QGraphicsFrameCaptureC1Ev": ["address"],
+    "ritual_ZN21QGraphicsFrameCaptureD1Ev": ["nothing", "address"],
+    "ritual_ZN21QGraphicsFrameCapture6setRhiEP4QRhi": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QGraphicsFrameCapture17startCaptureFrameEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QGraphicsFrameCapture15endCaptureFrameEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK21QGraphicsFrameCapture11capturePathEv": ["text", "address"],
+    "ritual_ZN21QGraphicsFrameCapture14setCapturePathERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK21QGraphicsFrameCapture13capturePrefixEv": [
+      "text", "address"
+    ],
+    "ritual_ZN21QGraphicsFrameCapture16setCapturePrefixERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN21QGraphicsFrameCapture16capturedFileNameEv": [
+      "text", "address"
+    ],
+    "ritual_ZN21QGraphicsFrameCapture18capturedFilesNamesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK21QGraphicsFrameCapture8isLoadedEv": ["bool", "address"],
+    "ritual_ZNK21QGraphicsFrameCapture11isCapturingEv": ["bool", "address"],
+    "ritual_ZNK21QGraphicsFrameCapture11openCaptureEv": [
+      "nothing", "address"
+    ]
+  }
+}

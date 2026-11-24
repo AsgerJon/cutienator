@@ -1,0 +1,26 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickanimatorjob_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN25QQuickRotationAnimatorJobC1Ev": ["address"],
+    "ritual_ZN25QQuickRotationAnimatorJob17updateCurrentTimeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN25QQuickRotationAnimatorJob9writeBackEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QQuickRotationAnimatorJob12setDirectionEN22QQuickRotationAnimator17RotationDirectionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK25QQuickRotationAnimatorJob9directionEv": ["int", "address"],
+    "ritual_own_ZN25QQuickRotationAnimatorJob17updateCurrentTimeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN25QQuickRotationAnimatorJob9writeBackEv": [
+      "nothing", "address"
+    ]
+  }
+}

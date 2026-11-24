@@ -1,0 +1,40 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQmlCompiler/6.12.0/QtQmlCompiler/private/qqmljslogger_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QQmlJSFixSuggestionC1Ev": ["address"],
+    "ritual_ZN19QQmlJSFixSuggestionC1ERK7QStringRKN6QQmlJS14SourceLocationERK18QQmlJSDocumentEdit": [
+      "address", "text", "address", "address"
+    ],
+    "ritual_ZN19QQmlJSFixSuggestionC1ERK7QStringRKN6QQmlJS14SourceLocationERK5QListI18QQmlJSDocumentEditE": [
+      "address", "text", "address", "address"
+    ],
+    "ritual_ZNK19QQmlJSFixSuggestion11descriptionEv": ["text", "address"],
+    "ritual_ZNK19QQmlJSFixSuggestion8locationEv": ["address", "address"],
+    "ritual_ZN19QQmlJSFixSuggestion15addDocumentEditERK18QQmlJSDocumentEdit": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQmlJSFixSuggestion16setDocumentEditsERK5QListI18QQmlJSDocumentEditE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QQmlJSFixSuggestion13documentEditsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QQmlJSFixSuggestion11setFilenameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK19QQmlJSFixSuggestion8filenameEv": ["text", "address"],
+    "ritual_ZN19QQmlJSFixSuggestion17setAutoApplicableEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK19QQmlJSFixSuggestion16isAutoApplicableEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK19QQmlJSFixSuggestioneqERKS_": ["bool", "address", "address"],
+    "ritual_ZNK19QQmlJSFixSuggestionneERKS_": ["bool", "address", "address"],
+    "ritual_ZN19QQmlJSFixSuggestionD1Ev": ["nothing", "address"]
+  }
+}

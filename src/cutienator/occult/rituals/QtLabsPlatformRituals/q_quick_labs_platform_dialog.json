@@ -1,0 +1,79 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtLabsP",
+    "latform/6.12.0/QtLabsPlatform/private/qquicklabsplatformdialog_p.h",
+    ", Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK24QQuickLabsPlatformDialog10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QQuickLabsPlatformDialog24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuickLabsPlatformDialogD1Ev": ["nothing", "address"],
+    "ritual_ZNK24QQuickLabsPlatformDialog6handleEv": ["address", "address"],
+    "ritual_ZNK24QQuickLabsPlatformDialog12parentWindowEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK24QQuickLabsPlatformDialog5titleEv": ["text", "address"],
+    "ritual_ZNK24QQuickLabsPlatformDialog5flagsEv": ["int", "address"],
+    "ritual_ZNK24QQuickLabsPlatformDialog8modalityEv": ["int", "address"],
+    "ritual_ZNK24QQuickLabsPlatformDialog9isVisibleEv": ["bool", "address"],
+    "ritual_ZNK24QQuickLabsPlatformDialog6resultEv": ["int", "address"],
+    "ritual_ZN24QQuickLabsPlatformDialog6acceptEv": ["nothing", "address"],
+    "ritual_ZN24QQuickLabsPlatformDialog6rejectEv": ["nothing", "address"],
+    "ritual_ZN24QQuickLabsPlatformDialog4doneEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN24QQuickLabsPlatformDialog10classBeginEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuickLabsPlatformDialog17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuickLabsPlatformDialog7destroyEv": ["nothing", "address"],
+    "ritual_ZNK24QQuickLabsPlatformDialog15useNativeDialogEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN24QQuickLabsPlatformDialog8onCreateEP21QPlatformDialogHelper": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QQuickLabsPlatformDialog6onShowEP21QPlatformDialogHelper": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QQuickLabsPlatformDialog6onHideEP21QPlatformDialogHelper": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK24QQuickLabsPlatformDialog16findParentWindowEv": [
+      "address", "address"
+    ],
+    "ritual_cast_QQuickLabsPlatformDialog_QQmlParserStatus": [
+      "address", "address"
+    ],
+    "ritual_take_QQuickLabsPlatformDialog": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN24QQuickLabsPlatformDialog6acceptEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN24QQuickLabsPlatformDialog6rejectEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN24QQuickLabsPlatformDialog10classBeginEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZNK24QQuickLabsPlatformDialog15useNativeDialogEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZN24QQuickLabsPlatformDialog8onCreateEP21QPlatformDialogHelper": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN24QQuickLabsPlatformDialog6onShowEP21QPlatformDialogHelper": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN24QQuickLabsPlatformDialog6onHideEP21QPlatformDialogHelper": [
+      "nothing", "address", "address"
+    ]
+  }
+}

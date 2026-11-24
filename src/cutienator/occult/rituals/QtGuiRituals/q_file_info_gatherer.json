@@ -29,6 +29,9 @@
     "ritual_ZN17QFileInfoGatherer10removePathERK7QString": [
       "nothing", "address", "text"
     ],
+    "ritual_ZNK17QFileInfoGatherer7getInfoERK9QFileInfo": [
+      "address", "address", "address"
+    ],
     "ritual_ZNK17QFileInfoGatherer12iconProviderEv": ["address", "address"],
     "ritual_ZNK17QFileInfoGatherer15resolveSymlinksEv": ["bool", "address"],
     "ritual_ZN17QFileInfoGatherer12requestAbortEv": ["nothing", "address"],

@@ -1,0 +1,108 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtLocat",
+    "ion/6.12.0/QtLocation/private/qdeclarativegeomapitembase_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK26QDeclarativeGeoMapItemBase10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QDeclarativeGeoMapItemBase2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN26QDeclarativeGeoMapItemBase24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QDeclarativeGeoMapItemBaseD1Ev": ["nothing", "address"],
+    "ritual_ZN26QDeclarativeGeoMapItemBase6setMapEP18QDeclarativeGeoMapP7QGeoMap": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN26QDeclarativeGeoMapItemBase16setPositionOnMapERK14QGeoCoordinateRK7QPointF": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK26QDeclarativeGeoMapItemBase8quickMapEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK26QDeclarativeGeoMapItemBase3mapEv": ["address", "address"],
+    "ritual_ZNK26QDeclarativeGeoMapItemBase8geoShapeEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QDeclarativeGeoMapItemBase11setGeoShapeERK9QGeoShape": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK26QDeclarativeGeoMapItemBase10autoFadeInEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN26QDeclarativeGeoMapItemBase13setAutoFadeInEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK26QDeclarativeGeoMapItemBase16referenceSurfaceEv": [
+      "unsigned char", "address"
+    ],
+    "ritual_ZN26QDeclarativeGeoMapItemBase19setReferenceSurfaceEN9QLocation16ReferenceSurfaceE": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZNK26QDeclarativeGeoMapItemBase12lodThresholdEv": [
+      "int", "address"
+    ],
+    "ritual_ZN26QDeclarativeGeoMapItemBase15setLodThresholdEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK26QDeclarativeGeoMapItemBase10zoomForLODEi": [
+      "unsigned int", "address", "int"
+    ],
+    "ritual_ZN26QDeclarativeGeoMapItemBase15updatePaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN26QDeclarativeGeoMapItemBase22updateMapItemPaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK26QDeclarativeGeoMapItemBase8itemTypeEv": ["int", "address"],
+    "ritual_ZNK26QDeclarativeGeoMapItemBase14mapItemOpacityEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK26QDeclarativeGeoMapItemBase26setShapeTriangulationScaleEP11QQuickShaped": [
+      "nothing", "address", "address", "double"
+    ],
+    "ritual_ZN26QDeclarativeGeoMapItemBase20afterChildrenChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QDeclarativeGeoMapItemBase20afterViewportChangedERK26QGeoMapViewportChangeEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QDeclarativeGeoMapItemBase15polishAndUpdateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK26QDeclarativeGeoMapItemBase16zoomLevelOpacityEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK26QDeclarativeGeoMapItemBase17isPolishScheduledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN26QDeclarativeGeoMapItemBase21baseCameraDataChangedERK14QGeoCameraData": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QDeclarativeGeoMapItemBase18visibleAreaChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QDeclarativeGeoMapItemBase": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN26QDeclarativeGeoMapItemBase6setMapEP18QDeclarativeGeoMapP7QGeoMap": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN26QDeclarativeGeoMapItemBase16setPositionOnMapERK14QGeoCoordinateRK7QPointF": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN26QDeclarativeGeoMapItemBase15updatePaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN26QDeclarativeGeoMapItemBase22updateMapItemPaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN26QDeclarativeGeoMapItemBase20afterChildrenChangedEv": [
+      "nothing", "address"
+    ]
+  }
+}

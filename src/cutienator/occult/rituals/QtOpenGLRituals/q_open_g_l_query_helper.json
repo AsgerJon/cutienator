@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtOpenGL/6.12.0/QtOpenGL/private/qopenglqueryhelper_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QOpenGLQueryHelperC1EP14QOpenGLContext": [
+      "address", "address"
+    ],
+    "ritual_ZN18QOpenGLQueryHelper10glEndQueryEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN18QOpenGLQueryHelper12glBeginQueryEjj": [
+      "nothing", "address", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZN18QOpenGLQueryHelper14glQueryCounterEjj": [
+      "nothing", "address", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZN18QOpenGLQueryHelperD1Ev": ["nothing", "address"]
+  }
+}

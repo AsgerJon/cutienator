@@ -1,0 +1,88 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLabsQmlModels/6.12.0/QtLabsQmlModels/private/qqmltablemodel_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK14QQmlTableModel10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QQmlTableModel2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN14QQmlTableModelC1EP7QObject": ["address", "address"],
+    "ritual_ZN14QQmlTableModelD1Ev": ["nothing", "address"],
+    "ritual_ZNK14QQmlTableModel4rowsEv": ["address", "address"],
+    "ritual_ZN14QQmlTableModel7setRowsERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QQmlTableModel9appendRowERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QQmlTableModel5clearEv": ["nothing", "address"],
+    "ritual_ZN14QQmlTableModel6getRowEi": ["address", "address", "int"],
+    "ritual_ZN14QQmlTableModel9insertRowEiRK8QVariant": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN14QQmlTableModel7moveRowEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZN14QQmlTableModel9removeRowEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN14QQmlTableModel6setRowEiRK8QVariant": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZNK14QQmlTableModel5indexEiiRK11QModelIndex": [
+      "address", "address", "int", "int", "address"
+    ],
+    "ritual_ZNK14QQmlTableModel8rowCountERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK14QQmlTableModel11columnCountERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK14QQmlTableModel6parentERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK14QQmlTableModel8firstRowEv": ["address", "address"],
+    "ritual_ZN14QQmlTableModel14setInitialRowsEv": ["nothing", "address"],
+    "ritual_ZN14QQmlTableModel14setRowsPrivateERK5QListI8QVariantE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QQmlTableModel11dataPrivateERK11QModelIndexRK7QString": [
+      "address", "address", "address", "text"
+    ],
+    "ritual_ZN14QQmlTableModel14setDataPrivateERK11QModelIndexRK7QString8QVariant": [
+      "nothing", "address", "address", "text", "address"
+    ],
+    "ritual_ZNK14QQmlTableModel16validateRowIndexE13QLatin1StringS0_iNS_9RowOptionE": [
+      "bool", "address", "address", "address", "int", "int"
+    ],
+    "ritual_ZN14QQmlTableModel8doInsertEiRK8QVariant": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_take_QQmlTableModel": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK14QQmlTableModel5indexEiiRK11QModelIndex": [
+      "address", "address", "int", "int", "address"
+    ],
+    "ritual_own_ZNK14QQmlTableModel8rowCountERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZNK14QQmlTableModel11columnCountERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZNK14QQmlTableModel6parentERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZNK14QQmlTableModel8firstRowEv": ["address", "address"],
+    "ritual_own_ZN14QQmlTableModel14setInitialRowsEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZNK14QQmlTableModel11dataPrivateERK11QModelIndexRK7QString": [
+      "address", "address", "address", "text"
+    ],
+    "ritual_own_ZN14QQmlTableModel14setDataPrivateERK11QModelIndexRK7QString8QVariant": [
+      "nothing", "address", "address", "text", "address"
+    ]
+  }
+}

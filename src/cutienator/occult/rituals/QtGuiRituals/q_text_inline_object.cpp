@@ -4,6 +4,14 @@
 #include <QtCore/qrect.h>
 #include <QtGui/qtextformat.h>
 
+//  QTextInlineObject::QTextInlineObject(int i, QTextEngine *e)
+extern "C" Q_DECL_EXPORT
+QTextInlineObject *ritual_ZN17QTextInlineObjectC1EiP11QTextEngine(
+    int i,
+    QTextEngine *e) {
+  return new QTextInlineObject(i, e);
+}
+
 //  QTextInlineObject::QTextInlineObject()
 extern "C" Q_DECL_EXPORT
 QTextInlineObject *ritual_ZN17QTextInlineObjectC1Ev() {

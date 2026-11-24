@@ -1,0 +1,49 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSvgWidgets/qgraphicssvgitem.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK16QGraphicsSvgItem10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QGraphicsSvgItem2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN16QGraphicsSvgItemC1EP13QGraphicsItem": ["address", "address"],
+    "ritual_ZN16QGraphicsSvgItemC1ERK7QStringP13QGraphicsItem": [
+      "address", "text", "address"
+    ],
+    "ritual_ZN16QGraphicsSvgItemD1Ev": ["nothing", "address"],
+    "ritual_ZN16QGraphicsSvgItem17setSharedRendererEP12QSvgRenderer": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QGraphicsSvgItem8rendererEv": ["address", "address"],
+    "ritual_ZN16QGraphicsSvgItem12setElementIdERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK16QGraphicsSvgItem9elementIdEv": ["text", "address"],
+    "ritual_ZN16QGraphicsSvgItem17setCachingEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK16QGraphicsSvgItem16isCachingEnabledEv": ["bool", "address"],
+    "ritual_ZN16QGraphicsSvgItem19setMaximumCacheSizeERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QGraphicsSvgItem16maximumCacheSizeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK16QGraphicsSvgItem12boundingRectEv": ["address", "address"],
+    "ritual_ZN16QGraphicsSvgItem5paintEP8QPainterPK24QStyleOptionGraphicsItemP7QWidget": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK16QGraphicsSvgItem4typeEv": ["int", "address"],
+    "ritual_take_QGraphicsSvgItem": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK16QGraphicsSvgItem12boundingRectEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN16QGraphicsSvgItem5paintEP8QPainterPK24QStyleOptionGraphicsItemP7QWidget": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZNK16QGraphicsSvgItem4typeEv": ["int", "address"]
+  }
+}

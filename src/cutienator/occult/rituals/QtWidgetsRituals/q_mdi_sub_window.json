@@ -104,6 +104,8 @@
     "ritual_ZN13QMdiSubWindow10childEventEP11QChildEvent": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN13QMdiSubWindow6d_funcEv": ["address", "address"],
+    "ritual_ZNK13QMdiSubWindow6d_funcEv": ["address", "address"],
     "ritual_take_QMdiSubWindow": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK13QMdiSubWindow8sizeHintEv": ["address", "address"],
     "ritual_own_ZNK13QMdiSubWindow15minimumSizeHintEv": [

@@ -1,0 +1,39 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3DUtils/6.12.0/QtQuick3DUtils/private/qssgutils_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN12RotationDataC1Ev": ["address"],
+    "ritual_ZN12RotationDataC1ERK9QVector3D": ["address", "address"],
+    "ritual_ZN12RotationDataC1ERK11QQuaternion": ["address", "address"],
+    "ritual_ZeqRK12RotationDataS1_": ["bool", "address", "address"],
+    "ritual_ZneRK12RotationDataS1_": ["bool", "address", "address"],
+    "ritual_ZeqRK12RotationDataRK9QVector3D": ["bool", "address", "address"],
+    "ritual_ZneRK12RotationDataRK9QVector3D": ["bool", "address", "address"],
+    "ritual_ZeqRK9QVector3DRK12RotationData": ["bool", "address", "address"],
+    "ritual_ZneRK9QVector3DRK12RotationData": ["bool", "address", "address"],
+    "ritual_ZeqRK12RotationDataRK11QQuaternion": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZneRK12RotationDataRK11QQuaternion": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZeqRK11QQuaternionRK12RotationData": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZneRK11QQuaternionRK12RotationData": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK12RotationData13toEulerAnglesEv": ["address", "address"],
+    "ritual_ZNK12RotationData12toQuaternionEv": ["address", "address"],
+    "ritual_ZN12RotationData10dotProductERK11QQuaternionS2_": [
+      "double", "address", "address"
+    ],
+    "ritual_ZN12RotationData22fuzzyQuaternionCompareERK11QQuaternionS2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN12RotationDataD1Ev": ["nothing", "address"]
+  }
+}

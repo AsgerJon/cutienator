@@ -79,6 +79,8 @@
       "nothing", "address", "address"
     ],
     "ritual_ZN11QProxyStyle5eventEP6QEvent": ["bool", "address", "address"],
+    "ritual_ZN11QProxyStyle6d_funcEv": ["address", "address"],
+    "ritual_ZNK11QProxyStyle6d_funcEv": ["address", "address"],
     "ritual_take_QProxyStyle": ["bool", "address", "chars", "address"],
     "ritual_own_ZNK11QProxyStyle13drawPrimitiveEN6QStyle16PrimitiveElementEPK12QStyleOptionP8QPainterPK7QWidget": [
       "nothing", "address", "int", "address", "address", "address"

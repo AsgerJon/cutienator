@@ -1,0 +1,85 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSql/6.12.0/QtSql/private/qsqlnulldriver_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN14QSqlNullResultC1EPK10QSqlDriver": ["address", "address"],
+    "ritual_ZN14QSqlNullResult4dataEi": ["address", "address", "int"],
+    "ritual_ZN14QSqlNullResult5resetERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN14QSqlNullResult5fetchEi": ["bool", "address", "int"],
+    "ritual_ZN14QSqlNullResult10fetchFirstEv": ["bool", "address"],
+    "ritual_ZN14QSqlNullResult9fetchLastEv": ["bool", "address"],
+    "ritual_ZN14QSqlNullResult6isNullEi": ["bool", "address", "int"],
+    "ritual_ZN14QSqlNullResult4sizeEv": ["int", "address"],
+    "ritual_ZN14QSqlNullResult15numRowsAffectedEv": ["int", "address"],
+    "ritual_ZN14QSqlNullResult5setAtEi": ["nothing", "address", "int"],
+    "ritual_ZN14QSqlNullResult9setActiveEb": ["nothing", "address", "bool"],
+    "ritual_ZN14QSqlNullResult12setLastErrorERK9QSqlError": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QSqlNullResult8setQueryERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN14QSqlNullResult9setSelectEb": ["nothing", "address", "bool"],
+    "ritual_ZN14QSqlNullResult14setForwardOnlyEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN14QSqlNullResult4execEv": ["bool", "address"],
+    "ritual_ZN14QSqlNullResult7prepareERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN14QSqlNullResult11savePrepareERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN14QSqlNullResult9bindValueEiRK8QVariant6QFlagsIN4QSql13ParamTypeFlagEE": [
+      "nothing", "address", "int", "address", "int"
+    ],
+    "ritual_ZN14QSqlNullResult9bindValueERK7QStringRK8QVariant6QFlagsIN4QSql13ParamTypeFlagEE": [
+      "nothing", "address", "text", "address", "int"
+    ],
+    "ritual_take_QSqlNullResult": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN14QSqlNullResult4dataEi": ["address", "address", "int"],
+    "ritual_own_ZN14QSqlNullResult5resetERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_own_ZN14QSqlNullResult5fetchEi": ["bool", "address", "int"],
+    "ritual_own_ZN14QSqlNullResult10fetchFirstEv": ["bool", "address"],
+    "ritual_own_ZN14QSqlNullResult9fetchLastEv": ["bool", "address"],
+    "ritual_own_ZN14QSqlNullResult6isNullEi": ["bool", "address", "int"],
+    "ritual_own_ZN14QSqlNullResult4sizeEv": ["int", "address"],
+    "ritual_own_ZN14QSqlNullResult15numRowsAffectedEv": ["int", "address"],
+    "ritual_own_ZN14QSqlNullResult5setAtEi": ["nothing", "address", "int"],
+    "ritual_own_ZN14QSqlNullResult9setActiveEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZN14QSqlNullResult12setLastErrorERK9QSqlError": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN14QSqlNullResult8setQueryERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_own_ZN14QSqlNullResult9setSelectEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZN14QSqlNullResult14setForwardOnlyEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZN14QSqlNullResult4execEv": ["bool", "address"],
+    "ritual_own_ZN14QSqlNullResult7prepareERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_own_ZN14QSqlNullResult11savePrepareERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_own_ZN14QSqlNullResult9bindValueEiRK8QVariant6QFlagsIN4QSql13ParamTypeFlagEE": [
+      "nothing", "address", "int", "address", "int"
+    ],
+    "ritual_own_ZN14QSqlNullResult9bindValueERK7QStringRK8QVariant6QFlagsIN4QSql13ParamTypeFlagEE": [
+      "nothing", "address", "text", "address", "int"
+    ]
+  }
+}

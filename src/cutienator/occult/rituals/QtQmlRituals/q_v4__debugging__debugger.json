@@ -1,0 +1,34 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4debugging_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK3QV49Debugging8Debugger10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV49Debugging8Debugger2trEPKcS3_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN3QV49Debugging8DebuggerD1Ev": ["nothing", "address"],
+    "ritual_ZNK3QV49Debugging8Debugger22pauseAtNextOpportunityEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN3QV49Debugging8Debugger23maybeBreakAtInstructionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN3QV49Debugging8Debugger16enteringFunctionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN3QV49Debugging8Debugger15leavingFunctionERKy": [
+      "nothing", "address", "unsigned long long"
+    ],
+    "ritual_ZN3QV49Debugging8Debugger12aboutToThrowEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QV4_Debugging_Debugger": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

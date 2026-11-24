@@ -1,0 +1,54 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtLabsP",
+    "latform/6.12.0/QtLabsPlatform/private/qquicklabsplatformfolderdial",
+    "og_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK30QQuickLabsPlatformFolderDialog10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN30QQuickLabsPlatformFolderDialog20qmlExtendedNamespaceEv": [
+      "address"
+    ],
+    "ritual_ZN30QQuickLabsPlatformFolderDialog30qt_qmlMarker_extendedNamespaceEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK30QQuickLabsPlatformFolderDialog6folderEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK30QQuickLabsPlatformFolderDialog13currentFolderEv": [
+      "address", "address"
+    ],
+    "ritual_ZN30QQuickLabsPlatformFolderDialog16setCurrentFolderERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK30QQuickLabsPlatformFolderDialog7optionsEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK30QQuickLabsPlatformFolderDialog11acceptLabelEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK30QQuickLabsPlatformFolderDialog11rejectLabelEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK30QQuickLabsPlatformFolderDialog15useNativeDialogEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN30QQuickLabsPlatformFolderDialog8onCreateEP21QPlatformDialogHelper": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN30QQuickLabsPlatformFolderDialog6onShowEP21QPlatformDialogHelper": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN30QQuickLabsPlatformFolderDialog6acceptEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZNK30QQuickLabsPlatformFolderDialog15useNativeDialogEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZN30QQuickLabsPlatformFolderDialog6onShowEP21QPlatformDialogHelper": [
+      "nothing", "address", "address"
+    ]
+  }
+}

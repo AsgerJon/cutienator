@@ -1,25 +1,32 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGui/qaccessible.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
+#if QT_CONFIG(accessibility)
 #include <QtGui/qaccessible.h>
 #include <cstring>
 
 //  A QAccessibleEvent that Python can take functions over in. Every QAccessibleEvent
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if QT_CONFIG(accessibility)
 typedef void * (*CuteQAccessibleEventCall0)(const void *, int *);
+#endif  // QT_CONFIG(accessibility)
 class CuteQAccessibleEvent : public QAccessibleEvent {
 public:
   using QAccessibleEvent::QAccessibleEvent;
   void *taken[1] = {};
 
   bool take(const char *key, void *call) {
+#if QT_CONFIG(accessibility)
     if (!std::strcmp(key, "_ZNK16QAccessibleEvent19accessibleInterfaceEv")) {
       taken[0] = call;
       return true;
     }
+#endif  // QT_CONFIG(accessibility)
     return false;
   }
 
+#if QT_CONFIG(accessibility)
   //  QAccessibleInterface *QAccessibleEvent::accessibleInterface() const
   QAccessibleInterface *accessibleInterface() const override {
     if (taken[0]) {
@@ -30,6 +37,7 @@ public:
     }
     return QAccessibleEvent::accessibleInterface();
   }
+#endif  // QT_CONFIG(accessibility)
 };
 
 //  QAccessibleEvent::QAccessibleEvent(QObject *obj, QAccessible::Event typ)
@@ -113,3 +121,5 @@ QAccessibleInterface *ritual_own_ZNK16QAccessibleEvent19accessibleInterfaceEv(
     const QAccessibleEvent *self) {
   return self->QAccessibleEvent::accessibleInterface();
 }
+
+#endif  // QT_CONFIG(accessibility)

@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/qsavefile.h, Qt 6.12.0. Changes made here are lost.
+#include <QtCore/qglobal.h>
+#if QT_CONFIG(temporaryfile)
 #include <QtCore/qsavefile.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
@@ -8,9 +10,15 @@
 //  A QSaveFile that Python can take functions over in. Every QSaveFile
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if QT_CONFIG(temporaryfile)
 typedef QString * (*CuteQSaveFileCall0)(const void *, int *);
+#endif  // QT_CONFIG(temporaryfile)
+#if QT_CONFIG(temporaryfile)
 typedef bool (*CuteQSaveFileCall1)(const void *, int, int *);
+#endif  // QT_CONFIG(temporaryfile)
+#if QT_CONFIG(temporaryfile)
 typedef void (*CuteQSaveFileCall2)(const void *, int *);
+#endif  // QT_CONFIG(temporaryfile)
 typedef bool (*CuteQSaveFileCall3)(const void *, int *);
 typedef qint64 (*CuteQSaveFileCall4)(const void *, int *);
 typedef bool (*CuteQSaveFileCall5)(const void *, qint64, int *);
@@ -26,31 +34,51 @@ typedef bool (*CuteQSaveFileCall14)(const void *, int *);
 typedef bool (*CuteQSaveFileCall15)(const void *, int, int *);
 typedef bool (*CuteQSaveFileCall16)(const void *, int, int *);
 typedef qint64 (*CuteQSaveFileCall17)(const void *, qint64, int *);
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQSaveFileCall18)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQSaveFileCall19)(const void *, QObject *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQSaveFileCall20)(const void *, QTimerEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQSaveFileCall21)(const void *, QChildEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQSaveFileCall22)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQSaveFileCall23)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQSaveFileCall24)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 class CuteQSaveFile : public QSaveFile {
 public:
   using QSaveFile::QSaveFile;
   void *taken[25] = {};
 
   bool take(const char *key, void *call) {
+#if QT_CONFIG(temporaryfile)
     if (!std::strcmp(key, "_ZNK11QFileDevice8fileNameEv")) {
       taken[0] = call;
       return true;
     }
+#endif  // QT_CONFIG(temporaryfile)
+#if QT_CONFIG(temporaryfile)
     if (!std::strcmp(key, "_ZN9QIODevice4openE6QFlagsIN13QIODeviceBase12OpenModeFlagEE")) {
       taken[1] = call;
       return true;
     }
+#endif  // QT_CONFIG(temporaryfile)
+#if QT_CONFIG(temporaryfile)
     if (!std::strcmp(key, "_ZN9QIODevice5closeEv")) {
       taken[2] = call;
       return true;
     }
+#endif  // QT_CONFIG(temporaryfile)
     if (!std::strcmp(key, "_ZNK9QIODevice12isSequentialEv")) {
       taken[3] = call;
       return true;
@@ -111,37 +139,52 @@ public:
       taken[17] = call;
       return true;
     }
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[18] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[19] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[20] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[21] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[22] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[23] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
       taken[24] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
     return false;
   }
 
+#if QT_CONFIG(temporaryfile)
   //  QString QSaveFile::fileName() const
   QString fileName() const override {
     if (taken[0]) {
@@ -156,7 +199,9 @@ public:
     }
     return QSaveFile::fileName();
   }
+#endif  // QT_CONFIG(temporaryfile)
 
+#if QT_CONFIG(temporaryfile)
   //  bool QSaveFile::open(OpenMode flags)
   bool open(QIODeviceBase::OpenMode flags) override {
     if (taken[1]) {
@@ -167,7 +212,9 @@ public:
     }
     return QSaveFile::open(flags);
   }
+#endif  // QT_CONFIG(temporaryfile)
 
+#if QT_CONFIG(temporaryfile)
   //  void QSaveFile::close()
   void close() override {
     if (taken[2]) {
@@ -178,6 +225,7 @@ public:
     }
     QSaveFile::close();
   }
+#endif  // QT_CONFIG(temporaryfile)
 
   //  bool QFileDevice::isSequential() const
   bool isSequential() const override {
@@ -344,6 +392,7 @@ public:
     return QIODevice::skipData(maxSize);
   }
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QObject::event(QEvent *event)
   bool event(QEvent *event) override {
     if (taken[18]) {
@@ -354,7 +403,9 @@ public:
     }
     return QObject::event(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
     if (taken[19]) {
@@ -365,7 +416,9 @@ public:
     }
     return QObject::eventFilter(watched, event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
     if (taken[20]) {
@@ -376,7 +429,9 @@ public:
     }
     QObject::timerEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
     if (taken[21]) {
@@ -387,7 +442,9 @@ public:
     }
     QObject::childEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
     if (taken[22]) {
@@ -398,7 +455,9 @@ public:
     }
     QObject::customEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
     if (taken[23]) {
@@ -409,7 +468,9 @@ public:
     }
     QObject::connectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
     if (taken[24]) {
@@ -420,6 +481,7 @@ public:
     }
     QObject::disconnectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 };
 
 //  const QMetaObject *QSaveFile::metaObject() const
@@ -436,6 +498,19 @@ QString *ritual_ZN9QSaveFile2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QSaveFile::tr(s, c, n));
+}
+
+//  QSaveFilePrivate *QSaveFile::d_func()
+extern "C" Q_DECL_EXPORT
+QSaveFilePrivate *ritual_ZN9QSaveFile6d_funcEv(QSaveFile *self) {
+  return self->d_func();
+}
+
+//  const QSaveFilePrivate *QSaveFile::d_func() const
+extern "C" Q_DECL_EXPORT
+const QSaveFilePrivate *ritual_ZNK9QSaveFile6d_funcEv(
+    const QSaveFile *self) {
+  return self->d_func();
 }
 
 //  QSaveFile::QSaveFile(QObject *parent)
@@ -548,3 +623,5 @@ extern "C" Q_DECL_EXPORT
 void ritual_own_ZN9QSaveFile5closeEv(QSaveFile *self) {
   self->QSaveFile::close();
 }
+
+#endif  // QT_CONFIG(temporaryfile)

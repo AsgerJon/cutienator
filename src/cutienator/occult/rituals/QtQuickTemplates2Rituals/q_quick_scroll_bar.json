@@ -1,0 +1,109 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquickscrollbar_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK15QQuickScrollBar10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QQuickScrollBar2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN15QQuickScrollBar21qt_qmlMarker_attachedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickScrollBarC1EP10QQuickItem": ["address", "address"],
+    "ritual_ZN15QQuickScrollBar21qmlAttachedPropertiesEP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZNK15QQuickScrollBar4sizeEv": ["double", "address"],
+    "ritual_ZNK15QQuickScrollBar8positionEv": ["double", "address"],
+    "ritual_ZNK15QQuickScrollBar8stepSizeEv": ["double", "address"],
+    "ritual_ZN15QQuickScrollBar11setStepSizeEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK15QQuickScrollBar8isActiveEv": ["bool", "address"],
+    "ritual_ZN15QQuickScrollBar9setActiveEb": ["nothing", "address", "bool"],
+    "ritual_ZNK15QQuickScrollBar9isPressedEv": ["bool", "address"],
+    "ritual_ZN15QQuickScrollBar10setPressedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK15QQuickScrollBar11orientationEv": ["int", "address"],
+    "ritual_ZN15QQuickScrollBar14setOrientationEN2Qt11OrientationE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QQuickScrollBar8snapModeEv": ["int", "address"],
+    "ritual_ZN15QQuickScrollBar11setSnapModeENS_8SnapModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QQuickScrollBar13isInteractiveEv": ["bool", "address"],
+    "ritual_ZN15QQuickScrollBar14setInteractiveEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN15QQuickScrollBar16resetInteractiveEv": ["nothing", "address"],
+    "ritual_ZNK15QQuickScrollBar6policyEv": ["int", "address"],
+    "ritual_ZN15QQuickScrollBar9setPolicyENS_6PolicyE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QQuickScrollBar12isHorizontalEv": ["bool", "address"],
+    "ritual_ZNK15QQuickScrollBar10isVerticalEv": ["bool", "address"],
+    "ritual_ZNK15QQuickScrollBar11minimumSizeEv": ["double", "address"],
+    "ritual_ZN15QQuickScrollBar14setMinimumSizeEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK15QQuickScrollBar10visualSizeEv": ["double", "address"],
+    "ritual_ZNK15QQuickScrollBar14visualPositionEv": ["double", "address"],
+    "ritual_ZN15QQuickScrollBar14decreaseVisualEv": ["address", "address"],
+    "ritual_ZN15QQuickScrollBar14increaseVisualEv": ["address", "address"],
+    "ritual_ZN15QQuickScrollBar8increaseEv": ["nothing", "address"],
+    "ritual_ZN15QQuickScrollBar8decreaseEv": ["nothing", "address"],
+    "ritual_ZN15QQuickScrollBar7setSizeEd": ["nothing", "address", "double"],
+    "ritual_ZN15QQuickScrollBar11setPositionEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN15QQuickScrollBar15mousePressEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QQuickScrollBar11hoverChangeEv": ["nothing", "address"],
+    "ritual_ZN15QQuickScrollBar15hoverEnterEventEP11QHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QQuickScrollBar14hoverMoveEventEP11QHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QQuickScrollBar15hoverLeaveEventEP11QHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QQuickScrollBar10classBeginEv": ["nothing", "address"],
+    "ritual_ZN15QQuickScrollBar17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickScrollBar26accessibilityActiveChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK15QQuickScrollBar14accessibleRoleEv": ["int", "address"],
+    "ritual_ZN15QQuickScrollBar6d_funcEv": ["address", "address"],
+    "ritual_ZNK15QQuickScrollBar6d_funcEv": ["address", "address"],
+    "ritual_own_ZN15QQuickScrollBar15mousePressEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN15QQuickScrollBar11hoverChangeEv": ["nothing", "address"],
+    "ritual_own_ZN15QQuickScrollBar15hoverEnterEventEP11QHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN15QQuickScrollBar14hoverMoveEventEP11QHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN15QQuickScrollBar15hoverLeaveEventEP11QHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN15QQuickScrollBar10classBeginEv": ["nothing", "address"],
+    "ritual_own_ZN15QQuickScrollBar17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN15QQuickScrollBar26accessibilityActiveChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZNK15QQuickScrollBar14accessibleRoleEv": ["int", "address"]
+  }
+}

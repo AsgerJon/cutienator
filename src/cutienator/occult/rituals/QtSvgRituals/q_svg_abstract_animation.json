@@ -1,0 +1,50 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSvg/6.12.0/QtSvg/private/qsvgabstractanimation_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN21QSvgAbstractAnimationD1Ev": ["nothing", "address"],
+    "ritual_ZNK21QSvgAbstractAnimation13animationTypeEv": ["int", "address"],
+    "ritual_ZN21QSvgAbstractAnimation17evaluateAnimationEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN21QSvgAbstractAnimation14setRunningTimeEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK21QSvgAbstractAnimation5startEv": ["int", "address"],
+    "ritual_ZNK21QSvgAbstractAnimation8durationEv": ["int", "address"],
+    "ritual_ZN21QSvgAbstractAnimation17setIterationCountEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK21QSvgAbstractAnimation14iterationCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK21QSvgAbstractAnimation6easingEv": ["address", "address"],
+    "ritual_ZN21QSvgAbstractAnimation14appendPropertyEP28QSvgAbstractAnimatedProperty": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21QSvgAbstractAnimation10propertiesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK21QSvgAbstractAnimation8finishedEv": ["bool", "address"],
+    "ritual_ZNK21QSvgAbstractAnimation8isActiveEv": ["bool", "address"],
+    "ritual_take_QSvgAbstractAnimation": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN21QSvgAbstractAnimation14appendPropertyEP28QSvgAbstractAnimatedProperty": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK21QSvgAbstractAnimation8isActiveEv": ["bool", "address"],
+    "ritual_list_make_QSvgAbstractAnimation_ptr": ["address"],
+    "ritual_list_add_QSvgAbstractAnimation_ptr": [
+      "nothing", "address", "address"
+    ],
+    "ritual_list_size_QSvgAbstractAnimation_ptr": ["long long", "address"],
+    "ritual_list_at_QSvgAbstractAnimation_ptr": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_QSvgAbstractAnimation_ptr": ["nothing", "address"]
+  }
+}

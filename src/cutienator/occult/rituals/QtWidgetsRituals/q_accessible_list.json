@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/itemviews_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK15QAccessibleList5childEi": ["address", "address", "int"],
+    "ritual_ZNK15QAccessibleList6cellAtEii": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZNK15QAccessibleList17selectedCellCountEv": ["int", "address"],
+    "ritual_ZNK15QAccessibleList13selectedCellsEv": ["address", "address"],
+    "ritual_take_QAccessibleList": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK15QAccessibleList6cellAtEii": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_own_ZNK15QAccessibleList17selectedCellCountEv": [
+      "int", "address"
+    ]
+  }
+}

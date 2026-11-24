@@ -1,0 +1,42 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3DUtils/6.12.0/QtQuick3DUtils/private/qquick3dprofiler_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK16QQuick3DProfiler10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QQuick3DProfiler2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN16QQuick3DProfiler9timestampEv": ["long long", "address"],
+    "ritual_ZN16QQuick3DProfiler10initializeEP7QObject": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuick3DProfilerD1Ev": ["nothing", "address"],
+    "ritual_ZN16QQuick3DProfiler14registerObjectEPK7QObject": [
+      "int", "address"
+    ],
+    "ritual_ZN16QQuick3DProfiler14registerStringERK10QByteArray": [
+      "int", "address"
+    ],
+    "ritual_ZN16QQuick3DProfilerC1EP7QObject": ["address", "address"],
+    "ritual_ZN16QQuick3DProfiler14processMessageERK20QQuick3DProfilerData": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuick3DProfiler18startProfilingImplEy": [
+      "nothing", "address", "unsigned long long"
+    ],
+    "ritual_ZN16QQuick3DProfiler17stopProfilingImplEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuick3DProfiler14reportDataImplEv": ["nothing", "address"],
+    "ritual_ZN16QQuick3DProfiler8setTimerERK13QElapsedTimer": [
+      "nothing", "address", "address"
+    ],
+    "ritual_cast_QQuick3DProfiler_QQmlProfilerDefinitions": [
+      "address", "address"
+    ],
+    "ritual_take_QQuick3DProfiler": ["bool", "address", "chars", "address"]
+  }
+}

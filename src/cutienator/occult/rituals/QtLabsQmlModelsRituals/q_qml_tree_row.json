@@ -1,0 +1,42 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLabsQmlModels/6.12.0/QtLabsQmlModels/private/qqmltreerow_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11QQmlTreeRowC1EPS_": ["address", "address"],
+    "ritual_ZN11QQmlTreeRowC1ERK8QVariantPS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN11QQmlTreeRowC1ERK4QMapI7QString8QVariantEPS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK11QQmlTreeRow6parentEv": ["address", "address"],
+    "ritual_ZN11QQmlTreeRow9setParentEPS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QQmlTreeRow6getRowEi": ["address", "address", "int"],
+    "ritual_ZN11QQmlTreeRow8addChildEPS_": ["nothing", "address", "address"],
+    "ritual_ZNK11QQmlTreeRow11subTreeSizeEv": ["int", "address"],
+    "ritual_ZNK11QQmlTreeRow4dataEv": ["address", "address"],
+    "ritual_ZNK11QQmlTreeRow4dataERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN11QQmlTreeRow13removeChildAtEi": ["nothing", "address", "int"],
+    "ritual_ZN11QQmlTreeRow7setDataERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QQmlTreeRow7setDataERK4QMapI7QString8QVariantE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QQmlTreeRow8setFieldERK7QStringRK8QVariant": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZNK11QQmlTreeRow9toVariantEv": ["address", "address"],
+    "ritual_ZN11QQmlTreeRow16unpackVariantMapERK4QMapI7QString8QVariantE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QQmlTreeRowD1Ev": ["nothing", "address"]
+  }
+}

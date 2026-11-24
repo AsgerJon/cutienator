@@ -1,0 +1,39 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickanimator_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK14QQuickAnimator10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QQuickAnimator2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN14QQuickAnimator6d_funcEv": ["address", "address"],
+    "ritual_ZNK14QQuickAnimator6d_funcEv": ["address", "address"],
+    "ritual_ZN14QQuickAnimator24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK14QQuickAnimator10targetItemEv": ["address", "address"],
+    "ritual_ZN14QQuickAnimator13setTargetItemEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QQuickAnimator8durationEv": ["int", "address"],
+    "ritual_ZN14QQuickAnimator11setDurationEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK14QQuickAnimator6easingEv": ["address", "address"],
+    "ritual_ZN14QQuickAnimator9setEasingERK12QEasingCurve": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QQuickAnimator2toEv": ["double", "address"],
+    "ritual_ZN14QQuickAnimator5setToEd": ["nothing", "address", "double"],
+    "ritual_ZNK14QQuickAnimator4fromEv": ["double", "address"],
+    "ritual_ZN14QQuickAnimator7setFromEd": ["nothing", "address", "double"],
+    "ritual_ZNK14QQuickAnimator14threadingModelEv": ["int", "address"],
+    "ritual_ZNK14QQuickAnimator9createJobEv": ["address", "address"],
+    "ritual_ZNK14QQuickAnimator12propertyNameEv": ["text", "address"],
+    "ritual_take_QQuickAnimator": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK14QQuickAnimator14threadingModelEv": ["int", "address"]
+  }
+}

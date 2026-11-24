@@ -1,0 +1,30 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/qsslkey.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN7QSslKeyC1Ev": ["address"],
+    "ritual_ZN7QSslKeyC1ERK10QByteArrayN4QSsl12KeyAlgorithmENS3_14EncodingFormatENS3_7KeyTypeES2_": [
+      "address", "address", "int", "int", "int", "address"
+    ],
+    "ritual_ZN7QSslKeyC1EP9QIODeviceN4QSsl12KeyAlgorithmENS2_14EncodingFormatENS2_7KeyTypeERK10QByteArray": [
+      "address", "address", "int", "int", "int", "address"
+    ],
+    "ritual_ZN7QSslKeyC1ERKS_": ["address", "address"],
+    "ritual_ZN7QSslKeyD1Ev": ["nothing", "address"],
+    "ritual_ZNK7QSslKey6isNullEv": ["bool", "address"],
+    "ritual_ZN7QSslKey5clearEv": ["nothing", "address"],
+    "ritual_ZNK7QSslKey6lengthEv": ["int", "address"],
+    "ritual_ZNK7QSslKey4typeEv": ["int", "address"],
+    "ritual_ZNK7QSslKey9algorithmEv": ["int", "address"],
+    "ritual_ZNK7QSslKey5toPemERK10QByteArray": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK7QSslKey5toDerERK10QByteArray": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK7QSslKeyeqERKS_": ["bool", "address", "address"],
+    "ritual_ZNK7QSslKeyneERKS_": ["bool", "address", "address"]
+  }
+}

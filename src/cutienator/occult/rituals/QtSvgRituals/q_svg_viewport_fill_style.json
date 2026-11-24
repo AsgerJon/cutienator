@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSvg/6.12.0/QtSvg/private/qsvgstyle_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN21QSvgViewportFillStyleC1ERK6QBrush": ["address", "address"],
+    "ritual_ZN21QSvgViewportFillStyleD1Ev": ["nothing", "address"],
+    "ritual_ZNK21QSvgViewportFillStyle4typeEv": ["unsigned char", "address"],
+    "ritual_ZNK21QSvgViewportFillStyle6qbrushEv": ["address", "address"],
+    "ritual_take_QSvgViewportFillStyle": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK21QSvgViewportFillStyle4typeEv": [
+      "unsigned char", "address"
+    ]
+  }
+}

@@ -1,12 +1,19 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/6.12.0/QtWidgets/private/qmainwindowlayout_p.h, Qt 6.12.0.
 //  Changes made here are lost.
+#include <QtWidgets/qtwidgetsglobal.h>
+#include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
+#if QT_CONFIG(mainwindow)
+#include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/QtWidgets>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/6.12.0/QtWidgets/private/qmainwindowlayout_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qrect.h>
 #include <QtCore/qsize.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include "qmainwindowlayout_p.h"
 #if QT_CONFIG(dockwidget)
 #include "qdockarealayout_p.h"
@@ -112,13 +119,14 @@
 #include <private/qhighdpiscaling_p.h>
 #include "qdockwidget_p.h"
 #include "qmainwindowlayout_p.h"
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
 //  Qt's source, because Qt's library carries it under no name.
 //  Copyright (C) The Qt Company Ltd. It is licensed
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
-//  'inline' put before it.
+//  'inline' put before it where Qt did not write it.
 
 //  from src/widgets/widgets/qmainwindowlayout.cpp, line 1081, as _ZNK22QMainWindowLayoutState13centralWidgetEv
 inline QWidget *QMainWindowLayoutState::centralWidget() const
@@ -331,55 +339,6 @@ inline bool QDockAreaLayout::restoreDockWidget(QDockWidget *dockWidget)
     return true;
 }
 
-//  from src/widgets/widgets/qdockarealayout.cpp, line 3258, as _ZN15QDockAreaLayout16tabifyDockWidgetEP11QDockWidgetS1_
-inline void QDockAreaLayout::tabifyDockWidget(QDockWidget *first, QDockWidget *second)
-{
-    const QList<int> path = indexOf(first);
-    if (path.isEmpty())
-        return;
-
-    QDockAreaLayoutInfo *info = this->info(path);
-    Q_ASSERT(info != nullptr);
-    info->tab(path.last(), new QDockWidgetItem(second));
-
-    removePlaceHolder(second->objectName());
-}
-
-//  from src/widgets/widgets/qdockarealayout.cpp, line 2534, as _ZNK15QDockAreaLayout7indexOfEPK7QWidget
-inline QList<int> QDockAreaLayout::indexOf(const QWidget *dockWidget) const
-{
-    for (std::size_t i = 0; i < docks.size(); ++i) {
-        QList<int> result = docks[i].indexOf(dockWidget);
-        if (!result.isEmpty()) {
-            result.prepend(int(i));
-            return result;
-        }
-    }
-    return QList<int>();
-}
-
-//  from src/widgets/widgets/qmainwindowlayout.cpp, line 2338, as _ZN17QMainWindowLayout8dockInfoEP7QWidget
-inline QDockAreaLayoutInfo *QMainWindowLayout::dockInfo(QWidget *widget)
-{
-    QDockAreaLayoutInfo *info = layoutState.dockAreaLayout.info(widget);
-    if (info)
-        return info;
-    const auto groups =
-            parent()->findChildren<QDockWidgetGroupWindow*>(Qt::FindDirectChildrenOnly);
-    for (QDockWidgetGroupWindow *dwgw : groups) {
-        info = dwgw->layoutInfo()->info(widget);
-        if (info)
-            return info;
-    }
-    return nullptr;
-}
-
-//  from src/widgets/widgets/qdockarealayout.cpp, line 1134, as _ZN19QDockAreaLayoutInfo13setCurrentTabEP7QWidget
-inline void QDockAreaLayoutInfo::setCurrentTab(QWidget *widget)
-{
-    setCurrentTabId(reinterpret_cast<quintptr>(widget));
-}
-
 //  from src/widgets/widgets/qdockarealayout.cpp, line 3567, as _ZN15QDockAreaLayout8keepSizeEP11QDockWidget
 inline void QDockAreaLayout::keepSize(QDockWidget *w)
 {
@@ -405,94 +364,6 @@ inline void QMainWindowLayoutState::clear()
 #endif
 
     rect = QRect();
-}
-
-//  from src/widgets/widgets/qdockarealayout.cpp, line 1557, as _ZN19QDockAreaLayoutInfo5applyEN15QWidgetAnimator13AnimationRuleE
-inline QDockWidget *QDockAreaLayoutInfo::apply(QWidgetAnimator::AnimationRule rule)
-{
-    QWidgetAnimator &widgetAnimator = mainWindowLayout()->widgetAnimator;
-
-#if QT_CONFIG(tabbar)
-    if (tabbed) {
-        QRect tab_rect;
-        QSize tbh = tabBarSizeHint();
-
-        if (!tbh.isNull()) {
-            switch (tabBarShape) {
-                case QTabBar::RoundedNorth:
-                case QTabBar::TriangularNorth:
-                    tab_rect = QRect(rect.left(), rect.top(), rect.width(), tbh.height());
-                    break;
-                case QTabBar::RoundedSouth:
-                case QTabBar::TriangularSouth:
-                    tab_rect = QRect(rect.left(), rect.bottom() - tbh.height() + 1,
-                                        rect.width(), tbh.height());
-                    break;
-                case QTabBar::RoundedEast:
-                case QTabBar::TriangularEast:
-                    tab_rect = QRect(rect.right() - tbh.width() + 1, rect.top(),
-                                        tbh.width(), rect.height());
-                    break;
-                case QTabBar::RoundedWest:
-                case QTabBar::TriangularWest:
-                    tab_rect = QRect(rect.left(), rect.top(),
-                                        tbh.width(), rect.height());
-                    break;
-                default:
-                    break;
-            }
-        }
-
-        widgetAnimator.animate(tabBar, tab_rect, rule);
-    }
-#endif // QT_CONFIG(tabbar)
-
-    QDockWidget *activated = nullptr;
-
-    for (int i = 0; i < item_list.size(); ++i) {
-        QDockAreaLayoutItem &item = item_list[i];
-
-        if (item.flags & QDockAreaLayoutItem::GapItem)
-            continue;
-
-        if (item.subinfo != nullptr) {
-            item.subinfo->apply(rule);
-            continue;
-        }
-
-        if (item.skip())
-            continue;
-
-        Q_ASSERT(item.widgetItem);
-        QRect r = itemRect(i);
-        QWidget *w = item.widgetItem->widget();
-
-        QRect geo = w->geometry();
-        widgetAnimator.animate(w, r, rule);
-        if (!w->isHidden() && w->window()->isVisible()) {
-            QDockWidget *dw = qobject_cast<QDockWidget*>(w);
-            if (!r.isValid() && geo.right() >= 0 && geo.bottom() >= 0) {
-                dw->lower();
-                emit dw->visibilityChanged(false);
-            } else if (r.isValid()
-                        && (geo.right() < 0 || geo.bottom() < 0)) {
-                emit dw->visibilityChanged(true);
-                activated = dw;
-            }
-        }
-    }
-#if QT_CONFIG(tabbar)
-    if (*sep == 1)
-        updateSeparatorWidgets();
-#endif // QT_CONFIG(tabbar)
-
-    return activated;
-}
-
-//  from src/widgets/widgets/qdockarealayout.cpp, line 2418, as _ZN19QDockAreaLayoutInfo7moveTabEii
-inline void QDockAreaLayoutInfo::moveTab(int from, int to)
-{
-    item_list.move(tabIndexToListIndex(from), tabIndexToListIndex(to));
 }
 
 //  from src/widgets/widgets/qmainwindowlayout.cpp, line 940, as _ZN22QMainWindowLayoutState9fitLayoutEv
@@ -847,31 +718,16 @@ inline QDockAreaLayoutItem &QDockAreaLayoutInfo::item(const QList<int> &path)
     return item_list[index];
 }
 
-//  from src/widgets/widgets/qdockarealayout.cpp, line 1507, as _ZNK19QDockAreaLayoutInfo7indexOfEPK7QWidget
-inline QList<int> QDockAreaLayoutInfo::indexOf(const QWidget *widget) const
+//  from src/widgets/widgets/qdockarealayout.cpp, line 2534, as _ZNK15QDockAreaLayout7indexOfEPK7QWidget
+inline QList<int> QDockAreaLayout::indexOf(const QWidget *dockWidget) const
 {
-    for (int i = 0; i < item_list.size(); ++i) {
-        const QDockAreaLayoutItem &item = item_list.at(i);
-
-        if (item.placeHolderItem != nullptr)
-            continue;
-
-        if (item.subinfo != nullptr) {
-            QList<int> result = item.subinfo->indexOf(widget);
-            if (!result.isEmpty()) {
-                result.prepend(i);
-                return result;
-            }
-            continue;
-        }
-
-        if (!(item.flags & QDockAreaLayoutItem::GapItem) && item.widgetItem && item.widgetItem->widget() == widget) {
-            QList<int> result;
-            result << i;
+    for (std::size_t i = 0; i < docks.size(); ++i) {
+        QList<int> result = docks[i].indexOf(dockWidget);
+        if (!result.isEmpty()) {
+            result.prepend(int(i));
             return result;
         }
     }
-
     return QList<int>();
 }
 
@@ -1179,6 +1035,7 @@ inline QMainWindowLayout::~QMainWindowLayout()
 }
 
 //  from src/widgets/widgets/qmainwindowlayout.cpp, line 2940, as _ZN17QMainWindowLayout12setStatusBarEP10QStatusBar
+#if QT_CONFIG(statusbar)
 inline void QMainWindowLayout::setStatusBar(QStatusBar *sb)
 {
     if (sb)
@@ -1187,6 +1044,7 @@ inline void QMainWindowLayout::setStatusBar(QStatusBar *sb)
     statusbar = sb ? new QWidgetItemV2(sb) : nullptr;
     invalidate();
 }
+#endif  // QT_CONFIG(statusbar)
 
 //  from src/widgets/widgets/qmainwindowlayout.cpp, line 2950, as _ZNK17QMainWindowLayout13centralWidgetEv
 inline QWidget *QMainWindowLayout::centralWidget() const
@@ -1212,6 +1070,7 @@ inline void QMainWindowLayout::setCentralWidget(QWidget *widget)
 }
 
 //  from src/widgets/widgets/qmainwindowlayout.cpp, line 1552, as _ZN17QMainWindowLayout18insertToolBarBreakEP8QToolBar
+#if QT_CONFIG(toolbar)
 inline void QMainWindowLayout::insertToolBarBreak(QToolBar *before)
 {
     layoutState.toolBarAreaLayout.insertToolBarBreak(before);
@@ -1219,8 +1078,10 @@ inline void QMainWindowLayout::insertToolBarBreak(QToolBar *before)
         savedState.toolBarAreaLayout.insertToolBarBreak(before);
     invalidate();
 }
+#endif  // QT_CONFIG(toolbar)
 
 //  from src/widgets/widgets/qmainwindowlayout.cpp, line 1560, as _ZN17QMainWindowLayout18removeToolBarBreakEP8QToolBar
+#if QT_CONFIG(toolbar)
 inline void QMainWindowLayout::removeToolBarBreak(QToolBar *before)
 {
     layoutState.toolBarAreaLayout.removeToolBarBreak(before);
@@ -1228,8 +1089,10 @@ inline void QMainWindowLayout::removeToolBarBreak(QToolBar *before)
         savedState.toolBarAreaLayout.removeToolBarBreak(before);
     invalidate();
 }
+#endif  // QT_CONFIG(toolbar)
 
 //  from src/widgets/widgets/qmainwindowlayout.cpp, line 1638, as _ZNK17QMainWindowLayout11toolBarAreaEPK8QToolBar
+#if QT_CONFIG(toolbar)
 inline Qt::ToolBarArea QMainWindowLayout::toolBarArea(const QToolBar *toolbar) const
 {
     std::optional<QInternal::DockPosition> pos
@@ -1245,21 +1108,27 @@ inline Qt::ToolBarArea QMainWindowLayout::toolBarArea(const QToolBar *toolbar) c
     }
     return Qt::NoToolBarArea;
 }
+#endif  // QT_CONFIG(toolbar)
 
 //  from src/widgets/widgets/qmainwindowlayout.cpp, line 1654, as _ZNK17QMainWindowLayout12toolBarBreakEP8QToolBar
+#if QT_CONFIG(toolbar)
 inline bool QMainWindowLayout::toolBarBreak(QToolBar *toolBar) const
 {
     return layoutState.toolBarAreaLayout.toolBarBreak(toolBar);
 }
+#endif  // QT_CONFIG(toolbar)
 
 //  from src/widgets/widgets/qmainwindowlayout.cpp, line 1659, as _ZNK17QMainWindowLayout18getStyleOptionInfoEP19QStyleOptionToolBarP8QToolBar
+#if QT_CONFIG(toolbar)
 inline void QMainWindowLayout::getStyleOptionInfo(QStyleOptionToolBar *option, QToolBar *toolBar) const
 {
     option->toolBarArea = toolBarArea(toolBar);
     layoutState.toolBarAreaLayout.getStyleOptionInfo(option, toolBar);
 }
+#endif  // QT_CONFIG(toolbar)
 
 //  from src/widgets/widgets/qmainwindowlayout.cpp, line 1578, as _ZN17QMainWindowLayout13removeToolBarEP8QToolBar
+#if QT_CONFIG(toolbar)
 inline void QMainWindowLayout::removeToolBar(QToolBar *toolbar)
 {
     if (toolbar) {
@@ -1271,8 +1140,10 @@ inline void QMainWindowLayout::removeToolBar(QToolBar *toolbar)
         removeWidget(toolbar);
     }
 }
+#endif  // QT_CONFIG(toolbar)
 
 //  from src/widgets/widgets/qmainwindowlayout.cpp, line 1665, as _ZN17QMainWindowLayout21toggleToolBarsVisibleEv
+#if QT_CONFIG(toolbar)
 inline void QMainWindowLayout::toggleToolBarsVisible()
 {
     layoutState.toolBarAreaLayout.visible = !layoutState.toolBarAreaLayout.visible;
@@ -1286,8 +1157,10 @@ inline void QMainWindowLayout::toggleToolBarsVisible()
         update();
     }
 }
+#endif  // QT_CONFIG(toolbar)
 
 //  from src/widgets/widgets/qmainwindowlayout.cpp, line 1765, as _ZN17QMainWindowLayout9setCornerEN2Qt6CornerENS0_14DockWidgetAreaE
+#if QT_CONFIG(dockwidget)
 inline void QMainWindowLayout::setCorner(Qt::Corner corner, Qt::DockWidgetArea area)
 {
     if (layoutState.dockAreaLayout.corners[corner] == area)
@@ -1297,20 +1170,29 @@ inline void QMainWindowLayout::setCorner(Qt::Corner corner, Qt::DockWidgetArea a
         savedState.dockAreaLayout.corners[corner] = area;
     invalidate();
 }
+#endif  // QT_CONFIG(dockwidget)
 
 //  from src/widgets/widgets/qmainwindowlayout.cpp, line 1775, as _ZNK17QMainWindowLayout6cornerEN2Qt6CornerE
+#if QT_CONFIG(dockwidget)
 inline Qt::DockWidgetArea QMainWindowLayout::corner(Qt::Corner corner) const
 {
     return layoutState.dockAreaLayout.corners[corner];
 }
+#endif  // QT_CONFIG(dockwidget)
 
 //  from src/widgets/widgets/qmainwindowlayout.cpp, line 1923, as _ZNK17QMainWindowLayout12documentModeEv
+#if QT_CONFIG(dockwidget)
+#if QT_CONFIG(tabbar)
 inline bool QMainWindowLayout::documentMode() const
 {
     return _documentMode;
 }
+#endif  // QT_CONFIG(tabbar)
+#endif  // QT_CONFIG(dockwidget)
 
 //  from src/widgets/widgets/qmainwindowlayout.cpp, line 1928, as _ZN17QMainWindowLayout15setDocumentModeEb
+#if QT_CONFIG(dockwidget)
+#if QT_CONFIG(tabbar)
 inline void QMainWindowLayout::setDocumentMode(bool enabled)
 {
     if (_documentMode == enabled)
@@ -1322,12 +1204,20 @@ inline void QMainWindowLayout::setDocumentMode(bool enabled)
     for (QTabBar *bar : std::as_const(usedTabBars))
         bar->setDocumentMode(_documentMode);
 }
+#endif  // QT_CONFIG(tabbar)
+#endif  // QT_CONFIG(dockwidget)
 
 //  from src/widgets/widgets/qmainwindowlayout.cpp, line 1951, as _ZNK17QMainWindowLayout8tabShapeEv
+#if QT_CONFIG(dockwidget)
+#if QT_CONFIG(tabbar)
+#if QT_CONFIG(tabwidget)
 inline QTabWidget::TabShape QMainWindowLayout::tabShape() const
 {
     return _tabShape;
 }
+#endif  // QT_CONFIG(tabwidget)
+#endif  // QT_CONFIG(tabbar)
+#endif  // QT_CONFIG(dockwidget)
 
 //  from src/widgets/widgets/qmainwindowlayout.cpp, line 2490, as _ZN17QMainWindowLayout11setGeometryERK5QRect
 inline void QMainWindowLayout::setGeometry(const QRect &_r)
@@ -1504,6 +1394,8 @@ inline void QMainWindowLayout::timerEvent(QTimerEvent *e)
 }
 
 //  from src/widgets/widgets/qmainwindowlayout.cpp, line 1999, as _ZN17QMainWindowLayout11showTabBarsEv
+#if QT_CONFIG(dockwidget)
+#if QT_CONFIG(tabbar)
 inline void QMainWindowLayout::showTabBars()
 {
     const auto usedTabBarsCopy = usedTabBars; // list potentially modified by animations
@@ -1512,6 +1404,8 @@ inline void QMainWindowLayout::showTabBars()
             tab_bar->show();
     }
 }
+#endif  // QT_CONFIG(tabbar)
+#endif  // QT_CONFIG(dockwidget)
 //  -----------------------------------------------------------------------
 
 //  Only a class built on QMainWindowLayout may call these functions of it.
@@ -1523,15 +1417,35 @@ struct OwnQMainWindowLayout : QMainWindowLayout {
 //  A QMainWindowLayout that Python can take functions over in. Every QMainWindowLayout
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if QT_CONFIG(mainwindow)
 typedef void (*CuteQMainWindowLayoutCall0)(const void *, QLayoutItem *, int *);
+#endif  // QT_CONFIG(mainwindow)
+#if QT_CONFIG(mainwindow)
 typedef void (*CuteQMainWindowLayoutCall1)(const void *, const QRect *, int *);
+#endif  // QT_CONFIG(mainwindow)
+#if QT_CONFIG(mainwindow)
 typedef void * (*CuteQMainWindowLayoutCall2)(const void *, int, int *);
+#endif  // QT_CONFIG(mainwindow)
+#if QT_CONFIG(mainwindow)
 typedef void * (*CuteQMainWindowLayoutCall3)(const void *, int, int *);
+#endif  // QT_CONFIG(mainwindow)
+#if QT_CONFIG(mainwindow)
 typedef int (*CuteQMainWindowLayoutCall4)(const void *, int *);
+#endif  // QT_CONFIG(mainwindow)
+#if QT_CONFIG(mainwindow)
 typedef const QSize * (*CuteQMainWindowLayoutCall5)(const void *, int *);
+#endif  // QT_CONFIG(mainwindow)
+#if QT_CONFIG(mainwindow)
 typedef const QSize * (*CuteQMainWindowLayoutCall6)(const void *, int *);
+#endif  // QT_CONFIG(mainwindow)
+#if QT_CONFIG(mainwindow)
 typedef void (*CuteQMainWindowLayoutCall7)(const void *, int *);
+#endif  // QT_CONFIG(mainwindow)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(mainwindow)
 typedef void (*CuteQMainWindowLayoutCall8)(const void *, QTimerEvent *, int *);
+#endif  // QT_CONFIG(mainwindow)
+#endif  // !defined(QT_NO_QOBJECT)
 typedef int (*CuteQMainWindowLayoutCall9)(const void *, int *);
 typedef void (*CuteQMainWindowLayoutCall10)(const void *, int, int *);
 typedef const QRect * (*CuteQMainWindowLayoutCall11)(const void *, int *);
@@ -1543,12 +1457,24 @@ typedef bool (*CuteQMainWindowLayoutCall16)(const void *, int *);
 typedef int (*CuteQMainWindowLayoutCall17)(const void *, int *);
 typedef void * (*CuteQMainWindowLayoutCall18)(const void *, QWidget *, QWidget *, int, int *);
 typedef void * (*CuteQMainWindowLayoutCall19)(const void *, int *);
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQMainWindowLayoutCall20)(const void *, QChildEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQMainWindowLayoutCall21)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQMainWindowLayoutCall22)(const void *, QObject *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQMainWindowLayoutCall23)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQMainWindowLayoutCall24)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQMainWindowLayoutCall25)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQMainWindowLayoutCall26)(const void *, int *);
 typedef int (*CuteQMainWindowLayoutCall27)(const void *, int, int *);
 typedef int (*CuteQMainWindowLayoutCall28)(const void *, int, int *);
@@ -1560,42 +1486,62 @@ public:
   void *taken[31] = {};
 
   bool take(const char *key, void *call) {
+#if QT_CONFIG(mainwindow)
     if (!std::strcmp(key, "_ZN7QLayout7addItemEP11QLayoutItem")) {
       taken[0] = call;
       return true;
     }
+#endif  // QT_CONFIG(mainwindow)
+#if QT_CONFIG(mainwindow)
     if (!std::strcmp(key, "_ZN11QLayoutItem11setGeometryERK5QRect")) {
       taken[1] = call;
       return true;
     }
+#endif  // QT_CONFIG(mainwindow)
+#if QT_CONFIG(mainwindow)
     if (!std::strcmp(key, "_ZNK7QLayout6itemAtEi")) {
       taken[2] = call;
       return true;
     }
+#endif  // QT_CONFIG(mainwindow)
+#if QT_CONFIG(mainwindow)
     if (!std::strcmp(key, "_ZN7QLayout6takeAtEi")) {
       taken[3] = call;
       return true;
     }
+#endif  // QT_CONFIG(mainwindow)
+#if QT_CONFIG(mainwindow)
     if (!std::strcmp(key, "_ZNK7QLayout5countEv")) {
       taken[4] = call;
       return true;
     }
+#endif  // QT_CONFIG(mainwindow)
+#if QT_CONFIG(mainwindow)
     if (!std::strcmp(key, "_ZNK11QLayoutItem8sizeHintEv")) {
       taken[5] = call;
       return true;
     }
+#endif  // QT_CONFIG(mainwindow)
+#if QT_CONFIG(mainwindow)
     if (!std::strcmp(key, "_ZNK11QLayoutItem11minimumSizeEv")) {
       taken[6] = call;
       return true;
     }
+#endif  // QT_CONFIG(mainwindow)
+#if QT_CONFIG(mainwindow)
     if (!std::strcmp(key, "_ZN11QLayoutItem10invalidateEv")) {
       taken[7] = call;
       return true;
     }
+#endif  // QT_CONFIG(mainwindow)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(mainwindow)
     if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[8] = call;
       return true;
     }
+#endif  // QT_CONFIG(mainwindow)
+#endif  // !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZNK7QLayout7spacingEv")) {
       taken[9] = call;
       return true;
@@ -1640,30 +1586,42 @@ public:
       taken[19] = call;
       return true;
     }
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[20] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[21] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[22] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[23] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[24] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
       taken[25] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZNK11QLayoutItem17hasHeightForWidthEv")) {
       taken[26] = call;
       return true;
@@ -1687,6 +1645,7 @@ public:
     return false;
   }
 
+#if QT_CONFIG(mainwindow)
   //  void QMainWindowLayout::addItem(QLayoutItem *item)
   void addItem(QLayoutItem *item) override {
     if (taken[0]) {
@@ -1697,7 +1656,9 @@ public:
     }
     QMainWindowLayout::addItem(item);
   }
+#endif  // QT_CONFIG(mainwindow)
 
+#if QT_CONFIG(mainwindow)
   //  void QMainWindowLayout::setGeometry(const QRect &r)
   void setGeometry(const QRect &r) override {
     if (taken[1]) {
@@ -1708,7 +1669,9 @@ public:
     }
     QMainWindowLayout::setGeometry(r);
   }
+#endif  // QT_CONFIG(mainwindow)
 
+#if QT_CONFIG(mainwindow)
   //  QLayoutItem *QMainWindowLayout::itemAt(int index) const
   QLayoutItem *itemAt(int index) const override {
     if (taken[2]) {
@@ -1719,7 +1682,9 @@ public:
     }
     return QMainWindowLayout::itemAt(index);
   }
+#endif  // QT_CONFIG(mainwindow)
 
+#if QT_CONFIG(mainwindow)
   //  QLayoutItem *QMainWindowLayout::takeAt(int index)
   QLayoutItem *takeAt(int index) override {
     if (taken[3]) {
@@ -1730,7 +1695,9 @@ public:
     }
     return QMainWindowLayout::takeAt(index);
   }
+#endif  // QT_CONFIG(mainwindow)
 
+#if QT_CONFIG(mainwindow)
   //  int QMainWindowLayout::count() const
   int count() const override {
     if (taken[4]) {
@@ -1741,7 +1708,9 @@ public:
     }
     return QMainWindowLayout::count();
   }
+#endif  // QT_CONFIG(mainwindow)
 
+#if QT_CONFIG(mainwindow)
   //  QSize QMainWindowLayout::sizeHint() const
   QSize sizeHint() const override {
     if (taken[5]) {
@@ -1752,7 +1721,9 @@ public:
     }
     return QMainWindowLayout::sizeHint();
   }
+#endif  // QT_CONFIG(mainwindow)
 
+#if QT_CONFIG(mainwindow)
   //  QSize QMainWindowLayout::minimumSize() const
   QSize minimumSize() const override {
     if (taken[6]) {
@@ -1763,7 +1734,9 @@ public:
     }
     return QMainWindowLayout::minimumSize();
   }
+#endif  // QT_CONFIG(mainwindow)
 
+#if QT_CONFIG(mainwindow)
   //  void QMainWindowLayout::invalidate()
   void invalidate() override {
     if (taken[7]) {
@@ -1774,7 +1747,10 @@ public:
     }
     QMainWindowLayout::invalidate();
   }
+#endif  // QT_CONFIG(mainwindow)
 
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(mainwindow)
   //  void QMainWindowLayout::timerEvent(QTimerEvent *e)
   void timerEvent(QTimerEvent *e) override {
     if (taken[8]) {
@@ -1785,6 +1761,8 @@ public:
     }
     QMainWindowLayout::timerEvent(e);
   }
+#endif  // QT_CONFIG(mainwindow)
+#endif  // !defined(QT_NO_QOBJECT)
 
   //  int QLayout::spacing() const
   int spacing() const override {
@@ -1911,6 +1889,7 @@ public:
     return QLayout::layout();
   }
 
+#if !defined(QT_NO_QOBJECT)
   //  void QLayout::childEvent(QChildEvent *e)
   void childEvent(QChildEvent *e) override {
     if (taken[20]) {
@@ -1921,7 +1900,9 @@ public:
     }
     QLayout::childEvent(e);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QObject::event(QEvent *event)
   bool event(QEvent *event) override {
     if (taken[21]) {
@@ -1932,7 +1913,9 @@ public:
     }
     return QObject::event(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
     if (taken[22]) {
@@ -1943,7 +1926,9 @@ public:
     }
     return QObject::eventFilter(watched, event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
     if (taken[23]) {
@@ -1954,7 +1939,9 @@ public:
     }
     QObject::customEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
     if (taken[24]) {
@@ -1965,7 +1952,9 @@ public:
     }
     QObject::connectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
     if (taken[25]) {
@@ -1976,6 +1965,7 @@ public:
     }
     QObject::disconnectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
   //  bool QLayoutItem::hasHeightForWidth() const
   bool hasHeightForWidth() const override {
@@ -2046,6 +2036,7 @@ void ritual_ZN17QMainWindowLayoutD1Ev(QMainWindowLayout *self) {
   delete self;
 }
 
+#if QT_CONFIG(statusbar)
 //  void QMainWindowLayout::setStatusBar(QStatusBar *sb)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QMainWindowLayout12setStatusBarEP10QStatusBar(
@@ -2053,6 +2044,7 @@ void ritual_ZN17QMainWindowLayout12setStatusBarEP10QStatusBar(
     QStatusBar *sb) {
   self->setStatusBar(sb);
 }
+#endif  // QT_CONFIG(statusbar)
 
 //  QWidget *QMainWindowLayout::centralWidget() const
 extern "C" Q_DECL_EXPORT
@@ -2069,6 +2061,7 @@ void ritual_ZN17QMainWindowLayout16setCentralWidgetEP7QWidget(
   self->setCentralWidget(cw);
 }
 
+#if QT_CONFIG(toolbar)
 //  void QMainWindowLayout::insertToolBarBreak(QToolBar *before)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QMainWindowLayout18insertToolBarBreakEP8QToolBar(
@@ -2076,7 +2069,9 @@ void ritual_ZN17QMainWindowLayout18insertToolBarBreakEP8QToolBar(
     QToolBar *before) {
   self->insertToolBarBreak(before);
 }
+#endif  // QT_CONFIG(toolbar)
 
+#if QT_CONFIG(toolbar)
 //  void QMainWindowLayout::removeToolBarBreak(QToolBar *before)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QMainWindowLayout18removeToolBarBreakEP8QToolBar(
@@ -2084,7 +2079,9 @@ void ritual_ZN17QMainWindowLayout18removeToolBarBreakEP8QToolBar(
     QToolBar *before) {
   self->removeToolBarBreak(before);
 }
+#endif  // QT_CONFIG(toolbar)
 
+#if QT_CONFIG(toolbar)
 //  Qt::ToolBarArea QMainWindowLayout::toolBarArea(const QToolBar *toolbar)
 //      const
 extern "C" Q_DECL_EXPORT
@@ -2093,7 +2090,9 @@ Qt::ToolBarArea ritual_ZNK17QMainWindowLayout11toolBarAreaEPK8QToolBar(
     const QToolBar *toolbar) {
   return self->toolBarArea(toolbar);
 }
+#endif  // QT_CONFIG(toolbar)
 
+#if QT_CONFIG(toolbar)
 //  bool QMainWindowLayout::toolBarBreak(QToolBar *toolBar) const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK17QMainWindowLayout12toolBarBreakEP8QToolBar(
@@ -2101,7 +2100,9 @@ bool ritual_ZNK17QMainWindowLayout12toolBarBreakEP8QToolBar(
     QToolBar *toolBar) {
   return self->toolBarBreak(toolBar);
 }
+#endif  // QT_CONFIG(toolbar)
 
+#if QT_CONFIG(toolbar)
 //  void QMainWindowLayout::getStyleOptionInfo(QStyleOptionToolBar *option,
 //      QToolBar *toolBar) const
 extern "C" Q_DECL_EXPORT
@@ -2111,7 +2112,9 @@ void ritual_ZNK17QMainWindowLayout18getStyleOptionInfoEP19QStyleOptionToolBarP8Q
     QToolBar *toolBar) {
   self->getStyleOptionInfo(option, toolBar);
 }
+#endif  // QT_CONFIG(toolbar)
 
+#if QT_CONFIG(toolbar)
 //  void QMainWindowLayout::removeToolBar(QToolBar *toolbar)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QMainWindowLayout13removeToolBarEP8QToolBar(
@@ -2119,14 +2122,27 @@ void ritual_ZN17QMainWindowLayout13removeToolBarEP8QToolBar(
     QToolBar *toolbar) {
   self->removeToolBar(toolbar);
 }
+#endif  // QT_CONFIG(toolbar)
 
+#if QT_CONFIG(toolbar)
 //  void QMainWindowLayout::toggleToolBarsVisible()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QMainWindowLayout21toggleToolBarsVisibleEv(
     QMainWindowLayout *self) {
   self->toggleToolBarsVisible();
 }
+#endif  // QT_CONFIG(toolbar)
 
+#if QT_CONFIG(toolbar)
+//  QToolBarAreaLayout *QMainWindowLayout::toolBarAreaLayout()
+extern "C" Q_DECL_EXPORT
+QToolBarAreaLayout *ritual_ZN17QMainWindowLayout17toolBarAreaLayoutEv(
+    QMainWindowLayout *self) {
+  return self->toolBarAreaLayout();
+}
+#endif  // QT_CONFIG(toolbar)
+
+#if QT_CONFIG(dockwidget)
 //  void QMainWindowLayout::setCorner(Qt::Corner corner, Qt::DockWidgetArea
 //      area)
 extern "C" Q_DECL_EXPORT
@@ -2136,7 +2152,9 @@ void ritual_ZN17QMainWindowLayout9setCornerEN2Qt6CornerENS0_14DockWidgetAreaE(
     Qt::DockWidgetArea area) {
   self->setCorner(corner, area);
 }
+#endif  // QT_CONFIG(dockwidget)
 
+#if QT_CONFIG(dockwidget)
 //  Qt::DockWidgetArea QMainWindowLayout::corner(Qt::Corner corner) const
 extern "C" Q_DECL_EXPORT
 Qt::DockWidgetArea ritual_ZNK17QMainWindowLayout6cornerEN2Qt6CornerE(
@@ -2144,14 +2162,21 @@ Qt::DockWidgetArea ritual_ZNK17QMainWindowLayout6cornerEN2Qt6CornerE(
     Qt::Corner corner) {
   return self->corner(corner);
 }
+#endif  // QT_CONFIG(dockwidget)
 
+#if QT_CONFIG(dockwidget)
+#if QT_CONFIG(tabbar)
 //  bool QMainWindowLayout::documentMode() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK17QMainWindowLayout12documentModeEv(
     const QMainWindowLayout *self) {
   return self->documentMode();
 }
+#endif  // QT_CONFIG(tabbar)
+#endif  // QT_CONFIG(dockwidget)
 
+#if QT_CONFIG(dockwidget)
+#if QT_CONFIG(tabbar)
 //  void QMainWindowLayout::setDocumentMode(bool enabled)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QMainWindowLayout15setDocumentModeEb(
@@ -2159,13 +2184,30 @@ void ritual_ZN17QMainWindowLayout15setDocumentModeEb(
     bool enabled) {
   self->setDocumentMode(enabled);
 }
+#endif  // QT_CONFIG(tabbar)
+#endif  // QT_CONFIG(dockwidget)
 
+#if QT_CONFIG(dockwidget)
+#if QT_CONFIG(tabbar)
+#if QT_CONFIG(tabwidget)
 //  QTabWidget::TabShape QMainWindowLayout::tabShape() const
 extern "C" Q_DECL_EXPORT
 QTabWidget::TabShape ritual_ZNK17QMainWindowLayout8tabShapeEv(
     const QMainWindowLayout *self) {
   return self->tabShape();
 }
+#endif  // QT_CONFIG(tabwidget)
+#endif  // QT_CONFIG(tabbar)
+#endif  // QT_CONFIG(dockwidget)
+
+#if QT_CONFIG(dockwidget)
+//  QDockAreaLayout *QMainWindowLayout::dockAreaLayoutInfo()
+extern "C" Q_DECL_EXPORT
+QDockAreaLayout *ritual_ZN17QMainWindowLayout18dockAreaLayoutInfoEv(
+    QMainWindowLayout *self) {
+  return self->dockAreaLayoutInfo();
+}
+#endif  // QT_CONFIG(dockwidget)
 
 //  void QMainWindowLayout::setGeometry(const QRect &r)
 extern "C" Q_DECL_EXPORT
@@ -2232,11 +2274,15 @@ void ritual_ZN17QMainWindowLayout10timerEventEP11QTimerEvent(
   self->timerEvent(e);
 }
 
+#if QT_CONFIG(tabbar)
+#if QT_CONFIG(dockwidget)
 //  void QMainWindowLayout::showTabBars()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QMainWindowLayout11showTabBarsEv(QMainWindowLayout *self) {
   self->showTabBars();
 }
+#endif  // QT_CONFIG(dockwidget)
+#endif  // QT_CONFIG(tabbar)
 
 //  a Python function taken by a CuteQMainWindowLayout, for the function
 //      named by the key
@@ -2278,3 +2324,5 @@ void ritual_own_ZN17QMainWindowLayout10timerEventEP11QTimerEvent(
   static_cast<OwnQMainWindowLayout *>(self)->OwnQMainWindowLayout::timerEvent(
       e);
 }
+
+#endif  // QT_CONFIG(mainwindow)

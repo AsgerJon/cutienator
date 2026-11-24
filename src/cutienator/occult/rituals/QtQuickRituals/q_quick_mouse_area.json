@@ -1,0 +1,162 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickmousearea_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK15QQuickMouseArea10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QQuickMouseArea2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN15QQuickMouseAreaC1EP10QQuickItem": ["address", "address"],
+    "ritual_ZN15QQuickMouseAreaD1Ev": ["nothing", "address"],
+    "ritual_ZNK15QQuickMouseArea6mouseXEv": ["double", "address"],
+    "ritual_ZNK15QQuickMouseArea6mouseYEv": ["double", "address"],
+    "ritual_ZNK15QQuickMouseArea9isEnabledEv": ["bool", "address"],
+    "ritual_ZN15QQuickMouseArea10setEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK15QQuickMouseArea22isScrollGestureEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN15QQuickMouseArea23setScrollGestureEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK15QQuickMouseArea7hoveredEv": ["bool", "address"],
+    "ritual_ZNK15QQuickMouseArea9isPressedEv": ["bool", "address"],
+    "ritual_ZNK15QQuickMouseArea13containsPressEv": ["bool", "address"],
+    "ritual_ZNK15QQuickMouseArea14pressedButtonsEv": ["int", "address"],
+    "ritual_ZNK15QQuickMouseArea15acceptedButtonsEv": ["int", "address"],
+    "ritual_ZN15QQuickMouseArea18setAcceptedButtonsE6QFlagsIN2Qt11MouseButtonEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QQuickMouseArea12hoverEnabledEv": ["bool", "address"],
+    "ritual_ZN15QQuickMouseArea15setHoverEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN15QQuickMouseArea4dragEv": ["address", "address"],
+    "ritual_ZNK15QQuickMouseArea15preventStealingEv": ["bool", "address"],
+    "ritual_ZN15QQuickMouseArea18setPreventStealingEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK15QQuickMouseArea23propagateComposedEventsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN15QQuickMouseArea26setPropagateComposedEventsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK15QQuickMouseArea11cursorShapeEv": ["int", "address"],
+    "ritual_ZN15QQuickMouseArea14setCursorShapeEN2Qt11CursorShapeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QQuickMouseArea20pressAndHoldIntervalEv": [
+      "int", "address"
+    ],
+    "ritual_ZN15QQuickMouseArea23setPressAndHoldIntervalEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN15QQuickMouseArea25resetPressAndHoldIntervalEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickMouseArea10setHoveredEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN15QQuickMouseArea10setPressedEN2Qt11MouseButtonEbNS0_16MouseEventSourceE": [
+      "bool", "address", "int", "bool", "int"
+    ],
+    "ritual_ZN15QQuickMouseArea14sendMouseEventEP11QMouseEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN15QQuickMouseArea15mousePressEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QQuickMouseArea17mouseReleaseEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QQuickMouseArea21mouseDoubleClickEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QQuickMouseArea14mouseMoveEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QQuickMouseArea16mouseUngrabEventEv": ["nothing", "address"],
+    "ritual_ZN15QQuickMouseArea16touchUngrabEventEv": ["nothing", "address"],
+    "ritual_ZN15QQuickMouseArea15hoverEnterEventEP11QHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QQuickMouseArea14hoverMoveEventEP11QHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QQuickMouseArea15hoverLeaveEventEP11QHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QQuickMouseArea10wheelEventEP11QWheelEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QQuickMouseArea21childMouseEventFilterEP10QQuickItemP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN15QQuickMouseArea10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QQuickMouseArea14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN15QQuickMouseArea10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN15QQuickMouseArea15updatePaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN15QQuickMouseArea11ungrabMouseEv": ["nothing", "address"],
+    "ritual_ZN15QQuickMouseArea6d_funcEv": ["address", "address"],
+    "ritual_ZNK15QQuickMouseArea6d_funcEv": ["address", "address"],
+    "ritual_take_QQuickMouseArea": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN15QQuickMouseArea15mousePressEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN15QQuickMouseArea17mouseReleaseEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN15QQuickMouseArea21mouseDoubleClickEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN15QQuickMouseArea14mouseMoveEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN15QQuickMouseArea16mouseUngrabEventEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN15QQuickMouseArea16touchUngrabEventEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN15QQuickMouseArea15hoverEnterEventEP11QHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN15QQuickMouseArea14hoverMoveEventEP11QHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN15QQuickMouseArea15hoverLeaveEventEP11QHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN15QQuickMouseArea10wheelEventEP11QWheelEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN15QQuickMouseArea21childMouseEventFilterEP10QQuickItemP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_own_ZN15QQuickMouseArea10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN15QQuickMouseArea14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN15QQuickMouseArea10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZN15QQuickMouseArea15updatePaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
+      "address", "address", "address", "address"
+    ]
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtScxmlQml/6.12.0/QtScxmlQml/private/eventconnection_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK21QScxmlEventConnection10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QScxmlEventConnection2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN21QScxmlEventConnectionC1EP7QObject": ["address", "address"],
+    "ritual_ZN21QScxmlEventConnectionD1Ev": ["nothing", "address"],
+    "ritual_ZNK21QScxmlEventConnection6eventsEv": ["address", "address"],
+    "ritual_ZN21QScxmlEventConnection9setEventsERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21QScxmlEventConnection12stateMachineEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QScxmlEventConnection15setStateMachineEP18QScxmlStateMachine": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QScxmlEventConnection9doConnectEv": ["nothing", "address"],
+    "ritual_ZN21QScxmlEventConnection10classBeginEv": ["nothing", "address"],
+    "ritual_ZN21QScxmlEventConnection17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_cast_QScxmlEventConnection_QQmlParserStatus": [
+      "address", "address"
+    ],
+    "ritual_take_QScxmlEventConnection": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN21QScxmlEventConnection10classBeginEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN21QScxmlEventConnection17componentCompleteEv": [
+      "nothing", "address"
+    ]
+  }
+}

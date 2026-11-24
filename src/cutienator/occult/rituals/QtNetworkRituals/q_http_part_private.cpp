@@ -1,0 +1,188 @@
+//  Written by dev_tooling.RitualGenerator from the records of
+//  QtNetwork/6.12.0/QtNetwork/private/qhttpmultipart_p.h, Qt 6.12.0. Changes
+//  made here are lost.
+#include <QtNetwork/qtnetworkglobal.h>
+#include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
+#if QT_CONFIG(http)
+#include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
+#include <QtNetwork/QtNetwork>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtNetwork/6.12.0/QtNetwork/private/qhttpmultipart_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/qbytearray.h>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include "qnetworkrequest.h"
+#include "qnetworkrequest_p.h"
+#include "qplatformdefs.h"
+#include "qnetworkcookie.h"
+#include "qsslconfiguration.h"
+#include "qhttpheadershelper_p.h"
+#if QT_CONFIG(http)
+#include "qhttp1configuration.h"
+#include "qhttp2configuration.h"
+#include "private/http2protocol_p.h"
+#endif
+#include "QtCore/qdatetime.h"
+#include "QtCore/qlocale.h"
+#include "QtCore/qshareddata.h"
+#include "QtCore/qtimezone.h"
+#include "QtCore/private/qduplicatetracker_p.h"
+#include "QtCore/private/qtools_p.h"
+#if QT_CONFIG(datestring)
+# include <stdio.h>
+#endif
+#include <algorithm>
+#include <q20algorithm.h>
+#include "qhttpmultipart.h"
+#include "qhttpmultipart_p.h"
+#include "QtCore/qdatetime.h" // for initializing the random number generator with QTime
+#include <QtCore/qdebug.h>
+#include "QtCore/qmutex.h"
+#include "QtCore/qrandom.h"
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+
+//  Qt's own code, from here to the line of dashes: taken from
+//  Qt's source, because Qt's library carries it under no name.
+//  Copyright (C) The Qt Company Ltd. It is licensed
+//  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
+//  here. Each function is as Qt wrote it, with the word
+//  'inline' put before it where Qt did not write it.
+
+//  from src/network/access/qnetworkrequest.cpp, line 1669, as _ZNK22QNetworkHeadersPrivate7headersEv
+inline QHttpHeaders QNetworkHeadersPrivate::headers() const
+{
+    return httpHeaders;
+}
+
+//  from src/network/access/qhttpmultipart.cpp, line 317, as _ZNK16QHttpPartPrivate14bytesAvailableEv
+inline qint64 QHttpPartPrivate::bytesAvailable() const
+{
+    checkHeaderCreated();
+    qint64 bytesAvailable = header.size();
+    if (bodyDevice) {
+        bytesAvailable += bodyDevice->bytesAvailable() - readPointer;
+    } else {
+        bytesAvailable += body.size() - readPointer;
+    }
+    // the device might have closed etc., so make sure we do not return a negative value
+    return qMax(bytesAvailable, (qint64) 0);
+}
+
+//  from src/network/access/qhttpmultipart.cpp, line 364, as _ZNK16QHttpPartPrivate4sizeEv
+inline qint64 QHttpPartPrivate::size() const
+{
+    checkHeaderCreated();
+    qint64 size = header.size();
+    if (bodyDevice) {
+        size += bodyDevice->size();
+    } else {
+        size += body.size();
+    }
+    return size;
+}
+
+//  from src/network/access/qhttpmultipart.cpp, line 376, as _ZN16QHttpPartPrivate5resetEv
+inline bool QHttpPartPrivate::reset()
+{
+    bool ret = true;
+    if (bodyDevice)
+        if (!bodyDevice->reset())
+            ret = false;
+    readPointer = 0;
+    return ret;
+}
+
+//  from src/network/access/qhttpmultipart.cpp, line 385, as _ZNK16QHttpPartPrivate18checkHeaderCreatedEv
+inline void QHttpPartPrivate::checkHeaderCreated() const
+{
+    if (!headerCreated) {
+        // copied from QHttpNetworkRequestPrivate::header() and adapted
+        const auto h = headers();
+        for (qsizetype i = 0; i < h.size(); ++i) {
+            const auto name = h.nameAt(i);
+            header += QByteArrayView(name.data(), name.size()) + ": " + h.valueAt(i) + "\r\n";
+        }
+
+        header += "\r\n";
+        headerCreated = true;
+    }
+}
+//  -----------------------------------------------------------------------
+
+//  QHttpPartPrivate::QHttpPartPrivate()
+extern "C" Q_DECL_EXPORT
+QHttpPartPrivate *ritual_ZN16QHttpPartPrivateC1Ev() {
+  return new QHttpPartPrivate();
+}
+
+//  QHttpPartPrivate::~QHttpPartPrivate()
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QHttpPartPrivateD1Ev(QHttpPartPrivate *self) {
+  delete self;
+}
+
+//  QHttpPartPrivate::QHttpPartPrivate(const QHttpPartPrivate &other)
+extern "C" Q_DECL_EXPORT
+QHttpPartPrivate *ritual_ZN16QHttpPartPrivateC1ERKS_(
+    const QHttpPartPrivate *other) {
+  return new QHttpPartPrivate(*other);
+}
+
+//  bool QHttpPartPrivate::operator==(const QHttpPartPrivate &other) const
+extern "C" Q_DECL_EXPORT
+bool ritual_ZNK16QHttpPartPrivateeqERKS_(
+    const QHttpPartPrivate *self,
+    const QHttpPartPrivate *other) {
+  return self->operator==(*other);
+}
+
+//  void QHttpPartPrivate::setBodyDevice(QIODevice *device)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QHttpPartPrivate13setBodyDeviceEP9QIODevice(
+    QHttpPartPrivate *self,
+    QIODevice *device) {
+  self->setBodyDevice(device);
+}
+
+//  void QHttpPartPrivate::setBody(const QByteArray &newBody)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN16QHttpPartPrivate7setBodyERK10QByteArray(
+    QHttpPartPrivate *self,
+    const QByteArray *newBody) {
+  self->setBody(*newBody);
+}
+
+//  qint64 QHttpPartPrivate::bytesAvailable() const
+extern "C" Q_DECL_EXPORT
+qint64 ritual_ZNK16QHttpPartPrivate14bytesAvailableEv(
+    const QHttpPartPrivate *self) {
+  return self->bytesAvailable();
+}
+
+//  qint64 QHttpPartPrivate::size() const
+extern "C" Q_DECL_EXPORT
+qint64 ritual_ZNK16QHttpPartPrivate4sizeEv(const QHttpPartPrivate *self) {
+  return self->size();
+}
+
+//  bool QHttpPartPrivate::reset()
+extern "C" Q_DECL_EXPORT
+bool ritual_ZN16QHttpPartPrivate5resetEv(QHttpPartPrivate *self) {
+  return self->reset();
+}
+
+//  void QHttpPartPrivate::checkHeaderCreated() const
+extern "C" Q_DECL_EXPORT
+void ritual_ZNK16QHttpPartPrivate18checkHeaderCreatedEv(
+    const QHttpPartPrivate *self) {
+  self->checkHeaderCreated();
+}
+
+//  QHttpPartPrivate as the QNetworkHeadersPrivate it is built on
+extern "C" Q_DECL_EXPORT
+QNetworkHeadersPrivate *ritual_cast_QHttpPartPrivate_QNetworkHeadersPrivate(
+    QHttpPartPrivate *self) {
+  return static_cast<QNetworkHeadersPrivate *>(self);
+}
+
+#endif  // QT_CONFIG(http)

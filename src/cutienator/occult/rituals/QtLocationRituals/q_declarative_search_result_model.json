@@ -1,0 +1,127 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtLocat",
+    "ion/6.12.0/QtLocation/private/qdeclarativesearchresultmodel_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK29QDeclarativeSearchResultModel10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN29QDeclarativeSearchResultModel2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN29QDeclarativeSearchResultModelC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN29QDeclarativeSearchResultModelD1Ev": ["nothing", "address"],
+    "ritual_ZNK29QDeclarativeSearchResultModel10searchTermEv": [
+      "text", "address"
+    ],
+    "ritual_ZN29QDeclarativeSearchResultModel13setSearchTermERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK29QDeclarativeSearchResultModel16recommendationIdEv": [
+      "text", "address"
+    ],
+    "ritual_ZN29QDeclarativeSearchResultModel19setRecommendationIdERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK29QDeclarativeSearchResultModel13relevanceHintEv": [
+      "int", "address"
+    ],
+    "ritual_ZN29QDeclarativeSearchResultModel16setRelevanceHintENS_13RelevanceHintE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK29QDeclarativeSearchResultModel15visibilityScopeEv": [
+      "int", "address"
+    ],
+    "ritual_ZN29QDeclarativeSearchResultModel18setVisibilityScopeEN17QDeclarativePlace10VisibilityE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK29QDeclarativeSearchResultModel15favoritesPluginEv": [
+      "address", "address"
+    ],
+    "ritual_ZN29QDeclarativeSearchResultModel18setFavoritesPluginEP30QDeclarativeGeoServiceProvider": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK29QDeclarativeSearchResultModel24favoritesMatchParametersEv": [
+      "address", "address"
+    ],
+    "ritual_ZN29QDeclarativeSearchResultModel27setFavoritesMatchParametersERK4QMapI7QString8QVariantE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK29QDeclarativeSearchResultModel8rowCountERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN29QDeclarativeSearchResultModel9clearDataEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK29QDeclarativeSearchResultModel4dataERK11QModelIndexi": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZNK29QDeclarativeSearchResultModel4dataEiRK7QString": [
+      "address", "address", "int", "text"
+    ],
+    "ritual_ZNK29QDeclarativeSearchResultModel9roleNamesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN29QDeclarativeSearchResultModel10updateWithEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN29QDeclarativeSearchResultModel9sendQueryEP13QPlaceManagerRK19QPlaceSearchRequest": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN29QDeclarativeSearchResultModel16initializePluginEP30QDeclarativeGeoServiceProvider": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN29QDeclarativeSearchResultModel13queryFinishedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QDeclarativeSearchResultModel16onContentUpdatedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QDeclarativeSearchResultModel12updateLayoutERK5QListI6QPlaceE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN29QDeclarativeSearchResultModel12placeUpdatedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN29QDeclarativeSearchResultModel12placeRemovedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK29QDeclarativeSearchResultModel6getRowERK7QString": [
+      "int", "address", "text"
+    ],
+    "ritual_ZNK29QDeclarativeSearchResultModel16resultsFromPagesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN29QDeclarativeSearchResultModel13removePageRowEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_take_QDeclarativeSearchResultModel": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK29QDeclarativeSearchResultModel8rowCountERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZN29QDeclarativeSearchResultModel9clearDataEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZNK29QDeclarativeSearchResultModel4dataERK11QModelIndexi": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_own_ZN29QDeclarativeSearchResultModel9sendQueryEP13QPlaceManagerRK19QPlaceSearchRequest": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN29QDeclarativeSearchResultModel16initializePluginEP30QDeclarativeGeoServiceProvider": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN29QDeclarativeSearchResultModel13queryFinishedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN29QDeclarativeSearchResultModel16onContentUpdatedEv": [
+      "nothing", "address"
+    ]
+  }
+}

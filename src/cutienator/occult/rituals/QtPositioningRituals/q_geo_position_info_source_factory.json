@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtPositioning/qgeopositioninfosourcefactory.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN29QGeoPositionInfoSourceFactoryD1Ev": ["nothing", "address"],
+    "ritual_ZN29QGeoPositionInfoSourceFactory18positionInfoSourceEP7QObjectRK4QMapI7QString8QVariantE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN29QGeoPositionInfoSourceFactory19satelliteInfoSourceEP7QObjectRK4QMapI7QString8QVariantE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN29QGeoPositionInfoSourceFactory11areaMonitorEP7QObjectRK4QMapI7QString8QVariantE": [
+      "address", "address", "address", "address"
+    ]
+  }
+}

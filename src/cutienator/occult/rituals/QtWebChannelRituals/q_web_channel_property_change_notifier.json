@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWebChannel/6.12.0/QtWebChannel/private/qmetaobjectpublisher_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN33QWebChannelPropertyChangeNotifierC1EP20QMetaObjectPublisherPK7QObjecti": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN33QWebChannelPropertyChangeNotifier6notifyEP17QPropertyObserverP20QUntypedPropertyData": [
+      "nothing", "address", "address"
+    ]
+  }
+}

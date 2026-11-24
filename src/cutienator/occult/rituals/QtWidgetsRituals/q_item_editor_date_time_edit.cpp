@@ -1,14 +1,22 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/6.12.0/QtWidgets/private/qitemeditorfactory_p.h, Qt 6.12.0.
 //  Changes made here are lost.
+#include <QtWidgets/qtwidgetsglobal.h>
+#include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
+#if QT_CONFIG(itemviews)
+#if QT_CONFIG(datetimeedit)
+#include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/QtWidgets>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/6.12.0/QtWidgets/private/qitemeditorfactory_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qdatetime.h>
 #include <QtCore/qsize.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <qplatformdefs.h>
 #include "qitemeditorfactory.h"
 #include "qitemeditorfactory_p.h"
@@ -35,52 +43,127 @@
 #include <qdebug.h>
 #include <vector>
 #include <algorithm>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
 //  Qt's source, because Qt's library carries it under no name.
 //  Copyright (C) The Qt Company Ltd. It is licensed
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
-//  'inline' put before it.
+//  'inline' put before it where Qt did not write it.
 
 //  from src/widgets/itemviews/qitemeditorfactory.cpp, line 568, as _ZN23QItemEditorDateTimeEdit21setDateTimeItemEditorERK9QDateTime
+#if QT_CONFIG(datetimeedit)
 inline void QItemEditorDateTimeEdit::setDateTimeItemEditor(const QDateTime &datetime)
 {
     setTimeZone(datetime.timeRepresentation());
     setDateTime(datetime);
 }
+#endif  // QT_CONFIG(datetimeedit)
 //  -----------------------------------------------------------------------
 
 //  A QItemEditorDateTimeEdit that Python can take functions over in. Every QItemEditorDateTimeEdit
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if QT_CONFIG(datetimeedit)
 typedef const QSize * (*CuteQItemEditorDateTimeEditCall0)(const void *, int *);
+#endif  // QT_CONFIG(datetimeedit)
+#if QT_CONFIG(spinbox)
+#if QT_CONFIG(datetimeedit)
 typedef void (*CuteQItemEditorDateTimeEditCall1)(const void *, int *);
+#endif  // QT_CONFIG(datetimeedit)
+#endif  // QT_CONFIG(spinbox)
+#if QT_CONFIG(spinbox)
+#if QT_CONFIG(datetimeedit)
 typedef void (*CuteQItemEditorDateTimeEditCall2)(const void *, int, int *);
+#endif  // QT_CONFIG(datetimeedit)
+#endif  // QT_CONFIG(spinbox)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(datetimeedit)
 typedef bool (*CuteQItemEditorDateTimeEditCall3)(const void *, QEvent *, int *);
+#endif  // QT_CONFIG(datetimeedit)
+#endif  // !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(datetimeedit)
 typedef void (*CuteQItemEditorDateTimeEditCall4)(const void *, QKeyEvent *, int *);
+#endif  // QT_CONFIG(datetimeedit)
+#if QT_CONFIG(wheelevent)
+#if QT_CONFIG(datetimeedit)
 typedef void (*CuteQItemEditorDateTimeEditCall5)(const void *, QWheelEvent *, int *);
+#endif  // QT_CONFIG(datetimeedit)
+#endif  // QT_CONFIG(wheelevent)
+#if QT_CONFIG(datetimeedit)
 typedef void (*CuteQItemEditorDateTimeEditCall6)(const void *, QFocusEvent *, int *);
+#endif  // QT_CONFIG(datetimeedit)
+#if QT_CONFIG(datetimeedit)
 typedef bool (*CuteQItemEditorDateTimeEditCall7)(const void *, bool, int *);
+#endif  // QT_CONFIG(datetimeedit)
+#if QT_CONFIG(datetimeedit)
 typedef const QDateTime * (*CuteQItemEditorDateTimeEditCall8)(const void *, const QString *, int *);
+#endif  // QT_CONFIG(datetimeedit)
+#if QT_CONFIG(datetimeedit)
 typedef QString * (*CuteQItemEditorDateTimeEditCall9)(const void *, const QDateTime *, int *);
+#endif  // QT_CONFIG(datetimeedit)
+#if QT_CONFIG(spinbox)
+#if QT_CONFIG(datetimeedit)
 typedef int (*CuteQItemEditorDateTimeEditCall10)(const void *, int *);
+#endif  // QT_CONFIG(datetimeedit)
+#endif  // QT_CONFIG(spinbox)
+#if QT_CONFIG(datetimeedit)
 typedef void (*CuteQItemEditorDateTimeEditCall11)(const void *, QMouseEvent *, int *);
+#endif  // QT_CONFIG(datetimeedit)
+#if QT_CONFIG(datetimeedit)
 typedef void (*CuteQItemEditorDateTimeEditCall12)(const void *, QPaintEvent *, int *);
+#endif  // QT_CONFIG(datetimeedit)
+#if QT_CONFIG(spinbox)
+#if QT_CONFIG(datetimeedit)
 typedef void (*CuteQItemEditorDateTimeEditCall13)(const void *, QStyleOptionSpinBox *, int *);
+#endif  // QT_CONFIG(datetimeedit)
+#endif  // QT_CONFIG(spinbox)
+#if QT_CONFIG(spinbox)
 typedef const QSize * (*CuteQItemEditorDateTimeEditCall14)(const void *, int *);
+#endif  // QT_CONFIG(spinbox)
+#if QT_CONFIG(spinbox)
 typedef const QVariant * (*CuteQItemEditorDateTimeEditCall15)(const void *, int, int *);
+#endif  // QT_CONFIG(spinbox)
+#if QT_CONFIG(spinbox)
 typedef void (*CuteQItemEditorDateTimeEditCall16)(const void *, QResizeEvent *, int *);
+#endif  // QT_CONFIG(spinbox)
+#if QT_CONFIG(spinbox)
 typedef void (*CuteQItemEditorDateTimeEditCall17)(const void *, QKeyEvent *, int *);
+#endif  // QT_CONFIG(spinbox)
+#if QT_CONFIG(spinbox)
 typedef void (*CuteQItemEditorDateTimeEditCall18)(const void *, QFocusEvent *, int *);
+#endif  // QT_CONFIG(spinbox)
+#if !defined(QT_NO_CONTEXTMENU)
+#if QT_CONFIG(spinbox)
+#if QT_CONFIG(contextmenu)
 typedef void (*CuteQItemEditorDateTimeEditCall19)(const void *, QContextMenuEvent *, int *);
+#endif  // QT_CONFIG(contextmenu)
+#endif  // QT_CONFIG(spinbox)
+#endif  // !defined(QT_NO_CONTEXTMENU)
+#if QT_CONFIG(spinbox)
 typedef void (*CuteQItemEditorDateTimeEditCall20)(const void *, QEvent *, int *);
+#endif  // QT_CONFIG(spinbox)
+#if QT_CONFIG(spinbox)
 typedef void (*CuteQItemEditorDateTimeEditCall21)(const void *, QCloseEvent *, int *);
+#endif  // QT_CONFIG(spinbox)
+#if QT_CONFIG(spinbox)
 typedef void (*CuteQItemEditorDateTimeEditCall22)(const void *, QHideEvent *, int *);
+#endif  // QT_CONFIG(spinbox)
+#if QT_CONFIG(spinbox)
 typedef void (*CuteQItemEditorDateTimeEditCall23)(const void *, QMouseEvent *, int *);
+#endif  // QT_CONFIG(spinbox)
+#if QT_CONFIG(spinbox)
 typedef void (*CuteQItemEditorDateTimeEditCall24)(const void *, QMouseEvent *, int *);
+#endif  // QT_CONFIG(spinbox)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(spinbox)
 typedef void (*CuteQItemEditorDateTimeEditCall25)(const void *, QTimerEvent *, int *);
+#endif  // QT_CONFIG(spinbox)
+#endif  // !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(spinbox)
 typedef void (*CuteQItemEditorDateTimeEditCall26)(const void *, QShowEvent *, int *);
+#endif  // QT_CONFIG(spinbox)
 typedef int (*CuteQItemEditorDateTimeEditCall27)(const void *, int *);
 typedef void (*CuteQItemEditorDateTimeEditCall28)(const void *, bool, int *);
 typedef int (*CuteQItemEditorDateTimeEditCall29)(const void *, int, int *);
@@ -90,136 +173,230 @@ typedef void (*CuteQItemEditorDateTimeEditCall32)(const void *, QMouseEvent *, i
 typedef void (*CuteQItemEditorDateTimeEditCall33)(const void *, QEnterEvent *, int *);
 typedef void (*CuteQItemEditorDateTimeEditCall34)(const void *, QEvent *, int *);
 typedef void (*CuteQItemEditorDateTimeEditCall35)(const void *, QMoveEvent *, int *);
+#if QT_CONFIG(tabletevent)
 typedef void (*CuteQItemEditorDateTimeEditCall36)(const void *, QTabletEvent *, int *);
+#endif  // QT_CONFIG(tabletevent)
+#if !defined(QT_NO_ACTION)
 typedef void (*CuteQItemEditorDateTimeEditCall37)(const void *, QActionEvent *, int *);
+#endif  // !defined(QT_NO_ACTION)
+#if QT_CONFIG(draganddrop)
 typedef void (*CuteQItemEditorDateTimeEditCall38)(const void *, QDragEnterEvent *, int *);
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
 typedef void (*CuteQItemEditorDateTimeEditCall39)(const void *, QDragMoveEvent *, int *);
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
 typedef void (*CuteQItemEditorDateTimeEditCall40)(const void *, QDragLeaveEvent *, int *);
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
 typedef void (*CuteQItemEditorDateTimeEditCall41)(const void *, QDropEvent *, int *);
+#endif  // QT_CONFIG(draganddrop)
 typedef int (*CuteQItemEditorDateTimeEditCall42)(const void *, int, int *);
 typedef void (*CuteQItemEditorDateTimeEditCall43)(const void *, QPainter *, int *);
 typedef void * (*CuteQItemEditorDateTimeEditCall44)(const void *, QPoint *, int *);
 typedef void * (*CuteQItemEditorDateTimeEditCall45)(const void *, int *);
 typedef void (*CuteQItemEditorDateTimeEditCall46)(const void *, QInputMethodEvent *, int *);
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQItemEditorDateTimeEditCall47)(const void *, QObject *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQItemEditorDateTimeEditCall48)(const void *, QChildEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQItemEditorDateTimeEditCall49)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQItemEditorDateTimeEditCall50)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQItemEditorDateTimeEditCall51)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 class CuteQItemEditorDateTimeEdit : public QItemEditorDateTimeEdit {
 public:
   using QItemEditorDateTimeEdit::QItemEditorDateTimeEdit;
   void *taken[52] = {};
 
   bool take(const char *key, void *call) {
+#if QT_CONFIG(datetimeedit)
     if (!std::strcmp(key, "_ZNK7QWidget8sizeHintEv")) {
       taken[0] = call;
       return true;
     }
+#endif  // QT_CONFIG(datetimeedit)
+#if QT_CONFIG(spinbox)
+#if QT_CONFIG(datetimeedit)
     if (!std::strcmp(key, "_ZN16QAbstractSpinBox5clearEv")) {
       taken[1] = call;
       return true;
     }
+#endif  // QT_CONFIG(datetimeedit)
+#endif  // QT_CONFIG(spinbox)
+#if QT_CONFIG(spinbox)
+#if QT_CONFIG(datetimeedit)
     if (!std::strcmp(key, "_ZN16QAbstractSpinBox6stepByEi")) {
       taken[2] = call;
       return true;
     }
+#endif  // QT_CONFIG(datetimeedit)
+#endif  // QT_CONFIG(spinbox)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(datetimeedit)
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[3] = call;
       return true;
     }
+#endif  // QT_CONFIG(datetimeedit)
+#endif  // !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(datetimeedit)
     if (!std::strcmp(key, "_ZN7QWidget13keyPressEventEP9QKeyEvent")) {
       taken[4] = call;
       return true;
     }
+#endif  // QT_CONFIG(datetimeedit)
+#if QT_CONFIG(wheelevent)
+#if QT_CONFIG(datetimeedit)
     if (!std::strcmp(key, "_ZN7QWidget10wheelEventEP11QWheelEvent")) {
       taken[5] = call;
       return true;
     }
+#endif  // QT_CONFIG(datetimeedit)
+#endif  // QT_CONFIG(wheelevent)
+#if QT_CONFIG(datetimeedit)
     if (!std::strcmp(key, "_ZN7QWidget12focusInEventEP11QFocusEvent")) {
       taken[6] = call;
       return true;
     }
+#endif  // QT_CONFIG(datetimeedit)
+#if QT_CONFIG(datetimeedit)
     if (!std::strcmp(key, "_ZN7QWidget18focusNextPrevChildEb")) {
       taken[7] = call;
       return true;
     }
+#endif  // QT_CONFIG(datetimeedit)
+#if QT_CONFIG(datetimeedit)
     if (!std::strcmp(key, "_ZNK13QDateTimeEdit16dateTimeFromTextERK7QString")) {
       taken[8] = call;
       return true;
     }
+#endif  // QT_CONFIG(datetimeedit)
+#if QT_CONFIG(datetimeedit)
     if (!std::strcmp(key, "_ZNK13QDateTimeEdit16textFromDateTimeERK9QDateTime")) {
       taken[9] = call;
       return true;
     }
+#endif  // QT_CONFIG(datetimeedit)
+#if QT_CONFIG(spinbox)
+#if QT_CONFIG(datetimeedit)
     if (!std::strcmp(key, "_ZNK16QAbstractSpinBox11stepEnabledEv")) {
       taken[10] = call;
       return true;
     }
+#endif  // QT_CONFIG(datetimeedit)
+#endif  // QT_CONFIG(spinbox)
+#if QT_CONFIG(datetimeedit)
     if (!std::strcmp(key, "_ZN7QWidget15mousePressEventEP11QMouseEvent")) {
       taken[11] = call;
       return true;
     }
+#endif  // QT_CONFIG(datetimeedit)
+#if QT_CONFIG(datetimeedit)
     if (!std::strcmp(key, "_ZN7QWidget10paintEventEP11QPaintEvent")) {
       taken[12] = call;
       return true;
     }
+#endif  // QT_CONFIG(datetimeedit)
+#if QT_CONFIG(spinbox)
+#if QT_CONFIG(datetimeedit)
     if (!std::strcmp(key, "_ZNK16QAbstractSpinBox15initStyleOptionEP19QStyleOptionSpinBox")) {
       taken[13] = call;
       return true;
     }
+#endif  // QT_CONFIG(datetimeedit)
+#endif  // QT_CONFIG(spinbox)
+#if QT_CONFIG(spinbox)
     if (!std::strcmp(key, "_ZNK7QWidget15minimumSizeHintEv")) {
       taken[14] = call;
       return true;
     }
+#endif  // QT_CONFIG(spinbox)
+#if QT_CONFIG(spinbox)
     if (!std::strcmp(key, "_ZNK7QWidget16inputMethodQueryEN2Qt16InputMethodQueryE")) {
       taken[15] = call;
       return true;
     }
+#endif  // QT_CONFIG(spinbox)
+#if QT_CONFIG(spinbox)
     if (!std::strcmp(key, "_ZN7QWidget11resizeEventEP12QResizeEvent")) {
       taken[16] = call;
       return true;
     }
+#endif  // QT_CONFIG(spinbox)
+#if QT_CONFIG(spinbox)
     if (!std::strcmp(key, "_ZN7QWidget15keyReleaseEventEP9QKeyEvent")) {
       taken[17] = call;
       return true;
     }
+#endif  // QT_CONFIG(spinbox)
+#if QT_CONFIG(spinbox)
     if (!std::strcmp(key, "_ZN7QWidget13focusOutEventEP11QFocusEvent")) {
       taken[18] = call;
       return true;
     }
+#endif  // QT_CONFIG(spinbox)
+#if !defined(QT_NO_CONTEXTMENU)
+#if QT_CONFIG(spinbox)
+#if QT_CONFIG(contextmenu)
     if (!std::strcmp(key, "_ZN7QWidget16contextMenuEventEP17QContextMenuEvent")) {
       taken[19] = call;
       return true;
     }
+#endif  // QT_CONFIG(contextmenu)
+#endif  // QT_CONFIG(spinbox)
+#endif  // !defined(QT_NO_CONTEXTMENU)
+#if QT_CONFIG(spinbox)
     if (!std::strcmp(key, "_ZN7QWidget11changeEventEP6QEvent")) {
       taken[20] = call;
       return true;
     }
+#endif  // QT_CONFIG(spinbox)
+#if QT_CONFIG(spinbox)
     if (!std::strcmp(key, "_ZN7QWidget10closeEventEP11QCloseEvent")) {
       taken[21] = call;
       return true;
     }
+#endif  // QT_CONFIG(spinbox)
+#if QT_CONFIG(spinbox)
     if (!std::strcmp(key, "_ZN7QWidget9hideEventEP10QHideEvent")) {
       taken[22] = call;
       return true;
     }
+#endif  // QT_CONFIG(spinbox)
+#if QT_CONFIG(spinbox)
     if (!std::strcmp(key, "_ZN7QWidget17mouseReleaseEventEP11QMouseEvent")) {
       taken[23] = call;
       return true;
     }
+#endif  // QT_CONFIG(spinbox)
+#if QT_CONFIG(spinbox)
     if (!std::strcmp(key, "_ZN7QWidget14mouseMoveEventEP11QMouseEvent")) {
       taken[24] = call;
       return true;
     }
+#endif  // QT_CONFIG(spinbox)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(spinbox)
     if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[25] = call;
       return true;
     }
+#endif  // QT_CONFIG(spinbox)
+#endif  // !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(spinbox)
     if (!std::strcmp(key, "_ZN7QWidget9showEventEP10QShowEvent")) {
       taken[26] = call;
       return true;
     }
+#endif  // QT_CONFIG(spinbox)
     if (!std::strcmp(key, "_ZNK12QPaintDevice7devTypeEv")) {
       taken[27] = call;
       return true;
@@ -256,30 +433,42 @@ public:
       taken[35] = call;
       return true;
     }
+#if QT_CONFIG(tabletevent)
     if (!std::strcmp(key, "_ZN7QWidget11tabletEventEP12QTabletEvent")) {
       taken[36] = call;
       return true;
     }
+#endif  // QT_CONFIG(tabletevent)
+#if !defined(QT_NO_ACTION)
     if (!std::strcmp(key, "_ZN7QWidget11actionEventEP12QActionEvent")) {
       taken[37] = call;
       return true;
     }
+#endif  // !defined(QT_NO_ACTION)
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget14dragEnterEventEP15QDragEnterEvent")) {
       taken[38] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget13dragMoveEventEP14QDragMoveEvent")) {
       taken[39] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget14dragLeaveEventEP15QDragLeaveEvent")) {
       taken[40] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget9dropEventEP10QDropEvent")) {
       taken[41] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZNK12QPaintDevice6metricENS_17PaintDeviceMetricE")) {
       taken[42] = call;
       return true;
@@ -300,29 +489,40 @@ public:
       taken[46] = call;
       return true;
     }
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[47] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[48] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[49] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[50] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
       taken[51] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
     return false;
   }
 
+#if QT_CONFIG(datetimeedit)
   //  QSize QDateTimeEdit::sizeHint() const
   QSize sizeHint() const override {
     if (taken[0]) {
@@ -333,7 +533,10 @@ public:
     }
     return QDateTimeEdit::sizeHint();
   }
+#endif  // QT_CONFIG(datetimeedit)
 
+#if QT_CONFIG(spinbox)
+#if QT_CONFIG(datetimeedit)
   //  void QDateTimeEdit::clear()
   void clear() override {
     if (taken[1]) {
@@ -344,7 +547,11 @@ public:
     }
     QDateTimeEdit::clear();
   }
+#endif  // QT_CONFIG(datetimeedit)
+#endif  // QT_CONFIG(spinbox)
 
+#if QT_CONFIG(spinbox)
+#if QT_CONFIG(datetimeedit)
   //  void QDateTimeEdit::stepBy(int steps)
   void stepBy(int steps) override {
     if (taken[2]) {
@@ -355,7 +562,11 @@ public:
     }
     QDateTimeEdit::stepBy(steps);
   }
+#endif  // QT_CONFIG(datetimeedit)
+#endif  // QT_CONFIG(spinbox)
 
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(datetimeedit)
   //  bool QDateTimeEdit::event(QEvent *event)
   bool event(QEvent *event) override {
     if (taken[3]) {
@@ -366,7 +577,10 @@ public:
     }
     return QDateTimeEdit::event(event);
   }
+#endif  // QT_CONFIG(datetimeedit)
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if QT_CONFIG(datetimeedit)
   //  void QDateTimeEdit::keyPressEvent(QKeyEvent *event)
   void keyPressEvent(QKeyEvent *event) override {
     if (taken[4]) {
@@ -377,7 +591,10 @@ public:
     }
     QDateTimeEdit::keyPressEvent(event);
   }
+#endif  // QT_CONFIG(datetimeedit)
 
+#if QT_CONFIG(wheelevent)
+#if QT_CONFIG(datetimeedit)
   //  void QDateTimeEdit::wheelEvent(QWheelEvent *event)
   void wheelEvent(QWheelEvent *event) override {
     if (taken[5]) {
@@ -388,7 +605,10 @@ public:
     }
     QDateTimeEdit::wheelEvent(event);
   }
+#endif  // QT_CONFIG(datetimeedit)
+#endif  // QT_CONFIG(wheelevent)
 
+#if QT_CONFIG(datetimeedit)
   //  void QDateTimeEdit::focusInEvent(QFocusEvent *event)
   void focusInEvent(QFocusEvent *event) override {
     if (taken[6]) {
@@ -399,7 +619,9 @@ public:
     }
     QDateTimeEdit::focusInEvent(event);
   }
+#endif  // QT_CONFIG(datetimeedit)
 
+#if QT_CONFIG(datetimeedit)
   //  bool QDateTimeEdit::focusNextPrevChild(bool next)
   bool focusNextPrevChild(bool next) override {
     if (taken[7]) {
@@ -410,7 +632,9 @@ public:
     }
     return QDateTimeEdit::focusNextPrevChild(next);
   }
+#endif  // QT_CONFIG(datetimeedit)
 
+#if QT_CONFIG(datetimeedit)
   //  QDateTime QDateTimeEdit::dateTimeFromText(const QString &text) const
   QDateTime dateTimeFromText(const QString &text) const override {
     if (taken[8]) {
@@ -421,7 +645,9 @@ public:
     }
     return QDateTimeEdit::dateTimeFromText(text);
   }
+#endif  // QT_CONFIG(datetimeedit)
 
+#if QT_CONFIG(datetimeedit)
   //  QString QDateTimeEdit::textFromDateTime(const QDateTime &dt) const
   QString textFromDateTime(const QDateTime &dt) const override {
     if (taken[9]) {
@@ -436,7 +662,10 @@ public:
     }
     return QDateTimeEdit::textFromDateTime(dt);
   }
+#endif  // QT_CONFIG(datetimeedit)
 
+#if QT_CONFIG(spinbox)
+#if QT_CONFIG(datetimeedit)
   //  StepEnabled QDateTimeEdit::stepEnabled() const
   QAbstractSpinBox::StepEnabled stepEnabled() const override {
     if (taken[10]) {
@@ -447,7 +676,10 @@ public:
     }
     return QDateTimeEdit::stepEnabled();
   }
+#endif  // QT_CONFIG(datetimeedit)
+#endif  // QT_CONFIG(spinbox)
 
+#if QT_CONFIG(datetimeedit)
   //  void QDateTimeEdit::mousePressEvent(QMouseEvent *event)
   void mousePressEvent(QMouseEvent *event) override {
     if (taken[11]) {
@@ -458,7 +690,9 @@ public:
     }
     QDateTimeEdit::mousePressEvent(event);
   }
+#endif  // QT_CONFIG(datetimeedit)
 
+#if QT_CONFIG(datetimeedit)
   //  void QDateTimeEdit::paintEvent(QPaintEvent *event)
   void paintEvent(QPaintEvent *event) override {
     if (taken[12]) {
@@ -469,7 +703,10 @@ public:
     }
     QDateTimeEdit::paintEvent(event);
   }
+#endif  // QT_CONFIG(datetimeedit)
 
+#if QT_CONFIG(spinbox)
+#if QT_CONFIG(datetimeedit)
   //  void QDateTimeEdit::initStyleOption(QStyleOptionSpinBox *option)
   //      const
   void initStyleOption(QStyleOptionSpinBox *option) const override {
@@ -481,7 +718,10 @@ public:
     }
     QDateTimeEdit::initStyleOption(option);
   }
+#endif  // QT_CONFIG(datetimeedit)
+#endif  // QT_CONFIG(spinbox)
 
+#if QT_CONFIG(spinbox)
   //  QSize QAbstractSpinBox::minimumSizeHint() const
   QSize minimumSizeHint() const override {
     if (taken[14]) {
@@ -492,7 +732,9 @@ public:
     }
     return QAbstractSpinBox::minimumSizeHint();
   }
+#endif  // QT_CONFIG(spinbox)
 
+#if QT_CONFIG(spinbox)
   //  QVariant QAbstractSpinBox::inputMethodQuery(Qt::InputMethodQuery a0)
   //      const
   QVariant inputMethodQuery(Qt::InputMethodQuery a0) const override {
@@ -504,7 +746,9 @@ public:
     }
     return QAbstractSpinBox::inputMethodQuery(a0);
   }
+#endif  // QT_CONFIG(spinbox)
 
+#if QT_CONFIG(spinbox)
   //  void QAbstractSpinBox::resizeEvent(QResizeEvent *event)
   void resizeEvent(QResizeEvent *event) override {
     if (taken[16]) {
@@ -515,7 +759,9 @@ public:
     }
     QAbstractSpinBox::resizeEvent(event);
   }
+#endif  // QT_CONFIG(spinbox)
 
+#if QT_CONFIG(spinbox)
   //  void QAbstractSpinBox::keyReleaseEvent(QKeyEvent *event)
   void keyReleaseEvent(QKeyEvent *event) override {
     if (taken[17]) {
@@ -526,7 +772,9 @@ public:
     }
     QAbstractSpinBox::keyReleaseEvent(event);
   }
+#endif  // QT_CONFIG(spinbox)
 
+#if QT_CONFIG(spinbox)
   //  void QAbstractSpinBox::focusOutEvent(QFocusEvent *event)
   void focusOutEvent(QFocusEvent *event) override {
     if (taken[18]) {
@@ -537,7 +785,11 @@ public:
     }
     QAbstractSpinBox::focusOutEvent(event);
   }
+#endif  // QT_CONFIG(spinbox)
 
+#if !defined(QT_NO_CONTEXTMENU)
+#if QT_CONFIG(spinbox)
+#if QT_CONFIG(contextmenu)
   //  void QAbstractSpinBox::contextMenuEvent(QContextMenuEvent *event)
   void contextMenuEvent(QContextMenuEvent *event) override {
     if (taken[19]) {
@@ -548,7 +800,11 @@ public:
     }
     QAbstractSpinBox::contextMenuEvent(event);
   }
+#endif  // QT_CONFIG(contextmenu)
+#endif  // QT_CONFIG(spinbox)
+#endif  // !defined(QT_NO_CONTEXTMENU)
 
+#if QT_CONFIG(spinbox)
   //  void QAbstractSpinBox::changeEvent(QEvent *event)
   void changeEvent(QEvent *event) override {
     if (taken[20]) {
@@ -559,7 +815,9 @@ public:
     }
     QAbstractSpinBox::changeEvent(event);
   }
+#endif  // QT_CONFIG(spinbox)
 
+#if QT_CONFIG(spinbox)
   //  void QAbstractSpinBox::closeEvent(QCloseEvent *event)
   void closeEvent(QCloseEvent *event) override {
     if (taken[21]) {
@@ -570,7 +828,9 @@ public:
     }
     QAbstractSpinBox::closeEvent(event);
   }
+#endif  // QT_CONFIG(spinbox)
 
+#if QT_CONFIG(spinbox)
   //  void QAbstractSpinBox::hideEvent(QHideEvent *event)
   void hideEvent(QHideEvent *event) override {
     if (taken[22]) {
@@ -581,7 +841,9 @@ public:
     }
     QAbstractSpinBox::hideEvent(event);
   }
+#endif  // QT_CONFIG(spinbox)
 
+#if QT_CONFIG(spinbox)
   //  void QAbstractSpinBox::mouseReleaseEvent(QMouseEvent *event)
   void mouseReleaseEvent(QMouseEvent *event) override {
     if (taken[23]) {
@@ -592,7 +854,9 @@ public:
     }
     QAbstractSpinBox::mouseReleaseEvent(event);
   }
+#endif  // QT_CONFIG(spinbox)
 
+#if QT_CONFIG(spinbox)
   //  void QAbstractSpinBox::mouseMoveEvent(QMouseEvent *event)
   void mouseMoveEvent(QMouseEvent *event) override {
     if (taken[24]) {
@@ -603,7 +867,10 @@ public:
     }
     QAbstractSpinBox::mouseMoveEvent(event);
   }
+#endif  // QT_CONFIG(spinbox)
 
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(spinbox)
   //  void QAbstractSpinBox::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
     if (taken[25]) {
@@ -614,7 +881,10 @@ public:
     }
     QAbstractSpinBox::timerEvent(event);
   }
+#endif  // QT_CONFIG(spinbox)
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if QT_CONFIG(spinbox)
   //  void QAbstractSpinBox::showEvent(QShowEvent *event)
   void showEvent(QShowEvent *event) override {
     if (taken[26]) {
@@ -625,6 +895,7 @@ public:
     }
     QAbstractSpinBox::showEvent(event);
   }
+#endif  // QT_CONFIG(spinbox)
 
   //  int QWidget::devType() const
   int devType() const override {
@@ -725,6 +996,7 @@ public:
     QWidget::moveEvent(event);
   }
 
+#if QT_CONFIG(tabletevent)
   //  void QWidget::tabletEvent(QTabletEvent *event)
   void tabletEvent(QTabletEvent *event) override {
     if (taken[36]) {
@@ -735,7 +1007,9 @@ public:
     }
     QWidget::tabletEvent(event);
   }
+#endif  // QT_CONFIG(tabletevent)
 
+#if !defined(QT_NO_ACTION)
   //  void QWidget::actionEvent(QActionEvent *event)
   void actionEvent(QActionEvent *event) override {
     if (taken[37]) {
@@ -746,7 +1020,9 @@ public:
     }
     QWidget::actionEvent(event);
   }
+#endif  // !defined(QT_NO_ACTION)
 
+#if QT_CONFIG(draganddrop)
   //  void QWidget::dragEnterEvent(QDragEnterEvent *event)
   void dragEnterEvent(QDragEnterEvent *event) override {
     if (taken[38]) {
@@ -757,7 +1033,9 @@ public:
     }
     QWidget::dragEnterEvent(event);
   }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
   //  void QWidget::dragMoveEvent(QDragMoveEvent *event)
   void dragMoveEvent(QDragMoveEvent *event) override {
     if (taken[39]) {
@@ -768,7 +1046,9 @@ public:
     }
     QWidget::dragMoveEvent(event);
   }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
   //  void QWidget::dragLeaveEvent(QDragLeaveEvent *event)
   void dragLeaveEvent(QDragLeaveEvent *event) override {
     if (taken[40]) {
@@ -779,7 +1059,9 @@ public:
     }
     QWidget::dragLeaveEvent(event);
   }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
   //  void QWidget::dropEvent(QDropEvent *event)
   void dropEvent(QDropEvent *event) override {
     if (taken[41]) {
@@ -790,6 +1072,7 @@ public:
     }
     QWidget::dropEvent(event);
   }
+#endif  // QT_CONFIG(draganddrop)
 
   //  int QWidget::metric(PaintDeviceMetric a0) const
   int metric(QPaintDevice::PaintDeviceMetric a0) const override {
@@ -846,6 +1129,7 @@ public:
     QWidget::inputMethodEvent(a0);
   }
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
     if (taken[47]) {
@@ -856,7 +1140,9 @@ public:
     }
     return QObject::eventFilter(watched, event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
     if (taken[48]) {
@@ -867,7 +1153,9 @@ public:
     }
     QObject::childEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
     if (taken[49]) {
@@ -878,7 +1166,9 @@ public:
     }
     QObject::customEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
     if (taken[50]) {
@@ -889,7 +1179,9 @@ public:
     }
     QObject::connectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
     if (taken[51]) {
@@ -900,6 +1192,7 @@ public:
     }
     QObject::disconnectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 };
 
 //  const QMetaObject *QItemEditorDateTimeEdit::metaObject() const
@@ -909,6 +1202,7 @@ const QMetaObject *ritual_ZNK23QItemEditorDateTimeEdit10metaObjectEv(
   return self->metaObject();
 }
 
+#if QT_CONFIG(datetimeedit)
 //  void QItemEditorDateTimeEdit::setDateTimeItemEditor(const QDateTime
 //      &datetime)
 extern "C" Q_DECL_EXPORT
@@ -917,6 +1211,7 @@ void ritual_ZN23QItemEditorDateTimeEdit21setDateTimeItemEditorERK9QDateTime(
     const QDateTime *datetime) {
   self->setDateTimeItemEditor(*datetime);
 }
+#endif  // QT_CONFIG(datetimeedit)
 
 //  a Python function taken by a CuteQItemEditorDateTimeEdit, for the
 //      function named by the key
@@ -927,3 +1222,6 @@ bool ritual_take_QItemEditorDateTimeEdit(
     void *call) {
   return static_cast<CuteQItemEditorDateTimeEdit *>(self)->take(key, call);
 }
+
+#endif  // QT_CONFIG(datetimeedit)
+#endif  // QT_CONFIG(itemviews)

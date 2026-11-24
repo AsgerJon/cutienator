@@ -1,0 +1,55 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmlcomponent_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QQmlComponentPrivate17ConstructionStateC1Ev": ["address"],
+    "ritual_ZN20QQmlComponentPrivate17ConstructionStateD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQmlComponentPrivate17ConstructionState29ensureRequiredPropertyStorageEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QQmlComponentPrivate17ConstructionState18requiredPropertiesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QQmlComponentPrivate17ConstructionState26addPendingRequiredPropertyEPK7QObjectPK16QQmlPropertyDataRK20RequiredPropertyInfo": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK20QQmlComponentPrivate17ConstructionState26hasUnsetRequiredPropertiesEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN20QQmlComponentPrivate17ConstructionState23clearRequiredPropertiesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQmlComponentPrivate17ConstructionState12appendErrorsERK5QListI9QQmlErrorE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQmlComponentPrivate17ConstructionState19appendCreatorErrorsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQmlComponentPrivate17ConstructionState7creatorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QQmlComponentPrivate17ConstructionState7creatorEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QQmlComponentPrivate17ConstructionState5clearEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK20QQmlComponentPrivate17ConstructionState10hasCreatorEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK20QQmlComponentPrivate17ConstructionState17isCompletePendingEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN20QQmlComponentPrivate17ConstructionState18setCompletePendingEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK20QQmlComponentPrivate17ConstructionState6targetEv": [
+      "address", "address"
+    ]
+  }
+}

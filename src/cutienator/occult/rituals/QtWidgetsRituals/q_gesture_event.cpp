@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qgesture.h, Qt 6.12.0. Changes made here are lost.
+#include <QtWidgets/qtwidgetsglobal.h>
+#if !defined(QT_NO_GESTURES)
 #include <QtWidgets/qgesture.h>
 #include <QtCore/qpoint.h>
 #include <QtCore/qlist.h>
@@ -173,6 +175,7 @@ QWidget *ritual_ZNK13QGestureEvent6widgetEv(const QGestureEvent *self) {
   return self->widget();
 }
 
+#if QT_CONFIG(graphicsview)
 //  QPointF QGestureEvent::mapToGraphicsScene(const QPointF &gesturePoint)
 //      const
 extern "C" Q_DECL_EXPORT
@@ -181,6 +184,7 @@ QPointF *ritual_ZNK13QGestureEvent18mapToGraphicsSceneERK7QPointF(
     const QPointF *gesturePoint) {
   return new QPointF(self->mapToGraphicsScene(*gesturePoint));
 }
+#endif  // QT_CONFIG(graphicsview)
 
 //  a Python function taken by a CuteQGestureEvent, for the function named by
 //      the key
@@ -191,3 +195,5 @@ bool ritual_take_QGestureEvent(
     void *call) {
   return static_cast<CuteQGestureEvent *>(self)->take(key, call);
 }
+
+#endif  // !defined(QT_NO_GESTURES)

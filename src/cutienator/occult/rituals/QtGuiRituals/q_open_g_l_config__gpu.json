@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qopengl_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN13QOpenGLConfig3GpuC1Ev": ["address"],
+    "ritual_ZNK13QOpenGLConfig3Gpu7isValidEv": ["bool", "address"],
+    "ritual_ZNK13QOpenGLConfig3Gpu6equalsERKS0_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN13QOpenGLConfig3Gpu10fromDeviceEjj14QVersionNumberRK10QByteArray": [
+      "address", "unsigned int", "unsigned int", "address", "address"
+    ],
+    "ritual_ZN13QOpenGLConfig3Gpu12fromGLVendorERK10QByteArray": [
+      "address", "address"
+    ],
+    "ritual_ZN13QOpenGLConfig3Gpu11fromContextEv": ["address"],
+    "ritual_ZN13QOpenGLConfig3GpuD1Ev": ["nothing", "address"]
+  }
+}

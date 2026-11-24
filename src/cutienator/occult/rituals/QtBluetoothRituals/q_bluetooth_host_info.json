@@ -1,0 +1,32 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtBluetooth/qbluetoothhostinfo.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN18QBluetoothHostInfoC1Ev": ["address"],
+    "ritual_ZN18QBluetoothHostInfoC1ERKS_": ["address", "address"],
+    "ritual_ZN18QBluetoothHostInfoD1Ev": ["nothing", "address"],
+    "ritual_ZeqRK18QBluetoothHostInfoS1_": ["bool", "address", "address"],
+    "ritual_ZneRK18QBluetoothHostInfoS1_": ["bool", "address", "address"],
+    "ritual_ZNK18QBluetoothHostInfo7addressEv": ["address", "address"],
+    "ritual_ZN18QBluetoothHostInfo10setAddressERK17QBluetoothAddress": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QBluetoothHostInfo4nameEv": ["text", "address"],
+    "ritual_ZN18QBluetoothHostInfo7setNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN18QBluetoothHostInfo6equalsERKS_S1_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN18QBluetoothHostInfo6d_funcEv": ["address", "address"],
+    "ritual_ZNK18QBluetoothHostInfo6d_funcEv": ["address", "address"],
+    "ritual_list_make_QBluetoothHostInfo": ["address"],
+    "ritual_list_add_QBluetoothHostInfo": ["nothing", "address", "address"],
+    "ritual_list_size_QBluetoothHostInfo": ["long long", "address"],
+    "ritual_list_at_QBluetoothHostInfo": ["address", "address", "long long"],
+    "ritual_list_drop_QBluetoothHostInfo": ["nothing", "address"]
+  }
+}

@@ -33,13 +33,27 @@ typedef void (*CuteQAbstractTextDocumentLayoutCall6)(const void *, int, int, int
 typedef void (*CuteQAbstractTextDocumentLayoutCall7)(const void *, const QTextInlineObject *, int, const QTextFormat *, int *);
 typedef void (*CuteQAbstractTextDocumentLayoutCall8)(const void *, const QTextInlineObject *, int, const QTextFormat *, int *);
 typedef void (*CuteQAbstractTextDocumentLayoutCall9)(const void *, QPainter *, const QRectF *, const QTextInlineObject *, int, const QTextFormat *, int *);
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQAbstractTextDocumentLayoutCall10)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQAbstractTextDocumentLayoutCall11)(const void *, QObject *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQAbstractTextDocumentLayoutCall12)(const void *, QTimerEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQAbstractTextDocumentLayoutCall13)(const void *, QChildEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQAbstractTextDocumentLayoutCall14)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQAbstractTextDocumentLayoutCall15)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQAbstractTextDocumentLayoutCall16)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 class CuteQAbstractTextDocumentLayout : public QAbstractTextDocumentLayout {
 public:
   using QAbstractTextDocumentLayout::QAbstractTextDocumentLayout;
@@ -86,34 +100,48 @@ public:
       taken[9] = call;
       return true;
     }
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[10] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[11] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[12] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[13] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[14] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[15] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
       taken[16] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
     return false;
   }
 
@@ -251,6 +279,7 @@ public:
     QAbstractTextDocumentLayout::drawInlineObject(painter, rect, object, posInDocument, format);
   }
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QObject::event(QEvent *event)
   bool event(QEvent *event) override {
     if (taken[10]) {
@@ -261,7 +290,9 @@ public:
     }
     return QObject::event(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
     if (taken[11]) {
@@ -272,7 +303,9 @@ public:
     }
     return QObject::eventFilter(watched, event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
     if (taken[12]) {
@@ -283,7 +316,9 @@ public:
     }
     QObject::timerEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
     if (taken[13]) {
@@ -294,7 +329,9 @@ public:
     }
     QObject::childEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
     if (taken[14]) {
@@ -305,7 +342,9 @@ public:
     }
     QObject::customEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
     if (taken[15]) {
@@ -316,7 +355,9 @@ public:
     }
     QObject::connectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
     if (taken[16]) {
@@ -327,6 +368,7 @@ public:
     }
     QObject::disconnectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 };
 
 //  const QMetaObject *QAbstractTextDocumentLayout::metaObject() const
@@ -344,6 +386,21 @@ QString *ritual_ZN27QAbstractTextDocumentLayout2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QAbstractTextDocumentLayout::tr(s, c, n));
+}
+
+//  QAbstractTextDocumentLayoutPrivate *QAbstractTextDocumentLayout::d_func()
+extern "C" Q_DECL_EXPORT
+QAbstractTextDocumentLayoutPrivate *ritual_ZN27QAbstractTextDocumentLayout6d_funcEv(
+    QAbstractTextDocumentLayout *self) {
+  return self->d_func();
+}
+
+//  const QAbstractTextDocumentLayoutPrivate
+//      *QAbstractTextDocumentLayout::d_func() const
+extern "C" Q_DECL_EXPORT
+const QAbstractTextDocumentLayoutPrivate *ritual_ZNK27QAbstractTextDocumentLayout6d_funcEv(
+    const QAbstractTextDocumentLayout *self) {
+  return self->d_func();
 }
 
 //  QAbstractTextDocumentLayout::~QAbstractTextDocumentLayout()

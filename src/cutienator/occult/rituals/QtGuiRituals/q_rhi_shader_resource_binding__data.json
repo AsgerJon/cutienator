@@ -1,0 +1,13 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/rhi/qrhi.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK25QRhiShaderResourceBinding4Data9arraySizeEv": [
+      "int", "address"
+    ],
+    "ritual_ZN25QRhiShaderResourceBinding4DataD1Ev": ["nothing", "address"]
+  }
+}

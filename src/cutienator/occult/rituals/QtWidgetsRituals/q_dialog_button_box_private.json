@@ -1,0 +1,65 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qdialogbuttonbox_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN23QDialogButtonBoxPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK23QDialogButtonBoxPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN23QDialogButtonBoxPrivateC1EN2Qt11OrientationE": [
+      "address", "int"
+    ],
+    "ritual_ZN23QDialogButtonBoxPrivate21createStandardButtonsE6QFlagsIN16QDialogButtonBox14StandardButtonEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN23QDialogButtonBoxPrivate12removeButtonEP15QAbstractButtonNS_12RemoveReasonE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN23QDialogButtonBoxPrivate13layoutButtonsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QDialogButtonBoxPrivate10initLayoutEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QDialogButtonBoxPrivate11resetLayoutEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QDialogButtonBoxPrivate12createButtonEN16QDialogButtonBox14StandardButtonENS_10LayoutRuleE": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZN23QDialogButtonBoxPrivate9addButtonEP15QAbstractButtonN16QDialogButtonBox10ButtonRoleENS_10LayoutRuleENS_7AddRuleE": [
+      "nothing", "address", "address", "int", "int", "int"
+    ],
+    "ritual_ZN23QDialogButtonBoxPrivate21handleButtonDestroyedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QDialogButtonBoxPrivate19handleButtonClickedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QDialogButtonBoxPrivate23handleButtonShowAndHideEP15QAbstractButtonP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN23QDialogButtonBoxPrivate18addButtonsToLayoutERK5QListIP15QAbstractButtonEb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN23QDialogButtonBoxPrivate26ensureFirstAcceptIsDefaultEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QDialogButtonBoxPrivate18retranslateStringsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QDialogButtonBoxPrivate13disconnectAllEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK23QDialogButtonBoxPrivate10allButtonsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK23QDialogButtonBoxPrivate14visibleButtonsEv": [
+      "address", "address"
+    ],
+    "ritual_take_QDialogButtonBoxPrivate": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

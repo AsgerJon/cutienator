@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmldirdata_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK14QQmlQmldirData7contentEv": ["text", "address"],
+    "ritual_ZNK14QQmlQmldirData14importLocationEPN14QQmlTypeLoader4BlobE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN14QQmlQmldirData12dataReceivedERKN12QQmlDataBlob14SourceCodeDataE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QQmlQmldirData24initializeFromCachedUnitEPKN11QQmlPrivate13CachedQmlUnitE": [
+      "nothing", "address", "address"
+    ]
+  }
+}

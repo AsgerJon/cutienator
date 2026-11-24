@@ -8,6 +8,8 @@
     "ritual_ZN14QOpenGLContext2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN14QOpenGLContext6d_funcEv": ["address", "address"],
+    "ritual_ZNK14QOpenGLContext6d_funcEv": ["address", "address"],
     "ritual_ZN14QOpenGLContextC1EP7QObject": ["address", "address"],
     "ritual_ZN14QOpenGLContextD1Ev": ["nothing", "address"],
     "ritual_ZN14QOpenGLContext9setFormatERK14QSurfaceFormat": [
@@ -37,6 +39,8 @@
     "ritual_ZN14QOpenGLContext10areSharingEPS_S0_": [
       "bool", "address", "address"
     ],
+    "ritual_ZNK14QOpenGLContext6handleEv": ["address", "address"],
+    "ritual_ZNK14QOpenGLContext11shareHandleEv": ["address", "address"],
     "ritual_ZNK14QOpenGLContext9functionsEv": ["address", "address"],
     "ritual_ZNK14QOpenGLContext14extraFunctionsEv": ["address", "address"],
     "ritual_ZNK14QOpenGLContext12hasExtensionERK10QByteArray": [
@@ -46,6 +50,7 @@
     "ritual_ZNK14QOpenGLContext10isOpenGLESEv": ["bool", "address"],
     "ritual_ZN14QOpenGLContext22supportsThreadedOpenGLEv": ["bool"],
     "ritual_ZN14QOpenGLContext18globalShareContextEv": ["address"],
+    "ritual_ZNK14QOpenGLContext16textureFunctionsEv": ["address", "address"],
     "ritual_ZN14QOpenGLContext7destroyEv": ["nothing", "address"],
     "ritual_take_QOpenGLContext": ["bool", "address", "chars", "address"],
     "ritual_list_make_QOpenGLContext_ptr": ["address"],

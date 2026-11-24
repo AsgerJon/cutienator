@@ -1,0 +1,25 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/qdnslookup.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN21QDnsHostAddressRecordC1Ev": ["address"],
+    "ritual_ZN21QDnsHostAddressRecordC1ERKS_": ["address", "address"],
+    "ritual_ZN21QDnsHostAddressRecordD1Ev": ["nothing", "address"],
+    "ritual_ZNK21QDnsHostAddressRecord4nameEv": ["text", "address"],
+    "ritual_ZNK21QDnsHostAddressRecord10timeToLiveEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZNK21QDnsHostAddressRecord5valueEv": ["address", "address"],
+    "ritual_list_make_QDnsHostAddressRecord": ["address"],
+    "ritual_list_add_QDnsHostAddressRecord": [
+      "nothing", "address", "address"
+    ],
+    "ritual_list_size_QDnsHostAddressRecord": ["long long", "address"],
+    "ritual_list_at_QDnsHostAddressRecord": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_QDnsHostAddressRecord": ["nothing", "address"]
+  }
+}

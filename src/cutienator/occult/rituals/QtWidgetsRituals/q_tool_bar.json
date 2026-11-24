@@ -70,6 +70,8 @@
     "ritual_ZNK8QToolBar15initStyleOptionEP19QStyleOptionToolBar": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN8QToolBar6d_funcEv": ["address", "address"],
+    "ritual_ZNK8QToolBar6d_funcEv": ["address", "address"],
     "ritual_take_QToolBar": ["bool", "address", "chars", "address"],
     "ritual_own_ZN8QToolBar11actionEventEP12QActionEvent": [
       "nothing", "address", "address"
@@ -83,6 +85,11 @@
     "ritual_own_ZN8QToolBar5eventEP6QEvent": ["bool", "address", "address"],
     "ritual_own_ZNK8QToolBar15initStyleOptionEP19QStyleOptionToolBar": [
       "nothing", "address", "address"
-    ]
+    ],
+    "ritual_list_make_QToolBar_ptr": ["address"],
+    "ritual_list_add_QToolBar_ptr": ["nothing", "address", "address"],
+    "ritual_list_size_QToolBar_ptr": ["long long", "address"],
+    "ritual_list_at_QToolBar_ptr": ["address", "address", "long long"],
+    "ritual_list_drop_QToolBar_ptr": ["nothing", "address"]
   }
 }

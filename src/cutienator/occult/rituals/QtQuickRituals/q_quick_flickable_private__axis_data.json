@@ -1,0 +1,25 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickflickable_p_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN22QQuickFlickablePrivate8AxisDataD1Ev": ["nothing", "address"],
+    "ritual_ZN22QQuickFlickablePrivate8AxisData5resetEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickFlickablePrivate8AxisData16markExtentsDirtyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickFlickablePrivate8AxisData17resetTransitionToEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickFlickablePrivate8AxisData17addVelocitySampleEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN22QQuickFlickablePrivate8AxisData14updateVelocityEv": [
+      "nothing", "address"
+    ]
+  }
+}

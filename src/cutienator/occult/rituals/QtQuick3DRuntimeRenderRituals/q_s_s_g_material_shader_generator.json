@@ -1,0 +1,44 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgrenderde",
+    "faultmaterialshadergenerator_p.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN27QSSGMaterialShaderGeneratorD1Ev": ["nothing", "address"],
+    "ritual_ZN27QSSGMaterialShaderGenerator14getSamplerNameEN19QSSGRenderableImage4TypeE": [
+      "chars", "unsigned char"
+    ],
+    "ritual_ZN27QSSGMaterialShaderGenerator37directionalLightProcessorArgumentListEv": [
+      "chars"
+    ],
+    "ritual_ZN27QSSGMaterialShaderGenerator31pointLightProcessorArgumentListEv": [
+      "chars"
+    ],
+    "ritual_ZN27QSSGMaterialShaderGenerator30spotLightProcessorArgumentListEv": [
+      "chars"
+    ],
+    "ritual_ZN27QSSGMaterialShaderGenerator33ambientLightProcessorArgumentListEv": [
+      "chars"
+    ],
+    "ritual_ZN27QSSGMaterialShaderGenerator34specularLightProcessorArgumentListEv": [
+      "chars"
+    ],
+    "ritual_ZN27QSSGMaterialShaderGenerator30shadedFragmentMainArgumentListEv": [
+      "chars"
+    ],
+    "ritual_ZN27QSSGMaterialShaderGenerator25postProcessorArgumentListEv": [
+      "chars"
+    ],
+    "ritual_ZN27QSSGMaterialShaderGenerator29iblProbeProcessorArgumentListEv": [
+      "chars"
+    ],
+    "ritual_ZN27QSSGMaterialShaderGenerator22vertexMainArgumentListEv": [
+      "chars"
+    ],
+    "ritual_ZN27QSSGMaterialShaderGenerator31vertexInstancedMainArgumentListEv": [
+      "chars"
+    ]
+  }
+}

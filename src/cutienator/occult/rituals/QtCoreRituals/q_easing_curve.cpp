@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/qeasingcurve.h, Qt 6.12.0. Changes made here are lost.
+#include <QtCore/qglobal.h>
+#if QT_CONFIG(easingcurve)
 #include <QtCore/qeasingcurve.h>
 #include <QtCore/qpoint.h>
 #include <QtCore/qdebug.h>
@@ -124,6 +126,7 @@ QEasingCurve *ritual_ZN12QEasingCurve15fromCubicBezierE7QPointFS0_(
   return new QEasingCurve(QEasingCurve::fromCubicBezier(*c1, *c2));
 }
 
+#if !defined(QT_NO_DEBUG_STREAM)
 //  QDebug operator<<(QDebug debug, const QEasingCurve &item)
 extern "C" Q_DECL_EXPORT
 QDebug *ritual_Zls6QDebugRK12QEasingCurve(
@@ -131,7 +134,9 @@ QDebug *ritual_Zls6QDebugRK12QEasingCurve(
     const QEasingCurve *item) {
   return new QDebug(operator<<(*debug, *item));
 }
+#endif  // !defined(QT_NO_DEBUG_STREAM)
 
+#if !QT_CORE_REMOVED_SINCE(6, 8)
 //  bool operator==(const QEasingCurve &lhs, const QEasingCurve &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZeqRK12QEasingCurveS1_(
@@ -139,7 +144,9 @@ bool ritual_ZeqRK12QEasingCurveS1_(
     const QEasingCurve *rhs) {
   return operator==(*lhs, *rhs);
 }
+#endif  // !QT_CORE_REMOVED_SINCE(6, 8)
 
+#if !QT_CORE_REMOVED_SINCE(6, 8)
 //  bool operator!=(const QEasingCurve &lhs, const QEasingCurve &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZneRK12QEasingCurveS1_(
@@ -147,3 +154,6 @@ bool ritual_ZneRK12QEasingCurveS1_(
     const QEasingCurve *rhs) {
   return operator!=(*lhs, *rhs);
 }
+#endif  // !QT_CORE_REMOVED_SINCE(6, 8)
+
+#endif  // QT_CONFIG(easingcurve)

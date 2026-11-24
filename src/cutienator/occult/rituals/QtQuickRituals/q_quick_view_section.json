@@ -1,0 +1,35 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquicklistview_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QQuickViewSection10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QQuickViewSection2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QQuickViewSectionC1EP14QQuickListView": [
+      "address", "address"
+    ],
+    "ritual_ZNK17QQuickViewSection8propertyEv": ["text", "address"],
+    "ritual_ZN17QQuickViewSection11setPropertyERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK17QQuickViewSection8criteriaEv": ["int", "address"],
+    "ritual_ZN17QQuickViewSection11setCriteriaENS_15SectionCriteriaE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK17QQuickViewSection8delegateEv": ["address", "address"],
+    "ritual_ZN17QQuickViewSection11setDelegateEP13QQmlComponent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QQuickViewSection13sectionStringERK7QString": [
+      "text", "address", "text"
+    ],
+    "ritual_ZNK17QQuickViewSection16labelPositioningEv": ["int", "address"],
+    "ritual_ZN17QQuickViewSection19setLabelPositioningEi": [
+      "nothing", "address", "int"
+    ]
+  }
+}

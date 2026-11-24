@@ -1,0 +1,31 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4compilercontext_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN3QV48Compiler7ContextC1EPS1_NS0_11ContextTypeE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK3QV48Compiler7Context11hasArgumentERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZNK3QV48Compiler7Context12findArgumentERK7QStringPb": [
+      "int", "address", "text", "address"
+    ],
+    "ritual_ZNK3QV48Compiler7Context10findMemberERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK3QV48Compiler7Context27requiresImplicitReturnValueEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN3QV48Compiler7Context15addUsedVariableERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK3QV48Compiler7Context16canHaveTailCallsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK3QV48Compiler7Context11isCaseBlockEv": ["bool", "address"]
+  }
+}

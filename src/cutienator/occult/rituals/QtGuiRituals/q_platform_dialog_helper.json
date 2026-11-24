@@ -1,0 +1,36 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/qpa/qplatformdialoghelper.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK21QPlatformDialogHelper10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QPlatformDialogHelper2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN21QPlatformDialogHelperD1Ev": ["nothing", "address"],
+    "ritual_ZNK21QPlatformDialogHelper9styleHintENS_9StyleHintE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN21QPlatformDialogHelper4execEv": ["nothing", "address"],
+    "ritual_ZN21QPlatformDialogHelper4showE6QFlagsIN2Qt10WindowTypeEENS1_14WindowModalityEP7QWindow": [
+      "bool", "address", "int", "int", "address"
+    ],
+    "ritual_ZN21QPlatformDialogHelper4hideEv": ["nothing", "address"],
+    "ritual_ZN21QPlatformDialogHelper16defaultStyleHintENS_9StyleHintE": [
+      "address", "int"
+    ],
+    "ritual_ZN21QPlatformDialogHelper10buttonRoleENS_14StandardButtonE": [
+      "int", "int"
+    ],
+    "ritual_take_QPlatformDialogHelper": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK21QPlatformDialogHelper9styleHintENS_9StyleHintE": [
+      "address", "address", "int"
+    ]
+  }
+}

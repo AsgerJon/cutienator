@@ -1,0 +1,305 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQmlCompiler/6.12.0/QtQmlCompiler/private/qqmljsscope_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11QQmlJSScope18insertJSIdentifierERK7QStringRKNS_20JavaScriptIdentifierE": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZNK11QQmlJSScope9scopeTypeEv": ["int", "address"],
+    "ritual_ZN11QQmlJSScope12setScopeTypeEN6QQmlSA9ScopeTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN11QQmlJSScope12addOwnMethodERK16QQmlJSMetaMethod": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QQmlJSScope10ownMethodsERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK11QQmlJSScope12hasOwnMethodERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZNK11QQmlJSScope9hasMethodERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZNK11QQmlJSScope7methodsEv": ["address", "address"],
+    "ritual_ZNK11QQmlJSScope7methodsERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK11QQmlJSScope7methodsERK7QStringN6QQmlSA10MethodTypeE": [
+      "address", "address", "text", "int"
+    ],
+    "ritual_ZN11QQmlJSScope17addOwnEnumerationERK14QQmlJSMetaEnum": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QQmlJSScope15ownEnumerationsEv": ["address", "address"],
+    "ritual_ZNK11QQmlJSScope14ownEnumerationERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK11QQmlJSScope17hasOwnEnumerationERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZNK11QQmlJSScope14hasEnumerationERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZNK11QQmlJSScope17hasEnumerationKeyERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZNK11QQmlJSScope20hasOwnEnumerationKeyERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZNK11QQmlJSScope11enumerationERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK11QQmlJSScope12enumerationsEv": ["address", "address"],
+    "ritual_ZN11QQmlJSScope14setAnnotationsERK5QListI16QQmlJSAnnotationE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QQmlJSScope11annotationsEv": ["address", "address"],
+    "ritual_ZNK11QQmlJSScope8filePathEv": ["text", "address"],
+    "ritual_ZN11QQmlJSScope11setFilePathERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK11QQmlJSScope10lineNumberEv": ["unsigned int", "address"],
+    "ritual_ZN11QQmlJSScope13setLineNumberEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZNK11QQmlJSScope16resolvedFilePathEv": ["text", "address"],
+    "ritual_ZN11QQmlJSScope19setResolvedFilePathERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK11QQmlJSScope24lineNumberInResolvedFileEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN11QQmlJSScope27setLineNumberInResolvedFileEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZNK11QQmlJSScope12internalNameEv": ["text", "address"],
+    "ritual_ZN11QQmlJSScope15setInternalNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK11QQmlJSScope21augmentedInternalNameEv": ["text", "address"],
+    "ritual_ZN11QQmlJSScope10prettyNameE14QAnyStringView": ["text", "text"],
+    "ritual_ZNK11QQmlJSScope19componentRootStatusEv": [
+      "unsigned char", "address"
+    ],
+    "ritual_ZN11QQmlJSScope10setAliasesERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QQmlJSScope7aliasesEv": ["address", "address"],
+    "ritual_ZN11QQmlJSScope17setInterfaceNamesERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QQmlJSScope14interfaceNamesEv": ["address", "address"],
+    "ritual_ZNK11QQmlJSScope12hasInterfaceERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZNK11QQmlJSScope15hasOwnInterfaceERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN11QQmlJSScope19setOwnDeferredNamesERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QQmlJSScope16ownDeferredNamesEv": ["address", "address"],
+    "ritual_ZN11QQmlJSScope20setOwnImmediateNamesERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QQmlJSScope17ownImmediateNamesEv": ["address", "address"],
+    "ritual_ZNK11QQmlJSScope14isNameDeferredERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN11QQmlJSScope15setBaseTypeNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK11QQmlJSScope12baseTypeNameEv": ["text", "address"],
+    "ritual_ZNK11QQmlJSScope16baseTypeRevisionEv": ["address", "address"],
+    "ritual_ZNK11QQmlJSScope10moduleNameEv": ["text", "address"],
+    "ritual_ZNK11QQmlJSScope13ownModuleNameEv": ["text", "address"],
+    "ritual_ZN11QQmlJSScope16setOwnModuleNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN11QQmlJSScope13clearBaseTypeEv": ["nothing", "address"],
+    "ritual_ZN11QQmlJSScope16setBaseTypeErrorERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK11QQmlJSScope13baseTypeErrorEv": ["text", "address"],
+    "ritual_ZN11QQmlJSScope14addOwnPropertyERK18QQmlJSMetaProperty": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QQmlJSScope13ownPropertiesEv": ["address", "address"],
+    "ritual_ZNK11QQmlJSScope11ownPropertyERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK11QQmlJSScope14hasOwnPropertyERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZNK11QQmlJSScope11hasPropertyERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZNK11QQmlJSScope8propertyERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK11QQmlJSScope10propertiesEv": ["address", "address"],
+    "ritual_ZN11QQmlJSScope26setPropertyLocallyRequiredERK7QStringb": [
+      "nothing", "address", "text", "bool"
+    ],
+    "ritual_ZNK11QQmlJSScope18isPropertyRequiredERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZNK11QQmlJSScope25isPropertyLocallyRequiredERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN11QQmlJSScope21addOwnPropertyBindingERK25QQmlJSMetaPropertyBindingNS_22BindingTargetSpecifierE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZNK11QQmlJSScope31ownPropertyBindingsInQmlIROrderEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK11QQmlJSScope22hasOwnPropertyBindingsERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZNK11QQmlJSScope19hasPropertyBindingsERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZNK11QQmlJSScope16propertyBindingsERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK11QQmlJSScope10isResolvedEv": ["bool", "address"],
+    "ritual_ZNK11QQmlJSScope15isFullyResolvedEv": ["bool", "address"],
+    "ritual_ZNK11QQmlJSScope22ownDefaultPropertyNameEv": ["text", "address"],
+    "ritual_ZN11QQmlJSScope25setOwnDefaultPropertyNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK11QQmlJSScope19defaultPropertyNameEv": ["text", "address"],
+    "ritual_ZNK11QQmlJSScope21ownParentPropertyNameEv": ["text", "address"],
+    "ritual_ZN11QQmlJSScope24setOwnParentPropertyNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK11QQmlJSScope18parentPropertyNameEv": ["text", "address"],
+    "ritual_ZNK11QQmlJSScope19ownAttachedTypeNameEv": ["text", "address"],
+    "ritual_ZN11QQmlJSScope22setOwnAttachedTypeNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK11QQmlJSScope16attachedTypeNameEv": ["text", "address"],
+    "ritual_ZNK11QQmlJSScope17extensionTypeNameEv": ["text", "address"],
+    "ritual_ZN11QQmlJSScope20setExtensionTypeNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK11QQmlJSScope13extensionTypeEv": ["address", "address"],
+    "ritual_ZNK11QQmlJSScope15elementTypeNameEv": ["text", "address"],
+    "ritual_ZN11QQmlJSScope18setElementTypeNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN11QQmlJSScope26addOwnRuntimeFunctionIndexEN16QQmlJSMetaMethod21AbsoluteFunctionIndexE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11QQmlJSScope23ownRuntimeFunctionIndexEN16QQmlJSMetaMethod21RelativeFunctionIndexE": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK11QQmlJSScope11isCompositeEv": ["bool", "address"],
+    "ritual_ZN11QQmlJSScope14setIsCompositeEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK11QQmlJSScope19isJavaScriptBuiltinEv": ["bool", "address"],
+    "ritual_ZN11QQmlJSScope22setIsJavaScriptBuiltinEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK11QQmlJSScope12isOpaqueTypeEv": ["bool", "address"],
+    "ritual_ZN11QQmlJSScope15setIsTypeOpaqueEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK11QQmlJSScope8isScriptEv": ["bool", "address"],
+    "ritual_ZN11QQmlJSScope11setIsScriptEb": ["nothing", "address", "bool"],
+    "ritual_ZNK11QQmlJSScope15hasCustomParserEv": ["bool", "address"],
+    "ritual_ZN11QQmlJSScope18setHasCustomParserEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK11QQmlJSScope12isArrayScopeEv": ["bool", "address"],
+    "ritual_ZN11QQmlJSScope15setIsArrayScopeEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK11QQmlJSScope17isInlineComponentEv": ["bool", "address"],
+    "ritual_ZN11QQmlJSScope20setIsInlineComponentEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK11QQmlJSScope28isWrappedInImplicitComponentEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN11QQmlJSScope31setIsWrappedInImplicitComponentEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK11QQmlJSScope27isAssignedToUnknownPropertyEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN11QQmlJSScope28setAssignedToUnknownPropertyEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK11QQmlJSScope21extensionIsJavaScriptEv": ["bool", "address"],
+    "ritual_ZN11QQmlJSScope24setExtensionIsJavaScriptEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK11QQmlJSScope20extensionIsNamespaceEv": ["bool", "address"],
+    "ritual_ZN11QQmlJSScope23setExtensionIsNamespaceEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK11QQmlJSScope14isListPropertyEv": ["bool", "address"],
+    "ritual_ZN11QQmlJSScope17setIsListPropertyEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK11QQmlJSScope11isSingletonEv": ["bool", "address"],
+    "ritual_ZN11QQmlJSScope14setIsSingletonEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK11QQmlJSScope19enforcesScopedEnumsEv": ["bool", "address"],
+    "ritual_ZN11QQmlJSScope26setEnforcesScopedEnumsFlagEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK11QQmlJSScope11isCreatableEv": ["bool", "address"],
+    "ritual_ZN11QQmlJSScope16setCreatableFlagEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK11QQmlJSScope12isStructuredEv": ["bool", "address"],
+    "ritual_ZN11QQmlJSScope17setStructuredFlagEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK11QQmlJSScope19isFileRootComponentEv": ["bool", "address"],
+    "ritual_ZN11QQmlJSScope26setIsRootFileComponentFlagEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK11QQmlJSScope15isSelfExtensionEv": ["bool", "address"],
+    "ritual_ZN11QQmlJSScope18setIsSelfExtensionEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN11QQmlJSScope18setAccessSemanticsEN6QQmlSA15AccessSemanticsE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11QQmlJSScope15accessSemanticsEv": ["int", "address"],
+    "ritual_ZNK11QQmlJSScope15isReferenceTypeEv": ["bool", "address"],
+    "ritual_ZNK11QQmlJSScope11isValueTypeEv": ["bool", "address"],
+    "ritual_ZN11QQmlJSScope22setInlineComponentNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN11QQmlJSScope17setSourceLocationERKN6QQmlJS14SourceLocationE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QQmlJSScope14sourceLocationEv": ["address", "address"],
+    "ritual_ZN11QQmlJSScope19setIdSourceLocationERKN6QQmlJS14SourceLocationE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QQmlJSScope16idSourceLocationEv": ["address", "address"],
+    "ritual_ZNK11QQmlJSScope22isInCustomParserParentEv": ["bool", "address"],
+    "ritual_ZN11QQmlJSScope19sizeofQQmlSAElementEv": ["long long"],
+    "ritual_ZN11QQmlJSScopeC1ERK7QString": ["address", "text"],
+    "ritual_ZN11QQmlJSScopeC1Ev": ["address"],
+    "ritual_ZN11QQmlJSScope33addOwnPropertyBindingInQmlIROrderERK25QQmlJSMetaPropertyBindingNS_22BindingTargetSpecifierE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZNK11QQmlJSScope26hasEnforcesScopedEnumsFlagEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK11QQmlJSScope16hasCreatableFlagEv": ["bool", "address"],
+    "ritual_ZNK11QQmlJSScope17hasStructuredFlagEv": ["bool", "address"]
+  }
+}

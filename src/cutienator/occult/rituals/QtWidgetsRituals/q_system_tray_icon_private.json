@@ -1,0 +1,20 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qsystemtrayicon_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN22QSystemTrayIconPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK22QSystemTrayIconPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN22QSystemTrayIconPrivate16_q_emitActivatedEN23QPlatformSystemTrayIcon16ActivationReasonE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN22QSystemTrayIconPrivate14remove_sys_qpaEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK22QSystemTrayIconPrivate15addPlatformMenuEP5QMenu": [
+      "nothing", "address", "address"
+    ]
+  }
+}

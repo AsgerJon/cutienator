@@ -1,0 +1,50 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtHelp/qhelpfilterengine.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QHelpFilterEngine10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QHelpFilterEngine2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZNK17QHelpFilterEngine18namespaceToVersionEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK17QHelpFilterEngine7filtersEv": ["address", "address"],
+    "ritual_ZNK17QHelpFilterEngine12activeFilterEv": ["text", "address"],
+    "ritual_ZN17QHelpFilterEngine15setActiveFilterERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZNK17QHelpFilterEngine19availableComponentsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK17QHelpFilterEngine17availableVersionsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK17QHelpFilterEngine10filterDataERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN17QHelpFilterEngine13setFilterDataERK7QStringRK15QHelpFilterData": [
+      "bool", "address", "text", "address"
+    ],
+    "ritual_ZN17QHelpFilterEngine12removeFilterERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZNK17QHelpFilterEngine19namespacesForFilterERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK17QHelpFilterEngine7indicesEv": ["address", "address"],
+    "ritual_ZNK17QHelpFilterEngine7indicesERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN17QHelpFilterEngineC1EP15QHelpEngineCore": [
+      "address", "address"
+    ],
+    "ritual_ZN17QHelpFilterEngineD1Ev": ["nothing", "address"],
+    "ritual_ZN17QHelpFilterEngine20setCollectionHandlerEP22QHelpCollectionHandler": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QHelpFilterEngine": ["bool", "address", "chars", "address"]
+  }
+}

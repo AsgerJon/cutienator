@@ -1,0 +1,196 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/6.12.0/QtCharts/private/chartaxiselement_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK16ChartAxisElement10metaObjectEv": ["address", "address"],
+    "ritual_ZN16ChartAxisElement2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN16ChartAxisElementD1Ev": ["nothing", "address"],
+    "ritual_ZNK16ChartAxisElement12gridGeometryEv": ["address", "address"],
+    "ritual_ZN16ChartAxisElement11setGeometryERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK16ChartAxisElement9emptyAxisEv": ["bool", "address"],
+    "ritual_ZN16ChartAxisElement12setAnimationEP13AxisAnimation": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16ChartAxisElement9animationEv": ["address", "address"],
+    "ritual_ZNK16ChartAxisElement4axisEv": ["address", "address"],
+    "ritual_ZNK16ChartAxisElement12labelPaddingEv": ["double", "address"],
+    "ritual_ZNK16ChartAxisElement12titlePaddingEv": ["double", "address"],
+    "ritual_ZNK16ChartAxisElement17colorScalePaddingEv": [
+      "double", "address"
+    ],
+    "ritual_ZN16ChartAxisElement9setLabelsERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16ChartAxisElement6labelsEv": ["address", "address"],
+    "ritual_ZNK16ChartAxisElement3minEv": ["double", "address"],
+    "ritual_ZNK16ChartAxisElement3maxEv": ["double", "address"],
+    "ritual_ZNK16ChartAxisElement12tickIntervalEv": ["double", "address"],
+    "ritual_ZNK16ChartAxisElement10tickAnchorEv": ["double", "address"],
+    "ritual_ZNK16ChartAxisElement12axisGeometryEv": ["address", "address"],
+    "ritual_ZN16ChartAxisElement15setAxisGeometryERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16ChartAxisElement12axisSelectedEv": ["nothing", "address"],
+    "ritual_ZNK16ChartAxisElement12intervalAxisEv": ["bool", "address"],
+    "ritual_ZNK16ChartAxisElement17createValueLabelsEddiddN10QValueAxis8TickTypeERK7QString": [
+      "address", "address", "double", "double", "int", "double", "double",
+      "int", "text"
+    ],
+    "ritual_ZNK16ChartAxisElement20createLogValueLabelsEdddiRK7QString": [
+      "address", "address", "double", "double", "double", "int", "text"
+    ],
+    "ritual_ZNK16ChartAxisElement20createDateTimeLabelsEddiRK7QString": [
+      "address", "address", "double", "double", "int", "text"
+    ],
+    "ritual_ZNK16ChartAxisElement17createColorLabelsEddi": [
+      "address", "address", "double", "double", "int"
+    ],
+    "ritual_ZNK16ChartAxisElement12boundingRectEv": ["address", "address"],
+    "ritual_ZN16ChartAxisElement5paintEP8QPainterPK24QStyleOptionGraphicsItemP7QWidget": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK16ChartAxisElement14labelsEditableEv": ["bool", "address"],
+    "ritual_ZN16ChartAxisElement17setLabelsEditableEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK16ChartAxisElement13labelsVisibleEv": ["bool", "address"],
+    "ritual_ZN16ChartAxisElement9gridItemsEv": ["address", "address"],
+    "ritual_ZN16ChartAxisElement14minorGridItemsEv": ["address", "address"],
+    "ritual_ZN16ChartAxisElement10labelItemsEv": ["address", "address"],
+    "ritual_ZN16ChartAxisElement10shadeItemsEv": ["address", "address"],
+    "ritual_ZN16ChartAxisElement10arrowItemsEv": ["address", "address"],
+    "ritual_ZN16ChartAxisElement15minorArrowItemsEv": ["address", "address"],
+    "ritual_ZNK16ChartAxisElement9titleItemEv": ["address", "address"],
+    "ritual_ZNK16ChartAxisElement14colorScaleItemEv": ["address", "address"],
+    "ritual_ZN16ChartAxisElement9gridGroupEv": ["address", "address"],
+    "ritual_ZN16ChartAxisElement14minorGridGroupEv": ["address", "address"],
+    "ritual_ZN16ChartAxisElement10labelGroupEv": ["address", "address"],
+    "ritual_ZN16ChartAxisElement10shadeGroupEv": ["address", "address"],
+    "ritual_ZN16ChartAxisElement10arrowGroupEv": ["address", "address"],
+    "ritual_ZN16ChartAxisElement15minorArrowGroupEv": ["address", "address"],
+    "ritual_ZN16ChartAxisElement17prepareColorScaleEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN16ChartAxisElement20handleVisibleChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN16ChartAxisElement25handleArrowVisibleChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN16ChartAxisElement24handleGridVisibleChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN16ChartAxisElement26handleLabelsVisibleChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN16ChartAxisElement26handleShadesVisibleChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN16ChartAxisElement24handleLabelsAngleChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16ChartAxisElement24handleShadesBrushChangedERK6QBrush": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16ChartAxisElement22handleShadesPenChangedERK4QPen": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16ChartAxisElement21handleArrowPenChangedERK4QPen": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16ChartAxisElement20handleGridPenChangedERK4QPen": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16ChartAxisElement26handleMinorArrowPenChangedERK4QPen": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16ChartAxisElement25handleMinorGridPenChangedERK4QPen": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16ChartAxisElement31handleMinorGridLineColorChangedERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16ChartAxisElement26handleGridLineColorChangedERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16ChartAxisElement24handleLabelsBrushChangedERK6QBrush": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16ChartAxisElement23handleLabelsFontChangedERK5QFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16ChartAxisElement23handleTitleBrushChangedERK6QBrush": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16ChartAxisElement22handleTitleFontChangedERK5QFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16ChartAxisElement22handleTitleTextChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN16ChartAxisElement25handleTitleVisibleChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN16ChartAxisElement18handleRangeChangedEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN16ChartAxisElement20handleReverseChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN16ChartAxisElement30handleMinorArrowVisibleChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN16ChartAxisElement29handleMinorGridVisibleChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN16ChartAxisElement27handleLabelsPositionChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16ChartAxisElement27handleTruncateLabelsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16ChartAxisElement27handleColorScaleSizeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16ChartAxisElement31handleColorScaleGradientChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16ChartAxisElement16valueLabelEditedEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN16ChartAxisElement19dateTimeLabelEditedERK9QDateTimeS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN16ChartAxisElement12connectSlotsEv": ["nothing", "address"],
+    "ritual_ZNK16ChartAxisElement11formatLabelERK7QStringRK10QByteArraydiS2_S2_": [
+      "text", "address", "text", "address", "double", "int", "text", "text"
+    ],
+    "ritual_cast_ChartAxisElement_QGraphicsLayoutItem": [
+      "address", "address"
+    ],
+    "ritual_take_ChartAxisElement": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK16ChartAxisElement9animationEv": ["address", "address"],
+    "ritual_own_ZNK16ChartAxisElement12boundingRectEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN16ChartAxisElement5paintEP8QPainterPK24QStyleOptionGraphicsItemP7QWidget": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_list_make_ChartAxisElement_ptr": ["address"],
+    "ritual_list_add_ChartAxisElement_ptr": [
+      "nothing", "address", "address"
+    ],
+    "ritual_list_size_ChartAxisElement_ptr": ["long long", "address"],
+    "ritual_list_at_ChartAxisElement_ptr": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_ChartAxisElement_ptr": ["nothing", "address"]
+  }
+}

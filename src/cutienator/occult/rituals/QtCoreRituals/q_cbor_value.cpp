@@ -34,17 +34,21 @@ QCborValue *ritual_ZN10QCborValueC1Eb(bool b_) {
   return new QCborValue(b_);
 }
 
+#if !defined(Q_QDOC)
 //  QCborValue::QCborValue(int i)
 extern "C" Q_DECL_EXPORT
 QCborValue *ritual_ZN10QCborValueC1Ei(int i) {
   return new QCborValue(i);
 }
+#endif  // !defined(Q_QDOC)
 
+#if !defined(Q_QDOC)
 //  QCborValue::QCborValue(unsigned int u)
 extern "C" Q_DECL_EXPORT
 QCborValue *ritual_ZN10QCborValueC1Ej(unsigned int u) {
   return new QCborValue(u);
 }
+#endif  // !defined(Q_QDOC)
 
 //  QCborValue::QCborValue(qint64 i)
 extern "C" Q_DECL_EXPORT
@@ -88,11 +92,13 @@ QCborValue *ritual_ZN10QCborValueC1E13QLatin1String(const QLatin1String *s) {
   return new QCborValue(*s);
 }
 
+#if !defined(QT_NO_CAST_FROM_ASCII)
 //  QCborValue::QCborValue(const char *s)
 extern "C" Q_DECL_EXPORT
 QCborValue *ritual_ZN10QCborValueC1EPKc(const char *s) {
   return new QCborValue(s);
 }
+#endif  // !defined(QT_NO_CAST_FROM_ASCII)
 
 //  QCborValue::QCborValue(const QCborArray &a)
 extern "C" Q_DECL_EXPORT
@@ -122,30 +128,40 @@ QCborValue *ritual_ZN10QCborValueC1E14QCborKnownTagsRKS_(
   return new QCborValue(t_, *tv);
 }
 
+#if QT_CONFIG(datestring)
 //  QCborValue::QCborValue(const QDateTime &dt)
 extern "C" Q_DECL_EXPORT
 QCborValue *ritual_ZN10QCborValueC1ERK9QDateTime(const QDateTime *dt) {
   return new QCborValue(*dt);
 }
+#endif  // QT_CONFIG(datestring)
 
+#if !defined(QT_BOOTSTRAPPED)
 //  QCborValue::QCborValue(const QUrl &url)
 extern "C" Q_DECL_EXPORT
 QCborValue *ritual_ZN10QCborValueC1ERK4QUrl(const QUrl *url) {
   return new QCborValue(*url);
 }
+#endif  // !defined(QT_BOOTSTRAPPED)
 
+#if !defined(QT_BOOTSTRAPPED)
+#if QT_CONFIG(regularexpression)
 //  QCborValue::QCborValue(const QRegularExpression &rx)
 extern "C" Q_DECL_EXPORT
 QCborValue *ritual_ZN10QCborValueC1ERK18QRegularExpression(
     const QRegularExpression *rx) {
   return new QCborValue(*rx);
 }
+#endif  // QT_CONFIG(regularexpression)
+#endif  // !defined(QT_BOOTSTRAPPED)
 
+#if !defined(QT_BOOTSTRAPPED)
 //  QCborValue::QCborValue(const QUuid &uuid)
 extern "C" Q_DECL_EXPORT
 QCborValue *ritual_ZN10QCborValueC1ERK5QUuid(const QUuid *uuid) {
   return new QCborValue(*uuid);
 }
+#endif  // !defined(QT_BOOTSTRAPPED)
 
 //  QCborValue::~QCborValue()
 extern "C" Q_DECL_EXPORT
@@ -363,6 +379,7 @@ QString *ritual_ZNK10QCborValue12toStringViewE14QAnyStringView(
           QAnyStringView(*defaultValue)).toString());
 }
 
+#if QT_CONFIG(datestring)
 //  QDateTime QCborValue::toDateTime(const QDateTime &defaultValue) const
 extern "C" Q_DECL_EXPORT
 QDateTime *ritual_ZNK10QCborValue10toDateTimeERK9QDateTime(
@@ -370,7 +387,9 @@ QDateTime *ritual_ZNK10QCborValue10toDateTimeERK9QDateTime(
     const QDateTime *defaultValue) {
   return new QDateTime(self->toDateTime(*defaultValue));
 }
+#endif  // QT_CONFIG(datestring)
 
+#if !defined(QT_BOOTSTRAPPED)
 //  QUrl QCborValue::toUrl(const QUrl &defaultValue) const
 extern "C" Q_DECL_EXPORT
 QUrl *ritual_ZNK10QCborValue5toUrlERK4QUrl(
@@ -378,7 +397,10 @@ QUrl *ritual_ZNK10QCborValue5toUrlERK4QUrl(
     const QUrl *defaultValue) {
   return new QUrl(self->toUrl(*defaultValue));
 }
+#endif  // !defined(QT_BOOTSTRAPPED)
 
+#if !defined(QT_BOOTSTRAPPED)
+#if QT_CONFIG(regularexpression)
 //  QRegularExpression QCborValue::toRegularExpression(const
 //      QRegularExpression &defaultValue) const
 extern "C" Q_DECL_EXPORT
@@ -387,7 +409,10 @@ QRegularExpression *ritual_ZNK10QCborValue19toRegularExpressionERK18QRegularExpr
     const QRegularExpression *defaultValue) {
   return new QRegularExpression(self->toRegularExpression(*defaultValue));
 }
+#endif  // QT_CONFIG(regularexpression)
+#endif  // !defined(QT_BOOTSTRAPPED)
 
+#if !defined(QT_BOOTSTRAPPED)
 //  QUuid QCborValue::toUuid(const QUuid &defaultValue) const
 extern "C" Q_DECL_EXPORT
 QUuid *ritual_ZNK10QCborValue6toUuidERK5QUuid(
@@ -395,6 +420,7 @@ QUuid *ritual_ZNK10QCborValue6toUuidERK5QUuid(
     const QUuid *defaultValue) {
   return new QUuid(self->toUuid(*defaultValue));
 }
+#endif  // !defined(QT_BOOTSTRAPPED)
 
 //  QCborArray QCborValue::toArray() const
 extern "C" Q_DECL_EXPORT
@@ -502,6 +528,7 @@ QJsonValue *ritual_ZNK10QCborValue11toJsonValueEv(const QCborValue *self) {
   return new QJsonValue(self->toJsonValue());
 }
 
+#if QT_CONFIG(cborstreamreader)
 //  QCborValue QCborValue::fromCbor(const QByteArray &ba, QCborParserError
 //      *error)
 extern "C" Q_DECL_EXPORT
@@ -510,7 +537,9 @@ QCborValue *ritual_ZN10QCborValue8fromCborERK10QByteArrayP16QCborParserError(
     QCborParserError *error) {
   return new QCborValue(QCborValue::fromCbor(*ba, error));
 }
+#endif  // QT_CONFIG(cborstreamreader)
 
+#if QT_CONFIG(cborstreamreader)
 //  QCborValue QCborValue::fromCbor(const char *data, qsizetype len,
 //      QCborParserError *error)
 extern "C" Q_DECL_EXPORT
@@ -520,7 +549,9 @@ QCborValue *ritual_ZN10QCborValue8fromCborEPKcxP16QCborParserError(
     QCborParserError *error) {
   return new QCborValue(QCborValue::fromCbor(data, len, error));
 }
+#endif  // QT_CONFIG(cborstreamreader)
 
+#if QT_CONFIG(cborstreamwriter)
 //  QByteArray QCborValue::toCbor(EncodingOptions opt) const
 extern "C" Q_DECL_EXPORT
 QByteArray *ritual_ZNK10QCborValue6toCborE6QFlagsINS_14EncodingOptionEE(
@@ -530,6 +561,7 @@ QByteArray *ritual_ZNK10QCborValue6toCborE6QFlagsINS_14EncodingOptionEE(
       self->toCbor(
           QFlags<QCborValue::EncodingOption>::fromInt(opt)));
 }
+#endif  // QT_CONFIG(cborstreamwriter)
 
 //  QString QCborValue::toDiagnosticNotation(DiagnosticNotationOptions opts)
 //      const

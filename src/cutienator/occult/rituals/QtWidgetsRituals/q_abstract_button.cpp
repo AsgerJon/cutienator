@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qabstractbutton.h, Qt 6.12.0. Changes made here are lost.
+#include <QtWidgets/qtwidgetsglobal.h>
+#if QT_CONFIG(abstractbutton)
 #include <QtWidgets/qabstractbutton.h>
 #include <QtCore/qstring.h>
 #include <QtGui/qicon.h>
@@ -32,20 +34,52 @@ struct OwnQAbstractButton : QAbstractButton {
 //  A QAbstractButton that Python can take functions over in. Every QAbstractButton
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if QT_CONFIG(abstractbutton)
 typedef void (*CuteQAbstractButtonCall0)(const void *, QPaintEvent *, int *);
+#endif  // QT_CONFIG(abstractbutton)
+#if QT_CONFIG(abstractbutton)
 typedef bool (*CuteQAbstractButtonCall1)(const void *, const QPoint *, int *);
+#endif  // QT_CONFIG(abstractbutton)
+#if QT_CONFIG(abstractbutton)
 typedef void (*CuteQAbstractButtonCall2)(const void *, int *);
+#endif  // QT_CONFIG(abstractbutton)
+#if QT_CONFIG(abstractbutton)
 typedef void (*CuteQAbstractButtonCall3)(const void *, int *);
+#endif  // QT_CONFIG(abstractbutton)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(abstractbutton)
 typedef bool (*CuteQAbstractButtonCall4)(const void *, QEvent *, int *);
+#endif  // QT_CONFIG(abstractbutton)
+#endif  // !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(abstractbutton)
 typedef void (*CuteQAbstractButtonCall5)(const void *, QKeyEvent *, int *);
+#endif  // QT_CONFIG(abstractbutton)
+#if QT_CONFIG(abstractbutton)
 typedef void (*CuteQAbstractButtonCall6)(const void *, QKeyEvent *, int *);
+#endif  // QT_CONFIG(abstractbutton)
+#if QT_CONFIG(abstractbutton)
 typedef void (*CuteQAbstractButtonCall7)(const void *, QMouseEvent *, int *);
+#endif  // QT_CONFIG(abstractbutton)
+#if QT_CONFIG(abstractbutton)
 typedef void (*CuteQAbstractButtonCall8)(const void *, QMouseEvent *, int *);
+#endif  // QT_CONFIG(abstractbutton)
+#if QT_CONFIG(abstractbutton)
 typedef void (*CuteQAbstractButtonCall9)(const void *, QMouseEvent *, int *);
+#endif  // QT_CONFIG(abstractbutton)
+#if QT_CONFIG(abstractbutton)
 typedef void (*CuteQAbstractButtonCall10)(const void *, QFocusEvent *, int *);
+#endif  // QT_CONFIG(abstractbutton)
+#if QT_CONFIG(abstractbutton)
 typedef void (*CuteQAbstractButtonCall11)(const void *, QFocusEvent *, int *);
+#endif  // QT_CONFIG(abstractbutton)
+#if QT_CONFIG(abstractbutton)
 typedef void (*CuteQAbstractButtonCall12)(const void *, QEvent *, int *);
+#endif  // QT_CONFIG(abstractbutton)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(abstractbutton)
 typedef void (*CuteQAbstractButtonCall13)(const void *, QTimerEvent *, int *);
+#endif  // QT_CONFIG(abstractbutton)
+#endif  // !defined(QT_NO_QOBJECT)
 typedef int (*CuteQAbstractButtonCall14)(const void *, int *);
 typedef void (*CuteQAbstractButtonCall15)(const void *, bool, int *);
 typedef const QSize * (*CuteQAbstractButtonCall16)(const void *, int *);
@@ -54,19 +88,35 @@ typedef int (*CuteQAbstractButtonCall18)(const void *, int, int *);
 typedef bool (*CuteQAbstractButtonCall19)(const void *, int *);
 typedef void * (*CuteQAbstractButtonCall20)(const void *, int *);
 typedef void (*CuteQAbstractButtonCall21)(const void *, QMouseEvent *, int *);
+#if QT_CONFIG(wheelevent)
 typedef void (*CuteQAbstractButtonCall22)(const void *, QWheelEvent *, int *);
+#endif  // QT_CONFIG(wheelevent)
 typedef void (*CuteQAbstractButtonCall23)(const void *, QEnterEvent *, int *);
 typedef void (*CuteQAbstractButtonCall24)(const void *, QEvent *, int *);
 typedef void (*CuteQAbstractButtonCall25)(const void *, QMoveEvent *, int *);
 typedef void (*CuteQAbstractButtonCall26)(const void *, QResizeEvent *, int *);
 typedef void (*CuteQAbstractButtonCall27)(const void *, QCloseEvent *, int *);
+#if !defined(QT_NO_CONTEXTMENU)
 typedef void (*CuteQAbstractButtonCall28)(const void *, QContextMenuEvent *, int *);
+#endif  // !defined(QT_NO_CONTEXTMENU)
+#if QT_CONFIG(tabletevent)
 typedef void (*CuteQAbstractButtonCall29)(const void *, QTabletEvent *, int *);
+#endif  // QT_CONFIG(tabletevent)
+#if !defined(QT_NO_ACTION)
 typedef void (*CuteQAbstractButtonCall30)(const void *, QActionEvent *, int *);
+#endif  // !defined(QT_NO_ACTION)
+#if QT_CONFIG(draganddrop)
 typedef void (*CuteQAbstractButtonCall31)(const void *, QDragEnterEvent *, int *);
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
 typedef void (*CuteQAbstractButtonCall32)(const void *, QDragMoveEvent *, int *);
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
 typedef void (*CuteQAbstractButtonCall33)(const void *, QDragLeaveEvent *, int *);
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
 typedef void (*CuteQAbstractButtonCall34)(const void *, QDropEvent *, int *);
+#endif  // QT_CONFIG(draganddrop)
 typedef void (*CuteQAbstractButtonCall35)(const void *, QShowEvent *, int *);
 typedef void (*CuteQAbstractButtonCall36)(const void *, QHideEvent *, int *);
 typedef int (*CuteQAbstractButtonCall37)(const void *, int, int *);
@@ -76,73 +126,115 @@ typedef void * (*CuteQAbstractButtonCall40)(const void *, int *);
 typedef void (*CuteQAbstractButtonCall41)(const void *, QInputMethodEvent *, int *);
 typedef const QVariant * (*CuteQAbstractButtonCall42)(const void *, int, int *);
 typedef bool (*CuteQAbstractButtonCall43)(const void *, bool, int *);
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQAbstractButtonCall44)(const void *, QObject *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQAbstractButtonCall45)(const void *, QChildEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQAbstractButtonCall46)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQAbstractButtonCall47)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQAbstractButtonCall48)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 class CuteQAbstractButton : public QAbstractButton {
 public:
   using QAbstractButton::QAbstractButton;
   void *taken[49] = {};
 
   bool take(const char *key, void *call) {
+#if QT_CONFIG(abstractbutton)
     if (!std::strcmp(key, "_ZN7QWidget10paintEventEP11QPaintEvent")) {
       taken[0] = call;
       return true;
     }
+#endif  // QT_CONFIG(abstractbutton)
+#if QT_CONFIG(abstractbutton)
     if (!std::strcmp(key, "_ZNK15QAbstractButton9hitButtonERK6QPoint")) {
       taken[1] = call;
       return true;
     }
+#endif  // QT_CONFIG(abstractbutton)
+#if QT_CONFIG(abstractbutton)
     if (!std::strcmp(key, "_ZN15QAbstractButton13checkStateSetEv")) {
       taken[2] = call;
       return true;
     }
+#endif  // QT_CONFIG(abstractbutton)
+#if QT_CONFIG(abstractbutton)
     if (!std::strcmp(key, "_ZN15QAbstractButton14nextCheckStateEv")) {
       taken[3] = call;
       return true;
     }
+#endif  // QT_CONFIG(abstractbutton)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(abstractbutton)
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[4] = call;
       return true;
     }
+#endif  // QT_CONFIG(abstractbutton)
+#endif  // !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(abstractbutton)
     if (!std::strcmp(key, "_ZN7QWidget13keyPressEventEP9QKeyEvent")) {
       taken[5] = call;
       return true;
     }
+#endif  // QT_CONFIG(abstractbutton)
+#if QT_CONFIG(abstractbutton)
     if (!std::strcmp(key, "_ZN7QWidget15keyReleaseEventEP9QKeyEvent")) {
       taken[6] = call;
       return true;
     }
+#endif  // QT_CONFIG(abstractbutton)
+#if QT_CONFIG(abstractbutton)
     if (!std::strcmp(key, "_ZN7QWidget15mousePressEventEP11QMouseEvent")) {
       taken[7] = call;
       return true;
     }
+#endif  // QT_CONFIG(abstractbutton)
+#if QT_CONFIG(abstractbutton)
     if (!std::strcmp(key, "_ZN7QWidget17mouseReleaseEventEP11QMouseEvent")) {
       taken[8] = call;
       return true;
     }
+#endif  // QT_CONFIG(abstractbutton)
+#if QT_CONFIG(abstractbutton)
     if (!std::strcmp(key, "_ZN7QWidget14mouseMoveEventEP11QMouseEvent")) {
       taken[9] = call;
       return true;
     }
+#endif  // QT_CONFIG(abstractbutton)
+#if QT_CONFIG(abstractbutton)
     if (!std::strcmp(key, "_ZN7QWidget12focusInEventEP11QFocusEvent")) {
       taken[10] = call;
       return true;
     }
+#endif  // QT_CONFIG(abstractbutton)
+#if QT_CONFIG(abstractbutton)
     if (!std::strcmp(key, "_ZN7QWidget13focusOutEventEP11QFocusEvent")) {
       taken[11] = call;
       return true;
     }
+#endif  // QT_CONFIG(abstractbutton)
+#if QT_CONFIG(abstractbutton)
     if (!std::strcmp(key, "_ZN7QWidget11changeEventEP6QEvent")) {
       taken[12] = call;
       return true;
     }
+#endif  // QT_CONFIG(abstractbutton)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(abstractbutton)
     if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[13] = call;
       return true;
     }
+#endif  // QT_CONFIG(abstractbutton)
+#endif  // !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZNK12QPaintDevice7devTypeEv")) {
       taken[14] = call;
       return true;
@@ -175,10 +267,12 @@ public:
       taken[21] = call;
       return true;
     }
+#if QT_CONFIG(wheelevent)
     if (!std::strcmp(key, "_ZN7QWidget10wheelEventEP11QWheelEvent")) {
       taken[22] = call;
       return true;
     }
+#endif  // QT_CONFIG(wheelevent)
     if (!std::strcmp(key, "_ZN7QWidget10enterEventEP11QEnterEvent")) {
       taken[23] = call;
       return true;
@@ -199,34 +293,48 @@ public:
       taken[27] = call;
       return true;
     }
+#if !defined(QT_NO_CONTEXTMENU)
     if (!std::strcmp(key, "_ZN7QWidget16contextMenuEventEP17QContextMenuEvent")) {
       taken[28] = call;
       return true;
     }
+#endif  // !defined(QT_NO_CONTEXTMENU)
+#if QT_CONFIG(tabletevent)
     if (!std::strcmp(key, "_ZN7QWidget11tabletEventEP12QTabletEvent")) {
       taken[29] = call;
       return true;
     }
+#endif  // QT_CONFIG(tabletevent)
+#if !defined(QT_NO_ACTION)
     if (!std::strcmp(key, "_ZN7QWidget11actionEventEP12QActionEvent")) {
       taken[30] = call;
       return true;
     }
+#endif  // !defined(QT_NO_ACTION)
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget14dragEnterEventEP15QDragEnterEvent")) {
       taken[31] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget13dragMoveEventEP14QDragMoveEvent")) {
       taken[32] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget14dragLeaveEventEP15QDragLeaveEvent")) {
       taken[33] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
+#if QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget9dropEventEP10QDropEvent")) {
       taken[34] = call;
       return true;
     }
+#endif  // QT_CONFIG(draganddrop)
     if (!std::strcmp(key, "_ZN7QWidget9showEventEP10QShowEvent")) {
       taken[35] = call;
       return true;
@@ -263,29 +371,40 @@ public:
       taken[43] = call;
       return true;
     }
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[44] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[45] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[46] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[47] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
       taken[48] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
     return false;
   }
 
+#if QT_CONFIG(abstractbutton)
   //  void QAbstractButton::paintEvent(QPaintEvent *e)
   void paintEvent(QPaintEvent *e) override {
     if (taken[0]) {
@@ -295,7 +414,9 @@ public:
       if (handled) return;
     }
   }
+#endif  // QT_CONFIG(abstractbutton)
 
+#if QT_CONFIG(abstractbutton)
   //  bool QAbstractButton::hitButton(const QPoint &pos) const
   bool hitButton(const QPoint &pos) const override {
     if (taken[1]) {
@@ -306,7 +427,9 @@ public:
     }
     return QAbstractButton::hitButton(pos);
   }
+#endif  // QT_CONFIG(abstractbutton)
 
+#if QT_CONFIG(abstractbutton)
   //  void QAbstractButton::checkStateSet()
   void checkStateSet() override {
     if (taken[2]) {
@@ -317,7 +440,9 @@ public:
     }
     QAbstractButton::checkStateSet();
   }
+#endif  // QT_CONFIG(abstractbutton)
 
+#if QT_CONFIG(abstractbutton)
   //  void QAbstractButton::nextCheckState()
   void nextCheckState() override {
     if (taken[3]) {
@@ -328,7 +453,10 @@ public:
     }
     QAbstractButton::nextCheckState();
   }
+#endif  // QT_CONFIG(abstractbutton)
 
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(abstractbutton)
   //  bool QAbstractButton::event(QEvent *e)
   bool event(QEvent *e) override {
     if (taken[4]) {
@@ -339,7 +467,10 @@ public:
     }
     return QAbstractButton::event(e);
   }
+#endif  // QT_CONFIG(abstractbutton)
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if QT_CONFIG(abstractbutton)
   //  void QAbstractButton::keyPressEvent(QKeyEvent *e)
   void keyPressEvent(QKeyEvent *e) override {
     if (taken[5]) {
@@ -350,7 +481,9 @@ public:
     }
     QAbstractButton::keyPressEvent(e);
   }
+#endif  // QT_CONFIG(abstractbutton)
 
+#if QT_CONFIG(abstractbutton)
   //  void QAbstractButton::keyReleaseEvent(QKeyEvent *e)
   void keyReleaseEvent(QKeyEvent *e) override {
     if (taken[6]) {
@@ -361,7 +494,9 @@ public:
     }
     QAbstractButton::keyReleaseEvent(e);
   }
+#endif  // QT_CONFIG(abstractbutton)
 
+#if QT_CONFIG(abstractbutton)
   //  void QAbstractButton::mousePressEvent(QMouseEvent *e)
   void mousePressEvent(QMouseEvent *e) override {
     if (taken[7]) {
@@ -372,7 +507,9 @@ public:
     }
     QAbstractButton::mousePressEvent(e);
   }
+#endif  // QT_CONFIG(abstractbutton)
 
+#if QT_CONFIG(abstractbutton)
   //  void QAbstractButton::mouseReleaseEvent(QMouseEvent *e)
   void mouseReleaseEvent(QMouseEvent *e) override {
     if (taken[8]) {
@@ -383,7 +520,9 @@ public:
     }
     QAbstractButton::mouseReleaseEvent(e);
   }
+#endif  // QT_CONFIG(abstractbutton)
 
+#if QT_CONFIG(abstractbutton)
   //  void QAbstractButton::mouseMoveEvent(QMouseEvent *e)
   void mouseMoveEvent(QMouseEvent *e) override {
     if (taken[9]) {
@@ -394,7 +533,9 @@ public:
     }
     QAbstractButton::mouseMoveEvent(e);
   }
+#endif  // QT_CONFIG(abstractbutton)
 
+#if QT_CONFIG(abstractbutton)
   //  void QAbstractButton::focusInEvent(QFocusEvent *e)
   void focusInEvent(QFocusEvent *e) override {
     if (taken[10]) {
@@ -405,7 +546,9 @@ public:
     }
     QAbstractButton::focusInEvent(e);
   }
+#endif  // QT_CONFIG(abstractbutton)
 
+#if QT_CONFIG(abstractbutton)
   //  void QAbstractButton::focusOutEvent(QFocusEvent *e)
   void focusOutEvent(QFocusEvent *e) override {
     if (taken[11]) {
@@ -416,7 +559,9 @@ public:
     }
     QAbstractButton::focusOutEvent(e);
   }
+#endif  // QT_CONFIG(abstractbutton)
 
+#if QT_CONFIG(abstractbutton)
   //  void QAbstractButton::changeEvent(QEvent *e)
   void changeEvent(QEvent *e) override {
     if (taken[12]) {
@@ -427,7 +572,10 @@ public:
     }
     QAbstractButton::changeEvent(e);
   }
+#endif  // QT_CONFIG(abstractbutton)
 
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(abstractbutton)
   //  void QAbstractButton::timerEvent(QTimerEvent *e)
   void timerEvent(QTimerEvent *e) override {
     if (taken[13]) {
@@ -438,6 +586,8 @@ public:
     }
     QAbstractButton::timerEvent(e);
   }
+#endif  // QT_CONFIG(abstractbutton)
+#endif  // !defined(QT_NO_QOBJECT)
 
   //  int QWidget::devType() const
   int devType() const override {
@@ -527,6 +677,7 @@ public:
     QWidget::mouseDoubleClickEvent(event);
   }
 
+#if QT_CONFIG(wheelevent)
   //  void QWidget::wheelEvent(QWheelEvent *event)
   void wheelEvent(QWheelEvent *event) override {
     if (taken[22]) {
@@ -537,6 +688,7 @@ public:
     }
     QWidget::wheelEvent(event);
   }
+#endif  // QT_CONFIG(wheelevent)
 
   //  void QWidget::enterEvent(QEnterEvent *event)
   void enterEvent(QEnterEvent *event) override {
@@ -593,6 +745,7 @@ public:
     QWidget::closeEvent(event);
   }
 
+#if !defined(QT_NO_CONTEXTMENU)
   //  void QWidget::contextMenuEvent(QContextMenuEvent *event)
   void contextMenuEvent(QContextMenuEvent *event) override {
     if (taken[28]) {
@@ -603,7 +756,9 @@ public:
     }
     QWidget::contextMenuEvent(event);
   }
+#endif  // !defined(QT_NO_CONTEXTMENU)
 
+#if QT_CONFIG(tabletevent)
   //  void QWidget::tabletEvent(QTabletEvent *event)
   void tabletEvent(QTabletEvent *event) override {
     if (taken[29]) {
@@ -614,7 +769,9 @@ public:
     }
     QWidget::tabletEvent(event);
   }
+#endif  // QT_CONFIG(tabletevent)
 
+#if !defined(QT_NO_ACTION)
   //  void QWidget::actionEvent(QActionEvent *event)
   void actionEvent(QActionEvent *event) override {
     if (taken[30]) {
@@ -625,7 +782,9 @@ public:
     }
     QWidget::actionEvent(event);
   }
+#endif  // !defined(QT_NO_ACTION)
 
+#if QT_CONFIG(draganddrop)
   //  void QWidget::dragEnterEvent(QDragEnterEvent *event)
   void dragEnterEvent(QDragEnterEvent *event) override {
     if (taken[31]) {
@@ -636,7 +795,9 @@ public:
     }
     QWidget::dragEnterEvent(event);
   }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
   //  void QWidget::dragMoveEvent(QDragMoveEvent *event)
   void dragMoveEvent(QDragMoveEvent *event) override {
     if (taken[32]) {
@@ -647,7 +808,9 @@ public:
     }
     QWidget::dragMoveEvent(event);
   }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
   //  void QWidget::dragLeaveEvent(QDragLeaveEvent *event)
   void dragLeaveEvent(QDragLeaveEvent *event) override {
     if (taken[33]) {
@@ -658,7 +821,9 @@ public:
     }
     QWidget::dragLeaveEvent(event);
   }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
   //  void QWidget::dropEvent(QDropEvent *event)
   void dropEvent(QDropEvent *event) override {
     if (taken[34]) {
@@ -669,6 +834,7 @@ public:
     }
     QWidget::dropEvent(event);
   }
+#endif  // QT_CONFIG(draganddrop)
 
   //  void QWidget::showEvent(QShowEvent *event)
   void showEvent(QShowEvent *event) override {
@@ -769,6 +935,7 @@ public:
     return QWidget::focusNextPrevChild(next);
   }
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
     if (taken[44]) {
@@ -779,7 +946,9 @@ public:
     }
     return QObject::eventFilter(watched, event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
     if (taken[45]) {
@@ -790,7 +959,9 @@ public:
     }
     QObject::childEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
     if (taken[46]) {
@@ -801,7 +972,9 @@ public:
     }
     QObject::customEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
     if (taken[47]) {
@@ -812,7 +985,9 @@ public:
     }
     QObject::connectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
     if (taken[48]) {
@@ -823,6 +998,7 @@ public:
     }
     QObject::disconnectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 };
 
 //  const QMetaObject *QAbstractButton::metaObject() const
@@ -881,6 +1057,7 @@ QSize *ritual_ZNK15QAbstractButton8iconSizeEv(const QAbstractButton *self) {
   return new QSize(self->iconSize());
 }
 
+#if !defined(QT_NO_SHORTCUT)
 //  void QAbstractButton::setShortcut(const QKeySequence &key)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QAbstractButton11setShortcutERK12QKeySequence(
@@ -888,13 +1065,16 @@ void ritual_ZN15QAbstractButton11setShortcutERK12QKeySequence(
     const QKeySequence *key) {
   self->setShortcut(*key);
 }
+#endif  // !defined(QT_NO_SHORTCUT)
 
+#if !defined(QT_NO_SHORTCUT)
 //  QKeySequence QAbstractButton::shortcut() const
 extern "C" Q_DECL_EXPORT
 QKeySequence *ritual_ZNK15QAbstractButton8shortcutEv(
     const QAbstractButton *self) {
   return new QKeySequence(self->shortcut());
 }
+#endif  // !defined(QT_NO_SHORTCUT)
 
 //  void QAbstractButton::setCheckable(bool a0)
 extern "C" Q_DECL_EXPORT
@@ -988,12 +1168,14 @@ bool ritual_ZNK15QAbstractButton13autoExclusiveEv(
   return self->autoExclusive();
 }
 
+#if QT_CONFIG(buttongroup)
 //  QButtonGroup *QAbstractButton::group() const
 extern "C" Q_DECL_EXPORT
 QButtonGroup *ritual_ZNK15QAbstractButton5groupEv(
     const QAbstractButton *self) {
   return self->group();
 }
+#endif  // QT_CONFIG(buttongroup)
 
 //  void QAbstractButton::setIconSize(const QSize &size)
 extern "C" Q_DECL_EXPORT
@@ -1027,6 +1209,14 @@ void ritual_ZN15QAbstractButton10setCheckedEb(
     QAbstractButton *self,
     bool a0) {
   self->setChecked(a0);
+}
+
+//  void QAbstractButton::paintEvent(QPaintEvent *e)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN15QAbstractButton10paintEventEP11QPaintEvent(
+    QAbstractButton *self,
+    QPaintEvent *e) {
+  self->paintEvent(e);
 }
 
 //  bool QAbstractButton::hitButton(const QPoint &pos) const
@@ -1127,6 +1317,20 @@ void ritual_ZN15QAbstractButton10timerEventEP11QTimerEvent(
     QAbstractButton *self,
     QTimerEvent *e) {
   self->timerEvent(e);
+}
+
+//  QAbstractButtonPrivate *QAbstractButton::d_func()
+extern "C" Q_DECL_EXPORT
+QAbstractButtonPrivate *ritual_ZN15QAbstractButton6d_funcEv(
+    QAbstractButton *self) {
+  return self->d_func();
+}
+
+//  const QAbstractButtonPrivate *QAbstractButton::d_func() const
+extern "C" Q_DECL_EXPORT
+const QAbstractButtonPrivate *ritual_ZNK15QAbstractButton6d_funcEv(
+    const QAbstractButton *self) {
+  return self->d_func();
 }
 
 //  a Python function taken by a CuteQAbstractButton, for the function named
@@ -1284,3 +1488,5 @@ extern "C" Q_DECL_EXPORT
 void ritual_list_drop_QAbstractButton_ptr(QList<QAbstractButton *> *self) {
   delete self;
 }
+
+#endif  // QT_CONFIG(abstractbutton)

@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4persistent_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN3QV49WeakValueC1Ev": ["address"],
+    "ritual_ZNK3QV49WeakValue5valueEv": ["unsigned long long", "address"],
+    "ritual_ZNK3QV49WeakValue8valueRefEv": ["address", "address"],
+    "ritual_ZNK3QV49WeakValue9asManagedEv": ["address", "address"],
+    "ritual_ZNK3QV49WeakValue6engineEv": ["address", "address"],
+    "ritual_ZNK3QV49WeakValue11isUndefinedEv": ["bool", "address"],
+    "ritual_ZNK3QV49WeakValue17isNullOrUndefinedEv": ["bool", "address"],
+    "ritual_ZN3QV49WeakValue5clearEv": ["nothing", "address"]
+  }
+}

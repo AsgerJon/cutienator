@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtMultimedia/6.12.0/QtMultimedia/private/qdrawavaudiodecoder_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18QDrWavAudioDecoder6sourceEv": ["address", "address"],
+    "ritual_ZNK18QDrWavAudioDecoder12sourceDeviceEv": ["address", "address"],
+    "ritual_ZNK18QDrWavAudioDecoder11audioFormatEv": ["address", "address"],
+    "ritual_ZN18QDrWavAudioDecoder14setAudioFormatERK12QAudioFormat": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QDrWavAudioDecoder4readEv": ["address", "address"],
+    "ritual_ZNK18QDrWavAudioDecoder10canReadQrcEv": ["bool", "address"]
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Controls2Impl/6.12.0/QtQuickControls2Impl/private/qquickplatformth",
+    "eme_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK19QQuickPlatformTheme10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QQuickPlatformTheme2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN19QQuickPlatformTheme20qmlExtendedNamespaceEv": ["address"],
+    "ritual_ZN19QQuickPlatformTheme30qt_qmlMarker_extendedNamespaceEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickPlatformTheme22qt_qmlMarker_singletonEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickPlatformThemeC1EP7QObject": ["address", "address"],
+    "ritual_ZNK19QQuickPlatformTheme9themeHintEN14QPlatformTheme9ThemeHintE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN19QQuickPlatformTheme12getThemeHintEN14QPlatformTheme9ThemeHintE": [
+      "address", "int"
+    ],
+    "ritual_take_QQuickPlatformTheme": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

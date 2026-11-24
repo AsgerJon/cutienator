@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmltranslation_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QQmlTranslationC1Ev": ["address"],
+    "ritual_ZNK15QQmlTranslation9translateEv": ["text", "address"],
+    "ritual_ZN15QQmlTranslation22contextFromQmlFilenameERK7QString": [
+      "text", "text"
+    ],
+    "ritual_ZN15QQmlTranslationD1Ev": ["nothing", "address"]
+  }
+}

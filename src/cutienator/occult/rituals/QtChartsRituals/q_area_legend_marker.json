@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/qarealegendmarker.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QAreaLegendMarker10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QAreaLegendMarker2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QAreaLegendMarkerC1EP11QAreaSeriesP7QLegendP7QObject": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN17QAreaLegendMarkerD1Ev": ["nothing", "address"],
+    "ritual_ZN17QAreaLegendMarker4typeEv": ["int", "address"],
+    "ritual_ZN17QAreaLegendMarker6seriesEv": ["address", "address"],
+    "ritual_ZN17QAreaLegendMarker6d_funcEv": ["address", "address"],
+    "ritual_ZNK17QAreaLegendMarker6d_funcEv": ["address", "address"],
+    "ritual_take_QAreaLegendMarker": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN17QAreaLegendMarker4typeEv": ["int", "address"],
+    "ritual_own_ZN17QAreaLegendMarker6seriesEv": ["address", "address"]
+  }
+}

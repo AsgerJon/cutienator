@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qbuttongroup_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QButtonGroupPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK19QButtonGroupPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN19QButtonGroupPrivateC1Ev": ["address"],
+    "ritual_ZN19QButtonGroupPrivate19detectCheckedButtonEv": [
+      "nothing", "address"
+    ]
+  }
+}

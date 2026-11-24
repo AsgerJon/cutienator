@@ -1,0 +1,69 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/properties_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK26QAbstractFormBuilderGadget10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK26QAbstractFormBuilderGadget15fakeOrientationEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK26QAbstractFormBuilderGadget12fakeSizeTypeEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK26QAbstractFormBuilderGadget14fakeColorGroupEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK26QAbstractFormBuilderGadget13fakeColorRoleEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK26QAbstractFormBuilderGadget17fakeStyleStrategyEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK26QAbstractFormBuilderGadget21fakeHintingPreferenceEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK26QAbstractFormBuilderGadget14fakeFontWeightEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK26QAbstractFormBuilderGadget15fakeCursorShapeEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK26QAbstractFormBuilderGadget14fakeBrushStyleEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK26QAbstractFormBuilderGadget15fakeToolBarAreaEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK26QAbstractFormBuilderGadget16fakeGradientTypeEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK26QAbstractFormBuilderGadget18fakeGradientSpreadEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK26QAbstractFormBuilderGadget22fakeGradientCoordinateEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK26QAbstractFormBuilderGadget12fakeLanguageEv": [
+      "unsigned short", "address"
+    ],
+    "ritual_ZNK26QAbstractFormBuilderGadget11fakeCountryEv": [
+      "unsigned short", "address"
+    ],
+    "ritual_ZNK26QAbstractFormBuilderGadget13fakeItemFlagsEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK26QAbstractFormBuilderGadget14fakeCheckStateEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK26QAbstractFormBuilderGadget13fakeAlignmentEv": [
+      "int", "address"
+    ],
+    "ritual_take_QAbstractFormBuilderGadget": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

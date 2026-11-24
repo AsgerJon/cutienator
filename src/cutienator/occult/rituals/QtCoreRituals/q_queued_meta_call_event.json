@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qobject_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QQueuedMetaCallEventD1Ev": ["nothing", "address"],
+    "ritual_ZN20QQueuedMetaCallEvent9allocArgsEv": ["nothing", "address"],
+    "ritual_ZN20QQueuedMetaCallEvent15typeFitsInPlaceE9QMetaType": [
+      "bool", "address"
+    ],
+    "ritual_take_QQueuedMetaCallEvent": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/qquickgraphicsconfiguration.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN27QQuickGraphicsConfigurationC1Ev": ["address"],
+    "ritual_ZN27QQuickGraphicsConfigurationD1Ev": ["nothing", "address"],
+    "ritual_ZN27QQuickGraphicsConfigurationC1ERKS_": ["address", "address"],
+    "ritual_ZN27QQuickGraphicsConfiguration27preferredInstanceExtensionsEv": [
+      "address"
+    ],
+    "ritual_ZN27QQuickGraphicsConfiguration19setDeviceExtensionsERK5QListI10QByteArrayE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK27QQuickGraphicsConfiguration16deviceExtensionsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QQuickGraphicsConfiguration19setDepthBufferFor2DEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK27QQuickGraphicsConfiguration25isDepthBufferEnabledFor2DEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN27QQuickGraphicsConfiguration13setDebugLayerEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK27QQuickGraphicsConfiguration19isDebugLayerEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN27QQuickGraphicsConfiguration15setDebugMarkersEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK27QQuickGraphicsConfiguration21isDebugMarkersEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN27QQuickGraphicsConfiguration13setTimestampsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK27QQuickGraphicsConfiguration17timestampsEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN27QQuickGraphicsConfiguration23setPreferSoftwareDeviceEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK27QQuickGraphicsConfiguration21prefersSoftwareDeviceEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN27QQuickGraphicsConfiguration25setAutomaticPipelineCacheEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK27QQuickGraphicsConfiguration31isAutomaticPipelineCacheEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN27QQuickGraphicsConfiguration24setPipelineCacheSaveFileERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK27QQuickGraphicsConfiguration21pipelineCacheSaveFileEv": [
+      "text", "address"
+    ],
+    "ritual_ZN27QQuickGraphicsConfiguration24setPipelineCacheLoadFileERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK27QQuickGraphicsConfiguration21pipelineCacheLoadFileEv": [
+      "text", "address"
+    ],
+    "ritual_ZN27QQuickGraphicsConfiguration6detachEv": [
+      "nothing", "address"
+    ],
+    "ritual_Zls6QDebugRK27QQuickGraphicsConfiguration": [
+      "address", "address", "address"
+    ]
+  }
+}

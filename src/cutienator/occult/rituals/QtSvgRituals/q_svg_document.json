@@ -1,0 +1,84 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSvg/6.12.0/QtSvg/private/qsvgdocument_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN12QSvgDocument11isLikelySvgEP9QIODevicePb": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN12QSvgDocumentC1E6QFlagsIN5QtSvg6OptionEENS1_12AnimatorTypeE": [
+      "address", "int", "unsigned int"
+    ],
+    "ritual_ZN12QSvgDocumentD1Ev": ["nothing", "address"],
+    "ritual_ZNK12QSvgDocument4typeEv": ["int", "address"],
+    "ritual_ZNK12QSvgDocument4sizeEv": ["address", "address"],
+    "ritual_ZN12QSvgDocument8setWidthEib": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZN12QSvgDocument9setHeightEib": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZNK12QSvgDocument5widthEv": ["int", "address"],
+    "ritual_ZNK12QSvgDocument6heightEv": ["int", "address"],
+    "ritual_ZNK12QSvgDocument12widthPercentEv": ["bool", "address"],
+    "ritual_ZNK12QSvgDocument13heightPercentEv": ["bool", "address"],
+    "ritual_ZNK12QSvgDocument19preserveAspectRatioEv": ["bool", "address"],
+    "ritual_ZN12QSvgDocument22setPreserveAspectRatioEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK12QSvgDocument7viewBoxEv": ["address", "address"],
+    "ritual_ZN12QSvgDocument10setViewBoxERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12QSvgDocument28isCalculatingImplicitViewBoxEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK12QSvgDocument7optionsEv": ["int", "address"],
+    "ritual_ZN12QSvgDocument4drawEP8QPainter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QSvgDocument4drawEP8QPainterRK6QRectF": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN12QSvgDocument4drawEP8QPainterRK7QStringRK6QRectF": [
+      "nothing", "address", "address", "text", "address"
+    ],
+    "ritual_ZNK12QSvgDocument19transformForElementERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK12QSvgDocument15boundsOnElementERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK12QSvgDocument13elementExistsERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZNK12QSvgDocument7svgFontERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN12QSvgDocument12addNamedNodeERK7QStringP8QSvgNode": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZNK12QSvgDocument9namedNodeERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN12QSvgDocument16restartAnimationEv": ["nothing", "address"],
+    "ritual_ZNK12QSvgDocument14currentElapsedEv": ["long long", "address"],
+    "ritual_ZNK12QSvgDocument8animatedEv": ["bool", "address"],
+    "ritual_ZN12QSvgDocument11setAnimatedEb": ["nothing", "address", "bool"],
+    "ritual_ZNK12QSvgDocument17animationDurationEv": ["int", "address"],
+    "ritual_ZNK12QSvgDocument12currentFrameEv": ["int", "address"],
+    "ritual_ZN12QSvgDocument15setCurrentFrameEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN12QSvgDocument18setFramesPerSecondEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN12QSvgDocument17mapSourceToTargetEP8QPainterRK6QRectFS4_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_take_QSvgDocument": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK12QSvgDocument4typeEv": ["int", "address"]
+  }
+}

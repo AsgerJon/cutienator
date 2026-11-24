@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/qpa/qplatformservices.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK27QPlatformServiceColorPicker10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QPlatformServiceColorPicker2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN27QPlatformServiceColorPicker9pickColorEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QPlatformServiceColorPicker": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

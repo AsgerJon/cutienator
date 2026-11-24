@@ -1,0 +1,40 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Controls2Imagine/6.12.0/QtQuickControls2Imagine/private/qquickimag",
+    "inestyle_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18QQuickImagineStyle10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QQuickImagineStyle2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18QQuickImagineStyle21qt_qmlMarker_attachedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickImagineStyle24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickImagineStyleC1EP7QObject": ["address", "address"],
+    "ritual_ZN18QQuickImagineStyle21qmlAttachedPropertiesEP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZNK18QQuickImagineStyle4pathEv": ["text", "address"],
+    "ritual_ZN18QQuickImagineStyle7setPathERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN18QQuickImagineStyle11inheritPathERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN18QQuickImagineStyle13propagatePathEv": ["nothing", "address"],
+    "ritual_ZN18QQuickImagineStyle9resetPathEv": ["nothing", "address"],
+    "ritual_ZNK18QQuickImagineStyle3urlEv": ["address", "address"],
+    "ritual_ZN18QQuickImagineStyle20attachedParentChangeEP32QQuickAttachedPropertyPropagatorS1_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN18QQuickImagineStyle4initEv": ["nothing", "address"],
+    "ritual_own_ZN18QQuickImagineStyle20attachedParentChangeEP32QQuickAttachedPropertyPropagatorS1_": [
+      "nothing", "address", "address", "address"
+    ]
+  }
+}

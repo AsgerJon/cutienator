@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4instr_moth_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN3QV44Moth5Instr19wideInstructionTypeENS1_4TypeE": [
+      "int", "int"
+    ],
+    "ritual_ZN3QV44Moth5Instr21narrowInstructionTypeENS1_4TypeE": [
+      "int", "int"
+    ],
+    "ritual_ZN3QV44Moth5Instr6isWideENS1_4TypeE": ["bool", "int"],
+    "ritual_ZN3QV44Moth5Instr8isNarrowENS1_4TypeE": ["bool", "int"],
+    "ritual_ZN3QV44Moth5Instr13encodedLengthENS1_4TypeE": ["int", "int"],
+    "ritual_ZN3QV44Moth5InstrD1Ev": ["nothing", "address"]
+  }
+}

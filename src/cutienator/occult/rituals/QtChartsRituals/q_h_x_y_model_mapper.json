@@ -1,0 +1,34 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/qhxymodelmapper.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK15QHXYModelMapper10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QHXYModelMapper2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN15QHXYModelMapperC1EP7QObject": ["address", "address"],
+    "ritual_ZNK15QHXYModelMapper5modelEv": ["address", "address"],
+    "ritual_ZN15QHXYModelMapper8setModelEP18QAbstractItemModel": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QHXYModelMapper6seriesEv": ["address", "address"],
+    "ritual_ZN15QHXYModelMapper9setSeriesEP9QXYSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QHXYModelMapper4xRowEv": ["int", "address"],
+    "ritual_ZN15QHXYModelMapper7setXRowEi": ["nothing", "address", "int"],
+    "ritual_ZNK15QHXYModelMapper4yRowEv": ["int", "address"],
+    "ritual_ZN15QHXYModelMapper7setYRowEi": ["nothing", "address", "int"],
+    "ritual_ZNK15QHXYModelMapper11firstColumnEv": ["int", "address"],
+    "ritual_ZN15QHXYModelMapper14setFirstColumnEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QHXYModelMapper11columnCountEv": ["int", "address"],
+    "ritual_ZN15QHXYModelMapper14setColumnCountEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_take_QHXYModelMapper": ["bool", "address", "chars", "address"]
+  }
+}

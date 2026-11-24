@@ -1,0 +1,64 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qgraphicseffect_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN28QGraphicsEffectSourcePrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QGraphicsEffectSourcePrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QGraphicsEffectSourcePrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN28QGraphicsEffectSourcePrivate6detachEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK28QGraphicsEffectSourcePrivate12boundingRectEN2Qt16CoordinateSystemE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK28QGraphicsEffectSourcePrivate10deviceRectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QGraphicsEffectSourcePrivate12graphicsItemEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QGraphicsEffectSourcePrivate6widgetEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QGraphicsEffectSourcePrivate11styleOptionEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QGraphicsEffectSourcePrivate4drawEP8QPainter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QGraphicsEffectSourcePrivate6updateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK28QGraphicsEffectSourcePrivate8isPixmapEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK28QGraphicsEffectSourcePrivate6pixmapEN2Qt16CoordinateSystemEP6QPointN15QGraphicsEffect13PixmapPadModeE": [
+      "address", "address", "int", "address", "int"
+    ],
+    "ritual_ZN28QGraphicsEffectSourcePrivate25effectBoundingRectChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QGraphicsEffectSourcePrivate15setCachedOffsetERK6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK28QGraphicsEffectSourcePrivate15invalidateCacheENS_16InvalidateReasonE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK28QGraphicsEffectSourcePrivate19currentCachedSystemEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK28QGraphicsEffectSourcePrivate17currentCachedModeEv": [
+      "int", "address"
+    ],
+    "ritual_take_QGraphicsEffectSourcePrivate": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

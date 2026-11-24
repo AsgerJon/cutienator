@@ -1,0 +1,61 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtOpenGL/6.12.0/QtOpenGL/private/qopenglcompositor_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QOpenGLCompositor10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QOpenGLCompositor2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QOpenGLCompositor8instanceEv": ["address"],
+    "ritual_ZN17QOpenGLCompositor7destroyEv": ["nothing"],
+    "ritual_ZN17QOpenGLCompositor15setTargetWindowEP7QWindowRK5QRect": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN17QOpenGLCompositor16setTargetContextEP14QOpenGLContext": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QOpenGLCompositor11setRotationEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK17QOpenGLCompositor7contextEv": ["address", "address"],
+    "ritual_ZNK17QOpenGLCompositor12targetWindowEv": ["address", "address"],
+    "ritual_ZNK17QOpenGLCompositor20nativeTargetGeometryEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QOpenGLCompositor6updateEv": ["nothing", "address"],
+    "ritual_ZN17QOpenGLCompositor4grabEv": ["address", "address"],
+    "ritual_ZN17QOpenGLCompositor23grabToFrameBufferObjectEP24QOpenGLFramebufferObjectNS_15GrabOrientationE": [
+      "bool", "address", "address", "int"
+    ],
+    "ritual_ZNK17QOpenGLCompositor7windowsEv": ["address", "address"],
+    "ritual_ZN17QOpenGLCompositor9addWindowEP23QOpenGLCompositorWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QOpenGLCompositor12removeWindowEP23QOpenGLCompositorWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QOpenGLCompositor9moveToTopEP23QOpenGLCompositorWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QOpenGLCompositor17changeWindowIndexEP23QOpenGLCompositorWindowi": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN17QOpenGLCompositor22handleRenderAllRequestEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QOpenGLCompositorC1Ev": ["address"],
+    "ritual_ZN17QOpenGLCompositorD1Ev": ["nothing", "address"],
+    "ritual_ZN17QOpenGLCompositor9renderAllEP24QOpenGLFramebufferObjectN21QOpenGLTextureBlitter6OriginE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN17QOpenGLCompositor6renderEP23QOpenGLCompositorWindowN21QOpenGLTextureBlitter6OriginE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN17QOpenGLCompositor19ensureCorrectZOrderEv": [
+      "nothing", "address"
+    ]
+  }
+}

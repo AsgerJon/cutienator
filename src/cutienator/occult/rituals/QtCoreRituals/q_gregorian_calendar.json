@@ -1,0 +1,49 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qgregoriancalendar_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18QGregorianCalendar4nameEv": ["text", "address"],
+    "ritual_ZN18QGregorianCalendar8nameListEv": ["address"],
+    "ritual_ZNK18QGregorianCalendar10isLeapYearEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK18QGregorianCalendar15dateToJulianDayEiiiPx": [
+      "bool", "address", "int", "int", "int", "address"
+    ],
+    "ritual_ZNK18QGregorianCalendar15julianDayToDateEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZNK18QGregorianCalendar21matchCenturyToWeekdayERKN9QCalendar12YearMonthDayEi": [
+      "long long", "address", "address", "int"
+    ],
+    "ritual_ZN18QGregorianCalendar15weekDayOfJulianEx": ["int", "long long"],
+    "ritual_ZN18QGregorianCalendar8leapTestEi": ["bool", "int"],
+    "ritual_ZN18QGregorianCalendar11monthLengthEii": ["int", "int", "int"],
+    "ritual_ZN18QGregorianCalendar10validPartsEiii": [
+      "bool", "int", "int", "int"
+    ],
+    "ritual_ZN18QGregorianCalendar15partsFromJulianEx": [
+      "address", "long long"
+    ],
+    "ritual_ZN18QGregorianCalendar16yearStartWeekDayEi": ["int", "int"],
+    "ritual_ZN18QGregorianCalendar19yearSharingWeekDaysE5QDate": [
+      "int", "address"
+    ],
+    "ritual_take_QGregorianCalendar": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK18QGregorianCalendar4nameEv": ["text", "address"],
+    "ritual_own_ZNK18QGregorianCalendar10isLeapYearEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_own_ZNK18QGregorianCalendar15julianDayToDateEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_own_ZNK18QGregorianCalendar21matchCenturyToWeekdayERKN9QCalendar12YearMonthDayEi": [
+      "long long", "address", "address", "int"
+    ]
+  }
+}

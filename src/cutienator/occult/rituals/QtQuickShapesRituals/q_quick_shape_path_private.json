@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuickShapes/6.12.0/QtQuickShapes/private/qquickshape_p_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN22QQuickShapePathPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK22QQuickShapePathPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN22QQuickShapePathPrivateC1Ev": ["address"],
+    "ritual_ZN22QQuickShapePathPrivate22_q_fillGradientChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickShapePathPrivate24_q_strokeGradientChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickShapePathPrivate20_q_fillItemDestroyedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickShapePathPrivate3getEP15QQuickShapePath": [
+      "address", "address"
+    ]
+  }
+}

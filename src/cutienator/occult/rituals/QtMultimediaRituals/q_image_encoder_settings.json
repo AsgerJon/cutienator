@@ -1,0 +1,33 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtMulti",
+    "media/6.12.0/QtMultimedia/private/qplatformimagecapture_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN21QImageEncoderSettingseqERKS_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN21QImageEncoderSettingsneERKS_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK21QImageEncoderSettings6formatEv": ["int", "address"],
+    "ritual_ZN21QImageEncoderSettings9setFormatEN13QImageCapture10FileFormatE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK21QImageEncoderSettings10resolutionEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QImageEncoderSettings13setResolutionERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QImageEncoderSettings13setResolutionEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK21QImageEncoderSettings7qualityEv": ["int", "address"],
+    "ritual_ZN21QImageEncoderSettings10setQualityEN13QImageCapture7QualityE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN21QImageEncoderSettingsD1Ev": ["nothing", "address"]
+  }
+}

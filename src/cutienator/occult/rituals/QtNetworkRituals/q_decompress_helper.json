@@ -1,0 +1,45 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/6.12.0/QtNetwork/private/qdecompresshelper_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN17QDecompressHelperC1Ev": ["address"],
+    "ritual_ZN17QDecompressHelperD1Ev": ["nothing", "address"],
+    "ritual_ZN17QDecompressHelper11setEncodingE14QByteArrayView": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK17QDecompressHelper15isCountingBytesEv": ["bool", "address"],
+    "ritual_ZN17QDecompressHelper23setCountingBytesEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK17QDecompressHelper16uncompressedSizeEv": [
+      "long long", "address"
+    ],
+    "ritual_ZNK17QDecompressHelper7hasDataEv": ["bool", "address"],
+    "ritual_ZN17QDecompressHelper4feedERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QDecompressHelper4feedERK15QByteDataBuffer": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QDecompressHelper7isValidEv": ["bool", "address"],
+    "ritual_ZN17QDecompressHelper5clearEv": ["nothing", "address"],
+    "ritual_ZN17QDecompressHelper35setDecompressedSafetyCheckThresholdEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN17QDecompressHelper19isSupportedEncodingE14QByteArrayView": [
+      "bool", "address"
+    ],
+    "ritual_ZN17QDecompressHelper16acceptedEncodingEv": ["address"],
+    "ritual_ZNK17QDecompressHelper11errorStringEv": ["text", "address"],
+    "ritual_ZNK17QDecompressHelper22isPotentialArchiveBombEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK17QDecompressHelper15hasDataInternalEv": ["bool", "address"],
+    "ritual_ZNK17QDecompressHelper21encodedBytesAvailableEv": [
+      "long long", "address"
+    ]
+  }
+}

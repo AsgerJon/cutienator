@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qsgabstractrenderer_p_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN26QSGAbstractRendererPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK26QSGAbstractRendererPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QSGAbstractRendererPrivate3getEPK19QSGAbstractRenderer": [
+      "address", "address"
+    ],
+    "ritual_ZN26QSGAbstractRendererPrivateC1Ev": ["address"]
+  }
+}

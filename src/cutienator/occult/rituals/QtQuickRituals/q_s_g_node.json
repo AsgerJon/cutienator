@@ -1,0 +1,57 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/qsgnode.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN7QSGNodeC1Ev": ["address"],
+    "ritual_ZN7QSGNodeD1Ev": ["nothing", "address"],
+    "ritual_ZNK7QSGNode6parentEv": ["address", "address"],
+    "ritual_ZN7QSGNode15removeChildNodeEPS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QSGNode19removeAllChildNodesEv": ["nothing", "address"],
+    "ritual_ZN7QSGNode16prependChildNodeEPS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QSGNode15appendChildNodeEPS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QSGNode21insertChildNodeBeforeEPS_S0_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN7QSGNode20insertChildNodeAfterEPS_S0_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN7QSGNode20reparentChildNodesToEPS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK7QSGNode10childCountEv": ["int", "address"],
+    "ritual_ZNK7QSGNode12childAtIndexEi": ["address", "address", "int"],
+    "ritual_ZNK7QSGNode10firstChildEv": ["address", "address"],
+    "ritual_ZNK7QSGNode9lastChildEv": ["address", "address"],
+    "ritual_ZNK7QSGNode11nextSiblingEv": ["address", "address"],
+    "ritual_ZNK7QSGNode15previousSiblingEv": ["address", "address"],
+    "ritual_ZNK7QSGNode4typeEv": ["int", "address"],
+    "ritual_ZN7QSGNode10clearDirtyEv": ["nothing", "address"],
+    "ritual_ZN7QSGNode9markDirtyE6QFlagsINS_13DirtyStateBitEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK7QSGNode10dirtyStateEv": ["int", "address"],
+    "ritual_ZNK7QSGNode16isSubtreeBlockedEv": ["bool", "address"],
+    "ritual_ZNK7QSGNode5flagsEv": ["int", "address"],
+    "ritual_ZN7QSGNode7setFlagENS_4FlagEb": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZN7QSGNode8setFlagsE6QFlagsINS_4FlagEEb": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZN7QSGNode10preprocessEv": ["nothing", "address"],
+    "ritual_ZN7QSGNodeC1ENS_8NodeTypeE": ["address", "int"],
+    "ritual_ZN7QSGNode4initEv": ["nothing", "address"],
+    "ritual_ZN7QSGNode7destroyEv": ["nothing", "address"],
+    "ritual_take_QSGNode": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK7QSGNode16isSubtreeBlockedEv": ["bool", "address"],
+    "ritual_own_ZN7QSGNode10preprocessEv": ["nothing", "address"]
+  }
+}

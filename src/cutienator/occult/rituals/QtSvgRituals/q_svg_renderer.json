@@ -1,0 +1,82 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSvg/qsvgrenderer.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK12QSvgRenderer10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QSvgRenderer2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN12QSvgRendererC1EP7QObject": ["address", "address"],
+    "ritual_ZN12QSvgRendererC1ERK7QStringP7QObject": [
+      "address", "text", "address"
+    ],
+    "ritual_ZN12QSvgRendererC1ERK10QByteArrayP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN12QSvgRendererC1EP16QXmlStreamReaderP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN12QSvgRendererD1Ev": ["nothing", "address"],
+    "ritual_ZNK12QSvgRenderer7isValidEv": ["bool", "address"],
+    "ritual_ZNK12QSvgRenderer11defaultSizeEv": ["address", "address"],
+    "ritual_ZNK12QSvgRenderer7viewBoxEv": ["address", "address"],
+    "ritual_ZNK12QSvgRenderer8viewBoxFEv": ["address", "address"],
+    "ritual_ZN12QSvgRenderer10setViewBoxERK5QRect": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QSvgRenderer10setViewBoxERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12QSvgRenderer15aspectRatioModeEv": ["int", "address"],
+    "ritual_ZN12QSvgRenderer18setAspectRatioModeEN2Qt15AspectRatioModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK12QSvgRenderer7optionsEv": ["int", "address"],
+    "ritual_ZN12QSvgRenderer10setOptionsE6QFlagsIN5QtSvg6OptionEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK12QSvgRenderer8animatedEv": ["bool", "address"],
+    "ritual_ZNK12QSvgRenderer15framesPerSecondEv": ["int", "address"],
+    "ritual_ZN12QSvgRenderer18setFramesPerSecondEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK12QSvgRenderer12currentFrameEv": ["int", "address"],
+    "ritual_ZN12QSvgRenderer15setCurrentFrameEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK12QSvgRenderer17animationDurationEv": ["int", "address"],
+    "ritual_ZNK12QSvgRenderer18isAnimationEnabledEv": ["bool", "address"],
+    "ritual_ZN12QSvgRenderer19setAnimationEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK12QSvgRenderer15boundsOnElementERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK12QSvgRenderer13elementExistsERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZNK12QSvgRenderer19transformForElementERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN12QSvgRenderer17setDefaultOptionsE6QFlagsIN5QtSvg6OptionEE": [
+      "nothing", "int"
+    ],
+    "ritual_ZN12QSvgRenderer4loadERK7QString": ["bool", "address", "text"],
+    "ritual_ZN12QSvgRenderer4loadERK10QByteArray": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN12QSvgRenderer4loadEP16QXmlStreamReader": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN12QSvgRenderer6renderEP8QPainter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QSvgRenderer6renderEP8QPainterRK6QRectF": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN12QSvgRenderer6renderEP8QPainterRK7QStringRK6QRectF": [
+      "nothing", "address", "address", "text", "address"
+    ],
+    "ritual_take_QSvgRenderer": ["bool", "address", "chars", "address"]
+  }
+}

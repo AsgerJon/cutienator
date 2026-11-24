@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qsgsoftwareadaptation_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK21QSGSoftwareAdaptation4keysEv": ["address", "address"],
+    "ritual_ZNK21QSGSoftwareAdaptation6createERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK21QSGSoftwareAdaptation5flagsERK7QString": [
+      "int", "address", "text"
+    ],
+    "ritual_ZN21QSGSoftwareAdaptation19createWindowManagerEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK21QSGSoftwareAdaptation5flagsERK7QString": [
+      "int", "address", "text"
+    ]
+  }
+}

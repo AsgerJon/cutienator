@@ -1,0 +1,84 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Dialogs2QuickImpl/6.12.0/QtQuickDialogs2QuickImpl/private/qquickfi",
+    "ledialogimpl_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK28QQuickFileDialogImplAttached10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QQuickFileDialogImplAttached2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN28QQuickFileDialogImplAttachedC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QQuickFileDialogImplAttached9buttonBoxEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QQuickFileDialogImplAttached12setButtonBoxEP21QQuickDialogButtonBox": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK28QQuickFileDialogImplAttached19nameFiltersComboBoxEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QQuickFileDialogImplAttached22setNameFiltersComboBoxEP14QQuickComboBox": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK28QQuickFileDialogImplAttached11filterLabelEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QQuickFileDialogImplAttached14setFilterLabelEP11QQuickLabel": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK28QQuickFileDialogImplAttached18selectedNameFilterEv": [
+      "text", "address"
+    ],
+    "ritual_ZN28QQuickFileDialogImplAttached16selectNameFilterERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK28QQuickFileDialogImplAttached18fileDialogListViewEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QQuickFileDialogImplAttached21setFileDialogListViewEP14QQuickListView": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK28QQuickFileDialogImplAttached13breadcrumbBarEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QQuickFileDialogImplAttached16setBreadcrumbBarEP25QQuickFolderBreadcrumbBar": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK28QQuickFileDialogImplAttached13fileNameLabelEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QQuickFileDialogImplAttached16setFileNameLabelEP11QQuickLabel": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK28QQuickFileDialogImplAttached17fileNameTextFieldEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QQuickFileDialogImplAttached20setFileNameTextFieldEP15QQuickTextField": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK28QQuickFileDialogImplAttached27overwriteConfirmationDialogEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QQuickFileDialogImplAttached30setOverwriteConfirmationDialogEP12QQuickDialog": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK28QQuickFileDialogImplAttached7sideBarEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QQuickFileDialogImplAttached10setSideBarEP13QQuickSideBar": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QQuickFileDialogImplAttached6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QQuickFileDialogImplAttached6d_funcEv": [
+      "address", "address"
+    ]
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4context_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN3QV416ExecutionContext12staticVTableEv": ["address"],
+    "ritual_ZN3QV416ExecutionContext10__dataTestEv": ["nothing", "address"],
+    "ritual_ZNK3QV416ExecutionContext11d_uncheckedEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV416ExecutionContext1dEv": ["address", "address"],
+    "ritual_ZN3QV416ExecutionContext20defaultInternalClassEPNS_10EngineBaseE": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV416ExecutionContext13asCallContextEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV416ExecutionContext13asCallContextEv": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV416ExecutionContext21virtualDeletePropertyEPNS_7ManagedENS_11PropertyKeyE": [
+      "bool", "address", "address"
+    ]
+  }
+}

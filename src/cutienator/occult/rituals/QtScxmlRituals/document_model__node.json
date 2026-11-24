@@ -1,0 +1,41 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtScxml/6.12.0/QtScxml/private/qscxmlcompiler_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN13DocumentModel4NodeD1Ev": ["nothing", "address"],
+    "ritual_ZN13DocumentModel4Node6acceptEPNS_11NodeVisitorE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13DocumentModel4Node4asIfEv": ["address", "address"],
+    "ritual_ZN13DocumentModel4Node6asSendEv": ["address", "address"],
+    "ritual_ZN13DocumentModel4Node8asInvokeEv": ["address", "address"],
+    "ritual_ZN13DocumentModel4Node8asScriptEv": ["address", "address"],
+    "ritual_ZN13DocumentModel4Node7asStateEv": ["address", "address"],
+    "ritual_ZN13DocumentModel4Node12asTransitionEv": ["address", "address"],
+    "ritual_ZN13DocumentModel4Node14asHistoryStateEv": [
+      "address", "address"
+    ],
+    "ritual_ZN13DocumentModel4Node7asScxmlEv": ["address", "address"],
+    "ritual_ZN13DocumentModel4Node15asAbstractStateEv": [
+      "address", "address"
+    ],
+    "ritual_take_DocumentModel_Node": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN13DocumentModel4Node4asIfEv": ["address", "address"],
+    "ritual_own_ZN13DocumentModel4Node6asSendEv": ["address", "address"],
+    "ritual_own_ZN13DocumentModel4Node8asInvokeEv": ["address", "address"],
+    "ritual_own_ZN13DocumentModel4Node8asScriptEv": ["address", "address"],
+    "ritual_own_ZN13DocumentModel4Node7asStateEv": ["address", "address"],
+    "ritual_own_ZN13DocumentModel4Node12asTransitionEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN13DocumentModel4Node14asHistoryStateEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN13DocumentModel4Node7asScxmlEv": ["address", "address"]
+  }
+}

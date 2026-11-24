@@ -1,0 +1,189 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/ui4_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11DomPropertyC1Ev": ["address"],
+    "ritual_ZN11DomPropertyD1Ev": ["nothing", "address"],
+    "ritual_ZNK11DomProperty16hasAttributeNameEv": ["bool", "address"],
+    "ritual_ZNK11DomProperty13attributeNameEv": ["text", "address"],
+    "ritual_ZN11DomProperty16setAttributeNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN11DomProperty18clearAttributeNameEv": ["nothing", "address"],
+    "ritual_ZNK11DomProperty18hasAttributeStdsetEv": ["bool", "address"],
+    "ritual_ZNK11DomProperty15attributeStdsetEv": ["int", "address"],
+    "ritual_ZN11DomProperty18setAttributeStdsetEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN11DomProperty20clearAttributeStdsetEv": ["nothing", "address"],
+    "ritual_ZNK11DomProperty4kindEv": ["int", "address"],
+    "ritual_ZNK11DomProperty11elementBoolEv": ["text", "address"],
+    "ritual_ZN11DomProperty14setElementBoolERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK11DomProperty12elementColorEv": ["address", "address"],
+    "ritual_ZN11DomProperty16takeElementColorEv": ["address", "address"],
+    "ritual_ZN11DomProperty15setElementColorEP8DomColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11DomProperty14elementCstringEv": ["text", "address"],
+    "ritual_ZN11DomProperty17setElementCstringERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK11DomProperty13elementCursorEv": ["int", "address"],
+    "ritual_ZN11DomProperty16setElementCursorEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11DomProperty18elementCursorShapeEv": ["text", "address"],
+    "ritual_ZN11DomProperty21setElementCursorShapeERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK11DomProperty11elementEnumEv": ["text", "address"],
+    "ritual_ZN11DomProperty14setElementEnumERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK11DomProperty11elementFontEv": ["address", "address"],
+    "ritual_ZN11DomProperty15takeElementFontEv": ["address", "address"],
+    "ritual_ZN11DomProperty14setElementFontEP7DomFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11DomProperty14elementIconSetEv": ["address", "address"],
+    "ritual_ZN11DomProperty18takeElementIconSetEv": ["address", "address"],
+    "ritual_ZN11DomProperty17setElementIconSetEP15DomResourceIcon": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11DomProperty13elementPixmapEv": ["address", "address"],
+    "ritual_ZN11DomProperty17takeElementPixmapEv": ["address", "address"],
+    "ritual_ZN11DomProperty16setElementPixmapEP17DomResourcePixmap": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11DomProperty14elementPaletteEv": ["address", "address"],
+    "ritual_ZN11DomProperty18takeElementPaletteEv": ["address", "address"],
+    "ritual_ZN11DomProperty17setElementPaletteEP10DomPalette": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11DomProperty12elementPointEv": ["address", "address"],
+    "ritual_ZN11DomProperty16takeElementPointEv": ["address", "address"],
+    "ritual_ZN11DomProperty15setElementPointEP8DomPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11DomProperty11elementRectEv": ["address", "address"],
+    "ritual_ZN11DomProperty15takeElementRectEv": ["address", "address"],
+    "ritual_ZN11DomProperty14setElementRectEP7DomRect": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11DomProperty10elementSetEv": ["text", "address"],
+    "ritual_ZN11DomProperty13setElementSetERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK11DomProperty13elementLocaleEv": ["address", "address"],
+    "ritual_ZN11DomProperty17takeElementLocaleEv": ["address", "address"],
+    "ritual_ZN11DomProperty16setElementLocaleEP9DomLocale": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11DomProperty17elementSizePolicyEv": ["address", "address"],
+    "ritual_ZN11DomProperty21takeElementSizePolicyEv": [
+      "address", "address"
+    ],
+    "ritual_ZN11DomProperty20setElementSizePolicyEP13DomSizePolicy": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11DomProperty11elementSizeEv": ["address", "address"],
+    "ritual_ZN11DomProperty15takeElementSizeEv": ["address", "address"],
+    "ritual_ZN11DomProperty14setElementSizeEP7DomSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11DomProperty13elementStringEv": ["address", "address"],
+    "ritual_ZN11DomProperty17takeElementStringEv": ["address", "address"],
+    "ritual_ZN11DomProperty16setElementStringEP9DomString": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11DomProperty17elementStringListEv": ["address", "address"],
+    "ritual_ZN11DomProperty21takeElementStringListEv": [
+      "address", "address"
+    ],
+    "ritual_ZN11DomProperty20setElementStringListEP13DomStringList": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11DomProperty13elementNumberEv": ["int", "address"],
+    "ritual_ZN11DomProperty16setElementNumberEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11DomProperty12elementFloatEv": ["float", "address"],
+    "ritual_ZN11DomProperty15setElementFloatEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK11DomProperty13elementDoubleEv": ["double", "address"],
+    "ritual_ZN11DomProperty16setElementDoubleEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK11DomProperty11elementDateEv": ["address", "address"],
+    "ritual_ZN11DomProperty15takeElementDateEv": ["address", "address"],
+    "ritual_ZN11DomProperty14setElementDateEP7DomDate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11DomProperty11elementTimeEv": ["address", "address"],
+    "ritual_ZN11DomProperty15takeElementTimeEv": ["address", "address"],
+    "ritual_ZN11DomProperty14setElementTimeEP7DomTime": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11DomProperty15elementDateTimeEv": ["address", "address"],
+    "ritual_ZN11DomProperty19takeElementDateTimeEv": ["address", "address"],
+    "ritual_ZN11DomProperty18setElementDateTimeEP11DomDateTime": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11DomProperty13elementPointFEv": ["address", "address"],
+    "ritual_ZN11DomProperty17takeElementPointFEv": ["address", "address"],
+    "ritual_ZN11DomProperty16setElementPointFEP9DomPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11DomProperty12elementRectFEv": ["address", "address"],
+    "ritual_ZN11DomProperty16takeElementRectFEv": ["address", "address"],
+    "ritual_ZN11DomProperty15setElementRectFEP8DomRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11DomProperty12elementSizeFEv": ["address", "address"],
+    "ritual_ZN11DomProperty16takeElementSizeFEv": ["address", "address"],
+    "ritual_ZN11DomProperty15setElementSizeFEP8DomSizeF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11DomProperty15elementLongLongEv": ["long long", "address"],
+    "ritual_ZN11DomProperty18setElementLongLongEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZNK11DomProperty11elementCharEv": ["address", "address"],
+    "ritual_ZN11DomProperty15takeElementCharEv": ["address", "address"],
+    "ritual_ZN11DomProperty14setElementCharEP7DomChar": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11DomProperty10elementUrlEv": ["address", "address"],
+    "ritual_ZN11DomProperty14takeElementUrlEv": ["address", "address"],
+    "ritual_ZN11DomProperty13setElementUrlEP6DomUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11DomProperty11elementUIntEv": ["unsigned int", "address"],
+    "ritual_ZN11DomProperty14setElementUIntEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZNK11DomProperty16elementULongLongEv": [
+      "unsigned long long", "address"
+    ],
+    "ritual_ZN11DomProperty19setElementULongLongEy": [
+      "nothing", "address", "unsigned long long"
+    ],
+    "ritual_ZNK11DomProperty12elementBrushEv": ["address", "address"],
+    "ritual_ZN11DomProperty16takeElementBrushEv": ["address", "address"],
+    "ritual_ZN11DomProperty15setElementBrushEP8DomBrush": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11DomProperty5clearEv": ["nothing", "address"],
+    "ritual_list_make_DomProperty_ptr": ["address"],
+    "ritual_list_add_DomProperty_ptr": ["nothing", "address", "address"],
+    "ritual_list_size_DomProperty_ptr": ["long long", "address"],
+    "ritual_list_at_DomProperty_ptr": ["address", "address", "long long"],
+    "ritual_list_drop_DomProperty_ptr": ["nothing", "address"]
+  }
+}

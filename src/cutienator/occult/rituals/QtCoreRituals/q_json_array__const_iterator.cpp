@@ -2,6 +2,7 @@
 //  QtCore/qjsonarray.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qjsonarray.h>
 #include <QtCore/qjsonvalue.h>
+#include <QtCore/qcompare.h>
 
 //  QJsonArray::const_iterator::const_iterator()
 extern "C" Q_DECL_EXPORT
@@ -118,6 +119,19 @@ bool ritual_ZN10QJsonArray14const_iterator20comparesEqual_helperERKS0_S2_(
     const QJsonArray::const_iterator *lhs,
     const QJsonArray::const_iterator *rhs) {
   return QJsonArray::const_iterator::comparesEqual_helper(*lhs, *rhs);
+}
+
+//  Qt::strong_ordering
+//      QJsonArray::const_iterator::compareThreeWay_helper(const
+//      const_iterator &lhs, const const_iterator &rhs)
+extern "C" Q_DECL_EXPORT
+Qt::strong_ordering *ritual_ZN10QJsonArray14const_iterator22compareThreeWay_helperERKS0_S2_(
+    const QJsonArray::const_iterator *lhs,
+    const QJsonArray::const_iterator *rhs) {
+  return new Qt::strong_ordering(
+      QJsonArray::const_iterator::compareThreeWay_helper(
+          *lhs,
+          *rhs));
 }
 
 //  bool operator==(const const_iterator &lhs, const const_iterator &rhs)

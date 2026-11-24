@@ -1,0 +1,31 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3D/qquick3drenderextensions.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZNK23QQuick3DRenderExtension10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QQuick3DRenderExtension2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN23QQuick3DRenderExtension24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuick3DRenderExtensionC1EP14QQuick3DObject": [
+      "address", "address"
+    ],
+    "ritual_ZN23QQuick3DRenderExtensionD1Ev": ["nothing", "address"],
+    "ritual_ZN23QQuick3DRenderExtension17updateSpatialNodeEP21QSSGRenderGraphObject": [
+      "address", "address", "address"
+    ],
+    "ritual_take_QQuick3DRenderExtension": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN23QQuick3DRenderExtension17updateSpatialNodeEP21QSSGRenderGraphObject": [
+      "address", "address", "address"
+    ]
+  }
+}

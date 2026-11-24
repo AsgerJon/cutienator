@@ -1,0 +1,35 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssglayerren",
+    "derdata_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN32QSSGLayerRenderPreparationResultC1Ev": ["address"],
+    "ritual_ZN32QSSGLayerRenderPreparationResult8setStateENS_5StateE": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZNK32QSSGLayerRenderPreparationResult8getStateEv": [
+      "unsigned char", "address"
+    ],
+    "ritual_ZNK32QSSGLayerRenderPreparationResult6isNullEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK32QSSGLayerRenderPreparationResult14isLayerVisibleEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK32QSSGLayerRenderPreparationResult17textureDimensionsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK32QSSGLayerRenderPreparationResult11getViewportEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK32QSSGLayerRenderPreparationResult8getFlagsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK32QSSGLayerRenderPreparationResult8getLayerEv": [
+      "address", "address"
+    ],
+    "ritual_ZN32QSSGLayerRenderPreparationResultD1Ev": ["nothing", "address"]
+  }
+}

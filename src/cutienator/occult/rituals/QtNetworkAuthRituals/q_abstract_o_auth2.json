@@ -1,0 +1,125 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetworkAuth/qabstractoauth2.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK15QAbstractOAuth210metaObjectEv": ["address", "address"],
+    "ritual_ZN15QAbstractOAuth22trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN15QAbstractOAuth2D1Ev": ["nothing", "address"],
+    "ritual_ZN15QAbstractOAuth222createAuthenticatedUrlERK4QUrlRK4QMapI7QString8QVariantE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN15QAbstractOAuth24headERK4QUrlRK4QMapI7QString8QVariantE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN15QAbstractOAuth23getERK4QUrlRK4QMapI7QString8QVariantE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN15QAbstractOAuth24postERK4QUrlRK4QMapI7QString8QVariantE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN15QAbstractOAuth24postERK4QUrlRK10QByteArray": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN15QAbstractOAuth24postERK4QUrlP14QHttpMultiPart": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN15QAbstractOAuth23putERK4QUrlRK4QMapI7QString8QVariantE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN15QAbstractOAuth23putERK4QUrlRK10QByteArray": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN15QAbstractOAuth23putERK4QUrlP14QHttpMultiPart": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN15QAbstractOAuth214deleteResourceERK4QUrlRK4QMapI7QString8QVariantE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK15QAbstractOAuth25scopeEv": ["text", "address"],
+    "ritual_ZN15QAbstractOAuth28setScopeERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK15QAbstractOAuth29userAgentEv": ["text", "address"],
+    "ritual_ZN15QAbstractOAuth212setUserAgentERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK15QAbstractOAuth212responseTypeEv": ["text", "address"],
+    "ritual_ZNK15QAbstractOAuth225clientIdentifierSharedKeyEv": [
+      "text", "address"
+    ],
+    "ritual_ZN15QAbstractOAuth228setClientIdentifierSharedKeyERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK15QAbstractOAuth25stateEv": ["text", "address"],
+    "ritual_ZN15QAbstractOAuth28setStateERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK15QAbstractOAuth212expirationAtEv": ["address", "address"],
+    "ritual_ZNK15QAbstractOAuth212refreshTokenEv": ["text", "address"],
+    "ritual_ZN15QAbstractOAuth215setRefreshTokenERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK15QAbstractOAuth211autoRefreshEv": ["bool", "address"],
+    "ritual_ZN15QAbstractOAuth214setAutoRefreshEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK15QAbstractOAuth29nonceModeEv": ["unsigned char", "address"],
+    "ritual_ZN15QAbstractOAuth212setNonceModeENS_9NonceModeE": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZNK15QAbstractOAuth25nonceEv": ["text", "address"],
+    "ritual_ZN15QAbstractOAuth28setNonceERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK15QAbstractOAuth27idTokenEv": ["text", "address"],
+    "ritual_ZNK15QAbstractOAuth28tokenUrlEv": ["address", "address"],
+    "ritual_ZN15QAbstractOAuth211setTokenUrlERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QAbstractOAuth216sslConfigurationEv": [
+      "address", "address"
+    ],
+    "ritual_ZN15QAbstractOAuth219setSslConfigurationERK17QSslConfiguration": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QAbstractOAuth214prepareRequestEP15QNetworkRequestRK10QByteArrayS4_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN15QAbstractOAuth227clearNetworkRequestModifierEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QAbstractOAuth227refreshTokensImplementationEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QAbstractOAuth213refreshTokensEv": ["nothing", "address"],
+    "ritual_ZN15QAbstractOAuth215setResponseTypeERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN15QAbstractOAuth229setNetworkRequestModifierImplEPK7QObjectPN9QtPrivate15QSlotObjectBaseE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN15QAbstractOAuth26d_funcEv": ["address", "address"],
+    "ritual_ZNK15QAbstractOAuth26d_funcEv": ["address", "address"],
+    "ritual_take_QAbstractOAuth2": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN15QAbstractOAuth24postERK4QUrlRK10QByteArray": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN15QAbstractOAuth24postERK4QUrlP14QHttpMultiPart": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN15QAbstractOAuth23putERK4QUrlRK10QByteArray": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN15QAbstractOAuth23putERK4QUrlP14QHttpMultiPart": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN15QAbstractOAuth214prepareRequestEP15QNetworkRequestRK10QByteArrayS4_": [
+      "nothing", "address", "address", "address", "address"
+    ]
+  }
+}

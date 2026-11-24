@@ -1,0 +1,170 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/ui4_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN5DomUIC1Ev": ["address"],
+    "ritual_ZN5DomUID1Ev": ["nothing", "address"],
+    "ritual_ZNK5DomUI19hasAttributeVersionEv": ["bool", "address"],
+    "ritual_ZNK5DomUI16attributeVersionEv": ["text", "address"],
+    "ritual_ZN5DomUI19setAttributeVersionERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN5DomUI21clearAttributeVersionEv": ["nothing", "address"],
+    "ritual_ZNK5DomUI20hasAttributeLanguageEv": ["bool", "address"],
+    "ritual_ZNK5DomUI17attributeLanguageEv": ["text", "address"],
+    "ritual_ZN5DomUI20setAttributeLanguageERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN5DomUI22clearAttributeLanguageEv": ["nothing", "address"],
+    "ritual_ZNK5DomUI23hasAttributeDisplaynameEv": ["bool", "address"],
+    "ritual_ZNK5DomUI20attributeDisplaynameEv": ["text", "address"],
+    "ritual_ZN5DomUI23setAttributeDisplaynameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN5DomUI25clearAttributeDisplaynameEv": ["nothing", "address"],
+    "ritual_ZNK5DomUI21hasAttributeIdbasedtrEv": ["bool", "address"],
+    "ritual_ZNK5DomUI18attributeIdbasedtrEv": ["bool", "address"],
+    "ritual_ZN5DomUI21setAttributeIdbasedtrEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN5DomUI23clearAttributeIdbasedtrEv": ["nothing", "address"],
+    "ritual_ZNK5DomUI17hasAttributeLabelEv": ["bool", "address"],
+    "ritual_ZNK5DomUI14attributeLabelEv": ["text", "address"],
+    "ritual_ZN5DomUI17setAttributeLabelERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN5DomUI19clearAttributeLabelEv": ["nothing", "address"],
+    "ritual_ZNK5DomUI30hasAttributeConnectslotsbynameEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK5DomUI27attributeConnectslotsbynameEv": ["bool", "address"],
+    "ritual_ZN5DomUI30setAttributeConnectslotsbynameEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN5DomUI32clearAttributeConnectslotsbynameEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK5DomUI21hasAttributeStdsetdefEv": ["bool", "address"],
+    "ritual_ZNK5DomUI18attributeStdsetdefEv": ["int", "address"],
+    "ritual_ZN5DomUI21setAttributeStdsetdefEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN5DomUI23clearAttributeStdsetdefEv": ["nothing", "address"],
+    "ritual_ZNK5DomUI21hasAttributeStdSetDefEv": ["bool", "address"],
+    "ritual_ZNK5DomUI18attributeStdSetDefEv": ["int", "address"],
+    "ritual_ZN5DomUI21setAttributeStdSetDefEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN5DomUI23clearAttributeStdSetDefEv": ["nothing", "address"],
+    "ritual_ZNK5DomUI13elementAuthorEv": ["text", "address"],
+    "ritual_ZN5DomUI16setElementAuthorERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK5DomUI16hasElementAuthorEv": ["bool", "address"],
+    "ritual_ZN5DomUI18clearElementAuthorEv": ["nothing", "address"],
+    "ritual_ZNK5DomUI14elementCommentEv": ["text", "address"],
+    "ritual_ZN5DomUI17setElementCommentERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK5DomUI17hasElementCommentEv": ["bool", "address"],
+    "ritual_ZN5DomUI19clearElementCommentEv": ["nothing", "address"],
+    "ritual_ZNK5DomUI18elementExportMacroEv": ["text", "address"],
+    "ritual_ZN5DomUI21setElementExportMacroERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK5DomUI21hasElementExportMacroEv": ["bool", "address"],
+    "ritual_ZN5DomUI23clearElementExportMacroEv": ["nothing", "address"],
+    "ritual_ZNK5DomUI12elementClassEv": ["text", "address"],
+    "ritual_ZN5DomUI15setElementClassERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK5DomUI15hasElementClassEv": ["bool", "address"],
+    "ritual_ZN5DomUI17clearElementClassEv": ["nothing", "address"],
+    "ritual_ZNK5DomUI13elementWidgetEv": ["address", "address"],
+    "ritual_ZN5DomUI17takeElementWidgetEv": ["address", "address"],
+    "ritual_ZN5DomUI16setElementWidgetEP9DomWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK5DomUI16hasElementWidgetEv": ["bool", "address"],
+    "ritual_ZN5DomUI18clearElementWidgetEv": ["nothing", "address"],
+    "ritual_ZNK5DomUI20elementLayoutDefaultEv": ["address", "address"],
+    "ritual_ZN5DomUI24takeElementLayoutDefaultEv": ["address", "address"],
+    "ritual_ZN5DomUI23setElementLayoutDefaultEP16DomLayoutDefault": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK5DomUI23hasElementLayoutDefaultEv": ["bool", "address"],
+    "ritual_ZN5DomUI25clearElementLayoutDefaultEv": ["nothing", "address"],
+    "ritual_ZNK5DomUI21elementLayoutFunctionEv": ["address", "address"],
+    "ritual_ZN5DomUI25takeElementLayoutFunctionEv": ["address", "address"],
+    "ritual_ZN5DomUI24setElementLayoutFunctionEP17DomLayoutFunction": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK5DomUI24hasElementLayoutFunctionEv": ["bool", "address"],
+    "ritual_ZN5DomUI26clearElementLayoutFunctionEv": ["nothing", "address"],
+    "ritual_ZNK5DomUI21elementPixmapFunctionEv": ["text", "address"],
+    "ritual_ZN5DomUI24setElementPixmapFunctionERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK5DomUI24hasElementPixmapFunctionEv": ["bool", "address"],
+    "ritual_ZN5DomUI26clearElementPixmapFunctionEv": ["nothing", "address"],
+    "ritual_ZNK5DomUI20elementCustomWidgetsEv": ["address", "address"],
+    "ritual_ZN5DomUI24takeElementCustomWidgetsEv": ["address", "address"],
+    "ritual_ZN5DomUI23setElementCustomWidgetsEP16DomCustomWidgets": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK5DomUI23hasElementCustomWidgetsEv": ["bool", "address"],
+    "ritual_ZN5DomUI25clearElementCustomWidgetsEv": ["nothing", "address"],
+    "ritual_ZNK5DomUI15elementTabStopsEv": ["address", "address"],
+    "ritual_ZN5DomUI19takeElementTabStopsEv": ["address", "address"],
+    "ritual_ZN5DomUI18setElementTabStopsEP11DomTabStops": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK5DomUI18hasElementTabStopsEv": ["bool", "address"],
+    "ritual_ZN5DomUI20clearElementTabStopsEv": ["nothing", "address"],
+    "ritual_ZNK5DomUI15elementIncludesEv": ["address", "address"],
+    "ritual_ZN5DomUI19takeElementIncludesEv": ["address", "address"],
+    "ritual_ZN5DomUI18setElementIncludesEP11DomIncludes": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK5DomUI18hasElementIncludesEv": ["bool", "address"],
+    "ritual_ZN5DomUI20clearElementIncludesEv": ["nothing", "address"],
+    "ritual_ZNK5DomUI16elementResourcesEv": ["address", "address"],
+    "ritual_ZN5DomUI20takeElementResourcesEv": ["address", "address"],
+    "ritual_ZN5DomUI19setElementResourcesEP12DomResources": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK5DomUI19hasElementResourcesEv": ["bool", "address"],
+    "ritual_ZN5DomUI21clearElementResourcesEv": ["nothing", "address"],
+    "ritual_ZNK5DomUI18elementConnectionsEv": ["address", "address"],
+    "ritual_ZN5DomUI22takeElementConnectionsEv": ["address", "address"],
+    "ritual_ZN5DomUI21setElementConnectionsEP14DomConnections": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK5DomUI21hasElementConnectionsEv": ["bool", "address"],
+    "ritual_ZN5DomUI23clearElementConnectionsEv": ["nothing", "address"],
+    "ritual_ZNK5DomUI19elementDesignerdataEv": ["address", "address"],
+    "ritual_ZN5DomUI23takeElementDesignerdataEv": ["address", "address"],
+    "ritual_ZN5DomUI22setElementDesignerdataEP15DomDesignerData": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK5DomUI22hasElementDesignerdataEv": ["bool", "address"],
+    "ritual_ZN5DomUI24clearElementDesignerdataEv": ["nothing", "address"],
+    "ritual_ZNK5DomUI12elementSlotsEv": ["address", "address"],
+    "ritual_ZN5DomUI16takeElementSlotsEv": ["address", "address"],
+    "ritual_ZN5DomUI15setElementSlotsEP8DomSlots": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK5DomUI15hasElementSlotsEv": ["bool", "address"],
+    "ritual_ZN5DomUI17clearElementSlotsEv": ["nothing", "address"],
+    "ritual_ZNK5DomUI19elementButtonGroupsEv": ["address", "address"],
+    "ritual_ZN5DomUI23takeElementButtonGroupsEv": ["address", "address"],
+    "ritual_ZN5DomUI22setElementButtonGroupsEP15DomButtonGroups": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK5DomUI22hasElementButtonGroupsEv": ["bool", "address"],
+    "ritual_ZN5DomUI24clearElementButtonGroupsEv": ["nothing", "address"]
+  }
+}

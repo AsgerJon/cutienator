@@ -1,0 +1,39 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/6.12.0/QtCharts/private/valueaxislabel_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK14ValueAxisLabel10metaObjectEv": ["address", "address"],
+    "ritual_ZN14ValueAxisLabel2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN14ValueAxisLabelC1EP13QGraphicsItem": ["address", "address"],
+    "ritual_ZN14ValueAxisLabel13keyPressEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14ValueAxisLabel5valueEv": ["double", "address"],
+    "ritual_ZN14ValueAxisLabel8setValueERKd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN14ValueAxisLabel19setInitialEditValueEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN14ValueAxisLabel13finishEditingEv": ["nothing", "address"],
+    "ritual_ZN14ValueAxisLabel20resetBeforeEditValueEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_ValueAxisLabel": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN14ValueAxisLabel13keyPressEventEP9QKeyEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN14ValueAxisLabel19setInitialEditValueEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN14ValueAxisLabel13finishEditingEv": ["nothing", "address"],
+    "ritual_own_ZN14ValueAxisLabel20resetBeforeEditValueEv": [
+      "nothing", "address"
+    ]
+  }
+}

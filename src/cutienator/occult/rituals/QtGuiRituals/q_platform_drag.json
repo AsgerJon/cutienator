@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/qpa/qplatformdrag.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN13QPlatformDragD1Ev": ["nothing", "address"],
+    "ritual_ZNK13QPlatformDrag11currentDragEv": ["address", "address"],
+    "ritual_ZN13QPlatformDrag4dragEP5QDrag": ["int", "address", "address"],
+    "ritual_ZN13QPlatformDrag10cancelDragEv": ["nothing", "address"],
+    "ritual_ZN13QPlatformDrag12updateActionEN2Qt10DropActionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK13QPlatformDrag13defaultActionE6QFlagsIN2Qt10DropActionEES0_INS1_16KeyboardModifierEE": [
+      "int", "address", "int", "int"
+    ],
+    "ritual_ZN13QPlatformDrag13defaultPixmapEv": ["address"],
+    "ritual_ZNK13QPlatformDrag14ownsDragObjectEv": ["bool", "address"],
+    "ritual_take_QPlatformDrag": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN13QPlatformDrag10cancelDragEv": ["nothing", "address"],
+    "ritual_own_ZNK13QPlatformDrag13defaultActionE6QFlagsIN2Qt10DropActionEES0_INS1_16KeyboardModifierEE": [
+      "int", "address", "int", "int"
+    ],
+    "ritual_own_ZNK13QPlatformDrag14ownsDragObjectEv": ["bool", "address"]
+  }
+}

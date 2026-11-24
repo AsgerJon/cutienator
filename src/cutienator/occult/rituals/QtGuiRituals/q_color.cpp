@@ -89,6 +89,7 @@ QString *ritual_ZNK6QColor4nameENS_10NameFormatE(
   return new QString(self->name(format));
 }
 
+#if QT_DEPRECATED_SINCE(6, 6)
 //  void QColor::setNamedColor(const QString &name)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN6QColor13setNamedColorERK7QString(
@@ -96,7 +97,9 @@ void ritual_ZN6QColor13setNamedColorERK7QString(
     const QString *name) {
   self->setNamedColor(*name);
 }
+#endif  // QT_DEPRECATED_SINCE(6, 6)
 
+#if QT_DEPRECATED_SINCE(6, 6)
 //  void QColor::setNamedColor(QStringView name)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN6QColor13setNamedColorE11QStringView(
@@ -104,7 +107,9 @@ void ritual_ZN6QColor13setNamedColorE11QStringView(
     const QString *name) {
   self->setNamedColor(QStringView(*name));
 }
+#endif  // QT_DEPRECATED_SINCE(6, 6)
 
+#if QT_DEPRECATED_SINCE(6, 6)
 //  void QColor::setNamedColor(QLatin1StringView name)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN6QColor13setNamedColorE13QLatin1String(
@@ -112,6 +117,7 @@ void ritual_ZN6QColor13setNamedColorE13QLatin1String(
     const QLatin1String *name) {
   self->setNamedColor(*name);
 }
+#endif  // QT_DEPRECATED_SINCE(6, 6)
 
 //  QStringList QColor::colorNames()
 extern "C" Q_DECL_EXPORT
@@ -716,24 +722,30 @@ QVariant *ritual_ZNK6QColorcv8QVariantEv(const QColor *self) {
   return new QVariant(self->operator QVariant());
 }
 
+#if QT_DEPRECATED_SINCE(6, 6)
 //  bool QColor::isValidColor(const QString &name)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN6QColor12isValidColorERK7QString(const QString *name) {
   return QColor::isValidColor(*name);
 }
+#endif  // QT_DEPRECATED_SINCE(6, 6)
 
+#if QT_DEPRECATED_SINCE(6, 6)
 //  bool QColor::isValidColor(QStringView a0)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN6QColor12isValidColorE11QStringView(const QString *a0) {
   return QColor::isValidColor(QStringView(*a0));
 }
+#endif  // QT_DEPRECATED_SINCE(6, 6)
 
+#if QT_DEPRECATED_SINCE(6, 6)
 //  bool QColor::isValidColor(QLatin1StringView a0)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN6QColor12isValidColorE13QLatin1String(
     const QLatin1String *a0) {
   return QColor::isValidColor(*a0);
 }
+#endif  // QT_DEPRECATED_SINCE(6, 6)
 
 //  bool QColor::isValidColorName(QAnyStringView a0)
 extern "C" Q_DECL_EXPORT
@@ -753,6 +765,7 @@ bool ritual_ZN6QColor11isRgbaValidEiiii(int r, int g, int b, int a) {
   return QColor::isRgbaValid(r, g, b, a);
 }
 
+#if defined(Q_COMPILER_UNIFORM_INIT)
 //  QColor::QColor(Spec spec, ushort a1, ushort a2, ushort a3, ushort a4,
 //      ushort a5)
 extern "C" Q_DECL_EXPORT
@@ -765,6 +778,7 @@ QColor *ritual_ZN6QColorC1ENS_4SpecEttttt(
     ushort a5) {
   return new QColor(spec, a1, a2, a3, a4, a5);
 }
+#endif  // defined(Q_COMPILER_UNIFORM_INIT)
 
 //  QColor::~QColor()
 extern "C" Q_DECL_EXPORT

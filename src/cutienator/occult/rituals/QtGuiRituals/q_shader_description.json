@@ -1,0 +1,35 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/rhi/qshaderdescription.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QShaderDescriptionC1Ev": ["address"],
+    "ritual_ZN18QShaderDescriptionC1ERKS_": ["address", "address"],
+    "ritual_ZN18QShaderDescriptionD1Ev": ["nothing", "address"],
+    "ritual_ZN18QShaderDescription6detachEv": ["nothing", "address"],
+    "ritual_ZNK18QShaderDescription7isValidEv": ["bool", "address"],
+    "ritual_ZNK18QShaderDescription9serializeEP11QDataStreami": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZNK18QShaderDescription6toJsonEv": ["address", "address"],
+    "ritual_ZN18QShaderDescription11deserializeEP11QDataStreami": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK18QShaderDescription29tessellationOutputVertexCountEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZNK18QShaderDescription16tessellationModeEv": ["int", "address"],
+    "ritual_ZNK18QShaderDescription24tessellationWindingOrderEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK18QShaderDescription24tessellationPartitioningEv": [
+      "int", "address"
+    ],
+    "ritual_Zls6QDebugRK18QShaderDescription": [
+      "address", "address", "address"
+    ],
+    "ritual_ZeqRK18QShaderDescriptionS1_": ["bool", "address", "address"]
+  }
+}

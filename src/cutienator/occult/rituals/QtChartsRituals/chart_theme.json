@@ -1,0 +1,32 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/6.12.0/QtCharts/private/charttheme_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN10ChartThemeC1EN6QChart10ChartThemeE": ["address", "int"],
+    "ritual_ZNK10ChartTheme2idEv": ["int", "address"],
+    "ritual_ZNK10ChartTheme15seriesGradientsEv": ["address", "address"],
+    "ritual_ZNK10ChartTheme12seriesColorsEv": ["address", "address"],
+    "ritual_ZNK10ChartTheme23chartBackgroundGradientEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10ChartTheme10masterFontEv": ["address", "address"],
+    "ritual_ZNK10ChartTheme9labelFontEv": ["address", "address"],
+    "ritual_ZNK10ChartTheme10labelBrushEv": ["address", "address"],
+    "ritual_ZNK10ChartTheme11axisLinePenEv": ["address", "address"],
+    "ritual_ZNK10ChartTheme19backgroundShadesPenEv": ["address", "address"],
+    "ritual_ZNK10ChartTheme10outlinePenEv": ["address", "address"],
+    "ritual_ZNK10ChartTheme21backgroundShadesBrushEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10ChartTheme16backgroundShadesEv": ["int", "address"],
+    "ritual_ZNK10ChartTheme29isBackgroundDropShadowEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK10ChartTheme11gridLinePenEv": ["address", "address"],
+    "ritual_ZNK10ChartTheme16minorGridLinePenEv": ["address", "address"],
+    "ritual_ZN10ChartThemeD1Ev": ["nothing", "address"]
+  }
+}

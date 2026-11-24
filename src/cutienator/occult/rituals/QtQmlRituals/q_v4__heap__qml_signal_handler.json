@@ -1,0 +1,14 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4qobjectwrapper_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN3QV44Heap16QmlSignalHandler7destroyEv": ["nothing", "address"],
+    "ritual_ZNK3QV44Heap16QmlSignalHandler6objectEv": ["address", "address"],
+    "ritual_ZN3QV44Heap16QmlSignalHandler9setObjectEP7QObject": [
+      "nothing", "address", "address"
+    ]
+  }
+}

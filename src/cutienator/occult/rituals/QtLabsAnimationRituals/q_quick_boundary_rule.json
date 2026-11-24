@@ -1,0 +1,93 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtLabsA",
+    "nimation/6.12.0/QtLabsAnimation/private/qquickboundaryrule_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18QQuickBoundaryRule10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QQuickBoundaryRule2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18QQuickBoundaryRuleC1EP7QObject": ["address", "address"],
+    "ritual_ZN18QQuickBoundaryRuleD1Ev": ["nothing", "address"],
+    "ritual_ZN18QQuickBoundaryRule9setTargetERK12QQmlProperty": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQuickBoundaryRule5writeERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QQuickBoundaryRule7enabledEv": ["bool", "address"],
+    "ritual_ZN18QQuickBoundaryRule10setEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK18QQuickBoundaryRule7minimumEv": ["double", "address"],
+    "ritual_ZN18QQuickBoundaryRule10setMinimumEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK18QQuickBoundaryRule16minimumOvershootEv": [
+      "double", "address"
+    ],
+    "ritual_ZN18QQuickBoundaryRule19setMinimumOvershootEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK18QQuickBoundaryRule7maximumEv": ["double", "address"],
+    "ritual_ZN18QQuickBoundaryRule10setMaximumEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK18QQuickBoundaryRule16maximumOvershootEv": [
+      "double", "address"
+    ],
+    "ritual_ZN18QQuickBoundaryRule19setMaximumOvershootEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK18QQuickBoundaryRule14overshootScaleEv": [
+      "double", "address"
+    ],
+    "ritual_ZN18QQuickBoundaryRule17setOvershootScaleEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK18QQuickBoundaryRule16currentOvershootEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK18QQuickBoundaryRule13peakOvershootEv": ["double", "address"],
+    "ritual_ZNK18QQuickBoundaryRule15overshootFilterEv": ["int", "address"],
+    "ritual_ZN18QQuickBoundaryRule18setOvershootFilterENS_15OvershootFilterE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18QQuickBoundaryRule14returnToBoundsEv": ["bool", "address"],
+    "ritual_ZNK18QQuickBoundaryRule6easingEv": ["address", "address"],
+    "ritual_ZN18QQuickBoundaryRule9setEasingERK12QEasingCurve": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QQuickBoundaryRule14returnDurationEv": ["int", "address"],
+    "ritual_ZN18QQuickBoundaryRule17setReturnDurationEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18QQuickBoundaryRule10classBeginEv": ["nothing", "address"],
+    "ritual_ZN18QQuickBoundaryRule17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_cast_QQuickBoundaryRule_QQmlPropertyValueInterceptor": [
+      "address", "address"
+    ],
+    "ritual_cast_QQuickBoundaryRule_QQmlParserStatus": [
+      "address", "address"
+    ],
+    "ritual_take_QQuickBoundaryRule": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN18QQuickBoundaryRule9setTargetERK12QQmlProperty": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN18QQuickBoundaryRule5writeERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN18QQuickBoundaryRule10classBeginEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN18QQuickBoundaryRule17componentCompleteEv": [
+      "nothing", "address"
+    ]
+  }
+}

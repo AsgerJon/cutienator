@@ -1,0 +1,92 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmllocale_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QQmlLocaleValueType22qt_qmlMarker_anonymousEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQmlLocaleValueType20qt_qmlMarker_foreignEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQmlLocaleValueType21qt_qmlMarker_extendedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQmlLocaleValueTypeC1ERK7QString": ["address", "text"],
+    "ritual_ZNK19QQmlLocaleValueType14currencySymbolEN7QLocale20CurrencySymbolFormatE": [
+      "text", "address", "int"
+    ],
+    "ritual_ZNK19QQmlLocaleValueType14dateTimeFormatEN7QLocale10FormatTypeE": [
+      "text", "address", "int"
+    ],
+    "ritual_ZNK19QQmlLocaleValueType10timeFormatEN7QLocale10FormatTypeE": [
+      "text", "address", "int"
+    ],
+    "ritual_ZNK19QQmlLocaleValueType10dateFormatEN7QLocale10FormatTypeE": [
+      "text", "address", "int"
+    ],
+    "ritual_ZNK19QQmlLocaleValueType9monthNameEiN7QLocale10FormatTypeE": [
+      "text", "address", "int", "int"
+    ],
+    "ritual_ZNK19QQmlLocaleValueType19standaloneMonthNameEiN7QLocale10FormatTypeE": [
+      "text", "address", "int", "int"
+    ],
+    "ritual_ZNK19QQmlLocaleValueType7dayNameEiN7QLocale10FormatTypeE": [
+      "text", "address", "int", "int"
+    ],
+    "ritual_ZNK19QQmlLocaleValueType17standaloneDayNameEiN7QLocale10FormatTypeE": [
+      "text", "address", "int", "int"
+    ],
+    "ritual_ZNK19QQmlLocaleValueType17formattedDataSizeEP14QQmlV4Function": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QQmlLocaleValueType17formattedDataSizeEdi6QFlagsIN7QLocale14DataSizeFormatEE": [
+      "text", "address", "double", "int", "int"
+    ],
+    "ritual_ZNK19QQmlLocaleValueType8toStringEv": ["text", "address"],
+    "ritual_ZNK19QQmlLocaleValueType8toStringEi": ["text", "address", "int"],
+    "ritual_ZNK19QQmlLocaleValueType8toStringEd": [
+      "text", "address", "double"
+    ],
+    "ritual_ZNK19QQmlLocaleValueType8toStringEdRK7QStringi": [
+      "text", "address", "double", "text", "int"
+    ],
+    "ritual_ZNK19QQmlLocaleValueType8toStringERK9QDateTimeRK7QString": [
+      "text", "address", "address", "text"
+    ],
+    "ritual_ZNK19QQmlLocaleValueType8toStringERK9QDateTimeN7QLocale10FormatTypeE": [
+      "text", "address", "address", "int"
+    ],
+    "ritual_ZNK19QQmlLocaleValueType19createSeparatedListERK5QListI7QStringE": [
+      "text", "address", "address"
+    ],
+    "ritual_ZNK19QQmlLocaleValueType17measurementSystemEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK19QQmlLocaleValueType13textDirectionEv": ["int", "address"],
+    "ritual_ZNK19QQmlLocaleValueType11uiLanguagesEv": ["address", "address"],
+    "ritual_ZNK19QQmlLocaleValueType4nameEv": ["text", "address"],
+    "ritual_ZNK19QQmlLocaleValueType18nativeLanguageNameEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK19QQmlLocaleValueType17nativeCountryNameEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK19QQmlLocaleValueType19nativeTerritoryNameEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK19QQmlLocaleValueType12decimalPointEv": ["text", "address"],
+    "ritual_ZNK19QQmlLocaleValueType14groupSeparatorEv": ["text", "address"],
+    "ritual_ZNK19QQmlLocaleValueType7percentEv": ["text", "address"],
+    "ritual_ZNK19QQmlLocaleValueType9zeroDigitEv": ["text", "address"],
+    "ritual_ZNK19QQmlLocaleValueType12negativeSignEv": ["text", "address"],
+    "ritual_ZNK19QQmlLocaleValueType12positiveSignEv": ["text", "address"],
+    "ritual_ZNK19QQmlLocaleValueType11exponentialEv": ["text", "address"],
+    "ritual_ZNK19QQmlLocaleValueType6amTextEv": ["text", "address"],
+    "ritual_ZNK19QQmlLocaleValueType6pmTextEv": ["text", "address"],
+    "ritual_ZNK19QQmlLocaleValueType13numberOptionsEv": ["int", "address"],
+    "ritual_ZN19QQmlLocaleValueTypeD1Ev": ["nothing", "address"]
+  }
+}

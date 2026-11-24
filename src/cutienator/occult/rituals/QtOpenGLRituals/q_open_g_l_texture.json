@@ -1,0 +1,179 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtOpenGL/qopengltexture.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN14QOpenGLTextureC1ENS_6TargetE": ["address", "int"],
+    "ritual_ZN14QOpenGLTextureC1ERK6QImageNS_16MipMapGenerationE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN14QOpenGLTextureD1Ev": ["nothing", "address"],
+    "ritual_ZNK14QOpenGLTexture6targetEv": ["int", "address"],
+    "ritual_ZN14QOpenGLTexture6createEv": ["bool", "address"],
+    "ritual_ZN14QOpenGLTexture7destroyEv": ["nothing", "address"],
+    "ritual_ZNK14QOpenGLTexture9isCreatedEv": ["bool", "address"],
+    "ritual_ZN14QOpenGLTexture4bindEv": ["nothing", "address"],
+    "ritual_ZN14QOpenGLTexture4bindEjNS_16TextureUnitResetE": [
+      "nothing", "address", "unsigned int", "int"
+    ],
+    "ritual_ZN14QOpenGLTexture7releaseEv": ["nothing", "address"],
+    "ritual_ZN14QOpenGLTexture7releaseEjNS_16TextureUnitResetE": [
+      "nothing", "address", "unsigned int", "int"
+    ],
+    "ritual_ZNK14QOpenGLTexture7isBoundEv": ["bool", "address"],
+    "ritual_ZN14QOpenGLTexture7isBoundEj": [
+      "bool", "address", "unsigned int"
+    ],
+    "ritual_ZN14QOpenGLTexture9setFormatENS_13TextureFormatE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK14QOpenGLTexture6formatEv": ["int", "address"],
+    "ritual_ZN14QOpenGLTexture7setSizeEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZNK14QOpenGLTexture5widthEv": ["int", "address"],
+    "ritual_ZNK14QOpenGLTexture6heightEv": ["int", "address"],
+    "ritual_ZNK14QOpenGLTexture5depthEv": ["int", "address"],
+    "ritual_ZN14QOpenGLTexture12setMipLevelsEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK14QOpenGLTexture9mipLevelsEv": ["int", "address"],
+    "ritual_ZNK14QOpenGLTexture16maximumMipLevelsEv": ["int", "address"],
+    "ritual_ZN14QOpenGLTexture9setLayersEi": ["nothing", "address", "int"],
+    "ritual_ZNK14QOpenGLTexture6layersEv": ["int", "address"],
+    "ritual_ZNK14QOpenGLTexture5facesEv": ["int", "address"],
+    "ritual_ZN14QOpenGLTexture10setSamplesEi": ["nothing", "address", "int"],
+    "ritual_ZNK14QOpenGLTexture7samplesEv": ["int", "address"],
+    "ritual_ZN14QOpenGLTexture23setFixedSamplePositionsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK14QOpenGLTexture22isFixedSamplePositionsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN14QOpenGLTexture15allocateStorageEv": ["nothing", "address"],
+    "ritual_ZN14QOpenGLTexture15allocateStorageENS_11PixelFormatENS_9PixelTypeE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK14QOpenGLTexture18isStorageAllocatedEv": ["bool", "address"],
+    "ritual_ZNK14QOpenGLTexture17createTextureViewENS_6TargetENS_13TextureFormatEiiii": [
+      "address", "address", "int", "int", "int", "int", "int", "int"
+    ],
+    "ritual_ZNK14QOpenGLTexture13isTextureViewEv": ["bool", "address"],
+    "ritual_ZN14QOpenGLTexture7setDataERK6QImageNS_16MipMapGenerationE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN14QOpenGLTexture10hasFeatureENS_7FeatureE": ["bool", "int"],
+    "ritual_ZN14QOpenGLTexture15setMipBaseLevelEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK14QOpenGLTexture12mipBaseLevelEv": ["int", "address"],
+    "ritual_ZN14QOpenGLTexture14setMipMaxLevelEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK14QOpenGLTexture11mipMaxLevelEv": ["int", "address"],
+    "ritual_ZN14QOpenGLTexture16setMipLevelRangeEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN14QOpenGLTexture30setAutoMipMapGenerationEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK14QOpenGLTexture29isAutoMipMapGenerationEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN14QOpenGLTexture15generateMipMapsEv": ["nothing", "address"],
+    "ritual_ZN14QOpenGLTexture15generateMipMapsEib": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZN14QOpenGLTexture14setSwizzleMaskENS_16SwizzleComponentENS_12SwizzleValueE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN14QOpenGLTexture14setSwizzleMaskENS_12SwizzleValueES0_S0_S0_": [
+      "nothing", "address", "int", "int", "int", "int"
+    ],
+    "ritual_ZNK14QOpenGLTexture11swizzleMaskENS_16SwizzleComponentE": [
+      "int", "address", "int"
+    ],
+    "ritual_ZN14QOpenGLTexture19setDepthStencilModeENS_16DepthStencilModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK14QOpenGLTexture16depthStencilModeEv": ["int", "address"],
+    "ritual_ZN14QOpenGLTexture21setComparisonFunctionENS_18ComparisonFunctionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK14QOpenGLTexture18comparisonFunctionEv": ["int", "address"],
+    "ritual_ZN14QOpenGLTexture17setComparisonModeENS_14ComparisonModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK14QOpenGLTexture14comparisonModeEv": ["int", "address"],
+    "ritual_ZN14QOpenGLTexture21setMinificationFilterENS_6FilterE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK14QOpenGLTexture18minificationFilterEv": ["int", "address"],
+    "ritual_ZN14QOpenGLTexture22setMagnificationFilterENS_6FilterE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK14QOpenGLTexture19magnificationFilterEv": ["int", "address"],
+    "ritual_ZN14QOpenGLTexture16setMinMagFiltersENS_6FilterES0_": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN14QOpenGLTexture20setMaximumAnisotropyEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK14QOpenGLTexture17maximumAnisotropyEv": ["float", "address"],
+    "ritual_ZN14QOpenGLTexture11setWrapModeENS_8WrapModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN14QOpenGLTexture11setWrapModeENS_19CoordinateDirectionENS_8WrapModeE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK14QOpenGLTexture8wrapModeENS_19CoordinateDirectionE": [
+      "int", "address", "int"
+    ],
+    "ritual_ZN14QOpenGLTexture14setBorderColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QOpenGLTexture14setBorderColorEffff": [
+      "nothing", "address", "float", "float", "float", "float"
+    ],
+    "ritual_ZN14QOpenGLTexture14setBorderColorEiiii": [
+      "nothing", "address", "int", "int", "int", "int"
+    ],
+    "ritual_ZN14QOpenGLTexture14setBorderColorEjjjj": [
+      "nothing", "address", "unsigned int", "unsigned int", "unsigned int",
+      "unsigned int"
+    ],
+    "ritual_ZNK14QOpenGLTexture11borderColorEv": ["address", "address"],
+    "ritual_ZNK14QOpenGLTexture11borderColorEPf": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QOpenGLTexture11borderColorEPi": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QOpenGLTexture11borderColorEPj": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QOpenGLTexture23setMinimumLevelOfDetailEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK14QOpenGLTexture20minimumLevelOfDetailEv": [
+      "float", "address"
+    ],
+    "ritual_ZN14QOpenGLTexture23setMaximumLevelOfDetailEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK14QOpenGLTexture20maximumLevelOfDetailEv": [
+      "float", "address"
+    ],
+    "ritual_ZN14QOpenGLTexture21setLevelOfDetailRangeEff": [
+      "nothing", "address", "float", "float"
+    ],
+    "ritual_ZN14QOpenGLTexture20setLevelofDetailBiasEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK14QOpenGLTexture17levelofDetailBiasEv": ["float", "address"],
+    "ritual_Zls6QDebugPK14QOpenGLTexture": ["address", "address", "address"],
+    "ritual_ZN14QOpenGLTexture6d_funcEv": ["address", "address"],
+    "ritual_ZNK14QOpenGLTexture6d_funcEv": ["address", "address"]
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDBus/qdbusmetatype.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN13QDBusMetaType18registerCustomTypeE9QMetaTypeRK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QDBusMetaType19signatureToMetaTypeEPKc": [
+      "address", "chars"
+    ],
+    "ritual_ZN13QDBusMetaType15typeToSignatureE9QMetaType": [
+      "chars", "address"
+    ],
+    "ritual_ZN13QDBusMetaTypeD1Ev": ["nothing", "address"]
+  }
+}

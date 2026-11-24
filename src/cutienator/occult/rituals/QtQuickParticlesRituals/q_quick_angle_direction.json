@@ -1,0 +1,40 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Particles/6.12.0/QtQuickParticles/private/qquickangledirection_p.h",
+    ", Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK20QQuickAngleDirection10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QQuickAngleDirection2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN20QQuickAngleDirectionC1EP7QObject": ["address", "address"],
+    "ritual_ZN20QQuickAngleDirection6sampleERK7QPointF": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK20QQuickAngleDirection5angleEv": ["double", "address"],
+    "ritual_ZNK20QQuickAngleDirection9magnitudeEv": ["double", "address"],
+    "ritual_ZNK20QQuickAngleDirection14angleVariationEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK20QQuickAngleDirection18magnitudeVariationEv": [
+      "double", "address"
+    ],
+    "ritual_ZN20QQuickAngleDirection8setAngleEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN20QQuickAngleDirection12setMagnitudeEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN20QQuickAngleDirection17setAngleVariationEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN20QQuickAngleDirection21setMagnitudeVariationEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_own_ZN20QQuickAngleDirection6sampleERK7QPointF": [
+      "address", "address", "address"
+    ]
+  }
+}

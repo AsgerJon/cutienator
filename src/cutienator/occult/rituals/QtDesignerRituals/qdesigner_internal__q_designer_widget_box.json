@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/qdesigner_widgetbox_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18qdesigner_internal18QDesignerWidgetBox10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal18QDesignerWidgetBox2trEPKcS2_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18qdesigner_internal18QDesignerWidgetBox12loadContentsERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZNK18qdesigner_internal18QDesignerWidgetBox13iconForWidgetERK7QStringS3_": [
+      "address", "address", "text", "text"
+    ]
+  }
+}

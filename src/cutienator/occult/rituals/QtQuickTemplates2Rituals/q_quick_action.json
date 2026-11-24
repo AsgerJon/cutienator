@@ -1,0 +1,51 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquickaction_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK12QQuickAction10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QQuickAction2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN12QQuickActionC1EP7QObject": ["address", "address"],
+    "ritual_ZN12QQuickActionD1Ev": ["nothing", "address"],
+    "ritual_ZNK12QQuickAction4textEv": ["text", "address"],
+    "ritual_ZN12QQuickAction7setTextERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK12QQuickAction4iconEv": ["address", "address"],
+    "ritual_ZN12QQuickAction7setIconERK10QQuickIcon": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12QQuickAction9isEnabledEv": ["bool", "address"],
+    "ritual_ZN12QQuickAction10setEnabledEb": ["nothing", "address", "bool"],
+    "ritual_ZN12QQuickAction12resetEnabledEv": ["nothing", "address"],
+    "ritual_ZNK12QQuickAction9isCheckedEv": ["bool", "address"],
+    "ritual_ZN12QQuickAction10setCheckedEb": ["nothing", "address", "bool"],
+    "ritual_ZNK12QQuickAction11isCheckableEv": ["bool", "address"],
+    "ritual_ZN12QQuickAction12setCheckableEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK12QQuickAction8shortcutEv": ["address", "address"],
+    "ritual_ZN12QQuickAction11setShortcutERK12QKeySequence": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QQuickAction6toggleEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QQuickAction7triggerEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QQuickAction5eventEP6QEvent": ["bool", "address", "address"],
+    "ritual_ZN12QQuickAction11eventFilterEP7QObjectP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_take_QQuickAction": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN12QQuickAction5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN12QQuickAction11eventFilterEP7QObjectP6QEvent": [
+      "bool", "address", "address", "address"
+    ]
+  }
+}

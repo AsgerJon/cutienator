@@ -1,0 +1,45 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/ui4_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11DomDateTimeC1Ev": ["address"],
+    "ritual_ZN11DomDateTimeD1Ev": ["nothing", "address"],
+    "ritual_ZNK11DomDateTime11elementHourEv": ["int", "address"],
+    "ritual_ZN11DomDateTime14setElementHourEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11DomDateTime14hasElementHourEv": ["bool", "address"],
+    "ritual_ZN11DomDateTime16clearElementHourEv": ["nothing", "address"],
+    "ritual_ZNK11DomDateTime13elementMinuteEv": ["int", "address"],
+    "ritual_ZN11DomDateTime16setElementMinuteEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11DomDateTime16hasElementMinuteEv": ["bool", "address"],
+    "ritual_ZN11DomDateTime18clearElementMinuteEv": ["nothing", "address"],
+    "ritual_ZNK11DomDateTime13elementSecondEv": ["int", "address"],
+    "ritual_ZN11DomDateTime16setElementSecondEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11DomDateTime16hasElementSecondEv": ["bool", "address"],
+    "ritual_ZN11DomDateTime18clearElementSecondEv": ["nothing", "address"],
+    "ritual_ZNK11DomDateTime11elementYearEv": ["int", "address"],
+    "ritual_ZN11DomDateTime14setElementYearEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11DomDateTime14hasElementYearEv": ["bool", "address"],
+    "ritual_ZN11DomDateTime16clearElementYearEv": ["nothing", "address"],
+    "ritual_ZNK11DomDateTime12elementMonthEv": ["int", "address"],
+    "ritual_ZN11DomDateTime15setElementMonthEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK11DomDateTime15hasElementMonthEv": ["bool", "address"],
+    "ritual_ZN11DomDateTime17clearElementMonthEv": ["nothing", "address"],
+    "ritual_ZNK11DomDateTime10elementDayEv": ["int", "address"],
+    "ritual_ZN11DomDateTime13setElementDayEi": ["nothing", "address", "int"],
+    "ritual_ZNK11DomDateTime13hasElementDayEv": ["bool", "address"],
+    "ritual_ZN11DomDateTime15clearElementDayEv": ["nothing", "address"]
+  }
+}

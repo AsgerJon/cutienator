@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmltypeloader_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN14QQmlTypeLoader4BlobD1Ev": ["nothing", "address"],
+    "ritual_ZNK14QQmlTypeLoader4Blob7importsEv": ["address", "address"],
+    "ritual_ZN14QQmlTypeLoader4Blob19setCachedUnitStatusEN12QQmlMetaType21CachedUnitLookupErrorE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK14QQmlTypeLoader4Blob8stringAtEi": ["text", "address", "int"],
+    "ritual_take_QQmlTypeLoader_Blob": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK14QQmlTypeLoader4Blob8stringAtEi": [
+      "text", "address", "int"
+    ]
+  }
+}

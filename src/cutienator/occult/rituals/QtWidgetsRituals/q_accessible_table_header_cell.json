@@ -1,0 +1,77 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/itemviews_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN26QAccessibleTableHeaderCellC1EP17QAbstractItemViewiN2Qt11OrientationE": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZNK26QAccessibleTableHeaderCell6objectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK26QAccessibleTableHeaderCell4roleEv": ["int", "address"],
+    "ritual_ZNK26QAccessibleTableHeaderCell5stateEv": ["address", "address"],
+    "ritual_ZNK26QAccessibleTableHeaderCell4rectEv": ["address", "address"],
+    "ritual_ZNK26QAccessibleTableHeaderCell7isValidEv": ["bool", "address"],
+    "ritual_ZNK26QAccessibleTableHeaderCell7childAtEii": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZNK26QAccessibleTableHeaderCell10childCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK26QAccessibleTableHeaderCell12indexOfChildEPK20QAccessibleInterface": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK26QAccessibleTableHeaderCell4textEN11QAccessible4TextE": [
+      "text", "address", "int"
+    ],
+    "ritual_ZN26QAccessibleTableHeaderCell7setTextEN11QAccessible4TextERK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZNK26QAccessibleTableHeaderCell6parentEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK26QAccessibleTableHeaderCell5childEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK26QAccessibleTableHeaderCell10headerViewEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK26QAccessibleTableHeaderCell6objectEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK26QAccessibleTableHeaderCell4roleEv": ["int", "address"],
+    "ritual_own_ZNK26QAccessibleTableHeaderCell5stateEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK26QAccessibleTableHeaderCell4rectEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK26QAccessibleTableHeaderCell7isValidEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZNK26QAccessibleTableHeaderCell7childAtEii": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_own_ZNK26QAccessibleTableHeaderCell10childCountEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZNK26QAccessibleTableHeaderCell12indexOfChildEPK20QAccessibleInterface": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZNK26QAccessibleTableHeaderCell4textEN11QAccessible4TextE": [
+      "text", "address", "int"
+    ],
+    "ritual_own_ZN26QAccessibleTableHeaderCell7setTextEN11QAccessible4TextERK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_own_ZNK26QAccessibleTableHeaderCell6parentEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK26QAccessibleTableHeaderCell5childEi": [
+      "address", "address", "int"
+    ]
+  }
+}

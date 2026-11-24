@@ -1,0 +1,13 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQmlCompiler/qqmlsa.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN6QQmlSA6Method7Methods6d_funcEv": ["address", "address"],
+    "ritual_ZNK6QQmlSA6Method7Methods6d_funcEv": ["address", "address"],
+    "ritual_ZN6QQmlSA6Method7MethodsC1Ev": ["address"],
+    "ritual_ZN6QQmlSA6Method7MethodsC1ERKS1_": ["address", "address"],
+    "ritual_ZN6QQmlSA6Method7MethodsD1Ev": ["nothing", "address"]
+  }
+}

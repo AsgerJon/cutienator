@@ -1,0 +1,12 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qgesture_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QPinchGesturePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK20QPinchGesturePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN20QPinchGesturePrivateC1Ev": ["address"]
+  }
+}

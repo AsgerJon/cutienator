@@ -1,0 +1,71 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/6.12.0/QtNetwork/private/qhttpnetworkreply_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN24QHttpNetworkReplyPrivate10readStatusEP9QIODevice": [
+      "long long", "address", "address"
+    ],
+    "ritual_ZN24QHttpNetworkReplyPrivate11parseStatusE14QByteArrayView": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN24QHttpNetworkReplyPrivate10readHeaderEP9QIODevice": [
+      "long long", "address", "address"
+    ],
+    "ritual_ZN24QHttpNetworkReplyPrivate11parseHeaderE14QByteArrayView": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QHttpNetworkReplyPrivate17appendHeaderFieldERK10QByteArrayS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN24QHttpNetworkReplyPrivate8readBodyEP9QIODeviceP15QByteDataBuffer": [
+      "long long", "address", "address", "address"
+    ],
+    "ritual_ZN24QHttpNetworkReplyPrivate12readBodyFastEP9QIODeviceP15QByteDataBuffer": [
+      "long long", "address", "address", "address"
+    ],
+    "ritual_ZN24QHttpNetworkReplyPrivate5clearEv": ["nothing", "address"],
+    "ritual_ZN24QHttpNetworkReplyPrivate25clearHttpLayerInformationEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QHttpNetworkReplyPrivate16readReplyBodyRawEP9QIODeviceP15QByteDataBufferx": [
+      "long long", "address", "address", "address", "long long"
+    ],
+    "ritual_ZN24QHttpNetworkReplyPrivate20readReplyBodyChunkedEP9QIODeviceP15QByteDataBuffer": [
+      "long long", "address", "address", "address"
+    ],
+    "ritual_ZN24QHttpNetworkReplyPrivate12getChunkSizeEP9QIODevicePx": [
+      "long long", "address", "address", "address"
+    ],
+    "ritual_ZNK24QHttpNetworkReplyPrivate13isRedirectingEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN24QHttpNetworkReplyPrivate17shouldEmitSignalsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN24QHttpNetworkReplyPrivate13expectContentEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN24QHttpNetworkReplyPrivate9eraseDataEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK24QHttpNetworkReplyPrivate14bytesAvailableEv": [
+      "long long", "address"
+    ],
+    "ritual_ZN24QHttpNetworkReplyPrivate9isChunkedEv": ["bool", "address"],
+    "ritual_ZN24QHttpNetworkReplyPrivate24isConnectionCloseEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK24QHttpNetworkReplyPrivate12isCompressedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN24QHttpNetworkReplyPrivate26removeAutoDecompressHeaderEv": [
+      "nothing", "address"
+    ],
+    "ritual_cast_QHttpNetworkReplyPrivate_QHttpNetworkHeaderPrivate": [
+      "address", "address"
+    ]
+  }
+}

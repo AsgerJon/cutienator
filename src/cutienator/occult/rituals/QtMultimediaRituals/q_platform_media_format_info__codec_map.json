@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtMulti",
+    "media/6.12.0/QtMultimedia/private/qplatformmediaformatinfo_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_Zls6QDebugRKN24QPlatformMediaFormatInfo8CodecMapE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN24QPlatformMediaFormatInfo8CodecMapD1Ev": [
+      "nothing", "address"
+    ]
+  }
+}

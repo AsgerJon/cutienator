@@ -1,0 +1,301 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquickcontrol_p_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QQuickControlPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK20QQuickControlPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN20QQuickControlPrivateC1Ev": ["address"],
+    "ritual_ZN20QQuickControlPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN20QQuickControlPrivate3getEP13QQuickControl": [
+      "address", "address"
+    ],
+    "ritual_ZN20QQuickControlPrivate4initEv": ["nothing", "address"],
+    "ritual_ZN20QQuickControlPrivate11acceptTouchERK11QEventPoint": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN20QQuickControlPrivate11handlePressERK7QPointFm": [
+      "bool", "address", "address", "unsigned long"
+    ],
+    "ritual_ZN20QQuickControlPrivate10handleMoveERK7QPointFm": [
+      "bool", "address", "address", "unsigned long"
+    ],
+    "ritual_ZN20QQuickControlPrivate13handleReleaseERK7QPointFm": [
+      "bool", "address", "address", "unsigned long"
+    ],
+    "ritual_ZN20QQuickControlPrivate12handleUngrabEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickControlPrivate12mirrorChangeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK20QQuickControlPrivate10getPaddingEv": ["address", "address"],
+    "ritual_ZNK20QQuickControlPrivate13getTopPaddingEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK20QQuickControlPrivate14getLeftPaddingEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK20QQuickControlPrivate15getRightPaddingEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK20QQuickControlPrivate16getBottomPaddingEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK20QQuickControlPrivate20getHorizontalPaddingEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK20QQuickControlPrivate18getVerticalPaddingEv": [
+      "double", "address"
+    ],
+    "ritual_ZN20QQuickControlPrivate13setTopPaddingEdb": [
+      "nothing", "address", "double", "bool"
+    ],
+    "ritual_ZN20QQuickControlPrivate14setLeftPaddingEdb": [
+      "nothing", "address", "double", "bool"
+    ],
+    "ritual_ZN20QQuickControlPrivate15setRightPaddingEdb": [
+      "nothing", "address", "double", "bool"
+    ],
+    "ritual_ZN20QQuickControlPrivate16setBottomPaddingEdb": [
+      "nothing", "address", "double", "bool"
+    ],
+    "ritual_ZN20QQuickControlPrivate20setHorizontalPaddingEdb": [
+      "nothing", "address", "double", "bool"
+    ],
+    "ritual_ZN20QQuickControlPrivate18setVerticalPaddingEdb": [
+      "nothing", "address", "double", "bool"
+    ],
+    "ritual_ZNK20QQuickControlPrivate8getInsetEv": ["address", "address"],
+    "ritual_ZNK20QQuickControlPrivate11getTopInsetEv": ["double", "address"],
+    "ritual_ZNK20QQuickControlPrivate12getLeftInsetEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK20QQuickControlPrivate13getRightInsetEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK20QQuickControlPrivate14getBottomInsetEv": [
+      "double", "address"
+    ],
+    "ritual_ZN20QQuickControlPrivate11setTopInsetEdb": [
+      "nothing", "address", "double", "bool"
+    ],
+    "ritual_ZN20QQuickControlPrivate12setLeftInsetEdb": [
+      "nothing", "address", "double", "bool"
+    ],
+    "ritual_ZN20QQuickControlPrivate13setRightInsetEdb": [
+      "nothing", "address", "double", "bool"
+    ],
+    "ritual_ZN20QQuickControlPrivate14setBottomInsetEdb": [
+      "nothing", "address", "double", "bool"
+    ],
+    "ritual_ZN20QQuickControlPrivate16resizeBackgroundEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickControlPrivate13resizeContentEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickControlPrivate14getContentItemEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QQuickControlPrivate21setContentItem_helperEP10QQuickItemb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN20QQuickControlPrivate26accessibilityActiveChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK20QQuickControlPrivate14accessibleRoleEv": ["int", "address"],
+    "ritual_ZN20QQuickControlPrivate18accessibleAttachedEPK7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN20QQuickControlPrivate11resolveFontEv": ["nothing", "address"],
+    "ritual_ZN20QQuickControlPrivate11inheritFontERK5QFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickControlPrivate10updateFontERK5QFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickControlPrivate15updateFontRecurEP10QQuickItemRK5QFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickControlPrivate14setFont_helperERK5QFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickControlPrivate10parentFontEPK10QQuickItem": [
+      "address", "address"
+    ],
+    "ritual_ZN20QQuickControlPrivate12updateLocaleERK7QLocaleb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN20QQuickControlPrivate17updateLocaleRecurEP10QQuickItemRK7QLocale": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickControlPrivate10calcLocaleEPK10QQuickItem": [
+      "address", "address"
+    ],
+    "ritual_ZN20QQuickControlPrivate18updateHoverEnabledEbb": [
+      "nothing", "address", "bool", "bool"
+    ],
+    "ritual_ZN20QQuickControlPrivate23updateHoverEnabledRecurEP10QQuickItemb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20QQuickControlPrivate16calcHoverEnabledEPK10QQuickItem": [
+      "bool", "address"
+    ],
+    "ritual_ZN20QQuickControlPrivate31warnIfCustomizationNotSupportedEP7QObjectP10QQuickItemRK7QString": [
+      "nothing", "address", "address", "text"
+    ],
+    "ritual_ZN20QQuickControlPrivate17cancelContentItemEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickControlPrivate18executeContentItemEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20QQuickControlPrivate16cancelBackgroundEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickControlPrivate17executeBackgroundEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20QQuickControlPrivate11hideOldItemEP10QQuickItem": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickControlPrivate13unhideOldItemEP13QQuickControlP10QQuickItemNS_16UnhideVisibilityE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN20QQuickControlPrivate20updateBaselineOffsetEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickControlPrivate23addImplicitSizeListenerEP10QQuickItem6QFlagsIN17QQuickItemPrivate10ChangeTypeEE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN20QQuickControlPrivate26removeImplicitSizeListenerEP10QQuickItem6QFlagsIN17QQuickItemPrivate10ChangeTypeEE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN20QQuickControlPrivate23addImplicitSizeListenerEP10QQuickItemP24QQuickItemChangeListener6QFlagsIN17QQuickItemPrivate10ChangeTypeEE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN20QQuickControlPrivate26removeImplicitSizeListenerEP10QQuickItemP24QQuickItemChangeListener6QFlagsIN17QQuickItemPrivate10ChangeTypeEE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN20QQuickControlPrivate24itemImplicitWidthChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickControlPrivate25itemImplicitHeightChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickControlPrivate19itemGeometryChangedEP10QQuickItem20QQuickGeometryChangeRK6QRectF": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN20QQuickControlPrivate13itemDestroyedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickControlPrivate16itemFocusChangedEP10QQuickItemN2Qt11FocusReasonE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN20QQuickControlPrivate24setLastFocusChangeReasonEN2Qt11FocusReasonE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK20QQuickControlPrivate15getContentWidthEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK20QQuickControlPrivate16getContentHeightEv": [
+      "double", "address"
+    ],
+    "ritual_ZN20QQuickControlPrivate26updateImplicitContentWidthEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickControlPrivate27updateImplicitContentHeightEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickControlPrivate25updateImplicitContentSizeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK20QQuickControlPrivate14defaultPaletteEv": [
+      "address", "address"
+    ],
+    "ritual_cast_QQuickControlPrivate_QAccessible_ActivationObserver": [
+      "address", "address"
+    ],
+    "ritual_take_QQuickControlPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN20QQuickControlPrivate11acceptTouchERK11QEventPoint": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN20QQuickControlPrivate11handlePressERK7QPointFm": [
+      "bool", "address", "address", "unsigned long"
+    ],
+    "ritual_own_ZN20QQuickControlPrivate10handleMoveERK7QPointFm": [
+      "bool", "address", "address", "unsigned long"
+    ],
+    "ritual_own_ZN20QQuickControlPrivate13handleReleaseERK7QPointFm": [
+      "bool", "address", "address", "unsigned long"
+    ],
+    "ritual_own_ZN20QQuickControlPrivate12handleUngrabEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN20QQuickControlPrivate12mirrorChangeEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN20QQuickControlPrivate16resizeBackgroundEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN20QQuickControlPrivate13resizeContentEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN20QQuickControlPrivate14getContentItemEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN20QQuickControlPrivate26accessibilityActiveChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZNK20QQuickControlPrivate14accessibleRoleEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZN20QQuickControlPrivate11resolveFontEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN20QQuickControlPrivate17cancelContentItemEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN20QQuickControlPrivate18executeContentItemEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZN20QQuickControlPrivate16cancelBackgroundEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN20QQuickControlPrivate17executeBackgroundEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZN20QQuickControlPrivate24itemImplicitWidthChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20QQuickControlPrivate25itemImplicitHeightChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20QQuickControlPrivate19itemGeometryChangedEP10QQuickItem20QQuickGeometryChangeRK6QRectF": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN20QQuickControlPrivate13itemDestroyedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20QQuickControlPrivate16itemFocusChangedEP10QQuickItemN2Qt11FocusReasonE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_own_ZN20QQuickControlPrivate24setLastFocusChangeReasonEN2Qt11FocusReasonE": [
+      "bool", "address", "int"
+    ],
+    "ritual_own_ZNK20QQuickControlPrivate15getContentWidthEv": [
+      "double", "address"
+    ],
+    "ritual_own_ZNK20QQuickControlPrivate16getContentHeightEv": [
+      "double", "address"
+    ],
+    "ritual_own_ZNK20QQuickControlPrivate14defaultPaletteEv": [
+      "address", "address"
+    ]
+  }
+}

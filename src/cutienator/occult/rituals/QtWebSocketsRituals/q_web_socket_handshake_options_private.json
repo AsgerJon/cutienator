@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtWebSo",
+    "ckets/6.12.0/QtWebSockets/private/qwebsockethandshakeoptions_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK33QWebSocketHandshakeOptionsPrivateeqERKS_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN33QWebSocketHandshakeOptionsPrivateD1Ev": [
+      "nothing", "address"
+    ]
+  }
+}

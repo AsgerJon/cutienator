@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3DUtils/6.12.0/QtQuick3DUtils/private/qssgmesh_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN27QSSGRenderVertexBufferEntryC1ERK10QByteArray23QSSGRenderComponentTypejj": [
+      "address", "address", "int", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZN27QSSGRenderVertexBufferEntryC1Ev": ["address"],
+    "ritual_ZN27QSSGRenderVertexBufferEntryC1ERKS_": ["address", "address"],
+    "ritual_ZN27QSSGRenderVertexBufferEntryD1Ev": ["nothing", "address"]
+  }
+}

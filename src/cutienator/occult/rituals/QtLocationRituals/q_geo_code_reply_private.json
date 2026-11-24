@@ -1,0 +1,13 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLocation/6.12.0/QtLocation/private/qgeocodereply_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QGeoCodeReplyPrivateC1Ev": ["address"],
+    "ritual_ZN20QGeoCodeReplyPrivateC1EN13QGeoCodeReply5ErrorERK7QString": [
+      "address", "int", "text"
+    ]
+  }
+}

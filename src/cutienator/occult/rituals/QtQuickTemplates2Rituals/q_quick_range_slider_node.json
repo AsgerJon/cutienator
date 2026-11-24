@@ -1,0 +1,56 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquickrangeslider_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK21QQuickRangeSliderNode10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QQuickRangeSliderNode2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN21QQuickRangeSliderNode22qt_qmlMarker_anonymousEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickRangeSliderNodeC1EdP17QQuickRangeSlider": [
+      "address", "double", "address"
+    ],
+    "ritual_ZN21QQuickRangeSliderNodeD1Ev": ["nothing", "address"],
+    "ritual_ZNK21QQuickRangeSliderNode5valueEv": ["double", "address"],
+    "ritual_ZN21QQuickRangeSliderNode8setValueEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK21QQuickRangeSliderNode8positionEv": ["double", "address"],
+    "ritual_ZNK21QQuickRangeSliderNode14visualPositionEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK21QQuickRangeSliderNode6handleEv": ["address", "address"],
+    "ritual_ZN21QQuickRangeSliderNode9setHandleEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21QQuickRangeSliderNode9isPressedEv": ["bool", "address"],
+    "ritual_ZN21QQuickRangeSliderNode10setPressedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK21QQuickRangeSliderNode9isHoveredEv": ["bool", "address"],
+    "ritual_ZN21QQuickRangeSliderNode10setHoveredEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK21QQuickRangeSliderNode19implicitHandleWidthEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK21QQuickRangeSliderNode20implicitHandleHeightEv": [
+      "double", "address"
+    ],
+    "ritual_ZN21QQuickRangeSliderNode8increaseEv": ["nothing", "address"],
+    "ritual_ZN21QQuickRangeSliderNode8decreaseEv": ["nothing", "address"],
+    "ritual_ZN21QQuickRangeSliderNode20updateHandleCrossingEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QQuickRangeSliderNode": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

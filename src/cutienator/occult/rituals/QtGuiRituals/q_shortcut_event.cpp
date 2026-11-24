@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGui/qevent.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
+#if QT_CONFIG(shortcut)
 #include <QtGui/qevent.h>
 #include <QtGui/qkeysequence.h>
 #include <cstring>
@@ -7,7 +9,9 @@
 //  A QShortcutEvent that Python can take functions over in. Every QShortcutEvent
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if QT_CONFIG(shortcut)
 typedef void * (*CuteQShortcutEventCall0)(const void *, int *);
+#endif  // QT_CONFIG(shortcut)
 typedef void (*CuteQShortcutEventCall1)(const void *, bool, int *);
 class CuteQShortcutEvent : public QShortcutEvent {
 public:
@@ -15,10 +19,12 @@ public:
   void *taken[2] = {};
 
   bool take(const char *key, void *call) {
+#if QT_CONFIG(shortcut)
     if (!std::strcmp(key, "_ZNK6QEvent5cloneEv")) {
       taken[0] = call;
       return true;
     }
+#endif  // QT_CONFIG(shortcut)
     if (!std::strcmp(key, "_ZN6QEvent11setAcceptedEb")) {
       taken[1] = call;
       return true;
@@ -26,6 +32,7 @@ public:
     return false;
   }
 
+#if QT_CONFIG(shortcut)
   //  QShortcutEvent *QShortcutEvent::clone() const
   QShortcutEvent *clone() const override {
     if (taken[0]) {
@@ -36,6 +43,7 @@ public:
     }
     return QShortcutEvent::clone();
   }
+#endif  // QT_CONFIG(shortcut)
 
   //  void QEvent::setAccepted(bool accepted)
   void setAccepted(bool accepted) override {
@@ -116,3 +124,5 @@ QShortcutEvent *ritual_own_ZNK14QShortcutEvent5cloneEv(
     const QShortcutEvent *self) {
   return self->QShortcutEvent::clone();
 }
+
+#endif  // QT_CONFIG(shortcut)

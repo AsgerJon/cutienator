@@ -1,12 +1,16 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/6.12.0/QtWidgets/private/qwidgetwindow_p.h, Qt 6.12.0. Changes
 //  made here are lost.
+#include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/QtWidgets>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/6.12.0/QtWidgets/private/qwidgetwindow_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtGui/qsurfaceformat.h>
 #include <QtCore/qsize.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include "private/qwindow_p.h"
 #include "qwidgetwindow_p.h"
 #include "qlayout.h"
@@ -21,13 +25,14 @@
 #include <qpa/qplatformwindow.h>
 #include <private/qgesturemanager_p.h>
 #include <private/qhighdpiscaling_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
 //  Qt's source, because Qt's library carries it under no name.
 //  Copyright (C) The Qt Company Ltd. It is licensed
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
-//  'inline' put before it.
+//  'inline' put before it where Qt did not write it.
 
 //  from src/widgets/kernel/qwidgetwindow.cpp, line 168, as _ZN13QWidgetWindowD1Ev
 inline QWidgetWindow::~QWidgetWindow()
@@ -53,12 +58,14 @@ inline QWidgetWindow::~QWidgetWindow()
 }
 
 //  from src/widgets/kernel/qwidgetwindow.cpp, line 191, as _ZNK13QWidgetWindow14accessibleRootEv
+#if QT_CONFIG(accessibility)
 inline QAccessibleInterface *QWidgetWindow::accessibleRoot() const
 {
     if (m_widget)
         return QAccessible::queryAccessibleInterface(m_widget);
     return nullptr;
 }
+#endif  // QT_CONFIG(accessibility)
 
 //  from src/widgets/kernel/qwidgetwindow.cpp, line 199, as _ZNK13QWidgetWindow11focusObjectEv
 inline QObject *QWidgetWindow::focusObject() const
@@ -160,6 +167,7 @@ inline void QWidgetWindow::handleResizeEvent(QResizeEvent *event)
 }
 
 //  from src/widgets/kernel/qwidgetwindow.cpp, line 1052, as _ZN13QWidgetWindow20handleDragLeaveEventEP15QDragLeaveEvent
+#if QT_CONFIG(draganddrop)
 inline void QWidgetWindow::handleDragLeaveEvent(QDragLeaveEvent *event)
 {
     if (m_dragTarget) {
@@ -168,8 +176,10 @@ inline void QWidgetWindow::handleDragLeaveEvent(QDragLeaveEvent *event)
         QGuiApplication::forwardEvent(dragTarget, event);
     }
 }
+#endif  // QT_CONFIG(draganddrop)
 
 //  from src/widgets/kernel/qwidgetwindow.cpp, line 1061, as _ZN13QWidgetWindow15handleDropEventEP10QDropEvent
+#if QT_CONFIG(draganddrop)
 inline void QWidgetWindow::handleDropEvent(QDropEvent *event)
 {
     if (Q_UNLIKELY(m_dragTarget.isNull())) {
@@ -185,6 +195,7 @@ inline void QWidgetWindow::handleDropEvent(QDropEvent *event)
     event->setAccepted(translated.isAccepted());
     event->setDropAction(translated.dropAction());
 }
+#endif  // QT_CONFIG(draganddrop)
 
 //  from src/widgets/kernel/qwidgetwindow.cpp, line 1079, as _ZN13QWidgetWindow17handleExposeEventEP12QExposeEvent
 inline void QWidgetWindow::handleExposeEvent(QExposeEvent *event)
@@ -271,6 +282,7 @@ inline void QWidgetWindow::handleWindowStateChangedEvent(QWindowStateChangeEvent
 }
 
 //  from src/widgets/kernel/qwidgetwindow.cpp, line 1167, as _ZN13QWidgetWindow17handleTabletEventEP12QTabletEvent
+#if QT_CONFIG(tabletevent)
 inline void QWidgetWindow::handleTabletEvent(QTabletEvent *event)
 {
     static QPointer<QWidget> qt_tablet_target = nullptr;
@@ -299,8 +311,10 @@ inline void QWidgetWindow::handleTabletEvent(QTabletEvent *event)
     if (event->type() == QEvent::TabletRelease && event->buttons() == Qt::NoButton)
         qt_tablet_target = nullptr;
 }
+#endif  // QT_CONFIG(tabletevent)
 
 //  from src/widgets/kernel/qwidgetwindow.cpp, line 1198, as _ZN13QWidgetWindow18handleGestureEventEP19QNativeGestureEvent
+#if !defined(QT_NO_GESTURES)
 inline void QWidgetWindow::handleGestureEvent(QNativeGestureEvent *e)
 {
     // copy-pasted code to find correct widget follows:
@@ -316,6 +330,7 @@ inline void QWidgetWindow::handleGestureEvent(QNativeGestureEvent *e)
 
     QApplication::forwardEvent(receiver, e);
 }
+#endif  // !defined(QT_NO_GESTURES)
 
 //  from src/widgets/kernel/qwidgetwindow.cpp, line 742, as _ZN13QWidgetWindow10updateSizeEv
 inline bool QWidgetWindow::updateSize()
@@ -369,9 +384,13 @@ inline void QWidgetWindow::updateNormalGeometry()
 //  A QWidgetWindow that Python can take functions over in. Every QWidgetWindow
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if QT_CONFIG(accessibility)
 typedef void * (*CuteQWidgetWindowCall0)(const void *, int *);
+#endif  // QT_CONFIG(accessibility)
 typedef void * (*CuteQWidgetWindowCall1)(const void *, int *);
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQWidgetWindowCall2)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 typedef void (*CuteQWidgetWindowCall3)(const void *, QCloseEvent *, int *);
 typedef int (*CuteQWidgetWindowCall4)(const void *, int *);
 typedef const QSurfaceFormat * (*CuteQWidgetWindowCall5)(const void *, int *);
@@ -390,33 +409,54 @@ typedef void (*CuteQWidgetWindowCall17)(const void *, QMouseEvent *, int *);
 typedef void (*CuteQWidgetWindowCall18)(const void *, QMouseEvent *, int *);
 typedef void (*CuteQWidgetWindowCall19)(const void *, QMouseEvent *, int *);
 typedef void (*CuteQWidgetWindowCall20)(const void *, QMouseEvent *, int *);
+#if QT_CONFIG(wheelevent)
 typedef void (*CuteQWidgetWindowCall21)(const void *, QWheelEvent *, int *);
+#endif  // QT_CONFIG(wheelevent)
 typedef void (*CuteQWidgetWindowCall22)(const void *, QTouchEvent *, int *);
+#if QT_CONFIG(tabletevent)
 typedef void (*CuteQWidgetWindowCall23)(const void *, QTabletEvent *, int *);
-typedef bool (*CuteQWidgetWindowCall24)(const void *, QObject *, QEvent *, int *);
-typedef void (*CuteQWidgetWindowCall25)(const void *, QTimerEvent *, int *);
-typedef void (*CuteQWidgetWindowCall26)(const void *, QChildEvent *, int *);
-typedef void (*CuteQWidgetWindowCall27)(const void *, QEvent *, int *);
-typedef void (*CuteQWidgetWindowCall28)(const void *, const QMetaMethod *, int *);
+#endif  // QT_CONFIG(tabletevent)
+typedef void * (*CuteQWidgetWindowCall24)(const void *, int *);
+#if !defined(QT_NO_QOBJECT)
+typedef bool (*CuteQWidgetWindowCall25)(const void *, QObject *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+typedef void (*CuteQWidgetWindowCall26)(const void *, QTimerEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+typedef void (*CuteQWidgetWindowCall27)(const void *, QChildEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+typedef void (*CuteQWidgetWindowCall28)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQWidgetWindowCall29)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+typedef void (*CuteQWidgetWindowCall30)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 class CuteQWidgetWindow : public QWidgetWindow {
 public:
   using QWidgetWindow::QWidgetWindow;
-  void *taken[30] = {};
+  void *taken[31] = {};
 
   bool take(const char *key, void *call) {
+#if QT_CONFIG(accessibility)
     if (!std::strcmp(key, "_ZNK7QWindow14accessibleRootEv")) {
       taken[0] = call;
       return true;
     }
+#endif  // QT_CONFIG(accessibility)
     if (!std::strcmp(key, "_ZNK7QWindow11focusObjectEv")) {
       taken[1] = call;
       return true;
     }
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[2] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QWindow10closeEventEP11QCloseEvent")) {
       taken[3] = call;
       return true;
@@ -489,45 +529,66 @@ public:
       taken[20] = call;
       return true;
     }
+#if QT_CONFIG(wheelevent)
     if (!std::strcmp(key, "_ZN7QWindow10wheelEventEP11QWheelEvent")) {
       taken[21] = call;
       return true;
     }
+#endif  // QT_CONFIG(wheelevent)
     if (!std::strcmp(key, "_ZN7QWindow10touchEventEP11QTouchEvent")) {
       taken[22] = call;
       return true;
     }
+#if QT_CONFIG(tabletevent)
     if (!std::strcmp(key, "_ZN7QWindow11tabletEventEP12QTabletEvent")) {
       taken[23] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
+#endif  // QT_CONFIG(tabletevent)
+    if (!std::strcmp(key, "_ZNK8QSurface13surfaceHandleEv")) {
       taken[24] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[25] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[26] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[27] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[28] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[29] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+      taken[30] = call;
+      return true;
+    }
+#endif  // !defined(QT_NO_QOBJECT)
     return false;
   }
 
+#if QT_CONFIG(accessibility)
   //  QAccessibleInterface *QWidgetWindow::accessibleRoot() const
   QAccessibleInterface *accessibleRoot() const override {
     if (taken[0]) {
@@ -538,6 +599,7 @@ public:
     }
     return QWidgetWindow::accessibleRoot();
   }
+#endif  // QT_CONFIG(accessibility)
 
   //  QObject *QWidgetWindow::focusObject() const
   QObject *focusObject() const override {
@@ -550,6 +612,7 @@ public:
     return QWidgetWindow::focusObject();
   }
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QWidgetWindow::event(QEvent *a0)
   bool event(QEvent *a0) override {
     if (taken[2]) {
@@ -560,6 +623,7 @@ public:
     }
     return QWidgetWindow::event(a0);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
   //  void QWidgetWindow::closeEvent(QCloseEvent *a0)
   void closeEvent(QCloseEvent *a0) override {
@@ -759,6 +823,7 @@ public:
     QWindow::mouseMoveEvent(a0);
   }
 
+#if QT_CONFIG(wheelevent)
   //  void QWindow::wheelEvent(QWheelEvent *a0)
   void wheelEvent(QWheelEvent *a0) override {
     if (taken[21]) {
@@ -769,6 +834,7 @@ public:
     }
     QWindow::wheelEvent(a0);
   }
+#endif  // QT_CONFIG(wheelevent)
 
   //  void QWindow::touchEvent(QTouchEvent *a0)
   void touchEvent(QTouchEvent *a0) override {
@@ -781,6 +847,7 @@ public:
     QWindow::touchEvent(a0);
   }
 
+#if QT_CONFIG(tabletevent)
   //  void QWindow::tabletEvent(QTabletEvent *a0)
   void tabletEvent(QTabletEvent *a0) override {
     if (taken[23]) {
@@ -791,72 +858,96 @@ public:
     }
     QWindow::tabletEvent(a0);
   }
+#endif  // QT_CONFIG(tabletevent)
 
-  //  bool QObject::eventFilter(QObject *watched, QEvent *event)
-  bool eventFilter(QObject *watched, QEvent *event) override {
+  //  QPlatformSurface *QWindow::surfaceHandle() const
+  QPlatformSurface *surfaceHandle() const override {
     if (taken[24]) {
       int handled = 0;
       CuteQWidgetWindowCall24 call = reinterpret_cast<CuteQWidgetWindowCall24>(taken[24]);
+      void * given = call(this, &handled);
+      if (handled) return static_cast<QPlatformSurface *>(given);
+    }
+    return QWindow::surfaceHandle();
+  }
+
+#if !defined(QT_NO_QOBJECT)
+  //  bool QObject::eventFilter(QObject *watched, QEvent *event)
+  bool eventFilter(QObject *watched, QEvent *event) override {
+    if (taken[25]) {
+      int handled = 0;
+      CuteQWidgetWindowCall25 call = reinterpret_cast<CuteQWidgetWindowCall25>(taken[25]);
       bool given = call(this, watched, event, &handled);
       if (handled) return given;
     }
     return QObject::eventFilter(watched, event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
-    if (taken[25]) {
-      int handled = 0;
-      CuteQWidgetWindowCall25 call = reinterpret_cast<CuteQWidgetWindowCall25>(taken[25]);
-      call(this, event, &handled);
-      if (handled) return;
-    }
-    QObject::timerEvent(event);
-  }
-
-  //  void QObject::childEvent(QChildEvent *event)
-  void childEvent(QChildEvent *event) override {
     if (taken[26]) {
       int handled = 0;
       CuteQWidgetWindowCall26 call = reinterpret_cast<CuteQWidgetWindowCall26>(taken[26]);
       call(this, event, &handled);
       if (handled) return;
     }
-    QObject::childEvent(event);
+    QObject::timerEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
-  //  void QObject::customEvent(QEvent *event)
-  void customEvent(QEvent *event) override {
+#if !defined(QT_NO_QOBJECT)
+  //  void QObject::childEvent(QChildEvent *event)
+  void childEvent(QChildEvent *event) override {
     if (taken[27]) {
       int handled = 0;
       CuteQWidgetWindowCall27 call = reinterpret_cast<CuteQWidgetWindowCall27>(taken[27]);
       call(this, event, &handled);
       if (handled) return;
     }
-    QObject::customEvent(event);
+    QObject::childEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
-  //  void QObject::connectNotify(const QMetaMethod &signal)
-  void connectNotify(const QMetaMethod &signal) override {
+#if !defined(QT_NO_QOBJECT)
+  //  void QObject::customEvent(QEvent *event)
+  void customEvent(QEvent *event) override {
     if (taken[28]) {
       int handled = 0;
       CuteQWidgetWindowCall28 call = reinterpret_cast<CuteQWidgetWindowCall28>(taken[28]);
-      call(this, &signal, &handled);
+      call(this, event, &handled);
       if (handled) return;
     }
-    QObject::connectNotify(signal);
+    QObject::customEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
-  //  void QObject::disconnectNotify(const QMetaMethod &signal)
-  void disconnectNotify(const QMetaMethod &signal) override {
+#if !defined(QT_NO_QOBJECT)
+  //  void QObject::connectNotify(const QMetaMethod &signal)
+  void connectNotify(const QMetaMethod &signal) override {
     if (taken[29]) {
       int handled = 0;
       CuteQWidgetWindowCall29 call = reinterpret_cast<CuteQWidgetWindowCall29>(taken[29]);
       call(this, &signal, &handled);
       if (handled) return;
     }
+    QObject::connectNotify(signal);
+  }
+#endif  // !defined(QT_NO_QOBJECT)
+
+#if !defined(QT_NO_QOBJECT)
+  //  void QObject::disconnectNotify(const QMetaMethod &signal)
+  void disconnectNotify(const QMetaMethod &signal) override {
+    if (taken[30]) {
+      int handled = 0;
+      CuteQWidgetWindowCall30 call = reinterpret_cast<CuteQWidgetWindowCall30>(taken[30]);
+      call(this, &signal, &handled);
+      if (handled) return;
+    }
     QObject::disconnectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 };
 
 //  const QMetaObject *QWidgetWindow::metaObject() const
@@ -878,12 +969,14 @@ QWidget *ritual_ZNK13QWidgetWindow6widgetEv(const QWidgetWindow *self) {
   return self->widget();
 }
 
+#if QT_CONFIG(accessibility)
 //  QAccessibleInterface *QWidgetWindow::accessibleRoot() const
 extern "C" Q_DECL_EXPORT
 QAccessibleInterface *ritual_ZNK13QWidgetWindow14accessibleRootEv(
     const QWidgetWindow *self) {
   return self->accessibleRoot();
 }
+#endif  // QT_CONFIG(accessibility)
 
 //  QObject *QWidgetWindow::focusObject() const
 extern "C" Q_DECL_EXPORT
@@ -932,6 +1025,7 @@ void ritual_ZN13QWidgetWindow17handleResizeEventEP12QResizeEvent(
   self->handleResizeEvent(a0);
 }
 
+#if QT_CONFIG(draganddrop)
 //  void QWidgetWindow::handleDragLeaveEvent(QDragLeaveEvent *a0)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QWidgetWindow20handleDragLeaveEventEP15QDragLeaveEvent(
@@ -939,7 +1033,9 @@ void ritual_ZN13QWidgetWindow20handleDragLeaveEventEP15QDragLeaveEvent(
     QDragLeaveEvent *a0) {
   self->handleDragLeaveEvent(a0);
 }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
 //  void QWidgetWindow::handleDropEvent(QDropEvent *a0)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QWidgetWindow15handleDropEventEP10QDropEvent(
@@ -947,6 +1043,7 @@ void ritual_ZN13QWidgetWindow15handleDropEventEP10QDropEvent(
     QDropEvent *a0) {
   self->handleDropEvent(a0);
 }
+#endif  // QT_CONFIG(draganddrop)
 
 //  void QWidgetWindow::handleExposeEvent(QExposeEvent *a0)
 extern "C" Q_DECL_EXPORT
@@ -965,6 +1062,7 @@ void ritual_ZN13QWidgetWindow29handleWindowStateChangedEventEP23QWindowStateChan
   self->handleWindowStateChangedEvent(event);
 }
 
+#if QT_CONFIG(tabletevent)
 //  void QWidgetWindow::handleTabletEvent(QTabletEvent *a0)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QWidgetWindow17handleTabletEventEP12QTabletEvent(
@@ -972,7 +1070,9 @@ void ritual_ZN13QWidgetWindow17handleTabletEventEP12QTabletEvent(
     QTabletEvent *a0) {
   self->handleTabletEvent(a0);
 }
+#endif  // QT_CONFIG(tabletevent)
 
+#if !defined(QT_NO_GESTURES)
 //  void QWidgetWindow::handleGestureEvent(QNativeGestureEvent *a0)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QWidgetWindow18handleGestureEventEP19QNativeGestureEvent(
@@ -980,6 +1080,7 @@ void ritual_ZN13QWidgetWindow18handleGestureEventEP19QNativeGestureEvent(
     QNativeGestureEvent *a0) {
   self->handleGestureEvent(a0);
 }
+#endif  // !defined(QT_NO_GESTURES)
 
 //  bool QWidgetWindow::updateSize()
 extern "C" Q_DECL_EXPORT
@@ -1009,12 +1110,14 @@ bool ritual_take_QWidgetWindow(
   return static_cast<CuteQWidgetWindow *>(self)->take(key, call);
 }
 
+#if QT_CONFIG(accessibility)
 //  QAccessibleInterface *QWidgetWindow::accessibleRoot() const
 extern "C" Q_DECL_EXPORT
 QAccessibleInterface *ritual_own_ZNK13QWidgetWindow14accessibleRootEv(
     const QWidgetWindow *self) {
   return self->QWidgetWindow::accessibleRoot();
 }
+#endif  // QT_CONFIG(accessibility)
 
 //  QObject *QWidgetWindow::focusObject() const
 extern "C" Q_DECL_EXPORT

@@ -1,0 +1,39 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/qdesigner_stackedbox_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN27QStackedWidgetPropertySheetC1EP14QStackedWidgetP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN27QStackedWidgetPropertySheet11setPropertyEiRK8QVariant": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZNK27QStackedWidgetPropertySheet8propertyEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN27QStackedWidgetPropertySheet5resetEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK27QStackedWidgetPropertySheet9isEnabledEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN27QStackedWidgetPropertySheet13checkPropertyERK7QString": [
+      "bool", "text"
+    ],
+    "ritual_own_ZN27QStackedWidgetPropertySheet11setPropertyEiRK8QVariant": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZNK27QStackedWidgetPropertySheet8propertyEi": [
+      "address", "address", "int"
+    ],
+    "ritual_own_ZN27QStackedWidgetPropertySheet5resetEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_own_ZNK27QStackedWidgetPropertySheet9isEnabledEi": [
+      "bool", "address", "int"
+    ]
+  }
+}

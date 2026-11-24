@@ -1,0 +1,23 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetworkAuth/qabstractoauthreplyhandler.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK26QAbstractOAuthReplyHandler10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QAbstractOAuthReplyHandler2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN26QAbstractOAuthReplyHandlerD1Ev": ["nothing", "address"],
+    "ritual_ZNK26QAbstractOAuthReplyHandler8callbackEv": ["text", "address"],
+    "ritual_ZN26QAbstractOAuthReplyHandler20networkReplyFinishedEP13QNetworkReply": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QAbstractOAuthReplyHandler": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

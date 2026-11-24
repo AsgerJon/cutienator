@@ -1,0 +1,60 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickstateoperations_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK15QQuickAnchorSet10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QQuickAnchorSet2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN15QQuickAnchorSet22qt_qmlMarker_anonymousEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickAnchorSetC1EP7QObject": ["address", "address"],
+    "ritual_ZN15QQuickAnchorSetD1Ev": ["nothing", "address"],
+    "ritual_ZNK15QQuickAnchorSet4leftEv": ["address", "address"],
+    "ritual_ZN15QQuickAnchorSet7setLeftERK16QQmlScriptString": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QQuickAnchorSet9resetLeftEv": ["nothing", "address"],
+    "ritual_ZNK15QQuickAnchorSet5rightEv": ["address", "address"],
+    "ritual_ZN15QQuickAnchorSet8setRightERK16QQmlScriptString": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QQuickAnchorSet10resetRightEv": ["nothing", "address"],
+    "ritual_ZNK15QQuickAnchorSet16horizontalCenterEv": [
+      "address", "address"
+    ],
+    "ritual_ZN15QQuickAnchorSet19setHorizontalCenterERK16QQmlScriptString": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QQuickAnchorSet21resetHorizontalCenterEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK15QQuickAnchorSet3topEv": ["address", "address"],
+    "ritual_ZN15QQuickAnchorSet6setTopERK16QQmlScriptString": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QQuickAnchorSet8resetTopEv": ["nothing", "address"],
+    "ritual_ZNK15QQuickAnchorSet6bottomEv": ["address", "address"],
+    "ritual_ZN15QQuickAnchorSet9setBottomERK16QQmlScriptString": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QQuickAnchorSet11resetBottomEv": ["nothing", "address"],
+    "ritual_ZNK15QQuickAnchorSet14verticalCenterEv": ["address", "address"],
+    "ritual_ZN15QQuickAnchorSet17setVerticalCenterERK16QQmlScriptString": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QQuickAnchorSet19resetVerticalCenterEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK15QQuickAnchorSet8baselineEv": ["address", "address"],
+    "ritual_ZN15QQuickAnchorSet11setBaselineERK16QQmlScriptString": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QQuickAnchorSet13resetBaselineEv": ["nothing", "address"],
+    "ritual_take_QQuickAnchorSet": ["bool", "address", "chars", "address"]
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/qlayout_widget_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK13QLayoutWidget10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QLayoutWidget2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN13QLayoutWidgetC1EP28QDesignerFormWindowInterfaceP7QWidget": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK13QLayoutWidget16layoutLeftMarginEv": ["int", "address"],
+    "ritual_ZN13QLayoutWidget19setLayoutLeftMarginEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK13QLayoutWidget15layoutTopMarginEv": ["int", "address"],
+    "ritual_ZN13QLayoutWidget18setLayoutTopMarginEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK13QLayoutWidget17layoutRightMarginEv": ["int", "address"],
+    "ritual_ZN13QLayoutWidget20setLayoutRightMarginEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK13QLayoutWidget18layoutBottomMarginEv": ["int", "address"],
+    "ritual_ZN13QLayoutWidget21setLayoutBottomMarginEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK13QLayoutWidget10formWindowEv": ["address", "address"],
+    "ritual_ZN13QLayoutWidget5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN13QLayoutWidget10paintEventEP11QPaintEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN13QLayoutWidget5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN13QLayoutWidget10paintEventEP11QPaintEvent": [
+      "nothing", "address", "address"
+    ]
+  }
+}

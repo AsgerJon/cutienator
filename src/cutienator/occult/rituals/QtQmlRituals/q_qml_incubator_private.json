@@ -1,0 +1,33 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmlincubator_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QQmlIncubatorPrivateC1EP13QQmlIncubatorNS0_14IncubationModeE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN20QQmlIncubatorPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN20QQmlIncubatorPrivate3getEP13QQmlIncubator": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QQmlIncubatorPrivate15calculateStatusEv": [
+      "int", "address"
+    ],
+    "ritual_ZN20QQmlIncubatorPrivate12changeStatusEN13QQmlIncubator6StatusE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QQmlIncubatorPrivate5clearEv": ["nothing", "address"],
+    "ritual_ZN20QQmlIncubatorPrivate25incubateCppBasedComponentEP13QQmlComponentP11QQmlContext": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN20QQmlIncubatorPrivate18requiredPropertiesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QQmlIncubatorPrivate29hadTopLevelRequiredPropertiesEv": [
+      "bool", "address"
+    ],
+    "ritual_cast_QQmlIncubatorPrivate_QSharedData": ["address", "address"]
+  }
+}

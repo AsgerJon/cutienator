@@ -1,0 +1,57 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmlimport_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11QQmlImports2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN11QQmlImportsC1Ev": ["address"],
+    "ritual_ZN11QQmlImportsD1Ev": ["nothing", "address"],
+    "ritual_ZN11QQmlImports10setBaseUrlERK4QUrlRK7QString": [
+      "nothing", "address", "address", "text"
+    ],
+    "ritual_ZNK11QQmlImports7baseUrlEv": ["address", "address"],
+    "ritual_ZNK11QQmlImports13populateCacheEP17QQmlTypeNameCache": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QQmlImports19completeQmldirPathsERK7QStringRK5QListIS0_E13QTypeRevision": [
+      "address", "text", "address", "address"
+    ],
+    "ritual_ZN11QQmlImports13versionStringE13QTypeRevisionNS_13ImportVersionE": [
+      "text", "address", "int"
+    ],
+    "ritual_ZN11QQmlImports7isLocalERK7QString": ["bool", "text"],
+    "ritual_ZN11QQmlImports7isLocalERK4QUrl": ["bool", "address"],
+    "ritual_ZN11QQmlImports26urlFromLocalFileOrQrcOrUrlERK7QString": [
+      "address", "text"
+    ],
+    "ritual_ZN11QQmlImports26setDesignerSupportRequiredEb": [
+      "nothing", "bool"
+    ],
+    "ritual_ZN11QQmlImports12validVersionE13QTypeRevision": [
+      "address", "address"
+    ],
+    "ritual_ZN11QQmlImports19moduleNotFoundErrorERK7QString13QTypeRevision": [
+      "address", "text", "address"
+    ],
+    "ritual_ZN11QQmlImports21redirectQmldirContentEP14QQmlTypeLoaderP27QQmlTypeLoaderQmldirContent": [
+      "text", "address", "address"
+    ],
+    "ritual_ZN11QQmlImports12insertImportEP19QQmlImportNamespaceP18QQmlImportInstance": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QQmlImports15importNamespaceERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK11QQmlImports22findQualifiedNamespaceERK16QHashedStringRef": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN11QQmlImports26registerBuiltinModuleTypesERK27QQmlTypeLoaderQmldirContent13QTypeRevision": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN11QQmlImports11resolvedUriERK7QStringP14QQmlTypeLoader": [
+      "text", "address", "text", "address"
+    ]
+  }
+}

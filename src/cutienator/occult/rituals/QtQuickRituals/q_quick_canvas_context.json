@@ -1,0 +1,40 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickcanvascontext_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK19QQuickCanvasContext10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QQuickCanvasContextD1Ev": ["nothing", "address"],
+    "ritual_ZNK19QQuickCanvasContext12contextNamesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QQuickCanvasContext4initEP16QQuickCanvasItemRK4QMapI7QString8QVariantE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN19QQuickCanvasContext7prepareERK5QSizeS2_RK5QRectS5_bb": [
+      "nothing", "address", "address", "address", "address", "address",
+      "bool", "bool"
+    ],
+    "ritual_ZN19QQuickCanvasContext5flushEv": ["nothing", "address"],
+    "ritual_ZNK19QQuickCanvasContext8v4EngineEv": ["address", "address"],
+    "ritual_ZN19QQuickCanvasContext11setV4EngineEPN3QV415ExecutionEngineE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QQuickCanvasContext7v4valueEv": [
+      "unsigned long long", "address"
+    ],
+    "ritual_ZN19QQuickCanvasContext7toImageERK6QRectF": [
+      "address", "address", "address"
+    ],
+    "ritual_take_QQuickCanvasContext": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN19QQuickCanvasContext7prepareERK5QSizeS2_RK5QRectS5_bb": [
+      "nothing", "address", "address", "address", "address", "address",
+      "bool", "bool"
+    ],
+    "ritual_own_ZN19QQuickCanvasContext5flushEv": ["nothing", "address"]
+  }
+}

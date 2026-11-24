@@ -3,6 +3,20 @@
 #include <QtGui/qpainterpath.h>
 #include <QtGui/qpen.h>
 
+//  QPainterPathStrokerPrivate *QPainterPathStroker::d_func()
+extern "C" Q_DECL_EXPORT
+QPainterPathStrokerPrivate *ritual_ZN19QPainterPathStroker6d_funcEv(
+    QPainterPathStroker *self) {
+  return self->d_func();
+}
+
+//  const QPainterPathStrokerPrivate *QPainterPathStroker::d_func() const
+extern "C" Q_DECL_EXPORT
+const QPainterPathStrokerPrivate *ritual_ZNK19QPainterPathStroker6d_funcEv(
+    const QPainterPathStroker *self) {
+  return self->d_func();
+}
+
 //  QPainterPathStroker::QPainterPathStroker()
 extern "C" Q_DECL_EXPORT
 QPainterPathStroker *ritual_ZN19QPainterPathStrokerC1Ev() {

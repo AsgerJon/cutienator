@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qsavefile_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN16QSaveFilePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK16QSaveFilePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN16QSaveFilePrivateD1Ev": ["nothing", "address"],
+    "ritual_ZNK16QSaveFilePrivate11permissionsEv": ["int", "address"],
+    "ritual_ZN16QSaveFilePrivate14setPermissionsE6QFlagsIN11QFileDevice10PermissionEE": [
+      "bool", "address", "int"
+    ],
+    "ritual_take_QSaveFilePrivate": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK16QSaveFilePrivate11permissionsEv": ["int", "address"],
+    "ritual_own_ZN16QSaveFilePrivate14setPermissionsE6QFlagsIN11QFileDevice10PermissionEE": [
+      "bool", "address", "int"
+    ]
+  }
+}

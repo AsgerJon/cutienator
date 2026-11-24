@@ -1,0 +1,65 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquickpopupwindow_p_p.",
+    "h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QQuickPopupWindow10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QQuickPopupWindow2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QQuickPopupWindow22qt_qmlMarker_anonymousEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuickPopupWindowC1EP11QQuickPopupP7QWindow": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK17QQuickPopupWindow5popupEv": ["address", "address"],
+    "ritual_ZN17QQuickPopupWindow9hideEventEP10QHideEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QQuickPopupWindow9moveEventEP10QMoveEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QQuickPopupWindow11resizeEventEP12QResizeEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QQuickPopupWindow5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN17QQuickPopupWindow13windowChangedEP7QWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QQuickPopupWindow20parentWindowXChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQuickPopupWindow20parentWindowYChangedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQuickPopupWindow41handlePopupPositionChangeFromWindowSystemERK6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QQuickPopupWindow20implicitWidthChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuickPopupWindow21implicitHeightChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK17QQuickPopupWindow21parentControlGeometryEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN17QQuickPopupWindow9hideEventEP10QHideEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN17QQuickPopupWindow9moveEventEP10QMoveEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN17QQuickPopupWindow11resizeEventEP12QResizeEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN17QQuickPopupWindow5eventEP6QEvent": [
+      "bool", "address", "address"
+    ]
+  }
+}

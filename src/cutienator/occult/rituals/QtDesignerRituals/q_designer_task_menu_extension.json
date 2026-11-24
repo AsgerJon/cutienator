@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/taskmenu.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN26QDesignerTaskMenuExtensionD1Ev": ["nothing", "address"],
+    "ritual_ZNK26QDesignerTaskMenuExtension19preferredEditActionEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK26QDesignerTaskMenuExtension11taskActionsEv": [
+      "address", "address"
+    ],
+    "ritual_take_QDesignerTaskMenuExtension": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK26QDesignerTaskMenuExtension19preferredEditActionEv": [
+      "address", "address"
+    ]
+  }
+}

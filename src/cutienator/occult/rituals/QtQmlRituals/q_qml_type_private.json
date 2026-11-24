@@ -1,0 +1,43 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmltype_p_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QQmlTypePrivateC1EN8QQmlType16RegistrationTypeE": [
+      "address", "int"
+    ],
+    "ritual_ZNK15QQmlTypePrivate9sourceUrlEv": ["address", "address"],
+    "ritual_ZNK15QQmlTypePrivate22attachedPropertiesBaseEP14QQmlTypeLoader": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK15QQmlTypePrivate11isCompositeEv": ["bool", "address"],
+    "ritual_ZNK15QQmlTypePrivate11isValueTypeEv": ["bool", "address"],
+    "ritual_ZNK15QQmlTypePrivate24resolveCompositeBaseTypeEP14QQmlTypeLoader": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK15QQmlTypePrivate22compositePropertyCacheEP14QQmlTypeLoader": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN15QQmlTypePrivate7setNameERK7QStringS2_": [
+      "nothing", "address", "text", "text"
+    ],
+    "ritual_ZNK15QQmlTypePrivate22metaObjectForValueTypeEv": [
+      "address", "address"
+    ],
+    "ritual_ZN15QQmlTypePrivate20visibleQmlTypeByNameEPKN3QV425ExecutableCompilationUnitEiP14QQmlTypeLoader": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_ZN15QQmlTypePrivateD1Ev": ["nothing", "address"],
+    "ritual_ZNK15QQmlTypePrivate11insertEnumsEPNS_5EnumsEPK11QMetaObject": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK15QQmlTypePrivate28insertEnumsFromPropertyCacheEPNS_5EnumsERKN17QQmlPropertyCache8ConstPtrE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK15QQmlTypePrivate24createEnumConflictReportEPK11QMetaObjectRK7QString": [
+      "nothing", "address", "address", "text"
+    ]
+  }
+}

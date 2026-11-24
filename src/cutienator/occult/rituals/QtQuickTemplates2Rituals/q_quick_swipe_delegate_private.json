@@ -1,0 +1,34 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquickswipedelegate_p_",
+    "p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN26QQuickSwipeDelegatePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK26QQuickSwipeDelegatePrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QQuickSwipeDelegatePrivate17forwardMouseEventEP11QMouseEventP10QQuickItem7QPointF": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK26QQuickSwipeDelegatePrivate14getPressedItemEP10QQuickItemP11QMouseEvent": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN26QQuickSwipeDelegatePrivate16resizeBackgroundEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK26QQuickSwipeDelegatePrivate14defaultPaletteEv": [
+      "address", "address"
+    ],
+    "ritual_take_QQuickSwipeDelegatePrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN26QQuickSwipeDelegatePrivate16resizeBackgroundEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZNK26QQuickSwipeDelegatePrivate14defaultPaletteEv": [
+      "address", "address"
+    ]
+  }
+}

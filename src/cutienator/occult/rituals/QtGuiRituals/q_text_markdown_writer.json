@@ -1,0 +1,28 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qtextmarkdownwriter_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QTextMarkdownWriter8writeAllEPK13QTextDocument": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN19QTextMarkdownWriter10writeTableEPK18QAbstractItemModel": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QTextMarkdownWriter10writeBlockERK10QTextBlockbbb": [
+      "int", "address", "address", "bool", "bool", "bool"
+    ],
+    "ritual_ZN19QTextMarkdownWriter10writeFrameEPK10QTextFrame": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QTextMarkdownWriter16writeFrontMatterERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN19QTextMarkdownWriter26setLinePrefixForBlockQuoteEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN19QTextMarkdownWriterD1Ev": ["nothing", "address"]
+  }
+}

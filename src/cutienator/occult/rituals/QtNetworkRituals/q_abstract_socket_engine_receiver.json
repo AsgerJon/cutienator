@@ -1,0 +1,31 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtNetwo",
+    "rk/6.12.0/QtNetwork/private/qabstractsocketenginereceiver_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN29QAbstractSocketEngineReceiverD1Ev": ["nothing", "address"],
+    "ritual_ZN29QAbstractSocketEngineReceiver16readNotificationEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QAbstractSocketEngineReceiver17writeNotificationEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QAbstractSocketEngineReceiver17closeNotificationEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QAbstractSocketEngineReceiver21exceptionNotificationEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QAbstractSocketEngineReceiver22connectionNotificationEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QAbstractSocketEngineReceiver27proxyAuthenticationRequiredERK13QNetworkProxyP14QAuthenticator": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_take_QAbstractSocketEngineReceiver": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

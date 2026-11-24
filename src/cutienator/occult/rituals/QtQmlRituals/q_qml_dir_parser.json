@@ -1,0 +1,40 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmldirparser_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN13QQmlDirParser5clearEv": ["nothing", "address"],
+    "ritual_ZN13QQmlDirParser5parseERK7QString": ["bool", "address", "text"],
+    "ritual_ZN13QQmlDirParser25disambiguateFileSelectorsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK13QQmlDirParser8hasErrorEv": ["bool", "address"],
+    "ritual_ZN13QQmlDirParser8setErrorERKN6QQmlJS17DiagnosticMessageE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QQmlDirParser16hasTypeNamespaceEv": ["bool", "address"],
+    "ritual_ZNK13QQmlDirParser13typeNamespaceEv": ["text", "address"],
+    "ritual_ZN13QQmlDirParser16setTypeNamespaceERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN13QQmlDirParser16checkNonRelativeEPKcRK7QStringS4_": [
+      "nothing", "chars", "text", "text"
+    ],
+    "ritual_ZNK13QQmlDirParser17designerSupportedEv": ["bool", "address"],
+    "ritual_ZNK13QQmlDirParser14isStaticModuleEv": ["bool", "address"],
+    "ritual_ZNK13QQmlDirParser14isSystemModuleEv": ["bool", "address"],
+    "ritual_ZNK13QQmlDirParser9typeInfosEv": ["address", "address"],
+    "ritual_ZNK13QQmlDirParser10classNamesEv": ["address", "address"],
+    "ritual_ZNK13QQmlDirParser13preferredPathEv": ["text", "address"],
+    "ritual_ZNK13QQmlDirParser10linkTargetEv": ["text", "address"],
+    "ritual_ZN13QQmlDirParser11reportErrorEttRK7QString": [
+      "nothing", "address", "unsigned short", "unsigned short", "text"
+    ],
+    "ritual_ZN13QQmlDirParser23insertComponentOrScriptERK7QStringS2_13QTypeRevision": [
+      "nothing", "address", "text", "text", "address"
+    ],
+    "ritual_ZN13QQmlDirParserD1Ev": ["nothing", "address"]
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickdrag_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN17QQuickDragGrabberC1Ev": ["address"],
+    "ritual_ZN17QQuickDragGrabberD1Ev": ["nothing", "address"],
+    "ritual_ZNK17QQuickDragGrabber6targetEv": ["address", "address"],
+    "ritual_ZN17QQuickDragGrabber9setTargetEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QQuickDragGrabber11resetTargetEv": ["nothing", "address"],
+    "ritual_ZNK17QQuickDragGrabber7isEmptyEv": ["bool", "address"],
+    "ritual_ZN17QQuickDragGrabber4grabEP10QQuickItem": [
+      "nothing", "address", "address"
+    ]
+  }
+}

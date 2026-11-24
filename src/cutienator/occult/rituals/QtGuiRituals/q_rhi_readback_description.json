@@ -1,0 +1,30 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/rhi/qrhi.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN23QRhiReadbackDescriptionC1Ev": ["address"],
+    "ritual_ZN23QRhiReadbackDescriptionC1EP11QRhiTexture": [
+      "address", "address"
+    ],
+    "ritual_ZNK23QRhiReadbackDescription7textureEv": ["address", "address"],
+    "ritual_ZN23QRhiReadbackDescription10setTextureEP11QRhiTexture": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK23QRhiReadbackDescription5layerEv": ["int", "address"],
+    "ritual_ZN23QRhiReadbackDescription8setLayerEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK23QRhiReadbackDescription5levelEv": ["int", "address"],
+    "ritual_ZN23QRhiReadbackDescription8setLevelEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK23QRhiReadbackDescription4rectEv": ["address", "address"],
+    "ritual_ZN23QRhiReadbackDescription7setRectERK5QRect": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QRhiReadbackDescriptionD1Ev": ["nothing", "address"]
+  }
+}

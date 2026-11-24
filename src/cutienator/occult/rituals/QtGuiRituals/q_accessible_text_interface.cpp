@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGui/qaccessible.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
+#if QT_CONFIG(accessibility)
 #include <QtGui/qaccessible.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qrect.h>
@@ -9,70 +11,115 @@
 //  A QAccessibleTextInterface that Python can take functions over in. Every QAccessibleTextInterface
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if QT_CONFIG(accessibility)
 typedef int (*CuteQAccessibleTextInterfaceCall0)(const void *, int *);
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
 typedef void (*CuteQAccessibleTextInterfaceCall1)(const void *, int, int, int *);
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
 typedef void (*CuteQAccessibleTextInterfaceCall2)(const void *, int, int *);
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
 typedef void (*CuteQAccessibleTextInterfaceCall3)(const void *, int, int, int, int *);
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
 typedef int (*CuteQAccessibleTextInterfaceCall4)(const void *, int *);
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
 typedef void (*CuteQAccessibleTextInterfaceCall5)(const void *, int, int *);
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
 typedef QString * (*CuteQAccessibleTextInterfaceCall6)(const void *, int, int, int *);
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
 typedef int (*CuteQAccessibleTextInterfaceCall7)(const void *, int *);
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
 typedef const QRect * (*CuteQAccessibleTextInterfaceCall8)(const void *, int, int *);
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
 typedef int (*CuteQAccessibleTextInterfaceCall9)(const void *, const QPoint *, int *);
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
 typedef void (*CuteQAccessibleTextInterfaceCall10)(const void *, int, int, int *);
+#endif  // QT_CONFIG(accessibility)
 class CuteQAccessibleTextInterface : public QAccessibleTextInterface {
 public:
   using QAccessibleTextInterface::QAccessibleTextInterface;
   void *taken[11] = {};
 
   bool take(const char *key, void *call) {
+#if QT_CONFIG(accessibility)
     if (!std::strcmp(key, "_ZNK24QAccessibleTextInterface14selectionCountEv")) {
       taken[0] = call;
       return true;
     }
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
     if (!std::strcmp(key, "_ZN24QAccessibleTextInterface12addSelectionEii")) {
       taken[1] = call;
       return true;
     }
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
     if (!std::strcmp(key, "_ZN24QAccessibleTextInterface15removeSelectionEi")) {
       taken[2] = call;
       return true;
     }
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
     if (!std::strcmp(key, "_ZN24QAccessibleTextInterface12setSelectionEiii")) {
       taken[3] = call;
       return true;
     }
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
     if (!std::strcmp(key, "_ZNK24QAccessibleTextInterface14cursorPositionEv")) {
       taken[4] = call;
       return true;
     }
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
     if (!std::strcmp(key, "_ZN24QAccessibleTextInterface17setCursorPositionEi")) {
       taken[5] = call;
       return true;
     }
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
     if (!std::strcmp(key, "_ZNK24QAccessibleTextInterface4textEii")) {
       taken[6] = call;
       return true;
     }
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
     if (!std::strcmp(key, "_ZNK24QAccessibleTextInterface14characterCountEv")) {
       taken[7] = call;
       return true;
     }
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
     if (!std::strcmp(key, "_ZNK24QAccessibleTextInterface13characterRectEi")) {
       taken[8] = call;
       return true;
     }
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
     if (!std::strcmp(key, "_ZNK24QAccessibleTextInterface13offsetAtPointERK6QPoint")) {
       taken[9] = call;
       return true;
     }
+#endif  // QT_CONFIG(accessibility)
+#if QT_CONFIG(accessibility)
     if (!std::strcmp(key, "_ZN24QAccessibleTextInterface17scrollToSubstringEii")) {
       taken[10] = call;
       return true;
     }
+#endif  // QT_CONFIG(accessibility)
     return false;
   }
 
+#if QT_CONFIG(accessibility)
   //  int QAccessibleTextInterface::selectionCount() const
   int selectionCount() const override {
     if (taken[0]) {
@@ -83,7 +130,9 @@ public:
     }
     return {};
   }
+#endif  // QT_CONFIG(accessibility)
 
+#if QT_CONFIG(accessibility)
   //  void QAccessibleTextInterface::addSelection(int startOffset, int
   //      endOffset)
   void addSelection(int startOffset, int endOffset) override {
@@ -94,7 +143,9 @@ public:
       if (handled) return;
     }
   }
+#endif  // QT_CONFIG(accessibility)
 
+#if QT_CONFIG(accessibility)
   //  void QAccessibleTextInterface::removeSelection(int selectionIndex)
   void removeSelection(int selectionIndex) override {
     if (taken[2]) {
@@ -104,7 +155,9 @@ public:
       if (handled) return;
     }
   }
+#endif  // QT_CONFIG(accessibility)
 
+#if QT_CONFIG(accessibility)
   //  void QAccessibleTextInterface::setSelection(int selectionIndex, int
   //      startOffset, int endOffset)
   void setSelection(
@@ -118,7 +171,9 @@ public:
       if (handled) return;
     }
   }
+#endif  // QT_CONFIG(accessibility)
 
+#if QT_CONFIG(accessibility)
   //  int QAccessibleTextInterface::cursorPosition() const
   int cursorPosition() const override {
     if (taken[4]) {
@@ -129,7 +184,9 @@ public:
     }
     return {};
   }
+#endif  // QT_CONFIG(accessibility)
 
+#if QT_CONFIG(accessibility)
   //  void QAccessibleTextInterface::setCursorPosition(int position)
   void setCursorPosition(int position) override {
     if (taken[5]) {
@@ -139,7 +196,9 @@ public:
       if (handled) return;
     }
   }
+#endif  // QT_CONFIG(accessibility)
 
+#if QT_CONFIG(accessibility)
   //  QString QAccessibleTextInterface::text(int startOffset, int
   //      endOffset) const
   QString text(int startOffset, int endOffset) const override {
@@ -155,7 +214,9 @@ public:
     }
     return {};
   }
+#endif  // QT_CONFIG(accessibility)
 
+#if QT_CONFIG(accessibility)
   //  int QAccessibleTextInterface::characterCount() const
   int characterCount() const override {
     if (taken[7]) {
@@ -166,7 +227,9 @@ public:
     }
     return {};
   }
+#endif  // QT_CONFIG(accessibility)
 
+#if QT_CONFIG(accessibility)
   //  QRect QAccessibleTextInterface::characterRect(int offset) const
   QRect characterRect(int offset) const override {
     if (taken[8]) {
@@ -177,7 +240,9 @@ public:
     }
     return {};
   }
+#endif  // QT_CONFIG(accessibility)
 
+#if QT_CONFIG(accessibility)
   //  int QAccessibleTextInterface::offsetAtPoint(const QPoint &point)
   //      const
   int offsetAtPoint(const QPoint &point) const override {
@@ -189,7 +254,9 @@ public:
     }
     return {};
   }
+#endif  // QT_CONFIG(accessibility)
 
+#if QT_CONFIG(accessibility)
   //  void QAccessibleTextInterface::scrollToSubstring(int startIndex, int
   //      endIndex)
   void scrollToSubstring(int startIndex, int endIndex) override {
@@ -200,6 +267,7 @@ public:
       if (handled) return;
     }
   }
+#endif  // QT_CONFIG(accessibility)
 };
 
 //  QAccessibleTextInterface::~QAccessibleTextInterface()
@@ -388,3 +456,5 @@ bool ritual_take_QAccessibleTextInterface(
     void *call) {
   return static_cast<CuteQAccessibleTextInterface *>(self)->take(key, call);
 }
+
+#endif  // QT_CONFIG(accessibility)

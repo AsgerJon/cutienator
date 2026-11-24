@@ -1,0 +1,186 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qfontengine_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN16QFontEngineMultiC1EP11QFontEngineiRK5QListI7QStringE": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_ZN16QFontEngineMultiD1Ev": ["nothing", "address"],
+    "ritual_ZNK16QFontEngineMulti10glyphCountEv": ["int", "address"],
+    "ritual_ZNK16QFontEngineMulti10glyphIndexEj": [
+      "unsigned int", "address", "unsigned int"
+    ],
+    "ritual_ZNK16QFontEngineMulti12stringToCMapEPK5QChariP12QGlyphLayoutPi6QFlagsIN11QFontEngine10ShaperFlagEE": [
+      "int", "address", "address", "int", "address", "address", "int"
+    ],
+    "ritual_ZN16QFontEngineMulti11boundingBoxERK12QGlyphLayout": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN16QFontEngineMulti11boundingBoxEj": [
+      "address", "address", "unsigned int"
+    ],
+    "ritual_ZNK16QFontEngineMulti14recalcAdvancesEP12QGlyphLayout6QFlagsIN11QFontEngine10ShaperFlagEE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZNK16QFontEngineMulti9doKerningEP12QGlyphLayout6QFlagsIN11QFontEngine10ShaperFlagEE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN16QFontEngineMulti16addOutlineToPathEddRK12QGlyphLayoutP12QPainterPath6QFlagsIN9QTextItem10RenderFlagEE": [
+      "nothing", "address", "double", "double", "address", "address", "int"
+    ],
+    "ritual_ZN16QFontEngineMulti16getGlyphBearingsEjPdS0_": [
+      "nothing", "address", "unsigned int", "address", "address"
+    ],
+    "ritual_ZNK16QFontEngineMulti12emSquareSizeEv": ["address", "address"],
+    "ritual_ZNK16QFontEngineMulti6ascentEv": ["address", "address"],
+    "ritual_ZNK16QFontEngineMulti9capHeightEv": ["address", "address"],
+    "ritual_ZNK16QFontEngineMulti7descentEv": ["address", "address"],
+    "ritual_ZNK16QFontEngineMulti7leadingEv": ["address", "address"],
+    "ritual_ZNK16QFontEngineMulti7xHeightEv": ["address", "address"],
+    "ritual_ZNK16QFontEngineMulti16averageCharWidthEv": [
+      "address", "address"
+    ],
+    "ritual_ZN16QFontEngineMulti16alphaMapForGlyphEj": [
+      "address", "address", "unsigned int"
+    ],
+    "ritual_ZN16QFontEngineMulti16alphaMapForGlyphEjRK11QFixedPoint": [
+      "address", "address", "unsigned int", "address"
+    ],
+    "ritual_ZN16QFontEngineMulti16alphaMapForGlyphEjRK10QTransform": [
+      "address", "address", "unsigned int", "address"
+    ],
+    "ritual_ZN16QFontEngineMulti16alphaMapForGlyphEjRK11QFixedPointRK10QTransform": [
+      "address", "address", "unsigned int", "address", "address"
+    ],
+    "ritual_ZN16QFontEngineMulti19alphaRGBMapForGlyphEjRK11QFixedPointRK10QTransform": [
+      "address", "address", "unsigned int", "address", "address"
+    ],
+    "ritual_ZNK16QFontEngineMulti13lineThicknessEv": ["address", "address"],
+    "ritual_ZNK16QFontEngineMulti17underlinePositionEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK16QFontEngineMulti12maxCharWidthEv": ["double", "address"],
+    "ritual_ZNK16QFontEngineMulti14minLeftBearingEv": ["double", "address"],
+    "ritual_ZNK16QFontEngineMulti15minRightBearingEv": ["double", "address"],
+    "ritual_ZNK16QFontEngineMulti12variableAxesEv": ["address", "address"],
+    "ritual_ZNK16QFontEngineMulti9canRenderEPK5QChari": [
+      "bool", "address", "address", "int"
+    ],
+    "ritual_ZNK16QFontEngineMulti9glyphNameEj": [
+      "text", "address", "unsigned int"
+    ],
+    "ritual_ZNK16QFontEngineMulti9findGlyphE13QLatin1String": [
+      "unsigned int", "address", "address"
+    ],
+    "ritual_ZNK16QFontEngineMulti19fallbackFamilyCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK16QFontEngineMulti16fallbackFamilyAtEi": [
+      "text", "address", "int"
+    ],
+    "ritual_ZN16QFontEngineMulti23setFallbackFamiliesListERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QFontEngineMulti8highByteEj": [
+      "unsigned char", "unsigned int"
+    ],
+    "ritual_ZNK16QFontEngineMulti6engineEi": ["address", "address", "int"],
+    "ritual_ZN16QFontEngineMulti14ensureEngineAtEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16QFontEngineMulti21createMultiFontEngineEP11QFontEnginei": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN16QFontEngineMulti29ensureFallbackFamiliesQueriedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK16QFontEngineMulti32shouldLoadFontEngineForCharacterEij": [
+      "bool", "address", "int", "unsigned int"
+    ],
+    "ritual_ZN16QFontEngineMulti10loadEngineEi": [
+      "address", "address", "int"
+    ],
+    "ritual_take_QFontEngineMulti": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK16QFontEngineMulti10glyphCountEv": ["int", "address"],
+    "ritual_own_ZNK16QFontEngineMulti10glyphIndexEj": [
+      "unsigned int", "address", "unsigned int"
+    ],
+    "ritual_own_ZN16QFontEngineMulti11boundingBoxERK12QGlyphLayout": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN16QFontEngineMulti11boundingBoxEj": [
+      "address", "address", "unsigned int"
+    ],
+    "ritual_own_ZNK16QFontEngineMulti14recalcAdvancesEP12QGlyphLayout6QFlagsIN11QFontEngine10ShaperFlagEE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_own_ZNK16QFontEngineMulti9doKerningEP12QGlyphLayout6QFlagsIN11QFontEngine10ShaperFlagEE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_own_ZN16QFontEngineMulti16addOutlineToPathEddRK12QGlyphLayoutP12QPainterPath6QFlagsIN9QTextItem10RenderFlagEE": [
+      "nothing", "address", "double", "double", "address", "address", "int"
+    ],
+    "ritual_own_ZNK16QFontEngineMulti12emSquareSizeEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK16QFontEngineMulti6ascentEv": ["address", "address"],
+    "ritual_own_ZNK16QFontEngineMulti9capHeightEv": ["address", "address"],
+    "ritual_own_ZNK16QFontEngineMulti7descentEv": ["address", "address"],
+    "ritual_own_ZNK16QFontEngineMulti7leadingEv": ["address", "address"],
+    "ritual_own_ZNK16QFontEngineMulti7xHeightEv": ["address", "address"],
+    "ritual_own_ZNK16QFontEngineMulti16averageCharWidthEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN16QFontEngineMulti16alphaMapForGlyphEj": [
+      "address", "address", "unsigned int"
+    ],
+    "ritual_own_ZN16QFontEngineMulti16alphaMapForGlyphEjRK11QFixedPoint": [
+      "address", "address", "unsigned int", "address"
+    ],
+    "ritual_own_ZN16QFontEngineMulti16alphaMapForGlyphEjRK10QTransform": [
+      "address", "address", "unsigned int", "address"
+    ],
+    "ritual_own_ZN16QFontEngineMulti16alphaMapForGlyphEjRK11QFixedPointRK10QTransform": [
+      "address", "address", "unsigned int", "address", "address"
+    ],
+    "ritual_own_ZN16QFontEngineMulti19alphaRGBMapForGlyphEjRK11QFixedPointRK10QTransform": [
+      "address", "address", "unsigned int", "address", "address"
+    ],
+    "ritual_own_ZNK16QFontEngineMulti13lineThicknessEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK16QFontEngineMulti17underlinePositionEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK16QFontEngineMulti12maxCharWidthEv": [
+      "double", "address"
+    ],
+    "ritual_own_ZNK16QFontEngineMulti14minLeftBearingEv": [
+      "double", "address"
+    ],
+    "ritual_own_ZNK16QFontEngineMulti15minRightBearingEv": [
+      "double", "address"
+    ],
+    "ritual_own_ZNK16QFontEngineMulti9canRenderEPK5QChari": [
+      "bool", "address", "address", "int"
+    ],
+    "ritual_own_ZNK16QFontEngineMulti9glyphNameEj": [
+      "text", "address", "unsigned int"
+    ],
+    "ritual_own_ZNK16QFontEngineMulti9findGlyphE13QLatin1String": [
+      "unsigned int", "address", "address"
+    ],
+    "ritual_own_ZN16QFontEngineMulti29ensureFallbackFamiliesQueriedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZNK16QFontEngineMulti32shouldLoadFontEngineForCharacterEij": [
+      "bool", "address", "int", "unsigned int"
+    ],
+    "ritual_own_ZN16QFontEngineMulti10loadEngineEi": [
+      "address", "address", "int"
+    ]
+  }
+}

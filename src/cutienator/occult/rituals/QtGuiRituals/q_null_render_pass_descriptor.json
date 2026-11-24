@@ -1,0 +1,32 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qrhinull_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN25QNullRenderPassDescriptorC1EP18QRhiImplementation": [
+      "address", "address"
+    ],
+    "ritual_ZN25QNullRenderPassDescriptorD1Ev": ["nothing", "address"],
+    "ritual_ZN25QNullRenderPassDescriptor7destroyEv": ["nothing", "address"],
+    "ritual_ZNK25QNullRenderPassDescriptor12isCompatibleEPK24QRhiRenderPassDescriptor": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK25QNullRenderPassDescriptor33newCompatibleRenderPassDescriptorEv": [
+      "address", "address"
+    ],
+    "ritual_take_QNullRenderPassDescriptor": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN25QNullRenderPassDescriptor7destroyEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZNK25QNullRenderPassDescriptor12isCompatibleEPK24QRhiRenderPassDescriptor": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZNK25QNullRenderPassDescriptor33newCompatibleRenderPassDescriptorEv": [
+      "address", "address"
+    ]
+  }
+}

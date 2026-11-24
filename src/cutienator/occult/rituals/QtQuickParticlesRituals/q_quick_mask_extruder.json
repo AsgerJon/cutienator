@@ -1,0 +1,39 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Particles/6.12.0/QtQuickParticles/private/qquickmaskextruder_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18QQuickMaskExtruder10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QQuickMaskExtruder2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18QQuickMaskExtruderC1EP7QObject": ["address", "address"],
+    "ritual_ZN18QQuickMaskExtruder7extrudeERK6QRectF": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18QQuickMaskExtruder8containsERK6QRectFRK7QPointF": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZNK18QQuickMaskExtruder6sourceEv": ["address", "address"],
+    "ritual_ZN18QQuickMaskExtruder9setSourceERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QQuickMaskExtruder16startMaskLoadingEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickMaskExtruder17finishMaskLoadingEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QQuickMaskExtruder17ensureInitializedERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN18QQuickMaskExtruder7extrudeERK6QRectF": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN18QQuickMaskExtruder8containsERK6QRectFRK7QPointF": [
+      "bool", "address", "address", "address"
+    ]
+  }
+}

@@ -1,0 +1,144 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmlpropertydata_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK16QQmlPropertyDataeqERKS_": ["bool", "address", "address"],
+    "ritual_ZNK16QQmlPropertyData5flagsEv": ["address", "address"],
+    "ritual_ZN16QQmlPropertyData8setFlagsENS_5FlagsE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QQmlPropertyData7isValidEv": ["bool", "address"],
+    "ritual_ZNK16QQmlPropertyData10isConstantEv": ["bool", "address"],
+    "ritual_ZNK16QQmlPropertyData10isWritableEv": ["bool", "address"],
+    "ritual_ZN16QQmlPropertyData11setWritableEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK16QQmlPropertyData12isResettableEv": ["bool", "address"],
+    "ritual_ZNK16QQmlPropertyData7isAliasEv": ["bool", "address"],
+    "ritual_ZNK16QQmlPropertyData7isFinalEv": ["bool", "address"],
+    "ritual_ZNK16QQmlPropertyData9isVirtualEv": ["bool", "address"],
+    "ritual_ZNK16QQmlPropertyData12doesOverrideEv": ["bool", "address"],
+    "ritual_ZNK16QQmlPropertyData12isOverriddenEv": ["bool", "address"],
+    "ritual_ZNK16QQmlPropertyData10isRequiredEv": ["bool", "address"],
+    "ritual_ZNK16QQmlPropertyData10isFunctionEv": ["bool", "address"],
+    "ritual_ZNK16QQmlPropertyData9isQObjectEv": ["bool", "address"],
+    "ritual_ZNK16QQmlPropertyData6isEnumEv": ["bool", "address"],
+    "ritual_ZNK16QQmlPropertyData7isQListEv": ["bool", "address"],
+    "ritual_ZNK16QQmlPropertyData13isVarPropertyEv": ["bool", "address"],
+    "ritual_ZNK16QQmlPropertyData10isQVariantEv": ["bool", "address"],
+    "ritual_ZNK16QQmlPropertyData18isComponentWrapperEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK16QQmlPropertyData13isVMEFunctionEv": ["bool", "address"],
+    "ritual_ZNK16QQmlPropertyData12hasArgumentsEv": ["bool", "address"],
+    "ritual_ZNK16QQmlPropertyData8isSignalEv": ["bool", "address"],
+    "ritual_ZNK16QQmlPropertyData11isVMESignalEv": ["bool", "address"],
+    "ritual_ZNK16QQmlPropertyData12isV4FunctionEv": ["bool", "address"],
+    "ritual_ZNK16QQmlPropertyData15isSignalHandlerEv": ["bool", "address"],
+    "ritual_ZNK16QQmlPropertyData13hasMetaObjectEv": ["bool", "address"],
+    "ritual_ZNK16QQmlPropertyData25hasStaticMetaCallFunctionEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK16QQmlPropertyData19isOverridableSignalEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK16QQmlPropertyData8isClonedEv": ["bool", "address"],
+    "ritual_ZNK16QQmlPropertyData13isConstructorEv": ["bool", "address"],
+    "ritual_ZNK16QQmlPropertyData19notifiesViaBindableEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK16QQmlPropertyData15acceptsQBindingEv": ["bool", "address"],
+    "ritual_ZNK16QQmlPropertyData11hasOverrideEv": ["bool", "address"],
+    "ritual_ZNK16QQmlPropertyData11hasRevisionEv": ["bool", "address"],
+    "ritual_ZNK16QQmlPropertyData8propTypeEv": ["address", "address"],
+    "ritual_ZN16QQmlPropertyData11setPropTypeE9QMetaType": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QQmlPropertyData11notifyIndexEv": ["int", "address"],
+    "ritual_ZN16QQmlPropertyData14setNotifyIndexEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16QQmlPropertyData23overrideIndexIsPropertyEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN16QQmlPropertyData26setOverrideIndexIsPropertyEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK16QQmlPropertyData13overrideIndexEv": ["int", "address"],
+    "ritual_ZN16QQmlPropertyData16setOverrideIndexEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16QQmlPropertyData9coreIndexEv": ["int", "address"],
+    "ritual_ZN16QQmlPropertyData12setCoreIndexEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16QQmlPropertyData11aliasTargetEv": ["int", "address"],
+    "ritual_ZN16QQmlPropertyData14setAliasTargetEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16QQmlPropertyData19aliasTargetObjectIdEv": [
+      "int", "address"
+    ],
+    "ritual_ZN16QQmlPropertyData22setAliasTargetObjectIdEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16QQmlPropertyData18wrappedObjectIndexEv": ["int", "address"],
+    "ritual_ZN16QQmlPropertyData21setWrappedObjectIndexEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16QQmlPropertyData8revisionEv": ["address", "address"],
+    "ritual_ZN16QQmlPropertyData11setRevisionE13QTypeRevision": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QQmlPropertyData11typeVersionEv": ["address", "address"],
+    "ritual_ZN16QQmlPropertyData14setTypeVersionE13QTypeRevision": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QQmlPropertyData9argumentsEv": ["address", "address"],
+    "ritual_ZN16QQmlPropertyData12setArgumentsEP32QQmlPropertyCacheMethodArguments": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QQmlPropertyData10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QQmlPropertyData13setMetaObjectEPK11QMetaObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QQmlPropertyData10metaMethodEv": ["address", "address"],
+    "ritual_ZNK16QQmlPropertyData16metaObjectOffsetEv": ["int", "address"],
+    "ritual_ZN16QQmlPropertyData19setMetaObjectOffsetEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16QQmlPropertyData21relativePropertyIndexEv": [
+      "unsigned short", "address"
+    ],
+    "ritual_ZN16QQmlPropertyData16flagsForPropertyERK13QMetaProperty": [
+      "address", "address"
+    ],
+    "ritual_ZN16QQmlPropertyData4loadERK13QMetaProperty": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQmlPropertyData4loadERK11QMetaMethod": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QQmlPropertyData4nameEP7QObject": [
+      "text", "address", "address"
+    ],
+    "ritual_ZNK16QQmlPropertyData4nameEPK11QMetaObject": [
+      "text", "address", "address"
+    ],
+    "ritual_ZN16QQmlPropertyData16markAsOverrideOfEPS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QQmlPropertyData13resetPropertyEP7QObject6QFlagsINS_9WriteFlagEE": [
+      "bool", "address", "address", "int"
+    ],
+    "ritual_ZNK16QQmlPropertyData16propertyBindableEP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN16QQmlPropertyData18defaultSignalFlagsEv": ["address"],
+    "ritual_ZN16QQmlPropertyData16defaultSlotFlagsEv": ["address"],
+    "ritual_ZN16QQmlPropertyDataD1Ev": ["nothing", "address"]
+  }
+}

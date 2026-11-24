@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qtoolbararealayout_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN22QToolBarAreaLayoutItemC1EP11QLayoutItem": [
+      "address", "address"
+    ],
+    "ritual_ZNK22QToolBarAreaLayoutItem4skipEv": ["bool", "address"],
+    "ritual_ZNK22QToolBarAreaLayoutItem11minimumSizeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK22QToolBarAreaLayoutItem8sizeHintEv": ["address", "address"],
+    "ritual_ZNK22QToolBarAreaLayoutItem12realSizeHintEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QToolBarAreaLayoutItem6resizeEN2Qt11OrientationEi": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN22QToolBarAreaLayoutItem10extendSizeEN2Qt11OrientationEi": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN22QToolBarAreaLayoutItemD1Ev": ["nothing", "address"]
+  }
+}

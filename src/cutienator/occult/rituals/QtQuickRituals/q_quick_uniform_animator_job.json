@@ -1,0 +1,42 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickanimatorjob_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN24QQuickUniformAnimatorJobC1Ev": ["address"],
+    "ritual_ZN24QQuickUniformAnimatorJob9setTargetEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QQuickUniformAnimatorJob10setUniformERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK24QQuickUniformAnimatorJob7uniformEv": ["address", "address"],
+    "ritual_ZN24QQuickUniformAnimatorJob17updateCurrentTimeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN24QQuickUniformAnimatorJob9writeBackEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QQuickUniformAnimatorJob8postSyncEv": ["nothing", "address"],
+    "ritual_ZN24QQuickUniformAnimatorJob10invalidateEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN24QQuickUniformAnimatorJob9setTargetEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN24QQuickUniformAnimatorJob17updateCurrentTimeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN24QQuickUniformAnimatorJob9writeBackEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN24QQuickUniformAnimatorJob8postSyncEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN24QQuickUniformAnimatorJob10invalidateEv": [
+      "nothing", "address"
+    ]
+  }
+}

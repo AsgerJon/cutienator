@@ -1,0 +1,14 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmltypeloaderdata_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK24QQmlTypeLoaderLockedData6threadEv": ["address", "address"],
+    "ritual_ZNK24QQmlTypeLoaderLockedData6engineEv": ["address", "address"],
+    "ritual_ZNK24QQmlTypeLoaderLockedData23isCurrentJsEngineThreadEv": [
+      "bool", "address"
+    ]
+  }
+}

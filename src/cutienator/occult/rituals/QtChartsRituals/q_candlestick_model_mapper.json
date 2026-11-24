@@ -1,0 +1,61 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/qcandlestickmodelmapper.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZNK23QCandlestickModelMapper10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QCandlestickModelMapper2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN23QCandlestickModelMapper8setModelEP18QAbstractItemModel": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK23QCandlestickModelMapper5modelEv": ["address", "address"],
+    "ritual_ZN23QCandlestickModelMapper9setSeriesEP18QCandlestickSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK23QCandlestickModelMapper6seriesEv": ["address", "address"],
+    "ritual_ZNK23QCandlestickModelMapper11orientationEv": ["int", "address"],
+    "ritual_ZN23QCandlestickModelMapper12setTimestampEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK23QCandlestickModelMapper9timestampEv": ["int", "address"],
+    "ritual_ZN23QCandlestickModelMapper7setOpenEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK23QCandlestickModelMapper4openEv": ["int", "address"],
+    "ritual_ZN23QCandlestickModelMapper7setHighEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK23QCandlestickModelMapper4highEv": ["int", "address"],
+    "ritual_ZN23QCandlestickModelMapper6setLowEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK23QCandlestickModelMapper3lowEv": ["int", "address"],
+    "ritual_ZN23QCandlestickModelMapper8setCloseEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK23QCandlestickModelMapper5closeEv": ["int", "address"],
+    "ritual_ZN23QCandlestickModelMapper18setFirstSetSectionEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK23QCandlestickModelMapper15firstSetSectionEv": [
+      "int", "address"
+    ],
+    "ritual_ZN23QCandlestickModelMapper17setLastSetSectionEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK23QCandlestickModelMapper14lastSetSectionEv": [
+      "int", "address"
+    ],
+    "ritual_ZN23QCandlestickModelMapper6d_funcEv": ["address", "address"],
+    "ritual_ZNK23QCandlestickModelMapper6d_funcEv": ["address", "address"],
+    "ritual_take_QCandlestickModelMapper": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

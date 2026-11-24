@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4profiling_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN3QV49Profiling12FunctionCallC1Ev": ["address"],
+    "ritual_ZN3QV49Profiling12FunctionCallC1EPNS_8FunctionExx": [
+      "address", "address", "long long", "long long"
+    ],
+    "ritual_ZN3QV49Profiling12FunctionCallC1ERKS1_": ["address", "address"],
+    "ritual_ZN3QV49Profiling12FunctionCallD1Ev": ["nothing", "address"],
+    "ritual_ZNK3QV49Profiling12FunctionCall8functionEv": [
+      "address", "address"
+    ]
+  }
+}

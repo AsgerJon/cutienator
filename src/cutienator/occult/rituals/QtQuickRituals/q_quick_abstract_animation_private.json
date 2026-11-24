@@ -1,0 +1,37 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickanimation_p_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN30QQuickAbstractAnimationPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK30QQuickAbstractAnimationPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN30QQuickAbstractAnimationPrivateC1Ev": ["address"],
+    "ritual_ZN30QQuickAbstractAnimationPrivate8commenceEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QQuickAbstractAnimationPrivate17animationFinishedEP21QAbstractAnimationJob": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN30QQuickAbstractAnimationPrivate14createPropertyEP7QObjectRK7QStringS1_PS2_": [
+      "address", "address", "text", "address", "address"
+    ],
+    "ritual_ZN30QQuickAbstractAnimationPrivate19animationGroupDirtyEv": [
+      "nothing", "address"
+    ],
+    "ritual_cast_QQuickAbstractAnimationPrivate_QAnimationJobChangeListener": [
+      "address", "address"
+    ],
+    "ritual_take_QQuickAbstractAnimationPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN30QQuickAbstractAnimationPrivate17animationFinishedEP21QAbstractAnimationJob": [
+      "nothing", "address", "address"
+    ]
+  }
+}

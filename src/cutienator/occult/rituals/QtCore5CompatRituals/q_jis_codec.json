@@ -1,0 +1,20 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore5Compat/6.12.0/QtCore5Compat/private/qjiscodec_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN9QJisCodec5_nameEv": ["address"],
+    "ritual_ZN9QJisCodec8_aliasesEv": ["address"],
+    "ritual_ZN9QJisCodec8_mibEnumEv": ["int"],
+    "ritual_ZNK9QJisCodec4nameEv": ["address", "address"],
+    "ritual_ZNK9QJisCodec7aliasesEv": ["address", "address"],
+    "ritual_ZNK9QJisCodec7mibEnumEv": ["int", "address"],
+    "ritual_ZN9QJisCodecC1Ev": ["address"],
+    "ritual_ZN9QJisCodecD1Ev": ["nothing", "address"],
+    "ritual_take_QJisCodec": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK9QJisCodec4nameEv": ["address", "address"],
+    "ritual_own_ZNK9QJisCodec7mibEnumEv": ["int", "address"]
+  }
+}

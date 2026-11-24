@@ -221,17 +221,21 @@ QLine *ritual_ZNK6QLineF6toLineEv(const QLineF *self) {
   return new QLine(self->toLine());
 }
 
+#if !QT_CORE_REMOVED_SINCE(6, 8)
 //  bool operator==(const QLineF &lhs, const QLineF &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZeqRK6QLineFS1_(const QLineF *lhs, const QLineF *rhs) {
   return operator==(*lhs, *rhs);
 }
+#endif  // !QT_CORE_REMOVED_SINCE(6, 8)
 
+#if !QT_CORE_REMOVED_SINCE(6, 8)
 //  bool operator!=(const QLineF &lhs, const QLineF &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZneRK6QLineFS1_(const QLineF *lhs, const QLineF *rhs) {
   return operator!=(*lhs, *rhs);
 }
+#endif  // !QT_CORE_REMOVED_SINCE(6, 8)
 
 //  bool operator==(const QLineF &lhs, const QLine &rhs)
 extern "C" Q_DECL_EXPORT

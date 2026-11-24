@@ -1,0 +1,49 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qaccessiblequicklistview_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN24QAccessibleQuickListViewC1EP14QQuickListView": [
+      "address", "address"
+    ],
+    "ritual_ZNK24QAccessibleQuickListView11contentSizeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK24QAccessibleQuickListView8positionEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK24QAccessibleQuickListView12viewportSizeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK24QAccessibleQuickListView9isIndexedEv": ["bool", "address"],
+    "ritual_ZN24QAccessibleQuickListView11setPositionE7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK24QAccessibleQuickListView8listViewEv": [
+      "address", "address"
+    ],
+    "ritual_cast_QAccessibleQuickListView_QAccessibleViewportInterface": [
+      "address", "address"
+    ],
+    "ritual_take_QAccessibleQuickListView": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK24QAccessibleQuickListView11contentSizeEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK24QAccessibleQuickListView8positionEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK24QAccessibleQuickListView12viewportSizeEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK24QAccessibleQuickListView9isIndexedEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZN24QAccessibleQuickListView11setPositionE7QPointF": [
+      "nothing", "address", "address"
+    ]
+  }
+}

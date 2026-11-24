@@ -1,0 +1,67 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtOpenGL/6.12.0/QtOpenGL/private/qopenglpaintengine_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN28QOpenGL2PaintEngineExPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QOpenGL2PaintEngineExPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QOpenGL2PaintEngineExPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN28QOpenGL2PaintEngineExPrivate12updateMatrixEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QOpenGL2PaintEngineExPrivate21updateCompositionModeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QOpenGL2PaintEngineExPrivate19activateTextureUnitEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN28QOpenGL2PaintEngineExPrivate12resetGLStateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QOpenGL2PaintEngineExPrivate8setBrushERK6QBrush": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QOpenGL2PaintEngineExPrivate12transferModeE10EngineMode": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN28QOpenGL2PaintEngineExPrivate15useSimpleShaderEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QOpenGL2PaintEngineExPrivate9clearClipEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN28QOpenGL2PaintEngineExPrivate21updateClipScissorTestEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QOpenGL2PaintEngineExPrivate10setScissorERK5QRect": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QOpenGL2PaintEngineExPrivate14regenerateClipEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QOpenGL2PaintEngineExPrivate18systemStateChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QOpenGL2PaintEngineExPrivate27setVertexAttribArrayEnabledEib": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZN28QOpenGL2PaintEngineExPrivate11syncGlStateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QOpenGL2PaintEngineExPrivate22shaderManagerForEngineEP21QOpenGL2PaintEngineEx": [
+      "address", "address"
+    ],
+    "ritual_ZN28QOpenGL2PaintEngineExPrivate7getDataEP21QOpenGL2PaintEngineEx": [
+      "address", "address"
+    ],
+    "ritual_take_QOpenGL2PaintEngineExPrivate": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

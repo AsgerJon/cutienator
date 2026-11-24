@@ -1,0 +1,69 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickanimatorjob_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK22QQuickAnimatorProxyJob10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QQuickAnimatorProxyJob2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN22QQuickAnimatorProxyJobC1EP21QAbstractAnimationJobP23QQuickAbstractAnimation": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN22QQuickAnimatorProxyJobD1Ev": ["nothing", "address"],
+    "ritual_ZNK22QQuickAnimatorProxyJob8durationEv": ["int", "address"],
+    "ritual_ZN22QQuickAnimatorProxyJob17updateCurrentTimeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN22QQuickAnimatorProxyJob15updateLoopCountEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN22QQuickAnimatorProxyJob11updateStateEN21QAbstractAnimationJob5StateES1_": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK22QQuickAnimatorProxyJob14debugAnimationE6QDebug": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQuickAnimatorProxyJob13windowChangedEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQuickAnimatorProxyJob21sceneGraphInitializedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickAnimatorProxyJob21syncBackCurrentValuesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickAnimatorProxyJob14readyToAnimateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickAnimatorProxyJob9setWindowEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQuickAnimatorProxyJob20findAnimationContextEP23QQuickAbstractAnimation": [
+      "address", "address"
+    ],
+    "ritual_cast_QQuickAnimatorProxyJob_QAbstractAnimationJob": [
+      "address", "address"
+    ],
+    "ritual_take_QQuickAnimatorProxyJob": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK22QQuickAnimatorProxyJob8durationEv": ["int", "address"],
+    "ritual_own_ZN22QQuickAnimatorProxyJob17updateCurrentTimeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN22QQuickAnimatorProxyJob15updateLoopCountEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN22QQuickAnimatorProxyJob11updateStateEN21QAbstractAnimationJob5StateES1_": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZNK22QQuickAnimatorProxyJob14debugAnimationE6QDebug": [
+      "nothing", "address", "address"
+    ]
+  }
+}

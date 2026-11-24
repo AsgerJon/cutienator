@@ -1,0 +1,23 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/qformdatabuilder.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN20QFormDataPartBuilderC1Ev": ["address"],
+    "ritual_ZN20QFormDataPartBuilder7setBodyE14QByteArrayView14QAnyStringViewS1_": [
+      "address", "address", "address", "text", "text"
+    ],
+    "ritual_ZN20QFormDataPartBuilder13setBodyDeviceEP9QIODevice14QAnyStringViewS2_": [
+      "address", "address", "address", "text", "text"
+    ],
+    "ritual_ZN20QFormDataPartBuilder10setHeadersERK12QHttpHeaders": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN20QFormDataPartBuilder13setBodyHelperERK10QByteArray14QAnyStringViewS3_": [
+      "address", "address", "address", "text", "text"
+    ],
+    "ritual_ZN20QFormDataPartBuilderD1Ev": ["nothing", "address"]
+  }
+}

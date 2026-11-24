@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtMulti",
+    "media/6.12.0/QtMultimedia/private/qaudio_qiodevice_support_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN9QtPrivate29QIODeviceRingBufferWriterBase27bytesConsumedFromRingbufferEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZNK9QtPrivate29QIODeviceRingBufferWriterBase12isSequentialEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZNK9QtPrivate29QIODeviceRingBufferWriterBase12isSequentialEv": [
+      "bool", "address"
+    ]
+  }
+}

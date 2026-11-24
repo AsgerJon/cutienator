@@ -1,0 +1,78 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtBluetooth/6.12.0/QtBluetooth/private/device1_bluez5_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18QtBluetoothPrivate24OrgBluezDevice1Interface10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18QtBluetoothPrivate24OrgBluezDevice1Interface19staticInterfaceNameEv": [
+      "chars"
+    ],
+    "ritual_ZNK18QtBluetoothPrivate24OrgBluezDevice1Interface7adapterEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18QtBluetoothPrivate24OrgBluezDevice1Interface7addressEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK18QtBluetoothPrivate24OrgBluezDevice1Interface5aliasEv": [
+      "text", "address"
+    ],
+    "ritual_ZN18QtBluetoothPrivate24OrgBluezDevice1Interface8setAliasERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK18QtBluetoothPrivate24OrgBluezDevice1Interface10appearanceEv": [
+      "unsigned short", "address"
+    ],
+    "ritual_ZNK18QtBluetoothPrivate24OrgBluezDevice1Interface7blockedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN18QtBluetoothPrivate24OrgBluezDevice1Interface10setBlockedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK18QtBluetoothPrivate24OrgBluezDevice1Interface13classPropertyEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZNK18QtBluetoothPrivate24OrgBluezDevice1Interface9connectedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK18QtBluetoothPrivate24OrgBluezDevice1Interface4iconEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK18QtBluetoothPrivate24OrgBluezDevice1Interface13legacyPairingEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK18QtBluetoothPrivate24OrgBluezDevice1Interface8modaliasEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK18QtBluetoothPrivate24OrgBluezDevice1Interface4nameEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK18QtBluetoothPrivate24OrgBluezDevice1Interface6pairedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK18QtBluetoothPrivate24OrgBluezDevice1Interface4rSSIEv": [
+      "short", "address"
+    ],
+    "ritual_ZNK18QtBluetoothPrivate24OrgBluezDevice1Interface16servicesResolvedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK18QtBluetoothPrivate24OrgBluezDevice1Interface7trustedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN18QtBluetoothPrivate24OrgBluezDevice1Interface10setTrustedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK18QtBluetoothPrivate24OrgBluezDevice1Interface7txPowerEv": [
+      "short", "address"
+    ],
+    "ritual_ZNK18QtBluetoothPrivate24OrgBluezDevice1Interface5uUIDsEv": [
+      "address", "address"
+    ],
+    "ritual_take_QtBluetoothPrivate_OrgBluezDevice1Interface": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

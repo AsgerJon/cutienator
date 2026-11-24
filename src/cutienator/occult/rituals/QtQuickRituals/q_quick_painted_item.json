@@ -1,0 +1,104 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/qquickpainteditem.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QQuickPaintedItem10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QQuickPaintedItem2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QQuickPaintedItem24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuickPaintedItemD1Ev": ["nothing", "address"],
+    "ritual_ZN17QQuickPaintedItem6updateERK5QRect": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QQuickPaintedItem14opaquePaintingEv": ["bool", "address"],
+    "ritual_ZN17QQuickPaintedItem17setOpaquePaintingEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK17QQuickPaintedItem12antialiasingEv": ["bool", "address"],
+    "ritual_ZN17QQuickPaintedItem15setAntialiasingEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK17QQuickPaintedItem6mipmapEv": ["bool", "address"],
+    "ritual_ZN17QQuickPaintedItem9setMipmapEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK17QQuickPaintedItem16performanceHintsEv": ["int", "address"],
+    "ritual_ZN17QQuickPaintedItem18setPerformanceHintENS_15PerformanceHintEb": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZN17QQuickPaintedItem19setPerformanceHintsE6QFlagsINS_15PerformanceHintEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK17QQuickPaintedItem20contentsBoundingRectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK17QQuickPaintedItem12contentsSizeEv": ["address", "address"],
+    "ritual_ZN17QQuickPaintedItem15setContentsSizeERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QQuickPaintedItem17resetContentsSizeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK17QQuickPaintedItem13contentsScaleEv": ["double", "address"],
+    "ritual_ZN17QQuickPaintedItem16setContentsScaleEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK17QQuickPaintedItem11textureSizeEv": ["address", "address"],
+    "ritual_ZN17QQuickPaintedItem14setTextureSizeERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QQuickPaintedItem9fillColorEv": ["address", "address"],
+    "ritual_ZN17QQuickPaintedItem12setFillColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QQuickPaintedItem12renderTargetEv": ["int", "address"],
+    "ritual_ZN17QQuickPaintedItem15setRenderTargetENS_12RenderTargetE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQuickPaintedItem5paintEP8QPainter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QQuickPaintedItem17isTextureProviderEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK17QQuickPaintedItem15textureProviderEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QQuickPaintedItem15updatePaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN17QQuickPaintedItem16releaseResourcesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuickPaintedItem10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN17QQuickPaintedItem20invalidateSceneGraphEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQuickPaintedItem6d_funcEv": ["address", "address"],
+    "ritual_ZNK17QQuickPaintedItem6d_funcEv": ["address", "address"],
+    "ritual_take_QQuickPaintedItem": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK17QQuickPaintedItem17isTextureProviderEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZNK17QQuickPaintedItem15textureProviderEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN17QQuickPaintedItem15updatePaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN17QQuickPaintedItem16releaseResourcesEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN17QQuickPaintedItem10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ]
+  }
+}

@@ -296,6 +296,7 @@ void ritual_ZN14QSurfaceFormat13setColorSpaceERK11QColorSpace(
   self->setColorSpace(*colorSpace);
 }
 
+#if QT_DEPRECATED_SINCE(6,0)
 //  void QSurfaceFormat::setColorSpace(ColorSpace colorSpace)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14QSurfaceFormat13setColorSpaceENS_10ColorSpaceE(
@@ -303,6 +304,7 @@ void ritual_ZN14QSurfaceFormat13setColorSpaceENS_10ColorSpaceE(
     QSurfaceFormat::ColorSpace colorSpace) {
   self->setColorSpace(colorSpace);
 }
+#endif  // QT_DEPRECATED_SINCE(6,0)
 
 //  void QSurfaceFormat::setDefaultFormat(const QSurfaceFormat &format)
 extern "C" Q_DECL_EXPORT
@@ -347,6 +349,7 @@ bool ritual_ZneRK14QSurfaceFormatS1_(
   return operator!=(*lhs, *rhs);
 }
 
+#if !defined(QT_NO_DEBUG_STREAM)
 //  QDebug operator<<(QDebug a0, const QSurfaceFormat &a1)
 extern "C" Q_DECL_EXPORT
 QDebug *ritual_Zls6QDebugRK14QSurfaceFormat(
@@ -354,3 +357,4 @@ QDebug *ritual_Zls6QDebugRK14QSurfaceFormat(
     const QSurfaceFormat *a1) {
   return new QDebug(operator<<(*a0, *a1));
 }
+#endif  // !defined(QT_NO_DEBUG_STREAM)

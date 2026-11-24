@@ -1,0 +1,12 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQmlCompiler/6.12.0/QtQmlCompiler/private/qqmlsa_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN6QQmlSA14MethodsPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK6QQmlSA14MethodsPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN6QQmlSA14MethodsPrivateD1Ev": ["nothing", "address"]
+  }
+}

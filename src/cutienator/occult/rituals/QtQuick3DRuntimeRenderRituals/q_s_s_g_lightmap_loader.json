@@ -1,0 +1,23 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssglightmap",
+    "io_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QSSGLightmapLoaderD1Ev": ["nothing", "address"],
+    "ritual_ZNK18QSSGLightmapLoader12readF32ImageERK7QString21QSSGLightmapIODataTag": [
+      "address", "address", "text", "unsigned int"
+    ],
+    "ritual_ZNK18QSSGLightmapLoader12readU32ImageERK7QString21QSSGLightmapIODataTag": [
+      "address", "address", "text", "unsigned int"
+    ],
+    "ritual_ZNK18QSSGLightmapLoader8readDataERK7QString21QSSGLightmapIODataTag": [
+      "address", "address", "text", "unsigned int"
+    ],
+    "ritual_ZNK18QSSGLightmapLoader7readMapERK7QString21QSSGLightmapIODataTag": [
+      "address", "address", "text", "unsigned int"
+    ],
+    "ritual_ZN18QSSGLightmapLoaderC1Ev": ["address"]
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgrenderbu",
+    "ffermanager_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN17QSSGBufferManagerC1Ev": ["address"],
+    "ritual_ZN17QSSGBufferManagerD1Ev": ["nothing", "address"],
+    "ritual_ZN17QSSGBufferManager25setRenderContextInterfaceEP26QSSGRenderContextInterface": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QSSGBufferManager22releaseCachedResourcesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QSSGBufferManager24releaseResourcesForLayerEP15QSSGRenderLayer": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QSSGBufferManager15loadRenderImageEPK15QSSGRenderImageNS_7MipModeE6QFlagsINS_19LoadRenderImageFlagEE": [
+      "address", "address", "address", "unsigned char", "int"
+    ],
+    "ritual_ZN17QSSGBufferManager15loadTextureDataEP21QSSGRenderTextureDataNS_7MipModeE": [
+      "address", "address", "address", "unsigned char"
+    ],
+    "ritual_ZN17QSSGBufferManager11loadSkinmapEP21QSSGRenderTextureData": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN17QSSGBufferManager14getModelBoundsEPK15QSSGRenderModel": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN17QSSGBufferManager26cleanupUnreferencedBuffersEjP15QSSGRenderLayer": [
+      "nothing", "address", "unsigned int", "address"
+    ],
+    "ritual_ZN17QSSGBufferManager18resetUsageCountersEjP15QSSGRenderLayer": [
+      "nothing", "address", "unsigned int", "address"
+    ],
+    "ritual_ZN17QSSGBufferManager15releaseGeometryEP18QSSGRenderGeometryRK7QString": [
+      "nothing", "address", "address", "text"
+    ],
+    "ritual_ZN17QSSGBufferManager18releaseTextureDataEPK21QSSGRenderTextureData": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QSSGBufferManager18releaseTextureDataERKNS_19CustomImageCacheKeyE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QSSGBufferManager27commitBufferResourceUpdatesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QSSGBufferManager21processResourceLoaderEPK24QSSGRenderResourceLoader": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QSSGBufferManager12loadMeshDataERK14QSSGRenderPath": [
+      "address", "address"
+    ],
+    "ritual_ZN17QSSGBufferManager12loadMeshDataEPK18QSSGRenderGeometry": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN17QSSGBufferManager11toRhiFormatE23QSSGRenderTextureFormat": [
+      "int", "address"
+    ],
+    "ritual_ZN17QSSGBufferManager18unregisterMeshDataERK7QString": [
+      "nothing", "text"
+    ],
+    "ritual_ZN17QSSGBufferManager21runtimeMeshSourceNameERK7QStringx": [
+      "text", "text", "long long"
+    ],
+    "ritual_ZN17QSSGBufferManager13primitivePathERK7QString": [
+      "text", "text"
+    ],
+    "ritual_ZN17QSSGBufferManager15meshUpdateMutexEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QSSGBufferManager18increaseMemoryStatEP11QRhiTexture": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QSSGBufferManager18decreaseMemoryStatEP11QRhiTexture": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QSSGBufferManager18increaseMemoryStatEP14QSSGRenderMesh": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QSSGBufferManager18decreaseMemoryStatEP14QSSGRenderMesh": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QSSGBufferManager17setLightmapSourceERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN17QSSGBufferManager26setCurrentlyLightmapBakingEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN17QSSGBufferManager5clearEv": ["nothing", "address"],
+    "ritual_ZN17QSSGBufferManager21meshBufferUpdateBatchEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QSSGBufferManager13loadPrimitiveERK7QString": [
+      "address", "text"
+    ],
+    "ritual_ZN17QSSGBufferManager14loadRenderMeshERK14QSSGRenderPath25QSSGMeshProcessingOptions": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN17QSSGBufferManager14loadRenderMeshEP18QSSGRenderGeometry25QSSGMeshProcessingOptions": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN17QSSGBufferManager16createRenderMeshERKN8QSSGMesh4MeshERK7QString": [
+      "address", "address", "address", "text"
+    ],
+    "ritual_ZN17QSSGBufferManager20createEnvironmentMapEPK17QSSGLoadedTextureP22QSSGRenderImageTextureRK7QString": [
+      "bool", "address", "address", "address", "text"
+    ],
+    "ritual_ZN17QSSGBufferManager11releaseMeshERK14QSSGRenderPath": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QSSGBufferManager12releaseImageERKNS_13ImageCacheKeyE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QSSGBufferManager16validateLightmapEv": ["bool", "address"]
+  }
+}

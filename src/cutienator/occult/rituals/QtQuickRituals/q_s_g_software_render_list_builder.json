@@ -1,0 +1,148 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qsgsoftwarerenderlistbuilder_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN28QSGSoftwareRenderListBuilderC1EP27QSGAbstractSoftwareRenderer": [
+      "address", "address"
+    ],
+    "ritual_ZN28QSGSoftwareRenderListBuilder5visitEP16QSGTransformNode": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN28QSGSoftwareRenderListBuilder8endVisitEP16QSGTransformNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QSGSoftwareRenderListBuilder5visitEP11QSGClipNode": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN28QSGSoftwareRenderListBuilder8endVisitEP11QSGClipNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QSGSoftwareRenderListBuilder5visitEP15QSGGeometryNode": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN28QSGSoftwareRenderListBuilder8endVisitEP15QSGGeometryNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QSGSoftwareRenderListBuilder5visitEP14QSGOpacityNode": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN28QSGSoftwareRenderListBuilder8endVisitEP14QSGOpacityNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QSGSoftwareRenderListBuilder5visitEP20QSGInternalImageNode": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN28QSGSoftwareRenderListBuilder8endVisitEP20QSGInternalImageNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QSGSoftwareRenderListBuilder5visitEP14QSGPainterNode": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN28QSGSoftwareRenderListBuilder8endVisitEP14QSGPainterNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QSGSoftwareRenderListBuilder5visitEP24QSGInternalRectangleNode": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN28QSGSoftwareRenderListBuilder8endVisitEP24QSGInternalRectangleNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QSGSoftwareRenderListBuilder5visitEP12QSGGlyphNode": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN28QSGSoftwareRenderListBuilder8endVisitEP12QSGGlyphNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QSGSoftwareRenderListBuilder5visitEP11QSGRootNode": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN28QSGSoftwareRenderListBuilder8endVisitEP11QSGRootNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QSGSoftwareRenderListBuilder5visitEP13QSGSpriteNode": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN28QSGSoftwareRenderListBuilder8endVisitEP13QSGSpriteNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QSGSoftwareRenderListBuilder5visitEP13QSGRenderNode": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN28QSGSoftwareRenderListBuilder8endVisitEP13QSGRenderNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QSGSoftwareRenderListBuilder17addRenderableNodeEP7QSGNode": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN28QSGSoftwareRenderListBuilderD1Ev": ["nothing", "address"],
+    "ritual_own_ZN28QSGSoftwareRenderListBuilder5visitEP16QSGTransformNode": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN28QSGSoftwareRenderListBuilder8endVisitEP16QSGTransformNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN28QSGSoftwareRenderListBuilder5visitEP11QSGClipNode": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN28QSGSoftwareRenderListBuilder8endVisitEP11QSGClipNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN28QSGSoftwareRenderListBuilder5visitEP15QSGGeometryNode": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN28QSGSoftwareRenderListBuilder8endVisitEP15QSGGeometryNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN28QSGSoftwareRenderListBuilder5visitEP14QSGOpacityNode": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN28QSGSoftwareRenderListBuilder8endVisitEP14QSGOpacityNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN28QSGSoftwareRenderListBuilder5visitEP20QSGInternalImageNode": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN28QSGSoftwareRenderListBuilder8endVisitEP20QSGInternalImageNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN28QSGSoftwareRenderListBuilder5visitEP14QSGPainterNode": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN28QSGSoftwareRenderListBuilder8endVisitEP14QSGPainterNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN28QSGSoftwareRenderListBuilder5visitEP24QSGInternalRectangleNode": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN28QSGSoftwareRenderListBuilder8endVisitEP24QSGInternalRectangleNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN28QSGSoftwareRenderListBuilder5visitEP12QSGGlyphNode": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN28QSGSoftwareRenderListBuilder8endVisitEP12QSGGlyphNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN28QSGSoftwareRenderListBuilder5visitEP11QSGRootNode": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN28QSGSoftwareRenderListBuilder8endVisitEP11QSGRootNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN28QSGSoftwareRenderListBuilder5visitEP13QSGSpriteNode": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN28QSGSoftwareRenderListBuilder8endVisitEP13QSGSpriteNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN28QSGSoftwareRenderListBuilder5visitEP13QSGRenderNode": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN28QSGSoftwareRenderListBuilder8endVisitEP13QSGRenderNode": [
+      "nothing", "address", "address"
+    ]
+  }
+}

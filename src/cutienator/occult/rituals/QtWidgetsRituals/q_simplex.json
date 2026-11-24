@@ -1,0 +1,40 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qsimplex_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN8QSimplexC1Ev": ["address"],
+    "ritual_ZN8QSimplexD1Ev": ["nothing", "address"],
+    "ritual_ZN8QSimplex8solveMinEv": ["double", "address"],
+    "ritual_ZN8QSimplex8solveMaxEv": ["double", "address"],
+    "ritual_ZN8QSimplex14setConstraintsERK5QListIP18QSimplexConstraintE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN8QSimplex12setObjectiveEP18QSimplexConstraint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN8QSimplex7valueAtEii": ["double", "address", "int", "int"],
+    "ritual_ZN8QSimplex10setValueAtEiid": [
+      "nothing", "address", "int", "int", "double"
+    ],
+    "ritual_ZN8QSimplex8clearRowEi": ["nothing", "address", "int"],
+    "ritual_ZN8QSimplex12clearColumnsEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN8QSimplex11combineRowsEiid": [
+      "nothing", "address", "int", "int", "double"
+    ],
+    "ritual_ZN8QSimplex15findPivotColumnEv": ["int", "address"],
+    "ritual_ZN8QSimplex17pivotRowForColumnEi": ["int", "address", "int"],
+    "ritual_ZN8QSimplex17reducedRowEchelonEv": ["nothing", "address"],
+    "ritual_ZN8QSimplex7iterateEv": ["bool", "address"],
+    "ritual_ZN8QSimplex19clearDataStructuresEv": ["nothing", "address"],
+    "ritual_ZN8QSimplex14solveMaxHelperEv": ["nothing", "address"],
+    "ritual_ZN8QSimplex6solverENS_12SolverFactorE": [
+      "double", "address", "int"
+    ],
+    "ritual_ZN8QSimplex14collectResultsEv": ["nothing", "address"]
+  }
+}

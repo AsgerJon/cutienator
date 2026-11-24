@@ -1,0 +1,52 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/qqmlfile.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN8QQmlFileC1Ev": ["address"],
+    "ritual_ZN8QQmlFileC1EP10QQmlEngineRK4QUrl": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN8QQmlFileC1EP10QQmlEngineRK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN8QQmlFileD1Ev": ["nothing", "address"],
+    "ritual_ZNK8QQmlFile6isNullEv": ["bool", "address"],
+    "ritual_ZNK8QQmlFile7isReadyEv": ["bool", "address"],
+    "ritual_ZNK8QQmlFile7isErrorEv": ["bool", "address"],
+    "ritual_ZNK8QQmlFile9isLoadingEv": ["bool", "address"],
+    "ritual_ZNK8QQmlFile3urlEv": ["address", "address"],
+    "ritual_ZNK8QQmlFile6statusEv": ["int", "address"],
+    "ritual_ZNK8QQmlFile5errorEv": ["text", "address"],
+    "ritual_ZNK8QQmlFile4sizeEv": ["long long", "address"],
+    "ritual_ZNK8QQmlFile4dataEv": ["chars", "address"],
+    "ritual_ZNK8QQmlFile13dataByteArrayEv": ["address", "address"],
+    "ritual_ZN8QQmlFile4loadEP10QQmlEngineRK4QUrl": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN8QQmlFile4loadEP10QQmlEngineRK7QString": [
+      "nothing", "address", "address", "text"
+    ],
+    "ritual_ZN8QQmlFile5clearEv": ["nothing", "address"],
+    "ritual_ZN8QQmlFile5clearEP7QObject": ["nothing", "address", "address"],
+    "ritual_ZN8QQmlFile15connectFinishedEP7QObjectPKc": [
+      "bool", "address", "address", "chars"
+    ],
+    "ritual_ZN8QQmlFile15connectFinishedEP7QObjecti": [
+      "bool", "address", "address", "int"
+    ],
+    "ritual_ZN8QQmlFile23connectDownloadProgressEP7QObjectPKc": [
+      "bool", "address", "address", "chars"
+    ],
+    "ritual_ZN8QQmlFile23connectDownloadProgressEP7QObjecti": [
+      "bool", "address", "address", "int"
+    ],
+    "ritual_ZN8QQmlFile13isSynchronousERK7QString": ["bool", "text"],
+    "ritual_ZN8QQmlFile13isSynchronousERK4QUrl": ["bool", "address"],
+    "ritual_ZN8QQmlFile11isLocalFileERK7QString": ["bool", "text"],
+    "ritual_ZN8QQmlFile11isLocalFileERK4QUrl": ["bool", "address"],
+    "ritual_ZN8QQmlFile19urlToLocalFileOrQrcERK7QString": ["text", "text"],
+    "ritual_ZN8QQmlFile19urlToLocalFileOrQrcERK4QUrl": ["text", "address"]
+  }
+}

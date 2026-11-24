@@ -1,0 +1,28 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquicksinglepointhandler_p_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN31QQuickSinglePointHandlerPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK31QQuickSinglePointHandlerPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN31QQuickSinglePointHandlerPrivate3getEP24QQuickSinglePointHandler": [
+      "address", "address"
+    ],
+    "ritual_ZN31QQuickSinglePointHandlerPrivate3getEPK24QQuickSinglePointHandler": [
+      "address", "address"
+    ],
+    "ritual_ZN31QQuickSinglePointHandlerPrivateC1Ev": ["address"],
+    "ritual_ZN31QQuickSinglePointHandlerPrivate5resetEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QQuickSinglePointHandlerPrivate": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/qssldiffiehellmanparameters.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN27QSslDiffieHellmanParameters17defaultParametersEv": [
+      "address"
+    ],
+    "ritual_ZN27QSslDiffieHellmanParametersC1Ev": ["address"],
+    "ritual_ZN27QSslDiffieHellmanParametersC1ERKS_": ["address", "address"],
+    "ritual_ZN27QSslDiffieHellmanParametersD1Ev": ["nothing", "address"],
+    "ritual_ZN27QSslDiffieHellmanParameters11fromEncodedERK10QByteArrayN4QSsl14EncodingFormatE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN27QSslDiffieHellmanParameters11fromEncodedEP9QIODeviceN4QSsl14EncodingFormatE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK27QSslDiffieHellmanParameters7isEmptyEv": ["bool", "address"],
+    "ritual_ZNK27QSslDiffieHellmanParameters7isValidEv": ["bool", "address"],
+    "ritual_ZNK27QSslDiffieHellmanParameters5errorEv": ["int", "address"],
+    "ritual_ZNK27QSslDiffieHellmanParameters11errorStringEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK27QSslDiffieHellmanParameters7isEqualERKS_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZeqRK27QSslDiffieHellmanParametersS1_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZneRK27QSslDiffieHellmanParametersS1_": [
+      "bool", "address", "address"
+    ],
+    "ritual_Zls6QDebugRK27QSslDiffieHellmanParameters": [
+      "address", "address", "address"
+    ]
+  }
+}

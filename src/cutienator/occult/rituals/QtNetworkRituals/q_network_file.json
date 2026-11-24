@@ -1,0 +1,13 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/6.12.0/QtNetwork/private/qnetworkfile_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK12QNetworkFile10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QNetworkFile5closeEv": ["nothing", "address"],
+    "ritual_take_QNetworkFile": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN12QNetworkFile5closeEv": ["nothing", "address"]
+  }
+}

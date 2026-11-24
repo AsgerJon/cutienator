@@ -1,0 +1,49 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/qtresourceview_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK14QtResourceView10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QtResourceView2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN14QtResourceViewC1EP28QDesignerFormEditorInterfaceP7QWidget": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN14QtResourceViewD1Ev": ["nothing", "address"],
+    "ritual_ZN14QtResourceView14setDragEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK14QtResourceView11dragEnabledEv": ["bool", "address"],
+    "ritual_ZNK14QtResourceView5modelEv": ["address", "address"],
+    "ritual_ZN14QtResourceView16setResourceModelEP15QtResourceModel": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QtResourceView16selectedResourceEv": ["text", "address"],
+    "ritual_ZN14QtResourceView14selectResourceERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK14QtResourceView11settingsKeyEv": ["text", "address"],
+    "ritual_ZN14QtResourceView14setSettingsKeyERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK14QtResourceView24isResourceEditingEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN14QtResourceView25setResourceEditingEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN14QtResourceView14encodeMimeDataENS_12ResourceTypeERK7QString": [
+      "text", "int", "text"
+    ],
+    "ritual_ZN14QtResourceView5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_take_QtResourceView": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN14QtResourceView5eventEP6QEvent": [
+      "bool", "address", "address"
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/qtresourceview_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK20QtResourceViewDialog10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QtResourceViewDialog2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN20QtResourceViewDialogC1EP28QDesignerFormEditorInterfaceP7QWidget": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN20QtResourceViewDialogD1Ev": ["nothing", "address"],
+    "ritual_ZNK20QtResourceViewDialog16selectedResourceEv": [
+      "text", "address"
+    ],
+    "ritual_ZN20QtResourceViewDialog14selectResourceERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK20QtResourceViewDialog24isResourceEditingEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN20QtResourceViewDialog25setResourceEditingEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_take_QtResourceViewDialog": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qfreetypefontdatabase_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN21QFreeTypeFontDatabase20populateFontDatabaseEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QFreeTypeFontDatabase10fontEngineERK10QByteArraydN5QFont17HintingPreferenceE": [
+      "address", "address", "address", "double", "int"
+    ],
+    "ritual_ZN21QFreeTypeFontDatabase18addApplicationFontERK10QByteArrayRK7QStringPN20QFontDatabasePrivate15ApplicationFontE": [
+      "address", "address", "address", "text", "address"
+    ],
+    "ritual_ZNK21QFreeTypeFontDatabase32supportsVariableApplicationFontsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK21QFreeTypeFontDatabase19supportsColrv0FontsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QFreeTypeFontDatabase9addTTFileERK10QByteArrayS2_PN20QFontDatabasePrivate15ApplicationFontE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN21QFreeTypeFontDatabaseD1Ev": ["nothing", "address"],
+    "ritual_take_QFreeTypeFontDatabase": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN21QFreeTypeFontDatabase20populateFontDatabaseEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN21QFreeTypeFontDatabase10fontEngineERK10QByteArraydN5QFont17HintingPreferenceE": [
+      "address", "address", "address", "double", "int"
+    ],
+    "ritual_own_ZNK21QFreeTypeFontDatabase32supportsVariableApplicationFontsEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZNK21QFreeTypeFontDatabase19supportsColrv0FontsEv": [
+      "bool", "address"
+    ]
+  }
+}

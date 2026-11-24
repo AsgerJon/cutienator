@@ -1,0 +1,89 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Particles/6.12.0/QtQuickParticles/private/qquickparticleaffector_p",
+    ".h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK22QQuickParticleAffector10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QQuickParticleAffector2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN22QQuickParticleAffector24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickParticleAffectorC1EP10QQuickItem": [
+      "address", "address"
+    ],
+    "ritual_ZN22QQuickParticleAffector12affectSystemEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN22QQuickParticleAffector5resetEP18QQuickParticleData": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK22QQuickParticleAffector6systemEv": ["address", "address"],
+    "ritual_ZNK22QQuickParticleAffector6groupsEv": ["address", "address"],
+    "ritual_ZNK22QQuickParticleAffector7enabledEv": ["bool", "address"],
+    "ritual_ZNK22QQuickParticleAffector7onceOffEv": ["bool", "address"],
+    "ritual_ZNK22QQuickParticleAffector5shapeEv": ["address", "address"],
+    "ritual_ZNK22QQuickParticleAffector17whenCollidingWithEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QQuickParticleAffector9setSystemEP20QQuickParticleSystem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQuickParticleAffector9setGroupsERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQuickParticleAffector10setEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN22QQuickParticleAffector10setOnceOffEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN22QQuickParticleAffector8setShapeEP22QQuickParticleExtruder": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQuickParticleAffector20setWhenCollidingWithERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQuickParticleAffector13updateOffsetsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickParticleAffector14affectParticleEP18QQuickParticleDatad": [
+      "bool", "address", "address", "double"
+    ],
+    "ritual_ZN22QQuickParticleAffector11activeGroupEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN22QQuickParticleAffector12shouldAffectEP18QQuickParticleData": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN22QQuickParticleAffector10postAffectEP18QQuickParticleData": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQuickParticleAffector17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickParticleAffector19isAffectedConnectedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK22QQuickParticleAffector11isCollidingEP18QQuickParticleData": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN22QQuickParticleAffector12affectSystemEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_own_ZN22QQuickParticleAffector5resetEP18QQuickParticleData": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN22QQuickParticleAffector14affectParticleEP18QQuickParticleDatad": [
+      "bool", "address", "address", "double"
+    ],
+    "ritual_own_ZN22QQuickParticleAffector17componentCompleteEv": [
+      "nothing", "address"
+    ]
+  }
+}

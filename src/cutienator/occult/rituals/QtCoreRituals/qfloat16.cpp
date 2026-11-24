@@ -8,23 +8,29 @@ qfloat16 *ritual_ZN8qfloat16C1EN2Qt14InitializationE(Qt::Initialization a0) {
   return new qfloat16(a0);
 }
 
+#if !(QFLOAT16_IS_NATIVE)
 //  qfloat16::qfloat16()
 extern "C" Q_DECL_EXPORT
 qfloat16 *ritual_ZN8qfloat16C1Ev() {
   return new qfloat16();
 }
+#endif  // !(QFLOAT16_IS_NATIVE)
 
+#if !(QFLOAT16_IS_NATIVE)
 //  qfloat16::qfloat16(float f)
 extern "C" Q_DECL_EXPORT
 qfloat16 *ritual_ZN8qfloat16C1Ef(float f) {
   return new qfloat16(f);
 }
+#endif  // !(QFLOAT16_IS_NATIVE)
 
+#if !(QFLOAT16_IS_NATIVE)
 //  float qfloat16::operator float() const
 extern "C" Q_DECL_EXPORT
 float ritual_ZNK8qfloat16cvfEv(const qfloat16 *self) {
   return self->operator float();
 }
+#endif  // !(QFLOAT16_IS_NATIVE)
 
 //  bool qfloat16::isInf() const
 extern "C" Q_DECL_EXPORT
@@ -58,53 +64,71 @@ qfloat16 *ritual_ZNK8qfloat168copySignES_(
   return new qfloat16(self->copySign(*sign));
 }
 
+#if !(defined(__STDCPP_FLOAT16_T__))
 //  qfloat16 qfloat16::_limit_epsilon()
 extern "C" Q_DECL_EXPORT
 qfloat16 *ritual_ZN8qfloat1614_limit_epsilonEv() {
   return new qfloat16(qfloat16::_limit_epsilon());
 }
+#endif  // !(defined(__STDCPP_FLOAT16_T__))
 
+#if !(defined(__STDCPP_FLOAT16_T__))
 //  qfloat16 qfloat16::_limit_min()
 extern "C" Q_DECL_EXPORT
 qfloat16 *ritual_ZN8qfloat1610_limit_minEv() {
   return new qfloat16(qfloat16::_limit_min());
 }
+#endif  // !(defined(__STDCPP_FLOAT16_T__))
 
+#if !(defined(__STDCPP_FLOAT16_T__))
 //  qfloat16 qfloat16::_limit_denorm_min()
 extern "C" Q_DECL_EXPORT
 qfloat16 *ritual_ZN8qfloat1617_limit_denorm_minEv() {
   return new qfloat16(qfloat16::_limit_denorm_min());
 }
+#endif  // !(defined(__STDCPP_FLOAT16_T__))
 
+#if !(defined(__STDCPP_FLOAT16_T__))
 //  qfloat16 qfloat16::_limit_max()
 extern "C" Q_DECL_EXPORT
 qfloat16 *ritual_ZN8qfloat1610_limit_maxEv() {
   return new qfloat16(qfloat16::_limit_max());
 }
+#endif  // !(defined(__STDCPP_FLOAT16_T__))
 
+#if !(defined(__STDCPP_FLOAT16_T__))
 //  qfloat16 qfloat16::_limit_lowest()
 extern "C" Q_DECL_EXPORT
 qfloat16 *ritual_ZN8qfloat1613_limit_lowestEv() {
   return new qfloat16(qfloat16::_limit_lowest());
 }
+#endif  // !(defined(__STDCPP_FLOAT16_T__))
 
+#if !(defined(__STDCPP_FLOAT16_T__))
 //  qfloat16 qfloat16::_limit_infinity()
 extern "C" Q_DECL_EXPORT
 qfloat16 *ritual_ZN8qfloat1615_limit_infinityEv() {
   return new qfloat16(qfloat16::_limit_infinity());
 }
+#endif  // !(defined(__STDCPP_FLOAT16_T__))
 
+#if !(defined(__STDCPP_FLOAT16_T__))
 //  qfloat16 qfloat16::_limit_quiet_NaN()
 extern "C" Q_DECL_EXPORT
 qfloat16 *ritual_ZN8qfloat1616_limit_quiet_NaNEv() {
   return new qfloat16(qfloat16::_limit_quiet_NaN());
 }
+#endif  // !(defined(__STDCPP_FLOAT16_T__))
 
+#if !(defined(__STDCPP_FLOAT16_T__))
+#if QT_CONFIG(signaling_nan)
 //  qfloat16 qfloat16::_limit_signaling_NaN()
 extern "C" Q_DECL_EXPORT
 qfloat16 *ritual_ZN8qfloat1620_limit_signaling_NaNEv() {
   return new qfloat16(qfloat16::_limit_signaling_NaN());
 }
+#endif  // QT_CONFIG(signaling_nan)
+#endif  // !(defined(__STDCPP_FLOAT16_T__))
 
 //  bool qfloat16::isNormal() const
 extern "C" Q_DECL_EXPORT

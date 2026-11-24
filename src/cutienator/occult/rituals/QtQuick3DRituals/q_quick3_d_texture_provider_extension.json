@@ -1,0 +1,51 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3D/qquick3dtextureproviderextension.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK32QQuick3DTextureProviderExtension10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN32QQuick3DTextureProviderExtension2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN32QQuick3DTextureProviderExtension6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK32QQuick3DTextureProviderExtension6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN32QQuick3DTextureProviderExtension24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN32QQuick3DTextureProviderExtensionC1EP14QQuick3DObject": [
+      "address", "address"
+    ],
+    "ritual_ZN32QQuick3DTextureProviderExtensionD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK32QQuick3DTextureProviderExtension11samplerHintEv": [
+      "int", "address"
+    ],
+    "ritual_ZN32QQuick3DTextureProviderExtension14setSamplerHintENS_11SamplerHintE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN32QQuick3DTextureProviderExtension5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN32QQuick3DTextureProviderExtension17updateSpatialNodeEP21QSSGRenderGraphObject": [
+      "address", "address", "address"
+    ],
+    "ritual_take_QQuick3DTextureProviderExtension": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN32QQuick3DTextureProviderExtension5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN32QQuick3DTextureProviderExtension17updateSpatialNodeEP21QSSGRenderGraphObject": [
+      "address", "address", "address"
+    ]
+  }
+}

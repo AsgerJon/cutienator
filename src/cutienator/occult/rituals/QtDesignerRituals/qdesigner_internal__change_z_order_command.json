@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/qdesigner_command_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18qdesigner_internal19ChangeZOrderCommand13reorderWidgetERK5QListIP7QWidgetES3_": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal19ChangeZOrderCommand7reorderEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN18qdesigner_internal19ChangeZOrderCommand4redoEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN18qdesigner_internal19ChangeZOrderCommand4undoEv": [
+      "nothing", "address"
+    ]
+  }
+}

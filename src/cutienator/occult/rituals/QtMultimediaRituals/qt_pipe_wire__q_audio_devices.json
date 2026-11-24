@@ -1,0 +1,25 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtMulti",
+    "media/6.12.0/QtMultimedia/private/qpipewire_audiodevices_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN10QtPipeWire13QAudioDevicesD1Ev": ["nothing", "address"],
+    "ritual_ZNK10QtPipeWire13QAudioDevices11backendNameEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK10QtPipeWire13QAudioDevices14hasCallbackApiEv": [
+      "bool", "address"
+    ],
+    "ritual_take_QtPipeWire_QAudioDevices": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK10QtPipeWire13QAudioDevices11backendNameEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK10QtPipeWire13QAudioDevices14hasCallbackApiEv": [
+      "bool", "address"
+    ]
+  }
+}

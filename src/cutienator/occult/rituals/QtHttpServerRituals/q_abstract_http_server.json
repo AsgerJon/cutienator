@@ -1,0 +1,41 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtHttpServer/qabstracthttpserver.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZNK19QAbstractHttpServer10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QAbstractHttpServer2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN19QAbstractHttpServerD1Ev": ["nothing", "address"],
+    "ritual_ZN19QAbstractHttpServer4bindEP10QTcpServer": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK19QAbstractHttpServer7serversEv": ["address", "address"],
+    "ritual_ZN19QAbstractHttpServer4bindEP12QLocalServer": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK19QAbstractHttpServer12localServersEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QAbstractHttpServer18http2ConfigurationEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QAbstractHttpServer21setHttp2ConfigurationERK19QHttp2Configuration": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QAbstractHttpServer16setConfigurationERK24QHttpServerConfiguration": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QAbstractHttpServer13configurationEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QAbstractHttpServer6d_funcEv": ["address", "address"],
+    "ritual_ZNK19QAbstractHttpServer6d_funcEv": ["address", "address"],
+    "ritual_take_QAbstractHttpServer": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

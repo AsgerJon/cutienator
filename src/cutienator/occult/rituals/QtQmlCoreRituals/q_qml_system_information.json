@@ -1,0 +1,51 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQmlCore/6.12.0/QtQmlCore/private/qqmlsysteminformation_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK21QQmlSystemInformation10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QQmlSystemInformation2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN21QQmlSystemInformation22qt_qmlMarker_singletonEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQmlSystemInformationC1EP7QObject": ["address", "address"],
+    "ritual_ZNK21QQmlSystemInformation8wordSizeEv": ["int", "address"],
+    "ritual_ZNK21QQmlSystemInformation9byteOrderEv": ["int", "address"],
+    "ritual_ZNK21QQmlSystemInformation20buildCpuArchitectureEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK21QQmlSystemInformation22currentCpuArchitectureEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK21QQmlSystemInformation8buildAbiEv": ["text", "address"],
+    "ritual_ZNK21QQmlSystemInformation10kernelTypeEv": ["text", "address"],
+    "ritual_ZNK21QQmlSystemInformation13kernelVersionEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK21QQmlSystemInformation11productTypeEv": ["text", "address"],
+    "ritual_ZNK21QQmlSystemInformation14productVersionEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK21QQmlSystemInformation17prettyProductNameEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK21QQmlSystemInformation15machineHostNameEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK21QQmlSystemInformation15machineUniqueIdEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK21QQmlSystemInformation12bootUniqueIdEv": [
+      "address", "address"
+    ],
+    "ritual_take_QQmlSystemInformation": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

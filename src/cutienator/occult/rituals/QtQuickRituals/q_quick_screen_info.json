@@ -1,0 +1,47 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickscreen_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK16QQuickScreenInfo10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QQuickScreenInfo2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN16QQuickScreenInfo24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickScreenInfoC1EP7QObjectP7QScreen": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK16QQuickScreenInfo4nameEv": ["text", "address"],
+    "ritual_ZNK16QQuickScreenInfo12manufacturerEv": ["text", "address"],
+    "ritual_ZNK16QQuickScreenInfo5modelEv": ["text", "address"],
+    "ritual_ZNK16QQuickScreenInfo12serialNumberEv": ["text", "address"],
+    "ritual_ZNK16QQuickScreenInfo5widthEv": ["int", "address"],
+    "ritual_ZNK16QQuickScreenInfo6heightEv": ["int", "address"],
+    "ritual_ZNK16QQuickScreenInfo21desktopAvailableWidthEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK16QQuickScreenInfo22desktopAvailableHeightEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK16QQuickScreenInfo19logicalPixelDensityEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK16QQuickScreenInfo12pixelDensityEv": ["double", "address"],
+    "ritual_ZNK16QQuickScreenInfo16devicePixelRatioEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK16QQuickScreenInfo18primaryOrientationEv": ["int", "address"],
+    "ritual_ZNK16QQuickScreenInfo11orientationEv": ["int", "address"],
+    "ritual_ZNK16QQuickScreenInfo8virtualXEv": ["int", "address"],
+    "ritual_ZNK16QQuickScreenInfo8virtualYEv": ["int", "address"],
+    "ritual_ZN16QQuickScreenInfo16setWrappedScreenEP7QScreen": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QQuickScreenInfo13wrappedScreenEv": ["address", "address"],
+    "ritual_take_QQuickScreenInfo": ["bool", "address", "chars", "address"]
+  }
+}

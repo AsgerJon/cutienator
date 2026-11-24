@@ -1,0 +1,33 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4property_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN3QV48Property14fullyPopulatedEPNS_18PropertyAttributesE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN3QV48Property9completedEPNS_18PropertyAttributesE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK3QV48Property8isSubsetERKNS_18PropertyAttributesEPKS0_S1_": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK3QV48Property6getterEv": ["address", "address"],
+    "ritual_ZNK3QV48Property6setterEv": ["address", "address"],
+    "ritual_ZN3QV48Property9setGetterEPNS_14FunctionObjectE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN3QV48Property9setSetterEPNS_14FunctionObjectE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN3QV48Property4copyEPKS0_NS_18PropertyAttributesE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN3QV48PropertyC1Ev": ["address"],
+    "ritual_ZN3QV48PropertyC1EPNS_4Heap14FunctionObjectES3_": [
+      "address", "address", "address"
+    ]
+  }
+}

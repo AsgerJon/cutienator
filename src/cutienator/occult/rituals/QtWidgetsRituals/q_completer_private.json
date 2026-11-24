@@ -1,0 +1,30 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qcompleter_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN17QCompleterPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK17QCompleterPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN17QCompleterPrivateC1Ev": ["address"],
+    "ritual_ZN17QCompleterPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN17QCompleterPrivate9showPopupERK5QRect": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QCompleterPrivate11_q_completeE11QModelIndexb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN17QCompleterPrivate21_q_completionSelectedERK14QItemSelection": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QCompleterPrivate18_q_autoResizePopupEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QCompleterPrivate15setCurrentIndexE11QModelIndexb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN17QCompleterPrivate3getEP10QCompleter": ["address", "address"],
+    "ritual_ZN17QCompleterPrivate3getEPK10QCompleter": ["address", "address"]
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickpath_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK10QQuickPath10metaObjectEv": ["address", "address"],
+    "ritual_ZN10QQuickPath2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN10QQuickPathC1EP7QObject": ["address", "address"],
+    "ritual_ZN10QQuickPathD1Ev": ["nothing", "address"],
+    "ritual_ZNK10QQuickPath6startXEv": ["double", "address"],
+    "ritual_ZN10QQuickPath9setStartXEd": ["nothing", "address", "double"],
+    "ritual_ZNK10QQuickPath9hasStartXEv": ["bool", "address"],
+    "ritual_ZNK10QQuickPath6startYEv": ["double", "address"],
+    "ritual_ZN10QQuickPath9setStartYEd": ["nothing", "address", "double"],
+    "ritual_ZNK10QQuickPath9hasStartYEv": ["bool", "address"],
+    "ritual_ZNK10QQuickPath8isClosedEv": ["bool", "address"],
+    "ritual_ZNK10QQuickPath4pathEv": ["address", "address"],
+    "ritual_ZN10QQuickPath7setPathERK12QPainterPath": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10QQuickPath10attributesEv": ["address", "address"],
+    "ritual_ZNK10QQuickPath11attributeAtERK7QStringd": [
+      "double", "address", "text", "double"
+    ],
+    "ritual_ZNK10QQuickPath14pointAtPercentEd": [
+      "address", "address", "double"
+    ],
+    "ritual_ZNK10QQuickPath17sequentialPointAtEdPd": [
+      "address", "address", "double", "address"
+    ],
+    "ritual_ZNK10QQuickPath27invalidateSequentialHistoryEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK10QQuickPath5scaleEv": ["address", "address"],
+    "ritual_ZN10QQuickPath8setScaleERK6QSizeF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK10QQuickPath8simplifyEv": ["bool", "address"],
+    "ritual_ZN10QQuickPath11setSimplifyEb": ["nothing", "address", "bool"],
+    "ritual_ZNK10QQuickPath14isAsynchronousEv": ["bool", "address"],
+    "ritual_ZN10QQuickPath15setAsynchronousEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN10QQuickPath11processPathEv": ["nothing", "address"],
+    "ritual_ZN10QQuickPath17componentCompleteEv": ["nothing", "address"],
+    "ritual_ZN10QQuickPath10classBeginEv": ["nothing", "address"],
+    "ritual_ZN10QQuickPath22disconnectPathElementsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN10QQuickPath19connectPathElementsEv": ["nothing", "address"],
+    "ritual_ZN10QQuickPath16gatherAttributesEv": ["nothing", "address"],
+    "ritual_ZN10QQuickPath13doProcessPathEv": ["nothing", "address"],
+    "ritual_ZN10QQuickPath11interpolateEiRK7QStringd": [
+      "nothing", "address", "int", "text", "double"
+    ],
+    "ritual_ZN10QQuickPath8endpointERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK10QQuickPath16createPointCacheEv": ["nothing", "address"],
+    "ritual_ZN10QQuickPath6d_funcEv": ["address", "address"],
+    "ritual_ZNK10QQuickPath6d_funcEv": ["address", "address"],
+    "ritual_ZN10QQuickPath15createShapePathERK7QPointFS2_RdPb": [
+      "address", "address", "address", "address", "address", "address"
+    ],
+    "ritual_cast_QQuickPath_QQmlParserStatus": ["address", "address"],
+    "ritual_take_QQuickPath": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN10QQuickPath17componentCompleteEv": ["nothing", "address"],
+    "ritual_own_ZN10QQuickPath10classBeginEv": ["nothing", "address"]
+  }
+}

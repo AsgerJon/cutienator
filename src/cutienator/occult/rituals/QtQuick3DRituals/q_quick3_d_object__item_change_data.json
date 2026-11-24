@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3D/qquick3dobject.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN14QQuick3DObject14ItemChangeDataC1EPS_": [
+      "address", "address"
+    ],
+    "ritual_ZN14QQuick3DObject14ItemChangeDataC1EP20QQuick3DSceneManager": [
+      "address", "address"
+    ],
+    "ritual_ZN14QQuick3DObject14ItemChangeDataC1Ed": ["address", "double"],
+    "ritual_ZN14QQuick3DObject14ItemChangeDataC1Eb": ["address", "bool"],
+    "ritual_ZN14QQuick3DObject14ItemChangeDataD1Ev": ["nothing", "address"]
+  }
+}

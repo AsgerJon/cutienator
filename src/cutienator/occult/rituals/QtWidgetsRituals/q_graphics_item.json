@@ -471,6 +471,8 @@
     "ritual_ZN13QGraphicsItem21prepareGeometryChangeEv": [
       "nothing", "address"
     ],
+    "ritual_ZN13QGraphicsItem6d_funcEv": ["address", "address"],
+    "ritual_ZNK13QGraphicsItem6d_funcEv": ["address", "address"],
     "ritual_take_QGraphicsItem": ["bool", "address", "chars", "address"],
     "ritual_own_ZN13QGraphicsItem7advanceEi": ["nothing", "address", "int"],
     "ritual_own_ZNK13QGraphicsItem5shapeEv": ["address", "address"],

@@ -1,0 +1,32 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/6.12.0/QtCharts/private/chartelement_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK12ChartElement9animationEv": ["address", "address"],
+    "ritual_ZN12ChartElement12setPresenterEP14ChartPresenter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12ChartElement9presenterEv": ["address", "address"],
+    "ritual_ZN12ChartElement15setThemeManagerEP17ChartThemeManager": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12ChartElement12themeManagerEv": ["address", "address"],
+    "ritual_ZN12ChartElement10setDataSetEP12ChartDataSet": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12ChartElement7dataSetEv": ["address", "address"],
+    "ritual_own_ZNK12ChartElement9animationEv": ["address", "address"],
+    "ritual_own_ZN12ChartElement12setPresenterEP14ChartPresenter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN12ChartElement15setThemeManagerEP17ChartThemeManager": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN12ChartElement10setDataSetEP12ChartDataSet": [
+      "nothing", "address", "address"
+    ]
+  }
+}

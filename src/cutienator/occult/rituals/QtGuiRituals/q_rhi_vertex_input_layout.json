@@ -1,0 +1,40 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/rhi/qrhi.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN21QRhiVertexInputLayoutC1Ev": ["address"],
+    "ritual_ZNK21QRhiVertexInputLayout14cbeginBindingsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK21QRhiVertexInputLayout12cendBindingsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK21QRhiVertexInputLayout9bindingAtEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZNK21QRhiVertexInputLayout12bindingCountEv": [
+      "long long", "address"
+    ],
+    "ritual_ZNK21QRhiVertexInputLayout16cbeginAttributesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK21QRhiVertexInputLayout14cendAttributesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK21QRhiVertexInputLayout11attributeAtEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZNK21QRhiVertexInputLayout14attributeCountEv": [
+      "long long", "address"
+    ],
+    "ritual_ZeqRK21QRhiVertexInputLayoutS1_": ["bool", "address", "address"],
+    "ritual_ZneRK21QRhiVertexInputLayoutS1_": ["bool", "address", "address"],
+    "ritual_Zls6QDebugRK21QRhiVertexInputLayout": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN21QRhiVertexInputLayoutD1Ev": ["nothing", "address"]
+  }
+}

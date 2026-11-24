@@ -1,0 +1,69 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQmlCompiler/6.12.0/QtQmlCompiler/private/qqmljsmetatypes_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN14QQmlJSMetaEnumC1Ev": ["address"],
+    "ritual_ZN14QQmlJSMetaEnumC1E7QString": ["address", "text"],
+    "ritual_ZNK14QQmlJSMetaEnum7isValidEv": ["bool", "address"],
+    "ritual_ZNK14QQmlJSMetaEnum4nameEv": ["text", "address"],
+    "ritual_ZN14QQmlJSMetaEnum7setNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK14QQmlJSMetaEnum5aliasEv": ["text", "address"],
+    "ritual_ZN14QQmlJSMetaEnum8setAliasERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK14QQmlJSMetaEnum6isFlagEv": ["bool", "address"],
+    "ritual_ZN14QQmlJSMetaEnum9setIsFlagEb": ["nothing", "address", "bool"],
+    "ritual_ZNK14QQmlJSMetaEnum8isScopedEv": ["bool", "address"],
+    "ritual_ZN14QQmlJSMetaEnum11setIsScopedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK14QQmlJSMetaEnum5isQmlEv": ["bool", "address"],
+    "ritual_ZN14QQmlJSMetaEnum8setIsQmlEb": ["nothing", "address", "bool"],
+    "ritual_ZN14QQmlJSMetaEnum6addKeyERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK14QQmlJSMetaEnum4keysEv": ["address", "address"],
+    "ritual_ZN14QQmlJSMetaEnum8addValueEi": ["nothing", "address", "int"],
+    "ritual_ZNK14QQmlJSMetaEnum9hasValuesEv": ["bool", "address"],
+    "ritual_ZNK14QQmlJSMetaEnum5valueERK7QString": [
+      "int", "address", "text"
+    ],
+    "ritual_ZNK14QQmlJSMetaEnum6hasKeyERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZNK14QQmlJSMetaEnum8typeNameEv": ["text", "address"],
+    "ritual_ZN14QQmlJSMetaEnum11setTypeNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK14QQmlJSMetaEnum10lineNumberEv": ["int", "address"],
+    "ritual_ZN14QQmlJSMetaEnum13setLineNumberEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZeqRK14QQmlJSMetaEnumS1_": ["bool", "address", "address"],
+    "ritual_ZneRK14QQmlJSMetaEnumS1_": ["bool", "address", "address"],
+    "ritual_ZN14QQmlJSMetaEnumD1Ev": ["nothing", "address"],
+    "ritual_map_make_QHash_QString_QQmlJSMetaEnum": ["address"],
+    "ritual_map_put_QHash_QString_QQmlJSMetaEnum": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_map_size_QHash_QString_QQmlJSMetaEnum": ["long long", "address"],
+    "ritual_map_key_QHash_QString_QQmlJSMetaEnum": [
+      "text", "address", "long long"
+    ],
+    "ritual_map_value_QHash_QString_QQmlJSMetaEnum": [
+      "address", "address", "long long"
+    ],
+    "ritual_map_has_QHash_QString_QQmlJSMetaEnum": [
+      "bool", "address", "text"
+    ],
+    "ritual_map_get_QHash_QString_QQmlJSMetaEnum": [
+      "address", "address", "text"
+    ],
+    "ritual_map_drop_QHash_QString_QQmlJSMetaEnum": ["nothing", "address"]
+  }
+}

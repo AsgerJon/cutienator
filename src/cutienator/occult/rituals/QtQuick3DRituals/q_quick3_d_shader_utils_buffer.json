@@ -1,0 +1,51 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3D/6.12.0/QtQuick3D/private/qquick3dshaderutils_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK25QQuick3DShaderUtilsBuffer10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QQuick3DShaderUtilsBuffer2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN25QQuick3DShaderUtilsBufferC1Ev": ["address"],
+    "ritual_ZN25QQuick3DShaderUtilsBufferD1Ev": ["nothing", "address"],
+    "ritual_ZNK25QQuick3DShaderUtilsBuffer22textureFilterOperationEv": [
+      "int", "address"
+    ],
+    "ritual_ZN25QQuick3DShaderUtilsBuffer25setTextureFilterOperationENS_22TextureFilterOperationE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK25QQuick3DShaderUtilsBuffer21textureCoordOperationEv": [
+      "int", "address"
+    ],
+    "ritual_ZN25QQuick3DShaderUtilsBuffer24setTextureCoordOperationENS_21TextureCoordOperationE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN25QQuick3DShaderUtilsBuffer12cloneCommandEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK25QQuick3DShaderUtilsBuffer6formatEv": ["int", "address"],
+    "ritual_ZN25QQuick3DShaderUtilsBuffer9setFormatENS_13TextureFormatE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK25QQuick3DShaderUtilsBuffer11bufferFlagsEv": [
+      "int", "address"
+    ],
+    "ritual_ZN25QQuick3DShaderUtilsBuffer14setBufferFlagsENS_24AllocateBufferFlagValuesE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN25QQuick3DShaderUtilsBuffer16mapTextureFormatENS_13TextureFormatE": [
+      "unsigned char", "int"
+    ],
+    "ritual_ZN25QQuick3DShaderUtilsBuffer22mapRenderTextureFormatEN23QSSGRenderTextureFormat6FormatE": [
+      "int", "unsigned char"
+    ],
+    "ritual_take_QQuick3DShaderUtilsBuffer": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

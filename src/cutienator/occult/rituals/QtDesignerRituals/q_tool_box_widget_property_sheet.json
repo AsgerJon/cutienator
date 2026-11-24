@@ -1,0 +1,42 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/qdesigner_toolbox_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN27QToolBoxWidgetPropertySheetC1EP8QToolBoxP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN27QToolBoxWidgetPropertySheet11setPropertyEiRK8QVariant": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZNK27QToolBoxWidgetPropertySheet8propertyEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN27QToolBoxWidgetPropertySheet5resetEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK27QToolBoxWidgetPropertySheet9isEnabledEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN27QToolBoxWidgetPropertySheet13checkPropertyERK7QString": [
+      "bool", "text"
+    ],
+    "ritual_ZN27QToolBoxWidgetPropertySheet23toolBoxPropertyFromNameERK7QString": [
+      "int", "text"
+    ],
+    "ritual_own_ZN27QToolBoxWidgetPropertySheet11setPropertyEiRK8QVariant": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZNK27QToolBoxWidgetPropertySheet8propertyEi": [
+      "address", "address", "int"
+    ],
+    "ritual_own_ZN27QToolBoxWidgetPropertySheet5resetEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_own_ZNK27QToolBoxWidgetPropertySheet9isEnabledEi": [
+      "bool", "address", "int"
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmldebugservicefactory_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK23QQmlDebugServiceFactory10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QQmlDebugServiceFactory2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN23QQmlDebugServiceFactoryD1Ev": ["nothing", "address"],
+    "ritual_ZN23QQmlDebugServiceFactory6createERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_take_QQmlDebugServiceFactory": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

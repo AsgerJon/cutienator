@@ -1,0 +1,43 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetworkAuth/6.12.0/QtNetworkAuth/private/qabstractoauth2_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN22QAbstractOAuth2Private6q_funcEv": ["address", "address"],
+    "ritual_ZNK22QAbstractOAuth2Private6q_funcEv": ["address", "address"],
+    "ritual_ZN22QAbstractOAuth2Private12setExpiresAtERK9QDateTime": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QAbstractOAuth2Private19generateRandomStateEv": ["text"],
+    "ritual_ZN22QAbstractOAuth2Private13generateNonceEv": ["text"],
+    "ritual_ZNK22QAbstractOAuth2Private31authorizationShouldIncludeNonceEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN22QAbstractOAuth2Private10setIdTokenERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN22QAbstractOAuth2Private21_q_tokenRequestFailedEN14QAbstractOAuth5ErrorERK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZN22QAbstractOAuth2Private31handleRfcErrorResponseIfPresentERK4QMapI7QString8QVariantE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN22QAbstractOAuth2Private27createRefreshRequestAndBodyERK4QUrl": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN22QAbstractOAuth2Private28logAuthorizationStageWarningE13QLatin1String": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QAbstractOAuth2Private28logAuthorizationStageWarningE13QLatin1Stringi": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN22QAbstractOAuth2Private20logTokenStageWarningE13QLatin1String": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QAbstractOAuth2Private20verifyThreadAffinityEPK7QObject": [
+      "bool", "address", "address"
+    ]
+  }
+}

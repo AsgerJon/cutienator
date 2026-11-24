@@ -1,35 +1,50 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qgesturerecognizer.h, Qt 6.12.0. Changes made here are lost.
+#include <QtWidgets/qtwidgetsglobal.h>
+#if !defined(QT_NO_GESTURES)
 #include <QtWidgets/qgesturerecognizer.h>
 #include <cstring>
 
 //  A QGestureRecognizer that Python can take functions over in. Every QGestureRecognizer
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if !defined(QT_NO_GESTURES)
 typedef void * (*CuteQGestureRecognizerCall0)(const void *, QObject *, int *);
+#endif  // !defined(QT_NO_GESTURES)
+#if !defined(QT_NO_GESTURES)
 typedef int (*CuteQGestureRecognizerCall1)(const void *, QGesture *, QObject *, QEvent *, int *);
+#endif  // !defined(QT_NO_GESTURES)
+#if !defined(QT_NO_GESTURES)
 typedef void (*CuteQGestureRecognizerCall2)(const void *, QGesture *, int *);
+#endif  // !defined(QT_NO_GESTURES)
 class CuteQGestureRecognizer : public QGestureRecognizer {
 public:
   using QGestureRecognizer::QGestureRecognizer;
   void *taken[3] = {};
 
   bool take(const char *key, void *call) {
+#if !defined(QT_NO_GESTURES)
     if (!std::strcmp(key, "_ZN18QGestureRecognizer6createEP7QObject")) {
       taken[0] = call;
       return true;
     }
+#endif  // !defined(QT_NO_GESTURES)
+#if !defined(QT_NO_GESTURES)
     if (!std::strcmp(key, "_ZN18QGestureRecognizer9recognizeEP8QGestureP7QObjectP6QEvent")) {
       taken[1] = call;
       return true;
     }
+#endif  // !defined(QT_NO_GESTURES)
+#if !defined(QT_NO_GESTURES)
     if (!std::strcmp(key, "_ZN18QGestureRecognizer5resetEP8QGesture")) {
       taken[2] = call;
       return true;
     }
+#endif  // !defined(QT_NO_GESTURES)
     return false;
   }
 
+#if !defined(QT_NO_GESTURES)
   //  QGesture *QGestureRecognizer::create(QObject *target)
   QGesture *create(QObject *target) override {
     if (taken[0]) {
@@ -40,7 +55,9 @@ public:
     }
     return QGestureRecognizer::create(target);
   }
+#endif  // !defined(QT_NO_GESTURES)
 
+#if !defined(QT_NO_GESTURES)
   //  Result QGestureRecognizer::recognize(QGesture *state, QObject
   //      *watched, QEvent *event)
   QGestureRecognizer::Result recognize(
@@ -55,7 +72,9 @@ public:
     }
     return {};
   }
+#endif  // !defined(QT_NO_GESTURES)
 
+#if !defined(QT_NO_GESTURES)
   //  void QGestureRecognizer::reset(QGesture *state)
   void reset(QGesture *state) override {
     if (taken[2]) {
@@ -66,6 +85,7 @@ public:
     }
     QGestureRecognizer::reset(state);
   }
+#endif  // !defined(QT_NO_GESTURES)
 };
 
 //  QGestureRecognizer::~QGestureRecognizer()
@@ -141,3 +161,5 @@ void ritual_own_ZN18QGestureRecognizer5resetEP8QGesture(
     QGesture *state) {
   self->QGestureRecognizer::reset(state);
 }
+
+#endif  // !defined(QT_NO_GESTURES)

@@ -1,0 +1,63 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickpincharea_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK16QQuickPinchEvent10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QQuickPinchEvent2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN16QQuickPinchEvent22qt_qmlMarker_anonymousEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickPinchEventC1E7QPointFddd": [
+      "address", "address", "double", "double", "double"
+    ],
+    "ritual_ZNK16QQuickPinchEvent6centerEv": ["address", "address"],
+    "ritual_ZNK16QQuickPinchEvent11startCenterEv": ["address", "address"],
+    "ritual_ZN16QQuickPinchEvent14setStartCenterE7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QQuickPinchEvent14previousCenterEv": ["address", "address"],
+    "ritual_ZN16QQuickPinchEvent17setPreviousCenterE7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QQuickPinchEvent5scaleEv": ["double", "address"],
+    "ritual_ZNK16QQuickPinchEvent13previousScaleEv": ["double", "address"],
+    "ritual_ZN16QQuickPinchEvent16setPreviousScaleEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK16QQuickPinchEvent5angleEv": ["double", "address"],
+    "ritual_ZNK16QQuickPinchEvent13previousAngleEv": ["double", "address"],
+    "ritual_ZN16QQuickPinchEvent16setPreviousAngleEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK16QQuickPinchEvent8rotationEv": ["double", "address"],
+    "ritual_ZNK16QQuickPinchEvent6point1Ev": ["address", "address"],
+    "ritual_ZN16QQuickPinchEvent9setPoint1E7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QQuickPinchEvent11startPoint1Ev": ["address", "address"],
+    "ritual_ZN16QQuickPinchEvent14setStartPoint1E7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QQuickPinchEvent6point2Ev": ["address", "address"],
+    "ritual_ZN16QQuickPinchEvent9setPoint2E7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QQuickPinchEvent11startPoint2Ev": ["address", "address"],
+    "ritual_ZN16QQuickPinchEvent14setStartPoint2E7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QQuickPinchEvent10pointCountEv": ["int", "address"],
+    "ritual_ZN16QQuickPinchEvent13setPointCountEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16QQuickPinchEvent8acceptedEv": ["bool", "address"],
+    "ritual_ZN16QQuickPinchEvent11setAcceptedEb": [
+      "nothing", "address", "bool"
+    ]
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQmlMo",
+    "dels/6.12.0/QtQmlModels/private/qsortfilterproxymodelhelper_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN35QQmlSortFilterProxyModelGreaterThanC1EiRK11QModelIndexPK18QAbstractItemModelPK27QSortFilterProxyModelHelper": [
+      "address", "int", "address", "address", "address"
+    ],
+    "ritual_ZNK35QQmlSortFilterProxyModelGreaterThanclEii": [
+      "bool", "address", "int", "int"
+    ],
+    "ritual_ZN35QQmlSortFilterProxyModelGreaterThanD1Ev": [
+      "nothing", "address"
+    ]
+  }
+}

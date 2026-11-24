@@ -1,0 +1,12 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qpropertyprivate.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK9QtPrivate10RefCounted8refCountEv": ["int", "address"],
+    "ritual_ZN9QtPrivate10RefCounted6addRefEv": ["nothing", "address"],
+    "ritual_ZN9QtPrivate10RefCounted5derefEv": ["bool", "address"],
+    "ritual_ZN9QtPrivate10RefCountedD1Ev": ["nothing", "address"]
+  }
+}

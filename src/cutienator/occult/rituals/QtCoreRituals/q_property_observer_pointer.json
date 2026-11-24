@@ -1,0 +1,34 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qproperty_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN24QPropertyObserverPointer6unlinkEv": ["nothing", "address"],
+    "ritual_ZN24QPropertyObserverPointer11unlink_fastEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QPropertyObserverPointer18setBindingToNotifyEP23QPropertyBindingPrivate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QPropertyObserverPointer25setBindingToNotify_unsafeEP23QPropertyBindingPrivate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QPropertyObserverPointer6notifyEP20QUntypedPropertyData": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QPropertyObserverPointer18noSelfDependenciesEP23QPropertyBindingPrivate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK24QPropertyObserverPointercvbEv": ["bool", "address"],
+    "ritual_ZNK24QPropertyObserverPointer12nextObserverEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK24QPropertyObserverPointer7bindingEv": ["address", "address"],
+    "ritual_ZN24QPropertyObserverPointer13unlink_commonEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QPropertyObserverPointerD1Ev": ["nothing", "address"]
+  }
+}

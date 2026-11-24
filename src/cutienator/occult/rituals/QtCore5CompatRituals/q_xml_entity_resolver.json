@@ -1,0 +1,11 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore5Compat/qxml.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QXmlEntityResolverD1Ev": ["nothing", "address"],
+    "ritual_ZNK18QXmlEntityResolver11errorStringEv": ["text", "address"],
+    "ritual_take_QXmlEntityResolver": ["bool", "address", "chars", "address"]
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qsgcurvefillnode_p_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QSGCurveFillMaterialC1EP16QSGCurveFillNode": [
+      "address", "address"
+    ],
+    "ritual_ZN20QSGCurveFillMaterialD1Ev": ["nothing", "address"],
+    "ritual_ZNK20QSGCurveFillMaterial7compareEPK11QSGMaterial": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK20QSGCurveFillMaterial4nodeEv": ["address", "address"],
+    "ritual_ZNK20QSGCurveFillMaterial12dummyTextureEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QSGCurveFillMaterial15setDummyTextureEP15QSGPlainTexture": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QSGCurveFillMaterial4typeEv": ["address", "address"],
+    "ritual_ZNK20QSGCurveFillMaterial12createShaderEN20QSGRendererInterface10RenderModeE": [
+      "address", "address", "int"
+    ],
+    "ritual_take_QSGCurveFillMaterial": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK20QSGCurveFillMaterial7compareEPK11QSGMaterial": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZNK20QSGCurveFillMaterial4typeEv": ["address", "address"],
+    "ritual_own_ZNK20QSGCurveFillMaterial12createShaderEN20QSGRendererInterface10RenderModeE": [
+      "address", "address", "int"
+    ]
+  }
+}

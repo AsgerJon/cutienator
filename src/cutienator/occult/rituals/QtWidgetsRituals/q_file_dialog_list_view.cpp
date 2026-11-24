@@ -1,9 +1,16 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/6.12.0/QtWidgets/private/qfiledialog_p.h, Qt 6.12.0. Changes
 //  made here are lost.
+#include <QtWidgets/qtwidgetsglobal.h>
+#include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
+#if QT_CONFIG(filedialog)
+#include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/QtWidgets>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/6.12.0/QtWidgets/private/qfiledialog_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qsize.h>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <qvariant.h>
 #include <private/qwidgetitemdata_p.h>
 #include "qfiledialog.h"
@@ -51,13 +58,28 @@
 #if QT_CONFIG(shortcut)
 #  include <qshortcut.h>
 #endif
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
 //  Qt's source, because Qt's library carries it under no name.
 //  Copyright (C) The Qt Company Ltd. It is licensed
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
-//  'inline' put before it.
+//  'inline' put before it where Qt did not write it.
+
+//  from src/widgets/dialogs/qfiledialog.cpp, line 4116, as _ZN19QFileDialogListView20setFileDialogPrivateEP18QFileDialogPrivate
+inline void QFileDialogListView::setFileDialogPrivate(QFileDialogPrivate *d_pointer)
+{
+    d_ptr = d_pointer;
+    setSelectionBehavior(QAbstractItemView::SelectRows);
+    setWrapping(true);
+    setResizeMode(QListView::Adjust);
+    setEditTriggers(QAbstractItemView::EditKeyPressed);
+    setContextMenuPolicy(Qt::CustomContextMenu);
+#if QT_CONFIG(draganddrop)
+    setDragDropMode(QAbstractItemView::InternalMove);
+#endif
+}
 
 //  from src/widgets/dialogs/qfiledialog.cpp, line 4129, as _ZNK19QFileDialogListView8sizeHintEv
 inline QSize QFileDialogListView::sizeHint() const
@@ -86,6 +108,15 @@ extern "C" Q_DECL_EXPORT
 QFileDialogListView *ritual_ZN19QFileDialogListViewC1EP7QWidget(
     QWidget *parent) {
   return new QFileDialogListView(parent);
+}
+
+//  void QFileDialogListView::setFileDialogPrivate(QFileDialogPrivate
+//      *d_pointer)
+extern "C" Q_DECL_EXPORT
+void ritual_ZN19QFileDialogListView20setFileDialogPrivateEP18QFileDialogPrivate(
+    QFileDialogListView *self,
+    QFileDialogPrivate *d_pointer) {
+  self->setFileDialogPrivate(d_pointer);
 }
 
 //  QSize QFileDialogListView::sizeHint() const
@@ -118,3 +149,5 @@ void ritual_own_ZN19QFileDialogListView13keyPressEventEP9QKeyEvent(
   static_cast<OwnQFileDialogListView *>(self)->OwnQFileDialogListView::keyPressEvent(
       e);
 }
+
+#endif  // QT_CONFIG(filedialog)

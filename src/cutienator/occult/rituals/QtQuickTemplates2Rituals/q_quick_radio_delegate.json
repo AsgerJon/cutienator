@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquickradiodelegate_p.",
+    "h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK19QQuickRadioDelegate10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QQuickRadioDelegate2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN19QQuickRadioDelegateC1EP10QQuickItem": ["address", "address"],
+    "ritual_ZNK19QQuickRadioDelegate11defaultFontEv": ["address", "address"],
+    "ritual_ZNK19QQuickRadioDelegate14accessibleRoleEv": ["int", "address"],
+    "ritual_own_ZNK19QQuickRadioDelegate11defaultFontEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK19QQuickRadioDelegate14accessibleRoleEv": [
+      "int", "address"
+    ]
+  }
+}

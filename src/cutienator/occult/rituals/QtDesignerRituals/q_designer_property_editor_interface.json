@@ -1,0 +1,45 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/abstractpropertyeditor.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZNK32QDesignerPropertyEditorInterface10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN32QDesignerPropertyEditorInterface2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN32QDesignerPropertyEditorInterfaceD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK32QDesignerPropertyEditorInterface4coreEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK32QDesignerPropertyEditorInterface10isReadOnlyEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK32QDesignerPropertyEditorInterface6objectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK32QDesignerPropertyEditorInterface19currentPropertyNameEv": [
+      "text", "address"
+    ],
+    "ritual_ZN32QDesignerPropertyEditorInterface9setObjectEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN32QDesignerPropertyEditorInterface16setPropertyValueERK7QStringRK8QVariantb": [
+      "nothing", "address", "text", "address", "bool"
+    ],
+    "ritual_ZN32QDesignerPropertyEditorInterface11setReadOnlyEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_take_QDesignerPropertyEditorInterface": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK32QDesignerPropertyEditorInterface4coreEv": [
+      "address", "address"
+    ]
+  }
+}

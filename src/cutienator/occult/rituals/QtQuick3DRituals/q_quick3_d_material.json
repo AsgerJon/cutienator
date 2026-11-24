@@ -1,0 +1,45 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3D/6.12.0/QtQuick3D/private/qquick3dmaterial_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK16QQuick3DMaterial10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QQuick3DMaterial2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN16QQuick3DMaterial24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuick3DMaterialD1Ev": ["nothing", "address"],
+    "ritual_ZNK16QQuick3DMaterial10lightProbeEv": ["address", "address"],
+    "ritual_ZNK16QQuick3DMaterial8cullModeEv": ["int", "address"],
+    "ritual_ZNK16QQuick3DMaterial13depthDrawModeEv": ["int", "address"],
+    "ritual_ZN16QQuick3DMaterial13setLightProbeEP15QQuick3DTexture": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuick3DMaterial11setCullModeENS_8CullModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16QQuick3DMaterial16setDepthDrawModeENS_13DepthDrawModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16QQuick3DMaterial17updateSpatialNodeEP21QSSGRenderGraphObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN16QQuick3DMaterial10itemChangeEN14QQuick3DObject10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN16QQuick3DMaterial18updateSceneManagerEP20QQuick3DSceneManager": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QQuick3DMaterial": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN16QQuick3DMaterial17updateSpatialNodeEP21QSSGRenderGraphObject": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN16QQuick3DMaterial10itemChangeEN14QQuick3DObject10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ]
+  }
+}

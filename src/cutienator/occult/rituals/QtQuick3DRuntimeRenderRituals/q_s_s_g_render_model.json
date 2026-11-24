@@ -1,0 +1,14 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgrendermo",
+    "del_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK15QSSGRenderModel13instanceCountEv": ["int", "address"],
+    "ritual_ZNK15QSSGRenderModel10instancingEv": ["bool", "address"],
+    "ritual_ZNK15QSSGRenderModel11hasLightmapEv": ["bool", "address"],
+    "ritual_ZNK15QSSGRenderModel15usesBoneTextureEv": ["bool", "address"],
+    "ritual_ZN15QSSGRenderModelC1Ev": ["address"]
+  }
+}

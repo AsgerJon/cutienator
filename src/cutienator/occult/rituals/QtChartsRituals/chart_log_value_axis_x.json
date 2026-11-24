@@ -1,0 +1,38 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/6.12.0/QtCharts/private/chartlogvalueaxisx_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18ChartLogValueAxisX10metaObjectEv": ["address", "address"],
+    "ritual_ZN18ChartLogValueAxisX2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18ChartLogValueAxisXC1EP13QLogValueAxisP13QGraphicsItem": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18ChartLogValueAxisXD1Ev": ["nothing", "address"],
+    "ritual_ZNK18ChartLogValueAxisX8sizeHintEN2Qt8SizeHintERK6QSizeF": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_ZN18ChartLogValueAxisX14updateGeometryEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18ChartLogValueAxisX17handleBaseChangedEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN18ChartLogValueAxisX24handleLabelFormatChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_take_ChartLogValueAxisX": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK18ChartLogValueAxisX8sizeHintEN2Qt8SizeHintERK6QSizeF": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_own_ZN18ChartLogValueAxisX14updateGeometryEv": [
+      "nothing", "address"
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4script_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN3QV46ScriptC1EPNS_16ExecutionContextENS_8Compiler11ContextTypeERK7QStringS7_i": [
+      "address", "address", "int", "text", "text", "int"
+    ],
+    "ritual_ZN3QV46ScriptC1EPNS_15ExecutionEngineEPNS_10QmlContextEbRK7QStringS7_i": [
+      "address", "address", "address", "bool", "text", "text", "int"
+    ],
+    "ritual_ZN3QV46Script13setStrictModeEb": ["nothing", "address", "bool"],
+    "ritual_ZN3QV46Script17setInheritContextEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN3QV46Script17setParseAsBindingEb": [
+      "nothing", "address", "bool"
+    ]
+  }
+}

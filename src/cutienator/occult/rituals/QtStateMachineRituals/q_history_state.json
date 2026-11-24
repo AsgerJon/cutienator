@@ -1,0 +1,47 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtStateMachine/qhistorystate.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK13QHistoryState10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QHistoryState2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN13QHistoryStateC1EP6QState": ["address", "address"],
+    "ritual_ZN13QHistoryStateC1ENS_11HistoryTypeEP6QState": [
+      "address", "int", "address"
+    ],
+    "ritual_ZN13QHistoryStateD1Ev": ["nothing", "address"],
+    "ritual_ZNK13QHistoryState17defaultTransitionEv": ["address", "address"],
+    "ritual_ZN13QHistoryState20setDefaultTransitionEP19QAbstractTransition": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QHistoryState12defaultStateEv": ["address", "address"],
+    "ritual_ZN13QHistoryState15setDefaultStateEP14QAbstractState": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QHistoryState11historyTypeEv": ["int", "address"],
+    "ritual_ZN13QHistoryState14setHistoryTypeENS_11HistoryTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN13QHistoryState7onEntryEP6QEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QHistoryState6onExitEP6QEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QHistoryState5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_take_QHistoryState": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN13QHistoryState7onEntryEP6QEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN13QHistoryState6onExitEP6QEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN13QHistoryState5eventEP6QEvent": [
+      "bool", "address", "address"
+    ]
+  }
+}

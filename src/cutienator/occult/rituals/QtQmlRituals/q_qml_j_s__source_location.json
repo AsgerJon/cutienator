@@ -1,0 +1,36 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmljssourcelocation_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN6QQmlJS14SourceLocation23qSizeTypeCanHoldQuint32Ev": ["bool"],
+    "ritual_ZN6QQmlJS14SourceLocationC1Ejjjj": [
+      "address", "unsigned int", "unsigned int", "unsigned int",
+      "unsigned int"
+    ],
+    "ritual_ZN6QQmlJS14SourceLocation13fromQSizeTypeExxxx": [
+      "address", "long long", "long long", "long long", "long long"
+    ],
+    "ritual_ZN6QQmlJS14SourceLocation10offsetFromE11QStringViewjjRKS0_": [
+      "unsigned int", "text", "unsigned int", "unsigned int", "address"
+    ],
+    "ritual_ZNK6QQmlJS14SourceLocation7isValidEv": ["bool", "address"],
+    "ritual_ZNK6QQmlJS14SourceLocation5beginEv": ["long long", "address"],
+    "ritual_ZNK6QQmlJS14SourceLocation3endEv": ["long long", "address"],
+    "ritual_ZNK6QQmlJS14SourceLocation23startZeroLengthLocationEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK6QQmlJS14SourceLocation21endZeroLengthLocationE11QStringView": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN6QQmlJSeqERKNS_14SourceLocationES2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJSneERKNS_14SourceLocationES2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS14SourceLocationD1Ev": ["nothing", "address"]
+  }
+}

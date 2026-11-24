@@ -1,0 +1,71 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qsgdistancefieldglyphnode_p_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN28QSGDistanceFieldTextMaterialC1Ev": ["address"],
+    "ritual_ZN28QSGDistanceFieldTextMaterialD1Ev": ["nothing", "address"],
+    "ritual_ZNK28QSGDistanceFieldTextMaterial4typeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QSGDistanceFieldTextMaterial12createShaderEN20QSGRendererInterface10RenderModeE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK28QSGDistanceFieldTextMaterial7compareEPK11QSGMaterial": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN28QSGDistanceFieldTextMaterial8setColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK28QSGDistanceFieldTextMaterial5colorEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QSGDistanceFieldTextMaterial13setGlyphCacheEP26QSGDistanceFieldGlyphCache": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK28QSGDistanceFieldTextMaterial10glyphCacheEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QSGDistanceFieldTextMaterial10setTextureEPKN26QSGDistanceFieldGlyphCache7TextureE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK28QSGDistanceFieldTextMaterial7textureEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QSGDistanceFieldTextMaterial12setFontScaleEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK28QSGDistanceFieldTextMaterial9fontScaleEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK28QSGDistanceFieldTextMaterial11textureSizeEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QSGDistanceFieldTextMaterial17updateTextureSizeEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN28QSGDistanceFieldTextMaterial27updateTextureSizeAndWrapperEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK28QSGDistanceFieldTextMaterial14wrapperTextureEv": [
+      "address", "address"
+    ],
+    "ritual_take_QSGDistanceFieldTextMaterial": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK28QSGDistanceFieldTextMaterial4typeEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK28QSGDistanceFieldTextMaterial12createShaderEN20QSGRendererInterface10RenderModeE": [
+      "address", "address", "int"
+    ],
+    "ritual_own_ZNK28QSGDistanceFieldTextMaterial7compareEPK11QSGMaterial": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZN28QSGDistanceFieldTextMaterial8setColorERK6QColor": [
+      "nothing", "address", "address"
+    ]
+  }
+}

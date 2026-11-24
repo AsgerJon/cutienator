@@ -1,0 +1,28 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickanimation_p_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN27QQuickAnimationGroupPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK27QQuickAnimationGroupPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QQuickAnimationGroupPrivateC1Ev": ["address"],
+    "ritual_ZN27QQuickAnimationGroupPrivate22restartFromCurrentLoopEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QQuickAnimationGroupPrivate27animationCurrentLoopChangedEP21QAbstractAnimationJob": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QQuickAnimationGroupPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN27QQuickAnimationGroupPrivate27animationCurrentLoopChangedEP21QAbstractAnimationJob": [
+      "nothing", "address", "address"
+    ]
+  }
+}

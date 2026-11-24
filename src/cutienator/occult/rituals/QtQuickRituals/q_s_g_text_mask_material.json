@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qsgdefaultglyphnode_p_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QSGTextMaskMaterialD1Ev": ["nothing", "address"],
+    "ritual_ZNK19QSGTextMaskMaterial4typeEv": ["address", "address"],
+    "ritual_ZNK19QSGTextMaskMaterial5colorEv": ["address", "address"],
+    "ritual_ZNK19QSGTextMaskMaterial7textureEv": ["address", "address"],
+    "ritual_ZN19QSGTextMaskMaterial14ensureUpToDateEv": ["bool", "address"],
+    "ritual_ZNK19QSGTextMaskMaterial10glyphCacheEv": ["address", "address"],
+    "ritual_ZNK19QSGTextMaskMaterial13rhiGlyphCacheEv": [
+      "address", "address"
+    ],
+    "ritual_take_QSGTextMaskMaterial": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK19QSGTextMaskMaterial4typeEv": ["address", "address"]
+  }
+}

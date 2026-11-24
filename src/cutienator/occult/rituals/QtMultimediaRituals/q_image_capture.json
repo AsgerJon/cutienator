@@ -1,0 +1,54 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtMultimedia/qimagecapture.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK13QImageCapture10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QImageCapture2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN13QImageCaptureC1EP7QObject": ["address", "address"],
+    "ritual_ZN13QImageCaptureD1Ev": ["nothing", "address"],
+    "ritual_ZNK13QImageCapture11isAvailableEv": ["bool", "address"],
+    "ritual_ZNK13QImageCapture14captureSessionEv": ["address", "address"],
+    "ritual_ZNK13QImageCapture5errorEv": ["int", "address"],
+    "ritual_ZNK13QImageCapture11errorStringEv": ["text", "address"],
+    "ritual_ZNK13QImageCapture17isReadyForCaptureEv": ["bool", "address"],
+    "ritual_ZNK13QImageCapture10fileFormatEv": ["int", "address"],
+    "ritual_ZN13QImageCapture13setFileFormatENS_10FileFormatE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN13QImageCapture14fileFormatNameENS_10FileFormatE": [
+      "text", "int"
+    ],
+    "ritual_ZN13QImageCapture21fileFormatDescriptionENS_10FileFormatE": [
+      "text", "int"
+    ],
+    "ritual_ZNK13QImageCapture10resolutionEv": ["address", "address"],
+    "ritual_ZN13QImageCapture13setResolutionERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QImageCapture13setResolutionEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK13QImageCapture7qualityEv": ["int", "address"],
+    "ritual_ZN13QImageCapture10setQualityENS_7QualityE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK13QImageCapture8metaDataEv": ["address", "address"],
+    "ritual_ZN13QImageCapture11setMetaDataERK14QMediaMetaData": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QImageCapture11addMetaDataERK14QMediaMetaData": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QImageCapture13captureToFileERK7QString": [
+      "int", "address", "text"
+    ],
+    "ritual_ZN13QImageCapture7captureEv": ["int", "address"],
+    "ritual_ZN13QImageCapture17setCaptureSessionEP20QMediaCaptureSession": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QImageCapture": ["bool", "address", "chars", "address"]
+  }
+}

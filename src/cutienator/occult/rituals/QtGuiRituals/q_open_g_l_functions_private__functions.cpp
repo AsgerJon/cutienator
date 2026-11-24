@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGui/qopenglfunctions.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
+#if !defined(QT_NO_OPENGL)
 #include <QtGui/qopenglfunctions.h>
 
 //  QOpenGLFunctionsPrivate::Functions::~Functions()
@@ -8,3 +10,5 @@ void ritual_ZN23QOpenGLFunctionsPrivate9FunctionsD1Ev(
     QOpenGLFunctionsPrivate::Functions *self) {
   delete self;
 }
+
+#endif  // !defined(QT_NO_OPENGL)

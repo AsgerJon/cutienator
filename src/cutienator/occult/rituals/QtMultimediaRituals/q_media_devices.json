@@ -1,0 +1,26 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtMultimedia/qmediadevices.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK13QMediaDevices10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QMediaDevices2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN13QMediaDevicesC1EP7QObject": ["address", "address"],
+    "ritual_ZN13QMediaDevicesD1Ev": ["nothing", "address"],
+    "ritual_ZN13QMediaDevices11audioInputsEv": ["address"],
+    "ritual_ZN13QMediaDevices12audioOutputsEv": ["address"],
+    "ritual_ZN13QMediaDevices11videoInputsEv": ["address"],
+    "ritual_ZN13QMediaDevices17defaultAudioInputEv": ["address"],
+    "ritual_ZN13QMediaDevices18defaultAudioOutputEv": ["address"],
+    "ritual_ZN13QMediaDevices17defaultVideoInputEv": ["address"],
+    "ritual_ZN13QMediaDevices13connectNotifyERK11QMetaMethod": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QMediaDevices": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN13QMediaDevices13connectNotifyERK11QMetaMethod": [
+      "nothing", "address", "address"
+    ]
+  }
+}

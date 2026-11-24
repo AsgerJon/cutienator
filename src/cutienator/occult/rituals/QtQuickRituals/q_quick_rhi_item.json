@@ -1,0 +1,85 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/qquickrhiitem.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK13QQuickRhiItem10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QQuickRhiItem2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN13QQuickRhiItem6d_funcEv": ["address", "address"],
+    "ritual_ZNK13QQuickRhiItem6d_funcEv": ["address", "address"],
+    "ritual_ZN13QQuickRhiItemD1Ev": ["nothing", "address"],
+    "ritual_ZNK13QQuickRhiItem11sampleCountEv": ["int", "address"],
+    "ritual_ZN13QQuickRhiItem14setSampleCountEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK13QQuickRhiItem17colorBufferFormatEv": ["int", "address"],
+    "ritual_ZN13QQuickRhiItem20setColorBufferFormatENS_13TextureFormatE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK13QQuickRhiItem25isMirrorVerticallyEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN13QQuickRhiItem19setMirrorVerticallyEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK13QQuickRhiItem13alphaBlendingEv": ["bool", "address"],
+    "ritual_ZN13QQuickRhiItem16setAlphaBlendingEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK13QQuickRhiItem21fixedColorBufferWidthEv": ["int", "address"],
+    "ritual_ZN13QQuickRhiItem24setFixedColorBufferWidthEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK13QQuickRhiItem22fixedColorBufferHeightEv": [
+      "int", "address"
+    ],
+    "ritual_ZN13QQuickRhiItem25setFixedColorBufferHeightEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK13QQuickRhiItem24effectiveColorBufferSizeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK13QQuickRhiItem17isTextureProviderEv": ["bool", "address"],
+    "ritual_ZNK13QQuickRhiItem15textureProviderEv": ["address", "address"],
+    "ritual_ZN13QQuickRhiItem14createRendererEv": ["address", "address"],
+    "ritual_ZNK13QQuickRhiItem25isAutoRenderTargetEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN13QQuickRhiItem19setAutoRenderTargetEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN13QQuickRhiItem15updatePaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN13QQuickRhiItem5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN13QQuickRhiItem14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN13QQuickRhiItem16releaseResourcesEv": ["nothing", "address"],
+    "ritual_ZN13QQuickRhiItem20invalidateSceneGraphEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QQuickRhiItem": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK13QQuickRhiItem17isTextureProviderEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZNK13QQuickRhiItem15textureProviderEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN13QQuickRhiItem15updatePaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN13QQuickRhiItem5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN13QQuickRhiItem14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN13QQuickRhiItem16releaseResourcesEv": [
+      "nothing", "address"
+    ]
+  }
+}

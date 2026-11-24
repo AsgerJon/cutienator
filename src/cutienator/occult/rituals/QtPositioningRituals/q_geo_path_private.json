@@ -1,0 +1,30 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtPositioning/6.12.0/QtPositioning/private/qgeopath_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QGeoPathPrivateC1Ev": ["address"],
+    "ritual_ZN15QGeoPathPrivateC1ERK5QListI14QGeoCoordinateEd": [
+      "address", "address", "double"
+    ],
+    "ritual_ZN15QGeoPathPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZNK15QGeoPathPrivate5cloneEv": ["address", "address"],
+    "ritual_ZNK15QGeoPathPrivate8containsERK14QGeoCoordinate": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK15QGeoPathPrivate12lineContainsERK14QGeoCoordinate": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK15QGeoPathPrivate5widthEv": ["double", "address"],
+    "ritual_ZN15QGeoPathPrivate8setWidthERKd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_take_QGeoPathPrivate": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK15QGeoPathPrivate5cloneEv": ["address", "address"],
+    "ritual_own_ZNK15QGeoPathPrivate8containsERK14QGeoCoordinate": [
+      "bool", "address", "address"
+    ]
+  }
+}

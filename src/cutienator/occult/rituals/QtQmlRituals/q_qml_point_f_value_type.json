@@ -1,0 +1,28 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmlvaluetype_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QQmlPointFValueType20qt_qmlMarker_foreignEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQmlPointFValueType21qt_qmlMarker_extendedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQmlPointFValueTypeC1Ev": ["address"],
+    "ritual_ZN19QQmlPointFValueTypeC1ERK7QPointF": ["address", "address"],
+    "ritual_ZN19QQmlPointFValueTypeC1ERK6QPoint": ["address", "address"],
+    "ritual_ZNK19QQmlPointFValueType8toStringEv": ["text", "address"],
+    "ritual_ZNK19QQmlPointFValueType1xEv": ["double", "address"],
+    "ritual_ZNK19QQmlPointFValueType1yEv": ["double", "address"],
+    "ritual_ZN19QQmlPointFValueType4setXEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN19QQmlPointFValueType4setYEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN19QQmlPointFValueTypeD1Ev": ["nothing", "address"]
+  }
+}

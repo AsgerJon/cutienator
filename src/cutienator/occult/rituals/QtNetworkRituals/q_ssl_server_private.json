@@ -1,0 +1,31 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/6.12.0/QtNetwork/private/qsslserver_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN17QSslServerPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK17QSslServerPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN17QSslServerPrivateC1Ev": ["address"],
+    "ritual_ZN17QSslServerPrivate27checkClientHelloAndContinueEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QSslServerPrivate26initializeHandshakeProcessEP10QSslSocket": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QSslServerPrivate16removeSocketDataEy": [
+      "nothing", "address", "unsigned long long"
+    ],
+    "ritual_ZN17QSslServerPrivate23handleHandshakeTimedOutEP10QSslSocket": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QSslServerPrivate23totalPendingConnectionsEv": [
+      "int", "address"
+    ],
+    "ritual_take_QSslServerPrivate": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK17QSslServerPrivate23totalPendingConnectionsEv": [
+      "int", "address"
+    ]
+  }
+}

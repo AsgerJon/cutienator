@@ -1,0 +1,46 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtLocat",
+    "ion/6.12.0/QtLocation/private/qdeclarativegeomapitemgroup_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK27QDeclarativeGeoMapItemGroup10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QDeclarativeGeoMapItemGroup2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN27QDeclarativeGeoMapItemGroupC1EP10QQuickItem": [
+      "address", "address"
+    ],
+    "ritual_ZN27QDeclarativeGeoMapItemGroupD1Ev": ["nothing", "address"],
+    "ritual_ZN27QDeclarativeGeoMapItemGroup11setQuickMapEP18QDeclarativeGeoMap": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK27QDeclarativeGeoMapItemGroup8quickMapEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK27QDeclarativeGeoMapItemGroup14mapItemOpacityEv": [
+      "double", "address"
+    ],
+    "ritual_ZN27QDeclarativeGeoMapItemGroup10classBeginEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QDeclarativeGeoMapItemGroup17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QDeclarativeGeoMapItemGroup16onMapSizeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QDeclarativeGeoMapItemGroup": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN27QDeclarativeGeoMapItemGroup10classBeginEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN27QDeclarativeGeoMapItemGroup17componentCompleteEv": [
+      "nothing", "address"
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qringbuffer_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN10QRingChunkC1Ev": ["address"],
+    "ritual_ZN10QRingChunkC1Ex": ["address", "long long"],
+    "ritual_ZN10QRingChunkC1ERK10QByteArray": ["address", "address"],
+    "ritual_ZN10QRingChunk8allocateEx": ["nothing", "address", "long long"],
+    "ritual_ZNK10QRingChunk8isSharedEv": ["bool", "address"],
+    "ritual_ZN10QRingChunk6detachEv": ["nothing", "address"],
+    "ritual_ZNK10QRingChunk4headEv": ["long long", "address"],
+    "ritual_ZNK10QRingChunk4sizeEv": ["long long", "address"],
+    "ritual_ZNK10QRingChunk8capacityEv": ["long long", "address"],
+    "ritual_ZNK10QRingChunk9availableEv": ["long long", "address"],
+    "ritual_ZNK10QRingChunk4dataEv": ["chars", "address"],
+    "ritual_ZN10QRingChunk7advanceEx": ["nothing", "address", "long long"],
+    "ritual_ZN10QRingChunk4growEx": ["nothing", "address", "long long"],
+    "ritual_ZN10QRingChunk6assignERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QRingChunk5resetEv": ["nothing", "address"],
+    "ritual_ZN10QRingChunk5clearEv": ["nothing", "address"],
+    "ritual_ZN10QRingChunkD1Ev": ["nothing", "address"]
+  }
+}

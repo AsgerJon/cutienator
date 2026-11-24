@@ -55,26 +55,45 @@ typedef void (*CuteQWindowCall10)(const void *, QFocusEvent *, int *);
 typedef void (*CuteQWindowCall11)(const void *, QShowEvent *, int *);
 typedef void (*CuteQWindowCall12)(const void *, QHideEvent *, int *);
 typedef void (*CuteQWindowCall13)(const void *, QCloseEvent *, int *);
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQWindowCall14)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 typedef void (*CuteQWindowCall15)(const void *, QKeyEvent *, int *);
 typedef void (*CuteQWindowCall16)(const void *, QKeyEvent *, int *);
 typedef void (*CuteQWindowCall17)(const void *, QMouseEvent *, int *);
 typedef void (*CuteQWindowCall18)(const void *, QMouseEvent *, int *);
 typedef void (*CuteQWindowCall19)(const void *, QMouseEvent *, int *);
 typedef void (*CuteQWindowCall20)(const void *, QMouseEvent *, int *);
+#if QT_CONFIG(wheelevent)
 typedef void (*CuteQWindowCall21)(const void *, QWheelEvent *, int *);
+#endif  // QT_CONFIG(wheelevent)
 typedef void (*CuteQWindowCall22)(const void *, QTouchEvent *, int *);
+#if QT_CONFIG(tabletevent)
 typedef void (*CuteQWindowCall23)(const void *, QTabletEvent *, int *);
-typedef bool (*CuteQWindowCall24)(const void *, QObject *, QEvent *, int *);
-typedef void (*CuteQWindowCall25)(const void *, QTimerEvent *, int *);
-typedef void (*CuteQWindowCall26)(const void *, QChildEvent *, int *);
-typedef void (*CuteQWindowCall27)(const void *, QEvent *, int *);
-typedef void (*CuteQWindowCall28)(const void *, const QMetaMethod *, int *);
+#endif  // QT_CONFIG(tabletevent)
+typedef void * (*CuteQWindowCall24)(const void *, int *);
+#if !defined(QT_NO_QOBJECT)
+typedef bool (*CuteQWindowCall25)(const void *, QObject *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+typedef void (*CuteQWindowCall26)(const void *, QTimerEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+typedef void (*CuteQWindowCall27)(const void *, QChildEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+typedef void (*CuteQWindowCall28)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQWindowCall29)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+typedef void (*CuteQWindowCall30)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 class CuteQWindow : public QWindow {
 public:
   using QWindow::QWindow;
-  void *taken[30] = {};
+  void *taken[31] = {};
 
   bool take(const char *key, void *call) {
     if (!std::strcmp(key, "_ZNK8QSurface11surfaceTypeEv")) {
@@ -133,10 +152,12 @@ public:
       taken[13] = call;
       return true;
     }
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[14] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QWindow13keyPressEventEP9QKeyEvent")) {
       taken[15] = call;
       return true;
@@ -161,42 +182,62 @@ public:
       taken[20] = call;
       return true;
     }
+#if QT_CONFIG(wheelevent)
     if (!std::strcmp(key, "_ZN7QWindow10wheelEventEP11QWheelEvent")) {
       taken[21] = call;
       return true;
     }
+#endif  // QT_CONFIG(wheelevent)
     if (!std::strcmp(key, "_ZN7QWindow10touchEventEP11QTouchEvent")) {
       taken[22] = call;
       return true;
     }
+#if QT_CONFIG(tabletevent)
     if (!std::strcmp(key, "_ZN7QWindow11tabletEventEP12QTabletEvent")) {
       taken[23] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
+#endif  // QT_CONFIG(tabletevent)
+    if (!std::strcmp(key, "_ZNK8QSurface13surfaceHandleEv")) {
       taken[24] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[25] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[26] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[27] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[28] = call;
       return true;
     }
-    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[29] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
+    if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
+      taken[30] = call;
+      return true;
+    }
+#endif  // !defined(QT_NO_QOBJECT)
     return false;
   }
 
@@ -354,6 +395,7 @@ public:
     QWindow::closeEvent(a0);
   }
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QWindow::event(QEvent *a0)
   bool event(QEvent *a0) override {
     if (taken[14]) {
@@ -364,6 +406,7 @@ public:
     }
     return QWindow::event(a0);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
   //  void QWindow::keyPressEvent(QKeyEvent *a0)
   void keyPressEvent(QKeyEvent *a0) override {
@@ -431,6 +474,7 @@ public:
     QWindow::mouseMoveEvent(a0);
   }
 
+#if QT_CONFIG(wheelevent)
   //  void QWindow::wheelEvent(QWheelEvent *a0)
   void wheelEvent(QWheelEvent *a0) override {
     if (taken[21]) {
@@ -441,6 +485,7 @@ public:
     }
     QWindow::wheelEvent(a0);
   }
+#endif  // QT_CONFIG(wheelevent)
 
   //  void QWindow::touchEvent(QTouchEvent *a0)
   void touchEvent(QTouchEvent *a0) override {
@@ -453,6 +498,7 @@ public:
     QWindow::touchEvent(a0);
   }
 
+#if QT_CONFIG(tabletevent)
   //  void QWindow::tabletEvent(QTabletEvent *a0)
   void tabletEvent(QTabletEvent *a0) override {
     if (taken[23]) {
@@ -463,72 +509,96 @@ public:
     }
     QWindow::tabletEvent(a0);
   }
+#endif  // QT_CONFIG(tabletevent)
 
-  //  bool QObject::eventFilter(QObject *watched, QEvent *event)
-  bool eventFilter(QObject *watched, QEvent *event) override {
+  //  QPlatformSurface *QWindow::surfaceHandle() const
+  QPlatformSurface *surfaceHandle() const override {
     if (taken[24]) {
       int handled = 0;
       CuteQWindowCall24 call = reinterpret_cast<CuteQWindowCall24>(taken[24]);
+      void * given = call(this, &handled);
+      if (handled) return static_cast<QPlatformSurface *>(given);
+    }
+    return QWindow::surfaceHandle();
+  }
+
+#if !defined(QT_NO_QOBJECT)
+  //  bool QObject::eventFilter(QObject *watched, QEvent *event)
+  bool eventFilter(QObject *watched, QEvent *event) override {
+    if (taken[25]) {
+      int handled = 0;
+      CuteQWindowCall25 call = reinterpret_cast<CuteQWindowCall25>(taken[25]);
       bool given = call(this, watched, event, &handled);
       if (handled) return given;
     }
     return QObject::eventFilter(watched, event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
-    if (taken[25]) {
-      int handled = 0;
-      CuteQWindowCall25 call = reinterpret_cast<CuteQWindowCall25>(taken[25]);
-      call(this, event, &handled);
-      if (handled) return;
-    }
-    QObject::timerEvent(event);
-  }
-
-  //  void QObject::childEvent(QChildEvent *event)
-  void childEvent(QChildEvent *event) override {
     if (taken[26]) {
       int handled = 0;
       CuteQWindowCall26 call = reinterpret_cast<CuteQWindowCall26>(taken[26]);
       call(this, event, &handled);
       if (handled) return;
     }
-    QObject::childEvent(event);
+    QObject::timerEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
-  //  void QObject::customEvent(QEvent *event)
-  void customEvent(QEvent *event) override {
+#if !defined(QT_NO_QOBJECT)
+  //  void QObject::childEvent(QChildEvent *event)
+  void childEvent(QChildEvent *event) override {
     if (taken[27]) {
       int handled = 0;
       CuteQWindowCall27 call = reinterpret_cast<CuteQWindowCall27>(taken[27]);
       call(this, event, &handled);
       if (handled) return;
     }
-    QObject::customEvent(event);
+    QObject::childEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
-  //  void QObject::connectNotify(const QMetaMethod &signal)
-  void connectNotify(const QMetaMethod &signal) override {
+#if !defined(QT_NO_QOBJECT)
+  //  void QObject::customEvent(QEvent *event)
+  void customEvent(QEvent *event) override {
     if (taken[28]) {
       int handled = 0;
       CuteQWindowCall28 call = reinterpret_cast<CuteQWindowCall28>(taken[28]);
-      call(this, &signal, &handled);
+      call(this, event, &handled);
       if (handled) return;
     }
-    QObject::connectNotify(signal);
+    QObject::customEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
-  //  void QObject::disconnectNotify(const QMetaMethod &signal)
-  void disconnectNotify(const QMetaMethod &signal) override {
+#if !defined(QT_NO_QOBJECT)
+  //  void QObject::connectNotify(const QMetaMethod &signal)
+  void connectNotify(const QMetaMethod &signal) override {
     if (taken[29]) {
       int handled = 0;
       CuteQWindowCall29 call = reinterpret_cast<CuteQWindowCall29>(taken[29]);
       call(this, &signal, &handled);
       if (handled) return;
     }
+    QObject::connectNotify(signal);
+  }
+#endif  // !defined(QT_NO_QOBJECT)
+
+#if !defined(QT_NO_QOBJECT)
+  //  void QObject::disconnectNotify(const QMetaMethod &signal)
+  void disconnectNotify(const QMetaMethod &signal) override {
+    if (taken[30]) {
+      int handled = 0;
+      CuteQWindowCall30 call = reinterpret_cast<CuteQWindowCall30>(taken[30]);
+      call(this, &signal, &handled);
+      if (handled) return;
+    }
     QObject::disconnectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 };
 
 //  const QMetaObject *QWindow::metaObject() const
@@ -541,6 +611,18 @@ const QMetaObject *ritual_ZNK7QWindow10metaObjectEv(const QWindow *self) {
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZN7QWindow2trEPKcS1_i(const char *s, const char *c, int n) {
   return new QString(QWindow::tr(s, c, n));
+}
+
+//  QWindowPrivate *QWindow::d_func()
+extern "C" Q_DECL_EXPORT
+QWindowPrivate *ritual_ZN7QWindow6d_funcEv(QWindow *self) {
+  return self->d_func();
+}
+
+//  const QWindowPrivate *QWindow::d_func() const
+extern "C" Q_DECL_EXPORT
+const QWindowPrivate *ritual_ZNK7QWindow6d_funcEv(const QWindow *self) {
+  return self->d_func();
 }
 
 //  QWindow::QWindow(QScreen *screen)
@@ -1032,6 +1114,12 @@ void ritual_ZN7QWindow7destroyEv(QWindow *self) {
   self->destroy();
 }
 
+//  QPlatformWindow *QWindow::handle() const
+extern "C" Q_DECL_EXPORT
+QPlatformWindow *ritual_ZNK7QWindow6handleEv(const QWindow *self) {
+  return self->handle();
+}
+
 //  bool QWindow::setKeyboardGrabEnabled(bool grab)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN7QWindow22setKeyboardGrabEnabledEb(QWindow *self, bool grab) {
@@ -1101,12 +1189,15 @@ QPoint *ritual_ZNK7QWindow13mapFromGlobalERK6QPoint(
   return new QPoint(self->mapFromGlobal(*pos));
 }
 
+#if !defined(QT_NO_CURSOR)
 //  QCursor QWindow::cursor() const
 extern "C" Q_DECL_EXPORT
 QCursor *ritual_ZNK7QWindow6cursorEv(const QWindow *self) {
   return new QCursor(self->cursor());
 }
+#endif  // !defined(QT_NO_CURSOR)
 
+#if !defined(QT_NO_CURSOR)
 //  void QWindow::setCursor(const QCursor &a0)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7QWindow9setCursorERK7QCursor(
@@ -1114,12 +1205,15 @@ void ritual_ZN7QWindow9setCursorERK7QCursor(
     const QCursor *a0) {
   self->setCursor(*a0);
 }
+#endif  // !defined(QT_NO_CURSOR)
 
+#if !defined(QT_NO_CURSOR)
 //  void QWindow::unsetCursor()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7QWindow11unsetCursorEv(QWindow *self) {
   self->unsetCursor();
 }
+#endif  // !defined(QT_NO_CURSOR)
 
 //  QWindow *QWindow::fromWinId(WId id)
 extern "C" Q_DECL_EXPORT
@@ -1420,6 +1514,7 @@ void ritual_ZN7QWindow14mouseMoveEventEP11QMouseEvent(
   self->mouseMoveEvent(a0);
 }
 
+#if QT_CONFIG(wheelevent)
 //  void QWindow::wheelEvent(QWheelEvent *a0)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7QWindow10wheelEventEP11QWheelEvent(
@@ -1427,6 +1522,7 @@ void ritual_ZN7QWindow10wheelEventEP11QWheelEvent(
     QWheelEvent *a0) {
   self->wheelEvent(a0);
 }
+#endif  // QT_CONFIG(wheelevent)
 
 //  void QWindow::touchEvent(QTouchEvent *a0)
 extern "C" Q_DECL_EXPORT
@@ -1436,12 +1532,20 @@ void ritual_ZN7QWindow10touchEventEP11QTouchEvent(
   self->touchEvent(a0);
 }
 
+#if QT_CONFIG(tabletevent)
 //  void QWindow::tabletEvent(QTabletEvent *a0)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN7QWindow11tabletEventEP12QTabletEvent(
     QWindow *self,
     QTabletEvent *a0) {
   self->tabletEvent(a0);
+}
+#endif  // QT_CONFIG(tabletevent)
+
+//  QPlatformSurface *QWindow::surfaceHandle() const
+extern "C" Q_DECL_EXPORT
+QPlatformSurface *ritual_ZNK7QWindow13surfaceHandleEv(const QWindow *self) {
+  return self->surfaceHandle();
 }
 
 //  QWindow as the QSurface it is built on
@@ -1615,6 +1719,7 @@ void ritual_own_ZN7QWindow14mouseMoveEventEP11QMouseEvent(
   static_cast<OwnQWindow *>(self)->OwnQWindow::mouseMoveEvent(a0);
 }
 
+#if QT_CONFIG(wheelevent)
 //  void QWindow::wheelEvent(QWheelEvent *a0)
 extern "C" Q_DECL_EXPORT
 void ritual_own_ZN7QWindow10wheelEventEP11QWheelEvent(
@@ -1622,6 +1727,7 @@ void ritual_own_ZN7QWindow10wheelEventEP11QWheelEvent(
     QWheelEvent *a0) {
   static_cast<OwnQWindow *>(self)->OwnQWindow::wheelEvent(a0);
 }
+#endif  // QT_CONFIG(wheelevent)
 
 //  void QWindow::touchEvent(QTouchEvent *a0)
 extern "C" Q_DECL_EXPORT
@@ -1631,12 +1737,21 @@ void ritual_own_ZN7QWindow10touchEventEP11QTouchEvent(
   static_cast<OwnQWindow *>(self)->OwnQWindow::touchEvent(a0);
 }
 
+#if QT_CONFIG(tabletevent)
 //  void QWindow::tabletEvent(QTabletEvent *a0)
 extern "C" Q_DECL_EXPORT
 void ritual_own_ZN7QWindow11tabletEventEP12QTabletEvent(
     QWindow *self,
     QTabletEvent *a0) {
   static_cast<OwnQWindow *>(self)->OwnQWindow::tabletEvent(a0);
+}
+#endif  // QT_CONFIG(tabletevent)
+
+//  QPlatformSurface *QWindow::surfaceHandle() const
+extern "C" Q_DECL_EXPORT
+QPlatformSurface *ritual_own_ZNK7QWindow13surfaceHandleEv(
+    const QWindow *self) {
+  return self->QWindow::surfaceHandle();
 }
 
 //  QList<QWindow *>::QList()

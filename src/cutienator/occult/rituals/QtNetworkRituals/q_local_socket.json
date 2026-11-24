@@ -1,0 +1,91 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/qlocalsocket.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK12QLocalSocket10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QLocalSocket2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN12QLocalSocket6d_funcEv": ["address", "address"],
+    "ritual_ZNK12QLocalSocket6d_funcEv": ["address", "address"],
+    "ritual_ZN12QLocalSocketC1EP7QObject": ["address", "address"],
+    "ritual_ZN12QLocalSocketD1Ev": ["nothing", "address"],
+    "ritual_ZN12QLocalSocket15connectToServerE6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN12QLocalSocket15connectToServerERK7QString6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [
+      "nothing", "address", "text", "int"
+    ],
+    "ritual_ZN12QLocalSocket20disconnectFromServerEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN12QLocalSocket13setServerNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK12QLocalSocket10serverNameEv": ["text", "address"],
+    "ritual_ZNK12QLocalSocket14fullServerNameEv": ["text", "address"],
+    "ritual_ZN12QLocalSocket5abortEv": ["nothing", "address"],
+    "ritual_ZNK12QLocalSocket12isSequentialEv": ["bool", "address"],
+    "ritual_ZNK12QLocalSocket14bytesAvailableEv": ["long long", "address"],
+    "ritual_ZNK12QLocalSocket12bytesToWriteEv": ["long long", "address"],
+    "ritual_ZNK12QLocalSocket11canReadLineEv": ["bool", "address"],
+    "ritual_ZN12QLocalSocket4openE6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN12QLocalSocket5closeEv": ["nothing", "address"],
+    "ritual_ZNK12QLocalSocket5errorEv": ["int", "address"],
+    "ritual_ZN12QLocalSocket5flushEv": ["bool", "address"],
+    "ritual_ZNK12QLocalSocket7isValidEv": ["bool", "address"],
+    "ritual_ZNK12QLocalSocket14readBufferSizeEv": ["long long", "address"],
+    "ritual_ZN12QLocalSocket17setReadBufferSizeEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN12QLocalSocket19setSocketDescriptorExNS_16LocalSocketStateE6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [
+      "bool", "address", "long long", "int", "int"
+    ],
+    "ritual_ZNK12QLocalSocket16socketDescriptorEv": ["long long", "address"],
+    "ritual_ZN12QLocalSocket16setSocketOptionsE6QFlagsINS_12SocketOptionEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK12QLocalSocket13socketOptionsEv": ["int", "address"],
+    "ritual_ZNK12QLocalSocket5stateEv": ["int", "address"],
+    "ritual_ZN12QLocalSocket19waitForBytesWrittenEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN12QLocalSocket16waitForConnectedEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN12QLocalSocket19waitForDisconnectedEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN12QLocalSocket16waitForReadyReadEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN12QLocalSocket8skipDataEx": [
+      "long long", "address", "long long"
+    ],
+    "ritual_ZN12QLocalSocket9writeDataEPKcx": [
+      "long long", "address", "chars", "long long"
+    ],
+    "ritual_take_QLocalSocket": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK12QLocalSocket12isSequentialEv": ["bool", "address"],
+    "ritual_own_ZNK12QLocalSocket14bytesAvailableEv": [
+      "long long", "address"
+    ],
+    "ritual_own_ZNK12QLocalSocket12bytesToWriteEv": ["long long", "address"],
+    "ritual_own_ZNK12QLocalSocket11canReadLineEv": ["bool", "address"],
+    "ritual_own_ZN12QLocalSocket4openE6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [
+      "bool", "address", "int"
+    ],
+    "ritual_own_ZN12QLocalSocket5closeEv": ["nothing", "address"],
+    "ritual_own_ZN12QLocalSocket19waitForBytesWrittenEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_own_ZN12QLocalSocket16waitForReadyReadEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_own_ZN12QLocalSocket8skipDataEx": [
+      "long long", "address", "long long"
+    ]
+  }
+}

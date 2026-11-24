@@ -1,0 +1,56 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qsgadaptationlayer_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QSGInternalImageNodeD1Ev": ["nothing", "address"],
+    "ritual_ZN20QSGInternalImageNode13setTargetRectERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QSGInternalImageNode18setInnerTargetRectERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QSGInternalImageNode18setInnerSourceRectERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QSGInternalImageNode16setSubSourceRectERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QSGInternalImageNode10setTextureEP10QSGTexture": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QSGInternalImageNode15setAntialiasingEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20QSGInternalImageNode9setMirrorEbb": [
+      "nothing", "address", "bool", "bool"
+    ],
+    "ritual_ZN20QSGInternalImageNode18setMipmapFilteringEN10QSGTexture9FilteringE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QSGInternalImageNode12setFilteringEN10QSGTexture9FilteringE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QSGInternalImageNode21setHorizontalWrapModeEN10QSGTexture8WrapModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QSGInternalImageNode19setVerticalWrapModeEN10QSGTexture8WrapModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QSGInternalImageNode6updateEv": ["nothing", "address"],
+    "ritual_ZN20QSGInternalImageNode6acceptEP16QSGNodeVisitorEx": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QSGInternalImageNode": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN20QSGInternalImageNode15setAntialiasingEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZN20QSGInternalImageNode6acceptEP16QSGNodeVisitorEx": [
+      "nothing", "address", "address"
+    ]
+  }
+}

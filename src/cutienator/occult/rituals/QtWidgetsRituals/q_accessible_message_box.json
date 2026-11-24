@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/simplewidgets_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN21QAccessibleMessageBoxC1EP7QWidget": ["address", "address"],
+    "ritual_ZNK21QAccessibleMessageBox4textEN11QAccessible4TextE": [
+      "text", "address", "int"
+    ],
+    "ritual_ZNK21QAccessibleMessageBox10messageBoxEv": [
+      "address", "address"
+    ],
+    "ritual_take_QAccessibleMessageBox": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK21QAccessibleMessageBox4textEN11QAccessible4TextE": [
+      "text", "address", "int"
+    ]
+  }
+}

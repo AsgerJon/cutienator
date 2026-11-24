@@ -1,0 +1,92 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquicktreeviewdelegate",
+    "_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK22QQuickTreeViewDelegate10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QQuickTreeViewDelegate2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN22QQuickTreeViewDelegateC1EP10QQuickItem": [
+      "address", "address"
+    ],
+    "ritual_ZNK22QQuickTreeViewDelegate11indentationEv": [
+      "double", "address"
+    ],
+    "ritual_ZN22QQuickTreeViewDelegate14setIndentationEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK22QQuickTreeViewDelegate10isTreeNodeEv": ["bool", "address"],
+    "ritual_ZN22QQuickTreeViewDelegate13setIsTreeNodeEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK22QQuickTreeViewDelegate11hasChildrenEv": ["bool", "address"],
+    "ritual_ZN22QQuickTreeViewDelegate14setHasChildrenEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK22QQuickTreeViewDelegate8expandedEv": ["bool", "address"],
+    "ritual_ZN22QQuickTreeViewDelegate11setExpandedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK22QQuickTreeViewDelegate7currentEv": ["bool", "address"],
+    "ritual_ZN22QQuickTreeViewDelegate10setCurrentEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK22QQuickTreeViewDelegate8selectedEv": ["bool", "address"],
+    "ritual_ZN22QQuickTreeViewDelegate11setSelectedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK22QQuickTreeViewDelegate7editingEv": ["bool", "address"],
+    "ritual_ZN22QQuickTreeViewDelegate10setEditingEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK22QQuickTreeViewDelegate5depthEv": ["int", "address"],
+    "ritual_ZN22QQuickTreeViewDelegate8setDepthEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK22QQuickTreeViewDelegate8treeViewEv": ["address", "address"],
+    "ritual_ZN22QQuickTreeViewDelegate11setTreeViewEP14QQuickTreeView": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK22QQuickTreeViewDelegate10leftMarginEv": [
+      "double", "address"
+    ],
+    "ritual_ZN22QQuickTreeViewDelegate13setLeftMarginEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK22QQuickTreeViewDelegate11rightMarginEv": [
+      "double", "address"
+    ],
+    "ritual_ZN22QQuickTreeViewDelegate14setRightMarginEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK22QQuickTreeViewDelegate11defaultFontEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QQuickTreeViewDelegate14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN22QQuickTreeViewDelegate17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickTreeViewDelegate15mousePressEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK22QQuickTreeViewDelegate11defaultFontEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN22QQuickTreeViewDelegate14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN22QQuickTreeViewDelegate17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN22QQuickTreeViewDelegate15mousePressEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ]
+  }
+}

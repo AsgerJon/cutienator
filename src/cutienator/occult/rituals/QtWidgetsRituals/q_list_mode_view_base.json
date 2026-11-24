@@ -1,0 +1,101 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qlistview_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QListModeViewBase9itemIndexERK13QListViewItem": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK17QListModeViewBase19indexToListViewItemERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN17QListModeViewBase19doBatchedItemLayoutERK19QListViewLayoutInfoi": [
+      "bool", "address", "address", "int"
+    ],
+    "ritual_ZN17QListModeViewBase5clearEv": ["nothing", "address"],
+    "ritual_ZN17QListModeViewBase11setRowCountEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK17QListModeViewBase15intersectingSetERK5QRect": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN17QListModeViewBase11dataChangedERK11QModelIndexS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN17QListModeViewBase16scrollContentsByEiib": [
+      "nothing", "address", "int", "int", "bool"
+    ],
+    "ritual_ZNK17QListModeViewBase13mapToViewportERK5QRect": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK17QListModeViewBase16horizontalOffsetEv": ["int", "address"],
+    "ritual_ZNK17QListModeViewBase14verticalOffsetEv": ["int", "address"],
+    "ritual_ZN17QListModeViewBase12viewportSizeEPK17QAbstractItemView": [
+      "address", "address"
+    ],
+    "ritual_ZN17QListModeViewBase25updateHorizontalScrollBarERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QListModeViewBase23updateVerticalScrollBarERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QListModeViewBase8positionERK6QPointRK5QRectRK11QModelIndex": [
+      "int", "address", "address", "address", "address"
+    ],
+    "ritual_ZN17QListModeViewBase13dragMoveEventEP14QDragMoveEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QListModeViewBase6dropOnEP10QDropEventPiS2_P11QModelIndex": [
+      "bool", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN17QListModeViewBase16initStaticLayoutERK19QListViewLayoutInfo": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN17QListModeViewBase14doStaticLayoutERK19QListViewLayoutInfo": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QListModeViewBase20perItemScrollToValueEiiiN17QAbstractItemView10ScrollHintEN2Qt11OrientationEbi": [
+      "int", "address", "int", "int", "int", "int", "int", "bool", "int"
+    ],
+    "ritual_ZNK17QListModeViewBase25perItemScrollingPageStepsEiib": [
+      "int", "address", "int", "int", "bool"
+    ],
+    "ritual_ZN17QListModeViewBaseD1Ev": ["nothing", "address"],
+    "ritual_own_ZNK17QListModeViewBase9itemIndexERK13QListViewItem": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZNK17QListModeViewBase19indexToListViewItemERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN17QListModeViewBase19doBatchedItemLayoutERK19QListViewLayoutInfoi": [
+      "bool", "address", "address", "int"
+    ],
+    "ritual_own_ZN17QListModeViewBase5clearEv": ["nothing", "address"],
+    "ritual_own_ZN17QListModeViewBase11setRowCountEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17QListModeViewBase11dataChangedERK11QModelIndexS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN17QListModeViewBase16scrollContentsByEiib": [
+      "nothing", "address", "int", "int", "bool"
+    ],
+    "ritual_own_ZNK17QListModeViewBase13mapToViewportERK5QRect": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZNK17QListModeViewBase16horizontalOffsetEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZNK17QListModeViewBase14verticalOffsetEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZN17QListModeViewBase25updateHorizontalScrollBarERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN17QListModeViewBase23updateVerticalScrollBarERK5QSize": [
+      "nothing", "address", "address"
+    ]
+  }
+}

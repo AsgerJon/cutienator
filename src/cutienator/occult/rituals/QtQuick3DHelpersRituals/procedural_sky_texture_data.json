@@ -1,0 +1,114 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DHelpers/6.12.0/QtQuick3DHelpers/private/proceduralskytexturedata",
+    "_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK24ProceduralSkyTextureData10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24ProceduralSkyTextureData2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN24ProceduralSkyTextureDataC1Ev": ["address"],
+    "ritual_ZN24ProceduralSkyTextureDataD1Ev": ["nothing", "address"],
+    "ritual_ZNK24ProceduralSkyTextureData11skyTopColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK24ProceduralSkyTextureData15skyHorizonColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK24ProceduralSkyTextureData8skyCurveEv": ["float", "address"],
+    "ritual_ZNK24ProceduralSkyTextureData9skyEnergyEv": ["float", "address"],
+    "ritual_ZNK24ProceduralSkyTextureData17groundBottomColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK24ProceduralSkyTextureData18groundHorizonColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK24ProceduralSkyTextureData11groundCurveEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK24ProceduralSkyTextureData12groundEnergyEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK24ProceduralSkyTextureData8sunColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK24ProceduralSkyTextureData11sunLatitudeEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK24ProceduralSkyTextureData12sunLongitudeEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK24ProceduralSkyTextureData11sunAngleMinEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK24ProceduralSkyTextureData11sunAngleMaxEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK24ProceduralSkyTextureData8sunCurveEv": ["float", "address"],
+    "ritual_ZNK24ProceduralSkyTextureData9sunEnergyEv": ["float", "address"],
+    "ritual_ZNK24ProceduralSkyTextureData14textureQualityEv": [
+      "int", "address"
+    ],
+    "ritual_ZN24ProceduralSkyTextureData14setSkyTopColorE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24ProceduralSkyTextureData18setSkyHorizonColorE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24ProceduralSkyTextureData11setSkyCurveEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN24ProceduralSkyTextureData12setSkyEnergyEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN24ProceduralSkyTextureData20setGroundBottomColorE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24ProceduralSkyTextureData21setGroundHorizonColorE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24ProceduralSkyTextureData14setGroundCurveEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN24ProceduralSkyTextureData15setGroundEnergyEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN24ProceduralSkyTextureData11setSunColorE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24ProceduralSkyTextureData14setSunLatitudeEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN24ProceduralSkyTextureData15setSunLongitudeEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN24ProceduralSkyTextureData14setSunAngleMinEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN24ProceduralSkyTextureData14setSunAngleMaxEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN24ProceduralSkyTextureData11setSunCurveEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN24ProceduralSkyTextureData12setSunEnergyEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN24ProceduralSkyTextureData17setTextureQualityENS_17SkyTextureQualityE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN24ProceduralSkyTextureData22generateRGBA16FTextureEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24ProceduralSkyTextureData21scheduleTextureUpdateEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_ProceduralSkyTextureData": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

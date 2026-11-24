@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmlguardedcontextdata_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN22QQmlGuardedContextDataC1Ev": ["address"],
+    "ritual_ZN22QQmlGuardedContextDataD1Ev": ["nothing", "address"],
+    "ritual_ZNK22QQmlGuardedContextData6isNullEv": ["bool", "address"],
+    "ritual_ZNK22QQmlGuardedContextDataptEv": ["address", "address"],
+    "ritual_ZNK22QQmlGuardedContextData4nextEv": ["address", "address"],
+    "ritual_ZN22QQmlGuardedContextData5resetEv": ["nothing", "address"],
+    "ritual_ZN22QQmlGuardedContextData6unlinkEv": ["nothing", "address"]
+  }
+}

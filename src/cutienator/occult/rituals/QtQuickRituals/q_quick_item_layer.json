@@ -1,0 +1,104 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickitem_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK15QQuickItemLayer10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QQuickItemLayer2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN15QQuickItemLayer22qt_qmlMarker_anonymousEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickItemLayerC1EP10QQuickItem": ["address", "address"],
+    "ritual_ZN15QQuickItemLayerD1Ev": ["nothing", "address"],
+    "ritual_ZN15QQuickItemLayer10classBeginEv": ["nothing", "address"],
+    "ritual_ZN15QQuickItemLayer17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK15QQuickItemLayer7enabledEv": ["bool", "address"],
+    "ritual_ZN15QQuickItemLayer10setEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK15QQuickItemLayer6mipmapEv": ["bool", "address"],
+    "ritual_ZN15QQuickItemLayer9setMipmapEb": ["nothing", "address", "bool"],
+    "ritual_ZNK15QQuickItemLayer6smoothEv": ["bool", "address"],
+    "ritual_ZN15QQuickItemLayer9setSmoothEb": ["nothing", "address", "bool"],
+    "ritual_ZNK15QQuickItemLayer4liveEv": ["bool", "address"],
+    "ritual_ZN15QQuickItemLayer7setLiveEb": ["nothing", "address", "bool"],
+    "ritual_ZNK15QQuickItemLayer4sizeEv": ["address", "address"],
+    "ritual_ZN15QQuickItemLayer7setSizeERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QQuickItemLayer6formatEv": ["int", "address"],
+    "ritual_ZN15QQuickItemLayer9setFormatEN24QQuickShaderEffectSource6FormatE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QQuickItemLayer10sourceRectEv": ["address", "address"],
+    "ritual_ZN15QQuickItemLayer13setSourceRectERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QQuickItemLayer8wrapModeEv": ["int", "address"],
+    "ritual_ZN15QQuickItemLayer11setWrapModeEN24QQuickShaderEffectSource8WrapModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QQuickItemLayer4nameEv": ["address", "address"],
+    "ritual_ZN15QQuickItemLayer7setNameERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QQuickItemLayer6effectEv": ["address", "address"],
+    "ritual_ZN15QQuickItemLayer9setEffectEP13QQmlComponent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QQuickItemLayer16textureMirroringEv": ["int", "address"],
+    "ritual_ZN15QQuickItemLayer19setTextureMirroringEN24QQuickShaderEffectSource16TextureMirroringE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QQuickItemLayer7samplesEv": ["int", "address"],
+    "ritual_ZN15QQuickItemLayer10setSamplesEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QQuickItemLayer12effectSourceEv": ["address", "address"],
+    "ritual_ZN15QQuickItemLayer19itemGeometryChangedEP10QQuickItem20QQuickGeometryChangeRK6QRectF": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN15QQuickItemLayer18itemOpacityChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QQuickItemLayer17itemParentChangedEP10QQuickItemS1_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN15QQuickItemLayer23itemSiblingOrderChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QQuickItemLayer21itemVisibilityChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QQuickItemLayer12updateMatrixEv": ["nothing", "address"],
+    "ritual_ZN15QQuickItemLayer14updateGeometryEv": ["nothing", "address"],
+    "ritual_ZN15QQuickItemLayer13updateOpacityEv": ["nothing", "address"],
+    "ritual_ZN15QQuickItemLayer7updateZEv": ["nothing", "address"],
+    "ritual_ZN15QQuickItemLayer8activateEv": ["nothing", "address"],
+    "ritual_ZN15QQuickItemLayer10deactivateEv": ["nothing", "address"],
+    "ritual_ZN15QQuickItemLayer14activateEffectEv": ["nothing", "address"],
+    "ritual_ZN15QQuickItemLayer16deactivateEffectEv": ["nothing", "address"],
+    "ritual_take_QQuickItemLayer": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN15QQuickItemLayer19itemGeometryChangedEP10QQuickItem20QQuickGeometryChangeRK6QRectF": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN15QQuickItemLayer18itemOpacityChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN15QQuickItemLayer17itemParentChangedEP10QQuickItemS1_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN15QQuickItemLayer23itemSiblingOrderChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN15QQuickItemLayer21itemVisibilityChangedEP10QQuickItem": [
+      "nothing", "address", "address"
+    ]
+  }
+}

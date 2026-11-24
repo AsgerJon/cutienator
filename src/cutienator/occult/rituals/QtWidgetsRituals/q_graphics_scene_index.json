@@ -48,6 +48,8 @@
     "ritual_ZN19QGraphicsSceneIndex25prepareBoundingRectChangeEPK13QGraphicsItem": [
       "nothing", "address", "address"
     ],
+    "ritual_ZN19QGraphicsSceneIndex6d_funcEv": ["address", "address"],
+    "ritual_ZNK19QGraphicsSceneIndex6d_funcEv": ["address", "address"],
     "ritual_take_QGraphicsSceneIndex": [
       "bool", "address", "chars", "address"
     ],

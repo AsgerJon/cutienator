@@ -1,0 +1,43 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qmacgesturerecognizer_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK24QMacPanGestureRecognizer10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QMacPanGestureRecognizer2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN24QMacPanGestureRecognizerC1Ev": ["address"],
+    "ritual_ZN24QMacPanGestureRecognizer6createEP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN24QMacPanGestureRecognizer9recognizeEP8QGestureP7QObjectP6QEvent": [
+      "int", "address", "address", "address", "address"
+    ],
+    "ritual_ZN24QMacPanGestureRecognizer5resetEP8QGesture": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QMacPanGestureRecognizer10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_cast_QMacPanGestureRecognizer_QGestureRecognizer": [
+      "address", "address"
+    ],
+    "ritual_own_ZN24QMacPanGestureRecognizer6createEP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN24QMacPanGestureRecognizer9recognizeEP8QGestureP7QObjectP6QEvent": [
+      "int", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN24QMacPanGestureRecognizer5resetEP8QGesture": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN24QMacPanGestureRecognizer10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ]
+  }
+}

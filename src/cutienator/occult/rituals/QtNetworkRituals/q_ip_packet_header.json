@@ -1,0 +1,14 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/6.12.0/QtNetwork/private/qnetworkdatagram_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QIpPacketHeaderC1ERK12QHostAddresst": [
+      "address", "address", "unsigned short"
+    ],
+    "ritual_ZN15QIpPacketHeader5clearEv": ["nothing", "address"],
+    "ritual_ZN15QIpPacketHeaderD1Ev": ["nothing", "address"]
+  }
+}

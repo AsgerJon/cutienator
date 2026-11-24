@@ -1,0 +1,96 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtBluetooth/qbluetoothsocket.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK16QBluetoothSocket10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QBluetoothSocket2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN16QBluetoothSocket6d_funcEv": ["address", "address"],
+    "ritual_ZNK16QBluetoothSocket6d_funcEv": ["address", "address"],
+    "ritual_ZN16QBluetoothSocketC1EN21QBluetoothServiceInfo8ProtocolEP7QObject": [
+      "address", "int", "address"
+    ],
+    "ritual_ZN16QBluetoothSocketC1EP7QObject": ["address", "address"],
+    "ritual_ZN16QBluetoothSocketD1Ev": ["nothing", "address"],
+    "ritual_ZN16QBluetoothSocket5abortEv": ["nothing", "address"],
+    "ritual_ZN16QBluetoothSocket5closeEv": ["nothing", "address"],
+    "ritual_ZNK16QBluetoothSocket12isSequentialEv": ["bool", "address"],
+    "ritual_ZNK16QBluetoothSocket14bytesAvailableEv": [
+      "long long", "address"
+    ],
+    "ritual_ZNK16QBluetoothSocket12bytesToWriteEv": ["long long", "address"],
+    "ritual_ZNK16QBluetoothSocket11canReadLineEv": ["bool", "address"],
+    "ritual_ZN16QBluetoothSocket16connectToServiceERK21QBluetoothServiceInfo6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN16QBluetoothSocket16connectToServiceERK17QBluetoothAddressRK14QBluetoothUuid6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [
+      "nothing", "address", "address", "address", "int"
+    ],
+    "ritual_ZN16QBluetoothSocket16connectToServiceERK17QBluetoothAddresst6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [
+      "nothing", "address", "address", "unsigned short", "int"
+    ],
+    "ritual_ZN16QBluetoothSocket16connectToServiceERK17QBluetoothAddressN14QBluetoothUuid16ServiceClassUuidE6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN16QBluetoothSocket21disconnectFromServiceEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK16QBluetoothSocket9localNameEv": ["text", "address"],
+    "ritual_ZNK16QBluetoothSocket12localAddressEv": ["address", "address"],
+    "ritual_ZNK16QBluetoothSocket9localPortEv": [
+      "unsigned short", "address"
+    ],
+    "ritual_ZNK16QBluetoothSocket8peerNameEv": ["text", "address"],
+    "ritual_ZNK16QBluetoothSocket11peerAddressEv": ["address", "address"],
+    "ritual_ZNK16QBluetoothSocket8peerPortEv": ["unsigned short", "address"],
+    "ritual_ZN16QBluetoothSocket19setSocketDescriptorEiN21QBluetoothServiceInfo8ProtocolENS_11SocketStateE6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [
+      "bool", "address", "int", "int", "int", "int"
+    ],
+    "ritual_ZNK16QBluetoothSocket16socketDescriptorEv": ["int", "address"],
+    "ritual_ZNK16QBluetoothSocket10socketTypeEv": ["int", "address"],
+    "ritual_ZNK16QBluetoothSocket5stateEv": ["int", "address"],
+    "ritual_ZNK16QBluetoothSocket5errorEv": ["int", "address"],
+    "ritual_ZNK16QBluetoothSocket11errorStringEv": ["text", "address"],
+    "ritual_ZN16QBluetoothSocket25setPreferredSecurityFlagsE6QFlagsIN10QBluetooth8SecurityEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16QBluetoothSocket22preferredSecurityFlagsEv": [
+      "int", "address"
+    ],
+    "ritual_ZN16QBluetoothSocket9writeDataEPKcx": [
+      "long long", "address", "chars", "long long"
+    ],
+    "ritual_ZN16QBluetoothSocket14setSocketStateENS_11SocketStateE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16QBluetoothSocket14setSocketErrorENS_11SocketErrorE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16QBluetoothSocket17doDeviceDiscoveryERK21QBluetoothServiceInfo6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN16QBluetoothSocket17serviceDiscoveredERK21QBluetoothServiceInfo": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QBluetoothSocket17discoveryFinishedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QBluetoothSocketC1EP27QBluetoothSocketBasePrivateN21QBluetoothServiceInfo8ProtocolEP7QObject": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_take_QBluetoothSocket": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN16QBluetoothSocket5closeEv": ["nothing", "address"],
+    "ritual_own_ZNK16QBluetoothSocket12isSequentialEv": ["bool", "address"],
+    "ritual_own_ZNK16QBluetoothSocket14bytesAvailableEv": [
+      "long long", "address"
+    ],
+    "ritual_own_ZNK16QBluetoothSocket12bytesToWriteEv": [
+      "long long", "address"
+    ],
+    "ritual_own_ZNK16QBluetoothSocket11canReadLineEv": ["bool", "address"]
+  }
+}

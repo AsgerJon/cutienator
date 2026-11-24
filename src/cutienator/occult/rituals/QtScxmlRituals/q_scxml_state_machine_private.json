@@ -1,0 +1,150 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtScxml/6.12.0/QtScxml/private/qscxmlstatemachine_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN25QScxmlStateMachinePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK25QScxmlStateMachinePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN25QScxmlStateMachinePrivateC1EPK11QMetaObject": [
+      "address", "address"
+    ],
+    "ritual_ZN25QScxmlStateMachinePrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN25QScxmlStateMachinePrivate3getEP18QScxmlStateMachine": [
+      "address", "address"
+    ],
+    "ritual_ZN25QScxmlStateMachinePrivate17generateSessionIdERK7QString": [
+      "text", "text"
+    ],
+    "ritual_ZN25QScxmlStateMachinePrivate10parserDataEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QScxmlStateMachinePrivate12setIsInvokedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN25QScxmlStateMachinePrivate10addServiceEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN25QScxmlStateMachinePrivate13removeServiceEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN25QScxmlStateMachinePrivate14serviceFactoryEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN25QScxmlStateMachinePrivate19executeInitialSetupEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN25QScxmlStateMachinePrivate10routeEventEP11QScxmlEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QScxmlStateMachinePrivate9postEventEP11QScxmlEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QScxmlStateMachinePrivate18submitDelayedEventEP11QScxmlEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QScxmlStateMachinePrivate11submitErrorERK7QStringS2_S2_": [
+      "nothing", "address", "text", "text", "text"
+    ],
+    "ritual_ZN25QScxmlStateMachinePrivate5startEv": ["nothing", "address"],
+    "ritual_ZN25QScxmlStateMachinePrivate5pauseEv": ["nothing", "address"],
+    "ritual_ZN25QScxmlStateMachinePrivate13processEventsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QScxmlStateMachinePrivate8setEventEP11QScxmlEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QScxmlStateMachinePrivate10resetEventEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QScxmlStateMachinePrivate15emitStateActiveEib": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZN25QScxmlStateMachinePrivate26emitInvokedServicesChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QScxmlStateMachinePrivate6attachEP22QScxmlStateMachineInfo": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK25QScxmlStateMachinePrivate13configurationEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QScxmlStateMachinePrivate15updateMetaCacheEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QScxmlStateMachinePrivate15exitInterpreterEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QScxmlStateMachinePrivate15returnDoneEventEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK25QScxmlStateMachinePrivate28removeConflictingTransitionsEPNS_10OrderedSetE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QScxmlStateMachinePrivate9microstepERKNS_10OrderedSetE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QScxmlStateMachinePrivate10exitStatesERKNS_10OrderedSetE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QScxmlStateMachinePrivate24executeTransitionContentERKNS_10OrderedSetE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QScxmlStateMachinePrivate11enterStatesERKNS_10OrderedSetE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK25QScxmlStateMachinePrivate15computeEntrySetERKNS_10OrderedSetEPS0_S3_PNS_14HistoryContentE": [
+      "nothing", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK25QScxmlStateMachinePrivate26addDescendantStatesToEnterEiPNS_10OrderedSetES1_PNS_14HistoryContentE": [
+      "nothing", "address", "int", "address", "address", "address"
+    ],
+    "ritual_ZNK25QScxmlStateMachinePrivate24addAncestorStatesToEnterEiiPNS_10OrderedSetES1_PNS_14HistoryContentE": [
+      "nothing", "address", "int", "int", "address", "address", "address"
+    ],
+    "ritual_ZNK25QScxmlStateMachinePrivate13hasDescendantERKNS_10OrderedSetEi": [
+      "bool", "address", "address", "int"
+    ],
+    "ritual_ZNK25QScxmlStateMachinePrivate14allDescendantsERKNS_10OrderedSetEi": [
+      "bool", "address", "address", "int"
+    ],
+    "ritual_ZNK25QScxmlStateMachinePrivate12isDescendantEii": [
+      "bool", "address", "int", "int"
+    ],
+    "ritual_ZNK25QScxmlStateMachinePrivate14isInFinalStateEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK25QScxmlStateMachinePrivate19getTransitionDomainEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK25QScxmlStateMachinePrivate24getEffectiveTargetStatesEPNS_10OrderedSetEi": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN25QScxmlStateMachinePrivate20isInitializedChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QScxmlStateMachinePrivate20initialValuesChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QScxmlStateMachinePrivate13loaderChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QScxmlStateMachinePrivate12setDataModelEP15QScxmlDataModel": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QScxmlStateMachinePrivate12setTableDataEP15QScxmlTableData": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK25QScxmlStateMachinePrivate32invokedServicesActualCalculationEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK25QScxmlStateMachinePrivate10isRunnableEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK25QScxmlStateMachinePrivate8isPausedEv": ["bool", "address"],
+    "ritual_ZNK25QScxmlStateMachinePrivate10isFinishedEv": [
+      "bool", "address"
+    ]
+  }
+}

@@ -1,0 +1,114 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLocation/6.12.0/QtLocation/private/qdeclarativegeocodemodel_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK24QDeclarativeGeocodeModel10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QDeclarativeGeocodeModel2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN24QDeclarativeGeocodeModelC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN24QDeclarativeGeocodeModelD1Ev": ["nothing", "address"],
+    "ritual_ZN24QDeclarativeGeocodeModel10classBeginEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QDeclarativeGeocodeModel17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK24QDeclarativeGeocodeModel8rowCountERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK24QDeclarativeGeocodeModel4dataERK11QModelIndexi": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZNK24QDeclarativeGeocodeModel9roleNamesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QDeclarativeGeocodeModel9setPluginEP30QDeclarativeGeoServiceProvider": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK24QDeclarativeGeocodeModel6pluginEv": ["address", "address"],
+    "ritual_ZN24QDeclarativeGeocodeModel9setBoundsERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK24QDeclarativeGeocodeModel6boundsEv": ["address", "address"],
+    "ritual_ZNK24QDeclarativeGeocodeModel6statusEv": ["int", "address"],
+    "ritual_ZNK24QDeclarativeGeocodeModel11errorStringEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK24QDeclarativeGeocodeModel5errorEv": ["int", "address"],
+    "ritual_ZNK24QDeclarativeGeocodeModel10autoUpdateEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN24QDeclarativeGeocodeModel13setAutoUpdateEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK24QDeclarativeGeocodeModel5countEv": ["int", "address"],
+    "ritual_ZN24QDeclarativeGeocodeModel3getEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK24QDeclarativeGeocodeModel5limitEv": ["int", "address"],
+    "ritual_ZN24QDeclarativeGeocodeModel8setLimitEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK24QDeclarativeGeocodeModel6offsetEv": ["int", "address"],
+    "ritual_ZN24QDeclarativeGeocodeModel9setOffsetEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK24QDeclarativeGeocodeModel5queryEv": ["address", "address"],
+    "ritual_ZN24QDeclarativeGeocodeModel8setQueryERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QDeclarativeGeocodeModel5resetEv": ["nothing", "address"],
+    "ritual_ZN24QDeclarativeGeocodeModel6cancelEv": ["nothing", "address"],
+    "ritual_ZN24QDeclarativeGeocodeModel6updateEv": ["nothing", "address"],
+    "ritual_ZN24QDeclarativeGeocodeModel19queryContentChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QDeclarativeGeocodeModel15geocodeFinishedEP13QGeoCodeReply": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QDeclarativeGeocodeModel12geocodeErrorEP13QGeoCodeReplyNS0_5ErrorERK7QString": [
+      "nothing", "address", "address", "int", "text"
+    ],
+    "ritual_ZN24QDeclarativeGeocodeModel11pluginReadyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QDeclarativeGeocodeModel9setStatusENS_6StatusE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN24QDeclarativeGeocodeModel8setErrorENS_12GeocodeErrorERK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZN24QDeclarativeGeocodeModel12setLocationsERK5QListI12QGeoLocationE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QDeclarativeGeocodeModel12abortRequestEv": [
+      "nothing", "address"
+    ],
+    "ritual_cast_QDeclarativeGeocodeModel_QQmlParserStatus": [
+      "address", "address"
+    ],
+    "ritual_take_QDeclarativeGeocodeModel": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN24QDeclarativeGeocodeModel10classBeginEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN24QDeclarativeGeocodeModel17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZNK24QDeclarativeGeocodeModel8rowCountERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZNK24QDeclarativeGeocodeModel4dataERK11QModelIndexi": [
+      "address", "address", "address", "int"
+    ]
+  }
+}

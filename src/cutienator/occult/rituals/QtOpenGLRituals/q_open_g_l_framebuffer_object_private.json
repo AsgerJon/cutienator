@@ -1,0 +1,14 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtOpenGL/6.12.0/QtOpenGL/private/qopenglframebufferobject_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN31QOpenGLFramebufferObjectPrivateC1Ev": ["address"],
+    "ritual_ZN31QOpenGLFramebufferObjectPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZNK31QOpenGLFramebufferObjectPrivate22checkFramebufferStatusEP14QOpenGLContext": [
+      "bool", "address", "address"
+    ]
+  }
+}

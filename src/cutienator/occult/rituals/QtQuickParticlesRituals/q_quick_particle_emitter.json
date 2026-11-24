@@ -1,0 +1,137 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Particles/6.12.0/QtQuickParticles/private/qquickparticleemitter_p.",
+    "h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK21QQuickParticleEmitter10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QQuickParticleEmitter2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN21QQuickParticleEmitterC1EP10QQuickItem": [
+      "address", "address"
+    ],
+    "ritual_ZN21QQuickParticleEmitterD1Ev": ["nothing", "address"],
+    "ritual_ZN21QQuickParticleEmitter10emitWindowEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK21QQuickParticleEmitter7enabledEv": ["bool", "address"],
+    "ritual_ZNK21QQuickParticleEmitter18particlesPerSecondEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK21QQuickParticleEmitter16particleDurationEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK21QQuickParticleEmitter6systemEv": ["address", "address"],
+    "ritual_ZNK21QQuickParticleEmitter5groupEv": ["text", "address"],
+    "ritual_ZNK21QQuickParticleEmitter7groupIdEv": ["int", "address"],
+    "ritual_ZNK21QQuickParticleEmitter25particleDurationVariationEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK21QQuickParticleEmitter20velocityFromMovementEv": [
+      "double", "address"
+    ],
+    "ritual_ZN21QQuickParticleEmitter23setVelocityFromMovementEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN21QQuickParticleEmitter17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickParticleEmitter5pulseEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN21QQuickParticleEmitter5burstEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN21QQuickParticleEmitter5burstEidd": [
+      "nothing", "address", "int", "double", "double"
+    ],
+    "ritual_ZN21QQuickParticleEmitter10setEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN21QQuickParticleEmitter21setParticlesPerSecondEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN21QQuickParticleEmitter19setParticleDurationEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN21QQuickParticleEmitter9setSystemEP20QQuickParticleSystem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QQuickParticleEmitter8setGroupERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN21QQuickParticleEmitter28setParticleDurationVariationEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN21QQuickParticleEmitter11setExtruderEP22QQuickParticleExtruder": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QQuickParticleEmitter15setParticleSizeEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN21QQuickParticleEmitter18setParticleEndSizeEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN21QQuickParticleEmitter24setParticleSizeVariationEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN21QQuickParticleEmitter11setVelocityEP15QQuickDirection": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QQuickParticleEmitter15setAccelerationEP15QQuickDirection": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QQuickParticleEmitter19setMaxParticleCountEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN21QQuickParticleEmitter12setStartTimeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN21QQuickParticleEmitter5resetEv": ["nothing", "address"],
+    "ritual_ZNK21QQuickParticleEmitter13particleCountEv": ["int", "address"],
+    "ritual_ZNK21QQuickParticleEmitter8extruderEv": ["address", "address"],
+    "ritual_ZNK21QQuickParticleEmitter12particleSizeEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK21QQuickParticleEmitter15particleEndSizeEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK21QQuickParticleEmitter21particleSizeVariationEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK21QQuickParticleEmitter8velocityEv": ["address", "address"],
+    "ritual_ZNK21QQuickParticleEmitter12accelerationEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK21QQuickParticleEmitter16maxParticleCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK21QQuickParticleEmitter9startTimeEv": ["int", "address"],
+    "ritual_ZNK21QQuickParticleEmitter18reclaculateGroupIdEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickParticleEmitter17effectiveExtruderEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QQuickParticleEmitter15isEmitConnectedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QQuickParticleEmitter25callSystemEmittersChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QQuickParticleEmitter": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN21QQuickParticleEmitter10emitWindowEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN21QQuickParticleEmitter17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN21QQuickParticleEmitter5resetEv": ["nothing", "address"]
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qaccessiblemenu_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK19QAccessibleMenuItem10childCountEv": ["int", "address"],
+    "ritual_ZNK19QAccessibleMenuItem7childAtEii": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZNK19QAccessibleMenuItem7isValidEv": ["bool", "address"],
+    "ritual_ZNK19QAccessibleMenuItem12indexOfChildEPK20QAccessibleInterface": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK19QAccessibleMenuItem6parentEv": ["address", "address"],
+    "ritual_ZNK19QAccessibleMenuItem5childEi": ["address", "address", "int"],
+    "ritual_ZNK19QAccessibleMenuItem6objectEv": ["address", "address"],
+    "ritual_ZNK19QAccessibleMenuItem6windowEv": ["address", "address"],
+    "ritual_ZNK19QAccessibleMenuItem4rectEv": ["address", "address"],
+    "ritual_ZNK19QAccessibleMenuItem4roleEv": ["int", "address"],
+    "ritual_ZN19QAccessibleMenuItem7setTextEN11QAccessible4TextERK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZNK19QAccessibleMenuItem5stateEv": ["address", "address"],
+    "ritual_ZNK19QAccessibleMenuItem11actionNamesEv": ["address", "address"],
+    "ritual_ZN19QAccessibleMenuItem8doActionERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK19QAccessibleMenuItem20keyBindingsForActionERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK19QAccessibleMenuItem5ownerEv": ["address", "address"],
+    "ritual_ZNK19QAccessibleMenuItem6actionEv": ["address", "address"],
+    "ritual_cast_QAccessibleMenuItem_QAccessibleActionInterface": [
+      "address", "address"
+    ],
+    "ritual_take_QAccessibleMenuItem": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK19QAccessibleMenuItem10childCountEv": ["int", "address"],
+    "ritual_own_ZNK19QAccessibleMenuItem7childAtEii": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_own_ZNK19QAccessibleMenuItem7isValidEv": ["bool", "address"],
+    "ritual_own_ZNK19QAccessibleMenuItem12indexOfChildEPK20QAccessibleInterface": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZNK19QAccessibleMenuItem6parentEv": ["address", "address"],
+    "ritual_own_ZNK19QAccessibleMenuItem5childEi": [
+      "address", "address", "int"
+    ],
+    "ritual_own_ZNK19QAccessibleMenuItem6objectEv": ["address", "address"],
+    "ritual_own_ZNK19QAccessibleMenuItem6windowEv": ["address", "address"],
+    "ritual_own_ZNK19QAccessibleMenuItem4rectEv": ["address", "address"],
+    "ritual_own_ZNK19QAccessibleMenuItem4roleEv": ["int", "address"],
+    "ritual_own_ZN19QAccessibleMenuItem7setTextEN11QAccessible4TextERK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_own_ZNK19QAccessibleMenuItem5stateEv": ["address", "address"],
+    "ritual_own_ZN19QAccessibleMenuItem8doActionERK7QString": [
+      "nothing", "address", "text"
+    ]
+  }
+}

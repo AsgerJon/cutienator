@@ -1,0 +1,66 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQmlCo",
+    "mpiler/6.12.0/QtQmlCompiler/private/qqmljstypedescriptionreader_p.",
+    "h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN27QQmlJSTypeDescriptionReader2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN27QQmlJSTypeDescriptionReaderC1E7QStringS0_": [
+      "address", "text", "text"
+    ],
+    "ritual_ZNK27QQmlJSTypeDescriptionReader12errorMessageEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK27QQmlJSTypeDescriptionReader14warningMessageEv": [
+      "text", "address"
+    ],
+    "ritual_ZN27QQmlJSTypeDescriptionReader12readDocumentEPN6QQmlJS3AST9UiProgramE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN27QQmlJSTypeDescriptionReader10readModuleEPN6QQmlJS3AST18UiObjectDefinitionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN27QQmlJSTypeDescriptionReader16readDependenciesEPN6QQmlJS3AST15UiScriptBindingE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN27QQmlJSTypeDescriptionReader13readComponentEPN6QQmlJS3AST18UiObjectDefinitionE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN27QQmlJSTypeDescriptionReader13readParameterEPN6QQmlJS3AST18UiObjectDefinitionEP16QQmlJSMetaMethod": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN27QQmlJSTypeDescriptionReader17readStringBindingEPN6QQmlJS3AST15UiScriptBindingE": [
+      "text", "address", "address"
+    ],
+    "ritual_ZN27QQmlJSTypeDescriptionReader15readBoolBindingEPN6QQmlJS3AST15UiScriptBindingE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN27QQmlJSTypeDescriptionReader18readNumericBindingEPN6QQmlJS3AST15UiScriptBindingE": [
+      "double", "address", "address"
+    ],
+    "ritual_ZN27QQmlJSTypeDescriptionReader25readNumericVersionBindingEPN6QQmlJS3AST15UiScriptBindingE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN27QQmlJSTypeDescriptionReader14readIntBindingEPN6QQmlJS3AST15UiScriptBindingE": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN27QQmlJSTypeDescriptionReader14readStringListEPN6QQmlJS3AST15UiScriptBindingE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN27QQmlJSTypeDescriptionReader14readEnumValuesEPN6QQmlJS3AST15UiScriptBindingEP14QQmlJSMetaEnum": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN27QQmlJSTypeDescriptionReader8addErrorERKN6QQmlJS14SourceLocationERK7QString": [
+      "nothing", "address", "address", "text"
+    ],
+    "ritual_ZN27QQmlJSTypeDescriptionReader10addWarningERKN6QQmlJS14SourceLocationERK7QString": [
+      "nothing", "address", "address", "text"
+    ],
+    "ritual_ZN27QQmlJSTypeDescriptionReader8getArrayEPN6QQmlJS3AST15UiScriptBindingE": [
+      "address", "address", "address"
+    ]
+  }
+}

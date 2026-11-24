@@ -1,0 +1,32 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/6.12.0/QtNetwork/private/qtlsbackend_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11QTlsPrivate6TlsKeyD1Ev": ["nothing", "address"],
+    "ritual_ZN11QTlsPrivate6TlsKey9decodeDerEN4QSsl7KeyTypeENS1_12KeyAlgorithmERK10QByteArrayS6_b": [
+      "nothing", "address", "int", "int", "address", "address", "bool"
+    ],
+    "ritual_ZN11QTlsPrivate6TlsKey9decodePemEN4QSsl7KeyTypeENS1_12KeyAlgorithmERK10QByteArrayS6_b": [
+      "nothing", "address", "int", "int", "address", "address", "bool"
+    ],
+    "ritual_ZNK11QTlsPrivate6TlsKey5toPemERK10QByteArray": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK11QTlsPrivate6TlsKey6isNullEv": ["bool", "address"],
+    "ritual_ZNK11QTlsPrivate6TlsKey4typeEv": ["int", "address"],
+    "ritual_ZNK11QTlsPrivate6TlsKey9algorithmEv": ["int", "address"],
+    "ritual_ZNK11QTlsPrivate6TlsKey6lengthEv": ["int", "address"],
+    "ritual_ZN11QTlsPrivate6TlsKey5clearEb": ["nothing", "address", "bool"],
+    "ritual_ZNK11QTlsPrivate6TlsKey7isPkcs8Ev": ["bool", "address"],
+    "ritual_ZNK11QTlsPrivate6TlsKey7decryptENS_6CipherERK10QByteArrayS4_S4_": [
+      "address", "address", "int", "address", "address", "address"
+    ],
+    "ritual_ZNK11QTlsPrivate6TlsKey7encryptENS_6CipherERK10QByteArrayS4_S4_": [
+      "address", "address", "int", "address", "address", "address"
+    ],
+    "ritual_take_QTlsPrivate_TlsKey": ["bool", "address", "chars", "address"]
+  }
+}

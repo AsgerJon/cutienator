@@ -2,6 +2,17 @@
 //  QtGui/qtextobject.h, Qt 6.12.0. Changes made here are lost.
 #include <QtGui/qtextobject.h>
 
+//  QTextBlock::iterator::iterator(const QTextDocumentPrivate *priv, int
+//      begin, int end, int f)
+extern "C" Q_DECL_EXPORT
+QTextBlock::iterator *ritual_ZN10QTextBlock8iteratorC1EPK20QTextDocumentPrivateiii(
+    const QTextDocumentPrivate *priv,
+    int begin,
+    int end,
+    int f) {
+  return new QTextBlock::iterator(priv, begin, end, f);
+}
+
 //  QTextBlock::iterator::iterator()
 extern "C" Q_DECL_EXPORT
 QTextBlock::iterator *ritual_ZN10QTextBlock8iteratorC1Ev() {

@@ -1,0 +1,26 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmldebugserviceinterfaces_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK20QQmlInspectorService10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QQmlInspectorService2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN20QQmlInspectorServiceD1Ev": ["nothing", "address"],
+    "ritual_ZN20QQmlInspectorService9addWindowEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQmlInspectorService15setParentWindowEP12QQuickWindowP7QWindow": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN20QQmlInspectorService12removeWindowEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QQmlInspectorService": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

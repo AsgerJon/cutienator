@@ -1,0 +1,25 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmlpropertyindex_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN17QQmlPropertyIndexC1Ev": ["address"],
+    "ritual_ZN17QQmlPropertyIndex11fromEncodedEi": ["address", "int"],
+    "ritual_ZN17QQmlPropertyIndexC1Ei": ["address", "int"],
+    "ritual_ZN17QQmlPropertyIndexC1Eii": ["address", "int", "int"],
+    "ritual_ZNK17QQmlPropertyIndex7isValidEv": ["bool", "address"],
+    "ritual_ZNK17QQmlPropertyIndex9coreIndexEv": ["int", "address"],
+    "ritual_ZNK17QQmlPropertyIndex14valueTypeIndexEv": ["int", "address"],
+    "ritual_ZNK17QQmlPropertyIndex17hasValueTypeIndexEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK17QQmlPropertyIndex9toEncodedEv": ["int", "address"],
+    "ritual_ZNK17QQmlPropertyIndex8intValueEv": ["int", "address"],
+    "ritual_ZNK17QQmlPropertyIndexeqERKS_": ["bool", "address", "address"],
+    "ritual_ZNK17QQmlPropertyIndexneERKS_": ["bool", "address", "address"],
+    "ritual_ZN17QQmlPropertyIndex6encodeEii": ["int", "int", "int"],
+    "ritual_ZN17QQmlPropertyIndexD1Ev": ["nothing", "address"]
+  }
+}

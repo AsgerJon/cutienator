@@ -1,8 +1,14 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/6.12.0/QtWidgets/private/qsidebar_p.h, Qt 6.12.0. Changes made
 //  here are lost.
+#include <QtWidgets/qtwidgetsglobal.h>
+#include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
+#if QT_CONFIG(filedialog)
+#include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/QtWidgets>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/6.12.0/QtWidgets/private/qsidebar_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qabstractitemmodel.h>
 #include <QtWidgets/qstyleoption.h>
 #include <QtCore/qsize.h>
@@ -11,6 +17,7 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include "qsidebar_p.h"
 #include <qaction.h>
 #include <qurl.h>
@@ -23,13 +30,14 @@
 #include <qfilesystemmodel.h>
 #include <qabstractfileiconprovider.h>
 #include <qfiledialog.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
 //  Qt's source, because Qt's library carries it under no name.
 //  Copyright (C) The Qt Company Ltd. It is licensed
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
-//  'inline' put before it.
+//  'inline' put before it where Qt did not write it.
 
 //  from src/widgets/dialogs/qsidebar.cpp, line 23, as _ZNK16QSideBarDelegate15initStyleOptionEP20QStyleOptionViewItemRK11QModelIndex
 inline void QSideBarDelegate::initStyleOption(QStyleOptionViewItem *option,
@@ -48,105 +56,187 @@ inline void QSideBarDelegate::initStyleOption(QStyleOptionViewItem *option,
 //  A QSideBarDelegate that Python can take functions over in. Every QSideBarDelegate
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if QT_CONFIG(itemviews)
+#if QT_CONFIG(filedialog)
 typedef void (*CuteQSideBarDelegateCall0)(const void *, QStyleOptionViewItem *, const QModelIndex *, int *);
+#endif  // QT_CONFIG(filedialog)
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
 typedef void (*CuteQSideBarDelegateCall1)(const void *, QPainter *, const QStyleOptionViewItem *, const QModelIndex *, int *);
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
 typedef const QSize * (*CuteQSideBarDelegateCall2)(const void *, const QStyleOptionViewItem *, const QModelIndex *, int *);
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
 typedef void * (*CuteQSideBarDelegateCall3)(const void *, QWidget *, const QStyleOptionViewItem *, const QModelIndex *, int *);
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
 typedef void (*CuteQSideBarDelegateCall4)(const void *, QWidget *, const QModelIndex *, int *);
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
 typedef void (*CuteQSideBarDelegateCall5)(const void *, QWidget *, QAbstractItemModel *, const QModelIndex *, int *);
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
 typedef void (*CuteQSideBarDelegateCall6)(const void *, QWidget *, const QStyleOptionViewItem *, const QModelIndex *, int *);
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
 typedef QString * (*CuteQSideBarDelegateCall7)(const void *, const QVariant *, const QLocale *, int *);
+#endif  // QT_CONFIG(itemviews)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(itemviews)
 typedef bool (*CuteQSideBarDelegateCall8)(const void *, QObject *, QEvent *, int *);
+#endif  // QT_CONFIG(itemviews)
+#endif  // !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(itemviews)
 typedef bool (*CuteQSideBarDelegateCall9)(const void *, QEvent *, QAbstractItemModel *, const QStyleOptionViewItem *, const QModelIndex *, int *);
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
 typedef void (*CuteQSideBarDelegateCall10)(const void *, QWidget *, const QModelIndex *, int *);
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
 typedef bool (*CuteQSideBarDelegateCall11)(const void *, QHelpEvent *, QAbstractItemView *, const QStyleOptionViewItem *, const QModelIndex *, int *);
+#endif  // QT_CONFIG(itemviews)
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQSideBarDelegateCall12)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQSideBarDelegateCall13)(const void *, QTimerEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQSideBarDelegateCall14)(const void *, QChildEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQSideBarDelegateCall15)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQSideBarDelegateCall16)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQSideBarDelegateCall17)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 class CuteQSideBarDelegate : public QSideBarDelegate {
 public:
   using QSideBarDelegate::QSideBarDelegate;
   void *taken[18] = {};
 
   bool take(const char *key, void *call) {
+#if QT_CONFIG(itemviews)
+#if QT_CONFIG(filedialog)
     if (!std::strcmp(key, "_ZNK19QStyledItemDelegate15initStyleOptionEP20QStyleOptionViewItemRK11QModelIndex")) {
       taken[0] = call;
       return true;
     }
+#endif  // QT_CONFIG(filedialog)
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
     if (!std::strcmp(key, "_ZNK21QAbstractItemDelegate5paintEP8QPainterRK20QStyleOptionViewItemRK11QModelIndex")) {
       taken[1] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
     if (!std::strcmp(key, "_ZNK21QAbstractItemDelegate8sizeHintERK20QStyleOptionViewItemRK11QModelIndex")) {
       taken[2] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
     if (!std::strcmp(key, "_ZNK21QAbstractItemDelegate12createEditorEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndex")) {
       taken[3] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
     if (!std::strcmp(key, "_ZNK21QAbstractItemDelegate13setEditorDataEP7QWidgetRK11QModelIndex")) {
       taken[4] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
     if (!std::strcmp(key, "_ZNK21QAbstractItemDelegate12setModelDataEP7QWidgetP18QAbstractItemModelRK11QModelIndex")) {
       taken[5] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
     if (!std::strcmp(key, "_ZNK21QAbstractItemDelegate20updateEditorGeometryEP7QWidgetRK20QStyleOptionViewItemRK11QModelIndex")) {
       taken[6] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
     if (!std::strcmp(key, "_ZNK19QStyledItemDelegate11displayTextERK8QVariantRK7QLocale")) {
       taken[7] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemviews)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(itemviews)
     if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[8] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemviews)
+#endif  // !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(itemviews)
     if (!std::strcmp(key, "_ZN21QAbstractItemDelegate11editorEventEP6QEventP18QAbstractItemModelRK20QStyleOptionViewItemRK11QModelIndex")) {
       taken[9] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
     if (!std::strcmp(key, "_ZNK21QAbstractItemDelegate13destroyEditorEP7QWidgetRK11QModelIndex")) {
       taken[10] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemviews)
+#if QT_CONFIG(itemviews)
     if (!std::strcmp(key, "_ZN21QAbstractItemDelegate9helpEventEP10QHelpEventP17QAbstractItemViewRK20QStyleOptionViewItemRK11QModelIndex")) {
       taken[11] = call;
       return true;
     }
+#endif  // QT_CONFIG(itemviews)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[12] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[13] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[14] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[15] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[16] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
       taken[17] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
     return false;
   }
 
+#if QT_CONFIG(itemviews)
+#if QT_CONFIG(filedialog)
   //  void QSideBarDelegate::initStyleOption(QStyleOptionViewItem *option,
   //      const QModelIndex &index) const
   void initStyleOption(
@@ -160,7 +250,10 @@ public:
     }
     QSideBarDelegate::initStyleOption(option, index);
   }
+#endif  // QT_CONFIG(filedialog)
+#endif  // QT_CONFIG(itemviews)
 
+#if QT_CONFIG(itemviews)
   //  void QStyledItemDelegate::paint(QPainter *painter, const
   //      QStyleOptionViewItem &option, const QModelIndex &index) const
   void paint(
@@ -175,7 +268,9 @@ public:
     }
     QStyledItemDelegate::paint(painter, option, index);
   }
+#endif  // QT_CONFIG(itemviews)
 
+#if QT_CONFIG(itemviews)
   //  QSize QStyledItemDelegate::sizeHint(const QStyleOptionViewItem
   //      &option, const QModelIndex &index) const
   QSize sizeHint(
@@ -189,7 +284,9 @@ public:
     }
     return QStyledItemDelegate::sizeHint(option, index);
   }
+#endif  // QT_CONFIG(itemviews)
 
+#if QT_CONFIG(itemviews)
   //  QWidget *QStyledItemDelegate::createEditor(QWidget *parent, const
   //      QStyleOptionViewItem &option, const QModelIndex &index) const
   QWidget *createEditor(
@@ -204,7 +301,9 @@ public:
     }
     return QStyledItemDelegate::createEditor(parent, option, index);
   }
+#endif  // QT_CONFIG(itemviews)
 
+#if QT_CONFIG(itemviews)
   //  void QStyledItemDelegate::setEditorData(QWidget *editor, const
   //      QModelIndex &index) const
   void setEditorData(
@@ -218,7 +317,9 @@ public:
     }
     QStyledItemDelegate::setEditorData(editor, index);
   }
+#endif  // QT_CONFIG(itemviews)
 
+#if QT_CONFIG(itemviews)
   //  void QStyledItemDelegate::setModelData(QWidget *editor,
   //      QAbstractItemModel *model, const QModelIndex &index) const
   void setModelData(
@@ -233,7 +334,9 @@ public:
     }
     QStyledItemDelegate::setModelData(editor, model, index);
   }
+#endif  // QT_CONFIG(itemviews)
 
+#if QT_CONFIG(itemviews)
   //  void QStyledItemDelegate::updateEditorGeometry(QWidget *editor, const
   //      QStyleOptionViewItem &option, const QModelIndex &index) const
   void updateEditorGeometry(
@@ -248,7 +351,9 @@ public:
     }
     QStyledItemDelegate::updateEditorGeometry(editor, option, index);
   }
+#endif  // QT_CONFIG(itemviews)
 
+#if QT_CONFIG(itemviews)
   //  QString QStyledItemDelegate::displayText(const QVariant &value, const
   //      QLocale &locale) const
   QString displayText(
@@ -266,7 +371,10 @@ public:
     }
     return QStyledItemDelegate::displayText(value, locale);
   }
+#endif  // QT_CONFIG(itemviews)
 
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(itemviews)
   //  bool QStyledItemDelegate::eventFilter(QObject *object, QEvent *event)
   bool eventFilter(QObject *object, QEvent *event) override {
     if (taken[8]) {
@@ -277,7 +385,10 @@ public:
     }
     return QStyledItemDelegate::eventFilter(object, event);
   }
+#endif  // QT_CONFIG(itemviews)
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if QT_CONFIG(itemviews)
   //  bool QStyledItemDelegate::editorEvent(QEvent *event,
   //      QAbstractItemModel *model, const QStyleOptionViewItem &option,
   //      const QModelIndex &index)
@@ -294,7 +405,9 @@ public:
     }
     return QStyledItemDelegate::editorEvent(event, model, option, index);
   }
+#endif  // QT_CONFIG(itemviews)
 
+#if QT_CONFIG(itemviews)
   //  void QAbstractItemDelegate::destroyEditor(QWidget *editor, const
   //      QModelIndex &index) const
   void destroyEditor(
@@ -308,7 +421,9 @@ public:
     }
     QAbstractItemDelegate::destroyEditor(editor, index);
   }
+#endif  // QT_CONFIG(itemviews)
 
+#if QT_CONFIG(itemviews)
   //  bool QAbstractItemDelegate::helpEvent(QHelpEvent *event,
   //      QAbstractItemView *view, const QStyleOptionViewItem &option,
   //      const QModelIndex &index)
@@ -325,7 +440,9 @@ public:
     }
     return QAbstractItemDelegate::helpEvent(event, view, option, index);
   }
+#endif  // QT_CONFIG(itemviews)
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QObject::event(QEvent *event)
   bool event(QEvent *event) override {
     if (taken[12]) {
@@ -336,7 +453,9 @@ public:
     }
     return QObject::event(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
     if (taken[13]) {
@@ -347,7 +466,9 @@ public:
     }
     QObject::timerEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
     if (taken[14]) {
@@ -358,7 +479,9 @@ public:
     }
     QObject::childEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
     if (taken[15]) {
@@ -369,7 +492,9 @@ public:
     }
     QObject::customEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
     if (taken[16]) {
@@ -380,7 +505,9 @@ public:
     }
     QObject::connectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
     if (taken[17]) {
@@ -391,6 +518,7 @@ public:
     }
     QObject::disconnectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 };
 
 //  QSideBarDelegate::QSideBarDelegate(QWidget *parent)
@@ -428,3 +556,5 @@ void ritual_own_ZNK16QSideBarDelegate15initStyleOptionEP20QStyleOptionViewItemRK
     const QModelIndex *index) {
   self->QSideBarDelegate::initStyleOption(option, *index);
 }
+
+#endif  // QT_CONFIG(filedialog)

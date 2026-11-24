@@ -1,0 +1,86 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmlcomponent_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QQmlComponentPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK20QQmlComponentPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN20QQmlComponentPrivate7loadUrlERK4QUrlN13QQmlComponent15CompilationModeE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZNK20QQmlComponentPrivate10loadedTypeEv": ["address", "address"],
+    "ritual_ZN20QQmlComponentPrivate14completeCreateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQmlComponentPrivate37initializeObjectWithInitialPropertiesEPN3QV410QmlContextERKNS0_5ValueEP7QObjectP18RequiredProperties": [
+      "nothing", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN20QQmlComponentPrivate20setInitialPropertiesEPN3QV415ExecutionEngineEPNS0_10QmlContextERKNS0_5ValueES7_P18RequiredPropertiesP7QObjectPK17QQmlObjectCreator": [
+      "nothing", "address", "address", "address", "address", "address",
+      "address", "address"
+    ],
+    "ritual_ZN20QQmlComponentPrivate32unsetRequiredPropertyToQQmlErrorERK20RequiredPropertyInfo": [
+      "address", "address"
+    ],
+    "ritual_ZN20QQmlComponentPrivate5readyEP17QQmlNotifyingBlob": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQmlComponentPrivate8progressEP17QQmlNotifyingBlobd": [
+      "nothing", "address", "address", "double"
+    ],
+    "ritual_ZNK20QQmlComponentPrivate29hadTopLevelRequiredPropertiesEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN20QQmlComponentPrivate8completeEP17QQmlEnginePrivatePNS_17ConstructionStateE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQmlComponentPrivate26removePropertyFromRequiredEP7QObjectRK7QStringP18RequiredPropertiesP10QQmlEnginePb": [
+      "address", "address", "text", "address", "address", "address"
+    ],
+    "ritual_ZN20QQmlComponentPrivate5clearEv": ["nothing", "address"],
+    "ritual_ZN20QQmlComponentPrivate3getEP13QQmlComponent": [
+      "address", "address"
+    ],
+    "ritual_ZN20QQmlComponentPrivate13doBeginCreateEP13QQmlComponentP11QQmlContext": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN20QQmlComponentPrivate20setInitialPropertiesEP7QObjectRK4QMapI7QString8QVariantE": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN20QQmlComponentPrivate18setInitialPropertyEP7QObjectRK7QStringRK8QVariant": [
+      "bool", "address", "address", "text", "address"
+    ],
+    "ritual_ZN20QQmlComponentPrivate20createWithPropertiesEP7QObjectRK4QMapI7QString8QVariantEP11QQmlContextNS_14CreateBehaviorE": [
+      "address", "address", "address", "address", "address", "int"
+    ],
+    "ritual_ZNK20QQmlComponentPrivate7isBoundEv": ["bool", "address"],
+    "ritual_ZN20QQmlComponentPrivate21prepareLoadFromModuleE14QAnyStringViewS0_N14QQmlTypeLoader4ModeE": [
+      "nothing", "address", "text", "text", "int"
+    ],
+    "ritual_ZN20QQmlComponentPrivate22completeLoadFromModuleE14QAnyStringViewS0_": [
+      "nothing", "address", "text", "text"
+    ],
+    "ritual_ZN20QQmlComponentPrivate11setProgressEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK20QQmlComponentPrivate14loadHelperTypeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QQmlComponentPrivate26hasUnsetRequiredPropertiesEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK20QQmlComponentPrivate18requiredPropertiesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QQmlComponentPrivate7creatorEv": ["address", "address"],
+    "ritual_ZNK20QQmlComponentPrivate6engineEv": ["address", "address"],
+    "ritual_ZN20QQmlComponentPrivate7setDataERK10QByteArrayRK4QUrlN13QQmlComponent15CompilationModeE": [
+      "nothing", "address", "address", "address", "int"
+    ],
+    "ritual_cast_QQmlComponentPrivate_QQmlNotifyingBlob_Callback": [
+      "address", "address"
+    ]
+  }
+}

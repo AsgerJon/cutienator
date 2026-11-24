@@ -1,0 +1,36 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qabstractfileiconengine_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN23QAbstractFileIconEngine6pixmapERK5QSizeN5QIcon4ModeENS3_5StateE": [
+      "address", "address", "address", "int", "int"
+    ],
+    "ritual_ZN23QAbstractFileIconEngine12scaledPixmapERK5QSizeN5QIcon4ModeENS3_5StateEd": [
+      "address", "address", "address", "int", "int", "double"
+    ],
+    "ritual_ZN23QAbstractFileIconEngine10actualSizeERK5QSizeN5QIcon4ModeENS3_5StateE": [
+      "address", "address", "address", "int", "int"
+    ],
+    "ritual_ZN23QAbstractFileIconEngine6isNullEv": ["bool", "address"],
+    "ritual_ZNK23QAbstractFileIconEngine8fileInfoEv": ["address", "address"],
+    "ritual_ZNK23QAbstractFileIconEngine7optionsEv": ["int", "address"],
+    "ritual_ZN23QAbstractFileIconEngine10filePixmapERK5QSizeN5QIcon4ModeENS3_5StateE": [
+      "address", "address", "address", "int", "int"
+    ],
+    "ritual_ZNK23QAbstractFileIconEngine8cacheKeyEv": ["text", "address"],
+    "ritual_own_ZN23QAbstractFileIconEngine6pixmapERK5QSizeN5QIcon4ModeENS3_5StateE": [
+      "address", "address", "address", "int", "int"
+    ],
+    "ritual_own_ZN23QAbstractFileIconEngine12scaledPixmapERK5QSizeN5QIcon4ModeENS3_5StateEd": [
+      "address", "address", "address", "int", "int", "double"
+    ],
+    "ritual_own_ZN23QAbstractFileIconEngine10actualSizeERK5QSizeN5QIcon4ModeENS3_5StateE": [
+      "address", "address", "address", "int", "int"
+    ],
+    "ritual_own_ZN23QAbstractFileIconEngine6isNullEv": ["bool", "address"],
+    "ritual_own_ZNK23QAbstractFileIconEngine8cacheKeyEv": ["text", "address"]
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DParticles/6.12.0/QtQuick3DParticles/private/qquick3dparticleattr",
+    "actor_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK25QQuick3DParticleAttractor10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QQuick3DParticleAttractor2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN25QQuick3DParticleAttractorC1EP12QQuick3DNode": [
+      "address", "address"
+    ],
+    "ritual_ZNK25QQuick3DParticleAttractor17positionVariationEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK25QQuick3DParticleAttractor5shapeEv": ["address", "address"],
+    "ritual_ZNK25QQuick3DParticleAttractor8durationEv": ["int", "address"],
+    "ritual_ZNK25QQuick3DParticleAttractor17durationVariationEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK25QQuick3DParticleAttractor9hideAtEndEv": ["bool", "address"],
+    "ritual_ZNK25QQuick3DParticleAttractor18useCachedPositionsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK25QQuick3DParticleAttractor15positionsAmountEv": [
+      "int", "address"
+    ],
+    "ritual_ZN25QQuick3DParticleAttractor20setPositionVariationERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QQuick3DParticleAttractor8setShapeEP29QQuick3DParticleAbstractShape": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QQuick3DParticleAttractor11setDurationEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN25QQuick3DParticleAttractor20setDurationVariationEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN25QQuick3DParticleAttractor12setHideAtEndEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN25QQuick3DParticleAttractor21setUseCachedPositionsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN25QQuick3DParticleAttractor18setPositionsAmountEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN25QQuick3DParticleAttractor15prepareToAffectEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QQuick3DParticleAttractor14affectParticleERK20QQuick3DParticleDataP27QQuick3DParticleDataCurrentf": [
+      "nothing", "address", "address", "address", "float"
+    ],
+    "ritual_ZN25QQuick3DParticleAttractor20updateShapePositionsEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN25QQuick3DParticleAttractor15prepareToAffectEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN25QQuick3DParticleAttractor14affectParticleERK20QQuick3DParticleDataP27QQuick3DParticleDataCurrentf": [
+      "nothing", "address", "address", "address", "float"
+    ]
+  }
+}

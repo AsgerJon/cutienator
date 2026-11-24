@@ -1,13 +1,20 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/6.12.0/QtWidgets/private/qgraphicsscenebsptreeindex_p.h, Qt
 //  6.12.0. Changes made here are lost.
+#include <QtWidgets/qtwidgetsglobal.h>
+#include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
+#if QT_CONFIG(graphicsview)
+#include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/QtWidgets>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/6.12.0/QtWidgets/private/qgraphicsscenebsptreeindex_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qrect.h>
 #include <QtWidgets/qgraphicsitem.h>
 #include <QtCore/qmetaobject.h>
 #include <QtCore/qlist.h>
 #include <cstring>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include "qdebug.h"
 #include "qgraphicsscene.h"
 #include "qgraphicsitem_p.h"
@@ -26,13 +33,14 @@
 #include <QtCore/qmath.h>
 #include <QtCore/qdebug.h>
 #include <algorithm>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
 //  Qt's source, because Qt's library carries it under no name.
 //  Copyright (C) The Qt Company Ltd. It is licensed
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
-//  'inline' put before it.
+//  'inline' put before it where Qt did not write it.
 
 //  from src/widgets/graphicsview/qgraphicssceneindex.cpp, line 561, as _ZN19QGraphicsSceneIndex10deleteItemEP13QGraphicsItem
 inline void QGraphicsSceneIndex::deleteItem(QGraphicsItem *item)
@@ -407,80 +415,137 @@ struct OwnQGraphicsSceneBspTreeIndex : QGraphicsSceneBspTreeIndex {
 //  A QGraphicsSceneBspTreeIndex that Python can take functions over in. Every QGraphicsSceneBspTreeIndex
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if QT_CONFIG(graphicsview)
 typedef void (*CuteQGraphicsSceneBspTreeIndexCall0)(const void *, const QRectF *, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(graphicsview)
 typedef bool (*CuteQGraphicsSceneBspTreeIndexCall1)(const void *, QEvent *, int *);
+#endif  // QT_CONFIG(graphicsview)
+#endif  // !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(graphicsview)
 typedef void (*CuteQGraphicsSceneBspTreeIndexCall2)(const void *, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 typedef void (*CuteQGraphicsSceneBspTreeIndexCall3)(const void *, QGraphicsItem *, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 typedef void (*CuteQGraphicsSceneBspTreeIndexCall4)(const void *, QGraphicsItem *, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 typedef void (*CuteQGraphicsSceneBspTreeIndexCall5)(const void *, const QGraphicsItem *, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
 typedef void (*CuteQGraphicsSceneBspTreeIndexCall6)(const void *, QGraphicsItem *, int *);
+#endif  // QT_CONFIG(graphicsview)
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQGraphicsSceneBspTreeIndexCall7)(const void *, QObject *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQGraphicsSceneBspTreeIndexCall8)(const void *, QTimerEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQGraphicsSceneBspTreeIndexCall9)(const void *, QChildEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQGraphicsSceneBspTreeIndexCall10)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQGraphicsSceneBspTreeIndexCall11)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQGraphicsSceneBspTreeIndexCall12)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 class CuteQGraphicsSceneBspTreeIndex : public QGraphicsSceneBspTreeIndex {
 public:
   using QGraphicsSceneBspTreeIndex::QGraphicsSceneBspTreeIndex;
   void *taken[13] = {};
 
   bool take(const char *key, void *call) {
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZN19QGraphicsSceneIndex15updateSceneRectERK6QRectF")) {
       taken[0] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[1] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#endif  // !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZN19QGraphicsSceneIndex5clearEv")) {
       taken[2] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZN19QGraphicsSceneIndex7addItemEP13QGraphicsItem")) {
       taken[3] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZN19QGraphicsSceneIndex10removeItemEP13QGraphicsItem")) {
       taken[4] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZN19QGraphicsSceneIndex25prepareBoundingRectChangeEPK13QGraphicsItem")) {
       taken[5] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if QT_CONFIG(graphicsview)
     if (!std::strcmp(key, "_ZN19QGraphicsSceneIndex10deleteItemEP13QGraphicsItem")) {
       taken[6] = call;
       return true;
     }
+#endif  // QT_CONFIG(graphicsview)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[7] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[8] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[9] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[10] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[11] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
       taken[12] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
     return false;
   }
 
+#if QT_CONFIG(graphicsview)
   //  void QGraphicsSceneBspTreeIndex::updateSceneRect(const QRectF &rect)
   void updateSceneRect(const QRectF &rect) override {
     if (taken[0]) {
@@ -491,7 +556,10 @@ public:
     }
     QGraphicsSceneBspTreeIndex::updateSceneRect(rect);
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(graphicsview)
   //  bool QGraphicsSceneBspTreeIndex::event(QEvent *event)
   bool event(QEvent *event) override {
     if (taken[1]) {
@@ -502,7 +570,10 @@ public:
     }
     return QGraphicsSceneBspTreeIndex::event(event);
   }
+#endif  // QT_CONFIG(graphicsview)
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if QT_CONFIG(graphicsview)
   //  void QGraphicsSceneBspTreeIndex::clear()
   void clear() override {
     if (taken[2]) {
@@ -513,7 +584,9 @@ public:
     }
     QGraphicsSceneBspTreeIndex::clear();
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if QT_CONFIG(graphicsview)
   //  void QGraphicsSceneBspTreeIndex::addItem(QGraphicsItem *item)
   void addItem(QGraphicsItem *item) override {
     if (taken[3]) {
@@ -524,7 +597,9 @@ public:
     }
     QGraphicsSceneBspTreeIndex::addItem(item);
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if QT_CONFIG(graphicsview)
   //  void QGraphicsSceneBspTreeIndex::removeItem(QGraphicsItem *item)
   void removeItem(QGraphicsItem *item) override {
     if (taken[4]) {
@@ -535,7 +610,9 @@ public:
     }
     QGraphicsSceneBspTreeIndex::removeItem(item);
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if QT_CONFIG(graphicsview)
   //  void QGraphicsSceneBspTreeIndex::prepareBoundingRectChange(const
   //      QGraphicsItem *item)
   void prepareBoundingRectChange(const QGraphicsItem *item) override {
@@ -547,7 +624,9 @@ public:
     }
     QGraphicsSceneBspTreeIndex::prepareBoundingRectChange(item);
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if QT_CONFIG(graphicsview)
   //  void QGraphicsSceneIndex::deleteItem(QGraphicsItem *item)
   void deleteItem(QGraphicsItem *item) override {
     if (taken[6]) {
@@ -558,7 +637,9 @@ public:
     }
     QGraphicsSceneIndex::deleteItem(item);
   }
+#endif  // QT_CONFIG(graphicsview)
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
     if (taken[7]) {
@@ -569,7 +650,9 @@ public:
     }
     return QObject::eventFilter(watched, event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
     if (taken[8]) {
@@ -580,7 +663,9 @@ public:
     }
     QObject::timerEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
     if (taken[9]) {
@@ -591,7 +676,9 @@ public:
     }
     QObject::childEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
     if (taken[10]) {
@@ -602,7 +689,9 @@ public:
     }
     QObject::customEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
     if (taken[11]) {
@@ -613,7 +702,9 @@ public:
     }
     QObject::connectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
     if (taken[12]) {
@@ -624,6 +715,7 @@ public:
     }
     QObject::disconnectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 };
 
 //  const QMetaObject *QGraphicsSceneBspTreeIndex::metaObject() const
@@ -728,6 +820,21 @@ void ritual_ZN26QGraphicsSceneBspTreeIndex25prepareBoundingRectChangeEPK13QGraph
   self->prepareBoundingRectChange(item);
 }
 
+//  QGraphicsSceneBspTreeIndexPrivate *QGraphicsSceneBspTreeIndex::d_func()
+extern "C" Q_DECL_EXPORT
+QGraphicsSceneBspTreeIndexPrivate *ritual_ZN26QGraphicsSceneBspTreeIndex6d_funcEv(
+    QGraphicsSceneBspTreeIndex *self) {
+  return self->d_func();
+}
+
+//  const QGraphicsSceneBspTreeIndexPrivate
+//      *QGraphicsSceneBspTreeIndex::d_func() const
+extern "C" Q_DECL_EXPORT
+const QGraphicsSceneBspTreeIndexPrivate *ritual_ZNK26QGraphicsSceneBspTreeIndex6d_funcEv(
+    const QGraphicsSceneBspTreeIndex *self) {
+  return self->d_func();
+}
+
 //  a Python function taken by a CuteQGraphicsSceneBspTreeIndex, for the
 //      function named by the key
 extern "C" Q_DECL_EXPORT
@@ -744,3 +851,5 @@ void ritual_own_ZN26QGraphicsSceneBspTreeIndex5clearEv(
     QGraphicsSceneBspTreeIndex *self) {
   static_cast<OwnQGraphicsSceneBspTreeIndex *>(self)->OwnQGraphicsSceneBspTreeIndex::clear();
 }
+
+#endif  // QT_CONFIG(graphicsview)

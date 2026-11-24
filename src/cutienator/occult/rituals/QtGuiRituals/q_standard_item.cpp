@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGui/qstandarditemmodel.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
+#if QT_CONFIG(standarditemmodel)
 #include <QtGui/qstandarditemmodel.h>
 #include <QtCore/qstring.h>
 #include <QtGui/qicon.h>
@@ -14,40 +16,61 @@
 //  A QStandardItem that Python can take functions over in. Every QStandardItem
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if QT_CONFIG(standarditemmodel)
 typedef const QVariant * (*CuteQStandardItemCall0)(const void *, int, int *);
+#endif  // QT_CONFIG(standarditemmodel)
+#if QT_CONFIG(standarditemmodel)
 typedef void (*CuteQStandardItemCall1)(const void *, const QModelRoleDataSpan *, int *);
+#endif  // QT_CONFIG(standarditemmodel)
+#if QT_CONFIG(standarditemmodel)
 typedef void (*CuteQStandardItemCall2)(const void *, const QVariant *, int, int *);
+#endif  // QT_CONFIG(standarditemmodel)
+#if QT_CONFIG(standarditemmodel)
 typedef void * (*CuteQStandardItemCall3)(const void *, int *);
+#endif  // QT_CONFIG(standarditemmodel)
+#if QT_CONFIG(standarditemmodel)
 typedef int (*CuteQStandardItemCall4)(const void *, int *);
+#endif  // QT_CONFIG(standarditemmodel)
 class CuteQStandardItem : public QStandardItem {
 public:
   using QStandardItem::QStandardItem;
   void *taken[5] = {};
 
   bool take(const char *key, void *call) {
+#if QT_CONFIG(standarditemmodel)
     if (!std::strcmp(key, "_ZNK13QStandardItem4dataEi")) {
       taken[0] = call;
       return true;
     }
+#endif  // QT_CONFIG(standarditemmodel)
+#if QT_CONFIG(standarditemmodel)
     if (!std::strcmp(key, "_ZNK13QStandardItem9multiDataE18QModelRoleDataSpan")) {
       taken[1] = call;
       return true;
     }
+#endif  // QT_CONFIG(standarditemmodel)
+#if QT_CONFIG(standarditemmodel)
     if (!std::strcmp(key, "_ZN13QStandardItem7setDataERK8QVarianti")) {
       taken[2] = call;
       return true;
     }
+#endif  // QT_CONFIG(standarditemmodel)
+#if QT_CONFIG(standarditemmodel)
     if (!std::strcmp(key, "_ZNK13QStandardItem5cloneEv")) {
       taken[3] = call;
       return true;
     }
+#endif  // QT_CONFIG(standarditemmodel)
+#if QT_CONFIG(standarditemmodel)
     if (!std::strcmp(key, "_ZNK13QStandardItem4typeEv")) {
       taken[4] = call;
       return true;
     }
+#endif  // QT_CONFIG(standarditemmodel)
     return false;
   }
 
+#if QT_CONFIG(standarditemmodel)
   //  QVariant QStandardItem::data(int role) const
   QVariant data(int role) const override {
     if (taken[0]) {
@@ -58,7 +81,9 @@ public:
     }
     return QStandardItem::data(role);
   }
+#endif  // QT_CONFIG(standarditemmodel)
 
+#if QT_CONFIG(standarditemmodel)
   //  void QStandardItem::multiData(QModelRoleDataSpan roleDataSpan) const
   void multiData(QModelRoleDataSpan roleDataSpan) const override {
     if (taken[1]) {
@@ -69,7 +94,9 @@ public:
     }
     QStandardItem::multiData(roleDataSpan);
   }
+#endif  // QT_CONFIG(standarditemmodel)
 
+#if QT_CONFIG(standarditemmodel)
   //  void QStandardItem::setData(const QVariant &value, int role)
   void setData(const QVariant &value, int role) override {
     if (taken[2]) {
@@ -80,7 +107,9 @@ public:
     }
     QStandardItem::setData(value, role);
   }
+#endif  // QT_CONFIG(standarditemmodel)
 
+#if QT_CONFIG(standarditemmodel)
   //  QStandardItem *QStandardItem::clone() const
   QStandardItem *clone() const override {
     if (taken[3]) {
@@ -91,7 +120,9 @@ public:
     }
     return QStandardItem::clone();
   }
+#endif  // QT_CONFIG(standarditemmodel)
 
+#if QT_CONFIG(standarditemmodel)
   //  int QStandardItem::type() const
   int type() const override {
     if (taken[4]) {
@@ -102,6 +133,7 @@ public:
     }
     return QStandardItem::type();
   }
+#endif  // QT_CONFIG(standarditemmodel)
 };
 
 //  QStandardItem::QStandardItem()
@@ -209,12 +241,15 @@ void ritual_ZN13QStandardItem10setToolTipERK7QString(
   self->setToolTip(*toolTip);
 }
 
+#if !defined(QT_NO_STATUSTIP)
 //  QString QStandardItem::statusTip() const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK13QStandardItem9statusTipEv(const QStandardItem *self) {
   return new QString(self->statusTip());
 }
+#endif  // !defined(QT_NO_STATUSTIP)
 
+#if !defined(QT_NO_STATUSTIP)
 //  void QStandardItem::setStatusTip(const QString &statusTip)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QStandardItem12setStatusTipERK7QString(
@@ -222,13 +257,17 @@ void ritual_ZN13QStandardItem12setStatusTipERK7QString(
     const QString *statusTip) {
   self->setStatusTip(*statusTip);
 }
+#endif  // !defined(QT_NO_STATUSTIP)
 
+#if QT_CONFIG(whatsthis)
 //  QString QStandardItem::whatsThis() const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK13QStandardItem9whatsThisEv(const QStandardItem *self) {
   return new QString(self->whatsThis());
 }
+#endif  // QT_CONFIG(whatsthis)
 
+#if QT_CONFIG(whatsthis)
 //  void QStandardItem::setWhatsThis(const QString &whatsThis)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QStandardItem12setWhatsThisERK7QString(
@@ -236,6 +275,7 @@ void ritual_ZN13QStandardItem12setWhatsThisERK7QString(
     const QString *whatsThis) {
   self->setWhatsThis(*whatsThis);
 }
+#endif  // QT_CONFIG(whatsthis)
 
 //  QSize QStandardItem::sizeHint() const
 extern "C" Q_DECL_EXPORT
@@ -451,12 +491,15 @@ void ritual_ZN13QStandardItem15setUserTristateEb(
   self->setUserTristate(tristate);
 }
 
+#if QT_CONFIG(draganddrop)
 //  bool QStandardItem::isDragEnabled() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK13QStandardItem13isDragEnabledEv(const QStandardItem *self) {
   return self->isDragEnabled();
 }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
 //  void QStandardItem::setDragEnabled(bool dragEnabled)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QStandardItem14setDragEnabledEb(
@@ -464,13 +507,17 @@ void ritual_ZN13QStandardItem14setDragEnabledEb(
     bool dragEnabled) {
   self->setDragEnabled(dragEnabled);
 }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
 //  bool QStandardItem::isDropEnabled() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK13QStandardItem13isDropEnabledEv(const QStandardItem *self) {
   return self->isDropEnabled();
 }
+#endif  // QT_CONFIG(draganddrop)
 
+#if QT_CONFIG(draganddrop)
 //  void QStandardItem::setDropEnabled(bool dropEnabled)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN13QStandardItem14setDropEnabledEb(
@@ -478,6 +525,7 @@ void ritual_ZN13QStandardItem14setDropEnabledEb(
     bool dropEnabled) {
   self->setDropEnabled(dropEnabled);
 }
+#endif  // QT_CONFIG(draganddrop)
 
 //  QStandardItem *QStandardItem::parent() const
 extern "C" Q_DECL_EXPORT
@@ -744,6 +792,20 @@ void ritual_ZN13QStandardItem15emitDataChangedEv(QStandardItem *self) {
   self->emitDataChanged();
 }
 
+//  QStandardItemPrivate *QStandardItem::d_func()
+extern "C" Q_DECL_EXPORT
+QStandardItemPrivate *ritual_ZN13QStandardItem6d_funcEv(
+    QStandardItem *self) {
+  return self->d_func();
+}
+
+//  const QStandardItemPrivate *QStandardItem::d_func() const
+extern "C" Q_DECL_EXPORT
+const QStandardItemPrivate *ritual_ZNK13QStandardItem6d_funcEv(
+    const QStandardItem *self) {
+  return self->d_func();
+}
+
 //  a Python function taken by a CuteQStandardItem, for the function named by
 //      the key
 extern "C" Q_DECL_EXPORT
@@ -826,3 +888,5 @@ extern "C" Q_DECL_EXPORT
 void ritual_list_drop_QStandardItem_ptr(QList<QStandardItem *> *self) {
   delete self;
 }
+
+#endif  // QT_CONFIG(standarditemmodel)

@@ -1,0 +1,35 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtWebSo",
+    "ckets/6.12.0/QtWebSockets/private/qwebsockethandshakerequest_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN26QWebSocketHandshakeRequestD1Ev": ["nothing", "address"],
+    "ritual_ZN26QWebSocketHandshakeRequest5clearEv": ["nothing", "address"],
+    "ritual_ZNK26QWebSocketHandshakeRequest4portEv": ["int", "address"],
+    "ritual_ZNK26QWebSocketHandshakeRequest8isSecureEv": ["bool", "address"],
+    "ritual_ZNK26QWebSocketHandshakeRequest7isValidEv": ["bool", "address"],
+    "ritual_ZNK26QWebSocketHandshakeRequest7headersEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK26QWebSocketHandshakeRequest9hasHeaderERK10QByteArray": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK26QWebSocketHandshakeRequest3keyEv": ["text", "address"],
+    "ritual_ZNK26QWebSocketHandshakeRequest6originEv": ["text", "address"],
+    "ritual_ZNK26QWebSocketHandshakeRequest9protocolsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK26QWebSocketHandshakeRequest10extensionsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK26QWebSocketHandshakeRequest10requestUrlEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK26QWebSocketHandshakeRequest12resourceNameEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK26QWebSocketHandshakeRequest4hostEv": ["text", "address"]
+  }
+}

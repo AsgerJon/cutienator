@@ -1,0 +1,53 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/qhttp2configuration.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN19QHttp2ConfigurationC1Ev": ["address"],
+    "ritual_ZN19QHttp2ConfigurationC1ERKS_": ["address", "address"],
+    "ritual_ZN19QHttp2ConfigurationD1Ev": ["nothing", "address"],
+    "ritual_ZN19QHttp2Configuration20setServerPushEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK19QHttp2Configuration17serverPushEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN19QHttp2Configuration28setHuffmanCompressionEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK19QHttp2Configuration25huffmanCompressionEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN19QHttp2Configuration27setSessionReceiveWindowSizeEj": [
+      "bool", "address", "unsigned int"
+    ],
+    "ritual_ZNK19QHttp2Configuration24sessionReceiveWindowSizeEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN19QHttp2Configuration26setStreamReceiveWindowSizeEj": [
+      "bool", "address", "unsigned int"
+    ],
+    "ritual_ZNK19QHttp2Configuration23streamReceiveWindowSizeEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN19QHttp2Configuration15setMaxFrameSizeEj": [
+      "bool", "address", "unsigned int"
+    ],
+    "ritual_ZNK19QHttp2Configuration12maxFrameSizeEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN19QHttp2Configuration23setMaxConcurrentStreamsEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZNK19QHttp2Configuration20maxConcurrentStreamsEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZNK19QHttp2Configuration7isEqualERKS_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZeqRK19QHttp2ConfigurationS1_": ["bool", "address", "address"],
+    "ritual_ZneRK19QHttp2ConfigurationS1_": ["bool", "address", "address"]
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/qpa/qwindowsysteminterface_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN29QWindowSystemInterfacePrivate16ContextMenuEventC1EP7QWindowbRK6QPointS5_6QFlagsIN2Qt16KeyboardModifierEE": [
+      "address", "address", "bool", "address", "address", "int"
+    ],
+    "ritual_ZN29QWindowSystemInterfacePrivate16ContextMenuEventD1Ev": [
+      "nothing", "address"
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qqmldesignermetaobject_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN22QQmlDesignerMetaObject14createPropertyEPKcS1_": [
+      "int", "address", "chars", "chars"
+    ],
+    "ritual_ZN22QQmlDesignerMetaObject18propertyWriteValueEiRK8QVariant": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_ZNK22QQmlDesignerMetaObject8myObjectEv": ["address", "address"],
+    "ritual_ZNK22QQmlDesignerMetaObject23dynamicMetaObjectParentEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK22QQmlDesignerMetaObject14propertyOffsetEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK22QQmlDesignerMetaObject5countEv": ["int", "address"],
+    "ritual_ZNK22QQmlDesignerMetaObject4nameEi": [
+      "address", "address", "int"
+    ],
+    "ritual_take_QQmlDesignerMetaObject": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN22QQmlDesignerMetaObject18propertyWriteValueEiRK8QVariant": [
+      "address", "address", "int", "address"
+    ]
+  }
+}

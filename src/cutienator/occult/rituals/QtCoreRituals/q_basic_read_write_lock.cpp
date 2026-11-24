@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/qreadwritelock.h, Qt 6.12.0. Changes made here are lost.
+#include <QtCore/qglobal.h>
+#if QT_CONFIG(thread)
 #include <QtCore/qreadwritelock.h>
 #include <QtCore/qdeadlinetimer.h>
 
@@ -111,3 +113,21 @@ bool ritual_ZN19QBasicReadWriteLock23tryLockForWriteInternalE14QDeadlineTimerj(
     unsigned int tsanFlags) {
   return self->tryLockForWriteInternal(*timeout, tsanFlags);
 }
+
+//  uint QBasicReadWriteLock::describeLockForTSan(QReadWriteLockPrivate *d,
+//      uint flags)
+extern "C" Q_DECL_EXPORT
+uint ritual_ZN19QBasicReadWriteLock19describeLockForTSanEP21QReadWriteLockPrivatej(
+    QReadWriteLockPrivate *d,
+    uint flags) {
+  return QBasicReadWriteLock::describeLockForTSan(d, flags);
+}
+
+//  QBasicReadWriteLock::QBasicReadWriteLock(QReadWriteLockPrivate *d)
+extern "C" Q_DECL_EXPORT
+QBasicReadWriteLock *ritual_ZN19QBasicReadWriteLockC1EP21QReadWriteLockPrivate(
+    QReadWriteLockPrivate *d) {
+  return new QBasicReadWriteLock(d);
+}
+
+#endif  // QT_CONFIG(thread)

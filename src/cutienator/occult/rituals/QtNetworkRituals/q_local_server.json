@@ -1,0 +1,59 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/qlocalserver.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK12QLocalServer10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QLocalServer2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN12QLocalServer6d_funcEv": ["address", "address"],
+    "ritual_ZNK12QLocalServer6d_funcEv": ["address", "address"],
+    "ritual_ZN12QLocalServerC1EP7QObject": ["address", "address"],
+    "ritual_ZN12QLocalServerD1Ev": ["nothing", "address"],
+    "ritual_ZN12QLocalServer5closeEv": ["nothing", "address"],
+    "ritual_ZNK12QLocalServer11errorStringEv": ["text", "address"],
+    "ritual_ZNK12QLocalServer21hasPendingConnectionsEv": ["bool", "address"],
+    "ritual_ZNK12QLocalServer11isListeningEv": ["bool", "address"],
+    "ritual_ZN12QLocalServer6listenERK7QString": ["bool", "address", "text"],
+    "ritual_ZN12QLocalServer6listenEx": ["bool", "address", "long long"],
+    "ritual_ZNK12QLocalServer21maxPendingConnectionsEv": ["int", "address"],
+    "ritual_ZN12QLocalServer21nextPendingConnectionEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK12QLocalServer10serverNameEv": ["text", "address"],
+    "ritual_ZNK12QLocalServer14fullServerNameEv": ["text", "address"],
+    "ritual_ZN12QLocalServer12removeServerERK7QString": ["bool", "text"],
+    "ritual_ZNK12QLocalServer11serverErrorEv": ["int", "address"],
+    "ritual_ZN12QLocalServer24setMaxPendingConnectionsEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN12QLocalServer20waitForNewConnectionEiPb": [
+      "bool", "address", "int", "address"
+    ],
+    "ritual_ZN12QLocalServer20setListenBacklogSizeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK12QLocalServer17listenBacklogSizeEv": ["int", "address"],
+    "ritual_ZN12QLocalServer16setSocketOptionsE6QFlagsINS_12SocketOptionEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK12QLocalServer13socketOptionsEv": ["int", "address"],
+    "ritual_ZNK12QLocalServer16socketDescriptorEv": ["long long", "address"],
+    "ritual_ZN12QLocalServer18incomingConnectionEy": [
+      "nothing", "address", "unsigned long long"
+    ],
+    "ritual_ZN12QLocalServer20addPendingConnectionEP12QLocalSocket": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QLocalServer": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK12QLocalServer21hasPendingConnectionsEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZN12QLocalServer21nextPendingConnectionEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN12QLocalServer18incomingConnectionEy": [
+      "nothing", "address", "unsigned long long"
+    ]
+  }
+}

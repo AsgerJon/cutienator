@@ -43,6 +43,7 @@ const QObject *ritual_ZNK11QMetaObject4castEPK7QObject(
   return self->cast(obj);
 }
 
+#if !defined(QT_NO_TRANSLATION) || defined(Q_QDOC)
 //  QString QMetaObject::tr(const char *s, const char *c, int n) const
 extern "C" Q_DECL_EXPORT
 QString *ritual_ZNK11QMetaObject2trEPKcS1_i(
@@ -52,6 +53,7 @@ QString *ritual_ZNK11QMetaObject2trEPKcS1_i(
     int n) {
   return new QString(self->tr(s, c, n));
 }
+#endif  // !defined(QT_NO_TRANSLATION) || defined(Q_QDOC)
 
 //  QMetaType QMetaObject::metaType() const
 extern "C" Q_DECL_EXPORT
@@ -303,6 +305,7 @@ void ritual_ZN11QMetaObject18connectSlotsByNameEP7QObject(QObject *o) {
   QMetaObject::connectSlotsByName(o);
 }
 
+#if QT_VERSION <= QT_VERSION_CHECK(7, 0, 0)
 //  bool QMetaObject::invokeMethod(QObject *obj, const char *member,
 //      Qt::ConnectionType a2, QGenericReturnArgument ret, QGenericArgument
 //      val0, QGenericArgument val1, QGenericArgument val2, QGenericArgument
@@ -341,7 +344,9 @@ bool ritual_ZN11QMetaObject12invokeMethodEP7QObjectPKcN2Qt14ConnectionTypeE22QGe
       *val8,
       *val9);
 }
+#endif  // QT_VERSION <= QT_VERSION_CHECK(7, 0, 0)
 
+#if QT_VERSION <= QT_VERSION_CHECK(7, 0, 0)
 //  bool QMetaObject::invokeMethod(QObject *obj, const char *member,
 //      QGenericReturnArgument ret, QGenericArgument val0, QGenericArgument
 //      val1, QGenericArgument val2, QGenericArgument val3, QGenericArgument
@@ -377,7 +382,9 @@ bool ritual_ZN11QMetaObject12invokeMethodEP7QObjectPKc22QGenericReturnArgument16
       *val8,
       *val9);
 }
+#endif  // QT_VERSION <= QT_VERSION_CHECK(7, 0, 0)
 
+#if QT_VERSION <= QT_VERSION_CHECK(7, 0, 0)
 //  bool QMetaObject::invokeMethod(QObject *obj, const char *member,
 //      Qt::ConnectionType type, QGenericArgument val0, QGenericArgument
 //      val1, QGenericArgument val2, QGenericArgument val3, QGenericArgument
@@ -413,7 +420,9 @@ bool ritual_ZN11QMetaObject12invokeMethodEP7QObjectPKcN2Qt14ConnectionTypeE16QGe
       *val8,
       *val9);
 }
+#endif  // QT_VERSION <= QT_VERSION_CHECK(7, 0, 0)
 
+#if QT_VERSION <= QT_VERSION_CHECK(7, 0, 0)
 //  bool QMetaObject::invokeMethod(QObject *obj, const char *member,
 //      QGenericArgument val0, QGenericArgument val1, QGenericArgument val2,
 //      QGenericArgument val3, QGenericArgument val4, QGenericArgument val5,
@@ -447,7 +456,9 @@ bool ritual_ZN11QMetaObject12invokeMethodEP7QObjectPKc16QGenericArgumentS4_S4_S4
       *val8,
       *val9);
 }
+#endif  // QT_VERSION <= QT_VERSION_CHECK(7, 0, 0)
 
+#if QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
 //  QObject *QMetaObject::newInstance(QGenericArgument val0, QGenericArgument
 //      val1, QGenericArgument val2, QGenericArgument val3, QGenericArgument
 //      val4, QGenericArgument val5, QGenericArgument val6, QGenericArgument
@@ -477,6 +488,7 @@ QObject *ritual_ZNK11QMetaObject11newInstanceE16QGenericArgumentS0_S0_S0_S0_S0_S
       *val8,
       *val9);
 }
+#endif  // QT_VERSION < QT_VERSION_CHECK(7, 0, 0)
 
 //  QMetaObject::~QMetaObject()
 extern "C" Q_DECL_EXPORT

@@ -1,0 +1,125 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLabsStyleKit/qstylekitstyle.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK14QStyleKitStyle10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QStyleKitStyle2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN14QStyleKitStyleC1Ev": ["address"],
+    "ritual_ZN14QStyleKitStyleC1ERK7QString": ["address", "text"],
+    "ritual_ZN14QStyleKitStyleD1Ev": ["nothing", "address"],
+    "ritual_ZNK14QStyleKitStyle9stylePathEv": ["text", "address"],
+    "ritual_ZN14QStyleKitStyle12setStylePathERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK14QStyleKitStyle9themeNameEv": ["text", "address"],
+    "ritual_ZN14QStyleKitStyle12setThemeNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK14QStyleKitStyle19availableThemeNamesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK14QStyleKitStyle16customThemeNamesEv": ["address", "address"],
+    "ritual_ZNK14QStyleKitStyle13drawPrimitiveEN6QStyle16PrimitiveElementEPK12QStyleOptionP8QPainterPK7QWidget": [
+      "nothing", "address", "int", "address", "address", "address"
+    ],
+    "ritual_ZNK14QStyleKitStyle11drawControlEN6QStyle14ControlElementEPK12QStyleOptionP8QPainterPK7QWidget": [
+      "nothing", "address", "int", "address", "address", "address"
+    ],
+    "ritual_ZNK14QStyleKitStyle14subElementRectEN6QStyle10SubElementEPK12QStyleOptionPK7QWidget": [
+      "address", "address", "int", "address", "address"
+    ],
+    "ritual_ZNK14QStyleKitStyle18drawComplexControlEN6QStyle14ComplexControlEPK19QStyleOptionComplexP8QPainterPK7QWidget": [
+      "nothing", "address", "int", "address", "address", "address"
+    ],
+    "ritual_ZNK14QStyleKitStyle21hitTestComplexControlEN6QStyle14ComplexControlEPK19QStyleOptionComplexRK6QPointPK7QWidget": [
+      "int", "address", "int", "address", "address", "address"
+    ],
+    "ritual_ZNK14QStyleKitStyle14subControlRectEN6QStyle14ComplexControlEPK19QStyleOptionComplexNS0_10SubControlEPK7QWidget": [
+      "address", "address", "int", "address", "int", "address"
+    ],
+    "ritual_ZNK14QStyleKitStyle16sizeFromContentsEN6QStyle12ContentsTypeEPK12QStyleOptionRK5QSizePK7QWidget": [
+      "address", "address", "int", "address", "address", "address"
+    ],
+    "ritual_ZNK14QStyleKitStyle11pixelMetricEN6QStyle11PixelMetricEPK12QStyleOptionPK7QWidget": [
+      "int", "address", "int", "address", "address"
+    ],
+    "ritual_ZNK14QStyleKitStyle9styleHintEN6QStyle9StyleHintEPK12QStyleOptionPK7QWidgetP16QStyleHintReturn": [
+      "int", "address", "int", "address", "address", "address"
+    ],
+    "ritual_ZNK14QStyleKitStyle15standardPaletteEv": ["address", "address"],
+    "ritual_ZN14QStyleKitStyle6polishEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QStyleKitStyle6polishEP12QApplication": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QStyleKitStyle8unpolishEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QStyleKitStyle8unpolishEP12QApplication": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QStyleKitStyle11eventFilterEP7QObjectP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN14QStyleKitStyle5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN14QStyleKitStyle6d_funcEv": ["address", "address"],
+    "ritual_ZNK14QStyleKitStyle6d_funcEv": ["address", "address"],
+    "ritual_take_QStyleKitStyle": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK14QStyleKitStyle13drawPrimitiveEN6QStyle16PrimitiveElementEPK12QStyleOptionP8QPainterPK7QWidget": [
+      "nothing", "address", "int", "address", "address", "address"
+    ],
+    "ritual_own_ZNK14QStyleKitStyle11drawControlEN6QStyle14ControlElementEPK12QStyleOptionP8QPainterPK7QWidget": [
+      "nothing", "address", "int", "address", "address", "address"
+    ],
+    "ritual_own_ZNK14QStyleKitStyle14subElementRectEN6QStyle10SubElementEPK12QStyleOptionPK7QWidget": [
+      "address", "address", "int", "address", "address"
+    ],
+    "ritual_own_ZNK14QStyleKitStyle18drawComplexControlEN6QStyle14ComplexControlEPK19QStyleOptionComplexP8QPainterPK7QWidget": [
+      "nothing", "address", "int", "address", "address", "address"
+    ],
+    "ritual_own_ZNK14QStyleKitStyle21hitTestComplexControlEN6QStyle14ComplexControlEPK19QStyleOptionComplexRK6QPointPK7QWidget": [
+      "int", "address", "int", "address", "address", "address"
+    ],
+    "ritual_own_ZNK14QStyleKitStyle14subControlRectEN6QStyle14ComplexControlEPK19QStyleOptionComplexNS0_10SubControlEPK7QWidget": [
+      "address", "address", "int", "address", "int", "address"
+    ],
+    "ritual_own_ZNK14QStyleKitStyle16sizeFromContentsEN6QStyle12ContentsTypeEPK12QStyleOptionRK5QSizePK7QWidget": [
+      "address", "address", "int", "address", "address", "address"
+    ],
+    "ritual_own_ZNK14QStyleKitStyle11pixelMetricEN6QStyle11PixelMetricEPK12QStyleOptionPK7QWidget": [
+      "int", "address", "int", "address", "address"
+    ],
+    "ritual_own_ZNK14QStyleKitStyle9styleHintEN6QStyle9StyleHintEPK12QStyleOptionPK7QWidgetP16QStyleHintReturn": [
+      "int", "address", "int", "address", "address", "address"
+    ],
+    "ritual_own_ZNK14QStyleKitStyle15standardPaletteEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN14QStyleKitStyle6polishEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN14QStyleKitStyle6polishEP12QApplication": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN14QStyleKitStyle8unpolishEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN14QStyleKitStyle8unpolishEP12QApplication": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN14QStyleKitStyle11eventFilterEP7QObjectP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_own_ZN14QStyleKitStyle5eventEP6QEvent": [
+      "bool", "address", "address"
+    ]
+  }
+}

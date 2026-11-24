@@ -1,0 +1,29 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/ui4_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN12DomColorRoleC1Ev": ["address"],
+    "ritual_ZN12DomColorRoleD1Ev": ["nothing", "address"],
+    "ritual_ZNK12DomColorRole16hasAttributeRoleEv": ["bool", "address"],
+    "ritual_ZNK12DomColorRole13attributeRoleEv": ["text", "address"],
+    "ritual_ZN12DomColorRole16setAttributeRoleERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN12DomColorRole18clearAttributeRoleEv": ["nothing", "address"],
+    "ritual_ZNK12DomColorRole12elementBrushEv": ["address", "address"],
+    "ritual_ZN12DomColorRole16takeElementBrushEv": ["address", "address"],
+    "ritual_ZN12DomColorRole15setElementBrushEP8DomBrush": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12DomColorRole15hasElementBrushEv": ["bool", "address"],
+    "ritual_ZN12DomColorRole17clearElementBrushEv": ["nothing", "address"],
+    "ritual_list_make_DomColorRole_ptr": ["address"],
+    "ritual_list_add_DomColorRole_ptr": ["nothing", "address", "address"],
+    "ritual_list_size_DomColorRole_ptr": ["long long", "address"],
+    "ritual_list_at_DomColorRole_ptr": ["address", "address", "long long"],
+    "ritual_list_drop_DomColorRole_ptr": ["nothing", "address"]
+  }
+}

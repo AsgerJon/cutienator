@@ -1,0 +1,119 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgrhiconte",
+    "xt_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK21QSSGRhiShaderPipeline6isNullEv": ["bool", "address"],
+    "ritual_ZN21QSSGRhiShaderPipeline8addStageERK15QRhiShaderStage6QFlagsINS_9StageFlagEE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZNK21QSSGRhiShaderPipeline12cbeginStagesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK21QSSGRhiShaderPipeline10cendStagesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK21QSSGRhiShaderPipeline11vertexStageEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK21QSSGRhiShaderPipeline13fragmentStageEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK21QSSGRhiShaderPipeline7ub0SizeEv": ["int", "address"],
+    "ritual_ZNK21QSSGRhiShaderPipeline18ub0LightDataOffsetEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK21QSSGRhiShaderPipeline29ub0DirectionalLightDataOffsetEv": [
+      "int", "address"
+    ],
+    "ritual_ZN21QSSGRhiShaderPipeline17bindingForTextureEPKci": [
+      "int", "address", "chars", "int"
+    ],
+    "ritual_ZN21QSSGRhiShaderPipeline15bindingForImageEPKc": [
+      "int", "address", "chars"
+    ],
+    "ritual_ZN21QSSGRhiShaderPipeline16setLightsEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK21QSSGRhiShaderPipeline17isLightingEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QSSGRhiShaderPipeline20setLightProbeTextureEP11QRhiTexture24QSSGRenderTextureCoordOpS2_": [
+      "nothing", "address", "address", "unsigned char", "unsigned char"
+    ],
+    "ritual_ZNK21QSSGRhiShaderPipeline17lightProbeTextureEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QSSGRhiShaderPipeline16setScreenTextureEP11QRhiTexture": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21QSSGRhiShaderPipeline13screenTextureEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QSSGRhiShaderPipeline15setDepthTextureEP11QRhiTexture": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21QSSGRhiShaderPipeline12depthTextureEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QSSGRhiShaderPipeline16setNormalTextureEP11QRhiTexture": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21QSSGRhiShaderPipeline13normalTextureEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QSSGRhiShaderPipeline14setSsaoTextureEP11QRhiTexture": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21QSSGRhiShaderPipeline11ssaoTextureEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QSSGRhiShaderPipeline18setLightmapTextureEP11QRhiTexture": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21QSSGRhiShaderPipeline15lightmapTextureEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QSSGRhiShaderPipeline22setMotionVectorTextureEP11QRhiTexture": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21QSSGRhiShaderPipeline19MotionVectorTextureEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QSSGRhiShaderPipeline24setShadowMapAtlasTextureEP11QRhiTexture": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21QSSGRhiShaderPipeline21shadowMapAtlasTextureEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QSSGRhiShaderPipeline28setShadowMapBlueNoiseTextureEP11QRhiTexture": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21QSSGRhiShaderPipeline25shadowMapBlueNoiseTextureEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QSSGRhiShaderPipeline12setOITImagesEP11QRhiTextureS1_S1_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN21QSSGRhiShaderPipeline18resetExtraTexturesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QSSGRhiShaderPipeline15addExtraTextureERK14QSSGRhiTexture": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21QSSGRhiShaderPipeline17extraTextureCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK21QSSGRhiShaderPipeline14extraTextureAtEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK21QSSGRhiShaderPipeline23instanceBufferLocationsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QSSGRhiShaderPipeline15offsetOfUniformERK10QByteArray": [
+      "int", "address", "address"
+    ]
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qwasmanimationdriver_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK20QWasmAnimationDriver10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QWasmAnimationDriver2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN20QWasmAnimationDriverC1EP13QUnifiedTimer": [
+      "address", "address"
+    ],
+    "ritual_ZN20QWasmAnimationDriverD1Ev": ["nothing", "address"],
+    "ritual_ZNK20QWasmAnimationDriver7elapsedEv": ["long long", "address"],
+    "ritual_ZN20QWasmAnimationDriver5startEv": ["nothing", "address"],
+    "ritual_ZN20QWasmAnimationDriver4stopEv": ["nothing", "address"],
+    "ritual_ZN20QWasmAnimationDriver20handleAnimationFrameEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN20QWasmAnimationDriver21handleFallbackTimeoutEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK20QWasmAnimationDriver26getCurrentTimeFromTimelineEv": [
+      "double", "address"
+    ],
+    "ritual_take_QWasmAnimationDriver": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK20QWasmAnimationDriver7elapsedEv": [
+      "long long", "address"
+    ],
+    "ritual_own_ZN20QWasmAnimationDriver5startEv": ["nothing", "address"],
+    "ritual_own_ZN20QWasmAnimationDriver4stopEv": ["nothing", "address"]
+  }
+}

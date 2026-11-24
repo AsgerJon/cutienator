@@ -1,0 +1,14 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSvg/6.12.0/QtSvg/private/qsvgcssanimation_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN16QSvgCssAnimationC1Ev": ["address"],
+    "ritual_ZN16QSvgCssAnimationD1Ev": ["nothing", "address"],
+    "ritual_ZNK16QSvgCssAnimation13animationTypeEv": ["int", "address"],
+    "ritual_take_QSvgCssAnimation": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK16QSvgCssAnimation13animationTypeEv": ["int", "address"]
+  }
+}

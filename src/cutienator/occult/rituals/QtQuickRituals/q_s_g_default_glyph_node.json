@@ -1,0 +1,50 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qsgdefaultglyphnode_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QSGDefaultGlyphNodeD1Ev": ["nothing", "address"],
+    "ritual_ZN19QSGDefaultGlyphNode9setGlyphsERK7QPointFRK9QGlyphRun": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN19QSGDefaultGlyphNode8setColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QSGDefaultGlyphNode8setStyleEN10QQuickText9TextStyleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN19QSGDefaultGlyphNode13setStyleColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QSGDefaultGlyphNode8baseLineEv": ["address", "address"],
+    "ritual_ZN19QSGDefaultGlyphNode6updateEv": ["nothing", "address"],
+    "ritual_ZN19QSGDefaultGlyphNode10preprocessEv": ["nothing", "address"],
+    "ritual_ZN19QSGDefaultGlyphNode28setPreferredAntialiasingModeEN12QSGGlyphNode16AntialiasingModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN19QSGDefaultGlyphNode7recycleEv": ["nothing", "address"],
+    "ritual_ZN19QSGDefaultGlyphNode7cleanupEv": ["nothing", "address"],
+    "ritual_ZN19QSGDefaultGlyphNode16setGlyphNodeTypeENS_20DefaultGlyphNodeTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_take_QSGDefaultGlyphNode": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN19QSGDefaultGlyphNode9setGlyphsERK7QPointFRK9QGlyphRun": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN19QSGDefaultGlyphNode8setStyleEN10QQuickText9TextStyleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN19QSGDefaultGlyphNode13setStyleColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK19QSGDefaultGlyphNode8baseLineEv": ["address", "address"],
+    "ritual_own_ZN19QSGDefaultGlyphNode28setPreferredAntialiasingModeEN12QSGGlyphNode16AntialiasingModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN19QSGDefaultGlyphNode7recycleEv": ["nothing", "address"]
+  }
+}

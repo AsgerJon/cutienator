@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtLabsP",
+    "latform/6.12.0/QtLabsPlatform/private/qquicklabsplatformmenusepara",
+    "tor_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK31QQuickLabsPlatformMenuSeparator10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_take_QQuickLabsPlatformMenuSeparator": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

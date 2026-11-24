@@ -1,0 +1,23 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3D/6.12.0/QtQuick3D/private/qquick3dscenerenderer_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK24QQuick3DSGDirectRenderer10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QQuick3DSGDirectRendererD1Ev": ["nothing", "address"],
+    "ritual_ZN24QQuick3DSGDirectRenderer8rendererEv": ["address", "address"],
+    "ritual_ZN24QQuick3DSGDirectRenderer11setViewportERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QQuick3DSGDirectRenderer13setVisibilityEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_take_QQuick3DSGDirectRenderer": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4functionobject_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN3QV431DefaultClassConstructorFunction10__dataTestEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK3QV431DefaultClassConstructorFunction11d_uncheckedEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV431DefaultClassConstructorFunction1dEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV431DefaultClassConstructorFunction5scopeEv": [
+      "address", "address"
+    ]
+  }
+}

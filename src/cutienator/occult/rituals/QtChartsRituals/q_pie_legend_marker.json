@@ -1,0 +1,25 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCharts/qpielegendmarker.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK16QPieLegendMarker10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QPieLegendMarker2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN16QPieLegendMarkerC1EP10QPieSeriesP9QPieSliceP7QLegendP7QObject": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN16QPieLegendMarkerD1Ev": ["nothing", "address"],
+    "ritual_ZN16QPieLegendMarker4typeEv": ["int", "address"],
+    "ritual_ZN16QPieLegendMarker6seriesEv": ["address", "address"],
+    "ritual_ZN16QPieLegendMarker5sliceEv": ["address", "address"],
+    "ritual_ZN16QPieLegendMarker6d_funcEv": ["address", "address"],
+    "ritual_ZNK16QPieLegendMarker6d_funcEv": ["address", "address"],
+    "ritual_take_QPieLegendMarker": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN16QPieLegendMarker4typeEv": ["int", "address"],
+    "ritual_own_ZN16QPieLegendMarker6seriesEv": ["address", "address"]
+  }
+}

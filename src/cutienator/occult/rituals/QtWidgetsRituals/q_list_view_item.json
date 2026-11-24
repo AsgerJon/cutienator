@@ -1,0 +1,25 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qlistview_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN13QListViewItemC1Ev": ["address"],
+    "ritual_ZN13QListViewItemC1E5QRecti": ["address", "address", "int"],
+    "ritual_ZNK13QListViewItemeqERKS_": ["bool", "address", "address"],
+    "ritual_ZNK13QListViewItemneERKS_": ["bool", "address", "address"],
+    "ritual_ZNK13QListViewItem7isValidEv": ["bool", "address"],
+    "ritual_ZN13QListViewItem10invalidateEv": ["nothing", "address"],
+    "ritual_ZN13QListViewItem6resizeE5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QListViewItem4moveE6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QListViewItem5widthEv": ["int", "address"],
+    "ritual_ZNK13QListViewItem6heightEv": ["int", "address"],
+    "ritual_ZNK13QListViewItem4rectEv": ["address", "address"],
+    "ritual_ZN13QListViewItemD1Ev": ["nothing", "address"]
+  }
+}

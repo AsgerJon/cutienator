@@ -1,0 +1,29 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Controls2FluentWinUI3StyleImpl/6.12.0/QtQuickControls2FluentWinUI3",
+    "StyleImpl/private/qquickfluentwinui3focusstroke_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK29QQuickFluentWinUI3FocusStroke10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK29QQuickFluentWinUI3FocusStroke6radiusEv": ["int", "address"],
+    "ritual_ZN29QQuickFluentWinUI3FocusStroke9setRadiusEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK29QQuickFluentWinUI3FocusStroke5colorEv": [
+      "address", "address"
+    ],
+    "ritual_ZN29QQuickFluentWinUI3FocusStroke8setColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN29QQuickFluentWinUI3FocusStroke5paintEP8QPainter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN29QQuickFluentWinUI3FocusStroke5paintEP8QPainter": [
+      "nothing", "address", "address"
+    ]
+  }
+}

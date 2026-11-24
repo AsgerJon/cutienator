@@ -1,0 +1,70 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSql/qsqlrecord.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN10QSqlRecordC1Ev": ["address"],
+    "ritual_ZN10QSqlRecordC1ERKS_": ["address", "address"],
+    "ritual_ZN10QSqlRecordD1Ev": ["nothing", "address"],
+    "ritual_ZNK10QSqlRecordeqERKS_": ["bool", "address", "address"],
+    "ritual_ZNK10QSqlRecordneERKS_": ["bool", "address", "address"],
+    "ritual_ZNK10QSqlRecord5valueEi": ["address", "address", "int"],
+    "ritual_ZNK10QSqlRecord5valueE14QAnyStringView": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN10QSqlRecord8setValueEiRK8QVariant": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN10QSqlRecord8setValueE14QAnyStringViewRK8QVariant": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZN10QSqlRecord7setNullEi": ["nothing", "address", "int"],
+    "ritual_ZN10QSqlRecord7setNullE14QAnyStringView": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK10QSqlRecord6isNullEi": ["bool", "address", "int"],
+    "ritual_ZNK10QSqlRecord6isNullE14QAnyStringView": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZNK10QSqlRecord7indexOfE14QAnyStringView": [
+      "int", "address", "text"
+    ],
+    "ritual_ZNK10QSqlRecord9fieldNameEi": ["text", "address", "int"],
+    "ritual_ZNK10QSqlRecord5fieldEi": ["address", "address", "int"],
+    "ritual_ZNK10QSqlRecord5fieldE14QAnyStringView": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK10QSqlRecord11isGeneratedEi": ["bool", "address", "int"],
+    "ritual_ZNK10QSqlRecord11isGeneratedE14QAnyStringView": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN10QSqlRecord12setGeneratedE14QAnyStringViewb": [
+      "nothing", "address", "text", "bool"
+    ],
+    "ritual_ZN10QSqlRecord12setGeneratedEib": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZN10QSqlRecord6appendERK9QSqlField": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN10QSqlRecord7replaceEiRK9QSqlField": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN10QSqlRecord6insertEiRK9QSqlField": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN10QSqlRecord6removeEi": ["nothing", "address", "int"],
+    "ritual_ZNK10QSqlRecord7isEmptyEv": ["bool", "address"],
+    "ritual_ZNK10QSqlRecord8containsE14QAnyStringView": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN10QSqlRecord5clearEv": ["nothing", "address"],
+    "ritual_ZN10QSqlRecord11clearValuesEv": ["nothing", "address"],
+    "ritual_ZNK10QSqlRecord5countEv": ["int", "address"],
+    "ritual_ZNK10QSqlRecord9keyValuesERKS_": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN10QSqlRecord6detachEv": ["nothing", "address"]
+  }
+}

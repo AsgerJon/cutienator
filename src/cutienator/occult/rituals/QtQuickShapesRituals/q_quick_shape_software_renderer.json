@@ -1,0 +1,100 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Shapes/6.12.0/QtQuickShapes/private/qquickshapesoftwarerenderer_p.",
+    "h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN27QQuickShapeSoftwareRenderer9beginSyncEiPb": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN27QQuickShapeSoftwareRenderer7setPathEiRK12QPainterPath6QFlagsIN15QQuickShapePath8PathHintEE": [
+      "nothing", "address", "int", "address", "int"
+    ],
+    "ritual_ZN27QQuickShapeSoftwareRenderer14setStrokeColorEiRK6QColor": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN27QQuickShapeSoftwareRenderer14setStrokeWidthEid": [
+      "nothing", "address", "int", "double"
+    ],
+    "ritual_ZN27QQuickShapeSoftwareRenderer17setCosmeticStrokeEib": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZN27QQuickShapeSoftwareRenderer12setFillColorEiRK6QColor": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN27QQuickShapeSoftwareRenderer11setFillRuleEiN15QQuickShapePath8FillRuleE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN27QQuickShapeSoftwareRenderer12setJoinStyleEiN15QQuickShapePath9JoinStyleEi": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZN27QQuickShapeSoftwareRenderer11setCapStyleEiN15QQuickShapePath8CapStyleE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN27QQuickShapeSoftwareRenderer22setFillTextureProviderEiP10QQuickItem": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN27QQuickShapeSoftwareRenderer16setFillTransformEiRK12QSGTransform": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN27QQuickShapeSoftwareRenderer21setTriangulationScaleEid": [
+      "nothing", "address", "int", "double"
+    ],
+    "ritual_ZN27QQuickShapeSoftwareRenderer7endSyncEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN27QQuickShapeSoftwareRenderer17handleSceneChangeEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN27QQuickShapeSoftwareRenderer10updateNodeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN27QQuickShapeSoftwareRenderer7setNodeEP29QQuickShapeSoftwareRenderNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN27QQuickShapeSoftwareRendererD1Ev": ["nothing", "address"],
+    "ritual_own_ZN27QQuickShapeSoftwareRenderer7setPathEiRK12QPainterPath6QFlagsIN15QQuickShapePath8PathHintEE": [
+      "nothing", "address", "int", "address", "int"
+    ],
+    "ritual_own_ZN27QQuickShapeSoftwareRenderer14setStrokeColorEiRK6QColor": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZN27QQuickShapeSoftwareRenderer14setStrokeWidthEid": [
+      "nothing", "address", "int", "double"
+    ],
+    "ritual_own_ZN27QQuickShapeSoftwareRenderer17setCosmeticStrokeEib": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_own_ZN27QQuickShapeSoftwareRenderer12setFillColorEiRK6QColor": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZN27QQuickShapeSoftwareRenderer11setFillRuleEiN15QQuickShapePath8FillRuleE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZN27QQuickShapeSoftwareRenderer12setJoinStyleEiN15QQuickShapePath9JoinStyleEi": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_own_ZN27QQuickShapeSoftwareRenderer11setCapStyleEiN15QQuickShapePath8CapStyleE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_own_ZN27QQuickShapeSoftwareRenderer22setFillTextureProviderEiP10QQuickItem": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZN27QQuickShapeSoftwareRenderer16setFillTransformEiRK12QSGTransform": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZN27QQuickShapeSoftwareRenderer21setTriangulationScaleEid": [
+      "nothing", "address", "int", "double"
+    ],
+    "ritual_own_ZN27QQuickShapeSoftwareRenderer7endSyncEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZN27QQuickShapeSoftwareRenderer17handleSceneChangeEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN27QQuickShapeSoftwareRenderer10updateNodeEv": [
+      "nothing", "address"
+    ]
+  }
+}

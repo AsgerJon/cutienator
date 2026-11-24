@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSvg/6.12.0/QtSvg/private/qsvgeasinginterface_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QSvgEasingInterfaceD1Ev": ["nothing", "address"],
+    "ritual_ZNK19QSvgEasingInterface8progressEd": [
+      "double", "address", "double"
+    ],
+    "ritual_take_QSvgEasingInterface": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquicktreeview_p_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN21QQuickTreeViewPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK21QQuickTreeViewPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN21QQuickTreeViewPrivateC1Ev": ["address"],
+    "ritual_ZN21QQuickTreeViewPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN21QQuickTreeViewPrivate3getEP14QQuickTreeView": [
+      "address", "address"
+    ],
+    "ritual_ZNK21QQuickTreeViewPrivate9modelImplEv": ["address", "address"],
+    "ritual_ZN21QQuickTreeViewPrivate12setModelImplERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QQuickTreeViewPrivate20updateItemPropertiesEiP7QObjectb": [
+      "nothing", "address", "int", "address", "bool"
+    ],
+    "ritual_ZN21QQuickTreeViewPrivate15updateSelectionERK5QRectS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_take_QQuickTreeViewPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK21QQuickTreeViewPrivate9modelImplEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN21QQuickTreeViewPrivate12setModelImplERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN21QQuickTreeViewPrivate20updateItemPropertiesEiP7QObjectb": [
+      "nothing", "address", "int", "address", "bool"
+    ],
+    "ritual_own_ZN21QQuickTreeViewPrivate15updateSelectionERK5QRectS2_": [
+      "nothing", "address", "address", "address"
+    ]
+  }
+}

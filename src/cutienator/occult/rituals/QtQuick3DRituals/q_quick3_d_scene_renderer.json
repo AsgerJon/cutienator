@@ -1,0 +1,40 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3D/6.12.0/QtQuick3D/private/qquick3dscenerenderer_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN21QQuick3DSceneRendererD1Ev": ["nothing", "address"],
+    "ritual_ZN21QQuick3DSceneRenderer10beginFrameEv": ["nothing", "address"],
+    "ritual_ZN21QQuick3DSceneRenderer8endFrameEv": ["nothing", "address"],
+    "ritual_ZN21QQuick3DSceneRenderer10rhiPrepareERK5QRectd": [
+      "nothing", "address", "address", "double"
+    ],
+    "ritual_ZN21QQuick3DSceneRenderer9rhiRenderEv": ["nothing", "address"],
+    "ritual_ZN21QQuick3DSceneRenderer27invalidateFramebufferObjectEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK21QQuick3DSceneRenderer11surfaceSizeEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QQuick3DSceneRenderer22releaseCachedResourcesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuick3DSceneRenderer23setGlobalPickingEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN21QQuick3DSceneRenderer11renderStatsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QQuick3DSceneRenderer30releaseAaDependentRhiResourcesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuick3DSceneRenderer14addNodeToLayerEP14QSSGRenderNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QQuick3DSceneRenderer19removeNodeFromLayerEP14QSSGRenderNode": [
+      "nothing", "address", "address"
+    ]
+  }
+}

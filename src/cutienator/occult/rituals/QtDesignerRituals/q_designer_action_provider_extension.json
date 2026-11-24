@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/actionprovider_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN32QDesignerActionProviderExtensionD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK32QDesignerActionProviderExtension14actionGeometryEP7QAction": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK32QDesignerActionProviderExtension8actionAtERK6QPoint": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN32QDesignerActionProviderExtension15adjustIndicatorERK6QPoint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QDesignerActionProviderExtension": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

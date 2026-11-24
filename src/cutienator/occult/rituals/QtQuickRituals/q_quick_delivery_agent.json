@@ -1,0 +1,33 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickdeliveryagent_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK19QQuickDeliveryAgent10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QQuickDeliveryAgent2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN19QQuickDeliveryAgent6d_funcEv": ["address", "address"],
+    "ritual_ZNK19QQuickDeliveryAgent6d_funcEv": ["address", "address"],
+    "ritual_ZN19QQuickDeliveryAgentC1EP10QQuickItem": ["address", "address"],
+    "ritual_ZN19QQuickDeliveryAgentD1Ev": ["nothing", "address"],
+    "ritual_ZNK19QQuickDeliveryAgent8rootItemEv": ["address", "address"],
+    "ritual_ZNK19QQuickDeliveryAgent14sceneTransformEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QQuickDeliveryAgent17setSceneTransformEPNS_9TransformE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickDeliveryAgent5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_take_QQuickDeliveryAgent": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN19QQuickDeliveryAgent5eventEP6QEvent": [
+      "bool", "address", "address"
+    ]
+  }
+}

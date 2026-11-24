@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qcompleter_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN10QMatchDataC1Ev": ["address"],
+    "ritual_ZN10QMatchDataC1ERK12QIndexMapperib": [
+      "address", "address", "int", "bool"
+    ],
+    "ritual_ZNK10QMatchData7isValidEv": ["bool", "address"],
+    "ritual_ZN10QMatchDataD1Ev": ["nothing", "address"]
+  }
+}

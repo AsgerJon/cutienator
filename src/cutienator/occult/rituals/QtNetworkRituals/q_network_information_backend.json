@@ -1,0 +1,47 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtNetwork/6.12.0/QtNetwork/private/qnetworkinformation_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK26QNetworkInformationBackend10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QNetworkInformationBackend2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN26QNetworkInformationBackendD1Ev": ["nothing", "address"],
+    "ritual_ZNK26QNetworkInformationBackend4nameEv": ["text", "address"],
+    "ritual_ZNK26QNetworkInformationBackend17featuresSupportedEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK26QNetworkInformationBackend12reachabilityEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK26QNetworkInformationBackend19behindCaptivePortalEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK26QNetworkInformationBackend15transportMediumEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK26QNetworkInformationBackend9isMeteredEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN26QNetworkInformationBackend15setReachabilityEN19QNetworkInformation12ReachabilityE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN26QNetworkInformationBackend22setBehindCaptivePortalEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN26QNetworkInformationBackend18setTransportMediumEN19QNetworkInformation15TransportMediumE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN26QNetworkInformationBackend10setMeteredEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_take_QNetworkInformationBackend": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

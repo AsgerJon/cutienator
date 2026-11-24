@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/qmetaassociation.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN22QtMetaContainerPrivate11AssociationC1Ev": ["address"],
+    "ritual_ZNK22QtMetaContainerPrivate11Association11containsKeyERK8QVariant": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN22QtMetaContainerPrivate11Association9insertKeyERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QtMetaContainerPrivate11Association9removeKeyERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK22QtMetaContainerPrivate11Association5valueERK8QVariant": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN22QtMetaContainerPrivate11Association8setValueERK8QVariantS3_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN22QtMetaContainerPrivate11AssociationD1Ev": [
+      "nothing", "address"
+    ]
+  }
+}

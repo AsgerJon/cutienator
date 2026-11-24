@@ -1,0 +1,306 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Controls2Material/6.12.0/QtQuickControls2Material/private/qquickma",
+    "terialstyle_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK19QQuickMaterialStyle10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QQuickMaterialStyle2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN19QQuickMaterialStyle21qt_qmlMarker_attachedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickMaterialStyle24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickMaterialStyleC1EP7QObject": ["address", "address"],
+    "ritual_ZN19QQuickMaterialStyle21qmlAttachedPropertiesEP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QQuickMaterialStyle5themeEv": ["int", "address"],
+    "ritual_ZN19QQuickMaterialStyle8setThemeENS_5ThemeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN19QQuickMaterialStyle12inheritThemeENS_5ThemeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN19QQuickMaterialStyle14propagateThemeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickMaterialStyle10resetThemeEv": ["nothing", "address"],
+    "ritual_ZN19QQuickMaterialStyle11themeChangeEv": ["nothing", "address"],
+    "ritual_ZNK19QQuickMaterialStyle7primaryEv": ["address", "address"],
+    "ritual_ZN19QQuickMaterialStyle10setPrimaryERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickMaterialStyle14inheritPrimaryEjb": [
+      "nothing", "address", "unsigned int", "bool"
+    ],
+    "ritual_ZN19QQuickMaterialStyle16propagatePrimaryEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickMaterialStyle12resetPrimaryEv": ["nothing", "address"],
+    "ritual_ZN19QQuickMaterialStyle13primaryChangeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK19QQuickMaterialStyle6accentEv": ["address", "address"],
+    "ritual_ZN19QQuickMaterialStyle9setAccentERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickMaterialStyle13inheritAccentEjb": [
+      "nothing", "address", "unsigned int", "bool"
+    ],
+    "ritual_ZN19QQuickMaterialStyle15propagateAccentEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickMaterialStyle11resetAccentEv": ["nothing", "address"],
+    "ritual_ZN19QQuickMaterialStyle12accentChangeEv": ["nothing", "address"],
+    "ritual_ZNK19QQuickMaterialStyle10foregroundEv": ["address", "address"],
+    "ritual_ZN19QQuickMaterialStyle13setForegroundERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickMaterialStyle17inheritForegroundEjbb": [
+      "nothing", "address", "unsigned int", "bool", "bool"
+    ],
+    "ritual_ZN19QQuickMaterialStyle19propagateForegroundEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickMaterialStyle15resetForegroundEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickMaterialStyle16foregroundChangeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK19QQuickMaterialStyle10backgroundEv": ["address", "address"],
+    "ritual_ZN19QQuickMaterialStyle13setBackgroundERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickMaterialStyle17inheritBackgroundEjbb": [
+      "nothing", "address", "unsigned int", "bool", "bool"
+    ],
+    "ritual_ZN19QQuickMaterialStyle19propagateBackgroundEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickMaterialStyle15resetBackgroundEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickMaterialStyle16backgroundChangeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK19QQuickMaterialStyle9elevationEv": ["int", "address"],
+    "ritual_ZN19QQuickMaterialStyle12setElevationEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN19QQuickMaterialStyle14resetElevationEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickMaterialStyle15elevationChangeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK19QQuickMaterialStyle12roundedScaleEv": ["int", "address"],
+    "ritual_ZN19QQuickMaterialStyle15setRoundedScaleENS_12RoundedScaleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN19QQuickMaterialStyle17resetRoundedScaleEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK19QQuickMaterialStyle14containerStyleEv": ["int", "address"],
+    "ritual_ZN19QQuickMaterialStyle17setContainerStyleENS_14ContainerStyleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN19QQuickMaterialStyle19resetContainerStyleEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK19QQuickMaterialStyle12primaryColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QQuickMaterialStyle11accentColorEv": ["address", "address"],
+    "ritual_ZNK19QQuickMaterialStyle15backgroundColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QQuickMaterialStyle16primaryTextColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QQuickMaterialStyle27primaryHighlightedTextColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QQuickMaterialStyle18secondaryTextColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QQuickMaterialStyle13hintTextColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QQuickMaterialStyle18textSelectionColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QQuickMaterialStyle15dropShadowColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QQuickMaterialStyle12dividerColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QQuickMaterialStyle9iconColorEv": ["address", "address"],
+    "ritual_ZNK19QQuickMaterialStyle17iconDisabledColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QQuickMaterialStyle11buttonColorENS_5ThemeERK8QVariantS3_bbbb": [
+      "address", "address", "int", "address", "address", "bool", "bool",
+      "bool", "bool"
+    ],
+    "ritual_ZNK19QQuickMaterialStyle10frameColorEv": ["address", "address"],
+    "ritual_ZNK19QQuickMaterialStyle11rippleColorEv": ["address", "address"],
+    "ritual_ZNK19QQuickMaterialStyle22highlightedRippleColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QQuickMaterialStyle25switchUncheckedTrackColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QQuickMaterialStyle23switchCheckedTrackColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QQuickMaterialStyle33switchDisabledUncheckedTrackColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QQuickMaterialStyle31switchDisabledCheckedTrackColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QQuickMaterialStyle39switchDisabledUncheckedTrackBorderColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QQuickMaterialStyle26switchUncheckedHandleColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QQuickMaterialStyle33switchUncheckedHoveredHandleColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QQuickMaterialStyle24switchCheckedHandleColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QQuickMaterialStyle34switchDisabledUncheckedHandleColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QQuickMaterialStyle32switchDisabledCheckedHandleColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QQuickMaterialStyle30switchDisabledCheckedIconColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QQuickMaterialStyle32switchDisabledUncheckedIconColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QQuickMaterialStyle14scrollBarColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QQuickMaterialStyle21scrollBarHoveredColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QQuickMaterialStyle21scrollBarPressedColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QQuickMaterialStyle11dialogColorEv": ["address", "address"],
+    "ritual_ZNK19QQuickMaterialStyle18backgroundDimColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QQuickMaterialStyle18listHighlightColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QQuickMaterialStyle12tooltipColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QQuickMaterialStyle12toolBarColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QQuickMaterialStyle13toolTextColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QQuickMaterialStyle24spinBoxDisabledIconColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QQuickMaterialStyle19sliderDisabledColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QQuickMaterialStyle29textFieldFilledContainerColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QQuickMaterialStyle5colorENS_5ColorENS_5ShadeE": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZNK19QQuickMaterialStyle5shadeERK6QColorNS_5ShadeE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZNK19QQuickMaterialStyle11touchTargetEv": ["int", "address"],
+    "ritual_ZNK19QQuickMaterialStyle21buttonVerticalPaddingEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK19QQuickMaterialStyle17buttonLeftPaddingEbb": [
+      "int", "address", "bool", "bool"
+    ],
+    "ritual_ZNK19QQuickMaterialStyle18buttonRightPaddingEbbb": [
+      "int", "address", "bool", "bool", "bool"
+    ],
+    "ritual_ZNK19QQuickMaterialStyle12buttonHeightEv": ["int", "address"],
+    "ritual_ZNK19QQuickMaterialStyle14delegateHeightEv": ["int", "address"],
+    "ritual_ZNK19QQuickMaterialStyle21dialogButtonBoxHeightEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK19QQuickMaterialStyle24dialogTitleFontPixelSizeEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK19QQuickMaterialStyle18dialogRoundedScaleEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK19QQuickMaterialStyle20frameVerticalPaddingEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK19QQuickMaterialStyle14menuItemHeightEv": ["int", "address"],
+    "ritual_ZNK19QQuickMaterialStyle23menuItemVerticalPaddingEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK19QQuickMaterialStyle20switchIndicatorWidthEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK19QQuickMaterialStyle21switchIndicatorHeightEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK19QQuickMaterialStyle24switchNormalHandleHeightEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK19QQuickMaterialStyle25switchCheckedHandleHeightEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK19QQuickMaterialStyle25switchLargestHandleHeightEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK19QQuickMaterialStyle29switchDelegateVerticalPaddingEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK19QQuickMaterialStyle15textFieldHeightEv": ["int", "address"],
+    "ritual_ZNK19QQuickMaterialStyle26textFieldHorizontalPaddingEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK19QQuickMaterialStyle24textFieldVerticalPaddingEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK19QQuickMaterialStyle13tooltipHeightEv": ["int", "address"],
+    "ritual_ZN19QQuickMaterialStyle11initGlobalsEv": ["nothing"],
+    "ritual_ZN19QQuickMaterialStyle7variantEv": ["int"],
+    "ritual_ZN19QQuickMaterialStyle20attachedParentChangeEP32QQuickAttachedPropertyPropagatorS1_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK19QQuickMaterialStyle13variantToRgbaERK8QVariantPKcPjPb": [
+      "bool", "address", "address", "chars", "address", "address"
+    ],
+    "ritual_ZNK19QQuickMaterialStyle15backgroundColorENS_5ShadeE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK19QQuickMaterialStyle11accentColorENS_5ShadeE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK19QQuickMaterialStyle10themeShadeEv": ["int", "address"],
+    "ritual_own_ZN19QQuickMaterialStyle20attachedParentChangeEP32QQuickAttachedPropertyPropagatorS1_": [
+      "nothing", "address", "address", "address"
+    ]
+  }
+}

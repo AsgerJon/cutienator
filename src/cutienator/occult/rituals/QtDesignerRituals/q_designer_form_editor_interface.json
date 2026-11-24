@@ -1,0 +1,139 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/abstractformeditor.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK28QDesignerFormEditorInterface10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QDesignerFormEditorInterface2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN28QDesignerFormEditorInterfaceC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN28QDesignerFormEditorInterfaceD1Ev": ["nothing", "address"],
+    "ritual_ZNK28QDesignerFormEditorInterface16extensionManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QDesignerFormEditorInterface8topLevelEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QDesignerFormEditorInterface9widgetBoxEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QDesignerFormEditorInterface14propertyEditorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QDesignerFormEditorInterface15objectInspectorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QDesignerFormEditorInterface17formWindowManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QDesignerFormEditorInterface14widgetDataBaseEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QDesignerFormEditorInterface12metaDataBaseEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QDesignerFormEditorInterface9promotionEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QDesignerFormEditorInterface13widgetFactoryEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QDesignerFormEditorInterface12actionEditorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QDesignerFormEditorInterface11integrationEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QDesignerFormEditorInterface13pluginManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QDesignerFormEditorInterface13introspectionEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QDesignerFormEditorInterface9dialogGuiEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QDesignerFormEditorInterface15settingsManagerEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QDesignerFormEditorInterface16resourceLocationEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK28QDesignerFormEditorInterface13resourceModelEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QDesignerFormEditorInterface12optionsPagesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QDesignerFormEditorInterface11setTopLevelEP7QWidget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QDesignerFormEditorInterface12setWidgetBoxEP27QDesignerWidgetBoxInterface": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QDesignerFormEditorInterface17setPropertyEditorEP32QDesignerPropertyEditorInterface": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QDesignerFormEditorInterface18setObjectInspectorEP33QDesignerObjectInspectorInterface": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QDesignerFormEditorInterface16setPluginManagerEP22QDesignerPluginManager": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QDesignerFormEditorInterface15setActionEditorEP30QDesignerActionEditorInterface": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QDesignerFormEditorInterface14setIntegrationEP29QDesignerIntegrationInterface": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QDesignerFormEditorInterface16setIntrospectionEP31QDesignerIntrospectionInterface": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QDesignerFormEditorInterface12setDialogGuiEP27QDesignerDialogGuiInterface": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QDesignerFormEditorInterface18setSettingsManagerEP26QDesignerSettingsInterface": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QDesignerFormEditorInterface16setResourceModelEP15QtResourceModel": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QDesignerFormEditorInterface15setOptionsPagesERK5QListIP29QDesignerOptionsPageInterfaceE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK28QDesignerFormEditorInterface15pluginInstancesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QDesignerFormEditorInterface10createIconERK7QString": [
+      "address", "text"
+    ],
+    "ritual_ZN28QDesignerFormEditorInterface14setFormManagerEP35QDesignerFormWindowManagerInterface": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QDesignerFormEditorInterface15setMetaDataBaseEP30QDesignerMetaDataBaseInterface": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QDesignerFormEditorInterface17setWidgetDataBaseEP32QDesignerWidgetDataBaseInterface": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QDesignerFormEditorInterface12setPromotionEP27QDesignerPromotionInterface": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QDesignerFormEditorInterface16setWidgetFactoryEP31QDesignerWidgetFactoryInterface": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QDesignerFormEditorInterface19setExtensionManagerEP17QExtensionManager": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QDesignerFormEditorInterface": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

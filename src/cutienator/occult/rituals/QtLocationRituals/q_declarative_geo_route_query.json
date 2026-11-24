@@ -1,0 +1,127 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtLocat",
+    "ion/6.12.0/QtLocation/private/qdeclarativegeoroutemodel_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK25QDeclarativeGeoRouteQuery10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QDeclarativeGeoRouteQuery2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN25QDeclarativeGeoRouteQueryC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN25QDeclarativeGeoRouteQueryC1ERK16QGeoRouteRequestP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN25QDeclarativeGeoRouteQueryD1Ev": ["nothing", "address"],
+    "ritual_ZN25QDeclarativeGeoRouteQuery10classBeginEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QDeclarativeGeoRouteQuery17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK25QDeclarativeGeoRouteQuery12routeRequestEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QDeclarativeGeoRouteQuery26setNumberAlternativeRoutesEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK25QDeclarativeGeoRouteQuery23numberAlternativeRoutesEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK25QDeclarativeGeoRouteQuery9waypointsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QDeclarativeGeoRouteQuery12setWaypointsERK5QListI14QGeoCoordinateE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK25QDeclarativeGeoRouteQuery13excludedAreasEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QDeclarativeGeoRouteQuery16setExcludedAreasERK5QListI13QGeoRectangleE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QDeclarativeGeoRouteQuery11addWaypointERK14QGeoCoordinate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QDeclarativeGeoRouteQuery14removeWaypointERK14QGeoCoordinate": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QDeclarativeGeoRouteQuery14clearWaypointsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QDeclarativeGeoRouteQuery15addExcludedAreaERK13QGeoRectangle": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QDeclarativeGeoRouteQuery18removeExcludedAreaERK13QGeoRectangle": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QDeclarativeGeoRouteQuery18clearExcludedAreasEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QDeclarativeGeoRouteQuery16setFeatureWeightENS_11FeatureTypeENS_13FeatureWeightE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN25QDeclarativeGeoRouteQuery13featureWeightENS_11FeatureTypeE": [
+      "int", "address", "int"
+    ],
+    "ritual_ZN25QDeclarativeGeoRouteQuery19resetFeatureWeightsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QDeclarativeGeoRouteQuery14setTravelModesE6QFlagsINS_10TravelModeEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK25QDeclarativeGeoRouteQuery11travelModesEv": [
+      "int", "address"
+    ],
+    "ritual_ZN25QDeclarativeGeoRouteQuery16setSegmentDetailENS_13SegmentDetailE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK25QDeclarativeGeoRouteQuery13segmentDetailEv": [
+      "int", "address"
+    ],
+    "ritual_ZN25QDeclarativeGeoRouteQuery17setManeuverDetailENS_14ManeuverDetailE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK25QDeclarativeGeoRouteQuery14maneuverDetailEv": [
+      "int", "address"
+    ],
+    "ritual_ZN25QDeclarativeGeoRouteQuery21setRouteOptimizationsE6QFlagsINS_17RouteOptimizationEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK25QDeclarativeGeoRouteQuery18routeOptimizationsEv": [
+      "int", "address"
+    ],
+    "ritual_ZN25QDeclarativeGeoRouteQuery16setDepartureTimeERK9QDateTime": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK25QDeclarativeGeoRouteQuery13departureTimeEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QDeclarativeGeoRouteQuery29excludedAreaCoordinateChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QDeclarativeGeoRouteQuery15waypointChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QDeclarativeGeoRouteQuery19doCoordinateChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_cast_QDeclarativeGeoRouteQuery_QQmlParserStatus": [
+      "address", "address"
+    ],
+    "ritual_take_QDeclarativeGeoRouteQuery": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN25QDeclarativeGeoRouteQuery10classBeginEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN25QDeclarativeGeoRouteQuery17componentCompleteEv": [
+      "nothing", "address"
+    ]
+  }
+}

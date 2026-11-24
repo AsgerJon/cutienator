@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLocation/6.12.0/QtLocation/private/qplaceresult_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK19QPlaceResultPrivate7compareEPK25QPlaceSearchResultPrivate": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK19QPlaceResultPrivate5cloneEv": ["address", "address"],
+    "ritual_ZNK19QPlaceResultPrivate4typeEv": ["int", "address"],
+    "ritual_ZN19QPlaceResultPrivateD1Ev": ["nothing", "address"],
+    "ritual_take_QPlaceResultPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK19QPlaceResultPrivate7compareEPK25QPlaceSearchResultPrivate": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZNK19QPlaceResultPrivate4typeEv": ["int", "address"]
+  }
+}

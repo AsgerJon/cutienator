@@ -1,0 +1,40 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLocation/qgeoroutereply.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK14QGeoRouteReply10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QGeoRouteReply2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN14QGeoRouteReplyC1ENS_5ErrorERK7QStringP7QObject": [
+      "address", "int", "text", "address"
+    ],
+    "ritual_ZN14QGeoRouteReplyD1Ev": ["nothing", "address"],
+    "ritual_ZNK14QGeoRouteReply10isFinishedEv": ["bool", "address"],
+    "ritual_ZNK14QGeoRouteReply5errorEv": ["int", "address"],
+    "ritual_ZNK14QGeoRouteReply11errorStringEv": ["text", "address"],
+    "ritual_ZNK14QGeoRouteReply7requestEv": ["address", "address"],
+    "ritual_ZNK14QGeoRouteReply6routesEv": ["address", "address"],
+    "ritual_ZN14QGeoRouteReply5abortEv": ["nothing", "address"],
+    "ritual_ZN14QGeoRouteReplyC1ERK16QGeoRouteRequestP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN14QGeoRouteReply8setErrorENS_5ErrorERK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZN14QGeoRouteReply11setFinishedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN14QGeoRouteReply9setRoutesERK5QListI9QGeoRouteE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QGeoRouteReply9addRoutesERK5QListI9QGeoRouteE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QGeoRouteReply": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN14QGeoRouteReply5abortEv": ["nothing", "address"]
+  }
+}

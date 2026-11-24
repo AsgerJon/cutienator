@@ -6,6 +6,8 @@
   "rows": {
     "ritual_ZNK10QEventLoop10metaObjectEv": ["address", "address"],
     "ritual_ZN10QEventLoop2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN10QEventLoop6d_funcEv": ["address", "address"],
+    "ritual_ZNK10QEventLoop6d_funcEv": ["address", "address"],
     "ritual_ZN10QEventLoopC1EP7QObject": ["address", "address"],
     "ritual_ZN10QEventLoopD1Ev": ["nothing", "address"],
     "ritual_ZN10QEventLoop13processEventsE6QFlagsINS_17ProcessEventsFlagEE": [

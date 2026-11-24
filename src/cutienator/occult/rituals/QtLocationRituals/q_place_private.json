@@ -1,0 +1,63 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLocation/6.12.0/QtLocation/private/qplace_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN13QPlacePrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN13QPlacePrivate5cloneEv": ["address", "address"],
+    "ritual_ZNK13QPlacePrivate7isEmptyEv": ["bool", "address"],
+    "ritual_ZNK13QPlacePrivate10categoriesEv": ["address", "address"],
+    "ritual_ZN13QPlacePrivate13setCategoriesERK5QListI14QPlaceCategoryE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QPlacePrivate8locationEv": ["address", "address"],
+    "ritual_ZN13QPlacePrivate11setLocationERK12QGeoLocation": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QPlacePrivate7ratingsEv": ["address", "address"],
+    "ritual_ZN13QPlacePrivate10setRatingsERK13QPlaceRatings": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QPlacePrivate8supplierEv": ["address", "address"],
+    "ritual_ZN13QPlacePrivate11setSupplierERK14QPlaceSupplier": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QPlacePrivate4nameEv": ["text", "address"],
+    "ritual_ZN13QPlacePrivate7setNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK13QPlacePrivate7placeIdEv": ["text", "address"],
+    "ritual_ZN13QPlacePrivate10setPlaceIdERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK13QPlacePrivate11attributionEv": ["text", "address"],
+    "ritual_ZN13QPlacePrivate14setAttributionERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK13QPlacePrivate10visibilityEv": ["int", "address"],
+    "ritual_ZN13QPlacePrivate13setVisibilityEN9QLocation10VisibilityE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK13QPlacePrivate4iconEv": ["address", "address"],
+    "ritual_ZN13QPlacePrivate7setIconERK10QPlaceIcon": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QPlacePrivate14detailsFetchedEv": ["bool", "address"],
+    "ritual_ZN13QPlacePrivate17setDetailsFetchedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK13QPlacePrivate18extendedAttributesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK13QPlacePrivate17extendedAttributeERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_take_QPlacePrivate": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK13QPlacePrivate7isEmptyEv": ["bool", "address"],
+    "ritual_own_ZNK13QPlacePrivate17extendedAttributeERK7QString": [
+      "address", "address", "text"
+    ]
+  }
+}

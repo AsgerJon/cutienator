@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuickLayouts/6.12.0/QtQuickLayouts/private/qquicklayout_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QQuickLayoutPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK19QQuickLayoutPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN19QQuickLayoutPrivateC1Ev": ["address"],
+    "ritual_ZNK19QQuickLayoutPrivate14applySizeHintsEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QQuickLayoutPrivate": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

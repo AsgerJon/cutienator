@@ -1,0 +1,30 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtLabsF",
+    "olderListModel/6.12.0/QtLabsFolderListModel/private/fileproperty_p",
+    ".h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN12FileProperty22qt_qmlMarker_anonymousEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN12FilePropertyC1ERK9QFileInfo": ["address", "address"],
+    "ritual_ZNK12FileProperty8fileNameEv": ["text", "address"],
+    "ritual_ZNK12FileProperty8filePathEv": ["text", "address"],
+    "ritual_ZNK12FileProperty8baseNameEv": ["text", "address"],
+    "ritual_ZNK12FileProperty4sizeEv": ["long long", "address"],
+    "ritual_ZNK12FileProperty6suffixEv": ["text", "address"],
+    "ritual_ZNK12FileProperty5isDirEv": ["bool", "address"],
+    "ritual_ZNK12FileProperty6isFileEv": ["bool", "address"],
+    "ritual_ZNK12FileProperty12lastModifiedEv": ["address", "address"],
+    "ritual_ZNK12FileProperty8lastReadEv": ["address", "address"],
+    "ritual_ZNK12FilePropertyneERKS_": ["bool", "address", "address"],
+    "ritual_ZNK12FilePropertyeqERKS_": ["bool", "address", "address"],
+    "ritual_ZN12FilePropertyD1Ev": ["nothing", "address"],
+    "ritual_list_make_FileProperty": ["address"],
+    "ritual_list_add_FileProperty": ["nothing", "address", "address"],
+    "ritual_list_size_FileProperty": ["long long", "address"],
+    "ritual_list_at_FileProperty": ["address", "address", "long long"],
+    "ritual_list_drop_FileProperty": ["nothing", "address"]
+  }
+}

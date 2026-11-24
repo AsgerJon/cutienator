@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickimplicitsizeitem_p_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN29QQuickImplicitSizeItemPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK29QQuickImplicitSizeItemPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN29QQuickImplicitSizeItemPrivateC1Ev": ["address"],
+    "ritual_take_QQuickImplicitSizeItemPrivate": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

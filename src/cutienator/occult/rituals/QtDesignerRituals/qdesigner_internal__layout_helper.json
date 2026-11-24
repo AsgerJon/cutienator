@@ -1,0 +1,39 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/qlayout_widget_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18qdesigner_internal12LayoutHelperD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal12LayoutHelper8itemInfoEP7QLayouti": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN18qdesigner_internal12LayoutHelper12insertWidgetEP7QLayoutRK5QRectP7QWidget": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal12LayoutHelper12removeWidgetEP7QLayoutP7QWidget": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal12LayoutHelper13replaceWidgetEP7QLayoutP7QWidgetS4_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK18qdesigner_internal12LayoutHelper11canSimplifyEPK28QDesignerFormEditorInterfacePK7QWidgetRK5QRect": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal12LayoutHelper8simplifyEPK28QDesignerFormEditorInterfaceP7QWidgetRK5QRect": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal12LayoutHelper9pushStateEPK28QDesignerFormEditorInterfacePK7QWidget": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN18qdesigner_internal12LayoutHelper8popStateEPK28QDesignerFormEditorInterfaceP7QWidget": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_take_qdesigner_internal_LayoutHelper": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

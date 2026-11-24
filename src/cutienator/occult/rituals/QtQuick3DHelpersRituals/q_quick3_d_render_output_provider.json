@@ -1,0 +1,51 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DHelpers/6.12.0/QtQuick3DHelpers/private/qquick3drenderoutputprov",
+    "ider_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK28QQuick3DRenderOutputProvider10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QQuick3DRenderOutputProvider2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN28QQuick3DRenderOutputProviderC1EP14QQuick3DObject": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QQuick3DRenderOutputProvider13textureSourceEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN28QQuick3DRenderOutputProvider16setTextureSourceENS_13TextureSourceE": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZNK28QQuick3DRenderOutputProvider10renderPassEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QQuick3DRenderOutputProvider13setRenderPassEP18QQuick3DRenderPass": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK28QQuick3DRenderOutputProvider18attachmentSelectorEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN28QQuick3DRenderOutputProvider21setAttachmentSelectorENS_18AttachmentSelectorE": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN28QQuick3DRenderOutputProvider17updateSpatialNodeEP21QSSGRenderGraphObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN28QQuick3DRenderOutputProvider12markAllDirtyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QQuick3DRenderOutputProvider9markDirtyENS_9DirtyTypeE": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_own_ZN28QQuick3DRenderOutputProvider17updateSpatialNodeEP21QSSGRenderGraphObject": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN28QQuick3DRenderOutputProvider12markAllDirtyEv": [
+      "nothing", "address"
+    ]
+  }
+}

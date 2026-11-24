@@ -1,0 +1,14 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qfixed_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN10QFixedSizeC1Ev": ["address"],
+    "ritual_ZN10QFixedSizeC1E6QFixedS0_": ["address", "address", "address"],
+    "ritual_ZNK10QFixedSize7toSizeFEv": ["address", "address"],
+    "ritual_ZN10QFixedSize9fromSizeFERK6QSizeF": ["address", "address"],
+    "ritual_ZN10QFixedSizeD1Ev": ["nothing", "address"]
+  }
+}

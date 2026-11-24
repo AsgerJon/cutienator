@@ -83,6 +83,8 @@
     "ritual_ZNK11QTextLayout9glyphRunsEii": [
       "address", "address", "int", "int"
     ],
-    "ritual_ZN11QTextLayout8setFlagsEi": ["nothing", "address", "int"]
+    "ritual_ZNK11QTextLayout6engineEv": ["address", "address"],
+    "ritual_ZN11QTextLayout8setFlagsEi": ["nothing", "address", "int"],
+    "ritual_ZN11QTextLayoutC1EP11QTextEngine": ["address", "address"]
   }
 }

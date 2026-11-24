@@ -1,0 +1,40 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtPrintSupport/qprintdialog.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZNK12QPrintDialog10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QPrintDialog2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN12QPrintDialogC1EP8QPrinterP7QWidget": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN12QPrintDialogC1EP7QWidget": ["address", "address"],
+    "ritual_ZN12QPrintDialogD1Ev": ["nothing", "address"],
+    "ritual_ZN12QPrintDialog4execEv": ["int", "address"],
+    "ritual_ZN12QPrintDialog6acceptEv": ["nothing", "address"],
+    "ritual_ZN12QPrintDialog4doneEi": ["nothing", "address", "int"],
+    "ritual_ZN12QPrintDialog9setOptionEN20QAbstractPrintDialog17PrintDialogOptionEb": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZNK12QPrintDialog10testOptionEN20QAbstractPrintDialog17PrintDialogOptionE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN12QPrintDialog10setOptionsE6QFlagsIN20QAbstractPrintDialog17PrintDialogOptionEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK12QPrintDialog7optionsEv": ["int", "address"],
+    "ritual_ZN12QPrintDialog10setVisibleEb": ["nothing", "address", "bool"],
+    "ritual_ZN12QPrintDialog4openEP7QObjectPKc": [
+      "nothing", "address", "address", "chars"
+    ],
+    "ritual_take_QPrintDialog": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN12QPrintDialog4execEv": ["int", "address"],
+    "ritual_own_ZN12QPrintDialog6acceptEv": ["nothing", "address"],
+    "ritual_own_ZN12QPrintDialog4doneEi": ["nothing", "address", "int"],
+    "ritual_own_ZN12QPrintDialog10setVisibleEb": [
+      "nothing", "address", "bool"
+    ]
+  }
+}

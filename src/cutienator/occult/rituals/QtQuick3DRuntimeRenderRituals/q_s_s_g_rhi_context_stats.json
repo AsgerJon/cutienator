@@ -1,0 +1,55 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgrhiconte",
+    "xt_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QSSGRhiContextStats16profilingEnabledEv": ["bool"],
+    "ritual_ZN19QSSGRhiContextStats20rendererDebugEnabledEv": ["bool"],
+    "ritual_ZNK19QSSGRhiContextStats9isEnabledEv": ["bool", "address"],
+    "ritual_ZN19QSSGRhiContextStats11drawIndexedEjj": [
+      "nothing", "address", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZN19QSSGRhiContextStats4drawEjj": [
+      "nothing", "address", "unsigned int", "unsigned int"
+    ],
+    "ritual_ZN19QSSGRhiContextStats19meshDataSizeChangesEy": [
+      "nothing", "address", "unsigned long long"
+    ],
+    "ritual_ZN19QSSGRhiContextStats20imageDataSizeChangesEy": [
+      "nothing", "address", "unsigned long long"
+    ],
+    "ritual_ZN19QSSGRhiContextStats36registerMaterialShaderGenerationTimeEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN19QSSGRhiContextStats34registerEffectShaderGenerationTimeEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN19QSSGRhiContextStats25totalDrawCallCountForPassERKNS_14RenderPassInfoE": [
+      "unsigned long long", "address"
+    ],
+    "ritual_ZN19QSSGRhiContextStats23totalVertexCountForPassERKNS_14RenderPassInfoE": [
+      "unsigned long long", "address"
+    ],
+    "ritual_ZN19QSSGRhiContextStats5startEP15QSSGRenderLayer": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QSSGRhiContextStats4stopEP15QSSGRenderLayer": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QSSGRhiContextStats15beginRenderPassEP23QRhiTextureRenderTarget": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QSSGRhiContextStats13endRenderPassEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QSSGRhiContextStats15printRenderPassERKNS_14RenderPassInfoE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QSSGRhiContextStats16cleanupLayerInfoEP15QSSGRenderLayer": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QSSGRhiContextStatsD1Ev": ["nothing", "address"]
+  }
+}

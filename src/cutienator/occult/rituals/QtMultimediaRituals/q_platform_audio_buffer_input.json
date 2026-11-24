@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtMulti",
+    "media/6.12.0/QtMultimedia/private/qplatformaudiobufferinput_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK25QPlatformAudioBufferInput10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QPlatformAudioBufferInput2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN25QPlatformAudioBufferInputC1ERK12QAudioFormat": [
+      "address", "address"
+    ],
+    "ritual_ZNK25QPlatformAudioBufferInput11audioFormatEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK25QPlatformAudioBufferInput16encoderInterfaceEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QPlatformAudioBufferInput19setEncoderInterfaceEP27QMediaInputEncoderInterface": [
+      "nothing", "address", "address"
+    ]
+  }
+}

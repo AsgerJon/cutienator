@@ -1,6 +1,12 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/qmimetype.h, Qt 6.12.0. Changes made here are lost.
+#include <QtCore/qglobal.h>
+#if QT_CONFIG(mimetype)
 #include <QtCore/qmimetype.h>
+#include <QtCore/QtCore>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#include <QtCore/6.12.0/QtCore/private/qmimetype_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #include <QtCore/qlist.h>
 
@@ -14,6 +20,13 @@ QMimeType *ritual_ZN9QMimeTypeC1Ev() {
 extern "C" Q_DECL_EXPORT
 QMimeType *ritual_ZN9QMimeTypeC1ERKS_(const QMimeType *other) {
   return new QMimeType(*other);
+}
+
+//  QMimeType::QMimeType(const QMimeTypePrivate &dd)
+extern "C" Q_DECL_EXPORT
+QMimeType *ritual_ZN9QMimeTypeC1ERK16QMimeTypePrivate(
+    const QMimeTypePrivate *dd) {
+  return new QMimeType(*dd);
 }
 
 //  QMimeType::~QMimeType()
@@ -154,3 +167,5 @@ extern "C" Q_DECL_EXPORT
 void ritual_list_drop_QMimeType(QList<QMimeType> *self) {
   delete self;
 }
+
+#endif  // QT_CONFIG(mimetype)

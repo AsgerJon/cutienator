@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmlobjectcreator_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN28ObjectInCreationGCAnchorListC1Ev": ["address"],
+    "ritual_ZN28ObjectInCreationGCAnchorList11trackObjectEPN3QV415ExecutionEngineEP7QObject": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK28ObjectInCreationGCAnchorList8canTrackEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN28ObjectInCreationGCAnchorListD1Ev": ["nothing", "address"]
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qdbustrayicon_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK13QDBusTrayIcon10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QDBusTrayIconD1Ev": ["nothing", "address"],
+    "ritual_ZN13QDBusTrayIcon4initEv": ["nothing", "address"],
+    "ritual_ZN13QDBusTrayIcon7cleanupEv": ["nothing", "address"],
+    "ritual_ZN13QDBusTrayIcon10updateIconERK5QIcon": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QDBusTrayIcon13updateToolTipERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN13QDBusTrayIcon10updateMenuEP13QPlatformMenu": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QDBusTrayIcon10createMenuEv": ["address", "address"],
+    "ritual_ZNK13QDBusTrayIcon21isSystemTrayAvailableEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK13QDBusTrayIcon16supportsMessagesEv": ["bool", "address"],
+    "ritual_ZNK13QDBusTrayIcon8geometryEv": ["address", "address"],
+    "ritual_ZNK13QDBusTrayIcon8categoryEv": ["text", "address"],
+    "ritual_ZNK13QDBusTrayIcon6statusEv": ["text", "address"],
+    "ritual_ZNK13QDBusTrayIcon7tooltipEv": ["text", "address"],
+    "ritual_ZNK13QDBusTrayIcon8iconNameEv": ["text", "address"],
+    "ritual_ZNK13QDBusTrayIcon4iconEv": ["address", "address"],
+    "ritual_ZNK13QDBusTrayIcon21isRequestingAttentionEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK13QDBusTrayIcon14attentionTitleEv": ["text", "address"],
+    "ritual_ZNK13QDBusTrayIcon16attentionMessageEv": ["text", "address"],
+    "ritual_ZNK13QDBusTrayIcon17attentionIconNameEv": ["text", "address"],
+    "ritual_ZNK13QDBusTrayIcon13attentionIconEv": ["address", "address"],
+    "ritual_ZNK13QDBusTrayIcon10instanceIdEv": ["text", "address"],
+    "ritual_ZN13QDBusTrayIcon4menuEv": ["address", "address"],
+    "ritual_take_QDBusTrayIcon": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK13QDBusTrayIcon16supportsMessagesEv": ["bool", "address"],
+    "ritual_own_ZNK13QDBusTrayIcon8geometryEv": ["address", "address"]
+  }
+}

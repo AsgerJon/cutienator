@@ -1,0 +1,73 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qpointingdevice_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN22QPointingDevicePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK22QPointingDevicePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN22QPointingDevicePrivateC1ERK7QStringxN12QInputDevice10DeviceTypeEN15QPointingDevice11PointerTypeE6QFlagsINS3_10CapabilityEEiiS2_23QPointingDeviceUniqueId": [
+      "address", "text", "long long", "int", "int", "int", "int", "int",
+      "text", "address"
+    ],
+    "ritual_ZN22QPointingDevicePrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN22QPointingDevicePrivate20sendTouchCancelEventEP11QTouchEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK22QPointingDevicePrivate14queryPointByIdEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK22QPointingDevicePrivate9pointByIdEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN22QPointingDevicePrivate15removePointByIdEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK22QPointingDevicePrivate17firstActiveTargetEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK22QPointingDevicePrivate17firstActiveWindowEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK22QPointingDevicePrivate26firstPointExclusiveGrabberEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QPointingDevicePrivate19setExclusiveGrabberEPK13QPointerEventRK11QEventPointP7QObject": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN22QPointingDevicePrivate22removeExclusiveGrabberEPK13QPointerEventPK7QObject": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN22QPointingDevicePrivate17addPassiveGrabberEPK13QPointerEventRK11QEventPointP7QObject": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZN22QPointingDevicePrivate24setPassiveGrabberContextEPNS_14EventPointDataEP7QObjectS3_": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN22QPointingDevicePrivate20removePassiveGrabberEPK13QPointerEventRK11QEventPointP7QObject": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZN22QPointingDevicePrivate20clearPassiveGrabbersEPK13QPointerEventRK11QEventPoint": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN22QPointingDevicePrivate13removeGrabberEP7QObjectb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN22QPointingDevicePrivate3getEP15QPointingDevice": [
+      "address", "address"
+    ],
+    "ritual_ZN22QPointingDevicePrivate3getEPK15QPointingDevice": [
+      "address", "address"
+    ],
+    "ritual_ZN22QPointingDevicePrivate12tabletDeviceEN12QInputDevice10DeviceTypeEN15QPointingDevice11PointerTypeE23QPointingDeviceUniqueId": [
+      "address", "int", "int", "address"
+    ],
+    "ritual_ZN22QPointingDevicePrivate17queryTabletDeviceEN12QInputDevice10DeviceTypeEN15QPointingDevice11PointerTypeE23QPointingDeviceUniqueId6QFlagsINS0_10CapabilityEEx": [
+      "address", "int", "int", "address", "int", "long long"
+    ],
+    "ritual_ZN22QPointingDevicePrivate18pointingDeviceByIdEx": [
+      "address", "long long"
+    ]
+  }
+}

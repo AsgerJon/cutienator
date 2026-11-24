@@ -1,0 +1,60 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickitemviewtransition_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN32QQuickItemViewTransitionableItemC1EP10QQuickItem": [
+      "address", "address"
+    ],
+    "ritual_ZN32QQuickItemViewTransitionableItemD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK32QQuickItemViewTransitionableItem5itemXEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK32QQuickItemViewTransitionableItem5itemYEv": [
+      "double", "address"
+    ],
+    "ritual_ZN32QQuickItemViewTransitionableItem6moveToERK7QPointFb": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZNK32QQuickItemViewTransitionableItem28transitionScheduledOrRunningEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK32QQuickItemViewTransitionableItem17transitionRunningEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK32QQuickItemViewTransitionableItem16isPendingRemovalEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN32QQuickItemViewTransitionableItem17prepareTransitionEP26QQuickItemViewTransitioneriRK6QRectF": [
+      "bool", "address", "address", "int", "address"
+    ],
+    "ritual_ZN32QQuickItemViewTransitionableItem15startTransitionEP26QQuickItemViewTransitioneri": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN32QQuickItemViewTransitionableItem18completeTransitionEP16QQuickTransition": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN32QQuickItemViewTransitionableItem17setNextTransitionEN26QQuickItemViewTransitioner14TransitionTypeEb": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZNK32QQuickItemViewTransitionableItem28transitionWillChangePositionEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN32QQuickItemViewTransitionableItem18finishedTransitionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN32QQuickItemViewTransitionableItem22resetNextTransitionPosEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN32QQuickItemViewTransitionableItem31clearCurrentScheduledTransitionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN32QQuickItemViewTransitionableItem14stopTransitionEv": [
+      "nothing", "address"
+    ]
+  }
+}

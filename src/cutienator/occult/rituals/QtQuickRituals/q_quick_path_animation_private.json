@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickitemanimation_p_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN26QQuickPathAnimationPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK26QQuickPathAnimationPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QQuickPathAnimationPrivateC1Ev": ["address"],
+    "ritual_take_QQuickPathAnimationPrivate": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

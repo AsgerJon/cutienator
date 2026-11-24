@@ -1,0 +1,173 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQmlModels/6.12.0/QtQmlModels/private/qqmldelegatemodel_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17QQmlDelegateModel10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QQmlDelegateModel2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QQmlDelegateModel6d_funcEv": ["address", "address"],
+    "ritual_ZNK17QQmlDelegateModel6d_funcEv": ["address", "address"],
+    "ritual_ZN17QQmlDelegateModel21qt_qmlMarker_attachedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQmlDelegateModelC1Ev": ["address"],
+    "ritual_ZN17QQmlDelegateModelC1EP11QQmlContextP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN17QQmlDelegateModelD1Ev": ["nothing", "address"],
+    "ritual_ZN17QQmlDelegateModel10classBeginEv": ["nothing", "address"],
+    "ritual_ZN17QQmlDelegateModel17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK17QQmlDelegateModel5modelEv": ["address", "address"],
+    "ritual_ZN17QQmlDelegateModel8setModelERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QQmlDelegateModel8delegateEv": ["address", "address"],
+    "ritual_ZN17QQmlDelegateModel11setDelegateEP13QQmlComponent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QQmlDelegateModel9rootIndexEv": ["address", "address"],
+    "ritual_ZN17QQmlDelegateModel12setRootIndexERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QQmlDelegateModel19delegateModelAccessEv": [
+      "unsigned char", "address"
+    ],
+    "ritual_ZN17QQmlDelegateModel22setDelegateModelAccessENS_19DelegateModelAccessE": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZNK17QQmlDelegateModel10modelIndexEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK17QQmlDelegateModel16parentModelIndexEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK17QQmlDelegateModel5countEv": ["int", "address"],
+    "ritual_ZNK17QQmlDelegateModel7isValidEv": ["bool", "address"],
+    "ritual_ZN17QQmlDelegateModel6objectEiN13QQmlIncubator14IncubationModeE": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZN17QQmlDelegateModel7releaseEP7QObjectN17QQmlInstanceModel12ReusableFlagE": [
+      "int", "address", "address", "int"
+    ],
+    "ritual_ZN17QQmlDelegateModel6cancelEi": ["nothing", "address", "int"],
+    "ritual_ZN17QQmlDelegateModel12variantValueEiRK7QString": [
+      "address", "address", "int", "text"
+    ],
+    "ritual_ZN17QQmlDelegateModel15setWatchedRolesERK5QListI10QByteArrayE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QQmlDelegateModel16incubationStatusEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZN17QQmlDelegateModel22drainReusableItemsPoolEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQmlDelegateModel8poolSizeEv": ["int", "address"],
+    "ritual_ZNK17QQmlDelegateModel7indexOfEP7QObjectS1_": [
+      "int", "address", "address", "address"
+    ],
+    "ritual_ZNK17QQmlDelegateModel11filterGroupEv": ["text", "address"],
+    "ritual_ZN17QQmlDelegateModel14setFilterGroupERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN17QQmlDelegateModel16resetFilterGroupEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQmlDelegateModel5itemsEv": ["address", "address"],
+    "ritual_ZN17QQmlDelegateModel14persistedItemsEv": ["address", "address"],
+    "ritual_ZN17QQmlDelegateModel5partsEv": ["address", "address"],
+    "ritual_ZNK17QQmlDelegateModel17abstractItemModelEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QQmlDelegateModel5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN17QQmlDelegateModel21qmlAttachedPropertiesEP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN17QQmlDelegateModel16_q_itemsInsertedEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN17QQmlDelegateModel15_q_itemsRemovedEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN17QQmlDelegateModel13_q_itemsMovedEiii": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZN17QQmlDelegateModel22_q_modelAboutToBeResetEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQmlDelegateModel15_q_rowsInsertedERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN17QQmlDelegateModel18_q_columnsInsertedERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN17QQmlDelegateModel17_q_columnsRemovedERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN17QQmlDelegateModel15_q_columnsMovedERK11QModelIndexiiS2_i": [
+      "nothing", "address", "address", "int", "int", "address", "int"
+    ],
+    "ritual_ZN17QQmlDelegateModel23_q_rowsAboutToBeRemovedERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN17QQmlDelegateModel14_q_rowsRemovedERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN17QQmlDelegateModel12_q_rowsMovedERK11QModelIndexiiS2_i": [
+      "nothing", "address", "address", "int", "int", "address", "int"
+    ],
+    "ritual_ZN17QQmlDelegateModel16_q_layoutChangedERK5QListI21QPersistentModelIndexEN18QAbstractItemModel16LayoutChangeHintE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN17QQmlDelegateModel16handleModelResetEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK17QQmlDelegateModel14isDescendantOfERK21QPersistentModelIndexRK5QListIS0_E": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_cast_QQmlDelegateModel_QQmlParserStatus": ["address", "address"],
+    "ritual_take_QQmlDelegateModel": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN17QQmlDelegateModel10classBeginEv": ["nothing", "address"],
+    "ritual_own_ZN17QQmlDelegateModel17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZNK17QQmlDelegateModel5countEv": ["int", "address"],
+    "ritual_own_ZNK17QQmlDelegateModel7isValidEv": ["bool", "address"],
+    "ritual_own_ZN17QQmlDelegateModel6objectEiN13QQmlIncubator14IncubationModeE": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_own_ZN17QQmlDelegateModel7releaseEP7QObjectN17QQmlInstanceModel12ReusableFlagE": [
+      "int", "address", "address", "int"
+    ],
+    "ritual_own_ZN17QQmlDelegateModel6cancelEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17QQmlDelegateModel12variantValueEiRK7QString": [
+      "address", "address", "int", "text"
+    ],
+    "ritual_own_ZN17QQmlDelegateModel16incubationStatusEi": [
+      "int", "address", "int"
+    ],
+    "ritual_own_ZN17QQmlDelegateModel22drainReusableItemsPoolEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN17QQmlDelegateModel8poolSizeEv": ["int", "address"],
+    "ritual_own_ZNK17QQmlDelegateModel7indexOfEP7QObjectS1_": [
+      "int", "address", "address", "address"
+    ],
+    "ritual_own_ZNK17QQmlDelegateModel17abstractItemModelEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN17QQmlDelegateModel5eventEP6QEvent": [
+      "bool", "address", "address"
+    ]
+  }
+}

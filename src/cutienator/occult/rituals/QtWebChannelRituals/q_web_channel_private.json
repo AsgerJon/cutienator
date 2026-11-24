@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWebChannel/6.12.0/QtWebChannel/private/qwebchannel_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QWebChannelPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK18QWebChannelPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN18QWebChannelPrivate4initEv": ["nothing", "address"],
+    "ritual_ZN18QWebChannelPrivate21_q_transportDestroyedEP7QObject": [
+      "nothing", "address", "address"
+    ]
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickspringanimation_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK21QQuickSpringAnimation10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QQuickSpringAnimation2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN21QQuickSpringAnimationC1EP7QObject": ["address", "address"],
+    "ritual_ZN21QQuickSpringAnimationD1Ev": ["nothing", "address"],
+    "ritual_ZNK21QQuickSpringAnimation8velocityEv": ["double", "address"],
+    "ritual_ZN21QQuickSpringAnimation11setVelocityEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK21QQuickSpringAnimation6springEv": ["double", "address"],
+    "ritual_ZN21QQuickSpringAnimation9setSpringEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK21QQuickSpringAnimation7dampingEv": ["double", "address"],
+    "ritual_ZN21QQuickSpringAnimation10setDampingEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK21QQuickSpringAnimation7epsilonEv": ["double", "address"],
+    "ritual_ZN21QQuickSpringAnimation10setEpsilonEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK21QQuickSpringAnimation4massEv": ["double", "address"],
+    "ritual_ZN21QQuickSpringAnimation7setMassEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK21QQuickSpringAnimation7modulusEv": ["double", "address"],
+    "ritual_ZN21QQuickSpringAnimation10setModulusEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_take_QQuickSpringAnimation": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

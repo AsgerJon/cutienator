@@ -1,0 +1,33 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Particles/6.12.0/QtQuickParticles/private/qquickparticlesystem_p.h",
+    ", Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN22QQuickParticleDataHeapC1Ev": ["address"],
+    "ritual_ZN22QQuickParticleDataHeap6insertEP18QQuickParticleData": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQuickParticleDataHeap11insertTimedEP18QQuickParticleDatai": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN22QQuickParticleDataHeap3topEv": ["int", "address"],
+    "ritual_ZNK22QQuickParticleDataHeap7isEmptyEv": ["bool", "address"],
+    "ritual_ZN22QQuickParticleDataHeap5clearEv": ["nothing", "address"],
+    "ritual_ZN22QQuickParticleDataHeap8containsEP18QQuickParticleData": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN22QQuickParticleDataHeap4growEv": ["nothing", "address"],
+    "ritual_ZN22QQuickParticleDataHeap4swapEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN22QQuickParticleDataHeap8bubbleUpEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN22QQuickParticleDataHeap10bubbleDownEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN22QQuickParticleDataHeapD1Ev": ["nothing", "address"]
+  }
+}

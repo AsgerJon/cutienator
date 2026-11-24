@@ -1,0 +1,13 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4globalobject_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN3QV412EvalFunction12staticVTableEv": ["address"],
+    "ritual_ZN3QV412EvalFunction10__dataTestEv": ["nothing", "address"],
+    "ritual_ZNK3QV412EvalFunction11d_uncheckedEv": ["address", "address"],
+    "ritual_ZNK3QV412EvalFunction1dEv": ["address", "address"]
+  }
+}

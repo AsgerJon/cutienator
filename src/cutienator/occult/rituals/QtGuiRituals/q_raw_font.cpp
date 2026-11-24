@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGui/qrawfont.h, Qt 6.12.0. Changes made here are lost.
+#include <QtGui/qtguiglobal.h>
+#if !defined(QT_NO_RAWFONT)
 #include <QtGui/qrawfont.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qbytearray.h>
@@ -296,3 +298,5 @@ QRawFont *ritual_ZN8QRawFont8fromFontERK5QFontN13QFontDatabase13WritingSystemE(
     QFontDatabase::WritingSystem writingSystem) {
   return new QRawFont(QRawFont::fromFont(*font, writingSystem));
 }
+
+#endif  // !defined(QT_NO_RAWFONT)

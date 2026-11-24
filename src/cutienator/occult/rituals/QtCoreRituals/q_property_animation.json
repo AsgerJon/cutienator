@@ -31,6 +31,8 @@
     "ritual_ZN18QPropertyAnimation11updateStateEN18QAbstractAnimation5StateES1_": [
       "nothing", "address", "int", "int"
     ],
+    "ritual_ZN18QPropertyAnimation6d_funcEv": ["address", "address"],
+    "ritual_ZNK18QPropertyAnimation6d_funcEv": ["address", "address"],
     "ritual_take_QPropertyAnimation": [
       "bool", "address", "chars", "address"
     ],

@@ -1,0 +1,137 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/formbuilderextra_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN17QFormBuilderExtraC1Ev": ["address"],
+    "ritual_ZN17QFormBuilderExtraD1Ev": ["nothing", "address"],
+    "ritual_ZN17QFormBuilderExtra5clearEv": ["nothing", "address"],
+    "ritual_ZN17QFormBuilderExtra6readUiEP9QIODevice": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN17QFormBuilderExtra16msgInvalidUiFileEv": ["text"],
+    "ritual_ZN17QFormBuilderExtra23applyPropertyInternallyEP7QObjectRK7QStringRK8QVariant": [
+      "bool", "address", "address", "text", "address"
+    ],
+    "ritual_ZNK17QFormBuilderExtra23applyInternalPropertiesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QFormBuilderExtra10applyBuddyERK7QStringNS_9BuddyModeEP6QLabel": [
+      "bool", "text", "int", "address"
+    ],
+    "ritual_ZNK17QFormBuilderExtra17parentWidgetIsSetEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN17QFormBuilderExtra25setProcessingLayoutWidgetEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK17QFormBuilderExtra22processingLayoutWidgetEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN17QFormBuilderExtra18setResourceBuilderEP16QResourceBuilder": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QFormBuilderExtra15resourceBuilderEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QFormBuilderExtra14setTextBuilderEP12QTextBuilder": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QFormBuilderExtra11textBuilderEv": ["address", "address"],
+    "ritual_ZN17QFormBuilderExtra21storeCustomWidgetDataERK7QStringPK15DomCustomWidget": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZNK17QFormBuilderExtra25customWidgetAddPageMethodERK7QString": [
+      "text", "address", "text"
+    ],
+    "ritual_ZNK17QFormBuilderExtra21customWidgetBaseClassERK7QString": [
+      "text", "address", "text"
+    ],
+    "ritual_ZNK17QFormBuilderExtra23isCustomWidgetContainerERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN17QFormBuilderExtra20registerButtonGroupsEPK15DomButtonGroups": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QFormBuilderExtra16getLayoutMarginsERK5QListIP11DomPropertyEPiS6_S6_S6_": [
+      "nothing", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN17QFormBuilderExtra16boxLayoutStretchEPK10QBoxLayout": [
+      "text", "address"
+    ],
+    "ritual_ZN17QFormBuilderExtra19setBoxLayoutStretchERK7QStringP10QBoxLayout": [
+      "bool", "text", "address"
+    ],
+    "ritual_ZN17QFormBuilderExtra21clearBoxLayoutStretchEP10QBoxLayout": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QFormBuilderExtra20gridLayoutRowStretchEPK11QGridLayout": [
+      "text", "address"
+    ],
+    "ritual_ZN17QFormBuilderExtra23setGridLayoutRowStretchERK7QStringP11QGridLayout": [
+      "bool", "text", "address"
+    ],
+    "ritual_ZN17QFormBuilderExtra25clearGridLayoutRowStretchEP11QGridLayout": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QFormBuilderExtra23gridLayoutColumnStretchEPK11QGridLayout": [
+      "text", "address"
+    ],
+    "ritual_ZN17QFormBuilderExtra26setGridLayoutColumnStretchERK7QStringP11QGridLayout": [
+      "bool", "text", "address"
+    ],
+    "ritual_ZN17QFormBuilderExtra28clearGridLayoutColumnStretchEP11QGridLayout": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QFormBuilderExtra26gridLayoutRowMinimumHeightEPK11QGridLayout": [
+      "text", "address"
+    ],
+    "ritual_ZN17QFormBuilderExtra29setGridLayoutRowMinimumHeightERK7QStringP11QGridLayout": [
+      "bool", "text", "address"
+    ],
+    "ritual_ZN17QFormBuilderExtra31clearGridLayoutRowMinimumHeightEP11QGridLayout": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QFormBuilderExtra28gridLayoutColumnMinimumWidthEPK11QGridLayout": [
+      "text", "address"
+    ],
+    "ritual_ZN17QFormBuilderExtra31setGridLayoutColumnMinimumWidthERK7QStringP11QGridLayout": [
+      "bool", "text", "address"
+    ],
+    "ritual_ZN17QFormBuilderExtra33clearGridLayoutColumnMinimumWidthEP11QGridLayout": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QFormBuilderExtra11loadPaletteEPK10DomPalette": [
+      "address", "address"
+    ],
+    "ritual_ZN17QFormBuilderExtra15setupColorGroupEP8QPaletteNS0_10ColorGroupEPK13DomColorGroup": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN17QFormBuilderExtra14saveColorGroupERK8QPaletteNS0_10ColorGroupE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN17QFormBuilderExtra11savePaletteERK8QPalette": [
+      "address", "address"
+    ],
+    "ritual_ZN17QFormBuilderExtra10setupBrushEPK8DomBrush": [
+      "address", "address"
+    ],
+    "ritual_ZN17QFormBuilderExtra9saveBrushERK6QBrush": [
+      "address", "address"
+    ],
+    "ritual_ZN17QFormBuilderExtra14propertyByNameERK5QListIP11DomPropertyE14QAnyStringView": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN17QFormBuilderExtra15isQFontComboBoxEPK7QWidget": [
+      "bool", "address"
+    ],
+    "ritual_ZN17QFormBuilderExtra20clearResourceBuilderEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QFormBuilderExtra16clearTextBuilderEv": [
+      "nothing", "address"
+    ]
+  }
+}

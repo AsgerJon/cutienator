@@ -1,0 +1,122 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qemulationpaintengine_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN21QEmulationPaintEngine5beginEP12QPaintDevice": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN21QEmulationPaintEngine3endEv": ["bool", "address"],
+    "ritual_ZNK21QEmulationPaintEngine4typeEv": ["int", "address"],
+    "ritual_ZNK21QEmulationPaintEngine11createStateEP13QPainterState": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN21QEmulationPaintEngine10drawPixmapERK6QRectFRK7QPixmapS2_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN21QEmulationPaintEngine18drawStaticTextItemEP15QStaticTextItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QEmulationPaintEngine15drawTiledPixmapERK6QRectFRK7QPixmapRK7QPointF": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN21QEmulationPaintEngine9drawImageERK6QRectFRK6QImageS2_6QFlagsIN2Qt19ImageConversionFlagEE": [
+      "nothing", "address", "address", "address", "address", "int"
+    ],
+    "ritual_ZN21QEmulationPaintEngine18clipEnabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QEmulationPaintEngine10penChangedEv": ["nothing", "address"],
+    "ritual_ZN21QEmulationPaintEngine12brushChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QEmulationPaintEngine18brushOriginChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QEmulationPaintEngine14opacityChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QEmulationPaintEngine22compositionModeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QEmulationPaintEngine18renderHintsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QEmulationPaintEngine16transformChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QEmulationPaintEngine8setStateEP13QPainterState": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QEmulationPaintEngine19beginNativePaintingEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QEmulationPaintEngine17endNativePaintingEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK21QEmulationPaintEngine5flagsEv": ["unsigned int", "address"],
+    "ritual_ZN21QEmulationPaintEngine5stateEv": ["address", "address"],
+    "ritual_ZNK21QEmulationPaintEngine5stateEv": ["address", "address"],
+    "ritual_ZN21QEmulationPaintEngine10fillBGRectERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN21QEmulationPaintEngine5beginEP12QPaintDevice": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN21QEmulationPaintEngine3endEv": ["bool", "address"],
+    "ritual_own_ZNK21QEmulationPaintEngine4typeEv": ["int", "address"],
+    "ritual_own_ZNK21QEmulationPaintEngine11createStateEP13QPainterState": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN21QEmulationPaintEngine10drawPixmapERK6QRectFRK7QPixmapS2_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN21QEmulationPaintEngine18drawStaticTextItemEP15QStaticTextItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN21QEmulationPaintEngine15drawTiledPixmapERK6QRectFRK7QPixmapRK7QPointF": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN21QEmulationPaintEngine9drawImageERK6QRectFRK6QImageS2_6QFlagsIN2Qt19ImageConversionFlagEE": [
+      "nothing", "address", "address", "address", "address", "int"
+    ],
+    "ritual_own_ZN21QEmulationPaintEngine18clipEnabledChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN21QEmulationPaintEngine10penChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN21QEmulationPaintEngine12brushChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN21QEmulationPaintEngine18brushOriginChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN21QEmulationPaintEngine14opacityChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN21QEmulationPaintEngine22compositionModeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN21QEmulationPaintEngine18renderHintsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN21QEmulationPaintEngine16transformChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN21QEmulationPaintEngine8setStateEP13QPainterState": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN21QEmulationPaintEngine19beginNativePaintingEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN21QEmulationPaintEngine17endNativePaintingEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZNK21QEmulationPaintEngine5flagsEv": [
+      "unsigned int", "address"
+    ]
+  }
+}

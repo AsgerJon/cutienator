@@ -1,0 +1,55 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickpointerdevicehandler_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK26QQuickPointerDeviceHandler10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QQuickPointerDeviceHandler2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN26QQuickPointerDeviceHandlerC1EP10QQuickItem": [
+      "address", "address"
+    ],
+    "ritual_ZNK26QQuickPointerDeviceHandler15acceptedDevicesEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK26QQuickPointerDeviceHandler20acceptedPointerTypesEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK26QQuickPointerDeviceHandler15acceptedButtonsEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK26QQuickPointerDeviceHandler17acceptedModifiersEv": [
+      "int", "address"
+    ],
+    "ritual_ZN26QQuickPointerDeviceHandler18setAcceptedDevicesE6QFlagsIN12QInputDevice10DeviceTypeEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN26QQuickPointerDeviceHandler23setAcceptedPointerTypesE6QFlagsIN15QPointingDevice11PointerTypeEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN26QQuickPointerDeviceHandler18setAcceptedButtonsE6QFlagsIN2Qt11MouseButtonEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN26QQuickPointerDeviceHandler20setAcceptedModifiersE6QFlagsIN2Qt16KeyboardModifierEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN26QQuickPointerDeviceHandler17wantsPointerEventEP13QPointerEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN26QQuickPointerDeviceHandler6d_funcEv": ["address", "address"],
+    "ritual_ZNK26QQuickPointerDeviceHandler6d_funcEv": [
+      "address", "address"
+    ],
+    "ritual_take_QQuickPointerDeviceHandler": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN26QQuickPointerDeviceHandler17wantsPointerEventEP13QPointerEvent": [
+      "bool", "address", "address"
+    ]
+  }
+}

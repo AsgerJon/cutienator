@@ -1,0 +1,35 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qanimationgroup_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN22QAnimationGroupPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK22QAnimationGroupPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN22QAnimationGroupPrivate19animationInsertedAtEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN22QAnimationGroupPrivate16animationRemovedExP18QAbstractAnimation": [
+      "nothing", "address", "long long", "address"
+    ],
+    "ritual_ZN22QAnimationGroupPrivate5clearEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN22QAnimationGroupPrivate31disconnectUncontrolledAnimationEP18QAbstractAnimation": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QAnimationGroupPrivate28connectUncontrolledAnimationEP18QAbstractAnimation": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QAnimationGroupPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN22QAnimationGroupPrivate19animationInsertedAtEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_own_ZN22QAnimationGroupPrivate16animationRemovedExP18QAbstractAnimation": [
+      "nothing", "address", "long long", "address"
+    ]
+  }
+}

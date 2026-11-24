@@ -1,0 +1,39 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQmlCompiler/qqmlsa.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN6QQmlSA12PropertyPass9onBindingERKNS_7ElementERK7QStringRKNS_7BindingES3_S3_": [
+      "nothing", "address", "address", "text", "address", "address",
+      "address"
+    ],
+    "ritual_ZN6QQmlSA12PropertyPass6onReadERKNS_7ElementERK7QStringS3_NS_14SourceLocationE": [
+      "nothing", "address", "address", "text", "address", "address"
+    ],
+    "ritual_ZN6QQmlSA12PropertyPass6onCallERKNS_7ElementERK7QStringS3_NS_14SourceLocationE": [
+      "nothing", "address", "address", "text", "address", "address"
+    ],
+    "ritual_ZN6QQmlSA12PropertyPass7onWriteERKNS_7ElementERK7QStringS3_S3_NS_14SourceLocationE": [
+      "nothing", "address", "address", "text", "address", "address",
+      "address"
+    ],
+    "ritual_take_QQmlSA_PropertyPass": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN6QQmlSA12PropertyPass9onBindingERKNS_7ElementERK7QStringRKNS_7BindingES3_S3_": [
+      "nothing", "address", "address", "text", "address", "address",
+      "address"
+    ],
+    "ritual_own_ZN6QQmlSA12PropertyPass6onReadERKNS_7ElementERK7QStringS3_NS_14SourceLocationE": [
+      "nothing", "address", "address", "text", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlSA12PropertyPass6onCallERKNS_7ElementERK7QStringS3_NS_14SourceLocationE": [
+      "nothing", "address", "address", "text", "address", "address"
+    ],
+    "ritual_own_ZN6QQmlSA12PropertyPass7onWriteERKNS_7ElementERK7QStringS3_S3_NS_14SourceLocationE": [
+      "nothing", "address", "address", "text", "address", "address",
+      "address"
+    ]
+  }
+}

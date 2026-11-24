@@ -1,0 +1,71 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtMulti",
+    "media/6.12.0/QtMultimedia/private/qplatformaudiodecoder_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK21QPlatformAudioDecoder10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QPlatformAudioDecoder2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZNK21QPlatformAudioDecoder6sourceEv": ["address", "address"],
+    "ritual_ZN21QPlatformAudioDecoder9setSourceERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21QPlatformAudioDecoder12sourceDeviceEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QPlatformAudioDecoder15setSourceDeviceEP9QIODevice": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QPlatformAudioDecoder5startEv": ["nothing", "address"],
+    "ritual_ZN21QPlatformAudioDecoder4stopEv": ["nothing", "address"],
+    "ritual_ZNK21QPlatformAudioDecoder11audioFormatEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QPlatformAudioDecoder14setAudioFormatERK12QAudioFormat": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QPlatformAudioDecoder4readEv": ["address", "address"],
+    "ritual_ZNK21QPlatformAudioDecoder15bufferAvailableEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN21QPlatformAudioDecoder13formatChangedERK12QAudioFormat": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QPlatformAudioDecoder13sourceChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QPlatformAudioDecoder5errorEN13QAudioDecoder5ErrorERK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZN21QPlatformAudioDecoder10clearErrorEv": ["nothing", "address"],
+    "ritual_ZN21QPlatformAudioDecoder11bufferReadyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QPlatformAudioDecoder22bufferAvailableChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN21QPlatformAudioDecoder13setIsDecodingEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN21QPlatformAudioDecoder8finishedEv": ["nothing", "address"],
+    "ritual_ZNK21QPlatformAudioDecoder10isDecodingEv": ["bool", "address"],
+    "ritual_ZNK21QPlatformAudioDecoder5errorEv": ["int", "address"],
+    "ritual_ZNK21QPlatformAudioDecoder11errorStringEv": ["text", "address"],
+    "ritual_ZNK21QPlatformAudioDecoder10canReadQrcEv": ["bool", "address"],
+    "ritual_ZN21QPlatformAudioDecoderD1Ev": ["nothing", "address"],
+    "ritual_take_QPlatformAudioDecoder": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK21QPlatformAudioDecoder15bufferAvailableEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZNK21QPlatformAudioDecoder10canReadQrcEv": [
+      "bool", "address"
+    ]
+  }
+}

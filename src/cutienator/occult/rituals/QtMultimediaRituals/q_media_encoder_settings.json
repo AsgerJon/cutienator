@@ -1,0 +1,72 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtMulti",
+    "media/6.12.0/QtMultimedia/private/qplatformmediarecorder_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK21QMediaEncoderSettings11mediaFormatEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QMediaEncoderSettings14setMediaFormatERK12QMediaFormat": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QMediaEncoderSettings13resolveFormatEN12QMediaFormat12ResolveFlagsE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK21QMediaEncoderSettings10fileFormatEv": ["int", "address"],
+    "ritual_ZNK21QMediaEncoderSettings10videoCodecEv": ["int", "address"],
+    "ritual_ZNK21QMediaEncoderSettings10audioCodecEv": ["int", "address"],
+    "ritual_ZNK21QMediaEncoderSettings8mimeTypeEv": ["address", "address"],
+    "ritual_ZNK21QMediaEncoderSettings15preferredSuffixEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK21QMediaEncoderSettings12encodingModeEv": ["int", "address"],
+    "ritual_ZN21QMediaEncoderSettings15setEncodingModeEN14QMediaRecorder12EncodingModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK21QMediaEncoderSettings7qualityEv": ["int", "address"],
+    "ritual_ZN21QMediaEncoderSettings10setQualityEN14QMediaRecorder7QualityE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK21QMediaEncoderSettings15videoResolutionEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QMediaEncoderSettings18setVideoResolutionERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21QMediaEncoderSettings14videoFrameRateEv": [
+      "double", "address"
+    ],
+    "ritual_ZN21QMediaEncoderSettings17setVideoFrameRateEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK21QMediaEncoderSettings12videoBitRateEv": ["int", "address"],
+    "ritual_ZN21QMediaEncoderSettings15setVideoBitRateEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK21QMediaEncoderSettings12audioBitRateEv": ["int", "address"],
+    "ritual_ZN21QMediaEncoderSettings15setAudioBitRateEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK21QMediaEncoderSettings17audioChannelCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZN21QMediaEncoderSettings20setAudioChannelCountEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK21QMediaEncoderSettings15audioSampleRateEv": [
+      "int", "address"
+    ],
+    "ritual_ZN21QMediaEncoderSettings18setAudioSampleRateEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK21QMediaEncoderSettingseqERKS_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK21QMediaEncoderSettingsneERKS_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN21QMediaEncoderSettingsD1Ev": ["nothing", "address"]
+  }
+}

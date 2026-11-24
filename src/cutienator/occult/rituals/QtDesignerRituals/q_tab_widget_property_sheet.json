@@ -1,0 +1,40 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/qdesigner_tabwidget_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN23QTabWidgetPropertySheetC1EP10QTabWidgetP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN23QTabWidgetPropertySheet11setPropertyEiRK8QVariant": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZNK23QTabWidgetPropertySheet8propertyEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN23QTabWidgetPropertySheet5resetEi": ["bool", "address", "int"],
+    "ritual_ZNK23QTabWidgetPropertySheet9isEnabledEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN23QTabWidgetPropertySheet13checkPropertyERK7QString": [
+      "bool", "text"
+    ],
+    "ritual_ZN23QTabWidgetPropertySheet25tabWidgetPropertyFromNameERK7QString": [
+      "int", "text"
+    ],
+    "ritual_own_ZN23QTabWidgetPropertySheet11setPropertyEiRK8QVariant": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZNK23QTabWidgetPropertySheet8propertyEi": [
+      "address", "address", "int"
+    ],
+    "ritual_own_ZN23QTabWidgetPropertySheet5resetEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_own_ZNK23QTabWidgetPropertySheet9isEnabledEi": [
+      "bool", "address", "int"
+    ]
+  }
+}

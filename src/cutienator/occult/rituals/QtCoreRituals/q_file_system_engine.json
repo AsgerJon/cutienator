@@ -1,0 +1,26 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qfilesystemengine_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN17QFileSystemEngine15resolveUserNameEj": [
+      "text", "unsigned int"
+    ],
+    "ritual_ZN17QFileSystemEngine16resolveGroupNameEj": [
+      "text", "unsigned int"
+    ],
+    "ritual_ZN17QFileSystemEngine10bundleNameERK16QFileSystemEntry": [
+      "text", "address"
+    ],
+    "ritual_ZN17QFileSystemEngine9cloneFileEiiRK19QFileSystemMetaData": [
+      "signed char", "int", "int", "address"
+    ],
+    "ritual_ZN17QFileSystemEngine2idEi": ["address", "int"],
+    "ritual_ZN17QFileSystemEngine17slowCanonicalizedERK7QString": [
+      "text", "text"
+    ],
+    "ritual_ZN17QFileSystemEngineD1Ev": ["nothing", "address"]
+  }
+}

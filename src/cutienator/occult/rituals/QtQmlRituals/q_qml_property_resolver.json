@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmlpropertyresolver_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QQmlPropertyResolverC1ERKN17QQmlPropertyCache8ConstPtrE": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QQmlPropertyResolver8propertyEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK20QQmlPropertyResolver8propertyERK7QStringPbNS_13RevisionCheckE": [
+      "address", "address", "text", "address", "int"
+    ],
+    "ritual_ZNK20QQmlPropertyResolver6signalERK7QStringPbNS_13RevisionCheckE": [
+      "address", "address", "text", "address", "int"
+    ],
+    "ritual_ZN20QQmlPropertyResolverD1Ev": ["nothing", "address"]
+  }
+}

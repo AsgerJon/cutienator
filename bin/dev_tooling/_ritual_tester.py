@@ -11,7 +11,7 @@ from typing import TYPE_CHECKING
 
 from worktoy.waitaminute import MissingVariable, TypeException
 
-from . import HeaderReader, RitualGenerator
+from . import HeaderFolder, HeaderReader, RitualGenerator
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Any, Dict, List, Optional, Set, Tuple
@@ -138,17 +138,6 @@ class RitualTester:
   #  whether it holds. Kept for every 'RitualTester'.
   __installed_folder__ = None  # type: Optional[str]
   __held_conditions__ = dict()  # type: Dict[str, bool]
-  #  The header file of each part of Qt that answers its '#if' lines,
-  #  and the one in its folder 'private' that answers those asking of
-  #  the parts Qt keeps to itself.
-  __global_headers__ = dict(
-      QtCore='qglobal.h', QtGui='qtguiglobal.h',
-      QtWidgets='qtwidgetsglobal.h',
-  )
-  __private_global_headers__ = dict(
-      QtCore='qglobal_p.h', QtGui='qtguiglobal_p.h',
-      QtWidgets='qtwidgetsglobal_p.h',
-  )
   #  What Qt keeps of the system and the compiler it is built for, in
   #  the folder 'mkspecs' of an installed Qt. The tests run on Linux.
   __spec_name__ = 'linux-g++'
@@ -262,10 +251,13 @@ class RitualTester:
       for reader in tree.getHeaderReaders():
         partName = reader.getPartName()
         lines.append('#include <%s/%s>' % (
-            partName, self.__global_headers__[partName]))
+            partName, HeaderFolder.getGlobalHeader(partName)))
+        if not HeaderFolder.getPrivateGlobalHeader(partName):
+          #  A part with no private switches of its own, as QtXml.
+          continue
         lines.append('#include <%s/%s/%s/private/%s>' % (
             partName, version, partName,
-            self.__private_global_headers__[partName]))
+            HeaderFolder.getPrivateGlobalHeader(partName)))
       for index, condition in enumerate(asked):
         lines.extend((
             '#if %s' % condition, 'cutienator_held_%d' % index, '#endif'))
@@ -377,8 +369,12 @@ class RitualTester:
         generator.getRitualFile(),
         '-o', self.getTargetFile(),
         '-Wl,-rpath,%s' % library,
-        *(os.path.join(library, 'lib%s.so.6' % reader.getPartName().replace(
-            'Qt', 'Qt6', 1)) for reader in headerReaders),
+        *(path for path in (
+            os.path.join(library, 'lib%s.so.6' % reader.getPartName(
+                ).replace('Qt', 'Qt6', 1)) for reader in headerReaders)
+          #  A part that is header files alone, as QtQmlIntegration,
+          #  has no shared object.
+          if os.path.isfile(path)),
     )
 
   def _createFaults(self, ) -> None:
@@ -473,8 +469,7 @@ class RitualTester:
     #  A ritual between '#if' lines is rightly missing where one of them
     #  does not hold for the installed Qt, and so is every ritual of a
     #  file whose class stands under one that does not hold.
-    tree = generator.getDependencyTree()
-    wholeFile = generator._findConditions(tree.getClassRecord(className))
+    wholeFile = generator.getFileConditions()
     asked = {*wholeFile}
     for ritual in written:
       asked.update(ritual.get('conditions', ()))

@@ -1,0 +1,70 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qanimationgroupjob_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QAnimationGroupJobC1Ev": ["address"],
+    "ritual_ZN18QAnimationGroupJobD1Ev": ["nothing", "address"],
+    "ritual_ZN18QAnimationGroupJob15appendAnimationEP21QAbstractAnimationJob": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QAnimationGroupJob16prependAnimationEP21QAbstractAnimationJob": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QAnimationGroupJob15removeAnimationEP21QAbstractAnimationJob": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QAnimationGroupJob5clearEv": ["nothing", "address"],
+    "ritual_ZN18QAnimationGroupJob29uncontrolledAnimationFinishedEP21QAbstractAnimationJob": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QAnimationGroupJob28topLevelAnimationLoopChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QAnimationGroupJob17animationInsertedEP21QAbstractAnimationJob": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QAnimationGroupJob16animationRemovedEP21QAbstractAnimationJobS1_S1_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN18QAnimationGroupJob37resetUncontrolledAnimationsFinishTimeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QAnimationGroupJob36resetUncontrolledAnimationFinishTimeEP21QAbstractAnimationJob": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QAnimationGroupJob31uncontrolledAnimationFinishTimeEPK21QAbstractAnimationJob": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN18QAnimationGroupJob34setUncontrolledAnimationFinishTimeEP21QAbstractAnimationJobi": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZNK18QAnimationGroupJob13debugChildrenE6QDebug": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QAnimationGroupJob12ungroupChildEP21QAbstractAnimationJob": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QAnimationGroupJob22handleAnimationRemovedEP21QAbstractAnimationJob": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QAnimationGroupJob": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN18QAnimationGroupJob5clearEv": ["nothing", "address"],
+    "ritual_own_ZN18QAnimationGroupJob29uncontrolledAnimationFinishedEP21QAbstractAnimationJob": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN18QAnimationGroupJob28topLevelAnimationLoopChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN18QAnimationGroupJob17animationInsertedEP21QAbstractAnimationJob": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN18QAnimationGroupJob16animationRemovedEP21QAbstractAnimationJobS1_S1_": [
+      "nothing", "address", "address", "address", "address"
+    ]
+  }
+}

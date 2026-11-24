@@ -140,6 +140,11 @@
     "ritual_ZgtRK5QCharRK14QByteArrayView": ["bool", "address", "address"],
     "ritual_ZleRK5QCharRK14QByteArrayView": ["bool", "address", "address"],
     "ritual_ZgeRK5QCharRK14QByteArrayView": ["bool", "address", "address"],
-    "ritual_ZN14QByteArrayViewD1Ev": ["nothing", "address"]
+    "ritual_ZN14QByteArrayViewD1Ev": ["nothing", "address"],
+    "ritual_list_make_QByteArrayView": ["address"],
+    "ritual_list_add_QByteArrayView": ["nothing", "address", "address"],
+    "ritual_list_size_QByteArrayView": ["long long", "address"],
+    "ritual_list_at_QByteArrayView": ["address", "address", "long long"],
+    "ritual_list_drop_QByteArrayView": ["nothing", "address"]
   }
 }

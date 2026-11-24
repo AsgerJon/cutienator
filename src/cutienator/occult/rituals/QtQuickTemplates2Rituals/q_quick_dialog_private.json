@@ -1,0 +1,35 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquickdialog_p_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QQuickDialogPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK19QQuickDialogPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN19QQuickDialogPrivateC1Ev": ["address"],
+    "ritual_ZN19QQuickDialogPrivate3getEP12QQuickDialog": [
+      "address", "address"
+    ],
+    "ritual_ZN19QQuickDialogPrivate10buttonRoleEP20QQuickAbstractButton": [
+      "int", "address"
+    ],
+    "ritual_ZN19QQuickDialogPrivate12handleAcceptEv": ["nothing", "address"],
+    "ritual_ZN19QQuickDialogPrivate12handleRejectEv": ["nothing", "address"],
+    "ritual_ZN19QQuickDialogPrivate11handleClickEP20QQuickAbstractButton": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QQuickDialogPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN19QQuickDialogPrivate12handleAcceptEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN19QQuickDialogPrivate12handleRejectEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN19QQuickDialogPrivate11handleClickEP20QQuickAbstractButton": [
+      "nothing", "address", "address"
+    ]
+  }
+}

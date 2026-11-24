@@ -1,0 +1,58 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4compileddata_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK3QV412CompiledData4Unit7qmlUnitEv": ["address", "address"],
+    "ritual_ZN3QV412CompiledData4Unit7qmlUnitEv": ["address", "address"],
+    "ritual_ZNK3QV412CompiledData4Unit11isSingletonEv": ["bool", "address"],
+    "ritual_ZNK3QV412CompiledData4Unit27isListPropertyAssignReplaceEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData4Unit39isListPropertyAssignReplaceIfNotDefaultEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData4Unit16stringAtInternalEj": [
+      "text", "address", "unsigned int"
+    ],
+    "ritual_ZNK3QV412CompiledData4Unit10functionAtEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK3QV412CompiledData4Unit7classAtEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK3QV412CompiledData4Unit16templateObjectAtEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK3QV412CompiledData4Unit7blockAtEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK3QV412CompiledData4Unit11lookupTableEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData4Unit8regexpAtEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK3QV412CompiledData4Unit9jsClassAtEiPi": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData4Unit12translationsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData4Unit16importEntryTableEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData4Unit21localExportEntryTableEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData4Unit24indirectExportEntryTableEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData4Unit20starExportEntryTableEv": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV412CompiledData4UnitD1Ev": ["nothing", "address"]
+  }
+}

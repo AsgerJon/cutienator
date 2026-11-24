@@ -1,0 +1,43 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtOpenGL/6.12.0/QtOpenGL/private/qopengltexturecache_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QOpenGLTextureCache15cacheForContextEP14QOpenGLContext": [
+      "address", "address"
+    ],
+    "ritual_ZN19QOpenGLTextureCacheC1EP14QOpenGLContext": [
+      "address", "address"
+    ],
+    "ritual_ZN19QOpenGLTextureCacheD1Ev": ["nothing", "address"],
+    "ritual_ZN19QOpenGLTextureCache11bindTextureEP14QOpenGLContextRK7QPixmap6QFlagsIN22QOpenGLTextureUploader10BindOptionEE": [
+      "address", "address", "address", "address", "int"
+    ],
+    "ritual_ZN19QOpenGLTextureCache11bindTextureEP14QOpenGLContextRK6QImage6QFlagsIN22QOpenGLTextureUploader10BindOptionEE": [
+      "address", "address", "address", "address", "int"
+    ],
+    "ritual_ZN19QOpenGLTextureCache10invalidateEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN19QOpenGLTextureCache18invalidateResourceEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QOpenGLTextureCache12freeResourceEP14QOpenGLContext": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QOpenGLTextureCache11bindTextureEP14QOpenGLContextxRK6QImage6QFlagsIN22QOpenGLTextureUploader10BindOptionEE": [
+      "address", "address", "address", "long long", "address", "int"
+    ],
+    "ritual_take_QOpenGLTextureCache": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN19QOpenGLTextureCache18invalidateResourceEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN19QOpenGLTextureCache12freeResourceEP14QOpenGLContext": [
+      "nothing", "address", "address"
+    ]
+  }
+}

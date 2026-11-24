@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/qprocess.h, Qt 6.12.0. Changes made here are lost.
+#include <QtCore/qglobal.h>
+#if QT_CONFIG(processenvironment)
 #include <QtCore/qprocess.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qlist.h>
@@ -132,3 +134,5 @@ bool ritual_ZneRK19QProcessEnvironmentS1_(
     const QProcessEnvironment *rhs) {
   return operator!=(*lhs, *rhs);
 }
+
+#endif  // QT_CONFIG(processenvironment)

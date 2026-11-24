@@ -1,0 +1,26 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickscalegrid_p_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK15QQuickScaleGrid10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QQuickScaleGrid2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN15QQuickScaleGrid22qt_qmlMarker_anonymousEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickScaleGridC1EP7QObject": ["address", "address"],
+    "ritual_ZNK15QQuickScaleGrid6isNullEv": ["bool", "address"],
+    "ritual_ZNK15QQuickScaleGrid4leftEv": ["int", "address"],
+    "ritual_ZN15QQuickScaleGrid7setLeftEi": ["nothing", "address", "int"],
+    "ritual_ZNK15QQuickScaleGrid3topEv": ["int", "address"],
+    "ritual_ZN15QQuickScaleGrid6setTopEi": ["nothing", "address", "int"],
+    "ritual_ZNK15QQuickScaleGrid5rightEv": ["int", "address"],
+    "ritual_ZN15QQuickScaleGrid8setRightEi": ["nothing", "address", "int"],
+    "ritual_ZNK15QQuickScaleGrid6bottomEv": ["int", "address"],
+    "ritual_ZN15QQuickScaleGrid9setBottomEi": ["nothing", "address", "int"]
+  }
+}

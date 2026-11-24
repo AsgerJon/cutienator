@@ -1,0 +1,20 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore5Compat/6.12.0/QtCore5Compat/private/qeucjpcodec_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11QEucJpCodec5_nameEv": ["address"],
+    "ritual_ZN11QEucJpCodec8_aliasesEv": ["address"],
+    "ritual_ZN11QEucJpCodec8_mibEnumEv": ["int"],
+    "ritual_ZNK11QEucJpCodec4nameEv": ["address", "address"],
+    "ritual_ZNK11QEucJpCodec7aliasesEv": ["address", "address"],
+    "ritual_ZNK11QEucJpCodec7mibEnumEv": ["int", "address"],
+    "ritual_ZN11QEucJpCodecC1Ev": ["address"],
+    "ritual_ZN11QEucJpCodecD1Ev": ["nothing", "address"],
+    "ritual_take_QEucJpCodec": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK11QEucJpCodec4nameEv": ["address", "address"],
+    "ritual_own_ZNK11QEucJpCodec7mibEnumEv": ["int", "address"]
+  }
+}

@@ -544,7 +544,12 @@ class Build:
     """
     Gives every folder 'clang++' has to look in for the headers Qt
     calls private: what 'System.getPrivateFolders' gives for each part
-    of 'getComponents', leaving out a folder that is not there.
+    of 'getComponents', leaving out a folder that is not there; and,
+    when there are any, after them those of every other part of the
+    Qt of this machine. A header Qt calls private of one part may pull
+    in one of a part that has no ritual files, as that of QtStateMachine
+    pulls in 'private/qtscxmlglobal-config_p.h' of QtScxmlGlobal, a
+    part of header files alone.
     """
     system = System.getHere()
     headerFolder = self.getQtHeaderFolder()
@@ -556,6 +561,14 @@ class Build:
         if os.path.isdir(folder) and folder not in found:
           found.append(folder)
     if found:
+      others = sorted(
+          name for name in os.listdir(headerFolder)
+          if name.startswith('Qt') and name not in self.getComponents())
+      for part in others:
+        for folder in system.getPrivateFolders(
+            headerFolder, qtFolder, version, part):
+          if os.path.isdir(folder) and folder not in found:
+            found.append(folder)
       #  Some of those headers name 'qplatformdefs.h', which Qt keeps
       #  with what it knows of the system and the compiler it was
       #  built for, as '/usr/lib/qt6/mkspecs/linux-g++'.

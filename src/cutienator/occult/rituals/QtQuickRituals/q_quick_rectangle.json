@@ -1,0 +1,68 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickrectangle_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK15QQuickRectangle10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QQuickRectangle2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN15QQuickRectangleC1EP10QQuickItem": ["address", "address"],
+    "ritual_ZNK15QQuickRectangle5colorEv": ["address", "address"],
+    "ritual_ZN15QQuickRectangle8setColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QQuickRectangle10resetColorEv": ["nothing", "address"],
+    "ritual_ZN15QQuickRectangle6borderEv": ["address", "address"],
+    "ritual_ZNK15QQuickRectangle8gradientEv": ["address", "address"],
+    "ritual_ZN15QQuickRectangle11setGradientERK8QJSValue": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QQuickRectangle13resetGradientEv": ["nothing", "address"],
+    "ritual_ZNK15QQuickRectangle6radiusEv": ["double", "address"],
+    "ritual_ZN15QQuickRectangle9setRadiusEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK15QQuickRectangle13topLeftRadiusEv": ["double", "address"],
+    "ritual_ZN15QQuickRectangle16setTopLeftRadiusEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN15QQuickRectangle18resetTopLeftRadiusEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK15QQuickRectangle14topRightRadiusEv": ["double", "address"],
+    "ritual_ZN15QQuickRectangle17setTopRightRadiusEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN15QQuickRectangle19resetTopRightRadiusEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK15QQuickRectangle16bottomLeftRadiusEv": ["double", "address"],
+    "ritual_ZN15QQuickRectangle19setBottomLeftRadiusEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN15QQuickRectangle21resetBottomLeftRadiusEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK15QQuickRectangle17bottomRightRadiusEv": [
+      "double", "address"
+    ],
+    "ritual_ZN15QQuickRectangle20setBottomRightRadiusEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN15QQuickRectangle22resetBottomRightRadiusEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QQuickRectangle15updatePaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN15QQuickRectangle8doUpdateEv": ["nothing", "address"],
+    "ritual_ZN15QQuickRectangle6d_funcEv": ["address", "address"],
+    "ritual_ZNK15QQuickRectangle6d_funcEv": ["address", "address"],
+    "ritual_own_ZN15QQuickRectangle15updatePaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
+      "address", "address", "address", "address"
+    ]
+  }
+}

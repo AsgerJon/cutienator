@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/qabstractanimation.h, Qt 6.12.0. Changes made here are lost.
+#include <QtCore/qglobal.h>
+#if QT_CONFIG(animation)
 #include <QtCore/qabstractanimation.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
@@ -15,70 +17,115 @@ struct OwnQAnimationDriver : QAnimationDriver {
 //  A QAnimationDriver that Python can take functions over in. Every QAnimationDriver
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if QT_CONFIG(animation)
 typedef void (*CuteQAnimationDriverCall0)(const void *, int *);
+#endif  // QT_CONFIG(animation)
+#if QT_CONFIG(animation)
 typedef qint64 (*CuteQAnimationDriverCall1)(const void *, int *);
+#endif  // QT_CONFIG(animation)
+#if QT_CONFIG(animation)
 typedef void (*CuteQAnimationDriverCall2)(const void *, int *);
+#endif  // QT_CONFIG(animation)
+#if QT_CONFIG(animation)
 typedef void (*CuteQAnimationDriverCall3)(const void *, int *);
+#endif  // QT_CONFIG(animation)
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQAnimationDriverCall4)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQAnimationDriverCall5)(const void *, QObject *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQAnimationDriverCall6)(const void *, QTimerEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQAnimationDriverCall7)(const void *, QChildEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQAnimationDriverCall8)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQAnimationDriverCall9)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQAnimationDriverCall10)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 class CuteQAnimationDriver : public QAnimationDriver {
 public:
   using QAnimationDriver::QAnimationDriver;
   void *taken[11] = {};
 
   bool take(const char *key, void *call) {
+#if QT_CONFIG(animation)
     if (!std::strcmp(key, "_ZN16QAnimationDriver7advanceEv")) {
       taken[0] = call;
       return true;
     }
+#endif  // QT_CONFIG(animation)
+#if QT_CONFIG(animation)
     if (!std::strcmp(key, "_ZNK16QAnimationDriver7elapsedEv")) {
       taken[1] = call;
       return true;
     }
+#endif  // QT_CONFIG(animation)
+#if QT_CONFIG(animation)
     if (!std::strcmp(key, "_ZN16QAnimationDriver5startEv")) {
       taken[2] = call;
       return true;
     }
+#endif  // QT_CONFIG(animation)
+#if QT_CONFIG(animation)
     if (!std::strcmp(key, "_ZN16QAnimationDriver4stopEv")) {
       taken[3] = call;
       return true;
     }
+#endif  // QT_CONFIG(animation)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[4] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[5] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[6] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[7] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[8] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[9] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
       taken[10] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
     return false;
   }
 
+#if QT_CONFIG(animation)
   //  void QAnimationDriver::advance()
   void advance() override {
     if (taken[0]) {
@@ -89,7 +136,9 @@ public:
     }
     QAnimationDriver::advance();
   }
+#endif  // QT_CONFIG(animation)
 
+#if QT_CONFIG(animation)
   //  qint64 QAnimationDriver::elapsed() const
   qint64 elapsed() const override {
     if (taken[1]) {
@@ -100,7 +149,9 @@ public:
     }
     return QAnimationDriver::elapsed();
   }
+#endif  // QT_CONFIG(animation)
 
+#if QT_CONFIG(animation)
   //  void QAnimationDriver::start()
   void start() override {
     if (taken[2]) {
@@ -111,7 +162,9 @@ public:
     }
     QAnimationDriver::start();
   }
+#endif  // QT_CONFIG(animation)
 
+#if QT_CONFIG(animation)
   //  void QAnimationDriver::stop()
   void stop() override {
     if (taken[3]) {
@@ -122,7 +175,9 @@ public:
     }
     QAnimationDriver::stop();
   }
+#endif  // QT_CONFIG(animation)
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QObject::event(QEvent *event)
   bool event(QEvent *event) override {
     if (taken[4]) {
@@ -133,7 +188,9 @@ public:
     }
     return QObject::event(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
     if (taken[5]) {
@@ -144,7 +201,9 @@ public:
     }
     return QObject::eventFilter(watched, event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
     if (taken[6]) {
@@ -155,7 +214,9 @@ public:
     }
     QObject::timerEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
     if (taken[7]) {
@@ -166,7 +227,9 @@ public:
     }
     QObject::childEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
     if (taken[8]) {
@@ -177,7 +240,9 @@ public:
     }
     QObject::customEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
     if (taken[9]) {
@@ -188,7 +253,9 @@ public:
     }
     QObject::connectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
     if (taken[10]) {
@@ -199,6 +266,7 @@ public:
     }
     QObject::disconnectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 };
 
 //  const QMetaObject *QAnimationDriver::metaObject() const
@@ -215,6 +283,20 @@ QString *ritual_ZN16QAnimationDriver2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QAnimationDriver::tr(s, c, n));
+}
+
+//  QAnimationDriverPrivate *QAnimationDriver::d_func()
+extern "C" Q_DECL_EXPORT
+QAnimationDriverPrivate *ritual_ZN16QAnimationDriver6d_funcEv(
+    QAnimationDriver *self) {
+  return self->d_func();
+}
+
+//  const QAnimationDriverPrivate *QAnimationDriver::d_func() const
+extern "C" Q_DECL_EXPORT
+const QAnimationDriverPrivate *ritual_ZNK16QAnimationDriver6d_funcEv(
+    const QAnimationDriver *self) {
+  return self->d_func();
 }
 
 //  QAnimationDriver::QAnimationDriver(QObject *parent)
@@ -312,3 +394,5 @@ extern "C" Q_DECL_EXPORT
 void ritual_own_ZN16QAnimationDriver4stopEv(QAnimationDriver *self) {
   static_cast<OwnQAnimationDriver *>(self)->OwnQAnimationDriver::stop();
 }
+
+#endif  // QT_CONFIG(animation)

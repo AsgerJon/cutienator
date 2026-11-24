@@ -1,0 +1,45 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtLocat",
+    "ion/6.12.0/QtLocation/private/qdeclarativegeoserviceprovider_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK42QDeclarativeGeoServiceProviderRequirements10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN42QDeclarativeGeoServiceProviderRequirements2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN42QDeclarativeGeoServiceProviderRequirements24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN42QDeclarativeGeoServiceProviderRequirementsC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN42QDeclarativeGeoServiceProviderRequirementsD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK42QDeclarativeGeoServiceProviderRequirements19mappingRequirementsEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK42QDeclarativeGeoServiceProviderRequirements19routingRequirementsEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK42QDeclarativeGeoServiceProviderRequirements21geocodingRequirementsEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK42QDeclarativeGeoServiceProviderRequirements18placesRequirementsEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK42QDeclarativeGeoServiceProviderRequirements22navigationRequirementsEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK42QDeclarativeGeoServiceProviderRequirements7matchesEPK19QGeoServiceProvider": [
+      "bool", "address", "address"
+    ],
+    "ritual_take_QDeclarativeGeoServiceProviderRequirements": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qtextodfwriter_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN14QTextOdfWriter16setCreateArchiveEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK14QTextOdfWriter13createArchiveEv": ["bool", "address"],
+    "ritual_ZN14QTextOdfWriter12mergeFormatsERK20QTextTableCellFormatRK16QTextTableFormat": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN14QTextOdfWriterD1Ev": ["nothing", "address"]
+  }
+}

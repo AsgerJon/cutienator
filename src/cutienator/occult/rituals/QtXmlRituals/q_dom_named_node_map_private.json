@@ -1,0 +1,52 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtXml/6.12.0/QtXml/private/qdom_p.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZN23QDomNamedNodeMapPrivateC1EP15QDomNodePrivate": [
+      "address", "address"
+    ],
+    "ritual_ZN23QDomNamedNodeMapPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZNK23QDomNamedNodeMapPrivate9namedItemERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK23QDomNamedNodeMapPrivate11namedItemNSERK7QStringS2_": [
+      "address", "address", "text", "text"
+    ],
+    "ritual_ZN23QDomNamedNodeMapPrivate12setNamedItemEP15QDomNodePrivate": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN23QDomNamedNodeMapPrivate14setNamedItemNSEP15QDomNodePrivate": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN23QDomNamedNodeMapPrivate15removeNamedItemERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK23QDomNamedNodeMapPrivate4itemEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK23QDomNamedNodeMapPrivate6lengthEv": ["int", "address"],
+    "ritual_ZNK23QDomNamedNodeMapPrivate8containsERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZNK23QDomNamedNodeMapPrivate10containsNSERK7QStringS2_": [
+      "bool", "address", "text", "text"
+    ],
+    "ritual_ZN23QDomNamedNodeMapPrivate8clearMapEv": ["nothing", "address"],
+    "ritual_ZN23QDomNamedNodeMapPrivate10isReadOnlyEv": ["bool", "address"],
+    "ritual_ZN23QDomNamedNodeMapPrivate11setReadOnlyEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN23QDomNamedNodeMapPrivate16isAppendToParentEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN23QDomNamedNodeMapPrivate17setAppendToParentEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN23QDomNamedNodeMapPrivate5cloneEP15QDomNodePrivate": [
+      "address", "address", "address"
+    ]
+  }
+}

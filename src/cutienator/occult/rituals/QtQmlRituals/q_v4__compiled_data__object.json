@@ -1,0 +1,96 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4compileddata_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK3QV412CompiledData6Object5flagsEv": ["int", "address"],
+    "ritual_ZNK3QV412CompiledData6Object7hasFlagENS1_4FlagE": [
+      "bool", "address", "unsigned int"
+    ],
+    "ritual_ZN3QV412CompiledData6Object7setFlagENS1_4FlagE": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN3QV412CompiledData6Object8setFlagsE6QFlagsINS1_4FlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK3QV412CompiledData6Object25hasAliasAsDefaultPropertyEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN3QV412CompiledData6Object28setHasAliasAsDefaultPropertyEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK3QV412CompiledData6Object8objectIdEv": ["int", "address"],
+    "ritual_ZN3QV412CompiledData6Object11setObjectIdEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN3QV412CompiledData6Object37calculateSizeExcludingSignalsAndEnumsEiiiiiiiii": [
+      "int", "int", "int", "int", "int", "int", "int", "int", "int", "int"
+    ],
+    "ritual_ZNK3QV412CompiledData6Object13propertyTableEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData6Object10aliasTableEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData6Object12bindingTableEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData6Object6enumAtEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK3QV412CompiledData6Object8signalAtEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK3QV412CompiledData6Object17inlineComponentAtEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK3QV412CompiledData6Object20inlineComponentTableEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData6Object27requiredPropertyExtraDataAtEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK3QV412CompiledData6Object30requiredPropertyExtraDataTableEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData6Object13propertyCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData6Object10aliasCountEv": ["int", "address"],
+    "ritual_ZNK3QV412CompiledData6Object9enumCountEv": ["int", "address"],
+    "ritual_ZNK3QV412CompiledData6Object11signalCountEv": ["int", "address"],
+    "ritual_ZNK3QV412CompiledData6Object13functionCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData6Object20inlineComponentCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData6Object13bindingsBeginEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData6Object11bindingsEndEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData6Object12bindingCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData6Object15propertiesBeginEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData6Object13propertiesEndEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData6Object12aliasesBeginEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData6Object10aliasesEndEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV412CompiledData6Object28namedObjectsInComponentCountEv": [
+      "int", "address"
+    ],
+    "ritual_ZN3QV412CompiledData6ObjectD1Ev": ["nothing", "address"]
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgrenderer",
+    "implshaders_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN25QSSGBuiltInRhiShaderCache22releaseCachedResourcesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QSSGBuiltInRhiShaderCacheD1Ev": ["nothing", "address"]
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquicktranslate_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK11QQuickShear10metaObjectEv": ["address", "address"],
+    "ritual_ZN11QQuickShear2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN11QQuickShearC1EP7QObject": ["address", "address"],
+    "ritual_ZNK11QQuickShear6originEv": ["address", "address"],
+    "ritual_ZN11QQuickShear9setOriginERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QQuickShear7xFactorEv": ["double", "address"],
+    "ritual_ZN11QQuickShear10setXFactorEd": ["nothing", "address", "double"],
+    "ritual_ZNK11QQuickShear7yFactorEv": ["double", "address"],
+    "ritual_ZN11QQuickShear10setYFactorEd": ["nothing", "address", "double"],
+    "ritual_ZNK11QQuickShear6xAngleEv": ["double", "address"],
+    "ritual_ZN11QQuickShear9setXAngleEd": ["nothing", "address", "double"],
+    "ritual_ZNK11QQuickShear6yAngleEv": ["double", "address"],
+    "ritual_ZN11QQuickShear9setYAngleEd": ["nothing", "address", "double"],
+    "ritual_ZNK11QQuickShear7applyToEP10QMatrix4x4": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK11QQuickShear7applyToEP10QMatrix4x4": [
+      "nothing", "address", "address"
+    ]
+  }
+}

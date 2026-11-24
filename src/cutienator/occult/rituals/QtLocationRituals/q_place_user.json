@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLocation/qplaceuser.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN10QPlaceUserC1Ev": ["address"],
+    "ritual_ZN10QPlaceUserC1ERKS_": ["address", "address"],
+    "ritual_ZN10QPlaceUserD1Ev": ["nothing", "address"],
+    "ritual_ZeqRK10QPlaceUserS1_": ["bool", "address", "address"],
+    "ritual_ZneRK10QPlaceUserS1_": ["bool", "address", "address"],
+    "ritual_ZNK10QPlaceUser6userIdEv": ["text", "address"],
+    "ritual_ZN10QPlaceUser9setUserIdERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK10QPlaceUser4nameEv": ["text", "address"],
+    "ritual_ZN10QPlaceUser7setNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK10QPlaceUser7isEqualERKS_": ["bool", "address", "address"]
+  }
+}

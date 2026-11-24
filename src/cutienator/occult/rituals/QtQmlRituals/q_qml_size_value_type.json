@@ -1,0 +1,29 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qqmlvaluetype_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN17QQmlSizeValueType22qt_qmlMarker_anonymousEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQmlSizeValueType20qt_qmlMarker_foreignEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQmlSizeValueType21qt_qmlMarker_extendedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QQmlSizeValueTypeC1Ev": ["address"],
+    "ritual_ZN17QQmlSizeValueTypeC1ERK5QSize": ["address", "address"],
+    "ritual_ZN17QQmlSizeValueTypeC1ERK6QSizeF": ["address", "address"],
+    "ritual_ZNK17QQmlSizeValueType8toStringEv": ["text", "address"],
+    "ritual_ZNK17QQmlSizeValueType5widthEv": ["int", "address"],
+    "ritual_ZNK17QQmlSizeValueType6heightEv": ["int", "address"],
+    "ritual_ZN17QQmlSizeValueType8setWidthEi": ["nothing", "address", "int"],
+    "ritual_ZN17QQmlSizeValueType9setHeightEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN17QQmlSizeValueTypeD1Ev": ["nothing", "address"]
+  }
+}

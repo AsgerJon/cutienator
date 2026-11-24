@@ -1,0 +1,31 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQmlCompiler/6.12.0/QtQmlCompiler/private/qqmlsa_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN6QQmlSA14BindingPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK6QQmlSA14BindingPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN6QQmlSA14BindingPrivate3getEPNS_7BindingE": [
+      "address", "address"
+    ],
+    "ritual_ZN6QQmlSA14BindingPrivate3getEPKNS_7BindingE": [
+      "address", "address"
+    ],
+    "ritual_ZN6QQmlSA14BindingPrivate15setPropertyNameE7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK6QQmlSA14BindingPrivate12bindingScopeEv": [
+      "address", "address"
+    ],
+    "ritual_ZN6QQmlSA14BindingPrivate15setBindingScopeENS_7ElementE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK6QQmlSA14BindingPrivate10isAttachedEv": ["bool", "address"],
+    "ritual_ZN6QQmlSA14BindingPrivate13setIsAttachedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN6QQmlSA14BindingPrivateD1Ev": ["nothing", "address"]
+  }
+}

@@ -1,0 +1,129 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qlistview_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN16QListViewPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK16QListViewPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN16QListViewPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN16QListViewPrivate5clearEv": ["nothing", "address"],
+    "ritual_ZN16QListViewPrivate18prepareItemsLayoutEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QListViewPrivate13doItemsLayoutEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK16QListViewPrivate15intersectingSetERK5QRectb": [
+      "address", "address", "address", "bool"
+    ],
+    "ritual_ZN16QListViewPrivate18resetBatchStartRowEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK16QListViewPrivate13batchStartRowEv": ["int", "address"],
+    "ritual_ZNK16QListViewPrivate12contentsSizeEv": ["address", "address"],
+    "ritual_ZN16QListViewPrivate15setContentsSizeEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK16QListViewPrivate5flipXEi": ["int", "address", "int"],
+    "ritual_ZNK16QListViewPrivate5flipXERK6QPoint": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK16QListViewPrivate5flipXERK5QRect": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK16QListViewPrivate12viewItemRectERK13QListViewItem": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK16QListViewPrivate19indexToListViewItemERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK16QListViewPrivate19listViewItemToIndexERK13QListViewItem": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK16QListViewPrivate15hasRectForIndexERK11QModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK16QListViewPrivate12rectForIndexERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN16QListViewPrivate16cellRectForIndexERK11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN16QListViewPrivate20viewUpdateGeometriesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK16QListViewPrivate13mapToViewportERK5QRectb": [
+      "address", "address", "address", "bool"
+    ],
+    "ritual_ZNK16QListViewPrivate12closestIndexERK5QRectRK5QListI11QModelIndexE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK16QListViewPrivate8itemSizeERK20QStyleOptionViewItemRK11QModelIndex": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK16QListViewPrivate16selectionAllowedERK11QModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK16QListViewPrivate9selectionERK5QRect": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN16QListViewPrivate9selectAllE6QFlagsIN19QItemSelectionModel13SelectionFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16QListViewPrivate8positionERK6QPointRK5QRectRK11QModelIndex": [
+      "int", "address", "address", "address", "address"
+    ],
+    "ritual_ZN16QListViewPrivate6dropOnEP10QDropEventPiS2_P11QModelIndex": [
+      "bool", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK16QListViewPrivate20accessibleChildIndexERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN16QListViewPrivate11setGridSizeERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QListViewPrivate8gridSizeEv": ["address", "address"],
+    "ritual_ZN16QListViewPrivate11setWrappingEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK16QListViewPrivate10isWrappingEv": ["bool", "address"],
+    "ritual_ZN16QListViewPrivate10setSpacingEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16QListViewPrivate7spacingEv": ["int", "address"],
+    "ritual_ZN16QListViewPrivate23setSelectionRectVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK16QListViewPrivate22isSelectionRectVisibleEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK16QListViewPrivate10modelIndexEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK16QListViewPrivate8isHiddenEi": ["bool", "address", "int"],
+    "ritual_ZNK16QListViewPrivate18isHiddenOrDisabledEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN16QListViewPrivate19scrollElasticBandByEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK16QListViewPrivate19draggablePaintPairsERK5QListI11QModelIndexEP5QRect": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN16QListViewPrivate16emitIndexesMovedERK5QListI11QModelIndexE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QListViewPrivate": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK16QListViewPrivate16selectionAllowedERK11QModelIndex": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN16QListViewPrivate9selectAllE6QFlagsIN19QItemSelectionModel13SelectionFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZNK16QListViewPrivate20accessibleChildIndexERK11QModelIndex": [
+      "int", "address", "address"
+    ]
+  }
+}

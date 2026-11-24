@@ -1,8 +1,16 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/6.12.0/QtWidgets/private/qitemeditorfactory_p.h, Qt 6.12.0.
 //  Changes made here are lost.
+#include <QtWidgets/qtwidgetsglobal.h>
+#include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
+#if QT_CONFIG(itemviews)
+#if QT_CONFIG(lineedit)
+#include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/QtWidgets>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/6.12.0/QtWidgets/private/qitemeditorfactory_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <qplatformdefs.h>
 #include "qitemeditorfactory.h"
 #include "qitemeditorfactory_p.h"
@@ -29,15 +37,17 @@
 #include <qdebug.h>
 #include <vector>
 #include <algorithm>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
 //  Qt's own code, from here to the line of dashes: taken from
 //  Qt's source, because Qt's library carries it under no name.
 //  Copyright (C) The Qt Company Ltd. It is licensed
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
-//  'inline' put before it.
+//  'inline' put before it where Qt did not write it.
 
 //  from src/widgets/itemviews/qitemeditorfactory.cpp, line 517, as _ZN18QExpandingLineEdit11changeEventEP6QEvent
+#if QT_CONFIG(lineedit)
 inline void QExpandingLineEdit::changeEvent(QEvent *e)
 {
     switch (e->type())
@@ -53,8 +63,10 @@ inline void QExpandingLineEdit::changeEvent(QEvent *e)
 
     QLineEdit::changeEvent(e);
 }
+#endif  // QT_CONFIG(lineedit)
 
 //  from src/widgets/itemviews/qitemeditorfactory.cpp, line 546, as _ZN18QExpandingLineEdit16resizeToContentsEv
+#if QT_CONFIG(lineedit)
 inline void QExpandingLineEdit::resizeToContents()
 {
     int oldWidth = width();
@@ -73,8 +85,10 @@ inline void QExpandingLineEdit::resizeToContents()
         resize(newWidth, height());
     }
 }
+#endif  // QT_CONFIG(lineedit)
 
 //  from src/widgets/itemviews/qitemeditorfactory.cpp, line 533, as _ZN18QExpandingLineEdit18updateMinimumWidthEv
+#if QT_CONFIG(lineedit)
 inline void QExpandingLineEdit::updateMinimumWidth()
 {
     const QMargins tm = textMargins();
@@ -87,6 +101,7 @@ inline void QExpandingLineEdit::updateMinimumWidth()
     int minWidth = style()->sizeFromContents(QStyle::CT_LineEdit, &opt, QSize(width, 0), this).width();
     setMinimumWidth(minWidth);
 }
+#endif  // QT_CONFIG(lineedit)
 //  -----------------------------------------------------------------------
 
 //  Only a class built on QExpandingLineEdit may call these functions of it.
@@ -118,20 +133,25 @@ void ritual_ZN18QExpandingLineEdit11changeEventEP6QEvent(
   self->changeEvent(e);
 }
 
+#if QT_CONFIG(lineedit)
 //  void QExpandingLineEdit::resizeToContents()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QExpandingLineEdit16resizeToContentsEv(
     QExpandingLineEdit *self) {
   self->resizeToContents();
 }
+#endif  // QT_CONFIG(lineedit)
 
+#if QT_CONFIG(lineedit)
 //  void QExpandingLineEdit::updateMinimumWidth()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QExpandingLineEdit18updateMinimumWidthEv(
     QExpandingLineEdit *self) {
   self->updateMinimumWidth();
 }
+#endif  // QT_CONFIG(lineedit)
 
+#if QT_CONFIG(lineedit)
 //  void QExpandingLineEdit::changeEvent(QEvent *e)
 extern "C" Q_DECL_EXPORT
 void ritual_own_ZN18QExpandingLineEdit11changeEventEP6QEvent(
@@ -140,3 +160,7 @@ void ritual_own_ZN18QExpandingLineEdit11changeEventEP6QEvent(
   static_cast<OwnQExpandingLineEdit *>(self)->OwnQExpandingLineEdit::changeEvent(
       e);
 }
+#endif  // QT_CONFIG(lineedit)
+
+#endif  // QT_CONFIG(lineedit)
+#endif  // QT_CONFIG(itemviews)

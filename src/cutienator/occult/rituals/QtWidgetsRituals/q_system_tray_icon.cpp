@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/qsystemtrayicon.h, Qt 6.12.0. Changes made here are lost.
+#include <QtWidgets/qtwidgetsglobal.h>
+#if !defined(QT_NO_SYSTEMTRAYICON)
 #include <QtWidgets/qsystemtrayicon.h>
 #include <QtCore/qstring.h>
 #include <QtGui/qicon.h>
@@ -16,50 +18,84 @@ struct OwnQSystemTrayIcon : QSystemTrayIcon {
 //  A QSystemTrayIcon that Python can take functions over in. Every QSystemTrayIcon
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_SYSTEMTRAYICON)
 typedef bool (*CuteQSystemTrayIconCall0)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_SYSTEMTRAYICON)
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQSystemTrayIconCall1)(const void *, QObject *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQSystemTrayIconCall2)(const void *, QTimerEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQSystemTrayIconCall3)(const void *, QChildEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQSystemTrayIconCall4)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQSystemTrayIconCall5)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQSystemTrayIconCall6)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 class CuteQSystemTrayIcon : public QSystemTrayIcon {
 public:
   using QSystemTrayIcon::QSystemTrayIcon;
   void *taken[7] = {};
 
   bool take(const char *key, void *call) {
+#if !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_SYSTEMTRAYICON)
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[0] = call;
       return true;
     }
+#endif  // !defined(QT_NO_SYSTEMTRAYICON)
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[1] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[2] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[3] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[4] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[5] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
       taken[6] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
     return false;
   }
 
+#if !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_SYSTEMTRAYICON)
   //  bool QSystemTrayIcon::event(QEvent *event)
   bool event(QEvent *event) override {
     if (taken[0]) {
@@ -70,7 +106,10 @@ public:
     }
     return QSystemTrayIcon::event(event);
   }
+#endif  // !defined(QT_NO_SYSTEMTRAYICON)
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
     if (taken[1]) {
@@ -81,7 +120,9 @@ public:
     }
     return QObject::eventFilter(watched, event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
     if (taken[2]) {
@@ -92,7 +133,9 @@ public:
     }
     QObject::timerEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
     if (taken[3]) {
@@ -103,7 +146,9 @@ public:
     }
     QObject::childEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
     if (taken[4]) {
@@ -114,7 +159,9 @@ public:
     }
     QObject::customEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
     if (taken[5]) {
@@ -125,7 +172,9 @@ public:
     }
     QObject::connectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
     if (taken[6]) {
@@ -136,6 +185,7 @@ public:
     }
     QObject::disconnectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 };
 
 //  const QMetaObject *QSystemTrayIcon::metaObject() const
@@ -174,6 +224,7 @@ void ritual_ZN15QSystemTrayIconD1Ev(QSystemTrayIcon *self) {
   delete self;
 }
 
+#if QT_CONFIG(menu)
 //  void QSystemTrayIcon::setContextMenu(QMenu *menu)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QSystemTrayIcon14setContextMenuEP5QMenu(
@@ -181,13 +232,16 @@ void ritual_ZN15QSystemTrayIcon14setContextMenuEP5QMenu(
     QMenu *menu) {
   self->setContextMenu(menu);
 }
+#endif  // QT_CONFIG(menu)
 
+#if QT_CONFIG(menu)
 //  QMenu *QSystemTrayIcon::contextMenu() const
 extern "C" Q_DECL_EXPORT
 QMenu *ritual_ZNK15QSystemTrayIcon11contextMenuEv(
     const QSystemTrayIcon *self) {
   return self->contextMenu();
 }
+#endif  // QT_CONFIG(menu)
 
 //  QIcon QSystemTrayIcon::icon() const
 extern "C" Q_DECL_EXPORT
@@ -293,6 +347,20 @@ bool ritual_ZN15QSystemTrayIcon5eventEP6QEvent(
   return self->event(event);
 }
 
+//  QSystemTrayIconPrivate *QSystemTrayIcon::d_func()
+extern "C" Q_DECL_EXPORT
+QSystemTrayIconPrivate *ritual_ZN15QSystemTrayIcon6d_funcEv(
+    QSystemTrayIcon *self) {
+  return self->d_func();
+}
+
+//  const QSystemTrayIconPrivate *QSystemTrayIcon::d_func() const
+extern "C" Q_DECL_EXPORT
+const QSystemTrayIconPrivate *ritual_ZNK15QSystemTrayIcon6d_funcEv(
+    const QSystemTrayIcon *self) {
+  return self->d_func();
+}
+
 //  a Python function taken by a CuteQSystemTrayIcon, for the function named
 //      by the key
 extern "C" Q_DECL_EXPORT
@@ -311,3 +379,5 @@ bool ritual_own_ZN15QSystemTrayIcon5eventEP6QEvent(
   return static_cast<OwnQSystemTrayIcon *>(self)->OwnQSystemTrayIcon::event(
       event);
 }
+
+#endif  // !defined(QT_NO_SYSTEMTRAYICON)

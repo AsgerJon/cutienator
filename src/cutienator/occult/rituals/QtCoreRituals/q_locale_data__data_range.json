@@ -1,0 +1,13 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qlocale_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK11QLocaleData9DataRange10stringSizeEv": [
+      "long long", "address"
+    ],
+    "ritual_ZN11QLocaleData9DataRangeD1Ev": ["nothing", "address"]
+  }
+}

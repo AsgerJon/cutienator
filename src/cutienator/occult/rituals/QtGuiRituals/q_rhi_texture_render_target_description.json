@@ -1,0 +1,64 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/rhi/qrhi.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN34QRhiTextureRenderTargetDescriptionC1Ev": ["address"],
+    "ritual_ZN34QRhiTextureRenderTargetDescriptionC1ERK19QRhiColorAttachment": [
+      "address", "address"
+    ],
+    "ritual_ZN34QRhiTextureRenderTargetDescriptionC1ERK19QRhiColorAttachmentP16QRhiRenderBuffer": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN34QRhiTextureRenderTargetDescriptionC1ERK19QRhiColorAttachmentP11QRhiTexture": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK34QRhiTextureRenderTargetDescription22cbeginColorAttachmentsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK34QRhiTextureRenderTargetDescription20cendColorAttachmentsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK34QRhiTextureRenderTargetDescription17colorAttachmentAtEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZNK34QRhiTextureRenderTargetDescription20colorAttachmentCountEv": [
+      "long long", "address"
+    ],
+    "ritual_ZNK34QRhiTextureRenderTargetDescription18depthStencilBufferEv": [
+      "address", "address"
+    ],
+    "ritual_ZN34QRhiTextureRenderTargetDescription21setDepthStencilBufferEP16QRhiRenderBuffer": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK34QRhiTextureRenderTargetDescription12depthTextureEv": [
+      "address", "address"
+    ],
+    "ritual_ZN34QRhiTextureRenderTargetDescription15setDepthTextureEP11QRhiTexture": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK34QRhiTextureRenderTargetDescription10depthLayerEv": [
+      "int", "address"
+    ],
+    "ritual_ZN34QRhiTextureRenderTargetDescription13setDepthLayerEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK34QRhiTextureRenderTargetDescription19depthResolveTextureEv": [
+      "address", "address"
+    ],
+    "ritual_ZN34QRhiTextureRenderTargetDescription22setDepthResolveTextureEP11QRhiTexture": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK34QRhiTextureRenderTargetDescription14shadingRateMapEv": [
+      "address", "address"
+    ],
+    "ritual_ZN34QRhiTextureRenderTargetDescription17setShadingRateMapEP18QRhiShadingRateMap": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN34QRhiTextureRenderTargetDescriptionD1Ev": [
+      "nothing", "address"
+    ]
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickimagebase_p_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN22QQuickImageBasePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK22QQuickImageBasePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN22QQuickImageBasePrivateC1Ev": ["address"],
+    "ritual_ZN22QQuickImageBasePrivate3getEP15QQuickImageBase": [
+      "address", "address"
+    ],
+    "ritual_ZN22QQuickImageBasePrivate22updateDevicePixelRatioEd": [
+      "bool", "address", "double"
+    ],
+    "ritual_ZN22QQuickImageBasePrivate9setStatusEN15QQuickImageBase6StatusE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN22QQuickImageBasePrivate11setProgressEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_take_QQuickImageBasePrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN22QQuickImageBasePrivate22updateDevicePixelRatioEd": [
+      "bool", "address", "double"
+    ]
+  }
+}

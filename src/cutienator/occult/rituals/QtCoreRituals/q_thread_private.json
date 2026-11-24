@@ -1,0 +1,20 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qthread_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN14QThreadPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK14QThreadPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN14QThreadPrivate3refEv": ["nothing", "address"],
+    "ritual_ZN14QThreadPrivate5derefEv": ["nothing", "address"],
+    "ritual_ZN14QThreadPrivate13bindingStatusEv": ["address", "address"],
+    "ritual_ZN14QThreadPrivate39addObjectWithPendingBindingStatusChangeEP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN14QThreadPrivate42removeObjectWithPendingBindingStatusChangeEP7QObject": [
+      "nothing", "address", "address"
+    ]
+  }
+}

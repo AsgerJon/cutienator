@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtHelp/6.12.0/QtHelp/private/qhelpsearchindexwriter_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK14fulltextsearch22QHelpSearchIndexWriter10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_take_fulltextsearch_QHelpSearchIndexWriter": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

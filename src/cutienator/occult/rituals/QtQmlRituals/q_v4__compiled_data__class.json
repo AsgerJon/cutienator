@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4compileddata_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK3QV412CompiledData5Class11methodTableEv": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV412CompiledData5Class13calculateSizeEii": [
+      "int", "int", "int"
+    ],
+    "ritual_ZN3QV412CompiledData5ClassD1Ev": ["nothing", "address"]
+  }
+}

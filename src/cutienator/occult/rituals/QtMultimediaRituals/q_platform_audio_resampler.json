@@ -1,0 +1,13 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtMulti",
+    "media/6.12.0/QtMultimedia/private/qplatformaudioresampler_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN23QPlatformAudioResamplerD1Ev": ["nothing", "address"],
+    "ritual_ZN23QPlatformAudioResampler8resampleEPKcm": [
+      "address", "address", "chars", "size_t"
+    ]
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qaccessiblewidgets_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK21QAccessibleDockWidget5childEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK21QAccessibleDockWidget12indexOfChildEPK20QAccessibleInterface": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK21QAccessibleDockWidget10childCountEv": ["int", "address"],
+    "ritual_ZNK21QAccessibleDockWidget4rectEv": ["address", "address"],
+    "ritual_ZNK21QAccessibleDockWidget4roleEv": ["int", "address"],
+    "ritual_ZNK21QAccessibleDockWidget10dockWidgetEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK21QAccessibleDockWidget16dockWidgetLayoutEv": [
+      "address", "address"
+    ],
+    "ritual_take_QAccessibleDockWidget": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK21QAccessibleDockWidget5childEi": [
+      "address", "address", "int"
+    ],
+    "ritual_own_ZNK21QAccessibleDockWidget12indexOfChildEPK20QAccessibleInterface": [
+      "int", "address", "address"
+    ],
+    "ritual_own_ZNK21QAccessibleDockWidget10childCountEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZNK21QAccessibleDockWidget4rectEv": ["address", "address"],
+    "ritual_own_ZNK21QAccessibleDockWidget4roleEv": ["int", "address"]
+  }
+}

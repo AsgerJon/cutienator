@@ -1,0 +1,105 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquickpopupitem_p_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN22QQuickPopupItemPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK22QQuickPopupItemPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN22QQuickPopupItemPrivate3getEP15QQuickPopupItem": [
+      "address", "address"
+    ],
+    "ritual_ZN22QQuickPopupItemPrivate20implicitWidthChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickPopupItemPrivate21implicitHeightChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickPopupItemPrivate11resolveFontEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickPopupItemPrivate14getContentItemEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QQuickPopupItemPrivate17cancelContentItemEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickPopupItemPrivate18executeContentItemEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN22QQuickPopupItemPrivate16cancelBackgroundEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QQuickPopupItemPrivate17executeBackgroundEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK22QQuickPopupItemPrivate7paletteEv": ["address", "address"],
+    "ritual_ZN22QQuickPopupItemPrivate10setPaletteEP13QQuickPalette": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN22QQuickPopupItemPrivate12resetPaletteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK22QQuickPopupItemPrivate14defaultPaletteEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK22QQuickPopupItemPrivate15providesPaletteEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK22QQuickPopupItemPrivate13parentPaletteERK8QPalette": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN22QQuickPopupItemPrivate33attachedPropertyPropagator_parentEPK11QMetaObject": [
+      "address", "address", "address"
+    ],
+    "ritual_take_QQuickPopupItemPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN22QQuickPopupItemPrivate20implicitWidthChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN22QQuickPopupItemPrivate21implicitHeightChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN22QQuickPopupItemPrivate11resolveFontEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN22QQuickPopupItemPrivate14getContentItemEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN22QQuickPopupItemPrivate17cancelContentItemEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN22QQuickPopupItemPrivate18executeContentItemEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZN22QQuickPopupItemPrivate16cancelBackgroundEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN22QQuickPopupItemPrivate17executeBackgroundEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZNK22QQuickPopupItemPrivate7paletteEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN22QQuickPopupItemPrivate10setPaletteEP13QQuickPalette": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN22QQuickPopupItemPrivate12resetPaletteEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZNK22QQuickPopupItemPrivate14defaultPaletteEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK22QQuickPopupItemPrivate15providesPaletteEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZNK22QQuickPopupItemPrivate13parentPaletteERK8QPalette": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZN22QQuickPopupItemPrivate33attachedPropertyPropagator_parentEPK11QMetaObject": [
+      "address", "address", "address"
+    ]
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQmlModels/6.12.0/QtQmlModels/private/qqmltableinstancemodel_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN36QQmlTableInstanceModelIncubationTask13statusChangedEN13QQmlIncubator6StatusE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN36QQmlTableInstanceModelIncubationTask15setInitialStateEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QQmlTableInstanceModelIncubationTask": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN36QQmlTableInstanceModelIncubationTask13statusChangedEN13QQmlIncubator6StatusE": [
+      "nothing", "address", "int"
+    ]
+  }
+}

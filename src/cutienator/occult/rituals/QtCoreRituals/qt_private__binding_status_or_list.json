@@ -1,0 +1,38 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qthread_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN9QtPrivate19BindingStatusOrListC1Ev": ["address"],
+    "ritual_ZN9QtPrivate19BindingStatusOrListC1EP14QBindingStatus": [
+      "address", "address"
+    ],
+    "ritual_ZN9QtPrivate19BindingStatusOrListD1Ev": ["nothing", "address"],
+    "ritual_ZN9QtPrivate19BindingStatusOrList28addObjectUnlessAlreadyStatusEP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN9QtPrivate19BindingStatusOrList12removeObjectEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QtPrivate19BindingStatusOrList21setStatusAndClearListEP14QBindingStatus": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QtPrivate19BindingStatusOrList15isBindingStatusEy": [
+      "bool", "unsigned long long"
+    ],
+    "ritual_ZN9QtPrivate19BindingStatusOrList6isListEy": [
+      "bool", "unsigned long long"
+    ],
+    "ritual_ZN9QtPrivate19BindingStatusOrList6isNullEy": [
+      "bool", "unsigned long long"
+    ],
+    "ritual_ZNK9QtPrivate19BindingStatusOrList13bindingStatusEv": [
+      "address", "address"
+    ],
+    "ritual_ZN9QtPrivate19BindingStatusOrList19encodeBindingStatusEP14QBindingStatus": [
+      "unsigned long long", "address"
+    ]
+  }
+}

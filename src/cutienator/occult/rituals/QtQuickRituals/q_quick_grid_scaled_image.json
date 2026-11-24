@@ -1,0 +1,28 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickscalegrid_p_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN21QQuickGridScaledImageC1Ev": ["address"],
+    "ritual_ZN21QQuickGridScaledImageC1ERKS_": ["address", "address"],
+    "ritual_ZN21QQuickGridScaledImageC1EP9QIODevice": ["address", "address"],
+    "ritual_ZNK21QQuickGridScaledImage7isValidEv": ["bool", "address"],
+    "ritual_ZNK21QQuickGridScaledImage8gridLeftEv": ["int", "address"],
+    "ritual_ZNK21QQuickGridScaledImage9gridRightEv": ["int", "address"],
+    "ritual_ZNK21QQuickGridScaledImage7gridTopEv": ["int", "address"],
+    "ritual_ZNK21QQuickGridScaledImage10gridBottomEv": ["int", "address"],
+    "ritual_ZNK21QQuickGridScaledImage18horizontalTileRuleEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK21QQuickGridScaledImage16verticalTileRuleEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK21QQuickGridScaledImage9pixmapUrlEv": ["text", "address"],
+    "ritual_ZN21QQuickGridScaledImage12stringToRuleE11QStringView": [
+      "int", "text"
+    ],
+    "ritual_ZN21QQuickGridScaledImageD1Ev": ["nothing", "address"]
+  }
+}

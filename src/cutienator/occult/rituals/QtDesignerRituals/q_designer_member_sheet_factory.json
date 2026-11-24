@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/qdesigner_membersheet_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK27QDesignerMemberSheetFactory10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QDesignerMemberSheetFactory2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN27QDesignerMemberSheetFactoryC1EP17QExtensionManager": [
+      "address", "address"
+    ],
+    "ritual_ZNK27QDesignerMemberSheetFactory15createExtensionEP7QObjectRK7QStringS1_": [
+      "address", "address", "address", "text", "address"
+    ],
+    "ritual_take_QDesignerMemberSheetFactory": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK27QDesignerMemberSheetFactory15createExtensionEP7QObjectRK7QStringS1_": [
+      "address", "address", "address", "text", "address"
+    ]
+  }
+}

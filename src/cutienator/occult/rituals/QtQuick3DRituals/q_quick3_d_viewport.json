@@ -1,0 +1,213 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick3D/6.12.0/QtQuick3D/private/qquick3dviewport_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK16QQuick3DViewport10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QQuick3DViewport2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN16QQuick3DViewportC1EP10QQuickItem": ["address", "address"],
+    "ritual_ZN16QQuick3DViewportD1Ev": ["nothing", "address"],
+    "ritual_ZNK16QQuick3DViewport6cameraEv": ["address", "address"],
+    "ritual_ZNK16QQuick3DViewport11environmentEv": ["address", "address"],
+    "ritual_ZNK16QQuick3DViewport5sceneEv": ["address", "address"],
+    "ritual_ZNK16QQuick3DViewport11importSceneEv": ["address", "address"],
+    "ritual_ZNK16QQuick3DViewport10renderModeEv": ["int", "address"],
+    "ritual_ZNK16QQuick3DViewport12renderFormatEv": ["int", "address"],
+    "ritual_ZNK16QQuick3DViewport11renderStatsEv": ["address", "address"],
+    "ritual_ZNK16QQuick3DViewport14createRendererEv": ["address", "address"],
+    "ritual_ZNK16QQuick3DViewport17isTextureProviderEv": ["bool", "address"],
+    "ritual_ZNK16QQuick3DViewport15textureProviderEv": [
+      "address", "address"
+    ],
+    "ritual_ZN16QQuick3DViewport16releaseResourcesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK16QQuick3DViewport14mapFrom3DSceneERK9QVector3D": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK16QQuick3DViewport12mapTo3DSceneERK9QVector3D": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK16QQuick3DViewport4pickEff": [
+      "address", "address", "float", "float"
+    ],
+    "ritual_ZNK16QQuick3DViewport4pickEffP13QQuick3DModel": [
+      "address", "address", "float", "float", "address"
+    ],
+    "ritual_ZNK16QQuick3DViewport10pickSubsetEffRK8QJSValue": [
+      "address", "address", "float", "float", "address"
+    ],
+    "ritual_ZNK16QQuick3DViewport7pickAllEff": [
+      "address", "address", "float", "float"
+    ],
+    "ritual_ZNK16QQuick3DViewport7rayPickERK9QVector3DS2_": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK16QQuick3DViewport10rayPickAllERK9QVector3DS2_": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK16QQuick3DViewport7rayPickERK9QVector3DS2_P13QQuick3DModel": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK16QQuick3DViewport16closestPointPickERK9QVector3DfP13QQuick3DModel": [
+      "address", "address", "address", "float", "address"
+    ],
+    "ritual_ZNK16QQuick3DViewport10pickInRectERK7QPointFS2_": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK16QQuick3DViewport26processPointerEventFromRayERK9QVector3DS2_P13QPointerEvent": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN16QQuick3DViewport15singlePointPickEP17QSinglePointEventRK9QVector3DS4_": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZN16QQuick3DViewport13setTouchpointEP10QQuickItemRK7QPointFib": [
+      "nothing", "address", "address", "address", "int", "bool"
+    ],
+    "ritual_ZN16QQuick3DViewport18maybeLightmapBakerEv": [
+      "address", "address"
+    ],
+    "ritual_ZN16QQuick3DViewport13lightmapBakerEv": ["address", "address"],
+    "ritual_ZN16QQuick3DViewport12bakeLightmapEv": ["nothing", "address"],
+    "ritual_ZN16QQuick3DViewport15denoiseLightmapEv": ["nothing", "address"],
+    "ritual_ZNK16QQuick3DViewport20explicitTextureWidthEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK16QQuick3DViewport21explicitTextureHeightEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK16QQuick3DViewport20effectiveTextureSizeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK16QQuick3DViewport18extensionListDirtyEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK16QQuick3DViewport13extensionListEv": ["address", "address"],
+    "ritual_ZN16QQuick3DViewport23clearExtensionListDirtyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuick3DViewport20rebuildExtensionListEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuick3DViewportC1ENS_19PrivateInstanceTypeEP10QQuickItem": [
+      "address", "unsigned char", "address"
+    ],
+    "ritual_ZNK16QQuick3DViewport16isXrViewInstanceEv": ["bool", "address"],
+    "ritual_ZNK16QQuick3DViewport15renderOverridesEv": ["int", "address"],
+    "ritual_ZN16QQuick3DViewport18setRenderOverridesE6QFlagsINS_14RenderOverrideEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16QQuick3DViewport14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN16QQuick3DViewport15updatePaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN16QQuick3DViewport10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN16QQuick3DViewport5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN16QQuick3DViewport17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuick3DViewport9setCameraEP14QQuick3DCamera": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuick3DViewport14setEnvironmentEP24QQuick3DSceneEnvironment": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuick3DViewport14setImportSceneEP12QQuick3DNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuick3DViewport13setRenderModeENS_10RenderModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16QQuick3DViewport15setRenderFormatEN24QQuickShaderEffectSource6FormatE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16QQuick3DViewport23setExplicitTextureWidthEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16QQuick3DViewport24setExplicitTextureHeightEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16QQuick3DViewport21cleanupDirectRendererEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuick3DViewport23setGlobalPickingEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN16QQuick3DViewport20invalidateSceneGraphEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuick3DViewport21updateInputProcessingEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuick3DViewport24onReleaseCachedResourcesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK16QQuick3DViewport11getRendererEv": ["address", "address"],
+    "ritual_ZN16QQuick3DViewport21updateDynamicTexturesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuick3DViewport22setupOffscreenRendererEP7QSGNode": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN16QQuick3DViewport19setupInlineRendererEP7QSGNode": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN16QQuick3DViewport19setupDirectRendererENS_10RenderModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16QQuick3DViewport14checkIsVisibleEv": ["bool", "address"],
+    "ritual_ZNK16QQuick3DViewport12internalPickEP13QPointerEventRK9QVector3DS4_": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK16QQuick3DViewport19getSubSceneRootItemEP16QQuick3DMaterial": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK16QQuick3DViewport17processPickResultERK20QSSGRenderPickResult": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK16QQuick3DViewport16findFrontendNodeEPK21QSSGRenderGraphObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN16QQuick3DViewport21findChildSceneManagerEP14QQuick3DObjectP20QQuick3DSceneManager": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN16QQuick3DViewport32updateSceneManagerForImportSceneEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QQuick3DViewport": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK16QQuick3DViewport17isTextureProviderEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZNK16QQuick3DViewport15textureProviderEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN16QQuick3DViewport16releaseResourcesEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN16QQuick3DViewport14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN16QQuick3DViewport15updatePaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN16QQuick3DViewport10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZN16QQuick3DViewport5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN16QQuick3DViewport17componentCompleteEv": [
+      "nothing", "address"
+    ]
+  }
+}

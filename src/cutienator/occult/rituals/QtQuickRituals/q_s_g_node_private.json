@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qsgnode_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN14QSGNodePrivateC1Ev": ["address"],
+    "ritual_ZN14QSGNodePrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN14QSGNodePrivate15mutabilityGroupEPK7QSGNode": [
+      "unsigned char", "address"
+    ],
+    "ritual_ZN14QSGNodePrivate27setMutabilityGroupOfSubtreeEP7QSGNodeh": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZN14QSGNodePrivate14setDescriptionEP7QSGNodeRK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN14QSGNodePrivate11descriptionEPK7QSGNode": ["text", "address"]
+  }
+}

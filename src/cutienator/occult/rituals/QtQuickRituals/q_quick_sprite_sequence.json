@@ -1,0 +1,48 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickspritesequence_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK20QQuickSpriteSequence10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QQuickSpriteSequence2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN20QQuickSpriteSequenceC1EP10QQuickItem": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QQuickSpriteSequence7runningEv": ["bool", "address"],
+    "ritual_ZNK20QQuickSpriteSequence11interpolateEv": ["bool", "address"],
+    "ritual_ZNK20QQuickSpriteSequence10goalSpriteEv": ["text", "address"],
+    "ritual_ZNK20QQuickSpriteSequence13currentSpriteEv": ["text", "address"],
+    "ritual_ZN20QQuickSpriteSequence6jumpToERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN20QQuickSpriteSequence13setGoalSpriteERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN20QQuickSpriteSequence10setRunningEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20QQuickSpriteSequence14setInterpolateEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20QQuickSpriteSequence12createEngineEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickSpriteSequence5resetEv": ["nothing", "address"],
+    "ritual_ZN20QQuickSpriteSequence15updatePaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN20QQuickSpriteSequence16prepareNextFrameEP13QSGSpriteNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickSpriteSequence8initNodeEv": ["address", "address"],
+    "ritual_ZN20QQuickSpriteSequence6d_funcEv": ["address", "address"],
+    "ritual_ZNK20QQuickSpriteSequence6d_funcEv": ["address", "address"],
+    "ritual_own_ZN20QQuickSpriteSequence15updatePaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
+      "address", "address", "address", "address"
+    ]
+  }
+}

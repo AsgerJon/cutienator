@@ -1,0 +1,20 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtXml/6.12.0/QtXml/private/qdom_p.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZN27QDomDocumentFragmentPrivate9cloneNodeEb": [
+      "address", "address", "bool"
+    ],
+    "ritual_ZNK27QDomDocumentFragmentPrivate8nodeTypeEv": ["int", "address"],
+    "ritual_ZN27QDomDocumentFragmentPrivateD1Ev": ["nothing", "address"],
+    "ritual_take_QDomDocumentFragmentPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK27QDomDocumentFragmentPrivate8nodeTypeEv": [
+      "int", "address"
+    ]
+  }
+}

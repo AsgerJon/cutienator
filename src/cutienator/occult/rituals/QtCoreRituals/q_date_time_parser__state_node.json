@@ -1,0 +1,14 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore/6.12.0/QtCore/private/qdatetimeparser_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QDateTimeParser9StateNodeC1Ev": ["address"],
+    "ritual_ZN15QDateTimeParser9StateNodeC1ERK9QDateTimeNS_5StateEib": [
+      "address", "address", "int", "int", "bool"
+    ],
+    "ritual_ZN15QDateTimeParser9StateNodeD1Ev": ["nothing", "address"]
+  }
+}

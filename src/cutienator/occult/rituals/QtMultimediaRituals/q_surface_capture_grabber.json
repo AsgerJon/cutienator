@@ -1,0 +1,47 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtMulti",
+    "media/6.12.0/QtMultimedia/private/qsurfacecapturegrabber_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK22QSurfaceCaptureGrabber10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QSurfaceCaptureGrabber2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN22QSurfaceCaptureGrabberD1Ev": ["nothing", "address"],
+    "ritual_ZN22QSurfaceCaptureGrabber5startEv": ["nothing", "address"],
+    "ritual_ZN22QSurfaceCaptureGrabber4stopEv": ["nothing", "address"],
+    "ritual_ZNK22QSurfaceCaptureGrabber9frameRateEv": ["double", "address"],
+    "ritual_ZN22QSurfaceCaptureGrabber11updateErrorEN23QPlatformSurfaceCapture5ErrorERK7QString": [
+      "nothing", "address", "int", "text"
+    ],
+    "ritual_ZN22QSurfaceCaptureGrabber9grabFrameEv": ["address", "address"],
+    "ritual_ZN22QSurfaceCaptureGrabber19updateTimerIntervalEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QSurfaceCaptureGrabber25initializeGrabbingContextEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QSurfaceCaptureGrabber23finalizeGrabbingContextEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK22QSurfaceCaptureGrabber28isGrabbingContextInitializedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN22QSurfaceCaptureGrabber29injectContextToGrabbingThreadEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QSurfaceCaptureGrabber": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN22QSurfaceCaptureGrabber25initializeGrabbingContextEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN22QSurfaceCaptureGrabber23finalizeGrabbingContextEv": [
+      "nothing", "address"
+    ]
+  }
+}

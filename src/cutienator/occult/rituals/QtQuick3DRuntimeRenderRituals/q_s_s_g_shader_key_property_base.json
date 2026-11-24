@@ -1,0 +1,23 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DRuntimeRender/6.12.0/QtQuick3DRuntimeRender/private/qssgrendersh",
+    "aderkeys_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN25QSSGShaderKeyPropertyBaseC1EPKc": ["address", "chars"],
+    "ritual_ZNK25QSSGShaderKeyPropertyBase9getOffsetEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN25QSSGShaderKeyPropertyBase9setOffsetEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZNK25QSSGShaderKeyPropertyBase6getIdxEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN25QSSGShaderKeyPropertyBase12getBoolValueERK10QByteArrayRK14QByteArrayView": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN25QSSGShaderKeyPropertyBaseD1Ev": ["nothing", "address"]
+  }
+}

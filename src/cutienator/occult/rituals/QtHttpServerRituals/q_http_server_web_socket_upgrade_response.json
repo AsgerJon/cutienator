@@ -1,0 +1,35 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtHttpServer/qhttpserverwebsocketupgraderesponse.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN35QHttpServerWebSocketUpgradeResponseC1ERKS_": [
+      "address", "address"
+    ],
+    "ritual_ZN35QHttpServerWebSocketUpgradeResponseD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK35QHttpServerWebSocketUpgradeResponse4typeEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK35QHttpServerWebSocketUpgradeResponse10denyStatusEv": [
+      "int", "address"
+    ],
+    "ritual_ZNKR35QHttpServerWebSocketUpgradeResponse11denyMessageEv": [
+      "address", "address"
+    ],
+    "ritual_ZN35QHttpServerWebSocketUpgradeResponse6acceptEv": ["address"],
+    "ritual_ZN35QHttpServerWebSocketUpgradeResponse4denyEv": ["address"],
+    "ritual_ZN35QHttpServerWebSocketUpgradeResponse4denyEi10QByteArray": [
+      "address", "int", "address"
+    ],
+    "ritual_ZN35QHttpServerWebSocketUpgradeResponse10passToNextEv": [
+      "address"
+    ],
+    "ritual_ZN35QHttpServerWebSocketUpgradeResponseC1ENS_12ResponseTypeEi10QByteArray": [
+      "address", "int", "int", "address"
+    ]
+  }
+}

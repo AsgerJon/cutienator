@@ -1,0 +1,20 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4argumentsobject_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN3QV415ArgumentsObject10__dataTestEv": ["nothing", "address"],
+    "ritual_ZNK3QV415ArgumentsObject11d_uncheckedEv": ["address", "address"],
+    "ritual_ZNK3QV415ArgumentsObject1dEv": ["address", "address"],
+    "ritual_ZNK3QV415ArgumentsObject7contextEv": ["address", "address"],
+    "ritual_ZNK3QV415ArgumentsObject12fullyCreatedEv": ["bool", "address"],
+    "ritual_ZNK3QV415ArgumentsObject8isMappedEj": [
+      "bool", "address", "unsigned int"
+    ],
+    "ritual_ZN3QV415ArgumentsObject13removeMappingEj": [
+      "nothing", "address", "unsigned int"
+    ]
+  }
+}

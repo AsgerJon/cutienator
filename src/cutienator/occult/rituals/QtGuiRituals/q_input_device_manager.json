@@ -9,6 +9,8 @@
     "ritual_ZN19QInputDeviceManager2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN19QInputDeviceManager6d_funcEv": ["address", "address"],
+    "ritual_ZNK19QInputDeviceManager6d_funcEv": ["address", "address"],
     "ritual_ZN19QInputDeviceManagerC1EP7QObject": ["address", "address"],
     "ritual_ZN19QInputDeviceManagerD1Ev": ["nothing", "address"],
     "ritual_ZNK19QInputDeviceManager11deviceCountENS_10DeviceTypeE": [

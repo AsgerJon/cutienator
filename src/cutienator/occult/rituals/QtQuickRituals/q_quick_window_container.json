@@ -1,0 +1,93 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickwindowcontainer_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK21QQuickWindowContainer10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QQuickWindowContainer2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN21QQuickWindowContainerC1EP10QQuickItemNS_13ContainerModeE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN21QQuickWindowContainerD1Ev": ["nothing", "address"],
+    "ritual_ZNK21QQuickWindowContainer15containedWindowEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QQuickWindowContainer18setContainedWindowEP7QWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QQuickWindowContainer10classBeginEv": ["nothing", "address"],
+    "ritual_ZN21QQuickWindowContainer17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickWindowContainer14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN21QQuickWindowContainer10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN21QQuickWindowContainer12updatePolishEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickWindowContainer11eventFilterEP7QObjectP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN21QQuickWindowContainer12focusInEventEP11QFocusEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21QQuickWindowContainer8clipRectEv": ["address", "address"],
+    "ritual_ZN21QQuickWindowContainer16releaseResourcesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickWindowContainer25initializeContainedWindowEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickWindowContainer13windowUpdatedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickWindowContainer16syncWindowToItemEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QQuickWindowContainer19parentWindowChangedEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QQuickWindowContainer15windowDestroyedEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QQuickWindowContainer": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN21QQuickWindowContainer10classBeginEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN21QQuickWindowContainer17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN21QQuickWindowContainer14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN21QQuickWindowContainer10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZN21QQuickWindowContainer12updatePolishEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN21QQuickWindowContainer11eventFilterEP7QObjectP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_own_ZN21QQuickWindowContainer12focusInEventEP11QFocusEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK21QQuickWindowContainer8clipRectEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN21QQuickWindowContainer16releaseResourcesEv": [
+      "nothing", "address"
+    ]
+  }
+}

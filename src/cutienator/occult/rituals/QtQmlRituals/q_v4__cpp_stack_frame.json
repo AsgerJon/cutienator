@@ -1,0 +1,35 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4stackframe_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN3QV413CppStackFrame4initEPNS_8FunctionEiNS_17CppStackFrameBase4KindE": [
+      "nothing", "address", "address", "int", "unsigned char"
+    ],
+    "ritual_ZNK3QV413CppStackFrame14isJSTypesFrameEv": ["bool", "address"],
+    "ritual_ZNK3QV413CppStackFrame16isMetaTypesFrameEv": ["bool", "address"],
+    "ritual_ZNK3QV413CppStackFrame11parentFrameEv": ["address", "address"],
+    "ritual_ZN3QV413CppStackFrame14setParentFrameEPS0_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK3QV413CppStackFrame4argcEv": ["int", "address"],
+    "ritual_ZNK3QV413CppStackFrame7contextEv": ["address", "address"],
+    "ritual_ZNK3QV413CppStackFrame11callContextEv": ["address", "address"],
+    "ritual_ZNK3QV413CppStackFrame10thisObjectEv": [
+      "unsigned long long", "address"
+    ],
+    "ritual_ZN3QV413CppStackFrameC1Ev": ["address"],
+    "ritual_ZN3QV413CppStackFrame4pushEPNS_10EngineBaseE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN3QV413CppStackFrame3popEPNS_10EngineBaseE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK3QV413CppStackFrame11callContextEPNS_4Heap16ExecutionContextE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN3QV413CppStackFrameD1Ev": ["nothing", "address"]
+  }
+}

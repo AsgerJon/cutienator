@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLocation/qplaceidreply.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK13QPlaceIdReply10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QPlaceIdReply2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN13QPlaceIdReplyC1ENS_13OperationTypeEP7QObject": [
+      "address", "int", "address"
+    ],
+    "ritual_ZN13QPlaceIdReplyD1Ev": ["nothing", "address"],
+    "ritual_ZNK13QPlaceIdReply4typeEv": ["int", "address"],
+    "ritual_ZNK13QPlaceIdReply13operationTypeEv": ["int", "address"],
+    "ritual_ZNK13QPlaceIdReply2idEv": ["text", "address"],
+    "ritual_ZN13QPlaceIdReply5setIdERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_take_QPlaceIdReply": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK13QPlaceIdReply4typeEv": ["int", "address"]
+  }
+}

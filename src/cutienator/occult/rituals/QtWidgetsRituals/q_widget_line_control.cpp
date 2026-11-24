@@ -1,8 +1,14 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/6.12.0/QtWidgets/private/qwidgetlinecontrol_p.h, Qt 6.12.0.
 //  Changes made here are lost.
+#include <QtWidgets/qtwidgetsglobal.h>
+#include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
+#if QT_CONFIG(lineedit)
+#include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/QtWidgets>
+#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWidgets/6.12.0/QtWidgets/private/qwidgetlinecontrol_p.h>
+#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtCore/qstring.h>
 #include <QtCore/qrect.h>
 #include <QtCore/qchar.h>
@@ -21,50 +27,84 @@ struct OwnQWidgetLineControl : QWidgetLineControl {
 //  A QWidgetLineControl that Python can take functions over in. Every QWidgetLineControl
 //  Python makes is one. Each function below asks the Python
 //  function handed over for it, and runs Qt's own without one.
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(lineedit)
 typedef void (*CuteQWidgetLineControlCall0)(const void *, QTimerEvent *, int *);
+#endif  // QT_CONFIG(lineedit)
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQWidgetLineControlCall1)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef bool (*CuteQWidgetLineControlCall2)(const void *, QObject *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQWidgetLineControlCall3)(const void *, QChildEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQWidgetLineControlCall4)(const void *, QEvent *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQWidgetLineControlCall5)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
 typedef void (*CuteQWidgetLineControlCall6)(const void *, const QMetaMethod *, int *);
+#endif  // !defined(QT_NO_QOBJECT)
 class CuteQWidgetLineControl : public QWidgetLineControl {
 public:
   using QWidgetLineControl::QWidgetLineControl;
   void *taken[7] = {};
 
   bool take(const char *key, void *call) {
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(lineedit)
     if (!std::strcmp(key, "_ZN7QObject10timerEventEP11QTimerEvent")) {
       taken[0] = call;
       return true;
     }
+#endif  // QT_CONFIG(lineedit)
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject5eventEP6QEvent")) {
       taken[1] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11eventFilterEPS_P6QEvent")) {
       taken[2] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject10childEventEP11QChildEvent")) {
       taken[3] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject11customEventEP6QEvent")) {
       taken[4] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject13connectNotifyERK11QMetaMethod")) {
       taken[5] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
+#if !defined(QT_NO_QOBJECT)
     if (!std::strcmp(key, "_ZN7QObject16disconnectNotifyERK11QMetaMethod")) {
       taken[6] = call;
       return true;
     }
+#endif  // !defined(QT_NO_QOBJECT)
     return false;
   }
 
+#if !defined(QT_NO_QOBJECT)
+#if QT_CONFIG(lineedit)
   //  void QWidgetLineControl::timerEvent(QTimerEvent *event)
   void timerEvent(QTimerEvent *event) override {
     if (taken[0]) {
@@ -75,7 +115,10 @@ public:
     }
     QWidgetLineControl::timerEvent(event);
   }
+#endif  // QT_CONFIG(lineedit)
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QObject::event(QEvent *event)
   bool event(QEvent *event) override {
     if (taken[1]) {
@@ -86,7 +129,9 @@ public:
     }
     return QObject::event(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  bool QObject::eventFilter(QObject *watched, QEvent *event)
   bool eventFilter(QObject *watched, QEvent *event) override {
     if (taken[2]) {
@@ -97,7 +142,9 @@ public:
     }
     return QObject::eventFilter(watched, event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::childEvent(QChildEvent *event)
   void childEvent(QChildEvent *event) override {
     if (taken[3]) {
@@ -108,7 +155,9 @@ public:
     }
     QObject::childEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::customEvent(QEvent *event)
   void customEvent(QEvent *event) override {
     if (taken[4]) {
@@ -119,7 +168,9 @@ public:
     }
     QObject::customEvent(event);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::connectNotify(const QMetaMethod &signal)
   void connectNotify(const QMetaMethod &signal) override {
     if (taken[5]) {
@@ -130,7 +181,9 @@ public:
     }
     QObject::connectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 
+#if !defined(QT_NO_QOBJECT)
   //  void QObject::disconnectNotify(const QMetaMethod &signal)
   void disconnectNotify(const QMetaMethod &signal) override {
     if (taken[6]) {
@@ -141,6 +194,7 @@ public:
     }
     QObject::disconnectNotify(signal);
   }
+#endif  // !defined(QT_NO_QOBJECT)
 };
 
 //  const QMetaObject *QWidgetLineControl::metaObject() const
@@ -348,6 +402,7 @@ int ritual_ZNK18QWidgetLineControl3endEv(const QWidgetLineControl *self) {
   return self->end();
 }
 
+#if !defined(QT_NO_CLIPBOARD)
 //  void QWidgetLineControl::copy(QClipboard::Mode mode) const
 extern "C" Q_DECL_EXPORT
 void ritual_ZNK18QWidgetLineControl4copyEN10QClipboard4ModeE(
@@ -355,7 +410,9 @@ void ritual_ZNK18QWidgetLineControl4copyEN10QClipboard4ModeE(
     QClipboard::Mode mode) {
   self->copy(mode);
 }
+#endif  // !defined(QT_NO_CLIPBOARD)
 
+#if !defined(QT_NO_CLIPBOARD)
 //  void QWidgetLineControl::paste(QClipboard::Mode mode)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QWidgetLineControl5pasteEN10QClipboard4ModeE(
@@ -363,6 +420,7 @@ void ritual_ZN18QWidgetLineControl5pasteEN10QClipboard4ModeE(
     QClipboard::Mode mode) {
   self->paste(mode);
 }
+#endif  // !defined(QT_NO_CLIPBOARD)
 
 //  int QWidgetLineControl::cursor() const
 extern "C" Q_DECL_EXPORT
@@ -642,13 +700,16 @@ void ritual_ZN18QWidgetLineControl12setMaxLengthEi(
   self->setMaxLength(maxLength);
 }
 
+#if !defined(QT_NO_VALIDATOR)
 //  const QValidator *QWidgetLineControl::validator() const
 extern "C" Q_DECL_EXPORT
 const QValidator *ritual_ZNK18QWidgetLineControl9validatorEv(
     const QWidgetLineControl *self) {
   return self->validator();
 }
+#endif  // !defined(QT_NO_VALIDATOR)
 
+#if !defined(QT_NO_VALIDATOR)
 //  void QWidgetLineControl::setValidator(const QValidator *v)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QWidgetLineControl12setValidatorEPK10QValidator(
@@ -656,14 +717,18 @@ void ritual_ZN18QWidgetLineControl12setValidatorEPK10QValidator(
     const QValidator *v) {
   self->setValidator(v);
 }
+#endif  // !defined(QT_NO_VALIDATOR)
 
+#if QT_CONFIG(completer)
 //  QCompleter *QWidgetLineControl::completer() const
 extern "C" Q_DECL_EXPORT
 QCompleter *ritual_ZNK18QWidgetLineControl9completerEv(
     const QWidgetLineControl *self) {
   return self->completer();
 }
+#endif  // QT_CONFIG(completer)
 
+#if QT_CONFIG(completer)
 //  void QWidgetLineControl::setCompleter(const QCompleter *c)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QWidgetLineControl12setCompleterEPK10QCompleter(
@@ -671,7 +736,9 @@ void ritual_ZN18QWidgetLineControl12setCompleterEPK10QCompleter(
     const QCompleter *c) {
   self->setCompleter(c);
 }
+#endif  // QT_CONFIG(completer)
 
+#if QT_CONFIG(completer)
 //  void QWidgetLineControl::complete(int key)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QWidgetLineControl8completeEi(
@@ -679,6 +746,7 @@ void ritual_ZN18QWidgetLineControl8completeEi(
     int key) {
   self->complete(key);
 }
+#endif  // QT_CONFIG(completer)
 
 //  int QWidgetLineControl::cursorPosition() const
 extern "C" Q_DECL_EXPORT
@@ -723,13 +791,16 @@ void ritual_ZN18QWidgetLineControl12setInputMaskERK7QString(
   self->setInputMask(*mask);
 }
 
+#if !defined(QT_NO_IM)
 //  bool QWidgetLineControl::composeMode() const
 extern "C" Q_DECL_EXPORT
 bool ritual_ZNK18QWidgetLineControl11composeModeEv(
     const QWidgetLineControl *self) {
   return self->composeMode();
 }
+#endif  // !defined(QT_NO_IM)
 
+#if !defined(QT_NO_IM)
 //  void QWidgetLineControl::setPreeditArea(int cursor, const QString &text)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QWidgetLineControl14setPreeditAreaEiRK7QString(
@@ -738,6 +809,7 @@ void ritual_ZN18QWidgetLineControl14setPreeditAreaEiRK7QString(
     const QString *text) {
   self->setPreeditArea(cursor, *text);
 }
+#endif  // !defined(QT_NO_IM)
 
 //  QString QWidgetLineControl::preeditAreaText() const
 extern "C" Q_DECL_EXPORT
@@ -903,6 +975,7 @@ void ritual_ZN18QWidgetLineControl4drawEP8QPainterRK6QPointRK5QRecti(
   self->draw(a0, *a1, *a2, flags);
 }
 
+#if !defined(QT_NO_SHORTCUT)
 //  void QWidgetLineControl::processShortcutOverrideEvent(QKeyEvent *ke)
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QWidgetLineControl28processShortcutOverrideEventEP9QKeyEvent(
@@ -910,6 +983,7 @@ void ritual_ZN18QWidgetLineControl28processShortcutOverrideEventEP9QKeyEvent(
     QKeyEvent *ke) {
   self->processShortcutOverrideEvent(ke);
 }
+#endif  // !defined(QT_NO_SHORTCUT)
 
 //  QTextLayout *QWidgetLineControl::textLayout() const
 extern "C" Q_DECL_EXPORT
@@ -1008,6 +1082,7 @@ bool ritual_ZN18QWidgetLineControl12finishChangeEibb(
   return self->finishChange(validateFromState, update, edited);
 }
 
+#if QT_CONFIG(completer)
 //  bool QWidgetLineControl::advanceToEnabledItem(int dir)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZN18QWidgetLineControl20advanceToEnabledItemEi(
@@ -1015,6 +1090,7 @@ bool ritual_ZN18QWidgetLineControl20advanceToEnabledItemEi(
     int dir) {
   return self->advanceToEnabledItem(dir);
 }
+#endif  // QT_CONFIG(completer)
 
 //  void QWidgetLineControl::separate()
 extern "C" Q_DECL_EXPORT
@@ -1134,3 +1210,5 @@ void ritual_own_ZN18QWidgetLineControl10timerEventEP11QTimerEvent(
   static_cast<OwnQWidgetLineControl *>(self)->OwnQWidgetLineControl::timerEvent(
       event);
 }
+
+#endif  // QT_CONFIG(lineedit)

@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/qqmlprivate.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11QQmlPrivate19AOTLookupValidationeqERKNS0_4TypeES3_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN11QQmlPrivate19AOTLookupValidationneERKNS0_4TypeES3_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN11QQmlPrivate19AOTLookupValidation4TypeD1Ev": [
+      "nothing", "address"
+    ]
+  }
+}

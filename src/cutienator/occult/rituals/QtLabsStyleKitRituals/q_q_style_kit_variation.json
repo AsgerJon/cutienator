@@ -1,0 +1,20 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtLabsS",
+    "tyleKit/6.12.0/QtLabsStyleKit/private/qqstylekitvariation_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK19QQStyleKitVariation10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QQStyleKitVariation21qt_qmlMarker_attachedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQStyleKitVariation17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK19QQStyleKitVariation4nameEv": ["text", "address"],
+    "ritual_ZN19QQStyleKitVariation23resetVariationsForStyleEP15QQStyleKitStyle": [
+      "nothing", "address"
+    ]
+  }
+}

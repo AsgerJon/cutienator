@@ -1,0 +1,61 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/qsgtexturematerial.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN24QSGOpaqueTextureMaterialC1Ev": ["address"],
+    "ritual_ZNK24QSGOpaqueTextureMaterial4typeEv": ["address", "address"],
+    "ritual_ZNK24QSGOpaqueTextureMaterial12createShaderEN20QSGRendererInterface10RenderModeE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK24QSGOpaqueTextureMaterial7compareEPK11QSGMaterial": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN24QSGOpaqueTextureMaterial10setTextureEP10QSGTexture": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK24QSGOpaqueTextureMaterial7textureEv": ["address", "address"],
+    "ritual_ZN24QSGOpaqueTextureMaterial18setMipmapFilteringEN10QSGTexture9FilteringE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK24QSGOpaqueTextureMaterial15mipmapFilteringEv": [
+      "int", "address"
+    ],
+    "ritual_ZN24QSGOpaqueTextureMaterial12setFilteringEN10QSGTexture9FilteringE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK24QSGOpaqueTextureMaterial9filteringEv": ["int", "address"],
+    "ritual_ZN24QSGOpaqueTextureMaterial21setHorizontalWrapModeEN10QSGTexture8WrapModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK24QSGOpaqueTextureMaterial18horizontalWrapModeEv": [
+      "int", "address"
+    ],
+    "ritual_ZN24QSGOpaqueTextureMaterial19setVerticalWrapModeEN10QSGTexture8WrapModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK24QSGOpaqueTextureMaterial16verticalWrapModeEv": [
+      "int", "address"
+    ],
+    "ritual_ZN24QSGOpaqueTextureMaterial18setAnisotropyLevelEN10QSGTexture15AnisotropyLevelE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK24QSGOpaqueTextureMaterial15anisotropyLevelEv": [
+      "int", "address"
+    ],
+    "ritual_take_QSGOpaqueTextureMaterial": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK24QSGOpaqueTextureMaterial4typeEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK24QSGOpaqueTextureMaterial12createShaderEN20QSGRendererInterface10RenderModeE": [
+      "address", "address", "int"
+    ],
+    "ritual_own_ZNK24QSGOpaqueTextureMaterial7compareEPK11QSGMaterial": [
+      "int", "address", "address"
+    ]
+  }
+}

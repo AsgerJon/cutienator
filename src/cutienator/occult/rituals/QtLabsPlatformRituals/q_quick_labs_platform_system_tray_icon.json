@@ -1,0 +1,66 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtLabsP",
+    "latform/6.12.0/QtLabsPlatform/private/qquicklabsplatformsystemtray",
+    "icon_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK32QQuickLabsPlatformSystemTrayIcon10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN32QQuickLabsPlatformSystemTrayIcon20qmlExtendedNamespaceEv": [
+      "address"
+    ],
+    "ritual_ZN32QQuickLabsPlatformSystemTrayIcon30qt_qmlMarker_extendedNamespaceEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN32QQuickLabsPlatformSystemTrayIconD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK32QQuickLabsPlatformSystemTrayIcon6handleEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK32QQuickLabsPlatformSystemTrayIcon11isAvailableEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK32QQuickLabsPlatformSystemTrayIcon16supportsMessagesEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK32QQuickLabsPlatformSystemTrayIcon9isVisibleEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK32QQuickLabsPlatformSystemTrayIcon7tooltipEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK32QQuickLabsPlatformSystemTrayIcon4menuEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK32QQuickLabsPlatformSystemTrayIcon8geometryEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK32QQuickLabsPlatformSystemTrayIcon4iconEv": [
+      "address", "address"
+    ],
+    "ritual_ZN32QQuickLabsPlatformSystemTrayIcon11showMessageERK7QStringS2_N23QPlatformSystemTrayIcon11MessageIconEi": [
+      "nothing", "address", "text", "text", "int", "int"
+    ],
+    "ritual_ZN32QQuickLabsPlatformSystemTrayIcon7cleanupEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN32QQuickLabsPlatformSystemTrayIcon10classBeginEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN32QQuickLabsPlatformSystemTrayIcon17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_cast_QQuickLabsPlatformSystemTrayIcon_QQmlParserStatus": [
+      "address", "address"
+    ],
+    "ritual_take_QQuickLabsPlatformSystemTrayIcon": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN32QQuickLabsPlatformSystemTrayIcon10classBeginEv": [
+      "nothing", "address"
+    ]
+  }
+}

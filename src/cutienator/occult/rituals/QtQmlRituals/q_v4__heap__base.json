@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4heap_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN3QV44Heap4Base11markObjectsEPS1_PNS_9MarkStackE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK3QV44Heap4Base15asReturnedValueEv": [
+      "unsigned long long", "address"
+    ],
+    "ritual_ZN3QV44Heap4Base4markEPNS_9MarkStackE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK3QV44Heap4Base8isMarkedEv": ["bool", "address"],
+    "ritual_ZN3QV44Heap4Base10setMarkBitEv": ["nothing", "address"],
+    "ritual_ZNK3QV44Heap4Base5inUseEv": ["bool", "address"],
+    "ritual_ZN3QV44Heap4Base4initEv": ["nothing", "address"],
+    "ritual_ZN3QV44Heap4Base7destroyEv": ["nothing", "address"],
+    "ritual_ZN3QV44Heap4Base19_checkIsInitializedEv": ["nothing", "address"],
+    "ritual_ZN3QV44Heap4Base17_checkIsDestroyedEv": ["nothing", "address"],
+    "ritual_ZN3QV44Heap4Base15_setInitializedEv": ["nothing", "address"],
+    "ritual_ZN3QV44Heap4Base13_setDestroyedEv": ["nothing", "address"]
+  }
+}

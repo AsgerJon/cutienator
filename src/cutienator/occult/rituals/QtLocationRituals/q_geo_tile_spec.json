@@ -1,0 +1,31 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtLocation/6.12.0/QtLocation/private/qgeotilespec_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN12QGeoTileSpecC1Ev": ["address"],
+    "ritual_ZN12QGeoTileSpecC1ERKS_": ["address", "address"],
+    "ritual_ZN12QGeoTileSpecC1ERK7QStringiiiii": [
+      "address", "text", "int", "int", "int", "int", "int"
+    ],
+    "ritual_ZN12QGeoTileSpecD1Ev": ["nothing", "address"],
+    "ritual_ZNK12QGeoTileSpec6pluginEv": ["text", "address"],
+    "ritual_ZN12QGeoTileSpec7setZoomEi": ["nothing", "address", "int"],
+    "ritual_ZNK12QGeoTileSpec4zoomEv": ["int", "address"],
+    "ritual_ZN12QGeoTileSpec4setXEi": ["nothing", "address", "int"],
+    "ritual_ZNK12QGeoTileSpec1xEv": ["int", "address"],
+    "ritual_ZN12QGeoTileSpec4setYEi": ["nothing", "address", "int"],
+    "ritual_ZNK12QGeoTileSpec1yEv": ["int", "address"],
+    "ritual_ZN12QGeoTileSpec8setMapIdEi": ["nothing", "address", "int"],
+    "ritual_ZNK12QGeoTileSpec5mapIdEv": ["int", "address"],
+    "ritual_ZN12QGeoTileSpec10setVersionEi": ["nothing", "address", "int"],
+    "ritual_ZNK12QGeoTileSpec7versionEv": ["int", "address"],
+    "ritual_ZeqRK12QGeoTileSpecS1_": ["bool", "address", "address"],
+    "ritual_ZneRK12QGeoTileSpecS1_": ["bool", "address", "address"],
+    "ritual_ZltRK12QGeoTileSpecS1_": ["bool", "address", "address"],
+    "ritual_ZNK12QGeoTileSpec7isEqualERKS_": ["bool", "address", "address"],
+    "ritual_ZNK12QGeoTileSpec6isLessERKS_": ["bool", "address", "address"]
+  }
+}

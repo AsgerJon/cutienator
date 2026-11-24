@@ -11,6 +11,10 @@
     "ritual_ZN26QAbstractEventDispatcherV22trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN26QAbstractEventDispatcherV26d_funcEv": ["address", "address"],
+    "ritual_ZNK26QAbstractEventDispatcherV26d_funcEv": [
+      "address", "address"
+    ],
     "ritual_ZN26QAbstractEventDispatcherV2D1Ev": ["nothing", "address"],
     "ritual_ZN26QAbstractEventDispatcherV215unregisterTimerEN2Qt7TimerIdE": [
       "bool", "address", "int"

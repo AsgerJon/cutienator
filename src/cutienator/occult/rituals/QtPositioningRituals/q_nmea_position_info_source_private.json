@@ -1,0 +1,52 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtPosit",
+    "ioning/6.12.0/QtPositioning/private/qnmeapositioninfosource_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK30QNmeaPositionInfoSourcePrivate10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN30QNmeaPositionInfoSourcePrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN30QNmeaPositionInfoSourcePrivate11stopUpdatesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QNmeaPositionInfoSourcePrivate24parsePosInfoFromNmeaDataE14QByteArrayViewP16QGeoPositionInfoPb": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZN30QNmeaPositionInfoSourcePrivate15notifyNewUpdateEP16QGeoPositionInfob": [
+      "nothing", "address", "address", "bool"
+    ],
+    "ritual_ZN30QNmeaPositionInfoSourcePrivate9readyReadEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QNmeaPositionInfoSourcePrivate10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN30QNmeaPositionInfoSourcePrivate17emitPendingUpdateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QNmeaPositionInfoSourcePrivate16sourceDataClosedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QNmeaPositionInfoSourcePrivate20updateRequestTimeoutEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QNmeaPositionInfoSourcePrivate16openSourceDeviceEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN30QNmeaPositionInfoSourcePrivate19prepareSourceDeviceEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QNmeaPositionInfoSourcePrivate11emitUpdatedERK16QGeoPositionInfo": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QNmeaPositionInfoSourcePrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN30QNmeaPositionInfoSourcePrivate10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ]
+  }
+}

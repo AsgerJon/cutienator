@@ -1,0 +1,32 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQuick/6.12.0/QtQuick/private/qquickpath_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK13QQuickPathArc10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QQuickPathArc2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN13QQuickPathArcC1EP7QObject": ["address", "address"],
+    "ritual_ZNK13QQuickPathArc7radiusXEv": ["double", "address"],
+    "ritual_ZN13QQuickPathArc10setRadiusXEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK13QQuickPathArc7radiusYEv": ["double", "address"],
+    "ritual_ZN13QQuickPathArc10setRadiusYEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK13QQuickPathArc11useLargeArcEv": ["bool", "address"],
+    "ritual_ZN13QQuickPathArc14setUseLargeArcEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK13QQuickPathArc9directionEv": ["int", "address"],
+    "ritual_ZN13QQuickPathArc12setDirectionENS_12ArcDirectionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK13QQuickPathArc13xAxisRotationEv": ["double", "address"],
+    "ritual_ZN13QQuickPathArc16setXAxisRotationEd": [
+      "nothing", "address", "double"
+    ]
+  }
+}

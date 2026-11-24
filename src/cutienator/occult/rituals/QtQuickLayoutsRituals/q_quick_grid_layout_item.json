@@ -1,0 +1,40 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Layouts/6.12.0/QtQuickLayouts/private/qquickgridlayoutengine_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QQuickGridLayoutItemC1EP10QQuickItemiiii6QFlagsIN2Qt13AlignmentFlagEE": [
+      "address", "address", "int", "int", "int", "int", "int"
+    ],
+    "ritual_ZNK20QQuickGridLayoutItem8sizeHintEN2Qt8SizeHintERK6QSizeF": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_ZNK20QQuickGridLayoutItem18effectiveSizeHintsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QQuickGridLayoutItem18setCachedSizeHintsEP6QSizeF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QQuickGridLayoutItem10sizePolicyEN2Qt11OrientationE": [
+      "int", "address", "int"
+    ],
+    "ritual_ZN20QQuickGridLayoutItem11setGeometryERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QQuickGridLayoutItem8toStringEv": ["text", "address"],
+    "ritual_ZNK20QQuickGridLayoutItem10layoutItemEv": ["address", "address"],
+    "ritual_ZN20QQuickGridLayoutItemD1Ev": ["nothing", "address"],
+    "ritual_own_ZNK20QQuickGridLayoutItem8sizeHintEN2Qt8SizeHintERK6QSizeF": [
+      "address", "address", "int", "address"
+    ],
+    "ritual_own_ZNK20QQuickGridLayoutItem10sizePolicyEN2Qt11OrientationE": [
+      "int", "address", "int"
+    ],
+    "ritual_own_ZN20QQuickGridLayoutItem11setGeometryERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK20QQuickGridLayoutItem8toStringEv": ["text", "address"]
+  }
+}

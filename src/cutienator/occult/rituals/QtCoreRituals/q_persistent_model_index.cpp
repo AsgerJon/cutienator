@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/qabstractitemmodel.h, Qt 6.12.0. Changes made here are lost.
+#include <QtCore/qglobal.h>
+#if QT_CONFIG(itemmodel)
 #include <QtCore/qabstractitemmodel.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qdebug.h>
@@ -114,6 +116,7 @@ bool ritual_ZNK21QPersistentModelIndex7isValidEv(
   return self->isValid();
 }
 
+#if !QT_CORE_REMOVED_SINCE(6, 8)
 //  bool operator==(const QPersistentModelIndex &lhs, const
 //      QPersistentModelIndex &rhs)
 extern "C" Q_DECL_EXPORT
@@ -122,7 +125,9 @@ bool ritual_ZeqRK21QPersistentModelIndexS1_(
     const QPersistentModelIndex *rhs) {
   return operator==(*lhs, *rhs);
 }
+#endif  // !QT_CORE_REMOVED_SINCE(6, 8)
 
+#if !QT_CORE_REMOVED_SINCE(6, 8)
 //  bool operator!=(const QPersistentModelIndex &lhs, const
 //      QPersistentModelIndex &rhs)
 extern "C" Q_DECL_EXPORT
@@ -131,7 +136,9 @@ bool ritual_ZneRK21QPersistentModelIndexS1_(
     const QPersistentModelIndex *rhs) {
   return operator!=(*lhs, *rhs);
 }
+#endif  // !QT_CORE_REMOVED_SINCE(6, 8)
 
+#if !QT_CORE_REMOVED_SINCE(6, 8)
 //  bool operator<(const QPersistentModelIndex &lhs, const
 //      QPersistentModelIndex &rhs)
 extern "C" Q_DECL_EXPORT
@@ -140,7 +147,9 @@ bool ritual_ZltRK21QPersistentModelIndexS1_(
     const QPersistentModelIndex *rhs) {
   return operator<(*lhs, *rhs);
 }
+#endif  // !QT_CORE_REMOVED_SINCE(6, 8)
 
+#if !QT_CORE_REMOVED_SINCE(6, 8)
 //  bool operator>(const QPersistentModelIndex &lhs, const
 //      QPersistentModelIndex &rhs)
 extern "C" Q_DECL_EXPORT
@@ -149,7 +158,9 @@ bool ritual_ZgtRK21QPersistentModelIndexS1_(
     const QPersistentModelIndex *rhs) {
   return operator>(*lhs, *rhs);
 }
+#endif  // !QT_CORE_REMOVED_SINCE(6, 8)
 
+#if !QT_CORE_REMOVED_SINCE(6, 8)
 //  bool operator<=(const QPersistentModelIndex &lhs, const
 //      QPersistentModelIndex &rhs)
 extern "C" Q_DECL_EXPORT
@@ -158,7 +169,9 @@ bool ritual_ZleRK21QPersistentModelIndexS1_(
     const QPersistentModelIndex *rhs) {
   return operator<=(*lhs, *rhs);
 }
+#endif  // !QT_CORE_REMOVED_SINCE(6, 8)
 
+#if !QT_CORE_REMOVED_SINCE(6, 8)
 //  bool operator>=(const QPersistentModelIndex &lhs, const
 //      QPersistentModelIndex &rhs)
 extern "C" Q_DECL_EXPORT
@@ -167,7 +180,9 @@ bool ritual_ZgeRK21QPersistentModelIndexS1_(
     const QPersistentModelIndex *rhs) {
   return operator>=(*lhs, *rhs);
 }
+#endif  // !QT_CORE_REMOVED_SINCE(6, 8)
 
+#if !QT_CORE_REMOVED_SINCE(6, 8)
 //  bool operator==(const QPersistentModelIndex &lhs, const QModelIndex &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZeqRK21QPersistentModelIndexRK11QModelIndex(
@@ -175,7 +190,9 @@ bool ritual_ZeqRK21QPersistentModelIndexRK11QModelIndex(
     const QModelIndex *rhs) {
   return operator==(*lhs, *rhs);
 }
+#endif  // !QT_CORE_REMOVED_SINCE(6, 8)
 
+#if !QT_CORE_REMOVED_SINCE(6, 8)
 //  bool operator!=(const QPersistentModelIndex &lhs, const QModelIndex &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZneRK21QPersistentModelIndexRK11QModelIndex(
@@ -183,7 +200,9 @@ bool ritual_ZneRK21QPersistentModelIndexRK11QModelIndex(
     const QModelIndex *rhs) {
   return operator!=(*lhs, *rhs);
 }
+#endif  // !QT_CORE_REMOVED_SINCE(6, 8)
 
+#if !QT_CORE_REMOVED_SINCE(6, 8)
 //  bool operator<(const QPersistentModelIndex &lhs, const QModelIndex &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZltRK21QPersistentModelIndexRK11QModelIndex(
@@ -191,7 +210,9 @@ bool ritual_ZltRK21QPersistentModelIndexRK11QModelIndex(
     const QModelIndex *rhs) {
   return operator<(*lhs, *rhs);
 }
+#endif  // !QT_CORE_REMOVED_SINCE(6, 8)
 
+#if !QT_CORE_REMOVED_SINCE(6, 8)
 //  bool operator>(const QPersistentModelIndex &lhs, const QModelIndex &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZgtRK21QPersistentModelIndexRK11QModelIndex(
@@ -199,7 +220,9 @@ bool ritual_ZgtRK21QPersistentModelIndexRK11QModelIndex(
     const QModelIndex *rhs) {
   return operator>(*lhs, *rhs);
 }
+#endif  // !QT_CORE_REMOVED_SINCE(6, 8)
 
+#if !QT_CORE_REMOVED_SINCE(6, 8)
 //  bool operator<=(const QPersistentModelIndex &lhs, const QModelIndex &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZleRK21QPersistentModelIndexRK11QModelIndex(
@@ -207,7 +230,9 @@ bool ritual_ZleRK21QPersistentModelIndexRK11QModelIndex(
     const QModelIndex *rhs) {
   return operator<=(*lhs, *rhs);
 }
+#endif  // !QT_CORE_REMOVED_SINCE(6, 8)
 
+#if !QT_CORE_REMOVED_SINCE(6, 8)
 //  bool operator>=(const QPersistentModelIndex &lhs, const QModelIndex &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZgeRK21QPersistentModelIndexRK11QModelIndex(
@@ -215,7 +240,9 @@ bool ritual_ZgeRK21QPersistentModelIndexRK11QModelIndex(
     const QModelIndex *rhs) {
   return operator>=(*lhs, *rhs);
 }
+#endif  // !QT_CORE_REMOVED_SINCE(6, 8)
 
+#if !QT_CORE_REMOVED_SINCE(6, 8)
 //  bool operator==(const QModelIndex &lhs, const QPersistentModelIndex &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZeqRK11QModelIndexRK21QPersistentModelIndex(
@@ -223,7 +250,9 @@ bool ritual_ZeqRK11QModelIndexRK21QPersistentModelIndex(
     const QPersistentModelIndex *rhs) {
   return operator==(*lhs, *rhs);
 }
+#endif  // !QT_CORE_REMOVED_SINCE(6, 8)
 
+#if !QT_CORE_REMOVED_SINCE(6, 8)
 //  bool operator!=(const QModelIndex &lhs, const QPersistentModelIndex &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZneRK11QModelIndexRK21QPersistentModelIndex(
@@ -231,7 +260,9 @@ bool ritual_ZneRK11QModelIndexRK21QPersistentModelIndex(
     const QPersistentModelIndex *rhs) {
   return operator!=(*lhs, *rhs);
 }
+#endif  // !QT_CORE_REMOVED_SINCE(6, 8)
 
+#if !QT_CORE_REMOVED_SINCE(6, 8)
 //  bool operator<(const QModelIndex &lhs, const QPersistentModelIndex &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZltRK11QModelIndexRK21QPersistentModelIndex(
@@ -239,7 +270,9 @@ bool ritual_ZltRK11QModelIndexRK21QPersistentModelIndex(
     const QPersistentModelIndex *rhs) {
   return operator<(*lhs, *rhs);
 }
+#endif  // !QT_CORE_REMOVED_SINCE(6, 8)
 
+#if !QT_CORE_REMOVED_SINCE(6, 8)
 //  bool operator>(const QModelIndex &lhs, const QPersistentModelIndex &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZgtRK11QModelIndexRK21QPersistentModelIndex(
@@ -247,7 +280,9 @@ bool ritual_ZgtRK11QModelIndexRK21QPersistentModelIndex(
     const QPersistentModelIndex *rhs) {
   return operator>(*lhs, *rhs);
 }
+#endif  // !QT_CORE_REMOVED_SINCE(6, 8)
 
+#if !QT_CORE_REMOVED_SINCE(6, 8)
 //  bool operator<=(const QModelIndex &lhs, const QPersistentModelIndex &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZleRK11QModelIndexRK21QPersistentModelIndex(
@@ -255,7 +290,9 @@ bool ritual_ZleRK11QModelIndexRK21QPersistentModelIndex(
     const QPersistentModelIndex *rhs) {
   return operator<=(*lhs, *rhs);
 }
+#endif  // !QT_CORE_REMOVED_SINCE(6, 8)
 
+#if !QT_CORE_REMOVED_SINCE(6, 8)
 //  bool operator>=(const QModelIndex &lhs, const QPersistentModelIndex &rhs)
 extern "C" Q_DECL_EXPORT
 bool ritual_ZgeRK11QModelIndexRK21QPersistentModelIndex(
@@ -263,7 +300,9 @@ bool ritual_ZgeRK11QModelIndexRK21QPersistentModelIndex(
     const QPersistentModelIndex *rhs) {
   return operator>=(*lhs, *rhs);
 }
+#endif  // !QT_CORE_REMOVED_SINCE(6, 8)
 
+#if !defined(QT_NO_DEBUG_STREAM)
 //  QDebug operator<<(QDebug a0, const QPersistentModelIndex &a1)
 extern "C" Q_DECL_EXPORT
 QDebug *ritual_Zls6QDebugRK21QPersistentModelIndex(
@@ -271,6 +310,7 @@ QDebug *ritual_Zls6QDebugRK21QPersistentModelIndex(
     const QPersistentModelIndex *a1) {
   return new QDebug(operator<<(*a0, *a1));
 }
+#endif  // !defined(QT_NO_DEBUG_STREAM)
 
 //  QList<QPersistentModelIndex>::QList()
 extern "C" Q_DECL_EXPORT
@@ -309,3 +349,5 @@ void ritual_list_drop_QPersistentModelIndex(
     QList<QPersistentModelIndex> *self) {
   delete self;
 }
+
+#endif  // QT_CONFIG(itemmodel)

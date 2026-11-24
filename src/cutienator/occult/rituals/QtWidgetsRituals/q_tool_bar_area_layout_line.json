@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtWidgets/6.12.0/QtWidgets/private/qtoolbararealayout_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN22QToolBarAreaLayoutLineC1Ev": ["address"],
+    "ritual_ZN22QToolBarAreaLayoutLineC1EN2Qt11OrientationE": [
+      "address", "int"
+    ],
+    "ritual_ZNK22QToolBarAreaLayoutLine8sizeHintEv": ["address", "address"],
+    "ritual_ZNK22QToolBarAreaLayoutLine11minimumSizeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK22QToolBarAreaLayoutLine4skipEv": ["bool", "address"],
+    "ritual_ZN22QToolBarAreaLayoutLineD1Ev": ["nothing", "address"]
+  }
+}

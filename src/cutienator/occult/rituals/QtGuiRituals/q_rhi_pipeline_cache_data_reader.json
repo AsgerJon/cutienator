@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qrhi_p.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZN27QRhiPipelineCacheDataReaderC1EPKcj": [
+      "address", "chars", "unsigned int"
+    ],
+    "ritual_ZN27QRhiPipelineCacheDataReader10readUInt32EPj": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN27QRhiPipelineCacheDataReader13readByteArrayEP10QByteArray": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN27QRhiPipelineCacheDataReaderD1Ev": ["nothing", "address"]
+  }
+}

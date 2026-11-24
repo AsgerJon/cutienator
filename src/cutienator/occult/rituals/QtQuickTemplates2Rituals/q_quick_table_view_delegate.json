@@ -1,0 +1,50 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "Templates2/6.12.0/QtQuickTemplates2/private/qquicktableviewdelegat",
+    "e_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK23QQuickTableViewDelegate10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QQuickTableViewDelegate2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN23QQuickTableViewDelegateC1EP10QQuickItem": [
+      "address", "address"
+    ],
+    "ritual_ZNK23QQuickTableViewDelegate7currentEv": ["bool", "address"],
+    "ritual_ZN23QQuickTableViewDelegate10setCurrentEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK23QQuickTableViewDelegate8selectedEv": ["bool", "address"],
+    "ritual_ZN23QQuickTableViewDelegate11setSelectedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK23QQuickTableViewDelegate7editingEv": ["bool", "address"],
+    "ritual_ZN23QQuickTableViewDelegate10setEditingEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK23QQuickTableViewDelegate9tableViewEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QQuickTableViewDelegate12setTableViewEP15QQuickTableView": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK23QQuickTableViewDelegate11defaultFontEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QQuickTableViewDelegate15mousePressEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QQuickTableViewDelegate6d_funcEv": ["address", "address"],
+    "ritual_ZNK23QQuickTableViewDelegate6d_funcEv": ["address", "address"],
+    "ritual_own_ZNK23QQuickTableViewDelegate11defaultFontEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN23QQuickTableViewDelegate15mousePressEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ]
+  }
+}

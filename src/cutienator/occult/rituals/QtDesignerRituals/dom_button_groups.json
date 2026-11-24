@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/ui4_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15DomButtonGroupsC1Ev": ["address"],
+    "ritual_ZN15DomButtonGroupsD1Ev": ["nothing", "address"],
+    "ritual_ZNK15DomButtonGroups18elementButtonGroupEv": [
+      "address", "address"
+    ],
+    "ritual_ZN15DomButtonGroups21setElementButtonGroupERK5QListIP14DomButtonGroupE": [
+      "nothing", "address", "address"
+    ]
+  }
+}

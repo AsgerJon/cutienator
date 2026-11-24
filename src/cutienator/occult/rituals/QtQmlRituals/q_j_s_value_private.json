@@ -1,0 +1,71 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qjsvalue_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QJSValuePrivate3tagEy": ["int", "unsigned long long"],
+    "ritual_ZN15QJSValuePrivate15encodeUndefinedEv": ["unsigned long long"],
+    "ritual_ZN15QJSValuePrivate10encodeNullEv": ["unsigned long long"],
+    "ritual_ZN15QJSValuePrivate8intValueEy": ["int", "unsigned long long"],
+    "ritual_ZN15QJSValuePrivate6encodeEi": ["unsigned long long", "int"],
+    "ritual_ZN15QJSValuePrivate6encodeEj": [
+      "unsigned long long", "unsigned int"
+    ],
+    "ritual_ZN15QJSValuePrivate9boolValueEy": ["bool", "unsigned long long"],
+    "ritual_ZN15QJSValuePrivate6encodeEb": ["unsigned long long", "bool"],
+    "ritual_ZN15QJSValuePrivate6encodeEd": ["unsigned long long", "double"],
+    "ritual_ZN15QJSValuePrivate11qv4ValuePtrEy": [
+      "address", "unsigned long long"
+    ],
+    "ritual_ZN15QJSValuePrivate6encodeERKN3QV45ValueE": [
+      "unsigned long long", "address"
+    ],
+    "ritual_ZN15QJSValuePrivate10qStringPtrEy": [
+      "address", "unsigned long long"
+    ],
+    "ritual_ZN15QJSValuePrivate6encodeE7QString": [
+      "unsigned long long", "text"
+    ],
+    "ritual_ZN15QJSValuePrivate6encodeE13QLatin1String": [
+      "unsigned long long", "address"
+    ],
+    "ritual_ZN15QJSValuePrivate17fromReturnedValueEy": [
+      "address", "unsigned long long"
+    ],
+    "ritual_ZN15QJSValuePrivate16takeManagedValueEP8QJSValue": [
+      "address", "address"
+    ],
+    "ritual_ZN15QJSValuePrivate15asPrimitiveTypeEPK8QJSValue": [
+      "unsigned long long", "address"
+    ],
+    "ritual_ZN15QJSValuePrivate9asQStringEPK8QJSValue": [
+      "address", "address"
+    ],
+    "ritual_ZN15QJSValuePrivate15asReturnedValueEPK8QJSValue": [
+      "unsigned long long", "address"
+    ],
+    "ritual_ZN15QJSValuePrivate9setStringEP8QJSValue7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN15QJSValuePrivate20adoptPersistentValueEP8QJSValuePN3QV45ValueE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QJSValuePrivate8setValueEP8QJSValueRKN3QV45ValueE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QJSValuePrivate20manageStringOnV4HeapEPN3QV415ExecutionEngineEP8QJSValue": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QJSValuePrivate22convertToReturnedValueEPN3QV415ExecutionEngineERK8QJSValue": [
+      "unsigned long long", "address", "address"
+    ],
+    "ritual_ZN15QJSValuePrivate6engineEPK8QJSValue": ["address", "address"],
+    "ritual_ZN15QJSValuePrivate11checkEngineEPN3QV415ExecutionEngineERK8QJSValue": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN15QJSValuePrivate4freeEP8QJSValue": ["nothing", "address"],
+    "ritual_ZN15QJSValuePrivateD1Ev": ["nothing", "address"]
+  }
+}

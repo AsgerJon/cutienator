@@ -1,0 +1,34 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtMultimedia/6.12.0/QtMultimedia/private/qplatformaudioinput_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QPlatformAudioInputC1EP11QAudioInput": [
+      "address", "address"
+    ],
+    "ritual_ZN19QPlatformAudioInputD1Ev": ["nothing", "address"],
+    "ritual_ZN19QPlatformAudioInput14setAudioDeviceERK12QAudioDevice": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QPlatformAudioInput8setMutedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN19QPlatformAudioInput9setVolumeEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_take_QPlatformAudioInput": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN19QPlatformAudioInput14setAudioDeviceERK12QAudioDevice": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN19QPlatformAudioInput8setMutedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZN19QPlatformAudioInput9setVolumeEf": [
+      "nothing", "address", "float"
+    ]
+  }
+}

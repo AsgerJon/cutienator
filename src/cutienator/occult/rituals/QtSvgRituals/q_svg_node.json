@@ -1,0 +1,106 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtSvg/6.12.0/QtSvg/private/qsvgnode_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN8QSvgNodeD1Ev": ["nothing", "address"],
+    "ritual_ZNK8QSvgNode18separateFillStrokeEPK8QPainterRK15QSvgExtraStates": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZNK8QSvgNode17applyMaskToBufferEP6QImageRKS0_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK8QSvgNode19applyBufferToCanvasEP8QPainterRK6QImage": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK8QSvgNode6parentEv": ["address", "address"],
+    "ritual_ZNK8QSvgNode14isDescendantOfEPKS_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK8QSvgNode13stylePropertyEN17QSvgStyleProperty4TypeE": [
+      "address", "address", "unsigned char"
+    ],
+    "ritual_ZNK8QSvgNode8documentEv": ["address", "address"],
+    "ritual_ZNK8QSvgNode4typeEv": ["int", "address"],
+    "ritual_ZNK8QSvgNode8typeNameEv": ["address", "address"],
+    "ritual_ZNK8QSvgNode6boundsEPK12QSvgDocument": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN8QSvgNode19setRequiredFeaturesERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK8QSvgNode16requiredFeaturesEv": ["address", "address"],
+    "ritual_ZN8QSvgNode21setRequiredExtensionsERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK8QSvgNode18requiredExtensionsEv": ["address", "address"],
+    "ritual_ZN8QSvgNode20setRequiredLanguagesERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK8QSvgNode17requiredLanguagesEv": ["address", "address"],
+    "ritual_ZN8QSvgNode18setRequiredFormatsERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK8QSvgNode15requiredFormatsEv": ["address", "address"],
+    "ritual_ZN8QSvgNode16setRequiredFontsERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK8QSvgNode13requiredFontsEv": ["address", "address"],
+    "ritual_ZN8QSvgNode10setVisibleEb": ["nothing", "address", "bool"],
+    "ritual_ZNK8QSvgNode9isVisibleEv": ["bool", "address"],
+    "ritual_ZN8QSvgNode14setDisplayModeENS_11DisplayModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK8QSvgNode11displayModeEv": ["int", "address"],
+    "ritual_ZNK8QSvgNode6nodeIdEv": ["text", "address"],
+    "ritual_ZN8QSvgNode9setNodeIdERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK8QSvgNode8xmlClassEv": ["text", "address"],
+    "ritual_ZN8QSvgNode11setXmlClassERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK8QSvgNode6maskIdEv": ["text", "address"],
+    "ritual_ZN8QSvgNode9setMaskIdERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK8QSvgNode7hasMaskEv": ["bool", "address"],
+    "ritual_ZNK8QSvgNode8filterIdEv": ["text", "address"],
+    "ritual_ZN8QSvgNode11setFilterIdERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK8QSvgNode9hasFilterEv": ["bool", "address"],
+    "ritual_ZNK8QSvgNode13markerStartIdEv": ["text", "address"],
+    "ritual_ZN8QSvgNode16setMarkerStartIdERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK8QSvgNode14hasMarkerStartEv": ["bool", "address"],
+    "ritual_ZNK8QSvgNode11markerMidIdEv": ["text", "address"],
+    "ritual_ZN8QSvgNode14setMarkerMidIdERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK8QSvgNode12hasMarkerMidEv": ["bool", "address"],
+    "ritual_ZNK8QSvgNode11markerEndIdEv": ["text", "address"],
+    "ritual_ZN8QSvgNode14setMarkerEndIdERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK8QSvgNode12hasMarkerEndEv": ["bool", "address"],
+    "ritual_ZNK8QSvgNode12hasAnyMarkerEv": ["bool", "address"],
+    "ritual_ZNK8QSvgNode22requiresGroupRenderingEv": ["bool", "address"],
+    "ritual_ZNK8QSvgNode12filterRegionEPK12QSvgDocument6QRectF": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN8QSvgNode11strokeWidthEP8QPainter": ["double", "address"],
+    "ritual_ZN8QSvgNode11initPainterEP8QPainter": ["nothing", "address"],
+    "ritual_ZN8QSvgNode14boundsOnStrokeEP8QPainterRK12QPainterPathdNS_10BoundsModeE": [
+      "address", "address", "address", "double", "int"
+    ],
+    "ritual_take_QSvgNode": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK8QSvgNode18separateFillStrokeEPK8QPainterRK15QSvgExtraStates": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_own_ZNK8QSvgNode22requiresGroupRenderingEv": ["bool", "address"]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDesigner/6.12.0/QtDesigner/private/qdesigner_widget_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK4Line10metaObjectEv": ["address", "address"],
+    "ritual_ZN4Line2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN4LineC1EP7QWidget": ["address", "address"],
+    "ritual_ZN4Line14setOrientationEN2Qt11OrientationE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK4Line11orientationEv": ["int", "address"],
+    "ritual_take_Line": ["bool", "address", "chars", "address"]
+  }
+}

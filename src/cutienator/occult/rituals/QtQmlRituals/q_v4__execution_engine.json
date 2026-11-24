@@ -1,0 +1,367 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtQml/6.12.0/QtQml/private/qv4engine_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN3QV415ExecutionEngine8jsAllocaEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine8jsEngineEv": ["address", "address"],
+    "ritual_ZNK3QV415ExecutionEngine9qmlEngineEv": ["address", "address"],
+    "ritual_ZNK3QV415ExecutionEngine11rootContextEv": ["address", "address"],
+    "ritual_ZNK3QV415ExecutionEngine13scriptContextEv": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV415ExecutionEngine16setScriptContextEy": [
+      "nothing", "address", "unsigned long long"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine10objectCtorEv": ["address", "address"],
+    "ritual_ZNK3QV415ExecutionEngine10stringCtorEv": ["address", "address"],
+    "ritual_ZNK3QV415ExecutionEngine10symbolCtorEv": ["address", "address"],
+    "ritual_ZNK3QV415ExecutionEngine10numberCtorEv": ["address", "address"],
+    "ritual_ZNK3QV415ExecutionEngine11booleanCtorEv": ["address", "address"],
+    "ritual_ZNK3QV415ExecutionEngine9arrayCtorEv": ["address", "address"],
+    "ritual_ZNK3QV415ExecutionEngine12functionCtorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine21generatorFunctionCtorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine8dateCtorEv": ["address", "address"],
+    "ritual_ZNK3QV415ExecutionEngine10regExpCtorEv": ["address", "address"],
+    "ritual_ZNK3QV415ExecutionEngine9errorCtorEv": ["address", "address"],
+    "ritual_ZNK3QV415ExecutionEngine13evalErrorCtorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine14rangeErrorCtorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine18referenceErrorCtorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine15syntaxErrorCtorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine13typeErrorCtorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine12uRIErrorCtorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine21sharedArrayBufferCtorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine11promiseCtorEv": ["address", "address"],
+    "ritual_ZNK3QV415ExecutionEngine15arrayBufferCtorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine12dataViewCtorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine11weakSetCtorEv": ["address", "address"],
+    "ritual_ZNK3QV415ExecutionEngine7setCtorEv": ["address", "address"],
+    "ritual_ZNK3QV415ExecutionEngine11weakMapCtorEv": ["address", "address"],
+    "ritual_ZNK3QV415ExecutionEngine7mapCtorEv": ["address", "address"],
+    "ritual_ZNK3QV415ExecutionEngine23intrinsicTypedArrayCtorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine7urlCtorEv": ["address", "address"],
+    "ritual_ZNK3QV415ExecutionEngine19urlSearchParamsCtorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine16getSymbolSpeciesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine15objectPrototypeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine15symbolPrototypeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine14arrayPrototypeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine16arrayProtoValuesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine21propertyListPrototypeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine15stringPrototypeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine15numberPrototypeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine16booleanPrototypeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine13datePrototypeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine17functionPrototypeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine18generatorPrototypeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine15regExpPrototypeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine14errorPrototypeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine18evalErrorPrototypeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine19rangeErrorPrototypeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine23referenceErrorPrototypeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine20syntaxErrorPrototypeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine18typeErrorPrototypeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine17uRIErrorPrototypeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine16promisePrototypeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine16variantPrototypeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine27variantAssociationPrototypeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine17sequencePrototypeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine26sharedArrayBufferPrototypeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine20arrayBufferPrototypeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine17dataViewPrototypeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine16weakSetPrototypeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine12setPrototypeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine16weakMapPrototypeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine12mapPrototypeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine28intrinsicTypedArrayPrototypeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine25valueTypeWrapperPrototypeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine22signalHandlerPrototypeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine20typeWrapperPrototypeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine17iteratorPrototypeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine22forInIteratorPrototypeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine20setIteratorPrototypeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine20mapIteratorPrototypeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine22arrayIteratorPrototypeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine23stringIteratorPrototypeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine12urlPrototypeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine24urlSearchParamsPrototypeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine12evalFunctionEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine16getStackFunctionEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine7throwerEv": ["address", "address"],
+    "ritual_ZNK3QV415ExecutionEngine8id_emptyEv": ["address", "address"],
+    "ritual_ZNK3QV415ExecutionEngine12id_undefinedEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine7id_nullEv": ["address", "address"],
+    "ritual_ZNK3QV415ExecutionEngine7id_trueEv": ["address", "address"],
+    "ritual_ZNK3QV415ExecutionEngine8id_falseEv": ["address", "address"],
+    "ritual_ZNK3QV415ExecutionEngine10id_booleanEv": ["address", "address"],
+    "ritual_ZNK3QV415ExecutionEngine9id_numberEv": ["address", "address"],
+    "ritual_ZNK3QV415ExecutionEngine9id_stringEv": ["address", "address"],
+    "ritual_ZNK3QV415ExecutionEngine10id_defaultEv": ["address", "address"],
+    "ritual_ZNK3QV415ExecutionEngine9id_symbolEv": ["address", "address"],
+    "ritual_ZNK3QV415ExecutionEngine9id_objectEv": ["address", "address"],
+    "ritual_ZNK3QV415ExecutionEngine11id_functionEv": ["address", "address"],
+    "ritual_ZNK3QV415ExecutionEngine9id_lengthEv": ["address", "address"],
+    "ritual_ZNK3QV415ExecutionEngine12id_prototypeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine14id_constructorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine12id_argumentsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine9id_callerEv": ["address", "address"],
+    "ritual_ZNK3QV415ExecutionEngine9id_calleeEv": ["address", "address"],
+    "ritual_ZNK3QV415ExecutionEngine7id_thisEv": ["address", "address"],
+    "ritual_ZNK3QV415ExecutionEngine12id___proto__Ev": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine13id_enumerableEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine15id_configurableEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine11id_writableEv": ["address", "address"],
+    "ritual_ZNK3QV415ExecutionEngine8id_valueEv": ["address", "address"],
+    "ritual_ZNK3QV415ExecutionEngine6id_getEv": ["address", "address"],
+    "ritual_ZNK3QV415ExecutionEngine6id_setEv": ["address", "address"],
+    "ritual_ZNK3QV415ExecutionEngine7id_evalEv": ["address", "address"],
+    "ritual_ZNK3QV415ExecutionEngine10id_uintMaxEv": ["address", "address"],
+    "ritual_ZNK3QV415ExecutionEngine7id_nameEv": ["address", "address"],
+    "ritual_ZNK3QV415ExecutionEngine8id_indexEv": ["address", "address"],
+    "ritual_ZNK3QV415ExecutionEngine8id_inputEv": ["address", "address"],
+    "ritual_ZNK3QV415ExecutionEngine11id_toStringEv": ["address", "address"],
+    "ritual_ZNK3QV415ExecutionEngine17id_toLocaleStringEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine10id_destroyEv": ["address", "address"],
+    "ritual_ZNK3QV415ExecutionEngine10id_valueOfEv": ["address", "address"],
+    "ritual_ZNK3QV415ExecutionEngine13id_byteLengthEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine13id_byteOffsetEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine9id_bufferEv": ["address", "address"],
+    "ritual_ZNK3QV415ExecutionEngine12id_lastIndexEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine7id_nextEv": ["address", "address"],
+    "ritual_ZNK3QV415ExecutionEngine7id_doneEv": ["address", "address"],
+    "ritual_ZNK3QV415ExecutionEngine9id_returnEv": ["address", "address"],
+    "ritual_ZNK3QV415ExecutionEngine8id_throwEv": ["address", "address"],
+    "ritual_ZNK3QV415ExecutionEngine9id_globalEv": ["address", "address"],
+    "ritual_ZNK3QV415ExecutionEngine13id_ignoreCaseEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine12id_multilineEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine10id_unicodeEv": ["address", "address"],
+    "ritual_ZNK3QV415ExecutionEngine9id_stickyEv": ["address", "address"],
+    "ritual_ZNK3QV415ExecutionEngine9id_sourceEv": ["address", "address"],
+    "ritual_ZNK3QV415ExecutionEngine8id_flagsEv": ["address", "address"],
+    "ritual_ZNK3QV415ExecutionEngine18symbol_hasInstanceEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine25symbol_isConcatSpreadableEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine15symbol_iteratorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine12symbol_matchEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine14symbol_replaceEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine13symbol_searchEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine14symbol_speciesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine12symbol_splitEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine18symbol_toPrimitiveEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine18symbol_toStringTagEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine18symbol_unscopablesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine21symbol_revokableProxyEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine8debuggerEv": ["address", "address"],
+    "ritual_ZNK3QV415ExecutionEngine8profilerEv": ["address", "address"],
+    "ritual_ZN3QV415ExecutionEngine10newProtoIdEv": [
+      "unsigned long long", "address"
+    ],
+    "ritual_ZN3QV415ExecutionEngine10qmlContextEPNS_4Heap16ExecutionContextE": [
+      "address", "address"
+    ],
+    "ritual_ZNK3QV415ExecutionEngine10qmlContextEv": ["address", "address"],
+    "ritual_ZN3QV415ExecutionEngine9toVariantERKNS_5ValueE9QMetaTypeb": [
+      "address", "address", "address", "bool"
+    ],
+    "ritual_ZN3QV415ExecutionEngine14toVariantLossyERKNS_5ValueE": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV415ExecutionEngine11fromVariantERK8QVariant": [
+      "unsigned long long", "address", "address"
+    ],
+    "ritual_ZN3QV415ExecutionEngine11fromVariantERK8QVariantPNS_4Heap6ObjectEij": [
+      "unsigned long long", "address", "address", "address", "int",
+      "unsigned int"
+    ],
+    "ritual_ZN3QV415ExecutionEngine16variantMapFromJSEPKNS_6ObjectE": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV415ExecutionEngine17variantHashFromJSEPKNS_6ObjectE": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV415ExecutionEngine14resetQmlEngineEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN3QV415ExecutionEngine16delayedCallQueueEv": [
+      "address", "address"
+    ],
+    "ritual_ZN3QV415ExecutionEngine17registrationMutexEv": ["address"],
+    "ritual_ZN3QV415ExecutionEngine17registerExtensionEv": ["int"],
+    "ritual_ZNK3QV415ExecutionEngine13extensionDataEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN3QV415ExecutionEngine15setMaxCallDepthEi": ["nothing", "int"],
+    "ritual_ZN3QV415ExecutionEngine12maxCallDepthEv": ["int"],
+    "ritual_ZNK3QV415ExecutionEngine18hasJsStackOverflowEv": [
+      "bool", "address"
+    ]
+  }
+}

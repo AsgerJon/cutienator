@@ -125,11 +125,13 @@ QBitmap *ritual_ZN7QBitmapC1Ev() {
   return new CuteQBitmap();
 }
 
+#if QT_DEPRECATED_SINCE(6, 0)
 //  QBitmap::QBitmap(const QPixmap &a0)
 extern "C" Q_DECL_EXPORT
 QBitmap *ritual_ZN7QBitmapC1ERK7QPixmap(const QPixmap *a0) {
   return new CuteQBitmap(*a0);
 }
+#endif  // QT_DEPRECATED_SINCE(6, 0)
 
 //  QBitmap::QBitmap(int w, int h)
 extern "C" Q_DECL_EXPORT
