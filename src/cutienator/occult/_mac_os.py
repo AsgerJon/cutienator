@@ -157,17 +157,17 @@ class MacOS(System):
     -------
 
     Paths
-      '-Wl,-undefined,error', so a ritual calling a function that no Qt
-      shared object offers stops the build. It is what
-      '-Wl,--no-undefined' is on Linux, in the words of Apple's linker,
-      which does not know the other;
       '-Wl,-rpath,' with the folder of Qt's shared objects, so the built
       file opens the Qt it was built against. Qt's shared objects on macOS
       name themselves from that folder on, as
       'QtCore.framework/Versions/A/QtCore', so it is that folder and not
       the framework that the built file has to carry.
+
+    Nothing more: Apple's linker refuses a function no Qt shared object
+    offers by itself, what '-Wl,--no-undefined' asks on Linux, and
+    warns that its own word for it, '-undefined error', is deprecated.
     """
-    return ('-Wl,-undefined,error', '-Wl,-rpath,%s' % qtFolder,)
+    return ('-Wl,-rpath,%s' % qtFolder,)
 
   def prepareOpening(self) -> None:
     """

@@ -4,7 +4,9 @@
 from __future__ import annotations
 
 import os
+import shutil
 import subprocess
+import tempfile
 import threading
 from concurrent.futures import ThreadPoolExecutor
 from typing import TYPE_CHECKING
@@ -131,6 +133,12 @@ class Build:
     also when several builds run at once, as 'Rituals.build' runs
     those of several parts of Qt.
 
+    A command of 'clang++' longer than '__long_command__' letters is
+    handed over in a file, as 'clang++ @file', which 'clang++' reads
+    as if each line stood on the command: Windows starts no program
+    whose command is longer than 32767 letters, and the link of a part
+    of Qt with a thousand ritual files is.
+
     Parameters
     ----------
 
@@ -151,13 +159,32 @@ class Build:
 
     RuntimeError
       The program ran and reported a failure; its message is included.
+      Or the system did not start it, though it is installed; what the
+      system said is included.
     """
+    if shutil.which(command[0]) is None:
+      infoSpec = """The program '%s' is needed and is not installed."""
+      raise FileNotFoundError(infoSpec % command[0])
+    told = None  # type: Optional[str]
+    tooLong = sum(len(word) + 3 for word in command) > Build.__long_command__
+    if tooLong and os.path.basename(command[0]).startswith('clang'):
+      #  One word to a line, between quotes, as 'clang++' reads a file
+      #  of them when told '--rsp-quoting=posix', on any system.
+      handle, told = tempfile.mkstemp(prefix='cutienator-', suffix='.txt')
+      with os.fdopen(handle, 'w', encoding='utf-8') as file:
+        for word in command[1:]:
+          word = word.replace('\\', '\\\\').replace('"', '\\"')
+          file.write('"%s"\n' % word)
+      command = (command[0], '--rsp-quoting=posix', '@%s' % told)
     try:
       with Build.__program_slots__:
         done = subprocess.run(command, capture_output=True, text=True)
-    except FileNotFoundError as fileNotFoundError:
-      infoSpec = """The program '%s' is needed and is not installed."""
-      raise FileNotFoundError(infoSpec % command[0]) from fileNotFoundError
+    except OSError as osError:
+      infoSpec = """The system did not start the program '%s': %s"""
+      raise RuntimeError(infoSpec % (command[0], osError)) from osError
+    finally:
+      if told is not None:
+        os.remove(told)
     if done.returncode:
       infoSpec = """The program '%s' failed: %s"""
       raise RuntimeError(infoSpec % (command[0], done.stderr.strip()))
@@ -171,6 +198,9 @@ class Build:
   #  One slot for each processor of the machine; a program run through
   #  '_run' holds one while it runs.
   __program_slots__ = threading.BoundedSemaphore(os.cpu_count() or 1)
+  #  How many letters a command may have before it is handed over in a
+  #  file; see '_run'. Windows refuses more than 32767.
+  __long_command__ = 8000
   __qt_header_folder__: Optional[str] = None
   __qt_shared_object_folder__: Optional[str] = None
   __qt_program_folder__: Optional[str] = None

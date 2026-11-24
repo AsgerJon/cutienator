@@ -6,7 +6,7 @@
 # nothing on 'main' and reads no safety.
 # Each machine hands over what its compile produced as an artifact of
 # the run, to download from the page of the run: every object file
-# (the folder 'demons'), the joined library when there is one, and the
+# (the folder 'demons'), the joined library of each part of Qt, and the
 # report. They are for looking at during development. They are not
 # given out with cutienator: each fits only the Qt and the compiler of
 # the machine that made it.
@@ -30,14 +30,18 @@ jobs:
       # Linux only. Qt's own header 'QtGui/qopengl.h' pulls in the
       # OpenGL header 'GL/gl.h'. That file is no part of Qt, and a
       # Linux machine of GitHub does not carry it by itself: the image
-      # 'ubuntu-26.04' has none. 'libgl-dev' brings it. It is the one
-      # header of the system the ritual files need beside the C and
-      # C++ libraries.
+      # 'ubuntu-26.04' has none. 'libgl-dev' alone did not bring it
+      # there; 'mesa-common-dev' is the package that has always carried
+      # it. It is the one header of the system the ritual files need
+      # beside the C and C++ libraries, and the step ends here, naming
+      # it, when it is still missing.
       - name: Install the OpenGL headers
         if: ${{ runner.os == 'Linux' }}
         run: |
           sudo apt-get update
-          sudo apt-get install -y libgl-dev
+          sudo apt-get install -y libgl-dev mesa-common-dev
+          test -f /usr/include/GL/gl.h \
+            || { echo "GL/gl.h is still missing" >&2; exit 1; }
       # The same Qt, fetched the same way, as the release workflows
       # fetch it; see 'micro-dev.yml' for why each line is there.
       - name: Install Qt 6.12.0
@@ -92,6 +96,6 @@ jobs:
           name: demons-${{ matrix.name }}
           path: |
             src/cutienator/occult/demons/
-            src/cutienator/occult/libcutienator.*
+            src/cutienator/occult/libcutienator_*
             horsemen/
           if-no-files-found: warn

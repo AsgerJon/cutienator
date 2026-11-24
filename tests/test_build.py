@@ -217,6 +217,24 @@ class TestBuild(BaseTest):
     for line in lines:
       self.assertTrue(line.startswith(('#include <', '#include "')), line)
 
+  def test_a_long_command_goes_in_a_file(self) -> None:
+    """A command of 'clang++' longer than Windows starts a program with
+    is handed over in a file, and every word arrives as it was given:
+    spaces, quotes and backslashes too."""
+    words = ['-DCUTE_%d="a b\\c"' % i for i in range(1500)]
+    self.assertGreater(sum(len(word) + 3 for word in words), 32767 - 5000)
+    said = Build._run(
+        'clang++', '-E', '-dM', '-x', 'c++', os.devnull, *words)
+    lines = said.split('\n')
+    self.assertIn('#define CUTE_7 "a b\\c"', lines)
+    self.assertIn('#define CUTE_1499 "a b\\c"', lines)
+
+  def test_a_program_not_installed_is_named(self) -> None:
+    """Only a program that is not installed is said to be missing."""
+    with self.assertRaises(FileNotFoundError) as caught:
+      Build._run('no-such-program-of-cutienator', '-v')
+    self.assertIn('no-such-program-of-cutienator', str(caught.exception))
+
   def test_job_count(self) -> None:
     """As many at once as the machine has processors, or as told."""
     build = Build()

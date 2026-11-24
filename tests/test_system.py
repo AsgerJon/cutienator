@@ -133,7 +133,7 @@ class TestSystem(BaseTest):
     )
     self.assertEqual(
         MacOS().getLinkerFlags('/opt/qt/lib'),
-        ('-Wl,-undefined,error', '-Wl,-rpath,/opt/qt/lib',),
+        ('-Wl,-rpath,/opt/qt/lib',),
     )
     self.assertEqual(Windows().getLinkerFlags('C:/Qt/lib'), ())
 
