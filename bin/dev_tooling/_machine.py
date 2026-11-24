@@ -34,11 +34,14 @@ class Machine:
 
   - The system is the one Python runs on, as 'platform.system()' names
     it: 'Linux', 'Darwin' for macOS, and 'Windows'.
-  - On Windows the tooling compiles as MinGW does, not as Visual
-    Studio does: the generator reads the compiler's own names of
-    functions the way Linux and macOS write them, as
+  - On Windows the reader and the generator compile as MinGW does, not
+    as Visual Studio does: the generator reads the compiler's own
+    names of functions the way Linux and macOS write them, as
     '_ZNK7QObject6threadEv', and Visual Studio writes them otherwise,
-    as '?thread@QObject@@QEBAPEAVQThread@@XZ'.
+    as '?thread@QObject@@QEBAPEAVQThread@@XZ'. For that, 'clang++'
+    finds the header files of MinGW through the 'gcc' of MinGW in
+    'PATH'. The tester builds as cutienator's 'Build' does there, for
+    the Qt of Visual Studio, and does not ask this class how.
 
   What to expect
   --------------
@@ -72,9 +75,13 @@ class Machine:
   )  # type: Dict[str, Words]
 
   #  The program that turns the compiler's own name of a function back
-  #  into C++. LLVM's comes with 'clang++' on Windows.
+  #  into C++. LLVM's comes with 'clang++' on Windows. That of macOS
+  #  drops a '_' in front of each name unless told '-n', since names
+  #  in an object file of macOS carry one more; the names the
+  #  generator reads have none, as on the other systems.
   __demanglers__ = dict(
-      Linux=('c++filt',), Darwin=('c++filt',), Windows=('llvm-cxxfilt',),
+      Linux=('c++filt',), Darwin=('c++filt', '-n'),
+      Windows=('llvm-cxxfilt',),
   )  # type: Dict[str, Words]
 
   #  The file name of a shared object built from a ritual file, from
@@ -148,16 +155,17 @@ class Machine:
     others, as the compiler names it, as '_ZNK7QObject6threadEv'.
 
     Found by the program 'nm': on Linux 'nm -D --defined-only', on
-    macOS 'nm -gU', which writes each name with a '_' more in front.
+    macOS 'nm -gU', which writes each name with a '_' more in front. On
+    Windows a DLL keeps what it offers in a table of its own, which
+    LLVM's 'llvm-readobj --coff-exports' lists, a name to a line, as
+    'Name: ritual_ZNK7QObject6threadEv'.
 
     Raises
     ------
 
     RuntimeError
-      'nm' could not read the file; its message is included.
-
-    NotImplementedError
-      Windows: not yet.
+      'nm' or 'llvm-readobj' could not read the file; its message is
+      included.
     """
     system = cls.getSystemName()
     if system == 'Linux':
@@ -165,16 +173,21 @@ class Machine:
     elif system == 'Darwin':
       command = ('nm', '-gU', path)
     else:
-      infoSpec = """Listing what a shared object offers is not written
-      for Windows yet."""
-      raise NotImplementedError(' '.join(infoSpec.split()))
+      command = ('llvm-readobj', '--coff-exports', path)
     done = subprocess.run(
         command, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
         universal_newlines=True)
     if done.returncode:
-      infoSpec = """The program 'nm' could not read '%s': %s"""
-      raise RuntimeError(infoSpec % (path, done.stderr.strip()))
+      infoSpec = """The program '%s' could not read '%s': %s"""
+      raise RuntimeError(
+          infoSpec % (command[0], path, done.stderr.strip()))
     offered = set()  # type: Set[str]
+    if system == 'Windows':
+      for line in done.stdout.splitlines():
+        words = line.split()
+        if len(words) == 2 and words[0] == 'Name:':
+          offered.add(words[1])
+      return offered
     for line in done.stdout.splitlines():
       words = line.split()
       if len(words) < 3 or words[-2] not in ('T', 't', 'W', 'w'):

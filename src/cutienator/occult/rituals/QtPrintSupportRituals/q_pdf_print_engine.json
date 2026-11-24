@@ -1,0 +1,49 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtPrintSupport/6.12.0/QtPrintSupport/private/qprintengine_pdf_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QPdfPrintEngine6d_funcEv": ["address", "address"],
+    "ritual_ZNK15QPdfPrintEngine6d_funcEv": ["address", "address"],
+    "ritual_ZN15QPdfPrintEngineC1EN8QPrinter11PrinterModeEN10QPdfEngine10PdfVersionE": [
+      "address", "int", "int"
+    ],
+    "ritual_ZN15QPdfPrintEngineD1Ev": ["nothing", "address"],
+    "ritual_ZN15QPdfPrintEngine5beginEP12QPaintDevice": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN15QPdfPrintEngine3endEv": ["bool", "address"],
+    "ritual_ZN15QPdfPrintEngine5abortEv": ["bool", "address"],
+    "ritual_ZNK15QPdfPrintEngine12printerStateEv": ["int", "address"],
+    "ritual_ZN15QPdfPrintEngine7newPageEv": ["bool", "address"],
+    "ritual_ZNK15QPdfPrintEngine6metricEN12QPaintDevice17PaintDeviceMetricE": [
+      "int", "address", "int"
+    ],
+    "ritual_ZN15QPdfPrintEngine11setPropertyEN12QPrintEngine22PrintEnginePropertyKeyERK8QVariant": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZNK15QPdfPrintEngine8propertyEN12QPrintEngine22PrintEnginePropertyKeyE": [
+      "address", "address", "int"
+    ],
+    "ritual_cast_QPdfPrintEngine_QPrintEngine": ["address", "address"],
+    "ritual_take_QPdfPrintEngine": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN15QPdfPrintEngine5beginEP12QPaintDevice": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN15QPdfPrintEngine3endEv": ["bool", "address"],
+    "ritual_own_ZN15QPdfPrintEngine5abortEv": ["bool", "address"],
+    "ritual_own_ZNK15QPdfPrintEngine12printerStateEv": ["int", "address"],
+    "ritual_own_ZN15QPdfPrintEngine7newPageEv": ["bool", "address"],
+    "ritual_own_ZNK15QPdfPrintEngine6metricEN12QPaintDevice17PaintDeviceMetricE": [
+      "int", "address", "int"
+    ],
+    "ritual_own_ZN15QPdfPrintEngine11setPropertyEN12QPrintEngine22PrintEnginePropertyKeyERK8QVariant": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_own_ZNK15QPdfPrintEngine8propertyEN12QPrintEngine22PrintEnginePropertyKeyE": [
+      "address", "address", "int"
+    ]
+  }
+}

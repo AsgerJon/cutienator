@@ -1,0 +1,215 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtPrintSupport/6.12.0/QtPrintSupport/qpa/qplatformprintdevice.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QPlatformPrintDeviceC1ERK7QString": ["address", "text"],
+    "ritual_ZN20QPlatformPrintDeviceD1Ev": ["nothing", "address"],
+    "ritual_ZNK20QPlatformPrintDevice2idEv": ["text", "address"],
+    "ritual_ZNK20QPlatformPrintDevice4nameEv": ["text", "address"],
+    "ritual_ZNK20QPlatformPrintDevice8locationEv": ["text", "address"],
+    "ritual_ZNK20QPlatformPrintDevice12makeAndModelEv": ["text", "address"],
+    "ritual_ZNK20QPlatformPrintDevice7isValidEv": ["bool", "address"],
+    "ritual_ZNK20QPlatformPrintDevice9isDefaultEv": ["bool", "address"],
+    "ritual_ZNK20QPlatformPrintDevice8isRemoteEv": ["bool", "address"],
+    "ritual_ZNK20QPlatformPrintDevice5stateEv": ["int", "address"],
+    "ritual_ZNK20QPlatformPrintDevice17isValidPageLayoutERK11QPageLayouti": [
+      "bool", "address", "address", "int"
+    ],
+    "ritual_ZNK20QPlatformPrintDevice22supportsMultipleCopiesEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK20QPlatformPrintDevice21supportsCollateCopiesEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK20QPlatformPrintDevice15defaultPageSizeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QPlatformPrintDevice18supportedPageSizesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QPlatformPrintDevice17supportedPageSizeERK9QPageSize": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK20QPlatformPrintDevice17supportedPageSizeEN9QPageSize10PageSizeIdE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK20QPlatformPrintDevice17supportedPageSizeERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK20QPlatformPrintDevice17supportedPageSizeERK5QSize": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK20QPlatformPrintDevice17supportedPageSizeERK6QSizeFN9QPageSize4UnitE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZNK20QPlatformPrintDevice23supportsCustomPageSizesEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK20QPlatformPrintDevice23minimumPhysicalPageSizeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QPlatformPrintDevice23maximumPhysicalPageSizeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QPlatformPrintDevice16printableMarginsERK9QPageSizeN11QPageLayout11OrientationEi": [
+      "address", "address", "address", "int", "int"
+    ],
+    "ritual_ZNK20QPlatformPrintDevice17defaultResolutionEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK20QPlatformPrintDevice16defaultInputSlotEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QPlatformPrintDevice16defaultOutputBinEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QPlatformPrintDevice17defaultDuplexModeEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK20QPlatformPrintDevice16defaultColorModeEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK20QPlatformPrintDevice8propertyEN12QPrintDevice22PrintDevicePropertyKeyE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN20QPlatformPrintDevice11setPropertyEN12QPrintDevice22PrintDevicePropertyKeyERK8QVariant": [
+      "bool", "address", "int", "address"
+    ],
+    "ritual_ZNK20QPlatformPrintDevice18isFeatureAvailableEN12QPrintDevice22PrintDevicePropertyKeyERK8QVariant": [
+      "bool", "address", "int", "address"
+    ],
+    "ritual_ZNK20QPlatformPrintDevice18supportedMimeTypesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QPlatformPrintDevice14createPageSizeERK7QStringRK5QSizeS2_": [
+      "address", "text", "address", "text"
+    ],
+    "ritual_ZN20QPlatformPrintDevice14createPageSizeEiRK5QSizeRK7QString": [
+      "address", "int", "address", "text"
+    ],
+    "ritual_ZNK20QPlatformPrintDevice13loadPageSizesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK20QPlatformPrintDevice15loadResolutionsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK20QPlatformPrintDevice14loadInputSlotsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK20QPlatformPrintDevice14loadOutputBinsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK20QPlatformPrintDevice15loadDuplexModesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK20QPlatformPrintDevice14loadColorModesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK20QPlatformPrintDevice13loadMimeTypesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK20QPlatformPrintDevice22supportedPageSizeMatchERK9QPageSize": [
+      "address", "address", "address"
+    ],
+    "ritual_take_QPlatformPrintDevice": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK20QPlatformPrintDevice2idEv": ["text", "address"],
+    "ritual_own_ZNK20QPlatformPrintDevice4nameEv": ["text", "address"],
+    "ritual_own_ZNK20QPlatformPrintDevice8locationEv": ["text", "address"],
+    "ritual_own_ZNK20QPlatformPrintDevice12makeAndModelEv": [
+      "text", "address"
+    ],
+    "ritual_own_ZNK20QPlatformPrintDevice7isValidEv": ["bool", "address"],
+    "ritual_own_ZNK20QPlatformPrintDevice9isDefaultEv": ["bool", "address"],
+    "ritual_own_ZNK20QPlatformPrintDevice8isRemoteEv": ["bool", "address"],
+    "ritual_own_ZNK20QPlatformPrintDevice5stateEv": ["int", "address"],
+    "ritual_own_ZNK20QPlatformPrintDevice17isValidPageLayoutERK11QPageLayouti": [
+      "bool", "address", "address", "int"
+    ],
+    "ritual_own_ZNK20QPlatformPrintDevice22supportsMultipleCopiesEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZNK20QPlatformPrintDevice21supportsCollateCopiesEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZNK20QPlatformPrintDevice15defaultPageSizeEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK20QPlatformPrintDevice17supportedPageSizeERK9QPageSize": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZNK20QPlatformPrintDevice17supportedPageSizeEN9QPageSize10PageSizeIdE": [
+      "address", "address", "int"
+    ],
+    "ritual_own_ZNK20QPlatformPrintDevice17supportedPageSizeERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_own_ZNK20QPlatformPrintDevice17supportedPageSizeERK5QSize": [
+      "address", "address", "address"
+    ],
+    "ritual_own_ZNK20QPlatformPrintDevice17supportedPageSizeERK6QSizeFN9QPageSize4UnitE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_own_ZNK20QPlatformPrintDevice23supportsCustomPageSizesEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZNK20QPlatformPrintDevice23minimumPhysicalPageSizeEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK20QPlatformPrintDevice23maximumPhysicalPageSizeEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK20QPlatformPrintDevice16printableMarginsERK9QPageSizeN11QPageLayout11OrientationEi": [
+      "address", "address", "address", "int", "int"
+    ],
+    "ritual_own_ZNK20QPlatformPrintDevice17defaultResolutionEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZNK20QPlatformPrintDevice16defaultInputSlotEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK20QPlatformPrintDevice16defaultOutputBinEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK20QPlatformPrintDevice17defaultDuplexModeEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZNK20QPlatformPrintDevice16defaultColorModeEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZNK20QPlatformPrintDevice8propertyEN12QPrintDevice22PrintDevicePropertyKeyE": [
+      "address", "address", "int"
+    ],
+    "ritual_own_ZN20QPlatformPrintDevice11setPropertyEN12QPrintDevice22PrintDevicePropertyKeyERK8QVariant": [
+      "bool", "address", "int", "address"
+    ],
+    "ritual_own_ZNK20QPlatformPrintDevice18isFeatureAvailableEN12QPrintDevice22PrintDevicePropertyKeyERK8QVariant": [
+      "bool", "address", "int", "address"
+    ],
+    "ritual_own_ZNK20QPlatformPrintDevice13loadPageSizesEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZNK20QPlatformPrintDevice15loadResolutionsEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZNK20QPlatformPrintDevice14loadInputSlotsEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZNK20QPlatformPrintDevice14loadOutputBinsEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZNK20QPlatformPrintDevice15loadDuplexModesEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZNK20QPlatformPrintDevice14loadColorModesEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZNK20QPlatformPrintDevice13loadMimeTypesEv": [
+      "nothing", "address"
+    ]
+  }
+}

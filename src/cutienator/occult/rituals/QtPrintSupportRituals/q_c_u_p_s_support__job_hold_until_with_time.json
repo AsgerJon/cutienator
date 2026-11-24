@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtPrintSupport/6.12.0/QtPrintSupport/private/qcups_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN12QCUPSSupport20JobHoldUntilWithTimeC1ENS_12JobHoldUntilE5QTime": [
+      "address", "int", "address"
+    ],
+    "ritual_ZN12QCUPSSupport20JobHoldUntilWithTimeD1Ev": [
+      "nothing", "address"
+    ]
+  }
+}

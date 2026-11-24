@@ -1,0 +1,49 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtMultimedia/6.12.0/QtMultimedia/private/qalsaaudiosource_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK16QAlsaAudioSource10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QAlsaAudioSourceD1Ev": ["nothing", "address"],
+    "ritual_ZN16QAlsaAudioSource5startEP9QIODevice": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QAlsaAudioSource5startEv": ["address", "address"],
+    "ritual_ZN16QAlsaAudioSource4stopEv": ["nothing", "address"],
+    "ritual_ZN16QAlsaAudioSource5resetEv": ["nothing", "address"],
+    "ritual_ZN16QAlsaAudioSource7suspendEv": ["nothing", "address"],
+    "ritual_ZN16QAlsaAudioSource6resumeEv": ["nothing", "address"],
+    "ritual_ZNK16QAlsaAudioSource10bytesReadyEv": ["long long", "address"],
+    "ritual_ZN16QAlsaAudioSource13setBufferSizeEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZNK16QAlsaAudioSource10bufferSizeEv": ["long long", "address"],
+    "ritual_ZNK16QAlsaAudioSource14processedUSecsEv": [
+      "long long", "address"
+    ],
+    "ritual_ZNK16QAlsaAudioSource5stateEv": ["int", "address"],
+    "ritual_ZN16QAlsaAudioSource15checkBytesReadyEv": ["int", "address"],
+    "ritual_ZN16QAlsaAudioSource9setFormatEv": ["int", "address"],
+    "ritual_ZN16QAlsaAudioSource5closeEv": ["nothing", "address"],
+    "ritual_ZN16QAlsaAudioSource5drainEv": ["nothing", "address"],
+    "ritual_take_QAlsaAudioSource": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN16QAlsaAudioSource4stopEv": ["nothing", "address"],
+    "ritual_own_ZN16QAlsaAudioSource5resetEv": ["nothing", "address"],
+    "ritual_own_ZN16QAlsaAudioSource7suspendEv": ["nothing", "address"],
+    "ritual_own_ZNK16QAlsaAudioSource10bytesReadyEv": [
+      "long long", "address"
+    ],
+    "ritual_own_ZN16QAlsaAudioSource13setBufferSizeEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_own_ZNK16QAlsaAudioSource10bufferSizeEv": [
+      "long long", "address"
+    ],
+    "ritual_own_ZNK16QAlsaAudioSource14processedUSecsEv": [
+      "long long", "address"
+    ],
+    "ritual_own_ZNK16QAlsaAudioSource5stateEv": ["int", "address"]
+  }
+}

@@ -220,6 +220,97 @@ class RitualGenerator:
       return '%s%s' % (cppType, name)
     return '%s %s' % (cppType, name)
 
+  @staticmethod
+  def _readCompilerText(text: str) -> Tuple[Dict[str, Set[str]], Set[str]]:
+    """
+    Reads the text the compiler writes of a file before it makes an
+    object file of it, LLVM's IR, which 'clang++ -S -emit-llvm' gives.
+    It is the same text on Linux, macOS and Windows, where the object
+    files are not: the compiler's own name of each function, as
+    '_ZNK7QObject6threadEv', stands in it as it is everywhere, without
+    the '_' more that macOS puts in front in an object file.
+
+    Parameters
+    ----------
+
+    text : str
+      The text, as the compiler wrote it.
+
+    Returns
+    -------
+
+    Tuple[Dict[str, Set[str]], Set[str]]
+      For each name the file defines, a function, as a ritual, or a
+      thing kept in memory, as a table of virtual functions, the names
+      it leans on directly; and the names the file only declares, which
+      must come from elsewhere.
+
+    The text is read line by line:
+
+      define ... @name(...) ... {   a function the file defines, up to
+      }                             the line '}' alone
+      declare ... @name(...)        a function from elsewhere
+      @name = external global ...   a thing from elsewhere
+      @name = ... constant ...      a thing the file defines, leaning
+                                    on each name in the rest of the line
+
+    The names of LLVM's own helpers, as 'llvm.memcpy.p0.p0.i64', are
+    passed over: the compiler makes them into code of its own.
+    """
+    #  A name is '@' and the word, or '@' and a text between '"'.
+    #  Another text between '"', as that of a 'char' array, may hold
+    #  an '@' that is no name, and is passed over whole.
+    token = re.compile(r'@"([^"]*)"|"[^"]*"|@([-\w$.]+)')
+    escaped = re.compile(r'\\([0-9A-Fa-f]{2})')
+
+    def namesIn(line: str) -> List[str]:
+      """Gives each name the line holds, in the order they stand."""
+      found = []  # type: List[str]
+      for quoted, plain in token.findall(line):
+        name = plain or escaped.sub(
+            lambda match: chr(int(match.group(1), 16)), quoted)
+        #  A leading '\\01' tells the compiler to write the name as it
+        #  stands; the name is the rest.
+        name = name.lstrip('\x01')
+        if name and not name.startswith('llvm.'):
+          found.append(name)
+      return found
+
+    leans = dict()  # type: Dict[str, Set[str]]
+    declared = set()  # type: Set[str]
+    inside = None  # type: Optional[str]
+    for line in text.split('\n'):
+      if inside is not None:
+        if line == '}':
+          inside = None
+        else:
+          leans[inside].update(namesIn(line))
+        continue
+      if line.startswith(('define ', 'declare ')):
+        names = namesIn(line)
+        if not names:
+          continue
+        if line.startswith('declare '):
+          declared.add(names[0])
+          continue
+        leans.setdefault(names[0], set()).update(names[1:])
+        if line.rstrip().endswith('{'):
+          inside = names[0]
+        continue
+      if not line.startswith('@'):
+        continue
+      names = namesIn(line)
+      if not names:
+        continue
+      #  The words between '=' and the kind of the thing say whether it
+      #  is kept here or elsewhere.
+      before = re.split(r' (?:global|constant|alias|ifunc) ', line, 1)[0]
+      if re.search(r'= (?:\S+ )*(?:external|extern_weak)\b', before):
+        declared.add(names[0])
+        continue
+      leans.setdefault(names[0], set()).update(names[1:])
+    return leans, declared - set(leans)
+
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -2797,7 +2888,8 @@ class RitualGenerator:
     """
     blamed, chain = set(), set()  # type: Set[int], Set[int]
     inStack = False
-    place = re.compile(r'(?:^|/)%s:(\d+):' % re.escape(fileName))
+    #  The path before the name ends in '/', or in '\' on Windows.
+    place = re.compile(r'(?:^|[/\\])%s:(\d+):' % re.escape(fileName))
     for line in said.splitlines():
       stripped = line.strip()
       if stripped.startswith(('In file included from', 'from ')):
@@ -2819,27 +2911,29 @@ class RitualGenerator:
       text: str,
   ) -> Tuple[Dict[int, str], Dict[str, Set[str]], Set[str]]:
     """
-    Compiles the text of a ritual file to an object file, joining
-    nothing, and says what came of it. The compile starts from the
-    precompiled header of 'getProbeHeader'.
+    Compiles the text of a ritual file, joining nothing, and says what
+    came of it. The compile starts from the precompiled header of
+    'getProbeHeader', and ends at the text the compiler would make an
+    object file of: see '_readCompilerText'.
 
     Returns
     -------
 
     Tuple
       What the compiler refused: for each line it complained of, what
-      it said. Then, when it refused nothing: for each name the object
-      file holds, the names its code leans on directly; and the names
-      the object file needs from elsewhere.
+      it said. Then, when it refused nothing: for each name the
+      compiled file defines, the names its code leans on directly; and
+      the names the compiled file needs from elsewhere.
     """
     with tempfile.TemporaryDirectory() as folder:
       probeFile = os.path.join(folder, 'probe.cpp')
-      objectFile = os.path.join(folder, 'probe.o')
+      compiledFile = os.path.join(folder, 'probe.ll')
       with open(probeFile, 'w') as file:
         file.write(text)
       command = (
-          *self._getProbeCommand(self._getProbePart()), '-c', '-include-pch',
-          self.getProbeHeader(), probeFile, '-o', objectFile,
+          *self._getProbeCommand(self._getProbePart()), '-S', '-emit-llvm',
+          '-include-pch', self.getProbeHeader(), probeFile,
+          '-o', compiledFile,
       )
       done = subprocess.run(
           command, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
@@ -2889,62 +2983,8 @@ class RitualGenerator:
           refused[0] = ' '.join(done.stderr.split())[:400]
         return refused, dict(), set()
 
-      def ask(*command: str) -> List[str]:
-        return subprocess.run(
-            command, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
-            universal_newlines=True).stdout.split('\n')
-
-      #  Each stretch of the object file by its number, and each name
-      #  by the stretch its code lies in. Two names may share one, as
-      #  the two the compiler makes for one constructor.
-      stretches = dict()  # type: Dict[str, str]
-      #  The stretch each list of places to fill in is for, by where
-      #  the list lies in the file. 'readelf -rW' names the list by a
-      #  name it cuts short when it is long, as those of 'std::visit'
-      #  made for a class are; the place in the file is whole.
-      listedFor = dict()  # type: Dict[int, str]
-      for line in ask('readelf', '-SW', objectFile):
-        match = re.match(r'\s*\[\s*(\d+)\]\s+(\S+)', line)
-        if match is not None:
-          stretches[match.group(1)] = match.group(2)
-          words = line.split(']', 1)[1].split()
-          if len(words) > 4 and words[1] == 'RELA':
-            listedFor[int(words[3], 16)] = words[-2]
-      lies, wanted = dict(), set()  # type: Dict[str, str], Set[str]
-      for line in ask('readelf', '-sW', objectFile):
-        parts = line.split()
-        if len(parts) != 8 or not parts[0].rstrip(':').isdigit():
-          continue
-        if parts[6] == 'UND':
-          wanted.add(parts[7])
-        elif parts[6] in stretches:
-          lies[parts[7]] = stretches[parts[6]]
-      byStretch = dict()  # type: Dict[str, Set[str]]
-      stretch = None  # type: Optional[str]
-      for line in ask('readelf', '-rW', objectFile):
-        if line.startswith('Relocation section'):
-          at = re.search(r'at offset (0x[0-9a-fA-F]+)', line)
-          stretch = None
-          if at is not None and int(at.group(1), 16) in listedFor:
-            stretch = stretches.get(listedFor[int(at.group(1), 16)])
-          if stretch is None:
-            infoSpec = """'readelf' names a list of places to fill in
-            that its list of stretches does not have: %s"""
-            raise RuntimeError(' '.join((infoSpec % line).split()))
-          byStretch.setdefault(stretch, set())
-          continue
-        parts = line.split()
-        if stretch is not None and len(parts) >= 5 and parts[2][:2] == 'R_':
-          byStretch[stretch].add(parts[4])
-      leans = {
-          name: byStretch.get(stretch, set())
-          for name, stretch in lies.items()
-      }
-      #  Code may point at a stretch itself and not at a name in it, as
-      #  at a table of functions C++ made for 'std::visit': the stretch
-      #  leans on what its own code leans on.
-      for stretch, names in byStretch.items():
-        leans.setdefault(stretch, names)
+      with open(compiledFile, encoding='utf-8') as file:
+        leans, wanted = self._readCompilerText(file.read())
       return dict(), leans, wanted
 
   def _settleSource(

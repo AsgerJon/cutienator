@@ -79,20 +79,34 @@ def makePart(partName: str, readings: str) -> HeaderReader:
   return part
 
 
-def readPart(partName: str, readings: str) -> str:
-  """Reads one part; gives '' or what was raised."""
+def makeFolder(qtbase: str, work: str) -> HeaderFolder:
+  """Gives the 'HeaderFolder' of the source in the work folder, and
+  tells 'HeaderReader' of it, and of the list of names no class
+  covers."""
+  folder = HeaderFolder()
+  folder.setSourceFolder(qtbase)
+  folder.setFolder(os.path.join(work, 'headers'))
+  HeaderReader.setHeaderFolder(folder)
+  HeaderReader.setUncoveredFile(UNCOVERED_FILE)
+  return folder
+
+
+def readPart(partName: str, qtbase: str, work: str) -> str:
+  """Reads one part; gives '' or what was raised. It runs in a process
+  of its own, which on Windows starts from nothing, so it tells
+  'HeaderReader' of the folder itself."""
   try:
-    makePart(partName, readings).read()
+    makeFolder(qtbase, work)
+    makePart(partName, os.path.join(work, 'readings')).read()
     return ''
   except Exception as exception:
     return '%s: %s' % (type(exception).__name__, exception)
 
 
 def getContext() -> multiprocessing.context.BaseContext:
-  """Gives how processes are made: by 'fork' where the system has it,
-  so each one starts with what was set up already; else by 'spawn'."""
-  if 'fork' in multiprocessing.get_all_start_methods():
-    return multiprocessing.get_context('fork')
+  """Gives how processes are made: by 'spawn', each one starting from
+  nothing, as Windows has no other way, and as Python makes them on
+  macOS anyway."""
   return multiprocessing.get_context('spawn')
 
 
@@ -110,13 +124,9 @@ def main(qtbase: str, work: str, installed: str, out: str) -> int:
   #  1. The folder of header files.
   tic = time.time()
   say('folder', 0, 1, tic)
-  folder = HeaderFolder()
-  folder.setSourceFolder(qtbase)
-  folder.setFolder(os.path.join(work, 'headers'))
+  folder = makeFolder(qtbase, work)
   if not folder.isMade():
     folder.make()
-  HeaderReader.setHeaderFolder(folder)
-  HeaderReader.setUncoveredFile(UNCOVERED_FILE)
   say('folder', 1, 1, tic)
   #  2. The parts with a header file of the list, and those they need.
   refused = readRefused()
@@ -133,7 +143,7 @@ def main(qtbase: str, work: str, installed: str, out: str) -> int:
   raised = dict()  # type: Dict[str, str]
   #  Two at a time: QtCore and QtGui each take some GB while read.
   with ProcessPoolExecutor(2, mp_context=getContext()) as pool:
-    jobs = [pool.submit(readPart, name, readings) for name in wanted]
+    jobs = [pool.submit(readPart, name, qtbase, work) for name in wanted]
     for done, (name, job) in enumerate(zip(wanted, jobs), 1):
       said = job.result()
       if said:

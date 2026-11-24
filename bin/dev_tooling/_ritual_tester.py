@@ -7,6 +7,7 @@ import json
 import os
 import re
 import subprocess
+import tempfile
 from typing import TYPE_CHECKING
 
 from worktoy.waitaminute import MissingVariable, TypeException
@@ -97,11 +98,19 @@ class RitualTester:
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   @staticmethod
-  def _run(*command: str) -> Tuple[int, str, str]:
+  def _run(*command: str, **kwargs) -> Tuple[int, str, str]:
     """
     Runs one program to its end and gives its return code, what it
     printed and what it complained about. A failure is given, not
-    raised.
+    raised. The keyword 'given' is text handed to the program as its
+    input.
+
+    On Windows a command of 'clang++' longer than '__long_command__'
+    letters is handed over in a file, as 'clang++ @file', the way
+    cutienator's 'Build' hands it over: Windows starts no program whose
+    command is longer than 32767 letters, and the command of a ritual
+    file names every folder of headers of the installed Qt, some six
+    hundred with every part.
 
     Raises
     ------
@@ -109,11 +118,29 @@ class RitualTester:
     FileNotFoundError
       The program is not installed on this machine.
     """
+    told = None  # type: Optional[str]
+    tooLong = sum(len(word) + 3 for word in command) > (
+        RitualTester.__long_command__)
+    if tooLong and os.name == 'nt' and (
+        os.path.basename(command[0]).startswith('clang')):
+      #  One word to a line, between quotes, as 'clang++' reads a file
+      #  of them when told '--rsp-quoting=posix', on any system.
+      handle, told = tempfile.mkstemp(prefix='ritual-', suffix='.txt')
+      with os.fdopen(handle, 'w', encoding='utf-8') as file:
+        for word in command[1:]:
+          word = word.replace('\\', '\\\\').replace('"', '\\"')
+          file.write('"%s"\n' % word)
+      command = (command[0], '--rsp-quoting=posix', '@%s' % told)
     try:
-      done = subprocess.run(command, capture_output=True, text=True)
+      done = subprocess.run(
+          command, input=kwargs.get('given', None), capture_output=True,
+          text=True)
     except FileNotFoundError as fileNotFoundError:
       infoSpec = """The program '%s' is needed and is not installed."""
       raise FileNotFoundError(infoSpec % command[0]) from fileNotFoundError
+    finally:
+      if told is not None:
+        os.remove(told)
     return done.returncode, done.stdout, done.stderr
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -128,12 +155,17 @@ class RitualTester:
       'CXXConversionDecl', 'FunctionTemplateDecl',
   )
 
+  #  The length of a command, in letters, above which Windows gets it
+  #  in a file: see '_run'. The same as cutienator's 'Build' uses.
+  __long_command__ = 8000
+
   #  Fallback Variables
 
   #  The folder of the installed Qt every ritual file is compiled
   #  against, and what its compiler said of each '#if' asked so far:
   #  whether it holds. Kept for every 'RitualTester'.
   __installed_folder__ = None  # type: Optional[str]
+  __installed_spec__ = None  # type: Optional[str]
   __held_conditions__ = dict()  # type: Dict[str, bool]
 
   #  Private Variables
@@ -183,20 +215,31 @@ class RitualTester:
 
     FileNotFoundError
       The folder lacks 'include', 'lib' or 'mkspecs', or holds no
-      header files of the version read.
+      header files of the version read: no folder of that name where
+      cutienator's 'System' says the system keeps the headers of
+      QtCore Qt calls private, 'include/QtCore/6.12.0' on Linux and
+      Windows, 'lib/QtCore.framework/Headers/6.12.0' on macOS.
     """
     if not isinstance(installedFolder, str):
       raise TypeException('installedFolder', installedFolder, str)
     installedFolder = os.path.abspath(installedFolder)
     version = HeaderReader.getQtVersion()
-    for needed in ('include', 'lib', 'mkspecs',
-                   os.path.join('include', 'QtCore', version)):
+    include = os.path.join(installedFolder, 'include')
+    library = os.path.join(installedFolder, 'lib')
+    versioned = [
+        os.path.relpath(folder, installedFolder)
+        for folder in System.getHere().getPrivateFolders(
+            include, library, version, 'QtCore')
+        if os.path.basename(folder) == version
+    ]
+    for needed in ('include', 'lib', 'mkspecs', *versioned[:1]):
       if not os.path.isdir(os.path.join(installedFolder, needed)):
         infoSpec = """'%s' is no folder of an installed Qt %s: it has no
         '%s'."""
         info = infoSpec % (installedFolder, version, needed)
         raise FileNotFoundError(' '.join(info.split()))
     cls.__installed_folder__ = installedFolder
+    cls.__installed_spec__ = None
     cls.__held_conditions__ = dict()
 
   def getIncludeFolders(self) -> Tuple[str, ...]:
@@ -207,8 +250,8 @@ class RitualTester:
     pull others in from, where cutienator's 'System' says the system
     keeps them: on Linux 'include/QtCore/6.12.0', its 'QtCore' and the
     'private' in that, on macOS the same inside 'QtCore.framework'; and
-    the folder 'mkspecs' of the system, where Qt keeps
-    'qplatformdefs.h', as 'mkspecs/linux-g++'.
+    the folder in 'mkspecs' that 'getInstalledSpec' names, where Qt
+    keeps 'qplatformdefs.h', as 'mkspecs/linux-g++'.
     """
     folder = self.getInstalledFolder()
     include = os.path.join(folder, 'include')
@@ -248,8 +291,38 @@ class RitualTester:
       for candidate in candidates:
         if os.path.isdir(candidate) and candidate not in found:
           found.append(candidate)
-    found.append(os.path.join(folder, 'mkspecs', Machine.getSpecName()))
+    found.append(os.path.join(folder, 'mkspecs', self.getInstalledSpec()))
     return (*found,)
+
+  @classmethod
+  def getInstalledSpec(cls) -> str:
+    """
+    Gives the folder in 'mkspecs' of the installed Qt that holds what
+    it knows of the system and the compiler it was built for, as
+    'linux-g++', 'macx-clang' or, for the Qt of Visual Studio,
+    'win32-msvc'. The 'qmake6' of that Qt is asked, as cutienator's
+    'Build' asks it: 'qmake6 -query QMAKE_SPEC'. Asked once, for every
+    'RitualTester'.
+
+    Raises
+    ------
+
+    FileNotFoundError
+      The installed Qt has no 'qmake6' in its 'bin'.
+
+    RuntimeError
+      'qmake6' gave no answer.
+    """
+    if cls.__installed_spec__ is None:
+      qmake = os.path.join(cls.getInstalledFolder(), 'bin', 'qmake6')
+      returnCode, said, complained = cls._run(
+          qmake, '-query', 'QMAKE_SPEC')
+      if returnCode or not said.strip():
+        infoSpec = """'%s -query QMAKE_SPEC' gave no answer: %s"""
+        info = infoSpec % (qmake, complained.strip())
+        raise RuntimeError(' '.join(info.split()))
+      cls.__installed_spec__ = said.strip()
+    return cls.__installed_spec__
 
   def _findHeld(self, conditions: Set[str]) -> Dict[str, bool]:
     """
@@ -306,18 +379,23 @@ class RitualTester:
       for index, condition in enumerate(asked):
         lines.extend((
             '#if %s' % condition, 'cutienator_held_%d' % index, '#endif'))
+      #  Told what 'getCommand' tells the compiler, as on macOS '-F'
+      #  with the folder of the frameworks, where alone the header
+      #  files of most parts lie there.
+      library = os.path.join(self.getInstalledFolder(), 'lib')
       command = (
           'clang++', '-std=c++17', '-x', 'c++', '-E', '-P',
+          *System.getHere().getCompilerFlags(library),
           *('-I%s' % one for one in self.getIncludeFolders()), '-')
-      done = subprocess.run(
-          command, input='\n'.join(lines), capture_output=True, text=True)
-      if done.returncode:
+      returnCode, said, complained = self._run(
+          *command, given='\n'.join(lines))
+      if returnCode:
         infoSpec = """The preprocessor of the installed Qt refused the
         '#if' lines asked of it: %s"""
-        info = infoSpec % ' '.join(done.stderr.split())[:1200]
+        info = infoSpec % ' '.join(complained.split())[:1200]
         raise RuntimeError(' '.join(info.split()))
       for index, condition in enumerate(asked):
-        found = re.search(r'\bcutienator_held_%d\b' % index, done.stdout)
+        found = re.search(r'\bcutienator_held_%d\b' % index, said)
         kept[condition] = found is not None
     return {condition: kept[condition] for condition in conditions}
 

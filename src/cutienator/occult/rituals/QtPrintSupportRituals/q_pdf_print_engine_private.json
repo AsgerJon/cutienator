@@ -1,0 +1,33 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtPrintSupport/6.12.0/QtPrintSupport/private/qprintengine_pdf_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN22QPdfPrintEnginePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK22QPdfPrintEnginePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN22QPdfPrintEnginePrivateC1EN8QPrinter11PrinterModeE": [
+      "address", "int"
+    ],
+    "ritual_ZN22QPdfPrintEnginePrivateD1Ev": ["nothing", "address"],
+    "ritual_ZNK22QPdfPrintEnginePrivate16printerColorModeEv": [
+      "int", "address"
+    ],
+    "ritual_ZN22QPdfPrintEnginePrivate15openPrintDeviceEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN22QPdfPrintEnginePrivate16closePrintDeviceEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QPdfPrintEnginePrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN22QPdfPrintEnginePrivate15openPrintDeviceEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZN22QPdfPrintEnginePrivate16closePrintDeviceEv": [
+      "nothing", "address"
+    ]
+  }
+}

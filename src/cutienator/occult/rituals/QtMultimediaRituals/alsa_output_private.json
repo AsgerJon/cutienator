@@ -1,0 +1,14 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtMultimedia/6.12.0/QtMultimedia/private/qalsaaudiosink_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK17AlsaOutputPrivate10metaObjectEv": ["address", "address"],
+    "ritual_ZN17AlsaOutputPrivate9writeDataEPKcx": [
+      "long long", "address", "chars", "long long"
+    ],
+    "ritual_take_AlsaOutputPrivate": ["bool", "address", "chars", "address"]
+  }
+}

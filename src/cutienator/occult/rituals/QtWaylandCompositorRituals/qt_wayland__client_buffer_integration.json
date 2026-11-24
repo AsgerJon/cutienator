@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtWayla",
+    "ndCompositor/6.12.0/QtWaylandCompositor/private/qwlclientbufferint",
+    "egration_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN9QtWayland23ClientBufferIntegrationD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN9QtWayland23ClientBufferIntegration13setCompositorEP18QWaylandCompositor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9QtWayland23ClientBufferIntegration10compositorEv": [
+      "address", "address"
+    ]
+  }
+}

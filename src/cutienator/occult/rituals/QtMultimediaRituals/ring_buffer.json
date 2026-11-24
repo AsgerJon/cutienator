@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtMultimedia/6.12.0/QtMultimedia/private/qalsaaudiosource_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN10RingBufferC1Ev": ["address"],
+    "ritual_ZN10RingBuffer6resizeEi": ["nothing", "address", "int"],
+    "ritual_ZNK10RingBuffer19bytesOfDataInBufferEv": ["int", "address"],
+    "ritual_ZNK10RingBuffer9freeBytesEv": ["int", "address"],
+    "ritual_ZNK10RingBuffer13availableDataEv": ["chars", "address"],
+    "ritual_ZNK10RingBuffer22availableDataBlockSizeEv": ["int", "address"],
+    "ritual_ZN10RingBuffer9readBytesEi": ["nothing", "address", "int"],
+    "ritual_ZN10RingBufferD1Ev": ["nothing", "address"]
+  }
+}

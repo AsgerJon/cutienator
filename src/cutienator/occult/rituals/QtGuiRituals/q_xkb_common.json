@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGui/6.12.0/QtGui/private/qxkbcommon_p.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN10QXkbCommon35lookupStringNoKeysymTransformationsEj": [
+      "text", "unsigned int"
+    ],
+    "ritual_ZN10QXkbCommon13keysymToQtKeyEj6QFlagsIN2Qt16KeyboardModifierEE": [
+      "int", "unsigned int", "int"
+    ],
+    "ritual_ZN10QXkbCommon8isLatin1Ej": ["bool", "unsigned int"],
+    "ritual_ZN10QXkbCommon8isKeypadEj": ["bool", "unsigned int"],
+    "ritual_ZN10QXkbCommonD1Ev": ["nothing", "address"]
+  }
+}

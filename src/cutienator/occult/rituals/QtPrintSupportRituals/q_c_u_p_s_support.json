@@ -1,0 +1,37 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtPrintSupport/6.12.0/QtPrintSupport/private/qcups_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN12QCUPSSupport13setCupsOptionEP8QPrinterRK7QStringS4_": [
+      "nothing", "address", "text", "text"
+    ],
+    "ritual_ZN12QCUPSSupport15clearCupsOptionEP8QPrinterRK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN12QCUPSSupport16clearCupsOptionsEP8QPrinter": [
+      "nothing", "address"
+    ],
+    "ritual_ZN12QCUPSSupport13setJobBillingEP8QPrinterRK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN12QCUPSSupport14setJobPriorityEP8QPrinteri": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN12QCUPSSupport12setPageRangeEP8QPrinterii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN12QCUPSSupport12setPageRangeEP8QPrinterRK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN12QCUPSSupport14parseJobSheetsERK7QString": [
+      "address", "text"
+    ],
+    "ritual_ZN12QCUPSSupport17parseJobHoldUntilERK7QString": [
+      "address", "text"
+    ],
+    "ritual_ZN12QCUPSSupportD1Ev": ["nothing", "address"]
+  }
+}

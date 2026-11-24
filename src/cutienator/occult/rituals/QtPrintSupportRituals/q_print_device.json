@@ -1,0 +1,79 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtPrintSupport/6.12.0/QtPrintSupport/private/qprintdevice_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN12QPrintDeviceC1Ev": ["address"],
+    "ritual_ZN12QPrintDeviceC1ERK7QString": ["address", "text"],
+    "ritual_ZN12QPrintDeviceC1ERKS_": ["address", "address"],
+    "ritual_ZN12QPrintDeviceD1Ev": ["nothing", "address"],
+    "ritual_ZNK12QPrintDeviceeqERKS_": ["bool", "address", "address"],
+    "ritual_ZNK12QPrintDevice2idEv": ["text", "address"],
+    "ritual_ZNK12QPrintDevice4nameEv": ["text", "address"],
+    "ritual_ZNK12QPrintDevice8locationEv": ["text", "address"],
+    "ritual_ZNK12QPrintDevice12makeAndModelEv": ["text", "address"],
+    "ritual_ZNK12QPrintDevice7isValidEv": ["bool", "address"],
+    "ritual_ZNK12QPrintDevice9isDefaultEv": ["bool", "address"],
+    "ritual_ZNK12QPrintDevice8isRemoteEv": ["bool", "address"],
+    "ritual_ZNK12QPrintDevice5stateEv": ["int", "address"],
+    "ritual_ZNK12QPrintDevice17isValidPageLayoutERK11QPageLayouti": [
+      "bool", "address", "address", "int"
+    ],
+    "ritual_ZNK12QPrintDevice22supportsMultipleCopiesEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK12QPrintDevice21supportsCollateCopiesEv": ["bool", "address"],
+    "ritual_ZNK12QPrintDevice15defaultPageSizeEv": ["address", "address"],
+    "ritual_ZNK12QPrintDevice18supportedPageSizesEv": ["address", "address"],
+    "ritual_ZNK12QPrintDevice17supportedPageSizeERK9QPageSize": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK12QPrintDevice17supportedPageSizeEN9QPageSize10PageSizeIdE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK12QPrintDevice17supportedPageSizeERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK12QPrintDevice17supportedPageSizeERK5QSize": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK12QPrintDevice17supportedPageSizeERK6QSizeFN9QPageSize4UnitE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZNK12QPrintDevice23supportsCustomPageSizesEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK12QPrintDevice23minimumPhysicalPageSizeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK12QPrintDevice23maximumPhysicalPageSizeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK12QPrintDevice16printableMarginsERK9QPageSizeN11QPageLayout11OrientationEi": [
+      "address", "address", "address", "int", "int"
+    ],
+    "ritual_ZNK12QPrintDevice17defaultResolutionEv": ["int", "address"],
+    "ritual_ZNK12QPrintDevice16defaultInputSlotEv": ["address", "address"],
+    "ritual_ZNK12QPrintDevice16defaultOutputBinEv": ["address", "address"],
+    "ritual_ZNK12QPrintDevice17defaultDuplexModeEv": ["int", "address"],
+    "ritual_ZNK12QPrintDevice16defaultColorModeEv": ["int", "address"],
+    "ritual_ZNK12QPrintDevice8propertyENS_22PrintDevicePropertyKeyE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN12QPrintDevice11setPropertyENS_22PrintDevicePropertyKeyERK8QVariant": [
+      "bool", "address", "int", "address"
+    ],
+    "ritual_ZNK12QPrintDevice18isFeatureAvailableENS_22PrintDevicePropertyKeyERK8QVariant": [
+      "bool", "address", "int", "address"
+    ],
+    "ritual_ZNK12QPrintDevice18supportedMimeTypesEv": ["address", "address"],
+    "ritual_ZNK12QPrintDevice6formatE6QDebug": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QPrintDeviceC1EP20QPlatformPrintDevice": [
+      "address", "address"
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtMultimedia/6.12.0/QtMultimedia/private/qalsaaudiosource_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK16AlsaInputPrivate10metaObjectEv": ["address", "address"],
+    "ritual_ZN16AlsaInputPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN16AlsaInputPrivate9writeDataEPKcx": [
+      "long long", "address", "chars", "long long"
+    ],
+    "ritual_ZN16AlsaInputPrivate7triggerEv": ["nothing", "address"],
+    "ritual_take_AlsaInputPrivate": ["bool", "address", "chars", "address"]
+  }
+}

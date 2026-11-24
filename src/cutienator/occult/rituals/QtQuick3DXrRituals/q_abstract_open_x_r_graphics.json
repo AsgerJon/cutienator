@@ -1,0 +1,29 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "3DXr/6.12.0/QtQuick3DXr/private/qabstractopenxrgraphics_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN23QAbstractOpenXRGraphicsD1Ev": ["nothing", "address"],
+    "ritual_ZN23QAbstractOpenXRGraphics11setupWindowEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QAbstractOpenXRGraphics17finializeGraphicsEP4QRhi": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK23QAbstractOpenXRGraphics3rhiEv": ["address", "address"],
+    "ritual_ZN23QAbstractOpenXRGraphics16releaseResourcesEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QAbstractOpenXRGraphics": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN23QAbstractOpenXRGraphics11setupWindowEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN23QAbstractOpenXRGraphics16releaseResourcesEv": [
+      "nothing", "address"
+    ]
+  }
+}
