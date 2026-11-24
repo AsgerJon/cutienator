@@ -1,0 +1,26 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGraphs/6.12.0/QtGraphs/private/qbardataproxy_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "parts first": [
+    "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
+  ],
+  "rows": {
+    "ritual_ZN20QBarDataProxyPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK20QBarDataProxyPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN20QBarDataProxyPrivate10removeRowsExxb": [
+      "nothing", "address", "long long", "long long", "bool"
+    ],
+    "ritual_ZN20QBarDataProxyPrivate9setSeriesEP17QAbstract3DSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QBarDataProxyPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN20QBarDataProxyPrivate9setSeriesEP17QAbstract3DSeries": [
+      "nothing", "address", "address"
+    ]
+  }
+}

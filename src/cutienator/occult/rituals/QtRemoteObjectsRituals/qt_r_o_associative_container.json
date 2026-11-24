@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtRemot",
+    "eObjects/6.12.0/QtRemoteObjects/private/qremoteobjectcontainers_p.",
+    "h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN24QtROAssociativeContainerC1Ev": ["address"],
+    "ritual_ZN24QtROAssociativeContainerC1ERKN22QtMetaContainerPrivate11AssociationE": [
+      "address", "address"
+    ],
+    "ritual_ZN24QtROAssociativeContainer8setTypesERK10QByteArrayS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN24QtROAssociativeContainerD1Ev": ["nothing", "address"]
+  }
+}

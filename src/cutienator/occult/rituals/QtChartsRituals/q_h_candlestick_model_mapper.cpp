@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCharts/qhcandlestickmodelmapper.h, Qt 6.12.0. Changes made here are
 //  lost.
+#include <QtCharts/qchartglobal.h>
+#if QT_CONFIG(charts_candlestick_chart)
 #include <QtCharts/qhcandlestickmodelmapper.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
@@ -340,3 +342,5 @@ Qt::Orientation ritual_own_ZNK24QHCandlestickModelMapper11orientationEv(
     const QHCandlestickModelMapper *self) {
   return self->QHCandlestickModelMapper::orientation();
 }
+
+#endif  // QT_CONFIG(charts_candlestick_chart)

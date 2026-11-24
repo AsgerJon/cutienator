@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGraphs/6.12.0/QtGraphs/private/qcustom3dvolume_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "parts first": [
+    "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
+  ],
+  "rows": {
+    "ritual_ZN22QCustom3DVolumePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK22QCustom3DVolumePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN22QCustom3DVolumePrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN22QCustom3DVolumePrivate14resetDirtyBitsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QCustom3DVolumePrivate20multipliedAlphaValueEi": [
+      "int", "address", "int"
+    ]
+  }
+}

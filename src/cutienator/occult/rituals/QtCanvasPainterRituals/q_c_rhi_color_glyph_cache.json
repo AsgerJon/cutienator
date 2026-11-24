@@ -1,0 +1,25 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtCanva",
+    "sPainter/6.12.0/QtCanvasPainter/private/qcrhicolorglyphcache_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QCRhiColorGlyphCacheC1EP4QRhi": ["address", "address"],
+    "ritual_ZN20QCRhiColorGlyphCacheD1Ev": ["nothing", "address"],
+    "ritual_ZN20QCRhiColorGlyphCache20commitResourceUpdateEP23QRhiResourceUpdateBatch": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QCRhiColorGlyphCache22optimizeAfterRenderingEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK20QCRhiColorGlyphCache7textureEv": ["address", "address"],
+    "ritual_ZNK20QCRhiColorGlyphCache7isEmptyEv": ["bool", "address"],
+    "ritual_ZN20QCRhiColorGlyphCache9growAtlasEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK20QCRhiColorGlyphCache26useTextureResizeWorkaroundEv": [
+      "bool", "address"
+    ]
+  }
+}

@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCharts/6.12.0/QtCharts/private/qpieslice_p.h, Qt 6.12.0. Changes made
 //  here are lost.
+#include <QtCharts/qchartglobal.h>
+#include <QtCharts/6.12.0/QtCharts/private/qchartglobal_p.h>
+#if QT_CONFIG(charts_pie_chart)
 #include <QtCharts/6.12.0/QtCharts/private/qchartglobal_p.h>
 #include <QtCharts/qpieslice.h>
 #include <QtCharts/QtCharts>
@@ -299,3 +302,5 @@ bool ritual_take_QPieSlicePrivate(
     void *call) {
   return static_cast<CuteQPieSlicePrivate *>(self)->take(key, call);
 }
+
+#endif  // QT_CONFIG(charts_pie_chart)

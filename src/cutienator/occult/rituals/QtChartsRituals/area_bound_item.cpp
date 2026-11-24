@@ -1,6 +1,10 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCharts/6.12.0/QtCharts/private/areachartitem_p.h, Qt 6.12.0. Changes
 //  made here are lost.
+#include <QtWidgets/qtwidgetsglobal.h>
+#include <QtCharts/qchartglobal.h>
+#include <QtCharts/6.12.0/QtCharts/private/qchartglobal_p.h>
+#if QT_CONFIG(charts_area_chart)
 #include <QtCharts/6.12.0/QtCharts/private/qchartglobal_p.h>
 #include <QtCharts/QtCharts>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -1129,3 +1133,5 @@ extern "C" Q_DECL_EXPORT
 void ritual_own_ZN13AreaBoundItem14updateGeometryEv(AreaBoundItem *self) {
   self->AreaBoundItem::updateGeometry();
 }
+
+#endif  // QT_CONFIG(charts_area_chart)

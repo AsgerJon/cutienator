@@ -11,6 +11,8 @@
     "ritual_ZN15QAbstract3DAxis2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN15QAbstract3DAxis6d_funcEv": ["address", "address"],
+    "ritual_ZNK15QAbstract3DAxis6d_funcEv": ["address", "address"],
     "ritual_ZN15QAbstract3DAxis24qt_qmlMarker_uncreatableEv": [
       "nothing", "address"
     ],

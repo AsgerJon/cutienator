@@ -195,6 +195,20 @@ QString *ritual_ZN13QCustom3DItem2trEPKcS1_i(
   return new QString(QCustom3DItem::tr(s, c, n));
 }
 
+//  QCustom3DItemPrivate *QCustom3DItem::d_func()
+extern "C" Q_DECL_EXPORT
+QCustom3DItemPrivate *ritual_ZN13QCustom3DItem6d_funcEv(
+    QCustom3DItem *self) {
+  return self->d_func();
+}
+
+//  const QCustom3DItemPrivate *QCustom3DItem::d_func() const
+extern "C" Q_DECL_EXPORT
+const QCustom3DItemPrivate *ritual_ZNK13QCustom3DItem6d_funcEv(
+    const QCustom3DItem *self) {
+  return self->d_func();
+}
+
 //  QCustom3DItem::QCustom3DItem(QObject *parent)
 extern "C" Q_DECL_EXPORT
 QCustom3DItem *ritual_ZN13QCustom3DItemC1EP7QObject(QObject *parent) {

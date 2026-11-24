@@ -192,6 +192,20 @@ QString *ritual_ZN15QAbstract3DAxis2trEPKcS1_i(
   return new QString(QAbstract3DAxis::tr(s, c, n));
 }
 
+//  QAbstract3DAxisPrivate *QAbstract3DAxis::d_func()
+extern "C" Q_DECL_EXPORT
+QAbstract3DAxisPrivate *ritual_ZN15QAbstract3DAxis6d_funcEv(
+    QAbstract3DAxis *self) {
+  return self->d_func();
+}
+
+//  const QAbstract3DAxisPrivate *QAbstract3DAxis::d_func() const
+extern "C" Q_DECL_EXPORT
+const QAbstract3DAxisPrivate *ritual_ZNK15QAbstract3DAxis6d_funcEv(
+    const QAbstract3DAxis *self) {
+  return self->d_func();
+}
+
 //  void QAbstract3DAxis::qt_qmlMarker_uncreatable()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN15QAbstract3DAxis24qt_qmlMarker_uncreatableEv(

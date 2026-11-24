@@ -1,0 +1,70 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCanvasPainter/qcanvasboxshadow.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZN16QCanvasBoxShadowC1Ev": ["address"],
+    "ritual_ZN16QCanvasBoxShadowC1Edddd": [
+      "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZN16QCanvasBoxShadowC1ERK6QRectF": ["address", "address"],
+    "ritual_ZN16QCanvasBoxShadowC1ERKS_": ["address", "address"],
+    "ritual_ZN16QCanvasBoxShadowD1Ev": ["nothing", "address"],
+    "ritual_ZNK16QCanvasBoxShadowcv12QCanvasBrushEv": ["address", "address"],
+    "ritual_ZNK16QCanvasBoxShadowcv8QVariantEv": ["address", "address"],
+    "ritual_ZNK16QCanvasBoxShadow4rectEv": ["address", "address"],
+    "ritual_ZN16QCanvasBoxShadow7setRectERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QCanvasBoxShadow7setRectEdddd": [
+      "nothing", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZNK16QCanvasBoxShadow12boundingRectEv": ["address", "address"],
+    "ritual_ZNK16QCanvasBoxShadow6radiusEv": ["double", "address"],
+    "ritual_ZN16QCanvasBoxShadow9setRadiusEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK16QCanvasBoxShadow4blurEv": ["double", "address"],
+    "ritual_ZN16QCanvasBoxShadow7setBlurEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK16QCanvasBoxShadow6spreadEv": ["double", "address"],
+    "ritual_ZN16QCanvasBoxShadow9setSpreadEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK16QCanvasBoxShadow5colorEv": ["address", "address"],
+    "ritual_ZN16QCanvasBoxShadow8setColorE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QCanvasBoxShadow13topLeftRadiusEv": ["double", "address"],
+    "ritual_ZN16QCanvasBoxShadow16setTopLeftRadiusEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK16QCanvasBoxShadow14topRightRadiusEv": ["double", "address"],
+    "ritual_ZN16QCanvasBoxShadow17setTopRightRadiusEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK16QCanvasBoxShadow16bottomLeftRadiusEv": [
+      "double", "address"
+    ],
+    "ritual_ZN16QCanvasBoxShadow19setBottomLeftRadiusEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK16QCanvasBoxShadow17bottomRightRadiusEv": [
+      "double", "address"
+    ],
+    "ritual_ZN16QCanvasBoxShadow20setBottomRightRadiusEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZeqRK16QCanvasBoxShadowS1_": ["bool", "address", "address"],
+    "ritual_ZneRK16QCanvasBoxShadowS1_": ["bool", "address", "address"],
+    "ritual_ZN16QCanvasBoxShadowC1EP23QCanvasBoxShadowPrivate": [
+      "address", "address"
+    ],
+    "ritual_Zls6QDebugRK16QCanvasBoxShadow": [
+      "address", "address", "address"
+    ]
+  }
+}

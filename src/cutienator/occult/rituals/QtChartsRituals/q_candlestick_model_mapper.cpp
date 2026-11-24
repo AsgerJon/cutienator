@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCharts/qcandlestickmodelmapper.h, Qt 6.12.0. Changes made here are
 //  lost.
+#include <QtCharts/qchartglobal.h>
+#if QT_CONFIG(charts_candlestick_chart)
 #include <QtCharts/qcandlestickmodelmapper.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
@@ -371,3 +373,5 @@ bool ritual_take_QCandlestickModelMapper(
     void *call) {
   return static_cast<CuteQCandlestickModelMapper *>(self)->take(key, call);
 }
+
+#endif  // QT_CONFIG(charts_candlestick_chart)

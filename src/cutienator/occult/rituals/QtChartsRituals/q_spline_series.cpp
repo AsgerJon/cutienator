@@ -2,6 +2,7 @@
 //  QtCharts/qsplineseries.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCharts/qchartglobal.h>
 #if QT_CONFIG(charts_spline_chart)
+#if QT_CONFIG(charts_spline_chart)
 #include <QtCharts/qsplineseries.h>
 #include <QtCore/qstring.h>
 #include <QtGui/qpen.h>
@@ -329,4 +330,5 @@ QAbstractSeries::SeriesType ritual_own_ZNK13QSplineSeries4typeEv(
   return self->QSplineSeries::type();
 }
 
+#endif  // QT_CONFIG(charts_spline_chart)
 #endif  // QT_CONFIG(charts_spline_chart)

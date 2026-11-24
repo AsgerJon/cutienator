@@ -460,6 +460,20 @@ const Q3DBarsWidgetItemPrivate *ritual_ZNK17Q3DBarsWidgetItem6d_funcEv(
   return self->d_func();
 }
 
+//  QQuickGraphsBars *Q3DBarsWidgetItem::graphBars()
+extern "C" Q_DECL_EXPORT
+QQuickGraphsBars *ritual_ZN17Q3DBarsWidgetItem9graphBarsEv(
+    Q3DBarsWidgetItem *self) {
+  return self->graphBars();
+}
+
+//  const QQuickGraphsBars *Q3DBarsWidgetItem::graphBars() const
+extern "C" Q_DECL_EXPORT
+const QQuickGraphsBars *ritual_ZNK17Q3DBarsWidgetItem9graphBarsEv(
+    const Q3DBarsWidgetItem *self) {
+  return self->graphBars();
+}
+
 //  a Python function taken by a CuteQ3DBarsWidgetItem, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT

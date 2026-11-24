@@ -387,6 +387,16 @@ class HeaderFolder:
       ('QtShaderTools', '../qtshadertools/src/shadertools',
        'qtshadertoolsglobal.h', '',
        ('QtCore', 'QtGui')),
+      #  The lists of switches shared by the parts of Wayland, as
+      #  QtWaylandCompositor's 'qtwaylandcompositorglobal_p.h' pulls in
+      #  '<QtWaylandGlobal/private/qtwaylandglobal-config_p.h>'. Qt
+      #  declares it as 'WaylandGlobalPrivate', a module of header files
+      #  alone that it keeps to its own build, under 'src/plugins', and
+      #  installs it with both lists empty: so has the folder, as it has
+      #  no 'configure.cmake'. The finding of modules leaves it out.
+      ('QtWaylandGlobal', 'src/plugins/platforms/wayland/globalprivate',
+       'qtwaylandglobal-config.h', '',
+       ()),
   )
   __part_folders__ = {row[0]: row[1] for row in __parts__}
   __part_words__ = {row[0]: row[0][2:].upper() for row in __parts__}
@@ -934,8 +944,10 @@ class HeaderFolder:
     Under the name of the part, as 'QtCharts': where it lies, from
     'qtbase'; its header file that brings in its switches, the one
     whose name holds 'global', or else its file of words for export;
-    the one in its folder 'private', or ''; the parts Qt builds it on
-    ('PUBLIC_LIBRARIES'); and the name of its lists of switches.
+    the names of those in its folder 'private' that may be the one
+    there, its own name first, which '_addFoundParts' chooses from;
+    the parts Qt builds it on ('PUBLIC_LIBRARIES'); and the name of
+    its lists of switches.
     """
     everywhere = os.path.dirname(os.path.abspath(self.getSourceFolder()))
     skipped = ('3rdparty', 'tests', 'examples', 'doc', 'plugins')
@@ -997,7 +1009,8 @@ class HeaderFolder:
           ownPrivate = [
               n for n in ('%sglobal_p.h' % low, 'q%sglobal_p.h' % low[2:])
               if n in private]
-          privateHeader = (ownPrivate or private or [''])[0]
+          privateHeaders = (
+              *ownPrivate, *(n for n in private if n not in ownPrivate))
           libraries = re.search(
               r'\bPUBLIC_LIBRARIES\b(.*?)(?:\n\s*[A-Z_]{3,}\s*\n|$)',
               arguments, re.S)
@@ -1010,7 +1023,7 @@ class HeaderFolder:
           config = re.search(r'\bCONFIG_MODULE_NAME\s+(\w+)', arguments)
           found[partName] = (
               os.path.relpath(here, self.getSourceFolder()), globalHeader,
-              privateHeader, (*needs,),
+              privateHeaders, (*needs,),
               'qt%s' % config.group(1) if config else '')
     return found
 
@@ -1028,16 +1041,16 @@ class HeaderFolder:
         os.path.realpath(os.path.join(self.getSourceFolder(), place))
         for place in cls.__part_folders__.values()}
     added = []  # type: List[str]
+    candidates = dict()  # type: Dict[str, Tuple[str, ...]]
     for partName, row in rows.items():
-      place, globalHeader, privateHeader, needs, config = row
+      place, globalHeader, privateHeaders, needs, config = row
       real = os.path.realpath(os.path.join(self.getSourceFolder(), place))
       if partName in cls.__part_folders__ or real in known:
         continue
       cls.__part_folders__[partName] = place
       cls.__part_words__[partName] = partName[2:].upper()
       cls.__global_headers__[partName] = globalHeader
-      if privateHeader:
-        cls.__private_global_headers__[partName] = privateHeader
+      candidates[partName] = privateHeaders
       cls.__part_needs__[partName] = needs
       if config:
         cls.__config_names__[partName] = config
@@ -1047,6 +1060,71 @@ class HeaderFolder:
           name for name in cls.__part_needs__[partName]
           if name in cls.__part_folders__),)
     cls.__found_parts__ = (*cls.__found_parts__, *added)
+    #  Every part is known now, so what a header file pulls in can be
+    #  told from what the parts have.
+    names = dict()  # type: Dict[str, Set[str]]
+    for partName in added:
+      chosen = self._choosePrivateGlobal(
+          partName, candidates[partName], names)
+      if chosen:
+        cls.__private_global_headers__[partName] = chosen
+
+  def _choosePrivateGlobal(
+      self,
+      partName: str,
+      candidates: Tuple[str, ...],
+      names: Dict[str, Set[str]],
+  ) -> str:
+    """
+    Gives the first of the candidates that is the header file in the
+    folder 'private' of a found part bringing in its switches: one Qt
+    installs on every system, and whose every '#include <QtX/...h>'
+    line names a header file part QtX has. '' when none is, and the
+    files of the part then ask those of QtCore. Of QtRemoteObjects the
+    only candidate, 'qconnection_qnx_global_p.h', is installed for QNX
+    alone; QtCanvasPainter's 'qtcanvaspainterglobal_p.h' names
+    '<QtShaderTools/qtcanvaspainterexports.h>', which no part has, and
+    no file of Qt pulls it in.
+
+    'names' keeps the names of the header files of each part asked for,
+    as 'getHeaderFiles' gives them.
+    """
+    if not candidates:
+      return ''
+    paths = {os.path.basename(p): p for p in self.getHeaderFiles(partName)}
+    conditions = self._readInstallConditions(partName)
+    pulled = re.compile(
+        r'^\s*#\s*include\s*<(Qt\w*)/(?:[^>]*/)?([^>/]+\.h)>', re.M)
+    for candidate in candidates:
+      if candidate not in paths or conditions.get(candidate, ''):
+        continue
+      with open(paths[candidate], errors='replace') as file:
+        asked = pulled.findall(file.read())
+      if all(self._hasHeaderFile(*one, names) for one in asked):
+        return candidate
+    return ''
+
+  def _hasHeaderFile(
+      self,
+      partName: str,
+      fileName: str,
+      names: Dict[str, Set[str]],
+  ) -> bool:
+    """Says whether a part has a header file of that name: one of its
+    source, or one the folder writes for it, as 'qtcoreexports.h',
+    'qtcoreversion.h' and the lists of switches."""
+    if partName not in self.getPartNames():
+      return False
+    low = partName.lower()
+    config = self.__config_names__.get(partName, low)
+    if fileName in (
+        '%sexports.h' % low, '%sversion.h' % low, '%s-config.h' % config,
+        '%s-config_p.h' % config):
+      return True
+    if partName not in names:
+      names[partName] = {
+          os.path.basename(p) for p in self.getHeaderFiles(partName)}
+    return fileName in names[partName]
 
   @staticmethod
   def _isOtherModule(folder: str, others: Set[str]) -> bool:
@@ -1161,8 +1239,12 @@ class HeaderFolder:
   def _findFilters(self, partName: str) -> List[Tuple[str, Any]]:
     """Gives, for one part, the folders an installed Qt keeps apart,
     each with the pattern of the header files that go into it, as the
-    part's 'CMakeLists.txt' names them: 'qpa' and 'rhi' for QtGui."""
+    part's 'CMakeLists.txt' names them: 'qpa' and 'rhi' for QtGui.
+    None for a part whose folder has no such file, as QtWaylandGlobal,
+    which has no header files of its own."""
     path = os.path.join(self.getPartFolder(partName), 'CMakeLists.txt')
+    if not os.path.isfile(path):
+      return []
     with open(path) as file:
       text = file.read()
     found = []  # type: List[Tuple[str, Any]]
@@ -1192,8 +1274,12 @@ class HeaderFolder:
     Only these go into the file named as the part, as Qt's own build
     puts only the header files of the system it builds for into it.
     The others still lie in the folder, each to be read by itself.
+    None for a part whose folder has no 'CMakeLists.txt', as
+    QtWaylandGlobal.
     """
     path = os.path.join(self.getPartFolder(partName), 'CMakeLists.txt')
+    if not os.path.isfile(path):
+      return set()
     with open(path) as file:
       text = file.read()
     target = partName[len('Qt'):]
@@ -1311,10 +1397,14 @@ class HeaderFolder:
     #  building of Qt alone and is no header file of Qt for anyone
     #  else, so the folder has none.
     listPath = os.path.join(self.getPartFolder(partName), 'CMakeLists.txt')
-    with open(listPath) as file:
-      buildOnly = {
-          os.path.basename(name) for name in re.findall(
-              r'PRECOMPILED_HEADER\s+"([^"]+)"', file.read())}
+    buildOnly = set()  # type: Set[str]
+    if os.path.isfile(listPath):
+      #  A part whose folder has none, as QtWaylandGlobal, has no
+      #  header files of its own.
+      with open(listPath) as file:
+        buildOnly = {
+            os.path.basename(name) for name in re.findall(
+                r'PRECOMPILED_HEADER\s+"([^"]+)"', file.read())}
     direct, classFiles = [], dict()  # type: List[Any], Dict[str, str]
     for path in self.getHeaderFiles(partName):
       name = os.path.basename(path)

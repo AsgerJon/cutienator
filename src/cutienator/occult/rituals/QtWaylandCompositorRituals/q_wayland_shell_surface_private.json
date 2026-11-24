@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtWayla",
+    "ndCompositor/6.12.0/QtWaylandCompositor/private/qwaylandshellsurfa",
+    "ce_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN27QWaylandShellSurfacePrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK27QWaylandShellSurfacePrivate6q_funcEv": [
+      "address", "address"
+    ]
+  }
+}

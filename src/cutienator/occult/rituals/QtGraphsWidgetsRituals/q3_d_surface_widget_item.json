@@ -58,6 +58,12 @@
     ],
     "ritual_ZN20Q3DSurfaceWidgetItem6d_funcEv": ["address", "address"],
     "ritual_ZNK20Q3DSurfaceWidgetItem6d_funcEv": ["address", "address"],
+    "ritual_ZN20Q3DSurfaceWidgetItem12graphSurfaceEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20Q3DSurfaceWidgetItem12graphSurfaceEv": [
+      "address", "address"
+    ],
     "ritual_take_Q3DSurfaceWidgetItem": [
       "bool", "address", "chars", "address"
     ],

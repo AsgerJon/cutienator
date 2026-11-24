@@ -1,0 +1,29 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGraphs/6.12.0/QtGraphs/private/qsurfacedataproxy_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "parts first": [
+    "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
+  ],
+  "rows": {
+    "ritual_ZN24QSurfaceDataProxyPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK24QSurfaceDataProxyPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN24QSurfaceDataProxyPrivate10removeRowsExx": [
+      "nothing", "address", "long long", "long long"
+    ],
+    "ritual_ZNK24QSurfaceDataProxyPrivate12isValidValueEfP15QAbstract3DAxis": [
+      "bool", "address", "float", "address"
+    ],
+    "ritual_ZN24QSurfaceDataProxyPrivate9setSeriesEP17QAbstract3DSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QSurfaceDataProxyPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN24QSurfaceDataProxyPrivate9setSeriesEP17QAbstract3DSeries": [
+      "nothing", "address", "address"
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtRemot",
+    "eObjects/6.12.0/QtRemoteObjects/private/qremoteobjectsourceio_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK21QRemoteObjectSourceIo10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QRemoteObjectSourceIoD1Ev": ["nothing", "address"],
+    "ritual_ZN21QRemoteObjectSourceIo15disableRemotingEP7QObject": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK21QRemoteObjectSourceIo13serverAddressEv": [
+      "address", "address"
+    ],
+    "ritual_take_QRemoteObjectSourceIo": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

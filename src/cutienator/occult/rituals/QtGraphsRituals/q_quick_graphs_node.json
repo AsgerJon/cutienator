@@ -1,0 +1,157 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGraphs/6.12.0/QtGraphs/private/qquickgraphsnode_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "parts first": [
+    "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
+  ],
+  "rows": {
+    "ritual_ZNK16QQuickGraphsNode10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QQuickGraphsNode2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN16QQuickGraphsNode24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickGraphsNodeD1Ev": ["nothing", "address"],
+    "ritual_ZN16QQuickGraphsNode17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK16QQuickGraphsNode15selectedElementEv": ["int", "address"],
+    "ritual_ZN16QQuickGraphsNode16setSelectionModeE6QFlagsIN10QtGraphs3D13SelectionFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16QQuickGraphsNode13selectionModeEv": ["int", "address"],
+    "ritual_ZN16QQuickGraphsNode8setThemeEP12QGraphsTheme": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QQuickGraphsNode5themeEv": ["address", "address"],
+    "ritual_ZN16QQuickGraphsNode14setAspectRatioEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK16QQuickGraphsNode11aspectRatioEv": ["double", "address"],
+    "ritual_ZN16QQuickGraphsNode19setOptimizationHintEN10QtGraphs3D16OptimizationHintE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK16QQuickGraphsNode16optimizationHintEv": ["int", "address"],
+    "ritual_ZN16QQuickGraphsNode8setPolarEb": ["nothing", "address", "bool"],
+    "ritual_ZNK16QQuickGraphsNode7isPolarEv": ["bool", "address"],
+    "ritual_ZN16QQuickGraphsNode14setLabelMarginEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK16QQuickGraphsNode11labelMarginEv": ["float", "address"],
+    "ritual_ZN16QQuickGraphsNode20setRadialLabelOffsetEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK16QQuickGraphsNode17radialLabelOffsetEv": [
+      "float", "address"
+    ],
+    "ritual_ZN16QQuickGraphsNode24setHorizontalAspectRatioEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK16QQuickGraphsNode21horizontalAspectRatioEv": [
+      "double", "address"
+    ],
+    "ritual_ZN16QQuickGraphsNode9setLocaleE7QLocale": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QQuickGraphsNode6localeEv": ["address", "address"],
+    "ritual_ZNK16QQuickGraphsNode20queriedGraphPositionEv": [
+      "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsNode9setMarginEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK16QQuickGraphsNode6marginEv": ["double", "address"],
+    "ritual_ZNK16QQuickGraphsNode12gridLineTypeEv": ["int", "address"],
+    "ritual_ZN16QQuickGraphsNode9hasSeriesEP17QAbstract3DSeries": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsNode14clearSelectionEv": ["nothing", "address"],
+    "ritual_ZN16QQuickGraphsNode17addSeriesInternalEP17QAbstract3DSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsNode12insertSeriesExP17QAbstract3DSeries": [
+      "nothing", "address", "long long", "address"
+    ],
+    "ritual_ZN16QQuickGraphsNode20removeSeriesInternalEP17QAbstract3DSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsNode10seriesListEv": ["address", "address"],
+    "ritual_ZN16QQuickGraphsNode13addCustomItemEP13QCustom3DItem": [
+      "long long", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsNode17removeCustomItemsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickGraphsNode16removeCustomItemEP13QCustom3DItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsNode18removeCustomItemAtE9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsNode17releaseCustomItemEP13QCustom3DItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QQuickGraphsNode18selectedLabelIndexEv": ["int", "address"],
+    "ritual_ZNK16QQuickGraphsNode12selectedAxisEv": ["address", "address"],
+    "ritual_ZNK16QQuickGraphsNode23selectedCustomItemIndexEv": [
+      "long long", "address"
+    ],
+    "ritual_ZNK16QQuickGraphsNode18selectedCustomItemEv": [
+      "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsNode9doPickingE7QPointF": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsNode12doRayPickingERK9QVector3DS2_": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsNode14setGraphParentEv": ["nothing", "address"],
+    "ritual_take_QQuickGraphsNode": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN16QQuickGraphsNode17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN16QQuickGraphsNode16setSelectionModeE6QFlagsIN10QtGraphs3D13SelectionFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN16QQuickGraphsNode9hasSeriesEP17QAbstract3DSeries": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN16QQuickGraphsNode17addSeriesInternalEP17QAbstract3DSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16QQuickGraphsNode20removeSeriesInternalEP17QAbstract3DSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16QQuickGraphsNode13addCustomItemEP13QCustom3DItem": [
+      "long long", "address", "address"
+    ],
+    "ritual_own_ZN16QQuickGraphsNode17removeCustomItemsEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN16QQuickGraphsNode16removeCustomItemEP13QCustom3DItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16QQuickGraphsNode18removeCustomItemAtE9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16QQuickGraphsNode17releaseCustomItemEP13QCustom3DItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK16QQuickGraphsNode18selectedLabelIndexEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZNK16QQuickGraphsNode12selectedAxisEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK16QQuickGraphsNode23selectedCustomItemIndexEv": [
+      "long long", "address"
+    ],
+    "ritual_own_ZNK16QQuickGraphsNode18selectedCustomItemEv": [
+      "address", "address"
+    ]
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtWayla",
+    "ndCompositor/6.12.0/QtWaylandCompositor/private/qwlserverbufferint",
+    "egrationplugin_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK9QtWayland29ServerBufferIntegrationPlugin10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN9QtWayland29ServerBufferIntegrationPlugin2trEPKcS2_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN9QtWayland29ServerBufferIntegrationPlugin6createERK7QStringRK5QListIS1_E": [
+      "address", "address", "text", "address"
+    ],
+    "ritual_take_QtWayland_ServerBufferIntegrationPlugin": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

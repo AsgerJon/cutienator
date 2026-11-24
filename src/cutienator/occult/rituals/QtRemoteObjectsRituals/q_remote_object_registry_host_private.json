@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtRemot",
+    "eObjects/6.12.0/QtRemoteObjects/private/qremoteobjectnode_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK32QRemoteObjectRegistryHostPrivate21remoteObjectAddressesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN32QRemoteObjectRegistryHostPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK32QRemoteObjectRegistryHostPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_take_QRemoteObjectRegistryHostPrivate": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

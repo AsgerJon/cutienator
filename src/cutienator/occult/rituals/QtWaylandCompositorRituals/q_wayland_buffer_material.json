@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtWayla",
+    "ndCompositor/6.12.0/QtWaylandCompositor/private/qwaylandquickitem_",
+    "p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN22QWaylandBufferMaterialD1Ev": ["nothing", "address"],
+    "ritual_ZNK22QWaylandBufferMaterial12createShaderEN20QSGRendererInterface10RenderModeE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN22QWaylandBufferMaterial20setTextureParametersEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN22QWaylandBufferMaterial14ensureTexturesEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_take_QWaylandBufferMaterial": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

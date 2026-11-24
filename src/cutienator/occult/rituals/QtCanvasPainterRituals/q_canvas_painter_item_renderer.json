@@ -1,0 +1,76 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCanvasPainter/qcanvaspainteritemrenderer.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN26QCanvasPainterItemRendererC1Ev": ["address"],
+    "ritual_ZN26QCanvasPainterItemRendererD1Ev": ["nothing", "address"],
+    "ritual_ZNK26QCanvasPainterItemRenderer9fillColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK26QCanvasPainterItemRenderer7painterEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK26QCanvasPainterItemRenderer5widthEv": ["double", "address"],
+    "ritual_ZNK26QCanvasPainterItemRenderer6heightEv": ["double", "address"],
+    "ritual_ZNK26QCanvasPainterItemRenderer16hasSharedPainterEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN26QCanvasPainterItemRenderer16setSharedPainterEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN26QCanvasPainterItemRenderer19initializeResourcesEP14QCanvasPainter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QCanvasPainterItemRenderer8prePaintEP14QCanvasPainter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QCanvasPainterItemRenderer5paintEP14QCanvasPainter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QCanvasPainterItemRenderer15synchronizeDataEP18QCanvasPainterItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QCanvasPainterItemRenderer10initializeEP17QRhiCommandBuffer": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QCanvasPainterItemRenderer6renderEP17QRhiCommandBuffer": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QCanvasPainterItemRenderer11synchronizeEP13QQuickRhiItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QCanvasPainterItemRenderer17endCanvasPaintingEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QCanvasPainterItemRenderer14grabCanvasImplERK22QCanvasOffscreenCanvasPK7QObjectPN9QtPrivate15QSlotObjectBaseE": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_take_QCanvasPainterItemRenderer": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN26QCanvasPainterItemRenderer19initializeResourcesEP14QCanvasPainter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN26QCanvasPainterItemRenderer8prePaintEP14QCanvasPainter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN26QCanvasPainterItemRenderer5paintEP14QCanvasPainter": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN26QCanvasPainterItemRenderer15synchronizeDataEP18QCanvasPainterItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN26QCanvasPainterItemRenderer10initializeEP17QRhiCommandBuffer": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN26QCanvasPainterItemRenderer6renderEP17QRhiCommandBuffer": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN26QCanvasPainterItemRenderer11synchronizeEP13QQuickRhiItem": [
+      "nothing", "address", "address"
+    ]
+  }
+}

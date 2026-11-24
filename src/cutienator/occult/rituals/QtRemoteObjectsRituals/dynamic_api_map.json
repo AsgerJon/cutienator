@@ -1,0 +1,69 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtRemot",
+    "eObjects/6.12.0/QtRemoteObjects/private/qremoteobjectsource_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN13DynamicApiMapD1Ev": ["nothing", "address"],
+    "ritual_ZNK13DynamicApiMap4nameEv": ["text", "address"],
+    "ritual_ZNK13DynamicApiMap8typeNameEv": ["text", "address"],
+    "ritual_ZNK13DynamicApiMap9classNameEv": ["address", "address"],
+    "ritual_ZNK13DynamicApiMap9enumCountEv": ["int", "address"],
+    "ritual_ZNK13DynamicApiMap13propertyCountEv": ["int", "address"],
+    "ritual_ZNK13DynamicApiMap11signalCountEv": ["int", "address"],
+    "ritual_ZNK13DynamicApiMap11methodCountEv": ["int", "address"],
+    "ritual_ZNK13DynamicApiMap15sourceEnumIndexEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK13DynamicApiMap19sourcePropertyIndexEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK13DynamicApiMap17sourceSignalIndexEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK13DynamicApiMap17sourceMethodIndexEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK13DynamicApiMap20signalParameterCountEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK13DynamicApiMap19signalParameterTypeEii": [
+      "int", "address", "int", "int"
+    ],
+    "ritual_ZNK13DynamicApiMap15signalSignatureEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK13DynamicApiMap20signalParameterNamesEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK13DynamicApiMap20methodParameterCountEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK13DynamicApiMap19methodParameterTypeEii": [
+      "int", "address", "int", "int"
+    ],
+    "ritual_ZNK13DynamicApiMap15methodSignatureEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK13DynamicApiMap10methodTypeEi": ["int", "address", "int"],
+    "ritual_ZNK13DynamicApiMap8typeNameEi": ["address", "address", "int"],
+    "ritual_ZNK13DynamicApiMap20methodParameterNamesEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK13DynamicApiMap23propertyIndexFromSignalEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK13DynamicApiMap26propertyRawIndexFromSignalEi": [
+      "int", "address", "int"
+    ],
+    "ritual_ZNK13DynamicApiMap15objectSignatureEv": ["address", "address"],
+    "ritual_ZNK13DynamicApiMap9isDynamicEv": ["bool", "address"],
+    "ritual_ZNK13DynamicApiMap14parameterCountEi": ["int", "address", "int"],
+    "ritual_ZNK13DynamicApiMap13parameterTypeEii": [
+      "int", "address", "int", "int"
+    ],
+    "ritual_ZNK13DynamicApiMap9signatureEi": ["address", "address", "int"],
+    "ritual_ZNK13DynamicApiMap10checkCacheEi": ["nothing", "address", "int"]
+  }
+}

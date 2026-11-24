@@ -1,0 +1,58 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtWayla",
+    "ndCompositor/6.12.0/QtWaylandCompositor/private/qwaylandmousetrack",
+    "er_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK20QWaylandMouseTracker10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QWaylandMouseTracker2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN20QWaylandMouseTrackerC1EP10QQuickItem": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QWaylandMouseTracker6mouseXEv": ["double", "address"],
+    "ritual_ZNK20QWaylandMouseTracker6mouseYEv": ["double", "address"],
+    "ritual_ZN20QWaylandMouseTracker28setWindowSystemCursorEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK20QWaylandMouseTracker25windowSystemCursorEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK20QWaylandMouseTracker7hoveredEv": ["bool", "address"],
+    "ritual_ZN20QWaylandMouseTracker21childMouseEventFilterEP10QQuickItemP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN20QWaylandMouseTracker14mouseMoveEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QWaylandMouseTracker14hoverMoveEventEP11QHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QWaylandMouseTracker15hoverEnterEventEP11QHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QWaylandMouseTracker15hoverLeaveEventEP11QHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QWaylandMouseTracker": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN20QWaylandMouseTracker21childMouseEventFilterEP10QQuickItemP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_own_ZN20QWaylandMouseTracker14mouseMoveEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20QWaylandMouseTracker14hoverMoveEventEP11QHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20QWaylandMouseTracker15hoverEnterEventEP11QHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN20QWaylandMouseTracker15hoverLeaveEventEP11QHoverEvent": [
+      "nothing", "address", "address"
+    ]
+  }
+}

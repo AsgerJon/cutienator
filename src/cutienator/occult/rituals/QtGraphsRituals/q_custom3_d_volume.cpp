@@ -194,6 +194,20 @@ QString *ritual_ZN15QCustom3DVolume2trEPKcS1_i(
   return new QString(QCustom3DVolume::tr(s, c, n));
 }
 
+//  QCustom3DVolumePrivate *QCustom3DVolume::d_func()
+extern "C" Q_DECL_EXPORT
+QCustom3DVolumePrivate *ritual_ZN15QCustom3DVolume6d_funcEv(
+    QCustom3DVolume *self) {
+  return self->d_func();
+}
+
+//  const QCustom3DVolumePrivate *QCustom3DVolume::d_func() const
+extern "C" Q_DECL_EXPORT
+const QCustom3DVolumePrivate *ritual_ZNK15QCustom3DVolume6d_funcEv(
+    const QCustom3DVolume *self) {
+  return self->d_func();
+}
+
 //  QCustom3DVolume::QCustom3DVolume(QObject *parent)
 extern "C" Q_DECL_EXPORT
 QCustom3DVolume *ritual_ZN15QCustom3DVolumeC1EP7QObject(QObject *parent) {

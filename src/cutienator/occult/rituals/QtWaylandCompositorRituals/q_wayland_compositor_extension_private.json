@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtWayla",
+    "ndCompositor/6.12.0/QtWaylandCompositor/private/qwaylandcompositor",
+    "extension_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN34QWaylandCompositorExtensionPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK34QWaylandCompositorExtensionPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN34QWaylandCompositorExtensionPrivateC1Ev": ["address"],
+    "ritual_ZN34QWaylandCompositorExtensionPrivate3getEP27QWaylandCompositorExtension": [
+      "address", "address"
+    ]
+  }
+}

@@ -1,6 +1,10 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCharts/6.12.0/QtCharts/private/chartdatetimeaxisx_p.h, Qt 6.12.0.
 //  Changes made here are lost.
+#include <QtWidgets/qtwidgetsglobal.h>
+#include <QtCharts/qchartglobal.h>
+#include <QtCharts/6.12.0/QtCharts/private/qchartglobal_p.h>
+#if QT_CONFIG(charts_datetime_axis)
 #include <QtCharts/6.12.0/QtCharts/private/qchartglobal_p.h>
 #include <QtCharts/QtCharts>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -1368,3 +1372,5 @@ void ritual_own_ZN18ChartDateTimeAxisX14updateGeometryEv(
     ChartDateTimeAxisX *self) {
   static_cast<OwnChartDateTimeAxisX *>(self)->OwnChartDateTimeAxisX::updateGeometry();
 }
+
+#endif  // QT_CONFIG(charts_datetime_axis)

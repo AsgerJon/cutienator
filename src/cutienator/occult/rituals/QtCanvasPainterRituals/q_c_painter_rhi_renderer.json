@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtCanva",
+    "sPainter/6.12.0/QtCanvasPainter/private/qcpainterrhirenderer_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QCPainterRhiRendererC1Ev": ["address"],
+    "ritual_ZNK20QCPainterRhiRenderer7isValidEv": ["bool", "address"],
+    "ritual_ZN20QCPainterRhiRenderer6engineEv": ["address", "address"],
+    "ritual_ZN20QCPainterRhiRenderer15setCustomMatrixERK10QMatrix4x4": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QCPainterRhiRenderer18resetDebugCountersEv": [
+      "nothing", "address"
+    ]
+  }
+}

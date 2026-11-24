@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtWayla",
+    "ndCompositor/6.12.0/QtWaylandCompositor/private/qwaylandinputmetho",
+    "dcontrol_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN33QWaylandInputMethodControlPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK33QWaylandInputMethodControlPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN33QWaylandInputMethodControlPrivateC1EP15QWaylandSurface": [
+      "address", "address"
+    ],
+    "ritual_ZNK33QWaylandInputMethodControlPrivate9textInputEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK33QWaylandInputMethodControlPrivate11textInputV3Ev": [
+      "address", "address"
+    ],
+    "ritual_ZNK33QWaylandInputMethodControlPrivate15textInputMethodEv": [
+      "address", "address"
+    ]
+  }
+}

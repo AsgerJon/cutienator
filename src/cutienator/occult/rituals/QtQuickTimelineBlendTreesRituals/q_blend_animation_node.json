@@ -1,0 +1,29 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "TimelineBlendTrees/6.12.0/QtQuickTimelineBlendTrees/private/qblend",
+    "animationnode_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK19QBlendAnimationNode10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QBlendAnimationNode2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN19QBlendAnimationNodeC1EP7QObject": ["address", "address"],
+    "ritual_ZNK19QBlendAnimationNode7source1Ev": ["address", "address"],
+    "ritual_ZN19QBlendAnimationNode10setSource1EP14QBlendTreeNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QBlendAnimationNode7source2Ev": ["address", "address"],
+    "ritual_ZN19QBlendAnimationNode10setSource2EP14QBlendTreeNode": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QBlendAnimationNode6weightEv": ["double", "address"],
+    "ritual_ZN19QBlendAnimationNode9setWeightEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN19QBlendAnimationNode27handleInputFrameDataChangedEv": [
+      "nothing", "address"
+    ]
+  }
+}

@@ -194,6 +194,21 @@ QString *ritual_ZN26QItemModelScatterDataProxy2trEPKcS1_i(
   return new QString(QItemModelScatterDataProxy::tr(s, c, n));
 }
 
+//  QItemModelScatterDataProxyPrivate *QItemModelScatterDataProxy::d_func()
+extern "C" Q_DECL_EXPORT
+QItemModelScatterDataProxyPrivate *ritual_ZN26QItemModelScatterDataProxy6d_funcEv(
+    QItemModelScatterDataProxy *self) {
+  return self->d_func();
+}
+
+//  const QItemModelScatterDataProxyPrivate
+//      *QItemModelScatterDataProxy::d_func() const
+extern "C" Q_DECL_EXPORT
+const QItemModelScatterDataProxyPrivate *ritual_ZNK26QItemModelScatterDataProxy6d_funcEv(
+    const QItemModelScatterDataProxy *self) {
+  return self->d_func();
+}
+
 //  QItemModelScatterDataProxy::QItemModelScatterDataProxy(QObject *parent)
 extern "C" Q_DECL_EXPORT
 QItemModelScatterDataProxy *ritual_ZN26QItemModelScatterDataProxyC1EP7QObject(

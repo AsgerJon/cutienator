@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtCanva",
+    "sPainter/6.12.0/QtCanvasPainter/private/qcrhidistancefieldglyphcac",
+    "he_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK28QCRhiDistanceFieldGlyphCache8TexCoord6isNullEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK28QCRhiDistanceFieldGlyphCache8TexCoord7isValidEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN28QCRhiDistanceFieldGlyphCache8TexCoordD1Ev": [
+      "nothing", "address"
+    ]
+  }
+}

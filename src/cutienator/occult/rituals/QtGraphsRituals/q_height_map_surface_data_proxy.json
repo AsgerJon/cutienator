@@ -14,6 +14,10 @@
     "ritual_ZN26QHeightMapSurfaceDataProxy2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN26QHeightMapSurfaceDataProxy6d_funcEv": ["address", "address"],
+    "ritual_ZNK26QHeightMapSurfaceDataProxy6d_funcEv": [
+      "address", "address"
+    ],
     "ritual_ZN26QHeightMapSurfaceDataProxyC1EP7QObject": [
       "address", "address"
     ],

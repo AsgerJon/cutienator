@@ -1,0 +1,61 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGraphs/qbarmodelmapper.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "parts first": [
+    "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
+  ],
+  "rows": {
+    "ritual_ZNK15QBarModelMapper10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QBarModelMapper2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN15QBarModelMapper6d_funcEv": ["address", "address"],
+    "ritual_ZNK15QBarModelMapper6d_funcEv": ["address", "address"],
+    "ritual_ZN15QBarModelMapperC1EP7QObject": ["address", "address"],
+    "ritual_ZN15QBarModelMapperD1Ev": ["nothing", "address"],
+    "ritual_ZNK15QBarModelMapper5modelEv": ["address", "address"],
+    "ritual_ZN15QBarModelMapper8setModelEP18QAbstractItemModel": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QBarModelMapper6seriesEv": ["address", "address"],
+    "ritual_ZN15QBarModelMapper9setSeriesEP10QBarSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QBarModelMapper18firstBarSetSectionEv": [
+      "long long", "address"
+    ],
+    "ritual_ZN15QBarModelMapper21setFirstBarSetSectionEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZNK15QBarModelMapper17lastBarSetSectionEv": [
+      "long long", "address"
+    ],
+    "ritual_ZN15QBarModelMapper20setLastBarSetSectionEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZNK15QBarModelMapper5countEv": ["long long", "address"],
+    "ritual_ZN15QBarModelMapper8setCountEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZNK15QBarModelMapper5firstEv": ["long long", "address"],
+    "ritual_ZN15QBarModelMapper8setFirstEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZNK15QBarModelMapper11orientationEv": ["int", "address"],
+    "ritual_ZN15QBarModelMapper14setOrientationEN2Qt11OrientationE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN15QBarModelMapper13onValuesAddedExx": [
+      "nothing", "address", "long long", "long long"
+    ],
+    "ritual_ZN15QBarModelMapper17onBarLabelChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QBarModelMapper17onBarValueChangedEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_take_QBarModelMapper": ["bool", "address", "chars", "address"]
+  }
+}

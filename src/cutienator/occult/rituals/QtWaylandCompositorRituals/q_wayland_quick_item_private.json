@@ -1,0 +1,53 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtWayla",
+    "ndCompositor/6.12.0/QtWaylandCompositor/private/qwaylandquickitem_",
+    "p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN24QWaylandQuickItemPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK24QWaylandQuickItemPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN24QWaylandQuickItemPrivate3getEPK17QWaylandQuickItem": [
+      "address", "address"
+    ],
+    "ritual_ZN24QWaylandQuickItemPrivate21setInputEventsEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN24QWaylandQuickItemPrivate15handleDragEndedEP12QWaylandSeat": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QWaylandQuickItemPrivate16handleDragUpdateEP12QWaylandSeatRK7QPointF": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZNK24QWaylandQuickItemPrivate21shouldSendInputEventsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK24QWaylandQuickItemPrivate11scaleFactorEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK24QWaylandQuickItemPrivate11findSiblingEP15QWaylandSurface": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN24QWaylandQuickItemPrivate17placeAboveSiblingEP17QWaylandQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QWaylandQuickItemPrivate17placeBelowSiblingEP17QWaylandQuickItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QWaylandQuickItemPrivate16placeAboveParentEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QWaylandQuickItemPrivate16placeBelowParentEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QWaylandQuickItemPrivate5raiseEv": ["nothing", "address"],
+    "ritual_ZN24QWaylandQuickItemPrivate5lowerEv": ["nothing", "address"],
+    "ritual_take_QWaylandQuickItemPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN24QWaylandQuickItemPrivate5raiseEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN24QWaylandQuickItemPrivate5lowerEv": ["nothing", "address"]
+  }
+}

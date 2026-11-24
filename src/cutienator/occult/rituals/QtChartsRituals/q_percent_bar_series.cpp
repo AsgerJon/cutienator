@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCharts/qpercentbarseries.h, Qt 6.12.0. Changes made here are lost.
+#include <QtCharts/qchartglobal.h>
+#if QT_CONFIG(charts_bar_chart)
 #include <QtCharts/qpercentbarseries.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
@@ -254,3 +256,5 @@ QAbstractSeries::SeriesType ritual_own_ZNK17QPercentBarSeries4typeEv(
     const QPercentBarSeries *self) {
   return self->QPercentBarSeries::type();
 }
+
+#endif  // QT_CONFIG(charts_bar_chart)

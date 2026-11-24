@@ -1,0 +1,28 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCanvasPainter/qcanvasimage.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN12QCanvasImageC1Ev": ["address"],
+    "ritual_ZN12QCanvasImageC1ERKS_": ["address", "address"],
+    "ritual_ZN12QCanvasImageD1Ev": ["nothing", "address"],
+    "ritual_ZNK12QCanvasImagecv8QVariantEv": ["address", "address"],
+    "ritual_ZNK12QCanvasImage2idEv": ["int", "address"],
+    "ritual_ZNK12QCanvasImage5widthEv": ["int", "address"],
+    "ritual_ZNK12QCanvasImage6heightEv": ["int", "address"],
+    "ritual_ZNK12QCanvasImage4sizeEv": ["address", "address"],
+    "ritual_ZNK12QCanvasImage11sizeInBytesEv": ["long long", "address"],
+    "ritual_ZNK12QCanvasImage16devicePixelRatioEv": ["double", "address"],
+    "ritual_ZNK12QCanvasImage6isNullEv": ["bool", "address"],
+    "ritual_ZNK12QCanvasImage9tintColorEv": ["address", "address"],
+    "ritual_ZN12QCanvasImage12setTintColorE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZeqRK12QCanvasImageS1_": ["bool", "address", "address"],
+    "ritual_ZneRK12QCanvasImageS1_": ["bool", "address", "address"],
+    "ritual_ZN12QCanvasImage6detachEv": ["nothing", "address"],
+    "ritual_Zls6QDebugRK12QCanvasImage": ["address", "address", "address"]
+  }
+}

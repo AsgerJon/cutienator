@@ -2,6 +2,7 @@
 //  QtCharts/qlineseries.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCharts/qchartglobal.h>
 #if QT_CONFIG(charts_line_chart)
+#if QT_CONFIG(charts_line_chart)
 #include <QtCharts/qlineseries.h>
 #include <QtCore/qstring.h>
 #include <QtGui/qpen.h>
@@ -328,4 +329,5 @@ QAbstractSeries::SeriesType ritual_own_ZNK11QLineSeries4typeEv(
   return self->QLineSeries::type();
 }
 
+#endif  // QT_CONFIG(charts_line_chart)
 #endif  // QT_CONFIG(charts_line_chart)

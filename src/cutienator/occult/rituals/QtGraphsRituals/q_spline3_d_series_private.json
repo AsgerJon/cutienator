@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGraphs/6.12.0/QtGraphs/private/qspline3dseries_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "parts first": [
+    "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
+  ],
+  "rows": {
+    "ritual_ZN22QSpline3DSeriesPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK22QSpline3DSeriesPrivate6q_funcEv": ["address", "address"],
+    "ritual_take_QSpline3DSeriesPrivate": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtRemot",
+    "eObjects/6.12.0/QtRemoteObjects/private/qconnectionfactories_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK20QtROExternalIoDevice10metaObjectEv": ["address", "address"],
+    "ritual_ZNK20QtROExternalIoDevice10connectionEv": ["address", "address"],
+    "ritual_ZNK20QtROExternalIoDevice6isOpenEv": ["bool", "address"],
+    "ritual_ZN20QtROExternalIoDevice7doCloseEv": ["nothing", "address"],
+    "ritual_ZNK20QtROExternalIoDevice10deviceTypeEv": ["text", "address"],
+    "ritual_ZN20QtROExternalIoDevice6d_funcEv": ["address", "address"],
+    "ritual_ZNK20QtROExternalIoDevice6d_funcEv": ["address", "address"],
+    "ritual_own_ZNK20QtROExternalIoDevice10connectionEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK20QtROExternalIoDevice6isOpenEv": ["bool", "address"],
+    "ritual_own_ZN20QtROExternalIoDevice7doCloseEv": ["nothing", "address"],
+    "ritual_own_ZNK20QtROExternalIoDevice10deviceTypeEv": ["text", "address"]
+  }
+}

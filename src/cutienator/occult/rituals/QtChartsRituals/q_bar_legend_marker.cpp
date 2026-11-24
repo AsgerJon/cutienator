@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCharts/qbarlegendmarker.h, Qt 6.12.0. Changes made here are lost.
+#include <QtCharts/qchartglobal.h>
+#if QT_CONFIG(charts_bar_chart)
 #include <QtCharts/qbarlegendmarker.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
@@ -294,3 +296,5 @@ QAbstractBarSeries *ritual_own_ZN16QBarLegendMarker6seriesEv(
     QBarLegendMarker *self) {
   return self->QBarLegendMarker::series();
 }
+
+#endif  // QT_CONFIG(charts_bar_chart)

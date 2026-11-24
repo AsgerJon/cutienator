@@ -195,6 +195,19 @@ QString *ritual_ZN12QBar3DSeries2trEPKcS1_i(
   return new QString(QBar3DSeries::tr(s, c, n));
 }
 
+//  QBar3DSeriesPrivate *QBar3DSeries::d_func()
+extern "C" Q_DECL_EXPORT
+QBar3DSeriesPrivate *ritual_ZN12QBar3DSeries6d_funcEv(QBar3DSeries *self) {
+  return self->d_func();
+}
+
+//  const QBar3DSeriesPrivate *QBar3DSeries::d_func() const
+extern "C" Q_DECL_EXPORT
+const QBar3DSeriesPrivate *ritual_ZNK12QBar3DSeries6d_funcEv(
+    const QBar3DSeries *self) {
+  return self->d_func();
+}
+
 //  void QBar3DSeries::qt_qmlMarker_uncreatable()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN12QBar3DSeries24qt_qmlMarker_uncreatableEv(

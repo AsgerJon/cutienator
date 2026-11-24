@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtWayla",
+    "ndCompositor/6.12.0/QtWaylandCompositor/private/qwltextureorphanag",
+    "e_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK9QtWayland24QWaylandTextureOrphanage10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN9QtWayland24QWaylandTextureOrphanage2trEPKcS2_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN9QtWayland24QWaylandTextureOrphanageC1Ev": ["address"],
+    "ritual_take_QtWayland_QWaylandTextureOrphanage": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

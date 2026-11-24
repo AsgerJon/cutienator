@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCharts/6.12.0/QtCharts/private/qhorizontalpercentbarseries_p.h, Qt
 //  6.12.0. Changes made here are lost.
+#include <QtCharts/qchartglobal.h>
+#include <QtCharts/6.12.0/QtCharts/private/qchartglobal_p.h>
+#if QT_CONFIG(charts_bar_chart)
 #include <QtCharts/6.12.0/QtCharts/private/qchartglobal_p.h>
 #include <QtCharts/qhorizontalpercentbarseries.h>
 #include <QtCharts/QtCharts>
@@ -62,3 +65,5 @@ void ritual_own_ZN34QHorizontalPercentBarSeriesPrivate16initializeDomainEv(
     QHorizontalPercentBarSeriesPrivate *self) {
   self->QHorizontalPercentBarSeriesPrivate::initializeDomain();
 }
+
+#endif  // QT_CONFIG(charts_bar_chart)

@@ -89,6 +89,8 @@
     ],
     "ritual_ZN17Q3DBarsWidgetItem6d_funcEv": ["address", "address"],
     "ritual_ZNK17Q3DBarsWidgetItem6d_funcEv": ["address", "address"],
+    "ritual_ZN17Q3DBarsWidgetItem9graphBarsEv": ["address", "address"],
+    "ritual_ZNK17Q3DBarsWidgetItem9graphBarsEv": ["address", "address"],
     "ritual_take_Q3DBarsWidgetItem": ["bool", "address", "chars", "address"],
     "ritual_own_ZN17Q3DBarsWidgetItem5eventEP6QEvent": [
       "bool", "address", "address"

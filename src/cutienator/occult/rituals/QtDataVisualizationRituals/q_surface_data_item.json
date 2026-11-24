@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDataVisualization/qsurfacedataitem.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN16QSurfaceDataItemC1Ev": ["address"],
+    "ritual_ZN16QSurfaceDataItemC1ERK9QVector3D": ["address", "address"],
+    "ritual_ZN16QSurfaceDataItemC1ERKS_": ["address", "address"],
+    "ritual_ZN16QSurfaceDataItemD1Ev": ["nothing", "address"],
+    "ritual_ZN16QSurfaceDataItem11setPositionERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QSurfaceDataItem8positionEv": ["address", "address"],
+    "ritual_ZN16QSurfaceDataItem4setXEf": ["nothing", "address", "float"],
+    "ritual_ZN16QSurfaceDataItem4setYEf": ["nothing", "address", "float"],
+    "ritual_ZN16QSurfaceDataItem4setZEf": ["nothing", "address", "float"],
+    "ritual_ZNK16QSurfaceDataItem1xEv": ["float", "address"],
+    "ritual_ZNK16QSurfaceDataItem1yEv": ["float", "address"],
+    "ritual_ZNK16QSurfaceDataItem1zEv": ["float", "address"],
+    "ritual_ZN16QSurfaceDataItem15createExtraDataEv": ["nothing", "address"]
+  }
+}

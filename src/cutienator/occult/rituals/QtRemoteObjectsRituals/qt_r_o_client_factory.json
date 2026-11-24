@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtRemoteObjects/qconnectionfactories.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN17QtROClientFactory8instanceEv": ["address"],
+    "ritual_ZN17QtROClientFactory6createERK4QUrlP7QObject": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN17QtROClientFactory7isValidERK4QUrl": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN17QtROClientFactoryD1Ev": ["nothing", "address"]
+  }
+}

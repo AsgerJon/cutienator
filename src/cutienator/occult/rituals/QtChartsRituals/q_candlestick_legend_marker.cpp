@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCharts/qcandlesticklegendmarker.h, Qt 6.12.0. Changes made here are
 //  lost.
+#include <QtCharts/qchartglobal.h>
+#if QT_CONFIG(charts_candlestick_chart)
 #include <QtCharts/qcandlesticklegendmarker.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
@@ -290,3 +292,5 @@ QCandlestickSeries *ritual_own_ZN24QCandlestickLegendMarker6seriesEv(
     QCandlestickLegendMarker *self) {
   return self->QCandlestickLegendMarker::series();
 }
+
+#endif  // QT_CONFIG(charts_candlestick_chart)

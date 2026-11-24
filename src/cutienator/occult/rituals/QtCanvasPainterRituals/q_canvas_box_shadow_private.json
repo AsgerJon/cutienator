@@ -1,0 +1,31 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtCanva",
+    "sPainter/6.12.0/QtCanvasPainter/private/qcanvasboxshadow_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN23QCanvasBoxShadowPrivate5cloneEv": ["address", "address"],
+    "ritual_ZN23QCanvasBoxShadowPrivate3getEP16QCanvasBoxShadow": [
+      "address", "address"
+    ],
+    "ritual_ZN23QCanvasBoxShadowPrivate3getEPK16QCanvasBoxShadow": [
+      "address", "address"
+    ],
+    "ritual_ZN23QCanvasBoxShadowPrivate6createEPS_": ["address", "address"],
+    "ritual_ZN23QCanvasBoxShadowPrivate18getFromCanvasBrushERK12QCanvasBrush": [
+      "address", "address"
+    ],
+    "ritual_ZNK23QCanvasBoxShadowPrivate15createBoxShadowEddddRK9QVector4Dd6QColor": [
+      "nothing", "address", "double", "double", "double", "double",
+      "address", "double", "address"
+    ],
+    "ritual_ZNK23QCanvasBoxShadowPrivate13clampedRadiusEddd": [
+      "double", "address", "double", "double", "double"
+    ],
+    "ritual_ZN23QCanvasBoxShadowPrivateD1Ev": ["nothing", "address"],
+    "ritual_take_QCanvasBoxShadowPrivate": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

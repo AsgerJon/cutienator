@@ -1,0 +1,38 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGraphs/6.12.0/QtGraphs/private/qbarmodelmapper_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "parts first": [
+    "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
+  ],
+  "rows": {
+    "ritual_ZN22QBarModelMapperPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK22QBarModelMapperPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN22QBarModelMapperPrivate13barModelIndexExx": [
+      "address", "address", "long long", "long long"
+    ],
+    "ritual_ZN22QBarModelMapperPrivate18blockSeriesSignalsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN22QBarModelMapperPrivate17blockModelSignalsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN22QBarModelMapperPrivate6barSetE11QModelIndex": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN22QBarModelMapperPrivate12modelUpdatedE11QModelIndexS0_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN22QBarModelMapperPrivate22modelHeaderDataUpdatedEN2Qt11OrientationExx": [
+      "nothing", "address", "int", "long long", "long long"
+    ],
+    "ritual_ZN22QBarModelMapperPrivate20handleModelDestroyedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QBarModelMapperPrivate21handleSeriesDestroyedEv": [
+      "nothing", "address"
+    ]
+  }
+}

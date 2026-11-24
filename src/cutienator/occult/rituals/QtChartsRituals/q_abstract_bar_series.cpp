@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCharts/qabstractbarseries.h, Qt 6.12.0. Changes made here are lost.
+#include <QtCharts/qchartglobal.h>
+#if QT_CONFIG(charts_bar_chart)
 #include <QtCharts/qabstractbarseries.h>
 #include <QtCore/qstring.h>
 #include <QtCharts/qbarset.h>
@@ -388,3 +390,5 @@ bool ritual_take_QAbstractBarSeries(
     void *call) {
   return static_cast<CuteQAbstractBarSeries *>(self)->take(key, call);
 }
+
+#endif  // QT_CONFIG(charts_bar_chart)

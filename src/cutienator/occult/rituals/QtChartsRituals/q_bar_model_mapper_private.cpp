@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCharts/6.12.0/QtCharts/private/qbarmodelmapper_p.h, Qt 6.12.0. Changes
 //  made here are lost.
+#include <QtCharts/qchartglobal.h>
+#include <QtCharts/6.12.0/QtCharts/private/qchartglobal_p.h>
+#if QT_CONFIG(charts_bar_chart)
 #include <QtCharts/6.12.0/QtCharts/private/qchartglobal_p.h>
 #include <QtCharts/qbarmodelmapper.h>
 #include <QtCharts/QtCharts>
@@ -235,3 +238,5 @@ const QBarModelMapper *ritual_ZNK22QBarModelMapperPrivate6q_funcEv(
     const QBarModelMapperPrivate *self) {
   return self->q_func();
 }
+
+#endif  // QT_CONFIG(charts_bar_chart)

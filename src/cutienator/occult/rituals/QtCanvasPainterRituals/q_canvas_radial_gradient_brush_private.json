@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtCanva",
+    "sPainter/6.12.0/QtCanvasPainter/private/qcanvasgradient_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN33QCanvasRadialGradientBrushPrivate5cloneEv": [
+      "address", "address"
+    ],
+    "ritual_ZN33QCanvasRadialGradientBrushPrivateD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_take_QCanvasRadialGradientBrushPrivate": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

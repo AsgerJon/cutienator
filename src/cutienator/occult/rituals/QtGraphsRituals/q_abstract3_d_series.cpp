@@ -10,6 +10,7 @@
 #include <QtGui/qcolor.h>
 #include <QtGui/qbrush.h>
 #include <QtCore/qmetaobject.h>
+#include <QtCore/qlist.h>
 #include <cstring>
 
 //  A QAbstract3DSeries that Python can take functions over in. Every QAbstract3DSeries
@@ -193,6 +194,20 @@ QString *ritual_ZN17QAbstract3DSeries2trEPKcS1_i(
     const char *c,
     int n) {
   return new QString(QAbstract3DSeries::tr(s, c, n));
+}
+
+//  QAbstract3DSeriesPrivate *QAbstract3DSeries::d_func()
+extern "C" Q_DECL_EXPORT
+QAbstract3DSeriesPrivate *ritual_ZN17QAbstract3DSeries6d_funcEv(
+    QAbstract3DSeries *self) {
+  return self->d_func();
+}
+
+//  const QAbstract3DSeriesPrivate *QAbstract3DSeries::d_func() const
+extern "C" Q_DECL_EXPORT
+const QAbstract3DSeriesPrivate *ritual_ZNK17QAbstract3DSeries6d_funcEv(
+    const QAbstract3DSeries *self) {
+  return self->d_func();
 }
 
 //  void QAbstract3DSeries::qt_qmlMarker_uncreatable()
@@ -480,6 +495,43 @@ bool ritual_take_QAbstract3DSeries(
     const char *key,
     void *call) {
   return static_cast<CuteQAbstract3DSeries *>(self)->take(key, call);
+}
+
+//  QList<QAbstract3DSeries *>::QList()
+extern "C" Q_DECL_EXPORT
+QList<QAbstract3DSeries *> *ritual_list_make_QAbstract3DSeries_ptr() {
+  return new QList<QAbstract3DSeries *>();
+}
+
+//  void QList<QAbstract3DSeries *>::append(const QAbstract3DSeries * &value)
+extern "C" Q_DECL_EXPORT
+void ritual_list_add_QAbstract3DSeries_ptr(
+    QList<QAbstract3DSeries *> *self,
+    QAbstract3DSeries *element) {
+  self->append(element);
+}
+
+//  qsizetype QList<QAbstract3DSeries *>::size() const
+extern "C" Q_DECL_EXPORT
+long long ritual_list_size_QAbstract3DSeries_ptr(
+    const QList<QAbstract3DSeries *> *self) {
+  return self->size();
+}
+
+//  const QAbstract3DSeries * &QList<QAbstract3DSeries *>::at(qsizetype i)
+//      const
+extern "C" Q_DECL_EXPORT
+QAbstract3DSeries *ritual_list_at_QAbstract3DSeries_ptr(
+    const QList<QAbstract3DSeries *> *self,
+    long long index) {
+  return self->at(index);
+}
+
+//  QList<QAbstract3DSeries *>::~QList()
+extern "C" Q_DECL_EXPORT
+void ritual_list_drop_QAbstract3DSeries_ptr(
+    QList<QAbstract3DSeries *> *self) {
+  delete self;
 }
 
 #endif  // !(!QT_CONFIG(graphs_3d_bars3d) && !QT_CONFIG(graphs_3d_scatter3d) && !QT_CONFIG(graphs_3d_surface3d))

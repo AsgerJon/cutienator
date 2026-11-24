@@ -9,6 +9,8 @@
   "rows": {
     "ritual_ZNK13QCustom3DItem10metaObjectEv": ["address", "address"],
     "ritual_ZN13QCustom3DItem2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN13QCustom3DItem6d_funcEv": ["address", "address"],
+    "ritual_ZNK13QCustom3DItem6d_funcEv": ["address", "address"],
     "ritual_ZN13QCustom3DItemC1EP7QObject": ["address", "address"],
     "ritual_ZN13QCustom3DItemC1ERK7QString9QVector3DS3_RK11QQuaternionRK6QImageP7QObject": [
       "address", "text", "address", "address", "address", "address",

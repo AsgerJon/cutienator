@@ -1,0 +1,48 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGraphs/qxymodelmapper.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "parts first": [
+    "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
+  ],
+  "rows": {
+    "ritual_ZNK14QXYModelMapper10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QXYModelMapper2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN14QXYModelMapper6d_funcEv": ["address", "address"],
+    "ritual_ZNK14QXYModelMapper6d_funcEv": ["address", "address"],
+    "ritual_ZN14QXYModelMapperC1EP7QObject": ["address", "address"],
+    "ritual_ZN14QXYModelMapperD1Ev": ["nothing", "address"],
+    "ritual_ZNK14QXYModelMapper5modelEv": ["address", "address"],
+    "ritual_ZN14QXYModelMapper8setModelEP18QAbstractItemModel": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QXYModelMapper6seriesEv": ["address", "address"],
+    "ritual_ZN14QXYModelMapper9setSeriesEP9QXYSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QXYModelMapper5firstEv": ["long long", "address"],
+    "ritual_ZN14QXYModelMapper8setFirstEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZNK14QXYModelMapper5countEv": ["long long", "address"],
+    "ritual_ZN14QXYModelMapper8setCountEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZNK14QXYModelMapper11orientationEv": ["int", "address"],
+    "ritual_ZN14QXYModelMapper14setOrientationEN2Qt11OrientationE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK14QXYModelMapper8xSectionEv": ["long long", "address"],
+    "ritual_ZN14QXYModelMapper11setXSectionEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZNK14QXYModelMapper8ySectionEv": ["long long", "address"],
+    "ritual_ZN14QXYModelMapper11setYSectionEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_take_QXYModelMapper": ["bool", "address", "chars", "address"]
+  }
+}

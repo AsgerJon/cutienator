@@ -1,0 +1,40 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtCanva",
+    "sPainter/6.12.0/QtCanvasPainter/private/qcanvascustombrush_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN25QCanvasCustomBrushPrivateC1Ev": ["address"],
+    "ritual_ZN25QCanvasCustomBrushPrivateC1ERKS_": ["address", "address"],
+    "ritual_ZN25QCanvasCustomBrushPrivate5cloneEv": ["address", "address"],
+    "ritual_ZNK25QCanvasCustomBrushPrivate11createPaintEP14QCanvasPainter": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN25QCanvasCustomBrushPrivate3getEP18QCanvasCustomBrush": [
+      "address", "address"
+    ],
+    "ritual_ZN25QCanvasCustomBrushPrivate3getEPK18QCanvasCustomBrush": [
+      "address", "address"
+    ],
+    "ritual_ZN25QCanvasCustomBrushPrivate3getERK18QCanvasCustomBrush": [
+      "address", "address"
+    ],
+    "ritual_ZN25QCanvasCustomBrushPrivate6createEPS_": [
+      "address", "address"
+    ],
+    "ritual_ZN25QCanvasCustomBrushPrivate18getFromCanvasBrushERK12QCanvasBrush": [
+      "address", "address"
+    ],
+    "ritual_ZN25QCanvasCustomBrushPrivateD1Ev": ["nothing", "address"],
+    "ritual_take_QCanvasCustomBrushPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN25QCanvasCustomBrushPrivate5cloneEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK25QCanvasCustomBrushPrivate11createPaintEP14QCanvasPainter": [
+      "address", "address", "address"
+    ]
+  }
+}

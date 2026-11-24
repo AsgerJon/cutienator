@@ -1,0 +1,43 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtCanva",
+    "sPainter/6.12.0/QtCanvasPainter/private/qcdistancefieldglyphcache_",
+    "p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN25QCDistanceFieldGlyphCacheD1Ev": ["nothing", "address"],
+    "ritual_ZN25QCDistanceFieldGlyphCache21commitResourceUpdatesEP23QRhiResourceUpdateBatchPNS_11FontKeyDataE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN25QCDistanceFieldGlyphCache21commitResourceUpdatesEP23QRhiResourceUpdateBatch": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK25QCDistanceFieldGlyphCache18getCurrentTexturesEPKNS_11FontKeyDataE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK25QCDistanceFieldGlyphCache14getOldTexturesEPKNS_11FontKeyDataE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN25QCDistanceFieldGlyphCache13setOldTextureEPNS_11FontKeyDataEP11QRhiTexture": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN25QCDistanceFieldGlyphCache27optimizeCacheAfterRenderingEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK25QCDistanceFieldGlyphCache17colorGlyphTextureEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK25QCDistanceFieldGlyphCache21prevColorGlyphTextureEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QCDistanceFieldGlyphCache24setPrevColorGlyphTextureEP11QRhiTexture": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QCDistanceFieldGlyphCache14fontKeyDataForERK8QRawFont": [
+      "address", "address", "address"
+    ],
+    "ritual_ZeqRKN25QCDistanceFieldGlyphCache7FontKeyES2_": [
+      "bool", "address", "address"
+    ]
+  }
+}

@@ -1,6 +1,10 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCharts/6.12.0/QtCharts/private/polarchartdatetimeaxisangular_p.h, Qt
 //  6.12.0. Changes made here are lost.
+#include <QtWidgets/qtwidgetsglobal.h>
+#include <QtCharts/qchartglobal.h>
+#include <QtCharts/6.12.0/QtCharts/private/qchartglobal_p.h>
+#if QT_CONFIG(charts_datetime_axis)
 #include <QtCharts/6.12.0/QtCharts/private/qchartglobal_p.h>
 #include <QtCharts/QtCharts>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -1381,3 +1385,5 @@ bool ritual_take_PolarChartDateTimeAxisAngular(
     void *call) {
   return static_cast<CutePolarChartDateTimeAxisAngular *>(self)->take(key, call);
 }
+
+#endif  // QT_CONFIG(charts_datetime_axis)

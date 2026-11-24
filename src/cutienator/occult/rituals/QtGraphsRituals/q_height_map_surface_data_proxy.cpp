@@ -194,6 +194,21 @@ QString *ritual_ZN26QHeightMapSurfaceDataProxy2trEPKcS1_i(
   return new QString(QHeightMapSurfaceDataProxy::tr(s, c, n));
 }
 
+//  QHeightMapSurfaceDataProxyPrivate *QHeightMapSurfaceDataProxy::d_func()
+extern "C" Q_DECL_EXPORT
+QHeightMapSurfaceDataProxyPrivate *ritual_ZN26QHeightMapSurfaceDataProxy6d_funcEv(
+    QHeightMapSurfaceDataProxy *self) {
+  return self->d_func();
+}
+
+//  const QHeightMapSurfaceDataProxyPrivate
+//      *QHeightMapSurfaceDataProxy::d_func() const
+extern "C" Q_DECL_EXPORT
+const QHeightMapSurfaceDataProxyPrivate *ritual_ZNK26QHeightMapSurfaceDataProxy6d_funcEv(
+    const QHeightMapSurfaceDataProxy *self) {
+  return self->d_func();
+}
+
 //  QHeightMapSurfaceDataProxy::QHeightMapSurfaceDataProxy(QObject *parent)
 extern "C" Q_DECL_EXPORT
 QHeightMapSurfaceDataProxy *ritual_ZN26QHeightMapSurfaceDataProxyC1EP7QObject(

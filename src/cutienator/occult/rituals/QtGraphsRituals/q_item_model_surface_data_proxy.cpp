@@ -195,6 +195,21 @@ QString *ritual_ZN26QItemModelSurfaceDataProxy2trEPKcS1_i(
   return new QString(QItemModelSurfaceDataProxy::tr(s, c, n));
 }
 
+//  QItemModelSurfaceDataProxyPrivate *QItemModelSurfaceDataProxy::d_func()
+extern "C" Q_DECL_EXPORT
+QItemModelSurfaceDataProxyPrivate *ritual_ZN26QItemModelSurfaceDataProxy6d_funcEv(
+    QItemModelSurfaceDataProxy *self) {
+  return self->d_func();
+}
+
+//  const QItemModelSurfaceDataProxyPrivate
+//      *QItemModelSurfaceDataProxy::d_func() const
+extern "C" Q_DECL_EXPORT
+const QItemModelSurfaceDataProxyPrivate *ritual_ZNK26QItemModelSurfaceDataProxy6d_funcEv(
+    const QItemModelSurfaceDataProxy *self) {
+  return self->d_func();
+}
+
 //  QItemModelSurfaceDataProxy::QItemModelSurfaceDataProxy(QObject *parent)
 extern "C" Q_DECL_EXPORT
 QItemModelSurfaceDataProxy *ritual_ZN26QItemModelSurfaceDataProxyC1EP7QObject(

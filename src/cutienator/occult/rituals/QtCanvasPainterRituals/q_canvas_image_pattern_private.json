@@ -1,0 +1,29 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtCanva",
+    "sPainter/6.12.0/QtCanvasPainter/private/qcanvasimagepattern_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN26QCanvasImagePatternPrivate16nextSerialNumberEv": [
+      "unsigned int"
+    ],
+    "ritual_ZN26QCanvasImagePatternPrivate5cloneEv": ["address", "address"],
+    "ritual_ZN26QCanvasImagePatternPrivate3getEP19QCanvasImagePattern": [
+      "address", "address"
+    ],
+    "ritual_ZN26QCanvasImagePatternPrivate3getEPK19QCanvasImagePattern": [
+      "address", "address"
+    ],
+    "ritual_ZN26QCanvasImagePatternPrivate6createEPS_": [
+      "address", "address"
+    ],
+    "ritual_ZN26QCanvasImagePatternPrivate18getFromCanvasBrushERK12QCanvasBrush": [
+      "address", "address"
+    ],
+    "ritual_ZN26QCanvasImagePatternPrivateD1Ev": ["nothing", "address"],
+    "ritual_take_QCanvasImagePatternPrivate": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

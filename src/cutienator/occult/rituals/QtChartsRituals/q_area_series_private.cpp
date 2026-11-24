@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCharts/6.12.0/QtCharts/private/qareaseries_p.h, Qt 6.12.0. Changes made
 //  here are lost.
+#include <QtCharts/qchartglobal.h>
+#include <QtCharts/6.12.0/QtCharts/private/qchartglobal_p.h>
+#if QT_CONFIG(charts_area_chart)
 #include <QtCharts/6.12.0/QtCharts/private/qchartglobal_p.h>
 #include <QtCharts/qareaseries.h>
 #include <QtCharts/QtCharts>
@@ -163,3 +166,5 @@ QAbstractAxis *ritual_own_ZNK18QAreaSeriesPrivate17createDefaultAxisEN2Qt11Orien
     Qt::Orientation a0) {
   return self->QAreaSeriesPrivate::createDefaultAxis(a0);
 }
+
+#endif  // QT_CONFIG(charts_area_chart)

@@ -361,6 +361,20 @@ const Q3DSurfaceWidgetItemPrivate *ritual_ZNK20Q3DSurfaceWidgetItem6d_funcEv(
   return self->d_func();
 }
 
+//  QQuickGraphsSurface *Q3DSurfaceWidgetItem::graphSurface()
+extern "C" Q_DECL_EXPORT
+QQuickGraphsSurface *ritual_ZN20Q3DSurfaceWidgetItem12graphSurfaceEv(
+    Q3DSurfaceWidgetItem *self) {
+  return self->graphSurface();
+}
+
+//  const QQuickGraphsSurface *Q3DSurfaceWidgetItem::graphSurface() const
+extern "C" Q_DECL_EXPORT
+const QQuickGraphsSurface *ritual_ZNK20Q3DSurfaceWidgetItem12graphSurfaceEv(
+    const Q3DSurfaceWidgetItem *self) {
+  return self->graphSurface();
+}
+
 //  a Python function taken by a CuteQ3DSurfaceWidgetItem, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT

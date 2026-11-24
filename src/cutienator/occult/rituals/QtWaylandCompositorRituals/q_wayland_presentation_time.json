@@ -1,0 +1,36 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtWayla",
+    "ndCompositor/6.12.0/QtWaylandCompositor/private/qwaylandpresentati",
+    "ontime_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK24QWaylandPresentationTime10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QWaylandPresentationTime2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN24QWaylandPresentationTimeC1Ev": ["address"],
+    "ritual_ZN24QWaylandPresentationTimeC1EP18QWaylandCompositor": [
+      "address", "address"
+    ],
+    "ritual_ZNK24QWaylandPresentationTime10compositorEv": [
+      "address", "address"
+    ],
+    "ritual_ZN24QWaylandPresentationTime10initializeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN24QWaylandPresentationTime12sendFeedbackEP12QQuickWindowyyj": [
+      "nothing", "address", "address", "unsigned long long",
+      "unsigned long long", "unsigned int"
+    ],
+    "ritual_ZN24QWaylandPresentationTime13interfaceNameEv": ["address"],
+    "ritual_take_QWaylandPresentationTime": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN24QWaylandPresentationTime10initializeEv": [
+      "nothing", "address"
+    ]
+  }
+}

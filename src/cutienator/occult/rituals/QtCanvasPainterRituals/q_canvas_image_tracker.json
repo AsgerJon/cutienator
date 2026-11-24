@@ -1,0 +1,36 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCanvasPainter/6.12.0/QtCanvasPainter/private/qcanvaspainter_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK19QCanvasImageTracker8containsEx": [
+      "bool", "address", "long long"
+    ],
+    "ritual_ZNK19QCanvasImageTracker5imageEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZNK19QCanvasImageTracker9textureIdEx": [
+      "int", "address", "long long"
+    ],
+    "ritual_ZN19QCanvasImageTracker6insertExRK12QCanvasImage": [
+      "nothing", "address", "long long", "address"
+    ],
+    "ritual_ZNK19QCanvasImageTracker10dataAmountEv": [
+      "long long", "address"
+    ],
+    "ritual_ZNK19QCanvasImageTracker4sizeEv": ["long long", "address"],
+    "ritual_ZN19QCanvasImageTracker24removeTemporaryResourcesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QCanvasImageTracker15removeTextureIdEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN19QCanvasImageTracker17markTextureIdUsedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN19QCanvasImageTracker5clearEv": ["nothing", "address"],
+    "ritual_ZN19QCanvasImageTrackerD1Ev": ["nothing", "address"]
+  }
+}

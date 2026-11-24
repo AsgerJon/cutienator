@@ -1,0 +1,207 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtCanva",
+    "sPainter/6.12.0/QtCanvasPainter/private/qcpainterengine_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QCPainterEngineC1Ev": ["address"],
+    "ritual_ZN15QCPainterEngine15setCustomMatrixERK10QMatrix4x4": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QCPainterEngine8endPaintEv": ["nothing", "address"],
+    "ritual_ZN15QCPainterEngine7restoreEv": ["nothing", "address"],
+    "ritual_ZN15QCPainterEngine14setStrokeColorE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QCPainterEngine14setStrokePaintERK7QCPaint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QCPainterEngine12setFillColorE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QCPainterEngine12setFillPaintERK7QCPaint": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QCPainterEngine12setLineWidthEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN15QCPainterEngine10setLineCapEN14QCanvasPainter7LineCapE": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZN15QCPainterEngine11setLineJoinEN14QCanvasPainter8LineJoinE": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZN15QCPainterEngine14setGlobalAlphaEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN15QCPainterEngine19setGlobalBrightnessEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN15QCPainterEngine17setGlobalContrastEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN15QCPainterEngine19setGlobalSaturationEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN15QCPainterEngine11setFillRuleEN14QCanvasPainter8FillRuleE": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZNK15QCPainterEngine8fillRuleEv": ["unsigned char", "address"],
+    "ritual_ZN15QCPainterEngine20setCustomStrokeBrushERK12QCanvasBrush": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QCPainterEngine18setCustomFillBrushERK12QCanvasBrush": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QCPainterEngine16currentTransformEv": [
+      "address", "address"
+    ],
+    "ritual_ZN15QCPainterEngine9transformERK10QTransform": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QCPainterEngine12setTransformERK10QTransform": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QCPainterEngine14resetTransformEv": ["nothing", "address"],
+    "ritual_ZN15QCPainterEngine9translateEff": [
+      "nothing", "address", "float", "float"
+    ],
+    "ritual_ZN15QCPainterEngine5scaleEff": [
+      "nothing", "address", "float", "float"
+    ],
+    "ritual_ZN15QCPainterEngine6rotateEf": ["nothing", "address", "float"],
+    "ritual_ZN15QCPainterEngine4skewEff": [
+      "nothing", "address", "float", "float"
+    ],
+    "ritual_ZN15QCPainterEngine17setBrushTransformERK10QTransform": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QCPainterEngine18createImagePatternEffffif6QColor": [
+      "address", "address", "float", "float", "float", "float", "int",
+      "float", "address"
+    ],
+    "ritual_ZN15QCPainterEngine9beginPathEv": ["nothing", "address"],
+    "ritual_ZN15QCPainterEngine9closePathEv": ["nothing", "address"],
+    "ritual_ZN15QCPainterEngine6moveToEff": [
+      "nothing", "address", "float", "float"
+    ],
+    "ritual_ZN15QCPainterEngine6lineToEff": [
+      "nothing", "address", "float", "float"
+    ],
+    "ritual_ZN15QCPainterEngine8bezierToEffffff": [
+      "nothing", "address", "float", "float", "float", "float", "float",
+      "float"
+    ],
+    "ritual_ZN15QCPainterEngine6quadToEffff": [
+      "nothing", "address", "float", "float", "float", "float"
+    ],
+    "ritual_ZN15QCPainterEngine5arcToEfffff": [
+      "nothing", "address", "float", "float", "float", "float", "float"
+    ],
+    "ritual_ZN15QCPainterEngine6addArcEfffffN14QCanvasPainter11PathWindingEb": [
+      "nothing", "address", "float", "float", "float", "float", "float",
+      "unsigned char", "bool"
+    ],
+    "ritual_ZN15QCPainterEngine7addRectEffff": [
+      "nothing", "address", "float", "float", "float", "float"
+    ],
+    "ritual_ZN15QCPainterEngine12addRoundRectEfffff": [
+      "nothing", "address", "float", "float", "float", "float", "float"
+    ],
+    "ritual_ZN15QCPainterEngine12addRoundRectEffffffff": [
+      "nothing", "address", "float", "float", "float", "float", "float",
+      "float", "float", "float"
+    ],
+    "ritual_ZN15QCPainterEngine10addEllipseEffff": [
+      "nothing", "address", "float", "float", "float", "float"
+    ],
+    "ritual_ZN15QCPainterEngine9addCircleEfff": [
+      "nothing", "address", "float", "float", "float"
+    ],
+    "ritual_ZN15QCPainterEngine7addPathERK12QPainterPath": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QCPainterEngine14setPathWindingEN14QCanvasPainter11PathWindingE": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZN15QCPainterEngine27setGlobalCompositeOperationEN14QCanvasPainter18CompositeOperationE": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZN15QCPainterEngine15setTextWrapModeEN14QCanvasPainter8WrapModeE": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZN15QCPainterEngine17setTextLineHeightEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN15QCPainterEngine16setTextAntialiasEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN15QCPainterEngine16setTextAlignmentEN14QCanvasPainter9TextAlignE": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZN15QCPainterEngine15setTextBaselineEN14QCanvasPainter12TextBaselineE": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZN15QCPainterEngine16setTextDirectionEN14QCanvasPainter13TextDirectionE": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZN15QCPainterEngine15textBoundingBoxERK7QStringRK6QRectF": [
+      "address", "address", "text", "address"
+    ],
+    "ritual_ZN15QCPainterEngine18resetDebugCountersEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK15QCPainterEngine13debugCountersEv": ["address", "address"],
+    "ritual_ZN15QCPainterEngine13setMiterLimitEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN15QCPainterEngine7cleanupEv": ["nothing", "address"],
+    "ritual_ZN15QCPainterEngine22releaseUnusedResourcesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QCPainterEngine13appendCommandE9QCCommand": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZN15QCPainterEngine20handleSetPathWindingEN14QCanvasPainter11PathWindingE": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZN15QCPainterEngine15handleClosePathEv": ["nothing", "address"],
+    "ritual_ZN15QCPainterEngine12handleMoveToEv": ["nothing", "address"],
+    "ritual_ZN15QCPainterEngine14handleAddPointEffNS_12QCPointFlagsE": [
+      "nothing", "address", "float", "float", "unsigned char"
+    ],
+    "ritual_ZN15QCPainterEngine14calculateJoinsEfN14QCanvasPainter8LineJoinEf": [
+      "nothing", "address", "float", "unsigned char", "float"
+    ],
+    "ritual_ZN15QCPainterEngine15addButtCapStartERK7QCPointfffffff": [
+      "nothing", "address", "address", "float", "float", "float", "float",
+      "float", "float", "float"
+    ],
+    "ritual_ZN15QCPainterEngine16addRoundCapStartERK7QCPointfffiff": [
+      "nothing", "address", "address", "float", "float", "float", "int",
+      "float", "float"
+    ],
+    "ritual_ZN15QCPainterEngine13addButtCapEndERK7QCPointfffffff": [
+      "nothing", "address", "address", "float", "float", "float", "float",
+      "float", "float", "float"
+    ],
+    "ritual_ZN15QCPainterEngine14addRoundCapEndERK7QCPointfffiff": [
+      "nothing", "address", "address", "float", "float", "float", "int",
+      "float", "float"
+    ],
+    "ritual_ZN15QCPainterEngine7addVertEffff": [
+      "nothing", "address", "float", "float", "float", "float"
+    ],
+    "ritual_ZN15QCPainterEngine14ensureVerticesEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QCPainterEngine18effectiveTextAlignE11QStringView": [
+      "unsigned char", "address", "text"
+    ],
+    "ritual_ZN15QCPainterEngine12getFillPaintEb": [
+      "address", "address", "bool"
+    ],
+    "ritual_ZN15QCPainterEngineD1Ev": ["nothing", "address"]
+  }
+}

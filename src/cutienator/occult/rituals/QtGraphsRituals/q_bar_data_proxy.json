@@ -9,6 +9,8 @@
   "rows": {
     "ritual_ZNK13QBarDataProxy10metaObjectEv": ["address", "address"],
     "ritual_ZN13QBarDataProxy2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN13QBarDataProxy6d_funcEv": ["address", "address"],
+    "ritual_ZNK13QBarDataProxy6d_funcEv": ["address", "address"],
     "ritual_ZN13QBarDataProxy24qt_qmlMarker_uncreatableEv": [
       "nothing", "address"
     ],

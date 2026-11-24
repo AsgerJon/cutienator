@@ -1,0 +1,36 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCanvasPainter/qcanvaspainteritem.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZNK18QCanvasPainterItem10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QCanvasPainterItem2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18QCanvasPainterItemD1Ev": ["nothing", "address"],
+    "ritual_ZNK18QCanvasPainterItem9fillColorEv": ["address", "address"],
+    "ritual_ZN18QCanvasPainterItem12setFillColorE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QCanvasPainterItem5debugEv": ["address", "address"],
+    "ritual_ZNK18QCanvasPainterItem18createItemRendererEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18QCanvasPainterItem14createRendererEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18QCanvasPainterItem5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN18QCanvasPainterItem6d_funcEv": ["address", "address"],
+    "ritual_ZNK18QCanvasPainterItem6d_funcEv": ["address", "address"],
+    "ritual_take_QCanvasPainterItem": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN18QCanvasPainterItem5eventEP6QEvent": [
+      "bool", "address", "address"
+    ]
+  }
+}

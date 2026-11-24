@@ -1,0 +1,30 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtWayla",
+    "ndCompositor/6.12.0/QtWaylandCompositor/private/qwaylandcompositor",
+    "quickextensions_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK38QWaylandTextInputManagerQuickExtension10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN38QWaylandTextInputManagerQuickExtension2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN38QWaylandTextInputManagerQuickExtension10classBeginEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN38QWaylandTextInputManagerQuickExtension17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_cast_QWaylandTextInputManagerQuickExtension_QQmlParserStatus": [
+      "address", "address"
+    ],
+    "ritual_own_ZN38QWaylandTextInputManagerQuickExtension10classBeginEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN38QWaylandTextInputManagerQuickExtension17componentCompleteEv": [
+      "nothing", "address"
+    ]
+  }
+}

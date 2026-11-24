@@ -2,6 +2,7 @@
 //  QtCharts/qarealegendmarker.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCharts/qchartglobal.h>
 #if QT_CONFIG(charts_area_chart)
+#if QT_CONFIG(charts_area_chart)
 #include <QtCharts/qarealegendmarker.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
@@ -301,4 +302,5 @@ QAreaSeries *ritual_own_ZN17QAreaLegendMarker6seriesEv(
   return self->QAreaLegendMarker::series();
 }
 
+#endif  // QT_CONFIG(charts_area_chart)
 #endif  // QT_CONFIG(charts_area_chart)

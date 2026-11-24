@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtRemot",
+    "eObjects/6.12.0/QtRemoteObjects/private/qremoteobjectabstractitemm",
+    "odeladapter_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK31QAbstractItemModelSourceAdapter10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK31QAbstractItemModelSourceAdapter14selectionModelEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK31QAbstractItemModelSourceAdapter9roleNamesEv": [
+      "address", "address"
+    ]
+  }
+}

@@ -14,6 +14,10 @@
     "ritual_ZN26QItemModelSurfaceDataProxy2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN26QItemModelSurfaceDataProxy6d_funcEv": ["address", "address"],
+    "ritual_ZNK26QItemModelSurfaceDataProxy6d_funcEv": [
+      "address", "address"
+    ],
     "ritual_ZN26QItemModelSurfaceDataProxyC1EP7QObject": [
       "address", "address"
     ],

@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCharts/qpieseries.h, Qt 6.12.0. Changes made here are lost.
+#include <QtCharts/qchartglobal.h>
+#if QT_CONFIG(charts_pie_chart)
 #include <QtCharts/qpieseries.h>
 #include <QtCore/qstring.h>
 #include <QtCharts/qpieslice.h>
@@ -429,3 +431,5 @@ QAbstractSeries::SeriesType ritual_own_ZNK10QPieSeries4typeEv(
     const QPieSeries *self) {
   return self->QPieSeries::type();
 }
+
+#endif  // QT_CONFIG(charts_pie_chart)

@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCharts/6.12.0/QtCharts/private/qsplineseries_p.h, Qt 6.12.0. Changes
 //  made here are lost.
+#include <QtCharts/qchartglobal.h>
+#include <QtCharts/6.12.0/QtCharts/private/qchartglobal_p.h>
+#if QT_CONFIG(charts_spline_chart)
 #include <QtCharts/6.12.0/QtCharts/private/qchartglobal_p.h>
 #include <QtCharts/qsplineseries.h>
 #include <QtCharts/QtCharts>
@@ -83,3 +86,5 @@ void ritual_own_ZN20QSplineSeriesPrivate18initializeGraphicsEP13QGraphicsItem(
     QGraphicsItem *parent) {
   self->QSplineSeriesPrivate::initializeGraphics(parent);
 }
+
+#endif  // QT_CONFIG(charts_spline_chart)

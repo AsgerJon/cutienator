@@ -1,0 +1,342 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGraphs/6.12.0/QtGraphs/private/qquickgraphssurface_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "parts first": [
+    "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
+  ],
+  "rows": {
+    "ritual_ZNK19QQuickGraphsSurface10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QQuickGraphsSurface2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN19QQuickGraphsSurfaceC1EP10QQuickItem": ["address", "address"],
+    "ritual_ZN19QQuickGraphsSurfaceD1Ev": ["nothing", "address"],
+    "ritual_ZN19QQuickGraphsSurface8setAxisXEP12QValue3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QQuickGraphsSurface5axisXEv": ["address", "address"],
+    "ritual_ZN19QQuickGraphsSurface8setAxisYEP12QValue3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QQuickGraphsSurface5axisYEv": ["address", "address"],
+    "ritual_ZN19QQuickGraphsSurface8setAxisZEP12QValue3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QQuickGraphsSurface5axisZEv": ["address", "address"],
+    "ritual_ZN19QQuickGraphsSurface9addSeriesEP16QSurface3DSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickGraphsSurface12removeSeriesEP16QSurface3DSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickGraphsSurface14clearSelectionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickGraphsSurface21setFlipHorizontalGridEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK19QQuickGraphsSurface18flipHorizontalGridEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN19QQuickGraphsSurface22isFlatShadingSupportedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN19QQuickGraphsSurface17surfaceSeriesListEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QQuickGraphsSurface20updateSurfaceTextureEP16QSurface3DSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickGraphsSurface24invalidSelectionPositionEv": [
+      "address"
+    ],
+    "ritual_ZN19QQuickGraphsSurface16setSelectedPointE6QPointP16QSurface3DSeriesb": [
+      "nothing", "address", "address", "address", "bool"
+    ],
+    "ritual_ZNK19QQuickGraphsSurface14selectedSeriesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QQuickGraphsSurface16setSelectionModeE6QFlagsIN10QtGraphs3D13SelectionFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN19QQuickGraphsSurface17setDataDimensionsE6QFlagsINS_13DataDimensionEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN19QQuickGraphsSurface14dataDimensionsEv": ["int", "address"],
+    "ritual_ZNK19QQuickGraphsSurface20hasChangedSeriesListEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK19QQuickGraphsSurface23isSeriesVisibilityDirtyEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN19QQuickGraphsSurface24setSeriesVisibilityDirtyEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK19QQuickGraphsSurface11isDataDirtyEv": ["bool", "address"],
+    "ritual_ZN19QQuickGraphsSurface12setDataDirtyEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK19QQuickGraphsSurface20isSeriesVisualsDirtyEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN19QQuickGraphsSurface21setSeriesVisualsDirtyEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK19QQuickGraphsSurface12isIndexDirtyEv": ["bool", "address"],
+    "ritual_ZN19QQuickGraphsSurface13setIndexDirtyEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN19QQuickGraphsSurface17changedSeriesListEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QQuickGraphsSurface22isSelectedPointChangedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN19QQuickGraphsSurface23setSelectedPointChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK19QQuickGraphsSurface27isFlipHorizontalGridChangedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN19QQuickGraphsSurface28setFlipHorizontalGridChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK19QQuickGraphsSurface23isSurfaceTextureChangedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN19QQuickGraphsSurface24setSurfaceTextureChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK19QQuickGraphsSurface22isChangedTexturesEmptyEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK19QQuickGraphsSurface24hasSeriesToChangeTextureEP16QSurface3DSeries": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN19QQuickGraphsSurface45handleAxisAutoAdjustRangeChangedInOrientationEN15QAbstract3DAxis15AxisOrientationEb": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZN19QQuickGraphsSurface30handleAxisRangeChangedBySenderEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickGraphsSurface37handleSeriesVisibilityChangedBySenderEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickGraphsSurface37handleItemLabelVisibleChangedBySenderEbP7QObject": [
+      "nothing", "address", "bool", "address"
+    ],
+    "ritual_ZN19QQuickGraphsSurface16adjustAxisRangesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickGraphsSurface22handleMultiAxisChangedEP15QAbstract3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickGraphsSurface25handleLightingModeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickGraphsSurface18renderSliceToImageEiiN10QtGraphs3D16SliceCaptureTypeE": [
+      "nothing", "address", "int", "int", "int"
+    ],
+    "ritual_ZN19QQuickGraphsSurface18renderSliceToImageEiiN10QtGraphs3D16SliceCaptureTypeERK4QUrl": [
+      "nothing", "address", "int", "int", "int", "address"
+    ],
+    "ritual_ZN19QQuickGraphsSurface17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickGraphsSurface9synchDataEv": ["nothing", "address"],
+    "ritual_ZN19QQuickGraphsSurface11updateGraphEv": ["nothing", "address"],
+    "ritual_ZN19QQuickGraphsSurface28calculateSceneScalingFactorsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickGraphsSurface16toggleSliceGraphEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickGraphsSurface26updateSingleHighlightColorEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickGraphsSurface19updateLightStrengthEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickGraphsSurface21handleThemeTypeChangeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickGraphsSurface9doPickingE7QPointF": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN19QQuickGraphsSurface12doRayPickingE9QVector3DS0_": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN19QQuickGraphsSurface18getSeriesMultiAxisEP17QAbstract3DSeriesN15QAbstract3DAxis15AxisOrientationE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN19QQuickGraphsSurface15createSliceViewEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickGraphsSurface20updateSliceItemLabelERK7QString9QVector3D": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZN19QQuickGraphsSurface19updateSelectionModeE6QFlagsIN10QtGraphs3D13SelectionFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN19QQuickGraphsSurface24createOffscreenSliceViewEiiN10QtGraphs3D16SliceCaptureTypeE": [
+      "address", "address", "int", "int", "int"
+    ],
+    "ritual_ZN19QQuickGraphsSurface18handleAxisXChangedEP15QAbstract3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickGraphsSurface18handleAxisYChangedEP15QAbstract3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickGraphsSurface18handleAxisZChangedEP15QAbstract3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickGraphsSurface20handleShadingChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickGraphsSurface27handleWireframeColorChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickGraphsSurface31handleFlipHorizontalGridChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN19QQuickGraphsSurface16handleArrayResetEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickGraphsSurface15handleRowsAddedExx": [
+      "nothing", "address", "long long", "long long"
+    ],
+    "ritual_ZN19QQuickGraphsSurface17handleRowsChangedExx": [
+      "nothing", "address", "long long", "long long"
+    ],
+    "ritual_ZN19QQuickGraphsSurface17handleRowsRemovedExx": [
+      "nothing", "address", "long long", "long long"
+    ],
+    "ritual_ZN19QQuickGraphsSurface18handleRowsInsertedExx": [
+      "nothing", "address", "long long", "long long"
+    ],
+    "ritual_ZN19QQuickGraphsSurface17handleItemChangedExx": [
+      "nothing", "address", "long long", "long long"
+    ],
+    "ritual_ZN19QQuickGraphsSurface32handleFlatShadingSupportedChangeEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN19QQuickGraphsSurface19getNormalizedVertexERK16QSurfaceDataItembbP16QSurface3DSeries": [
+      "address", "address", "address", "bool", "bool", "address"
+    ],
+    "ritual_ZN19QQuickGraphsSurface19handleChangedSeriesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickGraphsSurface19updateSelectedPointEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QQuickGraphsSurface8addModelEP16QSurface3DSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QQuickGraphsSurface21handleMeshTypeChangedEN17QAbstract3DSeries4MeshE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN19QQuickGraphsSurface20handlePointerChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN19QQuickGraphsSurface30changePointerMeshTypeForSeriesEN17QAbstract3DSeries4MeshEP16QSurface3DSeries": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN19QQuickGraphsSurface22changePointerForSeriesERK7QStringP16QSurface3DSeries": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZN19QQuickGraphsSurface35changeSlicePointerMeshTypeForSeriesEN17QAbstract3DSeries4MeshEP16QSurface3DSeries": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN19QQuickGraphsSurface27changeSlicePointerForSeriesERK7QStringP16QSurface3DSeries": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZNK19QQuickGraphsSurface15getMeshFileNameEN17QAbstract3DSeries4MeshEP16QSurface3DSeries": [
+      "text", "address", "int", "address"
+    ],
+    "ritual_ZN19QQuickGraphsSurface17intersectWithAABBE9QVector3DS0_S0_S0_": [
+      "bool", "address", "address", "address", "address", "address"
+    ],
+    "ritual_take_QQuickGraphsSurface": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN19QQuickGraphsSurface14clearSelectionEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN19QQuickGraphsSurface16setSelectionModeE6QFlagsIN10QtGraphs3D13SelectionFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN19QQuickGraphsSurface45handleAxisAutoAdjustRangeChangedInOrientationEN15QAbstract3DAxis15AxisOrientationEb": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_own_ZN19QQuickGraphsSurface30handleAxisRangeChangedBySenderEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN19QQuickGraphsSurface37handleSeriesVisibilityChangedBySenderEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN19QQuickGraphsSurface37handleItemLabelVisibleChangedBySenderEbP7QObject": [
+      "nothing", "address", "bool", "address"
+    ],
+    "ritual_own_ZN19QQuickGraphsSurface16adjustAxisRangesEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN19QQuickGraphsSurface22handleMultiAxisChangedEP15QAbstract3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN19QQuickGraphsSurface25handleLightingModeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN19QQuickGraphsSurface17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN19QQuickGraphsSurface9synchDataEv": ["nothing", "address"],
+    "ritual_own_ZN19QQuickGraphsSurface11updateGraphEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN19QQuickGraphsSurface28calculateSceneScalingFactorsEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN19QQuickGraphsSurface16toggleSliceGraphEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN19QQuickGraphsSurface26updateSingleHighlightColorEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN19QQuickGraphsSurface19updateLightStrengthEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN19QQuickGraphsSurface21handleThemeTypeChangeEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN19QQuickGraphsSurface9doPickingE7QPointF": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN19QQuickGraphsSurface12doRayPickingE9QVector3DS0_": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_own_ZN19QQuickGraphsSurface18getSeriesMultiAxisEP17QAbstract3DSeriesN15QAbstract3DAxis15AxisOrientationE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_own_ZN19QQuickGraphsSurface15createSliceViewEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN19QQuickGraphsSurface20updateSliceItemLabelERK7QString9QVector3D": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_own_ZN19QQuickGraphsSurface19updateSelectionModeE6QFlagsIN10QtGraphs3D13SelectionFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN19QQuickGraphsSurface18handleAxisXChangedEP15QAbstract3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN19QQuickGraphsSurface18handleAxisYChangedEP15QAbstract3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN19QQuickGraphsSurface18handleAxisZChangedEP15QAbstract3DAxis": [
+      "nothing", "address", "address"
+    ]
+  }
+}

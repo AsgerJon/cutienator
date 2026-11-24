@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCharts/6.12.0/QtCharts/private/qabstractbarseries_p.h, Qt 6.12.0.
 //  Changes made here are lost.
+#include <QtCharts/qchartglobal.h>
+#include <QtCharts/6.12.0/QtCharts/private/qchartglobal_p.h>
+#if QT_CONFIG(charts_bar_chart)
 #include <QtCharts/6.12.0/QtCharts/private/qchartglobal_p.h>
 #include <QtCharts/qabstractbarseries.h>
 #include <QtCharts/QtCharts>
@@ -407,3 +410,5 @@ QAbstractAxis *ritual_own_ZNK25QAbstractBarSeriesPrivate17createDefaultAxisEN2Qt
     Qt::Orientation orientation) {
   return self->QAbstractBarSeriesPrivate::createDefaultAxis(orientation);
 }
+
+#endif  // QT_CONFIG(charts_bar_chart)

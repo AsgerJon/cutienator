@@ -1,0 +1,42 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGraphs/6.12.0/QtGraphs/private/qvalue3daxis_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "parts first": [
+    "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
+  ],
+  "rows": {
+    "ritual_ZN19QValue3DAxisPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK19QValue3DAxisPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN19QValue3DAxisPrivate8setRangeEffb": [
+      "nothing", "address", "float", "float", "bool"
+    ],
+    "ritual_ZN19QValue3DAxisPrivate6setMinEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN19QValue3DAxisPrivate6setMaxEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN19QValue3DAxisPrivate17emitLabelsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QValue3DAxisPrivate18emitFormatterDirtyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QValue3DAxisPrivate9allowZeroEv": ["bool", "address"],
+    "ritual_ZN19QValue3DAxisPrivate14allowNegativesEv": ["bool", "address"],
+    "ritual_ZN19QValue3DAxisPrivate15allowMinMaxSameEv": ["bool", "address"],
+    "ritual_take_QValue3DAxisPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN19QValue3DAxisPrivate9allowZeroEv": ["bool", "address"],
+    "ritual_own_ZN19QValue3DAxisPrivate14allowNegativesEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZN19QValue3DAxisPrivate15allowMinMaxSameEv": [
+      "bool", "address"
+    ]
+  }
+}

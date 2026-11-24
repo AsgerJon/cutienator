@@ -1,5 +1,6 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCharts/qchart.h, Qt 6.12.0. Changes made here are lost.
+#include <QtWidgets/qtwidgetsglobal.h>
 #include <QtCharts/qchart.h>
 #include <QtCore/qstring.h>
 #include <QtCharts/qabstractseries.h>

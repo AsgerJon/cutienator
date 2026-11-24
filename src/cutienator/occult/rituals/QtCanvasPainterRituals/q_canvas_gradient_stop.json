@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCanvasPainter/qcanvasgradient.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZeqRK19QCanvasGradientStopS1_": ["bool", "address", "address"],
+    "ritual_ZneRK19QCanvasGradientStopS1_": ["bool", "address", "address"],
+    "ritual_Zls6QDebugRK19QCanvasGradientStop": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN19QCanvasGradientStopD1Ev": ["nothing", "address"],
+    "ritual_list_make_QCanvasGradientStop": ["address"],
+    "ritual_list_add_QCanvasGradientStop": ["nothing", "address", "address"],
+    "ritual_list_size_QCanvasGradientStop": ["long long", "address"],
+    "ritual_list_at_QCanvasGradientStop": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_QCanvasGradientStop": ["nothing", "address"]
+  }
+}

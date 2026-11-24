@@ -1,0 +1,112 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGraphs/6.12.0/QtGraphs/private/qquickgraphsbarsnode_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "parts first": [
+    "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
+  ],
+  "rows": {
+    "ritual_ZNK20QQuickGraphsBarsNode10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QQuickGraphsBarsNode2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN20QQuickGraphsBarsNodeC1EP12QQuick3DNode": [
+      "address", "address"
+    ],
+    "ritual_ZN20QQuickGraphsBarsNodeD1Ev": ["nothing", "address"],
+    "ritual_ZN20QQuickGraphsBarsNode10setRowAxisEP15QCategory3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QQuickGraphsBarsNode7rowAxisEv": ["address", "address"],
+    "ritual_ZN20QQuickGraphsBarsNode12setValueAxisEP12QValue3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QQuickGraphsBarsNode9valueAxisEv": ["address", "address"],
+    "ritual_ZN20QQuickGraphsBarsNode13setColumnAxisEP15QCategory3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QQuickGraphsBarsNode10columnAxisEv": ["address", "address"],
+    "ritual_ZN20QQuickGraphsBarsNode21setMultiSeriesUniformEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK20QQuickGraphsBarsNode20isMultiSeriesUniformEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN20QQuickGraphsBarsNode15setBarThicknessEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK20QQuickGraphsBarsNode12barThicknessEv": ["float", "address"],
+    "ritual_ZN20QQuickGraphsBarsNode13setBarSpacingE6QSizeF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QQuickGraphsBarsNode10barSpacingEv": ["address", "address"],
+    "ritual_ZN20QQuickGraphsBarsNode21setBarSpacingRelativeEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK20QQuickGraphsBarsNode20isBarSpacingRelativeEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN20QQuickGraphsBarsNode18setBarSeriesMarginE6QSizeF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QQuickGraphsBarsNode15barSeriesMarginEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QQuickGraphsBarsNode14selectedSeriesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QQuickGraphsBarsNode16setPrimarySeriesEP12QBar3DSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QQuickGraphsBarsNode13primarySeriesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QQuickGraphsBarsNode13setFloorLevelEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK20QQuickGraphsBarsNode10floorLevelEv": ["float", "address"],
+    "ritual_ZN20QQuickGraphsBarsNode13barSeriesListEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QQuickGraphsBarsNode9addSeriesEP12QBar3DSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickGraphsBarsNode12removeSeriesEP12QBar3DSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QQuickGraphsBarsNode12insertSeriesExP12QBar3DSeries": [
+      "nothing", "address", "long long", "address"
+    ],
+    "ritual_ZN20QQuickGraphsBarsNode14clearSelectionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickGraphsBarsNode9doPickingE7QPointF": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN20QQuickGraphsBarsNode12doRayPickingERK9QVector3DS2_": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN20QQuickGraphsBarsNode17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QQuickGraphsBarsNode9graphBarsEv": ["address", "address"],
+    "ritual_ZNK20QQuickGraphsBarsNode9graphBarsEv": ["address", "address"],
+    "ritual_take_QQuickGraphsBarsNode": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN20QQuickGraphsBarsNode14clearSelectionEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN20QQuickGraphsBarsNode9doPickingE7QPointF": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN20QQuickGraphsBarsNode12doRayPickingERK9QVector3DS2_": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_own_ZN20QQuickGraphsBarsNode17componentCompleteEv": [
+      "nothing", "address"
+    ]
+  }
+}

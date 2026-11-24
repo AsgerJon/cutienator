@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCharts/6.12.0/QtCharts/private/qpiemodelmapper_p.h, Qt 6.12.0. Changes
 //  made here are lost.
+#include <QtCharts/qchartglobal.h>
+#include <QtCharts/6.12.0/QtCharts/private/qchartglobal_p.h>
+#if QT_CONFIG(charts_pie_chart)
 #include <QtCharts/6.12.0/QtCharts/private/qchartglobal_p.h>
 #include <QtCharts/qpiemodelmapper.h>
 #include <QtCharts/QtCharts>
@@ -229,3 +232,5 @@ const QPieModelMapper *ritual_ZNK22QPieModelMapperPrivate6q_funcEv(
     const QPieModelMapperPrivate *self) {
   return self->q_func();
 }
+
+#endif  // QT_CONFIG(charts_pie_chart)

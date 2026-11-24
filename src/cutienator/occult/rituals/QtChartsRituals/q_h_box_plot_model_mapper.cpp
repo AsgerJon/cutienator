@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCharts/qhboxplotmodelmapper.h, Qt 6.12.0. Changes made here are lost.
+#include <QtCharts/qchartglobal.h>
+#if QT_CONFIG(charts_boxplot_chart)
 #include <QtCharts/qhboxplotmodelmapper.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
@@ -294,3 +296,5 @@ bool ritual_take_QHBoxPlotModelMapper(
     void *call) {
   return static_cast<CuteQHBoxPlotModelMapper *>(self)->take(key, call);
 }
+
+#endif  // QT_CONFIG(charts_boxplot_chart)

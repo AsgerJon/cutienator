@@ -192,6 +192,20 @@ QString *ritual_ZN15QCategory3DAxis2trEPKcS1_i(
   return new QString(QCategory3DAxis::tr(s, c, n));
 }
 
+//  QCategory3DAxisPrivate *QCategory3DAxis::d_func()
+extern "C" Q_DECL_EXPORT
+QCategory3DAxisPrivate *ritual_ZN15QCategory3DAxis6d_funcEv(
+    QCategory3DAxis *self) {
+  return self->d_func();
+}
+
+//  const QCategory3DAxisPrivate *QCategory3DAxis::d_func() const
+extern "C" Q_DECL_EXPORT
+const QCategory3DAxisPrivate *ritual_ZNK15QCategory3DAxis6d_funcEv(
+    const QCategory3DAxis *self) {
+  return self->d_func();
+}
+
 //  QCategory3DAxis::QCategory3DAxis(QObject *parent)
 extern "C" Q_DECL_EXPORT
 QCategory3DAxis *ritual_ZN15QCategory3DAxisC1EP7QObject(QObject *parent) {

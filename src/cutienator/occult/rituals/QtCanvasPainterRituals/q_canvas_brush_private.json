@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCanvasPainter/6.12.0/QtCanvasPainter/private/qcanvasbrush_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QCanvasBrushPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN19QCanvasBrushPrivate5cloneEv": ["address", "address"],
+    "ritual_ZNK19QCanvasBrushPrivate11createPaintEP14QCanvasPainter": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN19QCanvasBrushPrivate3getERK12QCanvasBrush": [
+      "address", "address"
+    ],
+    "ritual_ZN19QCanvasBrushPrivate6createEPS_": ["address", "address"],
+    "ritual_take_QCanvasBrushPrivate": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

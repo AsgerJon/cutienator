@@ -11,6 +11,8 @@
     "ritual_ZN15QSpline3DSeries2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN15QSpline3DSeries6d_funcEv": ["address", "address"],
+    "ritual_ZNK15QSpline3DSeries6d_funcEv": ["address", "address"],
     "ritual_ZN15QSpline3DSeries24qt_qmlMarker_uncreatableEv": [
       "nothing", "address"
     ],

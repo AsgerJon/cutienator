@@ -1,0 +1,29 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtRemot",
+    "eObjects/6.12.0/QtRemoteObjects/private/qremoteobjectreplica_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK26QStubReplicaImplementation11getPropertyEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN26QStubReplicaImplementation11setPropertyEiRK8QVariant": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZNK26QStubReplicaImplementation13isInitializedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK26QStubReplicaImplementation5stateEv": ["int", "address"],
+    "ritual_ZN26QStubReplicaImplementation13waitForSourceEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK26QStubReplicaImplementation4nodeEv": ["address", "address"],
+    "ritual_ZN26QStubReplicaImplementation7_q_sendEN11QMetaObject4CallEiRK5QListI8QVariantE": [
+      "nothing", "address", "int", "int", "address"
+    ],
+    "ritual_ZN26QStubReplicaImplementation16_q_sendWithReplyEN11QMetaObject4CallEiRK5QListI8QVariantE": [
+      "address", "address", "int", "int", "address"
+    ]
+  }
+}

@@ -194,6 +194,20 @@ QString *ritual_ZN16QScatter3DSeries2trEPKcS1_i(
   return new QString(QScatter3DSeries::tr(s, c, n));
 }
 
+//  QScatter3DSeriesPrivate *QScatter3DSeries::d_func()
+extern "C" Q_DECL_EXPORT
+QScatter3DSeriesPrivate *ritual_ZN16QScatter3DSeries6d_funcEv(
+    QScatter3DSeries *self) {
+  return self->d_func();
+}
+
+//  const QScatter3DSeriesPrivate *QScatter3DSeries::d_func() const
+extern "C" Q_DECL_EXPORT
+const QScatter3DSeriesPrivate *ritual_ZNK16QScatter3DSeries6d_funcEv(
+    const QScatter3DSeries *self) {
+  return self->d_func();
+}
+
 //  void QScatter3DSeries::qt_qmlMarker_uncreatable()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QScatter3DSeries24qt_qmlMarker_uncreatableEv(

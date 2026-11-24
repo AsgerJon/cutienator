@@ -1,0 +1,36 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtDataVisualization/qscatterdataitem.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN16QScatterDataItemC1Ev": ["address"],
+    "ritual_ZN16QScatterDataItemC1ERK9QVector3D": ["address", "address"],
+    "ritual_ZN16QScatterDataItemC1ERK9QVector3DRK11QQuaternion": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN16QScatterDataItemC1ERKS_": ["address", "address"],
+    "ritual_ZN16QScatterDataItemD1Ev": ["nothing", "address"],
+    "ritual_ZN16QScatterDataItem11setPositionERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QScatterDataItem8positionEv": ["address", "address"],
+    "ritual_ZN16QScatterDataItem11setRotationERK11QQuaternion": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QScatterDataItem8rotationEv": ["address", "address"],
+    "ritual_ZN16QScatterDataItem4setXEf": ["nothing", "address", "float"],
+    "ritual_ZN16QScatterDataItem4setYEf": ["nothing", "address", "float"],
+    "ritual_ZN16QScatterDataItem4setZEf": ["nothing", "address", "float"],
+    "ritual_ZNK16QScatterDataItem1xEv": ["float", "address"],
+    "ritual_ZNK16QScatterDataItem1yEv": ["float", "address"],
+    "ritual_ZNK16QScatterDataItem1zEv": ["float", "address"],
+    "ritual_ZN16QScatterDataItem15createExtraDataEv": ["nothing", "address"],
+    "ritual_list_make_QScatterDataItem": ["address"],
+    "ritual_list_add_QScatterDataItem": ["nothing", "address", "address"],
+    "ritual_list_size_QScatterDataItem": ["long long", "address"],
+    "ritual_list_at_QScatterDataItem": ["address", "address", "long long"],
+    "ritual_list_drop_QScatterDataItem": ["nothing", "address"]
+  }
+}

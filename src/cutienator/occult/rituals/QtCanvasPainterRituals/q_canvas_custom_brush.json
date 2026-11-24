@@ -1,0 +1,54 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCanvasPainter/qcanvascustombrush.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QCanvasCustomBrushC1Ev": ["address"],
+    "ritual_ZN18QCanvasCustomBrushC1ERKS_": ["address", "address"],
+    "ritual_ZN18QCanvasCustomBrushD1Ev": ["nothing", "address"],
+    "ritual_ZNK18QCanvasCustomBrushcv12QCanvasBrushEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18QCanvasCustomBrushcv8QVariantEv": ["address", "address"],
+    "ritual_ZN18QCanvasCustomBrush17setFragmentShaderERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN18QCanvasCustomBrush17setFragmentShaderERK7QShader": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QCanvasCustomBrush15setVertexShaderERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN18QCanvasCustomBrush15setVertexShaderERK7QShader": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QCanvasCustomBrush18isAnimationRunningEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN18QCanvasCustomBrush19setAnimationRunningEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN18QCanvasCustomBrush8setData1ERK9QVector4D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QCanvasCustomBrush8setData2ERK9QVector4D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QCanvasCustomBrush8setData3ERK9QVector4D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QCanvasCustomBrush8setData4ERK9QVector4D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZeqRK18QCanvasCustomBrushS1_": ["bool", "address", "address"],
+    "ritual_ZneRK18QCanvasCustomBrushS1_": ["bool", "address", "address"],
+    "ritual_ZN18QCanvasCustomBrushC1EP25QCanvasCustomBrushPrivate": [
+      "address", "address"
+    ],
+    "ritual_Zls6QDebugRK18QCanvasCustomBrush": [
+      "address", "address", "address"
+    ]
+  }
+}

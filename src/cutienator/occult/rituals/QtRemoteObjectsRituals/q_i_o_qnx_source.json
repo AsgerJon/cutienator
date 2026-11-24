@@ -1,0 +1,47 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtRemoteObjects/qconnection_qnx_qiodevices.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK12QIOQnxSource10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QIOQnxSource2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN12QIOQnxSourceC1EiP7QObject": ["address", "int", "address"],
+    "ritual_ZN12QIOQnxSourceD1Ev": ["nothing", "address"],
+    "ritual_ZNK12QIOQnxSource12isSequentialEv": ["bool", "address"],
+    "ritual_ZNK12QIOQnxSource14bytesAvailableEv": ["long long", "address"],
+    "ritual_ZNK12QIOQnxSource12bytesToWriteEv": ["long long", "address"],
+    "ritual_ZN12QIOQnxSource5closeEv": ["nothing", "address"],
+    "ritual_ZNK12QIOQnxSource5stateEv": ["int", "address"],
+    "ritual_ZN12QIOQnxSource19waitForBytesWrittenEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN12QIOQnxSource16waitForReadyReadEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN12QIOQnxSource9writeDataEPKcx": [
+      "long long", "address", "chars", "long long"
+    ],
+    "ritual_ZN12QIOQnxSource4openE6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN12QIOQnxSource14onDisconnectedEv": ["nothing", "address"],
+    "ritual_take_QIOQnxSource": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK12QIOQnxSource12isSequentialEv": ["bool", "address"],
+    "ritual_own_ZNK12QIOQnxSource14bytesAvailableEv": [
+      "long long", "address"
+    ],
+    "ritual_own_ZNK12QIOQnxSource12bytesToWriteEv": ["long long", "address"],
+    "ritual_own_ZN12QIOQnxSource5closeEv": ["nothing", "address"],
+    "ritual_own_ZN12QIOQnxSource19waitForBytesWrittenEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_own_ZN12QIOQnxSource16waitForReadyReadEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_own_ZN12QIOQnxSource4openE6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [
+      "bool", "address", "int"
+    ]
+  }
+}

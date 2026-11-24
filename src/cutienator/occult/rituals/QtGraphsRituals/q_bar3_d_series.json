@@ -9,6 +9,8 @@
   "rows": {
     "ritual_ZNK12QBar3DSeries10metaObjectEv": ["address", "address"],
     "ritual_ZN12QBar3DSeries2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN12QBar3DSeries6d_funcEv": ["address", "address"],
+    "ritual_ZNK12QBar3DSeries6d_funcEv": ["address", "address"],
     "ritual_ZN12QBar3DSeries24qt_qmlMarker_uncreatableEv": [
       "nothing", "address"
     ],

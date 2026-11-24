@@ -1,0 +1,66 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCanvasPainter/6.12.0/QtCanvasPainter/private/qcanvaspainter_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN21QCanvasPainterPrivateC1Ev": ["address"],
+    "ritual_ZN21QCanvasPainterPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZNK21QCanvasPainterPrivate6engineEv": ["address", "address"],
+    "ritual_ZN21QCanvasPainterPrivate3getEP14QCanvasPainter": [
+      "address", "address"
+    ],
+    "ritual_ZN21QCanvasPainterPrivate3getEPK14QCanvasPainter": [
+      "address", "address"
+    ],
+    "ritual_ZNK21QCanvasPainterPrivate16generateImageKeyERK6QImage6QFlagsIN14QCanvasPainter9ImageFlagEE": [
+      "long long", "address", "address", "int"
+    ],
+    "ritual_ZN21QCanvasPainterPrivate15getQCanvasImageERK6QImage6QFlagsIN14QCanvasPainter9ImageFlagEEx": [
+      "address", "address", "address", "int", "long long"
+    ],
+    "ritual_ZN21QCanvasPainterPrivate15getQCanvasImageEP11QRhiTexture6QFlagsIN14QCanvasPainter9ImageFlagEE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN21QCanvasPainterPrivate15getQCanvasImageERK22QCanvasOffscreenCanvas6QFlagsIN14QCanvasPainter9ImageFlagEE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN21QCanvasPainterPrivate21handleCleanupTexturesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QCanvasPainterPrivate17clearTextureCacheEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QCanvasPainterPrivate17markTextureIdUsedEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN21QCanvasPainterPrivate14setStencilClipERK5QListI6QRectFE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QCanvasPainterPrivate17setBrushTransformERK10QTransform": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QCanvasPainterPrivate7setFontERK5QFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QCanvasPainterPrivate8fillTextERK7QStringddd": [
+      "nothing", "address", "text", "double", "double", "double"
+    ],
+    "ritual_ZN21QCanvasPainterPrivate8fillTextERK7QStringRK6QRectF": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZNK21QCanvasPainterPrivate15textBoundingBoxERK7QStringddd": [
+      "address", "address", "text", "double", "double", "double"
+    ],
+    "ritual_ZNK21QCanvasPainterPrivate15textBoundingBoxERK7QStringRK6QRectF": [
+      "address", "address", "text", "address"
+    ],
+    "ritual_ZN21QCanvasPainterPrivate13drawBoxShadowEP14QCanvasPainterRK16QCanvasBoxShadow": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN21QCanvasPainterPrivate22setAntialiasingEnabledEb": [
+      "nothing", "address", "bool"
+    ]
+  }
+}

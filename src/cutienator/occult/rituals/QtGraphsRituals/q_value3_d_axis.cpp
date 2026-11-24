@@ -192,6 +192,19 @@ QString *ritual_ZN12QValue3DAxis2trEPKcS1_i(
   return new QString(QValue3DAxis::tr(s, c, n));
 }
 
+//  QValue3DAxisPrivate *QValue3DAxis::d_func()
+extern "C" Q_DECL_EXPORT
+QValue3DAxisPrivate *ritual_ZN12QValue3DAxis6d_funcEv(QValue3DAxis *self) {
+  return self->d_func();
+}
+
+//  const QValue3DAxisPrivate *QValue3DAxis::d_func() const
+extern "C" Q_DECL_EXPORT
+const QValue3DAxisPrivate *ritual_ZNK12QValue3DAxis6d_funcEv(
+    const QValue3DAxis *self) {
+  return self->d_func();
+}
+
 //  QValue3DAxis::QValue3DAxis(QObject *parent)
 extern "C" Q_DECL_EXPORT
 QValue3DAxis *ritual_ZN12QValue3DAxisC1EP7QObject(QObject *parent) {

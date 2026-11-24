@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCharts/6.12.0/QtCharts/private/qboxplotmodelmapper_p.h, Qt 6.12.0.
 //  Changes made here are lost.
+#include <QtCharts/qchartglobal.h>
+#include <QtCharts/6.12.0/QtCharts/private/qchartglobal_p.h>
+#if QT_CONFIG(charts_boxplot_chart)
 #include <QtCharts/6.12.0/QtCharts/private/qchartglobal_p.h>
 #include <QtCharts/qboxplotmodelmapper.h>
 #include <QtCharts/QtCharts>
@@ -214,3 +217,5 @@ const QBoxPlotModelMapper *ritual_ZNK26QBoxPlotModelMapperPrivate6q_funcEv(
     const QBoxPlotModelMapperPrivate *self) {
   return self->q_func();
 }
+
+#endif  // QT_CONFIG(charts_boxplot_chart)

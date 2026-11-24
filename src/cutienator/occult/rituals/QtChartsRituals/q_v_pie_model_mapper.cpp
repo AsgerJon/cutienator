@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCharts/qvpiemodelmapper.h, Qt 6.12.0. Changes made here are lost.
+#include <QtCharts/qchartglobal.h>
+#if QT_CONFIG(charts_pie_chart)
 #include <QtCharts/qvpiemodelmapper.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
@@ -291,3 +293,5 @@ bool ritual_take_QVPieModelMapper(
     void *call) {
   return static_cast<CuteQVPieModelMapper *>(self)->take(key, call);
 }
+
+#endif  // QT_CONFIG(charts_pie_chart)

@@ -11,6 +11,8 @@
     "ritual_ZN15QCategory3DAxis2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN15QCategory3DAxis6d_funcEv": ["address", "address"],
+    "ritual_ZNK15QCategory3DAxis6d_funcEv": ["address", "address"],
     "ritual_ZN15QCategory3DAxisC1EP7QObject": ["address", "address"],
     "ritual_ZN15QCategory3DAxisD1Ev": ["nothing", "address"],
     "ritual_ZN15QCategory3DAxis9setLabelsERK5QListI7QStringE": [

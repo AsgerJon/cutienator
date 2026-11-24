@@ -1,0 +1,36 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtWayla",
+    "ndCompositor/6.12.0/QtWaylandCompositor/private/qwlhardwarelayerin",
+    "tegration_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK9QtWayland24HardwareLayerIntegration10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN9QtWayland24HardwareLayerIntegration2trEPKcS2_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN9QtWayland24HardwareLayerIntegrationC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN9QtWayland24HardwareLayerIntegrationD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN9QtWayland24HardwareLayerIntegration3addEP26QWaylandQuickHardwareLayer": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QtWayland24HardwareLayerIntegration6removeEP26QWaylandQuickHardwareLayer": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QtWayland_HardwareLayerIntegration": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN9QtWayland24HardwareLayerIntegration3addEP26QWaylandQuickHardwareLayer": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN9QtWayland24HardwareLayerIntegration6removeEP26QWaylandQuickHardwareLayer": [
+      "nothing", "address", "address"
+    ]
+  }
+}

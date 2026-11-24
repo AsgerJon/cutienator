@@ -1,0 +1,33 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtWayla",
+    "ndCompositor/6.12.0/QtWaylandCompositor/private/qwlserverbufferint",
+    "egration_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN9QtWayland23ServerBufferIntegrationD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN9QtWayland23ServerBufferIntegration18initializeHardwareEP18QWaylandCompositor": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK9QtWayland23ServerBufferIntegration14supportsFormatENS_12ServerBuffer6FormatE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN9QtWayland23ServerBufferIntegration27createServerBufferFromImageERK6QImageNS_12ServerBuffer6FormatE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN9QtWayland23ServerBufferIntegration26createServerBufferFromDataE14QByteArrayViewRK5QSizej": [
+      "address", "address", "address", "address", "unsigned int"
+    ],
+    "ritual_take_QtWayland_ServerBufferIntegration": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN9QtWayland23ServerBufferIntegration18initializeHardwareEP18QWaylandCompositor": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN9QtWayland23ServerBufferIntegration26createServerBufferFromDataE14QByteArrayViewRK5QSizej": [
+      "address", "address", "address", "address", "unsigned int"
+    ]
+  }
+}

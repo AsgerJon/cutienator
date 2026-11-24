@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCharts/6.12.0/QtCharts/private/qpieseries_p.h, Qt 6.12.0. Changes made
 //  here are lost.
+#include <QtCharts/qchartglobal.h>
+#include <QtCharts/6.12.0/QtCharts/private/qchartglobal_p.h>
+#if QT_CONFIG(charts_pie_chart)
 #include <QtCharts/6.12.0/QtCharts/private/qchartglobal_p.h>
 #include <QtCharts/qpieseries.h>
 #include <QtCharts/QtCharts>
@@ -539,3 +542,5 @@ QAbstractAxis *ritual_own_ZNK17QPieSeriesPrivate17createDefaultAxisEN2Qt11Orient
     Qt::Orientation orientation) {
   return self->QPieSeriesPrivate::createDefaultAxis(orientation);
 }
+
+#endif  // QT_CONFIG(charts_pie_chart)

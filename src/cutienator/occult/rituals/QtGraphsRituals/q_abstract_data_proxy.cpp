@@ -191,6 +191,20 @@ QString *ritual_ZN18QAbstractDataProxy2trEPKcS1_i(
   return new QString(QAbstractDataProxy::tr(s, c, n));
 }
 
+//  QAbstractDataProxyPrivate *QAbstractDataProxy::d_func()
+extern "C" Q_DECL_EXPORT
+QAbstractDataProxyPrivate *ritual_ZN18QAbstractDataProxy6d_funcEv(
+    QAbstractDataProxy *self) {
+  return self->d_func();
+}
+
+//  const QAbstractDataProxyPrivate *QAbstractDataProxy::d_func() const
+extern "C" Q_DECL_EXPORT
+const QAbstractDataProxyPrivate *ritual_ZNK18QAbstractDataProxy6d_funcEv(
+    const QAbstractDataProxy *self) {
+  return self->d_func();
+}
+
 //  void QAbstractDataProxy::qt_qmlMarker_uncreatable()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN18QAbstractDataProxy24qt_qmlMarker_uncreatableEv(

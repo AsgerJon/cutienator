@@ -3522,7 +3522,7 @@ class RitualGenerator:
     name = member['mangledName']
     if member.get('virtual') or tree.hasBody(member):
       return True
-    if name in tree.getDefinedNames():
+    if tree.isDefined(name, self.getPartName()):
       return True
     if not self._isMarked(member):
       return False
@@ -3590,7 +3590,7 @@ class RitualGenerator:
     tree = self.getDependencyTree()
     if tree.hasBody(member):
       return False
-    if member.get('mangledName', '') in tree.getDefinedNames():
+    if tree.isDefined(member.get('mangledName', ''), self.getPartName()):
       return False
     if member.get('inline'):
       return True

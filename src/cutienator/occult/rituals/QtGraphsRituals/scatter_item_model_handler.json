@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGraphs/6.12.0/QtGraphs/private/scatteritemmodelhandler_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "parts first": [
+    "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
+  ],
+  "rows": {
+    "ritual_ZNK23ScatterItemModelHandler10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23ScatterItemModelHandler18handleRowsInsertedERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN23ScatterItemModelHandler17handleRowsRemovedERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_take_ScatterItemModelHandler": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN23ScatterItemModelHandler17handleRowsRemovedERK11QModelIndexii": [
+      "nothing", "address", "address", "int", "int"
+    ]
+  }
+}

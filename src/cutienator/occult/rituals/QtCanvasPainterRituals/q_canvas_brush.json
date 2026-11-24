@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCanvasPainter/qcanvasbrush.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN12QCanvasBrushC1Ev": ["address"],
+    "ritual_ZN12QCanvasBrushC1ERKS_": ["address", "address"],
+    "ritual_ZN12QCanvasBrushD1Ev": ["nothing", "address"],
+    "ritual_ZNK12QCanvasBrush4typeEv": ["int", "address"],
+    "ritual_ZeqRK12QCanvasBrushS1_": ["bool", "address", "address"],
+    "ritual_ZneRK12QCanvasBrushS1_": ["bool", "address", "address"],
+    "ritual_Zls6QDebugRK12QCanvasBrush": ["address", "address", "address"]
+  }
+}

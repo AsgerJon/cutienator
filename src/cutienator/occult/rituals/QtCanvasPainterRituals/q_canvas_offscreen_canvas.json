@@ -1,0 +1,26 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCanvasPainter/qcanvasoffscreencanvas.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN22QCanvasOffscreenCanvasC1Ev": ["address"],
+    "ritual_ZN22QCanvasOffscreenCanvasC1ERKS_": ["address", "address"],
+    "ritual_ZN22QCanvasOffscreenCanvasD1Ev": ["nothing", "address"],
+    "ritual_ZNK22QCanvasOffscreenCanvas6isNullEv": ["bool", "address"],
+    "ritual_ZNK22QCanvasOffscreenCanvas5widthEv": ["int", "address"],
+    "ritual_ZNK22QCanvasOffscreenCanvas6heightEv": ["int", "address"],
+    "ritual_ZNK22QCanvasOffscreenCanvas4sizeEv": ["address", "address"],
+    "ritual_ZNK22QCanvasOffscreenCanvas5flagsEv": ["int", "address"],
+    "ritual_ZNK22QCanvasOffscreenCanvas9fillColorEv": ["address", "address"],
+    "ritual_ZN22QCanvasOffscreenCanvas12setFillColorE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK22QCanvasOffscreenCanvas7textureEv": ["address", "address"],
+    "ritual_ZeqRK22QCanvasOffscreenCanvasS1_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZneRK22QCanvasOffscreenCanvasS1_": ["bool", "address", "address"]
+  }
+}

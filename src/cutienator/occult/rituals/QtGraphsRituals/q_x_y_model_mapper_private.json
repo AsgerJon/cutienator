@@ -1,0 +1,62 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGraphs/6.12.0/QtGraphs/private/qxymodelmapper_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "parts first": [
+    "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
+  ],
+  "rows": {
+    "ritual_ZN21QXYModelMapperPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK21QXYModelMapperPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN21QXYModelMapperPrivate16onModelRowsAddedE11QModelIndexxx": [
+      "nothing", "address", "address", "long long", "long long"
+    ],
+    "ritual_ZN21QXYModelMapperPrivate18onModelRowsRemovedE11QModelIndexxx": [
+      "nothing", "address", "address", "long long", "long long"
+    ],
+    "ritual_ZN21QXYModelMapperPrivate19onModelColumnsAddedE11QModelIndexxx": [
+      "nothing", "address", "address", "long long", "long long"
+    ],
+    "ritual_ZN21QXYModelMapperPrivate21onModelColumnsRemovedE11QModelIndexxx": [
+      "nothing", "address", "address", "long long", "long long"
+    ],
+    "ritual_ZN21QXYModelMapperPrivate20handleModelDestroyedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QXYModelMapperPrivate12onPointAddedEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN21QXYModelMapperPrivate14onPointRemovedEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN21QXYModelMapperPrivate15onPointsRemovedExx": [
+      "nothing", "address", "long long", "long long"
+    ],
+    "ritual_ZN21QXYModelMapperPrivate15onPointReplacedEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN21QXYModelMapperPrivate21handleSeriesDestroyedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QXYModelMapperPrivate11xModelIndexEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN21QXYModelMapperPrivate11yModelIndexEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZN21QXYModelMapperPrivate17blockModelSignalsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN21QXYModelMapperPrivate18blockSeriesSignalsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN21QXYModelMapperPrivate14valueFromModelE11QModelIndex": [
+      "double", "address", "address"
+    ],
+    "ritual_ZN21QXYModelMapperPrivate15setValueToModelE11QModelIndexd": [
+      "nothing", "address", "address", "double"
+    ]
+  }
+}

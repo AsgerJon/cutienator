@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGraphs/6.12.0/QtGraphs/private/qitemmodelbardataproxy_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "parts first": [
+    "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
+  ],
+  "rows": {
+    "ritual_ZN29QItemModelBarDataProxyPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK29QItemModelBarDataProxyPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN29QItemModelBarDataProxyPrivateD1Ev": ["nothing", "address"],
+    "ritual_take_QItemModelBarDataProxyPrivate": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

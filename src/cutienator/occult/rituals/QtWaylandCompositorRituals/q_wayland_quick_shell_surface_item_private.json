@@ -1,0 +1,39 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtWayla",
+    "ndCompositor/6.12.0/QtWaylandCompositor/private/qwaylandquickshell",
+    "surfaceitem_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN36QWaylandQuickShellSurfaceItemPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK36QWaylandQuickShellSurfaceItemPrivate6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN36QWaylandQuickShellSurfaceItemPrivate15setShellSurfaceEP20QWaylandShellSurface": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN36QWaylandQuickShellSurfaceItemPrivate20maybeCreateAutoPopupEP20QWaylandShellSurface": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN36QWaylandQuickShellSurfaceItemPrivate3getEP29QWaylandQuickShellSurfaceItem": [
+      "address", "address"
+    ],
+    "ritual_ZN36QWaylandQuickShellSurfaceItemPrivate5raiseEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN36QWaylandQuickShellSurfaceItemPrivate5lowerEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QWaylandQuickShellSurfaceItemPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN36QWaylandQuickShellSurfaceItemPrivate5raiseEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN36QWaylandQuickShellSurfaceItemPrivate5lowerEv": [
+      "nothing", "address"
+    ]
+  }
+}

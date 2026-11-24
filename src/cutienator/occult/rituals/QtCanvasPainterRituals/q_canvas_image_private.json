@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCanvasPainter/6.12.0/QtCanvasPainter/private/qcanvasimage_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QCanvasImagePrivateC1Ev": ["address"],
+    "ritual_ZN19QCanvasImagePrivate3getEP12QCanvasImage": [
+      "address", "address"
+    ],
+    "ritual_ZN19QCanvasImagePrivate3getEPK12QCanvasImage": [
+      "address", "address"
+    ],
+    "ritual_ZN19QCanvasImagePrivateD1Ev": ["nothing", "address"]
+  }
+}

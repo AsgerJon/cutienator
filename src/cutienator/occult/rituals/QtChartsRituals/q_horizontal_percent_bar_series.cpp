@@ -1,6 +1,8 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCharts/qhorizontalpercentbarseries.h, Qt 6.12.0. Changes made here are
 //  lost.
+#include <QtCharts/qchartglobal.h>
+#if QT_CONFIG(charts_bar_chart)
 #include <QtCharts/qhorizontalpercentbarseries.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qmetaobject.h>
@@ -258,3 +260,5 @@ QAbstractSeries::SeriesType ritual_own_ZNK27QHorizontalPercentBarSeries4typeEv(
     const QHorizontalPercentBarSeries *self) {
   return self->QHorizontalPercentBarSeries::type();
 }
+
+#endif  // QT_CONFIG(charts_bar_chart)

@@ -193,6 +193,21 @@ QString *ritual_ZN22QItemModelBarDataProxy2trEPKcS1_i(
   return new QString(QItemModelBarDataProxy::tr(s, c, n));
 }
 
+//  QItemModelBarDataProxyPrivate *QItemModelBarDataProxy::d_func()
+extern "C" Q_DECL_EXPORT
+QItemModelBarDataProxyPrivate *ritual_ZN22QItemModelBarDataProxy6d_funcEv(
+    QItemModelBarDataProxy *self) {
+  return self->d_func();
+}
+
+//  const QItemModelBarDataProxyPrivate *QItemModelBarDataProxy::d_func()
+//      const
+extern "C" Q_DECL_EXPORT
+const QItemModelBarDataProxyPrivate *ritual_ZNK22QItemModelBarDataProxy6d_funcEv(
+    const QItemModelBarDataProxy *self) {
+  return self->d_func();
+}
+
 //  QItemModelBarDataProxy::QItemModelBarDataProxy(QObject *parent)
 extern "C" Q_DECL_EXPORT
 QItemModelBarDataProxy *ritual_ZN22QItemModelBarDataProxyC1EP7QObject(

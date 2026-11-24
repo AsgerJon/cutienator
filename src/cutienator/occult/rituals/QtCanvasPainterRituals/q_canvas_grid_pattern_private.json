@@ -1,0 +1,26 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtCanva",
+    "sPainter/6.12.0/QtCanvasPainter/private/qcanvasgridpattern_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN25QCanvasGridPatternPrivate5cloneEv": ["address", "address"],
+    "ritual_ZN25QCanvasGridPatternPrivate3getEP18QCanvasGridPattern": [
+      "address", "address"
+    ],
+    "ritual_ZN25QCanvasGridPatternPrivate3getEPK18QCanvasGridPattern": [
+      "address", "address"
+    ],
+    "ritual_ZN25QCanvasGridPatternPrivate6createEPS_": [
+      "address", "address"
+    ],
+    "ritual_ZN25QCanvasGridPatternPrivate18getFromCanvasBrushERK12QCanvasBrush": [
+      "address", "address"
+    ],
+    "ritual_ZN25QCanvasGridPatternPrivateD1Ev": ["nothing", "address"],
+    "ritual_take_QCanvasGridPatternPrivate": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtQuick",
+    "TimelineBlendTrees/6.12.0/QtQuickTimelineBlendTrees/private/qtimel",
+    "ineanimationnode_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK22QTimelineAnimationNode10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QTimelineAnimationNode2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN22QTimelineAnimationNodeC1EP7QObject": ["address", "address"],
+    "ritual_ZNK22QTimelineAnimationNode9animationEv": ["address", "address"],
+    "ritual_ZN22QTimelineAnimationNode12setAnimationEP23QQuickTimelineAnimation": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK22QTimelineAnimationNode8timelineEv": ["address", "address"],
+    "ritual_ZN22QTimelineAnimationNode11setTimelineEP14QQuickTimeline": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK22QTimelineAnimationNode12currentFrameEv": [
+      "double", "address"
+    ],
+    "ritual_ZN22QTimelineAnimationNode15setCurrentFrameEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN22QTimelineAnimationNode15updateFrameDataEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN22QTimelineAnimationNode21updateAnimationTargetEv": [
+      "nothing", "address"
+    ]
+  }
+}

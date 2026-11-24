@@ -1,0 +1,91 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGraphs/6.12.0/QtGraphs/private/qquickgraphssurfacenode_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "parts first": [
+    "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
+  ],
+  "rows": {
+    "ritual_ZNK23QQuickGraphsSurfaceNode10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QQuickGraphsSurfaceNode2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN23QQuickGraphsSurfaceNodeC1EP12QQuick3DNode": [
+      "address", "address"
+    ],
+    "ritual_ZN23QQuickGraphsSurfaceNodeD1Ev": ["nothing", "address"],
+    "ritual_ZNK23QQuickGraphsSurfaceNode5axisXEv": ["address", "address"],
+    "ritual_ZN23QQuickGraphsSurfaceNode8setAxisXEP12QValue3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK23QQuickGraphsSurfaceNode5axisYEv": ["address", "address"],
+    "ritual_ZN23QQuickGraphsSurfaceNode8setAxisYEP12QValue3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK23QQuickGraphsSurfaceNode5axisZEv": ["address", "address"],
+    "ritual_ZN23QQuickGraphsSurfaceNode8setAxisZEP12QValue3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK23QQuickGraphsSurfaceNode14selectedSeriesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QQuickGraphsSurfaceNode16setSelectionModeE6QFlagsIN10QtGraphs3D13SelectionFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK23QQuickGraphsSurfaceNode18flipHorizontalGridEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN23QQuickGraphsSurfaceNode21setFlipHorizontalGridEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN23QQuickGraphsSurfaceNode17surfaceSeriesListEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QQuickGraphsSurfaceNode9addSeriesEP16QSurface3DSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QQuickGraphsSurfaceNode12removeSeriesEP16QSurface3DSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QQuickGraphsSurfaceNode14clearSelectionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickGraphsSurfaceNode9doPickingE7QPointF": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN23QQuickGraphsSurfaceNode12doRayPickingERK9QVector3DS2_": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN23QQuickGraphsSurfaceNode17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QQuickGraphsSurfaceNode12graphSurfaceEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK23QQuickGraphsSurfaceNode12graphSurfaceEv": [
+      "address", "address"
+    ],
+    "ritual_take_QQuickGraphsSurfaceNode": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN23QQuickGraphsSurfaceNode16setSelectionModeE6QFlagsIN10QtGraphs3D13SelectionFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN23QQuickGraphsSurfaceNode14clearSelectionEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN23QQuickGraphsSurfaceNode9doPickingE7QPointF": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN23QQuickGraphsSurfaceNode12doRayPickingERK9QVector3DS2_": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_own_ZN23QQuickGraphsSurfaceNode17componentCompleteEv": [
+      "nothing", "address"
+    ]
+  }
+}

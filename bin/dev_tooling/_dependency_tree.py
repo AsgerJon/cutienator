@@ -247,6 +247,9 @@ class DependencyTree:
   #  the part first; and for each part and each kind of name, which
   #  part each name is looked up in; see '_findPart'.
   __part_orders__ = None  # type: Optional[Dict[str, Names]]
+  #  For each part, the first parts of its order: itself and the parts
+  #  it needs; see 'getNeededParts'.
+  __needed_parts__ = None  # type: Optional[Dict[str, Names]]
   __part_scopes__ = None  # type: Optional[Dict[Tuple[str, str], Dict]]
   #  Each class the tree leaves out for an edge case of Qt's source it
   #  has no rule for, with why; see 'getMissedClasses'.
@@ -1356,12 +1359,40 @@ class DependencyTree:
     declares 'QVariant::PrivateShared::free' and 'qvariant_p.h' has
     its code. Whoever calls such a function has to pull that other
     header file in.
+
+    Only the part and the parts it needs are looked in, as
+    'getNeededParts' gives them: the code of a function seen from a
+    part is in a header file that part can pull in. A part it does not
+    build on may have code by the same name for a class of its own,
+    as QtGraphs has for 'QBarDataItem::QBarDataItem()', which
+    QtDataVisualization declares and writes the code of in a '.cpp'.
     """
     self.getClasses()
     holder = self._findPart('defined', compilerName, partName)
-    if holder is None:
+    if holder is None or holder not in self.getNeededParts(partName):
       return None
     return self.__defined_paths__[(holder, compilerName)]
+
+  def isDefined(self, compilerName: str, partName: str) -> bool:
+    """Says whether a header file has the body of code of a function,
+    by the compiler's own name of it, seen from a part, as
+    'getDefinedPath' finds it."""
+    return self.getDefinedPath(compilerName, partName) is not None
+
+  def getNeededParts(self, partName: str) -> Names:
+    """
+    Gives the part and the parts it needs, and the parts those need,
+    the nearest first, as 'HeaderFolder.getPartNeeds' has them: the
+    first parts of 'getPartOrder', before the others.
+
+    Raises
+    ------
+
+    LookupError
+      The tree has no part of that name.
+    """
+    self.getPartOrder(partName)
+    return self.__needed_parts__[partName]
 
   def getAliasTypes(self, partName: str) -> Dict[str, str]:
     """
@@ -1511,6 +1542,7 @@ class DependencyTree:
     self.__defined_paths__ = None
     self.__classes_by_part__ = None
     self.__part_orders__ = None
+    self.__needed_parts__ = None
     self.__part_scopes__ = None
     self.__missed_classes__ = None
     self.__make_order__ = None
@@ -1579,6 +1611,7 @@ class DependencyTree:
     the nearest first; and then the other parts, in the order read.
     """
     orders = dict()  # type: Dict[str, Names]
+    needed = dict()  # type: Dict[str, Names]
     for partName in partNames:
       order = [partName]  # type: List[str]
       at = 0
@@ -1590,8 +1623,10 @@ class DependencyTree:
         order.extend(need for need in needs if need not in order)
         at += 1
       order = [one for one in order if one in partNames]
+      needed[partName] = (*order,)
       order.extend(one for one in partNames if one not in order)
       orders[partName] = (*order,)
+    self.__needed_parts__ = needed
     return orders
 
   def _getHolders(self, kind: str) -> Dict[str, Names]:

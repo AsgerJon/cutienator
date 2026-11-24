@@ -1,0 +1,68 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCanvasPainter/qcanvasgridpattern.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QCanvasGridPatternC1Ev": ["address"],
+    "ritual_ZN18QCanvasGridPatternC1E7QPointF6QSizeF": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18QCanvasGridPatternC1Edddd": [
+      "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZN18QCanvasGridPatternC1ERKS_": ["address", "address"],
+    "ritual_ZN18QCanvasGridPatternD1Ev": ["nothing", "address"],
+    "ritual_ZNK18QCanvasGridPatterncv12QCanvasBrushEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18QCanvasGridPatterncv8QVariantEv": ["address", "address"],
+    "ritual_ZNK18QCanvasGridPattern13startPositionEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18QCanvasGridPattern16setStartPositionEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN18QCanvasGridPattern16setStartPositionE7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QCanvasGridPattern8cellSizeEv": ["address", "address"],
+    "ritual_ZN18QCanvasGridPattern11setCellSizeEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN18QCanvasGridPattern11setCellSizeE6QSizeF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QCanvasGridPattern9lineWidthEv": ["double", "address"],
+    "ritual_ZN18QCanvasGridPattern12setLineWidthEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK18QCanvasGridPattern7featherEv": ["double", "address"],
+    "ritual_ZN18QCanvasGridPattern10setFeatherEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK18QCanvasGridPattern8rotationEv": ["double", "address"],
+    "ritual_ZN18QCanvasGridPattern11setRotationEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK18QCanvasGridPattern9lineColorEv": ["address", "address"],
+    "ritual_ZN18QCanvasGridPattern12setLineColorE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QCanvasGridPattern15backgroundColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18QCanvasGridPattern18setBackgroundColorE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZeqRK18QCanvasGridPatternS1_": ["bool", "address", "address"],
+    "ritual_ZneRK18QCanvasGridPatternS1_": ["bool", "address", "address"],
+    "ritual_ZN18QCanvasGridPatternC1EP25QCanvasGridPatternPrivate": [
+      "address", "address"
+    ],
+    "ritual_Zls6QDebugRK18QCanvasGridPattern": [
+      "address", "address", "address"
+    ]
+  }
+}

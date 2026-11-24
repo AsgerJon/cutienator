@@ -335,6 +335,20 @@ const Q3DScatterWidgetItemPrivate *ritual_ZNK20Q3DScatterWidgetItem6d_funcEv(
   return self->d_func();
 }
 
+//  QQuickGraphsScatter *Q3DScatterWidgetItem::graphScatter()
+extern "C" Q_DECL_EXPORT
+QQuickGraphsScatter *ritual_ZN20Q3DScatterWidgetItem12graphScatterEv(
+    Q3DScatterWidgetItem *self) {
+  return self->graphScatter();
+}
+
+//  const QQuickGraphsScatter *Q3DScatterWidgetItem::graphScatter() const
+extern "C" Q_DECL_EXPORT
+const QQuickGraphsScatter *ritual_ZNK20Q3DScatterWidgetItem12graphScatterEv(
+    const Q3DScatterWidgetItem *self) {
+  return self->graphScatter();
+}
+
 //  a Python function taken by a CuteQ3DScatterWidgetItem, for the function
 //      named by the key
 extern "C" Q_DECL_EXPORT

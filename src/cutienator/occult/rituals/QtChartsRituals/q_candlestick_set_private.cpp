@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCharts/6.12.0/QtCharts/private/qcandlestickset_p.h, Qt 6.12.0. Changes
 //  made here are lost.
+#include <QtCharts/qchartglobal.h>
+#include <QtCharts/6.12.0/QtCharts/private/qchartglobal_p.h>
+#if QT_CONFIG(charts_candlestick_chart)
 #include <QtCharts/6.12.0/QtCharts/private/qchartglobal_p.h>
 #include <QtCharts/qcandlestickset.h>
 #include <QtCharts/QtCharts>
@@ -240,3 +243,5 @@ bool ritual_take_QCandlestickSetPrivate(
     void *call) {
   return static_cast<CuteQCandlestickSetPrivate *>(self)->take(key, call);
 }
+
+#endif  // QT_CONFIG(charts_candlestick_chart)

@@ -1,0 +1,55 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtRemot",
+    "eObjects/6.12.0/QtRemoteObjects/private/qremoteobjectpacket_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN20QRemoteObjectPackets9CodecBaseD1Ev": ["nothing", "address"],
+    "ritual_ZN20QRemoteObjectPackets9CodecBase19serializeInitPacketEPK23QRemoteObjectRootSource": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QRemoteObjectPackets9CodecBase26serializeInitDynamicPacketEPK23QRemoteObjectRootSource": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QRemoteObjectPackets9CodecBase29serializePropertyChangePacketEP23QRemoteObjectSourceBasei": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN20QRemoteObjectPackets9CodecBase17serializePropertyEPK23QRemoteObjectSourceBasei": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN20QRemoteObjectPackets9CodecBase19serializePingPacketERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN20QRemoteObjectPackets9CodecBase19serializePongPacketERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN20QRemoteObjectPackets9CodecBase21serializeInvokePacketERK7QStringiiRK5QListI8QVariantEii": [
+      "nothing", "address", "text", "int", "int", "address", "int", "int"
+    ],
+    "ritual_ZN20QRemoteObjectPackets9CodecBase26serializeInvokeReplyPacketERK7QStringiRK8QVariant": [
+      "nothing", "address", "text", "int", "address"
+    ],
+    "ritual_ZN20QRemoteObjectPackets9CodecBase24serializeHandshakePacketEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QRemoteObjectPackets9CodecBase27serializeRemoveObjectPacketERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN20QRemoteObjectPackets9CodecBase24serializeAddObjectPacketERK7QStringb": [
+      "nothing", "address", "text", "bool"
+    ],
+    "ritual_ZN20QRemoteObjectPackets9CodecBase10getPayloadEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QRemoteObjectPackets9CodecBase5resetEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QRemoteObjectPackets_CodecBase": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN20QRemoteObjectPackets9CodecBase5resetEv": [
+      "nothing", "address"
+    ]
+  }
+}

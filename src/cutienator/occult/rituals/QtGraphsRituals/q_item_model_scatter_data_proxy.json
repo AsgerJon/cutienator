@@ -14,6 +14,10 @@
     "ritual_ZN26QItemModelScatterDataProxy2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN26QItemModelScatterDataProxy6d_funcEv": ["address", "address"],
+    "ritual_ZNK26QItemModelScatterDataProxy6d_funcEv": [
+      "address", "address"
+    ],
     "ritual_ZN26QItemModelScatterDataProxyC1EP7QObject": [
       "address", "address"
     ],

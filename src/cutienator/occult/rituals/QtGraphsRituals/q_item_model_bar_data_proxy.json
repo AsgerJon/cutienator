@@ -14,6 +14,8 @@
     "ritual_ZN22QItemModelBarDataProxy2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN22QItemModelBarDataProxy6d_funcEv": ["address", "address"],
+    "ritual_ZNK22QItemModelBarDataProxy6d_funcEv": ["address", "address"],
     "ritual_ZN22QItemModelBarDataProxyC1EP7QObject": ["address", "address"],
     "ritual_ZN22QItemModelBarDataProxyC1EP18QAbstractItemModelP7QObject": [
       "address", "address", "address"

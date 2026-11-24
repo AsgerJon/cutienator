@@ -1,0 +1,64 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCanvasPainter/qcanvasimagepattern.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN19QCanvasImagePatternC1Ev": ["address"],
+    "ritual_ZN19QCanvasImagePatternC1ERK12QCanvasImage": [
+      "address", "address"
+    ],
+    "ritual_ZN19QCanvasImagePatternC1ERK12QCanvasImage7QPointF6QSizeF": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN19QCanvasImagePatternC1ERK12QCanvasImagedddd": [
+      "address", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZN19QCanvasImagePatternC1ERKS_": ["address", "address"],
+    "ritual_ZN19QCanvasImagePatternD1Ev": ["nothing", "address"],
+    "ritual_ZNK19QCanvasImagePatterncv12QCanvasBrushEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QCanvasImagePatterncv8QVariantEv": ["address", "address"],
+    "ritual_ZNK19QCanvasImagePattern13startPositionEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QCanvasImagePattern16setStartPositionEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN19QCanvasImagePattern16setStartPositionE7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QCanvasImagePattern9imageSizeEv": ["address", "address"],
+    "ritual_ZN19QCanvasImagePattern12setImageSizeEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN19QCanvasImagePattern12setImageSizeE6QSizeF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QCanvasImagePattern5imageEv": ["address", "address"],
+    "ritual_ZN19QCanvasImagePattern8setImageERK12QCanvasImage": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QCanvasImagePattern8rotationEv": ["double", "address"],
+    "ritual_ZN19QCanvasImagePattern11setRotationEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK19QCanvasImagePattern9tintColorEv": ["address", "address"],
+    "ritual_ZN19QCanvasImagePattern12setTintColorE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QCanvasImagePattern12serialNumberEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZeqRK19QCanvasImagePatternS1_": ["bool", "address", "address"],
+    "ritual_ZneRK19QCanvasImagePatternS1_": ["bool", "address", "address"],
+    "ritual_ZN19QCanvasImagePatternC1EP26QCanvasImagePatternPrivate": [
+      "address", "address"
+    ],
+    "ritual_Zls6QDebugRK19QCanvasImagePattern": [
+      "address", "address", "address"
+    ]
+  }
+}

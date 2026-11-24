@@ -1,0 +1,23 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGraphs/6.12.0/QtGraphs/private/qcustom3ditem_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "parts first": [
+    "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
+  ],
+  "rows": {
+    "ritual_ZN20QCustom3DItemPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK20QCustom3DItemPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN20QCustom3DItemPrivate12textureImageEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QCustom3DItemPrivate17clearTextureImageEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QCustom3DItemPrivate14resetDirtyBitsEv": [
+      "nothing", "address"
+    ]
+  }
+}

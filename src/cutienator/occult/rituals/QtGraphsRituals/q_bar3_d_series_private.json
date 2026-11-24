@@ -1,0 +1,73 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGraphs/6.12.0/QtGraphs/private/qbar3dseries_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "parts first": [
+    "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
+  ],
+  "rows": {
+    "ritual_ZN19QBar3DSeriesPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK19QBar3DSeriesPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN19QBar3DSeriesPrivate3getEP12QBar3DSeries": [
+      "address", "address"
+    ],
+    "ritual_ZN19QBar3DSeriesPrivate12setDataProxyEP18QAbstractDataProxy": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QBar3DSeriesPrivate20connectGraphAndProxyEP16QQuickGraphsItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QBar3DSeriesPrivate15createItemLabelEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QBar3DSeriesPrivate8clearRowEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN19QBar3DSeriesPrivate10clearArrayEv": ["nothing", "address"],
+    "ritual_ZN19QBar3DSeriesPrivate12setRowLabelsERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QBar3DSeriesPrivate15setColumnLabelsERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QBar3DSeriesPrivate18setCustomRowLabelsERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QBar3DSeriesPrivate21setCustomColumnLabelsERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QBar3DSeriesPrivate12fixRowLabelsExxRK5QListI7QStringEb": [
+      "nothing", "address", "long long", "long long", "address", "bool"
+    ],
+    "ritual_ZN19QBar3DSeriesPrivate10setRowAxisEP15QCategory3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QBar3DSeriesPrivate12setValueAxisEP12QValue3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QBar3DSeriesPrivate13setColumnAxisEP15QCategory3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QBar3DSeriesPrivate12resetRowAxisEv": ["nothing", "address"],
+    "ritual_ZN19QBar3DSeriesPrivate14resetValueAxisEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QBar3DSeriesPrivate15resetColumnAxisEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QBar3DSeriesPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN19QBar3DSeriesPrivate12setDataProxyEP18QAbstractDataProxy": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN19QBar3DSeriesPrivate20connectGraphAndProxyEP16QQuickGraphsItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN19QBar3DSeriesPrivate15createItemLabelEv": [
+      "nothing", "address"
+    ]
+  }
+}

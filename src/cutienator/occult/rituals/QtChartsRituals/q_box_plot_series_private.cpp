@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCharts/6.12.0/QtCharts/private/qboxplotseries_p.h, Qt 6.12.0. Changes
 //  made here are lost.
+#include <QtCharts/qchartglobal.h>
+#include <QtCharts/6.12.0/QtCharts/private/qchartglobal_p.h>
+#if QT_CONFIG(charts_boxplot_chart)
 #include <QtCharts/6.12.0/QtCharts/private/qchartglobal_p.h>
 #include <QtCharts/qboxplotseries.h>
 #include <QtCharts/QtCharts>
@@ -566,3 +569,5 @@ QAbstractAxis *ritual_own_ZNK21QBoxPlotSeriesPrivate17createDefaultAxisEN2Qt11Or
     Qt::Orientation orientation) {
   return self->QBoxPlotSeriesPrivate::createDefaultAxis(orientation);
 }
+
+#endif  // QT_CONFIG(charts_boxplot_chart)

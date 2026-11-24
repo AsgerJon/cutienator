@@ -1,0 +1,383 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGraphs/6.12.0/QtGraphs/private/qquickgraphsbars_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "parts first": [
+    "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
+  ],
+  "rows": {
+    "ritual_ZNK16QQuickGraphsBars10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QQuickGraphsBars2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN16QQuickGraphsBarsC1EP10QQuickItem": ["address", "address"],
+    "ritual_ZN16QQuickGraphsBarsD1Ev": ["nothing", "address"],
+    "ritual_ZNK16QQuickGraphsBars7rowAxisEv": ["address", "address"],
+    "ritual_ZN16QQuickGraphsBars10setRowAxisEP15QCategory3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QQuickGraphsBars9valueAxisEv": ["address", "address"],
+    "ritual_ZN16QQuickGraphsBars12setValueAxisEP12QValue3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QQuickGraphsBars10columnAxisEv": ["address", "address"],
+    "ritual_ZN16QQuickGraphsBars13setColumnAxisEP15QCategory3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsBars21setMultiSeriesUniformEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK16QQuickGraphsBars20isMultiSeriesUniformEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN16QQuickGraphsBars15setBarThicknessEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK16QQuickGraphsBars12barThicknessEv": ["float", "address"],
+    "ritual_ZN16QQuickGraphsBars13setBarSpacingE6QSizeF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QQuickGraphsBars10barSpacingEv": ["address", "address"],
+    "ritual_ZN16QQuickGraphsBars21setBarSpacingRelativeEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK16QQuickGraphsBars20isBarSpacingRelativeEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN16QQuickGraphsBars18setBarSeriesMarginE6QSizeF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QQuickGraphsBars15barSeriesMarginEv": [
+      "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsBars21setMultiSeriesScalingEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK16QQuickGraphsBars18multiSeriesScalingEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN16QQuickGraphsBars11setBarSpecsEf6QSizeFb": [
+      "nothing", "address", "float", "address", "bool"
+    ],
+    "ritual_ZN16QQuickGraphsBars13setFloorLevelEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK16QQuickGraphsBars10floorLevelEv": ["float", "address"],
+    "ritual_ZN16QQuickGraphsBars9addSeriesEP12QBar3DSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsBars12removeSeriesEP12QBar3DSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsBars12insertSeriesExP12QBar3DSeries": [
+      "nothing", "address", "long long", "address"
+    ],
+    "ritual_ZN16QQuickGraphsBars14clearSelectionEv": ["nothing", "address"],
+    "ritual_ZN16QQuickGraphsBars16setPrimarySeriesEP12QBar3DSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QQuickGraphsBars13primarySeriesEv": ["address", "address"],
+    "ritual_ZNK16QQuickGraphsBars14selectedSeriesEv": ["address", "address"],
+    "ritual_ZN16QQuickGraphsBars24invalidSelectionPositionEv": ["address"],
+    "ritual_ZN16QQuickGraphsBars16setSelectionModeE6QFlagsIN10QtGraphs3D13SelectionFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16QQuickGraphsBars45handleAxisAutoAdjustRangeChangedInOrientationEN15QAbstract3DAxis15AxisOrientationEb": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_ZN16QQuickGraphsBars37handleSeriesVisibilityChangedBySenderEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsBars37handleItemLabelVisibleChangedBySenderEbP7QObject": [
+      "nothing", "address", "bool", "address"
+    ],
+    "ritual_ZN16QQuickGraphsBars30handleAxisRangeChangedBySenderEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsBars16adjustAxisRangesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickGraphsBars25handleLightingModeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickGraphsBars22handleMultiAxisChangedEP15QAbstract3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsBars14setSelectedBarE6QPointP12QBar3DSeriesb": [
+      "nothing", "address", "address", "address", "bool"
+    ],
+    "ritual_ZN16QQuickGraphsBars13barSeriesListEv": ["address", "address"],
+    "ritual_ZNK16QQuickGraphsBars20isSeriesVisualsDirtyEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN16QQuickGraphsBars21setSeriesVisualsDirtyEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK16QQuickGraphsBars11isDataDirtyEv": ["bool", "address"],
+    "ritual_ZN16QQuickGraphsBars12setDataDirtyEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN16QQuickGraphsBars18renderSliceToImageEiN10QtGraphs3D16SliceCaptureTypeE": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN16QQuickGraphsBars18renderSliceToImageEiN10QtGraphs3D16SliceCaptureTypeERK4QUrl": [
+      "nothing", "address", "int", "int", "address"
+    ],
+    "ritual_ZN16QQuickGraphsBars17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickGraphsBars9synchDataEv": ["nothing", "address"],
+    "ritual_ZN16QQuickGraphsBars11updateFloorEv": ["nothing", "address"],
+    "ritual_ZN16QQuickGraphsBars16updateParametersEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickGraphsBars16updateFloorLevelEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN16QQuickGraphsBars11updateGraphEv": ["nothing", "address"],
+    "ritual_ZN16QQuickGraphsBars15updateAxisRangeEff": [
+      "nothing", "address", "float", "float"
+    ],
+    "ritual_ZN16QQuickGraphsBars18updateAxisReversedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN16QQuickGraphsBars19updateLightStrengthEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickGraphsBars28calculateSceneScalingFactorsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickGraphsBars30calculateCategoryLabelPositionEP15QAbstract3DAxis9QVector3Di": [
+      "address", "address", "address", "address", "int"
+    ],
+    "ritual_ZN16QQuickGraphsBars33calculateCategoryGridLinePositionEP15QAbstract3DAxisi": [
+      "float", "address", "address", "int"
+    ],
+    "ritual_ZN16QQuickGraphsBars15createSliceViewEv": ["nothing", "address"],
+    "ritual_ZN16QQuickGraphsBars16toggleSliceGraphEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickGraphsBars23handleLabelCountChangedEP16QQuick3DRepeater6QColor": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsBars19updateSelectionModeE6QFlagsIN10QtGraphs3D13SelectionFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16QQuickGraphsBars9doPickingE7QPointF": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsBars12doRayPickingE9QVector3DS0_": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsBars17createDefaultAxisEN15QAbstract3DAxis15AxisOrientationE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN16QQuickGraphsBars20updateSliceItemLabelERK7QString9QVector3D": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_ZN16QQuickGraphsBars18getSeriesMultiAxisEP17QAbstract3DSeriesN15QAbstract3DAxis15AxisOrientationE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN16QQuickGraphsBars24createOffscreenSliceViewEiN10QtGraphs3D16SliceCaptureTypeE": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZN16QQuickGraphsBars18handleAxisXChangedEP15QAbstract3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsBars18handleAxisYChangedEP15QAbstract3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsBars18handleAxisZChangedEP15QAbstract3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsBars23handleSeriesMeshChangedEN17QAbstract3DSeries4MeshE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN16QQuickGraphsBars23handleMeshSmoothChangedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN16QQuickGraphsBars27handleCameraRotationChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickGraphsBars16handleArrayResetEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickGraphsBars15handleRowsAddedExx": [
+      "nothing", "address", "long long", "long long"
+    ],
+    "ritual_ZN16QQuickGraphsBars17handleRowsChangedExx": [
+      "nothing", "address", "long long", "long long"
+    ],
+    "ritual_ZN16QQuickGraphsBars17handleRowsRemovedExx": [
+      "nothing", "address", "long long", "long long"
+    ],
+    "ritual_ZN16QQuickGraphsBars18handleRowsInsertedExx": [
+      "nothing", "address", "long long", "long long"
+    ],
+    "ritual_ZN16QQuickGraphsBars17handleItemChangedExx": [
+      "nothing", "address", "long long", "long long"
+    ],
+    "ritual_ZN16QQuickGraphsBars26handleDataRowLabelsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickGraphsBars29handleDataColumnLabelsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickGraphsBars22handleRowColorsChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickGraphsBars26handleValueColoringChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickGraphsBars25calculateHeightAdjustmentEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickGraphsBars28calculateSeriesStartPositionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickGraphsBars13connectSeriesEP12QBar3DSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsBars16disconnectSeriesEP12QBar3DSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsBars14createDataItemEP12QQuick3DNodeP17QAbstract3DSeries": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsBars15getMeshFileNameEv": ["text", "address"],
+    "ritual_ZN16QQuickGraphsBars18updateBarVisualityEP12QBar3DSeriesi": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN16QQuickGraphsBars18updateBarPositionsEP12QBar3DSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsBars25updateBarHeightParametersEPK12QBarDataItemP12QValue3DAxis": [
+      "float", "address", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsBars16updateBarVisualsEP12QBar3DSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsBars18updateItemMaterialEP13QQuick3DModelbbRK7QString": [
+      "nothing", "address", "address", "bool", "bool", "text"
+    ],
+    "ritual_ZN16QQuickGraphsBars24updateMaterialPropertiesEP13QQuick3DModelbbP15QQuick3DTexture6QColorb": [
+      "nothing", "address", "address", "bool", "bool", "address", "address",
+      "bool"
+    ],
+    "ritual_ZN16QQuickGraphsBars15removeBarModelsEv": ["nothing", "address"],
+    "ritual_ZN16QQuickGraphsBars15deleteBarModelsEP13QQuick3DModel": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsBars20deleteBarItemHoldersEP13BarInstancing": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QQuickGraphsBars13createTextureEv": ["address", "address"],
+    "ritual_ZN16QQuickGraphsBars17updateSelectedBarEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickGraphsBars10isSelectedEiiP12QBar3DSeries": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN16QQuickGraphsBars18resetClickedStatusEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickGraphsBars21removeSlicedBarModelsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QQuickGraphsBars14updateBarSpecsEf6QSizeFb": [
+      "nothing", "address", "float", "address", "bool"
+    ],
+    "ritual_ZN16QQuickGraphsBars21updateBarSeriesMarginE6QSizeF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QQuickGraphsBars": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN16QQuickGraphsBars14clearSelectionEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN16QQuickGraphsBars16setSelectionModeE6QFlagsIN10QtGraphs3D13SelectionFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN16QQuickGraphsBars45handleAxisAutoAdjustRangeChangedInOrientationEN15QAbstract3DAxis15AxisOrientationEb": [
+      "nothing", "address", "int", "bool"
+    ],
+    "ritual_own_ZN16QQuickGraphsBars37handleSeriesVisibilityChangedBySenderEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16QQuickGraphsBars37handleItemLabelVisibleChangedBySenderEbP7QObject": [
+      "nothing", "address", "bool", "address"
+    ],
+    "ritual_own_ZN16QQuickGraphsBars30handleAxisRangeChangedBySenderEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16QQuickGraphsBars16adjustAxisRangesEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN16QQuickGraphsBars25handleLightingModeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN16QQuickGraphsBars22handleMultiAxisChangedEP15QAbstract3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16QQuickGraphsBars17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN16QQuickGraphsBars9synchDataEv": ["nothing", "address"],
+    "ritual_own_ZN16QQuickGraphsBars11updateGraphEv": ["nothing", "address"],
+    "ritual_own_ZN16QQuickGraphsBars15updateAxisRangeEff": [
+      "nothing", "address", "float", "float"
+    ],
+    "ritual_own_ZN16QQuickGraphsBars18updateAxisReversedEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZN16QQuickGraphsBars19updateLightStrengthEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN16QQuickGraphsBars28calculateSceneScalingFactorsEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN16QQuickGraphsBars30calculateCategoryLabelPositionEP15QAbstract3DAxis9QVector3Di": [
+      "address", "address", "address", "address", "int"
+    ],
+    "ritual_own_ZN16QQuickGraphsBars33calculateCategoryGridLinePositionEP15QAbstract3DAxisi": [
+      "float", "address", "address", "int"
+    ],
+    "ritual_own_ZN16QQuickGraphsBars15createSliceViewEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN16QQuickGraphsBars16toggleSliceGraphEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN16QQuickGraphsBars23handleLabelCountChangedEP16QQuick3DRepeater6QColor": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN16QQuickGraphsBars19updateSelectionModeE6QFlagsIN10QtGraphs3D13SelectionFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_own_ZN16QQuickGraphsBars9doPickingE7QPointF": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN16QQuickGraphsBars12doRayPickingE9QVector3DS0_": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_own_ZN16QQuickGraphsBars17createDefaultAxisEN15QAbstract3DAxis15AxisOrientationE": [
+      "address", "address", "int"
+    ],
+    "ritual_own_ZN16QQuickGraphsBars20updateSliceItemLabelERK7QString9QVector3D": [
+      "nothing", "address", "text", "address"
+    ],
+    "ritual_own_ZN16QQuickGraphsBars18getSeriesMultiAxisEP17QAbstract3DSeriesN15QAbstract3DAxis15AxisOrientationE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_own_ZN16QQuickGraphsBars18handleAxisXChangedEP15QAbstract3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16QQuickGraphsBars18handleAxisYChangedEP15QAbstract3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN16QQuickGraphsBars18handleAxisZChangedEP15QAbstract3DAxis": [
+      "nothing", "address", "address"
+    ]
+  }
+}

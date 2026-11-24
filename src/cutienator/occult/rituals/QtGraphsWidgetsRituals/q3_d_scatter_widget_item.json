@@ -49,6 +49,12 @@
     ],
     "ritual_ZN20Q3DScatterWidgetItem6d_funcEv": ["address", "address"],
     "ritual_ZNK20Q3DScatterWidgetItem6d_funcEv": ["address", "address"],
+    "ritual_ZN20Q3DScatterWidgetItem12graphScatterEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20Q3DScatterWidgetItem12graphScatterEv": [
+      "address", "address"
+    ],
     "ritual_take_Q3DScatterWidgetItem": [
       "bool", "address", "chars", "address"
     ],

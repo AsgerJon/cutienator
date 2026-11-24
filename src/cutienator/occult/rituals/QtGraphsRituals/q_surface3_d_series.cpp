@@ -195,6 +195,20 @@ QString *ritual_ZN16QSurface3DSeries2trEPKcS1_i(
   return new QString(QSurface3DSeries::tr(s, c, n));
 }
 
+//  QSurface3DSeriesPrivate *QSurface3DSeries::d_func()
+extern "C" Q_DECL_EXPORT
+QSurface3DSeriesPrivate *ritual_ZN16QSurface3DSeries6d_funcEv(
+    QSurface3DSeries *self) {
+  return self->d_func();
+}
+
+//  const QSurface3DSeriesPrivate *QSurface3DSeries::d_func() const
+extern "C" Q_DECL_EXPORT
+const QSurface3DSeriesPrivate *ritual_ZNK16QSurface3DSeries6d_funcEv(
+    const QSurface3DSeries *self) {
+  return self->d_func();
+}
+
 //  void QSurface3DSeries::qt_qmlMarker_uncreatable()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN16QSurface3DSeries24qt_qmlMarker_uncreatableEv(

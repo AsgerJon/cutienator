@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCharts/qscatterseries.h, Qt 6.12.0. Changes made here are lost.
+#include <QtCharts/qchartglobal.h>
+#if QT_CONFIG(charts_scatter_chart)
 #include <QtCharts/qscatterseries.h>
 #include <QtCore/qstring.h>
 #include <QtGui/qpen.h>
@@ -430,3 +432,5 @@ extern "C" Q_DECL_EXPORT
 QColor *ritual_own_ZNK14QScatterSeries5colorEv(const QScatterSeries *self) {
   return new QColor(self->QScatterSeries::color());
 }
+
+#endif  // QT_CONFIG(charts_scatter_chart)

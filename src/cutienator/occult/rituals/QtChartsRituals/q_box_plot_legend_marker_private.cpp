@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCharts/6.12.0/QtCharts/private/qboxplotlegendmarker_p.h, Qt 6.12.0.
 //  Changes made here are lost.
+#include <QtCharts/qchartglobal.h>
+#include <QtCharts/6.12.0/QtCharts/private/qchartglobal_p.h>
+#if QT_CONFIG(charts_boxplot_chart)
 #include <QtCharts/6.12.0/QtCharts/private/qchartglobal_p.h>
 #include <QtCharts/qboxplotlegendmarker.h>
 #include <QtCharts/QtCharts>
@@ -325,3 +328,5 @@ void ritual_own_ZN27QBoxPlotLegendMarkerPrivate7updatedEv(
     QBoxPlotLegendMarkerPrivate *self) {
   self->QBoxPlotLegendMarkerPrivate::updated();
 }
+
+#endif  // QT_CONFIG(charts_boxplot_chart)

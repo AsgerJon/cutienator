@@ -11,6 +11,8 @@
     "ritual_ZN14QCustom3DLabel2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN14QCustom3DLabel6d_funcEv": ["address", "address"],
+    "ritual_ZNK14QCustom3DLabel6d_funcEv": ["address", "address"],
     "ritual_ZN14QCustom3DLabelC1EP7QObject": ["address", "address"],
     "ritual_ZN14QCustom3DLabelC1ERK7QStringRK5QFont9QVector3DS6_RK11QQuaternionP7QObject": [
       "address", "text", "address", "address", "address", "address",

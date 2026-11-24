@@ -12,6 +12,8 @@
     "ritual_ZN18QAbstractDataProxy2trEPKcS1_i": [
       "text", "chars", "chars", "int"
     ],
+    "ritual_ZN18QAbstractDataProxy6d_funcEv": ["address", "address"],
+    "ritual_ZNK18QAbstractDataProxy6d_funcEv": ["address", "address"],
     "ritual_ZN18QAbstractDataProxy24qt_qmlMarker_uncreatableEv": [
       "nothing", "address"
     ],

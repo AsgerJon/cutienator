@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCharts/6.12.0/QtCharts/private/qdatetimeaxis_p.h, Qt 6.12.0. Changes
 //  made here are lost.
+#include <QtCharts/qchartglobal.h>
+#include <QtCharts/6.12.0/QtCharts/private/qchartglobal_p.h>
+#if QT_CONFIG(charts_datetime_axis)
 #include <QtCharts/6.12.0/QtCharts/private/qchartglobal_p.h>
 #include <QtCharts/qdatetimeaxis.h>
 #include <QtCharts/QtCharts>
@@ -503,3 +506,5 @@ void ritual_own_ZN20QDateTimeAxisPrivate8setRangeEdd(
     qreal max) {
   self->QDateTimeAxisPrivate::setRange(min, max);
 }
+
+#endif  // QT_CONFIG(charts_datetime_axis)

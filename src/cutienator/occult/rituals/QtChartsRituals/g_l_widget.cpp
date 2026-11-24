@@ -1,8 +1,10 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCharts/6.12.0/QtCharts/private/glwidget_p.h, Qt 6.12.0. Changes made
 //  here are lost.
+#include <QtGui/qtguiglobal.h>
 #include <QtCharts/qchartglobal.h>
 #include <QtCharts/6.12.0/QtCharts/private/qchartglobal_p.h>
+#if QT_CONFIG(opengl)
 #if !defined(QT_NO_OPENGL)
 #include <QtCharts/6.12.0/QtCharts/private/qchartglobal_p.h>
 #include <QtCharts/QtCharts>
@@ -1475,3 +1477,4 @@ void ritual_own_ZN8GLWidget17mouseReleaseEventEP11QMouseEvent(
 #endif  // !defined(QT_NO_OPENGL)
 
 #endif  // !defined(QT_NO_OPENGL)
+#endif  // QT_CONFIG(opengl)

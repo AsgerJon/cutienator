@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtRemot",
+    "eObjects/6.12.0/QtRemoteObjects/private/qremoteobjectregistrysourc",
+    "e_p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK15QRegistrySource10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QRegistrySourceD1Ev": ["nothing", "address"],
+    "ritual_ZN15QRegistrySource12removeServerERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QRegistrySource": ["bool", "address", "chars", "address"]
+  }
+}

@@ -194,6 +194,20 @@ QString *ritual_ZN17QScatterDataProxy2trEPKcS1_i(
   return new QString(QScatterDataProxy::tr(s, c, n));
 }
 
+//  QScatterDataProxyPrivate *QScatterDataProxy::d_func()
+extern "C" Q_DECL_EXPORT
+QScatterDataProxyPrivate *ritual_ZN17QScatterDataProxy6d_funcEv(
+    QScatterDataProxy *self) {
+  return self->d_func();
+}
+
+//  const QScatterDataProxyPrivate *QScatterDataProxy::d_func() const
+extern "C" Q_DECL_EXPORT
+const QScatterDataProxyPrivate *ritual_ZNK17QScatterDataProxy6d_funcEv(
+    const QScatterDataProxy *self) {
+  return self->d_func();
+}
+
 //  void QScatterDataProxy::qt_qmlMarker_uncreatable()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN17QScatterDataProxy24qt_qmlMarker_uncreatableEv(

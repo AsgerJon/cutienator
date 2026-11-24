@@ -1,0 +1,31 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtRemot",
+    "eObjects/6.12.0/QtRemoteObjects/private/qconnection_local_backend_",
+    "p.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK13LocalClientIo10metaObjectEv": ["address", "address"],
+    "ritual_ZN13LocalClientIoD1Ev": ["nothing", "address"],
+    "ritual_ZNK13LocalClientIo10connectionEv": ["address", "address"],
+    "ritual_ZN13LocalClientIo15connectToServerEv": ["nothing", "address"],
+    "ritual_ZNK13LocalClientIo6isOpenEv": ["bool", "address"],
+    "ritual_ZN13LocalClientIo14onStateChangedEN12QLocalSocket16LocalSocketStateE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN13LocalClientIo7doCloseEv": ["nothing", "address"],
+    "ritual_ZN13LocalClientIo22doDisconnectFromServerEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_LocalClientIo": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK13LocalClientIo10connectionEv": ["address", "address"],
+    "ritual_own_ZN13LocalClientIo15connectToServerEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZNK13LocalClientIo6isOpenEv": ["bool", "address"],
+    "ritual_own_ZN13LocalClientIo7doCloseEv": ["nothing", "address"],
+    "ritual_own_ZN13LocalClientIo22doDisconnectFromServerEv": [
+      "nothing", "address"
+    ]
+  }
+}

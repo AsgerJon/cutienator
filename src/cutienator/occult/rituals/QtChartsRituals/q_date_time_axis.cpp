@@ -1,5 +1,7 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCharts/qdatetimeaxis.h, Qt 6.12.0. Changes made here are lost.
+#include <QtCharts/qchartglobal.h>
+#if QT_CONFIG(charts_datetime_axis)
 #include <QtCharts/qdatetimeaxis.h>
 #include <QtCore/qstring.h>
 #include <QtCore/qdatetime.h>
@@ -319,3 +321,5 @@ QAbstractAxis::AxisType ritual_own_ZNK13QDateTimeAxis4typeEv(
     const QDateTimeAxis *self) {
   return self->QDateTimeAxis::type();
 }
+
+#endif  // QT_CONFIG(charts_datetime_axis)
