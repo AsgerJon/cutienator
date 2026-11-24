@@ -1,0 +1,31 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtOpcUa/qopcuabrowserequest.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN19QOpcUaBrowseRequestC1Ev": ["address"],
+    "ritual_ZN19QOpcUaBrowseRequestC1ERKS_": ["address", "address"],
+    "ritual_ZN19QOpcUaBrowseRequestD1Ev": ["nothing", "address"],
+    "ritual_ZNK19QOpcUaBrowseRequest15browseDirectionEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZNK19QOpcUaBrowseRequest15referenceTypeIdEv": [
+      "text", "address"
+    ],
+    "ritual_ZN19QOpcUaBrowseRequest18setReferenceTypeIdERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN19QOpcUaBrowseRequest18setReferenceTypeIdEN6QOpcUa15ReferenceTypeIdE": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZNK19QOpcUaBrowseRequest15includeSubtypesEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN19QOpcUaBrowseRequest18setIncludeSubtypesEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK19QOpcUaBrowseRequest13nodeClassMaskEv": ["int", "address"]
+  }
+}

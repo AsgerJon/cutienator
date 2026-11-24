@@ -1,0 +1,57 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGraphs/6.12.0/QtGraphs/private/qgraphsinputhandler_p.h, Qt",
+    "6.12.0. Changes made here are lost."
+  ],
+  "parts first": [
+    "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
+  ],
+  "rows": {
+    "ritual_ZNK19QGraphsInputHandler10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QGraphsInputHandler12pendingPointEv": ["address", "address"],
+    "ritual_ZN19QGraphsInputHandler13isZoomEnabledEv": ["bool", "address"],
+    "ritual_ZN19QGraphsInputHandler21isZoomAtTargetEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN19QGraphsInputHandler17isRotationEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN19QGraphsInputHandler12isPanEnabledEv": ["bool", "address"],
+    "ritual_ZN19QGraphsInputHandler8dragModeEv": ["int", "address"],
+    "ritual_ZN19QGraphsInputHandler18isSelectionEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN19QGraphsInputHandler22setDefaultInputHandlerEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QGraphsInputHandler24unsetDefaultInputHandlerEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QGraphsInputHandler22unsetDefaultTapHandlerEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QGraphsInputHandler23unsetDefaultDragHandlerEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19QGraphsInputHandler13setDragButtonE6QFlagsIN2Qt11MouseButtonEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN19QGraphsInputHandler12setPanButtonE6QFlagsIN2Qt11MouseButtonEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN19QGraphsInputHandler8onTappedEv": ["nothing", "address"],
+    "ritual_ZN19QGraphsInputHandler20onTranslationChangedE9QVector2D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QGraphsInputHandler13onGrabChangedEN15QPointingDevice14GrabTransitionE11QEventPoint": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN19QGraphsInputHandler14hoverMoveEventEP11QHoverEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QGraphsInputHandler": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

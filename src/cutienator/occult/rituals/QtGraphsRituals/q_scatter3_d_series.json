@@ -1,0 +1,72 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGraphs/qscatter3dseries.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "parts first": [
+    "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
+  ],
+  "rows": {
+    "ritual_ZNK16QScatter3DSeries10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QScatter3DSeries2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN16QScatter3DSeries24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QScatter3DSeriesC1EP7QObject": ["address", "address"],
+    "ritual_ZN16QScatter3DSeriesC1EP17QScatterDataProxyP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN16QScatter3DSeriesD1Ev": ["nothing", "address"],
+    "ritual_ZN16QScatter3DSeries12setDataProxyEP17QScatterDataProxy": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QScatter3DSeries9dataProxyEv": ["address", "address"],
+    "ritual_ZN16QScatter3DSeries15setSelectedItemEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZNK16QScatter3DSeries12selectedItemEv": ["long long", "address"],
+    "ritual_ZN16QScatter3DSeries21invalidSelectionIndexEv": ["long long"],
+    "ritual_ZN16QScatter3DSeries11setItemSizeEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK16QScatter3DSeries8itemSizeEv": ["float", "address"],
+    "ritual_ZN16QScatter3DSeries12setDataArrayERK5QListI16QScatterDataItemE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QScatter3DSeries10clearArrayEv": ["nothing", "address"],
+    "ritual_ZNKR16QScatter3DSeries9dataArrayEv": ["address", "address"],
+    "ritual_ZN16QScatter3DSeries13setScaleArrayERK5QListI9QVector3DE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QScatter3DSeries15clearScaleArrayEv": ["nothing", "address"],
+    "ritual_ZNKR16QScatter3DSeries10scaleArrayEv": ["address", "address"],
+    "ritual_ZN16QScatter3DSeries8setAxisXEP12QValue3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QScatter3DSeries8setAxisYEP12QValue3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QScatter3DSeries8setAxisZEP12QValue3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QScatter3DSeries5axisXEv": ["address", "address"],
+    "ritual_ZNK16QScatter3DSeries5axisYEv": ["address", "address"],
+    "ritual_ZNK16QScatter3DSeries5axisZEv": ["address", "address"],
+    "ritual_ZN16QScatter3DSeries10resetAxisXEv": ["nothing", "address"],
+    "ritual_ZN16QScatter3DSeries10resetAxisYEv": ["nothing", "address"],
+    "ritual_ZN16QScatter3DSeries10resetAxisZEv": ["nothing", "address"],
+    "ritual_take_QScatter3DSeries": ["bool", "address", "chars", "address"],
+    "ritual_list_make_QScatter3DSeries_ptr": ["address"],
+    "ritual_list_add_QScatter3DSeries_ptr": [
+      "nothing", "address", "address"
+    ],
+    "ritual_list_size_QScatter3DSeries_ptr": ["long long", "address"],
+    "ritual_list_at_QScatter3DSeries_ptr": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_QScatter3DSeries_ptr": ["nothing", "address"]
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCoap/6.12.0/QtCoap/private/qcoapprotocol_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK13QCoapProtocol10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QCoapProtocolD1Ev": ["nothing", "address"],
+    "ritual_ZNK13QCoapProtocol10ackTimeoutEv": ["unsigned int", "address"],
+    "ritual_ZNK13QCoapProtocol15ackRandomFactorEv": ["double", "address"],
+    "ritual_ZNK13QCoapProtocol22maximumRetransmitCountEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZNK13QCoapProtocol9blockSizeEv": ["unsigned short", "address"],
+    "ritual_ZNK13QCoapProtocol19maximumTransmitSpanEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZNK13QCoapProtocol19maximumTransmitWaitEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZNK13QCoapProtocol14maximumLatencyEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZNK13QCoapProtocol14minimumTimeoutEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZNK13QCoapProtocol14maximumTimeoutEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZNK13QCoapProtocol18nonConfirmLifetimeEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZNK13QCoapProtocol26maximumServerResponseDelayEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN13QCoapProtocol13setAckTimeoutEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN13QCoapProtocol29setMaximumServerResponseDelayEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN13QCoapProtocol6d_funcEv": ["address", "address"],
+    "ritual_ZNK13QCoapProtocol6d_funcEv": ["address", "address"],
+    "ritual_take_QCoapProtocol": ["bool", "address", "chars", "address"]
+  }
+}

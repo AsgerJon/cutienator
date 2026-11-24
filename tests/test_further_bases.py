@@ -113,7 +113,8 @@ class TestFurtherBases(BaseTest):
     self.assertEqual(QWidget.__dict__['__cast_rituals__'], named)
     self.assertIsNone(QPaintDevice.__cast_rituals__)
     self.assertNotIn('__cast_rituals__', QPushButton.__dict__)
-    self.assertIn('ritual_cast_QWidget_QPaintDevice', Rituals.getRows())
+    self.assertIn(
+        'ritual_cast_QWidget_QPaintDevice', Rituals.getRows('QtWidgets'))
 
   def test_a_part_is_found_through_the_further_class(self) -> None:
     """'_findCast' names the ritual for the further class and for what

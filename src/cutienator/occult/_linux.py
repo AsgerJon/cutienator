@@ -138,13 +138,18 @@ class Linux(System):
       be offered whatever '-fvisibility=hidden' says, as those of
       'std::map' that a ritual file holding a QMap makes the compiler
       write out. On macOS and on Windows nothing of the kind gets out,
-      and with this file nothing does here.
+      and with this file nothing does here;
+      '-Wl,--as-needed', so the built file names only the Qt shared
+      objects it calls into. A function two of them offer by one name,
+      as 'QBarSeries::count()' of QtCharts and of QtGraphs, is taken
+      from the first one given, and the other is not named at all: the
+      target file of a part gives its own part's shared object first.
     """
     here = os.path.dirname(os.path.abspath(__file__))
     offers = os.path.join(here, 'linux_offers.map')
     return (
         '-Wl,--no-undefined', '-Wl,-rpath,%s' % qtFolder,
-        '-Wl,--version-script=%s' % offers,
+        '-Wl,--version-script=%s' % offers, '-Wl,--as-needed',
     )
 
   def prepareOpening(self) -> None:

@@ -1,0 +1,17 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGraphs/qabstractseries.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "parts first": [
+    "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
+  ],
+  "rows": {
+    "ritual_ZN11QLegendDataD1Ev": ["nothing", "address"],
+    "ritual_list_make_QLegendData": ["address"],
+    "ritual_list_add_QLegendData": ["nothing", "address", "address"],
+    "ritual_list_size_QLegendData": ["long long", "address"],
+    "ritual_list_at_QLegendData": ["address", "address", "long long"],
+    "ritual_list_drop_QLegendData": ["nothing", "address"]
+  }
+}

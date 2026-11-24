@@ -1,0 +1,37 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtOpcUa/qopcuaqualifiedname.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN19QOpcUaQualifiedNameC1Ev": ["address"],
+    "ritual_ZN19QOpcUaQualifiedNameC1ERKS_": ["address", "address"],
+    "ritual_ZN19QOpcUaQualifiedNameC1EtRK7QString": [
+      "address", "unsigned short", "text"
+    ],
+    "ritual_ZNK19QOpcUaQualifiedNameeqERKS_": ["bool", "address", "address"],
+    "ritual_ZNK19QOpcUaQualifiedNamecv8QVariantEv": ["address", "address"],
+    "ritual_ZN19QOpcUaQualifiedNameD1Ev": ["nothing", "address"],
+    "ritual_ZNK19QOpcUaQualifiedName4nameEv": ["text", "address"],
+    "ritual_ZN19QOpcUaQualifiedName7setNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK19QOpcUaQualifiedName14namespaceIndexEv": [
+      "unsigned short", "address"
+    ],
+    "ritual_ZN19QOpcUaQualifiedName17setNamespaceIndexEt": [
+      "nothing", "address", "unsigned short"
+    ],
+    "ritual_Zls6QDebugRK19QOpcUaQualifiedName": [
+      "address", "address", "address"
+    ],
+    "ritual_list_make_QOpcUaQualifiedName": ["address"],
+    "ritual_list_add_QOpcUaQualifiedName": ["nothing", "address", "address"],
+    "ritual_list_size_QOpcUaQualifiedName": ["long long", "address"],
+    "ritual_list_at_QOpcUaQualifiedName": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_QOpcUaQualifiedName": ["nothing", "address"]
+  }
+}

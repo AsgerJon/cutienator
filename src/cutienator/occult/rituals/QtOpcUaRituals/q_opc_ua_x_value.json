@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtOpcUa/qopcuaxvalue.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN12QOpcUaXValueC1Ev": ["address"],
+    "ritual_ZN12QOpcUaXValueC1ERKS_": ["address", "address"],
+    "ritual_ZN12QOpcUaXValueC1Edf": ["address", "double", "float"],
+    "ritual_ZNK12QOpcUaXValueeqERKS_": ["bool", "address", "address"],
+    "ritual_ZNK12QOpcUaXValuecv8QVariantEv": ["address", "address"],
+    "ritual_ZN12QOpcUaXValueD1Ev": ["nothing", "address"],
+    "ritual_ZNK12QOpcUaXValue1xEv": ["double", "address"],
+    "ritual_ZN12QOpcUaXValue4setXEd": ["nothing", "address", "double"],
+    "ritual_ZNK12QOpcUaXValue5valueEv": ["float", "address"],
+    "ritual_ZN12QOpcUaXValue8setValueEf": ["nothing", "address", "float"]
+  }
+}

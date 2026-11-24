@@ -486,11 +486,12 @@ class Judge:
 
   def findRitualFaults(self) -> Tuple[str, ...]:
     """
-    Checks that cutienator's own shared object is built correctly, and
-    gives each fault found, in words.
+    Checks that cutienator's own shared objects are built correctly,
+    and gives each fault found, in words.
 
-    It compares two lists that must be the same: the rituals 'Rituals'
-    lists for Python, and the functions the shared object offers. It
+    For each part 'Rituals.build' builds one for, it compares two
+    lists that must be the same: the rituals 'Rituals' lists for
+    Python, and the functions the shared object offers. It
     runs no ritual. Whether every function of a Qt header has a ritual
     is not checked yet; that needs the header to be read by program.
 
@@ -506,18 +507,20 @@ class Judge:
     FileNotFoundError
       The shared object has not been built, or 'nm' is not installed.
     """
-    listed = {*Rituals.getRitualNames()}
-    sharedObject = SharedObject(Rituals.getTargetFile())
-    offered = {symbol.mangled for symbol in sharedObject.functions()}
     faults = []
-    for name in sorted(listed - offered):
-      infoSpec = """The ritual '%s' is listed in 'Rituals', but no ritual
-      file defines it."""
-      faults.append(' '.join((infoSpec % name).split()))
-    for name in sorted(offered - listed):
-      infoSpec = """The shared object offers '%s', but 'Rituals' does not
-      list it, so Python cannot call it."""
-      faults.append(' '.join((infoSpec % name).split()))
+    for partName in Rituals.getBuiltParts():
+      listed = {*Rituals.getRows(partName)}
+      sharedObject = SharedObject(Rituals.getTargetFile(partName))
+      offered = {symbol.mangled for symbol in sharedObject.functions()}
+      for name in sorted(listed - offered):
+        infoSpec = """The ritual '%s' is listed for %s in 'Rituals', but
+        no ritual file of it defines it."""
+        faults.append(' '.join((infoSpec % (name, partName)).split()))
+      for name in sorted(offered - listed):
+        infoSpec = """The shared object of %s offers '%s', but 'Rituals'
+        does not list it for %s, so Python cannot call it."""
+        info = infoSpec % (partName, name, partName)
+        faults.append(' '.join(info.split()))
     return (*faults,)
 
   def hear(self, trial: Trial) -> Verdict:

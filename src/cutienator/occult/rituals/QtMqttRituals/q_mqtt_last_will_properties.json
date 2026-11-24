@@ -1,0 +1,54 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtMqtt/qmqttconnectionproperties.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZN23QMqttLastWillPropertiesC1Ev": ["address"],
+    "ritual_ZN23QMqttLastWillPropertiesC1ERKS_": ["address", "address"],
+    "ritual_ZN23QMqttLastWillPropertiesD1Ev": ["nothing", "address"],
+    "ritual_ZNK23QMqttLastWillProperties17willDelayIntervalEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZNK23QMqttLastWillProperties22payloadFormatIndicatorEv": [
+      "unsigned char", "address"
+    ],
+    "ritual_ZNK23QMqttLastWillProperties21messageExpiryIntervalEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZNK23QMqttLastWillProperties11contentTypeEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK23QMqttLastWillProperties13responseTopicEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK23QMqttLastWillProperties15correlationDataEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK23QMqttLastWillProperties14userPropertiesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QMqttLastWillProperties20setWillDelayIntervalEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN23QMqttLastWillProperties25setPayloadFormatIndicatorEN5QMqtt22PayloadFormatIndicatorE": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZN23QMqttLastWillProperties24setMessageExpiryIntervalEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN23QMqttLastWillProperties14setContentTypeERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN23QMqttLastWillProperties16setResponseTopicERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN23QMqttLastWillProperties18setCorrelationDataERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QMqttLastWillProperties17setUserPropertiesERK19QMqttUserProperties": [
+      "nothing", "address", "address"
+    ]
+  }
+}

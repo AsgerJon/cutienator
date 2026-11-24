@@ -1,0 +1,39 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGraphs/qgraphstheme.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "parts first": [
+    "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
+  ],
+  "rows": {
+    "ritual_ZN11QGraphsLine6createERK8QJSValue": ["address", "address"],
+    "ritual_ZN11QGraphsLineC1Ev": ["address"],
+    "ritual_ZN11QGraphsLineC1ERKS_": ["address", "address"],
+    "ritual_ZN11QGraphsLineD1Ev": ["nothing", "address"],
+    "ritual_ZNK11QGraphsLine9mainColorEv": ["address", "address"],
+    "ritual_ZN11QGraphsLine12setMainColorE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QGraphsLine8subColorEv": ["address", "address"],
+    "ritual_ZN11QGraphsLine11setSubColorE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QGraphsLine9mainWidthEv": ["double", "address"],
+    "ritual_ZN11QGraphsLine12setMainWidthEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK11QGraphsLine8subWidthEv": ["double", "address"],
+    "ritual_ZN11QGraphsLine11setSubWidthEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK11QGraphsLine14labelTextColorEv": ["address", "address"],
+    "ritual_ZN11QGraphsLine17setLabelTextColorE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QGraphsLine6detachEv": ["nothing", "address"],
+    "ritual_ZNK11QGraphsLinecv8QVariantEv": ["address", "address"],
+    "ritual_ZeqRK11QGraphsLineS1_": ["bool", "address", "address"],
+    "ritual_ZneRK11QGraphsLineS1_": ["bool", "address", "address"]
+  }
+}

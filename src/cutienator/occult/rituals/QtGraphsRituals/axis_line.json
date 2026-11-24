@@ -1,0 +1,25 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGraphs/6.12.0/QtGraphs/private/axisline_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "parts first": [
+    "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
+  ],
+  "rows": {
+    "ritual_ZNK8AxisLine10metaObjectEv": ["address", "address"],
+    "ritual_ZN8AxisLine12setupShadersEv": ["nothing", "address"],
+    "ritual_ZNK8AxisLine11iResolutionEv": ["address", "address"],
+    "ritual_ZNK8AxisLine9smoothingEv": ["double", "address"],
+    "ritual_ZNK8AxisLine5colorEv": ["address", "address"],
+    "ritual_ZNK8AxisLine9lineWidthEv": ["double", "address"],
+    "ritual_ZNK8AxisLine12isHorizontalEv": ["bool", "address"],
+    "ritual_ZN8AxisLine17componentCompleteEv": ["nothing", "address"],
+    "ritual_ZN8AxisLine14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_take_AxisLine": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN8AxisLine17componentCompleteEv": ["nothing", "address"]
+  }
+}

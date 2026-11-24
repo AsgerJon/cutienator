@@ -1,0 +1,34 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtMqtt/6.12.0/QtMqtt/private/qmqttcontrolpacket_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN18QMqttControlPacketC1Ev": ["address"],
+    "ritual_ZN18QMqttControlPacketC1Eh": ["address", "unsigned char"],
+    "ritual_ZN18QMqttControlPacketC1EhRK10QByteArray": [
+      "address", "unsigned char", "address"
+    ],
+    "ritual_ZN18QMqttControlPacket5clearEv": ["nothing", "address"],
+    "ritual_ZN18QMqttControlPacket9setHeaderEh": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZNK18QMqttControlPacket6headerEv": ["unsigned char", "address"],
+    "ritual_ZN18QMqttControlPacket6appendEc": ["nothing", "address", "char"],
+    "ritual_ZN18QMqttControlPacket6appendEt": [
+      "nothing", "address", "unsigned short"
+    ],
+    "ritual_ZN18QMqttControlPacket6appendEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN18QMqttControlPacket6appendERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QMqttControlPacket9appendRawERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QMqttControlPacket7payloadEv": ["address", "address"],
+    "ritual_ZN18QMqttControlPacketD1Ev": ["nothing", "address"]
+  }
+}

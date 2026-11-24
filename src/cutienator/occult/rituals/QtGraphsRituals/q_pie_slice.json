@@ -1,0 +1,108 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGraphs/qpieslice.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "parts first": [
+    "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
+  ],
+  "rows": {
+    "ritual_ZNK9QPieSlice10metaObjectEv": ["address", "address"],
+    "ritual_ZN9QPieSlice2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN9QPieSliceC1EP7QObject": ["address", "address"],
+    "ritual_ZN9QPieSliceC1ERK7QStringdP7QObject": [
+      "address", "text", "double", "address"
+    ],
+    "ritual_ZN9QPieSliceD1Ev": ["nothing", "address"],
+    "ritual_ZN9QPieSlice8setLabelERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK9QPieSlice5labelEv": ["text", "address"],
+    "ritual_ZN9QPieSlice15setLabelVisibleEb": ["nothing", "address", "bool"],
+    "ritual_ZNK9QPieSlice14isLabelVisibleEv": ["bool", "address"],
+    "ritual_ZN9QPieSlice16setLabelPositionENS_13LabelPositionE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN9QPieSlice13labelPositionEv": ["int", "address"],
+    "ritual_ZN9QPieSlice13setLabelColorE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9QPieSlice10labelColorEv": ["address", "address"],
+    "ritual_ZN9QPieSlice12setLabelFontERK5QFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9QPieSlice9labelFontEv": ["address", "address"],
+    "ritual_ZN9QPieSlice23setLabelArmLengthFactorEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK9QPieSlice20labelArmLengthFactorEv": ["double", "address"],
+    "ritual_ZN9QPieSlice8setColorE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9QPieSlice5colorEv": ["address", "address"],
+    "ritual_ZN9QPieSlice14setBorderColorE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9QPieSlice11borderColorEv": ["address", "address"],
+    "ritual_ZN9QPieSlice14setBorderWidthEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK9QPieSlice11borderWidthEv": ["double", "address"],
+    "ritual_ZN9QPieSlice8setValueEd": ["nothing", "address", "double"],
+    "ritual_ZNK9QPieSlice5valueEv": ["double", "address"],
+    "ritual_ZN9QPieSlice11setExplodedEb": ["nothing", "address", "bool"],
+    "ritual_ZNK9QPieSlice10isExplodedEv": ["bool", "address"],
+    "ritual_ZN9QPieSlice24setExplodeDistanceFactorEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK9QPieSlice21explodeDistanceFactorEv": ["double", "address"],
+    "ritual_ZNK9QPieSlice10percentageEv": ["double", "address"],
+    "ritual_ZNK9QPieSlice10startAngleEv": ["double", "address"],
+    "ritual_ZNK9QPieSlice9angleSpanEv": ["double", "address"],
+    "ritual_ZNK9QPieSlice6seriesEv": ["address", "address"],
+    "ritual_ZN9QPieSlice6appendEPS_": ["bool", "address", "address"],
+    "ritual_ZN9QPieSlice6appendERK5QListIPS_E": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN9QPieSlice6insertExPS_": [
+      "bool", "address", "long long", "address"
+    ],
+    "ritual_ZN9QPieSlice6removeEPS_": ["bool", "address", "address"],
+    "ritual_ZN9QPieSlice5clearEv": ["nothing", "address"],
+    "ritual_ZN9QPieSlice6appendERK7QStringd": [
+      "address", "address", "text", "double"
+    ],
+    "ritual_ZNK9QPieSlice2atEx": ["address", "address", "long long"],
+    "ritual_ZNK9QPieSlice4findERK7QString": ["address", "address", "text"],
+    "ritual_ZN9QPieSlice7replaceExPS_": [
+      "bool", "address", "long long", "address"
+    ],
+    "ritual_ZN9QPieSlice14removeMultipleExi": [
+      "nothing", "address", "long long", "int"
+    ],
+    "ritual_ZN9QPieSlice6removeEx": ["bool", "address", "long long"],
+    "ritual_ZN9QPieSlice7replaceEPS_S0_": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN9QPieSlice10replaceAllERK5QListIPS_E": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN9QPieSlice4takeEPS_": ["bool", "address", "address"],
+    "ritual_ZNK9QPieSlice9subSlicesEv": ["address", "address"],
+    "ritual_ZNK9QPieSlice14subSlicesCountEv": ["long long", "address"],
+    "ritual_ZNK9QPieSlice7isEmptyEv": ["bool", "address"],
+    "ritual_ZNK9QPieSlice12subSlicesSumEv": ["double", "address"],
+    "ritual_ZN9QPieSlice17setSubSlicesRatioEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK9QPieSlice14subSlicesRatioEv": ["double", "address"],
+    "ritual_ZN9QPieSlice6d_funcEv": ["address", "address"],
+    "ritual_ZNK9QPieSlice6d_funcEv": ["address", "address"],
+    "ritual_take_QPieSlice": ["bool", "address", "chars", "address"],
+    "ritual_list_make_QPieSlice_ptr": ["address"],
+    "ritual_list_add_QPieSlice_ptr": ["nothing", "address", "address"],
+    "ritual_list_size_QPieSlice_ptr": ["long long", "address"],
+    "ritual_list_at_QPieSlice_ptr": ["address", "address", "long long"],
+    "ritual_list_drop_QPieSlice_ptr": ["nothing", "address"]
+  }
+}

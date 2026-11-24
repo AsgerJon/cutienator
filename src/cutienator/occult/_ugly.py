@@ -23,6 +23,7 @@ class Ugly:
   reach C++ through this class and nothing else.
 
     ugly = Ugly()
+    ugly.setPartName('QtCore')    # the part of the cute class
     ugly.setAddress(address)      # what the creating ritual returned
     ugly.setCuteSide(cute)
     ugly.call(ritualName)         # the address is passed for you
@@ -37,7 +38,11 @@ class Ugly:
   - The address is the number saying where the C++ object is in memory.
   - The cute side is the Python object people use, as a 'QObject'.
   - A ritual is one plainly named function in cutienator's own shared
-    object, run through 'Rituals'.
+    object of a part of Qt, run through 'Rituals'.
+  - The part is the part of Qt of the cute class, as 'QtCore'. A
+    ritual is run as that part sees it: two parts may each have one by
+    a name, as QtCharts and QtGraphs each one of 'QBarSeries'; see
+    'Rituals.callFrom'.
   - Python owns a C++ object when the object is a copy that nothing in
     C++ knows of: one Python made of a class that can be copied, as a
     'QSize', or one a ritual made to hand a value back. Nothing but
@@ -54,6 +59,9 @@ class Ugly:
   And a third for a C++ object Python owns:
 
   - 'setDeleteRitual': the ritual that removes the C++ object.
+
+  Before them, the cute side calls 'setPartName' with its part. Without
+  it a ritual several parts have cannot be run; see 'call'.
 
   For a C++ object that is a QObject you also call 'watch', once. For
   one Python made of a C++ class of ours you also call 'setOurs'.
@@ -120,6 +128,8 @@ class Ugly:
   __cpp_address__ = None  # type: Optional[int]
   __cute_side__ = None  # type: Optional[weakref.ref]
   __delete_ritual__ = None  # type: Optional[str]
+  #  The part of Qt of the cute side; see 'setPartName'.
+  __part_name__ = None  # type: Optional[str]
   #  Runs the delete ritual when this Ugly goes, for as long as Python
   #  owns the C++ object.
   __delete_watch__ = None  # type: Optional[weakref.finalize]
@@ -161,6 +171,15 @@ class Ugly:
       info = infoSpec % hex(self.__cpp_address__)
       raise RuntimeError(' '.join(info.split()))
     return self.__cpp_address__
+
+  def getPartName(self) -> Optional[str]:
+    """
+    Gives the part of Qt the rituals are run as seen from, as 'QtCore'.
+
+    Provided by you, through 'setPartName'. None when it was not
+    called: then 'call' runs only a ritual one part has.
+    """
+    return self.__part_name__
 
   def getCuteSide(self) -> Any:
     """
@@ -274,6 +293,32 @@ class Ugly:
     self.__cpp_address__ = address
     type(self).__by_address__[address] = self
 
+  def setPartName(self, partName: str) -> None:
+    """
+    Tells this Ugly the part of Qt of its cute side, as 'QtGraphs'.
+    Its rituals are then run as that part sees them; see
+    'Rituals.callFrom'. Call it first, before 'setDeleteRitual', once.
+
+    Raises
+    ------
+
+    TypeException
+      'partName' is not text.
+
+    RuntimeError
+      A part was set on this Ugly already, or a delete ritual was.
+    """
+    if not isinstance(partName, str):
+      raise TypeException('partName', partName, str)
+    if self.__part_name__ is not None or self.__delete_watch__ is not None:
+      infoSpec = """The part of an Ugly is set once, before its delete
+      ritual: '%s' was given after %s."""
+      done = 'the part %r' % self.__part_name__
+      if self.__part_name__ is None:
+        done = 'the delete ritual'
+      raise RuntimeError(' '.join((infoSpec % (partName, done)).split()))
+    self.__part_name__ = partName
+
   def setCuteSide(self, cuteSide: Any) -> None:
     """
     Tells this Ugly which cute object it stands behind.
@@ -331,7 +376,12 @@ class Ugly:
     self.__delete_ritual__ = ritualName
     #  The watch holds the name and the address, and not this Ugly, which
     #  it would otherwise keep from ever going.
-    watch = weakref.finalize(self, Rituals.call, ritualName, address)
+    partName = self.__part_name__
+    if partName is None:
+      watch = weakref.finalize(self, Rituals.call, ritualName, address)
+    else:
+      watch = weakref.finalize(
+          self, Rituals.callFrom, partName, ritualName, address)
     watch.atexit = False
     self.__delete_watch__ = watch
 
@@ -552,6 +602,10 @@ class Ugly:
       Qt has removed the C++ object, which is known after 'watch'.
 
     LookupError
-      'Rituals' lists no ritual of that name.
+      'Rituals' lists no ritual of that name, or several parts list it
+      and 'setPartName' was not called.
     """
-    return Rituals.call(ritualName, self.getAddress(), *args)
+    if self.__part_name__ is None:
+      return Rituals.call(ritualName, self.getAddress(), *args)
+    return Rituals.callFrom(
+        self.__part_name__, ritualName, self.getAddress(), *args)

@@ -1,0 +1,50 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtOpcUa/qopcuausertokenpolicy.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN21QOpcUaUserTokenPolicyC1Ev": ["address"],
+    "ritual_ZN21QOpcUaUserTokenPolicyC1ERKS_": ["address", "address"],
+    "ritual_ZNK21QOpcUaUserTokenPolicyeqERKS_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN21QOpcUaUserTokenPolicyD1Ev": ["nothing", "address"],
+    "ritual_ZNK21QOpcUaUserTokenPolicy8policyIdEv": ["text", "address"],
+    "ritual_ZN21QOpcUaUserTokenPolicy11setPolicyIdERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK21QOpcUaUserTokenPolicy9tokenTypeEv": ["int", "address"],
+    "ritual_ZN21QOpcUaUserTokenPolicy12setTokenTypeENS_9TokenTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK21QOpcUaUserTokenPolicy15issuedTokenTypeEv": [
+      "text", "address"
+    ],
+    "ritual_ZN21QOpcUaUserTokenPolicy18setIssuedTokenTypeERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK21QOpcUaUserTokenPolicy17issuerEndpointUrlEv": [
+      "text", "address"
+    ],
+    "ritual_ZN21QOpcUaUserTokenPolicy20setIssuerEndpointUrlERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK21QOpcUaUserTokenPolicy14securityPolicyEv": [
+      "text", "address"
+    ],
+    "ritual_ZN21QOpcUaUserTokenPolicy17setSecurityPolicyERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_list_make_QOpcUaUserTokenPolicy": ["address"],
+    "ritual_list_add_QOpcUaUserTokenPolicy": [
+      "nothing", "address", "address"
+    ],
+    "ritual_list_size_QOpcUaUserTokenPolicy": ["long long", "address"],
+    "ritual_list_at_QOpcUaUserTokenPolicy": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_QOpcUaUserTokenPolicy": ["nothing", "address"]
+  }
+}

@@ -48,8 +48,8 @@ class Windows(System):
   - A DLL cannot carry the folder of the Qt it was built against. Python
     has to be told that folder before the built file is opened, which
     is what 'prepareOpening' does.
-  - The target file keeps its name, 'libcutienator.so'. Windows opens a
-    DLL of any name.
+  - The target files keep their names, as 'libcutienator_QtCore.so'.
+    Windows opens a DLL of any name.
   """
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

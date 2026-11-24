@@ -1,0 +1,52 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtOpcUa/qopcuastructurefield.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN20QOpcUaStructureFieldC1Ei": ["address", "int"],
+    "ritual_ZN20QOpcUaStructureFieldC1ERKS_": ["address", "address"],
+    "ritual_ZNK20QOpcUaStructureFieldcv8QVariantEv": ["address", "address"],
+    "ritual_ZN20QOpcUaStructureFieldD1Ev": ["nothing", "address"],
+    "ritual_ZNK20QOpcUaStructureField4nameEv": ["text", "address"],
+    "ritual_ZN20QOpcUaStructureField7setNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK20QOpcUaStructureField11descriptionEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QOpcUaStructureField14setDescriptionERK19QOpcUaLocalizedText": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK20QOpcUaStructureField8dataTypeEv": ["text", "address"],
+    "ritual_ZN20QOpcUaStructureField11setDataTypeERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK20QOpcUaStructureField9valueRankEv": ["int", "address"],
+    "ritual_ZN20QOpcUaStructureField12setValueRankEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK20QOpcUaStructureField15maxStringLengthEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN20QOpcUaStructureField18setMaxStringLengthEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZNK20QOpcUaStructureField10isOptionalEv": ["bool", "address"],
+    "ritual_ZN20QOpcUaStructureField13setIsOptionalEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZeqRK20QOpcUaStructureFieldS1_": ["bool", "address", "address"],
+    "ritual_ZneRK20QOpcUaStructureFieldS1_": ["bool", "address", "address"],
+    "ritual_list_make_QOpcUaStructureField": ["address"],
+    "ritual_list_add_QOpcUaStructureField": [
+      "nothing", "address", "address"
+    ],
+    "ritual_list_size_QOpcUaStructureField": ["long long", "address"],
+    "ritual_list_at_QOpcUaStructureField": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_QOpcUaStructureField": ["nothing", "address"]
+  }
+}

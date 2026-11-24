@@ -1,0 +1,78 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGraphs/qabstractseries.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "parts first": [
+    "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
+  ],
+  "rows": {
+    "ritual_ZNK15QAbstractSeries10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QAbstractSeries2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN15QAbstractSeries6d_funcEv": ["address", "address"],
+    "ritual_ZNK15QAbstractSeries6d_funcEv": ["address", "address"],
+    "ritual_ZN15QAbstractSeries22qt_qmlMarker_anonymousEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QAbstractSeries10classBeginEv": ["nothing", "address"],
+    "ritual_ZN15QAbstractSeries17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QAbstractSeriesD1Ev": ["nothing", "address"],
+    "ritual_ZNK15QAbstractSeries4typeEv": ["int", "address"],
+    "ritual_ZNK15QAbstractSeries4nameEv": ["text", "address"],
+    "ritual_ZN15QAbstractSeries7setNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK15QAbstractSeries9isVisibleEv": ["bool", "address"],
+    "ritual_ZN15QAbstractSeries10setVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK15QAbstractSeries12isSelectableEv": ["bool", "address"],
+    "ritual_ZN15QAbstractSeries13setSelectableEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK15QAbstractSeries7opacityEv": ["double", "address"],
+    "ritual_ZN15QAbstractSeries10setOpacityEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK15QAbstractSeries16valuesMultiplierEv": ["double", "address"],
+    "ritual_ZN15QAbstractSeries19setValuesMultiplierEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK15QAbstractSeries5graphEv": ["address", "address"],
+    "ritual_ZN15QAbstractSeries8setGraphEP11QGraphsView": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QAbstractSeries10legendDataEv": ["address", "address"],
+    "ritual_ZN15QAbstractSeries4showEv": ["nothing", "address"],
+    "ritual_ZN15QAbstractSeries4hideEv": ["nothing", "address"],
+    "ritual_ZNK15QAbstractSeries11isHoverableEv": ["bool", "address"],
+    "ritual_ZN15QAbstractSeries12setHoverableEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK15QAbstractSeries9hasLoadedEv": ["bool", "address"],
+    "ritual_ZNK15QAbstractSeries9isHoveredEv": ["bool", "address"],
+    "ritual_ZN15QAbstractSeries10setHoveredEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK15QAbstractSeries5axisXEv": ["address", "address"],
+    "ritual_ZN15QAbstractSeries8setAxisXEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QAbstractSeries5axisYEv": ["address", "address"],
+    "ritual_ZN15QAbstractSeries8setAxisYEP13QAbstractAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QAbstractSeries6zValueEv": ["int", "address"],
+    "ritual_ZN15QAbstractSeries9setZValueEi": ["nothing", "address", "int"],
+    "ritual_cast_QAbstractSeries_QQmlParserStatus": ["address", "address"],
+    "ritual_take_QAbstractSeries": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN15QAbstractSeries10classBeginEv": ["nothing", "address"],
+    "ritual_own_ZN15QAbstractSeries17componentCompleteEv": [
+      "nothing", "address"
+    ]
+  }
+}

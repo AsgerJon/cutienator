@@ -1,0 +1,29 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCoap/qcoaprequest.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN12QCoapRequestC1ERK4QUrlN12QCoapMessage4TypeES2_": [
+      "address", "address", "unsigned char", "address"
+    ],
+    "ritual_ZN12QCoapRequestC1EPKcN12QCoapMessage4TypeE": [
+      "address", "chars", "unsigned char"
+    ],
+    "ritual_ZN12QCoapRequestC1ERKS_": ["address", "address"],
+    "ritual_ZN12QCoapRequestD1Ev": ["nothing", "address"],
+    "ritual_ZNK12QCoapRequest3urlEv": ["address", "address"],
+    "ritual_ZNK12QCoapRequest8proxyUrlEv": ["address", "address"],
+    "ritual_ZNK12QCoapRequest6methodEv": ["unsigned char", "address"],
+    "ritual_ZNK12QCoapRequest9isObserveEv": ["bool", "address"],
+    "ritual_ZN12QCoapRequest6setUrlERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QCoapRequest11setProxyUrlERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QCoapRequest13enableObserveEv": ["nothing", "address"],
+    "ritual_ZN12QCoapRequest6d_funcEv": ["address", "address"],
+    "ritual_ZNK12QCoapRequest6d_funcEv": ["address", "address"]
+  }
+}

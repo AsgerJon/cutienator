@@ -1,0 +1,93 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGraphs/qabstractaxis.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "parts first": [
+    "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
+  ],
+  "rows": {
+    "ritual_ZNK13QAbstractAxis10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QAbstractAxis2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN13QAbstractAxis20qt_qmlMarker_foreignEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13QAbstractAxis24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13QAbstractAxis6d_funcEv": ["address", "address"],
+    "ritual_ZNK13QAbstractAxis6d_funcEv": ["address", "address"],
+    "ritual_ZN13QAbstractAxisD1Ev": ["nothing", "address"],
+    "ritual_ZNK13QAbstractAxis4typeEv": ["int", "address"],
+    "ritual_ZNK13QAbstractAxis9isVisibleEv": ["bool", "address"],
+    "ritual_ZN13QAbstractAxis10setVisibleEb": ["nothing", "address", "bool"],
+    "ritual_ZN13QAbstractAxis4showEv": ["nothing", "address"],
+    "ritual_ZN13QAbstractAxis4hideEv": ["nothing", "address"],
+    "ritual_ZNK13QAbstractAxis13isLineVisibleEv": ["bool", "address"],
+    "ritual_ZN13QAbstractAxis14setLineVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK13QAbstractAxis13isGridVisibleEv": ["bool", "address"],
+    "ritual_ZN13QAbstractAxis14setGridVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK13QAbstractAxis16isSubGridVisibleEv": ["bool", "address"],
+    "ritual_ZN13QAbstractAxis17setSubGridVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK13QAbstractAxis13labelsVisibleEv": ["bool", "address"],
+    "ritual_ZN13QAbstractAxis16setLabelsVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN13QAbstractAxis14setLabelsAngleEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK13QAbstractAxis11labelsAngleEv": ["double", "address"],
+    "ritual_ZNK13QAbstractAxis13labelDelegateEv": ["address", "address"],
+    "ritual_ZN13QAbstractAxis16setLabelDelegateEP13QQmlComponent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QAbstractAxis14isTitleVisibleEv": ["bool", "address"],
+    "ritual_ZN13QAbstractAxis15setTitleVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN13QAbstractAxis13setTitleColorE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QAbstractAxis10titleColorEv": ["address", "address"],
+    "ritual_ZN13QAbstractAxis12setTitleFontERK5QFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QAbstractAxis9titleFontEv": ["address", "address"],
+    "ritual_ZN13QAbstractAxis12setTitleTextERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK13QAbstractAxis9titleTextEv": ["text", "address"],
+    "ritual_ZNK13QAbstractAxis9alignmentEv": ["int", "address"],
+    "ritual_ZN13QAbstractAxis12setAlignmentE6QFlagsIN2Qt13AlignmentFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK13QAbstractAxis13textElideModeEv": ["int", "address"],
+    "ritual_ZN13QAbstractAxis16setTextElideModeEN2Qt13TextElideModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN13QAbstractAxis11setSubColorE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QAbstractAxis8subColorEv": ["address", "address"],
+    "ritual_ZN13QAbstractAxis8setColorE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK13QAbstractAxis5colorEv": ["address", "address"],
+    "ritual_ZN13QAbstractAxis6setMinERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QAbstractAxis6setMaxERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QAbstractAxis8setRangeERK8QVariantS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_take_QAbstractAxis": ["bool", "address", "chars", "address"]
+  }
+}

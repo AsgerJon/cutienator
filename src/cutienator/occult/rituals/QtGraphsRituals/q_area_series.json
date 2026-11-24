@@ -1,0 +1,58 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGraphs/qareaseries.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "parts first": [
+    "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
+  ],
+  "rows": {
+    "ritual_ZNK11QAreaSeries10metaObjectEv": ["address", "address"],
+    "ritual_ZN11QAreaSeries2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN11QAreaSeriesC1EP7QObject": ["address", "address"],
+    "ritual_ZN11QAreaSeriesD1Ev": ["nothing", "address"],
+    "ritual_ZNK11QAreaSeries4typeEv": ["int", "address"],
+    "ritual_ZNK11QAreaSeries5colorEv": ["address", "address"],
+    "ritual_ZN11QAreaSeries8setColorE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QAreaSeries13selectedColorEv": ["address", "address"],
+    "ritual_ZN11QAreaSeries16setSelectedColorE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QAreaSeries11borderColorEv": ["address", "address"],
+    "ritual_ZN11QAreaSeries14setBorderColorE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QAreaSeries19selectedBorderColorEv": ["address", "address"],
+    "ritual_ZN11QAreaSeries22setSelectedBorderColorE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QAreaSeries11borderWidthEv": ["double", "address"],
+    "ritual_ZN11QAreaSeries14setBorderWidthEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK11QAreaSeries10isSelectedEv": ["bool", "address"],
+    "ritual_ZN11QAreaSeries11setSelectedEb": ["nothing", "address", "bool"],
+    "ritual_ZNK11QAreaSeries11upperSeriesEv": ["address", "address"],
+    "ritual_ZN11QAreaSeries14setUpperSeriesEP9QXYSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QAreaSeries11lowerSeriesEv": ["address", "address"],
+    "ritual_ZN11QAreaSeries14setLowerSeriesEP9QXYSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QAreaSeries8gradientEv": ["address", "address"],
+    "ritual_ZN11QAreaSeries11setGradientEP19QQuickShapeGradient": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QAreaSeries16selectedGradientEv": ["address", "address"],
+    "ritual_ZN11QAreaSeries19setSelectedGradientEP19QQuickShapeGradient": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QAreaSeries6d_funcEv": ["address", "address"],
+    "ritual_ZNK11QAreaSeries6d_funcEv": ["address", "address"],
+    "ritual_take_QAreaSeries": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK11QAreaSeries4typeEv": ["int", "address"]
+  }
+}

@@ -1,0 +1,179 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGraphs/qitemmodelsurfacedataproxy.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "parts first": [
+    "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
+  ],
+  "rows": {
+    "ritual_ZNK26QItemModelSurfaceDataProxy10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QItemModelSurfaceDataProxy2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN26QItemModelSurfaceDataProxyC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN26QItemModelSurfaceDataProxyC1EP18QAbstractItemModelP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN26QItemModelSurfaceDataProxyC1EP18QAbstractItemModelRK7QStringP7QObject": [
+      "address", "address", "text", "address"
+    ],
+    "ritual_ZN26QItemModelSurfaceDataProxyC1EP18QAbstractItemModelRK7QStringS4_S4_P7QObject": [
+      "address", "address", "text", "text", "text", "address"
+    ],
+    "ritual_ZN26QItemModelSurfaceDataProxyC1EP18QAbstractItemModelRK7QStringS4_S4_S4_S4_P7QObject": [
+      "address", "address", "text", "text", "text", "text", "text", "address"
+    ],
+    "ritual_ZN26QItemModelSurfaceDataProxyC1EP18QAbstractItemModelRK7QStringS4_S4_RK5QListIS2_ES8_P7QObject": [
+      "address", "address", "text", "text", "text", "address", "address",
+      "address"
+    ],
+    "ritual_ZN26QItemModelSurfaceDataProxyC1EP18QAbstractItemModelRK7QStringS4_S4_S4_S4_RK5QListIS2_ES8_P7QObject": [
+      "address", "address", "text", "text", "text", "text", "text",
+      "address", "address", "address"
+    ],
+    "ritual_ZN26QItemModelSurfaceDataProxyD1Ev": ["nothing", "address"],
+    "ritual_ZN26QItemModelSurfaceDataProxy12setItemModelEP18QAbstractItemModel": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK26QItemModelSurfaceDataProxy9itemModelEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QItemModelSurfaceDataProxy10setRowRoleERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK26QItemModelSurfaceDataProxy7rowRoleEv": ["text", "address"],
+    "ritual_ZN26QItemModelSurfaceDataProxy13setColumnRoleERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK26QItemModelSurfaceDataProxy10columnRoleEv": [
+      "text", "address"
+    ],
+    "ritual_ZN26QItemModelSurfaceDataProxy11setXPosRoleERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK26QItemModelSurfaceDataProxy8xPosRoleEv": ["text", "address"],
+    "ritual_ZN26QItemModelSurfaceDataProxy11setYPosRoleERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK26QItemModelSurfaceDataProxy8yPosRoleEv": ["text", "address"],
+    "ritual_ZN26QItemModelSurfaceDataProxy11setZPosRoleERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK26QItemModelSurfaceDataProxy8zPosRoleEv": ["text", "address"],
+    "ritual_ZN26QItemModelSurfaceDataProxy16setRowCategoriesERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK26QItemModelSurfaceDataProxy13rowCategoriesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QItemModelSurfaceDataProxy19setColumnCategoriesERK5QListI7QStringE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK26QItemModelSurfaceDataProxy16columnCategoriesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QItemModelSurfaceDataProxy21setUseModelCategoriesEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK26QItemModelSurfaceDataProxy18useModelCategoriesEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN26QItemModelSurfaceDataProxy20setAutoRowCategoriesEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK26QItemModelSurfaceDataProxy17autoRowCategoriesEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN26QItemModelSurfaceDataProxy23setAutoColumnCategoriesEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK26QItemModelSurfaceDataProxy20autoColumnCategoriesEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN26QItemModelSurfaceDataProxy5remapERK7QStringS2_S2_S2_S2_RK5QListIS0_ES6_": [
+      "nothing", "address", "text", "text", "text", "text", "text",
+      "address", "address"
+    ],
+    "ritual_ZN26QItemModelSurfaceDataProxy16rowCategoryIndexERK7QString": [
+      "long long", "address", "text"
+    ],
+    "ritual_ZN26QItemModelSurfaceDataProxy19columnCategoryIndexERK7QString": [
+      "long long", "address", "text"
+    ],
+    "ritual_ZN26QItemModelSurfaceDataProxy17setRowRolePatternERK18QRegularExpression": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK26QItemModelSurfaceDataProxy14rowRolePatternEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QItemModelSurfaceDataProxy20setColumnRolePatternERK18QRegularExpression": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK26QItemModelSurfaceDataProxy17columnRolePatternEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QItemModelSurfaceDataProxy18setXPosRolePatternERK18QRegularExpression": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK26QItemModelSurfaceDataProxy15xPosRolePatternEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QItemModelSurfaceDataProxy18setYPosRolePatternERK18QRegularExpression": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK26QItemModelSurfaceDataProxy15yPosRolePatternEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QItemModelSurfaceDataProxy18setZPosRolePatternERK18QRegularExpression": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK26QItemModelSurfaceDataProxy15zPosRolePatternEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QItemModelSurfaceDataProxy17setRowRoleReplaceERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK26QItemModelSurfaceDataProxy14rowRoleReplaceEv": [
+      "text", "address"
+    ],
+    "ritual_ZN26QItemModelSurfaceDataProxy20setColumnRoleReplaceERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK26QItemModelSurfaceDataProxy17columnRoleReplaceEv": [
+      "text", "address"
+    ],
+    "ritual_ZN26QItemModelSurfaceDataProxy18setXPosRoleReplaceERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK26QItemModelSurfaceDataProxy15xPosRoleReplaceEv": [
+      "text", "address"
+    ],
+    "ritual_ZN26QItemModelSurfaceDataProxy18setYPosRoleReplaceERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK26QItemModelSurfaceDataProxy15yPosRoleReplaceEv": [
+      "text", "address"
+    ],
+    "ritual_ZN26QItemModelSurfaceDataProxy18setZPosRoleReplaceERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK26QItemModelSurfaceDataProxy15zPosRoleReplaceEv": [
+      "text", "address"
+    ],
+    "ritual_ZN26QItemModelSurfaceDataProxy21setMultiMatchBehaviorENS_18MultiMatchBehaviorE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK26QItemModelSurfaceDataProxy18multiMatchBehaviorEv": [
+      "int", "address"
+    ],
+    "ritual_take_QItemModelSurfaceDataProxy": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

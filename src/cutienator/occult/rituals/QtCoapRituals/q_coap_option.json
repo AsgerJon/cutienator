@@ -1,0 +1,34 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCoap/qcoapoption.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11QCoapOptionC1ENS_10OptionNameERK10QByteArray": [
+      "address", "int", "address"
+    ],
+    "ritual_ZN11QCoapOptionC1ENS_10OptionNameERK7QString": [
+      "address", "int", "text"
+    ],
+    "ritual_ZN11QCoapOptionC1ENS_10OptionNameEj": [
+      "address", "int", "unsigned int"
+    ],
+    "ritual_ZN11QCoapOptionC1ERKS_": ["address", "address"],
+    "ritual_ZN11QCoapOptionD1Ev": ["nothing", "address"],
+    "ritual_ZNK11QCoapOption11opaqueValueEv": ["address", "address"],
+    "ritual_ZNK11QCoapOption9uintValueEv": ["unsigned int", "address"],
+    "ritual_ZNK11QCoapOption11stringValueEv": ["text", "address"],
+    "ritual_ZNK11QCoapOption6lengthEv": ["int", "address"],
+    "ritual_ZNK11QCoapOption4nameEv": ["int", "address"],
+    "ritual_ZNK11QCoapOption7isValidEv": ["bool", "address"],
+    "ritual_ZNK11QCoapOptioneqERKS_": ["bool", "address", "address"],
+    "ritual_ZNK11QCoapOptionneERKS_": ["bool", "address", "address"],
+    "ritual_ZN11QCoapOption6d_funcEv": ["address", "address"],
+    "ritual_ZNK11QCoapOption6d_funcEv": ["address", "address"],
+    "ritual_list_make_QCoapOption": ["address"],
+    "ritual_list_add_QCoapOption": ["nothing", "address", "address"],
+    "ritual_list_size_QCoapOption": ["long long", "address"],
+    "ritual_list_at_QCoapOption": ["address", "address", "long long"],
+    "ritual_list_drop_QCoapOption": ["nothing", "address"]
+  }
+}

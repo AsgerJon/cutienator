@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtMqtt/qmqtttype.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QMqttStringPairC1Ev": ["address"],
+    "ritual_ZN15QMqttStringPairC1ERK7QStringS2_": [
+      "address", "text", "text"
+    ],
+    "ritual_ZN15QMqttStringPairC1ERKS_": ["address", "address"],
+    "ritual_ZN15QMqttStringPairD1Ev": ["nothing", "address"],
+    "ritual_ZNK15QMqttStringPair4nameEv": ["text", "address"],
+    "ritual_ZN15QMqttStringPair7setNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK15QMqttStringPair5valueEv": ["text", "address"],
+    "ritual_ZN15QMqttStringPair8setValueERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK15QMqttStringPaireqERKS_": ["bool", "address", "address"],
+    "ritual_ZNK15QMqttStringPairneERKS_": ["bool", "address", "address"]
+  }
+}

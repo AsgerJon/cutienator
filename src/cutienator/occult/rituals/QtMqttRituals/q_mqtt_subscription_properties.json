@@ -1,0 +1,28 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtMqtt/qmqttsubscriptionproperties.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZN27QMqttSubscriptionPropertiesC1Ev": ["address"],
+    "ritual_ZN27QMqttSubscriptionPropertiesC1ERKS_": ["address", "address"],
+    "ritual_ZN27QMqttSubscriptionPropertiesD1Ev": ["nothing", "address"],
+    "ritual_ZNK27QMqttSubscriptionProperties14userPropertiesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN27QMqttSubscriptionProperties17setUserPropertiesERK19QMqttUserProperties": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK27QMqttSubscriptionProperties22subscriptionIdentifierEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN27QMqttSubscriptionProperties25setSubscriptionIdentifierEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZNK27QMqttSubscriptionProperties7noLocalEv": ["bool", "address"],
+    "ritual_ZN27QMqttSubscriptionProperties10setNoLocalEb": [
+      "nothing", "address", "bool"
+    ]
+  }
+}

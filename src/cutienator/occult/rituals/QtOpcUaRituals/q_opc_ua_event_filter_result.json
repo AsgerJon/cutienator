@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtOpcUa/qopcuaeventfilterresult.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZN23QOpcUaEventFilterResultC1Ev": ["address"],
+    "ritual_ZN23QOpcUaEventFilterResultC1ERKS_": ["address", "address"],
+    "ritual_ZN23QOpcUaEventFilterResultD1Ev": ["nothing", "address"],
+    "ritual_ZNK23QOpcUaEventFilterResult6isGoodEv": ["bool", "address"],
+    "ritual_ZNK23QOpcUaEventFilterResult18whereClauseResultsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QOpcUaEventFilterResult21setWhereClauseResultsERK5QListI32QOpcUaContentFilterElementResultE": [
+      "nothing", "address", "address"
+    ]
+  }
+}

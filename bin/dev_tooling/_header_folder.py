@@ -926,8 +926,10 @@ class HeaderFolder:
     of the 'CMakeLists.txt' files under a folder 'src' of 'qtbase' and
     of the folders beside it. Left out are a module Qt builds as a
     static library or keeps to its own build ('STATIC',
-    'INTERNAL_MODULE'), one with no header file, and one in the folder
-    of another.
+    'INTERNAL_MODULE'), one that installs no header files of its own
+    ('NO_MODULE_HEADERS', as qttools' 'Linguist', made only so that an
+    old CMake package keeps working), one with no header file, and one
+    in the folder of another.
 
     Under the name of the part, as 'QtCharts': where it lies, from
     'qtbase'; its header file that brings in its switches, the one
@@ -955,7 +957,8 @@ class HeaderFolder:
             continue
           words = arguments.split()
           if not words or re.search(
-              r'\b(?:STATIC|INTERNAL_MODULE)\b', arguments):
+              r'\b(?:STATIC|INTERNAL_MODULE|NO_MODULE_HEADERS)\b',
+              arguments):
             continue
           partName = 'Qt%s' % words[0]
           real = os.path.realpath(here)

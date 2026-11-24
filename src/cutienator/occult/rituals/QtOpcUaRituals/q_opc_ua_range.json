@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtOpcUa/qopcuarange.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN11QOpcUaRangeC1Ev": ["address"],
+    "ritual_ZN11QOpcUaRangeC1ERKS_": ["address", "address"],
+    "ritual_ZN11QOpcUaRangeC1Edd": ["address", "double", "double"],
+    "ritual_ZNK11QOpcUaRangeeqERKS_": ["bool", "address", "address"],
+    "ritual_ZNK11QOpcUaRangecv8QVariantEv": ["address", "address"],
+    "ritual_ZN11QOpcUaRangeD1Ev": ["nothing", "address"],
+    "ritual_ZNK11QOpcUaRange3lowEv": ["double", "address"],
+    "ritual_ZN11QOpcUaRange6setLowEd": ["nothing", "address", "double"],
+    "ritual_ZNK11QOpcUaRange4highEv": ["double", "address"],
+    "ritual_ZN11QOpcUaRange7setHighEd": ["nothing", "address", "double"]
+  }
+}

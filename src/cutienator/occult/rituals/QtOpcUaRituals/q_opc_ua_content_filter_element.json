@@ -1,0 +1,42 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtOpcUa/qopcuacontentfilterelement.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZN26QOpcUaContentFilterElementC1Ev": ["address"],
+    "ritual_ZN26QOpcUaContentFilterElementC1ERKS_": ["address", "address"],
+    "ritual_ZNK26QOpcUaContentFilterElementcv8QVariantEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QOpcUaContentFilterElementD1Ev": ["nothing", "address"],
+    "ritual_ZNK26QOpcUaContentFilterElement14filterOperatorEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN26QOpcUaContentFilterElement17setFilterOperatorENS_14FilterOperatorE": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZNK26QOpcUaContentFilterElement14filterOperandsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QOpcUaContentFilterElement17setFilterOperandsERK5QListI8QVariantE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZeqRK26QOpcUaContentFilterElementS1_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZneRK26QOpcUaContentFilterElementS1_": [
+      "bool", "address", "address"
+    ],
+    "ritual_list_make_QOpcUaContentFilterElement": ["address"],
+    "ritual_list_add_QOpcUaContentFilterElement": [
+      "nothing", "address", "address"
+    ],
+    "ritual_list_size_QOpcUaContentFilterElement": ["long long", "address"],
+    "ritual_list_at_QOpcUaContentFilterElement": [
+      "address", "address", "long long"
+    ],
+    "ritual_list_drop_QOpcUaContentFilterElement": ["nothing", "address"]
+  }
+}

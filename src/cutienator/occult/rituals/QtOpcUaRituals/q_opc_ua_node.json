@@ -1,0 +1,87 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtOpcUa/qopcuanode.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK10QOpcUaNode10metaObjectEv": ["address", "address"],
+    "ritual_ZN10QOpcUaNode2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN10QOpcUaNode6d_funcEv": ["address", "address"],
+    "ritual_ZNK10QOpcUaNode6d_funcEv": ["address", "address"],
+    "ritual_ZN10QOpcUaNode23mandatoryBaseAttributesEv": ["int"],
+    "ritual_ZN10QOpcUaNode17allBaseAttributesEv": ["int"],
+    "ritual_ZN10QOpcUaNodeC1EP14QOpcUaNodeImplP12QOpcUaClientP7QObject": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN10QOpcUaNodeD1Ev": ["nothing", "address"],
+    "ritual_ZN10QOpcUaNode14readAttributesE6QFlagsIN6QOpcUa13NodeAttributeEE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN10QOpcUaNode18readAttributeRangeEN6QOpcUa13NodeAttributeERK7QString": [
+      "bool", "address", "int", "text"
+    ],
+    "ritual_ZN10QOpcUaNode18readValueAttributeEv": ["bool", "address"],
+    "ritual_ZNK10QOpcUaNode9attributeEN6QOpcUa13NodeAttributeE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK10QOpcUaNode14valueAttributeEv": ["address", "address"],
+    "ritual_ZNK10QOpcUaNode14attributeErrorEN6QOpcUa13NodeAttributeE": [
+      "unsigned int", "address", "int"
+    ],
+    "ritual_ZNK10QOpcUaNode19valueAttributeErrorEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZNK10QOpcUaNode15sourceTimestampEN6QOpcUa13NodeAttributeE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK10QOpcUaNode15serverTimestampEN6QOpcUa13NodeAttributeE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN10QOpcUaNode14writeAttributeEN6QOpcUa13NodeAttributeERK8QVariantNS0_5TypesE": [
+      "bool", "address", "int", "address", "int"
+    ],
+    "ritual_ZN10QOpcUaNode19writeAttributeRangeEN6QOpcUa13NodeAttributeERK8QVariantRK7QStringNS0_5TypesE": [
+      "bool", "address", "int", "address", "text", "int"
+    ],
+    "ritual_ZN10QOpcUaNode19writeValueAttributeERK8QVariantN6QOpcUa5TypesE": [
+      "bool", "address", "address", "int"
+    ],
+    "ritual_ZN10QOpcUaNode16enableMonitoringE6QFlagsIN6QOpcUa13NodeAttributeEERK26QOpcUaMonitoringParameters": [
+      "bool", "address", "int", "address"
+    ],
+    "ritual_ZN10QOpcUaNode17disableMonitoringE6QFlagsIN6QOpcUa13NodeAttributeEE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN10QOpcUaNode16modifyMonitoringEN6QOpcUa13NodeAttributeEN26QOpcUaMonitoringParameters9ParameterERK8QVariant": [
+      "bool", "address", "int", "int", "address"
+    ],
+    "ritual_ZN10QOpcUaNode16monitoringStatusEN6QOpcUa13NodeAttributeE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN10QOpcUaNode17modifyEventFilterERKN26QOpcUaMonitoringParameters11EventFilterE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN10QOpcUaNode22modifyDataChangeFilterEN6QOpcUa13NodeAttributeERKN26QOpcUaMonitoringParameters16DataChangeFilterE": [
+      "bool", "address", "int", "address"
+    ],
+    "ritual_ZN10QOpcUaNode14browseChildrenEN6QOpcUa15ReferenceTypeIdE6QFlagsINS0_9NodeClassEE": [
+      "bool", "address", "unsigned int", "int"
+    ],
+    "ritual_ZNK10QOpcUaNode6nodeIdEv": ["text", "address"],
+    "ritual_ZNK10QOpcUaNode6clientEv": ["address", "address"],
+    "ritual_ZN10QOpcUaNode17resolveBrowsePathERK5QListI25QOpcUaRelativePathElementE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN10QOpcUaNode6browseERK19QOpcUaBrowseRequest": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN10QOpcUaNode14readHistoryRawERK9QDateTimeS2_jb": [
+      "address", "address", "address", "address", "unsigned int", "bool"
+    ],
+    "ritual_ZN10QOpcUaNode14readHistoryRawERK9QDateTimeS2_jbN6QOpcUa18TimestampsToReturnE": [
+      "address", "address", "address", "address", "unsigned int", "bool",
+      "int"
+    ],
+    "ritual_take_QOpcUaNode": ["bool", "address", "chars", "address"]
+  }
+}

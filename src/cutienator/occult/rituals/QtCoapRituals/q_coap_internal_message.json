@@ -1,0 +1,44 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCoap/6.12.0/QtCoap/private/qcoapinternalmessage_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK20QCoapInternalMessage10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QCoapInternalMessageD1Ev": ["nothing", "address"],
+    "ritual_ZN20QCoapInternalMessage9addOptionEN11QCoapOption10OptionNameERK10QByteArray": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN20QCoapInternalMessage9addOptionEN11QCoapOption10OptionNameEj": [
+      "nothing", "address", "int", "unsigned int"
+    ],
+    "ritual_ZN20QCoapInternalMessage9addOptionERK11QCoapOption": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QCoapInternalMessage12removeOptionEN11QCoapOption10OptionNameE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QCoapInternalMessage7messageEv": ["address", "address"],
+    "ritual_ZNK20QCoapInternalMessage7messageEv": ["address", "address"],
+    "ritual_ZNK20QCoapInternalMessage18currentBlockNumberEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZNK20QCoapInternalMessage22hasMoreBlocksToReceiveEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK20QCoapInternalMessage9blockSizeEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZNK20QCoapInternalMessage7isValidEv": ["bool", "address"],
+    "ritual_ZN20QCoapInternalMessage6d_funcEv": ["address", "address"],
+    "ritual_ZNK20QCoapInternalMessage6d_funcEv": ["address", "address"],
+    "ritual_take_QCoapInternalMessage": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN20QCoapInternalMessage9addOptionERK11QCoapOption": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK20QCoapInternalMessage7isValidEv": ["bool", "address"]
+  }
+}

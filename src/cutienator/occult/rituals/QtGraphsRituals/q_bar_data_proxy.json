@@ -1,0 +1,57 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGraphs/qbardataproxy.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "parts first": [
+    "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
+  ],
+  "rows": {
+    "ritual_ZNK13QBarDataProxy10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QBarDataProxy2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN13QBarDataProxy24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13QBarDataProxyC1EP7QObject": ["address", "address"],
+    "ritual_ZN13QBarDataProxyD1Ev": ["nothing", "address"],
+    "ritual_ZNK13QBarDataProxy6seriesEv": ["address", "address"],
+    "ritual_ZNK13QBarDataProxy8rowCountEv": ["long long", "address"],
+    "ritual_ZNK13QBarDataProxy8colCountEv": ["long long", "address"],
+    "ritual_ZNK13QBarDataProxy5rowAtEx": ["address", "address", "long long"],
+    "ritual_ZNK13QBarDataProxy6itemAtExx": [
+      "address", "address", "long long", "long long"
+    ],
+    "ritual_ZNK13QBarDataProxy6itemAtE6QPoint": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN13QBarDataProxy10resetArrayEv": ["nothing", "address"],
+    "ritual_ZN13QBarDataProxy6setRowEx5QListI12QBarDataItemE": [
+      "nothing", "address", "long long", "address"
+    ],
+    "ritual_ZN13QBarDataProxy6setRowEx5QListI12QBarDataItemE7QString": [
+      "nothing", "address", "long long", "address", "text"
+    ],
+    "ritual_ZN13QBarDataProxy7setItemExx12QBarDataItem": [
+      "nothing", "address", "long long", "long long", "address"
+    ],
+    "ritual_ZN13QBarDataProxy7setItemE6QPoint12QBarDataItem": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN13QBarDataProxy6addRowE5QListI12QBarDataItemE": [
+      "long long", "address", "address"
+    ],
+    "ritual_ZN13QBarDataProxy6addRowE5QListI12QBarDataItemE7QString": [
+      "long long", "address", "address", "text"
+    ],
+    "ritual_ZN13QBarDataProxy9insertRowEx5QListI12QBarDataItemE": [
+      "nothing", "address", "long long", "address"
+    ],
+    "ritual_ZN13QBarDataProxy9insertRowEx5QListI12QBarDataItemE7QString": [
+      "nothing", "address", "long long", "address", "text"
+    ],
+    "ritual_ZN13QBarDataProxy10removeRowsExxNS_12RemoveLabelsE": [
+      "nothing", "address", "long long", "long long", "int"
+    ],
+    "ritual_take_QBarDataProxy": ["bool", "address", "chars", "address"]
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGraphs/6.12.0/QtGraphs/private/qbarcategoryaxis_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "parts first": [
+    "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
+  ],
+  "rows": {
+    "ritual_ZN23QBarCategoryAxisPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN23QBarCategoryAxisPrivate8setRangeERK8QVariantS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN23QBarCategoryAxisPrivate6setMinERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QBarCategoryAxisPrivate6setMaxERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QBarCategoryAxisPrivate3minEv": ["double", "address"],
+    "ritual_ZN23QBarCategoryAxisPrivate3maxEv": ["double", "address"],
+    "ritual_ZN23QBarCategoryAxisPrivate8setRangeEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN23QBarCategoryAxisPrivate8setRangeERK7QStringS2_": [
+      "nothing", "address", "text", "text"
+    ],
+    "ritual_ZN23QBarCategoryAxisPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK23QBarCategoryAxisPrivate6q_funcEv": ["address", "address"],
+    "ritual_take_QBarCategoryAxisPrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN23QBarCategoryAxisPrivate8setRangeERK8QVariantS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN23QBarCategoryAxisPrivate6setMinERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN23QBarCategoryAxisPrivate6setMaxERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN23QBarCategoryAxisPrivate3minEv": ["double", "address"],
+    "ritual_own_ZN23QBarCategoryAxisPrivate3maxEv": ["double", "address"]
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGraphs/qbardataitem.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "parts first": [
+    "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
+  ],
+  "rows": {
+    "ritual_ZN12QBarDataItemC1Ev": ["address"],
+    "ritual_ZN12QBarDataItemC1Ef": ["address", "float"],
+    "ritual_ZN12QBarDataItemC1Eff": ["address", "float", "float"],
+    "ritual_ZN12QBarDataItem8setValueEf": ["nothing", "address", "float"],
+    "ritual_ZNK12QBarDataItem5valueEv": ["float", "address"],
+    "ritual_ZN12QBarDataItem11setRotationEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK12QBarDataItem8rotationEv": ["float", "address"],
+    "ritual_ZN12QBarDataItemD1Ev": ["nothing", "address"],
+    "ritual_list_make_QBarDataItem": ["address"],
+    "ritual_list_add_QBarDataItem": ["nothing", "address", "address"],
+    "ritual_list_size_QBarDataItem": ["long long", "address"],
+    "ritual_list_at_QBarDataItem": ["address", "address", "long long"],
+    "ritual_list_drop_QBarDataItem": ["nothing", "address"]
+  }
+}

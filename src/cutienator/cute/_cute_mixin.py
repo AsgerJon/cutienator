@@ -574,7 +574,7 @@ class CuteMixin(BaseObject):
       info = infoSpec % type(self).__name__
       raise TypeError(' '.join(info.split()))
     self._refuseLeftOut()
-    ugly = Ugly()
+    ugly = self._createUgly()
     ugly.setAddress(creationCall())
     if self.__delete_ritual__ is not None:
       ugly.setDeleteRitual(self.__delete_ritual__)
@@ -616,6 +616,33 @@ class CuteMixin(BaseObject):
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @classmethod
+  def _getPartName(cls) -> Optional[str]:
+    """
+    Gives the part of Qt of the class, as 'QtWidgets' for 'QWidget' and
+    for a class of a program built on it: the package of cutienator
+    that holds the first class of its MRO lying in one named after a
+    part of Qt. None when no class of its MRO lies in one, as for a
+    class a test builds on 'CuteMixin' alone.
+    """
+    root = __package__.rpartition('.')[0]
+    for holder in cls.__mro__:
+      names = getattr(holder, '__module__', '').split('.')
+      if len(names) > 2 and names[0] == root and names[1][:2] == 'Qt':
+        return names[1]
+    return None
+
+  @classmethod
+  def _createUgly(cls) -> Any:
+    """Gives a new Ugly for an object of the class, told the part of
+    Qt of the class when it has one, so that it runs each ritual as
+    that part sees it; see '_getPartName' and 'Ugly.setPartName'."""
+    ugly = Ugly()
+    partName = cls._getPartName()
+    if partName is not None:
+      ugly.setPartName(partName)
+    return ugly
 
   @classmethod
   def _getTakenCall(
@@ -781,7 +808,7 @@ class CuteMixin(BaseObject):
     if cls.__watched_by_qt__:
       cls = cls._findRealClass(address)
     cuteSide = cls.__new__(cls)
-    ugly = Ugly()
+    ugly = cls._createUgly()
     ugly.setAddress(address)
     if cls.__watched_by_qt__:
       ugly.watch()
@@ -879,7 +906,7 @@ class CuteMixin(BaseObject):
       to '_cuteAt'."""
       raise TypeError(' '.join((infoSpec % cls.__name__).split()))
     cuteSide = cls.__new__(cls)
-    ugly = Ugly()
+    ugly = cls._createUgly()
     ugly.setAddress(address)
     ugly.setDeleteRitual(cls.__delete_ritual__)
     ugly.setCuteSide(cuteSide)

@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGraphs/6.12.0/QtGraphs/private/barinstancing_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "parts first": [
+    "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
+  ],
+  "rows": {
+    "ritual_ZN13BarItemHolderD1Ev": ["nothing", "address"],
+    "ritual_list_make_BarItemHolder_ptr": ["address"],
+    "ritual_list_add_BarItemHolder_ptr": ["nothing", "address", "address"],
+    "ritual_list_size_BarItemHolder_ptr": ["long long", "address"],
+    "ritual_list_at_BarItemHolder_ptr": ["address", "address", "long long"],
+    "ritual_list_drop_BarItemHolder_ptr": ["nothing", "address"]
+  }
+}

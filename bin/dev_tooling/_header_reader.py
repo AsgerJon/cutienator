@@ -990,7 +990,7 @@ class HeaderReader:
     """
     if self.getPartName() not in self.getOwnOrderParts():
       return self.getSharedIncludeFolders()
-    return self._listIncludeFolders(self._orderParts(self.getPartName()))
+    return self._listIncludeFolders(self.getNeededParts(self.getPartName()))
 
   @classmethod
   def getSharedIncludeFolders(cls) -> Paths:
@@ -1003,9 +1003,12 @@ class HeaderReader:
     return cls._listIncludeFolders(())
 
   @classmethod
-  def _orderParts(cls, partName: str) -> List[str]:
+  def getNeededParts(cls, partName: str) -> List[str]:
     """Gives the part and the parts it needs, the nearest first, as
-    'HeaderFolder.getPartNeeds' has them."""
+    'HeaderFolder.getPartNeeds' has them. For a part of
+    'getOwnOrderParts' the rows files of its ritual files name them
+    under 'parts first', so that 'Rituals.build' looks in their folders
+    first as well; see 'RitualGenerator.getRowsText'."""
     order, at = [partName], 0
     while at < len(order):
       try:
@@ -1079,7 +1082,7 @@ class HeaderReader:
               named.update(bare.findall(file.read()))
           except OSError:
             continue
-      order = cls._orderParts(name)
+      order = cls.getNeededParts(name)
       for fileName in named & set(shared):
         parts = shared[fileName]
         own = min(
@@ -1093,7 +1096,7 @@ class HeaderReader:
     while grown:
       grown = False
       for name in partNames:
-        if name not in found and set(cls._orderParts(name)) & found:
+        if name not in found and set(cls.getNeededParts(name)) & found:
           found.add(name)
           grown = True
     cls.__own_order_parts__ = frozenset(found)

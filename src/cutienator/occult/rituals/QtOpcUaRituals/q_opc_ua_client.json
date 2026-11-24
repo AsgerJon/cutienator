@@ -1,0 +1,112 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtOpcUa/qopcuaclient.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK12QOpcUaClient10metaObjectEv": ["address", "address"],
+    "ritual_ZN12QOpcUaClient2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN12QOpcUaClient6d_funcEv": ["address", "address"],
+    "ritual_ZNK12QOpcUaClient6d_funcEv": ["address", "address"],
+    "ritual_ZN12QOpcUaClientC1EP16QOpcUaClientImplP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN12QOpcUaClientD1Ev": ["nothing", "address"],
+    "ritual_ZN12QOpcUaClient22setApplicationIdentityERK25QOpcUaApplicationIdentity": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12QOpcUaClient19applicationIdentityEv": [
+      "address", "address"
+    ],
+    "ritual_ZN12QOpcUaClient19setPkiConfigurationERK22QOpcUaPkiConfiguration": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12QOpcUaClient16pkiConfigurationEv": ["address", "address"],
+    "ritual_ZN12QOpcUaClient17connectToEndpointERK25QOpcUaEndpointDescription": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12QOpcUaClient22disconnectFromEndpointEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN12QOpcUaClient4nodeERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN12QOpcUaClient4nodeERK20QOpcUaExpandedNodeId": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN12QOpcUaClient20updateNamespaceArrayEv": ["bool", "address"],
+    "ritual_ZNK12QOpcUaClient14namespaceArrayEv": ["address", "address"],
+    "ritual_ZNK12QOpcUaClient21resolveExpandedNodeIdERK20QOpcUaExpandedNodeIdPb": [
+      "text", "address", "address", "address"
+    ],
+    "ritual_ZNK12QOpcUaClient29qualifiedNameFromNamespaceUriERK7QStringS2_Pb": [
+      "address", "address", "text", "text", "address"
+    ],
+    "ritual_ZN12QOpcUaClient16requestEndpointsERK4QUrl": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN12QOpcUaClient11findServersERK4QUrlRK5QListI7QStringES7_": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZN12QOpcUaClient18readNodeAttributesERK5QListI14QOpcUaReadItemE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN12QOpcUaClient19writeNodeAttributesERK5QListI15QOpcUaWriteItemE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN12QOpcUaClient7addNodeERK17QOpcUaAddNodeItem": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN12QOpcUaClient10deleteNodeERK7QStringb": [
+      "bool", "address", "text", "bool"
+    ],
+    "ritual_ZN12QOpcUaClient12addReferenceERK22QOpcUaAddReferenceItem": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN12QOpcUaClient15deleteReferenceERK25QOpcUaDeleteReferenceItem": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK12QOpcUaClient8endpointEv": ["address", "address"],
+    "ritual_ZNK12QOpcUaClient5stateEv": ["int", "address"],
+    "ritual_ZNK12QOpcUaClient5errorEv": ["int", "address"],
+    "ritual_ZNK12QOpcUaClient7backendEv": ["text", "address"],
+    "ritual_ZN12QOpcUaClient22setNamespaceAutoupdateEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK12QOpcUaClient28isNamespaceAutoupdateEnabledEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN12QOpcUaClient30setNamespaceAutoupdateIntervalEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK12QOpcUaClient27namespaceAutoupdateIntervalEv": [
+      "int", "address"
+    ],
+    "ritual_ZN12QOpcUaClient28setAuthenticationInformationERK31QOpcUaAuthenticationInformation": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12QOpcUaClient25authenticationInformationEv": [
+      "address", "address"
+    ],
+    "ritual_ZN12QOpcUaClient21setConnectionSettingsERK24QOpcUaConnectionSettings": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK12QOpcUaClient18connectionSettingsEv": ["address", "address"],
+    "ritual_ZNK12QOpcUaClient25supportedSecurityPoliciesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN12QOpcUaClient15readHistoryDataERK27QOpcUaHistoryReadRawRequest": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN12QOpcUaClient17readHistoryEventsERK29QOpcUaHistoryReadEventRequest": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN12QOpcUaClient13registerNodesERK5QListI7QStringE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN12QOpcUaClient15unregisterNodesERK5QListI7QStringE": [
+      "bool", "address", "address"
+    ],
+    "ritual_take_QOpcUaClient": ["bool", "address", "chars", "address"]
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtMqtt/qmqttauthenticationproperties.h, Qt 6.12.0. Changes made",
+    "here are lost."
+  ],
+  "rows": {
+    "ritual_ZN29QMqttAuthenticationPropertiesC1Ev": ["address"],
+    "ritual_ZN29QMqttAuthenticationPropertiesC1ERKS_": [
+      "address", "address"
+    ],
+    "ritual_ZN29QMqttAuthenticationPropertiesD1Ev": ["nothing", "address"],
+    "ritual_ZNK29QMqttAuthenticationProperties20authenticationMethodEv": [
+      "text", "address"
+    ],
+    "ritual_ZN29QMqttAuthenticationProperties23setAuthenticationMethodERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK29QMqttAuthenticationProperties18authenticationDataEv": [
+      "address", "address"
+    ],
+    "ritual_ZN29QMqttAuthenticationProperties21setAuthenticationDataERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK29QMqttAuthenticationProperties6reasonEv": [
+      "text", "address"
+    ],
+    "ritual_ZN29QMqttAuthenticationProperties9setReasonERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK29QMqttAuthenticationProperties14userPropertiesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN29QMqttAuthenticationProperties17setUserPropertiesERK19QMqttUserProperties": [
+      "nothing", "address", "address"
+    ]
+  }
+}

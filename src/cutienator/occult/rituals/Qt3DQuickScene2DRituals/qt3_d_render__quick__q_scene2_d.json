@@ -4,6 +4,11 @@
     "Qt3DQuickScene2D/qscene2d.h, Qt 6.12.0. Changes made here are",
     "lost."
   ],
+  "parts first": [
+    "Qt3DQuickScene2D", "Qt3DCore", "Qt3DQuick", "Qt3DRender", "QtCore",
+    "QtGui", "QtQml", "QtConcurrent", "QtNetwork", "QtQuick", "QtOpenGL",
+    "QtQmlIntegration"
+  ],
   "rows": {
     "ritual_ZNK10Qt3DRender5Quick8QScene2D10metaObjectEv": [
       "address", "address"

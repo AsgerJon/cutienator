@@ -1,0 +1,34 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCoap/6.12.0/QtCoap/private/qcoapreply_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN17QCoapReplyPrivate13_q_setRunningERK10QByteArrayt": [
+      "nothing", "address", "address", "unsigned short"
+    ],
+    "ritual_ZN17QCoapReplyPrivate13_q_setContentERK12QHostAddressRK12QCoapMessageN6QtCoap12ResponseCodeE": [
+      "nothing", "address", "address", "address", "unsigned char"
+    ],
+    "ritual_ZN17QCoapReplyPrivate14_q_setNotifiedEv": ["nothing", "address"],
+    "ritual_ZN17QCoapReplyPrivate22_q_setObserveCancelledEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QCoapReplyPrivate14_q_setFinishedEN6QtCoap5ErrorE": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZN17QCoapReplyPrivate11_q_setErrorEN6QtCoap12ResponseCodeE": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZN17QCoapReplyPrivate11_q_setErrorEN6QtCoap5ErrorE": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZN17QCoapReplyPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK17QCoapReplyPrivate6q_funcEv": ["address", "address"],
+    "ritual_take_QCoapReplyPrivate": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN17QCoapReplyPrivate13_q_setContentERK12QHostAddressRK12QCoapMessageN6QtCoap12ResponseCodeE": [
+      "nothing", "address", "address", "address", "unsigned char"
+    ]
+  }
+}

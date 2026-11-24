@@ -396,14 +396,15 @@ class TestQObject(BaseTest):
       Ugly.at(address)
 
   def test_every_listed_ritual_is_offered(self) -> None:
-    """The shared object offers each ritual 'Rituals' lists, but for
-    those 'Rituals.getMissing' names."""
-    opened = Rituals.getOpened()
-    missing = Rituals.getMissing()
-    for ritualName in Rituals.getRitualNames():
-      with self.subTest(ritualName=ritualName):
-        offered = hasattr(opened, ritualName)
-        self.assertIs(offered, ritualName not in missing)
+    """The shared object of each part offers each ritual 'Rituals'
+    lists for it, but for those 'Rituals.getMissing' names."""
+    for partName in Rituals.getBuiltParts():
+      opened = Rituals.getOpened(partName)
+      missing = Rituals.getMissing(partName)
+      for ritualName in Rituals.getRows(partName):
+        with self.subTest(partName=partName, ritualName=ritualName):
+          offered = hasattr(opened, ritualName)
+          self.assertIs(offered, ritualName not in missing)
 
   def test_a_missing_ritual_stands_under_an_if(self) -> None:
     """A ritual the shared object does not offer is of a part of Qt
@@ -426,6 +427,7 @@ class TestQObject(BaseTest):
             depth -= 1
           elif depth and not word.startswith('//'):
             underIf.update(re.findall(r'\b(ritual\w+)\(', line))
-    for ritualName in sorted(Rituals.getMissing()):
-      with self.subTest(ritualName=ritualName):
-        self.assertIn(ritualName, underIf)
+    for partName in Rituals.getRitualParts():
+      for ritualName in sorted(Rituals.getMissing(partName)):
+        with self.subTest(partName=partName, ritualName=ritualName):
+          self.assertIn(ritualName, underIf)

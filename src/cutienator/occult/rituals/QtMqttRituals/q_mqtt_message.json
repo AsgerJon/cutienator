@@ -1,0 +1,23 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtMqtt/qmqttmessage.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN12QMqttMessageC1Ev": ["address"],
+    "ritual_ZN12QMqttMessageC1ERKS_": ["address", "address"],
+    "ritual_ZN12QMqttMessageD1Ev": ["nothing", "address"],
+    "ritual_ZNK12QMqttMessageeqERKS_": ["bool", "address", "address"],
+    "ritual_ZNK12QMqttMessage7payloadEv": ["address", "address"],
+    "ritual_ZNK12QMqttMessage3qosEv": ["unsigned char", "address"],
+    "ritual_ZNK12QMqttMessage2idEv": ["unsigned short", "address"],
+    "ritual_ZNK12QMqttMessage5topicEv": ["address", "address"],
+    "ritual_ZNK12QMqttMessage9duplicateEv": ["bool", "address"],
+    "ritual_ZNK12QMqttMessage6retainEv": ["bool", "address"],
+    "ritual_ZNK12QMqttMessage17publishPropertiesEv": ["address", "address"],
+    "ritual_ZN12QMqttMessageC1ERK14QMqttTopicNameRK10QByteArraythbb": [
+      "address", "address", "address", "unsigned short", "unsigned char",
+      "bool", "bool"
+    ]
+  }
+}

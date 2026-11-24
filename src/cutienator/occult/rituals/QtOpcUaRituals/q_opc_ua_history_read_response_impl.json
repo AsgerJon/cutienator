@@ -1,0 +1,69 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtOpcUa/6.12.0/QtOpcUa/private/qopcuahistoryreadresponseimpl_p.h,",
+    "Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK29QOpcUaHistoryReadResponseImpl10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN29QOpcUaHistoryReadResponseImpl2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN29QOpcUaHistoryReadResponseImplC1ERK27QOpcUaHistoryReadRawRequest": [
+      "address", "address"
+    ],
+    "ritual_ZN29QOpcUaHistoryReadResponseImplC1ERK29QOpcUaHistoryReadEventRequest": [
+      "address", "address"
+    ],
+    "ritual_ZN29QOpcUaHistoryReadResponseImplD1Ev": ["nothing", "address"],
+    "ritual_ZNK29QOpcUaHistoryReadResponseImpl11hasMoreDataEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN29QOpcUaHistoryReadResponseImpl12readMoreDataEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK29QOpcUaHistoryReadResponseImpl5stateEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN29QOpcUaHistoryReadResponseImpl25releaseContinuationPointsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK29QOpcUaHistoryReadResponseImpl4dataEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK29QOpcUaHistoryReadResponseImpl6eventsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK29QOpcUaHistoryReadResponseImpl13serviceResultEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN29QOpcUaHistoryReadResponseImpl19handleDataAvailableERK5QListI17QOpcUaHistoryDataERKS0_I10QByteArrayEN6QOpcUa12UaStatusCodeEy": [
+      "nothing", "address", "address", "address", "unsigned int",
+      "unsigned long long"
+    ],
+    "ritual_ZN29QOpcUaHistoryReadResponseImpl21handleEventsAvailableERK5QListI18QOpcUaHistoryEventERKS0_I10QByteArrayEN6QOpcUa12UaStatusCodeEy": [
+      "nothing", "address", "address", "address", "unsigned int",
+      "unsigned long long"
+    ],
+    "ritual_ZN29QOpcUaHistoryReadResponseImpl18handleRequestErrorEy": [
+      "nothing", "address", "unsigned long long"
+    ],
+    "ritual_ZNK29QOpcUaHistoryReadResponseImpl6handleEv": [
+      "unsigned long long", "address"
+    ],
+    "ritual_ZN29QOpcUaHistoryReadResponseImpl8setStateEN25QOpcUaHistoryReadResponse5StateE": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN29QOpcUaHistoryReadResponseImpl42createReadRawRequestWithContinuationPointsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN29QOpcUaHistoryReadResponseImpl40createEventRequestWithContinuationPointsEv": [
+      "address", "address"
+    ],
+    "ritual_take_QOpcUaHistoryReadResponseImpl": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

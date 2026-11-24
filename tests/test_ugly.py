@@ -50,7 +50,14 @@ class TestUgly(BaseTest):
         return self.gone
       return None
 
+    def notingFrom(partName: str, name: str, *args: Any) -> Any:
+      self.called.append(('seen from %s' % partName, name, *args))
+      return None
+
     patcher = mock.patch.object(Rituals, 'call', noting)
+    patcher.start()
+    self.addCleanup(patcher.stop)
+    patcher = mock.patch.object(Rituals, 'callFrom', notingFrom)
     patcher.start()
     self.addCleanup(patcher.stop)
 
@@ -209,3 +216,44 @@ class TestUgly(BaseTest):
     del ugly
     gc.collect()
     self.assertEqual(self.called, [(Ugly.__watch_drop_ritual__, 0x9000)])
+
+  def test_an_ugly_of_a_part_runs_rituals_as_it_sees_them(self) -> None:
+    """Told its part, an Ugly runs each ritual through 'callFrom', and
+    so removes its C++ object, as that part sees the rituals."""
+    ugly = Ugly()
+    ugly.setPartName('QtGraphs')
+    self.assertEqual(ugly.getPartName(), 'QtGraphs')
+    ugly.setAddress(0x1700)
+    ugly.call('ritual_ZNK10QBarSeries5countEv', 3)
+    ugly.setDeleteRitual('ritual_ZN10QBarSeriesD1Ev')
+    del ugly
+    gc.collect()
+    self.assertEqual(self.called, [
+        ('seen from QtGraphs', 'ritual_ZNK10QBarSeries5countEv', 0x1700, 3),
+        ('seen from QtGraphs', 'ritual_ZN10QBarSeriesD1Ev', 0x1700),
+    ])
+
+  def test_an_ugly_of_no_part_runs_rituals_through_call(self) -> None:
+    """Without a part, an Ugly runs a ritual with 'call', which finds
+    only a ritual one part has."""
+    ugly = Ugly()
+    self.assertIsNone(ugly.getPartName())
+    ugly.setAddress(0x1800)
+    ugly.call('ritual_ZNK5QSize5widthEv')
+    self.assertEqual(self.called, [('ritual_ZNK5QSize5widthEv', 0x1800)])
+
+  def test_the_part_is_set_once_and_first(self) -> None:
+    """A second part, a part after the delete ritual, and a part that
+    is no text are refused."""
+    ugly = Ugly()
+    ugly.setPartName('QtCore')
+    with self.assertRaises(RuntimeError):
+      ugly.setPartName('QtGui')
+    later = Ugly()
+    later.setAddress(0x1900)
+    later.setDeleteRitual('ritual_ZN5QSizeD1Ev')
+    with self.assertRaises(RuntimeError):
+      later.setPartName('QtCore')
+    later.disown()
+    with self.assertRaises(TypeException):
+      Ugly().setPartName(None)

@@ -1,0 +1,48 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGraphs/6.12.0/QtGraphs/private/qbarset_p.h, Qt 6.12.0. Changes",
+    "made here are lost."
+  ],
+  "parts first": [
+    "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
+  ],
+  "rows": {
+    "ritual_ZN14QBarSetPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK14QBarSetPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN14QBarSetPrivate6appendE7QPointF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QBarSetPrivate6appendERK5QListI7QPointFE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN14QBarSetPrivate6insertExd": [
+      "nothing", "address", "long long", "double"
+    ],
+    "ritual_ZN14QBarSetPrivate6insertEx7QPointF": [
+      "nothing", "address", "long long", "address"
+    ],
+    "ritual_ZN14QBarSetPrivate6removeExx": [
+      "long long", "address", "long long", "long long"
+    ],
+    "ritual_ZN14QBarSetPrivate7replaceExd": [
+      "nothing", "address", "long long", "double"
+    ],
+    "ritual_ZNK14QBarSetPrivate3posEx": ["double", "address", "long long"],
+    "ritual_ZNK14QBarSetPrivate5valueEx": ["double", "address", "long long"],
+    "ritual_ZN14QBarSetPrivate15setVisualsDirtyEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK14QBarSetPrivate12visualsDirtyEv": ["bool", "address"],
+    "ritual_ZN14QBarSetPrivate14setLabelsDirtyEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK14QBarSetPrivate11labelsDirtyEv": ["bool", "address"],
+    "ritual_ZN14QBarSetPrivate14setBarSelectedExbRb": [
+      "nothing", "address", "long long", "bool", "address"
+    ],
+    "ritual_ZNK14QBarSetPrivate13isBarSelectedEx": [
+      "bool", "address", "long long"
+    ]
+  }
+}

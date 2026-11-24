@@ -1,0 +1,66 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtMqtt/qmqttconnectionproperties.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZN25QMqttConnectionPropertiesC1Ev": ["address"],
+    "ritual_ZN25QMqttConnectionPropertiesC1ERKS_": ["address", "address"],
+    "ritual_ZN25QMqttConnectionPropertiesD1Ev": ["nothing", "address"],
+    "ritual_ZNK25QMqttConnectionProperties21sessionExpiryIntervalEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZNK25QMqttConnectionProperties14maximumReceiveEv": [
+      "unsigned short", "address"
+    ],
+    "ritual_ZNK25QMqttConnectionProperties17maximumPacketSizeEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZNK25QMqttConnectionProperties17maximumTopicAliasEv": [
+      "unsigned short", "address"
+    ],
+    "ritual_ZNK25QMqttConnectionProperties26requestResponseInformationEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK25QMqttConnectionProperties25requestProblemInformationEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK25QMqttConnectionProperties14userPropertiesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK25QMqttConnectionProperties20authenticationMethodEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK25QMqttConnectionProperties18authenticationDataEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QMqttConnectionProperties24setSessionExpiryIntervalEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN25QMqttConnectionProperties17setMaximumReceiveEt": [
+      "nothing", "address", "unsigned short"
+    ],
+    "ritual_ZN25QMqttConnectionProperties20setMaximumPacketSizeEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN25QMqttConnectionProperties20setMaximumTopicAliasEt": [
+      "nothing", "address", "unsigned short"
+    ],
+    "ritual_ZN25QMqttConnectionProperties29setRequestResponseInformationEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN25QMqttConnectionProperties28setRequestProblemInformationEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN25QMqttConnectionProperties17setUserPropertiesERK19QMqttUserProperties": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QMqttConnectionProperties23setAuthenticationMethodERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN25QMqttConnectionProperties21setAuthenticationDataERK10QByteArray": [
+      "nothing", "address", "address"
+    ]
+  }
+}

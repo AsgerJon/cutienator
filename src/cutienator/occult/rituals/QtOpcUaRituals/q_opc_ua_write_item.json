@@ -1,0 +1,55 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtOpcUa/qopcuawriteitem.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QOpcUaWriteItemC1Ev": ["address"],
+    "ritual_ZN15QOpcUaWriteItemC1ERKS_": ["address", "address"],
+    "ritual_ZN15QOpcUaWriteItemC1ERK7QStringN6QOpcUa13NodeAttributeERK8QVariantNS3_5TypesES2_": [
+      "address", "text", "int", "address", "int", "text"
+    ],
+    "ritual_ZN15QOpcUaWriteItemD1Ev": ["nothing", "address"],
+    "ritual_ZNK15QOpcUaWriteItem6nodeIdEv": ["text", "address"],
+    "ritual_ZN15QOpcUaWriteItem9setNodeIdERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK15QOpcUaWriteItem9attributeEv": ["int", "address"],
+    "ritual_ZN15QOpcUaWriteItem12setAttributeEN6QOpcUa13NodeAttributeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QOpcUaWriteItem10indexRangeEv": ["text", "address"],
+    "ritual_ZN15QOpcUaWriteItem13setIndexRangeERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK15QOpcUaWriteItem5valueEv": ["address", "address"],
+    "ritual_ZN15QOpcUaWriteItem8setValueERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15QOpcUaWriteItem8setValueERK8QVariantN6QOpcUa5TypesE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZNK15QOpcUaWriteItem4typeEv": ["int", "address"],
+    "ritual_ZN15QOpcUaWriteItem7setTypeEN6QOpcUa5TypesE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK15QOpcUaWriteItem15sourceTimestampEv": ["address", "address"],
+    "ritual_ZN15QOpcUaWriteItem18setSourceTimestampERK9QDateTime": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QOpcUaWriteItem15serverTimestampEv": ["address", "address"],
+    "ritual_ZN15QOpcUaWriteItem18setServerTimestampERK9QDateTime": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QOpcUaWriteItem10statusCodeEv": ["unsigned int", "address"],
+    "ritual_ZNK15QOpcUaWriteItem13hasStatusCodeEv": ["bool", "address"],
+    "ritual_ZN15QOpcUaWriteItem13setStatusCodeEN6QOpcUa12UaStatusCodeE": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_list_make_QOpcUaWriteItem": ["address"],
+    "ritual_list_add_QOpcUaWriteItem": ["nothing", "address", "address"],
+    "ritual_list_size_QOpcUaWriteItem": ["long long", "address"],
+    "ritual_list_at_QOpcUaWriteItem": ["address", "address", "long long"],
+    "ritual_list_drop_QOpcUaWriteItem": ["nothing", "address"]
+  }
+}

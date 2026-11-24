@@ -1,0 +1,101 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGraphs/qxyseries.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "parts first": [
+    "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
+  ],
+  "rows": {
+    "ritual_ZNK9QXYSeries10metaObjectEv": ["address", "address"],
+    "ritual_ZN9QXYSeries2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN9QXYSeries6appendEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN9QXYSeries6appendE7QPointF": ["nothing", "address", "address"],
+    "ritual_ZN9QXYSeries6appendERK5QListI7QPointFE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QXYSeries7replaceEdddd": [
+      "nothing", "address", "double", "double", "double", "double"
+    ],
+    "ritual_ZN9QXYSeries7replaceE7QPointFS0_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN9QXYSeries7replaceExdd": [
+      "nothing", "address", "long long", "double", "double"
+    ],
+    "ritual_ZN9QXYSeries7replaceEx7QPointF": [
+      "nothing", "address", "long long", "address"
+    ],
+    "ritual_ZN9QXYSeries7replaceERK5QListI7QPointFE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QXYSeries6removeEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN9QXYSeries6removeE7QPointF": ["nothing", "address", "address"],
+    "ritual_ZN9QXYSeries6removeEx": ["nothing", "address", "long long"],
+    "ritual_ZN9QXYSeries6insertEx7QPointF": [
+      "nothing", "address", "long long", "address"
+    ],
+    "ritual_ZN9QXYSeries5clearEv": ["nothing", "address"],
+    "ritual_ZNK9QXYSeries2atEx": ["address", "address", "long long"],
+    "ritual_ZNK9QXYSeries4findE7QPointF": [
+      "long long", "address", "address"
+    ],
+    "ritual_ZN9QXYSeries14removeMultipleExx": [
+      "nothing", "address", "long long", "long long"
+    ],
+    "ritual_ZN9QXYSeries4takeE7QPointF": ["bool", "address", "address"],
+    "ritual_ZN9QXYSeriesD1Ev": ["nothing", "address"],
+    "ritual_ZNK9QXYSeries6pointsEv": ["address", "address"],
+    "ritual_ZN9QXYSeries8setColorE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9QXYSeries5colorEv": ["address", "address"],
+    "ritual_ZN9QXYSeries16setSelectedColorE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9QXYSeries13selectedColorEv": ["address", "address"],
+    "ritual_ZNK9QXYSeries5countEv": ["long long", "address"],
+    "ritual_ZNK9QXYSeries6valuesEv": ["address", "address"],
+    "ritual_ZN9QXYSeries9setValuesE5QListI8QVariantE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9QXYSeries15isPointSelectedEx": [
+      "bool", "address", "long long"
+    ],
+    "ritual_ZN9QXYSeries11selectPointEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN9QXYSeries13deselectPointEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZN9QXYSeries16setPointSelectedExb": [
+      "nothing", "address", "long long", "bool"
+    ],
+    "ritual_ZN9QXYSeries15selectAllPointsEv": ["nothing", "address"],
+    "ritual_ZN9QXYSeries17deselectAllPointsEv": ["nothing", "address"],
+    "ritual_ZNK9QXYSeries13pointDelegateEv": ["address", "address"],
+    "ritual_ZN9QXYSeries16setPointDelegateEP13QQmlComponent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QXYSeries24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK9QXYSeries11isDraggableEv": ["bool", "address"],
+    "ritual_ZN9QXYSeries12setDraggableEb": ["nothing", "address", "bool"],
+    "ritual_ZNK9QXYSeries12valueMappingEv": ["int", "address"],
+    "ritual_ZN9QXYSeries15setValueMappingENS_12ValueMappingE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK9QXYSeries8valueMinEv": ["double", "address"],
+    "ritual_ZN9QXYSeries11setValueMinEd": ["nothing", "address", "double"],
+    "ritual_ZNK9QXYSeries8stepSizeEv": ["double", "address"],
+    "ritual_ZN9QXYSeries11setStepSizeEd": ["nothing", "address", "double"],
+    "ritual_ZN9QXYSeries6d_funcEv": ["address", "address"],
+    "ritual_ZNK9QXYSeries6d_funcEv": ["address", "address"],
+    "ritual_take_QXYSeries": ["bool", "address", "chars", "address"]
+  }
+}

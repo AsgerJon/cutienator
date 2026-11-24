@@ -1,0 +1,100 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGraphs/qabstract3dseries.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "parts first": [
+    "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
+  ],
+  "rows": {
+    "ritual_ZNK17QAbstract3DSeries10metaObjectEv": ["address", "address"],
+    "ritual_ZN17QAbstract3DSeries2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN17QAbstract3DSeries24qt_qmlMarker_uncreatableEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QAbstract3DSeriesD1Ev": ["nothing", "address"],
+    "ritual_ZNK17QAbstract3DSeries4typeEv": ["int", "address"],
+    "ritual_ZN17QAbstract3DSeries18setItemLabelFormatERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK17QAbstract3DSeries15itemLabelFormatEv": ["text", "address"],
+    "ritual_ZN17QAbstract3DSeries10setVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK17QAbstract3DSeries9isVisibleEv": ["bool", "address"],
+    "ritual_ZN17QAbstract3DSeries7setMeshENS_4MeshE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK17QAbstract3DSeries4meshEv": ["int", "address"],
+    "ritual_ZN17QAbstract3DSeries13setMeshSmoothEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK17QAbstract3DSeries12isMeshSmoothEv": ["bool", "address"],
+    "ritual_ZN17QAbstract3DSeries15setMeshRotationERK11QQuaternion": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QAbstract3DSeries12meshRotationEv": ["address", "address"],
+    "ritual_ZN17QAbstract3DSeries19setMeshAxisAndAngleE9QVector3Df": [
+      "nothing", "address", "address", "float"
+    ],
+    "ritual_ZN17QAbstract3DSeries18setUserDefinedMeshERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK17QAbstract3DSeries15userDefinedMeshEv": ["text", "address"],
+    "ritual_ZN17QAbstract3DSeries13setColorStyleEN12QGraphsTheme10ColorStyleE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK17QAbstract3DSeries10colorStyleEv": ["int", "address"],
+    "ritual_ZN17QAbstract3DSeries12setBaseColorE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QAbstract3DSeries9baseColorEv": ["address", "address"],
+    "ritual_ZN17QAbstract3DSeries15setBaseGradientERK15QLinearGradient": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QAbstract3DSeries12baseGradientEv": ["address", "address"],
+    "ritual_ZN17QAbstract3DSeries23setSingleHighlightColorE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QAbstract3DSeries20singleHighlightColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QAbstract3DSeries26setSingleHighlightGradientERK15QLinearGradient": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QAbstract3DSeries23singleHighlightGradientEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QAbstract3DSeries22setMultiHighlightColorE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QAbstract3DSeries19multiHighlightColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QAbstract3DSeries25setMultiHighlightGradientERK15QLinearGradient": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK17QAbstract3DSeries22multiHighlightGradientEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK17QAbstract3DSeries12lightingModeEv": ["bool", "address"],
+    "ritual_ZN17QAbstract3DSeries15setLightingModeENS_12LightingModeE": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN17QAbstract3DSeries7setNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK17QAbstract3DSeries4nameEv": ["text", "address"],
+    "ritual_ZN17QAbstract3DSeries9itemLabelEv": ["text", "address"],
+    "ritual_ZN17QAbstract3DSeries19setItemLabelVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK17QAbstract3DSeries18isItemLabelVisibleEv": [
+      "bool", "address"
+    ],
+    "ritual_take_QAbstract3DSeries": ["bool", "address", "chars", "address"]
+  }
+}

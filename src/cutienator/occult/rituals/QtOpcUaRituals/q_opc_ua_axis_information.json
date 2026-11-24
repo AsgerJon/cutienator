@@ -1,0 +1,36 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtOpcUa/qopcuaaxisinformation.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN21QOpcUaAxisInformationC1Ev": ["address"],
+    "ritual_ZN21QOpcUaAxisInformationC1ERKS_": ["address", "address"],
+    "ritual_ZNK21QOpcUaAxisInformationeqERKS_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK21QOpcUaAxisInformationcv8QVariantEv": ["address", "address"],
+    "ritual_ZN21QOpcUaAxisInformationD1Ev": ["nothing", "address"],
+    "ritual_ZNK21QOpcUaAxisInformation16engineeringUnitsEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QOpcUaAxisInformation19setEngineeringUnitsERK19QOpcUaEUInformation": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21QOpcUaAxisInformation7eURangeEv": ["address", "address"],
+    "ritual_ZN21QOpcUaAxisInformation10setEURangeERK11QOpcUaRange": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21QOpcUaAxisInformation5titleEv": ["address", "address"],
+    "ritual_ZN21QOpcUaAxisInformation8setTitleERK19QOpcUaLocalizedText": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK21QOpcUaAxisInformation13axisScaleTypeEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN21QOpcUaAxisInformation16setAxisScaleTypeEN6QOpcUa9AxisScaleE": [
+      "nothing", "address", "unsigned int"
+    ]
+  }
+}

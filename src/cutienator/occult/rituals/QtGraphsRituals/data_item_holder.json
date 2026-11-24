@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGraphs/6.12.0/QtGraphs/private/scatterinstancing_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "parts first": [
+    "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
+  ],
+  "rows": {
+    "ritual_ZN14DataItemHolderD1Ev": ["nothing", "address"],
+    "ritual_list_make_DataItemHolder": ["address"],
+    "ritual_list_add_DataItemHolder": ["nothing", "address", "address"],
+    "ritual_list_size_DataItemHolder": ["long long", "address"],
+    "ritual_list_at_DataItemHolder": ["address", "address", "long long"],
+    "ritual_list_drop_DataItemHolder": ["nothing", "address"]
+  }
+}

@@ -36,6 +36,22 @@ class TestCuteMixin(BaseTest):
   #  TESTS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
+  def test_the_part_of_a_cute_class(self) -> None:
+    """A cute class is of the part of Qt whose package holds it, and so
+    is a class of a program built on it, and the Ugly of an object of
+    it runs rituals as that part sees them. A class on 'CuteMixin'
+    alone is of no part."""
+
+    class Program(QObject):
+      """A class of a program, written on a cute class."""
+
+    self.assertEqual(QObject._getPartName(), 'QtCore')
+    self.assertEqual(QSize._getPartName(), 'QtCore')
+    self.assertEqual(Program._getPartName(), 'QtCore')
+    self.assertIsNone(CuteMixin._getPartName())
+    self.assertEqual(QSize(1, 2).uglySide.getPartName(), 'QtCore')
+    self.assertEqual(QObject().uglySide.getPartName(), 'QtCore')
+
   def test_value_of_keeps_the_object_python_s_own(self) -> None:
     """'_valueOf' gives the address and changes nothing."""
     size = QSize(3, 4)

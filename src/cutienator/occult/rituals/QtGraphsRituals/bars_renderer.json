@@ -1,0 +1,49 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGraphs/6.12.0/QtGraphs/private/barsrenderer_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "parts first": [
+    "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
+  ],
+  "rows": {
+    "ritual_ZNK12BarsRenderer10metaObjectEv": ["address", "address"],
+    "ritual_ZN12BarsRenderer15synchronizeDataEv": ["nothing", "address"],
+    "ritual_ZN12BarsRenderer12updateSeriesEP10QBarSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12BarsRenderer22seriesAboutToBeRemovedEP15QAbstractSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN12BarsRenderer15handleHoverMoveEP11QHoverEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN12BarsRenderer11getSetColorEP10QBarSeriesP7QBarSetx": [
+      "address", "address", "address", "address", "long long"
+    ],
+    "ritual_ZN12BarsRenderer19getSetSelectedColorEP10QBarSeriesP7QBarSet": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN12BarsRenderer17getSetBorderColorEP10QBarSeriesP7QBarSetx": [
+      "address", "address", "address", "address", "long long"
+    ],
+    "ritual_ZN12BarsRenderer17getSetBorderWidthEP10QBarSeriesP7QBarSet": [
+      "double", "address", "address", "address"
+    ],
+    "ritual_ZN12BarsRenderer17generateLabelTextEP10QBarSeriesd": [
+      "text", "address", "address", "double"
+    ],
+    "ritual_ZN12BarsRenderer17positionLabelItemEP10QBarSeriesP10QQuickTextRKNS_13BarSeriesDataE": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN12BarsRenderer14onSingleTappedE11QEventPointN2Qt11MouseButtonE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN12BarsRenderer14onDoubleTappedE11QEventPointN2Qt11MouseButtonE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN12BarsRenderer16onPressedChangedEv": ["nothing", "address"],
+    "ritual_take_BarsRenderer": ["bool", "address", "chars", "address"]
+  }
+}

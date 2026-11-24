@@ -1,0 +1,33 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGraphs/qsurfacedataitem.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "parts first": [
+    "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
+  ],
+  "rows": {
+    "ritual_ZN16QSurfaceDataItemC1Ev": ["address"],
+    "ritual_ZN16QSurfaceDataItemC1E9QVector3D": ["address", "address"],
+    "ritual_ZN16QSurfaceDataItemC1Efff": [
+      "address", "float", "float", "float"
+    ],
+    "ritual_ZN16QSurfaceDataItem11setPositionE9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QSurfaceDataItem8positionEv": ["address", "address"],
+    "ritual_ZN16QSurfaceDataItem4setXEf": ["nothing", "address", "float"],
+    "ritual_ZN16QSurfaceDataItem4setYEf": ["nothing", "address", "float"],
+    "ritual_ZN16QSurfaceDataItem4setZEf": ["nothing", "address", "float"],
+    "ritual_ZNK16QSurfaceDataItem1xEv": ["float", "address"],
+    "ritual_ZNK16QSurfaceDataItem1yEv": ["float", "address"],
+    "ritual_ZNK16QSurfaceDataItem1zEv": ["float", "address"],
+    "ritual_ZN16QSurfaceDataItemD1Ev": ["nothing", "address"],
+    "ritual_list_make_QSurfaceDataItem": ["address"],
+    "ritual_list_add_QSurfaceDataItem": ["nothing", "address", "address"],
+    "ritual_list_size_QSurfaceDataItem": ["long long", "address"],
+    "ritual_list_at_QSurfaceDataItem": ["address", "address", "long long"],
+    "ritual_list_drop_QSurfaceDataItem": ["nothing", "address"]
+  }
+}

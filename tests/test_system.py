@@ -117,7 +117,8 @@ class TestSystem(BaseTest):
 
   def test_linker_flags(self) -> None:
     """Linux and macOS have the Qt folder written in; Windows cannot.
-    Linux is also told to offer the rituals and nothing else."""
+    Linux is also told to offer the rituals and nothing else, and to
+    name only the Qt shared objects it calls into."""
     offers = os.path.join(
         os.path.dirname(os.path.abspath(occult.__file__)),
         'linux_offers.map',
@@ -127,7 +128,7 @@ class TestSystem(BaseTest):
         Linux().getLinkerFlags('/opt/qt/lib'),
         (
             '-Wl,--no-undefined', '-Wl,-rpath,/opt/qt/lib',
-            '-Wl,--version-script=%s' % offers,
+            '-Wl,--version-script=%s' % offers, '-Wl,--as-needed',
         ),
     )
     self.assertEqual(

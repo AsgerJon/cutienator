@@ -1,0 +1,97 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtOpcUa/6.12.0/QtOpcUa/private/qopcuaclientimpl_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK16QOpcUaClientImpl10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QOpcUaClientImpl2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN16QOpcUaClientImplD1Ev": ["nothing", "address"],
+    "ritual_ZN16QOpcUaClientImpl17connectToEndpointERK25QOpcUaEndpointDescription": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN16QOpcUaClientImpl22disconnectFromEndpointEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN16QOpcUaClientImpl4nodeERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZNK16QOpcUaClientImpl7backendEv": ["text", "address"],
+    "ritual_ZN16QOpcUaClientImpl16requestEndpointsERK4QUrl": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN16QOpcUaClientImpl11findServersERK4QUrlRK5QListI7QStringES7_": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZN16QOpcUaClientImpl18readNodeAttributesERK5QListI14QOpcUaReadItemE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN16QOpcUaClientImpl19writeNodeAttributesERK5QListI15QOpcUaWriteItemE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN16QOpcUaClientImpl15readHistoryDataERK27QOpcUaHistoryReadRawRequest": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN16QOpcUaClientImpl17readHistoryEventsERK29QOpcUaHistoryReadEventRequest": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN16QOpcUaClientImpl7addNodeERK17QOpcUaAddNodeItem": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN16QOpcUaClientImpl10deleteNodeERK7QStringb": [
+      "bool", "address", "text", "bool"
+    ],
+    "ritual_ZN16QOpcUaClientImpl12addReferenceERK22QOpcUaAddReferenceItem": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN16QOpcUaClientImpl15deleteReferenceERK25QOpcUaDeleteReferenceItem": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN16QOpcUaClientImpl24connectBackendWithClientEP13QOpcUaBackend": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QOpcUaClientImpl25supportedSecurityPoliciesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN16QOpcUaClientImpl13registerNodesERK5QListI7QStringE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN16QOpcUaClientImpl15unregisterNodesERK5QListI7QStringE": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN16QOpcUaClientImpl20handleAttributesReadEy5QListI16QOpcUaReadResultEN6QOpcUa12UaStatusCodeE": [
+      "nothing", "address", "unsigned long long", "address", "unsigned int"
+    ],
+    "ritual_ZN16QOpcUaClientImpl22handleAttributeWrittenEyN6QOpcUa13NodeAttributeERK8QVariantNS0_12UaStatusCodeE": [
+      "nothing", "address", "unsigned long long", "int", "address",
+      "unsigned int"
+    ],
+    "ritual_ZN16QOpcUaClientImpl24handleDataChangeOccurredEyRK16QOpcUaReadResult": [
+      "nothing", "address", "unsigned long long", "address"
+    ],
+    "ritual_ZN16QOpcUaClientImpl29handleMonitoringEnableDisableEyN6QOpcUa13NodeAttributeEb26QOpcUaMonitoringParameters": [
+      "nothing", "address", "unsigned long long", "int", "bool", "address"
+    ],
+    "ritual_ZN16QOpcUaClientImpl29handleMonitoringStatusChangedEyN6QOpcUa13NodeAttributeE6QFlagsIN26QOpcUaMonitoringParameters9ParameterEES3_": [
+      "nothing", "address", "unsigned long long", "int", "int", "address"
+    ],
+    "ritual_ZN16QOpcUaClientImpl24handleMethodCallFinishedEy7QString8QVariantN6QOpcUa12UaStatusCodeE": [
+      "nothing", "address", "unsigned long long", "text", "address",
+      "unsigned int"
+    ],
+    "ritual_ZN16QOpcUaClientImpl20handleBrowseFinishedEyRK5QListI26QOpcUaReferenceDescriptionEN6QOpcUa12UaStatusCodeE": [
+      "nothing", "address", "unsigned long long", "address", "unsigned int"
+    ],
+    "ritual_ZN16QOpcUaClientImpl31handleResolveBrowsePathFinishedEy5QListI22QOpcUaBrowsePathTargetES0_I25QOpcUaRelativePathElementEN6QOpcUa12UaStatusCodeE": [
+      "nothing", "address", "unsigned long long", "address", "address",
+      "unsigned int"
+    ],
+    "ritual_ZN16QOpcUaClientImpl14handleNewEventEy5QListI8QVariantE": [
+      "nothing", "address", "unsigned long long", "address"
+    ],
+    "ritual_take_QOpcUaClientImpl": ["bool", "address", "chars", "address"]
+  }
+}

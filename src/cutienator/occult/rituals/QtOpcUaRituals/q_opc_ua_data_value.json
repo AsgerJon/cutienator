@@ -1,0 +1,47 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtOpcUa/qopcuadatavalue.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QOpcUaDataValueC1Ev": ["address"],
+    "ritual_ZN15QOpcUaDataValueC1ERKS_": ["address", "address"],
+    "ritual_ZN15QOpcUaDataValueD1Ev": ["nothing", "address"],
+    "ritual_ZNK15QOpcUaDataValue15serverTimestampEv": ["address", "address"],
+    "ritual_ZN15QOpcUaDataValue18setServerTimestampERK9QDateTime": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QOpcUaDataValue17serverPicosecondsEv": [
+      "unsigned short", "address"
+    ],
+    "ritual_ZN15QOpcUaDataValue20setServerPicosecondsEt": [
+      "nothing", "address", "unsigned short"
+    ],
+    "ritual_ZNK15QOpcUaDataValue15sourceTimestampEv": ["address", "address"],
+    "ritual_ZN15QOpcUaDataValue18setSourceTimestampERK9QDateTime": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QOpcUaDataValue17sourcePicosecondsEv": [
+      "unsigned short", "address"
+    ],
+    "ritual_ZN15QOpcUaDataValue20setSourcePicosecondsEt": [
+      "nothing", "address", "unsigned short"
+    ],
+    "ritual_ZNK15QOpcUaDataValue10statusCodeEv": ["unsigned int", "address"],
+    "ritual_ZN15QOpcUaDataValue13setStatusCodeEN6QOpcUa12UaStatusCodeE": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZNK15QOpcUaDataValue5valueEv": ["address", "address"],
+    "ritual_ZN15QOpcUaDataValue8setValueERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QOpcUaDataValuecv8QVariantEv": ["address", "address"],
+    "ritual_ZeqRK15QOpcUaDataValueS1_": ["bool", "address", "address"],
+    "ritual_ZneRK15QOpcUaDataValueS1_": ["bool", "address", "address"],
+    "ritual_list_make_QOpcUaDataValue": ["address"],
+    "ritual_list_add_QOpcUaDataValue": ["nothing", "address", "address"],
+    "ritual_list_size_QOpcUaDataValue": ["long long", "address"],
+    "ritual_list_at_QOpcUaDataValue": ["address", "address", "long long"],
+    "ritual_list_drop_QOpcUaDataValue": ["nothing", "address"]
+  }
+}

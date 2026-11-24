@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import os
 import subprocess
+import threading
 from concurrent.futures import ThreadPoolExecutor
 from typing import TYPE_CHECKING
 
@@ -125,7 +126,10 @@ class Build:
     Every program this class needs, 'clang++' and 'qmake6', is run through
     here, so a failure always carries the program's own message. The
     program has finished by the time this returns: nothing is left
-    running, and there is nothing to close.
+    running, and there is nothing to close. No more programs run
+    through here at the same time than the machine has processors,
+    also when several builds run at once, as 'Rituals.build' runs
+    those of several parts of Qt.
 
     Parameters
     ----------
@@ -149,7 +153,8 @@ class Build:
       The program ran and reported a failure; its message is included.
     """
     try:
-      done = subprocess.run(command, capture_output=True, text=True)
+      with Build.__program_slots__:
+        done = subprocess.run(command, capture_output=True, text=True)
     except FileNotFoundError as fileNotFoundError:
       infoSpec = """The program '%s' is needed and is not installed."""
       raise FileNotFoundError(infoSpec % command[0]) from fileNotFoundError
@@ -163,6 +168,9 @@ class Build:
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   #  Class Variables
+  #  One slot for each processor of the machine; a program run through
+  #  '_run' holds one while it runs.
+  __program_slots__ = threading.BoundedSemaphore(os.cpu_count() or 1)
   __qt_header_folder__: Optional[str] = None
   __qt_shared_object_folder__: Optional[str] = None
   __qt_program_folder__: Optional[str] = None
@@ -176,6 +184,8 @@ class Build:
   __qt_shared_objects__ = None
   __job_count__ = None
   __components__ = None
+  #  What 'getPrivateIncludeFolders' found, kept until 'setComponents'.
+  __private_include_folders__ = None
 
   #  Public Variables
 
@@ -454,13 +464,22 @@ class Build:
     stem = os.path.splitext(os.path.basename(ritualFile))[0]
     return os.path.join(self.getObjectFolder(), '%s.o' % stem)
 
+  def _getTargetStem(self) -> str:
+    """Gives the name of the target file without its ending, as
+    'libcutienator_QtCore': the files of this build in the object
+    folder are named after it, since the builds of several target
+    files share that folder."""
+    return os.path.splitext(os.path.basename(self.getTargetFile()))[0]
+
   def getCommonHeaderFile(self) -> str:
     """
-    Gives the path of the common header: 'common.h' in the object
-    folder. 'run' writes it before it compiles any ritual file, and
-    leaves it there.
+    Gives the path of the common header: the name of the target file
+    with '.common.h', in the object folder, as
+    'libcutienator_QtCore.common.h'. 'run' writes it before it compiles
+    any ritual file, and leaves it there.
     """
-    return os.path.join(self.getObjectFolder(), 'common.h')
+    return os.path.join(
+        self.getObjectFolder(), '%s.common.h' % self._getTargetStem())
 
   def getCommonHeaderText(self) -> str:
     """
@@ -497,18 +516,22 @@ class Build:
 
   def getPrecompiledHeaderFile(self) -> str:
     """
-    Gives the path of the precompiled header: 'common.pch' in the
-    object folder. The file is there only while 'run' compiles.
+    Gives the path of the precompiled header: the name of the target
+    file with '.common.pch', in the object folder. The file is there
+    only while 'run' compiles.
     """
-    return os.path.join(self.getObjectFolder(), 'common.pch')
+    return os.path.join(
+        self.getObjectFolder(), '%s.common.pch' % self._getTargetStem())
 
   def getToldFile(self) -> str:
     """
     Gives the file in the object folder that says what the object files
-    there were made with: the Qt, and what 'clang++' was told. 'run'
-    writes it once every object file is made.
+    of this build were made with: the Qt, and what 'clang++' was told.
+    It is the name of the target file with '.told.txt'. 'run' writes it
+    once every object file is made.
     """
-    return os.path.join(self.getObjectFolder(), 'told.txt')
+    return os.path.join(
+        self.getObjectFolder(), '%s.told.txt' % self._getTargetStem())
 
   def getToldText(self) -> str:
     """
@@ -550,7 +573,12 @@ class Build:
     in one of a part that has no ritual files, as that of QtStateMachine
     pulls in 'private/qtscxmlglobal-config_p.h' of QtScxmlGlobal, a
     part of header files alone.
+
+    Found at the first call and kept, since every command of the
+    build names them, until 'setComponents' is called again.
     """
+    if self.__private_include_folders__ is not None:
+      return self.__private_include_folders__
     system = System.getHere()
     headerFolder = self.getQtHeaderFolder()
     qtFolder, version = self.getQtSharedObjectFolder(), self.getQtVersion()
@@ -575,7 +603,8 @@ class Build:
       found.append(os.path.join(
           self._run('qmake6', '-query', 'QT_HOST_DATA').strip(),
           'mkspecs', self._run('qmake6', '-query', 'QMAKE_SPEC').strip()))
-    return (*found,)
+    self.__private_include_folders__ = (*found,)
+    return self.__private_include_folders__
 
   def getStaleRitualFiles(self) -> Paths:
     """
@@ -823,6 +852,7 @@ class Build:
       if not isinstance(component, str):
         raise TypeException('component', component, str)
     self.__components__ = (*components,)
+    self.__private_include_folders__ = None
 
   def setJobCount(self, jobCount: int) -> None:
     """

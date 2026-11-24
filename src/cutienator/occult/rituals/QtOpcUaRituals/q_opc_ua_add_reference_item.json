@@ -1,0 +1,48 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtOpcUa/qopcuaaddreferenceitem.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN22QOpcUaAddReferenceItemC1Ev": ["address"],
+    "ritual_ZN22QOpcUaAddReferenceItemC1ERKS_": ["address", "address"],
+    "ritual_ZN22QOpcUaAddReferenceItemD1Ev": ["nothing", "address"],
+    "ritual_ZNK22QOpcUaAddReferenceItem12sourceNodeIdEv": [
+      "text", "address"
+    ],
+    "ritual_ZN22QOpcUaAddReferenceItem15setSourceNodeIdERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK22QOpcUaAddReferenceItem15referenceTypeIdEv": [
+      "text", "address"
+    ],
+    "ritual_ZN22QOpcUaAddReferenceItem18setReferenceTypeIdERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK22QOpcUaAddReferenceItem18isForwardReferenceEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN22QOpcUaAddReferenceItem21setIsForwardReferenceEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK22QOpcUaAddReferenceItem12targetNodeIdEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QOpcUaAddReferenceItem15setTargetNodeIdERK20QOpcUaExpandedNodeId": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK22QOpcUaAddReferenceItem15targetNodeClassEv": [
+      "int", "address"
+    ],
+    "ritual_ZN22QOpcUaAddReferenceItem18setTargetNodeClassEN6QOpcUa9NodeClassE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK22QOpcUaAddReferenceItem15targetServerUriEv": [
+      "text", "address"
+    ],
+    "ritual_ZN22QOpcUaAddReferenceItem18setTargetServerUriERK7QString": [
+      "nothing", "address", "text"
+    ]
+  }
+}

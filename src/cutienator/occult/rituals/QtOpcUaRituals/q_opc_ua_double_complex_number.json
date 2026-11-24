@@ -1,0 +1,31 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtOpcUa/qopcuadoublecomplexnumber.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZN25QOpcUaDoubleComplexNumberC1Ev": ["address"],
+    "ritual_ZN25QOpcUaDoubleComplexNumberC1ERKS_": ["address", "address"],
+    "ritual_ZN25QOpcUaDoubleComplexNumberC1Edd": [
+      "address", "double", "double"
+    ],
+    "ritual_ZNK25QOpcUaDoubleComplexNumbereqERKS_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK25QOpcUaDoubleComplexNumbercv8QVariantEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QOpcUaDoubleComplexNumberD1Ev": ["nothing", "address"],
+    "ritual_ZNK25QOpcUaDoubleComplexNumber4realEv": ["double", "address"],
+    "ritual_ZN25QOpcUaDoubleComplexNumber7setRealEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZNK25QOpcUaDoubleComplexNumber9imaginaryEv": [
+      "double", "address"
+    ],
+    "ritual_ZN25QOpcUaDoubleComplexNumber12setImaginaryEd": [
+      "nothing", "address", "double"
+    ]
+  }
+}

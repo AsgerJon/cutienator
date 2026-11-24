@@ -1,0 +1,39 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCoap/6.12.0/QtCoap/private/qcoapconnection_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK15QCoapConnection10metaObjectEv": ["address", "address"],
+    "ritual_ZN15QCoapConnectionD1Ev": ["nothing", "address"],
+    "ritual_ZNK15QCoapConnection8isSecureEv": ["bool", "address"],
+    "ritual_ZNK15QCoapConnection12securityModeEv": [
+      "unsigned char", "address"
+    ],
+    "ritual_ZNK15QCoapConnection5stateEv": ["unsigned char", "address"],
+    "ritual_ZNK15QCoapConnection21securityConfigurationEv": [
+      "address", "address"
+    ],
+    "ritual_ZN15QCoapConnection10disconnectEv": ["nothing", "address"],
+    "ritual_ZN15QCoapConnection22setUdpNetworkInterfaceERK17QNetworkInterface": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK15QCoapConnection19udpNetworkInterfaceEv": [
+      "address", "address"
+    ],
+    "ritual_ZN15QCoapConnection18startToSendRequestEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN15QCoapConnection4bindERK7QStringt": [
+      "nothing", "address", "text", "unsigned short"
+    ],
+    "ritual_ZN15QCoapConnection9writeDataERK10QByteArrayRK7QStringt": [
+      "nothing", "address", "address", "text", "unsigned short"
+    ],
+    "ritual_ZN15QCoapConnection5closeEv": ["nothing", "address"],
+    "ritual_ZN15QCoapConnection6d_funcEv": ["address", "address"],
+    "ritual_ZNK15QCoapConnection6d_funcEv": ["address", "address"],
+    "ritual_take_QCoapConnection": ["bool", "address", "chars", "address"]
+  }
+}

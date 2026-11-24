@@ -1,0 +1,61 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGraphs/6.12.0/QtGraphs/private/pointrenderer_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "parts first": [
+    "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
+  ],
+  "rows": {
+    "ritual_ZNK13PointRenderer10metaObjectEv": ["address", "address"],
+    "ritual_ZN13PointRendererD1Ev": ["nothing", "address"],
+    "ritual_ZN13PointRenderer19resetShapePathCountEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13PointRenderer15synchronizeDataEv": ["nothing", "address"],
+    "ritual_ZN13PointRenderer12updateSeriesEP9QXYSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13PointRenderer22seriesAboutToBeRemovedEP15QAbstractSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13PointRenderer15handleHoverMoveEP11QHoverEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN13PointRenderer24reverseRenderCoordinatesEP15QAbstractSeriesdd": [
+      "address", "address", "address", "double", "double"
+    ],
+    "ritual_ZN13PointRenderer11defaultSizeEP9QXYSeries": [
+      "double", "address", "address"
+    ],
+    "ritual_ZN13PointRenderer26calculateRenderCoordinatesEP12AxisRendererP15QAbstractSeriesddPdS4_": [
+      "nothing", "address", "address", "address", "double", "double",
+      "address", "address"
+    ],
+    "ritual_ZN13PointRenderer24reverseRenderCoordinatesEP12AxisRendererP15QAbstractSeriesddPdS4_": [
+      "nothing", "address", "address", "address", "double", "double",
+      "address", "address"
+    ],
+    "ritual_ZN13PointRenderer18hidePointDelegatesEP9QXYSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13PointRenderer14onSingleTappedE11QEventPointN2Qt11MouseButtonE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN13PointRenderer14onDoubleTappedE11QEventPointN2Qt11MouseButtonE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN13PointRenderer16onPressedChangedEv": ["nothing", "address"],
+    "ritual_ZN13PointRenderer33adjustPressedPointIndexForRemovalEP9QXYSeriesxx": [
+      "nothing", "address", "address", "long long", "long long"
+    ],
+    "ritual_ZN13PointRenderer35adjustPressedPointIndexForInsertionEP9QXYSeriesxx": [
+      "nothing", "address", "address", "long long", "long long"
+    ],
+    "ritual_ZN13PointRenderer18forgetPressedPointEP9QXYSeries": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_PointRenderer": ["bool", "address", "chars", "address"]
+  }
+}

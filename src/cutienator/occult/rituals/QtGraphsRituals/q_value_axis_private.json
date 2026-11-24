@@ -1,0 +1,43 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGraphs/6.12.0/QtGraphs/private/qvalueaxis_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "parts first": [
+    "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
+  ],
+  "rows": {
+    "ritual_ZN17QValueAxisPrivate3minEv": ["double", "address"],
+    "ritual_ZN17QValueAxisPrivate3maxEv": ["double", "address"],
+    "ritual_ZN17QValueAxisPrivate8setRangeEdd": [
+      "nothing", "address", "double", "double"
+    ],
+    "ritual_ZN17QValueAxisPrivate20calculateVisualRangeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN17QValueAxisPrivate6setMinERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QValueAxisPrivate6setMaxERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN17QValueAxisPrivate8setRangeERK8QVariantS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN17QValueAxisPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK17QValueAxisPrivate6q_funcEv": ["address", "address"],
+    "ritual_take_QValueAxisPrivate": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN17QValueAxisPrivate3minEv": ["double", "address"],
+    "ritual_own_ZN17QValueAxisPrivate3maxEv": ["double", "address"],
+    "ritual_own_ZN17QValueAxisPrivate6setMinERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN17QValueAxisPrivate6setMaxERK8QVariant": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN17QValueAxisPrivate8setRangeERK8QVariantS2_": [
+      "nothing", "address", "address", "address"
+    ]
+  }
+}

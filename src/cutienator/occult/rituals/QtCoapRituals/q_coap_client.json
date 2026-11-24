@@ -1,0 +1,92 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCoap/qcoapclient.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "rows": {
+    "ritual_ZNK11QCoapClient10metaObjectEv": ["address", "address"],
+    "ritual_ZN11QCoapClient2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN11QCoapClientC1EN6QtCoap12SecurityModeEP7QObject": [
+      "address", "unsigned char", "address"
+    ],
+    "ritual_ZN11QCoapClientD1Ev": ["nothing", "address"],
+    "ritual_ZN11QCoapClient3getERK12QCoapRequest": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN11QCoapClient3getERK4QUrl": ["address", "address", "address"],
+    "ritual_ZN11QCoapClient3putERK12QCoapRequestRK10QByteArray": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN11QCoapClient3putERK12QCoapRequestP9QIODevice": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN11QCoapClient3putERK4QUrlRK10QByteArray": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN11QCoapClient4postERK12QCoapRequestRK10QByteArray": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN11QCoapClient4postERK12QCoapRequestP9QIODevice": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN11QCoapClient4postERK4QUrlRK10QByteArray": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN11QCoapClient14deleteResourceERK12QCoapRequest": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN11QCoapClient14deleteResourceERK4QUrl": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN11QCoapClient7observeERK12QCoapRequest": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN11QCoapClient7observeERK4QUrl": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN11QCoapClient13cancelObserveEP10QCoapReply": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QCoapClient13cancelObserveERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QCoapClient10disconnectEv": ["nothing", "address"],
+    "ritual_ZN11QCoapClient8discoverEN6QtCoap14MulticastGroupEiRK7QString": [
+      "address", "address", "unsigned char", "int", "text"
+    ],
+    "ritual_ZN11QCoapClient8discoverERK4QUrlRK7QString": [
+      "address", "address", "address", "text"
+    ],
+    "ritual_ZN11QCoapClient24setSecurityConfigurationERK26QCoapSecurityConfiguration": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN11QCoapClient12setBlockSizeEt": [
+      "nothing", "address", "unsigned short"
+    ],
+    "ritual_ZN11QCoapClient15setSocketOptionEN15QAbstractSocket12SocketOptionERK8QVariant": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN11QCoapClient29setMaximumServerResponseDelayEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN11QCoapClient13setAckTimeoutEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN11QCoapClient18setAckRandomFactorEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN11QCoapClient25setMaximumRetransmitCountEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZN11QCoapClient19setMinimumTokenSizeEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN11QCoapClient16setBindInterfaceERK17QNetworkInterface": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK11QCoapClient13bindInterfaceEv": ["address", "address"],
+    "ritual_ZN11QCoapClient6d_funcEv": ["address", "address"],
+    "ritual_ZNK11QCoapClient6d_funcEv": ["address", "address"],
+    "ritual_take_QCoapClient": ["bool", "address", "chars", "address"]
+  }
+}

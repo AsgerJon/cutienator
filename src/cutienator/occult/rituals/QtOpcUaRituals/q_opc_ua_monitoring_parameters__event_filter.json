@@ -1,0 +1,31 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtOpcUa/qopcuamonitoringparameters.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZN26QOpcUaMonitoringParameters11EventFilterC1Ev": ["address"],
+    "ritual_ZN26QOpcUaMonitoringParameters11EventFilterC1ERKS0_": [
+      "address", "address"
+    ],
+    "ritual_ZNK26QOpcUaMonitoringParameters11EventFiltereqERKS0_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN26QOpcUaMonitoringParameters11EventFilterD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK26QOpcUaMonitoringParameters11EventFilter13selectClausesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QOpcUaMonitoringParameters11EventFilter16setSelectClausesERK5QListI28QOpcUaSimpleAttributeOperandE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK26QOpcUaMonitoringParameters11EventFilter11whereClauseEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QOpcUaMonitoringParameters11EventFilter14setWhereClauseERK5QListI26QOpcUaContentFilterElementE": [
+      "nothing", "address", "address"
+    ]
+  }
+}

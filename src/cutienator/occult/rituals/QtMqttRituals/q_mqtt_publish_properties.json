@@ -1,0 +1,55 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtMqtt/qmqttpublishproperties.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN22QMqttPublishPropertiesC1Ev": ["address"],
+    "ritual_ZN22QMqttPublishPropertiesC1ERKS_": ["address", "address"],
+    "ritual_ZN22QMqttPublishPropertiesD1Ev": ["nothing", "address"],
+    "ritual_ZNK22QMqttPublishProperties19availablePropertiesEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK22QMqttPublishProperties22payloadFormatIndicatorEv": [
+      "unsigned char", "address"
+    ],
+    "ritual_ZN22QMqttPublishProperties25setPayloadFormatIndicatorEN5QMqtt22PayloadFormatIndicatorE": [
+      "nothing", "address", "unsigned char"
+    ],
+    "ritual_ZNK22QMqttPublishProperties21messageExpiryIntervalEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN22QMqttPublishProperties24setMessageExpiryIntervalEj": [
+      "nothing", "address", "unsigned int"
+    ],
+    "ritual_ZNK22QMqttPublishProperties10topicAliasEv": [
+      "unsigned short", "address"
+    ],
+    "ritual_ZN22QMqttPublishProperties13setTopicAliasEt": [
+      "nothing", "address", "unsigned short"
+    ],
+    "ritual_ZNK22QMqttPublishProperties13responseTopicEv": [
+      "text", "address"
+    ],
+    "ritual_ZN22QMqttPublishProperties16setResponseTopicERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK22QMqttPublishProperties15correlationDataEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QMqttPublishProperties18setCorrelationDataERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK22QMqttPublishProperties14userPropertiesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QMqttPublishProperties17setUserPropertiesERK19QMqttUserProperties": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK22QMqttPublishProperties11contentTypeEv": ["text", "address"],
+    "ritual_ZN22QMqttPublishProperties14setContentTypeERK7QString": [
+      "nothing", "address", "text"
+    ]
+  }
+}

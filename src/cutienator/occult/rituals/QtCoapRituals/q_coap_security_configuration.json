@@ -1,0 +1,48 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCoap/qcoapsecurityconfiguration.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZN26QCoapSecurityConfigurationC1Ev": ["address"],
+    "ritual_ZN26QCoapSecurityConfigurationC1ERKS_": ["address", "address"],
+    "ritual_ZN26QCoapSecurityConfigurationD1Ev": ["nothing", "address"],
+    "ritual_ZN26QCoapSecurityConfiguration23setPreSharedKeyIdentityERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK26QCoapSecurityConfiguration20preSharedKeyIdentityEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QCoapSecurityConfiguration15setPreSharedKeyERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK26QCoapSecurityConfiguration12preSharedKeyEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QCoapSecurityConfiguration22setDefaultCipherStringERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK26QCoapSecurityConfiguration19defaultCipherStringEv": [
+      "text", "address"
+    ],
+    "ritual_ZN26QCoapSecurityConfiguration17setCaCertificatesERK5QListI15QSslCertificateE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK26QCoapSecurityConfiguration14caCertificatesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QCoapSecurityConfiguration24setLocalCertificateChainERK5QListI15QSslCertificateE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK26QCoapSecurityConfiguration21localCertificateChainEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QCoapSecurityConfiguration13setPrivateKeyERK15QCoapPrivateKey": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK26QCoapSecurityConfiguration10privateKeyEv": [
+      "address", "address"
+    ]
+  }
+}

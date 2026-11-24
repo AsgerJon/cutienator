@@ -1,0 +1,50 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGraphs/qcustom3dlabel.h, Qt 6.12.0. Changes made here are lost."
+  ],
+  "parts first": [
+    "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
+  ],
+  "rows": {
+    "ritual_ZNK14QCustom3DLabel10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QCustom3DLabel2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN14QCustom3DLabelC1EP7QObject": ["address", "address"],
+    "ritual_ZN14QCustom3DLabelC1ERK7QStringRK5QFont9QVector3DS6_RK11QQuaternionP7QObject": [
+      "address", "text", "address", "address", "address", "address",
+      "address"
+    ],
+    "ritual_ZN14QCustom3DLabelD1Ev": ["nothing", "address"],
+    "ritual_ZN14QCustom3DLabel7setTextERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK14QCustom3DLabel4textEv": ["text", "address"],
+    "ritual_ZN14QCustom3DLabel7setFontERK5QFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QCustom3DLabel4fontEv": ["address", "address"],
+    "ritual_ZN14QCustom3DLabel12setTextColorE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QCustom3DLabel9textColorEv": ["address", "address"],
+    "ritual_ZN14QCustom3DLabel18setBackgroundColorE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK14QCustom3DLabel15backgroundColorEv": ["address", "address"],
+    "ritual_ZN14QCustom3DLabel16setBorderVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK14QCustom3DLabel15isBorderVisibleEv": ["bool", "address"],
+    "ritual_ZN14QCustom3DLabel20setBackgroundVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK14QCustom3DLabel19isBackgroundVisibleEv": ["bool", "address"],
+    "ritual_ZN14QCustom3DLabel15setFacingCameraEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK14QCustom3DLabel14isFacingCameraEv": ["bool", "address"],
+    "ritual_take_QCustom3DLabel": ["bool", "address", "chars", "address"]
+  }
+}

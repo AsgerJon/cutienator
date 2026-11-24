@@ -1,0 +1,33 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtOpcUa/qopcuaeuinformation.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN19QOpcUaEUInformationC1Ev": ["address"],
+    "ritual_ZN19QOpcUaEUInformationC1ERKS_": ["address", "address"],
+    "ritual_ZN19QOpcUaEUInformationC1ERK7QStringiRK19QOpcUaLocalizedTextS5_": [
+      "address", "text", "int", "address", "address"
+    ],
+    "ritual_ZNK19QOpcUaEUInformationeqERKS_": ["bool", "address", "address"],
+    "ritual_ZNK19QOpcUaEUInformationcv8QVariantEv": ["address", "address"],
+    "ritual_ZN19QOpcUaEUInformationD1Ev": ["nothing", "address"],
+    "ritual_ZNK19QOpcUaEUInformation12namespaceUriEv": ["text", "address"],
+    "ritual_ZN19QOpcUaEUInformation15setNamespaceUriERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK19QOpcUaEUInformation6unitIdEv": ["int", "address"],
+    "ritual_ZN19QOpcUaEUInformation9setUnitIdEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK19QOpcUaEUInformation11displayNameEv": ["address", "address"],
+    "ritual_ZN19QOpcUaEUInformation14setDisplayNameERK19QOpcUaLocalizedText": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19QOpcUaEUInformation11descriptionEv": ["address", "address"],
+    "ritual_ZN19QOpcUaEUInformation14setDescriptionERK19QOpcUaLocalizedText": [
+      "nothing", "address", "address"
+    ]
+  }
+}

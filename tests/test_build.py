@@ -97,9 +97,9 @@ class TestBuild(BaseTest):
     this system is told."""
     system = System.getHere()
     build = Build()
-    build.setRitualFiles(*Rituals.getBuiltRitualFiles())
-    build.setTargetFile(Rituals.getTargetFile())
-    build.setQtSharedObjects(*Rituals.getQtSharedObjects())
+    build.setRitualFiles(*Rituals.getPartRitualFiles('QtCore'))
+    build.setTargetFile(Rituals.getTargetFile('QtCore'))
+    build.setQtSharedObjects(*Rituals.getPartSharedObjects('QtCore'))
     qtFolder = Build.getQtSharedObjectFolder()
     ritualFile = build.getRitualFiles()[0]
     expected = (
@@ -128,8 +128,31 @@ class TestBuild(BaseTest):
         *build.getQtSharedObjects(),
     )
     self.assertEqual(build.getLinkCommand(), expected)
-    self.assertEqual(build.getRitualFiles(), Rituals.getBuiltRitualFiles())
+    self.assertEqual(
+        build.getRitualFiles(), Rituals.getPartRitualFiles('QtCore'))
     self.assertTrue(build.getRitualFiles())
+
+  def test_each_part_has_a_build_of_its_own(self) -> None:
+    """The build of the target file of a part takes the ritual files of
+    that part, and is joined to the shared object of that part of Qt
+    first, so a function two parts of Qt offer by one name is taken
+    from its own."""
+    for partName in Rituals.getBuiltParts():
+      build = Rituals.createPartBuild(partName)
+      with self.subTest(partName=partName):
+        self.assertEqual(
+            build.getRitualFiles(), Rituals.getPartRitualFiles(partName))
+        self.assertEqual(
+            build.getTargetFile(), Rituals.getTargetFile(partName))
+        self.assertEqual(
+            build.getComponents(), Rituals.getPartComponents(partName))
+        shared = build.getQtSharedObjects()
+        own = os.path.join(
+            Build.getQtSharedObjectFolder(),
+            System.getHere().getQtFileName(partName))
+        if os.path.isfile(own):
+          self.assertEqual(shared[0], own)
+        self.assertLessEqual({*Rituals.getQtSharedObjects()}, {*shared})
 
   def test_commands_need_what_they_are_made_of(self) -> None:
     """A build that was told nothing names what it is missing."""
@@ -146,7 +169,7 @@ class TestBuild(BaseTest):
     """It lies in the folder 'demons' beside the target file, and for
     a ritual file of a part of Qt in the folder of that part there."""
     build = Build()
-    build.setTargetFile(Rituals.getTargetFile())
+    build.setTargetFile(Rituals.getTargetFile('QtCore'))
     here = os.path.dirname(Rituals.getRitualFolder())
     folder = os.path.join(here, 'demons')
     self.assertEqual(build.getObjectFolder(), folder)
@@ -158,30 +181,35 @@ class TestBuild(BaseTest):
     self.assertEqual(
         os.path.basename(Rituals.getPartFolder('QtCore')), 'QtCoreRituals')
     self.assertEqual(
-        os.path.dirname(Rituals.getTargetFile()), here)
+        os.path.dirname(Rituals.getTargetFile('QtCore')), here)
     self.assertEqual(
         build.getObjectFile(os.path.join('anywhere', 'q_object.cpp')),
         os.path.join(folder, 'q_object.o'),
     )
 
   def test_the_headers_lie_beside_the_object_files(self) -> None:
-    """The common header and the precompiled header of it are named
-    for the folder 'demons' beside the target file."""
+    """The common header and the precompiled header of it lie in the
+    folder 'demons' beside the target file, named after the target
+    file, since the builds of all the parts share that folder."""
     build = Build()
-    build.setTargetFile(Rituals.getTargetFile())
+    build.setTargetFile(Rituals.getTargetFile('QtCore'))
     folder = build.getObjectFolder()
     self.assertEqual(
-        build.getCommonHeaderFile(), os.path.join(folder, 'common.h'))
+        build.getCommonHeaderFile(),
+        os.path.join(folder, 'libcutienator_QtCore.common.h'))
     self.assertEqual(
         build.getPrecompiledHeaderFile(),
-        os.path.join(folder, 'common.pch'))
+        os.path.join(folder, 'libcutienator_QtCore.common.pch'))
+    self.assertEqual(
+        build.getToldFile(),
+        os.path.join(folder, 'libcutienator_QtCore.told.txt'))
 
   def test_the_common_header_of_the_package(self) -> None:
     """It holds each '#include' line of the ritual files once, the
     header of 'QObject' among them, and nothing else. A line taken
     along from Qt's source may name its file between quotes."""
     build = Build()
-    build.setRitualFiles(*Rituals.getBuiltRitualFiles())
+    build.setRitualFiles(*Rituals.getPartRitualFiles('QtCore'))
     lines = build.getCommonHeaderText().split('\n')
     self.assertEqual(lines.pop(), '')
     self.assertIn('#include <QtCore/qobject.h>', lines)
@@ -383,7 +411,7 @@ class TestBuild(BaseTest):
     Qt calls private, and in the one of 'qplatformdefs.h'; a build
     told none looks in Qt's header folder alone."""
     build = Build()
-    build.setTargetFile(Rituals.getTargetFile())
+    build.setTargetFile(Rituals.getTargetFile('QtCore'))
     self.assertEqual(build.getPrivateIncludeFolders(), ())
     build.setComponents(*Rituals.getRitualParts())
     folders = build.getPrivateIncludeFolders()

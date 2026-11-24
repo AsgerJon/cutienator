@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtGraphs/6.12.0/QtGraphs/private/qgraphstheme_p.h, Qt 6.12.0.",
+    "Changes made here are lost."
+  ],
+  "parts first": [
+    "QtGraphs", "QtCore", "QtGui", "QtQuick", "QtQml", "QtQmlIntegration"
+  ],
+  "rows": {
+    "ritual_ZN18QGraphsLinePrivate22QGraphsLineCustomFieldC1Ev": ["address"],
+    "ritual_ZN18QGraphsLinePrivate22QGraphsLineCustomFieldD1Ev": [
+      "nothing", "address"
+    ]
+  }
+}

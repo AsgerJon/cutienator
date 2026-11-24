@@ -1,0 +1,41 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtOpcUa/qopcuaattributeoperand.h, Qt 6.12.0. Changes made here are",
+    "lost."
+  ],
+  "rows": {
+    "ritual_ZN22QOpcUaAttributeOperandC1Ev": ["address"],
+    "ritual_ZN22QOpcUaAttributeOperandC1ERKS_": ["address", "address"],
+    "ritual_ZNK22QOpcUaAttributeOperandcv8QVariantEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QOpcUaAttributeOperandD1Ev": ["nothing", "address"],
+    "ritual_ZNK22QOpcUaAttributeOperand6nodeIdEv": ["text", "address"],
+    "ritual_ZN22QOpcUaAttributeOperand9setNodeIdERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK22QOpcUaAttributeOperand5aliasEv": ["text", "address"],
+    "ritual_ZN22QOpcUaAttributeOperand8setAliasERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK22QOpcUaAttributeOperand10browsePathEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22QOpcUaAttributeOperand13setBrowsePathERK5QListI25QOpcUaRelativePathElementE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK22QOpcUaAttributeOperand11attributeIdEv": ["int", "address"],
+    "ritual_ZN22QOpcUaAttributeOperand14setAttributeIdEN6QOpcUa13NodeAttributeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK22QOpcUaAttributeOperand10indexRangeEv": ["text", "address"],
+    "ritual_ZN22QOpcUaAttributeOperand13setIndexRangeERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZeqRK22QOpcUaAttributeOperandS1_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZneRK22QOpcUaAttributeOperandS1_": ["bool", "address", "address"]
+  }
+}

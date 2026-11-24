@@ -1,4 +1,5 @@
-"""Rituals opens cutienator's own shared object and runs its rituals."""
+"""Rituals opens cutienator's own shared objects and runs their
+rituals."""
 #  Apache-2.0 license
 #  Copyright (c) 2026 Asger Jon Vistisen
 from __future__ import annotations
@@ -8,6 +9,7 @@ import glob
 import json
 import os
 import sys
+from concurrent.futures import ThreadPoolExecutor
 from typing import TYPE_CHECKING
 
 from worktoy.waitaminute import TypeException
@@ -23,12 +25,14 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
 
 class Rituals:
   """
-  Runs the rituals of cutienator's own shared object. Everything is
-  called on the class, since a program has one such shared object.
+  Runs the rituals of cutienator's own shared objects, one for each
+  part of Qt. Everything is called on the class, since a program has
+  one such shared object for each part.
 
     Rituals.build()        # after a ritual file changed
     Rituals.call('ritual_ZNK7QObject6parentEv', address)  # run one
     Rituals.call('ritual_ZNK7QObject10objectNameEv', address)  # a str
+    Rituals.callFrom('QtGraphs', 'ritual_ZNK10QBarSeries5countEv', address)
 
   Terms
   -----
@@ -43,7 +47,21 @@ class Rituals:
     with the ending '.json'. It holds one row for each ritual: one word
     for what comes back from it, then one word for each thing that goes
     into it. 'q_object.json' goes with 'q_object.cpp'.
-  - The target file is the shared object built from the ritual files.
+  - The target file of a part is the shared object built from the
+    ritual files of that part, as 'libcutienator_QtCore.so' from those
+    of 'QtCoreRituals'.
+  - Two parts may each have a class by one name, as QtCharts and
+    QtGraphs each a 'QBarSeries', and so rituals by one name: each
+    lies in the target file of its own part, which is joined to the
+    shared object of that part of Qt first and opened by itself, so
+    the one never sees the other. 'call' runs a ritual only one part
+    has. 'callFrom' runs a ritual as a part sees it: its own, else
+    that of the first part in its order; see 'getPartOrder'.
+  - The rows files of a part whose own header files would find
+    another part's file by a bare name, as QtGraphs those of QtCharts,
+    say under 'parts first' the parts that part sees first: itself,
+    then the parts it needs, the nearest first. Its ritual files were
+    made and checked that way, so its target file is built that way.
 
   You provide
   -----------
@@ -59,8 +77,12 @@ class Rituals:
   - 'getRitualFolder': the folder 'rituals' beside this module.
   - 'getRitualFiles': every C++ file in that folder.
   - 'getRowsFiles': the rows file of each of them.
-  - 'getRows': every row of those files, under the name of its ritual.
-  - 'getTargetFile': 'libcutienator.so' in that folder.
+  - 'getRows': every row of the rows files of a part, under the name
+    of its ritual.
+  - 'getPartsOf': the parts whose rows files list a ritual.
+  - 'getPartOrder': the order a part sees the parts in.
+  - 'getTargetFile': 'libcutienator_QtCore.so' beside that folder for
+    'QtCore', and the same for each part.
   - 'getQtSharedObjects': the Qt shared objects the rituals call into.
 
   The words of a row
@@ -81,13 +103,15 @@ class Rituals:
   --------------
 
   - Nothing is compiled unless 'build' is called. 'call' refuses to run
-    when the target file is missing.
-  - The target file is opened at the first 'call', once.
-  - A ritual that no rows file lists raises 'LookupError' naming it.
-  - A ritual a rows file lists and the target file does not offer is
-    one the Qt of this machine has no function for: its ritual file
-    has it between Qt's own '#if' lines, and they do not hold here.
-    The target file opens all the same, and 'call' raises
+    when the target file of the part is missing.
+  - The target file of a part is opened at the first ritual of that
+    part that is called, once.
+  - A ritual that no rows file lists raises 'LookupError' naming it,
+    and so does one that several parts list, given to 'call'.
+  - A ritual a rows file lists and the target file of its part does
+    not offer is one the Qt of this machine has no function for: its
+    ritual file has it between Qt's own '#if' lines, and they do not
+    hold here. The target file opens all the same, and 'call' raises
     'LookupError' for that ritual alone, when it is called. See
     'getMissing'.
   - Anything but a 'str' in the place of text is refused here, with
@@ -168,14 +192,31 @@ class Rituals:
   #  What a Python function called by Qt gave back last. See 'keepGiven'.
   __kept_given__ = None  # type: Any
 
-  #  Every row of the rows files, or None until they are read.
-  __ritual_rows__ = None  # type: Optional[Dict[str, Row]]
+  #  The rows of the rows files of each part, under the name of each
+  #  ritual, or None until they are read; the parts whose rows files
+  #  list each ritual; and what the rows files of each part say under
+  #  'parts first'. See '_createRows'.
+  __ritual_rows__ = None  # type: Optional[Dict[str, Dict[str, Row]]]
+  __ritual_parts__ = None  # type: Optional[Dict[str, Paths]]
+  __parts_first__ = None  # type: Optional[Dict[str, Paths]]
 
-  #  The opened target file, or None until the first call.
-  __opened_target__ = None  # type: Optional[ctypes.CDLL]
-  #  The rituals listed and not offered by the target file; see
-  #  'getMissing'.
-  __missing_rituals__ = None  # type: Optional[FrozenSet[str]]
+  #  The key of the rows files that names the parts a part sees first.
+  __parts_first_key__ = 'parts first'
+
+  #  The part of Qt whose target file has the rituals text crosses by,
+  #  and the one that stops the loop of events.
+  __text_part__ = 'QtCore'
+
+  #  The opened target file of each part, once opened.
+  __opened_targets__ = dict()  # type: Dict[str, ctypes.CDLL]
+  #  For each opened part, the rituals its rows files list and its
+  #  target file does not offer; see 'getMissing'.
+  __missing_rituals__ = dict()  # type: Dict[str, FrozenSet[str]]
+  #  The part 'callFrom' found for a ritual several parts list, under
+  #  the part it was seen from and the name of the ritual.
+  __seen_parts__ = dict()  # type: Dict[Tuple[str, str], str]
+  #  Whether the system was readied for opening a target file.
+  __opening_ready__ = False
 
   #  The texts a program was started with, each time they were handed to
   #  Qt, kept so that Python never removes them.
@@ -259,6 +300,14 @@ class Rituals:
         path for path in cls.getRitualFiles()
         if cls._getPartOf(path) in installed),)
 
+  @classmethod
+  def getPartRitualFiles(cls, partName: str) -> Paths:
+    """Gives the ritual files of one part of Qt, as those of
+    'getRitualFiles' in the folder 'QtCoreRituals' for 'QtCore', in
+    alphabetical order. A part with no such folder has none."""
+    pattern = os.path.join(cls.getPartFolder(partName), '*.cpp')
+    return (*sorted(glob.glob(pattern)),)
+
   @staticmethod
   def _getPartOf(ritualFile: str) -> str:
     """Gives the part of Qt a ritual file is of, as 'QtCore' for
@@ -266,16 +315,39 @@ class Rituals:
     return os.path.basename(os.path.dirname(ritualFile))[:-len('Rituals')]
 
   @classmethod
-  def getTargetFile(cls) -> str:
+  def getTargetFile(cls, partName: str) -> str:
     """
-    Gives the path of cutienator's own shared object.
+    Gives the path of cutienator's own shared object of one part of
+    Qt, built from the ritual files of that part.
 
-    Found for you: 'libcutienator.so' beside the ritual folder, so
-    that nothing built lies among the ritual files. Having the path
-    does not mean the file is there; 'build' makes it.
+    Found for you: 'libcutienator_QtCore.so' beside the ritual folder
+    for 'QtCore', so that nothing built lies among the ritual files.
+    Having the path does not mean the file is there; 'build' makes it.
+
+    Raises
+    ------
+
+    TypeException
+      'partName' is not a 'str'.
     """
+    if not isinstance(partName, str):
+      raise TypeException('partName', partName, str)
     here = os.path.dirname(cls.getRitualFolder())
-    return os.path.join(here, 'libcutienator.so')
+    return os.path.join(here, 'libcutienator_%s.so' % partName)
+
+  @classmethod
+  def getTargetFiles(cls) -> Paths:
+    """Gives the target file of each part 'build' builds one for: each
+    part of 'getInstalledParts' that has ritual files, in that
+    order."""
+    return (*(cls.getTargetFile(part) for part in cls.getBuiltParts()),)
+
+  @classmethod
+  def getBuiltParts(cls) -> Paths:
+    """Gives the parts of 'getInstalledParts' that have ritual files,
+    in that order: those 'build' builds a target file for."""
+    built = {cls._getPartOf(path) for path in cls.getBuiltRitualFiles()}
+    return (*(part for part in cls.getInstalledParts() if part in built),)
 
   @classmethod
   def getComponents(cls) -> Paths:
@@ -297,10 +369,12 @@ class Rituals:
     """
     pattern = os.path.join(cls.getRitualFolder(), 'Qt*Rituals')
     found = []  # type: List[str]
-    for folder in sorted(glob.glob(pattern)):
+    for folder in glob.glob(pattern):
       if os.path.isdir(folder):
         found.append(os.path.basename(folder)[:-len('Rituals')])
-    return (*found,)
+    #  By the names of the parts, as the dev tooling orders them:
+    #  'QtCharts' before 'QtChartsQml', whose folders are the other way.
+    return (*sorted(found),)
 
   @classmethod
   def getInstalledParts(cls) -> Paths:
@@ -339,12 +413,83 @@ class Rituals:
     Paths
       A 'Tuple[str, ...]' of full paths.
     """
+    return cls._findSharedObjects(cls.getInstalledParts())
+
+  @classmethod
+  def _findSharedObjects(cls, partNames: Paths) -> Paths:
+    """Gives the Qt shared object of each part named that has one
+    here, in the order named."""
     folder = Build.getQtSharedObjectFolder()
     system = System.getHere()
     paths = (
         os.path.join(folder, system.getQtFileName(part))
-        for part in cls.getInstalledParts())
+        for part in partNames)
     return (*(path for path in paths if os.path.exists(path)),)
+
+  @classmethod
+  def getPartsFirst(cls, partName: str) -> Paths:
+    """
+    Gives the parts a part of Qt sees first, as the rows files of its
+    ritual files name them under 'parts first': itself, then the parts
+    it needs, the nearest first. Only a part whose own header files
+    would find another part's file by a bare name has them, as
+    QtGraphs, which would find QtCharts' 'qabstractseries_p.h'. For
+    any other part it is empty.
+
+    Raises
+    ------
+
+    LookupError
+      The ritual folder has no folder of that part.
+    """
+    cls.getRows(partName)
+    return cls.__parts_first__[partName]
+
+  @classmethod
+  def getPartOrder(cls, partName: str) -> Paths:
+    """
+    Gives the order a part of Qt sees the parts in: the part itself,
+    then those of 'getPartsFirst', then the other parts of
+    'getInstalledParts', in alphabetical order. The target file of the
+    part is joined to their shared objects in that order, so a
+    function two of them offer by one name is taken from the first;
+    and 'callFrom' finds a ritual several parts list by it.
+
+    Raises
+    ------
+
+    LookupError
+      The ritual folder has no folder of that part.
+    """
+    order = [partName]
+    for part in (*cls.getPartsFirst(partName), *cls.getInstalledParts()):
+      if part not in order:
+        order.append(part)
+    return (*order,)
+
+  @classmethod
+  def getPartSharedObjects(cls, partName: str) -> Paths:
+    """Gives the Qt shared objects the target file of a part is joined
+    to: those of 'getQtSharedObjects', in the order of
+    'getPartOrder'."""
+    return cls._findSharedObjects(cls.getPartOrder(partName))
+
+  @classmethod
+  def getPartComponents(cls, partName: str) -> Paths:
+    """
+    Gives the parts the build of the target file of a part looks in
+    the folders of the private headers of, in the order the ritual
+    files of the part were made and checked with: those of
+    'getPartsFirst', then every folder of Qt's header folder, in
+    alphabetical order, as 'QtCharts' and 'QtScxmlGlobal'. The build
+    leaves out a folder that is not there; see
+    'Build.getPrivateIncludeFolders'. So a part with ritual files
+    coming or going changes nothing for the others.
+    """
+    names = sorted(os.listdir(Build.getQtHeaderFolder()))
+    order = [*cls.getPartsFirst(partName)]
+    order.extend(name for name in names if name not in order)
+    return (*order,)
 
   @classmethod
   def getRowsFiles(cls) -> Paths:
@@ -367,7 +512,7 @@ class Rituals:
   @classmethod
   def _createRows(cls) -> None:
     """
-    Reads every rows file and keeps the rows.
+    Reads every rows file and keeps the rows, part by part.
 
     Raises
     ------
@@ -376,115 +521,196 @@ class Rituals:
       A ritual file has no rows file beside it.
 
     ValueError
-      A row holds a word that is none of the words of a row, or two rows
-      files list one ritual.
+      A row holds a word that is none of the words of a row, two rows
+      files of one part list one ritual, or the rows files of one part
+      do not all say the same under 'parts first'.
     """
-    rows = dict()  # type: Dict[str, Row]
-    ritualFiles = cls.getRitualFiles()
-    for ritualFile, rowsFile in zip(ritualFiles, cls.getRowsFiles()):
-      if not os.path.isfile(rowsFile):
-        infoSpec = """The ritual file '%s' has no rows file '%s' beside
-        it. 'dev_tooling.RitualGenerator' writes the two together."""
-        info = infoSpec % (ritualFile, os.path.basename(rowsFile))
-        raise FileNotFoundError(' '.join(info.split()))
-      with open(rowsFile) as file:
-        written = json.load(file)['rows']
-      for name, row in written.items():
-        for word in row:
-          if word not in cls.__row_words__:
-            infoSpec = """The row of '%s' in '%s' holds '%s', which is no
-            word of a row. The words are: %s."""
-            words = ', '.join(cls.__row_words__)
-            info = infoSpec % (name, rowsFile, word, words)
+    rows = dict()  # type: Dict[str, Dict[str, Row]]
+    named = dict()  # type: Dict[str, List[str]]
+    partsFirst = dict()  # type: Dict[str, Paths]
+    saidBy = dict()  # type: Dict[str, str]
+    key = cls.__parts_first_key__
+    for partName in cls.getRitualParts():
+      rows[partName] = dict()
+      for ritualFile in cls.getPartRitualFiles(partName):
+        rowsFile = '%s.json' % os.path.splitext(ritualFile)[0]
+        if not os.path.isfile(rowsFile):
+          infoSpec = """The ritual file '%s' has no rows file '%s'
+          beside it. 'dev_tooling.RitualGenerator' writes the two
+          together."""
+          info = infoSpec % (ritualFile, os.path.basename(rowsFile))
+          raise FileNotFoundError(' '.join(info.split()))
+        with open(rowsFile) as file:
+          written = json.load(file)
+        said = (*written.get(key, ()),)
+        if partName not in partsFirst:
+          partsFirst[partName], saidBy[partName] = said, rowsFile
+        elif said != partsFirst[partName]:
+          infoSpec = """The rows files '%s' and '%s' of %s say different
+          things under '%s': the ritual files of a part are made with
+          one order of the parts, and are written again together."""
+          info = infoSpec % (saidBy[partName], rowsFile, partName, key)
+          raise ValueError(' '.join(info.split()))
+        for name, row in written['rows'].items():
+          for word in row:
+            if word not in cls.__row_words__:
+              infoSpec = """The row of '%s' in '%s' holds '%s', which is
+              no word of a row. The words are: %s."""
+              words = ', '.join(cls.__row_words__)
+              info = infoSpec % (name, rowsFile, word, words)
+              raise ValueError(' '.join(info.split()))
+          if name in rows[partName]:
+            infoSpec = """The ritual '%s' is listed a second time in %s,
+            in '%s'."""
+            info = infoSpec % (name, partName, rowsFile)
             raise ValueError(' '.join(info.split()))
-        if name in rows:
-          infoSpec = """The ritual '%s' is listed a second time, in
-          '%s'."""
-          raise ValueError(' '.join((infoSpec % (name, rowsFile)).split()))
-        rows[name] = (*row,)
+          rows[partName][name] = (*row,)
+          named.setdefault(name, []).append(partName)
+      partsFirst.setdefault(partName, ())
+    cls.__parts_first__ = partsFirst
+    cls.__ritual_parts__ = {
+        name: (*parts,) for name, parts in named.items()}
     cls.__ritual_rows__ = rows
 
   @classmethod
-  def getRows(cls, **kwargs) -> Dict[str, Row]:
+  def getRows(cls, partName: str, **kwargs) -> Dict[str, Row]:
     """
-    Gives the row of every ritual, under the name of the ritual.
+    Gives the row of every ritual the rows files of one part of Qt
+    list, under the name of the ritual.
 
     Found for you: the rows files are read at the first call, and the
-    rows are kept. You pass nothing; the keyword is for the method's own
-    use.
+    rows are kept. The keyword is for the method's own use.
+
+    Parameters
+    ----------
+
+    partName : str
+      The part of Qt, as 'QtCore'.
 
     Returns
     -------
 
     Dict[str, Row]
       A 'Dict[str, Tuple[str, ...]]'. Under
-      'ritual_ZN7QObject12blockSignalsEb' it holds
+      'ritual_ZN7QObject12blockSignalsEb' the rows of QtCore hold
       ('bool', 'address', 'bool'): a 'bool' comes back, and the address
       of the object and a 'bool' go in.
 
     Raises
     ------
 
+    LookupError
+      The ritual folder has no folder of that part.
+
     FileNotFoundError
       A ritual file has no rows file beside it.
 
     ValueError
       A rows file holds a word that is no word of a row, or lists a
-      ritual another rows file lists.
+      ritual another rows file of its part lists; see '_createRows'.
     """
     if cls.__ritual_rows__ is None:
       if kwargs.get('_recursion', False):
         raise RecursionError
       cls._createRows()
-      return cls.getRows(_recursion=True)
-    return cls.__ritual_rows__
+      return cls.getRows(partName, _recursion=True)
+    if partName not in cls.__ritual_rows__:
+      infoSpec = """The ritual folder '%s' has no folder of ritual files
+      of a part named '%s'."""
+      info = infoSpec % (cls.getRitualFolder(), partName)
+      raise LookupError(' '.join(info.split()))
+    return cls.__ritual_rows__[partName]
+
+  @classmethod
+  def getPartsOf(cls, ritualName: str) -> Paths:
+    """
+    Gives the parts of Qt whose rows files list a ritual, in
+    alphabetical order: one for most, as 'QtCore' for
+    'ritual_ZNK7QObject6parentEv', two for a ritual of a class two
+    parts each have, and none for a name no rows file lists.
+    """
+    if cls.__ritual_parts__ is None:
+      cls._createRows()
+    return cls.__ritual_parts__.get(ritualName, ())
 
   @classmethod
   def getRitualNames(cls) -> Tuple[str, ...]:
-    """Gives the name of every ritual the rows files list."""
-    return (*cls.getRows(),)
+    """Gives the name of every ritual the rows files list, once each,
+    part by part in alphabetical order."""
+    if cls.__ritual_parts__ is None:
+      cls._createRows()
+    return (*cls.__ritual_parts__,)
 
   @classmethod
   def isStale(cls) -> bool:
     """
-    Says whether 'build' has to be called before any ritual can run.
+    Says whether 'build' has to be called before every ritual can run.
 
     Returns
     -------
 
     bool
-      True when the target file is missing, or when a ritual file was
-      changed after the target file was made.
+      True when the target file of a part of 'getBuiltParts' is
+      missing, or when a ritual file of that part was changed after
+      its target file was made.
     """
-    target = cls.getTargetFile()
-    if not os.path.isfile(target):
-      return True
-    made = os.path.getmtime(target)
-    for ritualFile in cls.getBuiltRitualFiles():
-      if os.path.getmtime(ritualFile) > made:
+    for partName in cls.getBuiltParts():
+      target = cls.getTargetFile(partName)
+      if not os.path.isfile(target):
         return True
+      made = os.path.getmtime(target)
+      for ritualFile in cls.getPartRitualFiles(partName):
+        if os.path.getmtime(ritualFile) > made:
+          return True
     return False
 
   @classmethod
-  def _createOpened(cls) -> None:
-    """Opens the target file and readies every listed ritual."""
-    target = cls.getTargetFile()
+  def _checkTextRituals(cls, partName: str) -> None:
+    """
+    Makes sure text can cross for the rituals of a part: when one of
+    them takes or gives text, the four rituals of Qt's QString that
+    text crosses by must be listed in the rows files of QtCore, whose
+    target file runs them. Without them a 'str' could be handed to
+    C++ and never be made into a QString.
+
+    Raises
+    ------
+
+    LookupError
+      A ritual of the part takes or gives text, and one of the four is
+      not listed for QtCore.
+    """
+    rows = cls.getRows(partName)
+    if not any('text' in row for row in rows.values()):
+      return
+    textPart = cls.__text_part__
+    for name in cls._getTextRituals():
+      if textPart not in cls.getPartsOf(name):
+        infoSpec = """A ritual of %s takes or gives text, and the ritual
+        '%s' that text crosses by is listed in no rows file of %s. The
+        ritual file of Qt's QString is missing from '%s'."""
+        info = infoSpec % (
+            partName, name, textPart, cls.getPartFolder(textPart))
+        raise LookupError(' '.join(info.split()))
+
+  @classmethod
+  def _createOpened(cls, partName: str) -> None:
+    """Opens the target file of a part and readies every ritual its
+    rows files list."""
+    rows = cls.getRows(partName)
+    cls._checkTextRituals(partName)
+    if partName not in cls.getInstalledParts():
+      infoSpec = """%s is not installed here, so there is no target file
+      of it to open, and its rituals cannot run."""
+      raise LookupError(' '.join((infoSpec % partName).split()))
+    target = cls.getTargetFile(partName)
     if not os.path.isfile(target):
       infoSpec = """The shared object '%s' is missing. Call
       'Rituals.build()' first."""
       raise FileNotFoundError(' '.join((infoSpec % target).split()))
-    rows = cls.getRows()
-    if any('text' in row for row in rows.values()):
-      #  Text crosses by four rituals of QString. Without their rows a
-      #  'str' could be handed to C++ and never be made into a QString.
-      for name in cls._getTextRituals():
-        if name not in rows:
-          infoSpec = """A ritual takes or gives text, and the ritual '%s'
-          that text crosses by is listed in no rows file. The ritual
-          file of Qt's QString is missing from '%s'."""
-          info = infoSpec % (name, cls.getRitualFolder())
-          raise LookupError(' '.join(info.split()))
-    System.getHere().prepareOpening()
+    if not cls.__opening_ready__:
+      System.getHere().prepareOpening()
+      cls.__opening_ready__ = True
     opened = ctypes.CDLL(target)
     words = cls.__row_words__
     missing = set()  # type: Set[str]
@@ -492,21 +718,22 @@ class Rituals:
       try:
         ritual = getattr(opened, name)
       except AttributeError:
-        #  Its ritual file is of a part of Qt this machine does not
-        #  have, or has it between Qt's own '#if' lines, which do not
-        #  hold for the Qt of this machine. It raises when called.
+        #  Its ritual file has it between Qt's own '#if' lines, which
+        #  do not hold for the Qt of this machine. It raises when
+        #  called.
         missing.add(name)
         continue
       ritual.restype = words[gives]
       ritual.argtypes = [words[take] for take in takes]
-    for name in cls._getTextRituals():
-      if name in missing:
-        infoSpec = """The ritual '%s', by which text crosses, is listed
-        in a rows file, and '%s' does not offer it."""
-        info = infoSpec % (name, target)
-        raise LookupError(' '.join(info.split()))
-    cls.__missing_rituals__ = frozenset(missing)
-    cls.__opened_target__ = opened
+    if partName == cls.__text_part__:
+      for name in cls._getTextRituals():
+        if name in missing:
+          infoSpec = """The ritual '%s', by which text crosses, is listed
+          in a rows file, and '%s' does not offer it."""
+          info = infoSpec % (name, target)
+          raise LookupError(' '.join(info.split()))
+    cls.__missing_rituals__[partName] = frozenset(missing)
+    cls.__opened_targets__[partName] = opened
 
   @classmethod
   def _getTextRituals(cls) -> Tuple[str, ...]:
@@ -517,13 +744,19 @@ class Rituals:
     )
 
   @classmethod
-  def getOpened(cls, **kwargs) -> ctypes.CDLL:
+  def getOpened(cls, partName: str, **kwargs) -> ctypes.CDLL:
     """
-    Gives the opened target file.
+    Gives the opened target file of one part of Qt.
 
-    Found for you: it is opened at the first call and kept. You pass
-    nothing; the keyword is for the method's own use. 'call' is the
-    usual way in, and this is here for what 'call' does not cover.
+    Found for you: it is opened at the first call for that part and
+    kept. The keyword is for the method's own use. 'call' is the usual
+    way in, and this is here for what 'call' does not cover.
+
+    Parameters
+    ----------
+
+    partName : str
+      The part of Qt, as 'QtCore'.
 
     Raises
     ------
@@ -532,29 +765,43 @@ class Rituals:
       The target file is missing.
 
     LookupError
-      Text is taken or given and the rituals of Qt's QString are not
-      listed, or not offered by the target file.
+      The ritual folder has no folder of that part, or the part is not
+      installed here; or text is taken or given and the rituals of Qt's
+      QString are not listed for QtCore, or not offered by its target
+      file.
     """
-    if cls.__opened_target__ is None:
+    opened = cls.__opened_targets__.get(partName, None)
+    if opened is None:
       if kwargs.get('_recursion', False):
         raise RecursionError
-      cls._createOpened()
-      return cls.getOpened(_recursion=True)
-    return cls.__opened_target__
+      cls._createOpened(partName)
+      return cls.getOpened(partName, _recursion=True)
+    return opened
 
   @classmethod
-  def getMissing(cls) -> FrozenSet[str]:
+  def getMissing(cls, partName: str) -> FrozenSet[str]:
     """
-    Gives the name of every ritual a rows file lists and the target file
-    does not offer: those whose functions the Qt of this machine does
-    not have. Their ritual files are of a part of Qt not installed
-    here, which 'build' leaves out, or have them between Qt's own '#if'
-    lines, which do not hold here, so 'build' compiled them out.
+    Gives the name of every ritual the rows files of one part of Qt
+    list and the Qt of this machine has no function for. For a part
+    not installed here, which 'build' leaves out, that is every one of
+    them. For one installed, those its target file does not offer:
+    their ritual files have them between Qt's own '#if' lines, which
+    do not hold here, so 'build' compiled them out.
 
-    Found for you when the target file is opened, as 'getOpened' does.
+    Found for you: for an installed part, when its target file is
+    opened, as 'getOpened' does.
+
+    Raises
+    ------
+
+    LookupError
+      The ritual folder has no folder of that part.
     """
-    cls.getOpened()
-    return cls.__missing_rituals__
+    rows = cls.getRows(partName)
+    if partName not in cls.getInstalledParts():
+      return frozenset(rows)
+    cls.getOpened(partName)
+    return cls.__missing_rituals__[partName]
 
   @classmethod
   def hasKeptException(cls) -> bool:
@@ -646,13 +893,14 @@ class Rituals:
     if not isinstance(text, str):
       raise TypeException('text', text, str)
     letters = text.encode(cls.__text_encoding__, 'surrogatepass')
-    make = getattr(cls.getOpened(), cls.__text_make_ritual__)
+    make = getattr(
+        cls.getOpened(cls.__text_part__), cls.__text_make_ritual__)
     return make(letters, len(letters) // 2)
 
   @classmethod
   def _readText(cls, address: int) -> str:
     """Gives the letters of the C++ QString at an address as a 'str'."""
-    opened = cls.getOpened()
+    opened = cls.getOpened(cls.__text_part__)
     size = getattr(opened, cls.__text_size_ritual__)(address)
     data = getattr(opened, cls.__text_data_ritual__)(address)
     letters = ctypes.string_at(data, 2 * size)
@@ -662,7 +910,8 @@ class Rituals:
   def _dropText(cls, address: int) -> None:
     """Removes the C++ QString at an address, which '_makeText' or a
     ritual giving text made for this one call."""
-    getattr(cls.getOpened(), cls.__text_drop_ritual__)(address)
+    drop = cls.__text_drop_ritual__
+    getattr(cls.getOpened(cls.__text_part__), drop)(address)
 
   @classmethod
   def _callWithText(cls, ritual: Any, row: Row, args: Tuple) -> Any:
@@ -760,11 +1009,13 @@ class Rituals:
         '%s'. The words are: %s."""
         known = ', '.join(word for word in words if word != 'text')
         raise ValueError(' '.join((infoSpec % (word, known)).split()))
-    if cls.__loop_stop_ritual__ not in cls.getRows():
+    textPart = cls.__text_part__
+    if textPart not in cls.getPartsOf(cls.__loop_stop_ritual__):
       infoSpec = """No rows file in '%s' lists the ritual '%s', by which
       Qt's loop of events is stopped when a Python function called by Qt
       raises. The ritual file of Qt's QCoreApplication is missing."""
-      info = infoSpec % (cls.getRitualFolder(), cls.__loop_stop_ritual__)
+      info = infoSpec % (
+          cls.getPartFolder(textPart), cls.__loop_stop_ritual__)
       raise LookupError(' '.join(info.split()))
     shape = ctypes.CFUNCTYPE(
         words[gives], ctypes.c_void_p, *(words[take] for take in takes),
@@ -840,7 +1091,8 @@ class Rituals:
     if Rituals.__kept_exception__ is not None:
       return
     Rituals.__kept_exception__ = exception
-    getattr(cls.getOpened(), cls.__loop_stop_ritual__)(1)
+    stop = cls.__loop_stop_ritual__
+    getattr(cls.getOpened(cls.__text_part__), stop)(1)
 
   @classmethod
   def _raiseKept(cls) -> None:
@@ -887,53 +1139,167 @@ class Rituals:
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   @classmethod
-  def build(cls) -> str:
+  def build(cls) -> Paths:
     """
-    Compiles every ritual file into the target file.
+    Compiles the ritual files of each part of 'getBuiltParts' into the
+    target file of that part.
 
     Call it after adding or changing a ritual file, in a Python that has
     not run a ritual yet: a shared object that is already open cannot be
-    swapped for a new one. Each ritual file is compiled by itself,
-    several at the same time, and only when it changed since the last
-    build; see 'Build'.
+    swapped for a new one. Each part has a 'Build' of its own; see
+    'createPartBuild'. Each
+    ritual file is compiled by itself, and only when it changed since
+    the last build; see 'Build'. The builds of the parts run at the
+    same time, and no more programs at once than the machine has
+    processors.
 
     Returns
     -------
 
-    str
-      The full path of the target file, which now exists.
+    Paths
+      The full path of each target file, which now exists, in the
+      order of 'getBuiltParts'.
 
     Raises
     ------
 
     RuntimeError
-      The target file is already open in this Python, or 'clang++' refused
-      a ritual file; its own message is then included.
+      A target file is already open in this Python, or 'clang++'
+      refused a ritual file; its own message is then included, after
+      the part. The other parts are built all the same.
 
     FileNotFoundError
-      There is no ritual file, or 'clang++' or 'qmake6' is not installed.
+      There is no ritual file of a part of Qt this machine has, or
+      'clang++' or 'qmake6' is not installed.
     """
-    if cls.__opened_target__ is not None:
-      infoSpec = """The shared object is already open in this Python and
-      cannot be swapped. Build in a Python that has run no ritual."""
-      raise RuntimeError(' '.join(infoSpec.split()))
-    ritualFiles = cls.getBuiltRitualFiles()
-    if not ritualFiles:
+    if cls.__opened_targets__:
+      infoSpec = """The shared objects of %s are already open in this
+      Python and cannot be swapped. Build in a Python that has run no
+      ritual."""
+      info = infoSpec % ', '.join(sorted(cls.__opened_targets__))
+      raise RuntimeError(' '.join(info.split()))
+    partNames = cls.getBuiltParts()
+    if not partNames:
       infoSpec = """There is no ritual file in '%s' of a part of Qt this
       machine has."""
       info = infoSpec % cls.getRitualFolder()
       raise FileNotFoundError(' '.join(info.split()))
+    jobCount = os.cpu_count() or 1
+    with ThreadPoolExecutor(max_workers=jobCount) as pool:
+      return (*pool.map(cls._buildPart, partNames),)
+
+  @classmethod
+  def createPartBuild(cls, partName: str) -> Build:
+    """
+    Gives the 'Build' of the target file of one part, told what
+    'build' tells it, without running it: the ritual files of the part,
+    its target file, the Qt shared objects of 'getPartSharedObjects'
+    and the parts of 'getPartComponents'.
+
+    Raises
+    ------
+
+    ValueError
+      The part has no ritual files.
+    """
     build = Build()
-    build.setRitualFiles(*ritualFiles)
-    build.setTargetFile(cls.getTargetFile())
-    build.setQtSharedObjects(*cls.getQtSharedObjects())
-    build.setComponents(*cls.getInstalledParts())
-    return build.run()
+    build.setRitualFiles(*cls.getPartRitualFiles(partName))
+    build.setTargetFile(cls.getTargetFile(partName))
+    build.setQtSharedObjects(*cls.getPartSharedObjects(partName))
+    build.setComponents(*cls.getPartComponents(partName))
+    return build
+
+  @classmethod
+  def _buildPart(cls, partName: str) -> str:
+    """Builds the target file of one part, as 'build' tells, and gives
+    its path."""
+    build = cls.createPartBuild(partName)
+    try:
+      return build.run()
+    except RuntimeError as runtimeError:
+      info = 'The target file of %s was not built.' % partName
+      raise RuntimeError('%s %s' % (info, runtimeError)) from runtimeError
+
+  @classmethod
+  def _findPart(cls, ritualName: str, partName: Optional[str]) -> str:
+    """
+    Gives the part whose target file runs a ritual, seen from a part:
+    the one part whose rows files list it; or, when several do, the
+    first of them in the order of 'getPartOrder' of the part it is
+    seen from. Seen from no part, only a ritual one part lists is
+    found.
+
+    Raises
+    ------
+
+    LookupError
+      No rows file lists the ritual; or several parts list it, and it
+      is seen from no part, or from one that sees none of them.
+    """
+    parts = cls.getPartsOf(ritualName)
+    if len(parts) == 1:
+      return parts[0]
+    if not parts:
+      infoSpec = """No rows file in '%s' lists a ritual named '%s'."""
+      info = infoSpec % (cls.getRitualFolder(), ritualName)
+      raise LookupError(' '.join(info.split()))
+    if partName is not None:
+      key = (partName, ritualName)
+      found = cls.__seen_parts__.get(key, None)
+      if found is not None:
+        return found
+      for part in cls.getPartOrder(partName):
+        if part in parts:
+          cls.__seen_parts__[key] = part
+          return part
+      infoSpec = """The ritual '%s' is listed by %s, and %s sees none of
+      them: none is installed here."""
+      info = infoSpec % (ritualName, ' and '.join(parts), partName)
+      raise LookupError(' '.join(info.split()))
+    infoSpec = """The ritual '%s' is listed by %s, one for each: say
+    which part it is seen from, with 'callFrom'."""
+    info = infoSpec % (ritualName, ' and '.join(parts))
+    raise LookupError(' '.join(info.split()))
+
+  @classmethod
+  def _runIn(cls, partName: str, ritualName: str, args: Tuple) -> Any:
+    """
+    Runs a ritual in the target file of a part, as 'call' and
+    'callFrom' do once they found the part.
+    """
+    opened = cls.__opened_targets__.get(partName, None)
+    if opened is None:
+      if partName not in cls.getInstalledParts():
+        infoSpec = """The ritual '%s' calls a function the Qt of this
+        machine does not have: its ritual file is of %s, which is not
+        installed here."""
+        info = infoSpec % (ritualName, partName)
+        raise LookupError(' '.join(info.split()))
+      opened = cls.getOpened(partName)
+    if ritualName in cls.__missing_rituals__[partName]:
+      infoSpec = """The ritual '%s' calls a function the Qt of this
+      machine does not have: its ritual file has it between Qt's own
+      '#if' lines, which do not hold here, so '%s' does not offer it."""
+      info = infoSpec % (ritualName, cls.getTargetFile(partName))
+      raise LookupError(' '.join(info.split()))
+    row = cls.__ritual_rows__[partName][ritualName]
+    ritual = getattr(opened, ritualName)
+    try:
+      if 'text' in row:
+        return cls._callWithText(ritual, row, args)
+      return ritual(*args)
+    finally:
+      #  Qt may have called a Python function meanwhile, and that one
+      #  may have raised. Python is back here now, so here it is raised.
+      cls._raiseKept()
 
   @classmethod
   def call(cls, name: str, *args: Any) -> Any:
     """
-    Runs one ritual and gives what comes back.
+    Runs one ritual and gives what comes back. It is run in the target
+    file of the one part whose rows files list it. A ritual several
+    parts list, as one of 'QBarSeries' of QtCharts and of QtGraphs, is
+    run with 'callFrom'.
 
     Parameters
     ----------
@@ -958,11 +1324,12 @@ class Rituals:
     ------
 
     LookupError
-      No rows file lists a ritual of that name, or the Qt of this
-      machine has no function for it; see 'getMissing'.
+      No rows file lists a ritual of that name, several parts list it,
+      or the Qt of this machine has no function for it; see
+      'getMissing'.
 
     FileNotFoundError
-      The target file is missing.
+      The target file of the part is missing.
 
     TypeException
       Something that is no 'str' stands where the ritual takes text.
@@ -972,24 +1339,47 @@ class Rituals:
       ran, as a 'paintEvent' a class of a program wrote. See
       'keepException'.
     """
-    rows = cls.getRows()
-    if name not in rows:
-      infoSpec = """No rows file in '%s' lists a ritual named '%s'."""
-      info = infoSpec % (cls.getRitualFolder(), name)
-      raise LookupError(' '.join(info.split()))
-    if name in cls.getMissing():
-      infoSpec = """The ritual '%s' calls a function the Qt of this
-      machine does not have: its ritual file is of a part of Qt that is
-      not installed here, or has it between Qt's own '#if' lines, which
-      do not hold here, so '%s' does not offer it."""
-      info = infoSpec % (name, cls.getTargetFile())
-      raise LookupError(' '.join(info.split()))
-    ritual = getattr(cls.getOpened(), name)
-    try:
-      if 'text' in rows[name]:
-        return cls._callWithText(ritual, rows[name], args)
-      return ritual(*args)
-    finally:
-      #  Qt may have called a Python function meanwhile, and that one
-      #  may have raised. Python is back here now, so here it is raised.
-      cls._raiseKept()
+    return cls._runIn(cls._findPart(name, None), name, args)
+
+  @classmethod
+  def callFrom(cls, partName: str, name: str, *args: Any) -> Any:
+    """
+    Runs one ritual as a part of Qt sees it, and gives what comes back:
+    in the target file of the one part whose rows files list it, or,
+    when several do, of the first of them in the order of
+    'getPartOrder' of that part, which is the part itself when it
+    lists the ritual. A cute class of a part runs its rituals this way,
+    through its 'Ugly'.
+
+    Parameters
+    ----------
+
+    partName : str
+      The part the ritual is seen from, as 'QtGraphs'.
+
+    name : str
+      The name of the ritual, as for 'call'.
+
+    *args : Any
+      What goes into the ritual, as for 'call'.
+
+    Returns
+    -------
+
+    Any
+      What the ritual returns, as for 'call'.
+
+    Raises
+    ------
+
+    LookupError
+      No rows file lists a ritual of that name, several parts list it
+      and none of them is installed here, or the Qt of this machine has
+      no function for it; see 'getMissing'. Also when the ritual
+      folder has no folder of the part it is seen from, and several
+      parts list the ritual.
+
+    FileNotFoundError, TypeException, BaseException
+      As for 'call'.
+    """
+    return cls._runIn(cls._findPart(name, partName), name, args)

@@ -1,0 +1,20 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCoap/qcoapsecurityconfiguration.h, Qt 6.12.0. Changes made here",
+    "are lost."
+  ],
+  "rows": {
+    "ritual_ZN15QCoapPrivateKeyC1Ev": ["address"],
+    "ritual_ZN15QCoapPrivateKeyC1ERK10QByteArrayN4QSsl12KeyAlgorithmENS3_14EncodingFormatES2_": [
+      "address", "address", "int", "int", "address"
+    ],
+    "ritual_ZN15QCoapPrivateKeyC1ERKS_": ["address", "address"],
+    "ritual_ZN15QCoapPrivateKeyD1Ev": ["nothing", "address"],
+    "ritual_ZNK15QCoapPrivateKey6isNullEv": ["bool", "address"],
+    "ritual_ZNK15QCoapPrivateKey3keyEv": ["address", "address"],
+    "ritual_ZNK15QCoapPrivateKey9algorithmEv": ["int", "address"],
+    "ritual_ZNK15QCoapPrivateKey14encodingFormatEv": ["int", "address"],
+    "ritual_ZNK15QCoapPrivateKey10passPhraseEv": ["address", "address"]
+  }
+}
