@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtCore/6.12.0/QtCore/private/qwinregistry_p.h, Qt 6.12.0, as the",
+    "Qt of Windows installs it. Kept as it is when the generator runs."
+  ],
+  "rows": {
+    "ritual_ZNK20QWinRegistryNotifier10metaObjectEv": ["address", "address"],
+    "ritual_ZN20QWinRegistryNotifier2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN20QWinRegistryNotifierC1EP6HKEY__RK7QStringP7QObject": [
+      "address", "address", "text", "address"
+    ],
+    "ritual_ZNK20QWinRegistryNotifier7isValidEv": ["bool", "address"],
+    "ritual_ZNK20QWinRegistryNotifier3keyEv": ["address", "address"],
+    "ritual_take_QWinRegistryNotifier": ["bool", "address", "chars", "address"]
+  }
+}

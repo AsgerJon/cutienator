@@ -1,0 +1,87 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtGui/6.12.0/QtGui/private/qwindowsfontengine_p.h, Qt 6.12.0, as the",
+    "Qt of Windows installs it. Kept as it is when the generator runs"
+  ],
+  "rows": {
+    "ritual_ZN18QWindowsFontEngineD1Ev": ["nothing", "address"],
+    "ritual_ZNK18QWindowsFontEngine13lineThicknessEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18QWindowsFontEngine10propertiesEv": ["address", "address"],
+    "ritual_ZN18QWindowsFontEngine16getUnscaledGlyphEjP12QPainterPathP15glyph_metrics_t": [
+      "nothing", "address", "unsigned int", "address", "address"
+    ],
+    "ritual_ZNK18QWindowsFontEngine6faceIdEv": ["address", "address"],
+    "ritual_ZNK18QWindowsFontEngine16getSfntTableDataEjPhPj": [
+      "bool", "address", "unsigned int", "address", "address"
+    ],
+    "ritual_ZNK18QWindowsFontEngine11synthesizedEv": ["int", "address"],
+    "ritual_ZNK18QWindowsFontEngine12emSquareSizeEv": ["address", "address"],
+    "ritual_ZNK18QWindowsFontEngine10glyphIndexEj": [
+      "unsigned int", "address", "unsigned int"
+    ],
+    "ritual_ZNK18QWindowsFontEngine12stringToCMapEPK5QChariP12QGlyphLayoutPi6QFlagsIN11QFontEngine10ShaperFlagEE": [
+      "int", "address", "address", "int", "address", "address", "int"
+    ],
+    "ritual_ZNK18QWindowsFontEngine14recalcAdvancesEP12QGlyphLayout6QFlagsIN11QFontEngine10ShaperFlagEE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN18QWindowsFontEngine16addOutlineToPathEddRK12QGlyphLayoutP12QPainterPath6QFlagsIN9QTextItem10RenderFlagEE": [
+      "nothing", "address", "double", "double", "address", "address", "int"
+    ],
+    "ritual_ZN18QWindowsFontEngine15addGlyphsToPathEPjP11QFixedPointiP12QPainterPath6QFlagsIN9QTextItem10RenderFlagEE": [
+      "nothing", "address", "address", "address", "int", "address", "int"
+    ],
+    "ritual_ZN18QWindowsFontEngine11boundingBoxEj": [
+      "address", "address", "unsigned int"
+    ],
+    "ritual_ZN18QWindowsFontEngine11boundingBoxEjRK10QTransform": [
+      "address", "address", "unsigned int", "address"
+    ],
+    "ritual_ZNK18QWindowsFontEngine7xHeightEv": ["address", "address"],
+    "ritual_ZNK18QWindowsFontEngine9capHeightEv": ["address", "address"],
+    "ritual_ZNK18QWindowsFontEngine16averageCharWidthEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK18QWindowsFontEngine12maxCharWidthEv": ["double", "address"],
+    "ritual_ZNK18QWindowsFontEngine14minLeftBearingEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK18QWindowsFontEngine15minRightBearingEv": [
+      "double", "address"
+    ],
+    "ritual_ZN18QWindowsFontEngine16alphaMapForGlyphEj": [
+      "address", "address", "unsigned int"
+    ],
+    "ritual_ZN18QWindowsFontEngine16alphaMapForGlyphEjRK10QTransform": [
+      "address", "address", "unsigned int", "address"
+    ],
+    "ritual_ZN18QWindowsFontEngine19alphaRGBMapForGlyphEjRK11QFixedPointRK10QTransform": [
+      "address", "address", "unsigned int", "address", "address"
+    ],
+    "ritual_ZN18QWindowsFontEngine19alphaMapBoundingBoxEjRK11QFixedPointRK10QTransformN11QFontEngine11GlyphFormatE": [
+      "address", "address", "unsigned int", "address", "address", "int"
+    ],
+    "ritual_ZNK18QWindowsFontEngine13cloneWithSizeEd": [
+      "address", "address", "double"
+    ],
+    "ritual_ZNK18QWindowsFontEngine6handleEv": ["address", "address"],
+    "ritual_ZNK18QWindowsFontEngine22supportsTransformationERK10QTransform": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN18QWindowsFontEngine16getGlyphBearingsEjPdS0_": [
+      "nothing", "address", "unsigned int", "address", "address"
+    ],
+    "ritual_ZNK18QWindowsFontEngine25hasUnreliableGlyphOutlineEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN18QWindowsFontEngine19setUniqueFamilyNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK18QWindowsFontEngine23initializeHeightMetricsEv": [
+      "nothing", "address"
+    ]
+  }
+}

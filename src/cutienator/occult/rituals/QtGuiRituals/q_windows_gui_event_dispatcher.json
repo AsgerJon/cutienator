@@ -1,0 +1,36 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtGui/6.12.0/QtGui/private/qwindowsguieventdispatcher_p.h, Qt 6.12.0, as the",
+    "Qt of Windows installs it. Kept as it is when the generator runs"
+  ],
+  "rows": {
+    "ritual_ZNK26QWindowsGuiEventDispatcher10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QWindowsGuiEventDispatcher2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN26QWindowsGuiEventDispatcherC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN26QWindowsGuiEventDispatcher18windowsMessageNameEj": [
+      "chars", "unsigned int"
+    ],
+    "ritual_ZN26QWindowsGuiEventDispatcher13processEventsE6QFlagsIN10QEventLoop17ProcessEventsFlagEE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN26QWindowsGuiEventDispatcher16sendPostedEventsEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QWindowsGuiEventDispatcher": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN26QWindowsGuiEventDispatcher13processEventsE6QFlagsIN10QEventLoop17ProcessEventsFlagEE": [
+      "bool", "address", "int"
+    ],
+    "ritual_own_ZN26QWindowsGuiEventDispatcher16sendPostedEventsEv": [
+      "nothing", "address"
+    ]
+  }
+}

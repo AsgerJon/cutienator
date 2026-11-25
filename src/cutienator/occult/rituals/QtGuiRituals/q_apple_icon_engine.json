@@ -1,0 +1,51 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtGui/6.12.0/QtGui/private/qappleiconengine_p.h, Qt 6.12.0, as the Qt of",
+    "macOS installs it. Kept as it is when the generator runs again."
+  ],
+  "rows": {
+    "ritual_ZN16QAppleIconEngineC1ERK7QString": ["address", "text"],
+    "ritual_ZN16QAppleIconEngineD1Ev": ["nothing", "address"],
+    "ritual_ZN16QAppleIconEngine9fromThemeERK7QString": ["address", "text"],
+    "ritual_ZNK16QAppleIconEngine5cloneEv": ["address", "address"],
+    "ritual_ZNK16QAppleIconEngine3keyEv": ["text", "address"],
+    "ritual_ZN16QAppleIconEngine8iconNameEv": ["text", "address"],
+    "ritual_ZN16QAppleIconEngine6isNullEv": ["bool", "address"],
+    "ritual_ZN16QAppleIconEngine14availableSizesEN5QIcon4ModeENS0_5StateE": [
+      "address", "address", "int", "int"
+    ],
+    "ritual_ZN16QAppleIconEngine10actualSizeERK5QSizeN5QIcon4ModeENS3_5StateE": [
+      "address", "address", "address", "int", "int"
+    ],
+    "ritual_ZN16QAppleIconEngine6pixmapERK5QSizeN5QIcon4ModeENS3_5StateE": [
+      "address", "address", "address", "int", "int"
+    ],
+    "ritual_ZN16QAppleIconEngine12scaledPixmapERK5QSizeN5QIcon4ModeENS3_5StateEd": [
+      "address", "address", "address", "int", "int", "double"
+    ],
+    "ritual_ZN16QAppleIconEngine5paintEP8QPainterRK5QRectN5QIcon4ModeENS5_5StateE": [
+      "nothing", "address", "address", "address", "int", "int"
+    ],
+    "ritual_ZN16QAppleIconEngine18availableIconSizesEd": [
+      "address", "double"
+    ],
+    "ritual_take_QAppleIconEngine": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK16QAppleIconEngine5cloneEv": ["address", "address"],
+    "ritual_own_ZNK16QAppleIconEngine3keyEv": ["text", "address"],
+    "ritual_own_ZN16QAppleIconEngine8iconNameEv": ["text", "address"],
+    "ritual_own_ZN16QAppleIconEngine6isNullEv": ["bool", "address"],
+    "ritual_own_ZN16QAppleIconEngine10actualSizeERK5QSizeN5QIcon4ModeENS3_5StateE": [
+      "address", "address", "address", "int", "int"
+    ],
+    "ritual_own_ZN16QAppleIconEngine6pixmapERK5QSizeN5QIcon4ModeENS3_5StateE": [
+      "address", "address", "address", "int", "int"
+    ],
+    "ritual_own_ZN16QAppleIconEngine12scaledPixmapERK5QSizeN5QIcon4ModeENS3_5StateEd": [
+      "address", "address", "address", "int", "int", "double"
+    ],
+    "ritual_own_ZN16QAppleIconEngine5paintEP8QPainterRK5QRectN5QIcon4ModeENS5_5StateE": [
+      "nothing", "address", "address", "address", "int", "int"
+    ]
+  }
+}

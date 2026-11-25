@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtGui/6.12.0/QtGui/private/qcoregraphics_p.h, Qt 6.12.0, as the Qt of",
+    "macOS installs it. Kept as it is when the generator runs again."
+  ],
+  "rows": {
+    "ritual_ZN13QMacCGContextC1Ev": ["address"],
+    "ritual_ZN13QMacCGContextC1EP12QPaintDevice": ["address", "address"],
+    "ritual_ZN13QMacCGContextC1EP8QPainter": ["address", "address"],
+    "ritual_ZN13QMacCGContextcvP9CGContextEv": ["address", "address"],
+    "ritual_ZN13QMacCGContext10initializeEP12QPaintDevice": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QMacCGContext10initializeEPK6QImageP8QPainter": [
+      "nothing", "address", "address", "address"
+    ]
+  }
+}

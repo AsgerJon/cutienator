@@ -1,0 +1,213 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtStateMachine/6.12.0/QtStateMachine/private/qstatemachine_p.h,",
+    "Qt 6.12.0, as the Qt of macOS and of Windows install it, and that"
+  ],
+  "rows": {
+    "ritual_ZN20QStateMachinePrivateC1Ev": ["address"],
+    "ritual_ZN20QStateMachinePrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN20QStateMachinePrivate3getEP13QStateMachine": [
+      "address", "address"
+    ],
+    "ritual_ZN20QStateMachinePrivate7findLCAERK5QListIP14QAbstractStateEb": [
+      "address", "address", "address", "bool"
+    ],
+    "ritual_ZN20QStateMachinePrivate8findLCCAERK5QListIP14QAbstractStateE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN20QStateMachinePrivate28transitionStateEntryLessThanEP19QAbstractTransitionS1_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN20QStateMachinePrivate18stateEntryLessThanEP14QAbstractStateS1_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN20QStateMachinePrivate17stateExitLessThanEP14QAbstractStateS1_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN20QStateMachinePrivate14findErrorStateEP14QAbstractState": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN20QStateMachinePrivate8setErrorEN13QStateMachine5ErrorEP14QAbstractState": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN20QStateMachinePrivate8_q_startEv": ["nothing", "address"],
+    "ritual_ZN20QStateMachinePrivate10_q_processEv": ["nothing", "address"],
+    "ritual_ZN20QStateMachinePrivate20_q_animationFinishedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QStateMachinePrivate25_q_startDelayedEventTimerEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZN20QStateMachinePrivate24_q_killDelayedEventTimerEii": [
+      "nothing", "address", "int", "int"
+    ],
+    "ritual_ZNK20QStateMachinePrivate9rootStateEv": ["address", "address"],
+    "ritual_ZN20QStateMachinePrivate12clearHistoryEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK20QStateMachinePrivate23createInitialTransitionEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QStateMachinePrivate11noMicrostepEv": ["nothing", "address"],
+    "ritual_ZN20QStateMachinePrivate22processedPendingEventsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20QStateMachinePrivate14beginMacrostepEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QStateMachinePrivate12endMacrostepEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN20QStateMachinePrivate15exitInterpreterEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QStateMachinePrivate24executeTransitionContentEP6QEventRK5QListIP19QAbstractTransitionE": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN20QStateMachinePrivate15toStandardStateEP14QAbstractState": [
+      "address", "address"
+    ],
+    "ritual_ZN20QStateMachinePrivate15toStandardStateEPK14QAbstractState": [
+      "address", "address"
+    ],
+    "ritual_ZN20QStateMachinePrivate12toFinalStateEP14QAbstractState": [
+      "address", "address"
+    ],
+    "ritual_ZN20QStateMachinePrivate14toHistoryStateEP14QAbstractState": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QStateMachinePrivate14isInFinalStateEP14QAbstractState": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN20QStateMachinePrivate7isFinalEPK14QAbstractState": [
+      "bool", "address"
+    ],
+    "ritual_ZN20QStateMachinePrivate10isParallelEPK14QAbstractState": [
+      "bool", "address"
+    ],
+    "ritual_ZNK20QStateMachinePrivate10isCompoundEPK14QAbstractState": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK20QStateMachinePrivate8isAtomicEPK14QAbstractState": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN20QStateMachinePrivate9goToStateEP14QAbstractState": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QStateMachinePrivate19registerTransitionsEP14QAbstractState": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QStateMachinePrivate23maybeRegisterTransitionEP19QAbstractTransition": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QStateMachinePrivate18registerTransitionEP19QAbstractTransition": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QStateMachinePrivate29maybeRegisterSignalTransitionEP17QSignalTransition": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QStateMachinePrivate24registerSignalTransitionEP17QSignalTransition": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QStateMachinePrivate26unregisterSignalTransitionEP17QSignalTransition": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QStateMachinePrivate38registerMultiThreadedSignalTransitionsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QStateMachinePrivate28maybeRegisterEventTransitionEP16QEventTransition": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QStateMachinePrivate23registerEventTransitionEP16QEventTransition": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QStateMachinePrivate25unregisterEventTransitionEP16QEventTransition": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QStateMachinePrivate19handleFilteredEventEP7QObjectP6QEvent": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN20QStateMachinePrivate20unregisterTransitionEP19QAbstractTransition": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QStateMachinePrivate24unregisterAllTransitionsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QStateMachinePrivate22handleTransitionSignalEP7QObjectiPPv": [
+      "nothing", "address", "address", "int", "address"
+    ],
+    "ritual_ZN20QStateMachinePrivate17postInternalEventEP6QEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QStateMachinePrivate17postExternalEventEP6QEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN20QStateMachinePrivate20dequeueInternalEventEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QStateMachinePrivate20dequeueExternalEventEv": [
+      "address", "address"
+    ],
+    "ritual_ZN20QStateMachinePrivate25isInternalEventQueueEmptyEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN20QStateMachinePrivate25isExternalEventQueueEmptyEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN20QStateMachinePrivate13processEventsENS_19EventProcessingModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN20QStateMachinePrivate22cancelAllDelayedEventsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN20QStateMachinePrivate17emitStateFinishedEP6QStateP11QFinalState": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN20QStateMachinePrivate11startupHookEv": ["nothing", "address"],
+    "ritual_ZNK20QStateMachinePrivate13hasRestorableEP14QAbstractStateP7QObjectRK10QByteArray": [
+      "bool", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK20QStateMachinePrivate23savedValueForRestorableERK5QListIP14QAbstractStateEP7QObjectRK10QByteArray": [
+      "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN20QStateMachinePrivate18registerRestorableEP14QAbstractStateP7QObjectRK10QByteArrayRK8QVariant": [
+      "nothing", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN20QStateMachinePrivate21unregisterRestorablesERK5QListIP14QAbstractStateEP7QObjectRK10QByteArray": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN20QStateMachinePrivate19initializeAnimationEP18QAbstractAnimationRK19QPropertyAssignment": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK20QStateMachinePrivate16selectAnimationsERK5QListIP19QAbstractTransitionE": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN20QStateMachinePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK20QStateMachinePrivate6q_funcEv": ["address", "address"],
+    "ritual_take_QStateMachinePrivate": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN20QStateMachinePrivate11noMicrostepEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN20QStateMachinePrivate22processedPendingEventsEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZN20QStateMachinePrivate14beginMacrostepEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN20QStateMachinePrivate12endMacrostepEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_own_ZN20QStateMachinePrivate15exitInterpreterEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN20QStateMachinePrivate17emitStateFinishedEP6QStateP11QFinalState": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_own_ZN20QStateMachinePrivate11startupHookEv": [
+      "nothing", "address"
+    ]
+  }
+}

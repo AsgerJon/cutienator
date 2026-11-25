@@ -7,7 +7,7 @@ import os
 import sys
 from typing import TYPE_CHECKING
 
-from . import System, Build
+from . import System, Summon
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Tuple
@@ -32,7 +32,7 @@ class Windows(System):
   'PATH'.
 
   You do not make one: 'System.getHere()' gives it when Python runs on
-  Windows, and 'Build', 'Rituals' and the judge of the trials ask it.
+  Windows, and 'Summon', 'Rituals' and the judge of the trials ask it.
 
   What Windows is like
   --------------------
@@ -153,7 +153,7 @@ class Windows(System):
     the Qt it was built against once it is opened.
 
     The folder is the one where Qt keeps its programs, which
-    'Build.getQtProgramFolder' asks 'qmake6' for. From Python 3.8 on,
+    'Summon.getQtProgramFolder' asks 'qmake6' for. From Python 3.8 on,
     Python looks for the DLLs a DLL needs only in folders it was told
     of, and 'os.add_dll_directory' tells it. Python 3.7 has no such
     function and looks through the folders of 'PATH' instead, so there
@@ -166,7 +166,7 @@ class Windows(System):
     FileNotFoundError
       'qmake6' is not installed.
     """
-    folder = os.path.normpath(Build.getQtProgramFolder())
+    folder = os.path.normpath(Summon.getQtProgramFolder())
     if sys.version_info >= (3, 8):
       os.add_dll_directory(folder)
     else:

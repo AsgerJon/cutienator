@@ -1,0 +1,60 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtCore/6.12.0/QtCore/private/qwindowspipewriter_p.h, Qt 6.12.0, as",
+    "the Qt of Windows installs it. Kept as it is when the generator runs."
+  ],
+  "rows": {
+    "ritual_ZNK18QWindowsPipeWriter10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QWindowsPipeWriter2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18QWindowsPipeWriterC1EPvP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN18QWindowsPipeWriterD1Ev": ["nothing", "address"],
+    "ritual_ZN18QWindowsPipeWriter9setHandleEPv": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QWindowsPipeWriter5writeERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QWindowsPipeWriter5writeEPKcx": [
+      "nothing", "address", "chars", "long long"
+    ],
+    "ritual_ZN18QWindowsPipeWriter4stopEv": ["nothing", "address"],
+    "ritual_ZN18QWindowsPipeWriter13checkForWriteEv": ["bool", "address"],
+    "ritual_ZNK18QWindowsPipeWriter12bytesToWriteEv": [
+      "long long", "address"
+    ],
+    "ritual_ZNK18QWindowsPipeWriter22isWriteOperationActiveEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK18QWindowsPipeWriter9syncEventEv": ["address", "address"],
+    "ritual_ZN18QWindowsPipeWriter5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN18QWindowsPipeWriter21startAsyncWriteHelperEP12QMutexLockerI6QMutexE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QWindowsPipeWriter21startAsyncWriteLockedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QWindowsPipeWriter12waitCallbackEP21_TP_CALLBACK_INSTANCEPvP8_TP_WAITm": [
+      "nothing", "address", "address", "address", "unsigned long"
+    ],
+    "ritual_ZN18QWindowsPipeWriter14writeCompletedEmm": [
+      "bool", "address", "unsigned long", "unsigned long"
+    ],
+    "ritual_ZN18QWindowsPipeWriter15notifyCompletedEP12QMutexLockerI6QMutexE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QWindowsPipeWriter21consumePendingAndEmitEb": [
+      "bool", "address", "bool"
+    ],
+    "ritual_take_QWindowsPipeWriter": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN18QWindowsPipeWriter5eventEP6QEvent": [
+      "bool", "address", "address"
+    ]
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from QtStateMachine/qmouseeventtransition.h,",
+    "Qt 6.12.0, the same text on every system. Kept as it is when the",
+    "generator runs again. Not written: the 'bindable...' functions,"
+  ],
+  "rows": {
+    "ritual_ZNK21QMouseEventTransition10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QMouseEventTransition2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN21QMouseEventTransitionC1EP6QState": ["address", "address"],
+    "ritual_ZN21QMouseEventTransitionC1EP7QObjectN6QEvent4TypeEN2Qt11MouseButtonEP6QState": [
+      "address", "address", "int", "int", "address"
+    ],
+    "ritual_ZN21QMouseEventTransitionD1Ev": ["nothing", "address"],
+    "ritual_ZNK21QMouseEventTransition6buttonEv": ["int", "address"],
+    "ritual_ZN21QMouseEventTransition9setButtonEN2Qt11MouseButtonE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK21QMouseEventTransition12modifierMaskEv": ["int", "address"],
+    "ritual_ZN21QMouseEventTransition15setModifierMaskE6QFlagsIN2Qt16KeyboardModifierEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK21QMouseEventTransition11hitTestPathEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QMouseEventTransition14setHitTestPathERK12QPainterPath": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QMouseEventTransition9eventTestEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN21QMouseEventTransition12onTransitionEP6QEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QMouseEventTransition": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN21QMouseEventTransition9eventTestEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN21QMouseEventTransition12onTransitionEP6QEvent": [
+      "nothing", "address", "address"
+    ]
+  }
+}

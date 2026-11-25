@@ -40,7 +40,7 @@ PACKAGES=(
   ccache
   #  Copies the sources up and the library back.
   rsync
-  #  Runs 'Rituals.build()' and the generators.
+  #  Runs 'Rituals.summon()' and the generators.
   python3
   #  'flock': one build at a time.
   util-linux

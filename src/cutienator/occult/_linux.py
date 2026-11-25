@@ -20,7 +20,7 @@ class Linux(System):
   Answers for Linux what 'System' asks of every system.
 
   You do not make one: 'System.getHere()' gives it when Python runs on
-  Linux, and 'Build', 'Rituals' and the judge of the trials ask it.
+  Linux, and 'Summon', 'Rituals' and the judge of the trials ask it.
 
   What Linux is like
   ------------------

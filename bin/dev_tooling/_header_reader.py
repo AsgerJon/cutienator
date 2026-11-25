@@ -1008,7 +1008,7 @@ class HeaderReader:
     """Gives the part and the parts it needs, the nearest first, as
     'HeaderFolder.getPartNeeds' has them. For a part of
     'getOwnOrderParts' the rows files of its ritual files name them
-    under 'parts first', so that 'Rituals.build' looks in their folders
+    under 'parts first', so that 'Rituals.summon' looks in their folders
     first as well; see 'RitualGenerator.getRowsText'."""
     order, at = [partName], 0
     while at < len(order):

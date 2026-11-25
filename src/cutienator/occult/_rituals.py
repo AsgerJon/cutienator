@@ -14,7 +14,7 @@ from typing import TYPE_CHECKING
 
 from worktoy.waitaminute import TypeException
 
-from . import Build, System
+from . import Summon, System
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Any, Dict, FrozenSet, List, Optional, Set, Tuple
@@ -29,7 +29,7 @@ class Rituals:
   part of Qt. Everything is called on the class, since a program has
   one such shared object for each part.
 
-    Rituals.build()        # after a ritual file changed
+    Rituals.summon()        # after a ritual file changed
     Rituals.call('ritual_ZNK7QObject6parentEv', address)  # run one
     Rituals.call('ritual_ZNK7QObject10objectNameEv', address)  # a str
     Rituals.callFrom('QtGraphs', 'ritual_ZNK10QBarSeries5countEv', address)
@@ -67,7 +67,7 @@ class Rituals:
   -----------
 
   Nothing at run time. To add rituals, put a ritual file and its rows
-  file into the ritual folder, then call 'build'. The program
+  file into the ritual folder, then call 'summon'. The program
   'dev_tooling.RitualGenerator' writes the two together, from one plan,
   so they agree.
 
@@ -102,7 +102,7 @@ class Rituals:
   What to expect
   --------------
 
-  - Nothing is compiled unless 'build' is called. 'call' refuses to run
+  - Nothing is compiled unless 'summon' is called. 'call' refuses to run
     when the target file of the part is missing.
   - The target file of a part is opened at the first ritual of that
     part that is called, once.
@@ -270,7 +270,7 @@ class Rituals:
   @classmethod
   def getRitualFiles(cls) -> Paths:
     """
-    Gives every ritual file of the package. 'build' compiles those of
+    Gives every ritual file of the package. 'summon' compiles those of
     the parts the Qt of this machine has; see 'getBuiltRitualFiles'.
 
     Found for you: every file ending in '.cpp' in the folder of a part
@@ -289,7 +289,7 @@ class Rituals:
   @classmethod
   def getBuiltRitualFiles(cls) -> Paths:
     """
-    Gives the ritual files that 'build' compiles: those of
+    Gives the ritual files that 'summon' compiles: those of
     'getRitualFiles' of the parts the Qt of this machine has, as
     'getInstalledParts' finds them. Those of a part it lacks, as Qt3D
     where it is not installed, are left out, and their rituals raise
@@ -322,7 +322,7 @@ class Rituals:
 
     Found for you: 'libcutienator_QtCore.so' beside the ritual folder
     for 'QtCore', so that nothing built lies among the ritual files.
-    Having the path does not mean the file is there; 'build' makes it.
+    Having the path does not mean the file is there; 'summon' makes it.
 
     Raises
     ------
@@ -337,7 +337,7 @@ class Rituals:
 
   @classmethod
   def getTargetFiles(cls) -> Paths:
-    """Gives the target file of each part 'build' builds one for: each
+    """Gives the target file of each part 'summon' builds one for: each
     part of 'getInstalledParts' that has ritual files, in that
     order."""
     return (*(cls.getTargetFile(part) for part in cls.getBuiltParts()),)
@@ -345,7 +345,7 @@ class Rituals:
   @classmethod
   def getBuiltParts(cls) -> Paths:
     """Gives the parts of 'getInstalledParts' that have ritual files,
-    in that order: those 'build' builds a target file for."""
+    in that order: those 'summon' builds a target file for."""
     built = {cls._getPartOf(path) for path in cls.getBuiltRitualFiles()}
     return (*(part for part in cls.getInstalledParts() if part in built),)
 
@@ -385,8 +385,8 @@ class Rituals:
     folder of header files is in Qt's header folder. The ritual files
     of the others are not built here.
     """
-    folder = Build.getQtSharedObjectFolder()
-    headers = Build.getQtHeaderFolder()
+    folder = Summon.getQtSharedObjectFolder()
+    headers = Summon.getQtHeaderFolder()
     system = System.getHere()
     found = []  # type: List[str]
     for part in cls.getRitualParts():
@@ -419,7 +419,7 @@ class Rituals:
   def _findSharedObjects(cls, partNames: Paths) -> Paths:
     """Gives the Qt shared object of each part named that has one
     here, in the order named."""
-    folder = Build.getQtSharedObjectFolder()
+    folder = Summon.getQtSharedObjectFolder()
     system = System.getHere()
     paths = (
         os.path.join(folder, system.getQtFileName(part))
@@ -483,10 +483,10 @@ class Rituals:
     'getPartsFirst', then every folder of Qt's header folder, in
     alphabetical order, as 'QtCharts' and 'QtScxmlGlobal'. The build
     leaves out a folder that is not there; see
-    'Build.getPrivateIncludeFolders'. So a part with ritual files
+    'Summon.getPrivateIncludeFolders'. So a part with ritual files
     coming or going changes nothing for the others.
     """
-    names = sorted(os.listdir(Build.getQtHeaderFolder()))
+    names = sorted(os.listdir(Summon.getQtHeaderFolder()))
     order = [*cls.getPartsFirst(partName)]
     order.extend(name for name in names if name not in order)
     return (*order,)
@@ -644,7 +644,7 @@ class Rituals:
   @classmethod
   def isStale(cls) -> bool:
     """
-    Says whether 'build' has to be called before every ritual can run.
+    Says whether 'summon' has to be called before every ritual can run.
 
     Returns
     -------
@@ -706,7 +706,7 @@ class Rituals:
     target = cls.getTargetFile(partName)
     if not os.path.isfile(target):
       infoSpec = """The shared object '%s' is missing. Call
-      'Rituals.build()' first."""
+      'Rituals.summon()' first."""
       raise FileNotFoundError(' '.join((infoSpec % target).split()))
     if not cls.__opening_ready__:
       System.getHere().prepareOpening()
@@ -783,10 +783,10 @@ class Rituals:
     """
     Gives the name of every ritual the rows files of one part of Qt
     list and the Qt of this machine has no function for. For a part
-    not installed here, which 'build' leaves out, that is every one of
+    not installed here, which 'summon' leaves out, that is every one of
     them. For one installed, those its target file does not offer:
     their ritual files have them between Qt's own '#if' lines, which
-    do not hold here, so 'build' compiled them out.
+    do not hold here, so 'summon' compiled them out.
 
     Found for you: for an installed part, when its target file is
     opened, as 'getOpened' does.
@@ -1139,17 +1139,17 @@ class Rituals:
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   @classmethod
-  def build(cls) -> Paths:
+  def summon(cls) -> Paths:
     """
     Compiles the ritual files of each part of 'getBuiltParts' into the
     target file of that part.
 
     Call it after adding or changing a ritual file, in a Python that has
     not run a ritual yet: a shared object that is already open cannot be
-    swapped for a new one. Each part has a 'Build' of its own; see
-    'createPartBuild'. Each
+    swapped for a new one. Each part has a 'Summon' of its own; see
+    'createPartSummon'. Each
     ritual file is compiled by itself, and only when it changed since
-    the last build; see 'Build'. The builds of the parts run at the
+    the last build; see 'Summon'. The builds of the parts run at the
     same time, and no more programs at once than the machine has
     processors.
 
@@ -1186,13 +1186,13 @@ class Rituals:
       raise FileNotFoundError(' '.join(info.split()))
     jobCount = os.cpu_count() or 1
     with ThreadPoolExecutor(max_workers=jobCount) as pool:
-      return (*pool.map(cls._buildPart, partNames),)
+      return (*pool.map(cls._summonPart, partNames),)
 
   @classmethod
-  def createPartBuild(cls, partName: str) -> Build:
+  def createPartSummon(cls, partName: str) -> Summon:
     """
-    Gives the 'Build' of the target file of one part, told what
-    'build' tells it, without running it: the ritual files of the part,
+    Gives the 'Summon' of the target file of one part, told what
+    'summon' tells it, without running it: the ritual files of the part,
     its target file, the Qt shared objects of 'getPartSharedObjects'
     and the parts of 'getPartComponents'.
 
@@ -1202,7 +1202,7 @@ class Rituals:
     ValueError
       The part has no ritual files.
     """
-    build = Build()
+    build = Summon()
     build.setRitualFiles(*cls.getPartRitualFiles(partName))
     build.setTargetFile(cls.getTargetFile(partName))
     build.setQtSharedObjects(*cls.getPartSharedObjects(partName))
@@ -1210,10 +1210,10 @@ class Rituals:
     return build
 
   @classmethod
-  def _buildPart(cls, partName: str) -> str:
-    """Builds the target file of one part, as 'build' tells, and gives
+  def _summonPart(cls, partName: str) -> str:
+    """Builds the target file of one part, as 'summon' tells, and gives
     its path."""
-    build = cls.createPartBuild(partName)
+    build = cls.createPartSummon(partName)
     try:
       return build.run()
     except RuntimeError as runtimeError:

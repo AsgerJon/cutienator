@@ -9,7 +9,7 @@ from __future__ import annotations
 from ._symbol import Symbol
 from ._shared_object import SharedObject
 from ._system import System
-from ._build import Build
+from ._summon import Summon
 from ._linux import Linux
 from ._mac_os import MacOS
 from ._windows import Windows
@@ -20,7 +20,7 @@ __all__ = (
     'Symbol',
     'SharedObject',
     'System',
-    'Build',
+    'Summon',
     'Linux',
     'MacOS',
     'Windows',

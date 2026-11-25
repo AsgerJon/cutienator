@@ -1,0 +1,35 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtCore/6.12.0/QtCore/private/qeventdispatcher_win_p.h, Qt 6.12.0, as",
+    "the Qt of Windows installs it. Kept as it is when the generator runs."
+  ],
+  "rows": {
+    "ritual_ZN28QEventDispatcherWin32Private6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QEventDispatcherWin32Private6q_funcEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QEventDispatcherWin32PrivateC1Ev": ["address"],
+    "ritual_ZN28QEventDispatcherWin32PrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN28QEventDispatcherWin32Private22startPostedEventsTimerEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QEventDispatcherWin32Private13registerTimerEP12WinTimerInfo": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QEventDispatcherWin32Private15unregisterTimerEP12WinTimerInfo": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN28QEventDispatcherWin32Private14sendTimerEventEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN28QEventDispatcherWin32Private27postActivateSocketNotifiersEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QEventDispatcherWin32Private16doWsaAsyncSelectExl": [
+      "nothing", "address", "long long", "long"
+    ]
+  }
+}

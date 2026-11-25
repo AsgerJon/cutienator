@@ -1,0 +1,26 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtStateMachine/6.12.0/QtStateMachine/private/qstate_p.h,",
+    "Qt 6.12.0, as the Qt of macOS and of Windows install it, and that"
+  ],
+  "rows": {
+    "ritual_ZN13QStatePrivateC1Ev": ["address"],
+    "ritual_ZN13QStatePrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN13QStatePrivate3getEP6QState": ["address", "address"],
+    "ritual_ZN13QStatePrivate3getEPK6QState": ["address", "address"],
+    "ritual_ZNK13QStatePrivate11childStatesEv": ["address", "address"],
+    "ritual_ZNK13QStatePrivate11transitionsEv": ["address", "address"],
+    "ritual_ZN13QStatePrivate12emitFinishedEv": ["nothing", "address"],
+    "ritual_ZN13QStatePrivate22emitPropertiesAssignedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13QStatePrivate19initialStateChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN13QStatePrivate17errorStateChangedEv": ["nothing", "address"],
+    "ritual_ZN13QStatePrivate16childModeChangedEv": ["nothing", "address"],
+    "ritual_ZN13QStatePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK13QStatePrivate6q_funcEv": ["address", "address"]
+  }
+}

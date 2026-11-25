@@ -1,0 +1,54 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtCore/6.12.0/QtCore/private/qtimezoneprivate_p.h, Qt 6.12.0, as",
+    "the Qt of macOS and of Windows install it. Kept as it is when the"
+  ],
+  "rows": {
+    "ritual_ZNK19QUtcTimeZonePrivate5cloneEv": ["address", "address"],
+    "ritual_ZN19QUtcTimeZonePrivateD1Ev": ["nothing", "address"],
+    "ritual_ZNK19QUtcTimeZonePrivate4dataEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZNK19QUtcTimeZonePrivate4dataEN9QTimeZone8TimeTypeE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK19QUtcTimeZonePrivate12isDataLocaleERK7QLocale": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK19QUtcTimeZonePrivate9territoryEv": [
+      "unsigned short", "address"
+    ],
+    "ritual_ZNK19QUtcTimeZonePrivate7commentEv": ["text", "address"],
+    "ritual_ZNK19QUtcTimeZonePrivate11displayNameExN9QTimeZone8NameTypeERK7QLocale": [
+      "text", "address", "long long", "int", "address"
+    ],
+    "ritual_ZNK19QUtcTimeZonePrivate11displayNameEN9QTimeZone8TimeTypeENS0_8NameTypeERK7QLocale": [
+      "text", "address", "int", "int", "address"
+    ],
+    "ritual_ZNK19QUtcTimeZonePrivate12abbreviationEx": [
+      "text", "address", "long long"
+    ],
+    "ritual_ZNK19QUtcTimeZonePrivate18standardTimeOffsetEx": [
+      "int", "address", "long long"
+    ],
+    "ritual_ZNK19QUtcTimeZonePrivate18daylightTimeOffsetEx": [
+      "int", "address", "long long"
+    ],
+    "ritual_ZNK19QUtcTimeZonePrivate16systemTimeZoneIdEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QUtcTimeZonePrivate21isTimeZoneIdAvailableE14QByteArrayView": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK19QUtcTimeZonePrivate20availableTimeZoneIdsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QUtcTimeZonePrivate20availableTimeZoneIdsEN7QLocale7CountryE": [
+      "address", "address", "unsigned short"
+    ],
+    "ritual_ZNK19QUtcTimeZonePrivate20availableTimeZoneIdsEi": [
+      "address", "address", "int"
+    ]
+  }
+}

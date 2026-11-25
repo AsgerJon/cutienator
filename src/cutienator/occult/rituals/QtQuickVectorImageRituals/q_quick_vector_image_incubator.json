@@ -1,0 +1,38 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtQuickVectorImage/6.12.0/QtQuickVectorImage/private/qquickvectorimageincubator_p.h,",
+    "Qt 6.12.0, as the Qt of macOS and of Windows installs it, the"
+  ],
+  "rows": {
+    "ritual_ZNK26QQuickVectorImageIncubator10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QQuickVectorImageIncubator2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN26QQuickVectorImageIncubatorC1EN13QQmlIncubator14IncubationModeEP11QQmlContextP7QObject": [
+      "address", "int", "address", "address"
+    ],
+    "ritual_ZN26QQuickVectorImageIncubatorD1Ev": ["nothing", "address"],
+    "ritual_ZN26QQuickVectorImageIncubator5startERK7QString6QFlagsIN26QQuickVectorImageGenerator13GeneratorFlagEE": [
+      "nothing", "address", "text", "int"
+    ],
+    "ritual_ZNK26QQuickVectorImageIncubator6statusEv": ["int", "address"],
+    "ritual_ZN26QQuickVectorImageIncubator13statusChangedEN13QQmlIncubator6StatusE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN26QQuickVectorImageIncubator17generatorFinishedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN26QQuickVectorImageIncubator16componentUpdatedEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QQuickVectorImageIncubator": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN26QQuickVectorImageIncubator13statusChangedEN13QQmlIncubator6StatusE": [
+      "nothing", "address", "int"
+    ]
+  }
+}

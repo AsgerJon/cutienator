@@ -1,0 +1,80 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtLottie/6.12.0/QtLottie/private/qlottievectorimagecontroller_p.h, Qt",
+    "6.12.0, as the Qt of macOS and of Windows installs it (the two texts"
+  ],
+  "rows": {
+    "ritual_ZNK28QLottieVectorImageController10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QLottieVectorImageController2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN28QLottieVectorImageControllerC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN28QLottieVectorImageController10classBeginEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QLottieVectorImageController17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK28QLottieVectorImageController6targetEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QLottieVectorImageController9setTargetEP17QQuickVectorImage": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK28QLottieVectorImageController9frameRateEv": [
+      "double", "address"
+    ],
+    "ritual_ZN28QLottieVectorImageController12setFrameRateEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN28QLottieVectorImageController14resetFrameRateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK28QLottieVectorImageController10startFrameEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK28QLottieVectorImageController8endFrameEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK28QLottieVectorImageController12currentFrameEv": [
+      "double", "address"
+    ],
+    "ritual_ZN28QLottieVectorImageController4playEv": ["nothing", "address"],
+    "ritual_ZN28QLottieVectorImageController5pauseEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QLottieVectorImageController11togglePauseEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QLottieVectorImageController5startEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QLottieVectorImageController4stopEv": ["nothing", "address"],
+    "ritual_ZN28QLottieVectorImageController11gotoAndPlayEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN28QLottieVectorImageController11gotoAndStopEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN28QLottieVectorImageController9gotoFrameEd": [
+      "nothing", "address", "double"
+    ],
+    "ritual_ZN28QLottieVectorImageController22onGeneratedItemChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QLottieVectorImageController": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN28QLottieVectorImageController10classBeginEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN28QLottieVectorImageController17componentCompleteEv": [
+      "nothing", "address"
+    ]
+  }
+}

@@ -27,7 +27,7 @@ def main() -> int:
   if Rituals.isStale():
     print('Building %d target files beside %s' % (
         len(Rituals.getBuiltParts()), Rituals.getRitualFolder()))
-    Rituals.build()
+    Rituals.summon()
 
   judge = Judge()
   workFolder = tempfile.mkdtemp(prefix='cutienator-trial-')

@@ -1,0 +1,63 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtQuick/6.12.0/QtQuick/private/qsgcurvestrokenode_p.h, Qt 6.12.0, the same",
+    "text on every system. Kept as it is when the generator runs"
+  ],
+  "rows": {
+    "ritual_ZN18QSGCurveStrokeNodeC1Ev": ["address"],
+    "ritual_ZN18QSGCurveStrokeNode8setColorE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QSGCurveStrokeNode5colorEv": ["address", "address"],
+    "ritual_ZN18QSGCurveStrokeNode17setCosmeticStrokeEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN18QSGCurveStrokeNode14setStrokeWidthEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK18QSGCurveStrokeNode12gradientTypeEv": ["int", "address"],
+    "ritual_ZN18QSGCurveStrokeNode15setGradientTypeEN9QGradient4TypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK18QSGCurveStrokeNode14strokeGradientEv": [
+      "address", "address"
+    ],
+    "ritual_ZN18QSGCurveStrokeNode17setStrokeGradientERKN16QSGGradientCache12GradientDescE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK18QSGCurveStrokeNode11strokeWidthEv": ["float", "address"],
+    "ritual_ZN18QSGCurveStrokeNode12cookGeometryEv": ["nothing", "address"],
+    "ritual_ZN18QSGCurveStrokeNode10attributesEv": ["address"],
+    "ritual_ZN18QSGCurveStrokeNode22expandingStrokeEnabledEv": ["bool"],
+    "ritual_ZNK18QSGCurveStrokeNode5debugEv": ["float", "address"],
+    "ritual_ZN18QSGCurveStrokeNode8setDebugEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZN18QSGCurveStrokeNode13setLocalScaleEf": [
+      "nothing", "address", "float"
+    ],
+    "ritual_ZNK18QSGCurveStrokeNode10localScaleEv": ["float", "address"],
+    "ritual_ZNK18QSGCurveStrokeNode22useStandardDerivativesEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN18QSGCurveStrokeNode25setUseStandardDerivativesEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN18QSGCurveStrokeNode14updateMaterialEv": [
+      "nothing", "address"
+    ],
+    "ritual_cast_QSGCurveStrokeNode_QSGCurveAbstractNode": [
+      "address", "address"
+    ],
+    "ritual_own_ZN18QSGCurveStrokeNode8setColorE6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN18QSGCurveStrokeNode12cookGeometryEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN18QSGCurveStrokeNode25setUseStandardDerivativesEb": [
+      "nothing", "address", "bool"
+    ]
+  }
+}

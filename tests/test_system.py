@@ -14,7 +14,7 @@ from unittest import mock
 from worktoy.work_test import BaseTest
 
 from cutienator import occult
-from cutienator.occult import System, Linux, MacOS, Windows, Build
+from cutienator.occult import System, Linux, MacOS, Windows, Summon
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Dict
@@ -165,7 +165,7 @@ class TestSystem(BaseTest):
     """From Python 3.8 on, Windows hands the folder of Qt's DLLs over."""
     told = []
     folder = os.path.join('qt', 'bin')
-    with mock.patch.object(Build, 'getQtProgramFolder', lambda: 'qt/bin'):
+    with mock.patch.object(Summon, 'getQtProgramFolder', lambda: 'qt/bin'):
       with mock.patch.object(
           os, 'add_dll_directory', told.append, create=True,
       ):
@@ -177,7 +177,7 @@ class TestSystem(BaseTest):
     """On Python 3.7, Windows puts the folder of Qt's DLLs into PATH."""
     environment = dict(PATH='elsewhere')  # type: Dict[str, str]
     folder = os.path.join('qt', 'bin')
-    with mock.patch.object(Build, 'getQtProgramFolder', lambda: 'qt/bin'):
+    with mock.patch.object(Summon, 'getQtProgramFolder', lambda: 'qt/bin'):
       with mock.patch.object(os, 'environ', environment):
         with mock.patch.object(sys, 'version_info', (3, 7, 9)):
           Windows().prepareOpening()

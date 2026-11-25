@@ -1,0 +1,28 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtGui/6.12.0/QtGui/private/qdxgihdrinfo_p.h, Qt 6.12.0, as the",
+    "Qt of Windows installs it. Kept as it is when the generator runs"
+  ],
+  "rows": {
+    "ritual_ZN12QDxgiHdrInfoC1EP13IDXGIAdapter1": ["address", "address"],
+    "ritual_ZN12QDxgiHdrInfoC1E5_LUID": ["address", "address"],
+    "ritual_ZN12QDxgiHdrInfoC1Ev": ["address"],
+    "ritual_ZN12QDxgiHdrInfoD1Ev": ["nothing", "address"],
+    "ritual_ZN12QDxgiHdrInfo12isHdrCapableEP7QWindow": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN12QDxgiHdrInfo12queryHdrInfoEP7QWindow": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN12QDxgiHdrInfo16output6ForWindowEP7QWindowP13IDXGIAdapter1PP12IDXGIOutput6": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN12QDxgiHdrInfo20outputDesc1ForWindowEP7QWindowP13IDXGIAdapter1P17DXGI_OUTPUT_DESC1": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN12QDxgiHdrInfo19sdrWhiteLevelInNitsERK17DXGI_OUTPUT_DESC1": [
+      "float", "address"
+    ]
+  }
+}

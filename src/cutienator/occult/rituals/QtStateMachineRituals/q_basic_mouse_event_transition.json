@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtStateMachine/6.12.0/QtStateMachine/private/qbasicmouseeventtransition_p.h,",
+    "Qt 6.12.0, as the Qt of macOS and of Windows install it, and that"
+  ],
+  "rows": {
+    "ritual_ZNK26QBasicMouseEventTransition10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QBasicMouseEventTransitionD1Ev": ["nothing", "address"],
+    "ritual_ZN26QBasicMouseEventTransition9eventTestEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN26QBasicMouseEventTransition12onTransitionEP6QEvent": [
+      "nothing", "address", "address"
+    ]
+  }
+}

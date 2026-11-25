@@ -1,0 +1,79 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtCore/6.12.0/QtCore/private/qwindowspipereader_p.h, Qt 6.12.0, as",
+    "the Qt of Windows installs it. Kept as it is when the generator runs."
+  ],
+  "rows": {
+    "ritual_ZNK18QWindowsPipeReader10metaObjectEv": ["address", "address"],
+    "ritual_ZN18QWindowsPipeReader2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN18QWindowsPipeReaderC1EP7QObject": ["address", "address"],
+    "ritual_ZN18QWindowsPipeReaderD1Ev": ["nothing", "address"],
+    "ritual_ZN18QWindowsPipeReader9setHandleEPv": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QWindowsPipeReader14startAsyncReadEv": ["nothing", "address"],
+    "ritual_ZN18QWindowsPipeReader4stopEv": ["nothing", "address"],
+    "ritual_ZN18QWindowsPipeReader12drainAndStopEv": ["nothing", "address"],
+    "ritual_ZN18QWindowsPipeReader12stopAndClearEv": ["nothing", "address"],
+    "ritual_ZN18QWindowsPipeReader20setMaxReadBufferSizeEx": [
+      "nothing", "address", "long long"
+    ],
+    "ritual_ZNK18QWindowsPipeReader17maxReadBufferSizeEv": [
+      "long long", "address"
+    ],
+    "ritual_ZNK18QWindowsPipeReader12isPipeClosedEv": ["bool", "address"],
+    "ritual_ZNK18QWindowsPipeReader14bytesAvailableEv": [
+      "long long", "address"
+    ],
+    "ritual_ZN18QWindowsPipeReader4readEPcx": [
+      "long long", "address", "address", "long long"
+    ],
+    "ritual_ZN18QWindowsPipeReader8readLineEPcx": [
+      "long long", "address", "address", "long long"
+    ],
+    "ritual_ZN18QWindowsPipeReader4skipEx": [
+      "long long", "address", "long long"
+    ],
+    "ritual_ZNK18QWindowsPipeReader11canReadLineEv": ["bool", "address"],
+    "ritual_ZN18QWindowsPipeReader14checkPipeStateEv": [
+      "unsigned long", "address"
+    ],
+    "ritual_ZN18QWindowsPipeReader17checkForReadyReadEv": ["bool", "address"],
+    "ritual_ZNK18QWindowsPipeReader21isReadOperationActiveEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK18QWindowsPipeReader9syncEventEv": ["address", "address"],
+    "ritual_ZN18QWindowsPipeReader5eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN18QWindowsPipeReader20startAsyncReadHelperEP12QMutexLockerI6QMutexE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN18QWindowsPipeReader20startAsyncReadLockedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN18QWindowsPipeReader15cancelAsyncReadENS_5StateE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN18QWindowsPipeReader12waitCallbackEP21_TP_CALLBACK_INSTANCEPvP8_TP_WAITm": [
+      "nothing", "address", "address", "address", "unsigned long"
+    ],
+    "ritual_ZN18QWindowsPipeReader13readCompletedEmm": [
+      "bool", "address", "unsigned long", "unsigned long"
+    ],
+    "ritual_ZN18QWindowsPipeReader19waitForNotificationEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN18QWindowsPipeReader21consumePendingAndEmitEb": [
+      "bool", "address", "bool"
+    ],
+    "ritual_ZN18QWindowsPipeReader14consumePendingEv": ["bool", "address"],
+    "ritual_take_QWindowsPipeReader": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN18QWindowsPipeReader5eventEP6QEvent": [
+      "bool", "address", "address"
+    ]
+  }
+}

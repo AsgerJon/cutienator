@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtGui/6.12.0/QtGui/private/qappleiconengine_p.h, Qt 6.12.0, as the Qt of",
+    "macOS installs it. Kept as it is when the generator runs again."
+  ],
+  "rows": {
+    "ritual_ZN16QAppleIconEngine8CacheKeyC1EN5QIcon4ModeENS1_5StateERK8QPalette5QSized": [
+      "address", "int", "int", "address", "address", "double"
+    ],
+    "ritual_ZN16QAppleIconEngine8CacheKeyD1Ev": ["nothing", "address"],
+    "ritual_ZeqRKN16QAppleIconEngine8CacheKeyES2_": [
+      "bool", "address", "address"
+    ]
+  }
+}

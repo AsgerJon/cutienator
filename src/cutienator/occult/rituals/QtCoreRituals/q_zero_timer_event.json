@@ -1,0 +1,12 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtCore/6.12.0/QtCore/private/qeventdispatcher_win_p.h, Qt 6.12.0, as",
+    "the Qt of Windows installs it. Kept as it is when the generator runs."
+  ],
+  "rows": {
+    "ritual_ZN15QZeroTimerEventC1Ei": ["address", "int"],
+    "ritual_ZN15QZeroTimerEventD1Ev": ["nothing", "address"],
+    "ritual_take_QZeroTimerEvent": ["bool", "address", "chars", "address"]
+  }
+}

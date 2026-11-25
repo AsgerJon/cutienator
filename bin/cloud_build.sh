@@ -23,7 +23,7 @@
 #     'clang++' is told is the same on both. Where the machine's own
 #     packages have a Qt there, it has to be this PC's Qt to the byte,
 #     and nothing of Qt is copied.
-#  4. Builds there, with 'Rituals.build()', the way a build runs here.
+#  4. Builds there, with 'Rituals.summon()', the way a build runs here.
 #     While it builds, '/run/deadhand' on the machine is touched from
 #     here once a minute.
 #  5. Copies the built libraries back, to where a build here puts
@@ -354,7 +354,7 @@ ccache --zero-stats > /dev/null
 rm -f ../targets.txt
 flock ../lock python3 -B -c 'import os
 from cutienator.occult import Rituals
-targets = Rituals.build()
+targets = Rituals.summon()
 with open(\"../targets.txt\", \"w\") as file:
   file.write(\"\".join(\"%s\\n\" % os.path.relpath(t) for t in targets))
 print(\"built %d libraries\" % len(targets))' > ../build.log 2>&1

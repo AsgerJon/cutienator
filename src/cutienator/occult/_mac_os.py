@@ -21,7 +21,7 @@ class MacOS(System):
   silicon and on Intel chips alike.
 
   You do not make one: 'System.getHere()' gives it when Python runs on
-  macOS, and 'Build', 'Rituals' and the judge of the trials ask it.
+  macOS, and 'Summon', 'Rituals' and the judge of the trials ask it.
 
   What macOS is like
   ------------------

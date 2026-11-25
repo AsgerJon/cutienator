@@ -1,0 +1,65 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtPrintSupport/6.12.0/QtPrintSupport/private/qpaintengine_mac_p.h, Qt",
+    "6.12.0, as the Qt of macOS installs it. Kept as it is when the"
+  ],
+  "rows": {
+    "ritual_ZN24QCoreGraphicsPaintEngineD1Ev": ["nothing", "address"],
+    "ritual_ZN24QCoreGraphicsPaintEngine5beginEP12QPaintDevice": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN24QCoreGraphicsPaintEngine3endEv": ["bool", "address"],
+    "ritual_ZN24QCoreGraphicsPaintEngine11updateStateERK17QPaintEngineState": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QCoreGraphicsPaintEngine9drawLinesEPK6QLineFi": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN24QCoreGraphicsPaintEngine9drawRectsEPK6QRectFi": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN24QCoreGraphicsPaintEngine10drawPointsEPK7QPointFi": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN24QCoreGraphicsPaintEngine11drawEllipseERK6QRectF": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QCoreGraphicsPaintEngine8drawPathERK12QPainterPath": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QCoreGraphicsPaintEngine11drawPolygonEPK7QPointFiN12QPaintEngine15PolygonDrawModeE": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN24QCoreGraphicsPaintEngine10drawPixmapERK6QRectFRK7QPixmapS2_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN24QCoreGraphicsPaintEngine15drawTiledPixmapERK6QRectFRK7QPixmapRK7QPointF": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN24QCoreGraphicsPaintEngine12drawTextItemERK7QPointFRK9QTextItem": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN24QCoreGraphicsPaintEngine9drawImageERK6QRectFRK6QImageS2_6QFlagsIN2Qt19ImageConversionFlagEE": [
+      "nothing", "address", "address", "address", "address", "int"
+    ],
+    "ritual_ZNK24QCoreGraphicsPaintEngine4typeEv": ["int", "address"],
+    "ritual_ZN24QCoreGraphicsPaintEngine9drawLinesEPK5QLinei": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN24QCoreGraphicsPaintEngine9drawRectsEPK5QRecti": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN24QCoreGraphicsPaintEngine10drawPointsEPK6QPointi": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN24QCoreGraphicsPaintEngine11drawEllipseERK5QRect": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QCoreGraphicsPaintEngine11drawPolygonEPK6QPointiN12QPaintEngine15PolygonDrawModeE": [
+      "nothing", "address", "address", "int", "int"
+    ],
+    "ritual_ZN24QCoreGraphicsPaintEngine6d_funcEv": ["address", "address"],
+    "ritual_ZNK24QCoreGraphicsPaintEngine6d_funcEv": ["address", "address"]
+  }
+}

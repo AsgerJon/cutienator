@@ -1,0 +1,25 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtMultimedia/6.12.0/QtMultimedia/private/qautoresetevent_kqueue_p.h, Qt",
+    "6.12.0, as the Qt of macOS installs it. Kept as it is when the generator"
+  ],
+  "rows": {
+    "ritual_ZNK9QtPrivate21QAutoResetEventKQueue10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN9QtPrivate21QAutoResetEventKQueue2trEPKcS2_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN9QtPrivate21QAutoResetEventKQueueC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN9QtPrivate21QAutoResetEventKQueueD1Ev": ["nothing", "address"],
+    "ritual_ZNK9QtPrivate21QAutoResetEventKQueue7isValidEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN9QtPrivate21QAutoResetEventKQueue3setEv": [
+      "nothing", "address"
+    ]
+  }
+}

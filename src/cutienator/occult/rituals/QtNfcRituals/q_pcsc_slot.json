@@ -1,0 +1,13 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtNfc/6.12.0/QtNfc/private/qpcscslot_p.h, Qt 6.12.0, as",
+    "the Qt of macOS and of Windows install it."
+  ],
+  "rows": {
+    "ritual_ZNK9QPcscSlot10metaObjectEv": ["address", "address"],
+    "ritual_ZN9QPcscSlotD1Ev": ["nothing", "address"],
+    "ritual_ZNK9QPcscSlot4nameEv": ["address", "address"],
+    "ritual_ZNK9QPcscSlot7hasCardEv": ["bool", "address"]
+  }
+}

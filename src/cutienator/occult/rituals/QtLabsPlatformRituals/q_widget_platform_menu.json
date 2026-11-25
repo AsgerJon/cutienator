@@ -1,0 +1,61 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtLabsPlatform/6.12.0/QtLabsPlatform/private/qwidgetplatformmenu_p.h,",
+    "Qt 6.12.0, as the Qt of macOS and of Windows installs it, the"
+  ],
+  "rows": {
+    "ritual_ZNK19QWidgetPlatformMenu10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QWidgetPlatformMenuD1Ev": ["nothing", "address"],
+    "ritual_ZN19QWidgetPlatformMenu14insertMenuItemEP17QPlatformMenuItemS1_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN19QWidgetPlatformMenu14removeMenuItemEP17QPlatformMenuItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QWidgetPlatformMenu12syncMenuItemEP17QPlatformMenuItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QWidgetPlatformMenu25syncSeparatorsCollapsibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN19QWidgetPlatformMenu7setTextERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN19QWidgetPlatformMenu7setIconERK5QIcon": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QWidgetPlatformMenu10setEnabledEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK19QWidgetPlatformMenu9isEnabledEv": ["bool", "address"],
+    "ritual_ZN19QWidgetPlatformMenu10setVisibleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN19QWidgetPlatformMenu15setMinimumWidthEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN19QWidgetPlatformMenu7setFontERK5QFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19QWidgetPlatformMenu11setMenuTypeEN13QPlatformMenu8MenuTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN19QWidgetPlatformMenu9showPopupEPK7QWindowRK5QRectPK17QPlatformMenuItem": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN19QWidgetPlatformMenu7dismissEv": ["nothing", "address"],
+    "ritual_ZNK19QWidgetPlatformMenu10menuItemAtEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK19QWidgetPlatformMenu14menuItemForTagEy": [
+      "address", "address", "unsigned long long"
+    ],
+    "ritual_ZNK19QWidgetPlatformMenu14createMenuItemEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QWidgetPlatformMenu13createSubMenuEv": [
+      "address", "address"
+    ]
+  }
+}

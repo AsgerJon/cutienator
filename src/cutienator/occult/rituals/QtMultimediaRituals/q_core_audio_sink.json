@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtMultimedia/6.12.0/QtMultimedia/private/qcoreaaudiosink_p.h, Qt 6.12.0,",
+    "as the Qt of macOS installs it. Kept as it is when the generator runs"
+  ],
+  "rows": {
+    "ritual_ZN14QCoreAudioSinkD1Ev": ["nothing", "address"],
+    "ritual_ZN14QCoreAudioSink6resumeEv": ["nothing", "address"],
+    "ritual_ZNK14QCoreAudioSink13currentStreamEv": ["address", "address"],
+    "ritual_ZN14QCoreAudioSink19notifyStreamStoppedEv": [
+      "nothing", "address"
+    ]
+  }
+}

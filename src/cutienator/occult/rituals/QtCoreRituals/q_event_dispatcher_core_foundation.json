@@ -1,0 +1,82 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtCore/6.12.0/QtCore/private/qeventdispatcher_cf_p.h, Qt 6.12.0, as",
+    "the Qt of macOS installs it. Kept as it is when the generator runs"
+  ],
+  "rows": {
+    "ritual_ZNK30QEventDispatcherCoreFoundation10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN30QEventDispatcherCoreFoundation2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN30QEventDispatcherCoreFoundationC1EP7QObject": [
+      "address", "address"
+    ],
+    "ritual_ZN30QEventDispatcherCoreFoundation10startingUpEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QEventDispatcherCoreFoundationD1Ev": ["nothing", "address"],
+    "ritual_ZN30QEventDispatcherCoreFoundation13processEventsE6QFlagsIN10QEventLoop17ProcessEventsFlagEE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN30QEventDispatcherCoreFoundation22registerSocketNotifierEP15QSocketNotifier": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN30QEventDispatcherCoreFoundation24unregisterSocketNotifierEP15QSocketNotifier": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN30QEventDispatcherCoreFoundation15unregisterTimerEN2Qt7TimerIdE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN30QEventDispatcherCoreFoundation16unregisterTimersEP7QObject": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN30QEventDispatcherCoreFoundation6wakeUpEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QEventDispatcherCoreFoundation9interruptEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK30QEventDispatcherCoreFoundation16currentEventLoopEv": [
+      "address", "address"
+    ],
+    "ritual_ZN30QEventDispatcherCoreFoundation19processPostedEventsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN30QEventDispatcherCoreFoundation13processTimersEP16__CFRunLoopTimer": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN30QEventDispatcherCoreFoundation12updateTimersEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN30QEventDispatcherCoreFoundation15invalidateTimerEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QEventDispatcherCoreFoundation": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN30QEventDispatcherCoreFoundation10startingUpEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN30QEventDispatcherCoreFoundation13processEventsE6QFlagsIN10QEventLoop17ProcessEventsFlagEE": [
+      "bool", "address", "int"
+    ],
+    "ritual_own_ZN30QEventDispatcherCoreFoundation22registerSocketNotifierEP15QSocketNotifier": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN30QEventDispatcherCoreFoundation24unregisterSocketNotifierEP15QSocketNotifier": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN30QEventDispatcherCoreFoundation6wakeUpEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN30QEventDispatcherCoreFoundation9interruptEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN30QEventDispatcherCoreFoundation19processPostedEventsEv": [
+      "bool", "address"
+    ]
+  }
+}

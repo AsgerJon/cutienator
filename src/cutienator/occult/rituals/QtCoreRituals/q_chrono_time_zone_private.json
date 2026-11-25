@@ -1,0 +1,53 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtCore/6.12.0/QtCore/private/qtimezoneprivate_p.h, Qt 6.12.0, as",
+    "the Qt of macOS and of Windows install it. Kept as it is when the"
+  ],
+  "rows": {
+    "ritual_ZNK22QChronoTimeZonePrivate5cloneEv": ["address", "address"],
+    "ritual_ZN22QChronoTimeZonePrivateD1Ev": ["nothing", "address"],
+    "ritual_ZNK22QChronoTimeZonePrivate16systemTimeZoneIdEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK22QChronoTimeZonePrivate12abbreviationEx": [
+      "text", "address", "long long"
+    ],
+    "ritual_ZNK22QChronoTimeZonePrivate13offsetFromUtcEx": [
+      "int", "address", "long long"
+    ],
+    "ritual_ZNK22QChronoTimeZonePrivate18standardTimeOffsetEx": [
+      "int", "address", "long long"
+    ],
+    "ritual_ZNK22QChronoTimeZonePrivate18daylightTimeOffsetEx": [
+      "int", "address", "long long"
+    ],
+    "ritual_ZNK22QChronoTimeZonePrivate21isTimeZoneIdAvailableE14QByteArrayView": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZNK22QChronoTimeZonePrivate20availableTimeZoneIdsEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK22QChronoTimeZonePrivate20availableTimeZoneIdsEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZNK22QChronoTimeZonePrivate15hasDaylightTimeEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK22QChronoTimeZonePrivate14isDaylightTimeEx": [
+      "bool", "address", "long long"
+    ],
+    "ritual_ZNK22QChronoTimeZonePrivate4dataEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZNK22QChronoTimeZonePrivate14hasTransitionsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK22QChronoTimeZonePrivate14nextTransitionEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZNK22QChronoTimeZonePrivate18previousTransitionEx": [
+      "address", "address", "long long"
+    ]
+  }
+}

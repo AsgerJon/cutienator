@@ -1,0 +1,43 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtLabsPlatform/6.12.0/QtLabsPlatform/private/qwidgetplatformsystemtrayicon_p.h,",
+    "Qt 6.12.0, as the Qt of macOS and of Windows installs it, the"
+  ],
+  "rows": {
+    "ritual_ZNK29QWidgetPlatformSystemTrayIcon10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN29QWidgetPlatformSystemTrayIconD1Ev": ["nothing", "address"],
+    "ritual_ZN29QWidgetPlatformSystemTrayIcon4initEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QWidgetPlatformSystemTrayIcon7cleanupEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN29QWidgetPlatformSystemTrayIcon10updateIconERK5QIcon": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN29QWidgetPlatformSystemTrayIcon13updateToolTipERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN29QWidgetPlatformSystemTrayIcon10updateMenuEP13QPlatformMenu": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK29QWidgetPlatformSystemTrayIcon8geometryEv": [
+      "address", "address"
+    ],
+    "ritual_ZN29QWidgetPlatformSystemTrayIcon11showMessageERK7QStringS2_RK5QIconN23QPlatformSystemTrayIcon11MessageIconEi": [
+      "nothing", "address", "text", "text", "address", "int", "int"
+    ],
+    "ritual_ZNK29QWidgetPlatformSystemTrayIcon21isSystemTrayAvailableEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK29QWidgetPlatformSystemTrayIcon16supportsMessagesEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK29QWidgetPlatformSystemTrayIcon10createMenuEv": [
+      "address", "address"
+    ]
+  }
+}

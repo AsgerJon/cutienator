@@ -1,0 +1,12 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtCore/6.12.0/QtCore/private/qcore_mac_p.h, Qt 6.12.0, as the Qt of",
+    "macOS installs it. Kept as it is when the generator runs again."
+  ],
+  "rows": {
+    "ritual_ZN24QMacNotificationObserverC1Ev": ["address"],
+    "ritual_ZN24QMacNotificationObserver6removeEv": ["nothing", "address"],
+    "ritual_ZN24QMacNotificationObserverD1Ev": ["nothing", "address"]
+  }
+}

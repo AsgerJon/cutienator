@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtQuickVectorImage/6.12.0/QtQuickVectorImage/private/qquickvectorimageincubator_p_p.h,",
+    "Qt 6.12.0, as the Qt of macOS and of Windows installs it, the"
+  ],
+  "rows": {
+    "ritual_ZN33QQuickVectorImageIncubatorPrivate3getEP26QQuickVectorImageIncubator": [
+      "address", "address"
+    ],
+    "ritual_ZN33QQuickVectorImageIncubatorPrivateD1Ev": [
+      "nothing", "address"
+    ]
+  }
+}

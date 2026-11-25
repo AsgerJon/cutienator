@@ -74,7 +74,7 @@ class TestCalledOnClass(BaseTest):
     """Builds the shared object of rituals when a ritual file is newer."""
     super().setUpClass()
     if Rituals.isStale():
-      Rituals.build()
+      Rituals.summon()
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  TESTS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

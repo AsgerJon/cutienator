@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtMultimedia/6.12.0/QtMultimedia/private/qwindowsaudiosource_p.h, Qt",
+    "6.12.0, as the Qt of Windows installs it. Kept as it is when the"
+  ],
+  "rows": {
+    "ritual_ZN8QtWASAPI24QWASAPIAudioSourceStream16updateStreamIdleEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZN8QtWASAPI24QWASAPIAudioSourceStream4openEv": [
+      "bool", "address"
+    ]
+  }
+}

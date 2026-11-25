@@ -1,0 +1,20 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtStateMachine/6.12.0/QtStateMachine/private/qabstractstate_p.h,",
+    "Qt 6.12.0, as the Qt of macOS and of Windows install it, and that"
+  ],
+  "rows": {
+    "ritual_ZN21QAbstractStatePrivate3getEP14QAbstractState": [
+      "address", "address"
+    ],
+    "ritual_ZN21QAbstractStatePrivate3getEPK14QAbstractState": [
+      "address", "address"
+    ],
+    "ritual_ZN21QAbstractStatePrivate13activeChangedEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QAbstractStatePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK21QAbstractStatePrivate6q_funcEv": ["address", "address"]
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtLabsPlatform/6.12.0/QtLabsPlatform/private/qwidgetplatformfontdialog_p.h,",
+    "Qt 6.12.0, as the Qt of macOS and of Windows installs it, the"
+  ],
+  "rows": {
+    "ritual_ZNK25QWidgetPlatformFontDialog10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QWidgetPlatformFontDialogD1Ev": ["nothing", "address"],
+    "ritual_ZNK25QWidgetPlatformFontDialog11currentFontEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QWidgetPlatformFontDialog14setCurrentFontERK5QFont": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN25QWidgetPlatformFontDialog4execEv": ["nothing", "address"],
+    "ritual_ZN25QWidgetPlatformFontDialog4showE6QFlagsIN2Qt10WindowTypeEENS1_14WindowModalityEP7QWindow": [
+      "bool", "address", "int", "int", "address"
+    ],
+    "ritual_ZN25QWidgetPlatformFontDialog4hideEv": ["nothing", "address"]
+  }
+}

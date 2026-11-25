@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtWidgets/6.12.0/QtWidgets/private/qwizard_win_p.h, Qt 6.12.0, as",
+    "the Qt of Windows installs it. Kept as it is when the generator"
+  ],
+  "rows": {
+    "ritual_ZN12QVistaHelperD1Ev": ["nothing", "address"],
+    "ritual_ZNK12QVistaHelper10backButtonEv": ["address", "address"],
+    "ritual_ZN12QVistaHelper14hideBackButtonEv": ["nothing", "address"],
+    "ritual_ZN12QVistaHelper10topPaddingEPK12QPaintDevice": [
+      "int", "address"
+    ],
+    "ritual_ZN12QVistaHelper14backButtonSizeEPK12QPaintDevice": [
+      "int", "address"
+    ],
+    "ritual_ZN12QVistaHelper10leftMarginEPK12QPaintDevice": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN12QVistaHelper11eventFilterEP7QObjectP6QEvent": [
+      "bool", "address", "address", "address"
+    ]
+  }
+}

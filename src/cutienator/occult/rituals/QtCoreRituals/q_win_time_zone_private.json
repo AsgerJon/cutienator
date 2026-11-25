@@ -1,0 +1,49 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtCore/6.12.0/QtCore/private/qtimezoneprivate_p.h, Qt 6.12.0, as",
+    "the Qt of macOS and of Windows install it. Kept as it is when the"
+  ],
+  "rows": {
+    "ritual_ZNK19QWinTimeZonePrivate5cloneEv": ["address", "address"],
+    "ritual_ZN19QWinTimeZonePrivateD1Ev": ["nothing", "address"],
+    "ritual_ZNK19QWinTimeZonePrivate7commentEv": ["text", "address"],
+    "ritual_ZNK19QWinTimeZonePrivate11displayNameEN9QTimeZone8TimeTypeENS0_8NameTypeERK7QLocale": [
+      "text", "address", "int", "int", "address"
+    ],
+    "ritual_ZNK19QWinTimeZonePrivate12abbreviationEx": [
+      "text", "address", "long long"
+    ],
+    "ritual_ZNK19QWinTimeZonePrivate13offsetFromUtcEx": [
+      "int", "address", "long long"
+    ],
+    "ritual_ZNK19QWinTimeZonePrivate18standardTimeOffsetEx": [
+      "int", "address", "long long"
+    ],
+    "ritual_ZNK19QWinTimeZonePrivate18daylightTimeOffsetEx": [
+      "int", "address", "long long"
+    ],
+    "ritual_ZNK19QWinTimeZonePrivate15hasDaylightTimeEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK19QWinTimeZonePrivate14isDaylightTimeEx": [
+      "bool", "address", "long long"
+    ],
+    "ritual_ZNK19QWinTimeZonePrivate4dataEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZNK19QWinTimeZonePrivate14hasTransitionsEv": ["bool", "address"],
+    "ritual_ZNK19QWinTimeZonePrivate14nextTransitionEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZNK19QWinTimeZonePrivate18previousTransitionEx": [
+      "address", "address", "long long"
+    ],
+    "ritual_ZNK19QWinTimeZonePrivate16systemTimeZoneIdEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QWinTimeZonePrivate20availableTimeZoneIdsEv": [
+      "address", "address"
+    ]
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from QtStateMachine/qkeyeventtransition.h,",
+    "Qt 6.12.0, the same text on every system. Kept as it is when the",
+    "generator runs again. Not written: the 'bindable...' functions,"
+  ],
+  "rows": {
+    "ritual_ZNK19QKeyEventTransition10metaObjectEv": ["address", "address"],
+    "ritual_ZN19QKeyEventTransition2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN19QKeyEventTransitionC1EP6QState": ["address", "address"],
+    "ritual_ZN19QKeyEventTransitionC1EP7QObjectN6QEvent4TypeEiP6QState": [
+      "address", "address", "int", "int", "address"
+    ],
+    "ritual_ZN19QKeyEventTransitionD1Ev": ["nothing", "address"],
+    "ritual_ZNK19QKeyEventTransition3keyEv": ["int", "address"],
+    "ritual_ZN19QKeyEventTransition6setKeyEi": ["nothing", "address", "int"],
+    "ritual_ZNK19QKeyEventTransition12modifierMaskEv": ["int", "address"],
+    "ritual_ZN19QKeyEventTransition15setModifierMaskE6QFlagsIN2Qt16KeyboardModifierEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN19QKeyEventTransition9eventTestEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN19QKeyEventTransition12onTransitionEP6QEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QKeyEventTransition": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN19QKeyEventTransition9eventTestEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN19QKeyEventTransition12onTransitionEP6QEvent": [
+      "nothing", "address", "address"
+    ]
+  }
+}

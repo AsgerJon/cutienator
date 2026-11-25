@@ -1,0 +1,131 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtPrintSupport/6.12.0/QtPrintSupport/private/qwindowsprintdevice_p.h, Qt",
+    "6.12.0, as the Qt of Windows installs it. Kept as it is when the"
+  ],
+  "rows": {
+    "ritual_ZN19QWindowsPrintDeviceC1Ev": ["address"],
+    "ritual_ZN19QWindowsPrintDeviceC1ERK7QString": ["address", "text"],
+    "ritual_ZN19QWindowsPrintDeviceD1Ev": ["nothing", "address"],
+    "ritual_ZNK19QWindowsPrintDevice7isValidEv": ["bool", "address"],
+    "ritual_ZNK19QWindowsPrintDevice9isDefaultEv": ["bool", "address"],
+    "ritual_ZNK19QWindowsPrintDevice5stateEv": ["int", "address"],
+    "ritual_ZNK19QWindowsPrintDevice15defaultPageSizeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QWindowsPrintDevice16printableMarginsERK9QPageSizeN11QPageLayout11OrientationEi": [
+      "address", "address", "address", "int", "int"
+    ],
+    "ritual_ZNK19QWindowsPrintDevice17defaultResolutionEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK19QWindowsPrintDevice16defaultInputSlotEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QWindowsPrintDevice17defaultDuplexModeEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK19QWindowsPrintDevice16defaultColorModeEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK19QWindowsPrintDevice21supportsCollateCopiesEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK19QWindowsPrintDevice22supportsMultipleCopiesEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK19QWindowsPrintDevice23supportsCustomPageSizesEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK19QWindowsPrintDevice23minimumPhysicalPageSizeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19QWindowsPrintDevice23maximumPhysicalPageSizeEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19QWindowsPrintDevice23availablePrintDeviceIdsEv": ["address"],
+    "ritual_ZN19QWindowsPrintDevice20defaultPrintDeviceIdEv": ["text"],
+    "ritual_ZNK19QWindowsPrintDevice13loadPageSizesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK19QWindowsPrintDevice15loadResolutionsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK19QWindowsPrintDevice14loadInputSlotsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK19QWindowsPrintDevice14loadOutputBinsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK19QWindowsPrintDevice15loadDuplexModesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK19QWindowsPrintDevice14loadColorModesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK19QWindowsPrintDevice17loadCopiesSupportEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK19QWindowsPrintDevice19loadMinMaxPageSizesEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QWindowsPrintDevice": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK19QWindowsPrintDevice7isValidEv": ["bool", "address"],
+    "ritual_own_ZNK19QWindowsPrintDevice9isDefaultEv": ["bool", "address"],
+    "ritual_own_ZNK19QWindowsPrintDevice5stateEv": ["int", "address"],
+    "ritual_own_ZNK19QWindowsPrintDevice15defaultPageSizeEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK19QWindowsPrintDevice16printableMarginsERK9QPageSizeN11QPageLayout11OrientationEi": [
+      "address", "address", "address", "int", "int"
+    ],
+    "ritual_own_ZNK19QWindowsPrintDevice17defaultResolutionEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZNK19QWindowsPrintDevice16defaultInputSlotEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK19QWindowsPrintDevice17defaultDuplexModeEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZNK19QWindowsPrintDevice16defaultColorModeEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZNK19QWindowsPrintDevice21supportsCollateCopiesEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZNK19QWindowsPrintDevice22supportsMultipleCopiesEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZNK19QWindowsPrintDevice23supportsCustomPageSizesEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZNK19QWindowsPrintDevice23minimumPhysicalPageSizeEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK19QWindowsPrintDevice23maximumPhysicalPageSizeEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK19QWindowsPrintDevice13loadPageSizesEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZNK19QWindowsPrintDevice15loadResolutionsEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZNK19QWindowsPrintDevice14loadInputSlotsEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZNK19QWindowsPrintDevice14loadOutputBinsEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZNK19QWindowsPrintDevice15loadDuplexModesEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZNK19QWindowsPrintDevice14loadColorModesEv": [
+      "nothing", "address"
+    ]
+  }
+}

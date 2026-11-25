@@ -1,0 +1,70 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtBluetooth/6.12.0/QtBluetooth/private/qbluetoothsocket_winrt_p.h, Qt",
+    "6.12.0, as the Qt of Windows installs it. Kept as it is when the"
+  ],
+  "rows": {
+    "ritual_ZNK28QBluetoothSocketPrivateWinRT10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN28QBluetoothSocketPrivateWinRTD1Ev": ["nothing", "address"],
+    "ritual_ZN28QBluetoothSocketPrivateWinRT22connectToServiceHelperERK17QBluetoothAddresst6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [
+      "nothing", "address", "address", "unsigned short", "int"
+    ],
+    "ritual_ZN28QBluetoothSocketPrivateWinRT16connectToServiceERK21QBluetoothServiceInfo6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN28QBluetoothSocketPrivateWinRT16connectToServiceERK17QBluetoothAddressRK14QBluetoothUuid6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [
+      "nothing", "address", "address", "address", "int"
+    ],
+    "ritual_ZN28QBluetoothSocketPrivateWinRT16connectToServiceERK17QBluetoothAddresst6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [
+      "nothing", "address", "address", "unsigned short", "int"
+    ],
+    "ritual_ZN28QBluetoothSocketPrivateWinRT18ensureNativeSocketEN21QBluetoothServiceInfo8ProtocolE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK28QBluetoothSocketPrivateWinRT9localNameEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK28QBluetoothSocketPrivateWinRT12localAddressEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QBluetoothSocketPrivateWinRT9localPortEv": [
+      "unsigned short", "address"
+    ],
+    "ritual_ZNK28QBluetoothSocketPrivateWinRT8peerNameEv": [
+      "text", "address"
+    ],
+    "ritual_ZNK28QBluetoothSocketPrivateWinRT11peerAddressEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK28QBluetoothSocketPrivateWinRT8peerPortEv": [
+      "unsigned short", "address"
+    ],
+    "ritual_ZN28QBluetoothSocketPrivateWinRT5abortEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QBluetoothSocketPrivateWinRT5closeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN28QBluetoothSocketPrivateWinRT9writeDataEPKcx": [
+      "long long", "address", "chars", "long long"
+    ],
+    "ritual_ZN28QBluetoothSocketPrivateWinRT8readDataEPcx": [
+      "long long", "address", "address", "long long"
+    ],
+    "ritual_ZN28QBluetoothSocketPrivateWinRT19setSocketDescriptorEiN21QBluetoothServiceInfo8ProtocolEN16QBluetoothSocket11SocketStateE6QFlagsIN13QIODeviceBase12OpenModeFlagEE": [
+      "bool", "address", "int", "int", "int", "int"
+    ],
+    "ritual_ZNK28QBluetoothSocketPrivateWinRT14bytesAvailableEv": [
+      "long long", "address"
+    ],
+    "ritual_ZNK28QBluetoothSocketPrivateWinRT11canReadLineEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK28QBluetoothSocketPrivateWinRT12bytesToWriteEv": [
+      "long long", "address"
+    ]
+  }
+}

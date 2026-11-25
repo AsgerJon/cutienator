@@ -407,7 +407,7 @@ class RitualGenerator:
   #  that of the class, found by '_settleSource'.
   __pulled_first__ = ()  # type: Tuple[str, ...]
   #  The lines around lines pulling files in that stay with the ritual
-  #  file: 'Build' puts only the lines under no '#if' into its common
+  #  file: 'Summon' puts only the lines under no '#if' into its common
   #  header, and nothing defines this name.
   __not_common_start__ = '#ifndef CUTIENATOR_NOT_IN_COMMON_HEADER'
   __not_common_end__ = '#endif  // CUTIENATOR_NOT_IN_COMMON_HEADER'
@@ -1713,7 +1713,7 @@ class RitualGenerator:
     if self.hasCuteClass():
       includeLines.append('#include <cstring>')
     #  A header file Qt keeps apart, as 'qabstractspinbox_p.h', stays
-    #  with this file as well, out of the common header 'Build' makes:
+    #  with this file as well, out of the common header 'Summon' makes:
     #  Qt writes those for its own files one at a time, and all of them
     #  together do not mean what each means alone. That one declares an
     #  'operator+' of two QVariant for everybody, which makes the '+' of
@@ -1734,7 +1734,7 @@ class RitualGenerator:
     #  What the code taken from Qt's source needs comes as Qt's files
     #  have it, with the '#if' lines around it, so no line of it is
     #  left out for standing above already. It stays with this file,
-    #  out of the common header 'Build' makes of the lines under no
+    #  out of the common header 'Summon' makes of the lines under no
     #  '#if': a header file of Qt's source may be one to be read once
     #  only, as 'qmetaobject_moc_p.h', which has no guard.
     if self.getSourceIncludes():
@@ -1922,7 +1922,7 @@ class RitualGenerator:
     of the ritual file; for a part of 'HeaderReader.getOwnOrderParts'
     only, under 'parts first' the part and the parts it needs, the
     nearest first, whose folders the compiler looked in first, so that
-    'Rituals.build' does the same; and under 'rows' each ritual with
+    'Rituals.summon' does the same; and under 'rows' each ritual with
     its row.
     """
     about = textwrap.wrap(self._getHeading(), 66)
@@ -2693,7 +2693,8 @@ class RitualGenerator:
     tree for ''; see '_getPrivateArguments'."""
     return (
         'clang++', '-std=c++17', *Machine.getCompilerFlags(), '-O0', '-w',
-        '-fno-access-control', '-ffunction-sections', '-ferror-limit=0',
+        '-fno-access-control', '-DQT_USE_QSTRINGBUILDER',
+        '-ffunction-sections', '-ferror-limit=0',
         '-I%s' % HeaderReader.getQtHeaderFolder(),
         *self._getPrivateArguments(partName),
     )

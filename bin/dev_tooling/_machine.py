@@ -45,7 +45,7 @@ class Machine:
     '_ZNK7QObject6threadEv', and Visual Studio writes them otherwise,
     as '?thread@QObject@@QEBAPEAVQThread@@XZ'. For that, 'clang++'
     finds the header files of MinGW through the 'gcc' of MinGW in
-    'PATH'. The tester builds as cutienator's 'Build' does there, for
+    'PATH'. The tester builds as cutienator's 'Summon' does there, for
     the Qt of Visual Studio, and does not ask this class how.
 
   What to expect
@@ -96,7 +96,7 @@ class Machine:
   )  # type: Dict[str, str]
 
   #  The length of a command, in letters, above which Windows gets it
-  #  in a file: see 'handOver'. The same as cutienator's 'Build' uses.
+  #  in a file: see 'handOver'. The same as cutienator's 'Summon' uses.
   __long_command__ = 8000
 
   #  Fallback Variables
@@ -222,7 +222,7 @@ class Machine:
     Gives the command to start, in the 'with' it opens, as the system
     takes it: on Windows a command of 'clang++' longer than
     '__long_command__' letters goes in a file, as 'clang++ @file', the
-    way cutienator's 'Build' hands it over; anywhere else the command
+    way cutienator's 'Summon' hands it over; anywhere else the command
     as it is. The file is removed when the 'with' ends, so the program
     has to have ended by then.
 

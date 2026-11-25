@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtStateMachine/6.12.0/QtStateMachine/private/qstatemachine_p.h,",
+    "Qt 6.12.0, as the Qt of macOS and of Windows install it, and that"
+  ],
+  "rows": {
+    "ritual_ZN20QStateMachinePrivate12RestorableIdC1EP7QObject10QByteArray": [
+      "address", "address", "address"
+    ],
+    "ritual_ZNK20QStateMachinePrivate12RestorableId6objectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK20QStateMachinePrivate12RestorableId12propertyNameEv": [
+      "address", "address"
+    ],
+    "ritual_ZeqRKN20QStateMachinePrivate12RestorableIdES2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZneRKN20QStateMachinePrivate12RestorableIdES2_": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN20QStateMachinePrivate12RestorableIdD1Ev": [
+      "nothing", "address"
+    ]
+  }
+}

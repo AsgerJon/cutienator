@@ -1,0 +1,23 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtStateMachine/6.12.0/QtStateMachine/private/qsignaltransition_p.h,",
+    "Qt 6.12.0, as the Qt of macOS and of Windows install it, and that"
+  ],
+  "rows": {
+    "ritual_ZN24QSignalTransitionPrivate3getEP17QSignalTransition": [
+      "address", "address"
+    ],
+    "ritual_ZN24QSignalTransitionPrivate16callOnTransitionEP6QEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QSignalTransitionPrivate15setSenderObjectEPK7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QSignalTransitionPrivate9setSignalERK10QByteArray": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN24QSignalTransitionPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK24QSignalTransitionPrivate6q_funcEv": ["address", "address"]
+  }
+}

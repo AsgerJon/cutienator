@@ -1,0 +1,24 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtLabsPlatform/6.12.0/QtLabsPlatform/private/qwidgetplatformcolordialog_p.h,",
+    "Qt 6.12.0, as the Qt of macOS and of Windows installs it, the"
+  ],
+  "rows": {
+    "ritual_ZNK26QWidgetPlatformColorDialog10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QWidgetPlatformColorDialogD1Ev": ["nothing", "address"],
+    "ritual_ZNK26QWidgetPlatformColorDialog12currentColorEv": [
+      "address", "address"
+    ],
+    "ritual_ZN26QWidgetPlatformColorDialog15setCurrentColorERK6QColor": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN26QWidgetPlatformColorDialog4execEv": ["nothing", "address"],
+    "ritual_ZN26QWidgetPlatformColorDialog4showE6QFlagsIN2Qt10WindowTypeEENS1_14WindowModalityEP7QWindow": [
+      "bool", "address", "int", "int", "address"
+    ],
+    "ritual_ZN26QWidgetPlatformColorDialog4hideEv": ["nothing", "address"]
+  }
+}

@@ -18,7 +18,7 @@ if TYPE_CHECKING:  # pragma: no cover, no mutate
 class System:
   """
   Says what differs from one operating system to the next when ritual
-  files are compiled and the result is opened. 'Build', 'Rituals' and
+  files are compiled and the result is opened. 'Summon', 'Rituals' and
   the judge of the trials ask it, so none of them names a system.
 
     system = System.getHere()
@@ -189,7 +189,7 @@ class System:
 
     str
       The path of the file from the folder where Qt keeps its shared
-      objects, which 'Build.getQtSharedObjectFolder' gives.
+      objects, which 'Summon.getQtSharedObjectFolder' gives.
     """
     raise self._refuse('getQtFileName')
 

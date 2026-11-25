@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtCore/6.12.0/QtCore/private/qcore_mac_p.h, Qt 6.12.0, as the Qt of",
+    "macOS installs it. Kept as it is when the generator runs again."
+  ],
+  "rows": {
+    "ritual_ZN17QAppleLogActivityC1Ev": ["address"],
+    "ritual_ZN17QAppleLogActivityC1EP13os_activity_s": [
+      "address", "address"
+    ],
+    "ritual_ZN17QAppleLogActivityD1Ev": ["nothing", "address"],
+    "ritual_ZN17QAppleLogActivity5leaveEv": ["nothing", "address"],
+    "ritual_ZN17QAppleLogActivitycvP13os_activity_sEv": [
+      "address", "address"
+    ]
+  }
+}

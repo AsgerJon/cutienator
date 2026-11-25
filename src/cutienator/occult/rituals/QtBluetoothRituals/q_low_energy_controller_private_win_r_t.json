@@ -1,0 +1,43 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtBluetooth/6.12.0/QtBluetooth/private/qlowenergycontroller_winrt_p.h, Qt",
+    "6.12.0, as the Qt of Windows installs it. Kept as it is when the"
+  ],
+  "rows": {
+    "ritual_ZNK32QLowEnergyControllerPrivateWinRT10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN32QLowEnergyControllerPrivateWinRTD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN32QLowEnergyControllerPrivateWinRT4initEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN32QLowEnergyControllerPrivateWinRT15connectToDeviceEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN32QLowEnergyControllerPrivateWinRT20disconnectFromDeviceEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN32QLowEnergyControllerPrivateWinRT16discoverServicesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN32QLowEnergyControllerPrivateWinRT22discoverServiceDetailsERK14QBluetoothUuidN17QLowEnergyService13DiscoveryModeE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN32QLowEnergyControllerPrivateWinRT16startAdvertisingERK31QLowEnergyAdvertisingParametersRK25QLowEnergyAdvertisingDataS5_": [
+      "nothing", "address", "address", "address", "address"
+    ],
+    "ritual_ZN32QLowEnergyControllerPrivateWinRT15stopAdvertisingEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN32QLowEnergyControllerPrivateWinRT23requestConnectionUpdateERK30QLowEnergyConnectionParameters": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN32QLowEnergyControllerPrivateWinRT25addToGenericAttributeListERK21QLowEnergyServiceDatat": [
+      "nothing", "address", "address", "unsigned short"
+    ],
+    "ritual_ZNK32QLowEnergyControllerPrivateWinRT3mtuEv": ["int", "address"]
+  }
+}

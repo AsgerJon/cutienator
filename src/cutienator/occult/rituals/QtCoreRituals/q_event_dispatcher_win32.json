@@ -1,0 +1,74 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtCore/6.12.0/QtCore/private/qeventdispatcher_win_p.h, Qt 6.12.0, as",
+    "the Qt of Windows installs it. Kept as it is when the generator runs."
+  ],
+  "rows": {
+    "ritual_ZNK21QEventDispatcherWin3210metaObjectEv": ["address", "address"],
+    "ritual_ZN21QEventDispatcherWin322trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN21QEventDispatcherWin326d_funcEv": ["address", "address"],
+    "ritual_ZNK21QEventDispatcherWin326d_funcEv": ["address", "address"],
+    "ritual_ZN21QEventDispatcherWin32C1EP7QObject": ["address", "address"],
+    "ritual_ZN21QEventDispatcherWin32D1Ev": ["nothing", "address"],
+    "ritual_ZN21QEventDispatcherWin3213processEventsE6QFlagsIN10QEventLoop17ProcessEventsFlagEE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN21QEventDispatcherWin3222registerSocketNotifierEP15QSocketNotifier": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QEventDispatcherWin3224unregisterSocketNotifierEP15QSocketNotifier": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN21QEventDispatcherWin3215unregisterTimerEN2Qt7TimerIdE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN21QEventDispatcherWin3216unregisterTimersEP7QObject": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN21QEventDispatcherWin326wakeUpEv": ["nothing", "address"],
+    "ritual_ZN21QEventDispatcherWin329interruptEv": ["nothing", "address"],
+    "ritual_ZN21QEventDispatcherWin3210startingUpEv": ["nothing", "address"],
+    "ritual_ZN21QEventDispatcherWin3211closingDownEv": ["nothing", "address"],
+    "ritual_ZN21QEventDispatcherWin325eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN21QEventDispatcherWin3212internalHwndEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21QEventDispatcherWin3216sendPostedEventsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN21QEventDispatcherWin3226doUnregisterSocketNotifierEP15QSocketNotifier": [
+      "nothing", "address", "address"
+    ],
+    "ritual_take_QEventDispatcherWin32": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN21QEventDispatcherWin3213processEventsE6QFlagsIN10QEventLoop17ProcessEventsFlagEE": [
+      "bool", "address", "int"
+    ],
+    "ritual_own_ZN21QEventDispatcherWin3222registerSocketNotifierEP15QSocketNotifier": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN21QEventDispatcherWin3224unregisterSocketNotifierEP15QSocketNotifier": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN21QEventDispatcherWin326wakeUpEv": ["nothing", "address"],
+    "ritual_own_ZN21QEventDispatcherWin329interruptEv": ["nothing", "address"],
+    "ritual_own_ZN21QEventDispatcherWin3210startingUpEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN21QEventDispatcherWin3211closingDownEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN21QEventDispatcherWin325eventEP6QEvent": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN21QEventDispatcherWin3216sendPostedEventsEv": [
+      "nothing", "address"
+    ]
+  }
+}

@@ -60,7 +60,7 @@ class TestQObject(BaseTest):
     """Builds the shared object of rituals when a ritual file is newer."""
     super().setUpClass()
     if Rituals.isStale():
-      Rituals.build()
+      Rituals.summon()
 
   def _raisedBy(self, make: Callable) -> BaseException:
     """

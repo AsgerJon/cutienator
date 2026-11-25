@@ -83,7 +83,7 @@ class TestPrivateClasses(BaseTest):
     and runs the program once for every test."""
     super().setUpClass()
     if Rituals.isStale():
-      Rituals.build()
+      Rituals.summon()
     packageFolder = os.path.dirname(os.path.abspath(cutienator.__file__))
     environment = dict(os.environ)
     known = environment.get('PYTHONPATH', '')

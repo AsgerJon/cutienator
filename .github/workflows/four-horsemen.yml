@@ -1,7 +1,7 @@
 # Four horsemen: makes the demons of all four systems at one press.
 # Manual trigger only. On a Linux machine, a Windows machine, an Apple
 # silicon Mac and an Intel Mac it compiles every ritual file and joins
-# them, with 'bin/check_build.py', which names EVERYTHING the compiler
+# them, with 'bin/check_summon.py', which names EVERYTHING the compiler
 # and the linker refuse, not the first. It releases nothing, changes
 # nothing on 'main' and reads no safety.
 # Each machine hands over what its compile produced as an artifact of
@@ -86,7 +86,7 @@ jobs:
           PYTHONPATH: ${{ github.workspace }}/src
         run: |
           mkdir -p horsemen
-          python -B bin/check_build.py horsemen/report.txt
+          python -B bin/check_summon.py horsemen/report.txt
       # Also when the step above failed. The object files lie in
       # 'demons', one for each ritual file that compiled.
       - name: Hand over what the compile produced

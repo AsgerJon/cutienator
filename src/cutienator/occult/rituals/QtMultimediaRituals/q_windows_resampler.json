@@ -1,0 +1,45 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtMultimedia/6.12.0/QtMultimedia/private/qwindowsresampler_p.h, Qt",
+    "6.12.0, as the Qt of Windows installs it. Kept as it is when the"
+  ],
+  "rows": {
+    "ritual_ZN17QWindowsResamplerC1Ev": ["address"],
+    "ritual_ZN17QWindowsResamplerD1Ev": ["nothing", "address"],
+    "ritual_ZN17QWindowsResampler11isAvailableEv": ["bool"],
+    "ritual_ZN17QWindowsResampler5setupERK12QAudioFormatS2_": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZN17QWindowsResampler8resampleE10QByteArray": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN17QWindowsResampler8resampleERK14QByteArrayView": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN17QWindowsResampler8resampleEPKcy": [
+      "address", "address", "chars", "size_t"
+    ],
+    "ritual_ZNK17QWindowsResampler11inputFormatEv": ["address", "address"],
+    "ritual_ZNK17QWindowsResampler12outputFormatEv": ["address", "address"],
+    "ritual_ZNK17QWindowsResampler16outputBufferSizeEy": [
+      "unsigned long long", "address", "unsigned long long"
+    ],
+    "ritual_ZNK17QWindowsResampler15inputBufferSizeEy": [
+      "unsigned long long", "address", "unsigned long long"
+    ],
+    "ritual_ZNK17QWindowsResampler15totalInputBytesEv": [
+      "unsigned long long", "address"
+    ],
+    "ritual_ZNK17QWindowsResampler16totalOutputBytesEv": [
+      "unsigned long long", "address"
+    ],
+    "ritual_ZN17QWindowsResampler29overAllocatedOutputBufferSizeEv": [
+      "long long", "address"
+    ],
+    "ritual_take_QWindowsResampler": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN17QWindowsResampler8resampleEPKcy": [
+      "address", "address", "chars", "size_t"
+    ]
+  }
+}

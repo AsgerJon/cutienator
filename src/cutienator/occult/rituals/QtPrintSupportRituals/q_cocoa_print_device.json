@@ -1,0 +1,45 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtPrintSupport/6.12.0/QtPrintSupport/private/qcocoaprintdevice_p.h, Qt",
+    "6.12.0, as the Qt of macOS installs it. Kept as it is when the"
+  ],
+  "rows": {
+    "ritual_ZN17QCocoaPrintDeviceD1Ev": ["nothing", "address"],
+    "ritual_ZNK17QCocoaPrintDevice7isValidEv": ["bool", "address"],
+    "ritual_ZNK17QCocoaPrintDevice9isDefaultEv": ["bool", "address"],
+    "ritual_ZNK17QCocoaPrintDevice5stateEv": ["int", "address"],
+    "ritual_ZNK17QCocoaPrintDevice15defaultPageSizeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK17QCocoaPrintDevice16printableMarginsERK9QPageSizeN11QPageLayout11OrientationEi": [
+      "address", "address", "address", "int", "int"
+    ],
+    "ritual_ZNK17QCocoaPrintDevice17defaultResolutionEv": ["int", "address"],
+    "ritual_ZNK17QCocoaPrintDevice16defaultInputSlotEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK17QCocoaPrintDevice16defaultOutputBinEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK17QCocoaPrintDevice17defaultDuplexModeEv": ["int", "address"],
+    "ritual_ZNK17QCocoaPrintDevice16defaultColorModeEv": ["int", "address"],
+    "ritual_ZNK17QCocoaPrintDevice13loadPageSizesEv": ["nothing", "address"],
+    "ritual_ZNK17QCocoaPrintDevice15loadResolutionsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK17QCocoaPrintDevice14loadInputSlotsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK17QCocoaPrintDevice14loadOutputBinsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK17QCocoaPrintDevice15loadDuplexModesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK17QCocoaPrintDevice14loadColorModesEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK17QCocoaPrintDevice13loadMimeTypesEv": ["nothing", "address"]
+  }
+}

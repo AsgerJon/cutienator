@@ -12,7 +12,7 @@ from typing import TYPE_CHECKING
 from worktoy.utilities import maybe
 from worktoy.waitaminute import MissingVariable, TypeException
 
-from ..occult import Build, Rituals, SharedObject, System
+from ..occult import Summon, Rituals, SharedObject, System
 from . import Trial, Verdict
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
@@ -189,7 +189,7 @@ class Judge:
       No part of Qt has a header of that name, so Qt has no such class;
       or more than one has, which is not expected to happen.
     """
-    folder = Build.getQtHeaderFolder()
+    folder = Summon.getQtHeaderFolder()
     found = [
         module for module in sorted(os.listdir(folder))
         if os.path.isfile(os.path.join(folder, module, className))
@@ -221,7 +221,7 @@ class Judge:
     """
     module = self.getQtModule(className)
     name = System.getHere().getQtFileName(module)
-    path = os.path.join(Build.getQtSharedObjectFolder(), name)
+    path = os.path.join(Summon.getQtSharedObjectFolder(), name)
     if not os.path.isfile(path):
       infoSpec = """The class '%s' belongs to '%s', but there is no Qt
       shared object at '%s'."""
@@ -428,12 +428,12 @@ class Judge:
       if sharedObject not in sharedObjects:
         sharedObjects.append(sharedObject)
     system = System.getHere()
-    qtFolder = Build.getQtSharedObjectFolder()
+    qtFolder = Summon.getQtSharedObjectFolder()
     command = (
         'clang++', '-std=c++17', '-O2',
         *system.getCompilerFlags(qtFolder),
         *system.getLinkerFlags(qtFolder),
-        '-I%s' % Build.getQtHeaderFolder(),
+        '-I%s' % Summon.getQtHeaderFolder(),
         cppFile, '-o', programFile, *sharedObjects,
     )
     try:
@@ -489,7 +489,7 @@ class Judge:
     Checks that cutienator's own shared objects are built correctly,
     and gives each fault found, in words.
 
-    For each part 'Rituals.build' builds one for, it compares two
+    For each part 'Rituals.summon' builds one for, it compares two
     lists that must be the same: the rituals 'Rituals' lists for
     Python, and the functions the shared object offers. It
     runs no ritual. Whether every function of a Qt header has a ritual

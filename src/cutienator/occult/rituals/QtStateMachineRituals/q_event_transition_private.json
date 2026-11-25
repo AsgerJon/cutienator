@@ -1,0 +1,31 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtStateMachine/6.12.0/QtStateMachine/private/qeventtransition_p.h,",
+    "Qt 6.12.0, as the Qt of macOS and of Windows install it, and that"
+  ],
+  "rows": {
+    "ritual_ZN23QEventTransitionPrivateC1Ev": ["address"],
+    "ritual_ZN23QEventTransitionPrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN23QEventTransitionPrivate3getEP16QEventTransition": [
+      "address", "address"
+    ],
+    "ritual_ZN23QEventTransitionPrivate10unregisterEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QEventTransitionPrivate13maybeRegisterEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN23QEventTransitionPrivate14setEventSourceEP7QObject": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN23QEventTransitionPrivate12setEventTypeEN6QEvent4TypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN23QEventTransitionPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK23QEventTransitionPrivate6q_funcEv": ["address", "address"],
+    "ritual_take_QEventTransitionPrivate": [
+      "bool", "address", "chars", "address"
+    ]
+  }
+}

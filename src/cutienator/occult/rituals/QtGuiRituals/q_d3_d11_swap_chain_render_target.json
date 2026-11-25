@@ -1,0 +1,22 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtGui/6.12.0/QtGui/private/qrhid3d11_p.h, Qt 6.12.0, as the Qt of",
+    "Windows installs it. Kept as it is when the generator runs again."
+  ],
+  "rows": {
+    "ritual_ZN27QD3D11SwapChainRenderTargetD1Ev": ["nothing", "address"],
+    "ritual_ZN27QD3D11SwapChainRenderTarget7destroyEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK27QD3D11SwapChainRenderTarget9pixelSizeEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK27QD3D11SwapChainRenderTarget16devicePixelRatioEv": [
+      "float", "address"
+    ],
+    "ritual_ZNK27QD3D11SwapChainRenderTarget11sampleCountEv": [
+      "int", "address"
+    ]
+  }
+}

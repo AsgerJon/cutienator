@@ -38,7 +38,7 @@ class TestRituals(BaseTest):
     """Builds the shared object of rituals when a ritual file is newer."""
     super().setUpClass()
     if Rituals.isStale():
-      Rituals.build()
+      Rituals.summon()
 
   @contextlib.contextmanager
   def _madeUpRows(self, parts: Dict[str, Dict[str, Any]]) -> Iterator:

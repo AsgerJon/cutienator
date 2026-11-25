@@ -1,0 +1,13 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtQuickNativeStyle/6.12.0/QtQuickNativeStyle/private/qquickwindowsxpstyle_p_p.h,",
+    "Qt 6.12.0, as the Qt of Windows installs it. Kept as it is when"
+  ],
+  "rows": {
+    "ritual_ZN4QQC211XPThemeDataC1EPK7QWindowP8QPainteriiiRK5QRect": [
+      "address", "address", "address", "int", "int", "int", "address"
+    ],
+    "ritual_ZN4QQC211XPThemeDataD1Ev": ["nothing", "address"]
+  }
+}

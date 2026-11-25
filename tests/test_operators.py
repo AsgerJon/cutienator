@@ -31,7 +31,7 @@ class TestOperators(BaseTest):
     """Builds the shared object of rituals when a ritual file is newer."""
     super().setUpClass()
     if Rituals.isStale():
-      Rituals.build()
+      Rituals.summon()
 
   @staticmethod
   def _xy(point: Any) -> Tuple[Any, Any]:

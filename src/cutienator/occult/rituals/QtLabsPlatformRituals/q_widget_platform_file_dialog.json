@@ -1,0 +1,42 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtLabsPlatform/6.12.0/QtLabsPlatform/private/qwidgetplatformfiledialog_p.h,",
+    "Qt 6.12.0, as the Qt of macOS and of Windows installs it, the"
+  ],
+  "rows": {
+    "ritual_ZNK25QWidgetPlatformFileDialog10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QWidgetPlatformFileDialogD1Ev": ["nothing", "address"],
+    "ritual_ZNK25QWidgetPlatformFileDialog25defaultNameFilterDisablesEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN25QWidgetPlatformFileDialog12setDirectoryERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK25QWidgetPlatformFileDialog9directoryEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QWidgetPlatformFileDialog10selectFileERK4QUrl": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK25QWidgetPlatformFileDialog13selectedFilesEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QWidgetPlatformFileDialog9setFilterEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN25QWidgetPlatformFileDialog16selectNameFilterERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK25QWidgetPlatformFileDialog18selectedNameFilterEv": [
+      "text", "address"
+    ],
+    "ritual_ZN25QWidgetPlatformFileDialog4execEv": ["nothing", "address"],
+    "ritual_ZN25QWidgetPlatformFileDialog4showE6QFlagsIN2Qt10WindowTypeEENS1_14WindowModalityEP7QWindow": [
+      "bool", "address", "int", "int", "address"
+    ],
+    "ritual_ZN25QWidgetPlatformFileDialog4hideEv": ["nothing", "address"]
+  }
+}

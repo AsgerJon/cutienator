@@ -263,7 +263,7 @@ class TestOverriding(BaseTest):
     and runs the program with an application."""
     super().setUpClass()
     if Rituals.isStale():
-      Rituals.build()
+      Rituals.summon()
     packageFolder = os.path.dirname(os.path.abspath(cutienator.__file__))
     environment = dict(os.environ)
     environment['QT_QPA_PLATFORM'] = 'offscreen'

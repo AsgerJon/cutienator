@@ -41,7 +41,7 @@ class RitualTester:
   - A fault is one thing found wrong, said in a sentence.
   - The target file is the shared object the ritual file is compiled
     into, beside the ritual file, as 'libq_object.so' on Linux. It is
-    built as 'Rituals.build' builds a part, with what cutienator's
+    built as 'Rituals.summon' builds a part, with what cutienator's
     'System' tells 'clang++' on the system: so it offers rituals to
     others and nothing else.
 
@@ -241,7 +241,7 @@ class RitualTester:
     #  The parts in the order of the alphabet, as the generator reads
     #  them; for a part of 'HeaderReader.getOwnOrderParts' first the
     #  part and the parts it needs, the nearest first, as the generator
-    #  reads them and 'Rituals.build' builds them: the compiler takes
+    #  reads them and 'Rituals.summon' builds them: the compiler takes
     #  the first file it finds by a name, and two parts may each have
     #  one, as 'private/qabstractseries_p.h' of QtCharts and of
     #  QtGraphs.
@@ -280,7 +280,7 @@ class RitualTester:
     it knows of the system and the compiler it was built for, as
     'linux-g++', 'macx-clang' or, for the Qt of Visual Studio,
     'win32-msvc'. The 'qmake6' of that Qt is asked, as cutienator's
-    'Build' asks it: 'qmake6 -query QMAKE_SPEC'. Asked once, for every
+    'Summon' asks it: 'qmake6 -query QMAKE_SPEC'. Asked once, for every
     'RitualTester'.
 
     Raises
@@ -419,8 +419,8 @@ class RitualTester:
     standard, as Qt's 'qfloat16.h' does, and a ritual written from what
     one of them read would then not compile with the other. Header
     files and shared objects are those of the installed Qt, and what
-    the system adds is what cutienator's 'System' tells 'Build' there,
-    so the target file is built as 'Rituals.build' builds a part.
+    the system adds is what cutienator's 'System' tells 'Summon' there,
+    so the target file is built as 'Rituals.summon' builds a part.
 
     Returns
     -------
@@ -432,6 +432,7 @@ class RitualTester:
       '-O2', so the compiler tidies the result;
       '-fno-access-control', so the compiler lets a ritual call a
       function C++ marks 'private' or 'protected';
+      '-DQT_USE_QSTRINGBUILDER', as cutienator's 'Summon' tells it;
       what 'System.getCompilerFlags' and 'System.getLinkerFlags' give,
       as on Linux '-fPIC', the two '-fvisibility' flags, so the target
       file offers nothing but rituals, and '-Wl,--no-undefined', so a
@@ -452,6 +453,7 @@ class RitualTester:
     system = System.getHere()
     return (
         'clang++', '-std=c++17', '-shared', '-O2', '-fno-access-control',
+        '-DQT_USE_QSTRINGBUILDER',
         *system.getCompilerFlags(library),
         *system.getLinkerFlags(library),
         *('-I%s' % folder for folder in self.getIncludeFolders()),

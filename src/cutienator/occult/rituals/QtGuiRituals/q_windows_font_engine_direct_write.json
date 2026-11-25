@@ -1,0 +1,148 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtGui/6.12.0/QtGui/private/qwindowsfontenginedirectwrite_p.h, Qt",
+    "6.12.0, as the Qt of Windows installs it. Kept as it is when the"
+  ],
+  "rows": {
+    "ritual_ZN29QWindowsFontEngineDirectWriteD1Ev": ["nothing", "address"],
+    "ritual_ZN29QWindowsFontEngineDirectWrite12initFontInfoERK8QFontDefi": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZNK29QWindowsFontEngineDirectWrite13lineThicknessEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK29QWindowsFontEngineDirectWrite17underlinePositionEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK29QWindowsFontEngineDirectWrite16getSfntTableDataEjPhPj": [
+      "bool", "address", "unsigned int", "address", "address"
+    ],
+    "ritual_ZNK29QWindowsFontEngineDirectWrite12emSquareSizeEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK29QWindowsFontEngineDirectWrite10glyphIndexEj": [
+      "unsigned int", "address", "unsigned int"
+    ],
+    "ritual_ZNK29QWindowsFontEngineDirectWrite12stringToCMapEPK5QChariP12QGlyphLayoutPi6QFlagsIN11QFontEngine10ShaperFlagEE": [
+      "int", "address", "address", "int", "address", "address", "int"
+    ],
+    "ritual_ZNK29QWindowsFontEngineDirectWrite14recalcAdvancesEP12QGlyphLayout6QFlagsIN11QFontEngine10ShaperFlagEE": [
+      "nothing", "address", "address", "int"
+    ],
+    "ritual_ZN29QWindowsFontEngineDirectWrite15addGlyphsToPathEPjP11QFixedPointiP12QPainterPath6QFlagsIN9QTextItem10RenderFlagEE": [
+      "nothing", "address", "address", "address", "int", "address", "int"
+    ],
+    "ritual_ZN29QWindowsFontEngineDirectWrite11boundingBoxERK12QGlyphLayout": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN29QWindowsFontEngineDirectWrite11boundingBoxEj": [
+      "address", "address", "unsigned int"
+    ],
+    "ritual_ZN29QWindowsFontEngineDirectWrite19alphaMapBoundingBoxEjRK11QFixedPointRK10QTransformN11QFontEngine11GlyphFormatE": [
+      "address", "address", "unsigned int", "address", "address", "int"
+    ],
+    "ritual_ZNK29QWindowsFontEngineDirectWrite9capHeightEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK29QWindowsFontEngineDirectWrite7xHeightEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK29QWindowsFontEngineDirectWrite12maxCharWidthEv": [
+      "double", "address"
+    ],
+    "ritual_ZNK29QWindowsFontEngineDirectWrite6faceIdEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK29QWindowsFontEngineDirectWrite35supportsHorizontalSubPixelPositionsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK29QWindowsFontEngineDirectWrite11createHFONTEv": [
+      "address", "address"
+    ],
+    "ritual_ZN29QWindowsFontEngineDirectWrite16alphaMapForGlyphEjRK11QFixedPoint": [
+      "address", "address", "unsigned int", "address"
+    ],
+    "ritual_ZN29QWindowsFontEngineDirectWrite16alphaMapForGlyphEjRK11QFixedPointRK10QTransform": [
+      "address", "address", "unsigned int", "address", "address"
+    ],
+    "ritual_ZN29QWindowsFontEngineDirectWrite19alphaRGBMapForGlyphEjRK11QFixedPointRK10QTransform": [
+      "address", "address", "unsigned int", "address", "address"
+    ],
+    "ritual_ZN29QWindowsFontEngineDirectWrite14bitmapForGlyphEjRK11QFixedPointRK10QTransformRK6QColor": [
+      "address", "address", "unsigned int", "address", "address", "address"
+    ],
+    "ritual_ZNK29QWindowsFontEngineDirectWrite13cloneWithSizeEd": [
+      "address", "address", "double"
+    ],
+    "ritual_ZNK29QWindowsFontEngineDirectWrite6handleEv": [
+      "address", "address"
+    ],
+    "ritual_ZN29QWindowsFontEngineDirectWrite18fontNameSubstituteERK7QString": [
+      "text", "text"
+    ],
+    "ritual_ZNK29QWindowsFontEngineDirectWrite19directWriteFontFaceEv": [
+      "address", "address"
+    ],
+    "ritual_ZN29QWindowsFontEngineDirectWrite19setUniqueFamilyNameERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK29QWindowsFontEngineDirectWrite23initializeHeightMetricsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK29QWindowsFontEngineDirectWrite10propertiesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK29QWindowsFontEngineDirectWrite13unscaledGlyphEj": [
+      "address", "address", "unsigned int"
+    ],
+    "ritual_ZN29QWindowsFontEngineDirectWrite16getUnscaledGlyphEjP12QPainterPathP15glyph_metrics_t": [
+      "nothing", "address", "unsigned int", "address", "address"
+    ],
+    "ritual_ZNK29QWindowsFontEngineDirectWrite12variableAxesEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK29QWindowsFontEngineDirectWrite29expectsGammaCorrectedBlendingEN11QFontEngine11GlyphFormatE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZNK29QWindowsFontEngineDirectWrite13traverseColr1EP18IDWritePaintReaderP16IDWriteFontFace7PK20DWRITE_PAINT_ELEMENTP23QColrPaintGraphRenderer": [
+      "bool", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK29QWindowsFontEngineDirectWrite19renderColr1GlyphRunEP6QImagePK16DWRITE_GLYPH_RUNRK13DWRITE_MATRIX6QColor": [
+      "bool", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK29QWindowsFontEngineDirectWrite16paintGraphBoundsEjRK13DWRITE_MATRIX": [
+      "address", "address", "unsigned int", "address"
+    ],
+    "ritual_ZN29QWindowsFontEngineDirectWrite18alphaTextureBoundsEjRK13DWRITE_MATRIX": [
+      "address", "address", "unsigned int", "address"
+    ],
+    "ritual_ZN29QWindowsFontEngineDirectWrite17colorBitmapBoundsEjRK13DWRITE_MATRIX": [
+      "address", "address", "unsigned int", "address"
+    ],
+    "ritual_ZNK29QWindowsFontEngineDirectWrite19renderColr0GlyphRunEP6QImagePK22DWRITE_COLOR_GLYPH_RUNRK13DWRITE_MATRIX21DWRITE_RENDERING_MODE21DWRITE_MEASURING_MODE20DWRITE_GRID_FIT_MODE6QColor5QRect": [
+      "bool", "address", "address", "address", "address", "int", "int", "int", "address", "address"
+    ],
+    "ritual_ZNK29QWindowsFontEngineDirectWrite16renderColorGlyphEP16DWRITE_GLYPH_RUNRK13DWRITE_MATRIX21DWRITE_RENDERING_MODE21DWRITE_MEASURING_MODE20DWRITE_GRID_FIT_MODE6QColor5QRect": [
+      "address", "address", "address", "address", "int", "int", "int", "address", "address"
+    ],
+    "ritual_ZN29QWindowsFontEngineDirectWrite13imageForGlyphEjRK11QFixedPointiRK10QTransformRK6QColor": [
+      "address", "address", "unsigned int", "address", "int", "address", "address"
+    ],
+    "ritual_ZN29QWindowsFontEngineDirectWrite14collectMetricsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK29QWindowsFontEngineDirectWrite14renderGlyphRunEP6QImageffffP23IDWriteGlyphRunAnalysisRK5QRect21DWRITE_RENDERING_MODE": [
+      "nothing", "address", "address", "float", "float", "float", "float", "address", "address", "int"
+    ],
+    "ritual_ZN29QWindowsFontEngineDirectWrite20filenameFromFontFileEP15IDWriteFontFile": [
+      "text", "address"
+    ],
+    "ritual_ZNK29QWindowsFontEngineDirectWrite32hintingPreferenceToRenderingModeERK8QFontDef": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK29QWindowsFontEngineDirectWrite24useSymmetricAntialiasingEv": [
+      "bool", "address"
+    ]
+  }
+}

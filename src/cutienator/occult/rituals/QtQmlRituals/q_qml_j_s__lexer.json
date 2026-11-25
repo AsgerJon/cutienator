@@ -1,0 +1,85 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtQml/6.12.0/QtQml/private/qqmljslexer_p.h, Qt 6.12.0, as the Qt of",
+    "macOS and of Windows install it, and that of Linux alike. Kept as"
+  ],
+  "rows": {
+    "ritual_ZN6QQmlJS5LexerC1EPNS_6EngineENS0_7LexModeE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN6QQmlJS5LexerD1Ev": ["nothing", "address"],
+    "ritual_ZNK6QQmlJS5Lexer7qmlModeEv": ["bool", "address"],
+    "ritual_ZNK6QQmlJS5Lexer14yieldIsKeyWordEv": ["bool", "address"],
+    "ritual_ZN6QQmlJS5Lexer18setStaticIsKeywordEb": [
+      "nothing", "address", "bool"
+    ],
+    "ritual_ZNK6QQmlJS5Lexer4codeEv": ["text", "address"],
+    "ritual_ZN6QQmlJS5Lexer7setCodeERK7QStringibNS0_16CodeContinuationE": [
+      "nothing", "address", "text", "int", "bool", "int"
+    ],
+    "ritual_ZN6QQmlJS5Lexer3lexEv": ["int", "address"],
+    "ritual_ZN6QQmlJS5Lexer10scanRegExpENS0_16RegExpBodyPrefixE": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN6QQmlJS5Lexer14scanDirectivesEPNS_10DirectivesEPNS_17DiagnosticMessageE": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZNK6QQmlJS5Lexer11regExpFlagsEv": ["int", "address"],
+    "ritual_ZNK6QQmlJS5Lexer13regExpPatternEv": ["text", "address"],
+    "ritual_ZNK6QQmlJS5Lexer9tokenKindEv": ["int", "address"],
+    "ritual_ZNK6QQmlJS5Lexer11tokenOffsetEv": ["int", "address"],
+    "ritual_ZNK6QQmlJS5Lexer11tokenLengthEv": ["int", "address"],
+    "ritual_ZNK6QQmlJS5Lexer14tokenStartLineEv": ["int", "address"],
+    "ritual_ZNK6QQmlJS5Lexer16tokenStartColumnEv": ["int", "address"],
+    "ritual_ZNK6QQmlJS5Lexer10tokenSpellEv": ["text", "address"],
+    "ritual_ZNK6QQmlJS5Lexer9rawStringEv": ["text", "address"],
+    "ritual_ZNK6QQmlJS5Lexer10tokenValueEv": ["double", "address"],
+    "ritual_ZNK6QQmlJS5Lexer9tokenTextEv": ["text", "address"],
+    "ritual_ZNK6QQmlJS5Lexer9errorCodeEv": ["int", "address"],
+    "ritual_ZNK6QQmlJS5Lexer12errorMessageEv": ["text", "address"],
+    "ritual_ZNK6QQmlJS5Lexer27canInsertAutomaticSemicolonEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN6QQmlJS5Lexer18enterGeneratorBodyEv": ["nothing", "address"],
+    "ritual_ZN6QQmlJS5Lexer18leaveGeneratorBodyEv": ["nothing", "address"],
+    "ritual_ZNK6QQmlJS5Lexer5stateEv": ["address", "address"],
+    "ritual_ZN6QQmlJS5Lexer8setStateERKNS0_5StateE": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS5Lexer8classifyE11QStringViewi": ["int", "text", "int"],
+    "ritual_ZNK6QQmlJS5Lexer14parseModeFlagsEv": ["int", "address"],
+    "ritual_ZNK6QQmlJS5Lexer14prevTerminatorEv": ["bool", "address"],
+    "ritual_ZNK6QQmlJS5Lexer19followsClosingBraceEv": ["bool", "address"],
+    "ritual_ZN6QQmlJS5Lexer9scanTokenEv": ["int", "address"],
+    "ritual_ZN6QQmlJS5Lexer10scanNumberE5QChar": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS5Lexer17scanVersionNumberE5QChar": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS5Lexer10scanStringENS0_14ScanStringModeE": [
+      "int", "address", "unsigned short"
+    ],
+    "ritual_ZNK6QQmlJS5Lexer16isLineTerminatorEv": ["bool", "address"],
+    "ritual_ZNK6QQmlJS5Lexer24isLineTerminatorSequenceEv": [
+      "unsigned int", "address"
+    ],
+    "ritual_ZN6QQmlJS5Lexer13isIdentLetterE5QChar": ["bool", "address"],
+    "ritual_ZN6QQmlJS5Lexer14isDecimalDigitEt": ["bool", "unsigned short"],
+    "ritual_ZN6QQmlJS5Lexer10isHexDigitE5QChar": ["bool", "address"],
+    "ritual_ZN6QQmlJS5Lexer12isOctalDigitEt": ["bool", "unsigned short"],
+    "ritual_ZN6QQmlJS5Lexer30syncProhibitAutomaticSemicolonEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN6QQmlJS5Lexer28decodeUnicodeEscapeCharacterEPb": [
+      "unsigned int", "address", "address"
+    ],
+    "ritual_ZN6QQmlJS5Lexer24decodeHexEscapeCharacterEPb": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN6QQmlJSlsE6QDebugRKNS_5LexerE": [
+      "address", "address", "address"
+    ]
+  }
+}

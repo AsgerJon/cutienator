@@ -1,0 +1,83 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtGui/6.12.0/QtGui/private/qwindowsdirectwritefontdatabase_p.h, Qt 6.12.0, as",
+    "the Qt of Windows installs it. Kept as it is when the generator"
+  ],
+  "rows": {
+    "ritual_ZN31QWindowsDirectWriteFontDatabaseC1Ev": ["address"],
+    "ritual_ZN31QWindowsDirectWriteFontDatabaseD1Ev": ["nothing", "address"],
+    "ritual_ZN31QWindowsDirectWriteFontDatabase10fontEngineERK8QFontDefPv": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZNK31QWindowsDirectWriteFontDatabase18fallbacksForFamilyERK7QStringN5QFont5StyleENS3_9StyleHintEN20QFontDatabasePrivate14ExtendedScriptE": [
+      "address", "address", "text", "int", "int", "int"
+    ],
+    "ritual_ZN31QWindowsDirectWriteFontDatabase18addApplicationFontERK10QByteArrayRK7QStringPN20QFontDatabasePrivate15ApplicationFontE": [
+      "address", "address", "address", "text", "address"
+    ],
+    "ritual_ZN31QWindowsDirectWriteFontDatabase18registerBitmapFontERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZNK31QWindowsDirectWriteFontDatabase16hasPopulatedFontERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN31QWindowsDirectWriteFontDatabase22fromDirectWriteStretchE19DWRITE_FONT_STRETCH": [
+      "int", "int"
+    ],
+    "ritual_ZN31QWindowsDirectWriteFontDatabase21fromDirectWriteWeightE18DWRITE_FONT_WEIGHT": [
+      "int", "int"
+    ],
+    "ritual_ZN31QWindowsDirectWriteFontDatabase20fromDirectWriteStyleE17DWRITE_FONT_STYLE": [
+      "int", "int"
+    ],
+    "ritual_ZNK31QWindowsDirectWriteFontDatabase23supportedWritingSystemsEP15IDWriteFontFace": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN31QWindowsDirectWriteFontDatabase20populateFontDatabaseEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN31QWindowsDirectWriteFontDatabase10fontEngineERK10QByteArraydN5QFont17HintingPreferenceE": [
+      "address", "address", "address", "double", "int"
+    ],
+    "ritual_ZNK31QWindowsDirectWriteFontDatabase32supportsVariableApplicationFontsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN31QWindowsDirectWriteFontDatabase21populateFamilyAliasesERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN31QWindowsDirectWriteFontDatabase14populateFamilyERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN31QWindowsDirectWriteFontDatabase10invalidateEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK31QWindowsDirectWriteFontDatabase19isPrivateFontFamilyERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_take_QWindowsDirectWriteFontDatabase": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZN31QWindowsDirectWriteFontDatabase20populateFontDatabaseEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZN31QWindowsDirectWriteFontDatabase10fontEngineERK10QByteArraydN5QFont17HintingPreferenceE": [
+      "address", "address", "address", "double", "int"
+    ],
+    "ritual_own_ZNK31QWindowsDirectWriteFontDatabase32supportsVariableApplicationFontsEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZN31QWindowsDirectWriteFontDatabase21populateFamilyAliasesERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_own_ZN31QWindowsDirectWriteFontDatabase14populateFamilyERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_own_ZN31QWindowsDirectWriteFontDatabase10invalidateEv": [
+      "nothing", "address"
+    ],
+    "ritual_own_ZNK31QWindowsDirectWriteFontDatabase19isPrivateFontFamilyERK7QString": [
+      "bool", "address", "text"
+    ]
+  }
+}

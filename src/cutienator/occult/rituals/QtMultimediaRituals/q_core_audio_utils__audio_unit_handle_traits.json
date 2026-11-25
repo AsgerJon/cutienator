@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtMultimedia/6.12.0/QtMultimedia/private/qcoreaudioutils_p.h, Qt 6.12.0,",
+    "as the Qt of macOS installs it. Kept as it is when the generator runs"
+  ],
+  "rows": {
+    "ritual_ZN15QCoreAudioUtils21AudioUnitHandleTraits12invalidValueEv": [
+      "address"
+    ],
+    "ritual_ZN15QCoreAudioUtils21AudioUnitHandleTraitsD1Ev": [
+      "nothing", "address"
+    ]
+  }
+}

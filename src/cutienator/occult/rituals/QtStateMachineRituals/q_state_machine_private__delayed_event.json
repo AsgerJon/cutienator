@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtStateMachine/6.12.0/QtStateMachine/private/qstatemachine_p.h,",
+    "Qt 6.12.0, as the Qt of macOS and of Windows install it, and that"
+  ],
+  "rows": {
+    "ritual_ZN20QStateMachinePrivate12DelayedEventC1EP6QEventi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN20QStateMachinePrivate12DelayedEventC1Ev": ["address"],
+    "ritual_ZN20QStateMachinePrivate12DelayedEventD1Ev": [
+      "nothing", "address"
+    ]
+  }
+}

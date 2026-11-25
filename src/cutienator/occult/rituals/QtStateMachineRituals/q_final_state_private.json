@@ -1,0 +1,13 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtStateMachine/6.12.0/QtStateMachine/private/qfinalstate_p.h,",
+    "Qt 6.12.0, as the Qt of macOS and of Windows install it, and that"
+  ],
+  "rows": {
+    "ritual_ZN18QFinalStatePrivateC1Ev": ["address"],
+    "ritual_ZN18QFinalStatePrivateD1Ev": ["nothing", "address"],
+    "ritual_ZN18QFinalStatePrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK18QFinalStatePrivate6q_funcEv": ["address", "address"]
+  }
+}

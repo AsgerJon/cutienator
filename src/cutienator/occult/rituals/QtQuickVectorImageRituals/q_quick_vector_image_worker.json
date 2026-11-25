@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtQuickVectorImage/6.12.0/QtQuickVectorImage/private/qquickvectorimageincubator_p.h,",
+    "Qt 6.12.0, as the Qt of macOS and of Windows installs it, the"
+  ],
+  "rows": {
+    "ritual_ZNK23QQuickVectorImageWorker10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QQuickVectorImageWorkerD1Ev": ["nothing", "address"],
+    "ritual_ZNK23QQuickVectorImageWorker9generatorEv": [
+      "address", "address"
+    ],
+    "ritual_ZN23QQuickVectorImageWorker18addPluginGeneratorEP32QQuickVectorImagePluginGenerator": [
+      "nothing", "address", "address"
+    ]
+  }
+}
