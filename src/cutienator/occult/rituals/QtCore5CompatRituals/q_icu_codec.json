@@ -1,0 +1,12 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of",
+    "QtCore5Compat/6.12.0/QtCore5Compat/private/qicucodec_p.h, Qt",
+    "6.12.0. Edited by hand: see the ritual file."
+  ],
+  "rows": {
+    "ritual_ZNK9QIcuCodec4nameEv": ["address", "address"],
+    "ritual_ZN9QIcuCodecD1Ev": ["nothing", "address"],
+    "ritual_own_ZNK9QIcuCodec4nameEv": ["address", "address"]
+  }
+}

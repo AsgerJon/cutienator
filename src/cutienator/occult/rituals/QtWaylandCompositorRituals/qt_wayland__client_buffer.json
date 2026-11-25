@@ -1,0 +1,56 @@
+{
+  "about": [
+    "Written by dev_tooling.RitualGenerator from the records of QtWayla",
+    "ndCompositor/6.12.0/QtWaylandCompositor/private/qwlclientbuffer_p.",
+    "h, Qt 6.12.0. Edited by hand: see the ritual file."
+  ],
+  "rows": {
+    "ritual_ZN9QtWayland12ClientBufferD1Ev": ["nothing", "address"],
+    "ritual_ZNK9QtWayland12ClientBuffer15bufferFormatEglEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK9QtWayland12ClientBuffer4sizeEv": ["address", "address"],
+    "ritual_ZNK9QtWayland12ClientBuffer6originEv": ["int", "address"],
+    "ritual_ZN9QtWayland12ClientBuffer16lockNativeBufferEv": [
+      "unsigned long long", "address"
+    ],
+    "ritual_ZNK9QtWayland12ClientBuffer18unlockNativeBufferEy": [
+      "nothing", "address", "unsigned long long"
+    ],
+    "ritual_ZNK9QtWayland12ClientBuffer5imageEv": ["address", "address"],
+    "ritual_ZNK9QtWayland12ClientBuffer11isCommittedEv": ["bool", "address"],
+    "ritual_ZN9QtWayland12ClientBuffer11isDestroyedEv": ["bool", "address"],
+    "ritual_ZN9QtWayland12ClientBuffer11isProtectedEv": ["bool", "address"],
+    "ritual_ZN9QtWayland12ClientBuffer15toOpenGlTextureEi": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN9QtWayland12ClientBuffer10hasContentEPS0_": [
+      "bool", "address"
+    ],
+    "ritual_ZN9QtWayland12ClientBuffer19hasProtectedContentEPS0_": [
+      "bool", "address"
+    ],
+    "ritual_ZN9QtWayland12ClientBuffer12setDestroyedEv": [
+      "nothing", "address"
+    ],
+    "ritual_take_QtWayland_ClientBuffer": [
+      "bool", "address", "chars", "address"
+    ],
+    "ritual_own_ZNK9QtWayland12ClientBuffer15bufferFormatEglEv": [
+      "int", "address"
+    ],
+    "ritual_own_ZN9QtWayland12ClientBuffer16lockNativeBufferEv": [
+      "unsigned long long", "address"
+    ],
+    "ritual_own_ZNK9QtWayland12ClientBuffer18unlockNativeBufferEy": [
+      "nothing", "address", "unsigned long long"
+    ],
+    "ritual_own_ZNK9QtWayland12ClientBuffer5imageEv": ["address", "address"],
+    "ritual_own_ZN9QtWayland12ClientBuffer11isProtectedEv": [
+      "bool", "address"
+    ],
+    "ritual_own_ZN9QtWayland12ClientBuffer12setDestroyedEv": [
+      "nothing", "address"
+    ]
+  }
+}

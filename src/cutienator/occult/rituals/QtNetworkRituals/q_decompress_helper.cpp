@@ -1,6 +1,14 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtNetwork/6.12.0/QtNetwork/private/qdecompresshelper_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Edited by hand on 2026-11-25: the private 'setEncoding' taking a
+//  'ContentEncoding' is left out, with the code taken for it, and so
+//  are the lines pulling in 'zlib.h', 'brotli/decode.h' and 'zstd.h':
+//  it makes the decoders of zlib, Brotli and zstd, libraries outside
+//  Qt. The 'setEncoding' taking a 'QByteArray', which Qt offers,
+//  stays. Kept as it is when the generator runs again.
+#include <QtNetwork/qtnetworkglobal.h>
+#include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
+#if QT_CONFIG(http)
 #include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
 #include <QtNetwork/QtNetwork>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -14,14 +22,10 @@
 #include <QtCore/qstring.h>
 #include <QtCore/qlist.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "qdecompresshelper_p.h"
+#include <QtNetwork/private/qdecompresshelper_p.h>
 #include <QtCore/qiodevice.h>
 #include <QtCore/qcoreapplication.h>
 #include <limits>
-#if QT_CONFIG(brotli)
-#endif
-#if QT_CONFIG(zstd)
-#endif
 #include <array>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
@@ -248,3 +252,5 @@ qint64 ritual_ZNK17QDecompressHelper21encodedBytesAvailableEv(
     const QDecompressHelper *self) {
   return self->encodedBytesAvailable();
 }
+
+#endif  // QT_CONFIG(http)

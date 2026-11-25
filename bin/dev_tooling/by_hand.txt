@@ -1,0 +1,17 @@
+# Ritual files decided by hand, not by 'RitualGenerator': each is either
+# edited by hand in the package, and says so in its first lines, or left
+# out of the package whole. Rerunning the generator or a script that
+# takes its files into the package must keep both as they are.
+# One to a line:
+#   PART CLASS FILE_STEM EDITED|LEFT_OUT REASON
+# Classes whose code taken from Qt's source calls a library outside Qt,
+# as found on 2026-11-25 (no other ritual file of the package needs a
+# name outside Qt, C and C++: checked on gcloud against the kit of every
+# part):
+QtCore5Compat QIcuCodec q_icu_codec EDITED availableCodecs and aliases call ICU (ucnv_*)
+QtNetwork QDecompressHelper q_decompress_helper EDITED the private setEncoding(ContentEncoding) makes the decoders of zlib, Brotli and zstd
+QtDesigner RCCResourceLibrary r_c_c_resource_library EDITED the destructor and parseCompressionLevel call zstd
+QtQuick3DXr QQuick3DXrManagerPrivate q_quick3_d_xr_manager_private LEFT_OUT the OpenXR side of QtQuick3DXr: checkXrResult and resolveXrFunction, which nearly all of it runs through, call OpenXR
+QtMultimedia QPulseAudioContextManager q_pulse_audio_context_manager LEFT_OUT the PulseAudio side of QtMultimedia: lock, unlock, isInMainLoop and release call PulseAudio, and so does its destructor, through release and the deleters of its members
+QtWaylandCompositor QWaylandDestroyListenerPrivate q_wayland_destroy_listener_private EDITED the constructor calls wl_list_init of Wayland
+QtWaylandCompositor QtWayland::ClientBuffer qt_wayland__client_buffer EDITED isSharedMemory, inline in Qt's header, calls wl_shm_buffer_get of Wayland

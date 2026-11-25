@@ -1,6 +1,10 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtDesigner/6.12.0/QtDesigner/private/rcc_p.h, Qt 6.12.0. Changes made
-//  here are lost.
+//  QtDesigner/6.12.0/QtDesigner/private/rcc_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-25: the destructor and
+//  'parseCompressionLevel' are left out, with the code taken for them,
+//  and so is the line pulling in 'zstd.h': where Qt is built with zstd
+//  they call 'ZSTD_freeCCtx' and 'ZSTD_maxCLevel' of zstd, a library
+//  outside Qt. Kept as it is when the generator runs again.
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtDesigner/QtDesigner>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -10,17 +14,17 @@
 #include <QtCore/qbytearray.h>
 #include <QtCore/qlist.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
-#include "rcc_p.h"
-#include <qbytearray.h>
-#include <qdatetime.h>
-#include <qdebug.h>
-#include <qdir.h>
-#include <qdiriterator.h>
-#include <qfile.h>
-#include <qiodevice.h>
-#include <qlocale.h>
-#include <qstack.h>
-#include <qxmlstream.h>
+#include <QtDesigner/private/rcc_p.h>
+#include <QtCore/qbytearray.h>
+#include <QtCore/qdatetime.h>
+#include <QtCore/qdebug.h>
+#include <QtCore/qdir.h>
+#include <QtCore/qdiriterator.h>
+#include <QtCore/qfile.h>
+#include <QtCore/qiodevice.h>
+#include <QtCore/qlocale.h>
+#include <QtCore/qstack.h>
+#include <QtCore/qxmlstream.h>
 #include <algorithm>
 #if QT_CONFIG(zstd)
 #endif
