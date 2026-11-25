@@ -1,0 +1,87 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtAxContainer/qaxwidget.h, Qt 6.12.0, from Qt's source. Kept as it is",
+    "when the generator runs again. ActiveQt is built for Windows alone, as a"
+  ],
+  "rows": {
+    "ritual_ZN9QAxWidgetC1EP7QWidget6QFlagsIN2Qt10WindowTypeEE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN9QAxWidgetC1ERK7QStringP7QWidget6QFlagsIN2Qt10WindowTypeEE": [
+      "address", "text", "address", "int"
+    ],
+    "ritual_ZN9QAxWidgetC1EP8IUnknownP7QWidget6QFlagsIN2Qt10WindowTypeEE": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZN9QAxWidgetD1Ev": ["nothing", "address"],
+    "ritual_ZNK9QAxWidget12classContextEv": ["unsigned long", "address"],
+    "ritual_ZN9QAxWidget15setClassContextEm": [
+      "nothing", "address", "unsigned long"
+    ],
+    "ritual_ZNK9QAxWidget7controlEv": ["text", "address"],
+    "ritual_ZN9QAxWidget10setControlERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN9QAxWidget12resetControlEv": ["nothing", "address"],
+    "ritual_ZN9QAxWidget5clearEv": ["nothing", "address"],
+    "ritual_ZN9QAxWidget6doVerbERK7QString": ["bool", "address", "text"],
+    "ritual_ZNK9QAxWidget8sizeHintEv": ["address", "address"],
+    "ritual_ZNK9QAxWidget15minimumSizeHintEv": ["address", "address"],
+    "ritual_ZN9QAxWidget15createAggregateEv": ["address", "address"],
+    "ritual_ZNK9QAxWidget10metaObjectEv": ["address", "address"],
+    "ritual_ZN9QAxWidget10initializeEPP8IUnknown": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN9QAxWidget16createHostWindowEb": ["bool", "address", "bool"],
+    "ritual_ZN9QAxWidget16createHostWindowEbRK10QByteArray": [
+      "bool", "address", "bool", "address"
+    ],
+    "ritual_ZN9QAxWidget11changeEventEP6QEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QAxWidget11resizeEventEP12QResizeEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK9QAxWidget17translateKeyEventEii": [
+      "bool", "address", "int", "int"
+    ],
+    "ritual_ZN9QAxWidget13connectNotifyERK11QMetaMethod": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QAxWidget6d_funcEv": ["address", "address"],
+    "ritual_ZNK9QAxWidget6d_funcEv": ["address", "address"],
+    "ritual_cast_QAxWidget_QAxBase": ["address", "address"],
+    "ritual_take_QAxWidget": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK9QAxWidget12classContextEv": ["unsigned long", "address"],
+    "ritual_own_ZN9QAxWidget15setClassContextEm": [
+      "nothing", "address", "unsigned long"
+    ],
+    "ritual_own_ZNK9QAxWidget7controlEv": ["text", "address"],
+    "ritual_own_ZN9QAxWidget10setControlERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_own_ZN9QAxWidget12resetControlEv": ["nothing", "address"],
+    "ritual_own_ZNK9QAxWidget8sizeHintEv": ["address", "address"],
+    "ritual_own_ZNK9QAxWidget15minimumSizeHintEv": ["address", "address"],
+    "ritual_own_ZN9QAxWidget15createAggregateEv": ["address", "address"],
+    "ritual_own_ZN9QAxWidget10initializeEPP8IUnknown": [
+      "bool", "address", "address"
+    ],
+    "ritual_own_ZN9QAxWidget16createHostWindowEb": [
+      "bool", "address", "bool"
+    ],
+    "ritual_own_ZN9QAxWidget11changeEventEP6QEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZN9QAxWidget11resizeEventEP12QResizeEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_own_ZNK9QAxWidget17translateKeyEventEii": [
+      "bool", "address", "int", "int"
+    ],
+    "ritual_own_ZN9QAxWidget13connectNotifyERK11QMetaMethod": [
+      "nothing", "address", "address"
+    ]
+  }
+}

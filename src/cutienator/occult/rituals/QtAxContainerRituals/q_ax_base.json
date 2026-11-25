@@ -1,0 +1,78 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtAxContainer/qaxbase.h, Qt 6.12.0, from Qt's source. Kept as it is when",
+    "the generator runs again. ActiveQt is built for Windows alone, as a"
+  ],
+  "rows": {
+    "ritual_ZN7QAxBaseD1Ev": ["nothing", "address"],
+    "ritual_ZNK7QAxBase7controlEv": ["text", "address"],
+    "ritual_ZNK7QAxBase14queryInterfaceERK5QUuidPPv": [
+      "long", "address", "address", "address"
+    ],
+    "ritual_ZN7QAxBase11dynamicCallEPKcRK8QVariantS4_S4_S4_S4_S4_S4_S4_": [
+      "address", "address", "chars", "address", "address", "address", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN7QAxBase14querySubObjectEPKcRK8QVariantS4_S4_S4_S4_S4_S4_S4_": [
+      "address", "address", "chars", "address", "address", "address", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZNK7QAxBase16axBaseMetaObjectEv": ["address", "address"],
+    "ritual_ZNK7QAxBase9classNameEv": ["chars", "address"],
+    "ritual_ZNK7QAxBase7qObjectEv": ["address", "address"],
+    "ritual_ZN7QAxBase21generateDocumentationEv": ["text", "address"],
+    "ritual_ZNK7QAxBase16propertyWritableEPKc": ["bool", "address", "chars"],
+    "ritual_ZN7QAxBase19setPropertyWritableEPKcb": [
+      "nothing", "address", "chars", "bool"
+    ],
+    "ritual_ZNK7QAxBase6isNullEv": ["bool", "address"],
+    "ritual_ZNK7QAxBase9asVariantEv": ["address", "address"],
+    "ritual_ZN7QAxBase5clearEv": ["nothing", "address"],
+    "ritual_ZN7QAxBase10setControlERK7QString": ["bool", "address", "text"],
+    "ritual_ZN7QAxBase17disableMetaObjectEv": ["nothing", "address"],
+    "ritual_ZN7QAxBase16disableClassInfoEv": ["nothing", "address"],
+    "ritual_ZN7QAxBase16disableEventSinkEv": ["nothing", "address"],
+    "ritual_ZNK7QAxBase12classContextEv": ["unsigned long", "address"],
+    "ritual_ZN7QAxBase15setClassContextEm": [
+      "nothing", "address", "unsigned long"
+    ],
+    "ritual_ZN7QAxBase10initializeEPP8IUnknown": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN7QAxBase16initializeRemoteEPP8IUnknown": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN7QAxBase18initializeLicensedEPP8IUnknown": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN7QAxBase16initializeActiveEPP8IUnknown": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN7QAxBase18initializeFromFileEPP8IUnknown": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN7QAxBase15internalReleaseEv": ["nothing", "address"],
+    "ritual_ZN7QAxBase14initializeFromEPS_": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN7QAxBase13connectNotifyEv": ["nothing", "address"],
+    "ritual_ZNK7QAxBase11indexOfVerbERK7QString": [
+      "long", "address", "text"
+    ],
+    "ritual_ZN7QAxBase10axBaseInitEP14QAxBasePrivateP8IUnknown": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN7QAxBase24initializeLicensedHelperEPvRK7QStringPP8IUnknown": [
+      "bool", "address", "address", "text", "address"
+    ],
+    "ritual_ZN7QAxBase16internalPropertyEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN7QAxBase14internalInvokeEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_take_QAxBase": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN7QAxBase10initializeEPP8IUnknown": [
+      "bool", "address", "address"
+    ]
+  }
+}

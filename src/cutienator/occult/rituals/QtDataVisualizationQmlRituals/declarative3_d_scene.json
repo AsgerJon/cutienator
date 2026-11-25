@@ -1,0 +1,11 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtDataVisualizationQml/6.12.0/QtDataVisualizationQml/private/",
+    "declarativescene_p.h, Qt 6.12.0, from Qt's source."
+  ],
+  "rows": {
+    "ritual_ZNK18Declarative3DScene10metaObjectEv": ["address", "address"],
+    "ritual_ZN18Declarative3DSceneD1Ev": ["nothing", "address"]
+  }
+}

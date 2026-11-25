@@ -1,0 +1,131 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtDataVisualizationQml/6.12.0/QtDataVisualizationQml/private/",
+    "abstractdeclarative_p.h, Qt 6.12.0, from Qt's source."
+  ],
+  "rows": {
+    "ritual_ZNK19AbstractDeclarative10metaObjectEv": ["address", "address"],
+    "ritual_ZN19AbstractDeclarativeD1Ev": ["nothing", "address"],
+    "ritual_ZN19AbstractDeclarative16setRenderingModeENS_13RenderingModeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK19AbstractDeclarative13renderingModeEv": ["int", "address"],
+    "ritual_ZN19AbstractDeclarative16setSelectionModeE6QFlagsINS_13SelectionFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK19AbstractDeclarative13selectionModeEv": ["int", "address"],
+    "ritual_ZN19AbstractDeclarative16setShadowQualityENS_13ShadowQualityE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK19AbstractDeclarative13shadowQualityEv": ["int", "address"],
+    "ritual_ZNK19AbstractDeclarative15selectedElementEv": ["int", "address"],
+    "ritual_ZNK19AbstractDeclarative16shadowsSupportedEv": [
+      "bool", "address"
+    ],
+    "ritual_ZN19AbstractDeclarative14setMsaaSamplesEi": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZNK19AbstractDeclarative11msaaSamplesEv": ["int", "address"],
+    "ritual_ZNK19AbstractDeclarative5sceneEv": ["address", "address"],
+    "ritual_ZNK19AbstractDeclarative12inputHandlerEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19AbstractDeclarative15setInputHandlerEP23QAbstract3DInputHandler": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19AbstractDeclarative8setThemeEP8Q3DTheme": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19AbstractDeclarative5themeEv": ["address", "address"],
+    "ritual_ZN19AbstractDeclarative14clearSelectionEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19AbstractDeclarative9hasSeriesEP17QAbstract3DSeries": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN19AbstractDeclarative13addCustomItemEP13QCustom3DItem": [
+      "int", "address", "address"
+    ],
+    "ritual_ZN19AbstractDeclarative17removeCustomItemsEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19AbstractDeclarative16removeCustomItemEP13QCustom3DItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19AbstractDeclarative18removeCustomItemAtERK9QVector3D": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19AbstractDeclarative17releaseCustomItemEP13QCustom3DItem": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK19AbstractDeclarative18selectedLabelIndexEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK19AbstractDeclarative12selectedAxisEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK19AbstractDeclarative23selectedCustomItemIndexEv": [
+      "int", "address"
+    ],
+    "ritual_ZNK19AbstractDeclarative18selectedCustomItemEv": [
+      "address", "address"
+    ],
+    "ritual_ZN19AbstractDeclarative14geometryChangeERK6QRectFS2_": [
+      "nothing", "address", "address", "address"
+    ],
+    "ritual_ZN19AbstractDeclarative5mutexEv": ["address", "address"],
+    "ritual_ZNK19AbstractDeclarative7isReadyEv": ["bool", "address"],
+    "ritual_ZN19AbstractDeclarative18handleAxisXChangedEP15QAbstract3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19AbstractDeclarative18handleAxisYChangedEP15QAbstract3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19AbstractDeclarative18handleAxisZChangedEP15QAbstract3DAxis": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19AbstractDeclarative21mouseDoubleClickEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19AbstractDeclarative10touchEventEP11QTouchEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19AbstractDeclarative15mousePressEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19AbstractDeclarative17mouseReleaseEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19AbstractDeclarative14mouseMoveEventEP11QMouseEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19AbstractDeclarative10wheelEventEP11QWheelEvent": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19AbstractDeclarative19handleWindowChangedEP12QQuickWindow": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN19AbstractDeclarative10itemChangeEN10QQuickItem10ItemChangeERKNS0_14ItemChangeDataE": [
+      "nothing", "address", "int", "address"
+    ],
+    "ritual_ZN19AbstractDeclarative22updateWindowParametersEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN19AbstractDeclarative25handleSelectionModeChangeE6QFlagsIN16QAbstract3DGraph13SelectionFlagEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN19AbstractDeclarative25handleShadowQualityChangeEN16QAbstract3DGraph13ShadowQualityE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN19AbstractDeclarative27handleSelectedElementChangeEN16QAbstract3DGraph11ElementTypeE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN19AbstractDeclarative28handleOptimizationHintChangeE6QFlagsIN16QAbstract3DGraph16OptimizationHintEE": [
+      "nothing", "address", "int"
+    ],
+    "ritual_ZN19AbstractDeclarative15updatePaintNodeEP7QSGNodePN10QQuickItem19UpdatePaintNodeDataE": [
+      "address", "address", "address", "address"
+    ]
+  }
+}

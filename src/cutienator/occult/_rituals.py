@@ -380,21 +380,33 @@ class Rituals:
   def getInstalledParts(cls) -> Paths:
     """
     Gives the parts of 'getRitualParts' the Qt of this machine has, in
-    the same order: its shared object is in the folder where Qt keeps
-    them, or, for a part of header files alone as QtUiPlugin, its
-    folder of header files is in Qt's header folder. The ritual files
-    of the others are not built here.
+    the same order: its shared object, or its static library for a
+    part Qt builds as one, as ActiveQt's 'QtAxContainer', is in the
+    folder where Qt keeps them, or, for a part of header files alone
+    as QtUiPlugin, its folder of header files is in Qt's header folder.
+    The ritual files of the others are not built here.
     """
-    folder = Summon.getQtSharedObjectFolder()
     headers = Summon.getQtHeaderFolder()
-    system = System.getHere()
     found = []  # type: List[str]
     for part in cls.getRitualParts():
-      shared = os.path.join(folder, system.getQtFileName(part))
-      if os.path.exists(shared) or os.path.isdir(
+      if cls._findQtFile(part) is not None or os.path.isdir(
           os.path.join(headers, part)):
         found.append(part)
     return (*found,)
+
+  @classmethod
+  def _findQtFile(cls, part: str) -> Optional[str]:
+    """Gives the path of the file of a part of Qt the linker is
+    handed: its shared object, else its static library, or None when
+    this machine has neither."""
+    folder = Summon.getQtSharedObjectFolder()
+    system = System.getHere()
+    for name in (system.getQtFileName(part),
+                 system.getQtStaticFileName(part)):
+      path = os.path.join(folder, name)
+      if os.path.exists(path):
+        return path
+    return None
 
   @classmethod
   def getQtSharedObjects(cls) -> Paths:
@@ -417,14 +429,10 @@ class Rituals:
 
   @classmethod
   def _findSharedObjects(cls, partNames: Paths) -> Paths:
-    """Gives the Qt shared object of each part named that has one
-    here, in the order named."""
-    folder = Summon.getQtSharedObjectFolder()
-    system = System.getHere()
-    paths = (
-        os.path.join(folder, system.getQtFileName(part))
-        for part in partNames)
-    return (*(path for path in paths if os.path.exists(path)),)
+    """Gives the Qt shared object, or the static library, of each part
+    named that has one here, in the order named; see '_findQtFile'."""
+    paths = (cls._findQtFile(part) for part in partNames)
+    return (*(path for path in paths if path is not None),)
 
   @classmethod
   def getPartsFirst(cls, partName: str) -> Paths:
@@ -473,6 +481,27 @@ class Rituals:
     to: those of 'getQtSharedObjects', in the order of
     'getPartOrder'."""
     return cls._findSharedObjects(cls.getPartOrder(partName))
+
+  @classmethod
+  def getPartStaticDependencies(cls, partName: str) -> Paths:
+    """
+    Gives what the target file of a part is joined to beside its Qt
+    shared objects: for each part of 'getPartOrder' that Qt builds as a
+    static library, what its '.prl' file lists, as 'System.
+    readStaticDependencies' reads it, each word once, in that order.
+    Empty when no such part is installed here.
+    """
+    folder = Summon.getQtSharedObjectFolder()
+    system = System.getHere()
+    words = []  # type: List[str]
+    for part in cls.getPartOrder(partName):
+      if cls._findQtFile(part) is None:
+        continue
+      for word in system.readStaticDependencies(folder, part):
+        if word == '-framework' or word not in words or (
+            words and words[-1] == '-framework'):
+          words.append(word)
+    return (*words,)
 
   @classmethod
   def getPartComponents(cls, partName: str) -> Paths:
@@ -1206,6 +1235,7 @@ class Rituals:
     build.setRitualFiles(*cls.getPartRitualFiles(partName))
     build.setTargetFile(cls.getTargetFile(partName))
     build.setQtSharedObjects(*cls.getPartSharedObjects(partName))
+    build.setStaticDependencies(*cls.getPartStaticDependencies(partName))
     build.setComponents(*cls.getPartComponents(partName))
     return build
 

@@ -105,6 +105,16 @@ class MacOS(System):
     """
     return '%s.framework/Versions/A/%s' % (part, part)
 
+  def getQtStaticFileName(self, part: str) -> str:
+    """Gives the static library of one part of Qt, which on macOS is
+    no framework: 'libQt6AxContainer.a' for 'QtAxContainer'."""
+    return 'lib%s.a' % part.replace('Qt', 'Qt6', 1)
+
+  def getQtPrlFileName(self, part: str) -> str:
+    """Gives the '.prl' file of one part of Qt, as 'libQt6Core.prl'
+    for 'QtCore', beside the frameworks."""
+    return 'lib%s.prl' % part.replace('Qt', 'Qt6', 1)
+
   def getCompilerFlags(self, qtFolder: str) -> Paths:
     """
     Gives what 'clang++' is told on macOS: what it is told on Linux, and

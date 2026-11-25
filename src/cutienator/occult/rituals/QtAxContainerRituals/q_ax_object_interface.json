@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtAxContainer/qaxobjectinterface.h, Qt 6.12.0, from Qt's source. Kept as",
+    "it is when the generator runs again. ActiveQt is built for Windows alone,"
+  ],
+  "rows": {
+    "ritual_ZN18QAxObjectInterfaceD1Ev": ["nothing", "address"],
+    "ritual_ZNK18QAxObjectInterface12classContextEv": [
+      "unsigned long", "address"
+    ],
+    "ritual_ZN18QAxObjectInterface15setClassContextEm": [
+      "nothing", "address", "unsigned long"
+    ],
+    "ritual_ZNK18QAxObjectInterface7controlEv": ["text", "address"],
+    "ritual_ZN18QAxObjectInterface12resetControlEv": ["nothing", "address"],
+    "ritual_ZN18QAxObjectInterface10setControlERK7QString": [
+      "bool", "address", "text"
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtQuick3DHelpersImpl/6.12.0/QtQuick3DHelpersImpl/private/",
+    "qquick3drenderstatspassesmodel_p.h, Qt 6.12.0.",
+    "Kept as it is when the generator runs again."
+  ],
+  "rows": {
+    "ritual_ZNK30QQuick3DRenderStatsPassesModel10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN30QQuick3DRenderStatsPassesModelD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK30QQuick3DRenderStatsPassesModel8rowCountERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK30QQuick3DRenderStatsPassesModel11columnCountERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK30QQuick3DRenderStatsPassesModel4dataERK11QModelIndexi": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZNK30QQuick3DRenderStatsPassesModel10headerDataEiN2Qt11OrientationEi": [
+      "address", "address", "int", "int", "int"
+    ]
+  }
+}

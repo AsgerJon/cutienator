@@ -1,0 +1,14 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtDeclarativeOpcua/6.12.0/QtDeclarativeOpcua/private/",
+    "opcualiteraloperand_p.h, Qt 6.12.0, from Qt's source."
+  ],
+  "rows": {
+    "ritual_ZNK19OpcUaLiteralOperand10metaObjectEv": ["address", "address"],
+    "ritual_ZN19OpcUaLiteralOperandD1Ev": ["nothing", "address"],
+    "ritual_ZNK19OpcUaLiteralOperand12toCppVariantEP12QOpcUaClient": [
+      "address", "address", "address"
+    ]
+  }
+}

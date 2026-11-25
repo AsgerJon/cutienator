@@ -1,0 +1,35 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtAxServer/6.12.0/QtAxServer/private/qclassfactory_p.h, Qt 6.12.0,",
+    "from Qt's source. Kept as it is when the generator runs again."
+  ],
+  "rows": {
+    "ritual_ZN13QClassFactoryC1E5_GUID": ["address", "address"],
+    "ritual_ZN13QClassFactoryD1Ev": ["nothing", "address"],
+    "ritual_ZN13QClassFactory20CreateInstanceHelperEP8IUnknownRK5_GUIDPPv": [
+      "long", "address", "address", "address", "address"
+    ],
+    "ritual_ZN13QClassFactory14CreateInstanceEP8IUnknownRK5_GUIDPPv": [
+      "long", "address", "address", "address", "address"
+    ],
+    "ritual_ZN13QClassFactory10LockServerEi": ["long", "address", "int"],
+    "ritual_ZN13QClassFactory13RequestLicKeyEmPPw": [
+      "long", "address", "unsigned long", "address"
+    ],
+    "ritual_ZN13QClassFactory10GetLicInfoEP10tagLICINFO": [
+      "long", "address", "address"
+    ],
+    "ritual_take_QClassFactory": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN13QClassFactory14CreateInstanceEP8IUnknownRK5_GUIDPPv": [
+      "long", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN13QClassFactory10LockServerEi": ["long", "address", "int"],
+    "ritual_own_ZN13QClassFactory13RequestLicKeyEmPPw": [
+      "long", "address", "unsigned long", "address"
+    ],
+    "ritual_own_ZN13QClassFactory10GetLicInfoEP10tagLICINFO": [
+      "long", "address", "address"
+    ]
+  }
+}

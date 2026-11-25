@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtDataVisualizationQml/6.12.0/QtDataVisualizationQml/private/",
+    "declarativetheme_p.h, Qt 6.12.0, from Qt's source."
+  ],
+  "rows": {
+    "ritual_ZNK18DeclarativeTheme3D10metaObjectEv": ["address", "address"],
+    "ritual_ZN18DeclarativeTheme3DD1Ev": ["nothing", "address"],
+    "ritual_ZN18DeclarativeTheme3D10classBeginEv": ["nothing", "address"],
+    "ritual_ZN18DeclarativeTheme3D17componentCompleteEv": [
+      "nothing", "address"
+    ]
+  }
+}

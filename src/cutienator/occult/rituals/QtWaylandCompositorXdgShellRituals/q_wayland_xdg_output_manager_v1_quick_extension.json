@@ -1,0 +1,25 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtWaylandCompositorXdgShell/6.12.0/QtWaylandCompositorXdgShell/private/",
+    "qwaylandcompositorxdgshell_p.h, Qt 6.12.0, from Qt's source. Kept as it",
+    "is when the generator runs again."
+  ],
+  "rows": {
+    "ritual_ZNK40QWaylandXdgOutputManagerV1QuickExtension10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN40QWaylandXdgOutputManagerV1QuickExtensionD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN40QWaylandXdgOutputManagerV1QuickExtension10classBeginEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN40QWaylandXdgOutputManagerV1QuickExtension17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_cast_QWaylandXdgOutputManagerV1QuickExtension_QQmlParserStatus": [
+      "address", "address"
+    ]
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtDeclarativeOpcua/6.12.0/QtDeclarativeOpcua/private/",
+    "opcuarelativenodepath_p.h, Qt 6.12.0, from Qt's source. Kept as it is"
+  ],
+  "rows": {
+    "ritual_ZNK21OpcUaRelativeNodePath10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21OpcUaRelativeNodePathD1Ev": ["nothing", "address"]
+  }
+}

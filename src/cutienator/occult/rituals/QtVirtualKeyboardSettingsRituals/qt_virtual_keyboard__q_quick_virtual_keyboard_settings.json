@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtVirtualKeyboardSettings/6.12.0/QtVirtualKeyboardSettings/private/",
+    "qquickvirtualkeyboardsettings_p.h, Qt 6.12.0, from Qt's source."
+  ],
+  "rows": {
+    "ritual_ZNK17QtVirtualKeyboard29QQuickVirtualKeyboardSettings10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN17QtVirtualKeyboard29QQuickVirtualKeyboardSettingsD1Ev": [
+      "nothing", "address"
+    ]
+  }
+}

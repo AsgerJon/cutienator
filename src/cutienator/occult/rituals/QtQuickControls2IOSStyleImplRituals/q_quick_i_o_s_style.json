@@ -1,0 +1,11 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtQuickControls2IOSStyleImpl/6.12.0/QtQuickControls2IOSStyleImpl/private/",
+    "qquickiosstyle_p.h, Qt 6.12.0, from Qt's source. Kept as it is"
+  ],
+  "rows": {
+    "ritual_ZNK14QQuickIOSStyle10metaObjectEv": ["address", "address"],
+    "ritual_ZN14QQuickIOSStyleD1Ev": ["nothing", "address"]
+  }
+}

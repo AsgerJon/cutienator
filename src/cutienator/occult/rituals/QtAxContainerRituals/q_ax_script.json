@@ -1,0 +1,29 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtAxContainer/qaxscript.h, Qt 6.12.0, from Qt's source. Kept as it is",
+    "when the generator runs again. ActiveQt is built for Windows alone, as a"
+  ],
+  "rows": {
+    "ritual_ZNK9QAxScript10metaObjectEv": ["address", "address"],
+    "ritual_ZN9QAxScript2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN9QAxScriptC1ERK7QStringP16QAxScriptManager": [
+      "address", "text", "address"
+    ],
+    "ritual_ZN9QAxScriptD1Ev": ["nothing", "address"],
+    "ritual_ZN9QAxScript4loadERK7QStringS2_": [
+      "bool", "address", "text", "text"
+    ],
+    "ritual_ZNK9QAxScript10scriptCodeEv": ["text", "address"],
+    "ritual_ZNK9QAxScript10scriptNameEv": ["text", "address"],
+    "ritual_ZNK9QAxScript12scriptEngineEv": ["address", "address"],
+    "ritual_ZN9QAxScript4callERK7QStringRK8QVariantS5_S5_S5_S5_S5_S5_S5_": [
+      "address", "address", "text", "address", "address", "address", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN9QAxScript13updateObjectsEv": ["nothing", "address"],
+    "ritual_ZN9QAxScript10findObjectERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_take_QAxScript": ["bool", "address", "chars", "address"]
+  }
+}

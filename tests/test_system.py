@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import os
 import sys
+import tempfile
 from typing import TYPE_CHECKING
 from unittest import mock
 
@@ -183,3 +184,52 @@ class TestSystem(BaseTest):
           Windows().prepareOpening()
     expected = os.pathsep.join((folder, 'elsewhere'))
     self.assertEqual(environment, dict(PATH=expected))
+
+  def test_static_and_prl_file_names(self) -> None:
+    """Each system names the static library and the '.prl' file of a
+    part as Qt installs them."""
+    self.assertEqual(
+        Linux().getQtStaticFileName('QtAxContainer'), 'libQt6AxContainer.a')
+    self.assertEqual(
+        MacOS().getQtStaticFileName('QtAxContainer'), 'libQt6AxContainer.a')
+    self.assertEqual(
+        Windows().getQtStaticFileName('QtAxContainer'), 'Qt6AxContainer.lib')
+    self.assertEqual(Linux().getQtPrlFileName('QtCore'), 'libQt6Core.prl')
+    self.assertEqual(MacOS().getQtPrlFileName('QtCore'), 'libQt6Core.prl')
+    self.assertEqual(Windows().getQtPrlFileName('QtCore'), 'Qt6Core.prl')
+
+  def _readPrl(self, text: str) -> tuple:
+    """Writes 'text' as the '.prl' file of 'QtAxContainer' on Windows into
+    a new folder, and gives what 'readStaticDependencies' reads of it,
+    with the folder written as 'QT'."""
+    with tempfile.TemporaryDirectory() as folder:
+      path = os.path.join(folder, 'Qt6AxContainer.prl')
+      with open(path, 'w', encoding='utf-8') as file:
+        file.write(text)
+      words = Windows().readStaticDependencies(folder, 'QtAxContainer')
+    return (*(word.replace(folder, 'QT') for word in words),)
+
+  def test_a_static_library_names_what_it_needs(self) -> None:
+    """A static library's '.prl' file gives its libraries, the folder of
+    Qt put in for '$$[QT_INSTALL_LIBS]'."""
+    text = """QMAKE_PRL_TARGET = Qt6AxContainer.lib
+QMAKE_PRL_CONFIG = static
+QMAKE_PRL_LIBS = $$[QT_INSTALL_LIBS]/Qt6AxBase.lib -lole32 -luuid
+"""
+    self.assertEqual(
+        self._readPrl(text), ('QT/Qt6AxBase.lib', '-lole32', '-luuid'))
+
+  def test_a_shared_object_needs_nothing_beside_it(self) -> None:
+    """A part Qt builds as a shared object brings its own libraries, so
+    its '.prl' file gives nothing, whatever it lists."""
+    text = """QMAKE_PRL_TARGET = Qt6Core.lib
+QMAKE_PRL_CONFIG = shared
+QMAKE_PRL_LIBS = -lole32
+"""
+    self.assertEqual(self._readPrl(text), ())
+
+  def test_no_prl_file_needs_nothing(self) -> None:
+    """A part with no '.prl' file gives nothing."""
+    with tempfile.TemporaryDirectory() as folder:
+      words = Linux().readStaticDependencies(folder, 'QtAxContainer')
+    self.assertEqual(words, ())

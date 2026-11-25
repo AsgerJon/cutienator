@@ -1,0 +1,28 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from the header path as installed,",
+    "QtQuick3DHelpersImpl/6.12.0/QtQuick3DHelpersImpl/private/",
+    "qquick3drenderstatstexturesmodel_p.h, Qt 6.12.0, as the Linux kit",
+    "installs it. Kept as it is when the generator runs again."
+  ],
+  "rows": {
+    "ritual_ZNK32QQuick3DRenderStatsTexturesModel10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN32QQuick3DRenderStatsTexturesModelD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK32QQuick3DRenderStatsTexturesModel8rowCountERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK32QQuick3DRenderStatsTexturesModel11columnCountERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK32QQuick3DRenderStatsTexturesModel4dataERK11QModelIndexi": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZNK32QQuick3DRenderStatsTexturesModel10headerDataEiN2Qt11OrientationEi": [
+      "address", "address", "int", "int", "int"
+    ]
+  }
+}

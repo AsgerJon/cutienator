@@ -1,0 +1,11 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtRemoteObjectsQml/6.12.0/QtRemoteObjectsQml/private/",
+    "qremoteobjectsqml_p.h, Qt 6.12.0, from Qt's source. Kept as it is",
+    "when the generator runs again."
+  ],
+  "rows": {
+    "ritual_ZN24QRemoteObjectHostForeignD1Ev": ["nothing", "address"]
+  }
+}

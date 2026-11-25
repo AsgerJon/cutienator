@@ -1,0 +1,18 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtQuick3DHelpersImpl/6.12.0/QtQuick3DHelpersImpl/private/",
+    "sceneeffects_p.h, Qt 6.12.0, from Qt's source. Kept as it is when",
+    "the generator runs again."
+  ],
+  "rows": {
+    "ritual_ZNK15SceneEffectBase10metaObjectEv": ["address", "address"],
+    "ritual_ZN15SceneEffectBaseD1Ev": ["nothing", "address"],
+    "ritual_ZN15SceneEffectBase15registerWithEnvEP22SceneEffectEnvironment": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN15SceneEffectBase17unregisterWithEnvEP22SceneEffectEnvironment": [
+      "nothing", "address", "address"
+    ]
+  }
+}

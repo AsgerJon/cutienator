@@ -1,0 +1,42 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtAxContainer/6.12.0/QtAxContainer/private/qaxbase_p.h, Qt 6.12.0, from",
+    "Qt's source. Kept as it is when the generator runs again. ActiveQt is"
+  ],
+  "rows": {
+    "ritual_ZN14QAxBasePrivateD1Ev": ["nothing", "address"],
+    "ritual_ZNK14QAxBasePrivate7qObjectEv": ["address", "address"],
+    "ritual_ZNK14QAxBasePrivate9classNameEv": ["chars", "address"],
+    "ritual_ZNK14QAxBasePrivate18fallbackMetaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK14QAxBasePrivate16parentMetaObjectEv": ["address", "address"],
+    "ritual_ZN14QAxBasePrivate13emitExceptionEiRK7QStringS2_S2_": [
+      "nothing", "address", "int", "text", "text", "text"
+    ],
+    "ritual_ZN14QAxBasePrivate19emitPropertyChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN14QAxBasePrivate10emitSignalERK7QStringiPv": [
+      "nothing", "address", "text", "int", "address"
+    ],
+    "ritual_ZN14QAxBasePrivate10qtMetaCallEN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZN14QAxBasePrivate16qtStaticMetaCallEP7QAxBaseN11QMetaObject4CallEiPPv": [
+      "int", "address", "int", "int", "address"
+    ],
+    "ritual_ZNK14QAxBasePrivate8dispatchEv": ["address", "address"],
+    "ritual_ZN14QAxBasePrivate12checkHRESULTElP12tagEXCEPINFORK7QStringj": [
+      "bool", "address", "long", "address", "text", "unsigned int"
+    ],
+    "ritual_ZN14QAxBasePrivate15handleExceptionEP12tagEXCEPINFORK7QString": [
+      "nothing", "address", "address", "text"
+    ],
+    "ritual_ZN14QAxBasePrivate17VARIANTToQVariantERK10tagVARIANTRK10QByteArrayj": [
+      "address", "address", "address", "unsigned int"
+    ],
+    "ritual_ZN14QAxBasePrivate10metaObjectEv": ["address", "address"]
+  }
+}

@@ -45,6 +45,9 @@ class System:
 
   - 'getQtFileName': which file of Qt the linker is handed for one part
     of Qt.
+  - 'getQtStaticFileName' and 'getQtPrlFileName': the file of a part
+    Qt builds as a static library, as ActiveQt's 'QtAxContainer', and
+    the file in which Qt lists what that library needs beside it.
   - 'getCompilerFlags': what 'clang++' is told there besides what it is
     told everywhere.
   - 'getLinkerFlags': how a missing name is refused, and how a built
@@ -57,7 +60,10 @@ class System:
 
   - On any other system 'getHere' raises 'NotImplementedError', with
     the name Python has for that system.
-  - 'System' itself answers none of the four: asked of it and not of a
+  - 'readStaticDependencies' is the same on every system: what a
+    static library of Qt needs on the line that joins a built file, as
+    its '.prl' file lists it.
+  - 'System' itself answers none of the others: asked of it and not of a
     'Linux', a 'MacOS' or a 'Windows', each raises 'NotImplementedError'.
   - To teach cutienator a new system, write one more subclass in a file
     of its own, with '__platform_name__' set to what 'sys.platform' is
@@ -192,6 +198,91 @@ class System:
       objects, which 'Summon.getQtSharedObjectFolder' gives.
     """
     raise self._refuse('getQtFileName')
+
+  @abstractmethod
+  def getQtStaticFileName(self, part: str) -> str:
+    """
+    Gives the file of a part of Qt that Qt builds as a static library,
+    as ActiveQt's 'QtAxContainer', in the folder where Qt keeps its
+    shared objects.
+
+    Parameters
+    ----------
+
+    part : str
+      The part of Qt, as 'QtAxContainer'.
+
+    Returns
+    -------
+
+    str
+      The path of the file from that folder.
+    """
+    raise self._refuse('getQtStaticFileName')
+
+  @abstractmethod
+  def getQtPrlFileName(self, part: str) -> str:
+    """
+    Gives the file in which Qt lists, for one part, whether it is a
+    static library and what it needs beside it: its '.prl' file, in the
+    folder where Qt keeps its shared objects.
+
+    Parameters
+    ----------
+
+    part : str
+      The part of Qt, as 'QtAxContainer'.
+
+    Returns
+    -------
+
+    str
+      The path of the file from that folder.
+    """
+    raise self._refuse('getQtPrlFileName')
+
+  def readStaticDependencies(self, qtFolder: str, part: str) -> Paths:
+    """
+    Gives what the line joining a built file needs beside a part of Qt
+    that Qt builds as a static library: the libraries its own code
+    calls into, which a shared object would bring by itself and a
+    static library does not.
+
+    Qt writes them in the part's '.prl' file: 'QMAKE_PRL_CONFIG' holds
+    'static' for a static library, and 'QMAKE_PRL_LIBS' the words, as
+    '$$[QT_INSTALL_LIBS]/Qt6AxBase.lib -lole32' on Windows, where
+    '$$[QT_INSTALL_LIBS]' stands for the folder of Qt's shared objects.
+
+    Parameters
+    ----------
+
+    qtFolder : str
+      The folder where Qt keeps its shared objects.
+
+    part : str
+      The part of Qt, as 'QtAxContainer'.
+
+    Returns
+    -------
+
+    Paths
+      A 'Tuple[str, ...]', one argument per entry, '-framework' and its
+      name as two. Empty for a part with no '.prl' file, and for one Qt
+      builds as a shared object.
+    """
+    path = os.path.join(qtFolder, self.getQtPrlFileName(part))
+    if not os.path.isfile(path):
+      return ()
+    values = {}
+    with open(path, encoding='utf-8') as file:
+      for line in file:
+        key, _, value = line.partition('=')
+        values[key.strip()] = value.strip()
+    if 'static' not in values.get('QMAKE_PRL_CONFIG', '').split():
+      return ()
+    libraries = values.get('QMAKE_PRL_LIBS', '')
+    words = libraries.replace('$$[QT_INSTALL_LIBS]', qtFolder).split()
+    return (*words,)
 
   @abstractmethod
   def getCompilerFlags(self, qtFolder: str) -> Paths:

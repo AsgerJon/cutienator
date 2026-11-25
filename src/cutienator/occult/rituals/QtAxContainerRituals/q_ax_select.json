@@ -1,0 +1,25 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtAxContainer/qaxselect.h, Qt 6.12.0, from Qt's source. Kept as it is",
+    "when the generator runs again. ActiveQt is built for Windows alone, as a"
+  ],
+  "rows": {
+    "ritual_ZNK9QAxSelect10metaObjectEv": ["address", "address"],
+    "ritual_ZN9QAxSelect2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_ZN9QAxSelectC1EP7QWidget6QFlagsIN2Qt10WindowTypeEE": [
+      "address", "address", "int"
+    ],
+    "ritual_ZN9QAxSelectD1Ev": ["nothing", "address"],
+    "ritual_ZNK9QAxSelect5clsidEv": ["text", "address"],
+    "ritual_ZNK9QAxSelect15sandboxingLevelEv": ["int", "address"],
+    "ritual_ZN9QAxSelect27onActiveXListCurrentChangedERK11QModelIndex": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN9QAxSelect22onActiveXListActivatedEv": ["nothing", "address"],
+    "ritual_ZN9QAxSelect23onFilterLineEditChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_take_QAxSelect": ["bool", "address", "chars", "address"]
+  }
+}

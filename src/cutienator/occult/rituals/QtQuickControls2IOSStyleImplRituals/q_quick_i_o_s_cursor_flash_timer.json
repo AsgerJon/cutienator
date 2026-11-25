@@ -1,0 +1,16 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtQuickControls2IOSStyleImpl/6.12.0/QtQuickControls2IOSStyleImpl/private/",
+    "qquickioscursorflashtimer_p.h, Qt 6.12.0, from Qt's source. Kept"
+  ],
+  "rows": {
+    "ritual_ZNK25QQuickIOSCursorFlashTimer10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN25QQuickIOSCursorFlashTimerD1Ev": ["nothing", "address"],
+    "ritual_ZN25QQuickIOSCursorFlashTimer10timerEventEP11QTimerEvent": [
+      "nothing", "address", "address"
+    ]
+  }
+}

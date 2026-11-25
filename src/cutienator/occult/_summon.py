@@ -62,12 +62,15 @@ class Summon:
   - 'setTargetFile': the target file to write.
   - 'setQtSharedObjects': the Qt shared objects the rituals call into.
 
-  One more is optional:
+  Two more are optional:
 
   - 'setComponents': the parts of Qt the ritual files are of, as 'QtCore'.
     With it 'clang++' also looks in the folders of the headers Qt calls
     private, which a ritual file may name; see
     'getPrivateIncludeFolders'.
+  - 'setStaticDependencies': what a static library of Qt among the Qt
+    shared objects needs beside it on the line that joins the target
+    file, as 'System.readStaticDependencies' reads it.
 
   Found for you
   -------------
@@ -217,6 +220,7 @@ class Summon:
   __ritual_files__ = None
   __target_file__ = None
   __qt_shared_objects__ = None
+  __static_dependencies__ = ()
   __job_count__ = None
   __components__ = None
   #  What 'getPrivateIncludeFolders' found, kept until 'setComponents'.
@@ -461,6 +465,12 @@ class Summon:
       self.setQtSharedObjects()
       return self.getQtSharedObjects(_recursion=True)
     return self.__qt_shared_objects__
+
+  def getStaticDependencies(self) -> Paths:
+    """Gives what 'setStaticDependencies' set: the words the line
+    joining the target file takes after the Qt shared objects, for a
+    static library of Qt among them. Empty when none was set."""
+    return self.__static_dependencies__
 
   def getObjectFolder(self) -> str:
     """
@@ -810,7 +820,9 @@ class Summon:
       'Linux', 'MacOS' and 'Windows' say what each is for;
       the path of the object file of each ritual file;
       '-o' with the path of the target file;
-      the path of each Qt shared object the target file calls into.
+      the path of each Qt shared object the target file calls into;
+      what 'setStaticDependencies' set, as '-lole32', for a static
+      library of Qt among them.
 
     Raises
     ------
@@ -834,6 +846,7 @@ class Summon:
         *system.getLinkerFlags(qtFolder),
         *(self.getObjectFile(ritualFile) for ritualFile in ritualFiles),
         '-o', self.getTargetFile(), *self.getQtSharedObjects(),
+        *self.getStaticDependencies(),
     )
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -999,6 +1012,34 @@ class Summon:
     self.__qt_shared_objects__ = (
         *(os.path.abspath(f) for f in qtSharedObjects),
     )
+
+  def setStaticDependencies(self, *words: str) -> None:
+    """
+    Tells the build what a static library of Qt among its Qt shared
+    objects needs beside it, as ActiveQt's 'Qt6AxContainer.lib' needs
+    'Qt6AxBase.lib' and Windows' own '-lole32'. A shared object brings
+    the libraries it calls into by itself; a static library does not.
+
+    Optional; without it the build takes none. Calling it again
+    replaces the words given before.
+
+    Parameters
+    ----------
+
+    *words : str
+      One argument of the joining line per entry, kept as given: a
+      path, a '-l' flag, or '-framework' and a name as two entries.
+
+    Raises
+    ------
+
+    TypeException
+      A word is not text.
+    """
+    for word in words:
+      if not isinstance(word, str):
+        raise TypeException('word', word, str)
+    self.__static_dependencies__ = (*words,)
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NOTIFIERS  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #

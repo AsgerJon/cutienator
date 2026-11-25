@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtDataVisualizationQml/6.12.0/QtDataVisualizationQml/private/",
+    "declarativerendernode_p.h, Qt 6.12.0, from Qt's source."
+  ],
+  "rows": {
+    "ritual_ZNK21DeclarativeRenderNode10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21DeclarativeRenderNodeD1Ev": ["nothing", "address"],
+    "ritual_ZNK21DeclarativeRenderNode4sizeEv": ["address", "address"],
+    "ritual_ZN21DeclarativeRenderNode10preprocessEv": ["nothing", "address"]
+  }
+}

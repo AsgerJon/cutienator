@@ -1,0 +1,15 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtDeclarativeOpcua/6.12.0/QtDeclarativeOpcua/private/",
+    "opcuamethodnode_p.h, Qt 6.12.0, from Qt's source."
+  ],
+  "rows": {
+    "ritual_ZNK15OpcUaMethodNode10metaObjectEv": ["address", "address"],
+    "ritual_ZN15OpcUaMethodNodeD1Ev": ["nothing", "address"],
+    "ritual_ZN15OpcUaMethodNode9setupNodeERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN15OpcUaMethodNode13checkValidityEv": ["bool", "address"]
+  }
+}

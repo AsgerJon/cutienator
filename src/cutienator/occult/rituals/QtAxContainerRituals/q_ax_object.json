@@ -1,0 +1,48 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtAxContainer/qaxobject.h, Qt 6.12.0, from Qt's source. Kept as it is",
+    "when the generator runs again. ActiveQt is built for Windows alone, as a"
+  ],
+  "rows": {
+    "ritual_ZN9QAxObject6d_funcEv": ["address", "address"],
+    "ritual_ZNK9QAxObject6d_funcEv": ["address", "address"],
+    "ritual_ZN9QAxObjectC1EP7QObject": ["address", "address"],
+    "ritual_ZN9QAxObjectC1ERK7QStringP7QObject": [
+      "address", "text", "address"
+    ],
+    "ritual_ZN9QAxObjectC1EP8IUnknownP7QObject": [
+      "address", "address", "address"
+    ],
+    "ritual_ZN9QAxObjectD1Ev": ["nothing", "address"],
+    "ritual_ZNK9QAxObject12classContextEv": ["unsigned long", "address"],
+    "ritual_ZN9QAxObject15setClassContextEm": [
+      "nothing", "address", "unsigned long"
+    ],
+    "ritual_ZNK9QAxObject7controlEv": ["text", "address"],
+    "ritual_ZN9QAxObject10setControlERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_ZN9QAxObject12resetControlEv": ["nothing", "address"],
+    "ritual_ZN9QAxObject5clearEv": ["nothing", "address"],
+    "ritual_ZN9QAxObject6doVerbERK7QString": ["bool", "address", "text"],
+    "ritual_ZNK9QAxObject10metaObjectEv": ["address", "address"],
+    "ritual_ZN9QAxObject13connectNotifyERK11QMetaMethod": [
+      "nothing", "address", "address"
+    ],
+    "ritual_cast_QAxObject_QAxBase": ["address", "address"],
+    "ritual_take_QAxObject": ["bool", "address", "chars", "address"],
+    "ritual_own_ZNK9QAxObject12classContextEv": ["unsigned long", "address"],
+    "ritual_own_ZN9QAxObject15setClassContextEm": [
+      "nothing", "address", "unsigned long"
+    ],
+    "ritual_own_ZNK9QAxObject7controlEv": ["text", "address"],
+    "ritual_own_ZN9QAxObject10setControlERK7QString": [
+      "bool", "address", "text"
+    ],
+    "ritual_own_ZN9QAxObject12resetControlEv": ["nothing", "address"],
+    "ritual_own_ZN9QAxObject13connectNotifyERK11QMetaMethod": [
+      "nothing", "address", "address"
+    ]
+  }
+}

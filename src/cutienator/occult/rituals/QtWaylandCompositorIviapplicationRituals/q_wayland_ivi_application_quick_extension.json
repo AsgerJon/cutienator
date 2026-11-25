@@ -1,0 +1,26 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtWaylandCompositorIviapplication/6.12.0/",
+    "QtWaylandCompositorIviapplication/private/",
+    "qwaylandcompositoriviapplicationforeign_p.h, Qt 6.12.0, from Qt's source.",
+    "Kept as it is when the generator runs again."
+  ],
+  "rows": {
+    "ritual_ZNK36QWaylandIviApplicationQuickExtension10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN36QWaylandIviApplicationQuickExtensionD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZN36QWaylandIviApplicationQuickExtension10classBeginEv": [
+      "nothing", "address"
+    ],
+    "ritual_ZN36QWaylandIviApplicationQuickExtension17componentCompleteEv": [
+      "nothing", "address"
+    ],
+    "ritual_cast_QWaylandIviApplicationQuickExtension_QQmlParserStatus": [
+      "address", "address"
+    ]
+  }
+}

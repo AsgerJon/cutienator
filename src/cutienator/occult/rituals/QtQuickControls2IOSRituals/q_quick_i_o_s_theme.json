@@ -1,0 +1,12 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtQuickControls2IOS/6.12.0/QtQuickControls2IOS/private/",
+    "qquickiostheme_p.h, Qt 6.12.0, from Qt's source. Kept as it is"
+  ],
+  "rows": {
+    "ritual_ZN14QQuickIOSTheme10initializeEP11QQuickTheme": [
+      "nothing", "address"
+    ]
+  }
+}

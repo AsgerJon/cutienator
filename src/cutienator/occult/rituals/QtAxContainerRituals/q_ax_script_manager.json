@@ -1,0 +1,35 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtAxContainer/qaxscript.h, Qt 6.12.0, from Qt's source. Kept as it is",
+    "when the generator runs again. ActiveQt is built for Windows alone, as a"
+  ],
+  "rows": {
+    "ritual_ZNK16QAxScriptManager10metaObjectEv": ["address", "address"],
+    "ritual_ZN16QAxScriptManager2trEPKcS1_i": [
+      "text", "chars", "chars", "int"
+    ],
+    "ritual_ZN16QAxScriptManagerC1EP7QObject": ["address", "address"],
+    "ritual_ZN16QAxScriptManagerD1Ev": ["nothing", "address"],
+    "ritual_ZN16QAxScriptManager9addObjectEP7QAxBase": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZNK16QAxScriptManager6scriptERK7QString": [
+      "address", "address", "text"
+    ],
+    "ritual_ZN16QAxScriptManager4loadERK7QStringS2_S2_": [
+      "address", "address", "text", "text", "text"
+    ],
+    "ritual_ZN16QAxScriptManager4loadERK7QStringS2_": [
+      "address", "address", "text", "text"
+    ],
+    "ritual_ZN16QAxScriptManager4callERK7QStringRK8QVariantS5_S5_S5_S5_S5_S5_S5_": [
+      "address", "address", "text", "address", "address", "address", "address", "address", "address", "address", "address"
+    ],
+    "ritual_ZN16QAxScriptManager14registerEngineERK7QStringS2_S2_": [
+      "bool", "text", "text", "text"
+    ],
+    "ritual_ZN16QAxScriptManager16scriptFileFilterEv": ["text"],
+    "ritual_take_QAxScriptManager": ["bool", "address", "chars", "address"]
+  }
+}

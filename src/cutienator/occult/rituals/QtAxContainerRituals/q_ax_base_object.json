@@ -1,0 +1,12 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtAxContainer/qaxobject.h, Qt 6.12.0, from Qt's source. Kept as it is",
+    "when the generator runs again. ActiveQt is built for Windows alone, as a"
+  ],
+  "rows": {
+    "ritual_ZNK13QAxBaseObject10metaObjectEv": ["address", "address"],
+    "ritual_ZN13QAxBaseObject2trEPKcS1_i": ["text", "chars", "chars", "int"],
+    "ritual_cast_QAxBaseObject_QAxObjectInterface": ["address", "address"]
+  }
+}

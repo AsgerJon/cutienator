@@ -1,0 +1,23 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtQuick3DPhysicsHelpers/6.12.0/QtQuick3DPhysicsHelpers/private/",
+    "qcapsulegeometry_p.h, Qt 6.12.0, from Qt's source. Kept as it is",
+    "when the generator runs again."
+  ],
+  "rows": {
+    "ritual_ZNK22CapsuleGeometryPhysics10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN22CapsuleGeometryPhysicsD1Ev": ["nothing", "address"],
+    "ritual_ZNK22CapsuleGeometryPhysics13enableNormalsEv": [
+      "bool", "address"
+    ],
+    "ritual_ZNK22CapsuleGeometryPhysics8enableUVEv": ["bool", "address"],
+    "ritual_ZNK22CapsuleGeometryPhysics10longitudesEv": ["int", "address"],
+    "ritual_ZNK22CapsuleGeometryPhysics9latitudesEv": ["int", "address"],
+    "ritual_ZNK22CapsuleGeometryPhysics5ringsEv": ["int", "address"],
+    "ritual_ZNK22CapsuleGeometryPhysics6heightEv": ["float", "address"],
+    "ritual_ZNK22CapsuleGeometryPhysics8diameterEv": ["float", "address"]
+  }
+}

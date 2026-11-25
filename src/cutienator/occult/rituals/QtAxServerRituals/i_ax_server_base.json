@@ -1,0 +1,21 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtAxServer/6.12.0/QtAxServer/private/iaxserverbase_p.h, Qt 6.12.0,",
+    "from Qt's source. Kept as it is when the generator runs again."
+  ],
+  "rows": {
+    "ritual_ZNK13IAxServerBase10ClientSiteEv": ["address", "address"],
+    "ritual_ZN13IAxServerBase19EmitPropertyChangedEPKc": [
+      "nothing", "address", "chars"
+    ],
+    "ritual_ZN13IAxServerBase25EmitRequestPropertyChangeEPKc": [
+      "bool", "address", "chars"
+    ],
+    "ritual_ZNK13IAxServerBase10GetQObjectEv": ["address", "address"],
+    "ritual_ZN13IAxServerBase11ReportErrorEiRK7QStringS2_S2_": [
+      "nothing", "address", "int", "text", "text", "text"
+    ],
+    "ritual_take_IAxServerBase": ["bool", "address", "chars", "address"]
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtAxServer/qaxaggregated.h, Qt 6.12.0, from Qt's source. Kept as",
+    "it is when the generator runs again."
+  ],
+  "rows": {
+    "ritual_ZN13QAxAggregatedD1Ev": ["nothing", "address"],
+    "ritual_ZN13QAxAggregated14queryInterfaceERK5QUuidPPv": [
+      "long", "address", "address", "address"
+    ],
+    "ritual_ZNK13QAxAggregated18controllingUnknownEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK13QAxAggregated6widgetEv": ["address", "address"],
+    "ritual_ZNK13QAxAggregated6objectEv": ["address", "address"],
+    "ritual_take_QAxAggregated": ["bool", "address", "chars", "address"]
+  }
+}

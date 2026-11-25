@@ -1,0 +1,13 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtDeclarativeOpcua/6.12.0/QtDeclarativeOpcua/private/",
+    "opcuadatachangefilter_p.h, Qt 6.12.0, from Qt's source."
+  ],
+  "rows": {
+    "ritual_ZNK21OpcUaDataChangeFilter10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN21OpcUaDataChangeFilterD1Ev": ["nothing", "address"]
+  }
+}

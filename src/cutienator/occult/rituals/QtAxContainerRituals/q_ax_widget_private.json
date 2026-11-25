@@ -1,0 +1,46 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtAxContainer/6.12.0/QtAxContainer/private/qaxwidget_p.h, Qt 6.12.0, from",
+    "Qt's source. Kept as it is when the generator runs again. ActiveQt is"
+  ],
+  "rows": {
+    "ritual_ZN16QAxWidgetPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZNK16QAxWidgetPrivate6q_funcEv": ["address", "address"],
+    "ritual_ZN16QAxWidgetPrivate5clearEv": ["nothing", "address"],
+    "ritual_ZNK16QAxWidgetPrivate7qObjectEv": ["address", "address"],
+    "ritual_ZNK16QAxWidgetPrivate9classNameEv": ["chars", "address"],
+    "ritual_ZNK16QAxWidgetPrivate18fallbackMetaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZNK16QAxWidgetPrivate16parentMetaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN16QAxWidgetPrivate13emitExceptionEiRK7QStringS2_S2_": [
+      "nothing", "address", "int", "text", "text", "text"
+    ],
+    "ritual_ZN16QAxWidgetPrivate19emitPropertyChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_ZN16QAxWidgetPrivate10emitSignalERK7QStringiPv": [
+      "nothing", "address", "text", "int", "address"
+    ],
+    "ritual_cast_QAxWidgetPrivate_QAxBasePrivate": ["address", "address"],
+    "ritual_own_ZNK16QAxWidgetPrivate7qObjectEv": ["address", "address"],
+    "ritual_own_ZNK16QAxWidgetPrivate18fallbackMetaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZNK16QAxWidgetPrivate16parentMetaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_own_ZN16QAxWidgetPrivate13emitExceptionEiRK7QStringS2_S2_": [
+      "nothing", "address", "int", "text", "text", "text"
+    ],
+    "ritual_own_ZN16QAxWidgetPrivate19emitPropertyChangedERK7QString": [
+      "nothing", "address", "text"
+    ],
+    "ritual_own_ZN16QAxWidgetPrivate10emitSignalERK7QStringiPv": [
+      "nothing", "address", "text", "int", "address"
+    ]
+  }
+}

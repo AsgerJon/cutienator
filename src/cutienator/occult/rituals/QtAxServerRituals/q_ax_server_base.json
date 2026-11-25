@@ -1,0 +1,486 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtAxServer/6.12.0/QtAxServer/private/qaxserverbase_p.h, Qt 6.12.0,",
+    "from Qt's source. Kept as it is when the generator runs again."
+  ],
+  "rows": {
+    "ritual_ZN13QAxServerBaseC1ERK7QStringP8IUnknown": [
+      "address", "text", "address"
+    ],
+    "ritual_ZN13QAxServerBaseC1EP7QObject": ["address", "address"],
+    "ritual_ZN13QAxServerBaseD1Ev": ["nothing", "address"],
+    "ritual_ZN13QAxServerBase14QueryInterfaceERK5_GUIDPPv": [
+      "long", "address", "address", "address"
+    ],
+    "ritual_ZN13QAxServerBase6AddRefEv": ["unsigned long", "address"],
+    "ritual_ZN13QAxServerBase7ReleaseEv": ["unsigned long", "address"],
+    "ritual_ZNK13QAxServerBase10ClientSiteEv": ["address", "address"],
+    "ritual_ZN13QAxServerBase19EmitPropertyChangedEPKc": [
+      "nothing", "address", "chars"
+    ],
+    "ritual_ZN13QAxServerBase25EmitRequestPropertyChangeEPKc": [
+      "bool", "address", "chars"
+    ],
+    "ritual_ZNK13QAxServerBase10GetQObjectEv": ["address", "address"],
+    "ritual_ZN13QAxServerBase11ReportErrorEiRK7QStringS2_S2_": [
+      "nothing", "address", "int", "text", "text", "text"
+    ],
+    "ritual_ZN13QAxServerBase16GetTypeInfoCountEPj": [
+      "long", "address", "address"
+    ],
+    "ritual_ZN13QAxServerBase11GetTypeInfoEjmPP9ITypeInfo": [
+      "long", "address", "unsigned int", "unsigned long", "address"
+    ],
+    "ritual_ZN13QAxServerBase13GetIDsOfNamesERK5_GUIDPPwjmPl": [
+      "long", "address", "address", "address", "unsigned int", "unsigned long", "address"
+    ],
+    "ritual_ZN13QAxServerBase6InvokeElRK5_GUIDmtP13tagDISPPARAMSP10tagVARIANTP12tagEXCEPINFOPj": [
+      "long", "address", "long", "address", "unsigned long", "unsigned short", "address", "address", "address", "address"
+    ],
+    "ritual_ZN13QAxServerBase13SetClientSiteEP14IOleClientSite": [
+      "long", "address", "address"
+    ],
+    "ritual_ZN13QAxServerBase13GetClientSiteEPP14IOleClientSite": [
+      "long", "address", "address"
+    ],
+    "ritual_ZN13QAxServerBase5CloseEm": ["long", "address", "unsigned long"],
+    "ritual_ZN13QAxServerBase10SetMonikerEmP8IMoniker": [
+      "long", "address", "unsigned long", "address"
+    ],
+    "ritual_ZN13QAxServerBase10GetMonikerEmmPP8IMoniker": [
+      "long", "address", "unsigned long", "unsigned long", "address"
+    ],
+    "ritual_ZN13QAxServerBase12InitFromDataEP11IDataObjectim": [
+      "long", "address", "address", "int", "unsigned long"
+    ],
+    "ritual_ZN13QAxServerBase16GetClipboardDataEmPP11IDataObject": [
+      "long", "address", "unsigned long", "address"
+    ],
+    "ritual_ZN13QAxServerBase6DoVerbElP6tagMSGP14IOleClientSitelP6HWND__PK7tagRECT": [
+      "long", "address", "long", "address", "address", "long", "address", "address"
+    ],
+    "ritual_ZN13QAxServerBase9EnumVerbsEPP12IEnumOLEVERB": [
+      "long", "address", "address"
+    ],
+    "ritual_ZN13QAxServerBase6UpdateEv": ["long", "address"],
+    "ritual_ZN13QAxServerBase10IsUpToDateEv": ["long", "address"],
+    "ritual_ZN13QAxServerBase14GetUserClassIDEP5_GUID": [
+      "long", "address", "address"
+    ],
+    "ritual_ZN13QAxServerBase11GetUserTypeEmPPw": [
+      "long", "address", "unsigned long", "address"
+    ],
+    "ritual_ZN13QAxServerBase9SetExtentEmP7tagSIZE": [
+      "long", "address", "unsigned long", "address"
+    ],
+    "ritual_ZN13QAxServerBase9GetExtentEmP7tagSIZE": [
+      "long", "address", "unsigned long", "address"
+    ],
+    "ritual_ZN13QAxServerBase6AdviseEP11IAdviseSinkPm": [
+      "long", "address", "address", "address"
+    ],
+    "ritual_ZN13QAxServerBase8UnadviseEm": [
+      "long", "address", "unsigned long"
+    ],
+    "ritual_ZN13QAxServerBase10EnumAdviseEPP13IEnumSTATDATA": [
+      "long", "address", "address"
+    ],
+    "ritual_ZN13QAxServerBase13GetMiscStatusEmPm": [
+      "long", "address", "unsigned long", "address"
+    ],
+    "ritual_ZN13QAxServerBase14SetColorSchemeEP13tagLOGPALETTE": [
+      "long", "address", "address"
+    ],
+    "ritual_ZN13QAxServerBase14GetControlInfoEP14tagCONTROLINFO": [
+      "long", "address", "address"
+    ],
+    "ritual_ZN13QAxServerBase10OnMnemonicEP6tagMSG": [
+      "long", "address", "address"
+    ],
+    "ritual_ZN13QAxServerBase23OnAmbientPropertyChangeEl": [
+      "long", "address", "long"
+    ],
+    "ritual_ZN13QAxServerBase12FreezeEventsEi": ["long", "address", "int"],
+    "ritual_ZN13QAxServerBase4DrawEmlPvP17tagDVTARGETDEVICEP5HDC__S4_PK6_RECTLS7_PFiyEy": [
+      "long", "address", "unsigned long", "long", "address", "address", "address", "address", "address", "address", "address", "unsigned long long"
+    ],
+    "ritual_ZN13QAxServerBase11GetColorSetEmlPvP17tagDVTARGETDEVICEP5HDC__PP13tagLOGPALETTE": [
+      "long", "address", "unsigned long", "long", "address", "address", "address", "address"
+    ],
+    "ritual_ZN13QAxServerBase6FreezeEmlPvPm": [
+      "long", "address", "unsigned long", "long", "address", "address"
+    ],
+    "ritual_ZN13QAxServerBase8UnfreezeEm": [
+      "long", "address", "unsigned long"
+    ],
+    "ritual_ZN13QAxServerBase9SetAdviseEmmP11IAdviseSink": [
+      "long", "address", "unsigned long", "unsigned long", "address"
+    ],
+    "ritual_ZN13QAxServerBase9GetAdviseEPmS0_PP11IAdviseSink": [
+      "long", "address", "address", "address", "address"
+    ],
+    "ritual_ZN13QAxServerBase9GetExtentEmlP17tagDVTARGETDEVICEP7tagSIZE": [
+      "long", "address", "unsigned long", "long", "address", "address"
+    ],
+    "ritual_ZN13QAxServerBase9GetWindowEPP6HWND__": [
+      "long", "address", "address"
+    ],
+    "ritual_ZN13QAxServerBase20ContextSensitiveHelpEi": [
+      "long", "address", "int"
+    ],
+    "ritual_ZN13QAxServerBase17InPlaceDeactivateEv": ["long", "address"],
+    "ritual_ZN13QAxServerBase12UIDeactivateEv": ["long", "address"],
+    "ritual_ZN13QAxServerBase14SetObjectRectsEPK7tagRECTS2_": [
+      "long", "address", "address", "address"
+    ],
+    "ritual_ZN13QAxServerBase17ReactivateAndUndoEv": ["long", "address"],
+    "ritual_ZN13QAxServerBase20TranslateAcceleratorEP6tagMSG": [
+      "long", "address", "address"
+    ],
+    "ritual_ZN13QAxServerBase21OnFrameWindowActivateEi": [
+      "long", "address", "int"
+    ],
+    "ritual_ZN13QAxServerBase19OnDocWindowActivateEi": [
+      "long", "address", "int"
+    ],
+    "ritual_ZN13QAxServerBase12ResizeBorderEPK7tagRECTP19IOleInPlaceUIWindowi": [
+      "long", "address", "address", "address", "int"
+    ],
+    "ritual_ZN13QAxServerBase14EnableModelessEi": ["long", "address", "int"],
+    "ritual_ZN13QAxServerBase12GetClassInfoEPP9ITypeInfo": [
+      "long", "address", "address"
+    ],
+    "ritual_ZN13QAxServerBase7GetGUIDEmP5_GUID": [
+      "long", "address", "unsigned long", "address"
+    ],
+    "ritual_ZN13QAxServerBase20EnumConnectionPointsEPP21IEnumConnectionPoints": [
+      "long", "address", "address"
+    ],
+    "ritual_ZN13QAxServerBase19FindConnectionPointERK5_GUIDPP16IConnectionPoint": [
+      "long", "address", "address", "address"
+    ],
+    "ritual_ZN13QAxServerBase10GetClassIDEP5_GUID": [
+      "long", "address", "address"
+    ],
+    "ritual_ZN13QAxServerBase7IsDirtyEv": ["long", "address"],
+    "ritual_ZN13QAxServerBase4LoadEP7IStream": [
+      "long", "address", "address"
+    ],
+    "ritual_ZN13QAxServerBase4SaveEP7IStreami": [
+      "long", "address", "address", "int"
+    ],
+    "ritual_ZN13QAxServerBase10GetSizeMaxEP15_ULARGE_INTEGER": [
+      "long", "address", "address"
+    ],
+    "ritual_ZN13QAxServerBase7InitNewEv": ["long", "address"],
+    "ritual_ZN13QAxServerBase7InitNewEP8IStorage": [
+      "long", "address", "address"
+    ],
+    "ritual_ZN13QAxServerBase4LoadEP8IStorage": [
+      "long", "address", "address"
+    ],
+    "ritual_ZN13QAxServerBase4SaveEP8IStoragei": [
+      "long", "address", "address", "int"
+    ],
+    "ritual_ZN13QAxServerBase13SaveCompletedEP8IStorage": [
+      "long", "address", "address"
+    ],
+    "ritual_ZN13QAxServerBase15HandsOffStorageEv": ["long", "address"],
+    "ritual_ZN13QAxServerBase4LoadEP12IPropertyBagP9IErrorLog": [
+      "long", "address", "address", "address"
+    ],
+    "ritual_ZN13QAxServerBase4SaveEP12IPropertyBagii": [
+      "long", "address", "address", "int", "int"
+    ],
+    "ritual_ZN13QAxServerBase10GetCurFileEPPw": [
+      "long", "address", "address"
+    ],
+    "ritual_ZN13QAxServerBase7GetDataEP12tagFORMATETCP12tagSTGMEDIUM": [
+      "long", "address", "address", "address"
+    ],
+    "ritual_ZN13QAxServerBase11GetDataHereEP12tagFORMATETCP12tagSTGMEDIUM": [
+      "long", "address", "address", "address"
+    ],
+    "ritual_ZN13QAxServerBase12QueryGetDataEP12tagFORMATETC": [
+      "long", "address", "address"
+    ],
+    "ritual_ZN13QAxServerBase21GetCanonicalFormatEtcEP12tagFORMATETCS1_": [
+      "long", "address", "address", "address"
+    ],
+    "ritual_ZN13QAxServerBase7SetDataEP12tagFORMATETCP12tagSTGMEDIUMi": [
+      "long", "address", "address", "address", "int"
+    ],
+    "ritual_ZN13QAxServerBase13EnumFormatEtcEmPP14IEnumFORMATETC": [
+      "long", "address", "unsigned long", "address"
+    ],
+    "ritual_ZN13QAxServerBase7DAdviseEP12tagFORMATETCmP11IAdviseSinkPm": [
+      "long", "address", "address", "unsigned long", "address", "address"
+    ],
+    "ritual_ZN13QAxServerBase9DUnadviseEm": [
+      "long", "address", "unsigned long"
+    ],
+    "ritual_ZN13QAxServerBase11EnumDAdviseEPP13IEnumSTATDATA": [
+      "long", "address", "address"
+    ],
+    "ritual_ZN13QAxServerBase4initEv": ["nothing", "address"],
+    "ritual_ZN13QAxServerBase11createPopupEP5QMenuP7HMENU__": [
+      "address", "address", "address", "address"
+    ],
+    "ritual_ZN13QAxServerBase10createMenuEP8QMenuBar": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QAxServerBase10removeMenuEv": ["nothing", "address"],
+    "ritual_ZN13QAxServerBase11ActiveXProcEP6HWND__jyx": [
+      "long long", "address", "unsigned int", "unsigned long long", "long long"
+    ],
+    "ritual_ZN13QAxServerBase20registerActiveObjectEP8IUnknown": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QAxServerBase18revokeActiveObjectEv": ["nothing", "address"],
+    "ritual_ZN13QAxServerBase22InternalQueryInterfaceERK5_GUIDPPv": [
+      "long", "address", "address", "address"
+    ],
+    "ritual_ZN13QAxServerBase14ensureMetaDataEv": ["nothing", "address"],
+    "ritual_ZN13QAxServerBase17isPropertyExposedEi": [
+      "bool", "address", "int"
+    ],
+    "ritual_ZN13QAxServerBase11eventFilterEP7QObjectP6QEvent": [
+      "bool", "address", "address", "address"
+    ],
+    "ritual_ZNK13QAxServerBase9rcPosRectEv": ["address", "address"],
+    "ritual_ZN13QAxServerBase6updateEv": ["nothing", "address"],
+    "ritual_ZN13QAxServerBase6resizeERK5QSize": [
+      "nothing", "address", "address"
+    ],
+    "ritual_ZN13QAxServerBase14updateGeometryEv": ["nothing", "address"],
+    "ritual_ZN13QAxServerBase10updateMaskEv": ["nothing", "address"],
+    "ritual_ZN13QAxServerBase14internalCreateEv": ["bool", "address"],
+    "ritual_ZN13QAxServerBase12internalBindEv": ["nothing", "address"],
+    "ritual_ZN13QAxServerBase15internalConnectEv": ["nothing", "address"],
+    "ritual_ZN13QAxServerBase16internalActivateEv": ["long", "address"],
+    "ritual_take_QAxServerBase": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN13QAxServerBase14QueryInterfaceERK5_GUIDPPv": [
+      "long", "address", "address", "address"
+    ],
+    "ritual_own_ZN13QAxServerBase6AddRefEv": ["unsigned long", "address"],
+    "ritual_own_ZN13QAxServerBase7ReleaseEv": ["unsigned long", "address"],
+    "ritual_own_ZNK13QAxServerBase10ClientSiteEv": ["address", "address"],
+    "ritual_own_ZN13QAxServerBase19EmitPropertyChangedEPKc": [
+      "nothing", "address", "chars"
+    ],
+    "ritual_own_ZN13QAxServerBase25EmitRequestPropertyChangeEPKc": [
+      "bool", "address", "chars"
+    ],
+    "ritual_own_ZNK13QAxServerBase10GetQObjectEv": ["address", "address"],
+    "ritual_own_ZN13QAxServerBase11ReportErrorEiRK7QStringS2_S2_": [
+      "nothing", "address", "int", "text", "text", "text"
+    ],
+    "ritual_own_ZN13QAxServerBase16GetTypeInfoCountEPj": [
+      "long", "address", "address"
+    ],
+    "ritual_own_ZN13QAxServerBase11GetTypeInfoEjmPP9ITypeInfo": [
+      "long", "address", "unsigned int", "unsigned long", "address"
+    ],
+    "ritual_own_ZN13QAxServerBase13GetIDsOfNamesERK5_GUIDPPwjmPl": [
+      "long", "address", "address", "address", "unsigned int", "unsigned long", "address"
+    ],
+    "ritual_own_ZN13QAxServerBase6InvokeElRK5_GUIDmtP13tagDISPPARAMSP10tagVARIANTP12tagEXCEPINFOPj": [
+      "long", "address", "long", "address", "unsigned long", "unsigned short", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN13QAxServerBase13SetClientSiteEP14IOleClientSite": [
+      "long", "address", "address"
+    ],
+    "ritual_own_ZN13QAxServerBase13GetClientSiteEPP14IOleClientSite": [
+      "long", "address", "address"
+    ],
+    "ritual_own_ZN13QAxServerBase5CloseEm": [
+      "long", "address", "unsigned long"
+    ],
+    "ritual_own_ZN13QAxServerBase10SetMonikerEmP8IMoniker": [
+      "long", "address", "unsigned long", "address"
+    ],
+    "ritual_own_ZN13QAxServerBase10GetMonikerEmmPP8IMoniker": [
+      "long", "address", "unsigned long", "unsigned long", "address"
+    ],
+    "ritual_own_ZN13QAxServerBase12InitFromDataEP11IDataObjectim": [
+      "long", "address", "address", "int", "unsigned long"
+    ],
+    "ritual_own_ZN13QAxServerBase16GetClipboardDataEmPP11IDataObject": [
+      "long", "address", "unsigned long", "address"
+    ],
+    "ritual_own_ZN13QAxServerBase6DoVerbElP6tagMSGP14IOleClientSitelP6HWND__PK7tagRECT": [
+      "long", "address", "long", "address", "address", "long", "address", "address"
+    ],
+    "ritual_own_ZN13QAxServerBase9EnumVerbsEPP12IEnumOLEVERB": [
+      "long", "address", "address"
+    ],
+    "ritual_own_ZN13QAxServerBase6UpdateEv": ["long", "address"],
+    "ritual_own_ZN13QAxServerBase10IsUpToDateEv": ["long", "address"],
+    "ritual_own_ZN13QAxServerBase14GetUserClassIDEP5_GUID": [
+      "long", "address", "address"
+    ],
+    "ritual_own_ZN13QAxServerBase11GetUserTypeEmPPw": [
+      "long", "address", "unsigned long", "address"
+    ],
+    "ritual_own_ZN13QAxServerBase9SetExtentEmP7tagSIZE": [
+      "long", "address", "unsigned long", "address"
+    ],
+    "ritual_own_ZN13QAxServerBase9GetExtentEmP7tagSIZE": [
+      "long", "address", "unsigned long", "address"
+    ],
+    "ritual_own_ZN13QAxServerBase6AdviseEP11IAdviseSinkPm": [
+      "long", "address", "address", "address"
+    ],
+    "ritual_own_ZN13QAxServerBase8UnadviseEm": [
+      "long", "address", "unsigned long"
+    ],
+    "ritual_own_ZN13QAxServerBase10EnumAdviseEPP13IEnumSTATDATA": [
+      "long", "address", "address"
+    ],
+    "ritual_own_ZN13QAxServerBase13GetMiscStatusEmPm": [
+      "long", "address", "unsigned long", "address"
+    ],
+    "ritual_own_ZN13QAxServerBase14SetColorSchemeEP13tagLOGPALETTE": [
+      "long", "address", "address"
+    ],
+    "ritual_own_ZN13QAxServerBase14GetControlInfoEP14tagCONTROLINFO": [
+      "long", "address", "address"
+    ],
+    "ritual_own_ZN13QAxServerBase10OnMnemonicEP6tagMSG": [
+      "long", "address", "address"
+    ],
+    "ritual_own_ZN13QAxServerBase23OnAmbientPropertyChangeEl": [
+      "long", "address", "long"
+    ],
+    "ritual_own_ZN13QAxServerBase12FreezeEventsEi": [
+      "long", "address", "int"
+    ],
+    "ritual_own_ZN13QAxServerBase4DrawEmlPvP17tagDVTARGETDEVICEP5HDC__S4_PK6_RECTLS7_PFiyEy": [
+      "long", "address", "unsigned long", "long", "address", "address", "address", "address", "address", "address", "address", "unsigned long long"
+    ],
+    "ritual_own_ZN13QAxServerBase11GetColorSetEmlPvP17tagDVTARGETDEVICEP5HDC__PP13tagLOGPALETTE": [
+      "long", "address", "unsigned long", "long", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN13QAxServerBase6FreezeEmlPvPm": [
+      "long", "address", "unsigned long", "long", "address", "address"
+    ],
+    "ritual_own_ZN13QAxServerBase8UnfreezeEm": [
+      "long", "address", "unsigned long"
+    ],
+    "ritual_own_ZN13QAxServerBase9SetAdviseEmmP11IAdviseSink": [
+      "long", "address", "unsigned long", "unsigned long", "address"
+    ],
+    "ritual_own_ZN13QAxServerBase9GetAdviseEPmS0_PP11IAdviseSink": [
+      "long", "address", "address", "address", "address"
+    ],
+    "ritual_own_ZN13QAxServerBase9GetExtentEmlP17tagDVTARGETDEVICEP7tagSIZE": [
+      "long", "address", "unsigned long", "long", "address", "address"
+    ],
+    "ritual_own_ZN13QAxServerBase9GetWindowEPP6HWND__": [
+      "long", "address", "address"
+    ],
+    "ritual_own_ZN13QAxServerBase20ContextSensitiveHelpEi": [
+      "long", "address", "int"
+    ],
+    "ritual_own_ZN13QAxServerBase17InPlaceDeactivateEv": ["long", "address"],
+    "ritual_own_ZN13QAxServerBase12UIDeactivateEv": ["long", "address"],
+    "ritual_own_ZN13QAxServerBase14SetObjectRectsEPK7tagRECTS2_": [
+      "long", "address", "address", "address"
+    ],
+    "ritual_own_ZN13QAxServerBase17ReactivateAndUndoEv": ["long", "address"],
+    "ritual_own_ZN13QAxServerBase20TranslateAcceleratorEP6tagMSG": [
+      "long", "address", "address"
+    ],
+    "ritual_own_ZN13QAxServerBase21OnFrameWindowActivateEi": [
+      "long", "address", "int"
+    ],
+    "ritual_own_ZN13QAxServerBase19OnDocWindowActivateEi": [
+      "long", "address", "int"
+    ],
+    "ritual_own_ZN13QAxServerBase12ResizeBorderEPK7tagRECTP19IOleInPlaceUIWindowi": [
+      "long", "address", "address", "address", "int"
+    ],
+    "ritual_own_ZN13QAxServerBase14EnableModelessEi": [
+      "long", "address", "int"
+    ],
+    "ritual_own_ZN13QAxServerBase12GetClassInfoEPP9ITypeInfo": [
+      "long", "address", "address"
+    ],
+    "ritual_own_ZN13QAxServerBase7GetGUIDEmP5_GUID": [
+      "long", "address", "unsigned long", "address"
+    ],
+    "ritual_own_ZN13QAxServerBase20EnumConnectionPointsEPP21IEnumConnectionPoints": [
+      "long", "address", "address"
+    ],
+    "ritual_own_ZN13QAxServerBase19FindConnectionPointERK5_GUIDPP16IConnectionPoint": [
+      "long", "address", "address", "address"
+    ],
+    "ritual_own_ZN13QAxServerBase10GetClassIDEP5_GUID": [
+      "long", "address", "address"
+    ],
+    "ritual_own_ZN13QAxServerBase7IsDirtyEv": ["long", "address"],
+    "ritual_own_ZN13QAxServerBase4LoadEP7IStream": [
+      "long", "address", "address"
+    ],
+    "ritual_own_ZN13QAxServerBase4SaveEP7IStreami": [
+      "long", "address", "address", "int"
+    ],
+    "ritual_own_ZN13QAxServerBase10GetSizeMaxEP15_ULARGE_INTEGER": [
+      "long", "address", "address"
+    ],
+    "ritual_own_ZN13QAxServerBase7InitNewEv": ["long", "address"],
+    "ritual_own_ZN13QAxServerBase7InitNewEP8IStorage": [
+      "long", "address", "address"
+    ],
+    "ritual_own_ZN13QAxServerBase4LoadEP8IStorage": [
+      "long", "address", "address"
+    ],
+    "ritual_own_ZN13QAxServerBase4SaveEP8IStoragei": [
+      "long", "address", "address", "int"
+    ],
+    "ritual_own_ZN13QAxServerBase13SaveCompletedEP8IStorage": [
+      "long", "address", "address"
+    ],
+    "ritual_own_ZN13QAxServerBase15HandsOffStorageEv": ["long", "address"],
+    "ritual_own_ZN13QAxServerBase4LoadEP12IPropertyBagP9IErrorLog": [
+      "long", "address", "address", "address"
+    ],
+    "ritual_own_ZN13QAxServerBase4SaveEP12IPropertyBagii": [
+      "long", "address", "address", "int", "int"
+    ],
+    "ritual_own_ZN13QAxServerBase10GetCurFileEPPw": [
+      "long", "address", "address"
+    ],
+    "ritual_own_ZN13QAxServerBase7GetDataEP12tagFORMATETCP12tagSTGMEDIUM": [
+      "long", "address", "address", "address"
+    ],
+    "ritual_own_ZN13QAxServerBase11GetDataHereEP12tagFORMATETCP12tagSTGMEDIUM": [
+      "long", "address", "address", "address"
+    ],
+    "ritual_own_ZN13QAxServerBase12QueryGetDataEP12tagFORMATETC": [
+      "long", "address", "address"
+    ],
+    "ritual_own_ZN13QAxServerBase21GetCanonicalFormatEtcEP12tagFORMATETCS1_": [
+      "long", "address", "address", "address"
+    ],
+    "ritual_own_ZN13QAxServerBase7SetDataEP12tagFORMATETCP12tagSTGMEDIUMi": [
+      "long", "address", "address", "address", "int"
+    ],
+    "ritual_own_ZN13QAxServerBase13EnumFormatEtcEmPP14IEnumFORMATETC": [
+      "long", "address", "unsigned long", "address"
+    ],
+    "ritual_own_ZN13QAxServerBase7DAdviseEP12tagFORMATETCmP11IAdviseSinkPm": [
+      "long", "address", "address", "unsigned long", "address", "address"
+    ],
+    "ritual_own_ZN13QAxServerBase9DUnadviseEm": [
+      "long", "address", "unsigned long"
+    ],
+    "ritual_own_ZN13QAxServerBase11EnumDAdviseEPP13IEnumSTATDATA": [
+      "long", "address", "address"
+    ],
+    "ritual_own_ZN13QAxServerBase11eventFilterEP7QObjectP6QEvent": [
+      "bool", "address", "address", "address"
+    ]
+  }
+}

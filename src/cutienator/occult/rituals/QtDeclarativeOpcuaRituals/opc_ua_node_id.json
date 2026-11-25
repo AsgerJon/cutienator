@@ -1,0 +1,11 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtDeclarativeOpcua/6.12.0/QtDeclarativeOpcua/private/",
+    "opcuanodeid_p.h, Qt 6.12.0, from Qt's source."
+  ],
+  "rows": {
+    "ritual_ZNK11OpcUaNodeId10metaObjectEv": ["address", "address"],
+    "ritual_ZN11OpcUaNodeIdD1Ev": ["nothing", "address"]
+  }
+}

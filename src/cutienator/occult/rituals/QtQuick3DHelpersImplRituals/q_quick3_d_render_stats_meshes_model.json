@@ -1,0 +1,27 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtQuick3DHelpersImpl/6.12.0/QtQuick3DHelpersImpl/private/",
+    "qquick3drenderstatsmeshesmodel_p.h, Qt 6.12.0. Kept as it is"
+  ],
+  "rows": {
+    "ritual_ZNK30QQuick3DRenderStatsMeshesModel10metaObjectEv": [
+      "address", "address"
+    ],
+    "ritual_ZN30QQuick3DRenderStatsMeshesModelD1Ev": [
+      "nothing", "address"
+    ],
+    "ritual_ZNK30QQuick3DRenderStatsMeshesModel8rowCountERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK30QQuick3DRenderStatsMeshesModel11columnCountERK11QModelIndex": [
+      "int", "address", "address"
+    ],
+    "ritual_ZNK30QQuick3DRenderStatsMeshesModel4dataERK11QModelIndexi": [
+      "address", "address", "address", "int"
+    ],
+    "ritual_ZNK30QQuick3DRenderStatsMeshesModel10headerDataEiN2Qt11OrientationEi": [
+      "address", "address", "int", "int", "int"
+    ]
+  }
+}

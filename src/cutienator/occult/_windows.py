@@ -117,6 +117,17 @@ class Windows(System):
     """
     return '%s.lib' % part.replace('Qt', 'Qt6', 1)
 
+  def getQtStaticFileName(self, part: str) -> str:
+    """Gives the static library of one part of Qt, which on Windows
+    has the name the list of a DLL has: 'Qt6AxContainer.lib' for
+    'QtAxContainer'. Its '.prl' file tells the two apart."""
+    return '%s.lib' % part.replace('Qt', 'Qt6', 1)
+
+  def getQtPrlFileName(self, part: str) -> str:
+    """Gives the '.prl' file of one part of Qt, as 'Qt6Core.prl' for
+    'QtCore'."""
+    return '%s.prl' % part.replace('Qt', 'Qt6', 1)
+
   def getCompilerFlags(self, qtFolder: str) -> Paths:
     """
     Gives what 'clang++' is told on Windows. The folder of Qt's shared

@@ -1,0 +1,36 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtAxServer/qaxbindable.h, Qt 6.12.0, from Qt's source. Kept as it",
+    "is when the generator runs again."
+  ],
+  "rows": {
+    "ritual_ZN11QAxBindableC1Ev": ["address"],
+    "ritual_ZN11QAxBindableD1Ev": ["nothing", "address"],
+    "ritual_ZN11QAxBindable15createAggregateEv": ["address", "address"],
+    "ritual_ZN11QAxBindable11reportErrorEiRK7QStringS2_S2_": [
+      "nothing", "address", "int", "text", "text", "text"
+    ],
+    "ritual_ZN11QAxBindable8readDataEP9QIODeviceRK7QString": [
+      "bool", "address", "address", "text"
+    ],
+    "ritual_ZN11QAxBindable9writeDataEP9QIODevice": [
+      "bool", "address", "address"
+    ],
+    "ritual_ZN11QAxBindable21requestPropertyChangeEPKc": [
+      "bool", "address", "chars"
+    ],
+    "ritual_ZN11QAxBindable15propertyChangedEPKc": [
+      "nothing", "address", "chars"
+    ],
+    "ritual_ZNK11QAxBindable10clientSiteEv": ["address", "address"],
+    "ritual_take_QAxBindable": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN11QAxBindable15createAggregateEv": ["address", "address"],
+    "ritual_own_ZN11QAxBindable8readDataEP9QIODeviceRK7QString": [
+      "bool", "address", "address", "text"
+    ],
+    "ritual_own_ZN11QAxBindable9writeDataEP9QIODevice": [
+      "bool", "address", "address"
+    ]
+  }
+}

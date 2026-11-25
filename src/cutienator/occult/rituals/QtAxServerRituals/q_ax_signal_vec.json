@@ -1,0 +1,29 @@
+{
+  "about": [
+    "Written by hand on 2026-11-25 from",
+    "QtAxServer/6.12.0/QtAxServer/private/qaxsignalvec_p.h, Qt 6.12.0,",
+    "from Qt's source. Kept as it is when the generator runs again."
+  ],
+  "rows": {
+    "ritual_ZN12QAxSignalVecC1ERKS_": ["address", "address"],
+    "ritual_ZN12QAxSignalVec4NextEmPP16IConnectionPointPm": [
+      "long", "address", "unsigned long", "address", "address"
+    ],
+    "ritual_ZN12QAxSignalVec4SkipEm": ["long", "address", "unsigned long"],
+    "ritual_ZN12QAxSignalVec5ResetEv": ["long", "address"],
+    "ritual_ZN12QAxSignalVec5CloneEPP21IEnumConnectionPoints": [
+      "long", "address", "address"
+    ],
+    "ritual_take_QAxSignalVec": ["bool", "address", "chars", "address"],
+    "ritual_own_ZN12QAxSignalVec4NextEmPP16IConnectionPointPm": [
+      "long", "address", "unsigned long", "address", "address"
+    ],
+    "ritual_own_ZN12QAxSignalVec4SkipEm": [
+      "long", "address", "unsigned long"
+    ],
+    "ritual_own_ZN12QAxSignalVec5ResetEv": ["long", "address"],
+    "ritual_own_ZN12QAxSignalVec5CloneEPP21IEnumConnectionPoints": [
+      "long", "address", "address"
+    ]
+  }
+}
