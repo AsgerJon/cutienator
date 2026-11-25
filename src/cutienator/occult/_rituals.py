@@ -199,6 +199,9 @@ class Rituals:
   __ritual_rows__ = None  # type: Optional[Dict[str, Dict[str, Row]]]
   __ritual_parts__ = None  # type: Optional[Dict[str, Paths]]
   __parts_first__ = None  # type: Optional[Dict[str, Paths]]
+  #  The parts each part of Qt needs, as Qt's own files name them; see
+  #  'getQtDependencies'.
+  __qt_dependencies__ = None  # type: Optional[Dict[str, Paths]]
 
   #  The key of the rows files that names the parts a part sees first.
   __parts_first_key__ = 'parts first'
@@ -507,18 +510,108 @@ class Rituals:
   def getPartComponents(cls, partName: str) -> Paths:
     """
     Gives the parts the build of the target file of a part looks in
-    the folders of the private headers of, in the order the ritual
-    files of the part were made and checked with: those of
-    'getPartsFirst', then every folder of Qt's header folder, in
-    alphabetical order, as 'QtCharts' and 'QtScxmlGlobal'. The build
+    the folders of the headers of, in this order, as Qt looks when it
+    builds the part itself: the part, then those of 'getPartsFirst',
+    then those of 'getQtDependencies', the parts it needs, nearest
+    first; then, last, every other folder of Qt's header folder, in
+    alphabetical order, so that a header no file of Qt names is found
+    all the same.
+
+    Two parts may each have a header of one name. A header names
+    another by its name alone, as QtCore's 'qabstractanimation_p.h'
+    names '<qabstractanimation.h>', and means the one of its own part
+    or of a part it needs: here QtCore's, not the one of that name
+    Qt3DAnimation has, which the alphabet would put first. The build
     leaves out a folder that is not there; see
-    'Summon.getPrivateIncludeFolders'. So a part with ritual files
-    coming or going changes nothing for the others.
+    'Summon.getPrivateIncludeFolders'.
     """
     names = sorted(os.listdir(Summon.getQtHeaderFolder()))
-    order = [*cls.getPartsFirst(partName)]
-    order.extend(name for name in names if name not in order)
+    order = [partName]
+    for name in (*cls.getPartsFirst(partName),
+                 *cls.getQtDependencies(partName), *names):
+      if name not in order:
+        order.append(name)
     return (*order,)
+
+  @classmethod
+  def getQtDependencies(cls, partName: str) -> Paths:
+    """
+    Gives the parts a part of Qt needs, nearest first, as the files of
+    the Qt of this machine name them: what 'readQtModules' reads of
+    'Summon.getQtModuleFolder'. A part Qt names in no such file, as
+    one Qt builds as a QML plugin alone, needs none.
+
+    Read at the first call and kept for every part.
+    """
+    if cls.__qt_dependencies__ is None:
+      cls.__qt_dependencies__ = cls.readQtModules(
+          Summon.getQtModuleFolder())
+    return cls.__qt_dependencies__.get(partName, ())
+
+  @staticmethod
+  def readQtModules(folder: str) -> Dict[str, Paths]:
+    """
+    Reads the files Qt describes its parts in for 'qmake6', each
+    'qt_lib_*.pri' of the folder, and gives, for each part, the parts it
+    needs, nearest first.
+
+    Each file describes one part, or the private side of one, under a
+    name of Qt's own, as 'quick3dutils' and 'quick3dutils_private':
+
+      QT.quick3dutils_private.name = QtQuick3DUtils
+      QT.quick3dutils_private.depends = core_private gui_private ...
+      QT.quick3dutils.run_depends = ...
+
+    'depends' names what the part's headers need, 'run_depends' what
+    the part itself was built with. Both count, the part's own lines
+    and those of its private side: the ritual files take its private
+    headers too. The parts are walked from the nearest outwards, the
+    way 'qmake6' puts the folders of a program's headers in order.
+
+    Parameters
+    ----------
+
+    folder : str
+      The folder, as 'Summon.getQtModuleFolder' gives it.
+
+    Returns
+    -------
+
+    Dict[str, Paths]
+      For each part, as 'QtQuick3DUtils', the parts it needs, without
+      itself.
+    """
+    names = dict()  # type: Dict[str, str]
+    needs = dict()  # type: Dict[str, List[str]]
+    for path in sorted(glob.glob(os.path.join(folder, 'qt_lib_*.pri'))):
+      with open(path, encoding='utf-8') as file:
+        for line in file:
+          key, _, value = line.partition('=')
+          words = key.strip().split('.')
+          if len(words) != 3 or words[0] != 'QT':
+            continue
+          module, what = words[1], words[2]
+          if what == 'name':
+            names[module] = value.strip()
+          elif what in ('depends', 'run_depends'):
+            needs.setdefault(module, []).extend(value.split())
+    found = dict()  # type: Dict[str, Paths]
+    for partName in sorted(set(names.values())):
+      waiting = [m for m in sorted(names) if names[m] == partName]
+      seen, order = set(waiting), []
+      while waiting:
+        module = waiting.pop(0)
+        for need in needs.get(module, ()):
+          if need in seen:
+            continue
+          seen.add(need)
+          waiting.append(need)
+          #  A name no file describes has no headers to look in.
+          name = names.get(need)
+          if name is not None and name != partName and name not in order:
+            order.append(name)
+      found[partName] = (*order,)
+    return found
 
   @classmethod
   def getRowsFiles(cls) -> Paths:

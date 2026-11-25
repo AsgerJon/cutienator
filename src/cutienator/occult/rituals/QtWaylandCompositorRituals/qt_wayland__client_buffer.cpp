@@ -3,8 +3,14 @@
 //  Edited by hand on 2026-11-25: 'isSharedMemory' is left out: Qt's
 //  header writes it as a call of 'wl_shm_buffer_get' of the Wayland
 //  library, outside Qt. Kept as it is when the generator runs again.
+//  Edited by hand again on 2026-11-25: the whole file stands under
+//  '__has_include(<wayland-server-core.h>)', because Qt's header it needs
+//  includes the header of the Wayland server library, which a machine with
+//  Qt's kit but without the development headers of the Wayland server
+//  library lacks.
 #include <QtGui/qtguiglobal.h>
 #include <QtWaylandCompositor/6.12.0/QtWaylandCompositor/private/qtwaylandcompositorglobal_p.h>
+#if __has_include(<wayland-server-core.h>)
 #include <QtWaylandCompositor/QtWaylandCompositor>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtWaylandCompositor/6.12.0/QtWaylandCompositor/private/qwlclientbuffer_p.h>
@@ -341,3 +347,5 @@ void ritual_own_ZN9QtWayland12ClientBuffer12setDestroyedEv(
     QtWayland::ClientBuffer *self) {
   static_cast<OwnQtWayland_ClientBuffer *>(self)->OwnQtWayland_ClientBuffer::setDestroyed();
 }
+
+#endif  // __has_include(<wayland-server-core.h>)

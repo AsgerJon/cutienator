@@ -6,15 +6,10 @@
 //  FreeType's faces are passed as addresses. Not written: the 'create'
 //  that takes a 'QMap', and 'traverseColr1', which takes a 'QSet' of
 //  'std::pair'.
-//  Edited by hand on 2026-11-25: all after Qt's global headers stands
-//  under '__has_include(<ft2build.h>)' as well, as the build on macOS
-//  names no folder holding 'ft2build.h' to the compiler: it looks for a
-//  part's headers only in the part's framework, and Qt's 'QtFreetype'
-//  has none, its headers lying in 'include/QtFreetype'; there these
-//  rituals are missing. Kept as it is when the generator runs again.
+//  Kept as it is when the generator runs again.
 #include <QtGui/qtguiglobal.h>
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
-#if (defined(Q_OS_WIN) || defined(Q_OS_DARWIN)) && QT_CONFIG(freetype) && __has_include(<ft2build.h>)
+#if (defined(Q_OS_WIN) || defined(Q_OS_DARWIN)) && QT_CONFIG(freetype)
 #include <QtGui/6.12.0/QtGui/private/qfontengine_ft_p.h>
 #include <QtGui/6.12.0/QtGui/private/qtextengine_p.h>
 #include <QtGui/qcolor.h>
@@ -1787,4 +1782,4 @@ QFontEngine *ritual_own_ZNK13QFontEngineFT13cloneWithSizeEd(
   return self->QFontEngineFT::cloneWithSize(pixelSize);
 }
 
-#endif  // (defined(Q_OS_WIN) || defined(Q_OS_DARWIN)) && QT_CONFIG(freetype) && __has_include(<ft2build.h>)
+#endif  // (defined(Q_OS_WIN) || defined(Q_OS_DARWIN)) && QT_CONFIG(freetype)

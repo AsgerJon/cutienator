@@ -8,15 +8,10 @@
 //  writes out is called.
 //  Not written: its constructor, its destructor, 'removeGlyphFromCache',
 //  'clear' and 'setGlyph', which Qt's library offers not.
-//  Edited by hand on 2026-11-25: all after Qt's global headers stands
-//  under '__has_include(<ft2build.h>)' as well, as the build on macOS
-//  names no folder holding 'ft2build.h' to the compiler: it looks for a
-//  part's headers only in the part's framework, and Qt's 'QtFreetype'
-//  has none, its headers lying in 'include/QtFreetype'; there these
-//  rituals are missing. Kept as it is when the generator runs again.
+//  Kept as it is when the generator runs again.
 #include <QtGui/qtguiglobal.h>
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
-#if (defined(Q_OS_WIN) || defined(Q_OS_DARWIN)) && QT_CONFIG(freetype) && __has_include(<ft2build.h>)
+#if (defined(Q_OS_WIN) || defined(Q_OS_DARWIN)) && QT_CONFIG(freetype)
 #include <QtGui/6.12.0/QtGui/private/qfontengine_ft_p.h>
 
 //  bool QFontEngineFT::QGlyphSet::useFastGlyphData(glyph_t index, const
@@ -55,4 +50,4 @@ void ritual_ZNK13QFontEngineFT9QGlyphSet15setGlyphMissingEj(
   self->setGlyphMissing(index);
 }
 
-#endif  // (defined(Q_OS_WIN) || defined(Q_OS_DARWIN)) && QT_CONFIG(freetype) && __has_include(<ft2build.h>)
+#endif  // (defined(Q_OS_WIN) || defined(Q_OS_DARWIN)) && QT_CONFIG(freetype)

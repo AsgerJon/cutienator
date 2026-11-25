@@ -9,6 +9,13 @@
 //  ('featureList', 'createObject' and 'metaObject' are pure);
 //  'featureList', giving a 'QStringList', a QList; the class
 //  template 'QAxClass' and the macros of the same header.
+//  Edited by hand on 2026-11-25: Qt's library calls
+//  'qax_instantiate()' for the QAxFactory of the server and does not
+//  carry it, as the program joining AxServer is to give it, mostly
+//  through Qt's macros QAXFACTORY_BEGIN and QAXFACTORY_END. Without it
+//  the library does not link. At the end of this file it is given,
+//  through those macros, as a factory of no class: a server serving
+//  nothing.
 #include <QtCore/qglobal.h>
 #if defined(Q_OS_WIN)
 #include <QtAxServer/qaxfactory.h>
@@ -725,5 +732,18 @@ extern "C" Q_DECL_EXPORT
 bool ritual_own_ZNK10QAxFactory9isServiceEv(const QAxFactory *self) {
   return self->QAxFactory::isService();
 }
+
+//  'qax_instantiate()', which Qt's AxServer calls and leaves to the
+//  program: a factory of no class, as Qt's macros make it when they
+//  name none. With no class the macros leave the variables 'factory'
+//  and 'keys' unused, so that warning is silenced around them.
+QT_WARNING_PUSH
+QT_WARNING_DISABLE_CLANG("-Wunused-variable")
+QT_WARNING_DISABLE_MSVC(4189)
+QAXFACTORY_BEGIN(
+    "{00000000-0000-0000-0000-000000000000}",
+    "{00000000-0000-0000-0000-000000000000}")
+QAXFACTORY_END()
+QT_WARNING_POP
 
 #endif  // defined(Q_OS_WIN)

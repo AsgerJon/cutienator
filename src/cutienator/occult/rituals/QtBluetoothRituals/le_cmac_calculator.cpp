@@ -1,7 +1,11 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtBluetooth/6.12.0/QtBluetooth/private/lecmaccalculator_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Edited by hand on 2026-11-25: the whole file stands under
+//  'QT_CONFIG(bluez_le)', the condition Qt builds 'lecmaccalculator.cpp'
+//  under, whose code and Linux headers it takes. Kept as it is when the
+//  generator runs again.
 #include <QtBluetooth/6.12.0/QtBluetooth/private/qtbluetoothglobal_p.h>
+#if QT_CONFIG(bluez_le)
 #include <QtBluetooth/QtBluetooth>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtBluetooth/6.12.0/QtBluetooth/private/lecmaccalculator_p.h>
@@ -40,3 +44,5 @@ extern "C" Q_DECL_EXPORT
 void ritual_ZN16LeCmacCalculatorD1Ev(LeCmacCalculator *self) {
   delete self;
 }
+
+#endif  // QT_CONFIG(bluez_le)

@@ -1,6 +1,10 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtSerialPort/6.12.0/QtSerialPort/private/qserialport_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Edited by hand on 2026-11-25: the lines pulling in the headers of
+//  Unix, copied from Qt's 'qserialport_unix.cpp', and the code taken from
+//  that file stand under the condition its rituals stand under,
+//  '(!(defined(Q_OS_WIN32))) && (defined(Q_OS_UNIX))', as Qt builds that
+//  file on Unix alone. Kept as it is when the generator runs again.
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtSerialPort/qserialport.h>
 #include <QtSerialPort/QtSerialPort>
@@ -23,12 +27,14 @@
 #include <QtCore/qmap.h>
 #include <QtCore/qsocketnotifier.h>
 #include <QtCore/qstandardpaths.h>
+#if (!(defined(Q_OS_WIN32))) && (defined(Q_OS_UNIX))
 #include <QtCore/private/qcore_unix_p.h>
 #include <errno.h>
 #include <fcntl.h>
 #include <sys/ioctl.h>
 #include <sys/time.h>
 #include <unistd.h>
+#endif  // (!(defined(Q_OS_WIN32))) && (defined(Q_OS_UNIX))
 #ifdef Q_OS_MACOS
 #if defined(MAC_OS_X_VERSION_10_4) && (MAC_OS_X_VERSION_MIN_REQUIRED >= MAC_OS_X_VERSION_10_4)
 #include <IOKit/serial/ioss.h>
@@ -87,10 +93,12 @@ inline QSerialPortErrorInfo::QSerialPortErrorInfo(QSerialPort::SerialPortError n
 }
 
 //  from ../qtserialport/src/serialport/qserialport_unix.cpp, line 1088, as _ZN18QSerialPortPrivate12readFromPortEPcx
+#if (!(defined(Q_OS_WIN32))) && (defined(Q_OS_UNIX))
 inline qint64 QSerialPortPrivate::readFromPort(char *data, qint64 maxSize)
 {
     return qt_safe_read(descriptor, data, maxSize);
 }
+#endif  // (!(defined(Q_OS_WIN32))) && (defined(Q_OS_UNIX))
 
 //  from ../qtserialport/src/serialport/qserialport.cpp, line 54, as _ZN18QSerialPortPrivateC1Ev
 #if defined(Q_OS_LINUX)
@@ -115,6 +123,7 @@ inline void QSerialPortPrivate::setError(const QSerialPortErrorInfo &errorInfo)
     emit q->errorOccurred(error);
 }
 
+#if (!(defined(Q_OS_WIN32))) && (defined(Q_OS_UNIX))
 //  from ../qtserialport/src/serialport/qserialport_unix.cpp, line 1020, as _ZNK18QSerialPortPrivate25isReadNotificationEnabledEv
 inline bool QSerialPortPrivate::isReadNotificationEnabled() const
 {
@@ -150,6 +159,7 @@ inline void QSerialPortPrivate::handleException()
 {
     gotException = true;
 }
+#endif  // (!(defined(Q_OS_WIN32))) && (defined(Q_OS_UNIX))
 //  -----------------------------------------------------------------------
 
 //  A QSerialPortPrivate that Python can take functions over in. Every QSerialPortPrivate

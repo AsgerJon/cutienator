@@ -141,13 +141,18 @@ class Windows(System):
       library Qt uses, which is a DLL of Microsoft's, and brings no
       second copy of it built into the file. The two have to be one,
       since what a ritual makes with 'new', Qt may delete.
+      '-DNOMINMAX', as Qt tells the compiler for everything it builds
+      on Windows ('PlatformCommonInternal' in Qt's
+      'QtInternalTargets.cmake'): without it 'windows.h' makes 'min'
+      and 'max' macros, and the code taken from Qt's source, as
+      'std::numeric_limits<quint64>::max()', no longer compiles.
 
     Left out, though the other systems are told them: '-fPIC', which
     'clang++' refuses for Windows, where code can sit at any address as
     it is; and the two '-fvisibility' flags, since a DLL offers only
     what is marked for it anyway.
     """
-    return ('-fms-runtime-lib=dll',)
+    return ('-fms-runtime-lib=dll', '-DNOMINMAX')
 
   def getLinkerFlags(self, qtFolder: str) -> Paths:
     """

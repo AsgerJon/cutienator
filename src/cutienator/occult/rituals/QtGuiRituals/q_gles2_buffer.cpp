@@ -1,12 +1,11 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGui/6.12.0/QtGui/private/qrhigles2_p.h, Qt 6.12.0.
-//  Edited by hand on 2026-11-25: the code taken from Qt for 'create',
-//  with the 'create' a CuteQGles2Buffer takes over and its key in
-//  'take', stands under '#if defined(GL_SHADER_STORAGE_BUFFER) &&
-//  defined(GL_BUFFER)', as the OpenGL headers of macOS have neither
-//  constant (Qt's 'qrhigles2.cpp' defines them for itself), while the
-//  ritual calling 'create' stays, reaching Qt's own through the
-//  virtual table. Kept as it is when the generator runs again.
+//  Edited by hand on 2026-11-25: the OpenGL headers of macOS lack
+//  'GL_SHADER_STORAGE_BUFFER' and 'GL_BUFFER', which the code taken
+//  from Qt for 'create' uses, so the file defines every constant of
+//  that code that Qt's 'qrhigles2.cpp' defines for itself, with Qt's
+//  own '#ifndef' lines and values. Kept as it is when the generator
+//  runs again.
 #include <QtGui/qtguiglobal.h>
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
 #if QT_CONFIG(opengl)
@@ -37,6 +36,29 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  The constants Qt defines for itself where the OpenGL headers
+//  lack them.
+//  from src/gui/rhi/qrhigles2.cpp, line 337
+#ifndef GL_SHADER_STORAGE_BUFFER
+#define GL_SHADER_STORAGE_BUFFER          0x90D2
+#endif
+//  from src/gui/rhi/qrhigles2.cpp, line 417
+#ifndef GL_MAP_WRITE_BIT
+#define GL_MAP_WRITE_BIT                  0x0002
+#endif
+//  from src/gui/rhi/qrhigles2.cpp, line 421
+#ifndef GL_MAP_INVALIDATE_BUFFER_BIT
+#define GL_MAP_INVALIDATE_BUFFER_BIT      0x0008
+#endif
+//  from src/gui/rhi/qrhigles2.cpp, line 589
+#ifndef GL_BUFFER
+#define GL_BUFFER                         0x82E0
+#endif
+//  from src/gui/rhi/qrhigles2.cpp, line 601
+#ifndef GL_DRAW_INDIRECT_BUFFER
+#define GL_DRAW_INDIRECT_BUFFER           0x8F3F
+#endif
 
 //  from src/gui/rhi/qrhigles2.cpp, line 5979, as _ZN12QGles2Buffer38fullDynamicBufferUpdateForCurrentFrameEPKvj
 inline void QGles2Buffer::fullDynamicBufferUpdateForCurrentFrame(const void *bufferData, quint32 size)
@@ -96,7 +118,6 @@ inline void QGles2Buffer::destroy()
     }
 }
 
-#if defined(GL_SHADER_STORAGE_BUFFER) && defined(GL_BUFFER)
 //  from src/gui/rhi/qrhigles2.cpp, line 5899, as _ZN12QGles2Buffer6createEv
 inline bool QGles2Buffer::create()
 {
@@ -139,7 +160,6 @@ inline bool QGles2Buffer::create()
     rhiD->registerResource(this);
     return true;
 }
-#endif  // defined(GL_SHADER_STORAGE_BUFFER) && defined(GL_BUFFER)
 
 //  from src/gui/rhi/qrhigles2.cpp, line 5941, as _ZN12QGles2Buffer12nativeBufferEv
 inline QRhiBuffer::NativeBuffer QGles2Buffer::nativeBuffer()
@@ -182,12 +202,10 @@ public:
       taken[0] = call;
       return true;
     }
-#if defined(GL_SHADER_STORAGE_BUFFER) && defined(GL_BUFFER)
     if (!std::strcmp(key, "_ZN10QRhiBuffer6createEv")) {
       taken[1] = call;
       return true;
     }
-#endif  // defined(GL_SHADER_STORAGE_BUFFER) && defined(GL_BUFFER)
     if (!std::strcmp(key, "_ZN10QRhiBuffer12nativeBufferEv")) {
       taken[2] = call;
       return true;
@@ -214,7 +232,6 @@ public:
     QGles2Buffer::destroy();
   }
 
-#if defined(GL_SHADER_STORAGE_BUFFER) && defined(GL_BUFFER)
   //  bool QGles2Buffer::create()
   bool create() override {
     if (taken[1]) {
@@ -225,7 +242,6 @@ public:
     }
     return QGles2Buffer::create();
   }
-#endif  // defined(GL_SHADER_STORAGE_BUFFER) && defined(GL_BUFFER)
 
   //  QRhiBuffer::NativeBuffer QGles2Buffer::nativeBuffer()
   QRhiBuffer::NativeBuffer nativeBuffer() override {

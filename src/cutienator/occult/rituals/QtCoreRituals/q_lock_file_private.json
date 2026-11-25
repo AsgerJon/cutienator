@@ -8,7 +8,7 @@
     "ritual_ZN16QLockFilePrivateC1ERK7QString": ["address", "text"],
     "ritual_ZN16QLockFilePrivate16processNameByPidEx": ["text", "long long"],
     "ritual_ZN16QLockFilePrivate17getLockFileHandleEP9QLockFile": [
-      "int", "address"
+      "long long", "address"
     ]
   }
 }

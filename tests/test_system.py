@@ -113,7 +113,8 @@ class TestSystem(BaseTest):
         ),
     )
     self.assertEqual(
-        Windows().getCompilerFlags('C:/Qt/lib'), ('-fms-runtime-lib=dll',),
+        Windows().getCompilerFlags('C:/Qt/lib'),
+        ('-fms-runtime-lib=dll', '-DNOMINMAX'),
     )
 
   def test_linker_flags(self) -> None:
@@ -233,3 +234,31 @@ QMAKE_PRL_LIBS = -lole32
     with tempfile.TemporaryDirectory() as folder:
       words = Linux().readStaticDependencies(folder, 'QtAxContainer')
     self.assertEqual(words, ())
+
+  def test_mac_private_headers_lie_in_the_framework(self) -> None:
+    """On macOS the private headers of a part with a framework lie in
+    the framework's folder 'Headers'."""
+    with tempfile.TemporaryDirectory() as folder:
+      lib = os.path.join(folder, 'lib')
+      os.makedirs(os.path.join(lib, 'QtCore.framework', 'Headers'))
+      found = MacOS().getPrivateFolders(
+          os.path.join(folder, 'include'), lib, '6.12.0', 'QtCore')
+      found = (*(path.replace(folder, 'QT') for path in found),)
+    headers = 'QT/lib/QtCore.framework/Headers'
+    self.assertEqual(found, (
+        headers, headers + '/6.12.0', headers + '/6.12.0/QtCore',
+        headers + '/6.12.0/QtCore/private'))
+
+  def test_mac_static_part_headers_lie_in_the_header_folder(self) -> None:
+    """On macOS a part with no framework, as Qt's FreeType, has its
+    headers in Qt's header folder, as on Linux."""
+    with tempfile.TemporaryDirectory() as folder:
+      lib = os.path.join(folder, 'lib')
+      os.makedirs(lib)
+      found = MacOS().getPrivateFolders(
+          os.path.join(folder, 'include'), lib, '6.12.0', 'QtFreetype')
+      found = (*(path.replace(folder, 'QT') for path in found),)
+    headers = 'QT/include/QtFreetype'
+    self.assertEqual(found, (
+        headers, headers + '/6.12.0', headers + '/6.12.0/QtFreetype',
+        headers + '/6.12.0/QtFreetype/private'))

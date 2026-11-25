@@ -1,6 +1,10 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtWaylandCompositor/qwaylandtextinput.h, Qt 6.12.0. Changes made here are
-//  lost.
+//  QtWaylandCompositor/qwaylandtextinput.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-25: the line pulling in Qt's 'qxkbcommon_p.h',
+//  copied from Qt's source and used by no code here, stands also under
+//  '__has_include(<xkbcommon/xkbcommon.h>)', as that header includes
+//  xkbcommon's, which a machine with Qt's kit but without the development
+//  headers of xkbcommon lacks. Kept as it is when the generator runs again.
 #include <QtWaylandCompositor/6.12.0/QtWaylandCompositor/private/qtwaylandcompositorglobal_p.h>
 #include <QtWaylandCompositor/qwaylandtextinput.h>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -11,7 +15,7 @@
 #include <QtWaylandCompositor/qwaylandinputmethodcontrol.h>
 #include <QtGui/QGuiApplication>
 #include <QtGui/QInputMethodEvent>
-#if QT_CONFIG(xkbcommon)
+#if QT_CONFIG(xkbcommon) && __has_include(<xkbcommon/xkbcommon.h>)
 #include <QtGui/private/qxkbcommon_p.h>
 #endif
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER

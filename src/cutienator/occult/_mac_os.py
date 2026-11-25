@@ -149,10 +149,16 @@ class MacOS(System):
     Gives the folders 'clang++' has to look in for the headers of one
     part of Qt that Qt calls private. On macOS they lie inside the
     framework of the part, as
-    'QtCore.framework/Headers/6.12.0/QtCore/private'.
+    'QtCore.framework/Headers/6.12.0/QtCore/private'. A part Qt builds
+    as a static library has no framework: its headers lie in Qt's
+    header folder, as they do on Linux and Windows, as those of
+    'QtFreetype', FreeType as Qt carries it, in 'include/QtFreetype'.
     """
     partFolder = os.path.join(
         qtFolder, '%s.framework' % part, 'Headers')
+    if not os.path.isdir(partFolder):
+      return System.getPrivateFolders(
+          self, headerFolder, qtFolder, version, part)
     inner = os.path.join(partFolder, version, part)
     return (
         partFolder, os.path.join(partFolder, version), inner,

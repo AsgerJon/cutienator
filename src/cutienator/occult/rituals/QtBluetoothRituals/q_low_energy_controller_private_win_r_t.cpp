@@ -11,6 +11,10 @@
 //  slots, and 'readCharacteristic', 'readDescriptor',
 //  'writeCharacteristic' and 'writeDescriptor', which take a
 //  'QSharedPointer'.
+//  Edited by hand on 2026-11-25: compiled by C++20, as the next line
+//  asks 'Summon': Qt's C++/WinRT headers wait with coroutines, which
+//  'clang++' has only from C++20 on.
+//  Summon: -std=c++20
 #include <QtBluetooth/qtbluetoothglobal.h>
 #include <QtBluetooth/6.12.0/QtBluetooth/private/qtbluetoothglobal_p.h>
 #if defined(Q_OS_WIN) && QT_CONFIG(cpp_winrt)

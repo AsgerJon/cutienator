@@ -6,15 +6,10 @@
 //  Qt's library offers none of its functions by name, a class inside an
 //  exported one being no exported class itself: only what its header
 //  writes out is called.
-//  Edited by hand on 2026-11-25: all after Qt's global headers stands
-//  under '__has_include(<ft2build.h>)' as well, as the build on macOS
-//  names no folder holding 'ft2build.h' to the compiler: it looks for a
-//  part's headers only in the part's framework, and Qt's 'QtFreetype'
-//  has none, its headers lying in 'include/QtFreetype'; there these
-//  rituals are missing. Kept as it is when the generator runs again.
+//  Kept as it is when the generator runs again.
 #include <QtGui/qtguiglobal.h>
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
-#if (defined(Q_OS_WIN) || defined(Q_OS_DARWIN)) && QT_CONFIG(freetype) && __has_include(<ft2build.h>)
+#if (defined(Q_OS_WIN) || defined(Q_OS_DARWIN)) && QT_CONFIG(freetype)
 #include <QtGui/6.12.0/QtGui/private/qfontengine_ft_p.h>
 
 //  QFontEngineFT::GlyphAndSubPixelPosition::GlyphAndSubPixelPosition(glyph_t
@@ -42,4 +37,4 @@ void ritual_ZN13QFontEngineFT24GlyphAndSubPixelPositionD1Ev(
   delete self;
 }
 
-#endif  // (defined(Q_OS_WIN) || defined(Q_OS_DARWIN)) && QT_CONFIG(freetype) && __has_include(<ft2build.h>)
+#endif  // (defined(Q_OS_WIN) || defined(Q_OS_DARWIN)) && QT_CONFIG(freetype)

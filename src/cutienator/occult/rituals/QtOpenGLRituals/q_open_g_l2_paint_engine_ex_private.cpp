@@ -1,10 +1,11 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtOpenGL/6.12.0/QtOpenGL/private/qopenglpaintengine_p.h, Qt 6.12.0.
-//  Edited by hand on 2026-11-25: the ritual 'updateCompositionMode',
-//  with the code taken from Qt for it, stands under an '#if' that the
-//  twelve GL_*_KHR constants it uses are defined, as the OpenGL headers
-//  of macOS have none of them (Qt's 'qopenglpaintengine.cpp' defines
-//  them for itself). Kept as it is when the generator runs again.
+//  Edited by hand on 2026-11-25: the OpenGL headers of macOS lack the
+//  twelve GL_*_KHR constants the code taken from Qt for
+//  'updateCompositionMode' uses, so the file defines them where they
+//  are missing, as Qt's 'qopenglpaintengine.cpp' does for itself, with
+//  Qt's own '#ifndef' lines and values. Kept as it is when the
+//  generator runs again.
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtOpenGL/QtOpenGL>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -44,6 +45,29 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
+
+//  The constants Qt defines for itself where the OpenGL headers
+//  lack them.
+//  from src/opengl/qopenglpaintengine.cpp, line 57
+#ifndef GL_KHR_blend_equation_advanced
+#define GL_KHR_blend_equation_advanced 1
+#define GL_MULTIPLY_KHR                   0x9294
+#define GL_SCREEN_KHR                     0x9295
+#define GL_OVERLAY_KHR                    0x9296
+#define GL_DARKEN_KHR                     0x9297
+#define GL_LIGHTEN_KHR                    0x9298
+#define GL_COLORDODGE_KHR                 0x9299
+#define GL_COLORBURN_KHR                  0x929A
+#define GL_HARDLIGHT_KHR                  0x929B
+#define GL_SOFTLIGHT_KHR                  0x929C
+#define GL_DIFFERENCE_KHR                 0x929E
+#define GL_EXCLUSION_KHR                  0x92A0
+#endif /* GL_KHR_blend_equation_advanced */
+//  from src/opengl/qopenglpaintengine.cpp, line 72
+#ifndef GL_KHR_blend_equation_advanced_coherent
+#define GL_KHR_blend_equation_advanced_coherent 1
+#define GL_BLEND_ADVANCED_COHERENT_KHR    0x9285
+#endif /* GL_KHR_blend_equation_advanced_coherent */
 
 //  from src/opengl/qopenglpaintengine.cpp, line 2439, as _ZN28QOpenGL2PaintEngineExPrivate9writeClipERK11QVectorPathj
 inline void QOpenGL2PaintEngineExPrivate::writeClip(const QVectorPath &path, uint value)
@@ -405,12 +429,6 @@ inline void QOpenGL2PaintEngineExPrivate::updateMatrix()
     stroker.setInvScale(inverseScale);
 }
 
-#if defined(GL_BLEND_ADVANCED_COHERENT_KHR) && defined(GL_MULTIPLY_KHR) \
-  && defined(GL_SCREEN_KHR) && defined(GL_OVERLAY_KHR) \
-  && defined(GL_DARKEN_KHR) && defined(GL_LIGHTEN_KHR) \
-  && defined(GL_COLORDODGE_KHR) && defined(GL_COLORBURN_KHR) \
-  && defined(GL_HARDLIGHT_KHR) && defined(GL_SOFTLIGHT_KHR) \
-  && defined(GL_DIFFERENCE_KHR) && defined(GL_EXCLUSION_KHR)
 //  from src/opengl/qopenglpaintengine.cpp, line 515, as _ZN28QOpenGL2PaintEngineExPrivate21updateCompositionModeEv
 inline void QOpenGL2PaintEngineExPrivate::updateCompositionMode()
 {
@@ -512,7 +530,6 @@ inline void QOpenGL2PaintEngineExPrivate::updateCompositionMode()
 
     compositionModeDirty = false;
 }
-#endif  // defined(GL_BLEND_ADVANCED_COHERENT_KHR) && ...
 
 //  from src/opengl/qopenglpaintengine.cpp, line 185, as _ZN28QOpenGL2PaintEngineExPrivate19activateTextureUnitEj
 inline void QOpenGL2PaintEngineExPrivate::activateTextureUnit(GLenum textureUnit)
@@ -853,19 +870,12 @@ void ritual_ZN28QOpenGL2PaintEngineExPrivate12updateMatrixEv(
   self->updateMatrix();
 }
 
-#if defined(GL_BLEND_ADVANCED_COHERENT_KHR) && defined(GL_MULTIPLY_KHR) \
-  && defined(GL_SCREEN_KHR) && defined(GL_OVERLAY_KHR) \
-  && defined(GL_DARKEN_KHR) && defined(GL_LIGHTEN_KHR) \
-  && defined(GL_COLORDODGE_KHR) && defined(GL_COLORBURN_KHR) \
-  && defined(GL_HARDLIGHT_KHR) && defined(GL_SOFTLIGHT_KHR) \
-  && defined(GL_DIFFERENCE_KHR) && defined(GL_EXCLUSION_KHR)
 //  void QOpenGL2PaintEngineExPrivate::updateCompositionMode()
 extern "C" Q_DECL_EXPORT
 void ritual_ZN28QOpenGL2PaintEngineExPrivate21updateCompositionModeEv(
     QOpenGL2PaintEngineExPrivate *self) {
   self->updateCompositionMode();
 }
-#endif  // defined(GL_BLEND_ADVANCED_COHERENT_KHR) && ...
 
 //  void QOpenGL2PaintEngineExPrivate::activateTextureUnit(GLenum
 //      textureUnit)

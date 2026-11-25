@@ -209,10 +209,14 @@ class Summon:
   #  How many letters a command may have on Windows before it is handed
   #  over in a file; see '_run'. Windows refuses more than 32767.
   __long_command__ = 8000
+  #  The standards a ritual file may ask for besides 'c++17'; see
+  #  'getRitualStandard'.
+  __other_standards__ = ('c++20',)
   __qt_header_folder__: Optional[str] = None
   __qt_shared_object_folder__: Optional[str] = None
   __qt_program_folder__: Optional[str] = None
   __qt_version__: Optional[str] = None
+  __qt_module_folder__: Optional[str] = None
 
   #  Fallback Variables
 
@@ -390,6 +394,56 @@ class Summon:
       return cls.getQtProgramFolder(_recursion=True)
     return cls.__qt_program_folder__
 
+  @classmethod
+  def _createQtModuleFolder(cls, ) -> None:
+    """Asks 'qmake6' where Qt keeps what it knows of itself, and
+    remembers its folder 'mkspecs/modules'."""
+    answer = cls._run('qmake6', '-query', 'QT_HOST_DATA')
+    folder = os.path.join(answer.strip(), 'mkspecs', 'modules')
+    if not os.path.isdir(folder):
+      infoSpec = """Qt's folder '%s' is not there. It holds a file for
+      each part of Qt, naming the parts that part needs, and every Qt
+      with 'qmake6' installs it."""
+      raise FileNotFoundError(' '.join((infoSpec % folder).split()))
+    cls.__qt_module_folder__ = folder
+
+  @classmethod
+  def getQtModuleFolder(cls, **kwargs) -> str:
+    """
+    Gives the folder where Qt describes each of its parts for 'qmake6',
+    as '/usr/lib/qt6/mkspecs/modules': a file 'qt_lib_core.pri' for
+    QtCore and 'qt_lib_core_private.pri' for its private side, and so
+    on for every part. Each names the parts that part needs. See
+    'Rituals.readQtModules'.
+
+    Found for you: there is no setter. The first call asks Qt's own
+    program 'qmake6', and the answer is remembered on the class for every
+    'Summon'. Call it on the class or on an instance, with no arguments;
+    the keyword is for the method's own use.
+
+    Returns
+    -------
+
+    str
+      The full path of the folder.
+
+    Raises
+    ------
+
+    FileNotFoundError
+      'qmake6' is not installed, or the Qt it belongs to has no such
+      folder.
+
+    RuntimeError
+      'qmake6' ran and reported a failure; its message is included.
+    """
+    if cls.__qt_module_folder__ is None:
+      if kwargs.get('_recursion', False):
+        raise RecursionError
+      cls._createQtModuleFolder()
+      return cls.getQtModuleFolder(_recursion=True)
+    return cls.__qt_module_folder__
+
   def getRitualFiles(self) -> Paths:
     """
     Gives the ritual files this build compiles: the C++ files we write,
@@ -559,6 +613,49 @@ class Summon:
               lines.append(line)
     return ''.join('%s\n' % line for line in lines)
 
+  def getRitualStandard(self, ritualFile: str) -> str:
+    """
+    Gives the standard of C++ one ritual file is compiled by: 'c++17',
+    the standard Qt's headers were read by, unless the comment the file
+    begins with holds the line '//  Summon: -std=c++20'. A file whose
+    code from Qt's source compiles only so says it, as the Bluetooth
+    files of Windows do: Qt's C++/WinRT code waits with coroutines,
+    which 'clang++' has only from C++20 on, where Microsoft's compiler,
+    which Qt is built with, has them in C++17 as well.
+
+    Parameters
+    ----------
+
+    ritualFile : str
+      The path of the ritual file.
+
+    Raises
+    ------
+
+    ValueError
+      The line names another standard than 'c++20'.
+
+    FileNotFoundError
+      The ritual file is not there.
+    """
+    marker = '//  Summon: '
+    with open(ritualFile, encoding='utf-8') as file:
+      for line in file:
+        if not line.startswith('//'):
+          break
+        if not line.startswith(marker):
+          continue
+        said = line[len(marker):].strip()
+        if said not in ('-std=%s' % s for s in self.__other_standards__):
+          infoSpec = """The ritual file '%s' asks 'Summon' for '%s', but
+          the only standard a ritual file may ask for is %s."""
+          raise ValueError(' '.join((infoSpec % (
+              ritualFile, said, ', '.join(
+                  "'-std=%s'" % s for s in self.__other_standards__),
+          )).split()))
+        return said[len('-std='):]
+    return 'c++17'
+
   def getPrecompiledHeaderFile(self) -> str:
     """
     Gives the path of the precompiled header: the name of the target
@@ -586,7 +683,8 @@ class Summon:
     left open.
     """
     precompile = ' '.join(self.getPrecompileCommand())
-    command = ' '.join(self.getCompileCommand('RITUAL_FILE'))
+    command = ' '.join(self._getCompileCommand(
+        'RITUAL_FILE', self.getObjectFile('RITUAL_FILE'), 'c++17'))
     return 'Qt %s\n%s\n%s\n' % (self.getQtVersion(), precompile, command)
 
   def getJobCount(self) -> int:
@@ -777,6 +875,11 @@ class Summon:
       ritual file names are in it already, and are not read again;
       the path of the ritual file;
       '-o' with the path of its object file.
+      A ritual file that asks for another standard, as
+      'getRitualStandard' reads it, is compiled with that '-std' and
+      without the precompiled header, which 'clang++' refuses for
+      another standard than its own: such a file reads its headers
+      itself, through its own '#include' lines.
 
     Raises
     ------
@@ -785,21 +888,41 @@ class Summon:
       'setTargetFile' has not been called on this build.
 
     FileNotFoundError
-      'qmake6' is not installed.
+      'qmake6' is not installed, or the ritual file is not there.
+
+    ValueError
+      The ritual file asks for a standard 'getRitualStandard' does not
+      know.
 
     NotImplementedError
       Python runs on a system that 'System' has no subclass for.
     """
+    objectFile = self.getObjectFile(ritualFile)
+    standard = self.getRitualStandard(ritualFile)
+    return self._getCompileCommand(ritualFile, objectFile, standard)
+
+  def _getCompileCommand(
+      self,
+      ritualFile: str,
+      objectFile: str,
+      standard: str,
+  ) -> Paths:
+    """Gives the command of 'getCompileCommand' for a ritual file and
+    its object file, compiled by the given standard, as 'c++17'."""
     system = System.getHere()
     qtFolder = self.getQtSharedObjectFolder()
+    if standard == 'c++17':
+      precompiled = ('-include-pch', self.getPrecompiledHeaderFile())
+    else:
+      precompiled = ()
     return (
-        'clang++', '-std=c++17', '-O2', '-fno-access-control',
+        'clang++', '-std=%s' % standard, '-O2', '-fno-access-control',
         '-DQT_USE_QSTRINGBUILDER', '-c',
         *system.getCompilerFlags(qtFolder),
         '-I%s' % self.getQtHeaderFolder(),
         *('-I%s' % f for f in self.getPrivateIncludeFolders()),
-        '-include-pch', self.getPrecompiledHeaderFile(), ritualFile,
-        '-o', self.getObjectFile(ritualFile),
+        *precompiled, ritualFile,
+        '-o', objectFile,
     )
 
   def getLinkCommand(self) -> Paths:

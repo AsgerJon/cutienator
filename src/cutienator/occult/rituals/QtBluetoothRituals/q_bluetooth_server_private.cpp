@@ -1,7 +1,13 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtBluetooth/6.12.0/QtBluetooth/private/qbluetoothserver_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Edited by hand on 2026-11-25: the whole file stands under
+//  'QT_CONFIG(bluez)', the condition Qt builds 'qbluetoothserver_bluez.cpp'
+//  and 'qbluetoothsocket_bluez.cpp' under, whose code and BlueZ headers it
+//  takes. The rituals of the class on macOS and Windows, from Qt's
+//  'qbluetoothserver_macos.mm' and 'qbluetoothserver_winrt.cpp', are still
+//  to write. Kept as it is when the generator runs again.
 #include <QtBluetooth/6.12.0/QtBluetooth/private/qtbluetoothglobal_p.h>
+#if QT_CONFIG(bluez)
 #include <QtBluetooth/qbluetoothserver.h>
 #include <QtBluetooth/QtBluetooth>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -81,4 +87,6 @@ void ritual_ZN23QBluetoothServerPrivate16_q_newConnectionEv(
     QBluetoothServerPrivate *self) {
   self->_q_newConnection();
 }
+#endif  // QT_CONFIG(bluez)
+
 #endif  // QT_CONFIG(bluez)

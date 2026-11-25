@@ -9,6 +9,10 @@
 //  constructor, 'isValid', 'updateAdapterState', 'tr', the slots and
 //  the signal. The Qt of macOS is built with 'QT_OSX_BLUETOOTH', under
 //  which this header declares no class.
+//  Edited by hand on 2026-11-25: compiled by C++20, as the next line
+//  asks 'Summon': Qt's C++/WinRT headers wait with coroutines, which
+//  'clang++' has only from C++20 on.
+//  Summon: -std=c++20
 #include <QtBluetooth/qtbluetoothglobal.h>
 #include <QtBluetooth/6.12.0/QtBluetooth/private/qtbluetoothglobal_p.h>
 #if defined(Q_OS_WIN) && QT_CONFIG(cpp_winrt)

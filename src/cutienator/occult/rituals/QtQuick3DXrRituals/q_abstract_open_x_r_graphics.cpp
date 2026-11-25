@@ -1,7 +1,13 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtQuick3DXr/6.12.0/QtQuick3DXr/private/qabstractopenxrgraphics_p.h, Qt
-//  6.12.0. Changes made here are lost.
+//  6.12.0.
+//  Edited by hand on 2026-11-25: the whole file stands under
+//  '__has_include(<openxr/openxr.h>)', because Qt's header it needs includes
+//  the header of OpenXR, which a machine with Qt's kit but without the
+//  development headers of OpenXR lacks. Kept as it is when the generator
+//  runs again.
 #include <QtQuick3DXr/6.12.0/QtQuick3DXr/private/qtquick3dxrglobal_p.h>
+#if __has_include(<openxr/openxr.h>)
 #include <QtQuick3DXr/QtQuick3DXr>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtQuick3DXr/6.12.0/QtQuick3DXr/private/qabstractopenxrgraphics_p.h>
@@ -162,3 +168,5 @@ void ritual_own_ZN23QAbstractOpenXRGraphics16releaseResourcesEv(
     QAbstractOpenXRGraphics *self) {
   self->QAbstractOpenXRGraphics::releaseResources();
 }
+
+#endif  // __has_include(<openxr/openxr.h>)

@@ -1,9 +1,11 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/6.12.0/QtCore/private/qlockfile_p.h, Qt 6.12.0. Edited by hand on
-//  2026-11-25: 'getLockFileHandle' stands under '#if !defined(Q_OS_WIN)',
-//  because Qt's header makes it give a 'Qt::HANDLE' on Windows and an 'int'
-//  on the other systems, and its row says 'int'. Kept as it is when the
-//  generator runs again.
+//  2026-11-25: Qt's header makes 'getLockFileHandle' give a 'Qt::HANDLE',
+//  an address, on Windows and an 'int', a file descriptor, on the other
+//  systems. Its ritual gives a 'long long' on every system, wide enough
+//  for both, as Python's own 'os' and 'msvcrt' hand both out as whole
+//  numbers: the address through 'qintptr' on Windows. Kept as it is when
+//  the generator runs again.
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtCore/QtCore>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -52,11 +54,14 @@ QString *ritual_ZN16QLockFilePrivate16processNameByPidEx(qint64 pid) {
   return new QString(QLockFilePrivate::processNameByPid(pid));
 }
 
-#if !defined(Q_OS_WIN)
-//  int QLockFilePrivate::getLockFileHandle(QLockFile *f)
+//  auto QLockFilePrivate::getLockFileHandle(QLockFile *f)
 extern "C" Q_DECL_EXPORT
-int ritual_ZN16QLockFilePrivate17getLockFileHandleEP9QLockFile(
+long long ritual_ZN16QLockFilePrivate17getLockFileHandleEP9QLockFile(
     QLockFile *f) {
-  return QLockFilePrivate::getLockFileHandle(f);
+#if defined(Q_OS_WIN)
+  return static_cast<long long>(
+      reinterpret_cast<qintptr>(QLockFilePrivate::getLockFileHandle(f)));
+#else
+  return static_cast<long long>(QLockFilePrivate::getLockFileHandle(f));
+#endif  // defined(Q_OS_WIN)
 }
-#endif  // !defined(Q_OS_WIN)

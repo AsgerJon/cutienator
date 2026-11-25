@@ -251,8 +251,61 @@ class TestRituals(BaseTest):
       self.assertEqual(Rituals.getPartOrder('QtCore')[0], 'QtCore')
       self.assertEqual(
           Rituals.getPartComponents('QtGraphsWidgets')[:4], (*first,))
-      rest = Rituals.getPartComponents('QtCore')
+      seen = Rituals.getPartComponents('QtCore')
+      needs = Rituals.getQtDependencies('QtCore')
+      self.assertEqual(seen[:1 + len(needs)], ('QtCore', *needs))
+      rest = seen[1 + len(needs):]
       self.assertEqual(rest, (*sorted(rest),))
+      self.assertNotIn('QtCore', seen[1:])
+
+  def test_qt_module_files_are_read(self) -> None:
+    """Qt's files describing its parts give, for each part, the parts
+    it needs, nearest first, its private side and what it was built with
+    counted, itself and names no file describes left out."""
+    files = {
+      'qt_lib_core.pri': 'QT.core.name = QtCore\nQT.core.depends =\n',
+      'qt_lib_core_private.pri': (
+          'QT.core_private.name = QtCore\n'
+          'QT.core_private.depends = core\n'),
+      'qt_lib_gui.pri': 'QT.gui.name = QtGui\nQT.gui.depends = core\n',
+      'qt_lib_utils_private.pri': (
+          'QT.utils_private.name = QtUtils\n'
+          'QT.utils_private.depends = core_private gui_private utils\n'),
+      'qt_lib_utils.pri': (
+          'QT.utils.name = QtUtils\nQT.utils.depends = \n'
+          'QT.utils.run_depends = gone_private gui\n'),
+      'qt_lib_helpers.pri': (
+          'QT.helpers.name = QtHelpers\nQT.helpers.depends =\n'
+          'QT.helpers.run_depends = utils\n'),
+      'qt_lib_gui_private.pri': (
+          'QT.gui_private.name = QtGui\n'
+          'QT.gui_private.depends = core_private gui\n'),
+    }
+    with tempfile.TemporaryDirectory() as folder:
+      for name, text in files.items():
+        with open(os.path.join(folder, name), 'w') as file:
+          file.write(text)
+      with open(os.path.join(folder, 'not_a_part.txt'), 'w') as file:
+        file.write('QT.other.name = QtOther\n')
+      found = Rituals.readQtModules(folder)
+    self.assertEqual(found['QtCore'], ())
+    self.assertEqual(found['QtGui'], ('QtCore',))
+    self.assertEqual(found['QtUtils'], ('QtGui', 'QtCore'))
+    self.assertEqual(found['QtHelpers'], ('QtUtils', 'QtGui', 'QtCore'))
+    self.assertNotIn('QtOther', found)
+
+  def test_a_part_looks_first_in_the_parts_it_needs(self) -> None:
+    """A part looks in the headers of the parts Qt says it needs before
+    those of any other part: QtWidgets in QtGui's and QtCore's before
+    those of a part it does not need, whatever the alphabet says."""
+    if 'QtWidgets' not in Rituals.getRitualParts():
+      self.skipTest('no ritual files of QtWidgets')
+    needs = Rituals.getQtDependencies('QtWidgets')
+    self.assertIn('QtCore', needs)
+    self.assertIn('QtGui', needs)
+    seen = Rituals.getPartComponents('QtWidgets')
+    self.assertEqual(seen[:1 + len(needs)], ('QtWidgets', *needs))
+    self.assertEqual(len(seen), len(set(seen)))
 
   def test_the_parts_first_of_one_part_must_agree(self) -> None:
     """The ritual files of a part are made with one order of the parts:

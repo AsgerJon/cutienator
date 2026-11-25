@@ -1,6 +1,11 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore5Compat/6.12.0/QtCore5Compat/private/qjpunicode_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Edited by hand on 2026-11-25: 'newConverter' is left out, with the code
+//  taken from Qt for it: it makes the six converters Qt's 'qjpunicode.cpp'
+//  defines for itself alone, as 'QJpUnicodeConv_Unicode_JISX0201', which
+//  no header declares. Linux never showed it, as its Qt uses ICU and the
+//  file stands under '!QT_CONFIG(icu)'. Kept as it is when the generator
+//  runs again.
 #include <QtCore5Compat/qcore5global.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #if QT_CONFIG(big_codecs) && QT_CONFIG(textcodec) && !QT_CONFIG(icu)
@@ -23,71 +28,6 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
-
-//  from ../qt5compat/src/core5/codecs/qjpunicode.cpp, line 720, as _ZN14QJpUnicodeConv12newConverterEi
-inline QJpUnicodeConv *QJpUnicodeConv::newConverter(int rule)
-{
-    QByteArray env = qgetenv("UNICODEMAP_JP");
-    if (rule == Default && !env.isNull()) {
-        for (int i = 0; i < (int)env.length();) {
-            int j = env.indexOf(',', i);
-            QByteArray part;
-            if (j < 0) {
-                part = env.mid(i).trimmed();
-                i = env.length();
-            } else {
-                part = env.mid(i, j - i).trimmed();
-                i = j + 1;
-            }
-            const auto s = part.constData();
-            if (qstricmp(s, "unicode-0.9") == 0) {
-                rule = (rule & 0xff00) | Unicode;
-            } else if (qstricmp(s, "unicode-0201") == 0) {
-                rule = (rule & 0xff00) | Unicode_JISX0201;
-            } else if (qstricmp(s, "unicode-ascii") == 0) {
-                rule = (rule & 0xff00) | Unicode_ASCII;
-            } else if (qstricmp(s, "jisx0221-1995") == 0) {
-                rule = (rule & 0xff00) | JISX0221_JISX0201;
-            } else if ((qstricmp(s, "open-0201") == 0) ||
-                       (qstricmp(s, "open-19970715-0201") == 0)) {
-                rule = (rule & 0xff00) | JISX0221_JISX0201;
-            } else if ((qstricmp(s, "open-ascii") == 0) ||
-                       (qstricmp(s, "open-19970715-ascii") == 0)) {
-                rule = (rule & 0xff00) | JISX0221_ASCII;
-            } else if ((qstricmp(s, "open-ms") == 0) ||
-                       (qstricmp(s, "open-19970715-ms") == 0)) {
-                rule = (rule & 0xff00) | Microsoft_CP932;
-            } else if (qstricmp(s, "cp932") == 0) {
-                rule = (rule & 0xff00) | Microsoft_CP932;
-            } else if (qstricmp(s, "jdk1.1.7") == 0) {
-                rule = (rule & 0xff00) | Sun_JDK117;
-            } else if (qstricmp(s, "nec-vdc") == 0) {
-                rule = rule | NEC_VDC;
-            } else if (qstricmp(s, "ibm-vdc") == 0) {
-                rule = rule | IBM_VDC;
-            } else if (qstricmp(s, "udc") == 0) {
-                rule = rule | UDC;
-            }
-        }
-    }
-
-    switch (rule & 0x00ff) {
-    case Unicode_JISX0201:
-        return new QJpUnicodeConv_Unicode_JISX0201(rule);
-    case Unicode_ASCII:
-        return new QJpUnicodeConv_Unicode_ASCII(rule);
-    case JISX0221_JISX0201:
-        return new QJpUnicodeConv_JISX0221_JISX0201(rule);
-    case JISX0221_ASCII:
-        return new QJpUnicodeConv_JISX0221_ASCII(rule);
-    case Sun_JDK117:
-        return new QJpUnicodeConv_Sun(rule);
-    case Microsoft_CP932:
-        return new QJpUnicodeConv_Microsoft(rule);
-    default:
-        return new QJpUnicodeConv_Unicode_ASCII(rule);
-    }
-}
 
 //  from ../qt5compat/src/core5/codecs/qjpunicode.cpp, line 73, as _ZNK14QJpUnicodeConv17jisx0201ToUnicodeEjj
 inline uint QJpUnicodeConv::jisx0201ToUnicode(uint h, uint l) const
@@ -417,12 +357,6 @@ public:
 extern "C" Q_DECL_EXPORT
 void ritual_ZN14QJpUnicodeConvD1Ev(QJpUnicodeConv *self) {
   delete self;
-}
-
-//  QJpUnicodeConv *QJpUnicodeConv::newConverter(int rule)
-extern "C" Q_DECL_EXPORT
-QJpUnicodeConv *ritual_ZN14QJpUnicodeConv12newConverterEi(int rule) {
-  return QJpUnicodeConv::newConverter(rule);
 }
 
 //  uint QJpUnicodeConv::asciiToUnicode(uint h, uint l) const

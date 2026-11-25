@@ -1,7 +1,13 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtBluetooth/6.12.0/QtBluetooth/private/qbluetoothserviceinfo_p.h, Qt
-//  6.12.0. Changes made here are lost.
+//  6.12.0.
+//  Edited by hand on 2026-11-25: the whole file stands under
+//  '!defined(Q_OS_MACOS)': on macOS Qt's header includes
+//  'darwin/btraii_p.h', a path of Qt's source tree that no installed Qt has,
+//  so the header is broken on Qt's side there. Kept as it is when the
+//  generator runs again.
 #include <QtBluetooth/6.12.0/QtBluetooth/private/qtbluetoothglobal_p.h>
+#if !defined(Q_OS_MACOS)
 #include <QtBluetooth/QtBluetooth>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtBluetooth/6.12.0/QtBluetooth/private/qbluetoothserviceinfo_p.h>
@@ -258,3 +264,5 @@ bool ritual_take_QBluetoothServiceInfoPrivate(
     void *call) {
   return static_cast<CuteQBluetoothServiceInfoPrivate *>(self)->take(key, call);
 }
+
+#endif  // !defined(Q_OS_MACOS)

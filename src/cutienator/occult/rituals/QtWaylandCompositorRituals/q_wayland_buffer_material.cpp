@@ -1,10 +1,15 @@
 //  Written by dev_tooling.RitualGenerator from the records of QtWaylandCompo
 //  sitor/6.12.0/QtWaylandCompositor/private/qwaylandquickitem_p.h, Qt
-//  6.12.0. Changes made here are lost.
+//  6.12.0.
+//  Edited by hand on 2026-11-25: the whole file stands also under
+//  '__has_include(<wayland-server-core.h>)', because Qt's header it needs
+//  includes the header of the Wayland server library, which a machine with
+//  Qt's kit but without the development headers of the Wayland server
+//  library lacks. Kept as it is when the generator runs again.
 #include <QtGui/qtguiglobal.h>
 #include <QtWaylandCompositor/qtwaylandcompositorglobal.h>
 #include <QtWaylandCompositor/6.12.0/QtWaylandCompositor/private/qtwaylandcompositorglobal_p.h>
-#if QT_CONFIG(wayland_compositor_quick)
+#if QT_CONFIG(wayland_compositor_quick) && __has_include(<wayland-server-core.h>)
 #if QT_CONFIG(opengl)
 #include <QtWaylandCompositor/6.12.0/QtWaylandCompositor/private/qtwaylandcompositorglobal_p.h>
 #include <QtWaylandCompositor/QtWaylandCompositor>
@@ -218,4 +223,4 @@ bool ritual_take_QWaylandBufferMaterial(
 }
 
 #endif  // QT_CONFIG(opengl)
-#endif  // QT_CONFIG(wayland_compositor_quick)
+#endif  // QT_CONFIG(wayland_compositor_quick) && __has_include(<wayland-server-core.h>)

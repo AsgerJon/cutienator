@@ -72,6 +72,14 @@ class TestSummon(BaseTest):
       with self.subTest(ritualFile=ritualFile):
         self.assertIs(ritualFile in built, part in installed)
 
+  def test_module_folder_describes_qtcore(self) -> None:
+    """The folder where Qt describes its parts holds the file of
+    QtCore."""
+    folder = Summon.getQtModuleFolder()
+    self.assertTrue(os.path.isdir(folder))
+    self.assertTrue(
+        os.path.isfile(os.path.join(folder, 'qt_lib_core.pri')))
+
   def test_program_folder_holds_qmake(self) -> None:
     """The program folder holds 'qmake6', which answered for it."""
     folder = Summon.getQtProgramFolder()
@@ -410,6 +418,52 @@ class TestSummon(BaseTest):
     self.assertTrue(os.path.isfile(build.getObjectFile(one)))
     self.assertFalse(os.path.isfile(build.getPrecompiledHeaderFile()))
 
+  def test_a_ritual_file_may_ask_for_cpp20(self) -> None:
+    """A ritual file whose first comment says '//  Summon: -std=c++20'
+    is compiled by C++20 and without the precompiled header, and its
+    code that compiles only so is compiled; the others stay C++17."""
+    build = self._makeSummonWithHeaders()
+    one, two = build.getRitualFiles()
+    with open(two, 'w') as file:
+      file.write('//  Made up for the test.\n')
+      file.write('//  Summon: -std=c++20\n')
+      file.write('#include <cstdlib>\n')
+      file.write('consteval int twice(int n) { return 2 * n; }\n')
+      file.write('extern "C" int ritual_two() { return twice(1); }\n')
+    self.assertEqual(build.getRitualStandard(one), 'c++17')
+    self.assertEqual(build.getRitualStandard(two), 'c++20')
+    command = build.getCompileCommand(two)
+    self.assertIn('-std=c++20', command)
+    self.assertNotIn('-std=c++17', command)
+    self.assertNotIn('-include-pch', command)
+    self.assertIn('-include-pch', build.getCompileCommand(one))
+    build.run()
+    for ritualFile in build.getRitualFiles():
+      self.assertTrue(os.path.isfile(build.getObjectFile(ritualFile)))
+
+  def test_a_ritual_file_asking_for_an_unknown_standard_is_refused(
+      self) -> None:
+    """A ritual file asking for a standard 'Summon' does not know is
+    refused, with its name, and not compiled by C++17 instead."""
+    build = self._makeSummonWithHeaders()
+    one, two = build.getRitualFiles()
+    with open(two, 'w') as file:
+      file.write('//  Summon: -std=c++98\n')
+      file.write('extern "C" int ritual_two() { return 2; }\n')
+    with self.assertRaises(ValueError) as caught:
+      build.getCompileCommand(two)
+    self.assertIn(two, str(caught.exception))
+    self.assertIn('-std=c++98', str(caught.exception))
+
+  def test_the_line_counts_only_in_the_first_comment(self) -> None:
+    """The line asks for C++20 only in the comment a ritual file begins
+    with: further down it is a comment like any other."""
+    build = self._makeSummonWithHeaders()
+    one, two = build.getRitualFiles()
+    with open(two, 'a') as file:
+      file.write('//  Summon: -std=c++20\n')
+    self.assertEqual(build.getRitualStandard(two), 'c++17')
+
   def test_a_line_under_an_if_stays_with_its_ritual_file(self) -> None:
     """The common header takes no '#include' line that stands under an
     '#if': such a line is for some systems only."""
@@ -440,6 +494,7 @@ class TestSummon(BaseTest):
       self.assertTrue(os.path.isdir(folder), folder)
     self.assertTrue(
         os.path.isfile(os.path.join(folders[-1], 'qplatformdefs.h')))
-    command = build.getCompileCommand('q_object.cpp')
+    command = build.getCompileCommand(
+        Rituals.getPartRitualFiles('QtCore')[0])
     for folder in folders:
       self.assertIn('-I%s' % folder, command)
