@@ -1,11 +1,12 @@
-# System rituals: writes, on each system, the rituals of the classes of
-# that system alone. Manual trigger only.
-# On an Apple silicon Mac, an Intel Mac and a Windows machine it reads,
-# from Qt's source, the header files the reader refused on Linux
+# System rituals, macOS: writes, on each Mac, the rituals of the
+# classes of macOS alone. Manual trigger only. Windows has
+# 'system-rituals-windows.yml'.
+# On an Apple silicon Mac and an Intel Mac it reads, from Qt's source,
+# the header files the reader refused on Linux
 # ('bin/dev_tooling/refused_on_linux.txt'), as those pulling in Apple's
-# frameworks or Windows' own header files, and writes and tests the
-# rituals of their classes with 'bin/system_rituals.py'. Each machine
-# does only the header files it can read and the package lacks.
+# frameworks, and writes and tests the rituals of their classes with
+# 'bin/system_rituals.py'. Each machine does only the header files it
+# can read and the package lacks.
 # Each machine hands over the ritual files and rows files of the classes
 # that passed, with its report, as an artifact of the run, to download
 # from the page of the run and take into the package. It releases
@@ -20,13 +21,8 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - { name: 'mac', os: macos-latest, tools: '' }
-          - { name: 'intel-mac', os: macos-26-intel, tools: '' }
-          # Qt's own MinGW, the one its MinGW Qt is built with: see the
-          # step 'Put the gcc of MinGW in PATH'.
-          - name: 'windows'
-            os: windows-latest
-            tools: 'tools_mingw1510,qt.tools.win64_mingw1510'
+          - { name: 'mac', os: macos-latest }
+          - { name: 'intel-mac', os: macos-26-intel }
     runs-on: ${{ matrix.os }}
     # Reading the parts of Qt takes long on a machine of few cores.
     timeout-minutes: 300
@@ -36,45 +32,14 @@ jobs:
     steps:
       - uses: actions/checkout@v7
       # Every part of Qt 6.12.0, so each ritual file can be tested
-      # against the Qt that has its part. On Windows the Qt of Visual
-      # Studio, the one cutienator builds for there.
+      # against the Qt that has its part.
       - name: Install Qt 6.12.0
         uses: jurplel/install-qt-action@v4.5.0
         with:
           version: '6.12.0'
           modules: 'all'
-          tools: ${{ matrix.tools }}
           install-deps: false
           aqtsource: 'git+https://github.com/miurahr/aqtinstall.git@5a49f2b391ae8ee1d3c0dd87f8b33c1d49a4deb7'
-      # Windows only. The reader and the generator compile as MinGW
-      # does ('Machine' in 'bin/dev_tooling'), so that the compiler
-      # names each function as on Linux and macOS. 'clang++' then
-      # takes the header files of the 'gcc' of MinGW it finds first in
-      # 'PATH': this one, put before the others the machine has.
-      - name: Put the gcc of MinGW in PATH
-        if: ${{ runner.os == 'Windows' }}
-        shell: pwsh
-        run: |
-          $gcc = Get-ChildItem -Path $env:IQTA_TOOLS -Recurse `
-            -Filter 'x86_64-w64-mingw32-gcc.exe' | Select-Object -First 1
-          if (-not $gcc) {
-            throw "Qt's MinGW has no x86_64-w64-mingw32-gcc.exe in '$env:IQTA_TOOLS'."
-          }
-          Add-Content -Path $env:GITHUB_PATH -Value $gcc.DirectoryName
-      # Windows only, as in 'four-horsemen.yml': the 'clang++' that
-      # comes with Visual Studio is put first in line, before MinGW's
-      # folder. The tester builds with it as cutienator's 'Build' does.
-      - name: Use the clang++ of Visual Studio
-        if: ${{ runner.os == 'Windows' }}
-        shell: pwsh
-        run: |
-          $installer = "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer"
-          $studio = & "$installer\vswhere.exe" -latest -products * -property installationPath
-          $folder = Join-Path $studio 'VC\Tools\Llvm\x64\bin'
-          if (-not (Test-Path (Join-Path $folder 'clang++.exe'))) {
-            throw "Visual Studio has no clang++.exe in '$folder'."
-          }
-          Add-Content -Path $env:GITHUB_PATH -Value $folder
       - name: Set up Python 3.14
         uses: actions/setup-python@v7
         with:
@@ -113,18 +78,6 @@ jobs:
           qmake6 -query QT_VERSION | tr -d '\r' | grep -Fx '6.12.0'
           clang++ --version
           echo "Qt is at $QT_ROOT_DIR"
-      # Windows only: 'clang++' compiles as MinGW, with MinGW's header
-      # files, and the programs the tooling asks are there.
-      - name: Check MinGW and the programs of LLVM
-        if: ${{ runner.os == 'Windows' }}
-        run: |
-          for program in gcc llvm-cxxfilt llvm-readobj; do
-            command -v "$program" \
-              || { echo "'$program' is not in PATH" >&2; exit 1; }
-          done
-          printf '#include <windows.h>\n#include <string>\nint main() {}\n' \
-            | clang++ --target=x86_64-w64-windows-gnu -std=c++17 -x c++ \
-              -fsyntax-only -v -
       # The report is written whatever is found; the step fails only
       # when a part could not be read at all.
       - name: Write the rituals of this system

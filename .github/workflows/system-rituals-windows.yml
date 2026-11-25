@@ -1,0 +1,131 @@
+# System rituals, Windows: writes, on a Windows machine, the rituals of
+# the classes of Windows alone. Manual trigger only. The Macs have
+# 'system-rituals.yml'.
+# It reads, from Qt's source, the header files the reader refused on
+# Linux ('bin/dev_tooling/refused_on_linux.txt'), as those pulling in
+# Windows' own header files, and writes and tests the rituals of their
+# classes with 'bin/system_rituals.py': only the header files it can
+# read and the package lacks.
+# It hands over the ritual files and rows files of the classes that
+# passed, with its report, as an artifact of the run, to download from
+# the page of the run and take into the package. It releases nothing
+# and changes nothing on 'main'.
+on:
+  workflow_dispatch:
+
+jobs:
+  rituals:
+    runs-on: windows-latest
+    # Reading the parts of Qt takes long on a machine of few cores.
+    timeout-minutes: 300
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v7
+      # Every part of Qt 6.12.0, so each ritual file can be tested
+      # against the Qt that has its part: the Qt of Visual Studio, the
+      # one cutienator builds for on Windows. With it Qt's own MinGW,
+      # the one its MinGW Qt is built with: see the step 'Put the gcc
+      # of MinGW in PATH'.
+      - name: Install Qt 6.12.0
+        uses: jurplel/install-qt-action@v4.5.0
+        with:
+          version: '6.12.0'
+          modules: 'all'
+          tools: 'tools_mingw1510,qt.tools.win64_mingw1510'
+          install-deps: false
+          aqtsource: 'git+https://github.com/miurahr/aqtinstall.git@5a49f2b391ae8ee1d3c0dd87f8b33c1d49a4deb7'
+      # The reader and the generator compile as MinGW does ('Machine'
+      # in 'bin/dev_tooling'), so that the compiler names each function
+      # as on Linux and macOS. 'clang++' then takes the header files of
+      # the 'gcc' of MinGW it finds first in 'PATH': this one, put
+      # before the others the machine has.
+      - name: Put the gcc of MinGW in PATH
+        shell: pwsh
+        run: |
+          $gcc = Get-ChildItem -Path $env:IQTA_TOOLS -Recurse `
+            -Filter 'x86_64-w64-mingw32-gcc.exe' | Select-Object -First 1
+          if (-not $gcc) {
+            throw "Qt's MinGW has no x86_64-w64-mingw32-gcc.exe in '$env:IQTA_TOOLS'."
+          }
+          Add-Content -Path $env:GITHUB_PATH -Value $gcc.DirectoryName
+      # As in 'four-horsemen.yml': the 'clang++' that comes with Visual
+      # Studio is put first in line, before MinGW's folder. The tester
+      # builds with it as cutienator's 'Build' does.
+      - name: Use the clang++ of Visual Studio
+        shell: pwsh
+        run: |
+          $installer = "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer"
+          $studio = & "$installer\vswhere.exe" -latest -products * -property installationPath
+          $folder = Join-Path $studio 'VC\Tools\Llvm\x64\bin'
+          if (-not (Test-Path (Join-Path $folder 'clang++.exe'))) {
+            throw "Visual Studio has no clang++.exe in '$folder'."
+          }
+          Add-Content -Path $env:GITHUB_PATH -Value $folder
+      - name: Set up Python 3.14
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.14'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      # Qt's source, which the reader reads: 'qtbase' and the 'src' of
+      # every folder beside it, as the parts of one need those of
+      # others; the folders gcloud reads. Left out: the copy of
+      # Chromium in 'qtwebengine', no part of the list's, with paths
+      # too long for Windows.
+      # The same file gcloud's reading was made from: its MD5 is the one
+      # Qt gives, as 'tmp/scratch/qt_source/fetch.log' noted it.
+      - name: Fetch Qt's source
+        run: |
+          curl -fL -o qt-source.tar.xz \
+            https://download.qt.io/official_releases/qt/6.12/6.12.0/single/qt-everywhere-src-6.12.0.tar.xz
+          python -c "import hashlib, sys; got = hashlib.md5(open('qt-source.tar.xz', 'rb').read()).hexdigest(); print(got); sys.exit(got != 'ac677cc64158740f257fd37a5b4c5ffb')"
+          python - <<'EOF'
+          import tarfile
+          with tarfile.open('qt-source.tar.xz', 'r|xz') as source:
+            for member in source:
+              words = member.name.split('/')
+              if words[1:3] == ['qtwebengine', 'src'] and words[3:4] == [
+                  '3rdparty']:
+                continue
+              if words[1:2] == ['qtbase'] or words[2:3] == ['src']:
+                source.extract(member, filter='fully_trusted')
+          EOF
+          rm qt-source.tar.xz
+          test -d qt-everywhere-src-6.12.0/qtbase/src/corelib
+      - name: Check the Qt and the compilers
+        run: |
+          qmake6 -query QT_VERSION | tr -d '\r' | grep -Fx '6.12.0'
+          clang++ --version
+          echo "Qt is at $QT_ROOT_DIR"
+      # 'clang++' compiles as MinGW, with MinGW's header files, and the
+      # programs the tooling asks are there.
+      - name: Check MinGW and the programs of LLVM
+        run: |
+          for program in gcc llvm-cxxfilt llvm-readobj; do
+            command -v "$program" \
+              || { echo "'$program' is not in PATH" >&2; exit 1; }
+          done
+          printf '#include <windows.h>\n#include <string>\nint main() {}\n' \
+            | clang++ --target=x86_64-w64-windows-gnu -std=c++17 -x c++ \
+              -fsyntax-only -v -
+      # The report is written whatever is found; the step fails only
+      # when a part could not be read at all.
+      - name: Write the rituals of Windows
+        env:
+          PYTHONUTF8: '1'
+        run: |
+          export PYTHONPATH="$(python -c "import os; print(os.pathsep.join(os.path.abspath(f) for f in ('bin', 'src')))")"
+          python -B bin/system_rituals.py \
+            qt-everywhere-src-6.12.0/qtbase work "$QT_ROOT_DIR" out
+      # Also when the step above failed.
+      - name: Hand over the ritual files
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v7
+        with:
+          name: system-rituals-windows
+          path: out/
+          if-no-files-found: warn
