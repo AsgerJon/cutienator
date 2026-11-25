@@ -1523,8 +1523,10 @@ class HeaderFolder:
       shutil.rmtree(folder)
     os.makedirs(folder, exist_ok=True)
     #  Each part has a folder of its own: they are made at once, one
-    #  process each, as many as the machine has cores.
-    context = multiprocessing.get_context('fork')
+    #  process each, as many as the machine has cores. Each process
+    #  starts from nothing ('spawn'), as Windows has no other way, and
+    #  gets this folder handed over.
+    context = multiprocessing.get_context('spawn')
     with ProcessPoolExecutor(
         os.cpu_count() or 1, mp_context=context) as pool:
       for _ in pool.map(self._makePart, self.getPartNames()):
@@ -1557,6 +1559,18 @@ class HeaderFolder:
         QT_WARN_DEPRECATED_UP_TO='0x070000')
     with open(self.getStampFile(), 'w') as file:
       file.write(self.getStamp())
+
+  def __setstate__(self, state: Dict[str, Any]) -> None:
+    """
+    Takes the state of a folder handed to another process, as 'make'
+    hands it to each of its processes. A process started from nothing
+    ('spawn', as on Windows) has only the rows of the table written in
+    this class, so the parts 'setSourceFolder' found in Qt's source and
+    added to the table are added there again.
+    """
+    self.__dict__.update(state)
+    if state.get('__source_folder__') is not None:
+      self._addFoundParts()
 
   def __str__(self) -> str:
     """Says what the folder is made from and whether it is made."""
