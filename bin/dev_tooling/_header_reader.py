@@ -139,7 +139,8 @@ class HeaderReader:
       The program ran and reported a failure; its message is included.
     """
     try:
-      done = subprocess.run(command, capture_output=True, text=True)
+      with Machine.handOver(command) as words:
+        done = subprocess.run(words, capture_output=True, text=True)
     except FileNotFoundError as fileNotFoundError:
       infoSpec = """The program '%s' is needed and is not installed."""
       raise FileNotFoundError(infoSpec % command[0]) from fileNotFoundError
@@ -1693,9 +1694,10 @@ class HeaderReader:
     """
     command = (*self.getCompilerCommand(), *arguments, '-')
     try:
-      return subprocess.run(
-          command, input=feed, capture_output=True, text=True,
-      )
+      with Machine.handOver(command) as words:
+        return subprocess.run(
+            words, input=feed, capture_output=True, text=True,
+        )
     except FileNotFoundError as fileNotFoundError:
       infoSpec = """The program 'clang++' is needed and is not
       installed."""
@@ -2088,10 +2090,12 @@ class HeaderReader:
     before = (None, None)  # type: Place
     where = (None, None)  # type: Place
     headerPath = ''
-    with tempfile.TemporaryFile() as complaints:
+    #  The command stays handed over until the compiler has ended.
+    with tempfile.TemporaryFile() as complaints, Machine.handOver(
+        command) as words:
       try:
         compiler = subprocess.Popen(
-            command, stdin=subprocess.PIPE, stdout=subprocess.PIPE,
+            words, stdin=subprocess.PIPE, stdout=subprocess.PIPE,
             stderr=complaints, bufsize=1 << 20,
         )
       except FileNotFoundError as fileNotFoundError:

@@ -7,7 +7,6 @@ import json
 import os
 import re
 import subprocess
-import tempfile
 from typing import TYPE_CHECKING
 
 from worktoy.waitaminute import MissingVariable, TypeException
@@ -105,12 +104,10 @@ class RitualTester:
     raised. The keyword 'given' is text handed to the program as its
     input.
 
-    On Windows a command of 'clang++' longer than '__long_command__'
-    letters is handed over in a file, as 'clang++ @file', the way
-    cutienator's 'Build' hands it over: Windows starts no program whose
-    command is longer than 32767 letters, and the command of a ritual
-    file names every folder of headers of the installed Qt, some six
-    hundred with every part.
+    On Windows a long command of 'clang++' is handed over in a file:
+    see 'Machine.handOver'. The command of a ritual file names every
+    folder of headers of the installed Qt, some six hundred with every
+    part.
 
     Raises
     ------
@@ -118,29 +115,14 @@ class RitualTester:
     FileNotFoundError
       The program is not installed on this machine.
     """
-    told = None  # type: Optional[str]
-    tooLong = sum(len(word) + 3 for word in command) > (
-        RitualTester.__long_command__)
-    if tooLong and os.name == 'nt' and (
-        os.path.basename(command[0]).startswith('clang')):
-      #  One word to a line, between quotes, as 'clang++' reads a file
-      #  of them when told '--rsp-quoting=posix', on any system.
-      handle, told = tempfile.mkstemp(prefix='ritual-', suffix='.txt')
-      with os.fdopen(handle, 'w', encoding='utf-8') as file:
-        for word in command[1:]:
-          word = word.replace('\\', '\\\\').replace('"', '\\"')
-          file.write('"%s"\n' % word)
-      command = (command[0], '--rsp-quoting=posix', '@%s' % told)
     try:
-      done = subprocess.run(
-          command, input=kwargs.get('given', None), capture_output=True,
-          text=True)
+      with Machine.handOver(command) as words:
+        done = subprocess.run(
+            words, input=kwargs.get('given', None), capture_output=True,
+            text=True)
     except FileNotFoundError as fileNotFoundError:
       infoSpec = """The program '%s' is needed and is not installed."""
       raise FileNotFoundError(infoSpec % command[0]) from fileNotFoundError
-    finally:
-      if told is not None:
-        os.remove(told)
     return done.returncode, done.stdout, done.stderr
 
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -155,9 +137,6 @@ class RitualTester:
       'CXXConversionDecl', 'FunctionTemplateDecl',
   )
 
-  #  The length of a command, in letters, above which Windows gets it
-  #  in a file: see '_run'. The same as cutienator's 'Build' uses.
-  __long_command__ = 8000
 
   #  Fallback Variables
 

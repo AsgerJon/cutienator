@@ -3,12 +3,15 @@
 #  Copyright (c) 2026 Asger Jon Vistisen
 from __future__ import annotations
 
+import contextlib
+import os
 import platform
 import subprocess
+import tempfile
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
-  from typing import Dict, Set, Tuple
+  from typing import Dict, Iterator, Optional, Sequence, Set, Tuple
 
   Words = Tuple[str, ...]
 
@@ -25,6 +28,8 @@ class Machine:
     Machine.getDemangler()      # ('c++filt',) on Linux
     Machine.getLibraryName('q_object')  # 'libq_object.so' on Linux
     Machine.listOffered(path)   # the names a built library offers
+    with Machine.handOver(command) as words:   # a long command, as
+      subprocess.run(words)                    # Windows takes it
 
   Everything is called on the class: a run of the tooling has one
   machine.
@@ -89,6 +94,10 @@ class Machine:
   __library_names__ = dict(
       Linux='lib%s.so', Darwin='lib%s.dylib', Windows='%s.dll',
   )  # type: Dict[str, str]
+
+  #  The length of a command, in letters, above which Windows gets it
+  #  in a file: see 'handOver'. The same as cutienator's 'Build' uses.
+  __long_command__ = 8000
 
   #  Fallback Variables
 
@@ -205,3 +214,45 @@ class Machine:
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  DOMAIN SPECIFIC  # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+
+  @classmethod
+  @contextlib.contextmanager
+  def handOver(cls, command: Sequence[str]) -> Iterator[Words]:
+    """
+    Gives the command to start, in the 'with' it opens, as the system
+    takes it: on Windows a command of 'clang++' longer than
+    '__long_command__' letters goes in a file, as 'clang++ @file', the
+    way cutienator's 'Build' hands it over; anywhere else the command
+    as it is. The file is removed when the 'with' ends, so the program
+    has to have ended by then.
+
+    Windows starts no program whose command is longer than 32767
+    letters, and says so as a 'FileNotFoundError' ('[WinError 206]'),
+    as if the program were missing. The commands of the reader, the
+    tree and the generator name the folders of every part Qt calls
+    private, some 57000 letters.
+
+    Parameters
+    ----------
+
+    command : Sequence[str]
+      The program, then each of its arguments, one per entry.
+    """
+    words = (*command,)
+    told = None  # type: Optional[str]
+    tooLong = sum(len(word) + 3 for word in words) > cls.__long_command__
+    if tooLong and cls.getSystemName() == 'Windows' and (
+        os.path.basename(words[0]).startswith('clang')):
+      #  One word to a line, between quotes, as 'clang++' reads a file
+      #  of them when told '--rsp-quoting=posix', on any system.
+      handle, told = tempfile.mkstemp(prefix='dev-tooling-', suffix='.txt')
+      with os.fdopen(handle, 'w', encoding='utf-8') as file:
+        for word in words[1:]:
+          word = word.replace('\\', '\\\\').replace('"', '\\"')
+          file.write('"%s"\n' % word)
+      words = (words[0], '--rsp-quoting=posix', '@%s' % told)
+    try:
+      yield words
+    finally:
+      if told is not None:
+        os.remove(told)

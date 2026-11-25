@@ -2844,9 +2844,10 @@ class RitualGenerator:
         '-x', 'c++-header', headerFile,
         '-o', os.path.join(folder, '%s.pch' % stem),
     )
-    done = subprocess.run(
-        command, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
-        universal_newlines=True)
+    with Machine.handOver(command) as words:
+      done = subprocess.run(
+          words, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+          universal_newlines=True)
     if not done.returncode:
       return None, set()
     said = ' '.join(done.stderr.split())
@@ -2935,9 +2936,10 @@ class RitualGenerator:
           '-include-pch', self.getProbeHeader(), probeFile,
           '-o', compiledFile,
       )
-      done = subprocess.run(
-          command, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
-          universal_newlines=True)
+      with Machine.handOver(command) as words:
+        done = subprocess.run(
+            words, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+            universal_newlines=True)
       if done.returncode:
         #  Each thing the compiler refuses, with the first line of the
         #  file it names for it: the line of the error itself, or,

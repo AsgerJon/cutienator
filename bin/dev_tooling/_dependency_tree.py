@@ -1100,15 +1100,15 @@ class DependencyTree:
     the answer.
 
     A small C++ file is written into a folder of its own and compiled
-    with 'clang++' to an object file. Nothing is joined to it and
-    nothing is run: the compiler works every answer out itself, and
-    writes them into the object file as one letter for each class,
-    which 'objcopy' then hands over. The letter says whether these two
-    lines of C++ are allowed for anyone: 'new T(other)', which makes a
-    copy of another one, and 'delete' of the copy. The compiler alone
-    knows that for sure. The records say it for a class that declares
-    its copying itself, and leave it open for the many classes that
-    let the compiler write it.
+    with 'clang++' to the text it would make an object file of, LLVM's
+    IR. Nothing is joined to it and nothing is run: the compiler works
+    every answer out itself, and writes them into that text as one
+    letter for each class; see '_askCopyable'. The letter says whether
+    these two lines of C++ are allowed for anyone: 'new T(other)',
+    which makes a copy of another one, and 'delete' of the copy. The
+    compiler alone knows that for sure. The records say it for a class
+    that declares its copying itself, and leave it open for the many
+    classes that let the compiler write it.
 
     Raises
     ------
@@ -1260,50 +1260,52 @@ class DependencyTree:
   ) -> Tuple[Optional[bytes], str]:
     """
     Compiles the file of '_createCopyableNames' and gives the letters
-    its object file holds, with '' for what the compiler said; or None
-    and what the compiler said when it refused the file.
+    of its array 'cutienatorCopyable', with '' for what the compiler
+    said; or None and what the compiler said when it refused the file.
+
+    The letters are read from the text the compiler would make an
+    object file of, LLVM's IR ('clang++ -S -emit-llvm'), the same on
+    every system, where the array stands as
+    '@cutienatorCopyable = constant [4 x i8] c"011\\00"'.
 
     Raises
     ------
 
     RuntimeError
-      'objcopy' failed on the object file.
+      The compiled text holds no such array.
     """
     with tempfile.TemporaryDirectory() as folder:
       sourceFile = os.path.join(folder, 'copyable.cpp')
-      objectFile = os.path.join(folder, 'copyable.o')
-      answerFile = os.path.join(folder, 'copyable.txt')
+      compiledFile = os.path.join(folder, 'copyable.ll')
       with open(sourceFile, 'w') as file:
         file.write('\n'.join(lines))
-      #  '-fdata-sections' gives the letters a stretch of the object
-      #  file to themselves, under their own name.
       command = (
           'clang++', '-std=c++17', *Machine.getCompilerFlags(),
-          '-fdata-sections', '-c',
-          '-ferror-limit=0', '-I%s' % HeaderReader.getQtHeaderFolder(),
-          *private, sourceFile, '-o', objectFile,
+          '-S', '-emit-llvm', '-ferror-limit=0',
+          '-I%s' % HeaderReader.getQtHeaderFolder(),
+          *private, sourceFile, '-o', compiledFile,
       )
-      done = subprocess.run(
-          command, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
-          universal_newlines=True,
-      )
+      with Machine.handOver(command) as words:
+        done = subprocess.run(
+            words, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+            universal_newlines=True,
+        )
       if done.returncode:
         return None, done.stderr
-      handOver = (
-          'objcopy', '-O', 'binary',
-          '--only-section=.rodata.cutienatorCopyable', objectFile,
-          answerFile,
-      )
-      done = subprocess.run(
-          handOver, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
-          universal_newlines=True,
-      )
-      if done.returncode:
-        infoSpec = """Asking the compiler which classes it can copy
-        failed at 'objcopy', which said: %s"""
-        raise RuntimeError(' '.join((infoSpec % done.stderr).split()))
-      with open(answerFile, 'rb') as file:
-        return file.read(), ''
+      with open(compiledFile, encoding='utf-8') as file:
+        text = file.read()
+    found = re.search(
+        r'^@cutienatorCopyable = [^\n"]*\bc"([^"]*)"', text, re.M)
+    if found is None:
+      infoSpec = """Asking the compiler which classes it can copy gave
+      no array 'cutienatorCopyable' in the text it compiled."""
+      raise RuntimeError(' '.join(infoSpec.split()))
+    #  In such a text a letter that is not plain stands as '\' and two
+    #  hex digits, as the 0 at the end: '\00'.
+    letters = re.sub(
+        r'\\([0-9A-Fa-f]{2})', lambda match: chr(int(match.group(1), 16)),
+        found.group(1))
+    return letters.encode('latin-1'), ''
 
   def getCopyableNames(self, **kwargs) -> FrozenSet[Key]:
     """
