@@ -1,6 +1,17 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtGui/6.12.0/QtGui/private/qrhi_p.h, Qt 6.12.0. Changes made here are
-//  lost.
+//  QtGui/6.12.0/QtGui/private/qrhi_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-25: the lines pulling in
+//  'qrhivulkan_p.h', 'qplatformvulkaninstance.h' and
+//  'qvulkandefaultinstance_p.h', and the constructor of 'QRhiVulkan'
+//  taken from Qt's source, stand under
+//  '__has_include(<vulkan/vulkan.h>)' beside 'QT_CONFIG(vulkan)', as
+//  Qt's 'qvulkaninstance.h' checks it, since without Vulkan's headers
+//  'qrhivulkan_p.h' fails on 'VkBuffer' and macOS has none of the
+//  three; the line pulling in 'qrhid3d12_p.h' stands under
+//  '__has_include(<D3D12MemAlloc.h>)', since that header includes
+//  'D3D12MemAlloc.h', which Qt keeps in its source and never installs;
+//  no ritual here uses any of them. Kept as it is when the generator
+//  runs again.
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
 #include <QtGui/QtGui>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -15,11 +26,15 @@
 #include <QtCore/qlist.h>
 #include <cstring>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
+#if QT_CONFIG(vulkan) && __has_include(<vulkan/vulkan.h>)
 #include <QtGui/private/qrhivulkan_p.h>
 #include <QtGui/qpa/qplatformvulkaninstance.h>
+#endif
 #include <QtCore/qmath.h>
 #include <QtGui/qwindow.h>
+#if QT_CONFIG(vulkan) && __has_include(<vulkan/vulkan.h>)
 #include <QtGui/private/qvulkandefaultinstance_p.h>
+#endif
 #include <QtCore/q20memory.h>
 #include <optional>
 #include <QtGui/private/qrhinull_p.h>
@@ -44,12 +59,14 @@
 #ifndef QT_NO_OPENGL
 #include <QtGui/private/qrhigles2_p.h>
 #endif
-#if QT_CONFIG(vulkan)
+#if QT_CONFIG(vulkan) && __has_include(<vulkan/vulkan.h>)
 #include <QtGui/private/qrhivulkan_p.h>
 #endif
 #ifdef Q_OS_WIN
 #include <QtGui/private/qrhid3d11_p.h>
+#if __has_include(<D3D12MemAlloc.h>)
 #include <QtGui/private/qrhid3d12_p.h>
+#endif
 #endif
 #if QT_CONFIG(metal)
 #include <QtGui/private/qrhimetal_p.h>
@@ -65,6 +82,7 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
+#if QT_CONFIG(vulkan) && __has_include(<vulkan/vulkan.h>)
 //  from src/gui/rhi/qrhivulkan.cpp, line 434, as _ZN10QRhiVulkanC1EP20QRhiVulkanInitParamsP23QRhiVulkanNativeHandles
 inline QRhiVulkan::QRhiVulkan(QRhiVulkanInitParams *params, QRhiVulkanNativeHandles *importParams)
     : ofr(this)
@@ -97,6 +115,7 @@ inline QRhiVulkan::QRhiVulkan(QRhiVulkanInitParams *params, QRhiVulkanNativeHand
         }
     }
 }
+#endif  // QT_CONFIG(vulkan) && __has_include(<vulkan/vulkan.h>)
 
 //  from src/gui/rhi/qrhinull.cpp, line 45, as _ZN8QRhiNullC1EP18QRhiNullInitParams
 inline QRhiNull::QRhiNull(QRhiNullInitParams *params)

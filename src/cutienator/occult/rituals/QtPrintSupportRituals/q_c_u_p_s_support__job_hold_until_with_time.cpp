@@ -1,9 +1,14 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtPrintSupport/6.12.0/QtPrintSupport/private/qcups_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Edited by hand on 2026-11-25: the '#if' the whole file stands under
+//  now also asks '__has_include(<cups/ppd.h>)', the header of CUPS
+//  that Qt's 'qcups_p.h' pulls in through 'qprint_p.h', since a machine
+//  without the headers of CUPS, as GitHub's Linux, refused the file.
+//  Kept as it is when the generator runs again.
 #include <QtPrintSupport/qtprintsupportglobal.h>
 #include <QtPrintSupport/6.12.0/QtPrintSupport/private/qtprintsupportglobal_p.h>
-#if QT_CONFIG(cups) && defined(Q_OS_UNIX) && !defined(Q_OS_DARWIN)
+#if QT_CONFIG(cups) && defined(Q_OS_UNIX) && !defined(Q_OS_DARWIN) && \
+    __has_include(<cups/ppd.h>)
 #if QT_CONFIG(cups)
 #include <QtPrintSupport/6.12.0/QtPrintSupport/private/qtprintsupportglobal_p.h>
 #include <QtPrintSupport/QtPrintSupport>
@@ -29,4 +34,4 @@ void ritual_ZN12QCUPSSupport20JobHoldUntilWithTimeD1Ev(
 }
 
 #endif  // QT_CONFIG(cups)
-#endif  // QT_CONFIG(cups) && defined(Q_OS_UNIX) && !defined(Q_OS_DARWIN)
+#endif  // QT_CONFIG(cups) && defined(Q_OS_UNIX) && !defined(Q_OS_DARWIN) && __has_include(<cups/ppd.h>)

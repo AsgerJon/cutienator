@@ -1,6 +1,12 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtGui/6.12.0/QtGui/private/qrhigles2_p.h, Qt 6.12.0. Changes made here
-//  are lost.
+//  QtGui/6.12.0/QtGui/private/qrhigles2_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-25: the code taken from Qt for 'create',
+//  with the 'create' a CuteQGles2Buffer takes over and its key in
+//  'take', stands under '#if defined(GL_SHADER_STORAGE_BUFFER) &&
+//  defined(GL_BUFFER)', as the OpenGL headers of macOS have neither
+//  constant (Qt's 'qrhigles2.cpp' defines them for itself), while the
+//  ritual calling 'create' stays, reaching Qt's own through the
+//  virtual table. Kept as it is when the generator runs again.
 #include <QtGui/qtguiglobal.h>
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
 #if QT_CONFIG(opengl)
@@ -90,6 +96,7 @@ inline void QGles2Buffer::destroy()
     }
 }
 
+#if defined(GL_SHADER_STORAGE_BUFFER) && defined(GL_BUFFER)
 //  from src/gui/rhi/qrhigles2.cpp, line 5899, as _ZN12QGles2Buffer6createEv
 inline bool QGles2Buffer::create()
 {
@@ -132,6 +139,7 @@ inline bool QGles2Buffer::create()
     rhiD->registerResource(this);
     return true;
 }
+#endif  // defined(GL_SHADER_STORAGE_BUFFER) && defined(GL_BUFFER)
 
 //  from src/gui/rhi/qrhigles2.cpp, line 5941, as _ZN12QGles2Buffer12nativeBufferEv
 inline QRhiBuffer::NativeBuffer QGles2Buffer::nativeBuffer()
@@ -174,10 +182,12 @@ public:
       taken[0] = call;
       return true;
     }
+#if defined(GL_SHADER_STORAGE_BUFFER) && defined(GL_BUFFER)
     if (!std::strcmp(key, "_ZN10QRhiBuffer6createEv")) {
       taken[1] = call;
       return true;
     }
+#endif  // defined(GL_SHADER_STORAGE_BUFFER) && defined(GL_BUFFER)
     if (!std::strcmp(key, "_ZN10QRhiBuffer12nativeBufferEv")) {
       taken[2] = call;
       return true;
@@ -204,6 +214,7 @@ public:
     QGles2Buffer::destroy();
   }
 
+#if defined(GL_SHADER_STORAGE_BUFFER) && defined(GL_BUFFER)
   //  bool QGles2Buffer::create()
   bool create() override {
     if (taken[1]) {
@@ -214,6 +225,7 @@ public:
     }
     return QGles2Buffer::create();
   }
+#endif  // defined(GL_SHADER_STORAGE_BUFFER) && defined(GL_BUFFER)
 
   //  QRhiBuffer::NativeBuffer QGles2Buffer::nativeBuffer()
   QRhiBuffer::NativeBuffer nativeBuffer() override {

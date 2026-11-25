@@ -1,6 +1,12 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/6.12.0/QtCore/private/qfilesystemwatcher_win_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Edited by hand on 2026-11-25: the constructor is left out, with the code
+//  taken from Qt's source for it, because that code makes a
+//  'QWindowsRemovableDriveListener', a class Qt's header only declares and
+//  Qt's 'qfilesystemwatcher_win.cpp' defines, so it is complete on no
+//  system. 'tr' is taken out too: it needs the class's 'staticMetaObject',
+//  which Qt's library does not offer, as it offers nothing of this class.
+//  Kept as it is when the generator runs again.
 #include <QtCore/qglobal.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #if QT_CONFIG(filesystemwatcher) && defined(Q_OS_WIN)
@@ -41,28 +47,6 @@
 //  LGPL-3.0-only OR GPL-2.0-only OR GPL-3.0-only, and stays so
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
-
-//  from src/corelib/io/qfilesystemwatcher_win.cpp, line 298, as _ZN31QWindowsFileSystemWatcherEngineC1EP7QObject
-inline QWindowsFileSystemWatcherEngine::QWindowsFileSystemWatcherEngine(QObject *parent)
-    : QFileSystemWatcherEngine(parent)
-{
-    if (QAbstractEventDispatcher *eventDispatcher = QAbstractEventDispatcher::instance()) {
-        m_driveListener = new QWindowsRemovableDriveListener(this);
-        eventDispatcher->installNativeEventFilter(m_driveListener);
-        parent->setProperty("_q_driveListener",
-                            QVariant::fromValue(static_cast<QObject *>(m_driveListener)));
-        QObject::connect(m_driveListener, &QWindowsRemovableDriveListener::driveLockForRemoval,
-                         this, &QWindowsFileSystemWatcherEngine::driveLockForRemoval);
-        QObject::connect(m_driveListener, &QWindowsRemovableDriveListener::driveLockForRemovalFailed,
-                         this, &QWindowsFileSystemWatcherEngine::driveLockForRemovalFailed);
-        QObject::connect(m_driveListener,
-                         QOverload<const QString &>::of(&QWindowsRemovableDriveListener::driveRemoved),
-                         this, &QWindowsFileSystemWatcherEngine::driveRemoved);
-    } else {
-        qWarning("QFileSystemWatcher: Removable drive notification will not work"
-                 " if there is no QCoreApplication instance.");
-    }
-}
 
 //  from src/corelib/io/qfilesystemwatcher_win.cpp, line 319, as _ZN31QWindowsFileSystemWatcherEngineD1Ev
 inline QWindowsFileSystemWatcherEngine::~QWindowsFileSystemWatcherEngine()
@@ -247,24 +231,6 @@ extern "C" Q_DECL_EXPORT
 const QMetaObject *ritual_ZNK31QWindowsFileSystemWatcherEngine10metaObjectEv(
     const QWindowsFileSystemWatcherEngine *self) {
   return self->metaObject();
-}
-
-//  QString QWindowsFileSystemWatcherEngine::tr(const char *s, const char *c,
-//      int n)
-extern "C" Q_DECL_EXPORT
-QString *ritual_ZN31QWindowsFileSystemWatcherEngine2trEPKcS1_i(
-    const char *s,
-    const char *c,
-    int n) {
-  return new QString(QWindowsFileSystemWatcherEngine::tr(s, c, n));
-}
-
-//  QWindowsFileSystemWatcherEngine::QWindowsFileSystemWatcherEngine(QObject
-//      *parent)
-extern "C" Q_DECL_EXPORT
-QWindowsFileSystemWatcherEngine *ritual_ZN31QWindowsFileSystemWatcherEngineC1EP7QObject(
-    QObject *parent) {
-  return new CuteQWindowsFileSystemWatcherEngine(parent);
 }
 
 //  QWindowsFileSystemWatcherEngine::~QWindowsFileSystemWatcherEngine()

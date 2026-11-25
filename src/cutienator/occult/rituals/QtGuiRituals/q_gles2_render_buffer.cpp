@@ -1,6 +1,13 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtGui/6.12.0/QtGui/private/qrhigles2_p.h, Qt 6.12.0. Changes made here
-//  are lost.
+//  QtGui/6.12.0/QtGui/private/qrhigles2_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-25: the include of 'qrhivulkan_p.h' also
+//  stands under '__has_include(<vulkan/vulkan.h>)', as in Qt's
+//  'qvulkaninstance.h', since that header uses the types of Vulkan's own
+//  header, which a machine with Qt but without Vulkan's headers lacks;
+//  the include of 'qrhid3d12_p.h' also stands under
+//  '__has_include(<D3D12MemAlloc.h>)', since that header includes
+//  'D3D12MemAlloc.h', which Qt's kit for Windows does not ship; no ritual
+//  here needs either. Kept as it is when the generator runs again.
 #include <QtGui/qtguiglobal.h>
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
 #if QT_CONFIG(opengl)
@@ -20,11 +27,13 @@
 #ifndef QT_NO_OPENGL
 #include <QtGui/private/qrhigles2_p.h>
 #endif
-#if QT_CONFIG(vulkan)
+#if QT_CONFIG(vulkan) && __has_include(<vulkan/vulkan.h>)
 #include <QtGui/private/qrhivulkan_p.h>
 #endif
 #ifdef Q_OS_WIN
 #include <QtGui/private/qrhid3d11_p.h>
+#endif
+#if defined(Q_OS_WIN) && __has_include(<D3D12MemAlloc.h>)
 #include <QtGui/private/qrhid3d12_p.h>
 #endif
 #if QT_CONFIG(metal)

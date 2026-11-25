@@ -1,6 +1,10 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtCore/6.12.0/QtCore/private/qprocess_p.h, Qt 6.12.0. Changes made here
-//  are lost.
+//  QtCore/6.12.0/QtCore/private/qprocess_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-25: the lines pulling in Unix's headers
+//  'qcore_unix_p.h', 'sys/resource.h', 'termios.h' and 'unistd.h', and
+//  the code taken for 'commitChannels', which Qt declares on Unix only,
+//  stand under 'defined(Q_OS_UNIX)', for Windows has none of them.
+//  Kept as it is when the generator runs again.
 #include <QtCore/qglobal.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #if QT_CONFIG(processenvironment)
@@ -33,7 +37,9 @@
 #include <QtCore/qprocess.h>
 #include <QtCore/private/qprocess_p.h>
 #include <QtCore/qstandardpaths.h>
+#if defined(Q_OS_UNIX)
 #include <QtCore/private/qcore_unix_p.h>
+#endif  // defined(Q_OS_UNIX)
 #include <QtCore/private/qlocking_p.h>
 #ifdef Q_OS_DARWIN
 #include <QtCore/private/qcore_mac_p.h>
@@ -54,9 +60,11 @@
 #include <limits.h>
 #include <stdlib.h>
 #include <string.h>
+#if defined(Q_OS_UNIX)
 #include <sys/resource.h>
 #include <termios.h>
 #include <unistd.h>
+#endif  // defined(Q_OS_UNIX)
 #if __has_include(<paths.h>)
 #  include <paths.h>
 #endif
@@ -83,6 +91,7 @@ inline QProcessPrivate::~QProcessPrivate()
 #endif  // QT_CONFIG(process)
 
 //  from src/corelib/io/qprocess_unix.cpp, line 622, as _ZNK15QProcessPrivate14commitChannelsEv
+#if defined(Q_OS_UNIX)
 #if QT_CONFIG(process)
 inline void QProcessPrivate::commitChannels() const
 {
@@ -102,6 +111,7 @@ inline void QProcessPrivate::commitChannels() const
     }
 }
 #endif  // QT_CONFIG(process)
+#endif  // defined(Q_OS_UNIX)
 
 //  from src/corelib/io/qprocess.cpp, line 1064, as _ZN15QProcessPrivate8setErrorEN8QProcess12ProcessErrorERK7QString
 #if QT_CONFIG(process)

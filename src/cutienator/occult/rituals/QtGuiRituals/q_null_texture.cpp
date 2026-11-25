@@ -1,6 +1,12 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtGui/6.12.0/QtGui/private/qrhinull_p.h, Qt 6.12.0. Changes made here are
-//  lost.
+//  QtGui/6.12.0/QtGui/private/qrhinull_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-25: the line pulling in 'qrhivulkan_p.h'
+//  stands also under '__has_include(<vulkan/vulkan.h>)', as Qt's
+//  'qvulkaninstance.h' does, and the one pulling in 'qrhid3d12_p.h'
+//  under '__has_include(<D3D12MemAlloc.h>)', a library Qt keeps in its
+//  source and never installs, because neither header compiles without
+//  its library and no ritual here needs either. Kept as it is when the
+//  generator runs again.
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
 #include <QtGui/QtGui>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -20,12 +26,14 @@
 #ifndef QT_NO_OPENGL
 #include <QtGui/private/qrhigles2_p.h>
 #endif
-#if QT_CONFIG(vulkan)
+#if QT_CONFIG(vulkan) && __has_include(<vulkan/vulkan.h>)
 #include <QtGui/private/qrhivulkan_p.h>
 #endif
 #ifdef Q_OS_WIN
 #include <QtGui/private/qrhid3d11_p.h>
+#if __has_include(<D3D12MemAlloc.h>)
 #include <QtGui/private/qrhid3d12_p.h>
+#endif
 #endif
 #if QT_CONFIG(metal)
 #include <QtGui/private/qrhimetal_p.h>

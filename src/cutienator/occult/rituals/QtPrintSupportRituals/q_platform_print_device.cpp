@@ -1,10 +1,18 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtPrintSupport/6.12.0/QtPrintSupport/qpa/qplatformprintdevice.h, Qt
-//  6.12.0. Changes made here are lost.
+//  6.12.0. Edited by hand on 2026-11-25: the '#if' the whole file
+//  stands under now also asks '__has_include(<cups/ppd.h>)' where Qt's
+//  'qprint_p.h', which this file and 'qplatformprintdevice.h' include,
+//  includes that header of CUPS, on macOS and on Unix with
+//  'QT_CONFIG(cups)', since a machine without the headers of CUPS, as
+//  GitHub's Linux, refused the file. Kept as it is when the generator
+//  runs again.
 #include <QtCore/qglobal.h>
 #include <QtPrintSupport/qtprintsupportglobal.h>
 #include <QtPrintSupport/6.12.0/QtPrintSupport/private/qtprintsupportglobal_p.h>
-#if !defined(QT_NO_PRINTER)
+#if !defined(QT_NO_PRINTER) && \
+    (!(defined(Q_OS_MACOS) || (defined(Q_OS_UNIX) && QT_CONFIG(cups))) || \
+     __has_include(<cups/ppd.h>))
 #include <QtPrintSupport/6.12.0/QtPrintSupport/private/qtprintsupportglobal_p.h>
 #include <QtPrintSupport/QtPrintSupport>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -1551,4 +1559,4 @@ void ritual_own_ZNK20QPlatformPrintDevice13loadMimeTypesEv(
 }
 #endif  // QT_CONFIG(mimetype)
 
-#endif  // !defined(QT_NO_PRINTER)
+#endif  // !defined(QT_NO_PRINTER) && (!(defined(Q_OS_MACOS) || (defined(Q_OS_UNIX) && QT_CONFIG(cups))) || __has_include(<cups/ppd.h>))

@@ -1,6 +1,12 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtGui/6.12.0/QtGui/private/qrhi_p.h, Qt 6.12.0. Changes made here are
-//  lost.
+//  QtGui/6.12.0/QtGui/private/qrhi_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-25: 'qrhivulkan_p.h' is included only
+//  where Vulkan's 'vulkan/vulkan.h' is there too, checked by
+//  '__has_include' as Qt's 'qvulkaninstance.h' checks it, since
+//  without it that header fails on 'VkBuffer', and 'qrhid3d12_p.h'
+//  only where the 'D3D12MemAlloc.h' it includes is there, which Qt's
+//  Windows kit does not carry; nothing here uses either. Kept as it
+//  is when the generator runs again.
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
 #include <QtGui/QtGui>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -15,12 +21,14 @@
 #ifndef QT_NO_OPENGL
 #include <QtGui/private/qrhigles2_p.h>
 #endif
-#if QT_CONFIG(vulkan)
+#if QT_CONFIG(vulkan) && __has_include(<vulkan/vulkan.h>)
 #include <QtGui/private/qrhivulkan_p.h>
 #endif
 #ifdef Q_OS_WIN
 #include <QtGui/private/qrhid3d11_p.h>
+#if __has_include(<D3D12MemAlloc.h>)
 #include <QtGui/private/qrhid3d12_p.h>
+#endif
 #endif
 #if QT_CONFIG(metal)
 #include <QtGui/private/qrhimetal_p.h>

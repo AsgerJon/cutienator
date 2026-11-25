@@ -1,6 +1,9 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtCore/6.12.0/QtCore/private/qlockfile_p.h, Qt 6.12.0. Changes made here
-//  are lost.
+//  QtCore/6.12.0/QtCore/private/qlockfile_p.h, Qt 6.12.0. Edited by hand on
+//  2026-11-25: 'getLockFileHandle' stands under '#if !defined(Q_OS_WIN)',
+//  because Qt's header makes it give a 'Qt::HANDLE' on Windows and an 'int'
+//  on the other systems, and its row says 'int'. Kept as it is when the
+//  generator runs again.
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtCore/QtCore>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -49,9 +52,11 @@ QString *ritual_ZN16QLockFilePrivate16processNameByPidEx(qint64 pid) {
   return new QString(QLockFilePrivate::processNameByPid(pid));
 }
 
+#if !defined(Q_OS_WIN)
 //  int QLockFilePrivate::getLockFileHandle(QLockFile *f)
 extern "C" Q_DECL_EXPORT
 int ritual_ZN16QLockFilePrivate17getLockFileHandleEP9QLockFile(
     QLockFile *f) {
   return QLockFilePrivate::getLockFileHandle(f);
 }
+#endif  // !defined(Q_OS_WIN)

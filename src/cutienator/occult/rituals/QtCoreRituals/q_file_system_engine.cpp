@@ -1,6 +1,14 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtCore/6.12.0/QtCore/private/qfilesystemengine_p.h, Qt 6.12.0. Changes
-//  made here are lost.
+//  QtCore/6.12.0/QtCore/private/qfilesystemengine_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-25: the lines pulling in Unix's headers
+//  'qcore_unix_p.h', 'grp.h', 'pwd.h' and 'unistd.h', and the code
+//  taken for 'id(int)', which Qt declares on Unix only, stand under
+//  'defined(Q_OS_UNIX)', for Windows has none of them, and the lines
+//  pulling in the Objective-C headers 'UTType.h', 'UTCoreTypes.h' and
+//  'Foundation.h' stand under '__OBJC__', as 'Foundation.h' does in
+//  Qt's 'qcore_mac_p.h', for Qt compiles this source as Objective-C++
+//  on Apple and a ritual file is C++. Kept as it is when the generator
+//  runs again.
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #include <QtCore/QtCore>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -19,7 +27,9 @@
 #include <QtCore/qstorageinfo.h>
 #include <QtCore/qurl.h>
 #include <QtCore/qoperatingsystemversion.h>
+#if defined(Q_OS_UNIX)
 #include <QtCore/private/qcore_unix_p.h>
+#endif  // defined(Q_OS_UNIX)
 #include <QtCore/private/qfiledevice_p.h>
 #include <QtCore/private/qfunctions_p.h>
 #include <QtCore/qvarlengtharray.h>
@@ -27,10 +37,14 @@
 # include <QtCore/qstandardpaths.h>
 # include <QtCore/private/qtemporaryfile_p.h>
 #endif
+#if defined(Q_OS_UNIX)
 #include <grp.h>
 #include <pwd.h>
+#endif  // defined(Q_OS_UNIX)
 #include <stdlib.h> // for realpath()
+#if defined(Q_OS_UNIX)
 #include <unistd.h>
+#endif  // defined(Q_OS_UNIX)
 #include <stdio.h>
 #include <errno.h>
 #include <chrono>
@@ -43,9 +57,11 @@
 #if defined(Q_OS_DARWIN)
 # include <QtCore/private/qcore_mac_p.h>
 # include <CoreFoundation/CFBundle.h>
-# include <UniformTypeIdentifiers/UTType.h>
-# include <UniformTypeIdentifiers/UTCoreTypes.h>
-# include <Foundation/Foundation.h>
+# ifdef __OBJC__
+#  include <UniformTypeIdentifiers/UTType.h>
+#  include <UniformTypeIdentifiers/UTCoreTypes.h>
+#  include <Foundation/Foundation.h>
+# endif  // __OBJC__
 # include <copyfile.h>
 #endif
 #ifdef Q_OS_MACOS
@@ -262,6 +278,7 @@ inline auto QFileSystemEngine::cloneFile(int srcfd, int dstfd, const QFileSystem
 #endif  // defined(Q_OS_LINUX)
 
 //  from src/corelib/io/qfilesystemengine_unix.cpp, line 796, as _ZN17QFileSystemEngine2idEi
+#if defined(Q_OS_UNIX)
 inline QByteArray QFileSystemEngine::id(int fd)
 {
     QT_STATBUF statResult;
@@ -274,6 +291,7 @@ inline QByteArray QFileSystemEngine::id(int fd)
     result += QByteArray::number(quint64(statResult.st_ino));
     return result;
 }
+#endif  // defined(Q_OS_UNIX)
 
 //  from src/corelib/io/qfilesystemengine.cpp, line 49, as _ZN17QFileSystemEngine17slowCanonicalizedERK7QString
 #if defined(Q_OS_LINUX)

@@ -1,6 +1,11 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtGui/6.12.0/QtGui/private/qpnghandler_p.h, Qt 6.12.0. Changes made here
-//  are lost.
+//  QtGui/6.12.0/QtGui/private/qpnghandler_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-25: the includes of 'png.h' and
+//  'pngconf.h', taken with Qt's code from qpnghandler.cpp, stand under
+//  '__has_include(<png.h>)', because a Qt that builds its own libpng
+//  into QtGui may leave no 'png.h' on the include path (the
+//  Apple-silicon Mac had none), and no code here uses libpng. Kept as
+//  it is when the generator runs again.
 #include <QtGui/qtguiglobal.h>
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
 #if QT_CONFIG(png)
@@ -26,8 +31,10 @@
 #include <QtGui/private/qimage_p.h> // for qt_getImageText
 #include <QtGui/qcolorspace.h>
 #include <QtGui/private/qcolorspace_p.h>
+#if __has_include(<png.h>)
 #include <png.h>
 #include <pngconf.h>
+#endif  // __has_include(<png.h>)
 #endif
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 

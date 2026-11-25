@@ -1,6 +1,14 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtCore/6.12.0/QtCore/private/qfilesystemwatcher_win_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Edited by hand on 2026-11-25: the code taken from Qt's source for 'run'
+//  is left out, with the ritual of Qt's own 'run', which calls that code,
+//  because the code uses the macro 'DEBUG' and the function
+//  'msgFindNextFailed', which only Qt's 'qfilesystemwatcher_win.cpp'
+//  defines, so it compiles on no system. 'tr' and the constructor are taken
+//  out too, with the code taken for the constructor: Qt's library offers
+//  nothing of this class, and 'tr' needs its 'staticMetaObject', while a
+//  Cute object made by the constructor needs its table of virtual functions,
+//  Qt's 'run' among them. Kept as it is when the generator runs again.
 #include <QtCore/qglobal.h>
 #include <QtCore/6.12.0/QtCore/private/qglobal_p.h>
 #if QT_CONFIG(filesystemwatcher) && defined(Q_OS_WIN)
@@ -42,16 +50,6 @@
 //  here. Each function is as Qt wrote it, with the word
 //  'inline' put before it where Qt did not write it.
 
-//  from src/corelib/io/qfilesystemwatcher_win.cpp, line 567, as _ZN37QWindowsFileSystemWatcherEngineThreadC1Ev
-inline QWindowsFileSystemWatcherEngineThread::QWindowsFileSystemWatcherEngineThread()
-        : msg(0)
-{
-    if (HANDLE h = CreateEvent(0, false, false, 0)) {
-        handles.reserve(MAXIMUM_WAIT_OBJECTS);
-        handles.append(h);
-    }
-}
-
 //  from src/corelib/io/qfilesystemwatcher_win.cpp, line 577, as _ZN37QWindowsFileSystemWatcherEngineThreadD1Ev
 inline QWindowsFileSystemWatcherEngineThread::~QWindowsFileSystemWatcherEngineThread()
 {
@@ -62,103 +60,6 @@ inline QWindowsFileSystemWatcherEngineThread::~QWindowsFileSystemWatcherEngineTh
         if (h == INVALID_HANDLE_VALUE)
             continue;
         FindCloseChangeNotification(h);
-    }
-}
-
-//  from src/corelib/io/qfilesystemwatcher_win.cpp, line 600, as _ZN37QWindowsFileSystemWatcherEngineThread3runEv
-inline void QWindowsFileSystemWatcherEngineThread::run()
-{
-    auto locker = qt_unique_lock(mutex);
-    forever {
-        QList<HANDLE> handlesCopy = handles;
-        locker.unlock();
-        DEBUG() << "QWindowsFileSystemWatcherThread" << this << "waiting on" << handlesCopy.count() << "handles";
-        DWORD r = WaitForMultipleObjects(handlesCopy.count(), handlesCopy.constData(), false, INFINITE);
-        locker.lock();
-        do {
-            if (r == WAIT_OBJECT_0) {
-                int m = msg;
-                msg = 0;
-                if (m == 'q') {
-                    DEBUG() << "thread" << this << "told to quit";
-                    return;
-                }
-                if (m != '@')
-                    DEBUG() << "QWindowsFileSystemWatcherEngine: unknown message sent to thread: " << char(m);
-                break;
-            }
-            if (r > WAIT_OBJECT_0 && r < WAIT_OBJECT_0 + uint(handlesCopy.count())) {
-                int at = r - WAIT_OBJECT_0;
-                Q_ASSERT(at < handlesCopy.count());
-                HANDLE handle = handlesCopy.at(at);
-
-                // When removing a path, FindCloseChangeNotification might actually fire a notification
-                // for some reason, so we must check if the handle exist in the handles vector
-                if (handles.contains(handle)) {
-                    DEBUG() << "thread" << this << "Acknowledged handle:" << at << handle;
-                    QWindowsFileSystemWatcherEngineThread::PathInfoHash &h = pathInfoForHandle[handle];
-                    bool fakeRemove = false;
-
-                    if (!FindNextChangeNotification(handle)) {
-                        const DWORD error = GetLastError();
-
-                        if (error == ERROR_ACCESS_DENIED) {
-                            // for directories, our object's handle appears to be woken up when the target of a
-                            // watch is deleted, before the watched thing is actually deleted...
-                            // anyway.. we're given an error code of ERROR_ACCESS_DENIED in that case.
-                            fakeRemove = true;
-                        }
-
-                        qErrnoWarning(error, "%ls", qUtf16Printable(msgFindNextFailed(h)));
-                    }
-                    for (auto it = h.begin(); it != h.end(); /*erasing*/ ) {
-                        QString absolutePath = it.value().absolutePath;
-                        QFileInfo fileInfo(it.value().path);
-                        DEBUG() << "checking" << it.key();
-
-                        // i'm not completely sure the fileInfo.exist() check will ever work... see QTBUG-2331
-                        // ..however, I'm not completely sure enough to remove it.
-                        if (fakeRemove || !fileInfo.exists()) {
-                            DEBUG() << it.key() << "removed!";
-                            if (it.value().isDir)
-                                emit directoryChanged(it.value().path, true);
-                            else
-                                emit fileChanged(it.value().path, true);
-                            it = h.erase(it);
-
-                            // close the notification handle if the directory has been removed
-                            if (h.isEmpty()) {
-                                DEBUG() << "Thread closing handle" << handle;
-                                FindCloseChangeNotification(handle);    // This one might generate a notification
-
-                                int indexOfHandle = handles.indexOf(handle);
-                                Q_ASSERT(indexOfHandle != -1);
-                                handles.remove(indexOfHandle);
-
-                                handleForDir.remove(QFileSystemWatcherPathKey(absolutePath));
-                                // h is now invalid
-                                break;
-                            }
-                            continue;
-                        } else if (it.value().isDir) {
-                            DEBUG() << it.key() << "directory changed!";
-                            emit directoryChanged(it.value().path, false);
-                            it.value() = fileInfo;
-                        } else if (it.value() != fileInfo) {
-                            DEBUG() << it.key() << "file changed!";
-                            emit fileChanged(it.value().path, false);
-                            it.value() = fileInfo;
-                        }
-                        ++it;
-                    }
-                }
-            } else {
-                // qErrnoWarning("QFileSystemWatcher: error while waiting for change notification");
-                break;  // avoid endless loop
-            }
-            handlesCopy = handles;
-            r = WaitForMultipleObjects(handlesCopy.count(), handlesCopy.constData(), false, 0);
-        } while (r != WAIT_TIMEOUT);
     }
 }
 
@@ -368,23 +269,6 @@ const QMetaObject *ritual_ZNK37QWindowsFileSystemWatcherEngineThread10metaObject
   return self->metaObject();
 }
 
-//  QString QWindowsFileSystemWatcherEngineThread::tr(const char *s, const
-//      char *c, int n)
-extern "C" Q_DECL_EXPORT
-QString *ritual_ZN37QWindowsFileSystemWatcherEngineThread2trEPKcS1_i(
-    const char *s,
-    const char *c,
-    int n) {
-  return new QString(QWindowsFileSystemWatcherEngineThread::tr(s, c, n));
-}
-
-//  QWindowsFileSystemWatcherEngineThread::QWindowsFileSystemWatcherEngineThr
-//      ead()
-extern "C" Q_DECL_EXPORT
-QWindowsFileSystemWatcherEngineThread *ritual_ZN37QWindowsFileSystemWatcherEngineThreadC1Ev() {
-  return new CuteQWindowsFileSystemWatcherEngineThread();
-}
-
 //  QWindowsFileSystemWatcherEngineThread::~QWindowsFileSystemWatcherEngineTh
 //      read()
 extern "C" Q_DECL_EXPORT
@@ -422,13 +306,6 @@ bool ritual_take_QWindowsFileSystemWatcherEngineThread(
     const char *key,
     void *call) {
   return static_cast<CuteQWindowsFileSystemWatcherEngineThread *>(self)->take(key, call);
-}
-
-//  void QWindowsFileSystemWatcherEngineThread::run()
-extern "C" Q_DECL_EXPORT
-void ritual_own_ZN37QWindowsFileSystemWatcherEngineThread3runEv(
-    QWindowsFileSystemWatcherEngineThread *self) {
-  self->QWindowsFileSystemWatcherEngineThread::run();
 }
 
 #endif  // QT_CONFIG(filesystemwatcher) && defined(Q_OS_WIN)

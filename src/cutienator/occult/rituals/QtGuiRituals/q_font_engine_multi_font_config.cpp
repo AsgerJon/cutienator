@@ -1,9 +1,13 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtGui/6.12.0/QtGui/private/qfontenginemultifontconfig_p.h, Qt 6.12.0.
-//  Changes made here are lost.
+//  Edited by hand on 2026-11-25: the whole file stands under
+//  '__has_include(<fontconfig/fontconfig.h>)' as well, because Qt's
+//  header includes fontconfig's header, which a machine with Qt's kit
+//  but no development headers of fontconfig lacks. Kept as it is when
+//  the generator runs again.
 #include <QtGui/qtguiglobal.h>
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
-#if QT_CONFIG(fontconfig) && QT_CONFIG(freetype) && defined(Q_OS_UNIX) && !defined(Q_OS_DARWIN)
+#if QT_CONFIG(fontconfig) && QT_CONFIG(freetype) && defined(Q_OS_UNIX) && !defined(Q_OS_DARWIN) && __has_include(<fontconfig/fontconfig.h>)
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
 #include <QtGui/QtGui>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -940,4 +944,4 @@ bool ritual_own_ZNK26QFontEngineMultiFontConfig32shouldLoadFontEngineForCharacte
       ucs4);
 }
 
-#endif  // QT_CONFIG(fontconfig) && QT_CONFIG(freetype) && defined(Q_OS_UNIX) && !defined(Q_OS_DARWIN)
+#endif  // QT_CONFIG(fontconfig) && QT_CONFIG(freetype) && defined(Q_OS_UNIX) && !defined(Q_OS_DARWIN) && __has_include(<fontconfig/fontconfig.h>)

@@ -1,15 +1,23 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtPrintSupport/6.12.0/QtPrintSupport/private/qprintengine_pdf_p.h, Qt
-//  6.12.0. Changes made here are lost.
+//  6.12.0.
+//  Edited by hand on 2026-11-25: 'qprintengine_pdf_p.h' and all that
+//  needs it stand under '__has_include(<cups/ppd.h>)' where Qt's
+//  'qprint_p.h', which it includes, includes that header of CUPS
+//  (macOS, and Unix where Qt has 'cups'), as a Linux without the
+//  headers of CUPS refused the file; elsewhere, as on Windows, they
+//  stay as they were. Kept as it is when the generator runs again.
 #include <QtPrintSupport/qtprintsupportglobal.h>
 #include <QtPrintSupport/6.12.0/QtPrintSupport/private/qtprintsupportglobal_p.h>
 #if !defined(QT_NO_PRINTER)
 #include <QtPrintSupport/6.12.0/QtPrintSupport/private/qtprintsupportglobal_p.h>
 #include <QtPrintSupport/QtPrintSupport>
+#include <cstring>
+#if __has_include(<cups/ppd.h>) \
+    || !(defined(Q_OS_MACOS) || (defined(Q_OS_UNIX) && QT_CONFIG(cups)))
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtPrintSupport/6.12.0/QtPrintSupport/private/qprintengine_pdf_p.h>
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
-#include <cstring>
 
 //  A QPdfPrintEnginePrivate that Python can take functions over in. Every QPdfPrintEnginePrivate
 //  Python makes is one. Each function below asks the Python
@@ -172,4 +180,6 @@ void ritual_own_ZN22QPdfPrintEnginePrivate16closePrintDeviceEv(
   self->QPdfPrintEnginePrivate::closePrintDevice();
 }
 
+#endif  // __has_include(<cups/ppd.h>) || !(defined(Q_OS_MACOS)
+        //     || (defined(Q_OS_UNIX) && QT_CONFIG(cups)))
 #endif  // !defined(QT_NO_PRINTER)

@@ -15,3 +15,91 @@ QtQuick3DXr QQuick3DXrManagerPrivate q_quick3_d_xr_manager_private LEFT_OUT the 
 QtMultimedia QPulseAudioContextManager q_pulse_audio_context_manager LEFT_OUT the PulseAudio side of QtMultimedia: lock, unlock, isInMainLoop and release call PulseAudio, and so does its destructor, through release and the deleters of its members
 QtWaylandCompositor QWaylandDestroyListenerPrivate q_wayland_destroy_listener_private EDITED the constructor calls wl_list_init of Wayland
 QtWaylandCompositor QtWayland::ClientBuffer qt_wayland__client_buffer EDITED isSharedMemory, inline in Qt's header, calls wl_shm_buffer_get of Wayland
+
+# Found by the four-horsemen run of 2026-11-25 (GitHub run
+# 45553852579, the 11 parts of qtbase on Linux, Windows and both
+# Macs) and fixed by hand: what needs a library a machine may lack
+# stands under '__has_include' of its header, as Qt does itself;
+# what is for one system stands under Qt's own '#if'.
+QtCore detail::QWinRTFactoryCacheRegistration detail__q_win_r_t_factory_cache_registration LEFT_OUT its header includes C++/WinRT (winrt/base.h), which needs C++20 coroutines; ritual files compile as C++17
+QtCore QFileSystemEngine q_file_system_engine EDITED Unix's headers and the code taken for id(int) stand under defined(Q_OS_UNIX); the Objective-C headers UTType.h, UTCoreTypes.h, Foundation.h under __OBJC__, as Qt's qcore_mac_p.h does
+QtCore QLockFilePrivate q_lock_file_private EDITED getLockFileHandle stands under #if !defined(Q_OS_WIN): Qt's header makes it give a Qt::HANDLE on Windows and an int elsewhere, and its row says int
+QtCore QProcessPrivate q_process_private EDITED Unix's headers and the code taken for commitChannels stand under defined(Q_OS_UNIX)
+QtCore QWindowsFileSystemWatcherEngine q_windows_file_system_watcher_engine EDITED the constructor and the code taken from Qt for it are taken out: QWindowsRemovableDriveListener is only declared in Qt's header; 'tr' taken out: Qt's library offers nothing of this class, its staticMetaObject included
+QtCore QWindowsFileSystemWatcherEngineThread q_windows_file_system_watcher_engine_thread EDITED the code taken from Qt for run and ritual_own_...3runEv are taken out: they use DEBUG and msgFindNextFailed, which only Qt's .cpp defines; 'tr' and the constructor taken out: Qt's library offers nothing of this class, and a Cute object needs its virtual table
+QtGui QBasicPlatformVulkanInstance q_basic_platform_vulkan_instance EDITED stands also under __has_include(<vulkan/vulkan.h>), as Qt's qvulkaninstance.h checks; without it Qt declares no QVulkanLayer, QVulkanExtension or QVulkanInstance
+QtGui QFontEngineFT q_font_engine_f_t EDITED stands also under __has_include(<ft2build.h>): the macOS build gives no include folder holding FreeType's ft2build.h (MacOS.getPrivateFolders gives framework folders only)
+QtGui QFontEngineFT::GlyphAndSubPixelPosition q_font_engine_f_t__glyph_and_sub_pixel_position EDITED stands also under __has_include(<ft2build.h>): the macOS build gives no include folder holding FreeType's ft2build.h (MacOS.getPrivateFolders gives framework folders only)
+QtGui QFontEngineFT::GlyphInfo q_font_engine_f_t__glyph_info EDITED stands also under __has_include(<ft2build.h>): the macOS build gives no include folder holding FreeType's ft2build.h (MacOS.getPrivateFolders gives framework folders only)
+QtGui QFontEngineFT::QGlyphSet q_font_engine_f_t__q_glyph_set EDITED stands also under __has_include(<ft2build.h>): the macOS build gives no include folder holding FreeType's ft2build.h (MacOS.getPrivateFolders gives framework folders only)
+QtGui QFontEngineMultiFontConfig q_font_engine_multi_font_config EDITED stands also under __has_include(<fontconfig/fontconfig.h>): Qt's header includes fontconfig's, which a machine may lack
+QtGui QFreetypeFace q_freetype_face EDITED stands also under __has_include(<ft2build.h>): the macOS build gives no include folder holding FreeType's ft2build.h (MacOS.getPrivateFolders gives framework folders only)
+QtGui QGles2Buffer q_gles2_buffer EDITED the code taken from Qt for create, its Cute override and key stand under #if defined(GL_SHADER_STORAGE_BUFFER) && defined(GL_BUFFER), which macOS's OpenGL lacks
+QtGui QGles2RenderBuffer q_gles2_render_buffer EDITED its include of qrhivulkan_p.h stands under __has_include(<vulkan/vulkan.h>), its Windows include of qrhid3d12_p.h under __has_include(<D3D12MemAlloc.h>), which no Qt kit installs; no ritual needs either
+QtGui QGles2ShaderResourceBindings q_gles2_shader_resource_bindings EDITED its include of qrhivulkan_p.h alone stands under QT_CONFIG(vulkan) && __has_include(<vulkan/vulkan.h>); no ritual of it needs Vulkan; its Windows include of qrhid3d12_p.h under __has_include(<D3D12MemAlloc.h>), which no Qt kit installs
+QtGui QGles2Texture q_gles2_texture EDITED its include of qrhivulkan_p.h alone stands under QT_CONFIG(vulkan) && __has_include(<vulkan/vulkan.h>); no ritual of it needs Vulkan; its Windows include of qrhid3d12_p.h under __has_include(<D3D12MemAlloc.h>), which no Qt kit installs
+QtGui QGles2TextureRenderTarget q_gles2_texture_render_target EDITED its include of qrhivulkan_p.h alone stands under QT_CONFIG(vulkan) && __has_include(<vulkan/vulkan.h>); no ritual of it needs Vulkan; its Windows include of qrhid3d12_p.h under __has_include(<D3D12MemAlloc.h>), which no Qt kit installs
+QtGui QNullGraphicsPipeline q_null_graphics_pipeline EDITED its include of qrhivulkan_p.h alone stands under QT_CONFIG(vulkan) && __has_include(<vulkan/vulkan.h>); no ritual of it needs Vulkan; its Windows include of qrhid3d12_p.h under __has_include(<D3D12MemAlloc.h>), which no Qt kit installs
+QtGui QNullShaderResourceBindings q_null_shader_resource_bindings EDITED its include of qrhivulkan_p.h alone stands under QT_CONFIG(vulkan) && __has_include(<vulkan/vulkan.h>); no ritual of it needs Vulkan; its Windows include of qrhid3d12_p.h under __has_include(<D3D12MemAlloc.h>), which no Qt kit installs
+QtGui QNullTexture q_null_texture EDITED its include of qrhivulkan_p.h stands under __has_include(<vulkan/vulkan.h>), its Windows include of qrhid3d12_p.h under __has_include(<D3D12MemAlloc.h>), which no Qt kit installs; no ritual needs either
+QtGui QPlatformVulkanInstance q_platform_vulkan_instance EDITED stands also under __has_include(<vulkan/vulkan.h>), as Qt's qvulkaninstance.h checks; without it Qt declares no QVulkanLayer, QVulkanExtension or QVulkanInstance
+QtGui QPngHandler q_png_handler EDITED only its includes of png.h and pngconf.h stand under __has_include(<png.h>): the Mac build finds no png.h, and no ritual uses libpng
+QtGui QRhiGles2 q_rhi_gles2 EDITED its include of qrhivulkan_p.h stands under __has_include(<vulkan/vulkan.h>); the code taken from Qt for beginExternal, its Cute override and key stand under defined(GL_ALL_BARRIER_BITS) && defined(GL_SHADER_STORAGE_BUFFER), which macOS's OpenGL lacks; its Windows include of qrhid3d12_p.h under __has_include(<D3D12MemAlloc.h>), which no Qt kit installs
+QtGui QRhiImplementation q_rhi_implementation EDITED its includes of qrhivulkan_p.h, qplatformvulkaninstance.h, qvulkandefaultinstance_p.h and QRhiVulkan's constructor taken from Qt stand under __has_include(<vulkan/vulkan.h>), its include of qrhid3d12_p.h under __has_include(<D3D12MemAlloc.h>); no ritual uses them
+QtGui QRhiNull q_rhi_null EDITED its include of qrhivulkan_p.h alone stands under QT_CONFIG(vulkan) && __has_include(<vulkan/vulkan.h>); nothing else in the file uses Vulkan; its Windows include of qrhid3d12_p.h under __has_include(<D3D12MemAlloc.h>), which no Qt kit installs
+QtGui QRhiPassResourceTracker q_rhi_pass_resource_tracker EDITED its include of qrhivulkan_p.h stands under __has_include(<vulkan/vulkan.h>), its Windows include of qrhid3d12_p.h under __has_include(<D3D12MemAlloc.h>), which no Qt kit installs; no ritual needs either
+QtGui QRhiResourceUpdateBatchPrivate q_rhi_resource_update_batch_private EDITED its include of qrhivulkan_p.h stands under __has_include(<vulkan/vulkan.h>), its Windows include of qrhid3d12_p.h under __has_include(<D3D12MemAlloc.h>), which no Qt kit installs; no ritual needs either
+QtGui QRhiVulkan q_rhi_vulkan EDITED stands also under __has_include(<vulkan/vulkan.h>): qrhivulkan_p.h needs Vulkan's own types
+QtGui QRhiVulkan::BufferReadback q_rhi_vulkan__buffer_readback EDITED stands also under __has_include(<vulkan/vulkan.h>): qrhivulkan_p.h needs Vulkan's own types
+QtGui QRhiVulkan::DeferredReleaseEntry q_rhi_vulkan__deferred_release_entry EDITED stands also under __has_include(<vulkan/vulkan.h>): qrhivulkan_p.h needs Vulkan's own types
+QtGui QRhiVulkan::DescriptorPoolData q_rhi_vulkan__descriptor_pool_data EDITED stands also under __has_include(<vulkan/vulkan.h>): qrhivulkan_p.h needs Vulkan's own types
+QtGui QRhiVulkan::OffscreenFrame q_rhi_vulkan__offscreen_frame EDITED stands also under __has_include(<vulkan/vulkan.h>): qrhivulkan_p.h needs Vulkan's own types
+QtGui QRhiVulkan::TextureReadback q_rhi_vulkan__texture_readback EDITED stands also under __has_include(<vulkan/vulkan.h>): qrhivulkan_p.h needs Vulkan's own types
+QtGui QVkBuffer q_vk_buffer EDITED stands also under __has_include(<vulkan/vulkan.h>): qrhivulkan_p.h needs Vulkan's own types
+QtGui QVkBuffer::DynamicUpdate q_vk_buffer__dynamic_update EDITED stands also under __has_include(<vulkan/vulkan.h>): qrhivulkan_p.h needs Vulkan's own types
+QtGui QVkBuffer::UsageState q_vk_buffer__usage_state EDITED stands also under __has_include(<vulkan/vulkan.h>): qrhivulkan_p.h needs Vulkan's own types
+QtGui QVkCommandBuffer q_vk_command_buffer EDITED stands also under __has_include(<vulkan/vulkan.h>): qrhivulkan_p.h needs Vulkan's own types
+QtGui QVkCommandBuffer::Command q_vk_command_buffer__command EDITED stands also under __has_include(<vulkan/vulkan.h>): qrhivulkan_p.h needs Vulkan's own types
+QtGui QVkCommandBuffer::Command::Args q_vk_command_buffer__command__args EDITED stands also under __has_include(<vulkan/vulkan.h>): qrhivulkan_p.h needs Vulkan's own types
+QtGui QVkCommandBuffer::ComputePassState q_vk_command_buffer__compute_pass_state EDITED stands also under __has_include(<vulkan/vulkan.h>): qrhivulkan_p.h needs Vulkan's own types
+QtGui QVkCommandBuffer::ComputePassState::AccessFlagsAndIsNew q_vk_command_buffer__compute_pass_state__access_flags_and_is_new EDITED stands also under __has_include(<vulkan/vulkan.h>): qrhivulkan_p.h needs Vulkan's own types
+QtGui QVkComputePipeline q_vk_compute_pipeline EDITED stands also under __has_include(<vulkan/vulkan.h>): qrhivulkan_p.h needs Vulkan's own types
+QtGui QVkGraphicsPipeline q_vk_graphics_pipeline EDITED stands also under __has_include(<vulkan/vulkan.h>): qrhivulkan_p.h needs Vulkan's own types
+QtGui QVkRenderBuffer q_vk_render_buffer EDITED stands also under __has_include(<vulkan/vulkan.h>): qrhivulkan_p.h needs Vulkan's own types
+QtGui QVkRenderPassDescriptor q_vk_render_pass_descriptor EDITED stands also under __has_include(<vulkan/vulkan.h>): qrhivulkan_p.h needs Vulkan's own types
+QtGui QVkRenderTargetData q_vk_render_target_data EDITED stands also under __has_include(<vulkan/vulkan.h>): qrhivulkan_p.h needs Vulkan's own types
+QtGui QVkSampler q_vk_sampler EDITED stands also under __has_include(<vulkan/vulkan.h>): qrhivulkan_p.h needs Vulkan's own types
+QtGui QVkShaderResourceBindings q_vk_shader_resource_bindings EDITED stands also under __has_include(<vulkan/vulkan.h>): qrhivulkan_p.h needs Vulkan's own types
+QtGui QVkShaderResourceBindings::BoundResourceData q_vk_shader_resource_bindings__bound_resource_data EDITED stands also under __has_include(<vulkan/vulkan.h>): qrhivulkan_p.h needs Vulkan's own types
+QtGui QVkShaderResourceBindings::BoundSampledTextureData q_vk_shader_resource_bindings__bound_sampled_texture_data EDITED stands also under __has_include(<vulkan/vulkan.h>): qrhivulkan_p.h needs Vulkan's own types
+QtGui QVkShaderResourceBindings::BoundStorageBufferData q_vk_shader_resource_bindings__bound_storage_buffer_data EDITED stands also under __has_include(<vulkan/vulkan.h>): qrhivulkan_p.h needs Vulkan's own types
+QtGui QVkShaderResourceBindings::BoundStorageImageData q_vk_shader_resource_bindings__bound_storage_image_data EDITED stands also under __has_include(<vulkan/vulkan.h>): qrhivulkan_p.h needs Vulkan's own types
+QtGui QVkShaderResourceBindings::BoundUniformBufferData q_vk_shader_resource_bindings__bound_uniform_buffer_data EDITED stands also under __has_include(<vulkan/vulkan.h>): qrhivulkan_p.h needs Vulkan's own types
+QtGui QVkShadingRateMap q_vk_shading_rate_map EDITED stands also under __has_include(<vulkan/vulkan.h>): qrhivulkan_p.h needs Vulkan's own types
+QtGui QVkSwapChain q_vk_swap_chain EDITED stands also under __has_include(<vulkan/vulkan.h>): qrhivulkan_p.h needs Vulkan's own types
+QtGui QVkSwapChain::FrameResources q_vk_swap_chain__frame_resources EDITED stands also under __has_include(<vulkan/vulkan.h>): qrhivulkan_p.h needs Vulkan's own types
+QtGui QVkSwapChain::ImageResources q_vk_swap_chain__image_resources EDITED stands also under __has_include(<vulkan/vulkan.h>): qrhivulkan_p.h needs Vulkan's own types
+QtGui QVkSwapChainRenderTarget q_vk_swap_chain_render_target EDITED stands also under __has_include(<vulkan/vulkan.h>): qrhivulkan_p.h needs Vulkan's own types
+QtGui QVkTexture q_vk_texture EDITED stands also under __has_include(<vulkan/vulkan.h>): qrhivulkan_p.h needs Vulkan's own types
+QtGui QVkTexture::UsageState q_vk_texture__usage_state EDITED stands also under __has_include(<vulkan/vulkan.h>): qrhivulkan_p.h needs Vulkan's own types
+QtGui QVkTextureRenderTarget q_vk_texture_render_target EDITED stands also under __has_include(<vulkan/vulkan.h>): qrhivulkan_p.h needs Vulkan's own types
+QtGui QVulkanAdapter q_vulkan_adapter EDITED stands also under __has_include(<vulkan/vulkan.h>): qrhivulkan_p.h needs Vulkan's own types
+QtGui QXkbCommon q_xkb_common EDITED stands also under __has_include(<xkbcommon/xkbcommon.h>): Qt's header includes xkbcommon's, which a machine may lack
+QtGui QXkbCommon::XKBContextDeleter q_xkb_common__x_k_b_context_deleter EDITED stands also under __has_include(<xkbcommon/xkbcommon.h>)
+QtGui QXkbCommon::XKBKeymapDeleter q_xkb_common__x_k_b_keymap_deleter EDITED stands also under __has_include(<xkbcommon/xkbcommon.h>)
+QtGui QXkbCommon::XKBStateDeleter q_xkb_common__x_k_b_state_deleter EDITED stands also under __has_include(<xkbcommon/xkbcommon.h>)
+QtNetwork QHostInfoAgent q_host_info_agent EDITED Qt's own '#define QT_SOCKLEN_T int' for Windows, from qhostinfo.cpp, put back: reverseLookup uses it; Qt's lines defining Q_ADDRCONFIG on Unix, from qhostinfo.cpp, put back, so lookup asks for AI_ADDRCONFIG as Qt does
+QtNetwork QLocalSocketPrivate q_local_socket_private EDITED Unix's headers stand under defined(Q_OS_UNIX); the code taken from qlocalsocket_unix.cpp under Qt's own condition, !QT_LOCALSOCKET_TCP && !Q_OS_WIN
+QtOpenGL QOpenGL2PaintEngineExPrivate q_open_g_l2_paint_engine_ex_private EDITED updateCompositionMode and the code taken from Qt for it stand under #if defined(...) of the twelve GL_*_KHR blend constants, which macOS's OpenGL lacks
+QtPrintSupport InputSlotMap input_slot_map EDITED stands also under __has_include(<cups/ppd.h>) where Qt's qprint_p.h includes it (macOS, and Unix with QT_CONFIG(cups)): a machine may lack CUPS's headers
+QtPrintSupport OutputBinMap output_bin_map EDITED stands also under __has_include(<cups/ppd.h>) where Qt's qprint_p.h includes it (macOS, and Unix with QT_CONFIG(cups)): a machine may lack CUPS's headers
+QtPrintSupport QCUPSSupport q_c_u_p_s_support EDITED stands also under __has_include(<cups/ppd.h>) where Qt's qprint_p.h includes it (macOS, and Unix with QT_CONFIG(cups)): a machine may lack CUPS's headers
+QtPrintSupport QCUPSSupport::JobHoldUntilWithTime q_c_u_p_s_support__job_hold_until_with_time EDITED stands also under __has_include(<cups/ppd.h>) where Qt's qprint_p.h includes it (macOS, and Unix with QT_CONFIG(cups)): a machine may lack CUPS's headers
+QtPrintSupport QCUPSSupport::JobSheets q_c_u_p_s_support__job_sheets EDITED stands also under __has_include(<cups/ppd.h>) where Qt's qprint_p.h includes it (macOS, and Unix with QT_CONFIG(cups)): a machine may lack CUPS's headers
+QtPrintSupport QPdfPrintEngine q_pdf_print_engine EDITED stands also under __has_include(<cups/ppd.h>) where Qt's qprint_p.h includes it (macOS, and Unix with QT_CONFIG(cups)): a machine may lack CUPS's headers
+QtPrintSupport QPdfPrintEnginePrivate q_pdf_print_engine_private EDITED stands also under __has_include(<cups/ppd.h>) where Qt's qprint_p.h includes it (macOS, and Unix with QT_CONFIG(cups)): a machine may lack CUPS's headers
+QtPrintSupport QPlatformPrintDevice q_platform_print_device EDITED stands also under __has_include(<cups/ppd.h>) where Qt's qprint_p.h includes it (macOS, and Unix with QT_CONFIG(cups)): a machine may lack CUPS's headers
+QtPrintSupport QPrint::InputSlot q_print__input_slot EDITED stands also under __has_include(<cups/ppd.h>) where Qt's qprint_p.h includes it (macOS, and Unix with QT_CONFIG(cups)): a machine may lack CUPS's headers
+QtPrintSupport QPrint::OutputBin q_print__output_bin EDITED stands also under __has_include(<cups/ppd.h>) where Qt's qprint_p.h includes it (macOS, and Unix with QT_CONFIG(cups)): a machine may lack CUPS's headers
+QtPrintSupport QPrintDevice q_print_device EDITED stands also under __has_include(<cups/ppd.h>) where Qt's qprint_p.h includes it (macOS, and Unix with QT_CONFIG(cups)): a machine may lack CUPS's headers
+QtPrintSupport QPrinterInfoPrivate q_printer_info_private EDITED stands also under __has_include(<cups/ppd.h>) where Qt's qprint_p.h includes it (macOS, and Unix with QT_CONFIG(cups)): a machine may lack CUPS's headers

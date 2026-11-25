@@ -1,6 +1,12 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtNetwork/6.12.0/QtNetwork/private/qlocalsocket_p.h, Qt 6.12.0. Changes
-//  made here are lost.
+//  QtNetwork/6.12.0/QtNetwork/private/qlocalsocket_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-25: the lines pulling in Unix's headers
+//  'qnet_unix_p.h', 'sys/socket.h', 'sys/un.h' and 'unistd.h' stand
+//  under 'defined(Q_OS_UNIX)', and the code taken from Qt's
+//  'qlocalsocket_unix.cpp' under the condition that Qt's header and
+//  the rituals have for those functions, for Windows has none of the
+//  headers and Qt's header declares the functions only off Windows.
+//  Kept as it is when the generator runs again.
 #include <QtNetwork/qtnetworkglobal.h>
 #include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
 #if QT_CONFIG(localserver)
@@ -16,11 +22,15 @@
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
 #include <QtNetwork/qlocalsocket.h>
 #include <QtNetwork/private/qlocalsocket_p.h>
+#if defined(Q_OS_UNIX)
 #include <QtNetwork/private/qnet_unix_p.h>
+#endif  // defined(Q_OS_UNIX)
 #include <sys/types.h>
+#if defined(Q_OS_UNIX)
 #include <sys/socket.h>
 #include <sys/un.h>
 #include <unistd.h>
+#endif  // defined(Q_OS_UNIX)
 #include <fcntl.h>
 #include <errno.h>
 #include <QtCore/qdir.h>
@@ -40,6 +50,7 @@
 //  'inline' put before it where Qt did not write it.
 
 //  from src/network/socket/qlocalsocket_unix.cpp, line 394, as _ZN19QLocalSocketPrivate13parseSockaddrERK11sockaddr_unjR7QStringS4_Rb
+#if (!(defined(QT_LOCALSOCKET_TCP))) && (!(defined(Q_OS_WIN)))
 inline bool QLocalSocketPrivate::parseSockaddr(const struct ::sockaddr_un &addr,
                                         uint len,
                                         QString &fullServerName,
@@ -77,15 +88,19 @@ inline bool QLocalSocketPrivate::parseSockaddr(const struct ::sockaddr_un &addr,
     }
     return true;
 }
+#endif  // (!(defined(QT_LOCALSOCKET_TCP))) && (!(defined(Q_OS_WIN)))
 
 //  from src/network/socket/qlocalsocket_unix.cpp, line 432, as _ZN19QLocalSocketPrivate25_q_abortConnectionAttemptEv
+#if (!(defined(QT_LOCALSOCKET_TCP))) && (!(defined(Q_OS_WIN)))
 inline void QLocalSocketPrivate::_q_abortConnectionAttempt()
 {
     Q_Q(QLocalSocket);
     q->close();
 }
+#endif  // (!(defined(QT_LOCALSOCKET_TCP))) && (!(defined(Q_OS_WIN)))
 
 //  from src/network/socket/qlocalsocket_unix.cpp, line 438, as _ZN19QLocalSocketPrivate20cancelDelayedConnectEv
+#if (!(defined(QT_LOCALSOCKET_TCP))) && (!(defined(Q_OS_WIN)))
 inline void QLocalSocketPrivate::cancelDelayedConnect()
 {
     if (delayConnect) {
@@ -97,8 +112,10 @@ inline void QLocalSocketPrivate::cancelDelayedConnect()
         connectTimer = nullptr;
     }
 }
+#endif  // (!(defined(QT_LOCALSOCKET_TCP))) && (!(defined(Q_OS_WIN)))
 
 //  from src/network/socket/qlocalsocket_unix.cpp, line 374, as _ZN19QLocalSocketPrivate14describeSocketEx
+#if (!(defined(QT_LOCALSOCKET_TCP))) && (!(defined(Q_OS_WIN)))
 inline void QLocalSocketPrivate::describeSocket(qintptr socketDescriptor)
 {
     bool abstractAddress = false;
@@ -118,6 +135,7 @@ inline void QLocalSocketPrivate::describeSocket(qintptr socketDescriptor)
         socketOptions = options.setFlag(QLocalSocket::AbstractNamespaceOption, abstractAddress);
     }
 }
+#endif  // (!(defined(QT_LOCALSOCKET_TCP))) && (!(defined(Q_OS_WIN)))
 //  -----------------------------------------------------------------------
 
 //  A QLocalSocketPrivate that Python can take functions over in. Every QLocalSocketPrivate

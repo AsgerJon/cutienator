@@ -1,6 +1,17 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtGui/6.12.0/QtGui/private/qrhigles2_p.h, Qt 6.12.0. Changes made here
-//  are lost.
+//  QtGui/6.12.0/QtGui/private/qrhigles2_p.h, Qt 6.12.0. Edited by hand on
+//  2026-11-25: the include of Qt's 'qrhivulkan_p.h' also stands under
+//  '__has_include(<vulkan/vulkan.h>)', since it does not compile on a
+//  machine without the headers of Vulkan, and Qt's code of
+//  'QRhiGles2::beginExternal', with its override in 'CuteQRhiGles2' and the
+//  key of it in 'take', stands under 'defined(GL_ALL_BARRIER_BITS) &&
+//  defined(GL_SHADER_STORAGE_BUFFER)', since the OpenGL headers of macOS
+//  define neither (the ritual of 'beginExternal' stays everywhere, as it
+//  calls Qt's own through the virtual table). The line pulling in
+//  'qrhid3d12_p.h' stands under '__has_include(<D3D12MemAlloc.h>)': that
+//  header includes 'D3D12MemAlloc.h', a library Qt keeps in its source and
+//  never installs, and no ritual here needs it. Kept as it is when the
+//  generator runs again.
 #include <QtGui/qtguiglobal.h>
 #include <QtGui/6.12.0/QtGui/private/qtguiglobal_p.h>
 #if QT_CONFIG(opengl)
@@ -42,12 +53,14 @@
 #ifndef QT_NO_OPENGL
 #include <QtGui/private/qrhigles2_p.h>
 #endif
-#if QT_CONFIG(vulkan)
+#if QT_CONFIG(vulkan) && __has_include(<vulkan/vulkan.h>)
 #include <QtGui/private/qrhivulkan_p.h>
 #endif
 #ifdef Q_OS_WIN
 #include <QtGui/private/qrhid3d11_p.h>
+#if __has_include(<D3D12MemAlloc.h>)
 #include <QtGui/private/qrhid3d12_p.h>
+#endif
 #endif
 #if QT_CONFIG(metal)
 #include <QtGui/private/qrhimetal_p.h>
@@ -1334,6 +1347,7 @@ inline const QRhiNativeHandles *QRhiGles2::nativeHandles(QRhiCommandBuffer *cb)
 }
 
 //  from src/gui/rhi/qrhigles2.cpp, line 2401, as _ZN9QRhiGles213beginExternalEP17QRhiCommandBuffer
+#if defined(GL_ALL_BARRIER_BITS) && defined(GL_SHADER_STORAGE_BUFFER)
 inline void QRhiGles2::beginExternal(QRhiCommandBuffer *cb)
 {
     if (ofr.active) {
@@ -1369,6 +1383,7 @@ inline void QRhiGles2::beginExternal(QRhiCommandBuffer *cb)
     if (caps.compute)
         f->glBindBuffer(GL_SHADER_STORAGE_BUFFER, 0);
 }
+#endif  // defined(GL_ALL_BARRIER_BITS) && defined(GL_SHADER_STORAGE_BUFFER)
 
 //  from src/gui/rhi/qrhigles2.cpp, line 2458, as _ZN9QRhiGles220lastCompletedGpuTimeEP17QRhiCommandBuffer
 inline double QRhiGles2::lastCompletedGpuTime(QRhiCommandBuffer *cb)
@@ -2024,10 +2039,12 @@ public:
       taken[36] = call;
       return true;
     }
+#if defined(GL_ALL_BARRIER_BITS) && defined(GL_SHADER_STORAGE_BUFFER)
     if (!std::strcmp(key, "_ZN18QRhiImplementation13beginExternalEP17QRhiCommandBuffer")) {
       taken[37] = call;
       return true;
     }
+#endif  // defined(GL_ALL_BARRIER_BITS) && defined(GL_SHADER_STORAGE_BUFFER)
     if (!std::strcmp(key, "_ZN18QRhiImplementation11endExternalEP17QRhiCommandBuffer")) {
       taken[38] = call;
       return true;
@@ -2629,6 +2646,7 @@ public:
     return QRhiGles2::nativeHandles(cb);
   }
 
+#if defined(GL_ALL_BARRIER_BITS) && defined(GL_SHADER_STORAGE_BUFFER)
   //  void QRhiGles2::beginExternal(QRhiCommandBuffer *cb)
   void beginExternal(QRhiCommandBuffer *cb) override {
     if (taken[37]) {
@@ -2639,6 +2657,7 @@ public:
     }
     QRhiGles2::beginExternal(cb);
   }
+#endif  // defined(GL_ALL_BARRIER_BITS) && defined(GL_SHADER_STORAGE_BUFFER)
 
   //  void QRhiGles2::endExternal(QRhiCommandBuffer *cb)
   void endExternal(QRhiCommandBuffer *cb) override {

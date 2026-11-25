@@ -1,6 +1,12 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtNetwork/6.12.0/QtNetwork/private/qhostinfo_p.h, Qt 6.12.0. Changes made
-//  here are lost.
+//  QtNetwork/6.12.0/QtNetwork/private/qhostinfo_p.h, Qt 6.12.0.
+//  Edited by hand on 2026-11-25: Qt's own line defining 'QT_SOCKLEN_T'
+//  as 'int' on Windows, which follows 'ws2tcpip.h' in Qt's
+//  'qhostinfo.cpp', is put back, for the code taken for 'reverseLookup'
+//  names that type and Windows' 'qplatformdefs.h' does not define it.
+//  So are its lines defining 'Q_ADDRCONFIG' on Unix, without which the
+//  code taken for 'lookup' never asks for 'AI_ADDRCONFIG' as Qt does.
+//  Kept as it is when the generator runs again.
 #include <QtNetwork/6.12.0/QtNetwork/private/qtnetworkglobal_p.h>
 #include <QtNetwork/QtNetwork>
 #ifndef CUTIENATOR_NOT_IN_COMMON_HEADER
@@ -27,8 +33,12 @@
 #  include <unistd.h>
 #  include <netdb.h>
 #  include <netinet/in.h>
+#  if defined(AI_ADDRCONFIG) && !defined(Q_OS_WASM)
+#    define Q_ADDRCONFIG          AI_ADDRCONFIG
+#  endif
 #elif defined Q_OS_WIN
 #  include <ws2tcpip.h>
+#  define QT_SOCKLEN_T int
 #endif
 #endif  // CUTIENATOR_NOT_IN_COMMON_HEADER
 
