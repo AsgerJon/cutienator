@@ -148,11 +148,16 @@ def main(qtbase: str, work: str, installed: str, out: str) -> int:
       said = job.result()
       if said:
         raised[name] = said
+        #  At once as well: the report is written only at the end.
+        print('RAISED %s: %s' % (name, said[:4000]), flush=True)
       say('reading', done, len(wanted), tic)
   lines.append('parts read: %d, raising: %d' % (
       len(wanted) - len(raised), len(raised)))
   for name, said in sorted(raised.items()):
     lines.append('RAISED %s: %s' % (name, ' '.join(said.split())[:600]))
+  if len(raised) == len(wanted):
+    lines.append('no part could be read, so there are no classes')
+    return writeReport(out, lines, began, 1)
   #  3. The header files of the list read here, and their classes.
   readHere = set()  # type: Set[Tuple[str, str]]
   for partName in wanted:
@@ -230,12 +235,18 @@ def main(qtbase: str, work: str, installed: str, out: str) -> int:
           os.remove(os.path.join(target, name))
     say('rituals', done, len(candidates), tic)
   lines.insert(1, 'passed: %d of %d' % (passed, len(candidates)))
+  return writeReport(out, lines, began, 1 if raised else 0)
+
+
+def writeReport(out: str, lines: List[str], began: float, code: int) -> int:
+  """Writes the lines, and the seconds since 'began', into 'report.txt'
+  in OUT, prints them, and gives the exit code back."""
   lines.append('seconds: %d' % (time.time() - began))
   text = '%s\n' % '\n'.join(lines)
   with open(os.path.join(out, 'report.txt'), 'w', encoding='utf-8') as file:
     file.write(text)
   print(text, flush=True)
-  return 1 if raised else 0
+  return code
 
 
 if __name__ == '__main__':
