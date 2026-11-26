@@ -328,7 +328,6 @@ QtCore QFile q_file EDITED added by hand on 2026-11-25/26: 15 instances of templ
 QtCore QFileDevice q_file_device EDITED added by hand on 2026-11-25/26: 1 ritual for a function the generator leaves out; compiled and linked against the full Linux kit on 2026-11-26
 QtCore QFileInfo q_file_info EDITED added by hand on 2026-11-25/26: 3 instances of templates of the class; compiled and linked against the full Linux kit on 2026-11-26
 QtCore QFutureInterfaceBase q_future_interface_base EDITED added by hand on 2026-11-25/26: 5 instances of templates of the class; compiled and linked against the full Linux kit on 2026-11-26
-QtCore QJsonObject q_json_object EDITED added by hand on 2026-11-25/26: 2 instances of templates of the class; compiled and linked against the full Linux kit on 2026-11-26
 QtCore QLatin1 q_latin1 EDITED added by hand on 2026-11-25/26: 1 ritual for a function the generator leaves out; compiled and linked against the full Linux kit on 2026-11-26
 QtCore QMetaAssociation q_meta_association EDITED added by hand on 2026-11-25/26: 5 instances of templates of the class; compiled and linked against the full Linux kit on 2026-11-26
 QtCore QMetaEnum q_meta_enum EDITED added by hand on 2026-11-25/26: 5 instances of templates of the class; compiled and linked against the full Linux kit on 2026-11-26
@@ -508,7 +507,7 @@ QtScxml QScxmlTableData q_scxml_table_data EDITED added by hand on 2026-11-25/26
 QtSensors QSensorBackend q_sensor_backend EDITED added by hand on 2026-11-25/26: 5 instances of templates of the class; compiled and linked against the full Linux kit on 2026-11-26
 QtSerialBus QModbusSerialAdu q_modbus_serial_adu EDITED added by hand on 2026-11-25/26: 2 instances of templates of the class; compiled and linked against the full Linux kit on 2026-11-26
 QtWidgets QApplication q_application EDITED added by hand on 2026-11-25/26: 2 instances of templates of the class; compiled and linked against the full Linux kit on 2026-11-26
-QtWidgets QWidgetPrivate q_widget_private EDITED added by hand on 2026-11-25/26: 3 instances of templates of the class; compiled and linked against the full Linux kit on 2026-11-26
+QtWidgets QWidgetPrivate q_widget_private EDITED added by hand on 2026-11-25/26: 1 instance of a template of the class; compiled and linked against the full Linux kit and Arch's Qt on 2026-11-26 ('update<QRect>' and 'update<QRegion>' left out: Arch's Qt 6.12.0 does not offer them)
 QtWidgets QWidgetRepaintManager q_widget_repaint_manager EDITED added by hand on 2026-11-25/26: 2 instances of templates of the class; compiled and linked against the full Linux kit on 2026-11-26
 QtXml QDomDocument q_dom_document EDITED added by hand on 2026-11-25/26: 1 instance of a template of the class; compiled and linked against the full Linux kit on 2026-11-26
 # Ritual files of Objective-C++ ('.mm'), written by hand on 2026-11-25

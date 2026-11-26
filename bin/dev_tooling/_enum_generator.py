@@ -11,6 +11,7 @@ from typing import TYPE_CHECKING
 from worktoy.waitaminute import MissingVariable, TypeException
 
 from . import DependencyTree, HeaderReader
+from .class_tables import PYTHON_WORDS
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Any, Dict, Optional, Tuple
@@ -79,9 +80,6 @@ class EnumGenerator:
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   #  Class Variables
-  #  What stands in for a name of Qt that is a word of Python.
-  __python_words__ = {'None': 'NULL', 'True': 'TRUE', 'False': 'FALSE'}
-
   #  The C++ numbers a flags class may be, as 'CuteFlagsSpace' has them:
   #  how many bits, and whether there is a sign.
   __number_layouts__ = {
@@ -234,12 +232,12 @@ class EnumGenerator:
     enumName, members, seen = self.getEnumName(), [], set()
     for name, number in self.getEnumRecord()['members']:
       if keyword.iskeyword(name):
-        if name not in self.__python_words__:
+        if name not in PYTHON_WORDS:
           infoSpec = """'%s::%s' is a word of Python, and no word is
           decided to stand in for it."""
           info = infoSpec % (enumName, name)
           raise ValueError(' '.join(info.split()))
-        name = self.__python_words__[name]
+        name = PYTHON_WORDS[name]
       if name in seen:
         infoSpec = """Two names of '%s' would both be written '%s'."""
         raise ValueError(infoSpec % (enumName, name))

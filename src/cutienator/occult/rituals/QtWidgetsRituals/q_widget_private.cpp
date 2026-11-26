@@ -1,6 +1,6 @@
 //  Written by dev_tooling.RitualGenerator from the records of
 //  QtWidgets/6.12.0/QtWidgets/private/qwidget_p.h, Qt 6.12.0. Edited by hand
-//  on 2026-11-25: added by hand, instances of templates of the class: 3.
+//  on 2026-11-25: added by hand, instances of templates of the class: 1.
 //  Kept as it is when the generator runs again.
 #include <QtWidgets/6.12.0/QtWidgets/private/qtwidgetsglobal_p.h>
 #include <QtWidgets/qwidget.h>
@@ -2095,22 +2095,6 @@ bool ritual_own_ZN14QWidgetPrivate24toggleStereoTargetBufferEv(
 extern "C" Q_DECL_EXPORT
 void ritual_drop_QWidgetPrivate__std_string(std::string *self) {
   delete self;
-}
-
-//  void QWidgetPrivate::update<QRect>(QRect t)
-extern "C" Q_DECL_EXPORT
-void ritual_ZN14QWidgetPrivate6updateI5QRectEEvT_(
-    QWidgetPrivate *self,
-    const QRect *t) {
-  self->update<QRect>(*t);
-}
-
-//  void QWidgetPrivate::update<QRegion>(QRegion t)
-extern "C" Q_DECL_EXPORT
-void ritual_ZN14QWidgetPrivate6updateI7QRegionEEvT_(
-    QWidgetPrivate *self,
-    const QRegion *t) {
-  self->update<QRegion>(*t);
 }
 
 //  void QWidgetPrivate::invalidateBackingStore<QRect>(const QRect &)

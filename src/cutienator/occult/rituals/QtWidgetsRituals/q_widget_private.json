@@ -522,12 +522,6 @@
       "bool", "address"
     ],
     "ritual_drop_QWidgetPrivate__std_string": ["nothing", "address"],
-    "ritual_ZN14QWidgetPrivate6updateI5QRectEEvT_": [
-      "nothing", "address", "address"
-    ],
-    "ritual_ZN14QWidgetPrivate6updateI7QRegionEEvT_": [
-      "nothing", "address", "address"
-    ],
     "ritual_ZN14QWidgetPrivate22invalidateBackingStoreI5QRectEEvRKT_": [
       "nothing", "address", "address"
     ]

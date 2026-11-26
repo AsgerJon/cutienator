@@ -13,6 +13,12 @@ from typing import TYPE_CHECKING
 from worktoy.waitaminute import MissingVariable, TypeException
 
 from . import DependencyTree, HeaderReader, RitualGenerator, EnumGenerator
+from ._cute_name import CuteName
+from ._default_value import DefaultValue
+from .class_tables import (
+    APPLICATION_NAME, BINARY_OPERATORS, IN_PLACE_OPERATORS, PART_ORDER,
+    PYTHON_NUMBERS, PYTHON_WORDS, SECTION_NAMES, UNARY_OPERATORS,
+    WATCHED_NAME)
 
 if TYPE_CHECKING:  # pragma: no cover, no mutate
   from typing import Any, Dict, List, Optional, Set, Tuple
@@ -247,83 +253,10 @@ class ClassGenerator:
     lines.append(line)
     return lines
 
-  @staticmethod
-  def _unwrap(node: Optional[Record]) -> Optional[Record]:
-    """
-    Gives what the compiler wrote down for a value, without the layers
-    it puts around it that change nothing of the value.
-    """
-    layers = (
-        'ImplicitCastExpr', 'ExprWithCleanups', 'ConstantExpr',
-        'MaterializeTemporaryExpr', 'CXXBindTemporaryExpr', 'ParenExpr',
-    )
-    while node is not None and node.get('kind') in layers:
-      inner = [c for c in node.get('inner', ()) if isinstance(c, dict)]
-      node = inner[0] if inner else None
-    return node
-
-  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   #  NAMESPACE  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
   #  Class Variables
-  #  The constants of the classes of Qt that are numbers are gathered
-  #  once for each tree and kept in a dict the tree gives for it; see
-  #  '_findConstantNumber'. The lock keeps two threads from both
-  #  gathering them.
-  __constant_lock__ = threading.RLock()
-  #  The name Python has for each operator of C++ that takes two: the
-  #  one asked of what stands on the left, and the one asked of what
-  #  stands on the right when the left has said it cannot. For a
-  #  comparison the second is the comparison turned round.
-  __binary_operators__ = {
-      '+': ('__add__', '__radd__'), '-': ('__sub__', '__rsub__'),
-      '*': ('__mul__', '__rmul__'), '/': ('__truediv__', '__rtruediv__'),
-      '%': ('__mod__', '__rmod__'), '&': ('__and__', '__rand__'),
-      '|': ('__or__', '__ror__'), '^': ('__xor__', '__rxor__'),
-      '<<': ('__lshift__', '__rlshift__'),
-      '>>': ('__rshift__', '__rrshift__'),
-      '==': ('__eq__', '__eq__'), '!=': ('__ne__', '__ne__'),
-      '<': ('__lt__', '__gt__'), '<=': ('__le__', '__ge__'),
-      '>': ('__gt__', '__lt__'), '>=': ('__ge__', '__le__'),
-  }
-  #  The same for an operator that takes one, and for one that changes
-  #  the object it is called on.
-  __unary_operators__ = {'-': '__neg__', '+': '__pos__', '~': '__invert__'}
-  __in_place_operators__ = {
-      '+=': '__iadd__', '-=': '__isub__', '*=': '__imul__',
-      '/=': '__itruediv__', '%=': '__imod__', '&=': '__iand__',
-      '|=': '__ior__', '^=': '__ixor__', '<<=': '__ilshift__',
-      '>>=': '__irshift__',
-  }
-  #  What a number type built into C++ is in Python.
-  __python_numbers__ = dict(
-      bool='bool', float='float', double='float',
-  )
-
-  #  The words Python has for the names of Qt that are words of Python
-  #  in an enum; see 'EnumGenerator'.
-  __python_words__ = {'None': 'NULL', 'True': 'TRUE', 'False': 'FALSE'}
-
-  #  The sections of a class body, in order, each with its banner.
-  __section_names__ = (
-      'STATIC METHODS', 'NAMESPACE', 'GETTERS', 'SETTERS', 'NOTIFIERS',
-      'Python API', 'CONSTRUCTORS', 'DOMAIN SPECIFIC', 'OPTIONAL METHODS',
-      'REQUIRED METHODS', 'PARENT METHODS', 'PUBLIC METHODS',
-  )
-
-  #  The class of Qt whose objects Qt can watch, and tell the removal
-  #  of. Its cute class says so, and every class built on it inherits
-  #  that.
-  __watched_name__ = 'QObject'
-
-  #  The class of Qt that everything else of Qt needs to be there
-  #  first. It, and every class built on it, is made at once.
-  __application_name__ = 'QCoreApplication'
-
-  #  The parts of Qt, each after the parts it is built on.
-  __part_order__ = ('QtCore', 'QtGui', 'QtWidgets')
-
   #  Fallback Variables
 
   #  Private Variables
@@ -437,26 +370,39 @@ class ClassGenerator:
   #  The same classes as 'getCuteNames', to look them up.
   __cute_keys__ = frozenset()
 
+  def getDefaultValue(
+      self,
+      argument: Record,
+      parameter: Record,
+  ) -> DefaultValue:
+    """Gives the 'DefaultValue' of an argument: what Qt fills in for it
+    when it is left out, the argument as the plan of the ritual has it
+    and as this generator has it in Python."""
+    defaultValue = DefaultValue()
+    defaultValue.setArgument(argument)
+    defaultValue.setParameter(parameter)
+    defaultValue.setViewer(self)
+    return defaultValue
+
+  def getCuteName(self, name: Optional[str] = None) -> CuteName:
+    """Gives the 'CuteName' of a name of Qt, seen from the class being
+    written: of that class when none is named."""
+    cuteName = CuteName()
+    cuteName.setName(name or self.getClassName())
+    cuteName.setViewer(self)
+    return cuteName
+
   def getPythonName(self, className: Optional[str] = None) -> str:
-    """
-    Gives the name the cute class of a class of Qt has in Python:
-    'QSize' for 'QSize', and 'Connection' for
-    'QMetaObject::Connection'. It is that of the class being written
-    when none is named.
-    """
-    className = className or self.getClassName()
-    return className.rpartition('::')[2]
+    """Gives the name the cute class of a class of Qt has in Python, as
+    'CuteName.getPythonName' does: of the class being written when none
+    is named."""
+    return self.getCuteName(className).getPythonName()
 
   def getDottedName(self, className: Optional[str] = None) -> str:
-    """
-    Gives the name by which Python reaches the cute class of a class of
-    Qt from the top of its file, as C++, PySide6 and PyQt have it:
-    'QSize' for 'QSize', and 'QMetaObject.Connection' for
-    'QMetaObject::Connection'. It is that of the class being written
-    when none is named.
-    """
-    className = className or self.getClassName()
-    return className.replace('::', '.')
+    """Gives the name by which Python reaches the cute class of a class
+    of Qt from the top of its file, as 'CuteName.getDottedName' does: of
+    the class being written when none is named."""
+    return self.getCuteName(className).getDottedName()
 
   def isNested(self) -> bool:
     """Says whether Qt writes the class inside another class. Such a
@@ -490,12 +436,10 @@ class ClassGenerator:
     return (*found,)
 
   def getOwnerName(self, className: Optional[str] = None) -> str:
-    """
-    Gives the class Qt writes a class inside, as 'QMetaObject' for
-    'QMetaObject::Connection', or '' for a class written inside none.
-    """
-    className = className or self.getClassName()
-    return className.rpartition('::')[0]
+    """Gives the class Qt writes a class inside, as
+    'CuteName.getOwnerName' does: of the class being written when none
+    is named."""
+    return self.getCuteName(className).getOwnerName()
 
   def getInnerNames(self) -> Names:
     """
@@ -873,7 +817,7 @@ class ClassGenerator:
     when the dependency tree makes it earlier.
     """
     tree, className = self.getDependencyTree(), self.getClassName()
-    order = self.__part_order__
+    order = PART_ORDER
     here = order.index(self.getPartName())
     there = order.index(self.getPartName(otherName))
     if there != here:
@@ -1041,7 +985,7 @@ class ClassGenerator:
           late=False, lateName='', bring='', hint='', className='QString',
       )
     holds = listed['holds']
-    found = self._findClass(holds)
+    found = self.getCuteName(holds).findClassEntry()
     if isinstance(found, str):
       return "a list of '%s': %s" % (holds, found)
     if found is None:
@@ -1071,7 +1015,7 @@ class ClassGenerator:
       The kind, as 'RitualGenerator._findMapKind' describes it.
     """
     holds, pattern = mapped['holds'], mapped['pattern']
-    found = self._findClass(holds)
+    found = self.getCuteName(holds).findClassEntry()
     if isinstance(found, str):
       return "a map to '%s': %s" % (holds, found)
     if found is None:
@@ -1088,377 +1032,6 @@ class ClassGenerator:
         holder='%s[%s, %s]' % (pattern, key, found['holder']),
         lateName=found['entry'], className=holds,
     )
-
-  def _findClass(self, otherName: str) -> Optional[Record]:
-    """
-    Says how the body names the cute class of a class of Qt.
-
-    Returns
-    -------
-
-    Optional[Record]
-      None for a class that has no cute class. Else 'entry': what
-      stands for it in a signature, as 'THIS' or 'QEvent'; 'name': how
-      an annotation writes it; 'late': whether it is a late class;
-      'bring': the class whose file holds it, or ''; 'hint': the class
-      a type checker has to be shown for the annotation, or '';
-      'holder': what a function writes to reach the class. Or the
-      reason, in words, when the class cannot be named from here.
-    """
-    className = self.getClassName()
-    if otherName == className:
-      name = self.getDottedName()
-      return dict(
-          entry='THIS', name=name, late=False, bring='', hint='',
-          holder=name)
-    if not self._isCute(otherName):
-      return None
-    mine, theirs = className.split('::')[0], otherName.split('::')[0]
-    if className.startswith('%s::' % otherName):
-      #  A class this one is written inside is made after it, in this
-      #  very file, so it waits and nothing is brought in for it.
-      if '::' in otherName:
-        return 'names a class it is written two deep inside'
-      return dict(
-          entry=otherName, name=otherName, late=True, bring='', hint='',
-          holder=otherName)
-    ownerName = self.getOwnerName(otherName)
-    if not ownerName:
-      #  A class this one is not built on is a late class: its file is
-      #  brought in by the program that uses it, not by this one. A
-      #  class that holds an enum or a class this one names is brought
-      #  in for that already.
-      late = otherName not in self._getBuiltOn() and (
-          otherName not in (self.__owners__ or ()))
-      if mine == theirs:
-        late = True
-      return dict(
-          entry=otherName, name=otherName, late=late, bring=otherName,
-          hint=otherName, holder=otherName)
-    name = self.getPythonName(otherName)
-    dotted = self.getDottedName(otherName)
-    if ownerName == className:
-      #  A class written inside this one stands in the body under its
-      #  own name. A function reaches it through the class.
-      return dict(
-          entry=name, name=name, late=False, bring='', hint='',
-          holder=dotted)
-    if mine == theirs:
-      #  Written inside the same class as this one, beside it or deeper:
-      #  a class body does not see the names of the body around it.
-      infoSpec = """names '%s', which stands beside this class inside
-      '%s' and cannot be named from here"""
-      return ' '.join((infoSpec % (otherName, mine)).split())
-    for depth in range(1, otherName.count('::') + 1):
-      if not self._isCute('::'.join(otherName.split('::')[:depth])):
-        return None
-    #  A class written inside another class is reached through that
-    #  class, as Qt writes it, so the file of that class is brought in.
-    self._note('owners', theirs)
-    return dict(
-        entry=dotted, name=dotted, late=False, bring='', hint='',
-        holder=dotted)
-
-  def _findEnum(self, enumName: str, flags: bool) -> Optional[Record]:
-    """
-    Says how the body names the class of an enum of Qt.
-
-    Parameters
-    ----------
-
-    enumName : str
-      The full name of the enum, as 'Qt::WindowType'.
-
-    flags : bool
-      Whether the combinations of the enum are meant, which Qt names
-      apart, as 'Qt::WindowFlags'.
-
-    Returns
-    -------
-
-    Optional[Record]
-      None for an enum the body cannot name. Else 'entry': the class as
-      a signature writes it, as 'Qt.WindowFlags' or 'QPalette.ColorRole';
-      'shown': the class as an annotation writes it, as
-      'QPalette.ColorRole'; 'owner': the class it is reached through,
-      or '' for the namespace 'Qt', for an enum of the class being
-      written and for one brought in from its own file; 'generator':
-      the 'EnumGenerator' of the enum.
-    """
-    tree = self.getDependencyTree()
-    try:
-      record = tree.getEnumRecord(enumName, self.getPartName())
-    except ValueError:
-      return None
-    generator = self._getEnumGenerator(enumName)
-    if generator.findRefusal() is not None:
-      return None
-    ownName, ownerName = record['ownName'], record['ownerName']
-    if flags:
-      flagsName = generator.getFlagsName()
-      if flagsName is None:
-        return None
-      ownName = flagsName.rpartition('::')[2]
-    if ownerName == self.getClassName():
-      return dict(
-          entry=ownName, shown=ownName, owner='', generator=generator,
-          own=True)
-    if ownerName == 'Qt':
-      self._note('namespace', 'Qt')
-      entry = 'Qt.%s' % ownName
-      return dict(entry=entry, shown=entry, owner='', generator=generator)
-    if not record['insideClass']:
-      return None
-    if not self._isCute(ownerName):
-      return None
-    className = self.getClassName()
-    if ownerName.split('::')[0] == className.split('::')[0]:
-      #  An enum of the class this one is written inside, or of a class
-      #  beside it: a class body does not see the names of the body
-      #  around it, and that class is not made yet.
-      return None
-    #  The enum stands inside its class, as Qt writes it, so the file of
-    #  that class is brought in for it.
-    self._note('owners', ownerName.split('::')[0])
-    entry = '%s.%s' % (self.getDottedName(ownerName), ownName)
-    return dict(
-        entry=entry, shown=entry, owner=ownerName, generator=generator)
-
-  def _findEnumNumber(self, referenced: Record) -> Optional[int]:
-    """
-    Gives the number of one name of an enum that a default of Qt
-    refers to, or None when it is not found.
-
-    Parameters
-    ----------
-
-    referenced : Record
-      What the compiler wrote down of the name referred to: its 'name'
-      and the 'type' of its enum.
-    """
-    tree, name = self.getDependencyTree(), referenced.get('name')
-    enumName = referenced.get('type', dict()).get('qualType', '')
-    className, partName = self.getClassName(), self.getPartName()
-    ancestors = [n for _, n in tree.getAncestors(className, partName)]
-    for scope in ('', className, *ancestors):
-      fullName = '%s::%s' % (scope, enumName) if scope else enumName
-      try:
-        members = tree.getEnumRecord(fullName, partName)['members']
-      except ValueError:
-        continue
-      for memberName, number in members:
-        if memberName == name:
-          return number
-    #  An enum without a name of its own is in no list of enums. Its
-    #  names are found in the record of the class that writes it.
-    for scope in (className, *ancestors):
-      for child in tree.getClassRecord(scope, partName).get('inner', ()):
-        if child.get('kind') != 'EnumDecl' or child.get('name'):
-          continue
-        collected = DependencyTree._collectEnumMembers(child)
-        if collected['unsure'] is not None:
-          continue
-        for memberName, number in collected['members']:
-          if memberName == name:
-            return number
-    return None
-
-  def _findNumber(self, node: Optional[Record]) -> Any:
-    """
-    Gives the number a default of Qt stands for, as an 'int', a 'float'
-    or a 'bool', or None when it is no plain number.
-    """
-    node = self._unwrap(node)
-    if node is None:
-      return None
-    kind = node.get('kind')
-    if kind == 'CXXBoolLiteralExpr':
-      return True if node.get('value') else False
-    if kind == 'IntegerLiteral':
-      return int(node['value'])
-    if kind == 'FloatingLiteral':
-      return float(node['value'])
-    if kind == 'UnaryOperator' and node.get('opcode') in ('-', '+'):
-      inner = [c for c in node.get('inner', ()) if isinstance(c, dict)]
-      number = self._findNumber(inner[0]) if inner else None
-      if number is None or isinstance(number, bool):
-        return None
-      return -number if node['opcode'] == '-' else number
-    if kind == 'BinaryOperator' and node.get('opcode') in ('+', '-', '*'):
-      #  Qt writes some numbers as a sum, as 'Qt::UserRole + 1'.
-      inner = [c for c in node.get('inner', ()) if isinstance(c, dict)]
-      if len(inner) != 2:
-        return None
-      left, right = self._findNumber(inner[0]), self._findNumber(inner[1])
-      for number in (left, right):
-        if number is None or isinstance(number, bool):
-          return None
-      if node['opcode'] == '+':
-        return left + right
-      return left - right if node['opcode'] == '-' else left * right
-    if kind == 'DeclRefExpr':
-      referenced = node.get('referencedDecl', dict())
-      if referenced.get('kind') == 'EnumConstantDecl':
-        return self._findEnumNumber(referenced)
-      if referenced.get('kind') == 'VarDecl':
-        return self._findConstantNumber(referenced)
-    return None
-
-  def _findConstantNumber(self, referenced: Record) -> Any:
-    """
-    Gives the number of a constant of a class of Qt that a default
-    refers to, as 'QLocale::DefaultTwoDigitBaseYear', which is 1900.
-
-    What the compiler wrote down of the reference holds the name of
-    the constant and not its class. So the constants of every cute
-    class are gathered once for each tree, and a name is taken when
-    the classes that have it agree on one number.
-
-    Returns
-    -------
-
-    Any
-      The number, or None when no class has such a constant, or the
-      classes that have one disagree.
-    """
-    tree = self.getDependencyTree()
-    with self.__constant_lock__:
-      kept = tree.getKept('constant numbers')
-      numbers = kept.get('found', None)
-      if numbers is None:
-        #  Kept before it is filled: a constant written in terms of
-        #  another one asks here again, and finds what is there so far.
-        numbers = dict()
-        kept['found'] = numbers
-        for partName, className in self.getCuteNames():
-          record = tree.getClassRecord(className, partName)
-          for child in record.get('inner', ()):
-            if child.get('kind') != 'VarDecl':
-              continue
-            if not child.get('constexpr', False):
-              continue
-            written = child.get('inner', ())
-            written = [c for c in written if isinstance(c, dict)]
-            number = self._findNumber(written[0]) if written else None
-            if number is None or isinstance(number, bool):
-              continue
-            numbers.setdefault(child.get('name'), set()).add(number)
-    found = numbers.get(referenced.get('name'), ())
-    return [*found][0] if len(found) == 1 else None
-
-  def _findJoinedNames(self, node: Optional[Record]) -> Optional[List[str]]:
-    """
-    Gives the names of the members of an enum that a default of Qt
-    stands for: the one name it refers to, or the names it joins with
-    '|', as 'DrawWindowBackground | DrawChildren'. Gives None when the
-    default is anything else.
-    """
-    node = self._unwrap(node)
-    if node is None:
-      return None
-    kind = node.get('kind')
-    inner = [c for c in node.get('inner', ()) if isinstance(c, dict)]
-    if kind in ('CXXFunctionalCastExpr', 'CXXStaticCastExpr'):
-      return self._findJoinedNames(inner[0]) if inner else None
-    if kind in ('CXXConstructExpr', 'CXXTemporaryObjectExpr'):
-      given = self._findGiven(node)
-      return self._findJoinedNames(given[0]) if len(given) == 1 else None
-    if kind == 'DeclRefExpr':
-      referenced = node.get('referencedDecl', dict())
-      if referenced.get('kind') != 'EnumConstantDecl':
-        return None
-      return [referenced.get('name')]
-    if kind == 'BinaryOperator' and node.get('opcode') == '|':
-      joined = inner
-    elif kind == 'CXXOperatorCallExpr' and inner:
-      called = self._unwrap(inner[0]) or dict()
-      if called.get('referencedDecl', dict()).get('name') != 'operator|':
-        return None
-      joined = inner[1:]
-    else:
-      return None
-    names = []  # type: List[str]
-    for part in joined:
-      found = self._findJoinedNames(part)
-      if found is None:
-        return None
-      names.extend(found)
-    return names or None
-
-  def _findMadeOf(self, node: Optional[Record]) -> Optional[Record]:
-    """
-    Says in Python one thing a default of Qt makes a value of, as the
-    'Qt::white' of 'QColor(Qt::white)': a number written out, or a
-    member of an enum of the namespace Qt, which every class file has
-    at hand.
-
-    Returns
-    -------
-
-    Optional[Record]
-      None when it is anything else. Else 'kind': 'number', 'enum' or
-      'value'; 'cppName': the enum or the class as C++ names it, or ''
-      for a number; 'text': how it is written in Python, as '0',
-      'Qt.GlobalColor.white' or 'QPoint(0, 0)'; and 'brings': the late
-      classes the text names, which have to be brought in before it is
-      run.
-    """
-    node = self._unwrap(node)
-    if node is None:
-      return None
-    kind = node.get('kind')
-    if kind in ('CXXTemporaryObjectExpr', 'CXXConstructExpr'):
-      #  A value made of what this very method can say, as the
-      #  'QPoint(0, 0)' of 'QRect(QPoint(0, 0), QSize(-1, -1))'.
-      cppName = node.get('type', dict()).get('qualType', '')
-      cppName = cppName.replace('const ', '').strip()
-      found = self._findClass(cppName)
-      if not isinstance(found, dict):
-        return None
-      parts = [self._findMadeOf(one) for one in self._findGiven(node)]
-      if any(part is None for part in parts):
-        return None
-      if parts and not self._canBeMadeOf(cppName, parts):
-        return None
-      if not parts and not self._canBeMadeEmpty(cppName):
-        return None
-      brings = [name for part in parts for name in part['brings']]
-      if found['late'] and found['bring']:
-        brings.append(found['bring'])
-      made = '%s(%s)' % (
-          found['holder'], ', '.join(part['text'] for part in parts))
-      return dict(
-          kind='value', cppName=cppName, text=made, brings=(*brings,))
-    if kind == 'DeclRefExpr':
-      referenced = node.get('referencedDecl', dict())
-      if referenced.get('kind') != 'EnumConstantDecl':
-        return None
-      enumName = referenced.get('type', dict()).get('qualType', '')
-      if not enumName.startswith('Qt::'):
-        return None
-      found = self._findEnum(enumName, False)
-      if not isinstance(found, dict):
-        return None
-      name = referenced.get('name')
-      record = found['generator'].getEnumRecord()
-      if all(name != member for member, _ in record['members']):
-        return None
-      name = self.__python_words__.get(name, name)
-      return dict(
-          kind='enum', cppName=enumName, brings=(),
-          text='%s.%s' % (found['entry'], name))
-    literals = ('IntegerLiteral', 'FloatingLiteral')
-    if kind == 'UnaryOperator':
-      inner = [c for c in node.get('inner', ()) if isinstance(c, dict)]
-      below = self._unwrap(inner[0]) if inner else None
-      if below is None or below.get('kind') not in literals:
-        return None
-    elif kind not in literals:
-      return None
-    number = self._findNumber(node)
-    if number is None or isinstance(number, bool):
-      return None
-    return dict(kind='number', cppName='', text=repr(number), brings=())
 
   def _canBeMadeOf(self, className: str, parts: List[Record]) -> bool:
     """Says whether the cute class of a class of Qt can be made of what
@@ -1486,171 +1059,6 @@ class ClassGenerator:
         return True
     return False
 
-  @staticmethod
-  def _findGiven(node: Record) -> List[Record]:
-    """Gives what a default of Qt hands to the constructor it calls,
-    leaving out what that constructor fills in itself."""
-    return [
-        child for child in node.get('inner', ())
-        if isinstance(child, dict)
-        and child.get('kind') != 'CXXDefaultArgExpr'
-    ]
-
-  def _findDefault(self, argument: Record, parameter: Record) -> Any:
-    """
-    Says in Python what Qt fills in for an argument that is left out.
-
-    Parameters
-    ----------
-
-    argument : Record
-      The argument as the plan of the ritual has it.
-
-    parameter : Record
-      The same argument as this generator has it in Python.
-
-    Returns
-    -------
-
-    Optional[Record]
-      None when it cannot be said in Python. Else 'text': the default
-      of the Python argument, as 'None' or '-1'; and for a value that
-      has to be made anew for each call, 'made': what makes it, as
-      'QPoint()'.
-    """
-    node = self._unwrap(argument['default'])
-    if node is None:
-      return None
-    kind, nodeKind = parameter['kind'], node.get('kind')
-    making = ('CXXTemporaryObjectExpr', 'CXXConstructExpr')
-    if nodeKind == 'CXXFunctionalCastExpr':
-      inner = [c for c in node.get('inner', ()) if isinstance(c, dict)]
-      node = self._unwrap(inner[0]) if inner else None
-      if node is None:
-        return None
-      nodeKind = node.get('kind')
-    if kind in ('address', 'chars'):
-      if nodeKind == 'CXXNullPtrLiteralExpr':
-        return dict(text='None')
-      if nodeKind == 'IntegerLiteral' and node.get('value') == '0':
-        return dict(text='None')
-      if kind == 'address' and nodeKind == 'CallExpr':
-        return self._findCalledDefault(node, parameter)
-      return None
-    if kind == 'number':
-      number = self._findNumber(node)
-      if number is None:
-        return None
-      wanted = parameter['annotation']
-      if wanted == 'bool':
-        return dict(text=repr(True if number else False))
-      if wanted == 'float':
-        return dict(text=repr(float(number)))
-      if isinstance(number, float):
-        return None
-      return dict(text=repr(int(number)))
-    if kind in ('enum', 'flags'):
-      if nodeKind in making and not self._findGiven(node):
-        if kind == 'flags':
-          return dict(text='%s()' % parameter['entry'])
-        return None
-      #  One member, or for flags several joined with '|', as Qt's
-      #  'RenderFlags(DrawWindowBackground | DrawChildren)'.
-      names = self._findJoinedNames(node)
-      if names is None or (len(names) > 1 and kind != 'flags'):
-        return None
-      record = parameter['enumGenerator'].getEnumRecord()
-      members = [name for name, _ in record['members']]
-      if any(name not in members for name in names):
-        return None
-      words = self.__python_words__
-      return dict(text=' | '.join(
-          '%s.%s' % (parameter['entry'], words.get(name, name))
-          for name in names))
-    if kind == 'text':
-      if nodeKind in making and not self._findGiven(node):
-        return dict(text="''")
-      return None
-    if kind == 'value':
-      if nodeKind not in making:
-        return None
-      given = self._findGiven(node)
-      if not given:
-        if self._canBeMadeEmpty(parameter['className']):
-          made = '%s()' % parameter['holder']
-          return dict(text='None', made=made)
-        return None
-      #  A value Qt makes of numbers written out, of a member of an
-      #  enum of the namespace Qt, or of such values in turn:
-      #  'QMarginsF(0, 0, 0, 0)', 'QColor(Qt::white)',
-      #  'QRect(QPoint(0, 0), QSize(-1, -1))'.
-      parts = [self._findMadeOf(one) for one in given]
-      if any(part is None for part in parts):
-        return None
-      if not self._canBeMadeOf(parameter['className'], parts):
-        return None
-      made = '%s(%s)' % (
-          parameter['holder'], ', '.join(part['text'] for part in parts))
-      brings = []  # type: List[str]
-      for part in parts:
-        brings.extend(n for n in part['brings'] if n not in brings)
-      return dict(text='None', made=made, brings=(*brings,))
-    return None
-
-  def _findCalledDefault(self, node: Record, parameter: Record) -> Any:
-    """
-    Says in Python what Qt fills in for an object it gets by calling a
-    function of the class of that object with nothing handed over, as
-    'QPointingDevice::primaryPointingDevice()' for the device of a
-    'QMouseEvent'.
-
-    None stands for no object there, so it cannot also stand for an
-    argument that was left out. '...' does: no signature takes it, so
-    it reaches the function only where the argument is left out.
-
-    Parameters
-    ----------
-
-    node : Record
-      The call, as the compiler wrote it down.
-
-    parameter : Record
-      The argument as this generator has it in Python.
-
-    Returns
-    -------
-
-    Optional[Record]
-      None when it cannot be said in Python: the call hands something
-      over, or the cute class of the object has no such function that
-      is called on no object and with nothing. Else 'text': '...';
-      'left': the same, what the function finds there; 'made': the
-      call in Python; 'brings': the class it is called on.
-    """
-    inner = [c for c in node.get('inner', ()) if isinstance(c, dict)]
-    if not inner:
-      return None
-    if any(c.get('kind') != 'CXXDefaultArgExpr' for c in inner[1:]):
-      return None
-    called = self._unwrap(inner[0])
-    if called is None or called.get('kind') != 'DeclRefExpr':
-      return None
-    referenced = called.get('referencedDecl', dict())
-    if referenced.get('kind') != 'CXXMethodDecl':
-      return None
-    name, className = referenced.get('name'), parameter['className']
-    found = [
-        plan for plan in self.getRitualGenerator(className).getWritten()
-        if plan['kind'] == 'static method' and plan['name'] == name
-    ]
-    if len(found) != 1:
-      return None
-    for argument in found[0]['arguments']:
-      if argument.get('default') is None:
-        return None
-    made = '%s.%s()' % (parameter['holder'], name)
-    return dict(text='...', left='...', made=made, brings=(className,))
-
   def _canBeMadeEmpty(self, className: str) -> bool:
     """Says whether the cute class of a class of Qt can be made with
     nothing given: whether it has a ritual for such a constructor."""
@@ -1677,10 +1085,10 @@ class ClassGenerator:
   def isApplication(self) -> bool:
     """Says whether the class is Qt's application, or built on it."""
     tree, className = self.getDependencyTree(), self.getClassName()
-    if className == self.__application_name__:
+    if className == APPLICATION_NAME:
       return True
     ancestors = tree.getAncestors(className, self.getPartName())
-    return self.__application_name__ in [n for _, n in ancestors]
+    return APPLICATION_NAME in [n for _, n in ancestors]
 
   def getDeleteRitual(self) -> Optional[str]:
     """
@@ -1730,7 +1138,7 @@ class ClassGenerator:
       number = passing['className']
       if number == 'char':
         return 'takes a single letter as C has it'
-      annotation = self.__python_numbers__.get(number, 'int')
+      annotation = PYTHON_NUMBERS.get(number, 'int')
       return dict(
           record, entry=annotation, annotation=annotation, passed=name,
           words='Passed on as it is.',
@@ -1753,7 +1161,7 @@ class ClassGenerator:
         enumName = passing['className'][len('QFlags<'):-1]
       else:
         enumName = plain
-      found = self._findEnum(enumName, kind == 'flags')
+      found = self.getCuteName(enumName).findEnumEntry(kind == 'flags')
       if found is None:
         infoSpec = """names the enum '%s', whose class cannot be named
         here"""
@@ -1802,7 +1210,7 @@ class ClassGenerator:
           pointed = pointed[6:]
       else:
         pointed = passing['className']
-      found = self._findClass(pointed)
+      found = self.getCuteName(pointed).findClassEntry()
       if isinstance(found, str):
         return found
       if found is None:
@@ -1848,7 +1256,7 @@ class ClassGenerator:
     if kind == 'nothing':
       return dict(kind=kind, annotation='None', words='')
     if kind == 'number':
-      annotation = self.__python_numbers__.get(giving['className'], 'int')
+      annotation = PYTHON_NUMBERS.get(giving['className'], 'int')
       if giving['className'] == 'char':
         return 'gives a single letter as C has it'
       return dict(kind=kind, annotation=annotation, words='')
@@ -1867,7 +1275,7 @@ class ClassGenerator:
         enumName = giving['className'][len('QFlags<'):-1]
       else:
         enumName = plain if plain in tables['enums'] else written
-      found = self._findEnum(enumName, kind == 'flags')
+      found = self.getCuteName(enumName).findEnumEntry(kind == 'flags')
       if found is None:
         infoSpec = """gives the enum '%s', whose class cannot be named
         here"""
@@ -1925,7 +1333,7 @@ class ClassGenerator:
         pointed = self.getRitualGenerator()._followAliases(pointed)
       else:
         pointed = giving['className']
-      found = self._findClass(pointed)
+      found = self.getCuteName(pointed).findClassEntry()
       if isinstance(found, str):
         return found.replace('names', 'gives', 1)
       if found is None:
@@ -2036,7 +1444,7 @@ class ClassGenerator:
       argument = parameter.get('argument')
       if argument is None or argument['default'] is None:
         break
-      default = self._findDefault(argument, parameter)
+      default = self.getDefaultValue(argument, parameter).findPython()
       if default is None:
         break
       parameter['default'] = default
@@ -2074,7 +1482,7 @@ class ClassGenerator:
     """
     kind, symbol = plan['kind'], plan['name'][len('operator'):].strip()
     count, className = len(plan['arguments']), self.getClassName()
-    binary, unary = self.__binary_operators__, self.__unary_operators__
+    binary, unary = BINARY_OPERATORS, UNARY_OPERATORS
     noName = 'an operator Python has no name for'
     if kind == 'friend':
       own = [
@@ -2095,10 +1503,10 @@ class ClassGenerator:
       return noName
     if symbol == '=':
       return 'assignment: Python binds a name and has no operator for it'
-    if symbol in self.__in_place_operators__ and count == 1:
+    if symbol in IN_PLACE_OPERATORS and count == 1:
       if not plan.get('inPlace', False):
         return noName
-      name = self.__in_place_operators__[symbol]
+      name = IN_PLACE_OPERATORS[symbol]
       return dict(pythonName=name, selfIndex=None)
     if count == 1 and symbol in binary:
       return dict(pythonName=binary[symbol][0], selfIndex=None)
@@ -2284,9 +1692,9 @@ class ClassGenerator:
       #  A name Python asks one side of an operator for gets a function
       #  that says 'NotImplemented' to what no signature takes, so that
       #  Python goes on to ask the other side; see '_writeFallback'.
-      pairs = self.__binary_operators__.values()
+      pairs = BINARY_OPERATORS.values()
       asked = [name for pair in pairs for name in pair]
-      asked.extend(self.__in_place_operators__.values())
+      asked.extend(IN_PLACE_OPERATORS.values())
       fallback = True if ordered and pythonName in asked else False
       for function in ordered:
         function['section'] = ordered[0]['section']
@@ -2392,7 +1800,7 @@ class ClassGenerator:
     #  class that holds an enum or a class this file names, are asked of
     #  the package of their part, the cute way. The package brings in
     #  the one file each of them is in, and no other.
-    for partName in self.__part_order__:
+    for partName in PART_ORDER:
       names = sorted(n for n in classes if self.getPartName(n) == partName)
       if partName == 'QtCore':
         #  'QList' and 'QStringList' are classes of QtCore the tree
@@ -2419,7 +1827,7 @@ class ClassGenerator:
     #  A type checker is shown each class the cute way, from the
     #  package of its part. Python never runs these lines, so they
     #  bring nothing in.
-    for partName in self.__part_order__:
+    for partName in PART_ORDER:
       names = [n for n in hinted if self.getPartName(n) == partName]
       lines.extend(self._writeAsking(partName, names, '  '))
     if late:
@@ -2581,7 +1989,7 @@ class ClassGenerator:
       infoSpec = """Python never removes the C++ %s."""
       expected.append(infoSpec % className)
     tree = self.getDependencyTree()
-    watched = self.__watched_name__
+    watched = WATCHED_NAME
     ancestors = tree.getAncestors(className, self.getPartName())
     if className == watched or watched in [n for _, n in ancestors]:
       infoSpec = """Qt tells when it has removed the C++ %s. Every call
@@ -2680,7 +2088,7 @@ class ClassGenerator:
     lines = ['  #  Class Variables']
     lines.append('  #  The class of Qt this class stands for.')
     lines.append("  __qt_class__ = '%s'" % className)
-    if className == self.__watched_name__:
+    if className == WATCHED_NAME:
       infoSpec = """Qt can watch a %s and tell when it has removed it.
       Every class built on this one is a %s too, and inherits this."""
       lines.append('')
@@ -3068,26 +2476,6 @@ class ClassGenerator:
         '    return NotImplemented',
     ]
 
-  def _findWhere(self, how: str, what: str) -> Optional[str]:
-    """
-    Says where the cute class or enum of something Qt hands a function
-    is found, as 'QtGui:QPaintEvent' or 'QtCore:Qt.FocusPolicy', for
-    the function that receives it from C++. Gives '' for a number and
-    None when there is no cute class or enum for it.
-    """
-    if how in ('number', 'nothing', 'text'):
-      return ''
-    #  The combinations of an enum are values of the class of the enum.
-    listed = how in ('enum', 'flags')
-    holder = what.rpartition('::')[0] if listed else what
-    if not self._isCute(holder) and holder != 'Qt':
-      return None
-    if not listed and not self._isCute(what):
-      return None
-    partName = 'QtCore' if holder == 'Qt' else self.getPartName(
-        holder.split('::')[0])
-    return '%s:%s' % (partName, what.replace('::', '.'))
-
   @staticmethod
   def _writeShape(indent: str, shape: Any) -> List[str]:
     """Gives the lines of one thing a function gives or takes, as the
@@ -3125,7 +2513,8 @@ class ClassGenerator:
       if function['rootOwner'] != className:
         continue
       shapes = [function['gives'], *function['takes']]
-      wheres = [self._findWhere(how, what) for _, how, what in shapes]
+      wheres = [
+          self.getCuteName(what).findWhere(how) for _, how, what in shapes]
       if any(where is None for where in wheres):
         continue
       turned = [(s[0], s[1], w) for s, w in zip(shapes, wheres)]
@@ -3330,7 +2719,7 @@ class ClassGenerator:
       lines.append('class %s(%s):' % (pythonName, ', '.join(bases)))
     lines.extend(self._writeClassDocstring())
     lines.extend(self._writeNames())
-    for sectionName in self.__section_names__:
+    for sectionName in SECTION_NAMES:
       lines.append('')
       lines.extend(self._writeBanner(sectionName))
       if sectionName == 'NAMESPACE':

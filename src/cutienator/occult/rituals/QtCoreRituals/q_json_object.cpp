@@ -1,7 +1,5 @@
 //  Written by dev_tooling.RitualGenerator from the records of
-//  QtCore/qjsonobject.h, Qt 6.12.0. Edited by hand on 2026-11-25: added by
-//  hand, instances of templates of the class: 2. Kept as it is when the
-//  generator runs again.
+//  QtCore/qjsonobject.h, Qt 6.12.0. Changes made here are lost.
 #include <QtCore/qjsonobject.h>
 #include <QtCore/qvariant.h>
 #include <QtCore/qstring.h>
@@ -728,30 +726,4 @@ extern "C" Q_DECL_EXPORT
 void ritual_drop_QJsonObject__QtPrivate_QKeyValueRange_const_QJsonObject(
     QtPrivate::QKeyValueRange<const QJsonObject &> *self) {
   delete self;
-}
-
-//  iterator QJsonObject::insertAt(qsizetype i, T key,
-//      const QJsonValue &val, bool exists) [T = QStringView]
-extern "C" Q_DECL_EXPORT
-QJsonObject::iterator *ritual_ZN11QJsonObject8insertAtI11QStringViewEENS_8iteratorExT_RK10QJsonValueb(
-    QJsonObject *self,
-    qsizetype i,
-    const QStringView *key,
-    const QJsonValue *val,
-    bool exists) {
-  return new QJsonObject::iterator(
-      self->insertAt<QStringView>(i, *key, *val, exists));
-}
-
-//  iterator QJsonObject::insertAt(qsizetype i, T key,
-//      const QJsonValue &val, bool exists) [T = QLatin1StringView]
-extern "C" Q_DECL_EXPORT
-QJsonObject::iterator *ritual_ZN11QJsonObject8insertAtI13QLatin1StringEENS_8iteratorExT_RK10QJsonValueb(
-    QJsonObject *self,
-    qsizetype i,
-    const QLatin1StringView *key,
-    const QJsonValue *val,
-    bool exists) {
-  return new QJsonObject::iterator(
-      self->insertAt<QLatin1StringView>(i, *key, *val, exists));
 }

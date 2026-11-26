@@ -30,6 +30,8 @@ from ._ritual_tester import RitualTester
 from ._enum_generator import EnumGenerator
 from ._namespace_generator import NamespaceGenerator
 from ._enum_tester import EnumTester
+from ._cute_name import CuteName
+from ._default_value import DefaultValue
 from ._class_generator import ClassGenerator
 from ._class_tester import ClassTester
 
@@ -42,6 +44,8 @@ __all__ = (
     'EnumGenerator',
     'NamespaceGenerator',
     'EnumTester',
+    'CuteName',
+    'DefaultValue',
     'ClassGenerator',
     'ClassTester',
 )

@@ -1,8 +1,7 @@
 {
   "about": [
     "Written by dev_tooling.RitualGenerator from the records of",
-    "QtCore/qjsonobject.h, Qt 6.12.0. Edited by hand: see the ritual",
-    "file."
+    "QtCore/qjsonobject.h, Qt 6.12.0. Changes made here are lost."
   ],
   "rows": {
     "ritual_ZN11QJsonObjectC1Ev": ["address"],
@@ -192,12 +191,6 @@
     ],
     "ritual_drop_QJsonObject__QtPrivate_QKeyValueRange_const_QJsonObject": [
       "nothing", "address"
-    ],
-    "ritual_ZN11QJsonObject8insertAtI11QStringViewEENS_8iteratorExT_RK10QJsonValueb": [
-      "address", "address", "long long", "address", "address", "bool"
-    ],
-    "ritual_ZN11QJsonObject8insertAtI13QLatin1StringEENS_8iteratorExT_RK10QJsonValueb": [
-      "address", "address", "long long", "address", "address", "bool"
     ]
   }
 }
